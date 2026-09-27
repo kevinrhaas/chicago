@@ -243,6 +243,23 @@
    "why": "Programme stage, in the programme's own stage order — after `transients` and before `converge`. It DERIVES from the layer rather than writing into it from a source, so it belongs in the order and not in `not_in_the_order`: the town model sets the household quota, the adjudication decides which of the nine institutional roofs holds one, and the book carries the fills."
   },
   {
+   "key": "roof_keepers",
+   "build": [
+    "python3",
+    "tools/name_the_keepers_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/name_the_keepers_1835.py --check",
+   "writes": [
+    "data/reconstruction/1835_roof_keepers.json"
+   ],
+   "reads": [
+    "data/residents/households",
+    "data/reconstruction/1835_platted_seats.json"
+   ],
+   "why": "T-1638. Second to last, because it DERIVES from the settled layer and nothing in the layer reads it back: it asks, of every household the platted deal seated on a standing roof, whether the roof may name it — and the answer moves whenever a household card does. A card that gains `letter_list_only` turns a written keeper into a refused one, and a household the layer drops takes its keeper with it, so a stale ledger is a card naming somebody the town no longer holds. It writes the LEDGER only; the roofs that carry the keepers are re-derived from it by tools/generate_block_infill.py, which owns those records' bytes, and this tool's own --build prints that as its next step."
+  },
+  {
    "key": "resident_audit",
    "build": [
     "python3",

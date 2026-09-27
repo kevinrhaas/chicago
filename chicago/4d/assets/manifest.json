@@ -1737,11 +1737,29 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_a3_06"
     },
+    "recon_1835_blk_south_water_dearborn_c1_08__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 47968,
+      "inputs_sha256": "f3d01e89249720b5d327981c9f1f6fd27297ebed351b1444f291cef08a55c9d0",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_dearborn_c1_08"
+    },
+    "recon_1835_blk_south_water_dearborn_c2_07__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 47828,
+      "inputs_sha256": "d06fb494fac45a4ba1c773d3753e9a21f91002514b6f153f1cd83f4d1cde3176",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_dearborn_c2_07"
+    },
     "recon_1835_blk_south_water_dearborn_c3_01__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 59212,
-      "inputs_sha256": "04aa1580fa7045bf07d8210aa1c5e0df04f886b9fa1f6ba441a353405a2c1339",
+      "bytes": 57184,
+      "inputs_sha256": "13959c330829df0cc471aabd56bbd63c53c8cb1dffb1e2e949a203971960f065",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_01"
@@ -1772,24 +1790,6 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_d2_04"
-    },
-    "recon_1835_blk_south_water_dearborn_d3_08__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 25220,
-      "inputs_sha256": "d5ef8499bd58acd0f51941547e4c7c26d365e8b5120ca8597ea23105f5b20a68",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_south_water_dearborn_d3_08"
-    },
-    "recon_1835_blk_south_water_dearborn_d5_07__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 29904,
-      "inputs_sha256": "34e7e648012d48e5340c304532c0c882303bb3390a9165d4f63902afebe41218",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_south_water_dearborn_d5_07"
     },
     "recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
@@ -3692,19 +3692,19 @@
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 28739188,
+      "bytes": 28906804,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "957e4766382435090d53b79483797ac1aab5016f4afe2b694fd199fae016ee66",
+      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0048,
+        "max_m": 0.0056,
         "misses": 0,
         "rms_m": 0.00024,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1104172
+      "triangles": 1110643
     },
     "thomas_church_store__frame_1834.glb": {
       "archetype": "frame_storefront",
@@ -3737,7 +3737,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "957e4766382435090d53b79483797ac1aab5016f4afe2b694fd199fae016ee66",
+      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",

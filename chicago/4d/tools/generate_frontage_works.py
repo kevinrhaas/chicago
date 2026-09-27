@@ -207,8 +207,17 @@ LASALLE_LIBERTY = "L195"   # the crossing and its footway are claimed together
 RIVER_EAST_REACH = [[760.0, 14.6], [731.0, 13.8]]     # deck west end .. Dearborn
 RIVER_WEST_REACH = [[667.0, 13.9], [638.0, 14.4], [600.0, 15.0], [576.0, 15.4],
                     [537.0, 15.4], [497.0, 15.3], [489.0, 14.6]]  # Dearborn .. La Salle mouth
-RIVER_WHARF_REACH = [[459.5, 14.3], [455.0, 24.0], [448.0, 32.0], [428.0, 37.5],
-                     [396.0, 40.2], [357.5, 40.3]]    # La Salle mouth .. Jones's landing
+# STRAIGHT SINCE T-1630, AND IT IS THE TICKET'S POINT. This reach used to carry five
+# authored knots that swung the walk north from the La Salle mouth at N +14.3 to N +40.3
+# in twenty metres of easting and then ran flat along the top of the bulge — the curve the
+# owner reported ("the walk should go straight and cross straght just like the water street
+# road and follow the bank of the river just like east of the slough"). The bulge is gone:
+# the bank on this reach came south by 5.6 to 10.8 m on his ruling (L274), and the landings
+# came with it, so the run no longer has to climb round a point. It is now ONE segment from
+# the mouth to Jones's landing, with no intermediate knot at all — a straight line is the
+# shortest way to say straight — and every station of it is audited below against the
+# committed ground, the travelled track and the committed landings like every other reach.
+RIVER_WHARF_REACH = [[459.5, 14.3], [359.2, 31.0]]    # La Salle mouth .. Jones's landing
 RIVER_DEARBORN_CROSS_N = 13.92   # the board crossing over Dearborn runs level at this N
 
 # WHERE A LANDING COMES ASHORE, NO BOARD IS LAID (T-0228). The committed wharves

@@ -88,6 +88,38 @@ FRONT_SEARCH_PX = [20, 72]    # rows below the bank the block's north line is lo
 # trace from there east. Both are Wright, both are the BPL master, and the join is the
 # one `shoreline.geojson` states in its own note.
 JOIN_E = 314.0
+
+# --- T-1630's RECUT: the deliberate departure from Wright's ink -----------------------
+# The owner answered this reading's question with option (b) on 2026-09-26: bring the bank
+# in to HATHAWAY's taper on this reach, "at least 50% of what is north of south water
+# street", and — on seeing the per-block table below — "i think it is closer to the
+# hathaway map in that reading". So the bank no longer stands on Wright's ink between the
+# bend near the forks and the La Salle mouth, ON PURPOSE, and this file's job changes from
+# asserting that it does to RECORDING what was moved and re-deriving it.
+#
+# The amount is NOT a fraction of Wright and NOT the owner's drawn line. It is the two
+# sheets' own disagreement, `wright_minus_hathaway_m` below, measured inside each sheet so
+# no registration enters it: 5.6 m at block 20, 10.8 m at block 19. Halving Wright's 39.0 m
+# at block 19 would have cut past Hathaway, which is the overcorrection his third message
+# forbade. The shift is piecewise linear in local easting, zero at the bend and zero again
+# at the La Salle mouth's east lip, so Wright's re-entrant stays the one break in the run
+# and nothing outside the reach moves at all.
+# The west end is the committed bend vertex at local E +228.91, not the turn's foot at
+# E +167.59, and that is a measurement rather than a preference. West of E +222 the traced
+# bank already stands SOUTH of South Water Street's own platted corridor edge — the river
+# crosses the street at the forks, which is why the plat omits block 21 — so a shift that
+# started at the foot of the turn put another 32 m of roadway under water for no reading.
+# Clearance over the corridor edge is non-decreasing everywhere as a result.
+RECUT_SHIFT_ANCHORS = [(228.91, 0.0), (268.00, 5.6), (390.00, 10.8),
+                       (455.81, 10.8), (467.17, 0.0)]
+# Block 18 is NOT shifted, and that is a measured refusal rather than an omission. The
+# ruling's table asks 7.5 m of it, but east of the slough the committed bank stands only
+# 5.4 m north of South Water Street's own platted corridor edge, so 7.5 m would put the
+# river 2.1 m into the roadway. The owner's own words bound the reach — "from the bend in
+# the west to the La Salle mouth", "east of the slough it already follows the bank" — and
+# they are followed. The figure is kept here so the refusal has a number on it.
+RECUT_BLOCK_18_REFUSED_M = 7.5
+RECUT_VERTEX_TOL_M = 0.02      # the geojson keeps two decimals
 REACH_E = [160.0, 690.0]
 SAMPLE_ALONG_M = 5.0       # the committed line is measured every 5 m of its own run, not at vertices
 # The re-entrant at the La Salle mouth is where the ink follower stops and restarts, so
@@ -118,6 +150,75 @@ def committed_bank():
             east = [(x - oe, y - on) for x, y in f["geometry"]["coordinates"] if (x - oe) >= JOIN_E]
     east.sort(key=lambda p: p[0])
     return pts + east
+
+
+def recut_shift(e):
+    """Metres the bank was moved SOUTH at local easting `e`, piecewise linear."""
+    a = RECUT_SHIFT_ANCHORS
+    if e <= a[0][0] or e >= a[-1][0]:
+        return 0.0
+    for (e0, s0), (e1, s1) in zip(a, a[1:]):
+        if e0 <= e <= e1:
+            return s0 + (s1 - s0) * (e - e0) / (e1 - e0)
+    return 0.0
+
+
+def _recut_vertices(rec):
+    """The reach's vertices as Wright's trace drew them, off the record's set-aside."""
+    return [(float(e), float(n)) for e, n in rec["recut"]["wright_bank_as_traced"]]
+
+
+def as_traced_bank(rec):
+    """The committed bank with the recut reach put back the way the trace drew it, which
+    is what the ink comparison below has to be measured against: the reading is about the
+    TRACE, and the recut is a ruling laid over it, not a correction to it."""
+    aside = {round(e, 2): n for e, n in _recut_vertices(rec)}
+    out = []
+    for e, n in committed_bank():
+        k = round(e, 2)
+        out.append((e, aside[k]) if k in aside else (e, n))
+    return out
+
+
+def recut_stations():
+    """Every vertex of the recut reach as the two committed files hold it, by easting.
+
+    Read off the GeoJSON rather than off `committed_bank()`: that function splices the two
+    windows at JOIN_E and drops the forks run's easternmost vertex, which is one of the
+    nine the rule moves. A vertex the gate cannot see is a vertex a hand edit can move.
+    """
+    oe, on = _datum()
+    lo, hi = RECUT_SHIFT_ANCHORS[0][0], RECUT_SHIFT_ANCHORS[-1][0]
+    out = {}
+    for path in (RIVER, SHORELINE):
+        for f in json.loads(path.read_text())["features"]:
+            g = f["geometry"]
+            rings = ([g["coordinates"]] if g["type"] == "LineString"
+                     else g["coordinates"] if g["type"] == "Polygon" else [])
+            for ring in rings:
+                for c in ring:
+                    e, n = round(c[0] - oe, 2), round(c[1] - on, 2)
+                    if lo <= e <= hi and recut_shift(e) > 0.0 and 12.0 <= n <= 80.0:
+                        out.setdefault(e, []).append(n)
+    return out
+
+
+def recut_check(rec):
+    """Is the committed bank exactly the recut of the set-aside bank? Returns the worst
+    vertex error in metres, and the count of stations the rule moved."""
+    aside = {round(e, 2): n for e, n in _recut_vertices(rec)}
+    got = recut_stations()
+    worst, moved = 0.0, 0
+    # A station the record sets aside but the files no longer carry, or the other way
+    # round, is a full-scale error rather than a near miss: neither list may go quiet.
+    for e in set(aside) | set(got):
+        if e not in aside or e not in got:
+            return 999.0, len(got)
+        want = aside[e] - recut_shift(e)
+        for n in got[e]:
+            worst = max(worst, abs(want - n))
+        moved += 1
+    return round(worst, 3), moved
 
 
 def resample(line, step):
@@ -175,7 +276,10 @@ def derive(rec):
     stations and from the committed waterline. No raster, no network, no numpy."""
     out = {}
     runs = rec["wright_1834_nara_hup"]["runs"]
-    dens = [p for p in resample(committed_bank(), SAMPLE_ALONG_M)
+    # Measured against the bank as the TRACE drew it. Since T-1630's ruling the committed
+    # bank is that line moved south on this reach, so measuring the committed geometry here
+    # would report the ruling and lose the reading.
+    dens = [p for p in resample(as_traced_bank(rec), SAMPLE_ALONG_M)
             if REACH_E[0] <= p[0] <= REACH_E[1]]
     inside = [p for p in dens if SLOUGH_MOUTH_E[0] <= p[0] <= SLOUGH_MOUTH_E[1]]
     measured = [p for p in dens if not (SLOUGH_MOUTH_E[0] <= p[0] <= SLOUGH_MOUTH_E[1])]
@@ -197,11 +301,51 @@ def derive(rec):
     diff = {k: round(w[k] - h[k], 1) for k in sorted(w) if k in h}
     out["wright_minus_hathaway_m"] = diff
     out["swell_amplitude_m"] = round(max(diff.values()) - min(diff.values()), 1)
+    worst, moved = recut_check(rec)
+    out["recut"] = {
+        "vertices_moved": moved,
+        "worst_vertex_error_m": worst,
+        "shift_m_at_block_20": round(recut_shift(268.0), 1),
+        "shift_m_at_block_19": round(recut_shift(390.0), 1),
+        "shift_m_at_block_18": round(recut_shift(512.0), 1),
+        "shift_m_at_block_17": round(recut_shift(636.0), 1),
+        "step_across_the_la_salle_mouth_m": _mouth_step(),
+        "straightness_p90_m": _straightness(),
+    }
     return out
 
 
+def _bank_at(line, e):
+    for a, b in zip(line, line[1:]):
+        if a[0] <= e <= b[0] and b[0] > a[0]:
+            return a[1] + (b[1] - a[1]) * (e - a[0]) / (b[0] - a[0])
+    return None
+
+
+def _mouth_step():
+    """How far the bank jumps across the La Salle re-entrant — the owner's own test that
+    the reach west of the slough reads "even with the bank to the east"."""
+    bank = committed_bank()
+    return round(abs(_bank_at(bank, 455.0) - _bank_at(bank, 498.0)), 2)
+
+
+def _straightness():
+    """p90 departure, in metres, of the bank from a straight least-squares fit through the
+    reach the ruling names — the acceptance clause's number, on the committed geometry."""
+    pts = [p for p in resample(committed_bank(), SAMPLE_ALONG_M)
+           if 220.0 <= p[0] <= 456.0]
+    n = len(pts)
+    mx = sum(p[0] for p in pts) / n
+    my = sum(p[1] for p in pts) / n
+    sxx = sum((p[0] - mx) ** 2 for p in pts)
+    sxy = sum((p[0] - mx) * (p[1] - my) for p in pts)
+    m = sxy / sxx
+    res = sorted(abs(p[1] - (my + m * (p[0] - mx))) for p in pts)
+    return round(_pct(res, 0.9), 2)
+
+
 VERDICT_KEYS = ("committed_against_wright_ink", "south_water_ground_m",
-                "wright_minus_hathaway_m", "swell_amplitude_m")
+                "wright_minus_hathaway_m", "swell_amplitude_m", "recut")
 
 
 def check(rec=None, quiet=False, tag=""):
@@ -215,9 +359,20 @@ def check(rec=None, quiet=False, tag=""):
     # the prose would still read correctly and only this would notice.
     stat = got["committed_against_wright_ink"]
     if stat["median_m"] > 5.0 or stat["p90_m"] > 12.0:
-        bad.append("  the committed bank no longer stands on Wright's ink: "
+        bad.append("  the set-aside bank no longer stands on Wright's ink: "
                    f"median {stat['median_m']} m, p90 {stat['p90_m']} m "
                    "(this reading's verdict says it does)")
+    # ...and the OTHER half of the verdict since T-1630's ruling: the committed bank is
+    # that set-aside line moved south by the stated rule, and by nothing else. A hand edit
+    # anywhere in the reach, or a shift that crept outside it, lands here.
+    if got["recut"]["worst_vertex_error_m"] > RECUT_VERTEX_TOL_M:
+        bad.append("  the committed bank is not the recut of the set-aside bank: worst "
+                   f"vertex error {got['recut']['worst_vertex_error_m']} m > "
+                   f"{RECUT_VERTEX_TOL_M} m")
+    if got["recut"]["step_across_the_la_salle_mouth_m"] > 4.0:
+        bad.append("  the bank still steps across the La Salle mouth by "
+                   f"{got['recut']['step_across_the_la_salle_mouth_m']} m; the ruling's "
+                   "acceptance is that the reach west of it reads level with the bank east")
     if bad:
         # Every line of a self-test's transcript is tagged, so a green run's deliberate
         # failures cannot be mistaken for the real thing (AGENTS.md rule 9).
@@ -242,6 +397,12 @@ def self_test():
          "the median ink distance"),
         (lambda r: r["wright_1834_nara_hup"]["south_water_ground"]["19"]
          .__setitem__("bank_local_n_m", 0.0), "a block's bank northing"),
+        (lambda r: r["recut"]["wright_bank_as_traced"][0].__setitem__(1, 0.0),
+         "a set-aside vertex, so the recut no longer re-derives"),
+        (lambda r: r["recut"]["wright_bank_as_traced"].pop(0),
+         "a set-aside station, so one the files carry is unaccounted for"),
+        (lambda r: r["measured"]["recut"].__setitem__("vertices_moved", 0),
+         "the count of vertices the recut moved"),
     ):
         r = json.loads(json.dumps(base))
         mutate(r)
@@ -415,7 +576,7 @@ def findings(rec):
     d = m["wright_minus_hathaway_m"]
     hot = max(d, key=lambda k: d[k])
     return [
-        f"THE COMMITTED BANK IS WRIGHT'S INK. Over {s['stations']} committed vertices between "
+        f"THE TRACED BANK IS WRIGHT'S INK. Over {s['stations']} traced stations between "
         f"local E +{REACH_E[0]:.0f} and E +{REACH_E[1]:.0f}, the waterline stands a median "
         f"{s['median_m']} m from the bank Wright inked, p90 {s['p90_m']} m, worst "
         f"{s['max_m']} m — against a trace whose own stated vertex uncertainty is +/-20 m and "
@@ -435,11 +596,113 @@ def findings(rec):
           "scene, where the eye is also carrying the block grid's own 8.58 m corridor-line "
           "offset (docs/CORRIDOR-LINES.md).",
         "SO THE TICKET'S FIRST HYPOTHESIS IS REFUTED. There is nothing to re-trace and nothing "
-        "to correct on the trace's own terms. Bringing the bank in to the owner's line would "
-        "move it OFF the ink of the sheet his own third message makes the arbiter, which is "
-        "the one thing that message forbids. That is a ruling, not a measurement, and it is "
-        "asked rather than taken.",
-    ]
+        "to correct on the trace's own terms: bringing the bank in moves it OFF the ink of "
+        "the sheet the datum, the plat and the block grid are all fitted to. That is a "
+        "ruling, not a measurement, and it was asked rather than taken.",
+    ] + ([] if "recut" not in rec else [
+        "AND THE OWNER RULED FOR HATHAWAY ON THIS REACH (option b). The committed bank is now "
+        f"Wright's traced line moved SOUTH by {m['recut']['shift_m_at_block_20']} m at block "
+        f"20 and {m['recut']['shift_m_at_block_19']} m at block 19 — the two sheets' own "
+        "disagreement, measured inside each sheet, not a fraction of Wright and not a drawn "
+        f"line — over {m['recut']['vertices_moved']} bank stations between the bend near the "
+        "forks and the La Salle mouth. Zero at both ends, so Wright's re-entrant stays the "
+        "one break in the run and nothing outside the reach moves.",
+        "THE SWELL IS GONE, AND THESE ARE THE NUMBERS. The bank's step across the La Salle "
+        f"mouth falls to {m['recut']['step_across_the_la_salle_mouth_m']} m, which is the "
+        "owner's own test that the reach west of the slough reads level with the bank east of "
+        f"it; its p90 departure from a straight fit over local E +220..+456 is "
+        f"{m['recut']['straightness_p90_m']} m, so the outer plank walk that follows it runs "
+        "roughly straight. Block 18 is NOT moved and that is a refusal with a number on it: "
+        f"the ruling asks {rec['recut']['block_18_refused_m']} m of it and the committed bank "
+        "there stands only 5.4 m north of South Water Street's own platted corridor edge.",
+        "THE BANK ON THIS REACH IS RECONSTRUCTED, NOT DOCUMENTED. Wright's ink is kept above, "
+        "vertex for vertex, as the set-aside reading, and every figure in this record is still "
+        "measured against it — the reading is about the trace, and the ruling is laid over it.",
+    ])
+
+
+# --- the recut half: move the committed bank, once, and record what was moved ---------
+
+RECUT_RULING = (
+    "Owner answer of 2026-09-26, option (b) of this reading's own question: \"ok yes st "
+    "till want to bring that bulge in some, so the sidewalk is fairly straight and "
+    "following, at least 50% of what is north of south water street i think\", and on "
+    "seeing the per-block table, \"i think it is closer to the hathaway map in that "
+    "reading\". The bank on this reach follows HATHAWAY 1834; Wright's ink is the "
+    "set-aside reading and is kept below, vertex for vertex."
+)
+
+
+def recut(dry=False):
+    """Move the committed bank south by the ruling's amount and record the set-aside.
+
+    Runs ONCE. The record's `recut.wright_bank_as_traced` is the trace's own line, so a
+    second run would shift an already-shifted bank; the tool refuses rather than letting
+    that happen, and `--check` re-derives the whole thing from the set-aside afterwards.
+    """
+    rec = json.loads(OUT.read_text())
+    if "recut" in rec:
+        print("the recut is already recorded; --check re-derives it. Nothing to do.")
+        return 0
+    oe, on = _datum()
+    lo, hi = RECUT_SHIFT_ANCHORS[0][0], RECUT_SHIFT_ANCHORS[-1][0]
+    aside, moved = {}, 0
+    for path in (RIVER, SHORELINE):
+        doc = json.loads(path.read_text())
+        for f in doc["features"]:
+            g = f["geometry"]
+            rings = ([g["coordinates"]] if g["type"] == "LineString"
+                     else g["coordinates"] if g["type"] == "Polygon" else [])
+            for ring in rings:
+                for c in ring:
+                    e, n = round(c[0] - oe, 2), round(c[1] - on, 2)
+                    if not (lo <= e <= hi):
+                        continue
+                    sh = recut_shift(e)
+                    if sh <= 0.0:
+                        continue
+                    # The SOUTH BANK OF THE MAIN STEM only. The north bank stands 100 m
+                    # north of it on this reach and does not move; the two vertices inside
+                    # the La Salle channel below the mouth (N +9.6 and N +5.3) are the
+                    # slough T-1628 cut back a fortnight ago, whose mouth at (466, +10) is
+                    # settled and stays where it is. What moves is the bank and the outer
+                    # lip of Wright's re-entrant that the bank arrives at.
+                    if n > 80.0 or n < 12.0:
+                        continue
+                    aside.setdefault(e, n)
+                    c[1] = round(on + n - sh, 2)
+                    moved += 1
+        if not dry:
+            path.write_text(json.dumps(doc, indent=1) + "\n")
+    rec["recut"] = {
+        "ticket": "T-1630",
+        "ruling": RECUT_RULING,
+        "grade": "reconstructed",
+        "grade_note": (
+            "The waterline on this reach is no longer a trace of the sheet the datum, the "
+            "plat and the block grid are fitted to. It is Wright's traced line displaced "
+            "by the two sheets' own measured disagreement, on the owner's ruling, which is "
+            "an invention within stated bounds. docs/LIBERTIES.md carries it."),
+        "sources": ["hathaway_1834", "wright_1834_nara_hup"],
+        "shift_anchors_local_e_m": [[e, sh] for e, sh in RECUT_SHIFT_ANCHORS],
+        "block_18_refused_m": RECUT_BLOCK_18_REFUSED_M,
+        "block_18_refusal": (
+            "East of the slough the committed bank stands 5.4 m north of South Water "
+            "Street's own platted corridor edge, so the ruling's 7.5 m would put the river "
+            "2.1 m into the roadway. The reach is bounded by the owner's own words, \"from "
+            "the bend in the west to the La Salle mouth\"."),
+        "wright_bank_as_traced": [[e, aside[e]] for e in sorted(aside)],
+    }
+    rec["measured"].update(derive(rec))
+    rec["findings"] = findings(rec)
+    if not dry:
+        OUT.write_text(json.dumps(rec, indent=1) + "\n")
+    m = rec["measured"]["recut"]
+    print(f"recut: {moved} vertex writes over {len(aside)} distinct bank stations; "
+          f"worst re-derivation error {m['worst_vertex_error_m']} m; "
+          f"step across the La Salle mouth {m['step_across_the_la_salle_mouth_m']} m; "
+          f"straightness p90 {m['straightness_p90_m']} m")
+    return 0
 
 
 def report():
@@ -460,6 +723,17 @@ def report():
               f"{m['wright_minus_hathaway_m'][k]:12.1f} m")
     print(f"\n  swell, as the two sheets' disagreement across the reach: "
           f"{m['swell_amplitude_m']} m")
+    if "recut" in m:
+        r = m["recut"]
+        print(f"\n  the recut, on the owner's ruling of 2026-09-26 (option b):")
+        print(f"    bank moved south {r['shift_m_at_block_20']} m at block 20, "
+              f"{r['shift_m_at_block_19']} m at block 19, "
+              f"{r['shift_m_at_block_18']} m at block 18, "
+              f"{r['shift_m_at_block_17']} m at block 17")
+        print(f"    {r['vertices_moved']} bank stations moved; "
+              f"re-derives to {r['worst_vertex_error_m']} m")
+        print(f"    step across the La Salle mouth {r['step_across_the_la_salle_mouth_m']} m; "
+              f"straightness p90 {r['straightness_p90_m']} m")
     print("")
     for f in rec["findings"]:
         print(f"  * {f}\n")
@@ -472,6 +746,8 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--recut", action="store_true",
+                    help="apply T-1630's ruling to the committed bank (once)")
     a = ap.parse_args()
     if a.build:
         return build()
@@ -479,6 +755,8 @@ def main() -> int:
         return check()
     if a.self_test:
         return self_test()
+    if a.recut:
+        return recut()
     return report()
 
 

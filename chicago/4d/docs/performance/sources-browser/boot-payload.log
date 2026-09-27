@@ -1,0 +1,29 @@
+BOOT PAYLOAD — first visit stands in the 1835 street
+  9.683 MB across 1013 request(s) (gzip on the wire, fresh context, ready + 3s settle)
+
+BY TYPE
+  3.421 MB  .json
+  2.712 MB  .glb
+  2.008 MB  .js
+  1.094 MB  .png
+  0.399 MB  .bin
+  0.037 MB  .css
+  0.011 MB  .(none)
+
+THE 15 LARGEST
+  1.153 MB  /data/gltf/terrain__e1834_harbor_cut.glb
+  0.920 MB  /js/changelog.js
+  0.432 MB  /data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.png
+  0.430 MB  /data/liberties.json
+  0.399 MB  /data/terrain/epochs/e1834_harbor_cut/heightfield.bin
+  0.277 MB  /data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.png
+  0.272 MB  /walk/vendor/three-0.185.1/three.core.js
+  0.230 MB  /data/sidecars/1835/people.json
+  0.202 MB  /data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.png
+  0.183 MB  /data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.png
+  0.153 MB  /data/reconstruction/1835_address_book.json
+  0.124 MB  /walk/vendor/three-0.185.1/three.module.js
+  0.084 MB  /walk/js/flora.js
+  0.062 MB  /walk/js/trees.js
+  0.051 MB  /walk/js/main.js
+within budget: 9.683 MB of 12.000 MB

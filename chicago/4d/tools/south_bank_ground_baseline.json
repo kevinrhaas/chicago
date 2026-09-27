@@ -20,10 +20,10 @@
  "free_stations": 126,
  "stations": 143,
  "fits": {
-  "0.30": 10,
-  "0.35": 15,
-  "1.00": 81,
-  "none": 152
+  "0.30": 2,
+  "0.35": 2,
+  "1.00": 19,
+  "none": 59
  },
  "platted_end_m": 805.0,
  "widest_free_strip_beside_the_street": {
@@ -47,16 +47,159 @@
   }
  ],
  "fits_in_an_unplatted_track": {
-  "0.30": 81,
-  "0.35": 81,
-  "1.00": 81,
-  "none": 81
+  "0.30": 0,
+  "0.35": 0,
+  "1.00": 0,
+  "none": 0
  },
  "fits_in_an_unplatted_corridor": {
-  "0.30": 10,
-  "0.35": 15,
-  "1.00": 32,
-  "none": 32
+  "0.30": 0,
+  "0.35": 0,
+  "1.00": 0,
+  "none": 0
  },
- "$note": "T-0134, re-read 2026-09-26 by T-1636. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank. THESE FIGURES ARE THE RE-READ, not the fill's raw output. T-1629 filled the slough mouth this project had cut west of State Street and 91 flat positions appeared; 81 of them stood in the fort road, which plat_corridors cannot see because that road was never platted. `fits` now counts only positions clear of an unplatted travelled way, and `fits_in_an_unplatted_track` counts the ones the road takes, so both halves of the correction are held rather than one. `fits_beside_the_street` \u2014 the frontage the plate draws \u2014 is still zero at every clause and is one clause harder than when the refusal was written. See docs/RESEARCH/south_bank_dearborn_ground.md \u00a7 The re-read."
+ "committed_walks_masked": [
+  {
+   "id": "river_plank_walk_crossing_footway",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "river_plank_walk_dearborn_crossing",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.22
+  },
+  {
+   "id": "river_plank_walk_east_reach",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "river_plank_walk_west_reach",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_clark_north_crossing_blk_south_water_dearborn_north",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_clark_north_walk_2",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_dearborn_north_walk_1",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  }
+ ],
+ "fits_on_a_committed_walk": {
+  "0.30": 44,
+  "0.35": 49,
+  "1.00": 98,
+  "none": 129
+ },
+ "standing_footprints_masked": [
+  {
+   "structure": "dearborn_street_drawbridge",
+   "phase": "draw_1834",
+   "e_from": 695.35,
+   "e_to": 699.17,
+   "n_from": 20.69,
+   "n_to": 97.05
+  },
+  {
+   "structure": "south_bank_shed_dearborn_e1",
+   "phase": "shed_1835",
+   "e_from": 805.5,
+   "e_to": 810.99,
+   "n_from": 1.53,
+   "n_to": 11.29
+  }
+ ],
+ "fits_on_what_stands": {
+  "0.30": 45,
+  "0.35": 45,
+  "1.00": 45,
+  "none": 45
+ },
+ "takes_more": {
+  "0.30": 1,
+  "0.35": 1,
+  "1.00": 3,
+  "none": 5
+ },
+ "takes_more_where": {
+  "0.30": [
+   {
+    "e": 813.2,
+    "n": 0.0,
+    "bearing_deg": 165.0,
+    "relief_m": 0.129
+   }
+  ],
+  "0.35": [
+   {
+    "e": 813.2,
+    "n": 0.0,
+    "bearing_deg": 165.0,
+    "relief_m": 0.129
+   }
+  ],
+  "1.00": [
+   {
+    "e": 808.2,
+    "n": 19.0,
+    "bearing_deg": 105.0,
+    "relief_m": 0.931
+   },
+   {
+    "e": 813.2,
+    "n": 0.0,
+    "bearing_deg": 165.0,
+    "relief_m": 0.129
+   },
+   {
+    "e": 818.2,
+    "n": 21.0,
+    "bearing_deg": 105.0,
+    "relief_m": 0.961
+   }
+  ],
+  "none": [
+   {
+    "e": 802.2,
+    "n": 17.0,
+    "bearing_deg": 90.0,
+    "relief_m": 1.014
+   },
+   {
+    "e": 812.2,
+    "n": 16.0,
+    "bearing_deg": 75.0,
+    "relief_m": 1.204
+   },
+   {
+    "e": 814.2,
+    "n": 0.0,
+    "bearing_deg": 165.0,
+    "relief_m": 0.127
+   },
+   {
+    "e": 825.2,
+    "n": 21.0,
+    "bearing_deg": 90.0,
+    "relief_m": 1.222
+   },
+   {
+    "e": 835.2,
+    "n": 20.0,
+    "bearing_deg": 75.0,
+    "relief_m": 1.085
+   }
+  ]
+ },
+ "$note": "T-0134. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank."
 }

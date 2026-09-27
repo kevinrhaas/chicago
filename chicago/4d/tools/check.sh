@@ -1549,6 +1549,20 @@ step "every deferred in-town water feature is dated against the scene" \
 step "the slough crossing spans open water, and nothing else stands in the cut" \
   python3 tools/measure_slough_crossing.py --gate
 
+# And the other side of the same coin: a road that meets this drain where NO crossing is
+# recorded. T-1637. `fort_road` is the largest invention on the United States Reservation
+# and its own record promised the water mask would make "honest gaps rather than fords" —
+# written when no water was near it. T-1629 then moved the drain's mouth east of State
+# Street, its new reach crossed the road, streets.js dutifully clipped the wet panels, and
+# the way to the fort came out cut in two with every step in this gate still green. The
+# line moved to leave the town over the crossing the town is DOCUMENTED to have built;
+# this holds it there, and fires again if the drain is re-carved across it.
+step "the way to the fort runs dry and crosses no water the town never bridged (T-1637)" \
+  python3 tools/measure_fort_road_way.py --gate
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/measure_fort_road_way.py --self-test
+
 # And the water the town DRANK, which is a different argument about the same surfaces.
 # `data/yard/town_water_cart.json` stands one cart where Andreas says the watermen drove
 # into the lake, and the committed field says that water is the old southward channel with
@@ -1840,6 +1854,22 @@ step "the lot ledger and the platted seats still re-derive" \
 
 selftest "…and the deal's six refusals still fire when broken" \
   python3 tools/seat_platted_ground_1835.py --self-test
+
+# T-1638, piece 1 of 4 of T-1200. The deal above puts a household under a roof; until this
+# step the ROOF said nothing back. The link ran one way — the address book's row naming its
+# structure — so a visitor opening one of these South Water buildings read "Anonymous
+# count-unit toward the July 1835 665-roof programme" while a file two directories away said
+# which household the policy had seated in it. `1835_roof_keepers.json` is that publication,
+# and its refusals are the load-bearing half: 60 of the deal's 108 adopted seats are
+# households minted from the post office's letter lists, whom the owner's ruling of
+# 2026-08-30 (T-0379) refuses a roof, so they are listed with the ruling rather than written
+# onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L276 carries
+# the publication and L270 the invention underneath it.
+step "the South Water roofs still name the keepers the platted deal seated there" \
+  python3 tools/name_the_keepers_1835.py --check
+
+selftest "…and the keeper ledger's five assertions still fire when broken" \
+  python3 tools/name_the_keepers_1835.py --self-test
 
 # T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
 # of the 1,480 banded households on with a written reason; this is the file that answers
@@ -2255,6 +2285,9 @@ step "Source-use backlinks match authored claims (T-1248)" \
 
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
+
+step "source browser counts and filters" \
+  node tools/test_sources_view.mjs
 
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of

@@ -1754,8 +1754,19 @@ async function boot() {
 
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
+  let sourcesPromise = null;
+  const openSources = () => {
+    if (!sourcesPromise) sourcesPromise = import('./sources.js').then(({attachSources}) => attachSources({
+      api, registry: loaded.registry, hud, popup, dataBase: bases.dataBase, root: document.getElementById('sources'),
+    })).then(view => { api.sources=view; return view; }).catch(() => {
+      sourcesPromise=null;
+      document.getElementById('sources').textContent='Sources could not load. Reopen this topic to retry.';
+    });
+    void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
+  };
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
+    onTopic: id => { if (id === 'sources') openSources(); },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
   // The town summary used to be part of the loader. It now costs nothing on a

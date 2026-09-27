@@ -4795,7 +4795,17 @@ for (const [label, viewport, touch] of [
       // runs. CROSSINGS, POSTS, FENCES AND REFUSALS DO NOT MOVE: a break in the
       // middle of a face never sprang a corner crossing, and nothing about a wall,
       // a trade or a setback changed on either block.
-      frontage.census?.records === 5 && frontage.census?.walks === 48
+      // T-1630 TAKES ONE MORE, AND IT IS A DIFFERENT KIND OF BREAK. The south bank
+      // below the bend came in to Hathaway's line on the owner's ruling (L275), so the
+      // outer plank walk no longer has to swing north round a point: the wharf reach is
+      // re-authored as ONE straight segment from the La Salle crossing to Jones's
+      // landing, and on that line Philo Carpenter's landing — which the old curve ran
+      // straight through, and which cut 8.6 m of boards out of the middle of it — is
+      // 4 m clear to the north. So the reach is one run where it was two: 48 walks to
+      // 47, and the two refusals on this record fall to one (Jones's, at the terminus,
+      // which the walk still runs INTO by design). Crossings, posts, fences and
+      // refusals elsewhere do not move.
+      frontage.census?.records === 5 && frontage.census?.walks === 47
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4848,6 +4858,17 @@ for (const [label, viewport, touch] of [
         // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
         // corrected from -1.90 m to 1.50 m.
         && frontage.census?.posts === 18 && frontage.census?.fences === 31
+        // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
+        // walk, because the straight reach passes 4 m south of it. Jones's remains.
+        // T-1647 puts one back, and it is a refusal the rule could not reach before.
+        // blk_south_water_dearborn's seq-07 roof was a D5 cottage and is now a C2
+        // store-residence, so the hitching rule LOOKS at it for the first time — a
+        // cottage carries no trade to hitch to — and refuses it in writing, because
+        // the trade there is reconstructed and a post would be furniture standing on
+        // an invention. 90 refusals to 91. NOTHING ELSE MOVES: the lot-2 street-fence
+        // refusal is the same wall at the same 1.50 m, renamed with the roof; walks,
+        // crossings, posts and fences are untouched, because the re-family changes
+        // what the building IS and not where it stands.
         && frontage.census?.refused === 91
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
@@ -5013,8 +5034,18 @@ for (const [label, viewport, touch] of [
     // census above for the arithmetic; this line holds the same event one level
     // down, and it is the "ground break that still cuts it" named above finally
     // being gone.
+    // T-1630 — the same event one level down, and it takes FIVE meshes rather than one,
+    // for a reason worth writing down. `frontage.js` chunks an unnamed walk ONE MESH PER
+    // SEGMENT, and only when the line has more than two points. The old wharf reach was
+    // six authored knots cut into two runs by Carpenter's landing, so it carried five
+    // per-segment chunks; the straight reach is a single two-point segment, which is
+    // below that threshold and lays into the shared `frontage` mesh instead. So 58
+    // `frontage-chunk`s to 53 and 59 authored to 54. The boards did not go anywhere —
+    // the walk is 4.7 m LONGER than the two runs it replaces — they stopped being five
+    // separately cullable draw calls and became part of the one that is never culled,
+    // which for a 95 m run inside the town is the cheaper of the two.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
+      frontage.authored === (frontage.census?.lettered === 1 ? 55 : 54)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -12670,7 +12701,7 @@ for (const [label, viewport, touch] of [
       roofFirms.fromSign === true && /^The board hangs/.test(roofFirms.signLead),
       JSON.stringify({ fromSign: roofFirms.fromSign, signLead: roofFirms.signLead }));
 
-    // T-0710/T-1292: the Evidence hub — ten tiles whose counts are their mounts'
+    // T-0710/T-1292: the Evidence hub — eleven tiles whose counts are their mounts'
     // entries, a topic that searches, and a way back. City is second and its two
     // ladders are fetched only when this tab opens.
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
@@ -12679,12 +12710,13 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const hubEl = document.getElementById('evidence-hub');
       const tiles = () => [...hubEl.querySelectorAll('.ev-tile')];
-      for (let i = 0; i < 50 && tiles().some((t) => /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
+      for (let i = 0; i < 50 && tiles().some((t) => t.dataset.topic !== 'sources' && /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
         await new Promise((r) => setTimeout(r, 100));
       }
       const mountCount = (id) => (id === 'grades'
         ? document.querySelectorAll('.ev-topic[data-topic="grades"] .legend-list > li').length
         : id === 'city' ? document.querySelectorAll('#city .gc-row').length
+        : id === 'sources' ? (document.getElementById('sources').dataset.count ? Number(document.getElementById('sources').dataset.count) : null)
         // The mount's id is not always the topic's: the order book's topic is
         // `orderbook` and its mount is `#order-book`, so the count is taken from
         // the topic's own mount rather than from a guessed id.
@@ -12739,11 +12771,33 @@ for (const [label, viewport, touch] of [
         topic: api.evidenceHub.topic, backHidden: document.getElementById('panel-back').hasAttribute('hidden') };
       return out;
     });
-    check(`${label}: the Evidence hub shows ten topics, each counting its own entries`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 10
+    check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
+      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
-      && hub.tiles.every((t) => Number.isFinite(t.count) && t.count > 0 && t.count === t.mount && t.title && t.title === t.h3),
+      && hub.tiles[2]?.id === 'sources'
+      && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
       JSON.stringify(hub.tiles.map((t) => `${t.id} ${t.count}/${t.mount}`)));
+    await page.evaluate(() => window.__chicago4d.evidenceHub.showTopic('sources'));
+    await page.waitForFunction(() => window.__chicago4d.sources?.rows.length > 0);
+    const sourcesView = await page.evaluate(() => {
+      const api = window.__chicago4d, root = document.getElementById('sources');
+      const initial = root.querySelector('.src-status').textContent;
+      const initialRows = root.querySelectorAll('.src-row').length;
+      const all = root.querySelector('.src-all input'); all.checked = true; all.dispatchEvent(new Event('change'));
+      const allStatus = root.querySelector('.src-status').textContent;
+      const search = root.querySelector('.src-search');search.value='Andreas';search.dispatchEvent(new Event('input'));
+      const known = root.querySelector('[data-source-id="andreas_1884_v1"]');
+      const result = {initial,initialRows,allStatus,total:api.sources.rows.length,
+        scene:api.sources.rows.filter(r=>r.use==='scene').length,known:known?.textContent || '',
+        fits:root.scrollWidth<=root.clientWidth+1};
+      search.value='';search.dispatchEvent(new Event('input'));api.evidenceHub.showHub();return result;
+    });
+    check(`${label}: Sources lazily lists scene and registered counts with a forty-row window`,
+      sourcesView.initial.startsWith(String(sourcesView.scene)) && sourcesView.allStatus.startsWith(String(sourcesView.total))
+      && sourcesView.initialRows === 40 && sourcesView.fits, JSON.stringify(sourcesView));
+    check(`${label}: Sources finds Andreas with date, type, tier and separate claim/entity figures`,
+      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /tier 3/.test(sourcesView.known)
+      && /Claims:/.test(sourcesView.known) && /Entities:/.test(sourcesView.known), sourcesView.known);
     const cityScene = hub.city.data?.people?.scene || null;
     const cityPopulation = cityScene?.population || null;
     const grouped = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');

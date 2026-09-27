@@ -204,6 +204,18 @@ class Compiler:
             uses = sorted({e['use'] for e in edges}, key=USES.index)
             counts = {'entities': len({(e['entity_type'], e['entity_id']) for e in edges}),
                       'claims': len({(e['entity_type'], e['entity_id'], e['claim']) for e in edges})}
+            # A claim supported by several locators counts once, at its strongest grade.
+            order = ('attested', 'inferred', 'reconstructed')
+            claims, entities = {}, {}
+            for edge in edges:
+                rank = order.index(edge['confidence'])
+                entity = (edge['entity_type'], edge['entity_id'])
+                claim = (*entity, edge['claim'])
+                claims[claim] = min(rank, claims.get(claim, 2))
+                entities[entity] = min(rank, entities.get(entity, 2))
+            # Compact, documented order keeps the first-open index below 120 KB.
+            counts['grades'] = [[sum(v == i for v in group.values()) for i in range(3)]
+                                for group in (claims, entities)]
             # Full, unabridged citation/link/limits live beside the edges, fetched on demand.
             index.append(dict(source_id=sid, citation=citation['citation'], type=source.get('type'),
                               date=source.get('date'), tier=source.get('tier'), use=uses[0] if uses else 'unused',

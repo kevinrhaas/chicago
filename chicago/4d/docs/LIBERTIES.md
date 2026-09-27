@@ -5502,6 +5502,31 @@ project has taken the fort, the garden, the barn and the ferry off that plate an
 roads; or any survey of the reservation before its 1839 subdivision, which would fix the line
 and probably its name at the same time.
 **Recorded:** 2026-08-19.
+**Revised:** 2026-09-26 (T-1637) — **the western terminus moved, because the clip this entry
+relied on turned into a severed road.** T-1629 put the South Division drain's mouth east of
+State Street on the owner's ruling of the same day, and its new reach crossed this line: 3.60 m
+of the road's centreline stood below the water surface between local E +849.1 and E +852.7,
+0.09 m under at the deepest, and 162 of the drawn track's 16,614 samples were wet, so the
+waterline clip broke the track in two and a visitor walking out to the fort met open water.
+**Nothing says the town laid anything over it, and a second crossing is refused.** The one
+sentence this project has about crossing this drain puts a log bridge where the town's graded
+street met it, and `slough_log_bridge` is that crossing; no source names a crossing on the
+reservation, the 1830 Harrison plan draws a road there and no bridge, and a bridge invented on
+an invented line is the two-inventions-stacked case this entry already declines above for the
+north-gate ramp. **So the invented line moved and the evidence did not.** The terminus is now
+local E +826.84 N -24.36 — the far end of the `slough_west` approach in the epoch's terrain
+spec, which is the toe of the log bridge's own southern graded cut, 0.03 m off State Street's
+committed centreline — so the reconstructed way to the fort leaves the town down State Street,
+over the crossing the town is documented to have built, and turns east where that bridge's
+approach regains the terrace. Measured after the move and gated by
+`tools/measure_fort_road_way.py`: none of the drawn track's 16,344 samples is below the water
+surface, its lowest ground stands +0.36 m above it, and the centreline keeps 5.21 m from the
+drain's axis. **The cost, stated:** the road is 7.57 m shorter, the reach that ran east out of
+South Water Street's committed end at E +805 N +4 is gone and a visitor standing there now
+finds prairie, and the 12 m corridor still reaches the drain's wet flank (170 samples below the
+surface against 206 before), because a corridor is a legal extent and not the ribbon that is
+drawn. The 22 m between South Water Street's committed end and State Street's corridor is left
+as the separate question it is.
 
 ### L141 — The Lake Street row at Dearborn: four roofs moved onto one line, and the party walls between them
 **Decision:** four anonymous reconstructed roofs of the phase-one South Division parcel —
@@ -14852,36 +14877,40 @@ reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander a
 
 **Decision:** the south bank of the main stem below the Dearborn drawbridge carries **one low
 freight shed** where it carried nothing — on the last town ground east of South Water Street's
-platted corridor and west of State Street's, standing between the fort road and the river with
-its wagon door to the road. **It is not attested.** Every value on the record is graded
+platted corridor and west of State Street's, standing back from the riverside plank walk on the
+terrace behind it, with its wagon door to the landward side. **It is not attested.** Every value on the record is graded
 `reconstructed`, including the fact that a building stood there at all, and it disappears with
 the rest of the reconstructed tier when a visitor turns it off. It is the south-bank half of
 **L164**, which built the four north-bank sheds of the same plate and said in writing that this
 bank could not be built.
 
 **What bounded the invention, and it is three measurements rather than a judgement.** (1) The
-EASTING is the westernmost station between the two platted corridors at which the whole rectangle
-stands on free ground — local E 806.5; half a metre west of it the west corner enters South
-Water's corridor. (2) The NORTHING and BEARING come off the fort road's drawn travelled way
-(`track_width_m` 5.5): the front wall stands 1.25 m back from its north edge, squared to the
-road's own bearing there, and over the whole footprint the building's nearest point is 3.98 m from
-the centreline — 1.23 m of clear ground between its wall and the wheel line. (3) The committed
-heightfield holds the 252-point lattice under it between 1.027 m and 1.300 m above the water
-surface, 0.273 m of relief, inside the 0.30 m the infill generators allow. The size is the FLOOR
-of family F1, 18 x 32 ft, because it is the only size the 9.5 m window between the two corridors
-takes at this bearing.
+EASTING is the westernmost station on the reading's own half-metre lattice, between the two
+platted corridors, at which the whole rectangle stands on free ground — the west wall at local
+E 805.5; half a metre west of it the rectangle's west side is inside South Water's corridor.
+(2) The NORTHING and BEARING come off the riverside plank walk's committed centreline: the back
+wall — the one the walk and the river are behind — stands 2.00 m back from the walk's boards at
+N +11.285, 2.915 m from its centreline, and the walls are squared to the walk's own due-east
+bearing, so `rotation_deg` is 180.000.
+(3) The committed heightfield holds the 252-point lattice under it between 1.189 m and 1.286 m
+above the water surface, 0.097 m of relief, well inside the 0.30 m the infill generators allow.
+The size is the FLOOR of family F1, 18 x 32 ft, because it is the only size the 9.5 m window
+between the two corridors takes. *(Until T-1643 the northing and bearing were read off the fort
+road instead, at a 1.25 m setback and 0.273 m of relief, and that seating stood on the walk — see
+the 2026-09-27 revision below.)*
 
-**The setback is the thing that gave way, and it is stated rather than smoothed.** The north bank
-keeps 2.00 m from North Water Street's travelled edge. At 2.00 m here the back wall stands half a
-metre further down the bank and the rectangle's relief reaches 0.353 m, past the clause, so the
-setback came in to 1.25 m and the clause held. A reader who thinks 1.25 m is too close to the
-road's wheels is reading the right number.
+**The setback is the north bank's own, and until T-1643 it was a concession.** The four
+north-bank sheds keep 2.00 m from North Water Street's travelled edge. Set back from the fort road
+this building could not: at 2.00 m its back wall fell half a metre further down the bank and the
+relief reached 0.353 m, past the clause, so the setback came in to 1.25 m and both figures were
+stated so the trade stayed visible. On the terrace south of the walk the trade does not arise, and
+the reach's two shed rows are set back by the same figure.
 
-**What it stands inside, said plainly.** The fort road's own RECONSTRUCTED 12 m corridor. That
-corridor reserves nothing — `fort_road` carries `geometry_confidence: reconstructed`, nobody
-traced the road and no source names it — so there is no platted width here to lap, and
-`tools/measure_corridor_intrusion.py` reads the building clear of all 33 platted corridors. The
-project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
+**What it stands inside, said plainly.** Nothing. The fort road's RECONSTRUCTED 12 m corridor left
+this reach with the road (T-1637) and `fort_road`'s committed path now begins 21 m east of this
+building; `tools/measure_corridor_intrusion.py` reads the footprint clear of all 33 platted
+corridors; and `tools/measure_south_bank_ground.py --gate` reads it clear of every committed walk.
+The project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
 that refusal was written about is still empty: beside the platted street the reading is zero at
 every relief clause it is reported at, and one clause harder than when T-0134 wrote it.
 
@@ -14900,7 +14929,196 @@ south bank below the draw. Any of the three would replace an invention with a bu
 
 **Related:** **L164** (the four north-bank sheds of the same plate), **L79** (the travelled tracks
 inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-0071** and sibling
-**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**,
+**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**, the road's
+move **T-1637**, the answer to what that move released **T-1642**,
 `docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
 `south_bank_warehouses_dearborn_reach`.
+**Revised:** 2026-09-26 (T-1637), hours after it was written — **the road this shed was squared
+to is no longer on this reach, and the shed has not moved.** The fort road crossed the State
+slough's new mouth in open water, no source lays anything over it, and its western terminus was
+moved onto State Street at the toe of the Slough Log Bridge's southern approach, so the reach
+that ran east past this building is gone. **What survives untouched:** the EASTING (the
+westernmost station between the two platted corridors where the whole rectangle stands free), the
+ground (the filled channel's, unaltered), the relief test (0.273 m over a 252-point lattice), and
+the refusal this entry spends — `fits_beside_the_street` is still 0 at every clause. The building
+is now 41.2 m from the road's centreline where its committed point stood 13.7 m from it, so it is
+further from a travelled way than the seating needed, and no platted corridor is nearer.
+**What is no longer checkable, said plainly:** the NORTHING, the BEARING and the wagon door's
+side were read off the fort road's drawn travelled way — 1.25 m of setback from its north edge,
+squared to its bearing here. Those three numbers stand where they were written and the line they
+were read off does not. They were invented when they were written and they are invented now, at
+the same `reconstructed` grade; what is lost is the ability to re-derive them by hand, which the
+record's own `derivation` block always said this placement depended on. **Nothing is re-seated
+here to cover that** — re-facing or re-seating is a change of geometry and a re-bake, and it is
+filed as its own question rather than smuggled into the run that moved the road. **And what T-1637
+re-opened is not this entry's ground but the reach around it:** the 81 positions T-1636 held
+because they stood in the road are released, so `fits` reads 91, 96, 162, 233 against 10, 15, 81,
+152, and whether anything of the plate belongs on that unplatted reservation ground between E
++805 and E +842 is filed too.
+**Revised:** 2026-09-27 (T-1642) — **one is the number this ground allows, and it is measured
+now rather than assumed.** The question the road's move filed — whether anything more of the
+plate belongs on the 81 released positions — is answered no, and most of those positions were
+never a second building at all. `tools/measure_south_bank_ground.py` had never known what the
+committed tree already places, so **76 of the 91 positions that read free are this shed's own
+footprint**, counted once per lattice offset and bearing that would have stood a second shed
+inside the first; the reading now masks every placed footprint that reaches its box and holds
+those 76 apart, and `fits` reads 15, 15, 23, 48. Fifteen positions on a one-metre lattice are
+one building: `takes_more`, an exact maximum over the positions that do not overlap each other,
+says the 9 m ribbon between South Water Street's platted end and State Street's corridor takes
+**one more shed** at the walker's own relief clause. **That one is refused in writing.** It
+stands 23.08 m back from the main stem where this shed stands 6.49 m back, directly behind it,
+with the town slough 5.45 m off its corner and the river nowhere near it — and the plate that
+licenses a shed on this bank is a tier-5 retrospective that draws them ON THE WATER, so it does
+not reach back land. Nothing on this record changed. What changed is that the entry's title is
+now a finding: one freight shed is what this ground and this plate together allow, a position
+released by this project's own invented line moving is not a position a source opened, and a
+measured capacity is not a reason to build. The refusal is written up at
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The 81 released positions, answered, and it is
+ratcheted — if this ground ever takes two more, that refusal is re-read rather than carried.
+**Added links:** T-1637 (the road's move) · T-1642 (what the release opened, answered) ·
+**L140** (the fort road) · `tools/measure_fort_road_way.py` ·
+`tools/measure_south_bank_ground.py`.
+**Revised:** 2026-09-27 (T-1643) — **the shed has moved, and not for the reason the revision
+before last filed.** That revision left re-seating open as a loss of re-derivability. Answering it
+found a defect: the station the fort road had chosen stood **across the town's own riverside plank
+walk**. `river_plank_walk_crossing_footway` runs E +803.6 to E +815.0 at N +14.2 and is 1.83 m
+wide, so its boards occupy N +13.285 to N +15.115; the seated footprint spanned N +8.164 to
+N +18.455 and took the whole width of them. **No dataset gate could see it** — a walk is boards
+laid on committed ground and a building is a mesh seated on the same ground, and nothing compared
+the two, T-1642's occupancy mask of the day before included. The published walker found it:
+standing on the walk at E +809.4 and walking west, a visitor was pushed out of the shed's
+collision footprint east to E +811.5 instead of reaching past E +802, and that check had been red
+on `dev` since the seating.
+**What the re-seating changes, and it is three numbers off a line that has gone onto a line that
+is here.** The EASTING rule is untouched — the westernmost half-metre station between the two
+platted corridors at which the whole rectangle stands free, which squared to the walk puts the
+west wall at E +805.5. The NORTHING and BEARING now come off the walk: the north wall stands
+**2.00 m** back from the boards at N +11.285, 2.915 m from the walk's centreline, and the walls
+are square to the walk's own due-east bearing, so `rotation_deg` is 180.000. The wagon door faces
+the landward side, where South Water Street's corridor ends 0.30 m west of the west wall and a
+cart can actually stand, and not across a 1.83 m footway.
+**The concession this entry recorded is withdrawn rather than restated.** On the terrace south of
+the walk the 2.00 m the four north-bank sheds keep costs nothing: the 252-point lattice under the
+new footprint stands 1.189 m to 1.286 m above the water surface, **0.097 m of relief** against the
+0.273 m the old seat carried, so the setback that "gave way" no longer has to. A reader who
+thought 1.25 m was too close to the wheels was reading the right number, and the number is gone.
+**Nothing about the evidence moved:** the plate, the `reconstructed` grade on every value, the
+bracket, the 18 × 32 ft footprint and the total working uncertainty are what they were.
+**And the instrument was fixed, because a record is not a gate.**
+`tools/measure_south_bank_ground.py` now masks the committed frontage walks by their own width —
+the same rectangle `renderers/web/js/frontage.js` publishes as a walk's keep-out — and its gate
+**refuses any committed building on this reach that stands on one**, testing both containments and
+asserting in `--self-test` that putting the old seating back is caught. The boards take 44 of the
+reach's positions at 0.30 m of relief, and with the road, the boards and what stands all masked —
+in that order, each refusal counted once — `fits` reads 2, 2, 19, 59 against the 15, 15, 23, 48
+the revision above banked. Not one square metre of ground moved and nothing counted out was ever
+buildable. `fits_beside_the_street` is still 0, 0, 0, 3, so the refusal this entry spends stands
+untouched.
+**And the revision above was re-read rather than re-banked, because this shed's seat is one of its
+inputs.** `fits_on_what_stands` moves from 76, 81, 139, 185 to **45, 45, 45, 45** — the boards are
+now asked before the occupancy test, and the footprint being masked is a different rectangle —
+but `takes_more` reads **1, 1, 3, 5, unchanged at every relief clause**, and at the two strict
+clauses it names the same single position it named before: E 813.2, N 0.0, bearing 165°. **So
+T-1642's refusal stands on exactly the rectangle it was written about.** One more shed is what
+this ground takes, it would stand 23 m back from the water fronting the town slough, and the plate
+that licenses a shed here draws them on the water.
+**Added links:** T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR
+whose validation read the red) · **L153** (the riverside walk) ·
+`data/frontage/river_walk_frontage.json` ·
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk.
+**Recorded:** 2026-09-26.
+
+### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
+**Decision:** between local **E +228.91** (the committed bend vertex below the forks) and **E +467.17**
+(the east lip of Wright's La Salle re-entrant) the south bank of the main stem no longer stands where
+Wright 1834 inked it. It stands that traced line displaced **south** by a piecewise-linear amount —
+0 m at E +228.91, **5.6 m** at E +268 (block 20), **10.8 m** at E +390 (block 19), held to E +455.81,
+0 m again at E +467.17 — moved at nine bank stations in `river.geojson` and `shoreline.geojson` and in
+both files' water polygons. The river is that much wider on this reach; the north bank does not move,
+and nothing outside the reach moves at all.
+**Why:** the owner flew the reach, read it against both 1834 surveys and ruled for Hathaway here
+(T-1630, 2026-09-26): *"ok yes st till want to bring that bulge in some, so the sidewalk is fairly
+straight and following"*, and on the per-block table, *"i think it is closer to the hathaway map in
+that reading"*. The amount is not his drawn line and not a fraction of Wright: it is the two sheets'
+own disagreement — the ground each draws between its own bank and its own block tier, 34.9 vs 29.3 m
+at block 20 and 39.0 vs 28.2 m at block 19 — measured inside each sheet so neither registration
+enters it. Halving Wright's 39.0 m would have cut past Hathaway, which is the overcorrection his
+third message forbade (*"dont go crazy on either way"*). The reading that establishes all of this is
+`data/traces/south_bank_swell_1834.json` and `docs/RESEARCH/south_bank_swell_1834.md`; Wright's ink is
+kept there vertex for vertex as the set-aside reading, and `tools/read_south_bank_swell_1834.py
+--check` re-derives the displacement from it on every commit.
+**Consequence:** the waterline on this reach is **reconstructed**, not a trace. It is the one place in
+the scene where the ground's edge is not the sheet the datum, the plat and all 41 blocks are fitted
+to — a visitor standing on South Water Street between Market and La Salle is looking at a bank placed
+by a ruling over a measurement, and everything seated against it (the plank walk, the landings, the
+planting on the point) follows a line Wright did not draw. What it buys is stated as numbers: the
+step in the bank across the La Salle mouth falls from 9.62 m to 1.18 m, so the reach west of the
+slough reads level with the bank east of it; the p90 departure from a straight fit over E +300…+456,
+the stretch where the walk used to curve round the point, falls from 1.53 m to 0.65 m.
+**What is NOT taken:** block 18 is not moved, though the ruling's table asks 7.5 m of it. East of the
+slough the committed bank stands only 5.4 m north of South Water Street's own platted corridor edge,
+so 7.5 m would put the river 2.1 m into the roadway; the reach is bounded by the owner's own words,
+*"from the bend in the west to the La Salle mouth"*. The west end stops at E +228.91 rather than at
+the foot of the turn near E +160 for the same reason, measured: west of E +222 the traced bank already
+stands south of that corridor edge, and starting further west drowned another 32 m of roadway for no
+reading. The block grid is not re-cut — T-0419 refused that and nothing here reopens it.
+**How to resolve:** a period survey or shore section of the main stem between Market and La Salle that
+puts the waterline anywhere. Either 1834 sheet re-registered off new control would also settle it, by
+making the two agree or by saying which is right; the disagreement this entry spends is 12.3 m across
+the reach, and the fits carry 16.0 m and 17.7 m of RMS.
+**Related:** the reading **T-1630**, the set-aside sheet **wright_1834** / **wright_1834_nara_hup**, the
+sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unchanged), **L273** and
+**L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
+disagreement **docs/CORRIDOR-LINES.md** (T-0419).
+**Recorded:** 2026-09-26.
+### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and eleven do not because a ruling refuses them one
+
+**Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
+refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`.
+
+**No new invention is made here.** The invention is **L270**'s: which of the town's banded
+households takes which lot of the committed plat, dealt by a policy in
+`data/reconstruction/1835_platted_seats.json` because no source places any of these
+households anywhere. What this entry covers is that the invention is now PUBLISHED on the
+building — until T-1638 the link ran one way only, the address book's row naming its roof and
+the roof naming nobody, so a visitor opening one of these nine read `Anonymous count-unit
+toward the July 1835 665-roof programme` while a file two directories away said who the
+policy had put in it. A liberty a visitor cannot meet is not much of a disclosure.
+
+**What the card says and what it may not be read as.** `occupants` is graded `reconstructed`
+and cites only the sources that carry the household's NAME — a baptismal register, the
+Democrat's own columns — never its address, because there is no address. The note on every
+one of the nine says so in its first two sentences. The roof stays `inferred_anonymous`, a
+count-unit of the 665-roof programme: its existence, position and footprint are as
+conjectural after the seating as before it, the order book was not drawn on, and no mesh
+moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
+costs no bake.
+
+**Eleven of the twenty are refused, and the refusal is the load-bearing half.** Eleven of the
+twenty South Water seats — sixty of the deal's hundred and eight town-wide — are households
+minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
+refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
+address*. Writing the household's name rather than its person id would have slipped past the
+gate that holds the ruling and landed the exact claim it forbids. They are listed with that
+reason in the keepers ledger instead. **The deal seated them there anyway**, so the deal and
+the ruling disagree on sixty roofs; that disagreement is filed, not settled here, and not
+hidden by a pass that could have looked complete by ignoring it.
+
+**One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
+for a garden when a household id appears in a structure's `occupants` prose. Putting the id
+there would have grown nine gardens as a side effect of naming nine keepers, on no evidence
+about any garden, so the id is carried in `resident_assignment.household_id` — machine
+readable, and invisible to a test that was never about this. Whether these lots held gardens
+is that generator's question to answer on its own ground.
+
+**How to resolve:** any source that places one of these households — a lot record, a deed, an
+advertisement giving an address, a directory entry. One would replace a dealt lot with a read
+one, and the nine would stop being a liberty.
+
+**Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
+**L212** (the street-face business adoptions, the same shape for firms rather than keepers),
+T-1638, its parent **T-1200**, the ruling **T-0379**, and
+`data/reconstruction/1835_roof_keepers.json`.
 **Recorded:** 2026-09-26.

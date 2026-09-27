@@ -2170,8 +2170,8 @@
       },
       "families": {
         "A1": 1,
-        "D3": 1,
-        "D5": 1
+        "C1": 1,
+        "C2": 1
       },
       "open_lots": [
         {
@@ -2192,7 +2192,7 @@
       "arrangement_note": "THE SECOND DEAL ON THIS BLOCK, and the LAST of the four South Water blocks T-0420 held in one ticket. The first deal (2026-08-15, the entry above) built six roofs under the rule that allowed one principal roof per platted lot; T-0079 retired that ceiling and T-0198, T-0199 and the owner's 2026-08-27 business-front clause then seated the street's documented stores back onto the committed plat, which is what left this block two free lots and four roofs of headroom. Rewriting the first entry would restate an August schedule under numbers that were not true in August, so this is its own entry against its own headroom, numbered from seq_start so the two cannot collide on a record id. WHAT IS BUILT: two frame cottages on the South Water frontage of lot 2, one party-walled to each side wall of Frederick Thomas's shop, and the stable that belongs to the lot they stand on. WHY LOT 2 AND NOT LOT 7: the block's two free lots are lot 2 on South Water — free only under the owner's clause, which says a documented shop standing at the street does not exhaust a business-front lot — and lot 7, the Lake-and-State corner. The end rule names lot 2 by a wide margin, 62.86 m walked from the Dearborn drawbridge against 236.20 m for lot 7, and lot 7 is the lot the schedule's own sizing reserves: spending it to take the remaining roofs would spend exactly the lot that rule keeps open. THIS PARCEL CLAIMS THREE OF THE FOUR ROOFS THE SCHEDULE DEALT, AND SAYS SO IN ITS NUMBERS: drawn_from_schedule records the block's headroom of 4 and a draw of 3. The fourth is the D4 the run has no metres for, and it goes back to the south district's remainder rather than being deferred by name. TWO DEALS MEET ON ONE LOT FOR THE FIRST TIME IN THIS PROGRAMME and the generator had to be taught to account for it: until this block the four lot classes were held pairwise disjoint, which made 'built on by another deal' a prohibition as well as an account and would have refused this ground on the strength of the ceiling T-0079 retired. The overlap is admitted and bounded by the density standard's own ceiling counted across deals, and nothing physical relaxes with it. AFTER THIS DEAL lot 2 carries roofs that are not a documented store at the street, so it stops being a shared business front, the block's free lots fall to one and its principal room to zero — the block reaches at_capacity with lot 7 still open, which is the state the programme's placement rule wants a finished block to be in. NOTHING ELSE ON THIS BLOCK MOVES: every record the first deal wrote keeps its id, family, footprint and every form value, and no household is re-homed. WHAT IS UNVERIFIED IS EVERYTHING THAT MATTERS — that any building stood on this ground, that these were dwellings, and that either shared a wall with the shop are all inventions of this programme, and the side lot lines the run stands clear of are conjectural in every record this generator has ever written.",
       "slots": [
         {
-          "family": "D5",
+          "family": "C2",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "south_water",
@@ -2201,7 +2201,7 @@
           }
         },
         {
-          "family": "D3",
+          "family": "C1",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "south_water",
@@ -2218,7 +2218,13 @@
           "setback_m": 5.0,
           "lateral_m": -3.5
         }
-      ]
+      ],
+      "refamilied": {
+        "ticket": "T-1647",
+        "parent": "T-1639",
+        "on": "2026-09-27",
+        "why": "T-1647, and it re-families two slots this block already built rather than dealing it any new ground. THE GROUND IS THE FINDING. Its parent T-1639 asked for store fronts and warehouses to be RAISED on the South Water party lines, and there is nowhere left to raise one: the owner ruled on 2026-09-26 (T-1623, option a) that the one genuinely vacant lot each of this block and blk_south_water_wells still holds stays open, and the other three South Water blocks read at_capacity in the 665-roof programme. So what the business front is MADE OF can only change by saying what the roofs already standing on it are. WHAT IS WRONG TODAY, MEASURED ON THE COMMITTED TREE: the South Water frontage run - the party-line row on the street this project's own hierarchy grades `principal`, the town's business front - carries 28 roofs, 23 of them cottage families, 5 stores and no warehouse, against the 0.6667 documented trade share T-0213 reads off a principal street. Two of the cottages on THIS block's run carry a documented trade on their own card: the deep-plan frame cottage at seq 07 is D. Graves's bakery and the one-room frame cottage at seq 08 is Harmon, Loomis & Co., wholesale and retail dry goods, groceries, hardware and crockery. A documented store standing in a cottage's silhouette on the town's business front is the reconstruction contradicting its own business layer, and nothing about the buildings is evidence: both are anonymous count-units whose family was picked off this block's scheduled mix, and the schedule apportions the family, never the building. THE FAMILY IS CHOSEN BY THE GROUND AND THE REFUSALS ARE MEASURED, NOT ASSERTED. Seq 07 stands east of Frederick Thomas's shop with room for C2's 18x30-22x40 ft band and takes it: a store-residence is the family a baker who lives over his own shop belongs to. Seq 08 stands in the gap between that shop and John Holbrook's store and takes C1, the LARGEST store family that gap admits - dealt C2 it reads `stands 2.78 m from john_holbrook_store` against the three-metre separation gate, and dealt C3 it `reaches past the end of its own frontage ... inside the 1.5 m margin of a side line the run does not stand across`. So the wholesale house gets a shop and not the two-storey store its trade would suggest, because the face it stands on is too narrow for one, and that is a statement about this ground rather than about Harmon, Loomis & Co. WHAT DOES NOT MOVE: neither roof changes lot, setback, anchor or lateral offset, neither is promoted (both stay `reconstructed` anonymous count-units at the bottom tier), no occupant is invented - each keeps the one the business layer already gave it - and the block is dealt no extra roof. The footprint is not authored here either: `generate_block_infill` samples a slot inside its family's own band on a stable key, so both re-derive."
+      }
     },
     {
       "block_id": "blk_south_water_franklin",
