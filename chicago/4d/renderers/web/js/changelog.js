@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1161, ts: '2026-09-27T01:20:04.961Z', date: 'Sep 26, 2026, 8:20 PM CT', title: 'Browse the sources behind the town', kind: 'change',
+    items: [
+      'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
+      'Each source separates the claims it supports from the people, buildings and other records it helped reconstruct. Open a source to read its limits, browse dated newspaper issues, and follow its uses to existing cards.',
+      'The catalog loads when opened. Returning from a card keeps your place and filters.'
+    ] },
   { v: 1160, title: 'Nine South Water buildings now say who kept them', kind: 'change', ts: '2026-09-27T00:23:29.781Z', date: 'Sep 26, 2026, 7:23 PM CT',
     items: [
       'Walk down South Water Street, step behind the stores and open one of the cottages. Until today its card read \u201CAnonymous count-unit toward the July 1835 665-roof programme\u201D and named nobody. Nine of them now name a household \u2014 the Beaubiens on three of them, the Bourassas, the Bourques, the Cass family, the Davisons, the Clarks and a land agent named Blanshard.',

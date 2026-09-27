@@ -98,7 +98,7 @@ export function groundClaimHtml(claim) {
     ? notes.map((n) => `<dd class="ground-note">${escapeHtml(n)}</dd>`).join('')
     : '<dd class="ground-note">No reasoning is recorded for this claim.</dd>';
 
-  return `<details class="lib ground">
+  return `<details class="lib ground" data-source-entity="${escapeHtml(claim.id)}">
     <summary>
       <span class="lib-title">${escapeHtml(fieldName(claim.label))}</span>
       <span class="lib-scope">${escapeHtml(claim.group)}</span>
