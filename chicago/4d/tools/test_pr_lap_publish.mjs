@@ -144,12 +144,18 @@ exit 0
     writeFileSync(lap, lapSource);
   }
 
-  const r = spawnSync('bash', [lap], {
+  // THE REPOSITORY IS NAMED, and the environment names a STRANGER on purpose
+  // (T-1656). The script no longer reads $GITHUB_REPOSITORY — a run drives these
+  // from a chicago checkout inside a polecat-platform job, so the ambient name is
+  // whoever started the process — so every assertion below now also stands as proof
+  // that the argument wins and the environment is ignored. The refusal itself is
+  // tested at the bottom of this file.
+  const r = spawnSync('bash', [lap, '--repo', 'kevinrhaas/chicago'], {
     cwd: work,
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
            GH_TOKEN: 'fake', LAP_BASE: 'dev', LAP_ONLY: '',
-           GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
+           GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
   });
   const after = git(box, '--git-dir', bare, 'rev-parse', 'refs/heads/steward/t-9999').trim();
   rmSync(box, { recursive: true, force: true });

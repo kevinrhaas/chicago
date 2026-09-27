@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1171, ts: '2026-09-27T11:43:34.920Z', date: 'Sep 27, 2026, 6:43 AM CT', title: 'The two river warehouses get the doors a warehouse was worked through', kind: 'change',
+  { v: 1172, ts: '2026-09-27T12:24:15.999Z', date: 'Sep 27, 2026, 7:24 AM CT', title: 'The two river warehouses get the doors a warehouse was worked through', kind: 'change',
     items: [
       'The town has two narrow two-storey warehouses on the South Water Street row \u2014 one on the Clark block, one on the La Salle block \u2014 and until now each had a single goods door in the middle of one end and nothing above it. A warehouse is not a store: goods went in at more than one point along its loading side, and they went UP. Both now carry two wide cargo doors side by side, with an even pier of board at each corner and between them, and above each one an upper freight door with its hoist beam projecting out through the gable.',
       'How many doors is not a reading of anything. No record reached counts the cargo openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The number is worked out from the family\u2019s own footprint range instead: its narrowest plan is forty feet deep, two openings leave a pier of 2.62 m between them where three would leave 1.42 m \u2014 less than the eight feet between the principal posts the wall is framed on \u2014 so two is the most every warehouse of that kind will carry. The large river warehouse answers three by the same sum, and there is still no river warehouse standing in the town to build.',
       'The specification also says a hoist beam was not on every one of them, and giving both of these one claims more than that allows. It is taken deliberately, because the same entry asks this archetype for hoist support before the family counts as built, and because nothing in either record tells one warehouse from the other. It is written down as a liberty rather than left to be discovered.',
+    ] },
+  { v: 1171, ts: '2026-09-27T11:35:57.995Z', date: 'Sep 27, 2026, 6:35 AM CT', title: 'Nothing you can see: the release machinery names its own project', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that laps, merges and reports on the work before it reaches you, and a visitor will find the same Chicago as before.',
+      'Three of those scripts worked out which project they were acting on by asking the job they were running in. That is the wrong question: the job belongs to whoever started it, not to the copy of this project the script is standing in. Yesterday the same line put one of this project\u2019s handoff notes, and a label, on an unrelated pull request in a different repository \u2014 which nothing noticed, because both had a request numbered 104 open that day.',
+      'All three now read the project they are checked out of, or take its name as an argument, and refuse in one line rather than guess. Each carries a test that proves the refusal fires, and a test that proves the argument beats the environment; the drift check that had been watching one script watches all four.',
     ] },
   { v: 1170, ts: '2026-09-27T08:10:14.904Z', date: 'Sep 27, 2026, 3:10 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
     items: [

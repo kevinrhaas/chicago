@@ -92,11 +92,17 @@ esac
 exit 0
 `);
   chmodSync(path.join(bin, 'gh'), 0o755);
-  const r = spawnSync('bash', [LAP], {
+  // THE REPOSITORY IS NAMED, and the environment names a STRANGER on purpose
+  // (T-1656). The script no longer reads $GITHUB_REPOSITORY — a run drives these
+  // from a chicago checkout inside a polecat-platform job, so the ambient name is
+  // whoever started the process — so every assertion below now also stands as proof
+  // that the argument wins and the environment is ignored. The refusal itself is
+  // tested at the bottom of this file.
+  const r = spawnSync('bash', [LAP, '--repo', 'kevinrhaas/chicago'], {
     cwd: work,
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, GH_TOKEN: 'fake',
-           LAP_ONLY: '', LAP_BASE: 'dev', GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
+           LAP_ONLY: '', LAP_BASE: 'dev', GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
   });
   return { code: r.status, out: `${r.stdout || ''}${r.stderr || ''}` };
 }
