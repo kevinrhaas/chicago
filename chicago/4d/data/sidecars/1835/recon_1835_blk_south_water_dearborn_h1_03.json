@@ -93,7 +93,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "plan": {
-      "value": "hall_parlour",
+      "value": "centre_passage",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -101,7 +101,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "bays": {
-      "value": 3,
+      "value": 5,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -196,7 +196,7 @@
       ]
     }
   ],
-  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented.",
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented. THE CENTRE HALL IS THE ENTRY'S, NOT THIS PARCEL'S (T-1686). H1 is the only family of the thirty-five whose crosswalk entry names a centre hall and states a bare bay count — its required variant is \"center_hall_one_and_half\" and its variants line reads \"5 bays; center hall; kitchen ell; small porch\" — so the plan and the bay count below are read off that entry and not dealt by this parcel. The kitchen ell and the small porch the same line offers are NOT raised with them: both are selectable variants beside the required one, and an ell is a footprint fact this record's rectangle does not carry.",
   "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
   "review_required": false,
   "reconstruction": {

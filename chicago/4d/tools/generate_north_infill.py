@@ -48,6 +48,7 @@ from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E40
                           families, pitch_deg, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
+from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 # T-0112. The clapboard stock is dealt HERE, at the end of the parcel, because it is
 # the one form value that depends on where a building's neighbours stand — and the
@@ -320,13 +321,17 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
     if family.startswith("D") and family != "D2" or family == "H1":
         stories = 1.5 if family in ("D6", "H1") else (
             2 if family in ("D7", "H2", "H3") else 1)
-        plan = "centre_passage" if family in ("D7", "H2", "H3") else (
-            "single_pen" if family == "D3" else "hall_parlour")
+        # WHICH HOUSES STAND BEHIND A CENTRE HALL is `tools/house_front.py`'s
+        # answer and no longer this file's (T-1686) — additive, so this parcel's
+        # own default stands for every family whose crosswalk entry says nothing.
+        plan = plan_for(family, "centre_passage" if family in ("D7", "H2", "H3") else (
+            "single_pen" if family == "D3" else "hall_parlour"))
         return {
             "stories": inferred(stories, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why), "roof_pitch_deg": inferred(pitch(), why),
             "construction": inferred(frame, why), "plan": inferred(plan, why),
-            "bays": inferred(5 if family in ("D7", "H2", "H3") else 3, why),
+            "bays": inferred(bays_for(family, 5 if family in ("D7", "H2", "H3")
+                                      else 3), why),
             "chimneys": inferred(2 if family.startswith("H") else 1, why),
             "paint": inferred(paint, why),
         }

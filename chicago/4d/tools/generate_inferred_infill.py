@@ -43,6 +43,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 # and the occupancy block arrives from the household programme's ledger.
 from band_notes import split_notes  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
+from house_front import bays_for, plan_for  # noqa: E402
 # THE ONE SAMPLING RULE (T-0273). The eave and the pitch used to be retyped here, one
 # constant per family, and ten of them sat outside the very band their own note cites.
 # They are asked of the family's authored band now, exactly as the block parcel asks
@@ -428,8 +429,12 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
     # because a redeal is not licence to move a roof nobody adjudicated.
     if family.startswith(("D", "H")) and family != "D2":
         big = family in ("D7", "H2")
-        bays = 5 if big else (3 if width >= 5.4 else 2)
-        plan = "centre_passage" if big else ("single_pen" if family == "D3" else "hall_parlour")
+        # WHICH HOUSES STAND BEHIND A CENTRE HALL is `tools/house_front.py`'s
+        # answer and no longer this file's (T-1686) — additive, so this parcel's
+        # own default stands for every family whose crosswalk entry says nothing.
+        bays = bays_for(family, 5 if big else (3 if width >= 5.4 else 2))
+        plan = plan_for(family, "centre_passage" if big
+                        else ("single_pen" if family == "D3" else "hall_parlour"))
         result = {
             "stories": inferred(stories, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why),

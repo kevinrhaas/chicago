@@ -6,6 +6,78 @@ Shared destinations recovered from draft chicago PR #129. No separate destinatio
 
 # STATUS
 
+## H1's centre hall, and H2's two refused variants — T-1686, 2026-09-27
+
+Piece 2 of 4 of T-1202. The Randolph–Washington tier's merchant and professional seats
+stand as H1/H2 houses and not cottages.
+
+**What was wrong.** `plan` is the room arrangement behind the wall and it is what decides
+where the front door goes: `hall_parlour` puts it off centre against the partition and
+spaces the openings unevenly; `centre_passage` is the symmetrical five-bay front with the
+door in the middle. Which families get which was decided **five times**, once inside each
+anonymous parcel, beside the form values — and, exactly like the shed rule
+`tools/roof_form.py` was written for, the five had already drifted from one another:
+
+| parcel | centre passage for | five bays for | chimneys |
+|---|---|---|---|
+| `generate_block_infill.py` | D7, H2 | D7, H2 | 2 for D7 and H2 |
+| `generate_inferred_infill.py` | D7, H2 | D7, H2 | 2 for H2 only |
+| `generate_north_infill.py` | D7, H2, **H3** | D7, H2, **H3** | 2 for every H |
+| `generate_west_infill.py` | D7, H2 | D7, H2 | 2 for every H |
+| `generate_inferred_households.py` | **any two-storey** | any two-storey | 1 for everything |
+
+**And all five refused H1 the centre hall its own crosswalk entry requires.** H1's
+`required_variant` is literally `center_hall_one_and_half`; its variants line reads
+"5 bays; center hall; kitchen ell; small porch"; and it is the only family of the
+thirty-five whose entry names a centre hall, and the only one that states a BARE bay
+count rather than a range. Nothing failed: `validate()` was satisfied, every band the
+crosswalk authors was met, and `band_notes` correctly reported H1's `plan` as a value the
+specification speaks to — while the value was the opposite of what it says. **Seven roofs
+stood on it**, three of them in the Randolph-Washington tier, where the placement policy's
+`merchant_and_professional_dwellings` clause seats the town's merchants and professional
+men, one of them (`blk_randolph_wells_h1_02`) on the same block as the tier's only seated
+merchant household.
+
+**The repair, and what it deliberately does not repair.** The reading lives once, in
+`tools/house_front.py`, and all five parcels ask it. The two readers are **additive**:
+each takes the parcel's own default and returns it untouched unless the family's own entry
+states otherwise, which exactly one family does. So the four disagreements in the table
+above are **filed, in `house_front.KNOWN_DISAGREEMENTS`, and not swept** — each of them
+moves committed roofs that somebody adjudicated (H3's centre passage in the North, D7's
+second chimney, the households parcel's storey-keyed rule), and a redeal is not licence to
+move a roof nobody asked about. The seven H1 roofs are re-baked in the same commit.
+
+**The other half — what H2's entry offers that this town refuses.** H2's variants are
+"Greek doorway; corner boards; 1-2 chimneys" and its roof line is "side gable or hip".
+Measured against what `frame_dwelling` builds:
+
+* **corner boards and the one-to-two chimneys already stand.** The trim IS the
+  construction argument and the corner boards follow the stud module
+  (`frame_dwelling.py` L52); both committed H2s carry two chimneys.
+* **the hip is refused, loudly.** `frame_dwelling_params.ROOF_TYPES` is gable and shed:
+  "a hip, gambrel or mansard roof on a Chicago house in 1835 would be a claim rather than
+  a default, so the archetype refuses it loudly instead of quietly substituting a gable".
+  Until now it *was* substituted quietly, because nothing on the record said the offer had
+  been declined.
+* **the Greek doorway is refused BY DATE**, and the date stands on a committed record
+  rather than on a comment: `data/exclusions.json` § `clarke_house` — the earliest Greek
+  Revival house in Chicago, "Built 1836, and well outside the platted town in any case",
+  earliest scene 1837. So no entablature, corner pilaster or portico stands on a roof of
+  1835-07-01.
+
+Both refusals are now written onto the record a visitor opens, beside the sentence that
+already says which archetype the H family resolves through. Prose is not hashed into
+`generators/mesh_inputs.py`'s staleness recipe, so recording them moved no geometry.
+
+**What is NOT raised, and why.** The kitchen ell and the small porch H1's line also names
+are selectable variants beside the required one, and an ell is a footprint fact — the
+archetype refuses a record whose `ell` and whose polygon disagree — so raising one is a
+question about the ground a house stands on, not about the face it shows the street. Left
+for the tier's remaining pieces and said on the record rather than done quietly.
+
+**Held by** `tools/test_house_front.py` (+ `--self-test`), in `tools/check.sh` beside the
+store-variant gate.
+
 ## The Lake district's books, closed — T-1683, 2026-09-27
 
 Piece 4 of 4 of T-1201. The three build pieces raised and re-familied this district's

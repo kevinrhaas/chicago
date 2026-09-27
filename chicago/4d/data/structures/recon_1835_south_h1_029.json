@@ -87,7 +87,7 @@
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the H1 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
         },
         "plan": {
-          "value": "hall_parlour",
+          "value": "centre_passage",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -95,7 +95,7 @@
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the H1 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
         },
         "bays": {
-          "value": 3,
+          "value": 5,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
