@@ -538,12 +538,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_clark_d3_02",
+   "model_seat": "recon_1835_blk_lake_clark_c3_03",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "fice on Lake street, near tho post office.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c3_03', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_e_l_thrall",
@@ -746,12 +746,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_clark_d1_01",
+   "model_seat": "recon_1835_blk_lake_clark_c2_02",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "opposite Dr. Temple's, Lake-st.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d1_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c2_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_g_spring",
@@ -1747,12 +1747,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_clark_d5_03",
+   "model_seat": "recon_1835_west_007",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "she fina taken 2 room in Lake-atreet; in tue house occupied by Dr. Austin, and oppoaito Dr, Tomplo's",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d5_03', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_stuart_s_confectionary_and_perfumery",
@@ -2150,12 +2150,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_west_007",
+   "model_seat": "recon_1835_blk_lake_clark_c1_01",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "ke at. opposite Dr. Tem tO\n's.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c1_01', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_w_h_brown",

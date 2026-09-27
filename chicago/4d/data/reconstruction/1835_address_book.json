@@ -63688,14 +63688,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d3_02"
+    "id": "recon_1835_blk_lake_clark_c3_03"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c3_03', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64047,14 +64047,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d1_01"
+    "id": "recon_1835_blk_lake_clark_c2_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d1_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c2_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65835,14 +65835,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d5_03"
+    "id": "recon_1835_west_007"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d5_03', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66526,14 +66526,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_west_007"
+    "id": "recon_1835_blk_lake_clark_c1_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c1_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,

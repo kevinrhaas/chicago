@@ -1,5 +1,80 @@
 # STATUS
 
+## Lake Street's Clark corner stands as shops — T-1681, 2026-09-27
+
+Piece 2 of 4 of T-1201, and the same shape as T-1647 one street north. **There is no
+ground to raise a store on.** Both blocks this piece owns read `at_capacity` in the
+665-roof programme — `blk_lake_clark` 16 standing roofs, `blk_lake_dearborn` 13, headroom
+0 on each — and `blk_lake_clark`'s one remaining free lot is lot 5, on Randolph, which
+its own end rule keeps open. So what the Lake business front is made of can only change
+by saying what the roofs standing on it **are**.
+
+**What is wrong, measured on the committed tree.** The Lake faces of the two blocks —
+lots 0, 2, 4 and 6 of each, every one fronting a street this project grades `principal` —
+carried **15 principal roofs, 4 of them store or workshop families**, against the
+**0.6818** documented trade share T-0213 reads off a principal street. `blk_lake_clark`'s
+own Lake face carried nine principal roofs and three stores, and the three units of the
+party-line run on lot 0 — a D1 log cabin and two frame cottages — each had a documented
+Lake Street trade seated in it by the street-face register.
+
+**What this piece did.** Those three slots are re-familied in
+`1835_platted_block_parcels.json` (`refamilied`, T-1681) and their ids move with the
+family: `_d1_01` → `_c1_01`, `_d3_02` → `_c2_02`, `_d5_03` → `_c3_03`. C1, C2 and C3 are
+the three store families the programme still has headroom for in the south division (17
+of 18 standing, 11 of 13, 12 of 17), so the face gains three stores and no family passes
+its target. **C4 is refused and the refusal is the ground's**: a wide mixed block bands at
+28–36 ft of frontage and no unit of this run has more than 22 ft of it.
+
+**Which stands where is the block's own end rule, not an allocation.** T-0079 seated this
+run under the rule that the better roof stands at the town-centre end — east, toward
+Dearborn and the only crossing of the main stem in July 1835 — so the row now ascends
+along the face: C1 at 5.34 m wide and one storey on the Clark corner, C2 at 6.18 m and a
+storey and a half in the middle, C3 at 6.53 m and two full storeys closing the run,
+18.05 m of the lot's 21.75 m of buildable frontage. Same lots, same 0.80 m street line
+(L177), same party walls, same bottom tier; nothing is promoted and no occupant is
+invented.
+
+**The business allocation re-paired itself, and that is the policy working.** Street-face
+adoption ranks a face's documented businesses by evidence and pairs them with its free
+roofs **in id order**, writing `order_is_a_claim: false` on every row. Three ids moved, so
+the Lake face's trades re-paired: W. G. Blanchard and G. Blanshard take the first two
+units, Dr. W. G. Austin's botanic practice the third, and Sarah D. Howe's dress and cloak
+making moved along the same face to `recon_1835_west_007`. None of those pairings is
+evidence, and none of them chose a family.
+
+**`blk_lake_dearborn` moves nothing, and that is a measurement.** Its Lake face already
+carries the two trade roofs the evidence gives it — `dole_warehouse_south` and
+`mason_blacksmith_shop` — with St Mary's church on the lot 6 corner. The four anonymous
+roofs left on it (`recon_1835_south_d3_017`, `_d1_018`, `_d4_019`, `_d6_020`) carry **no
+occupant at all**, so the test that moved the three above does not reach one of them; and
+none is this recipe's to move in any case, because all four belong to
+`phase1_south_mixed_blocks`, whose re-family route is the adjudicated ledger at
+`data/reconstruction/1835_roof_redeal.json`. Re-familying a roof that carries no trade
+would be inventing the trade.
+
+**The order book's dead rows, swept, because they were the gate in the way.** T-1201 was
+split on 2026-09-27 without its `STRUCTURE_TICKETS` rows moving with it, so
+`structures/stores_mixed_use/south` (6 owed) and `structures/workshops/south` (5 owed)
+have been ordering work from a ticket nobody can claim and
+`build_order_book_1835.py --build` has refused to re-derive for **every** child of T-1201
+since. Both rows go to **T-1682**, the only child that still owes both kinds of roof in
+its own words and that outlives the two pieces above it; `inns_taverns/south` stays on
+T-1201 by the `lawyer` rule, because it orders 0 against 5 standing and the id there is
+the record of who filled it. The reasoning is written into the table so the next sweep
+does not flip it.
+
+**Left as written, deliberately.** `docs/unreal/prototype/import_report.json.txt` and
+`renderers/unreal/receipts/mac-253f02657.json` still name the old ids. They are dated
+import receipts and rewriting one falsifies it. Every other file naming them is renamed
+or re-derived, including L144's `**Covers:**` list, L177's decision and L266, whose
+population drops to 73 — 59 log dwellings and 14 fort structures — because the Clark
+corner's log cabin left it for the framed one, the second time that has happened and the
+second time for the same reason.
+
+**Verification.** `tools/check.sh` — 672 steps; baked `--only` the three records plus
+`..._south_water_clark_d4_02` and `..._south_water_lasalle_d3_03`, whose siding stock
+re-dealt when the id set moved.
+
 ## South Water's books, closed — T-1641, 2026-09-27
 
 Piece 4 of 4 of T-1200. The three build pieces raised and re-familied the district's

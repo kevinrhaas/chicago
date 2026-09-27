@@ -275,10 +275,33 @@ HOUSEHOLD_BUCKETS = (
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
     ("south", "ordinary_dwellings"): "T-1203",
-    ("south", "stores_mixed_use"): "T-1201",
+    # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its two
+    # working rows move with it, for the reason stated twice below: a bucket whose
+    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and
+    # `every_work_order_names_a_live_ticket` refuses it on every --build. The split
+    # landed without the sweep, so both rows went dead the moment it did and every
+    # child of T-1201 has been unable to re-derive this book since (T-1681, and the
+    # parcel it unblocks is blk_lake_clark's Lake frontage run).
+    #
+    # BOTH ROWS GO TO T-1682, and the choice is read off the four children's own titles
+    # rather than asserted. T-1680 is a variant ticket — W1's forge chimney, against
+    # blacksmith roofs already standing — and T-1681 re-families three standing cottages
+    # on one block's Lake frontage; both fill from what is already raised, and T-1681
+    # closes with this commit, so a row pointed at it would be dead again within the
+    # hour. T-1683 closes the district's books and raises nothing. T-1682 is the only
+    # child that still owes BOTH kinds of roof in its own words — "the Lake frontage of
+    # the Franklin, La Salle, Wells, Market and Clinton blocks stands as stores, and the
+    # W2-W4 shops take their State and Dearborn faces" — and it outlives the two pieces
+    # above it. THIS IS A DECISION AND IT IS RECORDED HERE so the next sweep does not
+    # flip it, which is the failure the T-1640 paragraph below was written for.
+    ("south", "stores_mixed_use"): "T-1682",
     ("south", "larger_boarding_houses"): "T-1209",
+    # STAYS ON T-1201, by the rule `lawyer` states below: this row orders 0 against 5
+    # standing, so it has nothing left and the id here is the record of who filled it
+    # rather than a work order. Moving it would rewrite that record to quiet a gate
+    # that is not complaining.
     ("south", "inns_taverns"): "T-1201",
-    ("south", "workshops"): "T-1201",
+    ("south", "workshops"): "T-1682",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the

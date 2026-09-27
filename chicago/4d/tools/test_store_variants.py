@@ -112,8 +112,13 @@ def main(break_it: bool = False) -> int:
           for sid, _, ph in committed("C2")]
     stated_half = [(sid, p) for sid, p, ph in c2
                    if float((ph["form"].get("stories") or {}).get("value", 0)) == 1.5]
-    check("eight committed C2 records state a story-and-a-half",
-          len(stated_half) == 8, f"got {len(stated_half)}")
+    # Nine since T-1681, which re-familied blk_lake_clark's Lake frontage run and put a
+    # store-residence in the middle of it. The number is stated rather than counted off
+    # the layer on purpose: this check exists because EIGHT records were silently built
+    # as one-storey shops, and a count that follows the layer would have said nothing
+    # then either. It moves with the town, by hand, in the commit that moves the town.
+    check("nine committed C2 records state a story-and-a-half",
+          len(stated_half) == 9, f"got {len(stated_half)}")
     check("...and every one of them RESOLVES at 1.5, not at 1",
           all(p.half_story for _, p in stated_half),
           ", ".join(f"{s}={p.stories}" for s, p in stated_half if not p.half_story))

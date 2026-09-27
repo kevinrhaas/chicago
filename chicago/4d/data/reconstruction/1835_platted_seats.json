@@ -183,25 +183,25 @@
    "occupants": "Anonymous stock; no occupant is claimed"
   },
   {
-   "structure_id": "recon_1835_blk_lake_clark_d1_01",
+   "structure_id": "recon_1835_blk_lake_clark_c1_01",
    "lot_id": "blk_lake_clark#00",
-   "family": "D1",
+   "family": "C1",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "W. G. Blanchard — house and land agent"
+  },
+  {
+   "structure_id": "recon_1835_blk_lake_clark_c2_02",
+   "lot_id": "blk_lake_clark#00",
+   "family": "C2",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "G. Blanshard — houses and lots for sale or to let"
   },
   {
-   "structure_id": "recon_1835_blk_lake_clark_d3_02",
+   "structure_id": "recon_1835_blk_lake_clark_c3_03",
    "lot_id": "blk_lake_clark#00",
-   "family": "D3",
+   "family": "C3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "Dr. W. G. Austin — practice of medicine, botanic system"
-  },
-  {
-   "structure_id": "recon_1835_blk_lake_clark_d5_03",
-   "lot_id": "blk_lake_clark#00",
-   "family": "D5",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Sarah D. Howe — dress, cloak and habit making"
   },
   {
    "structure_id": "recon_1835_blk_lake_franklin_d1_02",
@@ -453,7 +453,7 @@
    "lot_id": "blk_lake_clinton#04",
    "family": "C1",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "W. G. Blanchard — house and land agent"
+   "occupants": "Sarah D. Howe — dress, cloak and habit making"
   }
  ],
  "plan_left_unclaimed": [

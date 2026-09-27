@@ -1453,9 +1453,9 @@
       },
       "families": {
         "A3": 1,
-        "D1": 1,
-        "D3": 1,
-        "D5": 1
+        "C1": 1,
+        "C2": 1,
+        "C3": 1
       },
       "open_lots": [
         {
@@ -1484,7 +1484,7 @@
       "arrangement_note": "The Lake-and-Clark block — bounded by Lake, Dearborn, Randolph and Clark — and the first block built under the core density standard T-0079 raises. IT IS ALSO ONE OF THE FIVE BLOCKS THAT REFUTED THE OLD ONE: twelve roofs already stand here against a ceiling of ten, put there by the reviewed phase-one parcel and by the inferred trades, so the rule this parcel replaces was not bounding this block — it was only refusing the next roof on it. Six of the eight lots arrive taken and all six are seated by tools/plat_occupancy.py rather than authored here: lot 1 by recon_1835_south_d4_030, lot 2 by inf_bakery_lake, lot 3 by recon_1835_south_d6_031, lot 4 by inf_butcher_market, lot 6 by recon_1835_south_a5_044 and lot 7 by inf_harness_shop. The two free lots are 0, the Lake-and-Clark corner, and 5, on Randolph. THE FACE RULE IS T-A13'S, RE-MEASURED ON THIS BLOCK RATHER THAN ASSERTED: counting every committed structure that is not an anonymous count-unit and stands within 25 m of a street's committed centreline, Lake carries 21 against Randolph's 13, and 15 against 6 if only the documented records are counted. Lake is this block's business face by the town's own record, so the free Lake lot takes the row and the free Randolph lot is the one left open. THE END RULE IS T-A11'S, UNCHANGED: lot 0's frontage midpoint stands 177.9 m from the foot of the Dearborn Street drawbridge and lot 5's 215.8 m, so the open lot is again the farther of the two from the only crossing of the main stem in July 1835, and inside the run the better roof stands at the east end nearer it. WHAT IS NEW IS THE DENSITY AND NOTHING ELSE. Three principal roofs stand on one lot where the old gate allowed one; they occupy 16.86 m of the lot's 21.75 m of buildable frontage, on one line, at one setback, on two shared party walls, and the 4.89 m that remains is at the east end where the run stops rather than at the corner, because the run is west-anchored and builds to the corner. THE FOURTH ROOF IS THE STANDARD'S SECOND CLAUSE — an improved lot carries its outbuildings — so the privy stands in lot 0's own yard at the alley end, behind the row this parcel built, which is the only lot on this block whose yard belongs to a roof this parcel owns. NO ROOF IS ADDED TO THE TOWN: the four come out of south_plat_beyond_committed_control, the district balance waiting on street control past State and Washington, which fell from 175 roofs to 120 when the ceiling rose. None of it is evidence about this block, no lot is numbered, and the side lot lines the row crosses between its own units were conjectural in every record this generator has ever written.",
       "slots": [
         {
-          "family": "D1",
+          "family": "C1",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "lake",
@@ -1494,21 +1494,21 @@
           }
         },
         {
-          "family": "D3",
+          "family": "C2",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "lake",
           "anchor": {
-            "abut_east_of": "recon_1835_blk_lake_clark_d1_01"
+            "abut_east_of": "recon_1835_blk_lake_clark_c1_01"
           }
         },
         {
-          "family": "D5",
+          "family": "C3",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "lake",
           "anchor": {
-            "abut_east_of": "recon_1835_blk_lake_clark_d3_02"
+            "abut_east_of": "recon_1835_blk_lake_clark_c2_02"
           }
         },
         {
@@ -1520,7 +1520,13 @@
           "setback_m": 5.0,
           "lateral_m": 4.0
         }
-      ]
+      ],
+      "refamilied": {
+        "ticket": "T-1681",
+        "parent": "T-1201",
+        "on": "2026-09-27",
+        "why": "T-1681, piece 2 of 4 of T-1201, and it re-families three slots this block already built rather than dealing it any new ground. THE GROUND IS THE FINDING, exactly as it was on T-1647's block. Both of the blocks this piece owns read at_capacity in the 665-roof programme -- blk_lake_clark 16 standing roofs and blk_lake_dearborn 13, headroom 0 on each -- and blk_lake_clark's one remaining free lot is lot 5, on Randolph, which this parcel's own end rule keeps open. So what the Lake business front is MADE OF can only change by saying what the roofs already standing on it are. WHAT IS WRONG TODAY, MEASURED ON THE COMMITTED TREE. The Lake faces of these two blocks -- lots 0, 2, 4 and 6 of each, every one of them fronting a street this project's own hierarchy grades `principal` -- carried 15 principal roofs between them, and 4 of those were store or workshop families, against the 0.6818 documented trade share T-0213 reads off a principal street (1835_665_roof_programme.json, method.business_front.trade_share_by_class). This block's own Lake face carried nine principal roofs, three of them stores; the three units of the party-line run on lot 0 were an older log cabin and two frame cottages, and the street-face register had a documented Lake Street trade seated in every one of them. A documented business standing in a cottage's silhouette on a principal street is the reconstruction contradicting its own business layer, and nothing about the buildings is evidence: all three are anonymous count-units whose family was picked off this block's scheduled mix, and the schedule apportions the family, never the building. WHICH THREE FAMILIES, AND WHY THEY ARE THESE THREE. C1, C2 and C3 are the three store families the 665-roof programme still has headroom for in the south division -- 17 of 18 standing, 11 of 13 and 12 of 17 -- and the run takes one of each, so the face gains three stores without any family passing its own target. C4 is refused and the refusal is the ground's: a wide two-storey mixed block bands at 28-36 ft of frontage and no unit of this run has more than 22 ft of it. WHICH ONE STANDS WHERE IS THE BLOCK'S OWN END RULE AND NOT AN ALLOCATION. T-0079 seated this run under the rule that the better roof stands at the town-centre end, which here is EAST toward Dearborn and the only crossing of the main stem in July 1835. So the run now ascends along the face: C1, the one-storey shop, on the Clark corner; C2, the storey-and-a-half store-residence, in the middle; C3, the narrow two-storey store, closing the run at the east end. That is the same ordering the cottages stood in and the same rule that put them there. IT IS NOT AN ARGUMENT ABOUT WHICH BUSINESS SITS IN WHICH ROOF, BECAUSE THAT IS NOT A READING. Street-face adoption ranks the face's documented businesses by evidence and pairs them with its free roofs IN ID ORDER, and every row it writes carries `order_is_a_claim: false`. Three ids moved here, so the Lake face's trades re-paired across it -- W. G. Blanchard, house and land agent, and G. Blanshard, houses and lots for sale or to let, now take the first two units and Dr. W. G. Austin's botanic practice the third, and Sarah D. Howe's dress and cloak making moved along the same face to recon_1835_west_007. Not one of those pairings is evidence and none of them is what chose a family. What the register does say, and what this re-family answers, is that Lake Street's own documented trade sits on this run at all. WHAT DOES NOT MOVE: no roof changes lot, setback, anchor, party line or lateral offset; none is promoted (all three stay `reconstructed` anonymous count-units at the bottom tier); no occupant is invented -- each keeps whichever the business layer's own allocation gives it -- and the block is dealt no extra roof. The footprint is not authored here either: `generate_block_infill` samples a slot inside its family's own band on a stable key, so all three re-derive, and the crosswalk's `required_variant` for each family is what the archetype then draws -- the one-storey shopfront, the knee-wall attic T-1659 gave C2, and C3's full second storey. The three ids move with the family (_d1_01 -> _c1_01, _d3_02 -> _c2_02, _d5_03 -> _c3_03) and the two abutment anchors in this recipe are carried across with them. BLK_LAKE_DEARBORN MOVES NOTHING, AND THAT IS A MEASUREMENT RATHER THAN AN OMISSION. Its Lake face already carries the two trade roofs the evidence gives it -- dole_warehouse_south and mason_blacksmith_shop, both named and documented -- with St Mary's church on the lot 6 corner. The four anonymous roofs left on that face (recon_1835_south_d3_017, _d1_018, _d4_019 and _d6_020) carry NO occupant at all, so the test that moved the three above does not reach one of them; and none of them is this recipe's to move in any case, because all four belong to `phase1_south_mixed_blocks` and the phase-one parcel's re-family route is the adjudicated ledger at data/reconstruction/1835_roof_redeal.json, not a slot in this file. Re-familying a roof that carries no trade would be inventing the trade."
+      }
     },
     {
       "block_id": "blk_randolph_dearborn",

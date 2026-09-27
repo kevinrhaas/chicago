@@ -103,15 +103,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_lake_clark_a3_04",
-    "recon_1835_blk_lake_clark_d1_01",
-    "recon_1835_blk_lake_clark_d3_02",
-    "recon_1835_blk_lake_clark_d5_03"
+    "recon_1835_blk_lake_clark_c1_01",
+    "recon_1835_blk_lake_clark_c2_02",
+    "recon_1835_blk_lake_clark_c3_03"
    ],
    "standing_families": {
     "recon_1835_blk_lake_clark_a3_04": "A3",
-    "recon_1835_blk_lake_clark_d1_01": "D1",
-    "recon_1835_blk_lake_clark_d3_02": "D3",
-    "recon_1835_blk_lake_clark_d5_03": "D5"
+    "recon_1835_blk_lake_clark_c1_01": "C1",
+    "recon_1835_blk_lake_clark_c2_02": "C2",
+    "recon_1835_blk_lake_clark_c3_03": "C3"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,

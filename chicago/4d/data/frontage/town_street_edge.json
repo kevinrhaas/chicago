@@ -9381,7 +9381,7 @@
     {
       "structure_id": "blk_lake_clark_lot0",
       "wall": "blk_lake_clark north face, lot 0",
-      "why": "recon_1835_blk_lake_clark_d5_03 stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_lake_clark_c3_03 stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_clark_lot2",
@@ -9752,6 +9752,21 @@
       "structure_id": "physicians_office",
       "wall": "blk_lake_lasalle north face, lot 6",
       "why": "the trade at physicians_office is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c1_01",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c1_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c2_02",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c2_02 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c3_03",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c3_03 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_c2_01",
