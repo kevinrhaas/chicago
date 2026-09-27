@@ -1,6 +1,6 @@
 # Prairie Avenue, 1904: the Sanborn 1911 sheets and the Robinson 1886 plate
 
-Received by the owner on **2026-09-23** from **William Tyre, Glessner House**, who is working with
+Received by the owner on **2026-09-23** from an expert at **Glessner House** who is working with
 the project on the Prairie Avenue scene. Committed 2026-09-26 so the Prairie Avenue tickets
 (band 7, SOUTH THROUGH TIME: T-1250–T-1252, T-0474–T-0477) can read them. These are source
 **images only**. Each ticket that spends one writes its own `chicago/4d/data/sources/*.json`

@@ -58,6 +58,30 @@ def chimney_count(phase):
     return v if isinstance(v, int) else 0
 
 
+def roof_top(tops: dict) -> tuple[str | None, float | None]:
+    """(name, height) of the roof COVERING in a set of material tops.
+
+    NOT `tops["roof"]`, which is what both readings asked for until T-1680 and which
+    silently skipped a whole archetype. `common.materials.roof_material_name` names the
+    slot after the covering the sheet deals — `roof_shingle`, `roof_board` — and returns
+    the bare key unchanged when it already begins with `roof`. So the town has more than
+    one roof material name, `outbuilding`'s is `roof_board`, and a lookup of the literal
+    `roof` found nothing on all 133 of them. A stack on one of those was not measured as
+    an offender; it was not measured at all, and the reading printed a shorter table with
+    no sign that anything was missing.
+
+    The prefix is the same convention `roof_material_name` writes, asked for rather than
+    retyped as a list, so an archetype whose covering changes keeps being measured. Where
+    a mesh somehow carries two, the highest wins: the question both gates ask is what a
+    stack has to clear.
+    """
+    roofs = {m: t for m, t in tops.items() if m == "roof" or m.startswith("roof_")}
+    if not roofs:
+        return None, None
+    name, top = max(roofs.items(), key=lambda kv: kv[1])
+    return name, top
+
+
 def material_tops(js):
     """{material name: the highest vertex any primitive of it holds}."""
     tops = {}
@@ -92,15 +116,15 @@ def readings(fort_only=False):
             if key not in by_key:
                 continue
             tops = material_tops(read_glb(ROOT / "assets" / "gltf" / by_key[key])[0])
-            roof = tops.get("roof")
+            roof_name, roof = roof_top(tops)
             if roof is None:
                 continue
-            above = {m: t for m, t in tops.items() if m != "roof" and t > roof}
+            above = {m: t for m, t in tops.items() if m != roof_name and t > roof}
             best = max(above.items(), key=lambda kv: kv[1], default=None)
             out.append({
                 "id": rec["id"], "archetype": arch_of[key], "stacks": n,
                 "roof_top": roof,
-                "material": best[0] if best else "roof",
+                "material": best[0] if best else roof_name,
                 "clear": (best[1] - roof) if best else 0.0,
             })
     return out

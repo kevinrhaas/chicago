@@ -1305,6 +1305,18 @@ step "the freight shed's cargo openings set out once and are read three times" \
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
 
+# W1's forge stack, and the reason it is gated here rather than only on the baked
+# master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so
+# a stack authored under the floor is caught a bake later by a gate that cannot say
+# which archetype did it. This holds both ends of the bracket — the by-law's floor and
+# Andreas's four feet — on the parameters, across every plan W1's own band admits, and
+# with them the end wall the flue rises on and the three refusals the archetype makes.
+step "W1's forge stack clears the by-law on every plan its family band admits" \
+  python3 tools/test_outbuilding_forge.py
+
+selftest "…and that bracket still fires when the head drops under the by-law" \
+  python3 tools/test_outbuilding_forge.py --self-test
+
 # The warehouse families' cargo-door rhythm, one storey up from the freight shed's.
 # Same reason as above and two more of its own: an upper freight door stands over a
 # cargo opening, so the doors on the two storeys have to read ONE set-out or they
@@ -1942,10 +1954,16 @@ selftest "…and the deal's six refusals still fire when broken" \
 # 2026-08-30 (T-0379) refuses a roof, so they are listed with the ruling rather than written
 # onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L276 carries
 # the publication and L270 the invention underneath it.
-step "the South Water roofs still name the keepers the platted deal seated there" \
+# T-1685 ran the same pass for the Randolph–Washington tier, so the ledger is plural: the
+# district rides in `DISTRICTS` with the ticket that carried it, `--check` holds every
+# district the pass has been run for at once, and every seat outside them is still owed by
+# name. It also added the third refusal — seven household cards are still NAMED a
+# letter-list name while their person's flag has been correctly cleared, and one of them is
+# seated on a Randolph roof, so the two statements are published on neither (T-1689).
+step "the platted deal's roofs still name the keepers it seated there" \
   python3 tools/name_the_keepers_1835.py --check
 
-selftest "…and the keeper ledger's five assertions still fire when broken" \
+selftest "…and the keeper ledger's assertions still fire when broken" \
   python3 tools/name_the_keepers_1835.py --self-test
 
 # T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
@@ -2381,6 +2399,9 @@ step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)"
 
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
+
+step "shared destinations and safe stand-offs (T-1277)" \
+  node tools/test_destinations.mjs
 
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of

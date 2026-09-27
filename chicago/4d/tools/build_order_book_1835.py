@@ -275,33 +275,52 @@ HOUSEHOLD_BUCKETS = (
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
     ("south", "ordinary_dwellings"): "T-1203",
-    # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its two
-    # working rows move with it, for the reason stated twice below: a bucket whose
-    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and
-    # `every_work_order_names_a_live_ticket` refuses it on every --build. The split
-    # landed without the sweep, so both rows went dead the moment it did and every
-    # child of T-1201 has been unable to re-derive this book since (T-1681, and the
-    # parcel it unblocks is blk_lake_clark's Lake frontage run).
+    # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
+    # moved with it, for the reason the T-1200 block below states at length: a bucket
+    # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
+    # and the gate says so. Of the four children only two raise anything — T-1681 turns
+    # the Lake frontage of the Dearborn and Clark blocks from cottages into stores, and
+    # T-1682 does the same for the Franklin, La Salle, Wells, Market and Clinton blocks
+    # and takes the mechanics' shops onto their State and Dearborn faces. T-1680 is a
+    # variant ticket against roofs already standing (W1's forge stack) and raises none,
+    # exactly as T-1639's own children did not, so it owns no cell.
     #
-    # BOTH ROWS GO TO T-1682, and the choice is read off the four children's own titles
-    # rather than asserted. T-1680 is a variant ticket — W1's forge chimney, against
-    # blacksmith roofs already standing — and T-1681 re-families three standing cottages
-    # on one block's Lake frontage; both fill from what is already raised, and T-1681
-    # closes with this commit, so a row pointed at it would be dead again within the
-    # hour. T-1683 closes the district's books and raises nothing. T-1682 is the only
-    # child that still owes BOTH kinds of roof in its own words — "the Lake frontage of
-    # the Franklin, La Salle, Wells, Market and Clinton blocks stands as stores, and the
-    # W2-W4 shops take their State and Dearborn faces" — and it outlives the two pieces
-    # above it. THIS IS A DECISION AND IT IS RECORDED HERE so the next sweep does not
-    # flip it, which is the failure the T-1640 paragraph below was written for.
-    ("south", "stores_mixed_use"): "T-1682",
+    # STORES GO TO T-1683, AND THE SENTENCE THIS REPLACES IS WHY. T-1682's sweep (above)
+    # left them on T-1681 "and the row moves to T-1682 when it closes with the cell still
+    # owing" — sound at the time, and overtaken within the hour: T-1682 merged the same
+    # afternoon, so by the time T-1681 came to close, the successor it had been promised
+    # was `done`. T-1681 closes with the pull request this row moved in, so leaving the
+    # row where it stands would put a `done` ticket in a DEAD_TICKET_STATES cell and take
+    # dev red the moment the settle workflow ran — the exact harm the sweep above exists
+    # to prevent, arriving by the route `ticket_liveness.py`'s own header describes: the
+    # gate reads `review`, which is live, and the state that breaks dev lands afterwards.
+    # T-1683 IS THE LAST LIVE CHILD OF T-1201 — piece 4 of 4, `claimed` — and it is the
+    # one this cell belongs to in its own words: it "closes the district's books" and
+    # states whether `reconcile_665` reads at capacity or has headroom, which is where a
+    # store cell that still owes, or that reopens, would be answered for. The same shape
+    # as the taverns' row below, and for the same reason.
+    # WORKSHOPS GO TO T-1684, and the sentence this replaces is why the row could not stay
+    # on T-1682. T-1680's sweep (above, an hour earlier) sent it to T-1682 because "the
+    # W1-W4 shops on State and Dearborn are its second half in as many words" — sound at
+    # the time, and T-1682 then MEASURED that second half and could not spend it. The whole
+    # `fronts` vocabulary the 22-block recipe uses is `lake`, `randolph`, `south_water`,
+    # `washington` — the four LONG faces — and not one slot in this programme's history has
+    # been dealt onto a cross-street face, so a W2-W4 shop on State or Dearborn needs a
+    # short-face placement term the recipe does not have. Every block on those faces reads
+    # `at_capacity` or deals no W head (`blk_south_water_dearborn`'s 4 of headroom is dealt
+    # A3, D6, D7, H1), and the only W-family roof this town holds anywhere is
+    # `recon_1835_north_w5_040`, in the North Division: neither a slot to deal nor a shop to
+    # re-family. T-1684 carries that measurement and owns the question, and T-1682 closes
+    # with the pull request this row moved in — so leaving the row on it would put a `done`
+    # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
+    # ran, which is the exact harm the sweep above exists to prevent.
+    ("south", "stores_mixed_use"): "T-1683",
     ("south", "larger_boarding_houses"): "T-1209",
-    # STAYS ON T-1201, by the rule `lawyer` states below: this row orders 0 against 5
-    # standing, so it has nothing left and the id here is the record of who filled it
-    # rather than a work order. Moving it would rewrite that record to quiet a gate
-    # that is not complaining.
-    ("south", "inns_taverns"): "T-1201",
-    ("south", "workshops"): "T-1682",
+    # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
+    # would answer for it if it ever owed again: T-1683 closes the district's books and
+    # states its headroom, which is where a cell that reopens would be found.
+    ("south", "inns_taverns"): "T-1683",
+    ("south", "workshops"): "T-1684",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the

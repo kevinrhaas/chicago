@@ -401,6 +401,27 @@ def _cargo_opening_count() -> int:
                if _attr(form.get("door")) == "cargo")
 
 
+def _forge_stack_count() -> int:
+    """Phases the `outbuilding` archetype builds a forge stack on, which is the
+    population L282's four invented numbers reach.
+
+    Counted off the LAYER and narrowed to the ONE archetype that draws this shape.
+    `chimneys` is the town's shared count — 213 buildings carry it — and every other
+    archetype builds its own stack under its own liberty (L26 owns the position of
+    all of them); only `outbuilding` builds the hearth-and-flue profile this entry
+    invents. Today the three that state it are the three smithies, and the day a
+    soap-boiler or a bakehouse on this archetype is read as having had a flue, this
+    count moves and the entry has to be restated.
+    """
+    n = 0
+    for rec, form in _phase_forms():
+        if rec.get("archetype") != "outbuilding":
+            continue
+        if (_attr(form.get("chimneys")) or 0) > 0:
+            n += 1
+    return n
+
+
 def _cargo_rhythm_count() -> int:
     """Phases standing at more than one cargo opening, which is the population
     L280's two invented counts reach.
@@ -640,6 +661,11 @@ SCOPE_SOURCES = {
         "data/structures/*.json, the layer's own door attribute; the records "
         "themselves are re-derived by tools/generate_inferred_infill.py --check "
         "and tools/generate_west_infill.py --check"),
+    "structures.phases[chimneys]": (
+        _forge_stack_count,
+        "data/structures/*.json, the layer's own chimneys attribute on the "
+        "outbuilding archetype; the records themselves are re-derived by "
+        "tools/generate_inferred_households.py --check"),
     "structures.phases[cargo_rhythm]": (
         _cargo_rhythm_count,
         "data/structures/*.json, the layer's own goods_door_bays attribute; the "

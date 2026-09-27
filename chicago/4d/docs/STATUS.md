@@ -1,3 +1,9 @@
+## T-1278 - mobile welcome (2026-09-27)
+
+Arrival settles into Jaunts, Explore on my own and Enter Chicago. The inline picker uses T-1277 safe destinations. Start / Jaunts pauses the world and returns focus on close; help waits for first entry. Settings persist. Jaunts are explicitly forthcoming.
+
+Shared destinations recovered from draft chicago PR #129. No separate destination model. See performance/welcome/README.md for validation and integration status.
+
 # STATUS
 
 ## Lake Street's Clark corner stands as shops — T-1681, 2026-09-27
@@ -39,8 +45,33 @@ adoption ranks a face's documented businesses by evidence and pairs them with it
 roofs **in id order**, writing `order_is_a_claim: false` on every row. Three ids moved, so
 the Lake face's trades re-paired: W. G. Blanchard and G. Blanshard take the first two
 units, Dr. W. G. Austin's botanic practice the third, and Sarah D. Howe's dress and cloak
-making moved along the same face to `recon_1835_west_007`. None of those pairings is
-evidence, and none of them chose a family.
+making moved along the same street to `recon_1835_blk_lake_franklin_c2_01` — one of the
+two store-residences T-1682 raised on the Franklin block hours before this landed, which
+is the same policy re-pairing across the whole of Lake Street rather than within one
+block. None of those pairings is evidence, and none of them chose a family.
+
+**The re-cut on `dev` moved that last pairing and nothing else.** This piece was measured
+and baked against a tree that predated T-1682 (#131), T-1675 (#126), T-1624 (#127),
+T-1685 (#134) and T-1687 (#136), and the merge was re-derived rather than resolved:
+every layer that names a roof id was rebuilt by its own tool on the merged tree —
+`adopt_street_faces`, `location_reconciliation`, `location_spend`, `seat_platted_ground`,
+`seat_known`, the manifest tail from `location_spend` down, `redeal_anonymous_roofs`,
+`build_order_book_1835`, `compile_source_use` and `compile_scene` — and the Newberry
+index re-parsed over all four volumes, because the STRUCTURE name layer is one of its
+inputs. `validate.py --stale` reads 423 of 423 assets matching their inputs, so no mesh
+was re-baked for the re-cut: the three masters this piece raised still answer for the
+records that stand on them.
+
+**And the order book's stores row moved one more time, which is this entry's own finding.**
+T-1682 swept the row onto T-1681 "and the row moves to T-1682 when it closes with the cell
+still owing" — overtaken within the hour, because T-1682 merged the same afternoon and was
+`done` by the time T-1681 came to close. So the row goes to **T-1683**, the last live child
+of T-1201 and the piece that closes the district's books and states whether `reconcile_665`
+reads at capacity. Without the move, `ticket_liveness.py`'s own failure shape would have
+landed: the gate reads T-1681 as `review`, which is live, and the `done` that breaks `dev`
+arrives after the gate has passed, when the settle workflow runs. On the merged tree the
+cell reads **41 standing of 42, one owed** — the three roofs this piece re-familied plus
+T-1682's two — and the workshops row stays on T-1684 at 10 of 15.
 
 **`blk_lake_dearborn` moves nothing, and that is a measurement.** Its Lake face already
 carries the two trade roofs the evidence gives it — `dole_warehouse_south` and
@@ -74,6 +105,143 @@ second time for the same reason.
 **Verification.** `tools/check.sh` — 672 steps; baked `--only` the three records plus
 `..._south_water_clark_d4_02` and `..._south_water_lasalle_d3_03`, whose siding stock
 re-dealt when the id set moved.
+
+
+## The civic band beside the public square — T-1687, 2026-09-27
+
+Piece 3 of 4 of T-1202, and the district's civic band turns out to be a closed book with one
+debt left inside it. The reading is written up as §8 of
+`docs/RESEARCH/civic_public_buildings_1835.md`; the short of it:
+
+| the question | the answer, and what says so |
+| --- | --- |
+| I1 worship slots dealt to this district | **none**, across all nine deals its six blocks carry |
+| I2 school slots dealt to this district | **none** |
+| I3 civic slots dealt to this district | **one**, deferred on `blk_randolph_dearborn`, and T-0032 settled the family's live remainder at zero |
+| the roofs the dossier does allow | 4 I1, 2 I2, 3 I3 — all named records, none of them in this tier |
+| what the square carries on 1835-07-01 | the log jail, standing; the estray pen, roofless; nothing else |
+| no fourth civic roof | `measure_institutional_claims.py --gate` at 4/4, 2/2, 3/3, zero anonymous |
+
+**The debt was in the court-house record, and it had been unblocked for five weeks.** The
+dossier's §7 has said since 16 August that two Andreas readings were owed to
+`cook_county_courthouse_1835` — the **north-east corner** and **brick** fabric, both in the one
+sentence that dates the building out of this scene — and that applying them "needs a bake,
+because a changed form value stales the mesh". T-0139 retired that mesh on 23 August, for the
+unrelated reason that the bake cannot reach a phase no scene resolves, and wrote into the record
+that the two amendments were thereby unblocked: *"There is no mesh to stale."* Nobody came back
+for them, because the page that tracked the debt still priced it as geometry. Both are applied
+now. `position` goes to `inferred` — documented corner, derived coordinate, the same rule the
+jail and the pen stand under on this block — and `form.construction` to `brick` at `attested`.
+No coordinate moved.
+
+**Two of the seven things this project had made up about the court-house are withdrawn**, and
+one of them is an admission retired: L61's "sting in the tail" recorded the risk that the
+north-east corner was an 1837 description leaking backwards into an 1835 record, and the passage
+that dates the building gives that corner to THIS court-house. L264's brick population is
+restated from three records to four, with the fourth taking no course — it draws nothing.
+
+**What is owed after this is an archetype, not a citation.** `outbuilding` cannot build brick,
+so the first scene to cover the fall of 1835 will refuse this phase rather than build a plank
+court-house. That is the wanted failure in the wanted place, and it belongs to whichever parcel
+builds that scene, together with the placement `measure_reserved_ground.py` already prints: the
+building's corner is set on the block's corner, so it reads 1 of 4 corners in and overhangs
+Randolph Street as the plat module draws it.
+
+**What a visitor sees.** The jail's card and the pen's card now say what the square held on the
+day — the two later county buildings named and dated out, the east half of the block open
+prairie — and the register of liberties drops two claims about the first court-house. Nothing in
+the town moved: no roof was raised, removed or re-familied, and this district's books are
+T-1688's to close.
+## The Lake frontage of the Franklin and Market blocks stands as stores — T-1682, 2026-09-27
+
+Piece 3 of 4 of T-1201, and the same finding T-1647 reached on the South Water row: the
+composition of a business front that is already full can only change by saying what the
+roofs standing on it ARE.
+
+**The ground, measured on the committed tree.** All seven Lake–Randolph blocks read
+`at_capacity` with headroom 0 in the 665-roof programme — clinton 11 standing of 31,
+market 10, franklin 14, wells 14, lasalle 14, clark 16, dearborn 13 — so no roof can be
+raised on any of them. And only two of the five blocks T-1682 names hold a roof this
+programme may speak for at all: `blk_lake_wells`, `blk_lake_lasalle` and
+`blk_lake_clinton` carry NO record this parcel authored, so their 14, 14 and 11 standing
+roofs belong to the research layer and the phase-one South parcel, and a documented
+building is not this programme's to re-family. That is a refusal on the committed tree,
+not an omission.
+
+**What changed: two of the five Lake-fronting authored roofs.** Both carried a documented
+trade and stood in a cottage's silhouette on the town's Lake Street face:
+
+| roof | was | now | the card that asked |
+|---|---|---|---|
+| `blk_lake_franklin` seq 01 | D5 deep-plan frame cottage | C2 store-residence | William Clay — hat manufacturing and dealing |
+| `blk_lake_market` seq 01 | D5 deep-plan frame cottage | C2 store-residence | a boot, shoe and leather store on Lake street, proprietor not recovered |
+
+C3 and C4 are refused on EVIDENCE rather than on metres: nothing on either card is
+evidence of a second storey or of the capital one implies, and dealing one to make the
+frontage read richer is the confidence upgrade AGENTS.md rule 2 forbids. C2's
+18x30–22x40 ft band overlaps D5's 18x28–24x34, so neither roof grows past the ground
+its slot already stood on.
+
+**What is left as it stands, with the reason.** `blk_lake_franklin` seq 02 is the
+uncertain dentist lodging near Lake Street — dentistry is a profession practised in
+lodgings, not a shop with a counter, which is the ground T-1648 refused a workshop and a
+school on. `blk_lake_market` seq 02 and seq 03 carry no `occupants` block at all, so no
+trade asks them to be stores; seq 04 and seq 05 front Randolph and are off this ticket's
+ground.
+
+**The one thing that MOVED, and the rule that moved it.** The Market slot stood 7.0 m back
+at a dwelling's typology setback, and `generate_block_infill.check_non_dwelling_slot`
+refuses a C roof there — thirteen of the fourteen documented stores in this town stand on
+the street line, so a store's claim on frontage is functional (T-0024). The roof comes
+forward 5.5 m onto the same 1.5 m line every party-line run in this town already stands
+on. Authored at 1.505 m rather than 1.5 m, and that is the derivation noise the generator
+documents twice rather than a relaxation: at 1.500 m the footprint's corner reads 1.49 m
+from the lot ring against a 1.495 m floor, because this lot's side lines are not square to
+its Lake face. 1.505 m is the largest setback T-0024's own gate admits.
+
+**What the adoption machinery then did, unprompted and worth recording.** Two shopfronts
+appeared on the Lake face, so `tools/adopt_street_faces.py` re-dealt the street — and
+which trade sits behind which counter is explicitly an allocation and not a reading of any
+source. Businesses adopted into a house of trade went 21 → 23 and those adopted into a
+roof of no trade 18 → 16. Two more of the town's documented traders now stand behind a
+counter instead of in somebody's parlour, which is the business layer and the
+reconstruction agreeing for the first time on this face.
+
+**The W2–W4 mechanics' shops: refused, and filed as T-1684.** T-1682 also asked for the
+W2–W4 shops to take their State and Dearborn faces. They cannot, and the obstacle is the
+instrument rather than the evidence: the whole `fronts` vocabulary the 22-block recipe
+uses is `lake`, `randolph`, `south_water`, `washington` — the four LONG faces — and not
+one slot in this programme's history has been dealt onto a cross-street face. Every block
+on those faces reads `at_capacity` or deals no W head (`blk_south_water_dearborn`'s 4 of
+headroom is dealt A3, D6, D7, H1), and the only W-family roof this town holds anywhere is
+`recon_1835_north_w5_040` in the North Division. So there is neither a slot to deal nor a
+shop to re-family, and a short-face placement term is more than a field edit.
+
+**The order book, swept in the same PR because it was blocking every branch.** T-1201 went
+to state `split` at 17:37Z, and `STRUCTURE_TICKETS` still named it for
+`stores_mixed_use/south` (6 left), `inns_taverns/south` and `workshops/south` (5 left) —
+so `build_order_book_1835.py --check` refused the book for ordering work nobody can claim,
+on dev and therefore on EVERY branch cut from it. Two finished units (PR #126, PR #127)
+had already been handed on as `resume` PRs for this step, neither of which touched it. All
+three rows go to T-1683, the one child of T-1201 whose own acceptance IS these cells'
+question, so the row does not move again when T-1680, T-1681 or T-1682 closes — which is
+the churn the T-1640 paragraph in that file was written to stop.
+
+**Derived layers carried with the ids.** `_d5_01` → `_c2_01` on both blocks, and every
+layer that named them re-derived by its own tool: fences, dooryard plantings, planted
+rows, frontage works, signboards, yard goods, the lot ledger and platted seats, the
+665-roof programme, the anonymous re-audit, the street-face adoptions, liberties, the
+sidecars, source use, the land tracts, the location reconciliation and spend, the address
+book, the convergence reading, and the Newberry index's parse fingerprint — which covers
+the STRUCTURE name layer, so renaming two roofs moved it and the leads were re-parsed and
+re-ruled (no lead changed its ruling). The two dated Unreal import receipts are NOT
+rewritten, because rewriting a dated receipt falsifies it — T-1483's taxonomy, the same
+refusal T-1647 recorded. The clapboard-stock deal re-dealt two named frame buildings as a
+consequence, so `exchange_coffee_house__frame_1834` and `sauganash_hotel__frame_1831` were
+re-baked alongside the two new store-residences and `blk_lake_market_d4_02`.
+
+**Verification:** `tools/check.sh` — 672 steps; and the smoke legs
+`tools/smoke_budget.mjs --for-diff` names for this diff.
 
 ## South Water's books, closed — T-1641, 2026-09-27
 

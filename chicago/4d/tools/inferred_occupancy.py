@@ -344,6 +344,43 @@ def keeper_assignments(doc: dict | None = None) -> dict[str, dict]:
     return out
 
 
+def keeper_refusals(doc: dict | None = None) -> dict[str, dict]:
+    """The `resident_assignment` block of every roof the deal seated and this pass refused.
+
+    T-1675. A refused roof says so on the record, so `status` is `unassigned` and there is
+    no `household_id` — the two things that keep it honest. Without the id the deal's own
+    `adoptable()` still offers the roof (it reserves on the id and nothing else), so writing
+    the refusal changes no seat; and the letter-list ruling of 2026-08-30, which forbids a
+    structure record naming one of those people, is respected rather than routed around.
+    Both are refused here rather than trusted, because this is the hand-over point where a
+    keeper block becomes part of a re-derived record.
+    """
+    doc = doc if doc is not None else (
+        json.loads(KEEPERS.read_text(encoding="utf-8")) if KEEPERS.exists() else {})
+    out: dict[str, dict] = {}
+    for row in doc.get("refused") or []:
+        if not row.get("on_the_card"):
+            continue
+        sid, block = row.get("structure_id"), row.get("resident_assignment")
+        if not sid or not block:
+            raise LedgerError("a refusal is marked as said on the roof and carries no "
+                              "assignment block")
+        if block.get("status") != "unassigned":
+            raise LedgerError("%s is a refused seat's roof and its assignment does not say "
+                              "unassigned" % sid)
+        if block.get("household_id"):
+            raise LedgerError("%s is a refused seat's roof and names a household anyway — "
+                              "the ruling of 2026-08-30 refuses that cohort a roof, and an "
+                              "id here is the claim it forbids" % sid)
+        if not (block.get("note") or "").strip():
+            raise LedgerError("%s is refused and says no reason, which is the silence "
+                              "T-1675 was filed against" % sid)
+        if sid in out:
+            raise LedgerError("%s is refused twice" % sid)
+        out[sid] = block
+    return out
+
+
 def self_test() -> int:
     """The collision refusal and the limits fire, and the two layers stay distinguishable.
 
