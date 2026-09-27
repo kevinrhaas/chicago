@@ -244,3 +244,50 @@ want to know: the fort road moved, or the ground under it did.
 
 **Added links:** T-1636 (this re-read) · T-1629 (the fill) · `docs/LIBERTIES.md` L274 ·
 `data/structures/south_bank_shed_dearborn_e1.json`.
+
+## The road moved, 2026-09-26 (T-1637)
+
+Section 5 above said the in-the-road count is gated because either of two things could move it:
+the fort road, or the ground under it. **It was the road, three hours later, and for a reason
+that had nothing to do with this page.**
+
+`fort_road` crossed the State slough's new mouth in open water — 3.60 m of its centreline below
+the water surface between local E +849.1 and E +852.7, 162 of the drawn track's 16,614 samples
+wet — so `renderers/web/js/streets.js` clipped the wet panels and the town's way to the fort was
+severed. Nothing says the town laid anything over it: the one sentence this project has about
+crossing this drain puts a log bridge where the town's *graded street* met it, and
+`slough_log_bridge` is that crossing. A second crossing was refused and the invented line moved
+instead, onto State Street at the toe of that bridge's own southern approach (local E +826.84
+N -24.36). Its reach across this strip is gone.
+
+### What that does to the reading on this page
+
+| reading | T-1636 banked | now | why |
+|---|---|---|---|
+| `fits` 0.30 / 0.35 / 1.00 / none | 10 / 15 / 81 / 152 | **91 / 96 / 162 / 233** | the road no longer masks anything here |
+| `fits_in_an_unplatted_track` | 81 / 81 / 81 / 81 | **0 / 0 / 0 / 0** | the road is not on the reach |
+| `fits_beside_the_street` | 0 / 0 / 0 / 3 | **0 / 0 / 0 / 3** | unchanged |
+| widest free strip | 26.50 m at E 813.2 | **26.50 m at E 813.2** | unchanged |
+
+**Not one square metre of ground moved.** The mask moved. And the reading this page was written
+for is the third row: beside the platted street — west of South Water Street's committed east end,
+which is the frontage image 3 draws warehouses on — the answer is still zero at every relief
+clause. **T-0134's refusal stands, on the same figures, one clause harder than when it was
+written.**
+
+### What is genuinely re-opened, and it is filed rather than answered
+
+The 81 positions the road held are released, and they are all EAST of the platted frontage, on
+the unplatted reservation ground between E +805 and the Reservation's west line at E +842. That
+is section 4's ground, not the plate's, and section 4's own conclusion — one shed, sized and
+seated by rule — was reached with the road in it. Two questions follow and neither is this run's:
+
+1. whether anything more of the plate belongs on ground whose only reason for being empty was a
+   road that is no longer there;
+2. whether `south_bank_shed_dearborn_e1` is re-seated or re-faced, since its northing, bearing
+   and door side were read off that road's travelled way. **It has not been moved** — its easting,
+   its ground and its relief test are independent of the road, and re-seating it is a change of
+   geometry and a re-bake. `docs/LIBERTIES.md` L274 carries the revision.
+
+**Added links:** T-1637 (the road's move) · `tools/measure_fort_road_way.py` (the gate that holds
+the road out of the water) · `docs/LIBERTIES.md` L140.
