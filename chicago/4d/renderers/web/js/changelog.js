@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1178, ts: '2026-09-27T16:09:19.481Z', date: 'Sep 27, 2026, 11:09 AM CT', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
+    items: [
+      'Nothing in the town changed and no card moved. This is an addition to the machinery that keeps the town running smoothly on an ordinary laptop, and a visitor will find the same Chicago as before.',
+      'The town is held to a budget: at three quality settings, from five viewpoints, there is a ceiling on how much scenery one frame may contain, and a check refuses the town if any viewpoint goes over. The reading that answers it has always been taken at the END of a batch of new buildings — after they were allotted, after they were drawn, after the models were baked. So a batch found out it had broken the budget only once the work was done.',
+      'That was comfortable while the margins were wide. They are not: at the middle setting the most expensive viewpoint, the river forks seen from Wolf Point, is clearing its ceiling by under two per cent — and the next batch of building is the Lake Street and Dearborn block cores, which stand inside that very view.',
+      'So the instrument now answers the question at the other end. It reads the finished model of every building the town ships, works out what a roof of each kind costs from the model itself, measures how much the sun adds by drawing the same roof a second time, and says plainly how many roofs of each kind the tightest viewpoint still has room for. Ask it about a proposed batch — six cottages and two stores — and it says whether they fit, and with how much to spare.',
+      'It can also be asked against a reading already taken, which costs a second and needs nothing running. No ceiling was moved and no budget was raised; this only puts the number where it can be acted on first.',
+    ] },
   { v: 1177, ts: '2026-09-27T15:34:07.603Z', date: 'Sep 27, 2026, 10:34 AM CT', title: 'A second freight shed stands behind the first on the river bank', kind: 'change',
     items: [
       'The south bank of the river below the Dearborn drawbridge has carried one low freight shed since last night. It now carries two. The second stands on the same two wall lines as the first and a little way behind it, with a loading yard between them that opens westward onto the end of South Water Street \u2014 so a cart comes off the street straight into the yard, and both sheds open their wagon doors onto it.',
