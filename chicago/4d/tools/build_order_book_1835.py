@@ -94,6 +94,7 @@ PROFILE = ROOT / "data" / "reconstruction" / "1835_population_profile.json"
 ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
 PROGRAMME = ROOT / "data" / "reconstruction" / "1835_665_roof_programme.json"
 INVENTORY = ROOT / "data" / "reconstruction" / "1835_building_inventory.json"
+RECONCILIATION = ROOT / "data" / "reconstruction" / "1835_existing_roof_reconciliation.json"
 CROSSWALK = ROOT / "data" / "research" / "books" / "trade_census_1835_crosswalk.json"
 COMPOSITION = ROOT / "data" / "research" / "census_1840" / "composition_1840.json"
 RESIDENTS = ROOT / "data" / "residents" / "index.json"
@@ -307,7 +308,14 @@ STRUCTURE_TICKETS = {
     # ordering work from a ticket nobody can claim, which is the fault the paragraph above
     # was written for; T-1672 owns the question the three remaining roofs actually pose,
     # which is WHERE they stand now that the bank is full.
-    ("south", "warehouses_freight"): "T-1672",
+    #
+    # AND T-1672 CUT IT, IN THE INVENTORY, WHICH IS WHAT THE PARAGRAPH ABOVE ASKED FOR. The
+    # cell is banded — see the note before `structure_buckets` — so it no longer orders as
+    # one bucket and each band names its own owner: the river bank is CLOSED at what stands
+    # and the street line carries the whole order, on T-1673. This entry is what a banded
+    # cell falls back to if its bands are ever taken out of the inventory, so it names the
+    # half that would still owe. It is not read while the bands stand.
+    ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
@@ -1628,10 +1636,172 @@ def business_buckets(crosswalk: dict, register: dict, spend: dict,
     }
 
 
+# THE BANDS INSIDE ONE CELL (T-1672), AND WHY A CELL EVER NEEDS CUTTING.
+#
+# The inventory's group x district matrix is the finest cut the programme has, and for
+# nine of its ten groups that is enough: one ticket builds a division's cottages, and the
+# table above names it. It was not enough for the SOUTH's `warehouses_freight`, and the
+# row said so out loud for a day.
+#
+# That cell holds two kinds of roof standing on two kinds of GROUND. The warehouses stand
+# on platted ground — South Water Street's own party lines and the Lake Street blocks —
+# and were T-1639's to raise. The freight SHEDS stand behind them on the unplatted river
+# margin at the Dearborn reach, and are T-1640's. One cell can name only one owner, so two
+# runs disagreed about who owned the whole row: PR #95 wrote an `owning_tickets` tuple over
+# it and `dev` kept a single ticket. Then T-1639's tree closed — T-1647, T-1648, T-1659,
+# T-1662 and T-1663 all `done` — with the cell's order still unspent, and the remainder
+# silted onto the SHED ticket, whose ground `tools/measure_south_bank_ground.py` reports
+# at capacity and whose frontage T-0134 refuses in writing. The row ordered roofs from a
+# ticket that cannot honestly raise one, and no gate could see it because the two halves
+# were one number.
+#
+# So the cell is cut where its two kinds of ground part — in the inventory, which is the
+# document that authored the cell, rather than in a tuple here — and each half is owed
+# apart. A band is one of exactly two things and says which in its own record:
+#
+#   * a CLOSED band names its members by id prefix and owes NOTHING. Its target IS what
+#     stands in it, so it cannot order a roof at all; what closed it is written in the
+#     band as `closed_by`, so re-opening it means re-reading those refusals rather than
+#     editing a number. It is exempt from the work-order gate for that gate's own ordinary
+#     reason: a bucket with nothing left keeps the id of the ticket that filled it.
+#   * the REMAINDER band takes the rest of the cell — every roof the closed bands do not
+#     hold, and the WHOLE of the cell's order. It is the half that still owes, so it is
+#     the half whose ticket `every_work_order_names_a_live_ticket` holds to being live.
+#
+# NOTHING ABOUT THE PROGRAMME MOVES. A band's target, standing and order are read from the
+# same two documents the cell's are, the closed bands are counted off the standing records
+# themselves, and the bands must add back up to the cell on all three figures —
+# `bands_add_back_up_to_their_cell` below, which is the whole guard against a cut being
+# used as a quiet re-budget. A band is a finer ADDRESS for work already counted.
+
+
+def cell_bands(inventory: dict, group: str, division: str) -> list[dict] | None:
+    """The bands the inventory cuts one group x district cell into, or None."""
+    banded = ((inventory.get("district_group_bands") or {}).get(group) or {}).get(division)
+    if not banded:
+        return None
+    bands = list(banded.get("bands") or ())
+    if len(bands) < 2:
+        raise Fault(f"the inventory cuts {group}/{division} into {len(bands)} band(s): a cut "
+                    "makes two halves or it is not a cut")
+    return bands
+
+
+def band_members_are_in_their_cell(held: list[str], group: str, division: str, band: str,
+                                   reconciliation: dict) -> None:
+    """A closed band's members belong to the cell it cuts, or its prefix has gone stale.
+
+    Read through `reconcile_665.group_of` and the existing-roof reconciliation the
+    668-roof programme itself reads, for the reason `measure_group_district_rows` states
+    about its own count: this gate and the ledger it audits must never be counting
+    different towns.
+    """
+    import reconcile_665 as ledger  # noqa: PLC0415
+    rows = {r.get("structure_id"): r for r in reconciliation.get("records", [])}
+    for sid in held:
+        row = rows.get(sid)
+        if row is None:
+            raise Fault(f"band {band} of {group}/{division} holds {sid}, which the existing-roof "
+                        "reconciliation does not place: a band cannot name a roof the programme "
+                        "has not classified")
+        family = row.get("likely_family") or ""
+        if not family:
+            raise Fault(f"band {band} of {group}/{division} holds {sid}, which the reconciliation "
+                        "gives no family")
+        was = (row.get("district"), ledger.group_of(family))
+        if was != (division, group):
+            raise Fault(f"band {band} of {group}/{division} holds {sid}, which the reconciliation "
+                        f"places in {was[0]}/{was[1]}")
+
+
+def bands_add_back_up_to_their_cell(bands: list[dict], cell: dict,
+                                    group: str, division: str) -> None:
+    """A band is a finer address for work already counted, never a re-budget."""
+    for field in ("target", "standing", "to_build"):
+        got = sum(b[field] for b in bands)
+        if got != cell[field]:
+            raise Fault(f"the bands of {group}/{division} carry {got} against the cell's "
+                        f"{cell[field]} for `{field}`: a cut re-addresses the cell's work, it "
+                        "does not re-budget it")
+    for b in bands:
+        if b["target"] != b["standing"] + b["to_build"]:
+            raise Fault(f"band {b['key']} reads a target of {b['target']} against "
+                        f"{b['standing']} standing and {b['to_build']} to build")
+
+
+def banded_buckets(cell: dict, bands: list[dict], group: str, division: str,
+                   standing_ids: frozenset[str], reconciliation: dict) -> list[dict]:
+    """One bucket per band of a cell the inventory cuts. See the note above."""
+    out: list[dict | None] = []
+    remainder: tuple[int, dict] | None = None
+    taken = 0
+    for band in bands:
+        for field in ("id", "title", "owning_ticket", "why"):
+            if not band.get(field):
+                raise Fault(f"a band of {group}/{division} carries no `{field}`")
+        prefix = band.get("member_id_prefix")
+        if not prefix:
+            if band.get("members") != "the rest of the cell":
+                raise Fault(f"band {band['id']} of {group}/{division} names its members neither "
+                            "by id prefix nor as the rest of the cell")
+            if remainder is not None:
+                raise Fault(f"the inventory cuts {group}/{division} with two remainder bands: "
+                            "the cell's order would be ordered twice")
+            remainder = (len(out), band)
+            out.append(None)
+            continue
+        if band.get("owes") != "nothing":
+            raise Fault(f"band {band['id']} of {group}/{division} names its members by id prefix "
+                        "and still claims an order: only a closed band is named that way")
+        if not band.get("closed_by"):
+            raise Fault(f"band {band['id']} of {group}/{division} owes nothing and says nothing "
+                        "about what closed it")
+        held = sorted(i for i in standing_ids if i.startswith(prefix))
+        if not held:
+            raise Fault(f"band {band['id']} of {group}/{division} matches no standing record on "
+                        f"`{prefix}`: the prefix or the band has gone stale")
+        band_members_are_in_their_cell(held, group, division, band["id"], reconciliation)
+        taken += len(held)
+        out.append({**cell, "key": f"{cell['key']}/{band['id']}",
+                    "axes": {**cell["axes"], "band": band["id"]},
+                    "target": len(held), "standing": len(held), "to_build": 0,
+                    "to_retire_or_redeal": 0,
+                    "owning_ticket": band["owning_ticket"],
+                    "band_title": band["title"], "band_members": held,
+                    "band_closed_by": list(band["closed_by"]),
+                    "basis": f"a CLOSED band: {len(held)} roof(s) stand in it, it orders none, "
+                             f"and {', '.join(band['closed_by'])} closed it — {band['why']}"})
+    if remainder is None:
+        raise Fault(f"the inventory cuts {group}/{division} into closed bands only: the cell's "
+                    "order has nowhere to go")
+    if taken > cell["standing"]:
+        raise Fault(f"the closed bands of {group}/{division} hold {taken} roofs against the "
+                    f"cell's {cell['standing']} standing")
+    at, band = remainder
+    out[at] = {**cell, "key": f"{cell['key']}/{band['id']}",
+               "axes": {**cell["axes"], "band": band["id"]},
+               "target": cell["target"] - taken, "standing": cell["standing"] - taken,
+               "to_build": cell["to_build"],
+               "to_retire_or_redeal": max(0, taken - cell["standing"]),
+               "owning_ticket": band["owning_ticket"],
+               "band_title": band["title"],
+               "basis": f"the REMAINDER band: the cell's {cell['target']} less the "
+                        f"{taken} roof(s) its closed band(s) hold, and the whole of the "
+                        f"{cell['to_build']} the 668-roof programme still orders here — "
+                        f"{band['why']}"}
+    made = [b for b in out if b is not None]
+    bands_add_back_up_to_their_cell(made, cell, group, division)
+    return made
+
+
 def structure_buckets(inventory: dict, programme: dict, occupancy: dict) -> dict:
     matrix = inventory.get("district_group_matrix", {})
     remaining = programme.get("remaining", {}).get("by_district_group", {})
     standing_total = programme.get("standing", {}).get("structure_records")
+    # THE IDS ARE ONLY READ FOR A CELL THE INVENTORY CUTS, and they come off the same walk
+    # over `data/structures` that counted the occupancy beside them.
+    standing_ids = frozenset(occupancy.get("ids") or ())
+    reconciliation: dict = {}
     buckets = []
     for group in sorted(matrix):
         row = matrix[group]
@@ -1644,7 +1814,7 @@ def structure_buckets(inventory: dict, programme: dict, occupancy: dict) -> dict
             ticket = STRUCTURE_TICKETS.get((division, group))
             if ticket is None:
                 raise Fault(f"no build ticket owns {group} in the {division} division")
-            buckets.append({
+            cell = {
                 "key": f"structures/{group}/{division}",
                 "axes": {"group": group, "division": division},
                 "target": target,
@@ -1656,7 +1826,15 @@ def structure_buckets(inventory: dict, programme: dict, occupancy: dict) -> dict
                 "ground_waits_on": GROUND_TICKETS[division],
                 "basis": f"the inventory's district/group matrix sets {target}; the 668-roof "
                          f"programme leaves {to_build} of them to build",
-            })
+            }
+            bands = cell_bands(inventory, group, division)
+            if bands is None:
+                buckets.append(cell)
+                continue
+            if not reconciliation:
+                reconciliation = json.loads(RECONCILIATION.read_text(encoding="utf-8"))
+            buckets.extend(banded_buckets(cell, bands, group, division,
+                                          standing_ids, reconciliation))
     return {
         "roof_target": int(inventory.get("targets", {}).get("roof_total") or 0),
         "standing_records": standing_total,
@@ -1677,17 +1855,22 @@ def occupancy_of(root: Path = ROOT) -> dict:
     if not directory.is_dir():
         raise Fault("data/structures is missing — the book cannot count standing roofs")
     with_occ = without = 0
+    ids = []
     for path in sorted(directory.glob("*.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1
         else:
             without += 1
     if with_occ + without == 0:
         raise Fault("data/structures holds no structure records at all")
-    return {"records": with_occ + without, "with_occupants": with_occ, "without_occupants": without}
+    # `ids` IS CARRIED, NOT PUBLISHED. It is the walk a banded cell counts its closed
+    # bands off (T-1672); the book's own summary takes only the three counts below.
+    return {"records": with_occ + without, "with_occupants": with_occ,
+            "without_occupants": without, "ids": tuple(ids)}
 
 
 def ground_buckets(programme: dict) -> dict:
@@ -3822,6 +4005,64 @@ def cmd_self_test() -> int:
           lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
                                "T-9002": "split", "T-9004": "done",
                                "T-9005": "withdrawn"}, deep))
+
+    # THE CUT'S OWN REFUSALS (T-1672). A cell cut into bands is a finer address for work
+    # already counted, and every way that could stop being true is red here. The fixtures
+    # bend the committed cut — the SOUTH's `warehouses_freight`, the one cell the inventory
+    # bands today — because bending the real one is what proves the real one is held.
+    def banded(mutate):
+        bent = copy.deepcopy(data)
+        cut = bent["inventory"]["district_group_bands"]["warehouses_freight"]["south"]
+        mutate(cut)
+        return lambda: structure_buckets(bent["inventory"], bent["programme"], occ)
+
+    def band_of(cut, band_id):
+        return next(b for b in cut["bands"] if b["id"] == band_id)
+
+    # The committed cut itself: two bands, and the closed one holds the sheds.
+    cells = {b["key"]: b for b in structure_buckets(
+        data["inventory"], data["programme"], occ)["buckets"]}
+    bank = cells["structures/warehouses_freight/south/river_bank"]
+    line = cells["structures/warehouses_freight/south/street_line"]
+    assert bank["to_build"] == 0 and bank["target"] == bank["standing"], bank
+    assert all(i.startswith("south_bank_shed_dearborn_") for i in bank["band_members"]), bank
+    assert "structures/warehouses_freight/south" not in cells, "the cut cell still orders as one"
+    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"][
+        "warehouses_freight"], line
+    fires("a cell cut into one band, which is not a cut",
+          banded(lambda cut: cut.__setitem__("bands", cut["bands"][:1])))
+    fires("a cell cut with two remainder bands, so its order would be ordered twice",
+          banded(lambda cut: cut["bands"].append({**band_of(cut, "street_line"),
+                                                  "id": "second_remainder"})))
+    fires("a closed band whose id prefix matches no standing record",
+          banded(lambda cut: band_of(cut, "river_bank").__setitem__(
+              "member_id_prefix", "no_such_roof_")))
+    fires("a closed band that names its members by prefix and still claims an order",
+          banded(lambda cut: band_of(cut, "river_bank").__setitem__("owes", "one shed")))
+    fires("a closed band that says nothing about what closed it",
+          banded(lambda cut: band_of(cut, "river_bank").pop("closed_by")))
+    fires("a band carrying no owning ticket",
+          banded(lambda cut: band_of(cut, "street_line").pop("owning_ticket")))
+    fires("a band that names its members neither by prefix nor as the rest of the cell",
+          banded(lambda cut: band_of(cut, "street_line").__setitem__("members", "some of it")))
+    # A PREFIX THAT REACHES INTO ANOTHER CELL. The four north-bank sheds at the same reach
+    # are the nearest thing to this band that is not in it — same plate, same drawbridge,
+    # the other side of the water — so they are the fixture: a band may only hold roofs the
+    # programme has classified into the cell it cuts.
+    fires("a closed band whose prefix reaches a roof in another division",
+          banded(lambda cut: band_of(cut, "river_bank").__setitem__(
+              "member_id_prefix", "north_bank_shed_dearborn_")))
+    fires("bands that do not add back up to their cell, which would be a quiet re-budget",
+          lambda: bands_add_back_up_to_their_cell(
+              [{**bank, "target": bank["target"] + 1}, line],
+              {"target": bank["target"] + line["target"], "standing": 0, "to_build": 0},
+              "warehouses_freight", "south"))
+    fires("a band whose own target, standing and order do not close",
+          lambda: bands_add_back_up_to_their_cell(
+              [{**line, "to_build": line["to_build"] + 1, "standing": line["standing"] - 1,
+                "target": line["target"] + 1}],
+              {"target": line["target"] + 1, "standing": line["standing"] - 1,
+               "to_build": line["to_build"] + 1}, "warehouses_freight", "south"))
 
     # THE SEATING JOIN'S FOUR REFUSALS (T-1620). The book reads two files it does not
     # write, and every one of its seat figures is a sum across them — so a file that
