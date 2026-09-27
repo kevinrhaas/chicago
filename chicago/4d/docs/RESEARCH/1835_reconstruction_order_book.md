@@ -598,7 +598,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/barns_stables/north` | 17 | 8 | 9 | 0 | T-1212 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/fort_principal/fort` | 10 | 10 | 0 | 0 | T-1204 |
-| `structures/inns_taverns/south` | 5 | 5 | 0 | 0 | T-1201 |
+| `structures/inns_taverns/south` | 5 | 5 | 0 | 0 | T-1683 |
 | `structures/inns_taverns/west` | 3 | 3 | 0 | 0 | T-1207 |
 | `structures/inns_taverns/north` | 2 | 1 | 1 | 0 | T-1205 |
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1202 |
@@ -614,7 +614,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 9 | 11 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
-| `structures/stores_mixed_use/south` | 42 | 36 | 6 | 0 | T-1201 |
+| `structures/stores_mixed_use/south` | 42 | 36 | 6 | 0 | T-1683 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 2 | 0 | T-1207 |
 | `structures/stores_mixed_use/north` | 4 | 1 | 3 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -622,7 +622,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/warehouses_freight/south/river_bank` | 2 | 2 | 0 | 0 | T-1640 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-1207 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-1205 |
-| `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1201 |
+| `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1683 |
 | `structures/workshops/west` | 8 | 5 | 3 | 0 | T-1207 |
 | `structures/workshops/north` | 7 | 5 | 2 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |
