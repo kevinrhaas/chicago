@@ -4876,14 +4876,25 @@ for (const [label, viewport, touch] of [
         // is one of the signboard rule's PUBLIC_TRADES and a cottage is not — and
         // refuses each in writing, because the trade there is reconstructed and a post
         // would be furniture standing on an invention. 91 refusals to 95. The other
-        // six roofs the same re-family moved are NOT here, and that is the rule rather
-        // than an omission: C1's `small_shop_or_office`, C3's `narrow_two_story_store`,
-        // C4's `wide_two_story_store_or_mixed_block` and F2's
-        // `narrow_two_story_warehouse` are none of them PUBLIC_TRADES, so clause 2
-        // never reaches clause 3 for them. NOTHING ELSE MOVES: walks, crossings, posts
-        // and fences are untouched, because a re-family changes what the building IS
-        // and not where it stands.
-        && frontage.census?.refused === 95
+        // six roofs the same re-family moved were NOT here, and T-1648 read that as
+        // the rule rather than an omission: C1's `small_shop_or_office`, C3's
+        // `narrow_two_story_store`, C4's `wide_two_story_store_or_mixed_block` and
+        // F2's `narrow_two_story_warehouse` were none of them PUBLIC_TRADES, so
+        // clause 2 never reached clause 3 for them.
+        // T-1657 FOUND THAT READING WRONG, and 95 becomes 108. PUBLIC_TRADES is
+        // keyed by `function.value` as the records spell it — `store_residence` and
+        // `blacksmith_shop` are archetype-family terms and have always been in it —
+        // so those four terms were a silent omission and not a rule. All four are
+        // ruled on now, and thirteen roofs the hitching rule had never LOOKED at
+        // each get a written refusal: the three F-band roofs (Clark's seq-01,
+        // La Salle's seq-10 and south_f1_038) by clause 2, as a works that took
+        // drays at a yard gate, and the ten C-band roofs by clause 3, because the
+        // schedule dealt their trade rather than evidence holding it. NOTHING ELSE
+        // MOVES, and that is the whole shape of the fix: 18 posts, 16 of them the
+        // street edge's own, 86 walk/crossing runs and 31 fence runs, all
+        // unchanged. A trade the rule can finally see is still a trade the rule
+        // refuses — what changes is that it says so.
+        && frontage.census?.refused === 108
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
