@@ -77,6 +77,116 @@ for the tier's remaining pieces and said on the record rather than done quietly.
 
 **Held by** `tools/test_house_front.py` (+ `--self-test`), in `tools/check.sh` beside the
 store-variant gate.
+## Lake Street's Clark corner stands as shops — T-1681, 2026-09-27
+
+Piece 2 of 4 of T-1201, and the same shape as T-1647 one street north. **There is no
+ground to raise a store on.** Both blocks this piece owns read `at_capacity` in the
+665-roof programme — `blk_lake_clark` 16 standing roofs, `blk_lake_dearborn` 13, headroom
+0 on each — and `blk_lake_clark`'s one remaining free lot is lot 5, on Randolph, which
+its own end rule keeps open. So what the Lake business front is made of can only change
+by saying what the roofs standing on it **are**.
+
+**What is wrong, measured on the committed tree.** The Lake faces of the two blocks —
+lots 0, 2, 4 and 6 of each, every one fronting a street this project grades `principal` —
+carried **15 principal roofs, 4 of them store or workshop families**, against the
+**0.6818** documented trade share T-0213 reads off a principal street. `blk_lake_clark`'s
+own Lake face carried nine principal roofs and three stores, and the three units of the
+party-line run on lot 0 — a D1 log cabin and two frame cottages — each had a documented
+Lake Street trade seated in it by the street-face register.
+
+**What this piece did.** Those three slots are re-familied in
+`1835_platted_block_parcels.json` (`refamilied`, T-1681) and their ids move with the
+family: `_d1_01` → `_c1_01`, `_d3_02` → `_c2_02`, `_d5_03` → `_c3_03`. C1, C2 and C3 are
+the three store families the programme still has headroom for in the south division (17
+of 18 standing, 11 of 13, 12 of 17), so the face gains three stores and no family passes
+its target. **C4 is refused and the refusal is the ground's**: a wide mixed block bands at
+28–36 ft of frontage and no unit of this run has more than 22 ft of it.
+
+**Which stands where is the block's own end rule, not an allocation.** T-0079 seated this
+run under the rule that the better roof stands at the town-centre end — east, toward
+Dearborn and the only crossing of the main stem in July 1835 — so the row now ascends
+along the face: C1 at 5.34 m wide and one storey on the Clark corner, C2 at 6.18 m and a
+storey and a half in the middle, C3 at 6.53 m and two full storeys closing the run,
+18.05 m of the lot's 21.75 m of buildable frontage. Same lots, same 0.80 m street line
+(L177), same party walls, same bottom tier; nothing is promoted and no occupant is
+invented.
+
+**The business allocation re-paired itself, and that is the policy working.** Street-face
+adoption ranks a face's documented businesses by evidence and pairs them with its free
+roofs **in id order**, writing `order_is_a_claim: false` on every row. Three ids moved, so
+the Lake face's trades re-paired: W. G. Blanchard and G. Blanshard take the first two
+units, Dr. W. G. Austin's botanic practice the third, and Sarah D. Howe's dress and cloak
+making moved along the same street to `recon_1835_blk_lake_franklin_c2_01` — one of the
+two store-residences T-1682 raised on the Franklin block hours before this landed, which
+is the same policy re-pairing across the whole of Lake Street rather than within one
+block. None of those pairings is evidence, and none of them chose a family.
+
+**The re-cut on `dev` moved that last pairing and nothing else.** This piece was measured
+and baked against a tree that predated T-1682 (#131), T-1675 (#126), T-1624 (#127),
+T-1685 (#134) and T-1687 (#136), and the merge was re-derived rather than resolved:
+every layer that names a roof id was rebuilt by its own tool on the merged tree —
+`adopt_street_faces`, `location_reconciliation`, `location_spend`, `seat_platted_ground`,
+`seat_known`, the manifest tail from `location_spend` down, `redeal_anonymous_roofs`,
+`build_order_book_1835`, `compile_source_use` and `compile_scene` — and the Newberry
+index re-parsed over all four volumes, because the STRUCTURE name layer is one of its
+inputs. `validate.py --stale` reads 423 of 423 assets matching their inputs, so no mesh
+was re-baked for the re-cut: the three masters this piece raised still answer for the
+records that stand on them.
+
+**And the order book's stores row has now been swept three times in one afternoon, which is
+this entry's own finding.** T-1680 sent it to T-1682; T-1682 measured its own second half,
+could not spend it, and sent it to T-1681 "and the row moves to T-1682 when it closes with
+the cell still owing" — overtaken within the hour, because T-1682 merged the same afternoon
+and was `done` by the time T-1681 came to close. T-1683 was then the last live child of
+T-1201, and it merged too (#138) while this piece was being re-cut. **T-1681 closes with
+this pull request, so all four children of T-1201 are now closed and the split parent has
+no live descendant either** — there is no ticket left in that family to name. Naming one
+anyway lands `ticket_liveness.py`'s own failure shape: the gate reads `review`, which is
+live, and the `done` that takes `dev` red arrives after the gate has passed, when the
+settle workflow runs.
+
+So the cell gets a ticket of its own, filed the way T-1684 was filed for the workshops row
+beside it — by the run that found the hole, carrying the measurement. **T-1694**: on the
+merged tree the cell reads **41 standing of 42, one owed** (the three roofs this piece
+re-familied plus T-1682's two), and every block of the Lake–Randolph tier reads
+`at_capacity`, so the last south store has no ground in the platted core to stand on. That
+is a question about where it goes, and it is not this piece's to answer — re-familying a
+fourth roof to close the cell would be inventing a trade, which is the refusal
+`blk_lake_dearborn` is already recorded under below. The workshops row stays on T-1684 at
+10 of 15.
+
+**`blk_lake_dearborn` moves nothing, and that is a measurement.** Its Lake face already
+carries the two trade roofs the evidence gives it — `dole_warehouse_south` and
+`mason_blacksmith_shop` — with St Mary's church on the lot 6 corner. The four anonymous
+roofs left on it (`recon_1835_south_d3_017`, `_d1_018`, `_d4_019`, `_d6_020`) carry **no
+occupant at all**, so the test that moved the three above does not reach one of them; and
+none is this recipe's to move in any case, because all four belong to
+`phase1_south_mixed_blocks`, whose re-family route is the adjudicated ledger at
+`data/reconstruction/1835_roof_redeal.json`. Re-familying a roof that carries no trade
+would be inventing the trade.
+
+**The order book's dead rows, swept, because they were the gate in the way.** T-1201 was
+split on 2026-09-27 without its `STRUCTURE_TICKETS` rows moving with it, so
+`structures/stores_mixed_use/south` (6 owed) and `structures/workshops/south` (5 owed)
+have been ordering work from a ticket nobody can claim and
+`build_order_book_1835.py --build` has refused to re-derive for **every** child of T-1201
+since. Both rows go to **T-1682**, the only child that still owes both kinds of roof in
+its own words and that outlives the two pieces above it; `inns_taverns/south` stays on
+T-1201 by the `lawyer` rule, because it orders 0 against 5 standing and the id there is
+the record of who filled it. The reasoning is written into the table so the next sweep
+does not flip it.
+
+**Left as written, deliberately.** `docs/unreal/prototype/import_report.json.txt` and
+`renderers/unreal/receipts/mac-253f02657.json` still name the old ids. They are dated
+import receipts and rewriting one falsifies it. Every other file naming them is renamed
+or re-derived, including L144's `**Covers:**` list, L177's decision and L266, whose
+population drops to 73 — 59 log dwellings and 14 fort structures — because the Clark
+corner's log cabin left it for the framed one, the second time that has happened and the
+second time for the same reason.
+
+**Verification.** `tools/check.sh` — 675 steps, none red; baked `--only` the three records plus
+`..._south_water_clark_d4_02` and `..._south_water_lasalle_d3_03`, whose siding stock
+re-dealt when the id set moved.
 
 ## The Lake district's books, closed — T-1683, 2026-09-27
 

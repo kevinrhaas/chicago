@@ -1,10 +1,10 @@
 {
-  "id": "recon_1835_blk_lake_market_c2_01",
+  "id": "recon_1835_blk_lake_clark_c2_02",
   "phase": "inferred_1835",
-  "name": "Reconstructed C2 store-residence #01",
+  "name": "Reconstructed C2 store-residence #02",
   "aka": [],
   "archetype": "frame_storefront",
-  "asset": "gltf/recon_1835_blk_lake_market_c2_01__inferred_1835.glb",
+  "asset": "gltf/recon_1835_blk_lake_clark_c2_02__inferred_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
   "documented_range": {
@@ -16,13 +16,13 @@
   },
   "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
   "placement": {
-    "local_e": 181.743,
-    "local_n": -135.558,
-    "rotation_deg": 0.34,
+    "local_e": 594.072,
+    "local_n": -139.148,
+    "rotation_deg": 0.47,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 1.5 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
-    "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Lake, Franklin, Randolph and Market; standing back from the Lake Street frontage",
+    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-0078). This building does not stand centred on a lot at a typology setback: it stands ON the north face of blk_lake_clark, the block's Lake Street frontage, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json — the same committed geometry the lot grid and the corridor gate are derived from. Its front wall is 0.80 m back from that lot line, which is NOT a measurement of this frontage either: it is the line the buildings already standing on this face were built to, adopted so that the face carries one street wall rather than two (T-0104). The plat module's lot margin still fixes the side lines this run stands clear of; what it does not fix is a street line that other records had already set, and its west wall is fixed by the east wall of recon_1835_blk_lake_clark_c1_01, which it shares a party line with. The bearing is the face's own, so the front looks square at Lake Street. The run carries no lateral offset, because a shared party wall is one wall and cannot wander. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a building stood here at all, which building it was, and that these particular units stood shoulder to shoulder. What the 1834 South Water Street view supports is the TREATMENT — a continuous working row of party walls rather than detached cottages set back on grass. The treatment is what this placement takes from it, and a run standing on any other face of the town is borrowing it from that one street: the view draws a row, it does not place this row. Standing on a derived block face is not standing on a recovered lot, and the side lot lines this row crosses were always conjectural.",
+    "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Lake, Dearborn, Randolph and Clark; standing ON the Lake Street frontage itself, one unit of the party-line row along it",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -35,21 +35,21 @@
         0
       ],
       [
-        6.079,
+        6.175,
         0
       ],
       [
-        6.079,
-        10.702
+        6.175,
+        11.643
       ],
       [
         0,
-        10.702
+        11.643
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "A 6.08 × 10.70 m rectangle sampled deterministically inside the C2 family's authored footprint band; no individual dimensions are documented."
+    "note": "A 6.17 × 11.64 m rectangle sampled deterministically inside the C2 family's authored footprint band; no individual dimensions are documented."
   },
   "attributes": {
     "stories": {
@@ -61,7 +61,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "wall_height_m": {
-      "value": 3.724,
+      "value": 3.95,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -77,7 +77,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "roof_pitch_deg": {
-      "value": 42.3,
+      "value": 39.4,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -93,7 +93,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "construction": {
-      "value": "braced_frame",
+      "value": "balloon_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -109,7 +109,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "paint": {
-      "value": "unpainted",
+      "value": "red",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -170,12 +170,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the C2 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "William Clay — hat manufacturing and dealing",
+      "value": "G. Blanshard — houses and lots for sale or to let",
       "confidence": "reconstructed",
       "sources": [
         "chicago_democrat_1833_1835"
       ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Lake Street AND NOTHING NARROWER — 1 printing, 1834-06-04 to 1834-06-04, claims chicago_democrat_1834_06_04#c012 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES Lake Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Lake Street AND NOTHING NARROWER — 2 printings, 1834-10-08 to 1834-11-12, claims chicago_democrat_1834_10_08#c004, chicago_democrat_1834_11_12#c012 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES Lake Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],
@@ -236,15 +236,21 @@
     "family": "C2",
     "district": "south",
     "inventory_class": "principal_functional",
-    "programme_phase": "phase3_platted_block_lake_market",
+    "programme_phase": "phase3_platted_block_lake_clark",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "block_id": "blk_lake_market",
-    "lot_index": 6,
-    "stands_on": "street",
+    "block_id": "blk_lake_clark",
+    "stands_on": "frontage",
     "fronts": "lake",
-    "sequence": 1,
-    "finish_key": "ochre",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "sequence": 2,
+    "finish_key": "red_oxide",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "frontage": {
+      "block": "blk_lake_clark",
+      "face": "north",
+      "setback_m": 0.8,
+      "abuts": "recon_1835_blk_lake_clark_c1_01",
+      "why": "T-0079, the third and last piece of the owner's flagged-important ask of 2026-08-18: \"there should be more and denser buildings. this is important.\" THIS RUN IS THE DEMONSTRATION OF THE CORE DENSITY STANDARD and it is the first row in this project to stand three roofs on one lot. The old gate made a run carry exactly one roof per lot it was dealt, so this block's single free Lake lot could take a single cottage set back in the middle of it — which is the shape the owner's Tremont Street reference (data/sources/assets/owner_brief_2026_08_18/README.md, image 5) is a picture of the town NOT having. The standard's ceiling is three units per lot, measured at the smallest lot on the committed grid, and this run spends all three. IT BUILDS TO THE CORNER, which is the clause of the standard no run could satisfy before it: anchored on the WEST end of its own frontage, the log dwelling's west wall stands 1.5 m from the Clark side line — the closest line the plat module's own margin allows — and the other two chain east off its wall in turn. WITHIN THE RUN THE END RULE ORDERS THEM, unchanged from every block of this row: better roofs nearer the town-centre end, which here is east toward Dearborn and the only crossing of the main stem in July 1835. So the log dwelling takes the Clark corner, the one-room cottage stands next to it and the deep-plan cottage closes the run at the east end, 10.58 m short of the bakery that already stands on the next lot. THIS RUN EXTENDS T-0077'S ROW ON THE SAME FACE: recon_1835_south_d3_013, inf_butcher_market, recon_1835_south_d4_014, recon_1835_south_d5_016 and recon_1835_south_c3_015 already stand shoulder to shoulder from 63.56 m to 97.57 m along this face, and inf_bakery_lake at 28.93 m to 34.49 m; the new run occupies 1.50 m to 18.36 m, so the Lake face of this block now carries built frontage at its west corner, its middle and its east end. NO COORDINATE IS AUTHORED HERE: the line, its bearing and the end the run packs away from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage."
+    }
   }
 }
