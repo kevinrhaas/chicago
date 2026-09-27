@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1182, ts: '2026-09-27T18:07:01.039Z', date: 'Sep 27, 2026, 1:07 PM CT', title: 'The blacksmiths get their chimneys', kind: 'change',
+    items: [
+      'The town has three blacksmith shops drawn as board sheds \u2014 Asahel Pierce\u2019s at Lake and Canal, Matthias Mason & Co.\u2019s, and a reconstructed smithy on the west side. Every one of them stood with a doorway and nothing over the roof. A forge is the one thing about a smithy anybody in the street would have noticed, and there was no smoke anywhere.',
+      'Each now carries a brick stack: a broad hearth mass against the end wall, stepping in to a narrower flue that rises through the roof and out over the ridge. The end it stands on is never the one the main door is cut into, so the fire is not in the way of the work.',
+      'Nothing about the forge is recorded anywhere. No source gives its size, its position in the shop or what it was built of. What bounds the invention is the work \u2014 a fire bed wide enough to lay a bar across \u2014 and two figures the town itself wrote down: the trustees required eighteen inches of chimney above a roof in August 1835, and Andreas remembered a Chicago with no chimney four feet above any. The head sits between them. The register of things we made up carries all of it.',
+      'Brick, not clay, and for a reason: a stack built outside a wall can be pulled down when it catches fire, which is why the log cabins here have clay ones. A forge is a hearth kept hot all day under a board roof, so its flue goes up inside the building and has to be masonry. Brick was being made on the North Side from 1833.',
+      'Two long-standing checks \u2014 one on that eighteen inches, one that catches a chimney painted the colour of its own roof \u2014 turn out to have been skipping all 133 sheds and stables in the town, because they looked for a roof material by one literal name and a shed\u2019s is called something else. They now find every roof, and both smithies\u2019 stacks are measured like everyone else\u2019s.',
+    ] },
   { v: 1181, ts: '2026-09-27T17:21:55.929Z', date: 'Sep 27, 2026, 12:21 PM CT', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
     items: [
       'Nothing in the town changed and no card moved. This is an addition to the machinery that keeps the town running smoothly on an ordinary laptop, and a visitor will find the same Chicago as before.',

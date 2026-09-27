@@ -1305,6 +1305,18 @@ step "the freight shed's cargo openings set out once and are read three times" \
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
 
+# W1's forge stack, and the reason it is gated here rather than only on the baked
+# master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so
+# a stack authored under the floor is caught a bake later by a gate that cannot say
+# which archetype did it. This holds both ends of the bracket — the by-law's floor and
+# Andreas's four feet — on the parameters, across every plan W1's own band admits, and
+# with them the end wall the flue rises on and the three refusals the archetype makes.
+step "W1's forge stack clears the by-law on every plan its family band admits" \
+  python3 tools/test_outbuilding_forge.py
+
+selftest "…and that bracket still fires when the head drops under the by-law" \
+  python3 tools/test_outbuilding_forge.py --self-test
+
 # The warehouse families' cargo-door rhythm, one storey up from the freight shed's.
 # Same reason as above and two more of its own: an upper freight door stands over a
 # cargo opening, so the doors on the two storeys have to read ONE set-out or they

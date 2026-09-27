@@ -90,7 +90,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 from measure_glbs import read_glb                       # noqa: E402
-from measure_stack_fabric import chimney_count, material_tops   # noqa: E402
+from measure_stack_fabric import chimney_count, material_tops, roof_top   # noqa: E402
 from measure_corporation_limits import split as corporation_split   # noqa: E402
 
 #: Eighteen inches, stated converted per data/datum.json's units rule.
@@ -123,7 +123,10 @@ def readings():
             if key not in by_key:
                 continue
             tops = material_tops(read_glb(ROOT / "assets" / "gltf" / by_key[key])[0])
-            roof = tops.get("roof")
+            # The COVERING, whatever the sheet named it — `roof_top` and not
+            # `tops["roof"]`, which skipped every `outbuilding` in the town until
+            # T-1680 because its slot is called `roof_board`.
+            _, roof = roof_top(tops)
             if roof is None:
                 continue
             stack = {m: t for m, t in tops.items() if m in STACK_MATERIALS}
