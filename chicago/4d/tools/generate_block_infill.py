@@ -55,7 +55,12 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 # T-E2's refused ground is resolved from the committed traces rather than stored, so the
 # generator asks the same command the gate does instead of keeping its own copy.
-from band_notes import split_notes  # noqa: E402
+from band_notes import BAY_RANGE_RE, split_notes  # noqa: E402
+# T-1667. The shop-bay count the crosswalk authors is a FACADE-bay count and this
+# archetype's parameter counts show windows, so the mapping and the set-out arithmetic
+# are read from the archetype rather than retyped here — the same reason `family_bands`
+# exists. docs/FACADE-BAYS.md is the argument for the mapping.
+from archetypes import frame_storefront_params as storefront  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from measure_no_build_ground import inside as point_in_ring  # noqa: E402
 from measure_no_build_ground import region_ring as no_build_ring  # noqa: E402
@@ -115,9 +120,9 @@ from reconcile_665 import houses_a_household, inventory_class  # noqa: E402
 # used to live in this file; the North Division parcel needed the same arithmetic and
 # had a retyped constant instead, so the rule moved to one module both import
 # (ROADMAP T-V1).
-from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E402
-                          eave_limits, families, pitch_deg, stable_fraction,
-                          storeys, wall_height_m)
+from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E402
+                          eave_for_ridge, eave_limits, families, pitch_deg,
+                          stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 
@@ -420,6 +425,76 @@ def band_note(family: str) -> str:
             "specification; it is not evidence for this anonymous instance.")
 
 
+def shop_bays(family: str, spec: dict, front_m: float) -> int | None:
+    """The show-window count to AUTHOR on a shopfronted store, or None to let the
+    archetype's own default answer.
+
+    ASKED, NOT ASSUMED (T-1667), and the second time this generator has had to ask the
+    crosswalk a question it used to answer with a rule of thumb — `gable_front` was the
+    first, one ticket earlier. The archetype picks a bay count from the frontage, capped
+    at `SHOPFRONT_MAX_FRACTION` (45%) of the front. That cap was argued for a store
+    filling a 55 ft lot frontage with its eaves to the street, and it is a DEFAULT for a
+    record that says nothing — so on the narrow end of a wide family's own footprint band
+    it refuses the family's authored minimum and drops to its one-window floor. That is
+    how the town's single C4 came to stand at 2 facade bays against an authored 4-6.
+
+    So: where the family's variants line states a bay range AND the default lands outside
+    it, the count is STATED, at the lowest count in band the frontage can actually carry
+    with `PIER_MIN_M` of wall left at each end. Three things this deliberately does not
+    do — each is a silence a later reader would otherwise have to test for:
+
+      * it does not move `SHOPFRONT_MAX_FRACTION`. One fraction cannot serve both ends of
+        a band that nearly doubles in width, and moving it would move twenty other
+        committed shopfronts for one building's sake.
+      * it does not touch a family whose default is already in band. C3's "2-3 shop bays"
+        asks for 1 or 2 windows and the default answers 1, so every committed C3 keeps
+        the count it has and its mesh does not move.
+      * it does not reach for a count the wall cannot hold. A frontage that affords
+        nothing in band returns None and stands outside its band, where
+        `tools/test_shopfront_bay_count.py`'s `SPEC_SHORTFALL` is the thing that says so.
+        Building a front the frame refuses would only move the refusal to bake time.
+    """
+    if family.startswith("F"):
+        return None                      # no shopfront on the freight families
+    m = BAY_RANGE_RE.search(str(spec.get("variants") or ""))
+    if not m:
+        return None                      # the family authors no range to be inside
+    lo, hi = int(m.group(1)), int(m.group(2))
+    if lo <= storefront.facade_bays(storefront.default_shopfront_bays(front_m)) <= hi:
+        return None                      # the default is already in band; leave it alone
+    afford = front_m - 2 * storefront.PIER_MIN_M
+    fits = [b for b in range(1, 5)
+            if lo <= storefront.facade_bays(b) <= hi
+            and storefront.shopfront_width_m(b) <= afford]
+    return min(fits) if fits else None
+
+
+def shop_bays_note(family: str, spec: dict, front_m: float, bays: int) -> str:
+    """Why that count, in the arithmetic that chose it. The reader of the card gets the
+    measurement, not the assertion — this value is the one form attribute on these
+    records that is NOT the generator's type default, so the note has to say what it is
+    instead."""
+    m = BAY_RANGE_RE.search(str(spec.get("variants") or ""))
+    lo, hi = int(m.group(1)), int(m.group(2))
+    opening = storefront.shopfront_width_m(bays)
+    default = storefront.default_shopfront_bays(front_m)
+    return (f"STATED RATHER THAN DEFAULTED (T-1667). The {family} variants line authors "
+            f"{lo}-{hi} bays, and a facade bay counts the door (docs/FACADE-BAYS.md), so "
+            f"the family asks this archetype for {lo - 1} to {hi - 1} show windows. Its "
+            f"own default answers {default} on this "
+            f"{front_m:.3f} m front — {storefront.facade_bays(default)} facade bays, "
+            f"outside the band — because SHOPFRONT_MAX_FRACTION "
+            f"({storefront.SHOPFRONT_MAX_FRACTION:.0%}) refuses "
+            f"{opening / front_m:.1%} of the front, and that fraction was argued for a "
+            f"store filling a 55 ft lot frontage rather than for the narrow end of this "
+            f"family's own footprint band. {bays} is the LOWEST count in band this "
+            f"frontage carries: {opening:.3f} m of opening leaves "
+            f"{(front_m - opening) / 2:.3f} m of plain wall at each end against a "
+            f"{storefront.PIER_MIN_M:.2f} m minimum pier. Nothing here is evidence that "
+            f"this front carried {storefront.facade_bays(bays)} openings; it is the "
+            f"family's authored range taken at its minimum.")
+
+
 def form_for(family: str, spec: dict, key: str, width: float, depth: float,
              paint: str) -> dict:
     """Form values, with the storey count, eave height and pitch read off the crosswalk.
@@ -534,7 +609,8 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         return result
 
     if family.startswith(("C", "F")) and family != "F1":
-        return {
+        cargo_bays = cargo_door_bays(family, spec["band_ft"])
+        result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
             "roof_type": invented("gable", why),
             "roof_pitch_deg": invented(pitch(), why),
@@ -565,7 +641,42 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             "chimneys": invented(1 if not family.startswith("F") else 0, why),
             "shopfront": invented(not family.startswith("F"), why),
             "goods_door": invented(True, why), "goods_door_side": invented("end", why),
+            # THE CARGO-DOOR RHYTHM AND THE HOIST, WHERE THE FAMILY ASKS FOR THEM
+            # (T-1663). Both are the crosswalk's own words and neither is a
+            # consequence of the massing:
+            #
+            #   F3 asks for "multiple cargo doors" and gets the rhythm.
+            #   F2 asks for "hoist beam; upper freight doors" and gets both — the
+            #   plural of an upper freight door is a plural of LOADING POINTS,
+            #   since a load comes off one wagon at one door and goes up at that
+            #   door, so the rhythm below carries the upper doors too.
+            #
+            # HOW MANY is `family_bands.cargo_door_bays`, derived there from the
+            # family's own footprint band against the braced frame's post spacing,
+            # so the number is checkable rather than chosen. Every other family
+            # answers 1 and is not rewritten to say so.
+            #
+            # F2's assumption note reads "Hoist beam presence varies", and giving
+            # every F2 a hoist is the over-claim that note warns about. It is taken
+            # deliberately and recorded as a liberty (docs/LIBERTIES.md L280)
+            # rather than hidden: the same entry's EVIDENCE note names
+            # "warehouse framing/hoist support" as what this archetype must add
+            # before the family is satisfied, and a two-storey warehouse whose only
+            # opening is a ground door cannot load the floor it exists to have.
+            # Nothing in either committed record distinguishes one from the other,
+            # so there is nothing here to vary ON; a deal would be inventing a
+            # difference rather than recording one.
+            **({"goods_door_bays": invented(cargo_bays, why)} if cargo_bays > 1
+               else {}),
+            **({"hoist_door": invented(True, why)} if family == "F2" else {}),
         }
+        # These parcels author no ell, so the frontage the shopfront stands on is the
+        # footprint's own width — the same number `from_phase` derives for itself.
+        bays = shop_bays(family, spec, width)
+        if bays is not None:
+            result["shopfront_bays"] = invented(
+                bays, shop_bays_note(family, spec, width, bays))
+        return result
 
     if not family.startswith(("A", "W")) and family != "D2" and family != "F1":
         raise SystemExit(f"{family} has no form rule in this generator; add one before "

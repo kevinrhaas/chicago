@@ -156,6 +156,14 @@
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C4 family's key geometry parameters do not speak to a goods-door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
     },
+    "shopfront_bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. STATED RATHER THAN DEFAULTED (T-1667). The C4 variants line authors 4-6 bays, and a facade bay counts the door (docs/FACADE-BAYS.md), so the family asks this archetype for 3 to 5 show windows. Its own default answers 1 on this 9.319 m front — 2 facade bays, outside the band — because SHOPFRONT_MAX_FRACTION (45%) refuses 69.8% of the front, and that fraction was argued for a store filling a 55 ft lot frontage rather than for the narrow end of this family's own footprint band. 3 is the LOWEST count in band this frontage carries: 6.502 m of opening leaves 1.408 m of plain wall at each end against a 0.60 m minimum pier. Nothing here is evidence that this front carried 4 openings; it is the family's authored range taken at its minimum."
+    },
     "siding_exposure_m": {
       "value": 0.14,
       "confidence": "reconstructed",

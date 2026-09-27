@@ -70,11 +70,64 @@ which branch answered, and the measured fraction, and the gate holds every floor
 being one the *frontage forced* — a front wide enough to satisfy the fraction at the
 next count up can never fall to the floor.
 
-## The one family still outside its band
+## The family that was outside its band, and is not now
 
-`recon_1835_blk_south_water_franklin_c4_01`, the town's single C4, carries 2 facade
-bays against an authored 4-6. Its 9.32 m front would take 4 (7.702 m needed, 0.81 m
-of plain wall left at each end), so this is the fraction rule refusing 69.8% of the
-front rather than a footprint that cannot hold it. Moving it is a bake and its own
-ticket, **T-1667**. `SPEC_SHORTFALL` in the gate names it, with that measurement, and the gate
-refuses any *other* family that falls out of band unannounced.
+**Settled T-1667, 2026-09-27. One building's front moved; one bake.**
+
+`recon_1835_blk_south_water_franklin_c4_01`, the town's single C4, carried 2 facade
+bays against an authored `4-6 bays`. T-1665 measured that as the fraction rule
+refusing 69.8% of a 9.319 m front rather than a footprint that could not hold the
+bays, and left the move to this ticket.
+
+The record now STATES `shopfront_bays: 3` — 4 facade bays, the bottom of its own
+band — instead of letting `default_shopfront_bays` answer. It is stated by a RULE,
+`tools/generate_block_infill.shop_bays`, which authors a count only where the family's
+variants line states a bay range AND the archetype's default lands outside it; the
+committed tree has exactly one record like that. That is the whole change: no constant
+moved, no other building moved, and `SHOPFRONT_MAX_FRACTION` is still 0.45. It is allowed to be the whole change because the fraction is documented as the
+answer **for a record that does not say**, and the specification does not say nothing
+about C4.
+
+Why 3 and not 4 or 5, which are also in band — the frontage answers, twice over:
+
+| show windows | facade bays | opening | needs, with the 0.60 m minimum pier | plain wall each end |
+|---|---|---|---|---|
+| 1 | 2 | 3.251 m | 4.451 m | 3.034 m |
+| 2 | 3 | 4.877 m | 6.077 m | 2.221 m |
+| **3** | **4** | **6.502 m** | **7.702 m** | **1.408 m** |
+| 4 | 5 | 8.128 m | 9.328 m | — |
+
+On a 9.319 m front, 3 windows is the lowest count inside the band and also the
+highest the wall can carry: 4 windows needs 9.328 m and misses by **9 mm**. So the
+bottom of the band is not a choice made to be conservative, it is the only reading
+the footprint leaves — and the footprint itself is in band, 30.6 x 43.0 ft inside
+C4's authored 28x40-36x60 ft, at the narrow end.
+
+That narrow end is also why the default refused it. `SHOPFRONT_MAX_FRACTION` was
+argued for a store filling a **55 ft** lot frontage with its eaves to the street;
+this C4 has its eaves to the street and 30.6 ft of them, so 4 openings are 69.8% of
+its wall and the ceiling refuses the family's own minimum. One number cannot serve
+both ends of a band that nearly doubles. The record saying its count is how the band
+is satisfied without moving the number for the other 44 shopfronts.
+
+Nothing in that is evidence about this front. The building is an invention filling a
+demonstrable need of the town, graded `reconstructed` like every other attribute on
+it, and the note on the attribute says so in those words. What changed is that the
+invention is now bounded by the specification it cites at BOTH ends rather than
+falling to a default the specification contradicts.
+
+## What keeps this from becoming a way to write any front
+
+`tools/test_shopfront_bay_count.py` gate 4. A record may state its own count, and a
+stated count must be
+
+1. **inside its family's authored band**, read off the crosswalk string on every run;
+2. **affordable on its own frontage** — `PIER_MIN_M` of wall left at each end, which
+   is the refusal `FrameStorefrontParams.validate` makes at bake time, asserted here
+   so a record cannot be committed in a state only the bake would reject.
+
+`SPEC_SHORTFALL` is therefore now **empty**, and kept rather than deleted: its job
+was never to list the shortfall but to make an unannounced one red. Gate 3, which
+measures the fronts the default RULE answers on, excludes the stated ones and says
+how many it excluded — 25 fronts reach the floor, 20 of them over the ceiling, and
+the C4 is no longer one of them.

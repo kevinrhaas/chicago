@@ -267,7 +267,7 @@ CONSUMED = frozenset({
     "construction", "cladding", "paint", "siding_exposure_m", "loft", "chimneys",
     "framing_exposed",
     "shopfront", "shopfront_bays", "shopfront_door_side",
-    "goods_door", "goods_door_side", "hoist_door",
+    "goods_door", "goods_door_side", "goods_door_bays", "hoist_door",
     "ell", "ell_side", "ell_width_m", "ell_depth_m", "ell_stories", "ell_height_m",
     "sign",
 })
@@ -362,6 +362,23 @@ class FrameStorefrontParams:
     goods_door: bool = True
     goods_door_side: str = "end"
 
+    # HOW MANY cargo openings stand on that side, set out evenly with equal piers
+    # between them and at each corner (T-1663). One is a store, which took its
+    # freight in at one door because it took it off one wagon. More than one is a
+    # WAREHOUSE — a building worked at several points along its loading side — and
+    # it is the thing family F3 in the crosswalk asks for in as many words
+    # ("multiple cargo doors"), and the thing F2's "upper freight doors" is the
+    # plural of: an upper freight door stands over a cargo opening, so two of them
+    # means two loading points, not two doors over one.
+    #
+    # A COUNT FROM THE RECORD, never derived from the wall — outbuilding's rule
+    # since T-1662 and the same reason here: an archetype that decides for itself
+    # how many doors a building had is deciding how the building was worked, which
+    # is a claim about its use and belongs in a record where it can be graded. The
+    # validator refuses a count the elevation cannot carry rather than quietly
+    # dropping one.
+    goods_door_bays: int = 1
+
     # An UPPER freight door in the loading gable with a hoist beam projecting over it:
     # the way a two-storey store or warehouse got a barrel to its second floor without
     # carrying it up a stair. The crosswalk authors it for C3 ("optional hoist door")
@@ -413,6 +430,80 @@ class FrameStorefrontParams:
         several attributes. A wall whose height is a guess is a guessed wall,
         even if we know what it was clad in."""
         return max((self.conf(a) for a in attrs), default=1.0)
+
+    @property
+    def loading_side_run_m(self) -> float:
+        """How long the wall the freight goes in on actually is, in metres.
+
+        Asked by the set-out below, and therefore by `validate()` — which is why it
+        is here and not in the generator. It reads the SAME two extents the drawing
+        code reads (`main_extent` for the block, `ell_extent` for the stretch a rear
+        ell takes out of the back wall), so the wall the validator measures and the
+        wall the frames are drawn on cannot come apart.
+        """
+        mx0, my0, mx1, my1 = main_extent(self)
+        if self.goods_door_side == "rear":
+            u0 = ell_extent(self)[2] if (self.ell and self.ell_side == "rear") else mx0
+            return mx1 - u0
+        return my1 - my0
+
+    @property
+    def goods_door_spans_m(self) -> list:
+        """`[(u0, u1), ...]` — the clear opening of every cargo doorway on the
+        loading side, in that elevation's own coordinate, left to right.
+
+        ONE set-out, asked for by the frames at the ground, by the upper freight
+        doors that stand over them, and by the validator that refuses a count the
+        wall cannot carry. Before T-1663 the arithmetic lived inside `_goods_door`
+        and centred a single door, and the moment there could be more than one the
+        doors below and the doors above would have been set out by two different
+        sums.
+
+        The rhythm is even and symmetrical — n openings with their jamb stock and
+        n + 1 equal piers, one at each corner and one between every pair. This is
+        outbuilding's rule since T-1662, adopted here deliberately rather than
+        re-argued: a warehouse's loading side is a frame with bays in it, and an
+        even set-out is the only one that does not claim a plan no source in this
+        project describes.
+        """
+        n = int(self.goods_door_bays)
+        if not self.goods_door or n < 1:
+            return []
+        u0, u1 = self._loading_side_extent_m
+        if n == 1:
+            # ONE BAY IS THE OLD CENTRING, WRITTEN THE OLD WAY. The general formula
+            # below is the same QUANTITY at n = 1 but not the same double —
+            # (run - w - 2j)/2 + j differs from mid - w/2 in the last bit — and the
+            # 43 storefronts in this town that carry a single goods door may not
+            # move by a rounding for a change about warehouses. outbuilding made
+            # exactly this measurement at T-1662 and eleven of its sheds moved.
+            um = (u0 + u1) / 2.0
+            return [(um - GOODS_DOOR_W_M / 2.0, um + GOODS_DOOR_W_M / 2.0)]
+        framed = GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+        pier = ((u1 - u0) - n * framed) / (n + 1)
+        out = []
+        for i in range(n):
+            a = u0 + pier * (i + 1) + framed * i + GOODS_DOOR_JAMB_M
+            out.append((a, a + GOODS_DOOR_W_M))
+        return out
+
+    @property
+    def _loading_side_extent_m(self) -> tuple:
+        """The loading wall's two ends, in the coordinate the openings are drawn in."""
+        mx0, my0, mx1, my1 = main_extent(self)
+        if self.goods_door_side == "rear":
+            u0 = ell_extent(self)[2] if (self.ell and self.ell_side == "rear") else mx0
+            return u0, mx1
+        return my0, my1
+
+    @property
+    def goods_door_pier_m(self) -> float:
+        """The clear board the even set-out leaves at each gap — between two
+        openings and at each corner beside the outermost one. With a single doorway
+        this is simply the margin either side of a centred door."""
+        n = max(1, int(self.goods_door_bays))
+        framed = GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+        return round((self.loading_side_run_m - n * framed) / (n + 1), 4)
 
     @property
     def loading_end_is_gable(self) -> bool:
@@ -592,6 +683,7 @@ class FrameStorefrontParams:
         if self.goods_door and self.goods_door_side not in GOODS_DOOR_SIDES:
             raise ParamError(f"goods_door_side '{self.goods_door_side}' not in "
                              f"{GOODS_DOOR_SIDES}")
+        self._validate_goods_door_bays()
         if self.hoist_door:
             if float(self.stories) < 2.0:
                 raise ParamError(
@@ -619,6 +711,54 @@ class FrameStorefrontParams:
                     f"the ridge, move the goods door, or drop the hoist")
         if self.ell:
             self._validate_ell()
+
+    def _validate_goods_door_bays(self) -> None:
+        """Refuse a cargo-door rhythm the loading side cannot carry (T-1663).
+
+        Refusing is the point. An archetype that thins the piers, drops a bay or
+        shrinks the door to make a count fit is deciding how the building was
+        worked and then not saying so — the same argument outbuilding's own door
+        check makes, and the reason this is a gate and not a clamp.
+        """
+        bays = self.goods_door_bays
+        if isinstance(bays, bool) or int(bays) != bays or bays < 1:
+            raise ParamError(
+                f"goods_door_bays is {bays!r} and a cargo opening is a whole "
+                f"opening. A building that takes no freight says goods_door false; "
+                f"one with a single door says 1")
+        n = int(bays)
+        if n > 1 and not self.goods_door:
+            raise ParamError(
+                f"goods_door_bays is {n} and this record has no goods door — a "
+                f"rhythm of nothing is not a rhythm. Record the door, or record "
+                f"one bay")
+        if not self.goods_door or n == 1:
+            return
+        framed = GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+        run = self.loading_side_run_m
+        need = n * framed
+        if need > run:
+            raise ParamError(
+                f"{n} cargo doors are {GOODS_DOOR_W_M} m clear each and need "
+                f"{need:.2f} m of wall with their jambs, but this record's "
+                f"'{self.goods_door_side}' elevation is only {run:.2f} m long. "
+                f"Widen the footprint, move the freight to the long side, or "
+                f"record fewer bays — an archetype that shrinks the door to fit is "
+                f"deciding what the building was for")
+        # ONLY ASKED OF A RHYTHM. With one doorway the set-out centres it and the
+        # wall either side is whatever the elevation has left, which is what every
+        # storefront in this town has always had; imposing a corner margin on those
+        # would refuse 43 records that were never in question. What is new here is
+        # board BETWEEN two openings, and that is the thing a single door cannot
+        # have.
+        if self.goods_door_pier_m < GOODS_DOOR_PIER_MIN_M:
+            raise ParamError(
+                f"{n} cargo doors on a {run:.2f} m elevation leave "
+                f"{self.goods_door_pier_m:.2f} m of board between them, under the "
+                f"{GOODS_DOOR_PIER_MIN_M:.2f} m this archetype will build. A pier "
+                f"thinner than the jambs that flank it is two door frames touching, "
+                f"not a wall with openings in it: record fewer bays or a longer "
+                f"loading side")
 
     def _validate_shopfront(self) -> None:
         bays = self.shopfront_bays
@@ -733,6 +873,43 @@ SHOP_FASCIA_M = 0.280
 # and the shopfront is not a shopfront in a wall, it is a wall around a shopfront.
 PIER_MIN_M = 0.60
 
+# The goods opening, and the board around it. These two numbers were written into
+# `frame_storefront._goods_door`'s body until T-1663 and are lifted here for the
+# reason the block above gives: `validate()` has to know them to refuse a rhythm
+# the wall cannot carry, and the commit gate has no Blender. Neither number moved.
+GOODS_DOOR_W_M = 1.85            # clear, a double leaf a barrel goes through
+GOODS_DOOR_H_M = 2.30            # clear head
+GOODS_DOOR_JAMB_M = 0.16         # jamb stock either side, as outbuilding's
+# The narrowest CLEAR board this archetype will leave between two goods openings
+# on one elevation — outbuilding's rule and outbuilding's floor, for the same
+# reason: a pier thinner than the jambs that flank it is two door frames touching,
+# not a wall with openings in it. It is NOT `PIER_MIN_M`, which is about how much
+# plain wall a SHOPFRONT must leave at the ends of a frontage a passer-by reads,
+# and is a different question about a different elevation.
+GOODS_DOOR_PIER_MIN_M = 2 * GOODS_DOOR_JAMB_M
+
+
+def gable_top_m(u: float, u0: float, u1: float, wall_z: float, ridge_z: float,
+                overhang: float) -> float:
+    """How high the gable's sloping edge stands over the point `u` on that wall.
+
+    Pure arithmetic, and it lives HERE rather than beside the builder for the reason
+    the block at the top of this section gives: the commit gate has no Blender, and a
+    number the gate cannot reach is a number nothing holds. `frame_storefront` passes
+    its own `ROOF_OVERHANG_M` in, so the triangle measured here is the one
+    `add_gable_roof` actually fills and the two cannot drift.
+
+    The apex stands over the MIDDLE of the wall, which is the whole point of asking:
+    the roof line at a bay near the corner is far lower than the same height taken at
+    the ridge, and a hoist beam set out on the wall's midline arithmetic would be
+    drawn out through a roof plane (T-1663).
+    """
+    half_base = (u1 - u0) / 2.0 + overhang
+    if half_base <= 1e-6:
+        return wall_z
+    d = min(abs(u - (u0 + u1) / 2.0), half_base)
+    return wall_z + (ridge_z - wall_z) * (1.0 - d / half_base)
+
 
 def shopfront_width_m(bays: int) -> float:
     """Overall width of a shopfront of `bays` display windows plus its door.
@@ -762,6 +939,15 @@ def _lean_to_rise(depth_m: float) -> float:
 # Not "as many bays as will fit": glass came in small panes and cost money in 1835,
 # the wall between the openings is what the shelves stand against, and a front that
 # is nearly all opening is a plate-glass idea from fifty years later.
+#
+# "WHEN THE RECORD DOES NOT SAY" IS LOAD-BEARING (T-1667). This is a default, not an
+# invariant, and one committed record overrides it: the town's single C4 states
+# `shopfront_bays: 3`, because the crosswalk authors that family at 4-6 FACADE bays
+# and this fraction — argued for a store filling a 55 ft lot frontage — refuses the
+# family's own minimum on the 30.6 ft narrow end of C4's authored footprint band.
+# The override is bounded at both ends by tools/test_shopfront_bay_count.py gate 4:
+# a stated count must be inside its family's band AND affordable on its own frontage.
+# docs/FACADE-BAYS.md holds the measurement.
 SHOPFRONT_MAX_FRACTION = 0.45
 
 # ---------------------------------------------------------------------------
@@ -944,6 +1130,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         shopfront_door_side=str(val("shopfront_door_side", "centre")),
         goods_door=bool(val("goods_door", True)),
         goods_door_side=str(val("goods_door_side", "end")),
+        goods_door_bays=int(val("goods_door_bays", 1)),
         hoist_door=bool(val("hoist_door", False)),
         ell=bool(val("ell", False)),
         ell_side=str(val("ell_side", "rear")),

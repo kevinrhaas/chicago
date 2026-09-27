@@ -28,6 +28,19 @@ WHAT THAT MAKES TRUE OF THE TOWN, measured here rather than remembered:
   * it is not taken, because `SHOPFRONT_MAX_FRACTION` refuses it: 4.877 m of
     opening on a 6.08-6.45 m front is 75.6% to 80.3% of the wall.
 
+AND OF C4, WHICH IS WHAT T-1667 ASKED. The town's single C4, the wide two-storey
+store, carried 2 facade bays against an authored 4-6, and T-1665 measured that as
+the fraction rule refusing 69.8% of a 9.319 m front rather than a footprint that
+could not hold the bays. It now STATES `shopfront_bays: 3` — 4 facade bays, the
+bottom of its own band — because `SHOPFRONT_MAX_FRACTION` is the default for a
+record that says nothing and the specification does not say nothing about C4.
+The frontage affords exactly that and no more: 6.502 m of opening leaves 1.408 m
+of plain wall at each end, 0.81 m more than `PIER_MIN_M` asks, and the next count
+up needs 9.328 m against a 9.319 m front — short by 9 mm. So `SPEC_SHORTFALL`
+below is EMPTY, and gate 4 is what keeps a stated count honest: it may move a
+roof INTO its family's band and it may not carry one past the band or past the
+frame.
+
 AND THE DEFECT THAT FALLS OUT OF LOOKING. `default_shopfront_bays` has a `return
 1` FLOOR below its 45% ceiling, and on a narrow gable front the floor is what
 answers: on twenty of the committed shopfronted phases it puts 50.0% to 66.7% of
@@ -35,6 +48,9 @@ the frontage into opening, over a stated maximum of 45%, and said nothing about
 it. `shopfront_bay_verdict` now says which branch answered, and gate 3 below
 holds the override to fronts that genuinely cannot afford the next count up — so
 the fraction rule cannot be quietly overruled on a front wide enough to keep it.
+Gate 3 measures the fronts the RULE answers on; a record that states its own count
+is not one of them and is counted separately, or the census reads a stated front as
+a floor the rule chose.
 
     python3 tools/test_shopfront_bay_count.py
     python3 tools/test_shopfront_bay_count.py --self-test   # the assertions fire
@@ -86,16 +102,13 @@ SHOP_BAY_FAMILIES = ("C3", "C4")
 # SUPERSET, not an equality: a family that comes back into band is work being
 # FINISHED, and a gate that goes red for that is a gate somebody deletes. A family
 # that falls out of band and is NOT named here is the red this table is for.
-SPEC_SHORTFALL = {
-    "C4": (
-        "The single committed C4, recon_1835_blk_south_water_franklin_c4_01, carries 2 "
-        "facade bays against an authored 4-6. Its 9.32 m front WOULD take 4 (7.702 m "
-        "needed, 0.81 m of plain wall left at each end), so this is the fraction rule "
-        "refusing 69.8% of the front rather than a footprint that cannot hold it. "
-        "Moving it is a bake and a separate unit — filed as its own ticket after "
-        "T-1665 as T-1667, and T-1659 is on that record besides."
-    ),
-}
+#
+# EMPTY SINCE T-1667, 2026-09-27, and kept rather than deleted: the one row it ever
+# held — the single C4 at 2 facade bays against an authored 4-6 — was resolved by
+# that record stating `shopfront_bays: 3`, and the table's job is not to list the
+# shortfall but to make an UNANNOUNCED one red. An empty table is the strongest
+# reading of it, not a dead one.
+SPEC_SHORTFALL: dict[str, str] = {}
 
 
 def family_bay_ranges(crosswalk: dict) -> dict[str, tuple[int, int]]:
@@ -201,11 +214,17 @@ def main(break_it: str = "") -> int:
     #    rule being skipped. Two assertions, over every shopfronted phase: the
     #    verdict agrees with the integer the builder is handed, and every floor is a
     #    floor the frontage forced.
-    over, floors = [], 0
+    over, floors, stated_rows = [], 0, []
     for rid, fam, phase, p in rows:
         if not p.shopfront:
             continue
         front = p.width_m
+        if "shopfront_bays" in phase.get("form", {}):
+            # The RECORD answered, not the rule. Its count is gate 4's business; let
+            # the census here read it as a floor and the reported "N on the floor"
+            # becomes a claim about a rule that was never consulted.
+            stated_rows.append((rid, fam, phase, p, front))
+            continue
         bays, why, frac = P.shopfront_bay_verdict(front)
         if break_it == "floor":
             bays, why, frac = 1, P.BAY_FLOOR_OVER_FRACTION, P.shopfront_width_m(1) / front
@@ -224,6 +243,40 @@ def main(break_it: str = "") -> int:
         check(f"{rid}: the floor is one the frontage forced, not the rule skipped",
               not afford,
               f"front {front:.2f} m, one window and the door is {frac * 100:.1f}% of it")
+    # 4. A STATED COUNT MAY COME INTO ITS BAND AND MAY NOT LEAVE IT, OR THE FRAME
+    #    (T-1667). `from_phase` reads `shopfront_bays` off the record when it is
+    #    there, which is how the C4 reaches the 4 facade bays its family authors and
+    #    the 45% default cannot give it. That override has to be bounded at both
+    #    ends or it is simply a way to write any front at all: the count it states
+    #    must be inside the family's authored band, and the frontage must hold it
+    #    with `PIER_MIN_M` of wall left at each end — the same refusal
+    #    `FrameStorefrontParams.validate` makes, asserted here so a record cannot be
+    #    committed in a state only the bake would reject.
+    for rid, fam, phase, p, front in stated_rows:
+        bays = P.facade_bays(p.shopfront_bays)
+        need = P.shopfront_width_m(p.shopfront_bays)
+        if break_it == "stated_band":
+            bays = bays + 9
+        if break_it == "stated_afford":
+            need = front + 1.0
+        if fam in ranges:
+            lo, hi = ranges[fam]
+            check(f"{rid}: the count it states is inside {fam}'s authored band",
+                  lo <= bays <= hi, f"{bays} facade bays vs {lo}-{hi}")
+        check(f"{rid}: the frontage holds the count it states",
+              need <= front - 2 * P.PIER_MIN_M,
+              f"{need:.3f} m of opening on a {front:.3f} m front leaves "
+              f"{(front - need) / 2:.3f} m each end, minimum {P.PIER_MIN_M:.2f} m")
+    if stated_rows:
+        print(f"\n  {len(stated_rows)} front(s) state their own count, so the "
+              f"{P.SHOPFRONT_MAX_FRACTION:.0%} default did not decide them:")
+        for rid, fam, phase, p, front in stated_rows:
+            _, why, _ = P.shopfront_bay_verdict(front)
+            print(f"        {rid} {fam}: {P.facade_bays(p.shopfront_bays)} facade bays, "
+                  f"{P.shopfront_width_m(p.shopfront_bays) / front * 100:.1f}% of the "
+                  f"front; the default would have said "
+                  f"{P.facade_bays(P.default_shopfront_bays(front))} ({why})")
+
     if over:
         lo = min(o[2] for o in over)
         hi = max(o[2] for o in over)
@@ -236,6 +289,7 @@ def main(break_it: str = "") -> int:
         print(f"{len(FAILED)} check(s) FAILED")
         return 1
     print(f"shop-bay reading OK — {in_band} storefront(s) inside their authored band, "
+          f"{len(stated_rows)} of them on a count the record states, "
           f"{floors} on the floor ({len(over)} of them over the ceiling), "
           f"{len(witnesses)} crosswalk witness(es) for the door-inclusive reading")
     return 0
@@ -248,7 +302,11 @@ if __name__ == "__main__":
                            ("band", "a C3 is pushed outside its authored band"),
                            ("floor", "every front is told it fell to the floor"),
                            ("afford", "a front wide enough for the rule is called a "
-                                      "floor anyway")):
+                                      "floor anyway"),
+                           ("stated_band", "a stated count is pushed outside its "
+                                           "family's authored band"),
+                           ("stated_afford", "a stated count is made wider than its "
+                                             "own frontage")):
             FAILED.clear()
             print(f"SELF-TEST: {what}; the assertions must fire.")
             if main(break_it=mode) == 0:

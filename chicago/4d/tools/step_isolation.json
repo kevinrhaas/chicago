@@ -2402,6 +2402,9 @@
     "tools/bake_ref.py": {
       "wrote": []
     },
+    "tools/bake_warranted.py": {
+      "wrote": []
+    },
     "tools/build_book_page_index.py": {
       "wrote": []
     },
@@ -3523,6 +3526,9 @@
       "wrote": []
     },
     "tools/test_outbuilding_cargo.py": {
+      "wrote": []
+    },
+    "tools/test_storefront_cargo_rhythm.py": {
       "wrote": []
     },
     "tools/test_pr_lap_checkout.mjs": {
