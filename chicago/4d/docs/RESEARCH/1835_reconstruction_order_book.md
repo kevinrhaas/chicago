@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 372. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -330,8 +330,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1533 | 15 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
-| T-1531 | 2 | 2 |
 | T-1418 | 1 | 1 |
+| T-1531 | 1 | 1 |
 
 
 ## The rules this book adds
@@ -536,12 +536,11 @@ The households the model wants, by kind and division.
 | `households/boarding_house/south` | 41 | 7 | 34 | 1 | T-1538 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-1538 |
 | `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-1171 |
-| `households/family_dwelling/south` | 257 | 41 | 216 | 65 | T-1171 |
+| `households/family_dwelling/south` | 258 | 41 | 217 | 65 | T-1171 |
 | `households/family_dwelling/west` | 110 | 7 | 103 | 33 | T-1171 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-1538 |
 | `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-1538 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-1538 |
-| `households/institutional/north` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 0 | 6 | 0 | T-1171 |
 | `households/store_residence/south` | 61 | 10 | 51 | 0 | T-1171 |
@@ -622,7 +621,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/warehouses_freight/south/river_bank` | 2 | 2 | 0 | 0 | T-1640 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-1207 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-1205 |
-| `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1682 |
+| `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1683 |
 | `structures/workshops/west` | 8 | 5 | 3 | 0 | T-1207 |
 | `structures/workshops/north` | 7 | 5 | 2 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |

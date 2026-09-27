@@ -295,7 +295,13 @@ STRUCTURE_TICKETS = {
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
     ("south", "inns_taverns"): "T-1683",
-    ("south", "workshops"): "T-1682",
+    # SWEPT 2026-09-27 (T-1625): T-1682 closed `done` with this cell still owing five,
+    # so the row moves to the district's remaining live child, exactly as the comment
+    # above says it should and the T-1640 -> T-1672 shape did. T-1683 closes the Lake
+    # district's books and states its headroom, which is where a cell still owing is
+    # answered for. Swept here rather than left red because the gate fires on --build as
+    # well as --check, so an unswept row blocks every other parcel's rebuild too.
+    ("south", "workshops"): "T-1683",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the

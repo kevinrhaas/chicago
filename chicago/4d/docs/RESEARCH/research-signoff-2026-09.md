@@ -32,13 +32,13 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 310 |
-| asserted | 1,362 |
+| asserted | 1,363 |
 | later_only | 12,593 |
 | outside_chicago | 116 |
-| refused | 8,721 |
-| unresolved | 595 |
+| refused | 8,726 |
+| unresolved | 589 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,362 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,363 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
@@ -49,7 +49,6 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 | T-1552 | 26 | yes |
 | T-1587 | 18 | yes |
 | T-1569 | 12 | yes |
-| T-1625 | 6 | yes |
 | T-1315 | 3 | yes |
 | T-1588 | 2 | yes |
 | T-1543 | 1 | yes |
@@ -233,14 +232,14 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 
 ## 5. Withheld is legible
 
-**21,740** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,745** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
 | `aggregate_only` | 310 |
 | `later_only` | 12,593 |
 | `outside_chicago` | 116 |
-| `refused` | 8,721 |
+| `refused` | 8,726 |
 
 The same rule over the gate itself: of **180** tools carrying a `--check`, **173** are run by `tools/check.sh` and **7** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 

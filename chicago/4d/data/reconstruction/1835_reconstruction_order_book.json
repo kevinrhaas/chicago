@@ -1356,18 +1356,17 @@
       ]
     },
     {
-      "ticket": "T-1531",
-      "records": 2,
-      "buckets": [
-        "households/institutional/north",
-        "households/institutional/south"
-      ]
-    },
-    {
       "ticket": "T-1418",
       "records": 1,
       "buckets": [
         "businesses/lawyer"
+      ]
+    },
+    {
+      "ticket": "T-1531",
+      "records": 1,
+      "buckets": [
+        "households/institutional/south"
       ]
     }
   ],
@@ -1413,7 +1412,7 @@
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 422
+    "households_still_owed": 423
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1493,10 +1492,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 372,
+      "household_leg_now": 373,
       "person_leg_before": 374,
       "person_leg_now": 208,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 372. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4074,9 +4073,9 @@
             "household_type": "family_dwelling",
             "division": "south"
           },
-          "target": 257,
+          "target": 258,
           "known": 41,
-          "to_reconstruct": 216,
+          "to_reconstruct": 217,
           "filled": 65,
           "owning_ticket": "T-1171",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
@@ -4132,19 +4131,6 @@
           "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the west division"
-        },
-        {
-          "key": "households/institutional/north",
-          "axes": {
-            "household_type": "institutional",
-            "division": "north"
-          },
-          "target": 1,
-          "known": 0,
-          "to_reconstruct": 1,
-          "filled": 1,
-          "owning_ticket": "T-1531",
-          "basis": "the model's 644 households apportioned on the institutional roofs whose own record puts a household under them (1835_institutional_lodging, T-1531) in the north division"
         },
         {
           "key": "households/institutional/south",
@@ -5163,7 +5149,7 @@
           "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1682",
+          "owning_ticket": "T-1683",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 15; the 668-roof programme leaves 5 of them to build"
         },
@@ -5681,20 +5667,6 @@
     }
   ],
   "fills": [
-    {
-      "bucket": "households/institutional/north",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
-      "bucket": "households/institutional/south",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
     {
       "bucket": "persons/female/10_19/north/lodging/none",
       "ticket": "T-1371",
@@ -6436,6 +6408,13 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "households/institutional/south",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
     }
   ],
   "re_family_ledger": {
