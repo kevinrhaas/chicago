@@ -245,9 +245,34 @@ def door_kind(family: str) -> str:
     """WHICH DOOR a family carries. Asked for rather than read off the form dict,
     because the eave FLOOR depends on it — a wagon door needs a metre more wall than a
     man door — and the floor has to be known before the eave is drawn."""
-    if family in ("W1", "W2", "W3", "W5", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W2", "W3", "W5", "A2"):
         return "wagon"
     return "stable" if family == "A1" else "man"
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def _storeys(family: str):
@@ -364,6 +389,7 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float) ->
         }
 
     door = door_kind(family)
+    bays = door_bays_for(family)
     # WHICH ROOF A FAMILY GETS is `tools/roof_form.py`'s answer and no longer this
     # file's (T-0179): the same literal used to sit in five parcels and the five had
     # already drifted over A5.
@@ -373,6 +399,7 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float) ->
         "roof_pitch_deg": inferred(pitch(), why),
         "construction": inferred(construction, why), "door": inferred(door, why),
         "door_side": inferred("front", why),
+        **({"door_bays": inferred(bays, why)} if bays > 1 else {}),
         # ASKED OF THE CROSSWALK, not of a literal (T-0179's lesson, one line below the
         # comment that draws it): the hand-kept set gave a loft to W3 and W5, both
         # authored `levels '1'`, and west_rec_036 reached the band gate on it.

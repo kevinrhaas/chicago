@@ -39,6 +39,7 @@
       "phases[].form.deck_kind.note",
       "phases[].form.dock.note",
       "phases[].form.door.note",
+      "phases[].form.door_bays.note",
       "phases[].form.door_side.note",
       "phases[].form.draw_leaves.note",
       "phases[].form.draw_lifting_gear.note",

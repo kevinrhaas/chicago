@@ -171,7 +171,17 @@ def build(params: OutbuildingParams, name: str):
     _roof(b, p, c_roof)
 
     if p.door != "none":
-        _doorway(b, p, p.door_side, p.door_size_m, p.conf("door", "reconstructed"))
+        # A SINGLE DOORWAY MAKES NO CLAIM ABOUT A BAY COUNT, so it does not take
+        # `door_bays`' confidence. Folding it in unconditionally was measured and
+        # rejected: an absent attribute defaults to `reconstructed`, which is the
+        # worst tier, so eleven buildings whose door IS documented — Beaubien's
+        # barn, the log jail, Pierce's blacksmith shop among them — came back
+        # painted as inventions because their records do not say "one". A rhythm
+        # is a claim and answers for it; one door is the absence of a rhythm.
+        c_door = (p.worst_conf("door", "door_bays") if p.door_bays > 1
+                  else p.conf("door", "reconstructed"))
+        for span in p.door_spans_m:
+            _doorway(b, p, p.door_side, span, p.door_size_m[1], c_door)
     if p.loft and p.loft_side:
         _loft_door(b, p, p.conf("loft", "reconstructed"))
     vent = vent_rect(p)
@@ -865,8 +875,8 @@ def _offsets(p: OutbuildingParams) -> dict:
             "leaf": 0.020, "batten": 0.031}
 
 
-def _doorway(b: MeshBuilder, p: OutbuildingParams, side: str, size: tuple,
-             conf: float) -> None:
+def _doorway(b: MeshBuilder, p: OutbuildingParams, side: str, span: tuple,
+             dh: float, conf: float) -> None:
     """A doorway: a dark opening in a sawn frame, with a batten door hung in it.
 
     The frame is not decoration. An opening drawn as a bare dark rectangle reads as a
@@ -875,17 +885,20 @@ def _doorway(b: MeshBuilder, p: OutbuildingParams, side: str, size: tuple,
 
     A `wagon` door is TWO leaves, because a three-metre opening was never closed by one,
     and the pair of them is most of what tells a viewer this is a building a wagon went
-    into. Both leaves are shown SHUT: whether a given door stood open on 1 July 1835 is
-    not something any source can say, and a swung leaf would be inventing an occupied
-    building.
+    into. A `cargo` door is two as well, at 2.20 m. Both leaves are shown SHUT: whether
+    a given door stood open on 1 July 1835 is not something any source can say, and a
+    swung leaf would be inventing an occupied building.
+
+    WHERE it stands is `span`, and the caller does not compute it either — it comes
+    from `door_spans_m`, the one set-out `openings()` and the validator also read, so
+    the frames this draws and the holes cut in the boarding cannot drift apart.
     """
-    dw, dh = size
+    u0, u1 = span
+    dw = u1 - u0
     if dw <= 0.0:
         return
     off = _offsets(p)
-    run = p.side_run_m(side)
-    um = run / 2.0
-    u0, u1 = um - dw / 2.0, um + dw / 2.0
+    um = (u0 + u1) / 2.0
     j = DOOR_JAMB_M
 
     _face(b, side, p, off["dark"], [(u0, 0.0), (u1, 0.0), (u1, dh), (u0, dh)],

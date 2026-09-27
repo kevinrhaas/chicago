@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1170, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T08:19:42.281Z', date: 'Sep 27, 2026, 3:19 AM CT',
+  { v: 1171, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T10:24:04.385Z', date: 'Sep 27, 2026, 5:24 AM CT',
     items: [
       'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',
       'The rule that picks a window count caps the opening at 45% of the front, and this front is the narrow end of a family whose plans run half again as wide. Four openings are 70% of thirty feet and the cap refused them, so the rule fell to its floor and built two. The cap was argued for a store filling a fifty-five-foot lot with its long side to the street; it decides nothing useful on a front half that width.',
       'No number changed and nothing else in the town moved. The building now states its own bay count, and the specification\u2019s range for the family is what states it. Four is the bottom of that range and also all the wall can hold: a fifth opening would need nine millimetres more frontage than the building has.',
       'A count a building states can bring it INTO its family\u2019s range and cannot carry it past the range or past the frame \u2014 a new check holds both ends. The rhythm itself is still an invention, on a building no source describes, and the register of things we made up says so.',
+    ] },
+  { v: 1170, ts: '2026-09-27T08:10:14.904Z', date: 'Sep 27, 2026, 3:10 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
+    items: [
+      'The town\u2019s two freight sheds \u2014 one in the South Division block between La Salle and Clark, one out on the west side \u2014 had a single wagon door in the middle of one end, the same opening a barn or a carter\u2019s stable gets. A shed for goods is worked differently: the load comes off a wagon bed or a boat and is handed in. Both now carry two wide, low cargo openings side by side on their loading face, with an even pier of board at each corner and between them.',
+      'The old door was also too tall for the family it belonged to. The reconstruction specification gives a freight shed an eave of ten to thirteen feet, and a three-metre wagon door needs more wall than ten feet leaves \u2014 so no freight shed in this town could be built at the low end of its own band. The new opening is low enough that all of it is reachable, and the west shed has come down nine millimetres to sit where its band actually puts it.',
+      'Neither the width nor the height is a reading of anything. No record reached describes a Chicago freight-shed door in 1835, or says how many a shed had. The height is worked out from the specification\u2019s own eave band; the width and the pair of them are inventions, bounded by what the family\u2019s footprints allow, and both are written down as such. The skids and landing apron the same specification asks for are still not built.',
     ] },
   { v: 1169, title: 'The stores were never short of a bay after all', kind: 'fix', ts: '2026-09-27T07:41:56.565Z', date: 'Sep 27, 2026, 2:41 AM CT',
     items: [
