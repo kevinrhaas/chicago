@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1188, ts: '2026-09-27T21:42:30.473Z', date: 'Sep 27, 2026, 4:42 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
+  { v: 1189, ts: '2026-09-27T22:14:18.217Z', date: 'Sep 27, 2026, 5:14 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
     items: [
       'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',
       'The route separates historical facts from its imagined first-day outing and Finding Your Feet keepsake. Hogan’s old mail corner and the Democrat’s former office keep their correct dates.',
       'This is a reading preview; guided travel and keepsakes will follow. You can return to exploring at any time.',
+    ] },
+  { v: 1188, ts: '2026-09-27T21:40:51.475Z', date: 'Sep 27, 2026, 4:40 PM CT', title: 'Fourteen Randolph Street houses name the families in them', kind: 'change',
+    items: [
+      'Open a house on the blocks between Randolph and Washington and, until now, its card read the same sentence as every other: an anonymous building counted toward the town\u2019s total of 665 roofs. Fourteen of them now give the name of the family the project\u2019s own dealing had already put there \u2014 the Abbotts, the Adamses, the Allens, the Barneys, the Boyers and nine more \u2014 and say in the same breath that no source puts that family on that lot, that street, or even that side of town.',
+      'Nothing was invented to do it. The dealing that decides which family takes which lot was made months ago and written down in a file two directories away; the house itself said nothing about it, so a visitor standing in front of one could not meet a decision the project had already made about them. The houses have not moved, changed shape or been rebuilt.',
+      'Twenty-three of their neighbours on the same blocks now say why they are empty, rather than staying silent about it. Every one of them WAS dealt a family, and a standing ruling then refused that family a house: the names come from the post office\u2019s lists of people with unclaimed letters, and such a name is a name the town knows, not a man with an address. Each empty house carries the count that decides whether that is a shortage \u2014 and it is not: hundreds of other families, each with a source for its name and refused by nobody, are still waiting for a roof. The houses stand empty because the dealing does not consult the ruling before it deals.',
+      'One house was held back for a reason that had not been noticed before. Seven family records in the town are still TITLED as letter-list names while the mark on the person inside them has been correctly taken off \u2014 because a newspaper notice that is not a letter list turned up beside it. One record, two answers to the same question. One of the seven had been dealt a house on Randolph and Market, and printing its title on a building card would have put the sentence \u201ca name from the post office\u2019s letter lists\u201d on a house in a town whose ruling says exactly that kind of name may not have an address. So it says neither, and the stale titling is written up as its own job rather than patched here: it reaches all seven records and everybody who reads their names.',
+      'The pass that does this was written for one district and now runs for two. Every family seated anywhere else in town is still listed, by name, as owed a roof.',
     ] },
   { v: 1187, ts: '2026-09-27T21:18:09.036Z', date: 'Sep 27, 2026, 4:18 PM CT', title: 'A warmer welcome to Chicago', kind: 'change',
     items: [

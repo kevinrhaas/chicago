@@ -50,3 +50,8 @@ The full smoke's other inherited mismatch was its frontage refusal snapshot:
 T-1682's Market lot-6 wall and the two reconstructed C2 trade refusals. Franklin
 lot-4's existing wall refusal was renamed. The exact expected count is updated to
 112; all walk, crossing, post, fence and pixel assertions remain unchanged.
+
+The movement stage also assumed controls were live behind the welcome. Since
+T-1278 deliberately pauses all movement there, stage 4 now enters before checking
+walking, collisions and touch input. A combined run reloads at stage 6 so its
+first-entry guide assertions still test a fresh visit. No input assertion is removed.

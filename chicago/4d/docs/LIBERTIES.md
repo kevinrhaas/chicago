@@ -15106,12 +15106,17 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and twelve do not because a ruling refuses them one
+### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
+**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`.
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
+Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+district at a time and its scope is data rather than a constant — a district enters
+`DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
+its keeper, and every seat outside the districts run so far is held as owed BY NAME.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -15125,15 +15130,15 @@ policy had put in it. A liberty a visitor cannot meet is not much of a disclosur
 **What the card says and what it may not be read as.** `occupants` is graded `reconstructed`
 and cites only the sources that carry the household's NAME — a baptismal register, the
 Democrat's own columns — never its address, because there is no address. The note on every
-one of the nine says so in its first two sentences. The roof stays `inferred_anonymous`, a
+one of the 23 says so in its first two sentences. The roof stays `inferred_anonymous`, a
 count-unit of the 665-roof programme: its existence, position and footprint are as
 conjectural after the seating as before it, the order book was not drawn on, and no mesh
 moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
 costs no bake.
 
-**Twelve of the twenty-one are refused, and the refusal is the load-bearing half.** Twelve of
-the twenty-one South Water seats — sixty-one of the deal's hundred and nine town-wide — are
-households
+**Thirty-four of the fifty-seven are refused, and the refusal is the load-bearing half.**
+Thirty-four of the fifty-seven seats the two districts hold — sixty-three of the deal's
+hundred and nine town-wide — are refused a keeper, sixty-one of them households
 minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
 refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
 address*. Writing the household's name rather than its person id would have slipped past the
@@ -15142,9 +15147,26 @@ reason in the keepers ledger instead. **The deal seated them there anyway**, so 
 the ruling disagree on sixty-one roofs; that disagreement is filed, not settled here, and not
 hidden by a pass that could have looked complete by ignoring it.
 
+**And two more are refused for a disagreement INSIDE one record (T-1685).** Seven household
+cards town-wide are still NAMED *a name from the post office's letter lists* while no person
+on the card carries `letter_list_only` — the flag having been cleared, correctly and by a
+gate of its own, because a press reading that is not a letter list stands beside it. The
+minting pass revises the flag and not the name, so one record makes two statements about
+which evidence its name rests on, and the 2026-08-30 ruling turns on exactly that question.
+Two of the seven are seated by the deal: `hh_bradford_harriet` on a Randolph roof and
+`hh_ambrose_joshua` on a Lake one. Publishing either would have put the sentence *The
+Bradford household — a name from the post office's letter lists* on a building card in a
+town whose ruling says a letter-list name is not a man with an address; so the roof is
+refused, the disagreement is named on the record, and the stale naming is filed as **T-1689**
+rather than revised in passing — it reaches seven cards and every reader of their names,
+which is not one district's pass to make. It costs this liberty one keeper of fifteen on the
+Randolph tier, and that is the direction this pass is wrong in when it is wrong: too few
+keepers named, each shortfall counted.
+
 **One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
 for a garden when a household id appears in a structure's `occupants` prose. Putting the id
-there would have grown nine gardens as a side effect of naming nine keepers, on no evidence
+there would have grown a garden on every one of these lots as a side effect of naming
+their keepers, on no evidence
 about any garden, so the id is carried in `resident_assignment.household_id` — machine
 readable, and invisible to a test that was never about this. Whether these lots held gardens
 is that generator's question to answer on its own ground.
@@ -15168,7 +15190,8 @@ one, and the nine would stop being a liberty.
 
 **Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
 **L212** (the street-face business adoptions, the same shape for firms rather than keepers),
-T-1638, its parent **T-1200**, the ruling **T-0379**, and
+T-1638 and its parent **T-1200**, T-1685 and its parent **T-1202**, T-1689 (the stale
+letter-list naming), the ruling **T-0379**, and
 `data/reconstruction/1835_roof_keepers.json`.
 **Recorded:** 2026-09-26.
 
