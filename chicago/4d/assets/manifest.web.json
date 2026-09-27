@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "bates_auction_room__frame_1834.glb": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227",
     "beaubien_barn__converted_1817.glb": "495c84370808aeeba07a0545a6228f4587a82803003f9235bc1b4c37912983f1",
@@ -19,7 +20,7 @@
     "dole_warehouse_south__frame_1832.glb": "68d59435b626daf0b69e5dddc7b31fdee913a966fe88e00375369478611e3db2",
     "elston_soap_candle_manufactory__works_1833.glb": "2c79cbc2eec38ba64ddc8476a2b7e80cd409d03ef74df61d06d72215dcb7ea73",
     "exchange_coffee_house__frame_1834.glb": "d1f75530f39ed051294c8f468aa67daf3cb745424fc84b13683471e0b423d627",
-    "first_presbyterian_church__frame_1834.glb": "916d8f329d88013f5c26d32667e501e15b2d261ac4614c9511f249fc683c7609",
+    "first_presbyterian_church__frame_1834.glb": "eeda85305ca1e2e6f742d13c697749d3dfd0028fc7bf0a81230150779b010fd3",
     "fort_dearborn_artillery_house__log_1816.glb": "f37525b15bbeda1a8b6d71c45b97eedcd49e3c4f592353ebdefc89ede9e80134",
     "fort_dearborn_barracks__log_1816.glb": "b3a3066a2369eb09c041162b9e2a5d3bb253ef49b9b2db982d7266758c30b8c1",
     "fort_dearborn_big_barn__barn_1830.glb": "85e1fc4782bcd5ea5cc47d077bce59c08dc944d5bac481edc7aba7b8b80541ae",
@@ -424,6 +425,5 @@
     "wolf_point_tavern_stable__stable_1831.glb": "5d7a13006ab595c626a706f1bf2bfe5076c7eb6b435b44bc067ef3c33da0c926",
     "wright_building_to_let_a__documented_1835.glb": "77312dd809fcf9bc5e243de2fe95de2227fd8a96a8027cb41b89a60444abf073",
     "wright_building_to_let_b__documented_1835.glb": "ede18f6170198504b62b3f9bbf0b2cf2c423e3dc5ad9c55301679dd5d1ef37cb"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
