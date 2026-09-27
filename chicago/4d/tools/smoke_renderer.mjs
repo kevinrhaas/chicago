@@ -4869,7 +4869,21 @@ for (const [label, viewport, touch] of [
         // refusal is the same wall at the same 1.50 m, renamed with the roof; walks,
         // crossings, posts and fences are untouched, because the re-family changes
         // what the building IS and not where it stands.
-        && frontage.census?.refused === 91
+        // T-1648 puts four more back, and they are T-1647's clause four times over.
+        // The Franklin block's seq-08 and seq-09 roofs, La Salle's seq-11 and Wells's
+        // seq-01 were D-family cottages and are now C2 store-residences, so the
+        // hitching rule LOOKS at each of them for the first time — `store_residence`
+        // is one of the signboard rule's PUBLIC_TRADES and a cottage is not — and
+        // refuses each in writing, because the trade there is reconstructed and a post
+        // would be furniture standing on an invention. 91 refusals to 95. The other
+        // six roofs the same re-family moved are NOT here, and that is the rule rather
+        // than an omission: C1's `small_shop_or_office`, C3's `narrow_two_story_store`,
+        // C4's `wide_two_story_store_or_mixed_block` and F2's
+        // `narrow_two_story_warehouse` are none of them PUBLIC_TRADES, so clause 2
+        // never reaches clause 3 for them. NOTHING ELSE MOVES: walks, crossings, posts
+        // and fences are untouched, because a re-family changes what the building IS
+        // and not where it stands.
+        && frontage.census?.refused === 95
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
