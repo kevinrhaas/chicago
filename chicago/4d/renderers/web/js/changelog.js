@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1171, ts: '2026-09-27T11:35:57.995Z', date: 'Sep 27, 2026, 6:35 AM CT', title: 'Nothing you can see: the release machinery names its own project', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that laps, merges and reports on the work before it reaches you, and a visitor will find the same Chicago as before.',
+      'Three of those scripts worked out which project they were acting on by asking the job they were running in. That is the wrong question: the job belongs to whoever started it, not to the copy of this project the script is standing in. Yesterday the same line put one of this project\u2019s handoff notes, and a label, on an unrelated pull request in a different repository \u2014 which nothing noticed, because both had a request numbered 104 open that day.',
+      'All three now read the project they are checked out of, or take its name as an argument, and refuse in one line rather than guess. Each carries a test that proves the refusal fires, and a test that proves the argument beats the environment; the drift check that had been watching one script watches all four.',
+    ] },
   { v: 1170, ts: '2026-09-27T08:10:14.904Z', date: 'Sep 27, 2026, 3:10 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
     items: [
       'The town\u2019s two freight sheds \u2014 one in the South Division block between La Salle and Clark, one out on the west side \u2014 had a single wagon door in the middle of one end, the same opening a barn or a carter\u2019s stable gets. A shed for goods is worked differently: the load comes off a wagon bed or a boat and is handed in. Both now carry two wide, low cargo openings side by side on their loading face, with an even pier of board at each corner and between them.',

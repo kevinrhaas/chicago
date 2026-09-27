@@ -518,6 +518,19 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     because both repositories had a #104 open that day. Pass `--repo owner/name` to
     act on another repository, and expect a one-line refusal — never a guess — when
     the repository it resolved does not contain the PR or the branch.
+
+    **And so do the other three steward scripts, since T-1656** — `pr-lap.sh`,
+    `merge-ready.sh` and `pr-stuck.sh` all carried the identical
+    `${GITHUB_REPOSITORY:-kevinrhaas/chicago}` line, whose `:-` default reads as a
+    safety net and is not one: in an Actions job the variable is always set, so the
+    default never fires. They were left out of T-1655 only because their callers are
+    this repository's own workflows, where the ambient name happens to be right — a
+    property of the CALLER, and the same one pr-rest.sh had until a run drove it from
+    a clone. Two of them WRITE (merge-ready merges; pr-stuck labels and comments), so
+    the silent wrong-repository write was available to them the same way. All four now
+    take `--repo owner/name`, default to the origin remote of the checkout the file is
+    in, and refuse in one line rather than guess; `tools/check_gh_rest.mjs` names all
+    four in `REPO_NAMED`, and its `--self-test` proves each one is covered on its own.
   - **A later run works resumable PRs before it takes new queue work.** Merge `dev` in,
     re-derive, fix what is red, gate, merge — it is the same endgame as any unit, on a
     branch that is already most of the way there. **Skip one whose `waits on` ticket is
