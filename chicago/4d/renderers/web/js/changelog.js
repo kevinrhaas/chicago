@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
+  { v: 1170, ts: '2026-09-27T08:10:14.904Z', date: 'Sep 27, 2026, 3:10 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
     items: [
       'The town\u2019s two freight sheds \u2014 one in the South Division block between La Salle and Clark, one out on the west side \u2014 had a single wagon door in the middle of one end, the same opening a barn or a carter\u2019s stable gets. A shed for goods is worked differently: the load comes off a wagon bed or a boat and is handed in. Both now carry two wide, low cargo openings side by side on their loading face, with an even pier of board at each corner and between them.',
       'The old door was also too tall for the family it belonged to. The reconstruction specification gives a freight shed an eave of ten to thirteen feet, and a three-metre wagon door needs more wall than ten feet leaves \u2014 so no freight shed in this town could be built at the low end of its own band. The new opening is low enough that all of it is reachable, and the west shed has come down nine millimetres to sit where its band actually puts it.',
