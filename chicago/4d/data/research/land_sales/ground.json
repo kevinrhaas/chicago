@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 422,
+    "structures_placed": 423,
     "structures_reached": 69,
     "structures_reached_by_grade": {
       "inferred": 19,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 351,
+      "09": 352,
       "10": 1,
       "16": 1
     },
@@ -39849,6 +39849,7 @@
       "sauganash_hotel",
       "slough_log_bridge",
       "south_bank_shed_dearborn_e1",
+      "south_bank_shed_dearborn_e2",
       "south_branch_raft_bridge",
       "st_marys_church",
       "temple_building",

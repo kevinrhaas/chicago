@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 409,
-    "standing_after": 409,
-    "short_of_the_programme_before": 259,
-    "short_of_the_programme_after": 259
+    "standing_before": 410,
+    "standing_after": 410,
+    "short_of_the_programme_before": 258,
+    "short_of_the_programme_after": 258
   },
   "ledger": [
     {
@@ -320,11 +320,11 @@
       "group": "warehouses_freight",
       "division": "south",
       "target": 11,
-      "standing": 7,
+      "standing": 8,
       "anonymous": 3,
-      "head_before": 4,
-      "standing_after": 7,
-      "head_after": 4
+      "head_before": 3,
+      "standing_after": 8,
+      "head_after": 3
     },
     {
       "bucket": "structures/warehouses_freight/west",

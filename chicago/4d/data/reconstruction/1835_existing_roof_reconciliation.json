@@ -735,6 +735,17 @@
       "reasoning": "T-1636. A reconstructed freight shed on the SOUTH bank at the Dearborn reach, the south-bank half of the four north-bank sheds above and built from the same plate — image 3 of the owner's brief of 2026-08-18, 'low warehouses on the banks', which draws them on BOTH banks. It stands on the 9.5 m of town ground between South Water Street's platted end and State Street's corridor, ground that was a channel of this reconstruction's own making until T-1629 filled it back to the bank Wright drew. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, and the figure is one rather than the north sheds' zero for the reason T-0283 recorded when it moved six freight roofs from this very cell: the South's warehouses_freight row still carries unbuilt, unnamed slots, and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
     },
     {
+      "structure_id": "south_bank_shed_dearborn_e2",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "F1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural \u2014 image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots \u2014 four of them before this roof \u2014 and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
+    },
+    {
       "structure_id": "north_branch_bridge",
       "district": "north",
       "roof_count": 0,

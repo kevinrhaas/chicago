@@ -543,3 +543,43 @@ re-seated onto being the flattest ground on the reach, which is the reason it wa
 **Added links:** T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR
 whose validation read the red) · `data/frontage/river_walk_frontage.json` ·
 `docs/LIBERTIES.md` L274 and L153.
+
+## 2026-09-27 — the second shed, and the half turn the sweep was missing (T-1640)
+
+The bank strip took one more shed and this is it. Two things had to be settled first.
+
+**The sweep was expressing only half the placements it could.** `fits()` swept bearings
+0–165 on the reasoning that a rectangle is its own shape at θ and θ+180. That is true of
+its shape and false of its POSITION, because the rectangle is anchored at its (0, 0)
+corner and not at its centre: turning it 180° reflects it through the station onto the
+opposite quadrant. Since the station lattice starts at the box floor (`BOX_S_M`, local
+N 0.0) and the footprint is allowed to hang south of that floor, the half turn could
+only ever express placements lying north of their own station. Measured before the fix:
+the ONLY position the reading would admit at the generators' own 0.30 m relief clause
+stood 15° off the riverside plank walk with 0.111 m between it and
+`south_bank_shed_dearborn_e1`'s south wall. With the full turn swept, the same ground
+admits eight SQUARE positions at 0.093–0.094 m of relief. Every bound in this reading is
+deliberately the permissive one, and its own anchor was not.
+
+**And every admitted position stood on e1's cart yard.** e1's wagon door is on its south
+wall and its record states the approach: a cart comes east out of South Water Street's
+end onto the terrace and stands on the landward side of the shed. The nearest square
+position the reading names — anchored E 811.17 / N 0.0 — puts a second shed 1.531 m in
+front of that door. That is the same class of fault as T-1643's shed across the plank
+walk: a building placed where the dataset's own prose says a person or a cart goes. So
+`south_bank_shed_dearborn_e2` stands 3.67 m further south than the station and 0.19 m
+west of it, on e1's own two wall lines, with a 5.20 m loading yard between the two sheds
+— 1.00 m of clearance from each wall plus the 3.20 m of ground a parked wagon needs, all
+three figures `data/yard/town_trade_goods.json`'s own. Both doors open onto that yard and
+the yard's west end opens straight off the east end of South Water Street's travelled way.
+
+**The reading after it.** `fits` 0, 0, 42, 126 (was 91, 96, 162, 233); `takes_more` 0, 0,
+3, 4 (was 1, 1, 3, 5) — the strip is now FULL at 0.30 m and 0.35 m, and what is left at a
+metre of relief is up on the higher ground north of the walk. `fits_beside_the_street` is
+still **0** at every clause: T-0134's refusal of the frontage the plate draws is
+untouched, and nothing here re-opens it. `fits_on_what_stands` rises from 45 to 145, and
+the transcript now NAMES all fourteen footprints the mask uses instead of only those
+inside the box — e2 stands wholly south of N 0 and would otherwise have refused 15
+positions anonymously.
+
+The liberty is **L281**; the record's own `position.note` carries the rule in full.

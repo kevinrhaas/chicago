@@ -20,10 +20,10 @@
  "free_stations": 126,
  "stations": 143,
  "fits": {
-  "0.30": 2,
-  "0.35": 2,
-  "1.00": 19,
-  "none": 59
+  "0.30": 0,
+  "0.35": 0,
+  "1.00": 42,
+  "none": 126
  },
  "platted_end_m": 805.0,
  "widest_free_strip_beside_the_street": {
@@ -36,8 +36,8 @@
  "fits_beside_the_street": {
   "0.30": 0,
   "0.35": 0,
-  "1.00": 0,
-  "none": 3
+  "1.00": 21,
+  "none": 40
  },
  "unplatted_tracks_masked": [
   {
@@ -96,12 +96,20 @@
   }
  ],
  "fits_on_a_committed_walk": {
-  "0.30": 44,
-  "0.35": 49,
-  "1.00": 98,
-  "none": 129
+  "0.30": 94,
+  "0.35": 101,
+  "1.00": 200,
+  "none": 261
  },
  "standing_footprints_masked": [
+  {
+   "structure": "chicago_american_office",
+   "phase": "frame_1835",
+   "e_from": 711.06,
+   "e_to": 723.25,
+   "n_from": -15.01,
+   "n_to": -7.39
+  },
   {
    "structure": "dearborn_street_drawbridge",
    "phase": "draw_1834",
@@ -111,61 +119,135 @@
    "n_to": 97.05
   },
   {
+   "structure": "frederick_thomas_shop",
+   "phase": "frame_1835",
+   "e_from": 744.58,
+   "e_to": 753.73,
+   "n_from": -14.34,
+   "n_to": -8.25
+  },
+  {
+   "structure": "john_holbrook_store",
+   "phase": "frame_1835",
+   "e_from": 726.3,
+   "e_to": 735.44,
+   "n_from": -15.35,
+   "n_to": -7.73
+  },
+  {
+   "structure": "madore_beaubien_house",
+   "phase": "log_1831",
+   "e_from": 677.68,
+   "e_to": 686.82,
+   "n_from": -11.98,
+   "n_to": -6.49
+  },
+  {
+   "structure": "recon_1835_blk_south_water_clark_f2_01",
+   "phase": "inferred_1835",
+   "e_from": 653.12,
+   "e_to": 660.97,
+   "n_from": -21.62,
+   "n_to": -5.95
+  },
+  {
+   "structure": "recon_1835_blk_south_water_dearborn_c1_08",
+   "phase": "inferred_1835",
+   "e_from": 739.07,
+   "e_to": 744.59,
+   "n_from": -15.47,
+   "n_to": -7.84
+  },
+  {
+   "structure": "recon_1835_blk_south_water_dearborn_c2_07",
+   "phase": "inferred_1835",
+   "e_from": 753.57,
+   "e_to": 760.27,
+   "n_from": -19.95,
+   "n_to": -8.25
+  },
+  {
+   "structure": "recon_1835_blk_south_water_dearborn_c3_01",
+   "phase": "inferred_1835",
+   "e_from": 781.64,
+   "e_to": 788.26,
+   "n_from": -22.53,
+   "n_to": -9.05
+  },
+  {
+   "structure": "recon_1835_blk_south_water_dearborn_c3_02",
+   "phase": "inferred_1835",
+   "e_from": 775.92,
+   "e_to": 782.02,
+   "n_from": -22.07,
+   "n_to": -8.89
+  },
+  {
+   "structure": "recon_1835_blk_south_water_dearborn_d1_05",
+   "phase": "inferred_1835",
+   "e_from": 770.45,
+   "e_to": 776.28,
+   "n_from": -15.92,
+   "n_to": -8.73
+  },
+  {
+   "structure": "slough_log_bridge",
+   "phase": "log_1833",
+   "e_from": 825.42,
+   "e_to": 828.42,
+   "n_from": -12.36,
+   "n_to": -4.36
+  },
+  {
    "structure": "south_bank_shed_dearborn_e1",
    "phase": "shed_1835",
    "e_from": 805.5,
    "e_to": 810.99,
    "n_from": 1.53,
    "n_to": 11.29
+  },
+  {
+   "structure": "south_bank_shed_dearborn_e2",
+   "phase": "shed_1835",
+   "e_from": 805.5,
+   "e_to": 810.99,
+   "n_from": -13.42,
+   "n_to": -3.67
   }
  ],
  "fits_on_what_stands": {
-  "0.30": 45,
-  "0.35": 45,
-  "1.00": 45,
-  "none": 45
+  "0.30": 145,
+  "0.35": 145,
+  "1.00": 145,
+  "none": 145
  },
  "takes_more": {
-  "0.30": 1,
-  "0.35": 1,
+  "0.30": 0,
+  "0.35": 0,
   "1.00": 3,
-  "none": 5
+  "none": 4
  },
  "takes_more_where": {
-  "0.30": [
-   {
-    "e": 813.2,
-    "n": 0.0,
-    "bearing_deg": 165.0,
-    "relief_m": 0.129
-   }
-  ],
-  "0.35": [
-   {
-    "e": 813.2,
-    "n": 0.0,
-    "bearing_deg": 165.0,
-    "relief_m": 0.129
-   }
-  ],
+  "0.30": [],
+  "0.35": [],
   "1.00": [
    {
+    "e": 798.2,
+    "n": 22.0,
+    "bearing_deg": 270.0,
+    "relief_m": 0.97
+   },
+   {
     "e": 808.2,
-    "n": 19.0,
-    "bearing_deg": 105.0,
-    "relief_m": 0.931
+    "n": 24.0,
+    "bearing_deg": 285.0,
+    "relief_m": 0.976
    },
    {
-    "e": 813.2,
-    "n": 0.0,
-    "bearing_deg": 165.0,
-    "relief_m": 0.129
-   },
-   {
-    "e": 818.2,
-    "n": 21.0,
-    "bearing_deg": 105.0,
-    "relief_m": 0.961
+    "e": 820.2,
+    "n": 26.0,
+    "bearing_deg": 270.0,
+    "relief_m": 0.996
    }
   ],
   "none": [
@@ -176,28 +258,22 @@
     "relief_m": 1.014
    },
    {
-    "e": 812.2,
-    "n": 16.0,
-    "bearing_deg": 75.0,
-    "relief_m": 1.204
+    "e": 804.2,
+    "n": 23.0,
+    "bearing_deg": 255.0,
+    "relief_m": 1.072
    },
    {
     "e": 814.2,
-    "n": 0.0,
-    "bearing_deg": 165.0,
-    "relief_m": 0.127
+    "n": 26.0,
+    "bearing_deg": 270.0,
+    "relief_m": 1.204
    },
    {
-    "e": 825.2,
-    "n": 21.0,
-    "bearing_deg": 90.0,
-    "relief_m": 1.222
-   },
-   {
-    "e": 835.2,
-    "n": 20.0,
-    "bearing_deg": 75.0,
-    "relief_m": 1.085
+    "e": 824.2,
+    "n": 26.0,
+    "bearing_deg": 270.0,
+    "relief_m": 1.233
    }
   ]
  },
