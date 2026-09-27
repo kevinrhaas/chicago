@@ -1848,8 +1848,8 @@
     "recon_1835_blk_south_water_franklin_c2_10__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 46884,
-      "inputs_sha256": "e5d98847feacb08e29882a50195f3911f6ab3ed0bc8de4dd4fce43582532d3a0",
+      "bytes": 53124,
+      "inputs_sha256": "7a10e8e3e4f6e092c414b78ce346749042e10fe149916a9a9c553281f58fdf9d",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_c2_10"
@@ -1893,8 +1893,8 @@
     "recon_1835_blk_south_water_franklin_d3_13__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 26788,
-      "inputs_sha256": "d115194972d58724e7df9cd861cfdc666effe7643076bc837fab53e771f5872e",
+      "bytes": 28660,
+      "inputs_sha256": "7f4b61dbaeb78b0898da541d384d18f29c5002afbcf5bbbe6068257288ac90a9",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d3_13"
@@ -1902,8 +1902,8 @@
     "recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 33644,
-      "inputs_sha256": "43cb9a8dd7c012dab3f9cc470435ecc30f5e199c3529abe45ebac58abc8d4e76",
+      "bytes": 28964,
+      "inputs_sha256": "db22743fba9da39614895b5d74617674b92d74715c01e17ebcffb3f19af9b990",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d4_02"
@@ -1974,8 +1974,8 @@
     "recon_1835_blk_south_water_lasalle_c3_13__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 58804,
-      "inputs_sha256": "9eed1bd93ad3d4e27d4d2d8ebeb7e17dcc9311433123569992613803b232e7d7",
+      "bytes": 61460,
+      "inputs_sha256": "74827ed427cf4b7cbae1316a727aebeabc1483a7b137d1e316327873bbbf75f1",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_c3_13"
@@ -2019,8 +2019,8 @@
     "recon_1835_blk_south_water_lasalle_d3_06__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 28320,
-      "inputs_sha256": "de67aee7aa8c429d8112336da83ea8462968446719fb10f5880bed5ec4729e19",
+      "bytes": 23636,
+      "inputs_sha256": "4adb34a282ed2eba2e56fba95667e03a97765e431b716baa8916e9e18e2ebb7e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d3_06"
