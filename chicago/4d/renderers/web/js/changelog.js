@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
+  { v: 1181, ts: '2026-09-27T17:21:55.929Z', date: 'Sep 27, 2026, 12:21 PM CT', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
     items: [
       'Nothing in the town changed and no card moved. This is an addition to the machinery that keeps the town running smoothly on an ordinary laptop, and a visitor will find the same Chicago as before.',
       'The town is held to a budget: at three quality settings, from five viewpoints, there is a ceiling on how much scenery one frame may contain, and a check refuses the town if any viewpoint goes over. The reading that answers it has always been taken at the END of a batch of new buildings — after they were allotted, after they were drawn, after the models were baked. So a batch found out it had broken the budget only once the work was done.',
