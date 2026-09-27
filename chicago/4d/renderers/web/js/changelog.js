@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1163, title: 'Two cottages at the bridge head are shops again', kind: 'change', ts: '2026-09-27T02:23:03.028Z', date: 'Sep 26, 2026, 9:23 PM CT',
+    items: [
+      'Stand at the foot of the Dearborn Street drawbridge and look west along South Water Street. Two of the buildings in the row have changed shape: where a one-room cottage and a deep-plan cottage stood shoulder to shoulder with Frederick Thomas\u2019s shop, there are now a small shop and a store-residence with a shopfront on the street.',
+      'They changed because the town was arguing with itself. South Water is the business front \u2014 the street this reconstruction grades above every other, and the one the documented trades advertise on. Its party-line row carries 28 buildings, and 23 of them were cottages. Two of those cottages had a documented business written on their own card: a bakery in one, a wholesale dry-goods, hardware and crockery house in the other.',
+      'Nothing about either building was ever evidence. Both are anonymous count-units whose family was picked off the block\u2019s scheduled mix, and the schedule apportions a family, never a building. So the family is what moved, and both roofs stay exactly where they stood, at the same tier, with the same invented everything.',
+      'The ground picked which shop. The east one had room for a store-residence and took it. The west one sits in a gap between two documented stores that admits nothing bigger than a small shop \u2014 a store-residence there lands 2.78 m from Holbrook\u2019s store against a three-metre rule, and a two-storey store runs off the end of the row. So the wholesale house gets a shop, and the record says it is the gap\u2019s fault and not the firm\u2019s.',
+      'What did not happen: nothing new was raised. There is no ground left to raise it on \u2014 the last vacant lot on each South Water block that still has one is deliberately kept open, and the rest are full. Twenty-one cottages on that row are still waiting for the same question to be asked of them.',
+    ] },
   { v: 1162, ts: '2026-09-27T01:53:15.451Z', date: 'Sep 26, 2026, 8:53 PM CT', title: 'Browse the sources behind the town', kind: 'change',
     items: [
       'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
