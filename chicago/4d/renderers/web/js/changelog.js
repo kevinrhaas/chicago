@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1173, ts: '2026-09-27T13:00:50.548Z', date: 'Sep 27, 2026, 8:00 AM CT', title: 'The two river warehouses get the doors a warehouse was worked through', kind: 'change',
+  { v: null, ts: '', title: 'The two river warehouses get the doors a warehouse was worked through', kind: 'change',
     items: [
       'The town has two narrow two-storey warehouses on the South Water Street row \u2014 one on the Clark block, one on the La Salle block \u2014 and until now each had a single goods door in the middle of one end and nothing above it. A warehouse is not a store: goods went in at more than one point along its loading side, and they went UP. Both now carry two wide cargo doors side by side, with an even pier of board at each corner and between them, and above each one an upper freight door with its hoist beam projecting out through the gable.',
       'How many doors is not a reading of anything. No record reached counts the cargo openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The number is worked out from the family\u2019s own footprint range instead: its narrowest plan is forty feet deep, two openings leave a pier of 2.62 m between them where three would leave 1.42 m \u2014 less than the eight feet between the principal posts the wall is framed on \u2014 so two is the most every warehouse of that kind will carry. The large river warehouse answers three by the same sum, and there is still no river warehouse standing in the town to build.',
       'The specification also says a hoist beam was not on every one of them, and giving both of these one claims more than that allows. It is taken deliberately, because the same entry asks this archetype for hoist support before the family counts as built, and because nothing in either record tells one warehouse from the other. It is written down as a liberty rather than left to be discovered.',
+    ] },
+  { v: 1173, ts: '2026-09-27T12:58:49.315Z', date: 'Sep 27, 2026, 7:58 AM CT', title: 'Nothing you can see: a finished repair reaches you sooner', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that builds the geometry, and a visitor will find the same Chicago as before — sooner.',
+      'Whenever a change touched the code that makes the buildings, a full twenty-five-minute rebuild of all 422 of them started before the change could be accepted. That is right when the change moves a wall. It was also happening when the change could not possibly move one — a correction to a command line, a comment, a rule about which buildings to rebuild — and the rebuild outlasted the wait, so finished work was handed to a later sweep instead of landing.',
+      'The gate now asks the town itself. Every building records what it was built from, and the check that refuses a stale model already recomputes that for all 422 in about half a second. If not one of them has gone stale, there is nothing for a rebuild to fix and none is started. If any has, one is — exactly as before.',
+      'Anything the gate cannot establish still rebuilds: an unreadable record, a recipe that will not load, a file it does not recognise. And the nightly rebuild of the whole town is untouched, which is what goes on proving the machinery still runs.',
     ] },
   { v: 1172, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T12:08:10.063Z', date: 'Sep 27, 2026, 7:08 AM CT',
     items: [
