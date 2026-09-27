@@ -309,30 +309,30 @@
    "occupants": "Newberry & Dole"
   },
   {
+   "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+   "lot_id": "blk_south_water_dearborn#02",
+   "family": "C1",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "L. W. Montgomery, boot and shoe maker — boot and shoe making"
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+   "lot_id": "blk_south_water_dearborn#02",
+   "family": "C2",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "Peter Cohen — clothier, grocer and liquor dealer"
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
    "lot_id": "blk_south_water_dearborn#04",
    "family": "C3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "L. W. Montgomery, boot and shoe maker — boot and shoe making"
+   "occupants": "Harmon, Loomis & Co. — wholesale and retail dry goods, groceries, hardware and crockery"
   },
   {
    "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
    "lot_id": "blk_south_water_dearborn#04",
    "family": "C3",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Peter Cohen — clothier, grocer and liquor dealer"
-  },
-  {
-   "structure_id": "recon_1835_blk_south_water_dearborn_d3_08",
-   "lot_id": "blk_south_water_dearborn#02",
-   "family": "D3",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Harmon, Loomis & Co. — wholesale and retail dry goods, groceries, hardware and crockery"
-  },
-  {
-   "structure_id": "recon_1835_blk_south_water_dearborn_d5_07",
-   "lot_id": "blk_south_water_dearborn#02",
-   "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "D. Graves — bakery"
   },
@@ -459,14 +459,14 @@
  "plan_left_unclaimed": [
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "C1",
+   "family": "C2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "D5",
+   "family": "D4",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_dearborn#07, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
@@ -480,7 +480,7 @@
   },
   {
    "block_id": "blk_south_water_wells",
-   "family": "C2",
+   "family": "C1",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -494,7 +494,7 @@
   },
   {
    "block_id": "blk_south_water_wells",
-   "family": "D4",
+   "family": "D5",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"

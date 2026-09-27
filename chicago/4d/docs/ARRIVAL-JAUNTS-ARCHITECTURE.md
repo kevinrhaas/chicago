@@ -347,11 +347,13 @@ attributed to a named person. No `eval`, no HTML, no per-jaunt code.
 
 `tools/compile_source_use.py` (T-1248) → `data/sidecars/1835/sources/index.json`
 (rows: public citation fields, `type`, `date`, `tier`, `use: scene | other_scene |
-exclusion | research | unused`, `counts { entities, claims }`, `has_archive_link`) and
+exclusion | research | unused`, `counts { entities, claims, grades }`, `has_archive_link`) and
 `sources/<source_id>.json` (edges `{ source_id, entity_type, entity_id, claim, confidence,
 locator, use }`). Entity types: `structure, person, household, business, terrain, flora,
 fauna, exclusion, liberty, decision, loading_fact, jaunt`. Fetched only when Evidence →
-Sources opens.
+Sources opens. `counts.grades` contains two vectors (claims, entities), each in
+attested/inferred/reconstructed order. Duplicate locators for a claim and mixed-grade
+entities count once at their strongest confidence; no source tier upgrades a claim.
 
 ### E. Destination model
 

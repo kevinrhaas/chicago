@@ -267,7 +267,7 @@ function zoneHtml(zone, vocab, clampByZone, ceilingPerM2, citationsById) {
       : `${clampRows.length} strata`} clamped</span>`
     : '';
 
-  return `<details class="lib fauna-zone plant-zone">
+  return `<details class="lib fauna-zone plant-zone" data-source-entity="${escapeHtml(zone.id)}">
     <summary>
       <span class="lib-id">${escapeHtml(String(zone.id || ''))}</span>
       <span class="lib-title">${escapeHtml(zone.name || zone.id)}</span>
