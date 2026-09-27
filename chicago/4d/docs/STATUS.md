@@ -1,3 +1,75 @@
+## Lake Street's Clark corner stands as shops — T-1681, 2026-09-27
+
+Piece 2 of 4 of T-1201, and the same shape as T-1647 one street north. **There is no
+ground to raise a store on.** Both blocks this piece owns read `at_capacity` in the
+665-roof programme — `blk_lake_clark` 16 standing roofs, `blk_lake_dearborn` 13, headroom
+0 on each — and `blk_lake_clark`'s one remaining free lot is lot 5, on Randolph, which
+its own end rule keeps open. So what the Lake business front is made of can only change
+by saying what the roofs standing on it **are**.
+
+**What this piece did.** The three slots of `blk_lake_clark`'s party-line run on lot 0 —
+a D1 log cabin and two frame cottages, each with a documented Lake Street trade seated in
+it by the street-face register — are re-familied in `1835_platted_block_parcels.json`
+(`refamilied`, T-1681), and their ids move with the family: `_d1_01` → `_c1_01`,
+`_d3_02` → `_c2_02`, `_d5_03` → `_c3_03`. C1, C2 and C3 are the three store families the
+programme still has headroom for in the south division, so the face gains three stores
+and no family passes its target. **C4 is refused and the refusal is the ground's**: a
+wide mixed block bands at 28–36 ft of frontage and no unit of this run has more than
+22 ft of it. The measurement the re-family rests on — the two Lake faces carrying 15
+principal roofs, 4 of them store or workshop families, against the 0.6818 documented
+trade share T-0213 reads off a principal street — is written into the recipe's own
+`refamilied.why`, where it is adjudicated rather than restated here.
+
+**Which stands where is the block's own end rule, not an allocation.** T-0079 seated this
+run under the rule that the better roof stands at the town-centre end — east, toward
+Dearborn and the only crossing of the main stem in July 1835 — so the row now ascends
+along the face: C1 at 5.34 m wide and one storey on the Clark corner, C2 at 6.17 m and a
+storey and a half in the middle, C3 at 6.53 m and two full storeys closing the run,
+18.05 m of the lot's 21.75 m of buildable frontage. Same lots, same 0.80 m street line
+(L177), same party walls, same bottom tier; nothing is promoted and no occupant is
+invented, and the block is dealt no extra roof.
+
+**The business allocation re-paired itself, and that is the policy working.** Street-face
+adoption ranks a face's documented businesses by evidence and pairs them with its free
+roofs **in id order**, writing `order_is_a_claim: false` on every row. Three ids moved,
+so the Lake face's trades re-paired: as the parcel now stands, Sarah D. Howe's dress and
+cloak making takes the first unit, William Clay's hat manufacturing and dealing the
+second, and the dentist lodging near Lake Street in July 1834 the third. None of those
+pairings is evidence, none of them chose a family, and the pairing is expected to move
+again the next time an id on this face does.
+
+**`blk_lake_dearborn` moves nothing, and that is a measurement.** Its Lake face already
+carries the two trade roofs the evidence gives it — `dole_warehouse_south` and
+`mason_blacksmith_shop` — with St Mary's church on the lot 6 corner. The four anonymous
+roofs left on it carry **no occupant at all**, so the test that moved the three above does
+not reach one of them; and none is this recipe's to move in any case, because all four
+belong to `phase1_south_mixed_blocks`, whose re-family route is the adjudicated ledger at
+`data/reconstruction/1835_roof_redeal.json`. Re-familying a roof that carries no trade
+would be inventing the trade.
+
+**This is a re-cut, and what it dropped is the point.** The first cut of this piece (PR
+#130, 2026-09-27) also swept the order book's `STRUCTURE_TICKETS` rows off the split
+T-1201; `dev` has since done that itself — `('south', 'stores_mixed_use')` reads
+`T-1681` and `('south', 'workshops')` reads `T-1684` on `dev` today — so that half is
+gone from this branch rather than re-litigated, and `build_order_book_1835.py --check`
+and `reprogramme_roofs_1835.py --check` both re-derive with the committed files
+unchanged. The re-cut re-derived every layer from the recipe rather than replaying the
+first cut's outputs, which is why the business pairing above differs from the one PR #130
+recorded: `dev` moved the face underneath it.
+
+**Left as written, deliberately.** `docs/unreal/prototype/import_report.json.txt` and
+`renderers/unreal/receipts/mac-253f02657.json` still name the old ids. They are dated
+import receipts and rewriting one falsifies it. Every other file naming them is renamed
+or re-derived, including L144's `**Covers:**` list, L177's decision and L266, whose
+population drops to 73 — 59 log dwellings and 14 fort structures — because the Clark
+corner's log cabin left it for the framed one, the second time that has happened and for
+the same reason.
+
+**Verification.** `tools/check.sh` in the foreground; `python3 tools/validate.py --stale`
+clean; baked `--only` the three new records plus `..._south_water_clark_d4_02` and
+`..._south_water_lasalle_d3_03`, whose siding stock re-dealt when the id set moved.
+`tools/test_store_variants.py` moves its C2 census from ten to eleven.
+
 ## T-1278 - mobile welcome (2026-09-27)
 
 Arrival settles into Jaunts, Explore on my own and Enter Chicago. The inline picker uses T-1277 safe destinations. Start / Jaunts pauses the world and returns focus on close; help waits for first entry. Settings persist. Jaunts are explicitly forthcoming.

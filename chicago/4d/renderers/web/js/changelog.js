@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1189, ts: '2026-09-27T22:44:43.226Z', date: 'Sep 27, 2026, 5:44 PM CT', title: 'Lake Street\u2019s Clark corner stands as shops, not cottages', kind: 'change',
+    items: [
+      'Walk east along Lake Street from Clark and the first three buildings used to be a log cabin and two small frame cottages, shoulder to shoulder \u2014 and every one of them had a documented Chicago business advertised inside it. A land agent, a house-and-lot agent and a physician were trading out of what the town was drawing as houses.',
+      'They are shops now, and the row rises as it runs toward Dearborn: a one-storey shop on the Clark corner, a storey-and-a-half store-residence with attic rooms beside it, and a full two-storey store closing the run. Nothing moved \u2014 same lots, same street wall, same shared party walls. Only what the buildings ARE changed.',
+      'This is a statement about the street, not about the people. Which advertised business stands in which of these roofs has never been a reading of any source \u2014 the newspapers place them on Lake Street and no closer \u2014 and every card says so.',
+      'The Dearborn block one street east was measured the same way and nothing moved there: its Lake frontage already carries Dole\u2019s warehouse, Mason\u2019s blacksmith shop and St Mary\u2019s church, and the anonymous roofs left on it carry no business at all. Turning one of those into a shop would have been inventing the shop.',
+      'Neither block had room for a new building, so no roof was added to the town and none taken away. The town still wants 668 roofs.',
+    ] },
   { v: 1188, ts: '2026-09-27T21:40:51.475Z', date: 'Sep 27, 2026, 4:40 PM CT', title: 'Fourteen Randolph Street houses name the families in them', kind: 'change',
     items: [
       'Open a house on the blocks between Randolph and Washington and, until now, its card read the same sentence as every other: an anonymous building counted toward the town\u2019s total of 665 roofs. Fourteen of them now give the name of the family the project\u2019s own dealing had already put there \u2014 the Abbotts, the Adamses, the Allens, the Barneys, the Boyers and nine more \u2014 and say in the same breath that no source puts that family on that lot, that street, or even that side of town.',
