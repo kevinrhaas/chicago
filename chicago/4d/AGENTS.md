@@ -411,6 +411,12 @@ is the contract. The short form:
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
   checks `git ls-remote` for a rival branch carrying the ticket's number and refuses with a
   `--force` escape — but that only protects the NEXT run; finishing the PR is your half.
+  That scan skips `claim/*` (the lock is the authority on a live claim and says who holds
+  it) and, since T-1666, `idlock/*` — the ID-MINT LEASE every ticket carries from the day
+  it was filed. Reading those as work refused EVERY unclaimed ticket, so `--force` became
+  the normal way to claim and the one case the check exists for stopped being visible; the
+  same bug was filed three times in three days (T-1601, T-1646, T-1666). **A refusal that
+  names a real `steward/*` branch is a real rival — believe it.**
 - **Size in RUNS before you FILE, not before you claim.** `XS` part of a run · `S` one
   run · `M` one run, tight (or one run plus a bake) · `L` **more than one run, which
   `new` now REFUSES at the prompt and `claim` refuses after** (T-1593). The test is the

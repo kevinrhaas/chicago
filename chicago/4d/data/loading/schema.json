@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "phase",
+          "kind",
+          "text",
+          "weight",
+          "min_dwell_ms"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^loading_[0-9]{3}$"
+          },
+          "phase": {
+            "enum": [
+              "assess",
+              "collect",
+              "prepare",
+              "resolve",
+              "land"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "source",
+              "build",
+              "fact",
+              "operational",
+              "humor"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 110
+          },
+          "source_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "entity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "structure",
+                  "flora"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[a-z0-9_]+$"
+              }
+            }
+          },
+          "fact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "locator",
+              "confidence",
+              "reasoning"
+            ],
+            "properties": {
+              "locator": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "sidecar",
+                  "attribute"
+                ],
+                "properties": {
+                  "sidecar": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "attribute": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "confidence": {
+                "enum": [
+                  "attested",
+                  "inferred",
+                  "reconstructed"
+                ]
+              },
+              "reasoning": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "weight": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 10
+          },
+          "min_dwell_ms": {
+            "type": "integer",
+            "minimum": 2000,
+            "maximum": 4000
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "fact"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "fact",
+                "source_ids",
+                "source_label",
+                "entity"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

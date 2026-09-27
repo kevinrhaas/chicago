@@ -15125,3 +15125,33 @@ one, and the nine would stop being a liberty.
 T-1638, its parent **T-1200**, the ruling **T-0379**, and
 `data/reconstruction/1835_roof_keepers.json`.
 **Recorded:** 2026-09-26.
+
+### L277 — The store-residence's attic is lit by an invented sash in each gable, and that is the only outside sign the half storey has
+**Decision:** the eight anonymous C2 store-residences on the platted blocks are built at the
+story-and-a-half their own records state, and the half storey shows on the elevation as ONE small
+sash in each gable end, 0.62 x 0.70 m, set 0.16 m above the plate. Its size, its height above the
+plate and the decision to glaze both ends rather than one are the archetype's
+(`generators/archetypes/frame_storefront._attic_openings`), not any record's. No dormer, no hoist
+and no knee-wall window on the flanks is drawn.
+**Why:** T-1659. `from_phase` resolved the record's storeys with `int()` until this entry's
+ticket, so all eight were built as one-storey shops: the half storey had no external trace at all
+and `shopfront_head_z` put the head of the shop opening ABOVE the floor of the room over it on
+every one of them. Building the storey the record states needs some outside sign of it, and the
+only one that costs no new evidence is a gable sash — the opening frame_dwelling already draws for
+the D6 cottage, at exactly the same dimensions, because a store-residence's attic chamber and a
+cottage's are the same room. "A small attic window in the gable end, for we used the attic, too"
+(John Gray on the Green Tree, `chicagology_prefire127`) is the nearest thing to evidence in this
+project for any of it, and it is a different building.
+**Consequence:** eight buildings on South Water, Randolph and Clark now show a glazed attic a
+visitor will read as a fact about the town, and the number, size and position of those sixteen
+sashes are type-level choices. The confidence view dithers them by the record's `stories` claim —
+`reconstructed` on all eight, which is what the tint says — rather than by the fenestration's,
+because what the opening asserts is that there was a half storey here and not that a window was
+arranged just so. So the tint says the storey is a reconstruction; it does not say the sash is an
+invention. This entry does.
+**How to resolve:** any depiction or description of a Chicago store-residence's gable in 1835.
+Failing that, a bay-and-opening rhythm authored on the C2 crosswalk entry itself, which would make
+the arrangement the specification's rather than the archetype's — the same resolution **L23** asks
+for on the taverns.
+**Covers:** `recon_1835_blk_randolph_clark_c2_01.form.stories`, `recon_1835_blk_south_water_clark_c2_06.form.stories`, `recon_1835_blk_south_water_dearborn_c2_07.form.stories`, `recon_1835_blk_south_water_franklin_c2_08.form.stories`, `recon_1835_blk_south_water_franklin_c2_09.form.stories`, `recon_1835_blk_south_water_franklin_c2_10.form.stories`, `recon_1835_blk_south_water_lasalle_c2_11.form.stories`, `recon_1835_blk_south_water_wells_c2_01.form.stories`.
+**Recorded:** 2026-09-27.

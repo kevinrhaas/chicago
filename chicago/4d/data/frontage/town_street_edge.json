@@ -9759,9 +9759,29 @@
       "why": "the trade at recon_1835_blk_south_water_clark_c2_06 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_clark_f2_01",
+      "wall": "blk_south_water_clark north face, lot 4",
+      "why": "recon_1835_blk_south_water_clark_f2_01 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+      "wall": "blk_south_water_dearborn north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_dearborn_c1_08 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
       "wall": "blk_south_water_dearborn north face, lot 2",
       "why": "the trade at recon_1835_blk_south_water_dearborn_c2_07 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+      "wall": "blk_south_water_dearborn north face, lot 4",
+      "why": "the trade at recon_1835_blk_south_water_dearborn_c3_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
+      "wall": "blk_south_water_dearborn north face, lot 4",
+      "why": "the trade at recon_1835_blk_south_water_dearborn_c3_02 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
@@ -9779,14 +9799,59 @@
       "why": "the trade at recon_1835_blk_south_water_franklin_c2_10 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+      "wall": "blk_south_water_franklin north face, lot 6",
+      "why": "the trade at recon_1835_blk_south_water_franklin_c4_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+      "wall": "blk_south_water_lasalle north face, lot 0",
+      "why": "the trade at recon_1835_blk_south_water_lasalle_c1_08 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
       "wall": "blk_south_water_lasalle north face, lot 2",
       "why": "the trade at recon_1835_blk_south_water_lasalle_c2_11 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+      "wall": "blk_south_water_lasalle north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_lasalle_c3_12 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+      "wall": "blk_south_water_lasalle north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_lasalle_c3_13 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
+      "wall": "blk_south_water_lasalle north face, lot 0",
+      "why": "recon_1835_blk_south_water_lasalle_f2_10 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_wells_c2_01",
       "wall": "blk_south_water_wells north face, lot 4",
       "why": "the trade at recon_1835_blk_south_water_wells_c2_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+      "wall": "blk_south_water_wells north face, lot 4",
+      "why": "the trade at recon_1835_blk_south_water_wells_c3_02 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "wall": "blk_lake_clark north face, lot 6",
+      "why": "the trade at recon_1835_south_c3_015 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_south_c3_040",
+      "wall": "blk_lake_dearborn south face, lot 1",
+      "why": "the trade at recon_1835_south_c3_040 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_south_f1_038",
+      "wall": "blk_lake_lasalle south face, lot 1",
+      "why": "recon_1835_south_f1_038 is a freight_or_storage_shed — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
       "structure_id": "sauganash_hotel",

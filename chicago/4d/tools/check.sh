@@ -39,6 +39,12 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "loading library: 160 sourced, phase-local cards (T-1275)" \
+  python3 tools/check_loading_content.py
+step "loading evidence refuses promoted or unrelated facts (T-1275)" \
+  python3 tools/test_loading_content.py
+step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
+  node tools/test_loading_content.mjs
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
@@ -1254,6 +1260,21 @@ step "the river wharves re-derive from the records that state a dock" \
 step "the case T-0059 was withdrawn on still holds" \
   python3 tools/measure_generator_half.py --gate --quiet
 
+# T-1654, and the sentence directly above is what pays for it: "a new archetype edits
+# build.py's registry and costs the town". So did an argparse fix — 422 of 422 assets,
+# for a change that could not move a vertex, because mesh_inputs.py hashed build.py
+# WHOLE. The pipeline now lives in generators/emit.py, which the recipe hashes, and
+# build.py kept the command line, which it does not. That split is an allowlist by
+# construction, and code_inputs.py is the standing argument that an allowlist silently
+# drops the next thing somebody adds — so it is asserted here on every run rather than
+# trusted: an archetype import, a shared builder import, or any reach into bpy beyond
+# bpy.app puts geometry back where the staleness gate cannot see it.
+step "the bake's command-line half still makes no geometry" \
+  python3 tools/test_build_cli_has_no_geometry.py
+
+selftest "…and each way of breaking that split is still refused" \
+  python3 tools/test_build_cli_has_no_geometry.py --self-test
+
 # The frontage works are the fifth record of this shape and the first derived from
 # a building AND a street at once: where a plank walk may lie is decided by the
 # travelled track's own half-width out of data/streets/1835.json, not by the wall
@@ -1275,6 +1296,24 @@ step "the street edge's cross-street faces enumerate as the plat says" \
 
 selftest "…and those assertions still fire when the enumeration is broken" \
   python3 tools/test_frontage_faces.py --self-test
+
+# T-1665, and it is a READING of the specification rather than a measurement of the
+# town: the crosswalk's "2-3 shop bays" counts the door and `shopfront_bays` does not,
+# so C3 looked short of its own band by one on every store and looked unsatisfiable at
+# the top of it. The argument for the door-inclusive reading is D4's "3/5 bays; center
+# or side door" and H1's "5 bays; center hall" — a centre door is centred in an odd
+# count — and it is re-derived from the crosswalk here rather than remembered, because
+# a reading whose evidence has been edited out of the file is a reading nobody is
+# keeping. The same step holds the storefronts to their families' authored bands and
+# holds `default_shopfront_bays`'s floor to fronts the frontage forced: on 20 of 26
+# floors the one remaining window takes 50.0-66.7% of the front against a stated
+# maximum of 45%, and until this step existed the floor overruled the ceiling in
+# silence. docs/FACADE-BAYS.md is the settlement.
+step "the shop-bay counts read as the specification's own words" \
+  python3 tools/test_shopfront_bay_count.py
+
+selftest "…and that reading's assertions still fire when each input is bent" \
+  python3 tools/test_shopfront_bay_count.py --self-test
 
 # The 665-roof programme's remainder is a function of what has been built, and the town
 # grows most nights. Left as an authored number it goes stale silently — the crosswalk
@@ -2005,6 +2044,22 @@ step "every family's footprint, eave, pitch and ridge bands are satisfiable at o
 # the shed set all fail here.
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_ridge_reach.py --self-test
+
+# The same question asked of the crosswalk's OTHER two columns for the store families —
+# `required_variant` and `variants` — which name forms rather than bands (T-1659). Three
+# of those lines named forms `frame_storefront` could not draw, and two of the three were
+# invisible rather than refused: C2's `levels: "1.5"` was read with `int()`, so eight
+# records that state a story-and-a-half were built as one-storey shops with the shop
+# opening cut through the attic floor; and C4's "side gable or hip" met a roof rule that
+# gave a FRONT gable to every family whose id begins with C. The third — C3's and F2's
+# hoist door — is correctly BUILDABLE AND UNBUILT, because those entries' own assumption
+# notes forbid inferring one, and a capability no record exercises is exactly what a gate
+# has to hold up.
+step "the store families' crosswalk variants are the ones the archetype draws" \
+  python3 tools/test_store_variants.py
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/test_store_variants.py --self-test
 
 # And the question the two gates above cannot ask, because they read what LANDED: is
 # every family the 665-roof schedule may deal to a platted block buildable at every

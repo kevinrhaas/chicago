@@ -11,7 +11,7 @@ generator half, so a baked town carries its own yards"*. Before building one, th
 things wanted a number rather than an opinion:
 
   1. **How many committed meshes does adding it re-stale?** `generators/
-     mesh_inputs.py` hashes an archetype's builder, `generators/build.py` and
+     mesh_inputs.py` hashes an archetype's builder, `generators/emit.py` and
      the geometry-making half of `generators/common/` into every structure asset's
      `inputs_sha256`, and `generators/terrain_inputs.py` hashes `terrain_gen.py`
      and the same modules into every terrain asset's. Which half that is, is
@@ -201,7 +201,8 @@ STATED = {
         "generators/common/*.py": 422,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 420,
+        "generators/emit.py": 420,
+        "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },
@@ -261,7 +262,7 @@ def restale_reach() -> tuple[dict, int, list]:
     which is the only reading that cannot go stale behind them:
 
       * `mesh_inputs._code_shas(archetype)` names what a STRUCTURE asset's hash
-        covers: `build.py`, that archetype's builder, and `common/*.py`.
+        covers: `emit.py`, that archetype's builder, and `common/*.py`.
       * `terrain_inputs._code_shas()` names what a TERRAIN asset's covers:
         `terrain_gen.py` and `common/*.py`.
 
@@ -313,6 +314,15 @@ def restale_reach() -> tuple[dict, int, list]:
     # ordered turning up in the next bake's diff.
     for name in code_inputs.excluded():
         reach[f"generators/common/{name}"] = 0
+    # And `build.py`, which T-1654 took out of the structure recipe exactly as T-0164
+    # took `common/phases.py` out of it — the pipeline moved to `generators/emit.py`
+    # and the command line stayed behind. Reported at its reach, which is 0, for the
+    # reason directly above: a row reading zero is the standing gate on that split.
+    # Write a builder call back into the CLI and this row returns to 420 here, in a
+    # diff somebody is reading, instead of arriving as a full-town rebake nobody
+    # ordered. `tools/test_build_cli_has_no_geometry.py` refuses the edit outright;
+    # this is the figure that would move if the refusal were ever removed.
+    reach.setdefault("generators/build.py", 0)
     return reach, len(assets), problems
 
 

@@ -68,7 +68,7 @@ async function bootCase(name, { slow=false, reduced=false, fail=null } = {}) {
   assert.ok(ys.every(x=>x.year>=1836||x.ready),'1835 requires api.ready');
   assert.equal(data.hidden,'true'); assert.deepEqual(errors,[]);
   if(fail==='terrain'){assert.match(data.copy,/forced terrain failure/);assert.doesNotMatch(data.copy,/arrived/);assert.equal(data.button,'Retry'); assert.ok(data.state.year>=1836);}
-  else {if(fail==='people') assert.ok(data.phases.find(p=>p.id==='people').error,'optional failure was actually injected');assert.equal(data.copy,'You have arrived in Chicago, summer 1835.');assert.equal(data.state.year,1835);assert.equal(data.disabled,false);}
+  else {if(fail==='people') assert.ok(data.phases.find(p=>p.id==='people').error,'optional failure was actually injected');assert.equal(data.copy,'Ready to explore.');assert.equal(data.state.year,1835);assert.equal(data.disabled,false);}
   if(reduced){assert.ok(new Set(ys.map(x=>x.year)).size<=5);assert.equal(data.animations,0);}
   await page.screenshot({path:path.join(out,`${name}-6.png`)});
   results.cases.push({name,...data,errors});

@@ -1,3 +1,4 @@
+import { createLoadingContent } from './loading-content.js';
 /** Arrival presentation over the real boot controller (T-1247). */
 const clamp01 = n => Math.max(0, Math.min(1, Number.isFinite(n) ? n : 0));
 
@@ -94,6 +95,7 @@ export function createArrival({
   cardEl,
   barEl,
   buttonEl,
+  contentOptions = {},
   currentYear = new Date().getFullYear(),
   reducedMotion = typeof matchMedia === 'function'
     ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
@@ -103,6 +105,7 @@ export function createArrival({
   cancelFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : () => {},
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
+  const content = cardEl ? createLoadingContent({ boot, cardEl, now, ...contentOptions }) : null;
   let failed = false;
   let ready = false;
   let settleRaf = null;
@@ -163,6 +166,7 @@ export function createArrival({
   function fail(error, { message } = {}) {
     if (ready) return;
     failed = true;
+    content?.stop(true);
     stopTicker();
     if (settleRaf != null) cancelFrame(settleRaf);
     const msg = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
@@ -178,6 +182,7 @@ export function createArrival({
   function settle(event) {
     if (failed || ready) return;
     ready = true;
+    content?.stop();
     stopTicker();
     const duration = settleDurationMs({
       reducedMotion,
@@ -188,9 +193,11 @@ export function createArrival({
     if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
       showYear(1835, false);
+      content?.land();
       setBar(barEl, 1);
       barEl?.classList.add('done');
-      if (phaseEl) phaseEl.textContent = 'You have arrived in Chicago, summer 1835.';
+      if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
+        : 'You have arrived in Chicago, summer 1835.';
       if (buttonEl) {
         buttonEl.textContent = 'Tap to enter';
         buttonEl.disabled = false;
@@ -237,6 +244,7 @@ export function createArrival({
 
   return {
     sync,
+    content,
     fail,
     settle,
     get state() { return { failed, ready, year: lastShown }; },

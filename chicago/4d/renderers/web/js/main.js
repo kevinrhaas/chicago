@@ -919,6 +919,10 @@ const bootController = createBoot({
 api.boot = bootController;
 const arrival = createArrival({
   boot: bootController,
+  contentOptions: {
+    seed: new URLSearchParams(location.search).get('seed') ?? Math.random(),
+    warm: (() => { try { return sessionStorage.getItem('c4d.loading.build') === VERSION; } catch { return false; } })(),
+  },
   yearEl: document.getElementById('arrival-year'),
   phaseEl: gateSub,
   cardEl: document.getElementById('arrival-card'),
@@ -926,6 +930,9 @@ const arrival = createArrival({
   buttonEl: gateBtn,
 });
 api.arrival = arrival;
+// Start alongside scene loading; optional presentation never joins the ready barrier.
+void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+bootController.on('ready', () => { try { sessionStorage.setItem('c4d.loading.build', VERSION); } catch { /* optional */ } });
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {

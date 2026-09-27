@@ -751,6 +751,29 @@ function branchCarries(branch, id) {
 /** A claim marker is not a work branch — see the claim lock below. */
 const isClaimMarker = (name) => /^claim\//.test(name);
 
+/**
+ * NEITHER IS AN ID-MINT LEASE, and that one cried wolf on every ticket in the
+ * queue (T-1666). `idlock/t-NNNN` is pushed by `reserveIdNum` at the moment a
+ * number is MINTED — a parentless empty-tree commit reserving the id until the
+ * ticket reaches `dev`, with no merge base and no PR — so every ticket in the
+ * repository has one standing on the remote from the day it was filed. Measured
+ * 2026-09-27: `claim T-1657` was refused with `idlock/t-1657` as its evidence,
+ * and `inflight` listed the mint leases for T-1650..T-1653 as "branches on
+ * unfinished tickets" beside the two branches that were real work.
+ *
+ * The harm is not the noise. The rival scan is the residual-race catcher — two
+ * slices reaching for one ticket must not both win — and `--force` is its escape
+ * for a stale claim or your own branch. A check that fires on EVERY ticket makes
+ * `--force` the normal way to claim, and then the one case the check exists for,
+ * a live sibling genuinely on the ticket, is no longer distinguishable from the
+ * lease that is always there.
+ *
+ * Excluded HERE and not in `remoteBranches`, for the same reason claim markers
+ * are: `claims` reads the leases out of that list to sweep them, so the list has
+ * to keep carrying them. What changes is who reads them as work.
+ */
+const isIdLock = (name) => /^idlock\//.test(name);
+
 /** Branches that look like somebody ELSE is already working this ticket.
  *  Claim markers are deliberately NOT counted here: the lock is the authority on
  *  a live claim and says who holds it and since when, so letting them fall
@@ -758,7 +781,8 @@ const isClaimMarker = (name) => /^claim\//.test(name);
 function remoteBranchesFor(id, state = 'open') {
   const here = currentBranch();
   return remoteBranches()
-    .filter((b) => b.name !== here && !isClaimMarker(b.name) && branchCarries(b.name, id))
+    .filter((b) => b.name !== here && !isClaimMarker(b.name) && !isIdLock(b.name)
+      && branchCarries(b.name, id))
     .map((b) => {
       const age = branchAgeHours(b.sha);
       // The same three-way reading `inflight` uses, so the two commands cannot
@@ -2944,11 +2968,18 @@ switch (cmd) {
     // the real remote changes hourly, so the gate runs on a constructed branch list
     // ([{ name, age_hours }]) and asserts the READING rather than the day.
     const fixtureFile = flag('branches-json');
-    const branches = typeof fixtureFile === 'string'
+    // ID-MINT LEASES ARE NOT BRANCHES ON UNFINISHED TICKETS (T-1666). Every ticket
+    // in the repository has an `idlock/t-NNNN` reservation standing on the remote
+    // from the day it was filed, so counting them here reported the whole queue as
+    // in flight. Filtered on the way in rather than at the print, so the fixture
+    // mode is held to the same reading — and after the fixture is parsed, because
+    // the gate constructs the list a real remote would hand over.
+    const branches = (typeof fixtureFile === 'string'
       ? JSON.parse(readFileSync(fixtureFile, 'utf8')).map((b) => ({
           name: b.name, age: b.age_hours === null || b.age_hours === undefined ? null : Number(b.age_hours),
         }))
-      : remoteBranches().map((b) => ({ name: b.name, age: branchAgeHours(b.sha) }));
+      : remoteBranches().map((b) => ({ name: b.name, age: branchAgeHours(b.sha) }))
+    ).filter((b) => !isIdLock(b.name));
     const locked = lockedIds(branches);
     const rows = [];
     for (const b of branches) {
