@@ -292,6 +292,117 @@ seated by rule — was reached with the road in it. Two questions follow and nei
 **Added links:** T-1637 (the road's move) · `tools/measure_fort_road_way.py` (the gate that holds
 the road out of the water) · `docs/LIBERTIES.md` L140.
 
+## The 81 released positions, answered, 2026-09-27 (T-1642)
+
+The section above filed two questions and answered neither. This is the first of them:
+**whether anything more of the plate belongs on ground whose only reason for being empty
+was a road that is no longer there.** The answer is no, and the reason is not the one the
+question expected — most of those positions were never a second building at all.
+
+### 1. The instrument was wrong again, one day later and in the same way
+
+T-1636 found that `plat_corridors` carries the platted grid and cannot see a road that was
+never platted. What this reading could not see on 2026-09-26 is **what already stands on the
+ground**. It swept for a rectangle that is dry, outside a platted corridor, off refused
+ground and out of an unplatted travelled way, and it never asked whether a building was
+already there — because until the day before, on this reach, none was.
+
+`south_bank_shed_dearborn_e1` was built on this strip on 2026-09-26, and the road moved off
+it hours later. So of the 91 positions that then read free at the walker's own 0.30 m relief
+clause, **76 are the shed's own footprint**, re-counted at every lattice offset and bearing
+that would have stood a second shed inside the first. The reading now masks every committed
+placed footprint that reaches its box and reports the two apart:
+
+| reading | T-1637 banked | now | why |
+|---|---|---|---|
+| `fits` 0.30 / 0.35 / 1.00 / none | 91 / 96 / 162 / 233 | **15 / 15 / 23 / 48** | the ground a building occupies is not free ground |
+| `fits_on_what_stands` | — | **76 / 81 / 139 / 185** | the new count, held apart so the permissive reading stays legible |
+| `fits_beside_the_street` | 0 / 0 / 0 / 3 | **0 / 0 / 0 / 3** | unchanged, and it is the frontage this page is about |
+| `fits_in_an_unplatted_track` | 0 / 0 / 0 / 0 | **0 / 0 / 0 / 0** | unchanged; the road is still off the reach |
+
+**Not one square metre of ground moved here either.** The mask moved, for the second time in
+two days, and both times toward a smaller number. `dearborn_street_drawbridge` is masked
+too — a rectangle cannot stand on a bridge deck — though at the reach's west end it changes
+no count that was not already zero.
+
+This is not a bound being tightened. Every bound in this reading is still the permissive
+one: any bearing, the smallest footprint the family allows, dry at one millimetre, and the
+relief clause reported four ways. Occupancy is a fact about the ground rather than a
+tolerance, and a refusal that rests on it rests on the committed tree.
+
+### 2. Fifteen positions are one building, and that is the reading the question wanted
+
+Fifteen free positions on a one-metre lattice are not fifteen buildings. `takes_more` is the
+new reading and it is the one this question turns on: the largest set of the free positions
+that do not overlap **each other**, computed as an exact maximum rather than a greedy pack.
+
+    HOW MANY MORE THE GROUND TAKES
+       relief <= 0.30 m       1   (E 813.2 N 0.0 @ 165 deg)
+       relief <= 0.35 m       1   (E 813.2 N 0.0 @ 165 deg)
+       relief <= 1.00 m       3
+       no relief clause       5
+
+So the strip that carries one shed takes **one more**, at the clause the infill generators
+hold themselves to. The 81 released positions were 81 ways of describing one standing
+building and one empty rectangle.
+
+### 3. And that rectangle is not on the river
+
+The free ground here is not a bank at all. It is the **ribbon between two platted street
+corridors** — South Water Street's, which ends at E 805.0, and State Street's, which begins
+at E 814.5 — about 9 m wide, running from the main stem's waterline at N 24.5–26.5 south past
+N −16. The shed holds its river end: N 8.2 to 18.5, standing **6.49 m back from the water**.
+
+The one position left stands behind it. Its body runs E 805.4–813.2, N −9.4 to +1.4, bearing
+165°, on 0.129 m of relief, with 6.86 m between its wall and the shed's. It is **23.08 m back
+from the main stem's waterline** — three and a half times the shed's setback — and the
+nearest water to it is not the river at all but the **town slough**, 5.45 m off its
+south-east corner, which is a drain the town bridged rather than a reach anything was landed
+on.
+
+### 4. The refusal, in writing
+
+Nothing more of the plate belongs on this ground. Three reasons, and the first is the one
+that would still hold if the other two failed:
+
+1. **The release is a mask moving, not evidence.** T-1637 says it in its own words: not one
+   square metre of ground moved. What held those 81 positions was this project's own invented
+   line — `fort_road`'s western terminus — and what released them was that invented line
+   moving, on evidence about a different question entirely (a road drawn through open water at
+   the slough's new mouth). A position opened by the retirement of an invention is not a
+   position any source opened, and it cannot license a building. Ground that is empty in this
+   model because of a line this model drew is not ground attested empty, and ground released
+   when that line moved is not ground attested built.
+2. **The plate's licence on this bank is spent, and it was spent on the water.** Image 3 of
+   the owner's brief is a **tier-5 retrospective pictorial**: under this project's standing
+   rule it may drive massing, form, materials and setting, and may never drive a coordinate.
+   What it licenses is that the banks below the draw carried low working sheds. The bank
+   position in this ribbon is taken by the one that stands. A second shed 23 m inland, fronting
+   a drainage slough, is not the thing the plate draws, so the plate does not reach it — and
+   nothing else in the corpus puts a building on the town's last unplatted ground east of
+   South Water Street.
+3. **A number is not a reason to build.** The ground takes one more shed; that is a fact
+   about relief and width and says nothing about 1835. This project does not fill capacity it
+   has measured. `south_bank_shed_dearborn_e1` was admitted because the plate says sheds stood
+   on this bank and the reading found a bank position for one; both halves of that argument are
+   already spent.
+
+**The frontage is untouched by all of it.** `fits_beside_the_street` is still 0, 0, 0, 3 —
+zero at every relief clause west of South Water Street's committed east end, which is the
+frontage image 3 draws warehouses on. T-0134's refusal stands on exactly the figures it has
+stood on since the fill, and § What is still open — whether an invented building may stand on
+the river margin of a platted corridor — is still open and still nobody's number.
+
+**What would replace this finding.** A lot record, an advertisement or a contemporary view
+placing a second building on the ground between South Water Street's end and the Reservation;
+or a re-cut of the bank or the slough that opens river frontage in this ribbon the shed does
+not already hold. `takes_more` is gated for exactly that: if this ground ever takes two more,
+the refusal above is re-read rather than carried.
+
+**Added links:** T-1642 (this answer) · T-1643 (the second question the road's move filed,
+which is the shed's own bearing and is not this one) · `docs/LIBERTIES.md` L274 ·
+`data/exclusions.json` → `south_bank_warehouses_dearborn_reach`.
+
 ## The shed stood on the river walk, 2026-09-27 (T-1643)
 
 The section above filed the second of its two open questions as "whether
@@ -346,13 +457,22 @@ gate to catch it.
 
 ### 3. What that does to the reading on this page
 
-| reading | T-1637 banked | now | why |
+| reading | T-1642 banked | now | why |
 |---|---|---|---|
-| `fits` 0.30 / 0.35 / 1.00 / none | 91 / 96 / 162 / 233 | **47 / 47 / 64 / 104** | the committed walks' boards are masked |
+| `fits` 0.30 / 0.35 / 1.00 / none | 15 / 15 / 23 / 48 | **2 / 2 / 19 / 59** | the boards are masked, and the shed's own footprint moved |
 | `fits_on_a_committed_walk` | — | **44 / 49 / 98 / 129** | the positions the boards take |
+| `fits_on_what_stands` | 76 / 81 / 139 / 185 | **45 / 45 / 45 / 45** | § 6 — the boards are taken first, and the shed moved |
+| `takes_more` | 1 / 1 / 3 / 5 | **1 / 1 / 3 / 5** | § 6 — T-1642's finding, unchanged |
 | `fits_in_an_unplatted_track` | 0 / 0 / 0 / 0 | **0 / 0 / 0 / 0** | unchanged |
 | `fits_beside_the_street` | 0 / 0 / 0 / 3 | **0 / 0 / 0 / 3** | unchanged |
 | widest free strip | 26.50 m at E 813.2 | **26.50 m at E 813.2** | unchanged |
+
+The `fits` row is read against T-1642's banked figures rather than T-1637's because T-1642
+landed first: on the reading as T-1636 left it the boards took 91 / 96 / 162 / 233 down to
+47 / 47 / 64 / 104, and T-1642's occupancy mask takes those to 2 / 2 / 19 / 59. **The three
+masks compose and none of them double-holds a position:** the road is asked first, then the
+boards, then what stands, and each refusal is counted once, against the first thing that
+refuses it.
 
 **Not one square metre of ground moved, again.** Nothing counted out here was ever buildable — it
 was already covered in boards — and the row this page exists for is the fourth: beside the platted
@@ -391,5 +511,35 @@ re-seating undoes, not one to re-make at a smaller scale.
 what they were. What moved is three numbers that were read off a line that has gone, onto a line
 that is here.
 
-**Added links:** T-1643 (this re-seating) · T-1275 (the PR whose validation read the red) ·
-`data/frontage/river_walk_frontage.json` · `docs/LIBERTIES.md` L274 and L153.
+### 6. T-1642's finding, re-read against the shed's new seat
+
+T-1642 landed on this reach while this re-seating was being gated, and it added two readings —
+`fits_on_what_stands` and `takes_more` — that **take this shed's position as an input.** Its gate
+says in as many words that a change in those counts is the question re-opening and not a number
+to update, so they are re-read here rather than re-banked.
+
+| reading | T-1642 banked | with the shed re-seated and the boards masked |
+|---|---|---|
+| `fits_on_what_stands` 0.30 / 0.35 / 1.00 / none | 76 / 81 / 139 / 185 | **45 / 45 / 45 / 45** |
+| `takes_more` 0.30 / 0.35 / 1.00 / none | 1 / 1 / 3 / 5 | **1 / 1 / 3 / 5** |
+| the rectangle `takes_more` names at ≤ 0.30 m and ≤ 0.35 m | E 813.2, N 0.0, bearing 165° | **E 813.2, N 0.0, bearing 165°** |
+
+**T-1642's conclusion holds, on the same rectangle.** The number its refusal is written about —
+how many more sheds this ground takes — is identical at every relief clause, and at the two
+strict clauses it is the same single position, at the same easting, northing and bearing: 23 m
+back from the water, fronting the town drain, on ground the plate draws warehouses on the water
+side of. Nothing in § *What would replace this finding* has been met: no source placed a second
+building here and neither the bank nor the slough was re-cut. The refusal stands as written.
+
+`fits_on_what_stands` did move, and for two reasons that are both bookkeeping rather than
+ground. First, **the masks compose in order**: 44 to 129 positions are now held out by the boards
+before the occupancy test sees them, and a position under boards that also overlaps the shed is
+counted against the boards. Second, **the shed moved**, from N +8.164–18.455 to N +1.5–11.3, so
+the footprint it masks is a different rectangle. The count is also now *flat* across all four
+relief clauses — 45 at every one of them — which it was not before: every position overlapping
+what stands is on ground with less than 0.30 m of relief. That is the terrace the shed was
+re-seated onto being the flattest ground on the reach, which is the reason it was chosen.
+
+**Added links:** T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR
+whose validation read the red) · `data/frontage/river_walk_frontage.json` ·
+`docs/LIBERTIES.md` L274 and L153.

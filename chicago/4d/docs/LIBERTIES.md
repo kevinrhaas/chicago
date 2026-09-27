@@ -14929,7 +14929,8 @@ south bank below the draw. Any of the three would replace an invention with a bu
 
 **Related:** **L164** (the four north-bank sheds of the same plate), **L79** (the travelled tracks
 inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-0071** and sibling
-**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**,
+**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**, the road's
+move **T-1637**, the answer to what that move released **T-1642**,
 `docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
 `south_bank_warehouses_dearborn_reach`.
 **Revised:** 2026-09-26 (T-1637), hours after it was written — **the road this shed was squared
@@ -14953,18 +14954,41 @@ filed as its own question rather than smuggled into the run that moved the road.
 re-opened is not this entry's ground but the reach around it:** the 81 positions T-1636 held
 because they stood in the road are released, so `fits` reads 91, 96, 162, 233 against 10, 15, 81,
 152, and whether anything of the plate belongs on that unplatted reservation ground between E
-+805 and E +842 is filed too. **Added links:** T-1637 (the road's move) · **L140** (the fort road)
-· `tools/measure_fort_road_way.py`.
-**Revised:** 2026-09-27 (T-1643) — **the shed has moved, and not for the reason the last
-revision filed.** That revision left re-seating open as a loss of re-derivability. Answering it
++805 and E +842 is filed too.
+**Revised:** 2026-09-27 (T-1642) — **one is the number this ground allows, and it is measured
+now rather than assumed.** The question the road's move filed — whether anything more of the
+plate belongs on the 81 released positions — is answered no, and most of those positions were
+never a second building at all. `tools/measure_south_bank_ground.py` had never known what the
+committed tree already places, so **76 of the 91 positions that read free are this shed's own
+footprint**, counted once per lattice offset and bearing that would have stood a second shed
+inside the first; the reading now masks every placed footprint that reaches its box and holds
+those 76 apart, and `fits` reads 15, 15, 23, 48. Fifteen positions on a one-metre lattice are
+one building: `takes_more`, an exact maximum over the positions that do not overlap each other,
+says the 9 m ribbon between South Water Street's platted end and State Street's corridor takes
+**one more shed** at the walker's own relief clause. **That one is refused in writing.** It
+stands 23.08 m back from the main stem where this shed stands 6.49 m back, directly behind it,
+with the town slough 5.45 m off its corner and the river nowhere near it — and the plate that
+licenses a shed on this bank is a tier-5 retrospective that draws them ON THE WATER, so it does
+not reach back land. Nothing on this record changed. What changed is that the entry's title is
+now a finding: one freight shed is what this ground and this plate together allow, a position
+released by this project's own invented line moving is not a position a source opened, and a
+measured capacity is not a reason to build. The refusal is written up at
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The 81 released positions, answered, and it is
+ratcheted — if this ground ever takes two more, that refusal is re-read rather than carried.
+**Added links:** T-1637 (the road's move) · T-1642 (what the release opened, answered) ·
+**L140** (the fort road) · `tools/measure_fort_road_way.py` ·
+`tools/measure_south_bank_ground.py`.
+**Revised:** 2026-09-27 (T-1643) — **the shed has moved, and not for the reason the revision
+before last filed.** That revision left re-seating open as a loss of re-derivability. Answering it
 found a defect: the station the fort road had chosen stood **across the town's own riverside plank
 walk**. `river_plank_walk_crossing_footway` runs E +803.6 to E +815.0 at N +14.2 and is 1.83 m
 wide, so its boards occupy N +13.285 to N +15.115; the seated footprint spanned N +8.164 to
 N +18.455 and took the whole width of them. **No dataset gate could see it** — a walk is boards
 laid on committed ground and a building is a mesh seated on the same ground, and nothing compared
-the two. The published walker found it: standing on the walk at E +809.4 and walking west, a
-visitor was pushed out of the shed's collision footprint east to E +811.5 instead of reaching past
-E +802, and that check had been red on `dev` since the seating.
+the two, T-1642's occupancy mask of the day before included. The published walker found it:
+standing on the walk at E +809.4 and walking west, a visitor was pushed out of the shed's
+collision footprint east to E +811.5 instead of reaching past E +802, and that check had been red
+on `dev` since the seating.
 **What the re-seating changes, and it is three numbers off a line that has gone onto a line that
 is here.** The EASTING rule is untouched — the westernmost half-metre station between the two
 platted corridors at which the whole rectangle stands free, which squared to the walk puts the
@@ -14985,11 +15009,22 @@ bracket, the 18 × 32 ft footprint and the total working uncertainty are what th
 the same rectangle `renderers/web/js/frontage.js` publishes as a walk's keep-out — and its gate
 **refuses any committed building on this reach that stands on one**, testing both containments and
 asserting in `--self-test` that putting the old seating back is caught. The boards take 44 of the
-reach's positions at 0.30 m of relief, so `fits` reads 47, 47, 64, 104 against 91, 96, 162, 233;
-not one square metre of ground moved and nothing counted out was ever buildable.
-`fits_beside_the_street` is still 0, 0, 0, 3, so the refusal this entry spends stands untouched.
-**Added links:** T-1643 (this re-seating) · T-1275 (the PR whose validation read the red) ·
-**L153** (the riverside walk) · `data/frontage/river_walk_frontage.json` ·
+reach's positions at 0.30 m of relief, and with the road, the boards and what stands all masked —
+in that order, each refusal counted once — `fits` reads 2, 2, 19, 59 against the 15, 15, 23, 48
+the revision above banked. Not one square metre of ground moved and nothing counted out was ever
+buildable. `fits_beside_the_street` is still 0, 0, 0, 3, so the refusal this entry spends stands
+untouched.
+**And the revision above was re-read rather than re-banked, because this shed's seat is one of its
+inputs.** `fits_on_what_stands` moves from 76, 81, 139, 185 to **45, 45, 45, 45** — the boards are
+now asked before the occupancy test, and the footprint being masked is a different rectangle —
+but `takes_more` reads **1, 1, 3, 5, unchanged at every relief clause**, and at the two strict
+clauses it names the same single position it named before: E 813.2, N 0.0, bearing 165°. **So
+T-1642's refusal stands on exactly the rectangle it was written about.** One more shed is what
+this ground takes, it would stand 23 m back from the water fronting the town slough, and the plate
+that licenses a shed here draws them on the water.
+**Added links:** T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR
+whose validation read the red) · **L153** (the riverside walk) ·
+`data/frontage/river_walk_frontage.json` ·
 `docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk.
 **Recorded:** 2026-09-26.
 
