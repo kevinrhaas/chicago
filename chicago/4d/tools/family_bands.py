@@ -59,6 +59,13 @@ def families() -> dict[str, dict]:
             "eave_ft": geom.get("eave_ft"),
             "roof": geom.get("roof"),
             "ridge_ft": geom.get("ridge_ft"),
+            # T-1667. The variants column, verbatim, because it is where the crosswalk
+            # states a family's FACADE-bay range — "4-6 bays", "2-3 shop bays" — and a
+            # generator asking "how many bays does this family author" had no way to see
+            # it. Carried raw rather than parsed here: the count means one thing to the
+            # crosswalk (the door is a bay) and another to the archetypes (it is not),
+            # and `frame_storefront_params.facade_bays` owns that mapping.
+            "variants": geom.get("variants"),
             "band_ft": None,
         }
         m = FOOTPRINT_RE.match(str(geom.get("footprint_ft") or ""))

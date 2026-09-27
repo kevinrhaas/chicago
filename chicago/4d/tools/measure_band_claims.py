@@ -204,6 +204,12 @@ CITES_BAND_RE = re.compile(r"\b([A-Z]\d)\b[^.;]{0,40}?\bband\b")
 # what it authors. Only the first group is machine-readable; the second is prose the
 # crosswalk genuinely speaks (so the citation means something and this tool cannot
 # check it); the third is what the crosswalk does not speak to at all.
+# NOT the same tuple as `band_notes.BANDED_FIELDS`, and the difference is one field:
+# `shopfront_bays` is banded THERE — the crosswalk states "4-6 bays" and a note may cite
+# it — and is absent HERE, because the value is compared against that range by
+# `tools/test_shopfront_bay_count.py` gate 4 instead (T-1667). The crosswalk's bay counts
+# the door and the field does not, so the mapping has one home and this tool is not it.
+# Every other banded field is compared below.
 BANDED_FIELDS = ("footprint", "wall_height_m", "roof_pitch_deg", "levels", "roof_type")
 # Which fields the crosswalk speaks to in prose rather than in a testable band, and the
 # keyword each is looked for under. Both tables live in `tools/band_notes.py` — the

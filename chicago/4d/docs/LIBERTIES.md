@@ -15214,3 +15214,38 @@ the boarding are the same rectangles.
 **Related:** the crosswalk's **F1** row, **L164** and **L274** (the freight sheds themselves,
 every board of them invented), **L212**, T-1662 and its parent **T-1660**.
 **Recorded:** 2026-09-27.
+
+### L279 — The town's one wide store gets the four-bay front its family is authored with, and the spec's range is the only thing that says so
+**Decision:** `recon_1835_blk_south_water_franklin_c4_01`, the single committed C4, STATES
+`shopfront_bays: 3` on its phase instead of letting `default_shopfront_bays` answer, so its front
+carries four openings. The statement is a RULE and not a hand edit — `generate_block_infill.shop_bays`
+authors a count only where the family's variants line states a bay range AND the archetype's default
+lands outside it, which is true of this one record and of nothing else in the town: three 5 ft show windows and the shop door, the door third
+from the left where the archetype's `centre` tie-break puts it in an even count. Four is the BOTTOM of the
+`4-6 bays` the C4 crosswalk entry authors, and also the most the wall can hold: the 6.502 m
+opening leaves 1.408 m of plain wall at each end, and five openings would need 9.328 m against a
+9.319 m front. Nothing else moved — `SHOPFRONT_MAX_FRACTION` is still 0.45 and the other 44
+committed shopfronts are untouched.
+**Why:** T-1667, carried over from T-1665's measurement. `SHOPFRONT_MAX_FRACTION` is the answer
+for a record that says nothing, and it was argued for a store filling a 55 ft lot frontage with
+its eaves to the street. This C4 does have its eaves to the street and 30.6 ft of them — inside
+its own authored 28x40-36x60 ft band, at the narrow end — so four openings are 69.8% of its wall
+and the default refused the family's own minimum, dropping to its `return 1` floor and building a
+two-bay front. One fraction cannot serve both ends of a band that nearly doubles in width, and
+moving the fraction would have moved twenty other buildings for one building's sake. The
+specification's own range for the family is the narrower authority, and it is the one used.
+**Consequence:** a visitor on South Water sees a wide store with a four-bay shopfront and will
+read the rhythm as a fact about the town. It is not: no source describes this building, which is
+an invention filling a demonstrable need of the block, and the count is the specification's
+type-level range taken at its minimum. The attribute is graded `reconstructed` with the arithmetic
+in its own note, so the confidence tint says the count is a reconstruction; it does not say that
+choosing the bottom of the range rather than the middle was the frontage's decision and not a
+source's. This entry does. **L91** already covers every dimension of this building as typology;
+this entry is narrower and is about the fenestration the spec authors and the default refused.
+**How to resolve:** any description or depiction of a wide frame store on South Water Street in
+1835 stating its openings. Failing that, a per-family shopfront fraction — the honest form of the
+number, since 0.45 was measured on a 55 ft front — which would let the default reach the band
+without the record restating it, and would be the same resolution **L23** asks for on the taverns
+and **L277** on the store-residences.
+**Covers:** `recon_1835_blk_south_water_franklin_c4_01.form.shopfront_bays`.
+**Recorded:** 2026-09-27.
