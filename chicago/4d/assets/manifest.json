@@ -981,32 +981,32 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_clark_a3_04"
     },
-    "recon_1835_blk_lake_clark_d1_01__inferred_1835.glb": {
-      "archetype": "log_dwelling",
+    "recon_1835_blk_lake_clark_c1_01__inferred_1835.glb": {
+      "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 32812,
-      "inputs_sha256": "2f1ac6f1afb6b528045181a1a40d379fc2b24c842ef060b5e691757783233532",
+      "bytes": 41864,
+      "inputs_sha256": "474114f5e9bb7dfe0cb5fc0011fc89036eaf25628283e2dfde8e91fd10022a25",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_lake_clark_d1_01"
+      "structure_id": "recon_1835_blk_lake_clark_c1_01"
     },
-    "recon_1835_blk_lake_clark_d3_02__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
+    "recon_1835_blk_lake_clark_c2_02__inferred_1835.glb": {
+      "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 26752,
-      "inputs_sha256": "9a47617b93b05855b5bbec9209334fd192f542f0974650858985f6ed27e8a3a9",
+      "bytes": 49352,
+      "inputs_sha256": "46377f4ab2e9c7628a45eddd1caad349fd6dc5d9ef068928046d41adb63a48e9",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_lake_clark_d3_02"
+      "structure_id": "recon_1835_blk_lake_clark_c2_02"
     },
-    "recon_1835_blk_lake_clark_d5_03__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
+    "recon_1835_blk_lake_clark_c3_03__inferred_1835.glb": {
+      "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 27368,
-      "inputs_sha256": "79a8075edff933b4c8ae9690daf34e6ddde3fdd96ca574ceb4f9ed5808ae6cc6",
+      "bytes": 70424,
+      "inputs_sha256": "e3002056f7268dc533f88aedb695ef7651b5b7f91155d8409dc2133a670bfd80",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_lake_clark_d5_03"
+      "structure_id": "recon_1835_blk_lake_clark_c3_03"
     },
     "recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -1704,8 +1704,8 @@
     "recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 34264,
-      "inputs_sha256": "078077604b82f837457acf5b5447081f2ba94ff01b400e62dc89580320321868",
+      "bytes": 31456,
+      "inputs_sha256": "eafc10143b8f05eb029ab4c49488ce524a4749de042b9337de7b6a48281329fa",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d4_02"
@@ -2010,8 +2010,8 @@
     "recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 26156,
-      "inputs_sha256": "bbabdf2b3f8d0e5a18275bb7df1e6556b0629e87e18ff6d3f2286524cb3a4e8d",
+      "bytes": 27092,
+      "inputs_sha256": "69950f1c3ceab12ffff48ad1be0a31d22b8eabd8a91e0119f57f50e8b850931b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d3_03"

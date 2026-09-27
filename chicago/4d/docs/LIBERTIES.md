@@ -7328,7 +7328,9 @@ rebaked too, because the new parameter restaled it, and it also came back byte-i
 
 ### L177 — The Lake face's street line is 0.80 m, and the plat module's lot margin gives way to it
 **Decision:** the three roofs of the `blk_lake_clark` frontage run —
-`recon_1835_blk_lake_clark_d1_01`, `_d3_02` and `_d5_03` — move 0.70 m toward Lake Street and
+`recon_1835_blk_lake_clark_c1_01`, `_c2_02` and `_c3_03`, which were dealt D1, D3 and D5 when
+T-0104 wrote this and were re-familied to C1, C2 and C3 by T-1681 without the line moving —
+move 0.70 m toward Lake Street and
 now stand with their front walls **0.80 m off the block face**, on the line the four roofs of
 L141's row already stood on. `tools/generate_block_infill.py` previously refused any setback
 below the plat module's 1.5 m `LOT_MARGIN_M`; it now accepts one on the **street line
@@ -8165,7 +8167,7 @@ awkward deal. The question stays open for the schedule; this parcel is one insta
 of Lake and Clark — an advertisement giving an address, a tax or insurance description, an
 itemised loss list — would replace an invented roof with a named one on the same line, which is
 what the 665-roof programme's substitution clause exists for.
-**Covers:** `recon_1835_blk_lake_clark_d1_01.inferred_1835.position`, `recon_1835_blk_lake_clark_d1_01.inferred_1835.footprint`, `recon_1835_blk_lake_clark_d3_02.inferred_1835.position`, `recon_1835_blk_lake_clark_d3_02.inferred_1835.footprint`, `recon_1835_blk_lake_clark_d5_03.inferred_1835.position`, `recon_1835_blk_lake_clark_d5_03.inferred_1835.footprint`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.position`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.footprint`.
+**Covers:** `recon_1835_blk_lake_clark_c1_01.inferred_1835.position`, `recon_1835_blk_lake_clark_c1_01.inferred_1835.footprint`, `recon_1835_blk_lake_clark_c2_02.inferred_1835.position`, `recon_1835_blk_lake_clark_c2_02.inferred_1835.footprint`, `recon_1835_blk_lake_clark_c3_03.inferred_1835.position`, `recon_1835_blk_lake_clark_c3_03.inferred_1835.footprint`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.position`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.footprint`.
 **Recorded:** 2026-08-19.
 
 ### L149 — Terrain: the State Street slough is built on a documented route with an invented line, width and depth profile
@@ -14235,13 +14237,16 @@ placement policy **T-1195**; the twenty-six verdicts whose record id carries its
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
 **Recorded:** 2026-09-20.
 
-### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 74 roofs that are not framed
+### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 73 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 74 phases: 60 log dwellings and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 73 phases: 59 log dwellings and
 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
-the framed one. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
+the framed one. T-1681 took the sixtieth the same way and for the same reason, one street
+south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake
+frontage with G. Blanshard's land office documented in it, is now
+`recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 

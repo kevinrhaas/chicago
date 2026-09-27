@@ -156,23 +156,23 @@
     "within the bands": {
      "id_order": {
       "re_families_tried": 2295,
-      "places_changed": 2843,
+      "places_changed": 2867,
       "worst_single_re_family": 8,
-      "changed_nothing": 1278
+      "changed_nothing": 1270
      },
      "deal_order": {
       "re_families_tried": 2295,
-      "places_changed": 0,
-      "worst_single_re_family": 0,
-      "changed_nothing": 2295
+      "places_changed": 210,
+      "worst_single_re_family": 3,
+      "changed_nothing": 2211
      }
     },
     "across the bands": {
      "id_order": {
       "re_families_tried": 1887,
-      "places_changed": 2525,
+      "places_changed": 2503,
       "worst_single_re_family": 8,
-      "changed_nothing": 1030
+      "changed_nothing": 1038
      },
      "deal_order": {
       "re_families_tried": 1887,
@@ -1729,7 +1729,7 @@
    "first_issue": "1835-08-19",
    "last_issue": "1835-08-22",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_lake_clark_d1_01",
+   "structure_id": "recon_1835_blk_lake_clark_c1_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "D1",
@@ -1789,7 +1789,7 @@
    "first_issue": "1834-07-09",
    "last_issue": "1834-07-09",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_lake_clark_d5_03",
+   "structure_id": "recon_1835_blk_lake_clark_c3_03",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "D5",
@@ -1946,7 +1946,7 @@
    "first_issue": "1834-06-04",
    "last_issue": "1834-06-04",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_lake_clark_d3_02",
+   "structure_id": "recon_1835_blk_lake_clark_c2_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "D3",
