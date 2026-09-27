@@ -29,6 +29,21 @@ the freight shed of the plate — be put down at all, on ground that is
   this reach and every one of them stood in the fort road. A reading that reports the
   town's only way to the fort as free ground is not a reading, and the number it produced
   would have been spent building in the road.
+* and clear of WHAT ALREADY STANDS. Added 2026-09-27 by T-1642, which is the same class
+  of correction one day later: the road's move released the 81 positions it had masked,
+  and 76 of the 91 that then read free were the ground `south_bank_shed_dearborn_e1`
+  stands on, because this reading had never known that a building was there. That is not
+  a bound being tightened — every bound below is still the permissive one — it is the
+  committed tree's own occupancy. Ground a building occupies is not ground another
+  building can stand on, and a count that reports one shed's footprint 76 ways is a count
+  that would be spent building the shed again. It is reported apart, so the reading with
+  the buildings switched off is still legible.
+
+**AND HOW MANY MORE IT TAKES, WHICH IS THE QUESTION A COUNT OF POSITIONS CANNOT ANSWER.**
+T-1642 again. 15 free positions on a 1 m lattice are not 15 buildings; they are 15 ways of
+putting down the same one. `takes_more` is the largest set of the free positions that do
+not overlap EACH OTHER — an exact maximum, not a greedy pack — so the reading says how
+many more sheds this ground holds rather than how many ways one of them could be nudged.
 
 **Every bound is the permissive one, on purpose.** A refusal is only worth having if it
 survives the most generous reading of its own inputs: the rectangle may stand at ANY
@@ -219,6 +234,114 @@ def in_a_track(e: float, n: float, tracks: list[dict], half: str = "track") -> b
     return False
 
 
+def world_polygon(phase: dict, datum: dict) -> list[tuple[float, float]]:
+    """A placed phase's committed footprint in local ENU metres.
+
+    The same four lines every generator in this project carries (`generate_block_infill`,
+    `generate_inferred_infill`, `plat_occupancy`), and it is written out here rather than
+    imported because those modules are generators: importing one to ask a question about
+    the tree would pull a writer into a reader.
+    """
+    pos, poly = phase["position"], phase["footprint"]["polygon"]
+    theta = math.radians(float(pos.get("rotation_deg") or 0.0))
+    cos, sin = math.cos(theta), math.sin(theta)
+    e0 = float(pos["utm_e"]) - float(datum["origin_utm_e"])
+    n0 = float(pos["utm_n"]) - float(datum["origin_utm_n"])
+    return [(e0 + u * cos + v * sin, n0 - u * sin + v * cos) for u, v in poly]
+
+
+def standing_footprints(west: float, east: float) -> list[dict]:
+    """Every committed placed footprint that reaches this reach's box.
+
+    T-1642. What stands on the ground is a fact about the ground, and until this was
+    added the reading did not have it: `south_bank_shed_dearborn_e1` had stood on the
+    released strip since the day before and 76 of the 91 positions the reading called
+    free were its own footprint, re-counted at every lattice offset and bearing that
+    would have put a second shed inside the first.
+
+    No category filter. A bridge deck is not a building and a rectangle cannot stand on
+    one either, so anything the tree places with a footprint masks the ground it covers.
+    """
+    datum = load(DATA / "datum.json")
+    lo_e, hi_e = west - TRACK_MARGIN_M, east + TRACK_MARGIN_M
+    lo_n, hi_n = BOX_S_M - TRACK_MARGIN_M, BOX_N_M + TRACK_MARGIN_M
+    out = []
+    for path in sorted((DATA / "structures").glob("*.json")):
+        record = load(path)
+        for phase in record.get("phases") or []:
+            position = phase.get("position") or {}
+            polygon = (phase.get("footprint") or {}).get("polygon") or []
+            if position.get("utm_e") is None or len(polygon) < 3:
+                continue
+            ring = world_polygon(phase, datum)
+            if (min(e for e, _ in ring) <= hi_e and max(e for e, _ in ring) >= lo_e
+                    and min(n for _, n in ring) <= hi_n and max(n for _, n in ring) >= lo_n):
+                out.append({"structure": record["id"], "phase": phase["id"], "ring": ring})
+    return out
+
+
+def _axes(ring: list[tuple[float, float]]):
+    """The outward normals of a convex ring's edges, for the separating-axis test."""
+    for i in range(len(ring)):
+        (e1, n1), (e2, n2) = ring[i], ring[(i + 1) % len(ring)]
+        de, dn = e2 - e1, n2 - n1
+        span = math.hypot(de, dn)
+        if span:
+            yield (-dn / span, de / span)
+
+
+def overlaps(a: list[tuple[float, float]], b: list[tuple[float, float]]) -> bool:
+    """Do two convex rings share any area? Separating axis, exact for rectangles.
+
+    Touching is not overlapping: two sheds wall to wall are two sheds. The comparison is
+    `<=` on the projections for that reason.
+    """
+    for axis in list(_axes(a)) + list(_axes(b)):
+        pa = [e * axis[0] + n * axis[1] for e, n in a]
+        pb = [e * axis[0] + n * axis[1] for e, n in b]
+        if max(pa) <= min(pb) + 1e-9 or max(pb) <= min(pa) + 1e-9:
+            return False
+    return True
+
+
+def takes_more(placements: list[dict]) -> list[dict]:
+    """The largest set of these positions that do not overlap each other.
+
+    EXACT, not greedy, because the number is a finding and a greedy pack is only a floor:
+    a maximum independent set over the overlap graph, by branch and bound on the position
+    with the most conflicts. The candidate sets here are tens of rectangles inside a nine
+    metre strip, so the graph is dense and the search closes at once.
+    """
+    if not placements:
+        return []
+    rings = [p["ring"] for p in placements]
+    n = len(rings)
+    conflicts = [set() for _ in range(n)]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if overlaps(rings[i], rings[j]):
+                conflicts[i].add(j)
+                conflicts[j].add(i)
+
+    best: list[int] = []
+
+    def search(candidates: set[int], chosen: list[int]) -> None:
+        nonlocal best
+        if len(chosen) + len(candidates) <= len(best):
+            return
+        if not candidates:
+            if len(chosen) > len(best):
+                best = list(chosen)
+            return
+        pivot = max(candidates, key=lambda i: len(conflicts[i] & candidates))
+        # Either the pivot is in the set, or it is not.
+        search(candidates - {pivot} - conflicts[pivot], chosen + [pivot])
+        search(candidates - {pivot}, chosen)
+
+    search(set(range(n)), [])
+    return [placements[i] for i in sorted(best)]
+
+
 class Ground:
     """Is a point buildable at all — dry, out of the roadway, and not refused ground.
 
@@ -279,19 +402,21 @@ def strip(ground: Ground, west: float, east: float) -> list[dict]:
 
 
 def fits(ground: Ground, west: float, east: float, width: float, depth: float,
-         tracks: list[dict] | None = None) -> list[dict]:
+         tracks: list[dict] | None = None, standing: list[dict] | None = None) -> list[dict]:
     """Every position and bearing at which the smallest F1 footprint would stand.
 
     The rectangle is sampled on a half-metre lattice INCLUDING its corners, because a
     footprint whose middle is dry and whose corner is in the river is not a building.
 
     Each accepted position is ANNOTATED with whether it stands in an unplatted travelled
-    way (`in_track`) and whether it stands in one of those roads' reconstructed corridors
-    (`in_track_corridor`), rather than being dropped. The caller counts them apart, so
-    the correction T-1636 made is legible in the reading instead of hidden inside a
-    smaller number.
+    way (`in_track`), whether it stands in one of those roads' reconstructed corridors
+    (`in_track_corridor`), and whether it stands on a footprint the tree already places
+    (`on_what_stands`), rather than being dropped. The caller counts them apart, so the
+    corrections T-1636 and T-1642 made are legible in the reading instead of hidden
+    inside a smaller number.
     """
     tracks = tracks or []
+    standing = standing or []
     out = []
     us = [i * MASK_M for i in range(int(width / MASK_M) + 1)]
     vs = [i * MASK_M for i in range(int(depth / MASK_M) + 1)]
@@ -321,14 +446,23 @@ def fits(ground: Ground, west: float, east: float, width: float, depth: float,
                 if ok:
                     lattice = [(e0 + u * cos - v * sin, n0 + u * sin + v * cos)
                                for u in us for v in vs]
+                    # The rectangle's own corners, in order, so an overlap against what
+                    # stands is an area test rather than a lattice test: a footprint
+                    # whose corner clips a standing wall is on that building's ground.
+                    ring = [(e0 + u * cos - v * sin, n0 + u * sin + v * cos)
+                            for u, v in ((0.0, 0.0), (width, 0.0),
+                                         (width, depth), (0.0, depth))]
+                    on_what = [s for s in standing if overlaps(ring, s["ring"])]
                     out.append({"e": round(e0, 1), "n": round(n0, 1),
                                 "bearing_deg": round(math.degrees(theta), 1),
                                 "relief_m": round(max(heights) - min(heights), 3),
+                                "ring": [(round(e, 3), round(n, 3)) for e, n in ring],
                                 "in_track": any(in_a_track(e, n, tracks)
                                                 for e, n in lattice),
                                 "in_track_corridor": any(
                                     in_a_track(e, n, tracks, half="corridor")
-                                    for e, n in lattice)})
+                                    for e, n in lattice),
+                                "on_what_stands": sorted(s["structure"] for s in on_what)})
             n0 += STEP_M
         e0 += STEP_M
     return out
@@ -339,10 +473,16 @@ def measure() -> dict:
     width, depth = footprint_m()
     ground = Ground()
     tracks = unplatted_tracks(west, east)
+    standing = standing_footprints(west, east)
     rows = strip(ground, west, east)
-    all_placements = fits(ground, west, east, width, depth, tracks)
-    placements = [p for p in all_placements if not p["in_track"]]
+    all_placements = fits(ground, west, east, width, depth, tracks, standing)
+    off_road = [p for p in all_placements if not p["in_track"]]
     in_track = [p for p in all_placements if p["in_track"]]
+    # T-1642: the two masks are applied in this order and reported apart, so the reading
+    # says which of them is holding a position out. A position in the road is counted
+    # against the road even if a building also stands on it; nothing here is double-held.
+    on_what_stands = [p for p in off_road if p["on_what_stands"]]
+    placements = [p for p in off_road if not p["on_what_stands"]]
     widest = max(rows, key=lambda r: r["width_m"])
     end = platted_end()
     platted_rows = [r for r in rows if r["e"] <= end]
@@ -357,6 +497,20 @@ def measure() -> dict:
 
     by_tolerance = counted(placements)
     on_street = counted([p for p in placements if p["e"] <= end])
+
+    # HOW MANY MORE SHEDS THE GROUND TAKES, per relief clause: the largest set of the
+    # free positions that do not overlap each other. This is the number the question
+    # "does anything more of the plate belong here" is actually about, and a count of
+    # positions is not it.
+    more = {}
+    more_where = {}
+    for tol in RELIEF_TOLERANCES:
+        key = "none" if tol is None else f"{tol:.2f}"
+        subset = [p for p in placements if tol is None or p["relief_m"] <= tol]
+        pack = takes_more(subset)
+        more[key] = len(pack)
+        more_where[key] = [{"e": q["e"], "n": q["n"], "bearing_deg": q["bearing_deg"],
+                            "relief_m": q["relief_m"]} for q in pack]
     return {
         "reach": {"west_m": round(west, 2), "east_m": round(east, 2),
                   "west_is": BRIDGE, "east_is": "the Reservation's west line"},
@@ -374,6 +528,20 @@ def measure() -> dict:
         "fits_in_an_unplatted_track": counted(in_track),
         "fits_in_an_unplatted_corridor": counted(
             [p for p in placements if p["in_track_corridor"]]),
+        "standing_footprints_masked": [
+            {"structure": s["structure"], "phase": s["phase"],
+             "e_from": round(min(e for e, _ in s["ring"]), 2),
+             "e_to": round(max(e for e, _ in s["ring"]), 2),
+             "n_from": round(min(n for _, n in s["ring"]), 2),
+             "n_to": round(max(n for _, n in s["ring"]), 2)}
+            for s in standing
+            if min(n for _, n in s["ring"]) <= BOX_N_M
+            and max(n for _, n in s["ring"]) >= BOX_S_M
+            and min(e for e, _ in s["ring"]) <= east
+            and max(e for e, _ in s["ring"]) >= west],
+        "fits_on_what_stands": counted(on_what_stands),
+        "takes_more": more,
+        "takes_more_where": more_where,
         "strip": rows,
     }
 
@@ -419,6 +587,24 @@ def report(result: dict, json_out: bool = False) -> str:
         for key, count in result["fits_in_an_unplatted_corridor"].items():
             clause = "no relief clause" if key == "none" else f"relief <= {key} m"
             lines.append(f"      {clause:<22} {count}")
+    stands = result.get("standing_footprints_masked") or []
+    if stands:
+        named = ", ".join(f"{s['structure']} (E {s['e_from']:.1f}-{s['e_to']:.1f}, "
+                          f"N {s['n_from']:.1f}-{s['n_to']:.1f})" for s in stands)
+        lines.append(f"   REFUSED FOR STANDING WHERE A BUILDING ALREADY STANDS — {named}:")
+        for key, count in result["fits_on_what_stands"].items():
+            clause = "no relief clause" if key == "none" else f"relief <= {key} m"
+            lines.append(f"      {clause:<22} {count}")
+    lines.append("   HOW MANY MORE THE GROUND TAKES — the largest set of the free "
+                 "positions that do not overlap each other:")
+    for key, count in result["takes_more"].items():
+        clause = "no relief clause" if key == "none" else f"relief <= {key} m"
+        where = result.get("takes_more_where", {}).get(key) or []
+        at = ", ".join(f"E {q['e']:.1f} N {q['n']:.1f} @ {q['bearing_deg']:.0f} deg"
+                       for q in where[:4])
+        tail = ", ..." if len(where) > 4 else ""
+        lines.append(f"      {clause:<22} {count}"
+                     + (f"   ({at}{tail})" if at else ""))
     return "\n".join(lines)
 
 
@@ -459,6 +645,28 @@ def gate(quiet: bool = False) -> int:
                 f"travelled way, and the baseline recorded {was} — the road moved, or "
                 f"the ground under it did, and either way the finding is re-read before "
                 f"this is banked")
+
+    for key, count in result["fits_on_what_stands"].items():
+        was = (baseline.get("fits_on_what_stands") or {}).get(key)
+        if was is None:
+            failures.append(f"the baseline carries no on-what-stands reading at {key}")
+        elif count != was:
+            failures.append(
+                f"{count} position(s) with relief {key} now stand on a footprint the "
+                f"tree already places, and the baseline recorded {was} — a building on "
+                f"this reach was added, moved or removed, and the reading of what ground "
+                f"is left is re-read before it is banked")
+
+    for key, count in result["takes_more"].items():
+        was = (baseline.get("takes_more") or {}).get(key)
+        if was is None:
+            failures.append(f"the baseline carries no takes-more reading at {key}")
+        elif count != was:
+            failures.append(
+                f"the ground now takes {count} more shed(s) at relief {key}, and the "
+                f"baseline recorded {was} — T-1642's finding is that this reach takes "
+                f"ONE more and that nothing of the plate belongs on it, so a change here "
+                f"re-opens that refusal rather than being a number to update")
 
     for field in ("widest_free_strip", "widest_free_strip_beside_the_street"):
         widest = result[field]["width_m"]
@@ -519,10 +727,47 @@ def self_test() -> int:
             if in_a_track(e, n + 30.0, tracks):
                 problems.append("a point 30 m off the centreline is inside the track")
 
+    # 6. What already stands is found on this reach, and the shed the released ground
+    #    carries is one of them (T-1642). Without this the reading counts one building's
+    #    own footprint as free ground, once per lattice offset and bearing.
+    standing = standing_footprints(west, east)
+    on_reach = [s["structure"] for s in standing
+                if min(n for _, n in s["ring"]) <= BOX_N_M
+                and max(n for _, n in s["ring"]) >= BOX_S_M]
+    if "south_bank_shed_dearborn_e1" not in on_reach:
+        problems.append("the freight shed standing on the released strip is not masked, "
+                        "so its own footprint would be reported as free ground")
+
+    # 7. The mask is not vacuous, and it refuses the right thing: a rectangle laid down
+    #    ON a standing footprint is flagged, and the same rectangle 40 m north is not.
+    shed = [s for s in standing if s["structure"] == "south_bank_shed_dearborn_e1"]
+    if shed:
+        ring = shed[0]["ring"]
+        if not overlaps(ring, ring):
+            problems.append("a footprint does not overlap itself")
+        shifted = [(e, n + 40.0) for e, n in ring]
+        if overlaps(ring, shifted):
+            problems.append("a footprint 40 m away overlaps the one it was copied from")
+        wall_to_wall = [(e, n + 11.0) for e, n in ring]
+        if overlaps(ring, wall_to_wall):
+            problems.append("two sheds clear of each other are reported as overlapping")
+
+    # 8. The pack is a maximum and not a count: a set of positions that all overlap each
+    #    other takes ONE building, however many ways it could be nudged.
+    if shed:
+        ring = shed[0]["ring"]
+        nudged = [{"ring": [(e + i * 0.5, n) for e, n in ring]} for i in range(6)]
+        if len(takes_more(nudged)) != 1:
+            problems.append("six offsets of one rectangle were packed as more than one "
+                            "building")
+        apart = nudged + [{"ring": [(e + 60.0, n) for e, n in ring]}]
+        if len(takes_more(apart)) != 2:
+            problems.append("a rectangle 60 m clear of the rest was not packed beside it")
+
     for line in problems:
         print(f"   {line}")
     if not problems:
-        print("   5 assertions fire")
+        print("   8 assertions fire")
     return 1 if problems else 0
 
 

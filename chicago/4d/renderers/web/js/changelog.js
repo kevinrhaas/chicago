@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1161, title: 'Why the ground behind the new river shed stays empty', kind: 'fix', ts: '2026-09-27T00:55:09.045Z', date: 'Sep 26, 2026, 7:55 PM CT',
+    items: [
+      'Stand at the freight shed on the south bank below the Dearborn drawbridge and look inland. That strip of ground is empty, and it stays empty. Yesterday\u2019s release moved the road to the fort off it, and 91 places to stand another shed appeared where the reading had found none. That number was wrong, and the answer is still no.',
+      'Seventy-six of the 91 were the shed itself. The instrument had never been told what was already built \u2014 it swept the ground for somewhere a shed would fit and kept finding the one that is there, at every offset and angle that would have stood a second shed inside the first. It now knows every building the town places, and says how much ground they take.',
+      'Fifteen places are left, and they are one building rather than fifteen. The reading now works out the most sheds that fit without overlapping EACH OTHER, and for this strip that is one more. It would stand 23 metres back from the river, behind the shed that is there, fronting the town drain \u2014 and the engraving these sheds come from draws them on the water.',
+      'So it is refused in writing rather than built. The ground was only empty in the first place because of a road this project invented, and it came free when that invented road moved: nothing a source says about 1835 changed. A space you have measured is not a reason to build in it. The register of things we made up carries the refusal and the reasoning behind it.',
+    ] },
   { v: 1160, title: 'Nine South Water buildings now say who kept them', kind: 'change', ts: '2026-09-27T00:23:29.781Z', date: 'Sep 26, 2026, 7:23 PM CT',
     items: [
       'Walk down South Water Street, step behind the stores and open one of the cottages. Until today its card read \u201CAnonymous count-unit toward the July 1835 665-roof programme\u201D and named nobody. Nine of them now name a household \u2014 the Beaubiens on three of them, the Bourassas, the Bourques, the Cass family, the Davisons, the Clarks and a land agent named Blanshard.',
