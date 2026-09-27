@@ -71,6 +71,12 @@ _ROOF = materials.roof_substrate("outbuilding")
 
 # Materials are indices into the list passed to to_object(), in this order.
 M_LOG, M_CHINK, M_BOARD, M_ROOF, M_DARK, M_TIMBER = 0, 1, 2, 3, 4, 5
+# A SEVENTH, APPENDED ONLY WHEN A RECORD COUNTS A STACK (T-1680). Same discipline
+# `frame_dwelling` uses: 133 of this archetype's assets have no fire in them and
+# should not carry a material slot for one, so the index exists but the slot is
+# pushed onto the list at build time and the stack is painted M_ROOF when the count
+# is zero — which never draws, because `_forge_stack` returns first.
+M_CHIMNEY = 6
 
 # Sawn boards left to weather. NOT the taverns' unpainted brown: bare sawn softwood on
 # a north-facing wall silvers off within a season or two, and if a shed carried the
@@ -170,6 +176,13 @@ def build(params: OutbuildingParams, name: str):
 
     _roof(b, p, c_roof)
 
+    # The forge stack goes up after the roof it breaks through, and it takes the
+    # confidence of the COUNT alone. Nothing else about it is on the record — not the
+    # fabric, not the section, not which end of the shop the hearth stood at — so
+    # folding another attribute in would be borrowing a warrant the stack has not got.
+    _forge_stack(b, p, p.conf("chimneys", "reconstructed"),
+                 M_CHIMNEY if p.chimneys > 0 else M_ROOF)
+
     if p.door != "none":
         # A SINGLE DOORWAY MAKES NO CLAIM ABOUT A BAY COUNT, so it does not take
         # `door_bays`' confidence. Folding it in unconditionally was measured and
@@ -235,6 +248,13 @@ def build(params: OutbuildingParams, name: str):
         simple_material("heavy_timber", TIMBER_RGBA,
                         roughness=materials.HEAVY_TIMBER.roughness),
     ]
+    if p.chimneys > 0:
+        # BRICK, off `docs/RESEARCH/chimneys.md` §2, because this stack is an
+        # INTERIOR one — it stands inside the end wall and breaks the roof, which is
+        # the disposition §2 argues brick for. `materials.chimney_finish` is asked
+        # rather than a literal, so the town keeps one brick.
+        stack = materials.chimney_finish("interior")
+        mats.append(simple_material("chimney", stack.rgba, roughness=stack.roughness))
     return b.to_object(mats)
 
 
@@ -971,3 +991,100 @@ def _vent(b: MeshBuilder, p: OutbuildingParams, vent: tuple, conf: float) -> Non
     _prism(b, side, p, [(u0 - j, z0 - j), (u1 + j, z0 - j),
                         (u1 + j, z1 + j), (u0 - j, z1 + j)],
            0.0, off["frame"] * 0.8, conf, M_TIMBER)
+
+
+# ------------------------------------------------------------------- the forge stack
+
+# The hearth mass: what a smith works at, and the widest part of the building's
+# skyline. 1.30 m across the wall is a fire bed a man can lay a bar across with the
+# fuel heaped beside it; 0.72 m deep is the hearth plus the back wall of the fire.
+# Both are inventions bounded by the work rather than readings — no source describes a
+# Chicago forge — and `docs/LIBERTIES.md` carries them.
+HEARTH_W_M = 1.30
+HEARTH_D_M = 0.72
+# The flue above the gather. Narrower than the hearth on both axes, which is the whole
+# reason this is drawn as two blocks and not one: a forge chimney read from the street
+# is broad at the bottom and thin at the top, and a single prism of the hearth's width
+# carried to the ridge is a buttress, not a chimney.
+FLUE_W_M = 0.72
+FLUE_D_M = 0.60
+# Where the hearth steps back into the flue. Above head height in a shop and under the
+# eave, so the shoulder is a thing you see against the wall rather than a line hidden
+# in the roof.
+SHOULDER_Z_M = (1.55, 2.30)
+# How far the head stands above the building's own apex. The by-law of 1835 wants
+# eighteen inches clear (0.457 m, `tools/measure_stack_ordinance.py`, a GATE) and
+# Andreas remembered no Chicago chimney four feet above any roof (1.219 m); this sits
+# between them at the figure the town's 116 frame dwellings already stand at, so a
+# smithy's stack is not the tallest thing on the skyline for a reason nobody argued.
+STACK_CLEAR_M = 0.78
+STACK_HEAD_M = 0.16       # the corbelled cap, so the head reads as a chimney
+STACK_HEAD_OUT_M = 0.08   # how far the cap oversails the flue
+
+
+def _forge_stack(b: MeshBuilder, p: OutbuildingParams, conf: float, mat: int) -> None:
+    """The brick forge stack, for a record that counts one. T-1680.
+
+    Family W1 — the blacksmith shop — is drawn by this archetype and its required
+    variant is `blacksmith_forge`, *"wide work door; forge chimney; soot; detached"*.
+    The wide door this archetype has had since it was written. The chimney is this.
+
+    THREE BLOCKS AND NO INTERIOR, which is the archetype's standing rule (`_vent`,
+    `_doorway`: openings are surfaces, not holes, and there are no stalls or mangers
+    in here). What a person in the street sees of a forge is the mass against the end
+    wall, the step where it gathers, and the head over the ridge; the hearth's opening,
+    the bellows and the fire are inside a building this archetype does not model.
+
+    IT STANDS INSIDE THE WALL, against the end `p.stack_wall` picks, and breaks the
+    roof where the roof is highest. That is `docs/RESEARCH/chimneys.md` §2's interior
+    disposition and it is chosen rather than §3's exterior gable stack: §3's
+    cat-and-clay is argued for a flue you can pull away from the house when it fires,
+    and a forge is a hearth kept hot all day under a board roof — the one building in
+    the town where a stick-and-clay stack is the thing that burns it down. §2's brick
+    needs no import: Blodgett's yard had been making it on the North Side since the
+    spring of 1833 (`brickyard_north_side`, andreas_1884_v1).
+
+    EVERY DIMENSION HERE IS INVENTED and `docs/LIBERTIES.md` says so. What bounds the
+    invention is the work — a fire bed wide enough to lay a bar across, a flue narrower
+    than the hearth that gathers into it — and the two numbers the town wrote down:
+    eighteen inches of clearance by the by-law, four feet by Andreas's recollection.
+    Nothing about the stack takes a confidence better than the count on the record.
+    """
+    if p.chimneys <= 0:
+        return
+
+    wall = p.stack_wall
+    # (e, c) is (into the building from that wall, along it). Every box below is
+    # written in that frame and swapped into world axes once, at `box`, so the four
+    # walls are one piece of code rather than four kept in step by hand — the same
+    # move `log_dwelling._stack` makes for its two gables.
+    if wall in ("left", "right"):
+        face, out, cross = (0.0, 1.0, p.depth_m) if wall == "left" else (p.width_m, -1.0, p.depth_m)
+        swap = False
+    else:
+        face, out, cross = (0.0, 1.0, p.width_m) if wall == "back" else (p.depth_m, -1.0, p.width_m)
+        swap = True
+
+    cc = cross / 2.0
+    # Never wider than the wall it stands against, with a board's width left at each
+    # corner. No committed record comes near this, but a 3.0 m plan is admitted above
+    # and 1.30 m of hearth on a 3.0 m wall wants saying rather than assuming.
+    hearth_w = min(HEARTH_W_M, max(FLUE_W_M, cross - 0.50))
+    flue_w = min(FLUE_W_M, hearth_w - 0.16)
+
+    def box(e0: float, e1: float, cw: float, z0: float, z1: float) -> None:
+        a, c = sorted((face + out * e0, face + out * e1))
+        c0, c1 = cc - cw / 2.0, cc + cw / 2.0
+        if swap:
+            b.add_box(c0, a, z0, c1, c, z1, conf, mat, skip=("bottom",))
+        else:
+            b.add_box(a, c0, z0, c, c1, z1, conf, mat, skip=("bottom",))
+
+    lo, hi = SHOULDER_Z_M
+    shoulder = min(max(lo, float(p.wall_height_m) - 0.30), hi)
+    top = p.apex_z_m + STACK_CLEAR_M
+
+    box(0.0, HEARTH_D_M, hearth_w, 0.0, shoulder)
+    box(0.0, FLUE_D_M, flue_w, shoulder, top - STACK_HEAD_M)
+    box(-STACK_HEAD_OUT_M, FLUE_D_M + STACK_HEAD_OUT_M,
+        flue_w + 2 * STACK_HEAD_OUT_M, top - STACK_HEAD_M, top)

@@ -3528,7 +3528,7 @@
     "tools/test_outbuilding_cargo.py": {
       "wrote": []
     },
-    "tools/test_storefront_cargo_rhythm.py": {
+    "tools/test_outbuilding_forge.py": {
       "wrote": []
     },
     "tools/test_pr_lap_checkout.mjs": {
@@ -3559,6 +3559,9 @@
       "wrote": []
     },
     "tools/test_store_variants.py": {
+      "wrote": []
+    },
+    "tools/test_storefront_cargo_rhythm.py": {
       "wrote": []
     },
     "tools/test_street_confidence.mjs": {
