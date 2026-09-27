@@ -52,6 +52,8 @@
  *   node tools/rederive.mjs --check                 the manifest is well-formed
  *   node tools/rederive.mjs --resolvable <paths…>   may these conflicts be cleared?
  *   node tools/rederive.mjs --run                   run the sequence, then the second pass
+ *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661)
+ *   node tools/rederive.mjs --callers <script…>     no caller re-runs a step bare (T-1661)
  *   node tools/rederive.mjs --prove                 does every step write what it claims?
  *   node tools/rederive.mjs --self-test
  */
@@ -276,6 +278,121 @@ function run(m = load()) {
   return 0;
 }
 
+/* --------------------------------------------------------------------- tail */
+
+/**
+ * THE STEPS FROM ONE NAMED STEP TO THE END, IN MANIFEST ORDER (T-1661).
+ *
+ * `--run` is the whole sequence and settles everything. This is for the caller
+ * that has to re-run ONE step late — pr-lap.sh does, because the second pass
+ * rewrites the resident cards `compile_scene.py` reads, so the scene the
+ * sequence built is stale by the time the sequence ends. Re-running that step
+ * BARE is what T-1661 measured: `compile_source_use.py` is the very next step of
+ * the manifest and it exports "current-scene membership" out of
+ * data/sidecars/1835/index.json and people.json — the two files compile_scene
+ * writes — so the lap pushed a tree whose source-use had been derived against
+ * the PRE-merge scene. On PR #105 that silently dropped 38 of
+ * owner_chicago_1835_reconstruction_spec_2026's claims (3582 written where a
+ * correct derivation gives 3620) and took three steps of check.sh red on a
+ * branch GitHub reported as merged and up to date.
+ *
+ * So a late re-run is never one step: it is that step and everything the
+ * manifest places below it. Naming the step and letting the manifest supply the
+ * rest is the point — insert a step after compile_scene.py tomorrow and the lap
+ * picks it up with no edit, which a hand-written pair of commands would not.
+ *
+ * NO SECOND PASS. The pass walks the residents/model cycle once more (see
+ * `_the_second_pass`), and its own steps sit ABOVE this tail at manifest indices
+ * 76, 102 and 105; running it again here would move the population under the
+ * very steps this tail just settled. The caller has already had it from `--run`.
+ */
+function tailFrom(from, m = load()) {
+  const name = (from ?? '').trim();
+  if (!name) {
+    console.error('--tail needs the step to start from, e.g. --tail tools/compile_scene.py');
+    return -1;
+  }
+  const hits = m.steps
+    .map((s, i) => [i, s])
+    .filter(([, s]) => s.command.join(' ').includes(name));
+  if (hits.length !== 1) {
+    console.error(hits.length === 0
+      ? `--tail ${name}: no step of the manifest runs that`
+      : `--tail ${name}: ${hits.length} steps run that — name one`);
+    hits.forEach(([i, s]) => console.error(`    [${i + 1}] ${s.command.join(' ')}`));
+    return -1;
+  }
+  return hits[0][0];
+}
+
+function tail(from, m = load()) {
+  const first = tailFrom(from, m);
+  if (first < 0) return 1;
+  const run_ = m.steps.slice(first);
+  for (const [i, s] of run_.entries()) {
+    const label = s.command.join(' ');
+    process.stdout.write(`  [${first + i + 1}/${m.steps.length}] ${label}\n`);
+    try {
+      execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+    } catch (e) {
+      console.error(`  FAILED: ${label}`);
+      console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
+      return 1;
+    }
+  }
+  console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
+    + 'order, no second pass (the caller has already had it from --run)');
+  return 0;
+}
+
+/* ------------------------------------------------------------------ callers */
+
+/**
+ * NO CALLER RE-RUNS A MANIFEST STEP BARE (T-1661).
+ *
+ * The hole `tail` fills can be reopened by one line in a shell script, silently,
+ * and the tree it produces is wrong in a way only the gate can see. So the gate
+ * reads the scripts: any `python3 tools/<x>.py` a caller runs that the manifest
+ * also runs must either BE the manifest's last step or go through `--tail`.
+ * Comment lines are not calls — pr-lap.sh explains itself at length and names
+ * these tools while doing it.
+ */
+function callers(scripts, m = load()) {
+  if (scripts.length === 0) {
+    console.error('--callers needs the script(s) to read');
+    return 1;
+  }
+  const problems = [];
+  let calls = 0;
+  for (const script of scripts) {
+    const abs = path.isAbsolute(script) ? script : path.join(REPO, script);
+    if (!existsSync(abs)) { problems.push(`${script}: no such file`); continue; }
+    const lines = readFileSync(abs, 'utf8').split('\n')
+      .filter((l) => !/^\s*#/.test(l));
+    m.steps.forEach((s, i) => {
+      const tool = s.command.find((a) => /^tools\/.+\.py$/.test(a));
+      if (!tool) return;
+      const bare = new RegExp(`python3?\\s+${tool.replace(/[.]/g, '\\.')}(\\s|$)`);
+      const hit = lines.findIndex((l) => bare.test(l));
+      if (hit < 0) return;
+      calls += 1;
+      if (i < m.steps.length - 1) {
+        problems.push(`${script}: runs \`python3 ${tool}\` bare, and the manifest places `
+          + `${m.steps.length - 1 - i} step(s) after it (it is step ${i + 1} of ${m.steps.length}) `
+          + `— re-run it with \`node tools/rederive.mjs --tail ${tool}\``);
+      }
+    });
+  }
+  if (problems.length) {
+    problems.forEach((p) => console.error(`  ${p}`));
+    console.error(`callers of the derived manifest: ${problems.length} out-of-sequence re-run(s)`);
+    return 1;
+  }
+  console.log(`callers of the derived manifest OK — ${scripts.length} script(s) read, `
+    + `${calls} manifest step(s) re-run bare, none with a step below it`);
+  return 0;
+}
+
 /* ------------------------------------------------------------------ prove */
 
 /**
@@ -388,6 +505,20 @@ async function selfTest() {
     }));
   check_('every entry says why it is re-run', pass.every((e) => String(e.why ?? '').trim().length > 0));
 
+  console.log('\n  a late re-run is that step and everything below it (T-1661)');
+  const scene = 'tools/compile_scene.py';
+  check_('the step a caller re-runs late is found, and it is not the last one',
+    tailFrom(scene, real) >= 0 && tailFrom(scene, real) < real.steps.length - 1,
+    `step ${tailFrom(scene, real) + 1} of ${real.steps.length}`);
+  check_('and the very next step is the one T-1661 stranded — source-use, off the scene it writes',
+    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('compile_source_use.py'));
+  check_('a name no step runs is refused, not silently skipped', tailFrom('tools/no_such.py', real) === -1);
+  check_('a name MANY steps run is refused — the tail has one start', tailFrom('tools/generate_', real) === -1);
+  check_('no argument at all is refused', tailFrom('', real) === -1);
+  check_('the second pass sits ABOVE the tail, so the tail must not re-run it',
+    (real.second_pass ?? []).every((e) => real.steps
+      .findIndex((st) => k(st.command) === k(e.command)) < tailFrom(scene, real)));
+
   console.log('\n  check() refuses a manifest that would be unsafe');
   const tmp = mkdtempSync(path.join(tmpdir(), 'c4d-rederive-'));
   try {
@@ -449,6 +580,26 @@ async function selfTest() {
       }]) === 1);
     check_('a repair with no lagging reader above it — it is repairing nothing',
       withPass([{ command: ['python3', 'tools/compile_scene.py'], why: 'downstream of nothing' }]) === 1);
+
+    console.log('\n  and no caller re-runs a manifest step bare (T-1661)');
+    const script = (body) => {
+      const f = path.join(tmp, 'caller.sh');
+      writeFileSync(f, body);
+      return callers([f], real);
+    };
+    const last = real.steps[real.steps.length - 1].command.find((a) => /^tools\/.+\.py$/.test(a));
+    check_('the lap that ships is in sequence', callers(['.github/steward/pr-lap.sh'], real) === 0);
+    check_('a bare re-run of the scene is refused — this is T-1661 itself',
+      script('set -e\ncd chicago/4d\npython3 tools/compile_scene.py --all\n') === 1);
+    check_('the same call through --tail is accepted',
+      script('set -e\ncd chicago/4d\nnode tools/rederive.mjs --tail tools/compile_scene.py\n') === 0);
+    check_('a COMMENT naming the tool is not a call — pr-lap.sh explains itself at length',
+      script('set -e\n# python3 tools/compile_scene.py --all is what this used to do\n') === 0);
+    check_('the manifest LAST step re-run bare is accepted — nothing is below it',
+      script(`set -e\npython3 ${last} --build\n`) === 0);
+    check_('a script that is not there is refused, not read as clean',
+      callers([path.join(tmp, 'no-such-script.sh')], real) === 1);
+    check_('no script at all is refused', callers([], real) === 1);
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 
   console.log(`\n${failures === 0 ? 'rederive self-test: all pass' : `rederive self-test: ${failures} FAILURE(S)`}`);
@@ -461,4 +612,6 @@ if (has('self-test')) process.exit(await selfTest());
 else if (has('resolvable')) process.exit(resolvable(rest()));
 else if (has('prove')) process.exit(prove());
 else if (has('run')) process.exit(run());
+else if (has('tail')) process.exit(tail(rest()[0]));
+else if (has('callers')) process.exit(callers(rest()));
 else process.exit(check());
