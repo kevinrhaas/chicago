@@ -5027,7 +5027,7 @@
           "to_build": 4,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1683",
+          "owning_ticket": "T-1681",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 4 of them to build"
         },
@@ -5163,7 +5163,7 @@
           "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1683",
+          "owning_ticket": "T-1684",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 15; the 668-roof programme leaves 5 of them to build"
         },

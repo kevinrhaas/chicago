@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 283,
+  "count": 284,
   "liberties": [
     {
       "id": "L1",
@@ -17132,6 +17132,53 @@
         {
           "label": "Related",
           "text": "**L274** (the first shed of this row, and the argument this one extends), **L164** (the four north-bank sheds of the same plate), **L131** and **L133** (the Green Tree's yard, whose wagon figures this setback is built from), the parent ask **T-1200**, this ticket **T-1640**, the re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_dearborn_ground.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-27."
+        }
+      ]
+    },
+    {
+      "id": "L282",
+      "title": "The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it",
+      "section": "per_subject",
+      "subjects": [
+        "brickyard_north_side",
+        "inf_blacksmith_shop_west",
+        "mason_blacksmith_shop",
+        "pierce_blacksmith_shop"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "mason_blacksmith_shop",
+          "phase": "documented_1835",
+          "aspect": "form.chimneys"
+        }
+      ],
+      "scope": {
+        "enumeration": "structures.phases[chimneys]",
+        "count": 3
+      },
+      "recorded": "2026-09-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Scope",
+          "text": "`structures.phases[chimneys]` — 3 phases built with a forge stack: `pierce_blacksmith_shop`, `mason_blacksmith_shop` and `inf_blacksmith_shop_west`, the town's three `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it stands against are in `generators/archetypes/outbuilding_params.py`. **What was there before, and why it was wrong for the family.** W1's required variant in `data/reconstruction/1835_family_archetype_crosswalk.json` is `blacksmith_forge` — *\"wide work door; forge chimney; soot; detached\"* — and its evidence note says the archetype \"does not model a forge chimney, heat-safe work opening or soot distribution\". Every other building archetype in this project reads `chimneys`; `outbuilding` did not, so the town's smithies baked as sheds with a doorway and nothing over the roof. `pierce_blacksmith_shop` had already written the consequence on its own record, under a `geometry: absent` declaration: *\"the mesh shows a shed with a doorway and NO SMOKE, which is the one feature of a smithy anybody in the street would have noticed.\"* **The invention, stated block by block.** No source reached describes a Chicago forge, its hearth, its hood or its flue — not a dimension, not a fabric, not a position in the shop. Four numbers are invented here and each is bounded by the work rather than by a reading: - **The hearth mass, 1.30 m along the wall by 0.72 m into the shop.** A fire bed a man can lay a bar across with the fuel heaped beside it, and the thickness of the fire's back wall behind it. It is the widest part of the building's skyline and the reason the stack reads as a forge and not as a house chimney. - **The flue, 0.72 × 0.60 m, above a shoulder at eave height less 0.30 m** (clamped to 1.55–2.30 m, so the step is above head height in a shop and under the eave where a person in the street can see it). Narrower than the hearth on both axes, which is the whole reason this is drawn as two blocks: one prism of the hearth's width carried to the ridge is a buttress, not a chimney. - **The head, 0.78 m above the building's own apex, oversailing the flue by 0.08 m.** This is the one figure with two documented bounds on it and it sits between them: the Trustees' ordinance of 5 August 1835 section 18 required eighteen inches (0.457 m) of stack above a roof, and Andreas remembered a Chicago with *\"not a single steeple nor a chimney four feet above any roof\"* (1.219 m). 0.78 m is the figure the town's 116 `frame_dwelling` stacks already stand at, taken so a smithy is not the tallest thing on the skyline for a reason nobody argued. `docs/RESEARCH/chimneys.md` § the ordinance is the whole of that bracket. **The fabric is brick, and the disposition is why.** The stack stands INSIDE the end wall and breaks the roof, which is `docs/RESEARCH/chimneys.md` §2's interior disposition, and it takes §2's brick through `materials.chimney_finish(\"interior\")` rather than a literal — the town keeps one brick. §3's cat-and-clay is deliberately NOT taken: §3 argues that fabric for a stack built OUTSIDE a gable so it can be pulled away when it fires, and a forge is a hearth kept hot all day under a board roof, the one building in Chicago where a stick-and-clay flue is the thing that burns it down. Brick needed no import — Blodgett's yard had been making it on the North Side since the spring of 1833 (`brickyard_north_side`, andreas_1884_v1). **Which wall, and that is a choice too.** `stack_wall` takes an END — a gable on a gable roof, so the flue rises under the ridge and takes the shortest way out — and of the two ends, the one that does not carry the main door, because a hearth in the doorway is a building nobody could work. With the door elsewhere the low end of the axis takes it, which is `log_dwelling._chimneys`' habit restated so two archetypes put a stack on the same end of the same plan. Nothing in any source says which end of any of these three shops the forge stood at. **What is NOT claimed, and NOT built.** The hearth's opening, the bellows, the hood's gather, the anvil and the fire are inside a building this archetype does not model — openings here are surfaces, not holes, and there is no interior. The soot the same variant asks for is **not built** and is not covered by this entry, nor is the \"detached\" siting it names. Nothing here says any of these three shops had exactly one fire; one is what the archetype admits and a second would be a claim about how the building was worked. **The confidences, and they are not the same on the three records.** `pierce_blacksmith_shop` carries `inferred`: its trade is documented at length by Andreas — the See tools, the Chicago-to-St-Louis stage ironing of January 1834, the Bull plough from that spring — and forge work under a board roof has a stack over it or the shop burns, which is reasoning about THIS building. `mason_blacksmith_shop` and `inf_blacksmith_shop_west` carry `reconstructed`, written by the generator that owns them: a typology from the reconstruction spec, bounded by W1's own crosswalk row, and in the second case about a building that no evidence says existed at all."
+        },
+        {
+          "label": "Held by",
+          "text": "`tools/test_outbuilding_forge.py` in `check.sh`, which holds both ends of the clearance bracket across every plan W1's band admits, the three-block profile, the end wall and its avoidance of the door, and all three refusals — before anything bakes. `tools/measure_stack_ordinance.py` and `tools/measure_stack_fabric.py` then hold the same stacks on the baked masters, which they can now see because the count is spelt `chimneys` and not something private to this archetype."
+        },
+        {
+          "label": "Covers",
+          "text": "`mason_blacksmith_shop.documented_1835.form.chimneys`."
+        },
+        {
+          "label": "Related",
+          "text": "the crosswalk's **W1** row, **L26** (every chimney in this project stands where its archetype puts it), **L168** (the cat-and-clay fabric this one declines), `docs/RESEARCH/chimneys.md` §2 and § the ordinance, **L278** (the same shape of move for F1's cargo openings), this ticket **T-1680** and its parent **T-1201**."
         },
         {
           "label": "Recorded",

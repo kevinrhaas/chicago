@@ -258,6 +258,23 @@ def door_kind(family: str) -> str:
     return "stable" if family == "A1" else "man"
 
 
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    W1's required variant in the crosswalk is `blacksmith_forge` — *"wide work door;
+    forge chimney; soot; detached"* — and `outbuilding` could not draw the second of
+    those until T-1680 gave it the town's own `chimneys` count. The rest of the
+    outbuilding tail is stables, sheds, cribs and cottages with no fire in them.
+
+    W2 and W3 are deliberately absent: their variants ask for daylight and double
+    doors, and a joiner's shop with a flue would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so no shed is rewritten to say it has
+    no chimney.
+    """
+    return 1 if family == "W1" else 0
+
+
 def door_bays_for(family: str) -> int:
     """HOW MANY of that doorway the family's loading side carries (T-1662).
 
@@ -400,6 +417,8 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float) ->
         "construction": inferred(construction, why), "door": inferred(door, why),
         "door_side": inferred("front", why),
         **({"door_bays": inferred(bays, why)} if bays > 1 else {}),
+        **({"chimneys": inferred(chimneys_for(family), why)}
+           if chimneys_for(family) else {}),
         # ASKED OF THE CROSSWALK, not of a literal (T-0179's lesson, one line below the
         # comment that draws it): the hand-kept set gave a loft to W3 and W5, both
         # authored `levels '1'`, and west_rec_036 reached the band gate on it.

@@ -91,7 +91,8 @@ def no_build_rings() -> dict[str, list[tuple[float, float]]]:
 # earlier anonymous parcels already use. Writing the adoption here as well would put it
 # in two places and let them disagree, and hand-editing a generated record would fail
 # the drift check that makes these parcels trustworthy in the first place.
-from inferred_occupancy import keeper_assignments, occupancy  # noqa: E402
+from inferred_occupancy import (keeper_assignments, keeper_refusals,  # noqa: E402
+                                occupancy)
 
 # Which lot is already taken is the SAME question the schedule asks before it deals this
 # parcel its roofs, so it is asked in one place and imported by both (ROADMAP T-A7).
@@ -144,6 +145,17 @@ OCCUPANCY = occupancy()
 # stays adoptable by that household and by no other, so writing the keeper down no longer
 # hands the household somewhere else on the next re-derivation.
 ASSIGNMENTS = keeper_assignments()
+# T-1675. A roof the deal seated and the keeper pass REFUSED carries the same attribute,
+# saying unassigned and why — so a refused roof stops reading like a roof nobody was dealt.
+# The two maps are disjoint by construction (a seat is written or refused, never both) and
+# this refuses to merge them if they ever stop being.
+REFUSALS = keeper_refusals()
+_both = sorted(set(ASSIGNMENTS) & set(REFUSALS))
+if _both:
+    raise SystemExit("data/reconstruction/1835_roof_keepers.json writes and refuses the "
+                     "same roof(s): %s — re-run tools/name_the_keepers_1835.py --build"
+                     % ", ".join(_both))
+ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 
 # The same separation the household parcel enforces. A generated building that lands
 # three metres from another one is not a dense town, it is two records occupying one
@@ -396,6 +408,23 @@ def door_kind(family: str) -> str:
     if family in ("W2", "A1"):
         return "stable"
     return "man"
+
+
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    W1's required variant in the crosswalk is `blacksmith_forge` — *"wide work door;
+    forge chimney; soot; detached"* — and `outbuilding` could not draw the second of
+    those until T-1680 gave it the town's own `chimneys` count. The rest of the
+    outbuilding tail is stables, sheds, cribs and cottages with no fire in them.
+
+    W2 and W3 are deliberately absent: their variants ask for daylight and double
+    doors, and a joiner's shop with a flue would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so no shed is rewritten to say it has
+    no chimney.
+    """
+    return 1 if family == "W1" else 0
 
 
 def door_bays_for(family: str) -> int:
@@ -693,6 +722,8 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         "construction": invented(material, why), "door": invented(door, why),
         "door_side": invented("front", why), "loft": invented(loft, why),
         **({"door_bays": invented(bays, why)} if bays > 1 else {}),
+        **({"chimneys": invented(chimneys_for(family), why)}
+           if chimneys_for(family) else {}),
         "board_gap_m": invented(.012, why), "paint": invented(paint, why),
     }
 
