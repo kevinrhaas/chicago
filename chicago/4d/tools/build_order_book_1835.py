@@ -285,8 +285,28 @@ STRUCTURE_TICKETS = {
     # variant ticket against roofs already standing (W1's forge stack) and raises none,
     # exactly as T-1639's own children did not, so it owns no cell.
     #
-    # STORES GO TO T-1681, the first of the two live raisers, and the row moves to T-1682
-    # when it closes with the cell still owing — the T-1640 -> T-1672 shape recorded below.
+    # STORES GO TO T-1694, AND THE ROW'S OWN HISTORY IS THE ARGUMENT. It has now been
+    # swept three times in one afternoon, each sweep sound when it was made and overtaken
+    # by the next close: T-1680 sent it to T-1682 ("the W1-W4 shops are its second half in
+    # as many words"); T-1682 measured that, could not spend it, and sent it to T-1681
+    # ("the first of the two live raisers, and the row moves to T-1682 when it closes with
+    # the cell still owing") — but T-1682 merged the same afternoon, so the successor it
+    # promised was already `done`; T-1683 was then the last live child of T-1201, and it
+    # merged too (#138) while this piece was being re-cut on dev. T-1681 closes with the
+    # pull request this row moves in, so ALL FOUR CHILDREN OF T-1201 ARE NOW CLOSED and
+    # the split parent has no live descendant either. There is no ticket left in that
+    # family to name, and the harm of naming one anyway is the route
+    # `ticket_liveness.py`'s own header describes: the gate reads `review`, which is live,
+    # and the `done` that takes dev red lands afterwards, when the settle workflow runs.
+    #
+    # SO THE CELL GETS A TICKET OF ITS OWN, filed the way T-1684 was filed for the
+    # workshops row one line below — by the run that found the hole, carrying the
+    # measurement rather than an opinion. T-1694: the cell reads 41 standing of 42 with
+    # one owed, and every block of the Lake-Randolph tier reads `at_capacity`, so the last
+    # south store has no ground in the platted core to stand on. That is a question about
+    # where it goes, not a build somebody can just take, and it is not this piece's to
+    # answer: re-familying a fourth roof to close the cell would be inventing a trade,
+    # which is the refusal `blk_lake_dearborn` is already recorded under.
     # WORKSHOPS GO TO T-1684, and the sentence this replaces is why the row could not stay
     # on T-1682. T-1680's sweep (above, an hour earlier) sent it to T-1682 because "the
     # W1-W4 shops on State and Dearborn are its second half in as many words" — sound at
@@ -302,7 +322,7 @@ STRUCTURE_TICKETS = {
     # with the pull request this row moved in — so leaving the row on it would put a `done`
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
-    ("south", "stores_mixed_use"): "T-1681",
+    ("south", "stores_mixed_use"): "T-1694",
     ("south", "larger_boarding_houses"): "T-1209",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and

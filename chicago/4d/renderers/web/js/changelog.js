@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1191, ts: '2026-09-27T23:16:10.469Z', date: 'Sep 27, 2026, 6:16 PM CT', title: 'Lake Street\u2019s Clark corner stands as shops, not cottages', kind: 'change',
+    items: [
+      'Walk east along Lake Street from Clark and the first three buildings used to be a log cabin and two small frame cottages standing shoulder to shoulder \u2014 and every one of them had a documented Chicago business advertised inside it. A land agent, a house-and-lot agent and a physician were trading out of what the town was drawing as houses.',
+      'They are shops now. The row rises as it runs toward Dearborn: a one-storey shop on the Clark corner, a storey-and-a-half store-residence with attic rooms next to it, and a full two-storey store with its gable to the street closing the run \u2014 the pattern of a professional\u2019s rooms over a shop front. Nothing moved: same lots, same street wall, same 0.80 m setback, same shared party walls. Only what the buildings ARE changed.',
+      'This is a statement about the street, not about the people. Which advertised business the town shows in which of these roofs has never been a reading of any source \u2014 the newspapers place them on Lake Street and no closer \u2014 and the town says so on every card. What the newspapers do support is that Lake Street was a business street, and it now looks like one at its Clark end.',
+      'The Dearborn block one street east was measured the same way and nothing moved there: its Lake frontage already carries Dole\u2019s warehouse, Mason\u2019s blacksmith shop and St Mary\u2019s church, and the anonymous roofs left on it carry no business at all. Turning one of those into a shop would have been inventing the shop.',
+      'Neither block had room for a new building \u2014 both are full \u2014 so no roof was added to the town and none was taken away. The town still wants 668 roofs.',
+    ] },
   { v: 1190, ts: '2026-09-27T22:28:16.726Z', date: 'Sep 27, 2026, 5:28 PM CT', title: 'Nothing you can see: Lake Street\u2019s books close, the town got lighter', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. The stretch between Market Street and State \u2014 seven blocks with Lake Street along the top and Randolph along the bottom \u2014 has been under construction for four releases, and this one closes its accounts and writes down what is actually standing there.',

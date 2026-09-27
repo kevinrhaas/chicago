@@ -11857,7 +11857,7 @@
       "subjects": [
         "inf_bakery_lake",
         "inf_butcher_market",
-        "recon_1835_blk_lake_clark_d1_01",
+        "recon_1835_blk_lake_clark_c1_01",
         "recon_1835_south_d3_013"
       ],
       "covers": [],
@@ -11866,7 +11866,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the three roofs of the `blk_lake_clark` frontage run — `recon_1835_blk_lake_clark_d1_01`, `_d3_02` and `_d5_03` — move 0.70 m toward Lake Street and now stand with their front walls **0.80 m off the block face**, on the line the four roofs of L141's row already stood on. `tools/generate_block_infill.py` previously refused any setback below the plat module's 1.5 m `LOT_MARGIN_M`; it now accepts one on the **street line specifically**, and only where the block recipe names the committed records whose line it adopts. The number is not authored: `adopts_face_line` lists the records and the generator measures their front walls, so a recipe stating any other setback fails. The side lot lines keep the full 1.5 m."
+          "text": "the three roofs of the `blk_lake_clark` frontage run — `recon_1835_blk_lake_clark_c1_01`, `_c2_02` and `_c3_03`, which were dealt D1, D3 and D5 when T-0104 wrote this and were re-familied to C1, C2 and C3 by T-1681 without the line moving — move 0.70 m toward Lake Street and now stand with their front walls **0.80 m off the block face**, on the line the four roofs of L141's row already stood on. `tools/generate_block_infill.py` previously refused any setback below the plat module's 1.5 m `LOT_MARGIN_M`; it now accepts one on the **street line specifically**, and only where the block recipe names the committed records whose line it adopts. The number is not authored: `adopts_face_line` lists the records and the generator measures their front walls, so a recipe stating any other setback fails. The side lot lines keep the full 1.5 m."
         },
         {
           "label": "Why",
@@ -12293,9 +12293,9 @@
       "section": "per_subject",
       "subjects": [
         "recon_1835_blk_lake_clark_a3_04",
-        "recon_1835_blk_lake_clark_d1_01",
-        "recon_1835_blk_lake_clark_d3_02",
-        "recon_1835_blk_lake_clark_d5_03"
+        "recon_1835_blk_lake_clark_c1_01",
+        "recon_1835_blk_lake_clark_c2_02",
+        "recon_1835_blk_lake_clark_c3_03"
       ],
       "covers": [
         {
@@ -12312,37 +12312,37 @@
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d1_01",
+          "structure": "recon_1835_blk_lake_clark_c1_01",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d1_01",
+          "structure": "recon_1835_blk_lake_clark_c1_01",
           "phase": "inferred_1835",
           "aspect": "position"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d3_02",
+          "structure": "recon_1835_blk_lake_clark_c2_02",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d3_02",
+          "structure": "recon_1835_blk_lake_clark_c2_02",
           "phase": "inferred_1835",
           "aspect": "position"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d5_03",
+          "structure": "recon_1835_blk_lake_clark_c3_03",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_clark_d5_03",
+          "structure": "recon_1835_blk_lake_clark_c3_03",
           "phase": "inferred_1835",
           "aspect": "position"
         }
@@ -12372,7 +12372,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_blk_lake_clark_d1_01.inferred_1835.position`, `recon_1835_blk_lake_clark_d1_01.inferred_1835.footprint`, `recon_1835_blk_lake_clark_d3_02.inferred_1835.position`, `recon_1835_blk_lake_clark_d3_02.inferred_1835.footprint`, `recon_1835_blk_lake_clark_d5_03.inferred_1835.position`, `recon_1835_blk_lake_clark_d5_03.inferred_1835.footprint`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.position`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.footprint`."
+          "text": "`recon_1835_blk_lake_clark_c1_01.inferred_1835.position`, `recon_1835_blk_lake_clark_c1_01.inferred_1835.footprint`, `recon_1835_blk_lake_clark_c2_02.inferred_1835.position`, `recon_1835_blk_lake_clark_c2_02.inferred_1835.footprint`, `recon_1835_blk_lake_clark_c3_03.inferred_1835.position`, `recon_1835_blk_lake_clark_c3_03.inferred_1835.footprint`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.position`, `recon_1835_blk_lake_clark_a3_04.inferred_1835.footprint`."
         },
         {
           "label": "Recorded",
@@ -16287,23 +16287,24 @@
     },
     {
       "id": "L266",
-      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 74 roofs that are not framed",
+      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 73 roofs that are not framed",
       "section": "per_subject",
       "subjects": [
+        "recon_1835_blk_lake_clark_c1_01",
         "recon_1835_blk_south_water_wells_d1_07",
         "recon_1835_west_027"
       ],
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[log_or_fort_archetype]",
-        "count": 74
+        "count": 73
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[log_or_fort_archetype]` — 74 phases: 60 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
+          "text": "`structures.phases[log_or_fort_archetype]` — 73 phases: 59 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
         },
         {
           "label": "Decision",
