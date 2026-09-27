@@ -7137,7 +7137,28 @@ for (const [label, viewport, touch] of [
       }));
     const refusedRoof = refusedOnARoof[0]?.structure_id ?? null;
 
-    const popAgency = await page.evaluate((jonesKingRoof) => {
+    // THE HELD ROOF IS READ OUT OF THE FILE FOR THE SAME REASON THE REFUSED ONE IS.
+    // T-1651 made the street-face deal seat a business by what its roof was raised
+    // as, and that moved this holding off blk_randolph_wells_d2_07 and into a South
+    // Water shopfront. A literal id here is a green that expires on the next deal —
+    // the note above says so about `..._d4_08`. What must not change is that the
+    // compiled relation still puts Hubbard & Co.'s holding on SOME roof, so that is
+    // what is asserted, and the card is then read at whichever roof that is.
+    const heldOnARoof = (agenciesDoc.agencies ?? [])
+      .flatMap((a) => a.holdings ?? [])
+      .filter((h) => h.structure_id);
+    check(`${label}: the compiled agencies still put Hubbard & Co.'s holding on a roof`,
+      heldOnARoof.length === 1
+      && heldOnARoof[0].holder === 'Hubbard & Co.'
+      && heldOnARoof[0].holder_id === 'business_hubbard_co'
+      && Number(agenciesDoc.counts?.holdings) === 2,
+      JSON.stringify({
+        found: heldOnARoof.map((h) => ({ holder: h.holder, structure_id: h.structure_id })),
+        counts: agenciesDoc.counts,
+      }));
+    const hubbardRoof = heldOnARoof[0]?.structure_id ?? null;
+
+    const popAgency = await page.evaluate(({ hubbardRoof, jonesKingRoof }) => {
       const read = (id) => {
         if (!id) return { present: false, text: '', refused: false, cites: [] };
         window.__chicago4d.pick(id);
@@ -7151,11 +7172,11 @@ for (const [label, viewport, touch] of [
         };
       };
       return {
-        hubbard: read('recon_1835_blk_randolph_wells_d2_07'),
+        hubbard: read(hubbardRoof),
         jonesKing: read(jonesKingRoof),
         sauganash: read('sauganash_hotel'),
       };
-    }, refusedRoof);
+    }, { hubbardRoof, jonesKingRoof: refusedRoof });
     check(`${label}: the card names the agency this house held, and its principal`,
       popAgency.hubbard.present
       && /Hubbard & Co\. held the agency for Howard Fire Insurance Company/.test(popAgency.hubbard.text)
