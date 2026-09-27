@@ -2502,8 +2502,9 @@ adopted anyway, with that stated, because the alternative is a placement with no
 **How to resolve:** the Cook County commissioners' records for 1834–35. A single dated order
 would carry a contract, a cost, a specification and a completion date, and would move four
 attributes and the date from conjectural to documented at once.
-**Covers:** `cook_county_courthouse_1835.wood_1835.footprint`, `cook_county_courthouse_1835.wood_1835.position`, `cook_county_courthouse_1835.wood_1835.form.construction`, `cook_county_courthouse_1835.wood_1835.form.wall_height_m`, `cook_county_courthouse_1835.wood_1835.form.roof_type`, `cook_county_courthouse_1835.wood_1835.form.roof_pitch_deg`, `cook_county_courthouse_1835.wood_1835.form.door`.
+**Covers:** `cook_county_courthouse_1835.wood_1835.footprint`, `cook_county_courthouse_1835.wood_1835.form.wall_height_m`, `cook_county_courthouse_1835.wood_1835.form.roof_type`, `cook_county_courthouse_1835.wood_1835.form.roof_pitch_deg`, `cook_county_courthouse_1835.wood_1835.form.door`.
 **Recorded:** 2026-08-11.
+**Revised:** 2026-09-27, T-1687 — **two of the seven inventions are withdrawn, because the source carries them after all, and the sting in the tail above is refuted.** The corner and the fabric are off this entry's Covers line: `position` is now `inferred` on the record and `form.construction` is `brick` at `attested`. Both come from one sentence of Andreas's town-period narrative, four scan pages before the plate this record originally cited — "During the fall of the year (1835,) a one-story and basement brick court-house was erected on the northeast corner of the square, on Clark and Randolph streets" (Andreas I scan p. 369) — repeated under 1835 at November in his chronology (scan p. 1317). So *the north-east corner is what Andreas gives for THIS building*, not a detail of the 1837 one leaking backwards: the sting in the tail was a real risk honestly recorded and it turns out not to have happened, and "the size, the material, the wall height, the roof and the door are all this project's invention" is now true of the size, the wall height, the roof and the door. The position's grade stops at `inferred` rather than going further because the CORNER is documented and the COORDINATE is derived — the same rule the estray pen and the log jail are placed under on this same block — and no number in the record moved. **Why it took six weeks.** The readings were made on 2026-08-16 and parked in the record itself, on the ground that a changed form value stales a placeholder mesh and geometry belongs to the bake. T-0139 retired that mesh on 2026-08-23 and wrote "There is no mesh to stale" into the same record; the note that tracked the debt, `docs/RESEARCH/civic_public_buildings_1835.md` section 7, went on pricing it as a bake. A debt filed against an obstacle that has been removed is a debt nobody comes back for.
 
 ### L62 — Watkins' school house: one unrecorded word decides the whole building
 **Decision:** the house on Michigan Street that John Watkins used as his second school is built
@@ -14138,13 +14139,25 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 3 structures. The `brick` substrate in
-`generators/common/materials.py` has carried `tile_m = None` since T-0007, and these are the
-records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
+**Scope:** `structures.records[brick_fabric]` — 4 structures. The `brick` substrate in
+`generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
+are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
 attested brick" and the layer holds three** — the magazine is the one the sentence forgot,
 which is exactly why this scope counts the population instead of restating the memo. The
 brick chimneys (materials.md §4, finding 1) ride the same substrate.
+
+**THE FOURTH ARRIVED 2026-09-27 (T-1687) AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND
+THE DECISION DID NOT.** `cook_county_courthouse_1835` became an attested-brick record when the
+Andreas sentence that dates it — "a one-story and basement brick court-house" — was applied to
+its fabric. It draws nothing: its phase runs from October 1835, the only scene targets
+1835-07-01, `generators/build.py` resolves no phase for it and T-0139 retired its committed GLB
+for exactly that reason. So it is in the population this entry counts and not in the list of
+records a course reaches, and the distinction is worth keeping rather than smoothing over — the
+scope counts what the layer SAYS is brick, and a record can say brick without any wall of it
+being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it
+will need an archetype that can build brick before it needs a course: `outbuilding`, which it
+carries today, cannot.
 
 **Decision:** the brick course is committed at **70 mm** and the brick length at **213 mm**,
 from a period US common brick of 8 × 4 × 2¼ in (203 × 102 × 57 mm) with a ⅜ in (10 mm)
@@ -15106,12 +15119,17 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and twelve do not because a ruling refuses them one
+### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
+**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`.
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
+Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+district at a time and its scope is data rather than a constant — a district enters
+`DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
+its keeper, and every seat outside the districts run so far is held as owed BY NAME.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -15125,15 +15143,15 @@ policy had put in it. A liberty a visitor cannot meet is not much of a disclosur
 **What the card says and what it may not be read as.** `occupants` is graded `reconstructed`
 and cites only the sources that carry the household's NAME — a baptismal register, the
 Democrat's own columns — never its address, because there is no address. The note on every
-one of the nine says so in its first two sentences. The roof stays `inferred_anonymous`, a
+one of the 23 says so in its first two sentences. The roof stays `inferred_anonymous`, a
 count-unit of the 665-roof programme: its existence, position and footprint are as
 conjectural after the seating as before it, the order book was not drawn on, and no mesh
 moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
 costs no bake.
 
-**Twelve of the twenty-one are refused, and the refusal is the load-bearing half.** Twelve of
-the twenty-one South Water seats — sixty-one of the deal's hundred and nine town-wide — are
-households
+**Thirty-four of the fifty-seven are refused, and the refusal is the load-bearing half.**
+Thirty-four of the fifty-seven seats the two districts hold — sixty-three of the deal's
+hundred and nine town-wide — are refused a keeper, sixty-one of them households
 minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
 refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
 address*. Writing the household's name rather than its person id would have slipped past the
@@ -15142,9 +15160,26 @@ reason in the keepers ledger instead. **The deal seated them there anyway**, so 
 the ruling disagree on sixty-one roofs; that disagreement is filed, not settled here, and not
 hidden by a pass that could have looked complete by ignoring it.
 
+**And two more are refused for a disagreement INSIDE one record (T-1685).** Seven household
+cards town-wide are still NAMED *a name from the post office's letter lists* while no person
+on the card carries `letter_list_only` — the flag having been cleared, correctly and by a
+gate of its own, because a press reading that is not a letter list stands beside it. The
+minting pass revises the flag and not the name, so one record makes two statements about
+which evidence its name rests on, and the 2026-08-30 ruling turns on exactly that question.
+Two of the seven are seated by the deal: `hh_bradford_harriet` on a Randolph roof and
+`hh_ambrose_joshua` on a Lake one. Publishing either would have put the sentence *The
+Bradford household — a name from the post office's letter lists* on a building card in a
+town whose ruling says a letter-list name is not a man with an address; so the roof is
+refused, the disagreement is named on the record, and the stale naming is filed as **T-1689**
+rather than revised in passing — it reaches seven cards and every reader of their names,
+which is not one district's pass to make. It costs this liberty one keeper of fifteen on the
+Randolph tier, and that is the direction this pass is wrong in when it is wrong: too few
+keepers named, each shortfall counted.
+
 **One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
 for a garden when a household id appears in a structure's `occupants` prose. Putting the id
-there would have grown nine gardens as a side effect of naming nine keepers, on no evidence
+there would have grown a garden on every one of these lots as a side effect of naming
+their keepers, on no evidence
 about any garden, so the id is carried in `resident_assignment.household_id` — machine
 readable, and invisible to a test that was never about this. Whether these lots held gardens
 is that generator's question to answer on its own ground.
@@ -15168,7 +15203,8 @@ one, and the nine would stop being a liberty.
 
 **Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
 **L212** (the street-face business adoptions, the same shape for firms rather than keepers),
-T-1638, its parent **T-1200**, the ruling **T-0379**, and
+T-1638 and its parent **T-1200**, T-1685 and its parent **T-1202**, T-1689 (the stale
+letter-list naming), the ruling **T-0379**, and
 `data/reconstruction/1835_roof_keepers.json`.
 **Recorded:** 2026-09-26.
 

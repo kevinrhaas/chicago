@@ -1,0 +1,18 @@
+Base: ef20f58e (current dev fetched 2026-09-27).
+Recovered dependency parent: 86ce9e29 (T-1277, chicago PR #129).
+
+check.sh: PASS, 675 steps, 283 deliberate self-tests.
+Focused welcome: PASS at 390x780 and 1280x800, zero page errors.
+Layout: 320x568, 780x390, and 390x780 with visualViewport.height=400.
+Reduced motion: no welcome animation. Focus: heading on open, Start on close.
+Entry: structure, intersection, person, and default Sauganash spawn.
+Pointer: remains free through the menu and entry, captured on desktop canvas click.
+Settings: saved light theme, wagon pace and horse travel mode preserved.
+Shared destinations: PASS at both widths, 4026 rows, all 422 structure spawns safe,
+unknown-address cards do not move the visitor, zero page errors.
+
+Published part 6 and boot-payload final receipts are stored alongside this file.
+Full thirteen-part renderer suite was not rerun; this is scoped UI smoke coverage.
+
+Published part 6: PASS, 30 checks, zero failures, zero page errors, both viewports.
+Final wire payload: 9.756 MB of the 12.000 MB ceiling.

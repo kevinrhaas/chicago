@@ -1,0 +1,142 @@
+[
+  {
+    "width": 390,
+    "inventory": {
+      "count": 4026,
+      "rows": 4026,
+      "shared": true
+    },
+    "safeStructures": 422,
+    "resolution": [
+      {
+        "kind": "structure",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "person",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "anchor",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "intersection",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      }
+    ],
+    "spawned": [
+      {
+        "kind": "structure",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "person",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "anchor",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "intersection",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "inventory": {
+      "count": 4026,
+      "rows": 4026,
+      "shared": true
+    },
+    "safeStructures": 422,
+    "resolution": [
+      {
+        "kind": "structure",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "person",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "anchor",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      },
+      {
+        "kind": "intersection",
+        "ok": true,
+        "blocked": false,
+        "ground": true
+      }
+    ],
+    "spawned": [
+      {
+        "kind": "structure",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "person",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "anchor",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      },
+      {
+        "kind": "intersection",
+        "ok": true,
+        "stable": true,
+        "distance": 0,
+        "phase": "idle",
+        "flying": false
+      }
+    ],
+    "errors": []
+  }
+]

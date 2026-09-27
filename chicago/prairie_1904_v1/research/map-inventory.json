@@ -2,8 +2,8 @@
   "title": "Prairie Avenue map frontage inventory,16th–22nd Streets",
   "status": "Tentative manual transcription for reconciliation; not a complete cadastral census",
   "scope": "Every Prairie-facing printed address label observed on supplied1911sheets20,28,35; Calumet and Indiana excluded. Unnumbered open lots are not invented as buildings.",
-  "source_attribution": "Uploaded copies supplied with William Tyre message. Source map dates1911 and1886 are provided by filenames/correspondence, not independently checked against edition metadata.",
-  "temporal_rule": "1911 observations remain1911. Tyre message supports working1904 footprint hypothesis except1609,1611,1620; it does not establish1904 occupancy, rear garages, use, or detailed alterations.",
+  "source_attribution": "Uploaded copies supplied with expert map guidance. Source map dates1911 and1886 are provided by filenames/correspondence, not independently checked against edition metadata.",
+  "temporal_rule": "1911 observations remain1911. The expert guidance supports working1904 footprint hypothesis except1609,1611,1620; it does not establish1904 occupancy, rear garages, use, or detailed alterations.",
   "story_notation_rule": "Raw notation preserved. B=basement;B.B.=brick basement;S.B.=stone basement according to uploaded key. Numeral is stories, not height in feet. Whole-building height cannot be inferred from story count.",
   "legend": {
     "D": "Dwelling",
@@ -384,7 +384,7 @@
       "raw_story_basement_notation": "4",
       "map_material_interpretation": "brick",
       "map_use_label": "Auto Repairing 1st; Wind Shield Mfg. Abv.",
-      "notes": "1911 replacement block. Tyre identifies replaced1904 houses specifically as1609 and1611; do not back-project commercial use.",
+      "notes": "1911 replacement block. Expert guidance identifies replaced1904 houses specifically as1609 and1611; do not back-project commercial use.",
       "dimensions_ft": null,
       "footprint_digitized": false
     },
@@ -1401,7 +1401,7 @@
       "source_file": "1886 - use for lost buildings only(1).jpg",
       "source_map_year": 1886,
       "identification_source": "Maps 1-2_message(1).txt",
-      "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+      "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
       "footprint_observation": "Two adjoining simple rectangular yellow-filled rowhouse footprints occupy lot6, east side south of the16thStreet station block, explicitly labeled1609 and1611. Do not confuse with pink paired houses on lot7 immediately south.",
       "story_count": null,
       "dimensions_ft": null
@@ -1412,7 +1412,7 @@
       "source_file": "1886 - use for lost buildings only(1).jpg",
       "source_map_year": 1886,
       "identification_source": "Maps 1-2_message(1).txt",
-      "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+      "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
       "footprint_observation": "Southern half of same paired yellow-filled rectangular footprint as1609 on lot6, labeled1611; retain two houses for1904. No story count legible in Robinson sheet.",
       "story_count": null,
       "dimensions_ft": null
@@ -1423,8 +1423,8 @@
       "source_file": "1886 - use for lost buildings only(1).jpg",
       "source_map_year": 1886,
       "identification_source": "Maps 1-2_message(1).txt",
-      "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
-      "footprint_observation": "West-side irregular pink footprint spans lots13–14; broad Prairie-facing rectangle with northwest/rear extension; restore for1904 based on Tyre note. No story count legible.",
+      "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+      "footprint_observation": "West-side irregular pink footprint spans lots13–14; broad Prairie-facing rectangle with northwest/rear extension; restore for1904 based on expert guidance. No story count legible.",
       "story_count": null,
       "dimensions_ft": null
     }

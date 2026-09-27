@@ -3174,7 +3174,7 @@
       "construction": "By 1886; exact date unresolved",
       "demolition": "After 1904 and by 1911",
       "source_ids": [
-        "TYRE-20260923",
+        "EXPERT-20260923",
         "MAP-1886"
       ],
       "status_1904": "present per supplied expert guidance",
@@ -3185,7 +3185,7 @@
           "type": "loss",
           "date_text": "1905–1911 interval; precise year not established",
           "source_ids": [
-            "TYRE-20260923"
+            "EXPERT-20260923"
           ]
         }
       ],
@@ -3202,7 +3202,7 @@
       "construction": "By 1886; exact date unresolved",
       "demolition": "After 1904 and by 1911",
       "source_ids": [
-        "TYRE-20260923",
+        "EXPERT-20260923",
         "MAP-1886"
       ],
       "status_1904": "present per supplied expert guidance",
@@ -3213,7 +3213,7 @@
           "type": "loss",
           "date_text": "1905–1911 interval; precise year not established",
           "source_ids": [
-            "TYRE-20260923"
+            "EXPERT-20260923"
           ]
         }
       ],
@@ -3230,7 +3230,7 @@
       "construction": "By 1886; exact date unresolved",
       "demolition": "After 1904 and by 1911",
       "source_ids": [
-        "TYRE-20260923",
+        "EXPERT-20260923",
         "MAP-1886"
       ],
       "status_1904": "present per supplied expert guidance",
@@ -3241,7 +3241,7 @@
           "type": "loss",
           "date_text": "1905–1911 interval; precise year not established",
           "source_ids": [
-            "TYRE-20260923"
+            "EXPERT-20260923"
           ]
         }
       ],
@@ -4022,7 +4022,7 @@
       "url": "https://www.loc.gov/item/sanborn01790_020/",
       "kind": "supplied primary map",
       "date": "1911",
-      "notes": "User-supplied original scan, supplied by William Tyre. 16th–18th Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
+      "notes": "User-supplied original scan, supplied with expert guidance. 16th–18th Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
       "rights_status": "public_domain_US_1911",
       "retrieval_status": "local_original_acquired",
       "local_path": "maps/originals/sanborn-1911-sheet-20.jpg"
@@ -4033,7 +4033,7 @@
       "url": "https://www.loc.gov/item/sanborn01790_020/",
       "kind": "supplied primary map",
       "date": "1911",
-      "notes": "User-supplied original scan, supplied by William Tyre. 18th–20th Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
+      "notes": "User-supplied original scan, supplied with expert guidance. 18th–20th Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
       "rights_status": "public_domain_US_1911",
       "retrieval_status": "local_original_acquired",
       "local_path": "maps/originals/sanborn-1911-sheet-28.jpg"
@@ -4044,7 +4044,7 @@
       "url": "https://www.loc.gov/item/sanborn01790_020/",
       "kind": "supplied primary map",
       "date": "1911",
-      "notes": "User-supplied original scan, supplied by William Tyre. 20th–22nd Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
+      "notes": "User-supplied original scan, supplied with expert guidance. 20th–22nd Streets. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
       "rights_status": "public_domain_US_1911",
       "retrieval_status": "local_original_acquired",
       "local_path": "maps/originals/sanborn-1911-sheet-35.jpg"
@@ -4055,7 +4055,7 @@
       "url": "https://www.loc.gov/item/sanborn01790_020/",
       "kind": "supplied primary map",
       "date": "1911",
-      "notes": "User-supplied original scan, supplied by William Tyre. symbols and materials. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
+      "notes": "User-supplied original scan, supplied with expert guidance. symbols and materials. Retain printed sheet number; digital sequence not assumed. 1911 geometry and use are later than target.",
       "rights_status": "public_domain_US_1911",
       "retrieval_status": "local_original_acquired",
       "local_path": "maps/originals/sanborn-1911-key.jpg"
@@ -4066,14 +4066,14 @@
       "url": "",
       "kind": "supplied primary map",
       "date": "1886",
-      "notes": "Supplied by William Tyre for lost 1609–1611 rowhouses and 1620 house only. Plate bibliographic identification pending; do not use the whole 1886 streetscape as 1904.",
+      "notes": "Supplied with expert guidance for lost 1609–1611 rowhouses and 1620 house only. Plate bibliographic identification pending; do not use the whole 1886 streetscape as 1904.",
       "rights_status": "public_domain_US_1886",
       "retrieval_status": "local_original_acquired",
       "local_path": "maps/originals/robinson-1886-north-block.jpg"
     },
     {
-      "id": "TYRE-20260923",
-      "title": "William Tyre: map guidance for the 1904 model",
+      "id": "EXPERT-20260923",
+      "title": "Expert map guidance for the 1904 model",
       "url": "",
       "kind": "user-supplied correspondence",
       "date": "2026-09-23",
@@ -5421,8 +5421,8 @@
     "title": "Prairie Avenue map frontage inventory,16th–22nd Streets",
     "status": "Tentative manual transcription for reconciliation; not a complete cadastral census",
     "scope": "Every Prairie-facing printed address label observed on supplied1911sheets20,28,35; Calumet and Indiana excluded. Unnumbered open lots are not invented as buildings.",
-    "source_attribution": "Uploaded copies supplied with William Tyre message. Source map dates1911 and1886 are provided by filenames/correspondence, not independently checked against edition metadata.",
-    "temporal_rule": "1911 observations remain1911. Tyre message supports working1904 footprint hypothesis except1609,1611,1620; it does not establish1904 occupancy, rear garages, use, or detailed alterations.",
+    "source_attribution": "Uploaded copies supplied with expert map guidance. Source map dates1911 and1886 are provided by filenames/correspondence, not independently checked against edition metadata.",
+    "temporal_rule": "1911 observations remain1911. The expert guidance supports working1904 footprint hypothesis except1609,1611,1620; it does not establish1904 occupancy, rear garages, use, or detailed alterations.",
     "story_notation_rule": "Raw notation preserved. B=basement;B.B.=brick basement;S.B.=stone basement according to uploaded key. Numeral is stories, not height in feet. Whole-building height cannot be inferred from story count.",
     "legend": {
       "D": "Dwelling",
@@ -5849,7 +5849,7 @@
         "raw_story_basement_notation": "4",
         "map_material_interpretation": "brick",
         "map_use_label": "Auto Repairing 1st; Wind Shield Mfg. Abv.",
-        "notes": "1911 replacement block. Tyre identifies replaced1904 houses specifically as1609 and1611; do not back-project commercial use.",
+        "notes": "1911 replacement block. Expert guidance identifies replaced1904 houses specifically as1609 and1611; do not back-project commercial use.",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-20-024",
@@ -7002,7 +7002,7 @@
         "source_file": "1886 - use for lost buildings only(1).jpg",
         "source_map_year": 1886,
         "identification_source": "Maps 1-2_message(1).txt",
-        "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+        "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
         "footprint_observation": "Two adjoining simple rectangular yellow-filled rowhouse footprints occupy lot6, east side south of the16thStreet station block, explicitly labeled1609 and1611. Do not confuse with pink paired houses on lot7 immediately south.",
         "story_count": null,
         "dimensions_ft": null
@@ -7013,7 +7013,7 @@
         "source_file": "1886 - use for lost buildings only(1).jpg",
         "source_map_year": 1886,
         "identification_source": "Maps 1-2_message(1).txt",
-        "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+        "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
         "footprint_observation": "Southern half of same paired yellow-filled rectangular footprint as1609 on lot6, labeled1611; retain two houses for1904. No story count legible in Robinson sheet.",
         "story_count": null,
         "dimensions_ft": null
@@ -7024,8 +7024,8 @@
         "source_file": "1886 - use for lost buildings only(1).jpg",
         "source_map_year": 1886,
         "identification_source": "Maps 1-2_message(1).txt",
-        "certainty": "Tyre identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
-        "footprint_observation": "West-side irregular pink footprint spans lots13–14; broad Prairie-facing rectangle with northwest/rear extension; restore for1904 based on Tyre note. No story count legible.",
+        "certainty": "Expert guidance identifies retained-through1904 footprint;1886 appearance not independently dated to1904",
+        "footprint_observation": "West-side irregular pink footprint spans lots13–14; broad Prairie-facing rectangle with northwest/rear extension; restore for1904 based on expert guidance. No story count legible.",
         "story_count": null,
         "dimensions_ft": null
       }

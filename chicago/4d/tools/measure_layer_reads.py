@@ -203,6 +203,11 @@ MACHINERY_LEAVES = frozenset({
 # renderer has to touch `ground` first. One entry, because the layer rule below
 # removes the need for the rest.
 AMBIGUOUS_LEAVES = frozenset({
+    # T-1277: destination rows use derived_from='structure' to identify fallback
+    # businesses. That is renderer-owned routing metadata, not a read of a
+    # resident's occupation.derived_from. Keep the occupation read detectable
+    # through its parent, as for the other shared vocabulary below.
+    "derived_from",
     "rgb",        # `diffuseColor.rgb` is a three.js shader field, in four files
     "min", "max", # generic range/math leaves; require their data parent to match
     # T-1238's `associated_with[]` rows. `from` and `to` are the two ends of a
@@ -2158,6 +2163,11 @@ def self_test() -> int:
          not reads_leaf(src, "cover.litter_fraction")),
         ("the parent-qualified form is used for an ambiguous leaf",
          not reads_leaf(src, "ground.rgb") and reads_leaf(src, "diffuseColor.rgb")),
+        ("destination derivation does not claim an occupation provenance read",
+         not reads_leaf("row.derived_from === 'structure'", "persons[].occupation.derived_from")),
+        ("occupation provenance remains detectable in both access forms",
+         reads_leaf("p.occupation?.derived_from", "persons[].occupation.derived_from")
+         and reads_leaf("p.occupation['derived_from']", "persons[].occupation.derived_from")),
         ("the layer scan sees the layer the renderer does open",
          all(layer_is_opened(src, layer) for layer in LAYERS)),
         # T-0021. `data/residents` had two readers and no read map for eleven
