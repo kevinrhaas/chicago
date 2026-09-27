@@ -9611,7 +9611,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot2",
       "wall": "blk_south_water_dearborn north face, lot 2",
-      "why": "recon_1835_blk_south_water_dearborn_d5_07 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_dearborn_c2_07 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot4",
@@ -9757,6 +9757,11 @@
       "structure_id": "recon_1835_blk_south_water_clark_c2_06",
       "wall": "blk_south_water_clark north face, lot 2",
       "why": "the trade at recon_1835_blk_south_water_clark_c2_06 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+      "wall": "blk_south_water_dearborn north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_dearborn_c2_07 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
