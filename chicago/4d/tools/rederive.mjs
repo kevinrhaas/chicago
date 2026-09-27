@@ -510,8 +510,9 @@ async function selfTest() {
   check_('the step a caller re-runs late is found, and it is not the last one',
     tailFrom(scene, real) >= 0 && tailFrom(scene, real) < real.steps.length - 1,
     `step ${tailFrom(scene, real) + 1} of ${real.steps.length}`);
-  check_('and the very next step is the one T-1661 stranded — source-use, off the scene it writes',
-    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('compile_source_use.py'));
+  check_('the scene tail rebuilds jaunts before source-use consumes their claims (T-1253)',
+    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('compile_jaunts.py')
+    && (real.steps[tailFrom(scene, real) + 2]?.command ?? []).join(' ').includes('compile_source_use.py'));
   check_('a name no step runs is refused, not silently skipped', tailFrom('tools/no_such.py', real) === -1);
   check_('a name MANY steps run is refused — the tail has one start', tailFrom('tools/generate_', real) === -1);
   check_('no argument at all is refused', tailFrom('', real) === -1);

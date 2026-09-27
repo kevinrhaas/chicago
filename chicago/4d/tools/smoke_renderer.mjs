@@ -4895,7 +4895,14 @@ for (const [label, viewport, touch] of [
         // street edge's own, 86 walk/crossing runs and 31 fence runs, all
         // unchanged. A trade the rule can finally see is still a trade the rule
         // refuses — what changes is that it says so.
-        && frontage.census?.refused === 108
+        // T-1253's full smoke found two already-landed parcels had left this
+        // snapshot at 108. Comparing the authored refusal sets at T-1657
+        // (3424d20f) and dev (face5164) proves +4, with no geometry change here:
+        // T-1640 adds Dearborn lot 6's shed-wall refusal; T-1682 adds Market
+        // lot 6's wall and the two reconstructed C2 trade refusals. Franklin
+        // lot 4's existing wall refusal is renamed, not an additional row.
+        // All walk/crossing/post/fence counts above remain exact and unchanged.
+        && frontage.census?.refused === 112
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'

@@ -2385,6 +2385,12 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+step "Jaunt schema, destinations and reachable state graph (T-1253)" \
+  python3 tools/compile_jaunts.py --check
+
+step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
+  python3 tools/test_compile_jaunts.py
+
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 
