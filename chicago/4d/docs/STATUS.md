@@ -6,6 +6,51 @@ Shared destinations recovered from draft chicago PR #129. No separate destinatio
 
 # STATUS
 
+## The civic band beside the public square — T-1687, 2026-09-27
+
+Piece 3 of 4 of T-1202, and the district's civic band turns out to be a closed book with one
+debt left inside it. The reading is written up as §8 of
+`docs/RESEARCH/civic_public_buildings_1835.md`; the short of it:
+
+| the question | the answer, and what says so |
+| --- | --- |
+| I1 worship slots dealt to this district | **none**, across all nine deals its six blocks carry |
+| I2 school slots dealt to this district | **none** |
+| I3 civic slots dealt to this district | **one**, deferred on `blk_randolph_dearborn`, and T-0032 settled the family's live remainder at zero |
+| the roofs the dossier does allow | 4 I1, 2 I2, 3 I3 — all named records, none of them in this tier |
+| what the square carries on 1835-07-01 | the log jail, standing; the estray pen, roofless; nothing else |
+| no fourth civic roof | `measure_institutional_claims.py --gate` at 4/4, 2/2, 3/3, zero anonymous |
+
+**The debt was in the court-house record, and it had been unblocked for five weeks.** The
+dossier's §7 has said since 16 August that two Andreas readings were owed to
+`cook_county_courthouse_1835` — the **north-east corner** and **brick** fabric, both in the one
+sentence that dates the building out of this scene — and that applying them "needs a bake,
+because a changed form value stales the mesh". T-0139 retired that mesh on 23 August, for the
+unrelated reason that the bake cannot reach a phase no scene resolves, and wrote into the record
+that the two amendments were thereby unblocked: *"There is no mesh to stale."* Nobody came back
+for them, because the page that tracked the debt still priced it as geometry. Both are applied
+now. `position` goes to `inferred` — documented corner, derived coordinate, the same rule the
+jail and the pen stand under on this block — and `form.construction` to `brick` at `attested`.
+No coordinate moved.
+
+**Two of the seven things this project had made up about the court-house are withdrawn**, and
+one of them is an admission retired: L61's "sting in the tail" recorded the risk that the
+north-east corner was an 1837 description leaking backwards into an 1835 record, and the passage
+that dates the building gives that corner to THIS court-house. L264's brick population is
+restated from three records to four, with the fourth taking no course — it draws nothing.
+
+**What is owed after this is an archetype, not a citation.** `outbuilding` cannot build brick,
+so the first scene to cover the fall of 1835 will refuse this phase rather than build a plank
+court-house. That is the wanted failure in the wanted place, and it belongs to whichever parcel
+builds that scene, together with the placement `measure_reserved_ground.py` already prints: the
+building's corner is set on the block's corner, so it reads 1 of 4 corners in and overhangs
+Randolph Street as the plat module draws it.
+
+**What a visitor sees.** The jail's card and the pen's card now say what the square held on the
+day — the two later county buildings named and dated out, the east half of the block open
+prairie — and the register of liberties drops two claims about the first court-house. Nothing in
+the town moved: no roof was raised, removed or re-familied, and this district's books are
+T-1688's to close.
 ## The Lake frontage of the Franklin and Market blocks stands as stores — T-1682, 2026-09-27
 
 Piece 3 of 4 of T-1201, and the same finding T-1647 reached on the South Water row: the
