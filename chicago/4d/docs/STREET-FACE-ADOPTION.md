@@ -38,7 +38,7 @@ So they join the town on the streets their advertisements name, using roofs the
 reconstruction programme has already raised there. Nothing new is built and nothing is
 promoted.
 
-## The four limits, and they are the whole of the care
+## The five limits, and they are the whole of the care
 
 **1. A STREET FACE, NEVER A LOT.** The paper's constraint is the face; the lot is the
 reconstruction's. A record that says which lot a street-only business stood on has
@@ -59,13 +59,88 @@ later pass that promotes one of these roofs cannot do it silently.
 
 **3. THE ALONG-STREET POSITION IS THE RECONSTRUCTION'S, NOT EVIDENCE.** Which roof on the
 face a business is given is an allocation, not a reading. Businesses are ranked by evidence
-— most printings, then earliest sighting, then id — and paired with that face's free roofs
-in id order. Deterministic, so it re-derives; and a statement about nothing, so it claims
-nothing. Every record says so in its own note.
+— most printings, then earliest sighting, then id — and paired with that face's free roofs.
+Deterministic, so it re-derives; and a statement about nothing, so it claims nothing. Every
+record says so in its own note.
 
 **4. ORDER WITHIN A FACE IS NOT A CLAIM.** If two street-only businesses land on one face,
 neither is nearer the corner than the other on any authority. Every record carries
 `order_is_a_claim: false`.
+
+**5. THE DEAL READS WHAT THE ROOF WAS RAISED AS.** Added 2026-09-27 for **T-1651**. Of the
+roofs free on a face *under one reading*, a business takes a **house of trade** — the C, W
+and F bands, which `normalise_structure_function.TRADE_BANDS` and T-1657 rule are the roofs
+a customer came in off the street to — before a roof of the D, H, A, I, T or M bands. The
+reading still outranks the family: `READING_ORDER` is the order of decreasing claim, so a
+**lot front** cottage is dealt before a **corner side** store, because the strength of the
+frontage claim is a statement about evidence and the family is not.
+
+*This is not a new claim and limit 3 is untouched.* Which roof on the face a business takes
+is still an allocation and no source speaks to it. What changed is that of the allocations
+available, the deal now takes the one that does not contradict the reconstruction's own
+typology for no reason. Each record carries `roof_family`, `roof_function` and
+`roof_is_a_house_of_trade`, and a business that had to take a dwelling carries a
+`family_note` saying what stood on the face instead — so a compromise is **stated** rather
+than left to be noticed.
+
+### What limit 5 replaced, and why "in id order" was never a reading of the family
+
+The pairing used to take the face's free roofs **in the roof's id order**, and an anonymous
+roof's id carries its family as a token — `recon_1835_blk_south_water_franklin_c2_08`.
+Within one block `c` sorts before `d`, so the deal *looked* as though it preferred a shop.
+It preferred a **name**, and that cost two different things.
+
+* **Across blocks the name wins and the family loses.** A face spans several blocks and the
+  id sorts block-major, so an earlier block's cottage beat a later block's store. Eighteen
+  of the thirty-nine adoptions stand in roofs the reconstruction raised as dwellings.
+* **A re-family renamed the roof and re-dealt the whole face.** Change one roof's family and
+  its id changes with it, so it jumps in the sort and every business below it on the face is
+  handed a different building — for a change made to somebody else's roof, on no change to
+  the register and none to the street.
+
+`re_family_churn` measures the second one on every rebuild, and it is reported in the
+document under `reading.re_family_stability`. Over **2,322** re-families that do **not**
+cross the trade bands — a D4 becoming a D5, a C2 becoming a C3, changes that do not change
+what any roof *is* — the id order changed **2,881** places in the deal, as many as **8** for
+one roof. The order that replaced it changes **0**. It is keyed on `roof_key`, the roof's
+place in its own block: the pool and the ordinal, with the family token stripped using the
+record's own `reconstruction.family`. The ordinal is unique within a pool across families on
+every tree this project holds, and the gate asserts it, because the whole value of the key
+rests on it.
+
+Over the **1,860** re-families that **do** cross the bands the new order moves *more* than
+the old one — **15,458** places against 2,509 — and that is the point rather than a cost. A
+roof that stops being a shop must stop being dealt as one. The old order moved nearly as far
+for a change that meant nothing at all.
+
+*What the family is read off.* `reconstruction.family` on the roof's own record, never the
+id. The two agree — the gate asserts that too — which is exactly why an id-ordered deal
+could pass for a family-aware one for a year while being neither.
+
+*What limit 5 does not fix.* A **cabinet manufactory** may still be seated in a
+store-residence, because C2 is a house of trade and the C, W and F bands are the only
+division this project holds. Telling a counter trade from a works trade would need a reading
+of the register's 145 trade strings that does not exist yet, and inventing one here would be
+a claim dressed as an allocation. The remaining mismatch is left standing and named, as
+**T-1670**.
+
+*And what it moved that is not this policy's.* The business deal and the platted household
+deal (**L270**) take from one pool of anonymous roofs and neither may read the other's
+allocation — refusal 7's own reasoning refuses this pass `1835_platted_seats.json`, because
+reading the seating pass's picks here closes the cycle that refusal exists to avoid. So
+re-ordering this deal re-dealt that one, and on this tree it re-dealt it **upward**: the
+platted deal reached one more `tradesman_dwellings` seat in the South Division, 108 became
+109, and the nine named keepers of **L276** are the same nine on the same nine roofs. That is
+this tree's answer and not a property of the change — two allocations running blind to one
+pool can move the count either way, which is **T-1669**.
+
+*And it takes several passes to see it.* The two deals feed each other through the structure
+records, so a single rebuild of this table is not the answer: `adopt_street_faces` →
+`generate_*_infill` → `redeal_anonymous_roofs` → `seat_platted_ground_1835` →
+`seat_known_1835` → `name_the_keepers_1835` → `generate_block_infill` has to be run to a
+fixed point, and it took three passes here. A run that stops after one reads an intermediate
+state — which is how a mid-convergence tree can appear to have *lost* a named keeper it has
+not lost.
 
 ## What "already standing on that street face" means
 

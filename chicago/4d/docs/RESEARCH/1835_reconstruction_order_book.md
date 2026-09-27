@@ -362,19 +362,19 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,480
-- seated: 180 — 180 by adopting a roof that already stands, 0 by asking for one
-- still on no ground at all: 1,300
-- of the 423 roofs the town already has, 180 now carry a reconstructed household
+- seated: 181 — 181 by adopting a roof that already stands, 0 by asking for one
+- still on no ground at all: 1,299
+- of the 423 roofs the town already has, 181 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,480 | 108 | 108 | 0 | 1,372 |
-| The ground the plat does not draw | T-1614 | 1,372 | 72 | 72 | 0 | 1,300 |
+| The committed plat | T-1613 | 1,480 | 109 | 109 | 0 | 1,371 |
+| The ground the plat does not draw | T-1614 | 1,371 | 72 | 72 | 0 | 1,299 |
 
 no slot was requested: every seat is an adoption of a roof already standing.
 
 
-1,300 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,299 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 

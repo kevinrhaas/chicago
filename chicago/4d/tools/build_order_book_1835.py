@@ -3844,10 +3844,17 @@ def cmd_self_test() -> int:
     # rear cottages, which the deal adopted, taking it to 182; T-1622 lost two of those to
     # the street-face adoption policy and T-1626 gave them back to the households that had
     # asked, holding it at 184; then T-1623 refused the four slots the platted deal still
-    # asked for on the lots the schedule's own sizing keeps open, taking it to 180 — the
-    # platted pass's 108 plus the off-plat pass's 72, both read off the committed files.
+    # asked for on the lots the schedule's own sizing keeps open, taking it to 180. T-1651
+    # takes it to 181 — the platted pass's 109 plus the off-plat pass's 72, both read off
+    # the committed files. THE RULING BEHIND THAT ONE SEAT: the street-face business deal
+    # now prefers a roof the reconstruction raised as a house of trade, so the dwellings it
+    # holds changed, and the platted deal — which takes from the same pool of anonymous
+    # roofs and may not read the business deal's allocation — reached one more
+    # `tradesman_dwellings` seat in the South Division. Nothing was raised for it and no
+    # roof moved; a dwelling the business deal had been standing a shop in went back to the
+    # households. The two deals running blind to one pool is T-1669.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 180
+        data["inventory"], data["programme"], occ))["seated"] == 181
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
