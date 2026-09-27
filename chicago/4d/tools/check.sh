@@ -2690,6 +2690,22 @@ selftest "the bake's content test refuses the stamp and nothing else" \
 selftest "the bake builds the ref it was given, and the nightly still builds dev" \
   python3 tools/bake_ref.py --self-test
 
+# T-1668, and the third question about one bake: that one asks WHICH TREE, the
+# one above it asks whether it PRODUCED anything, and this asks whether it was
+# WORTH STARTING. A full-town bake is twenty-five minutes and two
+# `pr-automerge` laps are eighteen, so until this existed every pull request
+# touching `generators/` became a `resume` PR by arithmetic, however green —
+# measured on T-1652/PR #104, whose three files could not move a vertex and
+# whose own staleness gate said so (422 assets matching, no rebake). The path
+# filter cannot tell "could have staled a mesh" from "did", so the decision now
+# asks the freshness register that `run_stale_check` above already refuses the
+# tree with. Every case that cannot be established bakes, and the assertions
+# here are what keep that true: the four fail-open paths a green tree can never
+# demonstrate, the carve-out for a workflow edit confined to the gate job, and
+# drift guards that the workflow still asks at all.
+selftest "the bake is skipped only when the freshness register says nothing staled" \
+  python3 tools/bake_warranted.py --self-test
+
 # The duplicate-id remedy, tested in the only state it ever runs in. `restamp`
 # used to find the ticket by FILE (its own comment explains that with two files
 # sharing an id, nothing else can tell them apart) and then edit the queue by ID,
