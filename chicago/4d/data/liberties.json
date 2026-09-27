@@ -17149,7 +17149,14 @@
         "mason_blacksmith_shop",
         "pierce_blacksmith_shop"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "mason_blacksmith_shop",
+          "phase": "documented_1835",
+          "aspect": "form.chimneys"
+        }
+      ],
       "scope": {
         "enumeration": "structures.phases[chimneys]",
         "count": 3
@@ -17164,6 +17171,10 @@
         {
           "label": "Held by",
           "text": "`tools/test_outbuilding_forge.py` in `check.sh`, which holds both ends of the clearance bracket across every plan W1's band admits, the three-block profile, the end wall and its avoidance of the door, and all three refusals — before anything bakes. `tools/measure_stack_ordinance.py` and `tools/measure_stack_fabric.py` then hold the same stacks on the baked masters, which they can now see because the count is spelt `chimneys` and not something private to this archetype."
+        },
+        {
+          "label": "Covers",
+          "text": "`mason_blacksmith_shop.documented_1835.form.chimneys`."
         },
         {
           "label": "Related",

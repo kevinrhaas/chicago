@@ -15536,6 +15536,8 @@ and its avoidance of the door, and all three refusals — before anything bakes.
 stacks on the baked masters, which they can now see because the count is spelt `chimneys`
 and not something private to this archetype.
 
+**Covers:** `mason_blacksmith_shop.documented_1835.form.chimneys`.
+
 **Related:** the crosswalk's **W1** row, **L26** (every chimney in this project stands where
 its archetype puts it), **L168** (the cat-and-clay fabric this one declines),
 `docs/RESEARCH/chimneys.md` §2 and § the ordinance, **L278** (the same shape of move for

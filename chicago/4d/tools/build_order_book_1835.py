@@ -275,10 +275,27 @@ HOUSEHOLD_BUCKETS = (
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
     ("south", "ordinary_dwellings"): "T-1203",
-    ("south", "stores_mixed_use"): "T-1201",
+    # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
+    # moved with it, for the reason the T-1200 block below states at length: a bucket
+    # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
+    # and the gate says so. Of the four children only two raise anything — T-1681 turns
+    # the Lake frontage of the Dearborn and Clark blocks from cottages into stores, and
+    # T-1682 does the same for the Franklin, La Salle, Wells, Market and Clinton blocks
+    # and takes the mechanics' shops onto their State and Dearborn faces. T-1680 is a
+    # variant ticket against roofs already standing (W1's forge stack) and raises none,
+    # exactly as T-1639's own children did not, so it owns no cell.
+    #
+    # STORES GO TO T-1681, the first of the two live raisers, and the row moves to T-1682
+    # when it closes with the cell still owing — the T-1640 -> T-1672 shape recorded below.
+    # WORKSHOPS GO TO T-1682, which is the only child that names them: the W1-W4 shops on
+    # State and Dearborn are its second half in as many words.
+    ("south", "stores_mixed_use"): "T-1681",
     ("south", "larger_boarding_houses"): "T-1209",
-    ("south", "inns_taverns"): "T-1201",
-    ("south", "workshops"): "T-1201",
+    # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
+    # would answer for it if it ever owed again: T-1683 closes the district's books and
+    # states its headroom, which is where a cell that reopens would be found.
+    ("south", "inns_taverns"): "T-1683",
+    ("south", "workshops"): "T-1682",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the
