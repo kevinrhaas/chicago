@@ -4914,13 +4914,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 124,
-          "to_build": 52,
+          "standing": 114,
+          "to_build": 62,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1203",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 52 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 62 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5023,13 +5023,13 @@
             "division": "south"
           },
           "target": 42,
-          "standing": 28,
-          "to_build": 14,
+          "standing": 36,
+          "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1201",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 14 of them to build"
+          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 6 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",
@@ -5085,13 +5085,13 @@
             "division": "south"
           },
           "target": 11,
-          "standing": 5,
-          "to_build": 6,
+          "standing": 7,
+          "to_build": 4,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1640",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 11; the 668-roof programme leaves 6 of them to build"
+          "basis": "the inventory's district/group matrix sets 11; the 668-roof programme leaves 4 of them to build"
         },
         {
           "key": "structures/warehouses_freight/west",
