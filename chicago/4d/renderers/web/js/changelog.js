@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The stores were never short of a bay after all', kind: 'fix', ts: '',
+  { v: 1169, title: 'The stores were never short of a bay after all', kind: 'fix', ts: '2026-09-27T07:41:56.565Z', date: 'Sep 27, 2026, 2:41 AM CT',
     items: [
       'The reconstruction specification asks the town\u2019s narrow two-storey stores for "2-3 shop bays" and this town builds them with one. That looked like every store on South Water Street standing a bay short of its own brief \u2014 and worse, the top of the range looked impossible: three bays wanted 7.70 m of frontage where the family\u2019s widest plan is 6.71 m. Nothing was short. The two counts differ by one, and the difference is a door.',
       'The specification counts facade bays, and a facade bay is any opening \u2014 a window or the door. The archetype counts show windows and adds the door separately. The specification says so itself, twice: a cottage of "3/5 bays; center or side door" and a house of "5 bays; center hall" only make sense if the door is one of the bays, because a centre door has to be centred in an odd number of them. So the brief asks for one or two windows, all seven stores carry one, and every one of them is inside its band.',
