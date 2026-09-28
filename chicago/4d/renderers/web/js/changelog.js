@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1214, ts: '2026-09-28T20:44:57.405Z', date: 'Sep 28, 2026, 3:44 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+  { v: null, ts: '', title: 'Two houses beside the Lake House building site', kind: 'change',
     items: [
       'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
       'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
       'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
       'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
       'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
+    ] },
+  { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+    items: [
+      'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
+      'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
+      'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
+      'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+      'On a phone the outing panel no longer has to cover the town. Tap ▾ to fold it down to one bar with the stop’s name and Next Stop, look around, then tap the bar to open it again. It opens by itself when you arrive at the next stop.',
     ] },
   { v: 1213, ts: '2026-09-28T19:08:47.347Z', date: 'Sep 28, 2026, 2:08 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [
