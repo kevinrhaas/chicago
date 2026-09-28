@@ -50,7 +50,7 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 132,
+  "principal_roofs_standing": 131,
   "ground_m2": 7314855.3
  },
  "what_the_roof_programme_does_not_carry": {
@@ -7392,7 +7392,6 @@
     "recon_1835_west_041",
     "recon_1835_west_043",
     "recon_1835_west_045",
-    "recon_1835_west_046",
     "recon_1835_west_047",
     "recon_1835_west_048",
     "recon_1835_west_049",
@@ -7432,7 +7431,6 @@
     "recon_1835_west_041": "D2",
     "recon_1835_west_043": "D3",
     "recon_1835_west_045": "D5",
-    "recon_1835_west_046": "F1",
     "recon_1835_west_047": "A1",
     "recon_1835_west_048": "D1",
     "recon_1835_west_049": "D1",
@@ -7443,7 +7441,7 @@
     "recon_1835_west_054": "A1",
     "recon_1835_west_055": "A2"
    },
-   "principal_roofs_standing": 32
+   "principal_roofs_standing": 31
   },
   {
    "parcel_id": "the_landing_place",
