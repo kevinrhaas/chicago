@@ -1,0 +1,5 @@
+{
+  "scene": "1904",
+  "standard": "T-1727. The committed alternates of single structures, selected by ?structure=<id>&version=<label>. Fetched by the renderer only when the address asks for a version — never at boot — and each row swaps exactly one building of this scene for its alternate record and mesh. version=default names the canonical record.",
+  "structures": {}
+}

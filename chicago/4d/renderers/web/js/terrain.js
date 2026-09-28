@@ -371,11 +371,13 @@ export class Heightfield {
  * @param {URL} o.dataBase        where data/ lives
  * @param {URL} o.assetBase       where the GLBs live
  * @param {string} o.epochId      terrain epoch, from the scene file
+ * @param {URL|null} [o.substrateBase] where the flora manifest the ground's sand and
+ *                                marsh colours come from lives; null paints none
  * @param {object} [o.confidence] the confidence view, to patch the materials into
  * @param {string[]} [o.problems] collector, same list the scene loader writes to
  */
 export async function createTerrain({
-  dataBase, assetBase, epochId, confidence = null, problems = [],
+  dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -398,7 +400,9 @@ export async function createTerrain({
 
   // ---- the ground -------------------------------------------------------- //
 
-  const groundMat = groundMaterial(await substrateZones(dataBase, problems));
+  // `substrateBase` is null for a scene that plants none of the 1835 zones (T-1739):
+  // their extents are what paint the sand belt and the marsh, so it gets none of them.
+  const groundMat = groundMaterial(await substrateZones(substrateBase, problems));
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.

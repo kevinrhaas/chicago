@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1214, ts: '2026-09-28T21:50:14.070Z', date: 'Sep 28, 2026, 4:50 PM CT', title: 'Seven houses turn to face the streets the plat gives them', kind: 'change',
+  { v: 1216, ts: '2026-09-28T22:43:32.085Z', date: 'Sep 28, 2026, 5:43 PM CT', title: 'Seven houses turn to face the streets the plat gives them', kind: 'change',
     items: [
       'The block between Clinton and Canal, south of Randolph, is now cut into ten lots the way the 1830 plat cuts it \u2014 two columns of five with an alley down the middle, north to south, each lot fronting Clinton or Canal. Its neighbour to the north was re-cut two builds ago; this is the pair to it, and the last of the two.',
       'Seven buildings moved, which is the difference from that block, where nothing moved. Four cottages and three yard buildings faced Randolph and Washington, the streets the old eight-lot arrangement gave them fronts on. The new one gives none, so all seven turned ninety degrees to face Clinton or Canal. Same houses: same size, same plan, same paint. Nothing was rebuilt \u2014 only where each stands and which way it looks.',
@@ -7,6 +7,21 @@ export const CHANGELOG = [ // newest first
       'The barn is still at the edge of town. It had stood on the block\u2019s western end lot, chosen because the ground past Clinton has no street this project can place and the town gives out there. There is no western end lot now, so it stands at the Clinton column\u2019s southern corner, behind the log cabin \u2014 nearest to the same spot for the same reason. The stable and privy keep their yards.',
       'Two more households have an address here and no walls yet, the Adams family and the Bennetts, both on the Canal side. Three lots are left open rather than one: the block was dealt seven roofs when it had eight lots, and being re-cut into ten is not a reason to raise two more.',
       'One thing got worse and is worth saying. About 176 metres of board fence along this block\u2019s front is gone \u2014 the three runs that lined Randolph and Washington. Street walks and fences are laid only along the east\u2013west streets, because the north\u2013south ones cost more than the scene\u2019s detail budget allows, so a house fronting Clinton or Canal gets no street fence. These four lost theirs by turning to face a street the fence-laying does not reach yet, and that gap is now a counted number rather than a silence.',
+    ] },
+  { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
+      'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
+      'The corner is empty for now. The house is its own piece of work, and so are the street surfaces. Nothing from the 1835 town is drawn here: no fences, prairie, signs or cabins.',
+      'The year badge reads 1904. The 1835 walk is unchanged.',
+    ] },
+  { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+    items: [
+      'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
+      'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
+      'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
+      'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+      'On a phone the outing panel no longer has to cover the town. Tap ▾ to fold it down to one bar with the stop’s name and Next Stop, look around, then tap the bar to open it again. It opens by itself when you arrive at the next stop.',
     ] },
   { v: 1213, ts: '2026-09-28T19:08:47.347Z', date: 'Sep 28, 2026, 2:08 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [

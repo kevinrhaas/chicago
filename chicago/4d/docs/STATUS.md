@@ -1,3 +1,38 @@
+## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
+
+`data/scenes/1904.json` is the second scene: 1 July 1904 on `e1871_postfire`, lit at 10:30 local
+mean time. `/4d/1904/` and `?year=1904&anchor=glessner_house` open at the same pose, on Prairie
+Avenue's east sidewalk just south of 18th Street at E 1410.12, N −3218.01, bearing 264.94°. The
+pose is derived: the sheet-28 crossing from the T-1250 fit, both streets 66 ft as printed, and
+T-1731's lot rectangle give the lot's street corner (E 1391.98, N −3216.83) and centroid
+(E 1365.37, N −3229.04). The yaw bisects the two bearings, so the centroid sits left of centre
+(NDC x −0.29 at 390×780, −0.19 at 1280×800). The 2.0 m and 1.5 m walk offsets are a camera,
+not a claim.
+
+The scene's `layers` list is now the renderer's contract. A layer the scene does not list gets
+no data base, so each module's own empty answer mounts and nothing is fetched. 1835 lists
+everything it drew; 1904 lists `terrain` and `water` only. No 1835 street, fence, sign, goods,
+walk, dock, boat, well, plant, tree, substrate colour or person reaches 1904, and no structure
+resolves at 1904.
+
+Other changes:
+- `compile_scene.py` compiles the people directory only for a scene listing `residents`, and
+  offers only the junctions on the scene's own ground.
+- `exclusions.json` records the 1835 town's left-out buildings, so it now applies only to a
+  scene listing `exclusions`. Without that, `validate.py` failed 1904 on 13 buildings from 1836 to
+  1860, none of them on Prairie Avenue, and "What is not here" would have listed them.
+- `measure_anchors.mjs` measures every scene against its own heightfield.
+- `check_1880s_scene_date.py` holds the 1904 scene to the shoreline gate's 1904 address.
+
+Measured at the spawn: a 9 s boot, 9 draw calls and about 41k triangles, zero problems and zero
+page errors at both viewports.
+
+**Not done here:** the rest of the drawer's text panels are still the 1835 town's in 1904:
+Residents, Businesses, Wildlife, Plants, Population, the order book, the jaunts and the source
+index, all authored for 1835 (filed as T-1740). The house (T-1729) and the street
+surfaces (T-1728) are their own tickets.
+
+
 ## T-1738 — the 1904 ground generated and baked (2026-09-28)
 
 Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904

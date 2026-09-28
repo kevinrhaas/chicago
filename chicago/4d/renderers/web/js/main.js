@@ -1055,6 +1055,24 @@ async function boot() {
   problems.push(...loaded.problems);
   api.scene = loaded.scene;
   api.datum = loaded.datum;
+  /**
+   * T-1739 — WHICH OF THE TOWN'S LAYERS THIS SCENE DRAWS, from the scene file's own
+   * `layers` list. Every derived layer below (the streets, the fences and the ground
+   * inside them, the signs, the goods, the walks, the docks, the boats, the wells,
+   * the plants and trees) and the residents' directory is authored for ONE date,
+   * 1 July 1835, in directories that carry no date of their own. So a second scene
+   * cannot simply inherit them: the 1904 scene on Prairie Avenue would stand an 1835
+   * fence and an 1835 prairie on ground graded thirty years after the fire. A layer
+   * the scene does not list is handed no data base, and each module's own "nothing
+   * to draw" answer — the one it already gives a failed fetch — is what mounts, with
+   * the note it would have raised kept out of `problems`, because leaving out a layer
+   * the scene never asked for is not a defect. Nothing is fetched for it at all.
+   */
+  const sceneLayers = new Set(Array.isArray(loaded.scene.layers) ? loaded.scene.layers : []);
+  const draws = (layer) => sceneLayers.has(layer);
+  const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
+  const layerProblems = (layer) => (draws(layer) ? problems : []);
+  api.sceneLayers = [...sceneLayers];
   api.registry = loaded.registry;
   // The survey junctions the Go-to menu offers, from the same list the menu is
   // built from. Exposed because the smoke asserted the menu's junction count
@@ -1078,6 +1096,8 @@ async function boot() {
     dataBase: bases.dataBase,
     assetBase: bases.assetBase,
     epochId: loaded.scene.terrain_epoch,
+    // The sand belt and the marsh are painted from the 1835 plant zones' extents.
+    substrateBase: layerBase('flora'),
     confidence,
     problems,
   });
@@ -1150,7 +1170,7 @@ async function boot() {
   // the plants that would otherwise grow through the visible wagon tracks.
   const streets = createStreets({
     terrain,
-    records: loaded.index?.streets ?? [],
+    records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
   });
   scene3d.add(streets.group);
@@ -1173,7 +1193,7 @@ async function boot() {
   // travelled way it stands on, and before the vegetation because the ground
   // inside one now decides what may grow there — see the fenced ground below.
   const enclosures = await createEnclosures({
-    dataBase: bases.dataBase, terrain, confidence, problems, ...detailOpts(),
+    dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
   });
   scene3d.add(enclosures.group);
   api.enclosures = enclosures;
@@ -1205,7 +1225,7 @@ async function boot() {
   // either (T-0039). Mounted after the buildings it hangs on, and its height is
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
-    dataBase: bases.dataBase, terrain, confidence, problems, hostMissing,
+    dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
   });
   scene3d.add(signage.group);
   api.signage = signage;
@@ -1219,7 +1239,7 @@ async function boot() {
   // from the other end. Unlike a board, a barrel stands on the TERRAIN rather
   // than on the building's wall base — it is resting on the ground it is on.
   const yard = await createYardGoods({
-    dataBase: bases.dataBase, terrain, confidence, problems, hostMissing,
+    dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
   });
   scene3d.add(yard.group);
   api.yard = yard;
@@ -1233,7 +1253,7 @@ async function boot() {
   // two divide one building's ground between them — the yard layer owns what
   // stands on its own lot and this owns what lies in the street outside it.
   const frontage = await createFrontage({
-    dataBase: bases.dataBase, terrain, confidence, problems, hostMissing,
+    dataBase: layerBase('frontage'), terrain, confidence, problems: layerProblems('frontage'), hostMissing,
   });
   scene3d.add(frontage.group);
   api.frontage = frontage;
@@ -1257,7 +1277,7 @@ async function boot() {
   // for reading order; the two never touch, because the goods stand on the
   // town's trading frontages and the docks are out on the bank.
   const wharves = await createWharves({
-    dataBase: bases.dataBase, terrain, confidence, problems,
+    dataBase: layerBase('wharves'), terrain, confidence, problems: layerProblems('wharves'),
   });
   scene3d.add(wharves.group);
   api.wharves = wharves;
@@ -1272,7 +1292,7 @@ async function boot() {
   // two share the river and deliberately never touch: the wharf record draws
   // no vessel at its decks, and the boats ride the open reaches.
   const boats = await createBoats({
-    dataBase: bases.dataBase, terrain, confidence, problems,
+    dataBase: layerBase('boats'), terrain, confidence, problems: layerProblems('boats'),
   });
   scene3d.add(boats.group);
   api.boats = boats;
@@ -1286,7 +1306,7 @@ async function boot() {
   // enforces it by refusing any well a source does not PLACE. The curb is
   // invented and claimed at docs/LIBERTIES.md L232; nothing else is drawn.
   const wells = await createWells({
-    dataBase: bases.dataBase, terrain, confidence, problems,
+    dataBase: layerBase('wells'), terrain, confidence, problems: layerProblems('wells'),
   });
   scene3d.add(wells.group);
   api.wells = wells;
@@ -1546,9 +1566,9 @@ async function boot() {
   };
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
-    dataBase: bases.dataBase, terrain, footprints: planting,
+    dataBase: layerBase('flora'), terrain, footprints: planting,
     growthBlocked: swardBlocked,
-    confidence, problems, ...detailOpts(),
+    confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
@@ -1558,9 +1578,10 @@ async function boot() {
       floraDone += done - treeDone; treeDone = done;
       bootController.progress('flora', floraDone, floraUnits);
     },
-    dataBase: bases.dataBase, terrain, footprints: planting,
+    dataBase: layerBase('flora'), terrain, footprints: planting,
     growthBlocked: streets.blocksGrowth,
-    confidence, problems, pixelsPerRadian, streetRecords: loaded.index?.streets ?? [],
+    confidence, problems: layerProblems('flora'), pixelsPerRadian,
+    streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
     // Which sward a point stands in, so the woody layer plants the lakeshore
     // poplars on the ground the beach is actually drawn on rather than carrying
     // a second copy of the zone extents (ROADMAP K45(b) change one). Both call
@@ -1607,18 +1628,19 @@ async function boot() {
       scene3d.remove(flora.group);
       flora.dispose?.();
       flora = await createFlora({
-        dataBase: bases.dataBase, terrain, footprints: planting,
+        dataBase: layerBase('flora'), terrain, footprints: planting,
         growthBlocked: swardBlocked,
-        confidence, problems, ...detailOpts(),
+        confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);
 
       scene3d.remove(trees.group);
       trees.dispose?.();
       trees = await createTrees({
-        dataBase: bases.dataBase, terrain, footprints: planting,
+        dataBase: layerBase('flora'), terrain, footprints: planting,
         growthBlocked: streets.blocksGrowth,
-        confidence, problems, pixelsPerRadian, streetRecords: loaded.index?.streets ?? [],
+        confidence, problems: layerProblems('flora'), pixelsPerRadian,
+        streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
         zoneAt: (e, n) => flora.zoneAt(e, n),
         ...detailOpts(),
       });
@@ -1651,7 +1673,8 @@ async function boot() {
   // it never takes the scene down.
   let people = null;
   bootController.start('people');
-  try {
+  // T-1739: only a scene that lists `residents` has a directory compiled for it.
+  if (draws('residents')) try {
     const res = await fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase), { cache: 'no-cache' });
     if (res.ok) people = await res.json();
     else throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status} — nobody is listed in Go to or People`);
@@ -2448,6 +2471,9 @@ async function boot() {
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
   let jauntEntering = false;
+  // T-1256: a saved outing is offered back once, the first time the Jaunts menu opens in
+  // this visit, and never over an outing already under way.
+  let jauntRestoreTried = false;
   const jauntRoot = document.getElementById('welcome-jaunts-content');
   function jauntError(error) {
     const message = document.createElement('p'); message.setAttribute('role', 'alert');
@@ -2466,7 +2492,7 @@ async function boot() {
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       jauntPanel = panel.createJauntPanel({ destinations, actions });
       jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
         resolve: resolveJaunt, place: spawnAtDestination,
@@ -2500,7 +2526,7 @@ async function boot() {
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
@@ -2509,6 +2535,7 @@ async function boot() {
       try {
         root.setAttribute('aria-busy', 'true');
         await ensureJaunts();
+        if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
         await jauntPreview.open(jauntReturnId); jauntReturnId = null;
       } catch {
         root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';

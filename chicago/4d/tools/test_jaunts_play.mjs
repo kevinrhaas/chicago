@@ -16,9 +16,12 @@ const server = http.createServer((req, res) => {
 });
 await new Promise(r => server.listen(0, '127.0.0.1', r));
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE, args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
-const fixture = JSON.parse(fs.readFileSync('data/jaunts/_fixtures/fixture-walk.json'));
+const fixtures = ['walk', 'shopping', 'tavern'].map(id => JSON.parse(fs.readFileSync(`data/jaunts/_fixtures/fixture-${id}.json`)));
+const fixture = fixtures[0], fixturesById = Object.fromEntries(fixtures.map(doc => [doc.id, doc]));
 const catalog = JSON.parse(fs.readFileSync('data/sidecars/1835/jaunts/catalog.json'));
-catalog.jaunts.push({ id: fixture.id, title: fixture.title, premise: fixture.premise, stop_count: fixture.stops.length, primary_family: fixture.keepsake.family, category: fixture.category, availability: 'available' });
+for (const doc of fixtures) catalog.jaunts.push({ id: doc.id, title: doc.title, premise: doc.premise, stop_count: doc.stops.length,
+  primary_family: doc.keepsake.family, category: doc.category, content_version: doc.content_version,
+  default_mode: doc.default_mode, allowed_modes: doc.allowed_modes, availability: 'available' });
 try {
   for (const viewport of [{ width: 390, height: 780 }, { width: 1280, height: 800 }].filter(v => !process.env.JAUNT_VIEWPORT || String(v.width) === process.env.JAUNT_VIEWPORT)) {
     const context = await browser.newContext({ viewport, hasTouch: viewport.width === 390, isMobile: viewport.width === 390, reducedMotion: 'reduce' });
@@ -28,7 +31,10 @@ try {
     page.on('pageerror', e => errors.push(e.message));
     page.on('request', r => { if (/jaunts\/|jaunts.js|jaunt-panel.js|jaunt-preview.js|jaunt.css/.test(r.url())) requests.push(r.url()); });
     await page.route('**/jaunts/catalog.json', r => r.fulfill({ json: catalog }));
-    await page.route(`**/jaunts/${fixture.id}.json`, r => r.fulfill({ json: fixture }));
+    await page.route('**/jaunts/fixture-*.json', r => {
+      const id = path.basename(new URL(r.request().url()).pathname, '.json');
+      return fixturesById[id] ? r.fulfill({ json: fixturesById[id] }) : r.continue();
+    });
     const prefix = viewport.width === 390 ? '/walk/' : '/dev/walk/';
     await page.goto(`http://127.0.0.1:${server.address().port}${prefix}?year=1835&seed=1279`);
     await page.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', {}, { timeout: 180000 });
@@ -115,8 +121,22 @@ try {
       await context.close(); continue;
     }
     assert(await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago'))); await atStop();
+    // The panel folds to one bar so a stop can be looked at, and opens again on a tap.
+    const panelHeight = async () => (await page.locator('#jaunt-panel').boundingBox()).height;
+    const openHeight = await panelHeight();
+    await click(page.locator('.jaunt-collapse'));
+    assert(await page.locator('.jaunt-bar').isVisible(), 'collapsed to the bar');
+    assert(await page.locator('.jaunt-body').isHidden(), 'the story is folded away');
+    const shutHeight = await panelHeight();
+    assert(shutHeight < 90 && shutHeight < openHeight / 2, `collapsed panel is ${shutHeight}px of ${openHeight}px`);
+    if (process.env.JAUNT_SHOTS) await page.screenshot({ path: path.join(process.env.JAUNT_SHOTS, `${viewport.width}-collapsed.png`) });
+    await click(page.locator('.jaunt-bar-label'));
+    assert(await page.locator('.jaunt-body').isVisible(), 'the bar opens the panel again');
+    if (process.env.JAUNT_SHOTS) await page.screenshot({ path: path.join(process.env.JAUNT_SHOTS, `${viewport.width}-expanded.png`) });
+    await click(page.locator('.jaunt-collapse'));
     for (let i = 0; i < 6; ++i) {
       const s = await state(); if (s.phase === 'outcome') break; states.push(s);
+      if (i === 1) assert(await page.locator('.jaunt-body').isVisible(), 'arriving at a new stop opens a collapsed panel');
       console.log(`JAUNT PLAY ${viewport.width}: pilot stop ${s.stopIndex + 1}`);
       const choice = s.jaunt.stops.find(x => x.id === s.visited[s.stopIndex].id).choices?.[0];
       if (choice) await page.evaluate(id => __chicago4d.jaunts.choose(id), choice.id);
@@ -130,6 +150,32 @@ try {
     assert(await page.evaluate(id => __chicago4d.jaunts.start(id), fixture.id));
     await page.evaluate(() => __chicago4d.jaunts.next()); await finishRide(); await page.evaluate(() => __chicago4d.jaunts.next());
     assert.equal((await state()).phase, 'outcome');
+    for (const doc of fixtures) {
+      assert(await page.evaluate(id => __chicago4d.jaunts.start(id), doc.id)); await atStop();
+      const expected = Object.keys(doc.variables || {}).length + (doc.inventory ? 1 : 0);
+      assert.equal(await page.locator('.jaunt-resources li').count(), expected, `${doc.id} resource strip`);
+      if (expected && viewport.width === 390) {
+        const rows390 = await page.locator('.jaunt-resources li').evaluateAll(nodes => new Set(nodes.map(n => Math.round(n.getBoundingClientRect().y))).size);
+        assert.equal(rows390, 1, `${doc.id} resource strip at 390px`);
+        await page.setViewportSize({ width: 320, height: 568 });
+        const rows320 = await page.locator('.jaunt-resources li').evaluateAll(nodes => new Set(nodes.map(n => Math.round(n.getBoundingClientRect().y))).size);
+        assert(rows320 <= 2, `${doc.id} resource strip at 320px`); await page.setViewportSize(viewport);
+      }
+      if (doc.id === 'fixture-shopping') {
+        assert.match(await page.locator('.jaunt-choice').first().innerText(), /costs 75 ¢.*you have \$1\.20/s);
+        await page.evaluate(() => __chicago4d.jaunts.choose('buy'));
+        await page.evaluate(() => { const button = document.querySelector('[data-action=next]'); button.click(); button.click(); });
+        const bought = await state(); assert.equal(bought.vars.money, 45);
+        assert.equal(bought.events.filter(e => e.type === 'decision').length, 1);
+      } else if (doc.id === 'fixture-tavern') {
+        await page.evaluate(() => { __chicago4d.jaunts.choose('abstain'); __chicago4d.jaunts.next(); });
+        assert.equal((await state()).outcome.id, 'clear-headed');
+      } else {
+        // fixture-walk has two stops: ride to the second, then end there (as the walk above does).
+        await page.evaluate(() => __chicago4d.jaunts.next()); await finishRide(); await page.evaluate(() => __chicago4d.jaunts.next());
+      }
+      assert.equal((await state()).phase, 'outcome');
+    }
     await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago')); await atStop();
     await page.evaluate(() => __chicago4d.jaunts.menu()); await click(page.locator('#welcome-jaunts-explore'));
     assert.equal((await state()).jaunt, null); assert.deepEqual(errors, []);

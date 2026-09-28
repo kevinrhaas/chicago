@@ -129,6 +129,22 @@ def ticket_state(ticket_id: str) -> str | None:
     return None
 
 
+# The states a ticket passes through WHILE IT IS STILL OWED. The trace records only whether
+# the work is owed, not where in the workflow it sits: a run that claims, reviews or blocks
+# the ticket changes nothing this reading measures, and recording the raw state turned the
+# gate red for every open pull request the moment T-1734 was claimed (2026-09-28).
+# T-1734 CLOSED THE SAME DAY and `OWNS_THE_MOVE` is now empty, so nothing routes through
+# here for the move any more. It still governs `NAMED_BY_THE_REFUSAL`, and it stays: the
+# next ticket named on this reading gets the fix already made rather than the bug again.
+STILL_OWED = {"open", "claimed", "review", "blocked-tech"}
+
+
+def ticket_standing(ticket_id: str) -> str | None:
+    """What the committed trace records: `open` for any in-flight state, else the state."""
+    state = ticket_state(ticket_id)
+    return "open" if state in STILL_OWED else state
+
+
 def street_spacing_ft(streets: dict, west_id: str, east_id: str) -> float:
     """The committed centreline spacing, the same mean-easting difference the grid uses.
 
@@ -513,8 +529,8 @@ def derive() -> dict:
                    "the plat's own spacing. That is a street move, which this ticket may "
                    "not make."),
             "reported_it_and_closed": {
-                t: ticket_state(t) for t in NAMED_BY_THE_REFUSAL},
-            "owns_what_is_left": {t: ticket_state(t) for t in OWNS_THE_MOVE},
+                t: ticket_standing(t) for t in NAMED_BY_THE_REFUSAL},
+            "owns_what_is_left": {t: ticket_standing(t) for t in OWNS_THE_MOVE},
             "and_the_finding": (
                 "the first two tickets the refusal pointed forward to are CLOSED and the "
                 "spacing is still short, so for a while the move was unowned and the "
