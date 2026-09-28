@@ -14092,13 +14092,16 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 415 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 417 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until three changes
 landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, and T-1714's three agency log buildings at the foot of State Street — each
 of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is
-the least of them: a flat earth bank states a roof type and carries no shingle at all. No record's `roof_type` or pitch
+the least of them: a flat earth bank states a roof type and carries no shingle at all.
+T-1717's two Lake House neighbours make 417, and they are the first frame dwellings on the
+north bank east end to take this exposure — both gable, both shingled, neither pitch stated
+by a source. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -15892,4 +15895,89 @@ for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie
 **Related:** **L42** and **L43** (the same two classes of invention on the first mound and on the
 fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent
 **T-1204**.
+**Recorded:** 2026-09-28.
+
+### L287 — The Lake House’s two neighbours: one sentence each, and everything a visitor sees of them is ours
+
+**Decision:** two `frame_dwelling` records — `kimberly_residence` and `kelsey_boarding_house` — are
+raised on the north bank east end, beside `lake_house_construction`, on one sentence apiece from
+J. D. Bonnell's walk of 26 August 1835. Each is given a footprint, a position, a bearing, a storey
+count, a wall height, a roof, a chimney count and a framing system that no source states.
+
+**What the source says, and it is unusually good about the wrong things again.** Bonnell, writing to
+the *Chicago Times* on 15 March 1876 and quoted by Andreas (vol. 1, printed pages 136–137): *"Passing
+east, toward the mouth of the river, was the Lake House in course of construction, east of which was
+the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street.
+Mr. Pruyne was State Senator."* And: *"In turning the corner of Dr. Kimball's residence, away to the
+north-east, among the sand-hills, close by the lake shore, stood a small yellow house, occupied by
+Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife … But as Mrs. Kelsey had
+all the boarders that she could accommodate, I was obliged to seek other quarters."* Between them
+that is: two buildings, their uses, their occupants, one paint colour, and **not one dimension, lot,
+street, corner or distance.**
+
+**The invention, stated.** Two footprints — 11.0 × 8.0 m and 8.5 × 6.1 m, about 36 × 26 and
+28 × 20 ft — are placeholders in which every number is invented. What bounds them is a pair of
+words: Bonnell calls the first a *residence* and its occupant is a physician and half a drug firm, so
+it is given a professional man's frontage; he calls the second *small* and then says it was full, so
+it is the smaller of the two and takes its boarders in the half storey. **That the two are different
+sizes is invented**, and the ordering is an argument about trade and not a reading. Dr. Kimberly's
+position is an offset of 12.0 m east of this project's own `lake_house_construction` footprint on a
+shared front line, and so **it inherits everything that placement admits** — including that which
+side of Rush Street the Lake House block is on is not documented at all, so if that is wrong both
+houses belong about 110 m west. Kelsey's position is a quadrant bearing (N 58° E of Kimberly's
+corner, 238.5 m) inside a strip about 80 m wide between Sand Street's platted corridor and the water;
+its working uncertainty is at least 150 m. Both facade bearings are invented — Kimberly's follows the
+Lake House, the one building on that frontage a source orients, and **Kelsey's house fronted no
+street at all**, Sand Street being platted, unopened and unworn on the scene date.
+
+**What is NOT invented, and it is the one number here the ground supplied.** The sand hills are real
+and they are where this project already put them: the committed `e1834_harbor_cut` heightfield stands
+at **+2.59 m** above the summer-1835 water surface under Kelsey's footprint against **+1.51 m** under
+Kimberly's house and at the Lake House site — a rise of 1.08 m between the bank strip Bonnell walked
+out from and the ground he calls sand-hills, measured off a heightfield derived years before this
+sentence was read. That does not fix the house's place; it does say the described ground is where the
+model has it.
+
+**The colour is attested and it is NOT built, which is this entry's one unpaid debt.** *"A small
+yellow house"* is the only statement any source reached makes about the painted finish of any
+dwelling in this town. No archetype in this project has a yellow finish — `frame_dwelling` accepts
+`unpainted`, `white`, `whitewash` and `red`, and `generators/common/materials.py` holds no yellow —
+so the house builds in unpainted clapboard. **White was refused as a substitute**: it is a different
+claim, and a wrong one, about the one appearance fact this building has. The record states no paint
+rather than the wrong paint, its `research_note` says so, and the finish is filed as its own ticket.
+This is the same shape as **L60** (the estray pen that had to take a roof it probably never had): an
+archetype's vocabulary short of a source, recorded rather than papered over.
+
+**No household is seated by either record, and both refusals are deliberate.** Bonnell names an
+occupant for each roof and both are graded `attested` on `occupants`; neither gets a
+`resident_assignment`. Dr. Kimberly is held in `hh_pruyne_kimberly`, a **partnership** household
+headed by Peter Pruyne and banded to the *south* division on the evidence of the store — seating that
+household here would carry Pruyne across the river on a sentence about Kimberly, and splitting a
+partnership household is the resident layer's ruling. Kelsey is held as **two unmerged directory
+identities**, `id_kelsey_patrick` (Fergus 1843) and `id_kelsey_parnick` (Norris 1844), and Eve Kelsey
+is in no identity of this corpus at all; Bonnell's sentence is the best evidence here that the two
+Kelseys are one man — it spells him both ways in one sentence — but a merge is the identity layer's
+under its own M-rules. Both are filed, not performed.
+
+**And Kelsey's house is not the house the directories print.** Fergus 1843 and Norris 1844 both put
+Kelsey's boarding house on Wolcott Street between Kinzie and Michigan, about 230 m west of the sand
+hills. A keeper moving off the beach onto a platted street in eight years is the ordinary reading;
+carrying the range to 1844 would assert the two are one building, which no source says, so the range
+stops at the end of the attested year.
+
+**How to resolve:** the Kinzie's Addition conveyances, or any sale of the sand ground east of Sand
+Street, which would give either house a lot and settle which side of Rush Street the Lake House block
+is on; the *Chicago American* (first issue 8 June 1835) or the *Chicago Democrat* for 1835–36, which
+carried building notices; the 1839–40 North Side grading accounts, which paid Kelsey; or anything
+that gives Kimberly a street or a corner.
+
+**Applies to:** `data/structures/kimberly_residence.json` and
+`data/structures/kelsey_boarding_house.json`.
+
+**Covers:** `kimberly_residence.frame_1835.position`, `kimberly_residence.frame_1835.footprint`, `kimberly_residence.frame_1835.form.construction`, `kimberly_residence.frame_1835.form.stories`, `kimberly_residence.frame_1835.form.wall_height_m`, `kimberly_residence.frame_1835.form.roof_type`, `kimberly_residence.frame_1835.form.chimneys`, `kelsey_boarding_house.frame_1835.position`, `kelsey_boarding_house.frame_1835.footprint`, `kelsey_boarding_house.frame_1835.form.construction`, `kelsey_boarding_house.frame_1835.form.stories`, `kelsey_boarding_house.frame_1835.form.wall_height_m`, `kelsey_boarding_house.frame_1835.form.roof_type`, `kelsey_boarding_house.frame_1835.form.chimneys`.
+
+**Related:** the entry covering `lake_house_construction` (the building both of these are placed
+against, and the archetype problem this one repeats), **L60** (an archetype's vocabulary short of a
+source), **L285** (the same class of invention on the same bank, one sentence per house),
+`docs/RESEARCH/north_bank_east_end_neighbours.md`, **T-1717** and its parent **T-1204**.
 **Recorded:** 2026-09-28.
