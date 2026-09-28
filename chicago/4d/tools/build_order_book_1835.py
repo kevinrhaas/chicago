@@ -4393,8 +4393,21 @@ def cmd_self_test() -> int:
     # `tradesman_dwellings` seat in the South Division. Nothing was raised for it and no
     # roof moved; a dwelling the business deal had been standing a shop in went back to the
     # households. The two deals running blind to one pool is T-1669.
+    #
+    # T-1707 TAKES IT TO 211, AND THIRTY OF THE SEATS ARE SLOTS. The platted pass goes
+    # 109 -> 139 and the off-plat pass holds at 72. Nothing was adopted that was not adopted
+    # before: all 30 of the new seats are SLOTS, which is the first time either pass has
+    # carried one since T-1623 refused the last four. The ruling behind them is a ruling
+    # about GROUND and not about households. Carrying the Original Town's seven north-south
+    # columns from their terrain clip at N -400 to Madison Street let
+    # `generate_plat_lots.py` emit the plat's last tier — six blocks and 48 lots between
+    # Market and State — and the 665-roof programme marks all six `open` with 27 roofs of
+    # headroom each, where the South Division's only open blocks before were two South Water
+    # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 19
+    # merchant and professional households and 11 tradesmen's onto them. A slot is a request
+    # and not a roof: T-1708 raises them.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 181
+        data["inventory"], data["programme"], occ))["seated"] == 211
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4402,8 +4415,10 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: the platted pass asked for no slot at all once T-1623 refused the
-    # last four, so claiming one it does not carry is the disagreement to fire on.
+    # currently sit: since T-1707 the platted pass carries 30 slot rows on the plat's last
+    # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
+    # carried none — which is what this fixture said until that ticket, when T-1623 had
+    # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
           seats_with("platted_seats", slots_requested=1, roofs_adopted=99))
     dropped = copy.deepcopy(data)

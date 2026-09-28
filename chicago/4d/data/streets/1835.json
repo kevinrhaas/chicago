@@ -145,6 +145,10 @@
       "name_changed": true,
       "path_local_enu_m": [
         [
+          83.473,
+          -519.05
+        ],
+        [
           84.18,
           -400
         ],
@@ -153,6 +157,17 @@
           -110.4
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          84.18,
+          -400
+        ],
+        [
+          85.9,
+          -110.4
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 8.0,
       "surface": "worn_earth",
       "traffic": "principal",
@@ -164,7 +179,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "RE-FITTED OFF THE PLAT'S OWN MODULE FOR T-0827, 2026-09-12, and it is no longer fitted to N Wacker Drive. Until this reading the whole line was ONE modern junction and a bearing: its north vertex WAS `control.lake_market` — West Lake Street crossing North Upper Wacker Drive, read off OpenStreetMap — to the centimetre, and `refused_control.market_south_water` records the only other junction this project has looked for on this street and could not make. Wacker Drive was built in 1926 on ground made when the river was walled, so that one control stands on ground that did not exist in 1835. THE PITCH IS WHAT SETTLES IT, because Market's centre to Franklin's is one 400 ft module of the plat and three readings of it disagree with the committed lines in the same direction: the platted module is 121.92 m; the Wright 1834 sheet reads 120.21 m — five steps of the uniform ladder of block boundary lines its Lake Street traverse crosses east of the river, committed as pixels in data/traces/vectors/street_corridors_1834.json; the Thompson plat's North Division tier reads 124.81 m (T-0451). The two independently measured sheets BRACKET the module, 1.7 m under and 2.9 m over, which is what two hand-drawn sheets carrying 3-4.5 % paper stretch should do — and the committed pitch of 118.0-119.2 m lay outside that bracket at every northing of the run, the only pitch on this grid that did, where the other five South Division pitches read 121.8-123.6 m. So the line is stepped one module west of the committed `franklin`, which has a real crossing of two named surface roadways at `control.south_water_franklin` and reproduces from it to 0.03 m, and it takes Franklin's bearing with it. It moves 2.72 m west at the south end and 3.30 m west at Lake Street; the northing extent is untouched, because this ticket moves the line across and not along. MARKET IS THE ONE STREET ON THIS GRID NO SHEET FIXES DIRECTLY, and that is why the module had to do it: the street's west side is the river bank its whole length — which is why Wacker Drive stands there now — so the Wright traverse crosses 107 m of blank paper where this line runs, and the Thompson plat cuts block 21 off at the Wolf Point triangle before its west line, leaving its south tier with no measured Market face either. The derivation is tools/measure_market_line.py and its assertions are part of tools/check.sh. WHAT THE MOVE COSTS: the corridor stands 3.3 m nearer the river at its north end, and on e1834_harbor_cut the centreline is dry over its whole run either way (0.39-0.78 m at 5 m sampling) while the west kerb is already under water north of about N -140 on the line this replaces, and is 0.5 m deeper there now. A kerb over the modelled bank is a statement about the bank's own traced position, not about the street: the same 17.5 m of datum uncertainty bounds both. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "RE-FITTED OFF THE PLAT'S OWN MODULE FOR T-0827, 2026-09-12, and it is no longer fitted to N Wacker Drive. Until this reading the whole line was ONE modern junction and a bearing: its north vertex WAS `control.lake_market` — West Lake Street crossing North Upper Wacker Drive, read off OpenStreetMap — to the centimetre, and `refused_control.market_south_water` records the only other junction this project has looked for on this street and could not make. Wacker Drive was built in 1926 on ground made when the river was walled, so that one control stands on ground that did not exist in 1835. THE PITCH IS WHAT SETTLES IT, because Market's centre to Franklin's is one 400 ft module of the plat and three readings of it disagree with the committed lines in the same direction: the platted module is 121.92 m; the Wright 1834 sheet reads 120.21 m — five steps of the uniform ladder of block boundary lines its Lake Street traverse crosses east of the river, committed as pixels in data/traces/vectors/street_corridors_1834.json; the Thompson plat's North Division tier reads 124.81 m (T-0451). The two independently measured sheets BRACKET the module, 1.7 m under and 2.9 m over, which is what two hand-drawn sheets carrying 3-4.5 % paper stretch should do — and the committed pitch of 118.0-119.2 m lay outside that bracket at every northing of the run, the only pitch on this grid that did, where the other five South Division pitches read 121.8-123.6 m. So the line is stepped one module west of the committed `franklin`, which has a real crossing of two named surface roadways at `control.south_water_franklin` and reproduces from it to 0.03 m, and it takes Franklin's bearing with it. It moves 2.72 m west at the south end and 3.30 m west at Lake Street; the northing extent is untouched, because this ticket moves the line across and not along. MARKET IS THE ONE STREET ON THIS GRID NO SHEET FIXES DIRECTLY, and that is why the module had to do it: the street's west side is the river bank its whole length — which is why Wacker Drive stands there now — so the Wright traverse crosses 107 m of blank paper where this line runs, and the Thompson plat cuts block 21 off at the Wolf Point triangle before its west line, leaving its south tier with no measured Market face either. The derivation is tools/measure_market_line.py and its assertions are part of tools/check.sh. WHAT THE MOVE COSTS: the corridor stands 3.3 m nearer the river at its north end, and on e1834_harbor_cut the centreline is dry over its whole run either way (0.39-0.78 m at 5 m sampling) while the west kerb is already under water north of about N -140 on the line this replaces, and is 0.5 m deeper there now. A kerb over the modelled bank is a statement about the bank's own traced position, not about the street: the same 17.5 m of datum uncertainty bounds both. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005939 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [83.473, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.760 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "franklin",
@@ -172,6 +187,10 @@
       "name_2026": "N Franklin Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          205.395,
+          -519.05
+        ],
         [
           206.1,
           -400
@@ -181,6 +200,17 @@
           5
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          206.1,
+          -400
+        ],
+        [
+          208.5,
+          5
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
@@ -192,7 +222,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 — 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 — 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005926 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [205.395, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.810 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "wells",
@@ -200,6 +230,10 @@
       "name_2026": "N Wells Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          327.398,
+          -519.05
+        ],
         [
           328.1,
           -400
@@ -209,6 +243,17 @@
           7
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          328.1,
+          -400
+        ],
+        [
+          330.5,
+          7
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
@@ -220,7 +265,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005897 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [327.398, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.880 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "lasalle",
@@ -228,6 +273,10 @@
       "name_2026": "N LaSalle Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          449.4,
+          -519.05
+        ],
         [
           450.1,
           -400
@@ -237,6 +286,17 @@
           8
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          450.1,
+          -400
+        ],
+        [
+          452.5,
+          8
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
@@ -249,7 +309,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005882 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [449.400, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.876 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "clark",
@@ -257,6 +317,10 @@
       "name_2026": "N Clark Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          572.643,
+          -519.05
+        ],
         [
           573.4,
           -400
@@ -266,6 +330,17 @@
           9
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          573.4,
+          -400
+        ],
+        [
+          576,
+          9
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
@@ -278,7 +353,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006357 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [572.643, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.866 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "dearborn",
@@ -286,6 +361,10 @@
       "name_2026": "N Dearborn Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          695.659,
+          -519.05
+        ],
         [
           696.4,
           -400
@@ -295,6 +374,17 @@
           18
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          696.4,
+          -400
+        ],
+        [
+          699,
+          18
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "drawn_track_local_enu_m": [
         [
           696.4,
@@ -321,7 +411,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006220 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [695.659, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.860 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "state",
@@ -329,6 +419,10 @@
       "name_2026": "N State Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          823.635,
+          -519.05
+        ],
         [
           824.4,
           -400
@@ -338,6 +432,17 @@
           20
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          824.4,
+          -400
+        ],
+        [
+          827.1,
+          20
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "track_width_m": 6.0,
       "surface": "light_worn_earth",
       "traffic": "light",
@@ -349,7 +454,7 @@
         "osm_streets_2026",
         "thompson_plat_1830"
       ],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006429 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [823.635, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 1.483 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`."
     },
     {
       "id": "west_water",

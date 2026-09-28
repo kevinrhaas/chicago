@@ -3040,6 +3040,37 @@ def build_street_edge() -> tuple[list, list, list, dict]:
                 f"outer edge and the {name} track, under the {EDGE_TRACK_MARGIN_M} m a "
                 "walk must keep out of the travelled way — no walk is laid.")})
             continue
+        # CLAUSE 1 OF THE FENCE AND POST RULES, WHICH THE WALK RULE WAS MISSING (T-1707).
+        # Both of the other two rules in this file open on it and say why in the same
+        # words — "an unimproved lot is open prairie and takes no street fence", "nobody
+        # tied a horse to prairie" — and the walk rule, which is the one that came first,
+        # never had it. It was never wrong before because it could not be: every platted
+        # block inside `EDGE_STREETS` carried a standing roof, so the case had no instance
+        # and no test would have found it. T-1707 made one. Carrying the Original Town's
+        # seven north-south columns to Madison Street emits the plat's last tier — six
+        # blocks between Market and State, 48 lots, and not one building on any of them —
+        # and the march passed every step of their north faces, because prairie is exactly
+        # what it is looking for: dry, flat, and carrying no footprint. That would have
+        # laid 11 runs of plank sidewalk and 6 board crossings over Washington Street in
+        # front of six empty blocks, which is a claim that the town planked a street it
+        # had not built on. A plank walk is an improvement somebody paid for in front of
+        # something; all four of the owner's own reference plates show one in front of
+        # BUILDINGS. MEASURED: adding this clause removes no walk, crossing or post
+        # anywhere in the committed town — every other block in the layer's reach is
+        # improved — and it refuses the seventeen the new tier would have taken.
+        # AND IT IS ASKED OF THE BLOCK'S OWN GROUND, NOT OF ITS LOTS. Writing this as
+        # "any lot of this block carries a building" took the walks and crossings off the
+        # PUBLIC SQUARE, measured: `blk_randolph_lasalle` is `platted_block_reserved`, it
+        # is subdivided into no lots at all, and the log jail and the estray pen stand on
+        # it. A block with no lots is not an unimproved block; it is a block this plat
+        # never cut. So the question is asked of the block boundary, which every block has.
+        if not any(_stands_on(b, {"polygon": block["boundary_local_enu_m"]})
+                   for b in buildings):
+            refused.append({"structure_id": key, "wall": f"{block['id']} {face} face", "why": (
+                f"no committed building stands anywhere on {block['id']} — an unimproved "
+                "block is open prairie and takes no plank walk, by the same clause the "
+                "street fence and the hitching post are already refused under.")})
+            continue
         spans = _march(frame, EDGE_OFFSET_M, half_w, hf, buildings)
         runs = _runs_from(spans)
         if not runs:
@@ -3541,7 +3572,14 @@ def street_edge_record(walks: list, fences: list, posts: list, refused: list,
         "rule": {
             "note": (
                 "A block face carries a walk iff it fronts one of the covered "
-                "streets and a walk at its lot line still clears that street's own "
+                "streets, its own block is IMPROVED — a committed footprint stands "
+                "somewhere on the block's own ground, asked of the block boundary and "
+                "not of its lots so that the PUBLIC SQUARE, which this plat cuts into "
+                "no lots at all, keeps the walks its jail and estray pen earn; because "
+                "an unimproved block is open prairie and the "
+                "town did not plank prairie (T-1707, the clause the street fence and "
+                "the hitching post already carried and this rule did not) — and a walk "
+                "at its lot line still clears that street's own "
                 f"travelled track by {EDGE_TRACK_MARGIN_M} m. The face is then MARCHED "
                 f"in {EDGE_SPAN_M} m steps, and a step carries boards iff the ground "
                 f"under it stands at least {EDGE_DRY_M} m over datum, rolls no more "
