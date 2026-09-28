@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
+  { v: 1202, ts: '2026-09-28T07:54:59.813Z', date: 'Sep 28, 2026, 2:54 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
     items: [
       'Follow the South Branch down past the town and Newberry & Dole\u2019s slaughter-house no longer stands alone on an empty bank. Three working buildings now run south from it, each across a cart yard from the last: the packing and barrelling house, a small salt store, and a stock shed at the landward end where the beasts came in off the prairie.',
       'At the forks, behind John Miller\u2019s log tannery, there is now a yard. A bark shed at one end, a drying shed at the other, both facing in across the open ground the tanning was done on \u2014 and the drying shed has its boards spaced apart, which is how a hide dries.',

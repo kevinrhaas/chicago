@@ -6,7 +6,7 @@ This is the reading that says which of those works can honestly be built, where 
 and which one is refused.
 
 It is not a page of any source. **No source is read here**, and nothing below upgrades a
-confidence. Every building it justifies is graded `reconstructed`, and `docs/LIBERTIES.md` **L283**
+confidence. Every building it justifies is graded `reconstructed`, and `docs/LIBERTIES.md` **L284**
 owns the invention.
 
 ## The four plants, and what each one says is missing
@@ -126,6 +126,6 @@ nil.
 * An address for Elston & Co. in any printing of 1833–1835. The advertisement that attests the
   business gives none, which is why the ash house is the shakiest building in the band.
 
-**Related:** `docs/LIBERTIES.md` **L283** (the invention), **L281** and **L274** (the cart yard
+**Related:** `docs/LIBERTIES.md` **L284** (the invention), **L281** and **L274** (the cart yard
 figure and the south-bank row), **L10** (the yard nobody models),
 `docs/RESEARCH/south_bank_dearborn_ground.md`, T-1709, T-1203.

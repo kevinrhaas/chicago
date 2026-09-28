@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 286,
+  "count": 287,
   "liberties": [
     {
       "id": "L1",
@@ -14340,24 +14340,24 @@
     },
     {
       "id": "L219",
-      "title": "Sixty-eight roofs are told who entered their ground by a survey grid nobody traced",
+      "title": "Seventy roofs are told who entered their ground by a survey grid nobody traced",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 69
+        "count": 71
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 69 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 71 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 69 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 71 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -14372,8 +14372,12 @@
           "text": "a traced section line — the GLO township plat of T39N R14E, or a second committed corner a mile from the first — would replace the nominal mile with a measurement and lift the whole population a tier, and would also say by how much the construction was wrong. The School Section Addition's 1833 plat would separately unlock the 150 rows this entry refuses. Related: **L108** (the reservation boundary, from the same corner and the same bearing) · **L182** (Madison's centreline, likewise) · **L216** (the other placement that rests on lot lines drawn from no sheet) · tickets **T-0609** (this), **T-0557** (the reading it spends)."
         },
         {
+          "label": "Count restated 2026-09-28 (T-1712)",
+          "text": "69 to 71. T-1712 raised the new residence and the small trading post Andreas records at the Beaubien homestead, both inside the United States Reservation, so `tools/resolve_land_tracts.py` wrote each of them the tract row this liberty is about. Nothing else here moved, and the construction, the argument and the discharge condition are untouched."
+        },
+        {
           "label": "Recorded",
-          "text": "2026-09-04; count restated 2026-09-06 (T-0883)."
+          "text": "2026-09-04; count restated 2026-09-06 (T-0883) and 2026-09-28 (T-1712)."
         }
       ]
     },
@@ -16189,14 +16193,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 409
+        "count": 411
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 409 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 411 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16204,7 +16208,7 @@
         },
         {
           "label": "What would discharge it",
-          "text": "a source giving a shingle exposure, a shingle length, or a course count on any Chicago roof of the period. The number is one constant in one substrate row; nothing else has to move when it arrives."
+          "text": "a source giving a shingle exposure, a shingle length, or a course count on any Chicago roof of the period. The number is one constant in one substrate row; nothing else has to move when it arrives. **Count restated 2026-09-28 (T-1712)**, and nothing else here moved. T-1712 raised the two buildings Andreas records at the Beaubien homestead and this project had not built — a new residence and a small trading post, both `log_dwelling` phases that state a roof type — so the population reached by this exposure is 405 rather than 403. The figure is measured over `data/structures/*.json` by `tools/compile_liberties.py --check`; the exposure, the argument for it and its discharge condition are untouched."
         },
         {
           "label": "Recorded",
@@ -16287,7 +16291,7 @@
     },
     {
       "id": "L266",
-      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 73 roofs that are not framed",
+      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed",
       "section": "per_subject",
       "subjects": [
         "recon_1835_blk_lake_clark_c1_01",
@@ -16297,18 +16301,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[log_or_fort_archetype]",
-        "count": 73
+        "count": 75
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[log_or_fort_archetype]` — 73 phases: 59 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
+          "text": "`structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
         },
         {
           "label": "Decision",
-          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 73 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 73 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 73 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 73 phases keeps the grade it had."
+          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 75 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 75 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 75 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 75 phases keeps the grade it had."
         },
         {
           "label": "What would discharge it",
@@ -16316,7 +16320,7 @@
         },
         {
           "label": "Related",
-          "text": "**L263** (the exposure, and the ruling that took it), **L264** (the brick course, taken the same day and still unwired), T-1487 (this parcel), T-1488 (the relief binding that makes it visible), T-1465 (the parent ask), T-1450 (the vendored maps), `docs/RESEARCH/materials.md` §2.2 and §3.1. **Counts restated 2026-09-20 (T-1494)**, and nothing else here moved. The phase-one South redeal re-dealt eleven anonymous roofs into the families T-1445 adjudicated for them, and four of the eleven became `log_dwelling` cabins: 49 log dwellings became 53, the scope 63 became 67, and the framed roofs §2.2 grades directly fell from 182 to 180 as seven storefronts and four workshop sheds left those archetypes. Every figure above is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from; the argument, the direction of the error and the discharge condition are untouched."
+          "text": "**L263** (the exposure, and the ruling that took it), **L264** (the brick course, taken the same day and still unwired), T-1487 (this parcel), T-1488 (the relief binding that makes it visible), T-1465 (the parent ask), T-1450 (the vendored maps), `docs/RESEARCH/materials.md` §2.2 and §3.1. **Counts restated 2026-09-20 (T-1494)**, and nothing else here moved. The phase-one South redeal re-dealt eleven anonymous roofs into the families T-1445 adjudicated for them, and four of the eleven became `log_dwelling` cabins: 49 log dwellings became 53, the scope 63 became 67, and the framed roofs §2.2 grades directly fell from 182 to 180 as seven storefronts and four workshop sheds left those archetypes. Every figure above is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from; the argument, the direction of the error and the discharge condition are untouched. **The count moved to 75 on 2026-09-28 (T-1712)**, and it is the first time it moved because a building was ADDED rather than re-familied. T-1712 raised the two buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation and this project had not built — a new residence and a small trading post, both hewn-log — so the log dwellings run 59 to 61 and the scope 73 to 75. The argument above is unchanged and so is the direction of its error: two more roofs now carry a shingled substrate on a grading `docs/RESEARCH/materials.md` §2.2 wrote for framed buildings, and both of them are log. Every figure is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from."
         },
         {
           "label": "Recorded",
@@ -17191,6 +17195,101 @@
     },
     {
       "id": "L283",
+      "title": "Two of the Beaubien homestead's four attested buildings are placed and sized by eye, beside the two that already were",
+      "section": "per_subject",
+      "subjects": [
+        "beaubien_barn",
+        "beaubien_new_residence",
+        "beaubien_trading_post",
+        "jb_beaubien_homestead"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-09-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`beaubien_new_residence` (9.75 x 6.10 m, 32 x 20 ft) and `beaubien_trading_post` (6.10 x 4.88 m, 20 x 16 ft) are built on the Fort Dearborn reservation with **invented positions**, **invented footprints** and an **invented storey count**, all graded `reconstructed` and citing no sources. Their PRESENCE and their USE are attested and are not part of this liberty."
+        },
+        {
+          "label": "Why",
+          "text": "Andreas, scan p. 185, lists four elements of Col. Jean Baptiste Beaubien's homestead — the factory building he bought, a cabin he converted to a barn, \"a new residence and a small trading post\" — and Wentworth's account of the sale of June 1839 has James H. Collins bidding for the five lots \"where Beaubien's house, out-buildings, and garden were\". So the town has documentary warrant for a GROUP here and this project stood two of its four buildings. What no source reached gives any of the four is a dimension, a plan, a bearing or a distance from its neighbours. `docs/RESEARCH/jb_beaubien_homestead.md` § 4 therefore refused the three unbuilt ones as \"three invented boxes placed by eye around a fourth\" — and then `beaubien_barn` was built in exactly that way on 2026-08-11 under **L72**, by eye, 16.3 m behind the house, with the direction and the distance written down as invented. The refusal had already been overturned for one of the three while it was still on the page for all three. T-1712 applies the barn's disposition to the two buildings left, on the owner's own ask for this ground (T-1203, \"the documented country seats with their reconstructed neighbours\"), and § 4 is rewritten to the count it now has."
+        },
+        {
+          "label": "The method, stated so it can be checked",
+          "text": "the group's two committed records share one easting 16.3 m apart, the house on the river-facing frontage line and the barn on the yard line behind it. The residence takes the frontage line 17.9 m east of the house's origin — 5.7 m clear of its east wall — and the trading post takes the yard line at the same easting. East rather than west because Wentworth's lots run north from corner lot 11 through lots 10 to 6, so the group's room is away from the corner; and because the fort's stockade stands about 9 m north of the frontage line, which is the one direction with no room in it at all. Both offsets are ours."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor arriving at the river mouth sees four buildings in a yard group where two stood, and the *presence* of every one of the four is evidenced while the *shape and exact place* of three of them are ours. The group reads as a homestead rather than as a house beside a shed, which is what the sources describe — and the risk that buys is that a visitor cannot see which two of the four were placed by measurement, because none of them was. Both new records inherit their parent's open questions unchanged: neither street existed on the unplatted reservation in 1835, and the group's true position is at the remembered corner or an unmeasured distance north of it, never south or west of it."
+        },
+        {
+          "label": "What was NOT done",
+          "text": "no confidence on any committed record was raised, the household was not moved onto either new building (the parent's `occupants` block says which building Beaubien slept in is unattested, and calling one of these a residence does not answer it), and the **garden** the 1839 sale names beside the out-buildings is still unbuilt — it is a fence line and ground cover rather than a structure, and no source gives it an extent."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1839 land-sale plat of Block 5 with the lot dimensions Wentworth's numbers imply, which would turn \"lots 6 to 10\" into a distance north of the corner and fix the whole group to lots instead of to a remembered intersection; failing that the Wright 1834 sheet read at reservation scale, or the 1835 pre-emption papers, which may describe the improvements Beaubien was claiming for."
+        },
+        {
+          "label": "Related",
+          "text": "**L72** (the same move for the barn and the two tavern stables), **L26** (every chimney stands where its archetype puts it), `docs/RESEARCH/jb_beaubien_homestead.md` §§ 1, 4 and 6a, and **T-1203**."
+        },
+        {
+          "label": "Covers",
+          "text": "`beaubien_new_residence.log_1822.position`, `beaubien_new_residence.log_1822.footprint`, `beaubien_new_residence.log_1822.form.stories`, `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.stories`, `beaubien_trading_post.log_1822.form.chimneys`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-28 (T-1712)."
+        }
+      ]
+    },
+    {
+      "id": "L284",
       "title": "The works the four documented noxious trades imply: six buildings on the branch frontage, and not one of them attested",
       "section": "per_subject",
       "subjects": [
