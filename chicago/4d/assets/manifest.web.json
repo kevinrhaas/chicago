@@ -2,6 +2,7 @@
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
+    "agency_striker_log_house__log_1830.glb": "e240c6ae892486771b709a4cc7df1a73c43a748e2d54dcd4bfbe074703200ab3",
     "bates_auction_room__frame_1834.glb": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227",
     "beaubien_barn__converted_1817.glb": "495c84370808aeeba07a0545a6228f4587a82803003f9235bc1b4c37912983f1",
     "beaubien_new_residence__log_1822.glb": "affb622ad8e9f9cd80899a2cef45e5fe936e8c4aef8c899beba8985238373760",
@@ -9,6 +10,7 @@
     "blacksmith_shop_state_st__log_1823.glb": "97769aa9ee95b137ae407325cdbe55cb46dc54e89f4ca9494fa532c43ab06a8f",
     "brickyard_north_side__yard_1833.glb": "96726658f7b7a4a908f068853bef89c73624b1cf9c7b981c027acf1efa710962",
     "brown_boarding_house__documented_1835.glb": "3e6c7abb833b356d84cf3d75e694c3dff5ee3e768061778817974edf97e45fe2",
+    "caldwell_agency_log_house__log_1830.glb": "16edf481df99b6f7130c67892ddbd618986c2b78057e729110cb5520e2cbd760",
     "carpenter_south_water_store__frame_1833.glb": "70f1fcb33c0476b92919b7bba0c5896682a52072e30ea725b95001e92f634d66",
     "chappel_infant_school__log_1833.glb": "5fffb638bcf88d24ff157d715903e5d5e5c09d62131b1def96b6f9b782795091",
     "chicago_american_office__frame_1835.glb": "fe587cad3f9953dd0966505b4276dcb8f69544000419b3b10a8e3a294a034b4a",
@@ -94,6 +96,7 @@
     "madore_beaubien_house__log_1831.glb": "e2bf81c6fb1a58dcee4c1d263b42ee633a3cbe3f20fc40fd035128d25fd0c8f7",
     "mansion_house__log_frame_1833.glb": "b338c507fcd83c934eb3f727733a56b92133019ae05d50faaf9c116830e341ae",
     "mason_blacksmith_shop__documented_1835.glb": "246e26a44c80858b33e85a4b719a3965ffbf59f08ef4ed59b95efd348faec579",
+    "mckee_log_house__log_1823.glb": "64ae65c77bb3f59c8f87cd207ec927cba6f3a09ff3aecb296760b729d2201d1f",
     "miller_house__log_frame_1827.glb": "8a71e19862ff4c18555a284a5ab42c5b4d60b16eb50a3fe37fb6117b1091e1fb",
     "miller_tannery__log_1831.glb": "d9b1221f17515786a37c5b46330eebc3a30f507fa2c228ea4bd5f88870a812fc",
     "miller_tanyard_bark_shed__yard_1831.glb": "81dc8cd455f01b5352ed86a94c30a045279ce0bfa9ac60a2abd4ff54db8772a6",

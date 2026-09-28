@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 418,
-    "standing_after": 418,
-    "short_of_the_programme_before": 250,
-    "short_of_the_programme_after": 250
+    "standing_before": 421,
+    "standing_after": 421,
+    "short_of_the_programme_before": 247,
+    "short_of_the_programme_after": 247
   },
   "ledger": [
     {
@@ -221,11 +221,11 @@
       "group": "ordinary_dwellings",
       "division": "north",
       "target": 84,
-      "standing": 46,
+      "standing": 49,
       "anonymous": 44,
-      "head_before": 38,
-      "standing_after": 46,
-      "head_after": 38
+      "head_before": 35,
+      "standing_after": 49,
+      "head_after": 35
     },
     {
       "bucket": "structures/small_outbuildings/south",
