@@ -875,7 +875,7 @@
     "occupation_1835": "blacksmith",
     "occupation_1835_confidence": "attested",
     "occupation_1835_promoted": false,
-    "lives_at_1835": null,
+    "lives_at_1835": "mckee_log_house",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
    },
@@ -3614,7 +3614,7 @@
     "occupation_1835": "county_clerk",
     "occupation_1835_confidence": "attested",
     "occupation_1835_promoted": false,
-    "lives_at_1835": "cobweb_castle",
+    "lives_at_1835": "watkins_school_house",
     "could_carry": [
      "street_1839"
     ],
@@ -8728,7 +8728,7 @@
     "occupation_1835": "county_clerk",
     "occupation_1835_confidence": "attested",
     "occupation_1835_promoted": false,
-    "lives_at_1835": "cobweb_castle"
+    "lives_at_1835": "watkins_school_house"
    },
    {
     "name": "Russel E. Heacock",

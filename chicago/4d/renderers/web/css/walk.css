@@ -1481,3 +1481,85 @@ kbd {
   .arrival-digit { height: 62px; }
   .arrival-digit-half span { height: 62px; line-height: 62px; }
 }
+
+/* T-1278: the same arrival dialog becomes a quiet, bounded welcome. */
+.gate[data-state="welcome"] {
+  height: var(--vh, 100dvh); bottom: auto;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+.gate[data-state="welcome"] .gate-card {
+  display: flex; flex-direction: column; max-height: 100%; min-height: 0;
+  text-align: left; overflow: auto;
+  animation: welcome-in 220ms ease-out;
+}
+.gate[data-state="welcome"] .arrival-instrument,
+.gate[data-state="welcome"] .gate-sub,
+.gate[data-state="welcome"] .gate-bar,
+.gate[data-state="welcome"] .gate-keys { display: none; }
+.gate[data-state="welcome"] h1 { font-size: clamp(22px, 5vw, 30px); line-height: 1.12; }
+#welcome { display: flex; flex-direction: column; min-height: 0; }
+#welcome[hidden], .welcome-region[hidden], #welcome-close[hidden] { display: none; }
+.welcome-intro { font-size: 14px; line-height: 1.5; color: var(--ink-dim); margin: 10px 0 18px; }
+.welcome-actions { display: grid; gap: 10px; flex-shrink: 0; }
+.welcome-action, .welcome-link, .welcome-kinds button, .welcome-destination {
+  font: inherit; color: var(--ink); cursor: pointer; min-height: 44px;
+  border: 1px solid var(--edge); border-radius: 10px; background: var(--panel);
+}
+.welcome-action { padding: 15px 16px; text-align: left; }
+.welcome-action strong, .welcome-action span, .welcome-destination strong, .welcome-destination span { display: block; }
+.welcome-action strong { font-size: 17px; }
+.welcome-action span { font-size: 13px; margin-top: 4px; color: var(--ink-dim); }
+.welcome-action.primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
+.gate[data-state="welcome"] .gate-btn { background: none; color: var(--ink-dim); border: 0; margin-top: 10px; min-height: 44px; flex-shrink: 0; }
+.welcome-link { padding: 9px 12px; background: none; }
+.welcome-region { margin-top: 14px; min-height: 0; }
+#welcome-picker { display: flex; flex-direction: column; gap: 8px; }
+#welcome-picker[hidden] { display: none; }
+#welcome-search { font: inherit; font-size: 16px; padding: 11px; width: 100%; min-height: 44px; color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; }
+.welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; }
+.welcome-kinds button { padding: 6px 10px; font-size: 12px; }
+.welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 55px; max-height: 240px; flex: 1; }
+.welcome-destination { width: 100%; text-align: left; padding: 10px; margin-bottom: 5px; }
+.welcome-destination span { font-size: 12px; color: var(--ink-dim); margin-top: 3px; }
+.welcome-destination:disabled { opacity: .6; cursor: default; }
+#welcome-message { font-size: 13px; margin: 0; }
+#welcome-message:empty { display: none; }
+.gate[data-region="explore"] .welcome-intro { display: none; }
+.gate[data-region="explore"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.gate[data-region="explore"] .welcome-action { padding: 8px; }
+.gate[data-region="explore"] .welcome-action strong { font-size: 14px; }
+.gate[data-region="explore"] .welcome-action span { display: none; }
+@keyframes welcome-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .gate[data-state="welcome"] .gate-card { animation: none; } }
+  .gate.welcome-compact[data-state="welcome"] .gate-card { padding: 12px 16px; }
+  .gate.welcome-compact[data-state="welcome"] h1 { font-size: 21px; }
+  .gate.welcome-compact[data-state="welcome"] .welcome-intro { font-size: 12px; margin: 5px 0 8px; }
+  .gate.welcome-compact[data-state="welcome"] .welcome-actions { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .gate.welcome-compact[data-state="welcome"] .welcome-action { padding: 8px; }
+  .gate.welcome-compact[data-state="welcome"] .welcome-action strong { font-size: 14px; }
+  .gate.welcome-compact[data-region="explore"] .gate-eyebrow,
+  .gate.welcome-compact[data-region="explore"] h1,
+  .gate.welcome-compact[data-region="explore"] .welcome-actions { display: none; }
+  .gate.welcome-compact[data-region="explore"] .welcome-region { margin-top: 0; }
+
+.gate[data-state="welcome"] #gate-build { display: none; }
+.gate[data-state="welcome"] #gate-title:focus { outline: none; }
+
+/* T-1253: a readable, internally scrolling preview inside the existing welcome. */
+.jaunt-card { padding: 12px; margin: 10px 0; border: 1px solid var(--edge); border-radius: 8px; text-align: left; }
+.jaunt-card h3, .jaunt-stops h4 { margin: 0 0 6px; }
+.jaunt-card select { min-height: 44px; max-width: 100%; color: var(--ink); background: var(--panel-solid); border: 1px solid var(--edge); border-radius: 7px; padding: 8px; font: inherit; }
+.jaunt-card p, .jaunt-stops p { line-height: 1.5; }
+.jaunt-meta { font-size: 12px; opacity: .8; overflow-wrap: anywhere; }
+.jaunt-stops { padding-left: 24px; text-align: left; }
+.jaunt-stops li { padding: 10px 0; }
+.jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
+#welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
+.gate[data-region="jaunts"] .welcome-intro { display: none; }
+.gate[data-region="jaunts"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.gate[data-region="jaunts"] .welcome-action { padding: 8px; }
+.gate[data-region="jaunts"] .welcome-action strong { font-size: 14px; }
+.gate[data-region="jaunts"] .welcome-action span { display: none; }
+#welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }

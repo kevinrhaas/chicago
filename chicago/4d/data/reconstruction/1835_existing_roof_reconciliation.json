@@ -33,6 +33,28 @@
       "reasoning": "A separately documented former cabin used as a barn; one gable roof."
     },
     {
+      "structure_id": "beaubien_new_residence",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The new residence Andreas records Beaubien building at the homestead; one gable roof on a hewn-log dwelling, raised beside the two buildings of the group that already stood. The presence is attested and the position and size are ours (L283), which is the same footing as beaubien_barn and does not change what this row counts."
+    },
+    {
+      "structure_id": "beaubien_trading_post",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "C1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The small trading post Andreas records at the same homestead; one gable roof on a log trade room, the smallest building of the group. C1 rather than C2 because nothing says anybody lived in it, and this is a private trading post on the reservation and not fort_dearborn_us_factors_house, the government factory 140 m south of it."
+    },
+    {
       "structure_id": "blacksmith_shop_state_st",
       "district": "north",
       "roof_count": 1,
@@ -435,6 +457,17 @@
       "reasoning": "A distinct covered root cellar outside the fort, counted in the ten-roof compound schedule."
     },
     {
+      "structure_id": "fort_dearborn_root_house_b",
+      "district": "fort",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 0,
+      "likely_family": "M1",
+      "substitutes_anonymous_slots": 0,
+      "confidence": "moderate",
+      "reasoning": "T-1715. The second of the root-houses Kinzie puts on the river bank west of the fort, 9.0 m west of the first and identical to it. ONE PHYSICAL ROOF MASS AND NO INVENTORY ROOF, and that pair of numbers is this ticket's ruling rather than a way of fitting the column. THE INVENTORY COUNTS WHAT A SOURCE DESCRIBES: this file's own method says inventory_roof_count 'counts attached ranges as one roofed building but counts separately described cabins separately', and the garrison's root-houses are not separately described by anybody. Juliette Kinzie's one sentence — 'the bank of the river which stretches to the west ... was then occupied by the root-houses of the garrison' — is the whole of the evidence, and it describes ONE thing in the plural. `fort_dearborn_root_house` already holds that thing at one inventory roof; this record gives it its second mass, which is why roof_count is 1 and inventory_roof_count is 0. Modelling a plural with two mounds instead of one is a modelling decision and it is not a discovery of another building, so it may not spend a slot. AND THE FORT COLUMN IS FULL, WHICH IS WHY THAT DISTINCTION HAD TO BE MADE RATHER THAN ASSUMED: the inventory authorises 16 roofs in the fort district — ten principal roofs in the compound and the six buildings on the reservation outside the pickets — and 16 stand. A seventeenth INVENTORY roof here would be a re-budget of the 668-roof schedule, which is the owner's decision and not a run's; a seventeenth MASS for a thing already counted is neither. ONE FINDING FILED AND NOT ACTED ON: the first mound is inside the ten and stands OUTSIDE the pickets — about 30 m from a 53 m enclosure's centre, on the bank — so the ten are nine roofs in the compound and one on the riverbank. The permitted-ground entry that said 'Inside the stockade' is corrected by this ticket; restating the column itself would free an M1 slot the redeal must deal somewhere else, on ground 1835_no_build_ground.json refuses to anonymous infill, so it is filed."
+    },
+    {
       "structure_id": "fort_dearborn_store_house",
       "district": "fort",
       "roof_count": 1,
@@ -743,7 +776,7 @@
       "likely_family": "F1",
       "substitutes_anonymous_slots": 1,
       "confidence": "reconstructed",
-      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural \u2014 image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots \u2014 four of them before this roof \u2014 and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
+      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural — image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots — four of them before this roof — and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
     },
     {
       "structure_id": "north_branch_bridge",
@@ -1061,6 +1094,105 @@
       "substitutes_anonymous_slots": 1,
       "confidence": "moderate",
       "reasoning": "One documented single-storey frame dwelling roof, 16 by 30 ft from the Chicago Democrat's own for-sale notice. D1 is read off the AREA and not the proportion: 480 sq ft sits inside D1's 320-520 sq ft band, while the printed shape - wider than it is deep - matches no family band, because the bands describe eaves-front houses deeper than their front."
+    },
+    {
+      "structure_id": "newberry_dole_packing_house_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "W3",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The packing and barrelling house of the South Branch works, standing 5.20 m south of `newberry_dole_slaughterhouse_south_branch` across a cart yard. One roof, and it is counted in the SOUTH district under family W3 - the crosswalk's cooper, wagon and wheelwright shop, whose visible signature is hoops and barrels, which is what a packing house is full of between seasons. IT SUBSTITUTES ONE ANONYMOUS SLOT, on the same reasoning every named works building here takes: the South's workshops row still carries unbuilt, unnamed W3 slots and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size and the town's roof total does not move for it."
+    },
+    {
+      "structure_id": "newberry_dole_salt_house_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A4",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The salt house of the South Branch works, 5.20 m south of the packing house. One roof, counted in the SOUTH district under family A4 - the woodshed and storage outbuilding, which is what a salt store is. It substitutes one anonymous A4 slot: the South's small_outbuildings row carries unbuilt ones and a record that names a building takes precedence over an authored slot. The town's roof total does not move."
+    },
+    {
+      "structure_id": "newberry_dole_stock_shed_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The stock shed at the landward end of the South Branch works, 5.20 m south of the salt house. One roof, counted in the SOUTH district under family A1 - the lofted stable, the family whose signature is a stable door. It substitutes one anonymous A1 slot from the South's barns_stables row. The town's roof total does not move. The killing pens and the stock yard the plant's own record names are NOT this roof and are still unmodelled: they are enclosures, not buildings."
+    },
+    {
+      "structure_id": "miller_tanyard_bark_shed",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A4",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The bark shed in the yard behind `miller_tannery` at the forks, 5.20 m north of the tannery's back wall. One roof, counted in the NORTH district under family A4 - the woodshed and storage outbuilding. It substitutes one anonymous A4 slot from the North's small_outbuildings row. The town's roof total does not move."
+    },
+    {
+      "structure_id": "miller_tanyard_drying_shed",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A5",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The drying shed at the east end of the same tanyard, standing on the same front-wall line as the bark shed. One roof, counted in the NORTH district under family A5 - the small mixed utility outbuilding. It substitutes one anonymous A5 slot from the North's small_outbuildings row. The town's roof total does not move. The lime pits and tan vats `miller_tannery` names are not roofs and are still unmodelled."
+    },
+    {
+      "structure_id": "elston_ash_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A5",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "low",
+      "reasoning": "T-1709. The ash house behind `elston_soap_candle_manufactory` on the North Branch, 5.20 m east of the works. One roof, counted in the NORTH district under family A5. It substitutes one anonymous A5 slot from the North's small_outbuildings row, which takes that row's remaining North A5 slots to nil. The town's roof total does not move. Confidence is LOW and it is the works' own: the advertisement that attests Elston & Co. gives no address, so the works itself is placed by argument and this building inherits all of it."
+    },
+    {
+      "structure_id": "mckee_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "One of the small log buildings Andreas and Wau-Bun group round the north-bank agency house; the Government blacksmith's own dwelling, raised by T-1714. A single-pen log cabin of a mechanic's household, so it substitutes a D1 slot rather than adding above 665."
+    },
+    {
+      "structure_id": "caldwell_agency_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "One of the same ring of agency log buildings, raised by T-1714 on Andreas's clause naming Billy Caldwell in it. Eligible as a roofed dwelling; it carries no occupant because his household holds two candidate houses and refuses to choose, which is a statement about the seat and not about the roof."
+    },
+    {
+      "structure_id": "agency_striker_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "low",
+      "reasoning": "The striker's residence Wau-Bun names among the ring, raised by T-1714. Graded low: the office is attested among the residences and the separate building is the inference."
     }
   ]
 }

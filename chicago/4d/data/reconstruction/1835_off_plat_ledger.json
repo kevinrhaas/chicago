@@ -50,8 +50,8 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 125,
-  "ground_m2": 7315399.9
+  "principal_roofs_standing": 131,
+  "ground_m2": 7314855.3
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -140,9 +140,11 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "elston_ash_house",
     "elston_soap_candle_manufactory"
    ],
    "standing_families": {
+    "elston_ash_house": "A5",
     "elston_soap_candle_manufactory": "W5"
    },
    "principal_roofs_standing": 1
@@ -2236,14 +2238,16 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "agency_striker_log_house",
     "north_bank_shed_dearborn_e2",
     "recon_1835_north_d3_016"
    ],
    "standing_families": {
+    "agency_striker_log_house": "D1",
     "north_bank_shed_dearborn_e2": "F1",
     "recon_1835_north_d3_016": "D3"
    },
-   "principal_roofs_standing": 2
+   "principal_roofs_standing": 3
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#02",
@@ -2326,12 +2330,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "mckee_log_house",
     "north_bank_shed_dearborn_e3"
    ],
    "standing_families": {
+    "mckee_log_house": "D1",
     "north_bank_shed_dearborn_e3": "F1"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#04",
@@ -2512,12 +2518,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "caldwell_agency_log_house",
     "cobweb_castle"
    ],
    "standing_families": {
+    "caldwell_agency_log_house": "D1",
     "cobweb_castle": "H1"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_school_section_tier_1",
@@ -6913,6 +6921,8 @@
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
     "beaubien_barn",
+    "beaubien_new_residence",
+    "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "fort_dearborn_artillery_house",
     "fort_dearborn_barracks",
@@ -6929,6 +6939,7 @@
     "fort_dearborn_palisade",
     "fort_dearborn_parade",
     "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
     "fort_dearborn_shop",
     "fort_dearborn_store_house",
     "fort_dearborn_sutlers_store",
@@ -6938,6 +6949,8 @@
    ],
    "standing_families": {
     "beaubien_barn": "A2",
+    "beaubien_new_residence": "D1",
+    "beaubien_trading_post": "C1",
     "chicago_lighthouse_1832": "I3",
     "fort_dearborn_artillery_house": "M1",
     "fort_dearborn_barracks": "M1",
@@ -6954,6 +6967,7 @@
     "fort_dearborn_palisade": null,
     "fort_dearborn_parade": null,
     "fort_dearborn_root_house": "M1",
+    "fort_dearborn_root_house_b": "M1",
     "fort_dearborn_shop": "W4",
     "fort_dearborn_store_house": "M1",
     "fort_dearborn_sutlers_store": "M1",
@@ -6961,7 +6975,7 @@
     "fort_dearborn_wash_house": "A5",
     "jb_beaubien_homestead": "D1"
    },
-   "principal_roofs_standing": 14
+   "principal_roofs_standing": 17
   },
   {
    "parcel_id": "canal_commissioners_1830",
@@ -6980,7 +6994,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1036478.2,
+   "area_m2": 1035933.6,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",
@@ -7016,7 +7030,12 @@
     "log_jail",
     "miller_house",
     "miller_tannery",
+    "miller_tanyard_bark_shed",
+    "miller_tanyard_drying_shed",
+    "newberry_dole_packing_house_south_branch",
+    "newberry_dole_salt_house_south_branch",
     "newberry_dole_slaughterhouse_south_branch",
+    "newberry_dole_stock_shed_south_branch",
     "newberry_dole_warehouse",
     "north_bank_shed_dearborn_e1",
     "north_side_school_1833",
@@ -7077,7 +7096,12 @@
     "log_jail": "I3",
     "miller_house": "C4",
     "miller_tannery": "W5",
+    "miller_tanyard_bark_shed": "A4",
+    "miller_tanyard_drying_shed": "A5",
+    "newberry_dole_packing_house_south_branch": "W3",
+    "newberry_dole_salt_house_south_branch": "A4",
     "newberry_dole_slaughterhouse_south_branch": "W5",
+    "newberry_dole_stock_shed_south_branch": "A1",
     "newberry_dole_warehouse": "F2",
     "north_bank_shed_dearborn_e1": "F1",
     "north_side_school_1833": "I2",
@@ -7117,7 +7141,7 @@
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 46
+   "principal_roofs_standing": 47
   },
   {
    "parcel_id": "wabansia",
@@ -7368,7 +7392,6 @@
     "recon_1835_west_041",
     "recon_1835_west_043",
     "recon_1835_west_045",
-    "recon_1835_west_046",
     "recon_1835_west_047",
     "recon_1835_west_048",
     "recon_1835_west_049",
@@ -7408,7 +7431,6 @@
     "recon_1835_west_041": "D2",
     "recon_1835_west_043": "D3",
     "recon_1835_west_045": "D5",
-    "recon_1835_west_046": "F1",
     "recon_1835_west_047": "A1",
     "recon_1835_west_048": "D1",
     "recon_1835_west_049": "D1",
@@ -7419,7 +7441,7 @@
     "recon_1835_west_054": "A1",
     "recon_1835_west_055": "A2"
    },
-   "principal_roofs_standing": 32
+   "principal_roofs_standing": 31
   },
   {
    "parcel_id": "the_landing_place",

@@ -58,7 +58,8 @@
           {"structure_id": "fort_dearborn_magazine", "why": "Inside the stockade."},
           {"structure_id": "fort_dearborn_store_house", "why": "Inside the stockade."},
           {"structure_id": "fort_dearborn_artillery_house", "why": "Inside the stockade."},
-          {"structure_id": "fort_dearborn_root_house", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_root_house", "why": "On the reservation, on the river bank west of the pickets where Kinzie puts the garrison's root-houses. THIS ENTRY SAID \"Inside the stockade\" UNTIL T-1715 AND THAT WAS WRONG: the record's own position is 30 m from the palisade's centre, outside a 53 m enclosure. The permission is unaffected \u2014 the reservation is the reservation \u2014 but the reason was not the record's."},
+          {"structure_id": "fort_dearborn_root_house_b", "why": "The second of the root-houses Kinzie puts on that bank, 9 m west of the first and on the same footing. T-1715."},
           {"structure_id": "fort_dearborn_flagstaff", "why": "Inside the stockade, on the parade. Andreas puts a fifty-foot flagstaff at the fort in the years the scene sits in; see docs/RESEARCH/fort_dearborn.md \u00a7 10."},
           {"structure_id": "fort_dearborn_blockhouse", "why": "Inside the stockade."},
           {"structure_id": "fort_dearborn_sutlers_store", "why": "A garrison building on the garrison's own ground."},
@@ -72,6 +73,8 @@
           {"structure_id": "chicago_lighthouse_1832", "why": "Andreas, scan p. 263: 'Fort Dearborn and the light-house are placed at the angle thus formed' — the light stood on the reservation beside the fort at the river mouth."},
           {"structure_id": "jb_beaubien_homestead", "why": "The one private dwelling documented ON the reservation. Beaubien lived there and filed the pre-emption claim over the whole 75.69 acres on 1835-05-28; the record carries the passages and the unresolved corner."},
           {"structure_id": "beaubien_barn", "why": "Beaubien's own outbuilding beside the homestead, on the same evidence."},
+          {"structure_id": "beaubien_new_residence", "why": "The new residence Andreas records Beaubien building at the same homestead, on the same evidence as the house and the barn: Andreas lists four buildings on this ground and this is the second of them. The PRESENCE is what this permission rests on; the position and the size are ours and are claimed by docs/LIBERTIES.md L283, which is the same footing the barn beside it stands on."},
+          {"structure_id": "beaubien_trading_post", "why": "The small trading post in the same list, on the same evidence. It is a private trade room on a private pre-emption claim and is NOT fort_dearborn_us_factors_house above — that is the government's own factory, 140 m south of here, and this project measured the separation on T-0894 and refused the identity. Position and size are ours, under L283."},
           {"structure_id": "south_pier", "why": "The 1834 harbour work itself. It runs out from the reservation's shore and through the bar, which is why it is the one record that touches both regions in this file."}
         ]
       },

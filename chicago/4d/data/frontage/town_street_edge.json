@@ -17,7 +17,7 @@
     "note": "Walk 1.83 m wide, its inner edge 0.25 m off the lot line, its deck 0.11 m over the ground, 0.055 m boards at a 0.32 m pitch — street stock, wider than the 0.26 m trim on the two inns' own walks — laid ACROSS the way a foot travels, HELD BETWEEN TWO STRING PIECES that run along it (T-0460): 0.09 m stock taking the outermost 0.09 m of the walk's own width on each side, its top flush with the boards it holds and its foot at the lowest ground under its own length, so the walk presents one made face to the road instead of a row of board ends standing over it. The boards carry no underside: two triangles a board, facing the earth they are laid on, on tens of thousands of them. The string pieces are cut at a 2.08 m bay rather than under every board: a town's worth of sidewalk is tens of thousands of small boxes, an edge timber to a board is a quarter of the walk's silhouette and three quarters of its cost, and the ground these streets cross is flat enough (the march refuses any stretch that rolls more than 0.07 m inside a walking deck) that a bay-length piece meets it as closely as a board-length one did. Every board in a bay takes THAT BAY's height rather than sampling the terrain under its own centre, which is what makes the top of the string piece and the tops of the boards it holds one line. Crossings 1.83 m wide and 6 boards laid ALONG the run. Fences 1.37 m tall — 4 ft 6 in, a street fence and not the Sauganash's private six-foot yard wall — of 0.305 m boards butted at 0.006 m on 2 stringers, posts every 2.44 m. Hitching posts 1.3 m tall and 0.16 m square under a 0.22 m capped head — the Sauganash's own numbers (T-0090, docs/LIBERTIES.md L136) carried across unchanged — standing 0.9 m beyond the walk's outer edge, in the same verge that hotel's own posts stand in. Not one of those numbers is a record's; they are how the layer is DRAWN."
   },
   "rule": {
-    "note": "A block face carries a walk iff it fronts one of the covered streets and a walk at its lot line still clears that street's own travelled track by 0.35 m. The face is then MARCHED in 5.2 m steps, and a step carries boards iff the ground under it stands at least 0.15 m over datum, rolls no more than 0.07 m (which is what lets the whole step be ONE deck a visitor stands on), and carries no committed footprint. Consecutive carrying steps become a run; a run under 10.4 m is a landing rather than a sidewalk and is dropped. A crossing exists only where two runs stop either side of one corridor. A lot gets a street fence iff it is improved and its nearest committed wall stands 3.0 m or more back from its own frontage line — where it does not, the building is the street wall. A FRONTAGE GETS A HITCHING POST iff a committed building stands on its lot, that building's trade is one this project already rules takes its custom from a stranger off the street (PUBLIC_TRADES in tools/generate_business_signboards.py — a works or a warehouse took carts at a yard gate and is refused in writing), that trade is held attested, documented or inferred rather than dealt by the roof schedule, the walk was actually laid in front of it, and the post's own stand is dry committed ground clearing the track by 0.35 m. It stands at 0.28 of the BUILDING's own frontage — not the lot's, because two trades can share a lot — and 2.98 m out from the lot line. ANONYMITY DOES NOT REFUSE A POST and is not an omission (T-1052): the signboard rule refuses an anonymous slot because a board carries a name and the slot has none, while a post carries no lettering — and this same record already lines 29 of its 31 fence runs wholly in front of anonymous slots on the same reasoning. The clause that bites at an invented roof is the trade's grade. Every refusal below names the clause that refused it. Read them in tools/generate_frontage_works.py.",
+    "note": "A block face carries a walk iff it fronts one of the covered streets, its own block is IMPROVED — a committed footprint stands somewhere on the block's own ground, asked of the block boundary and not of its lots so that the PUBLIC SQUARE, which this plat cuts into no lots at all, keeps the walks its jail and estray pen earn; because an unimproved block is open prairie and the town did not plank prairie (T-1707, the clause the street fence and the hitching post already carried and this rule did not) — and a walk at its lot line still clears that street's own travelled track by 0.35 m. The face is then MARCHED in 5.2 m steps, and a step carries boards iff the ground under it stands at least 0.15 m over datum, rolls no more than 0.07 m (which is what lets the whole step be ONE deck a visitor stands on), and carries no committed footprint. Consecutive carrying steps become a run; a run under 10.4 m is a landing rather than a sidewalk and is dropped. A crossing exists only where two runs stop either side of one corridor. A lot gets a street fence iff it is improved and its nearest committed wall stands 3.0 m or more back from its own frontage line — where it does not, the building is the street wall. A FRONTAGE GETS A HITCHING POST iff a committed building stands on its lot, that building's trade is one this project already rules takes its custom from a stranger off the street (PUBLIC_TRADES in tools/generate_business_signboards.py — a works or a warehouse took carts at a yard gate and is refused in writing), that trade is held attested, documented or inferred rather than dealt by the roof schedule, the walk was actually laid in front of it, and the post's own stand is dry committed ground clearing the track by 0.35 m. It stands at 0.28 of the BUILDING's own frontage — not the lot's, because two trades can share a lot — and 2.98 m out from the lot line. ANONYMITY DOES NOT REFUSE A POST and is not an omission (T-1052): the signboard rule refuses an anonymous slot because a board carries a name and the slot has none, while a post carries no lettering — and this same record already lines 29 of its 31 fence runs wholly in front of anonymous slots on the same reasoning. The clause that bites at an invented roof is the trade's grade. Every refusal below names the clause that refused it. Read them in tools/generate_frontage_works.py.",
     "covered_streets": [
       "south_water",
       "lake",
@@ -25,9 +25,9 @@
       "washington"
     ],
     "faces_laid": 36,
-    "walk_m": 3224.6,
+    "walk_m": 3224.7,
     "crossing_m": 881.9,
-    "fence_m": 1630.4,
+    "fence_m": 1606.1,
     "walking_decks": 255,
     "hitching_posts": 16
   },
@@ -44,13 +44,13 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3224.6,
+        "value": 3224.7,
         "confidence": "reconstructed",
         "sources": [],
         "note": "39 run(s) of sidewalk on 36 platted block face(s), plus 881.9 m of board crossing at 37 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1630.4,
+        "value": 1606.1,
         "confidence": "reconstructed",
         "sources": [],
         "note": "31 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
@@ -2195,7 +2195,7 @@
       "chunk": "blk_lake_market_south_1",
       "centreline_local_enu_m": [
         [
-          194.83,
+          194.84,
           -243.01
         ],
         [
@@ -2210,13 +2210,13 @@
       "plank_thickness_m": 0.055,
       "plank_underside": false,
       "plank_step_m": 1.8,
-      "run_m": 24.39,
+      "run_m": 24.38,
       "footway_decks": [
         {
           "y": 0.869,
           "pts": [
             [
-              194.74,
+              194.75,
               -243.93
             ],
             [
@@ -2224,11 +2224,11 @@
               -244.03
             ],
             [
-              207.11,
+              207.12,
               -242.2
             ],
             [
-              194.76,
+              194.77,
               -242.1
             ]
           ],
@@ -2250,7 +2250,7 @@
               -242.3
             ],
             [
-              206.95,
+              206.96,
               -242.2
             ]
           ],
@@ -2347,7 +2347,7 @@
           -242.22
         ],
         [
-          194.83,
+          194.84,
           -243.01
         ]
       ],
@@ -2373,7 +2373,7 @@
               -241.48
             ],
             [
-              117.91,
+              117.92,
               -243.31
             ],
             [
@@ -2395,11 +2395,11 @@
               -241.64
             ],
             [
-              138.44,
+              138.45,
               -243.47
             ],
             [
-              117.75,
+              117.76,
               -243.31
             ]
           ],
@@ -2413,15 +2413,15 @@
               -241.64
             ],
             [
-              158.99,
+              159.0,
               -241.81
             ],
             [
-              158.97,
+              158.98,
               -243.64
             ],
             [
-              138.28,
+              138.29,
               -243.47
             ]
           ],
@@ -2431,11 +2431,11 @@
           "y": 0.9,
           "pts": [
             [
-              158.83,
+              158.84,
               -241.81
             ],
             [
-              179.52,
+              179.53,
               -241.98
             ],
             [
@@ -2443,7 +2443,7 @@
               -243.81
             ],
             [
-              158.81,
+              158.82,
               -243.64
             ]
           ],
@@ -2453,15 +2453,15 @@
           "y": 0.91,
           "pts": [
             [
-              179.36,
+              179.37,
               -241.97
             ],
             [
-              194.92,
+              194.93,
               -242.1
             ],
             [
-              194.9,
+              194.91,
               -243.93
             ],
             [
@@ -8236,8 +8236,8 @@
           -122.86
         ],
         [
-          195.55,
-          -123.46
+          171.29,
+          -123.26
         ]
       ],
       "height_m": 1.37,
@@ -8248,11 +8248,10 @@
       "rail_courses": 2,
       "lots": [
         2,
-        4,
-        6
+        4
       ],
-      "least_setback_m": 6.99,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_market's own platted frontage line from 24.4 m to 97.5 m along the north face, covering lot(s) 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 6.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "least_setback_m": 7.0,
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_market's own platted frontage line from 24.4 m to 73.3 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 7.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_market_south_fence_9",
@@ -8268,7 +8267,7 @@
           -241.45
         ],
         [
-          194.84,
+          194.85,
           -241.85
         ]
       ],
@@ -9381,7 +9380,7 @@
     {
       "structure_id": "blk_lake_clark_lot0",
       "wall": "blk_lake_clark north face, lot 0",
-      "why": "recon_1835_blk_lake_clark_d5_03 stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_lake_clark_c3_03 stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_clark_lot2",
@@ -9431,7 +9430,7 @@
     {
       "structure_id": "blk_lake_franklin_lot4",
       "wall": "blk_lake_franklin north face, lot 4",
-      "why": "recon_1835_blk_lake_franklin_d5_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_lake_franklin_c2_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_franklin_lot6",
@@ -9467,6 +9466,11 @@
       "structure_id": "blk_lake_market_lot3",
       "wall": "blk_lake_market south face, lot 3",
       "why": "inf_packer_dwelling stands 0.90 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
+      "structure_id": "blk_lake_market_lot6",
+      "wall": "blk_lake_market north face, lot 6",
+      "why": "recon_1835_blk_lake_market_c2_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_wells_lot0",
@@ -9729,6 +9733,36 @@
       "why": "the two walks stop 60.9 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
+      "structure_id": "blk_washington_clark_north",
+      "wall": "blk_washington_clark north face",
+      "why": "no committed building stands anywhere on blk_washington_clark — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_dearborn_north",
+      "wall": "blk_washington_dearborn north face",
+      "why": "no committed building stands anywhere on blk_washington_dearborn — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_franklin_north",
+      "wall": "blk_washington_franklin north face",
+      "why": "no committed building stands anywhere on blk_washington_franklin — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_lasalle_north",
+      "wall": "blk_washington_lasalle north face",
+      "why": "no committed building stands anywhere on blk_washington_lasalle — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_market_north",
+      "wall": "blk_washington_market north face",
+      "why": "no committed building stands anywhere on blk_washington_market — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_wells_north",
+      "wall": "blk_washington_wells north face",
+      "why": "no committed building stands anywhere on blk_washington_wells — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
       "structure_id": "dole_warehouse_south",
       "wall": "blk_lake_dearborn north face, lot 0",
       "why": "dole_warehouse_south is a warehouse_and_slaughter_yard — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
@@ -9752,6 +9786,31 @@
       "structure_id": "physicians_office",
       "wall": "blk_lake_lasalle north face, lot 6",
       "why": "the trade at physicians_office is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c1_01",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c1_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c2_02",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c2_02 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c3_03",
+      "wall": "blk_lake_clark north face, lot 0",
+      "why": "the trade at recon_1835_blk_lake_clark_c3_03 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_franklin_c2_01",
+      "wall": "blk_lake_franklin north face, lot 4",
+      "why": "the trade at recon_1835_blk_lake_franklin_c2_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_market_c2_01",
+      "wall": "blk_lake_market north face, lot 6",
+      "why": "the trade at recon_1835_blk_lake_market_c2_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_c2_01",

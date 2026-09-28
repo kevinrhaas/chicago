@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 423,
-    "structures_reached": 69,
+    "structures_placed": 435,
+    "structures_reached": 72,
     "structures_reached_by_grade": {
-      "inferred": 19,
-      "reconstructed": 50
+      "inferred": 21,
+      "reconstructed": 51
     },
     "structures_unreached_by_section": {
-      "09": 352,
+      "09": 361,
       "10": 1,
       "16": 1
     },
@@ -2503,6 +2503,14 @@
           "margin_m": 94.6
         },
         {
+          "id": "beaubien_new_residence",
+          "margin_m": 84.9
+        },
+        {
+          "id": "beaubien_trading_post",
+          "margin_m": 99.3
+        },
+        {
           "id": "chicago_lighthouse_1832",
           "margin_m": 40.9
         },
@@ -2565,6 +2573,10 @@
         {
           "id": "fort_dearborn_root_house",
           "margin_m": 19.5
+        },
+        {
+          "id": "fort_dearborn_root_house_b",
+          "margin_m": 16.2
         },
         {
           "id": "fort_dearborn_shop",
@@ -39511,10 +39523,12 @@
   ],
   "structures_unreached_by_section": {
     "09": [
+      "agency_striker_log_house",
       "bates_auction_room",
       "blacksmith_shop_state_st",
       "brickyard_north_side",
       "brown_boarding_house",
+      "caldwell_agency_log_house",
       "carpenter_south_water_store",
       "chappel_infant_school",
       "chicago_american_office",
@@ -39524,6 +39538,7 @@
       "cook_county_courthouse_1835",
       "dearborn_street_drawbridge",
       "dole_warehouse_south",
+      "elston_ash_house",
       "elston_soap_candle_manufactory",
       "estray_pen",
       "exchange_coffee_house",
@@ -39575,10 +39590,16 @@
       "madore_beaubien_house",
       "mansion_house",
       "mason_blacksmith_shop",
+      "mckee_log_house",
       "miller_house",
       "miller_tannery",
+      "miller_tanyard_bark_shed",
+      "miller_tanyard_drying_shed",
       "new_york_house",
+      "newberry_dole_packing_house_south_branch",
+      "newberry_dole_salt_house_south_branch",
       "newberry_dole_slaughterhouse_south_branch",
+      "newberry_dole_stock_shed_south_branch",
       "newberry_dole_warehouse",
       "north_bank_shed_dearborn_e1",
       "north_bank_shed_dearborn_e2",
@@ -39594,19 +39615,19 @@
       "pierce_blacksmith_shop",
       "pruyne_kimball_drugstore",
       "recon_1835_blk_lake_clark_a3_04",
-      "recon_1835_blk_lake_clark_d1_01",
-      "recon_1835_blk_lake_clark_d3_02",
-      "recon_1835_blk_lake_clark_d5_03",
+      "recon_1835_blk_lake_clark_c1_01",
+      "recon_1835_blk_lake_clark_c2_02",
+      "recon_1835_blk_lake_clark_c3_03",
       "recon_1835_blk_lake_franklin_a1_03",
+      "recon_1835_blk_lake_franklin_c2_01",
       "recon_1835_blk_lake_franklin_d1_02",
-      "recon_1835_blk_lake_franklin_d5_01",
       "recon_1835_blk_lake_market_a1_06",
       "recon_1835_blk_lake_market_a3_07",
+      "recon_1835_blk_lake_market_c2_01",
       "recon_1835_blk_lake_market_d1_05",
       "recon_1835_blk_lake_market_d2_04",
       "recon_1835_blk_lake_market_d3_03",
       "recon_1835_blk_lake_market_d4_02",
-      "recon_1835_blk_lake_market_d5_01",
       "recon_1835_blk_randolph_clark_a3_08",
       "recon_1835_blk_randolph_clark_a4_07",
       "recon_1835_blk_randolph_clark_c2_01",

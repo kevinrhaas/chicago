@@ -1749,6 +1749,22 @@
       ]
     },
     {
+      "why": "T-1253: jaunts resolve compiled scene destinations and business premises, then source-use registers their evidence. Bare regeneration reproduced both staged output files byte-for-byte. Run after compile_scene and before compile_source_use.",
+      "command": [
+        "python3",
+        "tools/compile_jaunts.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/sidecars/1835/jaunts/catalog.json",
+        "chicago/4d/data/sidecars/1835/jaunts/new-in-chicago.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/compile_jaunts.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1248: source-use is a pure export of the authored families and current-scene membership, so it follows compile_scene.py. Measured bare mode reproduces all staged output bytes. These new files contain only this compiler’s outputs; the manifest owns their conflict resolution by rebuilding, never by merging backlinks.",
       "command": [
         "python3",

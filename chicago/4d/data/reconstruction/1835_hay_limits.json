@@ -314,11 +314,11 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 303,
-  "outside": 119,
+  "inside": 312,
+  "outside": 122,
   "no_committed_position": 0,
   "outside_by_where": {
-   "on_the_united_states_reservation": 23,
+   "on_the_united_states_reservation": 26,
    "north_of_the_limit": 23,
    "west_of_canal_street": 71,
    "south_of_washington_street": 1,
@@ -328,6 +328,8 @@
   "outside_ids_by_where": {
    "on_the_united_states_reservation": [
     "beaubien_barn",
+    "beaubien_new_residence",
+    "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "fort_dearborn_artillery_house",
     "fort_dearborn_barracks",
@@ -344,6 +346,7 @@
     "fort_dearborn_palisade",
     "fort_dearborn_parade",
     "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
     "fort_dearborn_shop",
     "fort_dearborn_store_house",
     "fort_dearborn_sutlers_store",
@@ -463,11 +466,72 @@
  "block_infill_programme": {
   "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
   "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
-  "blocks_with_four_bounding_streets": 57,
+  "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
-  "outside_the_limit": 33,
-  "scheduling_roofs_outside_the_limit": 0,
-  "scheduling_roofs_outside_the_limit_rows": [],
+  "outside_the_limit": 39,
+  "scheduling_roofs_outside_the_limit": 6,
+  "scheduling_roofs_outside_the_limit_rows": [
+   {
+    "id": "blk_washington_market",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     144.82,
+     -454.01
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_franklin",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     266.78,
+     -454.51
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_wells",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     388.78,
+     -455.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_lasalle",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     511.41,
+     -455.5
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_clark",
+    "state": "open",
+    "roofs_scheduled": 8,
+    "centre_local_enu_m": [
+     634.55,
+     -456.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_dearborn",
+    "state": "open",
+    "roofs_scheduled": 6,
+    "centre_local_enu_m": [
+     760.04,
+     -456.51
+    ],
+    "inside_the_limit": false
+   }
+  ],
   "blocks_outside_the_limit": [
    {
     "id": "blk_lake_clinton",
@@ -486,6 +550,66 @@
     "centre_local_enu_m": [
      -215.87,
      -318.38
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_market",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     144.82,
+     -454.01
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_franklin",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     266.78,
+     -454.51
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_wells",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     388.78,
+     -455.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_lasalle",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     511.41,
+     -455.5
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_clark",
+    "state": "open",
+    "roofs_scheduled": 8,
+    "centre_local_enu_m": [
+     634.55,
+     -456.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_dearborn",
+    "state": "open",
+    "roofs_scheduled": 6,
+    "centre_local_enu_m": [
+     760.04,
+     -456.51
     ],
     "inside_the_limit": false
    },
@@ -912,8 +1036,8 @@
    {
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
-    "state": "gated",
-    "roofs": 104
+    "state": "complete",
+    "roofs": 0
    },
    {
     "id": "west_division_beyond_committed_control",
@@ -925,7 +1049,7 @@
     "id": "north_division_beyond_modelled_ground",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 67
+    "roofs": 61
    },
    {
     "id": "fort_dearborn_compound",

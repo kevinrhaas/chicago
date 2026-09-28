@@ -1,5 +1,7 @@
 # Arrival, jaunts, and the sources behind Chicago
 
+Authoring contract: [JAUNTS-AUTHORING.md](JAUNTS-AUTHORING.md) (T-1253).
+
 Owner-directed design, 17 September 2026. This document specifies future work;
 the associated ticket filing does not claim that the experience is implemented.
 Execution order and requirement coverage: [ARRIVAL-JAUNTS-EXECUTION.md](ARRIVAL-JAUNTS-EXECUTION.md).
@@ -343,6 +345,12 @@ set | inc, var | item, value }`. `endings[]`: `{ id, when?, text, default? }`. `
 liberty? }` — a `reconstructed` sentence never cites as if attested; a quotation is never
 attributed to a named person. No `eval`, no HTML, no per-jaunt code.
 
+T-1253 implements this contract with stable evidence IDs and explicit stop-to-evidence
+references, declared inventory item IDs/initial contents, optional `action_s`, and
+ending `read_s`/`completion_eligible`. `$end` selects the first matching ending,
+then the default; `Previous` is history navigation without effects. Exact field
+shapes and refusal rules are in [JAUNTS-AUTHORING.md](JAUNTS-AUTHORING.md).
+
 ### D. Source-use index
 
 `tools/compile_source_use.py` (T-1248) → `data/sidecars/1835/sources/index.json`
@@ -364,6 +372,16 @@ standOff, limit } | null }`. Kinds: `anchor, intersection, structure, business, 
 `business` reads the authored layer when present, else derives one row per trade-function
 structure (`derived_from: 'structure'`). Unlocated rows open their card and never gain
 coordinates.
+
+Implemented by T-1277: Go to consumes this inventory directly, including its ordered
+groups and optional visitor-relative browse ordering. The business index is authoritative
+even when empty; nearby anchors and street-only locations do not become premises.
+The renderer injects `standFor`, `router` and `terrain` into the model. Resolution adds
+`structureId` and the safe `standOff` (with surface height), refusing blocked building
+stands. `api.spawnAtDestination(target)` resolves with `card: false`, stops travel,
+grounds the walker and uses the same arrival-framing function without opening a ride.
+Resolving alone, or dismissing with a null selection, never moves the visitor. The
+welcome picker itself remains T-1278.
 
 ### F. Harness contract — ids and signals the gate reads
 

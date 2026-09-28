@@ -90,6 +90,7 @@ from family_bands import (eave_floor, eave_for_ridge,  # noqa: E402
                           wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
+from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 # T-0112. The clapboard stock is dealt at the end of the parcel, because it is the one
 # form value that depends on where a building's neighbours stand — and the recipe is
@@ -375,13 +376,16 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float) ->
         }
 
     if family.startswith("D") and family != "D2" or family == "H1":
-        plan = "centre_passage" if family in ("D7", "H2") else (
-            "single_pen" if family == "D3" else "hall_parlour")
+        # WHICH HOUSES STAND BEHIND A CENTRE HALL is `tools/house_front.py`'s
+        # answer and no longer this file's (T-1686) — additive, so this parcel's
+        # own default stands for every family whose crosswalk entry says nothing.
+        plan = plan_for(family, "centre_passage" if family in ("D7", "H2") else (
+            "single_pen" if family == "D3" else "hall_parlour"))
         return {
             "stories": inferred(stories, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why), "roof_pitch_deg": inferred(pitch(), why),
             "construction": inferred(frame, why), "plan": inferred(plan, why),
-            "bays": inferred(5 if family in ("D7", "H2") else 3, why),
+            "bays": inferred(bays_for(family, 5 if family in ("D7", "H2") else 3), why),
             "chimneys": inferred(2 if family.startswith("H") else 1, why),
             "paint": inferred(paint, why),
         }
@@ -498,6 +502,40 @@ STREET_ADJUSTMENTS = {
     # inside the same +/-20 m.
     "west_rec_027": (12.25, 0.00),   # Jefferson Street, 11.9 m in; clears by 0.40 m
     "west_rec_037": (10.00, 0.00),   # Jefferson Street, 9.7 m in; clears by 0.30 m
+    # T-1570 re-deals the SIX ROOFS THAT WERE ALREADY BUILT IN ONE. T-1545 froze them in
+    # `WEST_DIVISION_CORRIDOR_OCCUPANTS` rather than moving them, on the ground that
+    # "re-seating six committed roofs is a different act from releasing two that were never
+    # built", and handed the act on. It is done here, and the reason it is done rather than
+    # refused is the inconsistency the freeze itself recorded: west_046 stood 12.08 m into
+    # Des Plaines, DEEPER than either of the two slots the Jefferson hold refused to build
+    # at all, and west_030 and west_033 stood inside Jefferson itself while west_027 and
+    # west_037 were refused for the same offence on the same street. A bar that refuses a
+    # slot at 9.7 m and keeps a roof at 12.08 m is not a bar. Refusing the corridor in
+    # writing for west_046 — the one acceptance said a refusal would have to argue hardest
+    # for — would have to argue that a roof may stand where a slot may not, and nothing in
+    # this parcel's record says that.
+    #
+    # THE RULE IS THE ONE ALREADY IN THIS TABLE, unchanged: the nearest quarter-metre step
+    # perpendicular to the street that clears the corridor and still passes every other
+    # gate — collision with this parcel and with every committed record, the platted
+    # corridor layer, terrain cover, the dry-ground test and the 0.35 m step contract —
+    # searched outward from the slot's present seat and taking the negative step first at
+    # equal distance, as T-1545 did. And the MARGIN is T-1545's too: a step is only taken
+    # as clearing if it leaves the corridor edge by at least a full quarter metre, because
+    # `plat_corridors.QUOTED_M` says a depth may honestly be quoted to 0.01 m once ring,
+    # footprint and datum have each been rounded, and a thinner clearance is a building
+    # that re-derives back into the roadway the next time any of the three moves.
+    #
+    # Every move is inside the +/-20 m working uncertainty the recipe states for its own
+    # layout coordinates, the largest is 13.25 m, and no roof leaves the cluster it was
+    # dealt into. Nothing is re-dealt into a different family, rectangle, finish or age:
+    # `seq` is untouched, so only the seat moves.
+    "west_rec_005": (0.00, 4.00),    # Fulton Street, 3.72 m in; clears by 0.28 m
+    "west_rec_006": (0.00, 5.00),    # Fulton Street, 4.61 m in; clears by 0.39 m
+    "west_rec_030": (-3.75, 0.00),   # Jefferson Street, 3.28 m in; clears by 0.47 m
+    "west_rec_033": (-4.25, 0.00),   # Jefferson Street, 3.80 m in; clears by 0.45 m
+    "west_rec_039": (-2.75, 0.00),   # Des Plaines Street, 2.37 m in; clears by 0.38 m
+    "west_rec_046": (13.25, 0.00),   # Des Plaines Street, 12.08 m in; clears by 0.39 m
 }
 
 # THE EAVES-FRONT HOLD — T-1497, and it replaces a quarter-circle turn.
@@ -576,23 +614,23 @@ HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 # FROZEN — the same shape as `SWALE_CORRIDOR_OCCUPANTS` below, and for the same reason: a
 # frozen set says both what stands there and that nothing new may join it.
 #
-# SIX OF THIS PARCEL'S ROOFS ALREADY STAND IN ONE, and they are named here rather than
-# hidden by the re-deal. Two of them are in JEFFERSON — the very street the hold refused
-# two slots for — so the bar the hold quoted was never being applied evenly: west_030 at
-# 3.28 m and west_033 at 3.80 m were built inside it while west_027 and west_037 were
-# refused for the same offence at greater depth, and west_046 stands 12.08 m into Des
-# Plaines, deeper than either of the two that were held. They are not moved here. Each was
-# dealt, reviewed and baked on its present seat, and re-seating six committed roofs is a
-# different act from releasing two that were never built — T-1570 owns it, with these
-# readings. What this set does is stop a seventh arriving unremarked.
-WEST_DIVISION_CORRIDOR_OCCUPANTS = {
-    (f"{PREFIX}005", "fulton"),        # 3.72 m in
-    (f"{PREFIX}006", "fulton"),        # 4.61 m in
-    (f"{PREFIX}030", "jefferson"),     # 3.28 m in
-    (f"{PREFIX}033", "jefferson"),     # 3.80 m in
-    (f"{PREFIX}039", "des_plaines"),   # 2.37 m in
-    (f"{PREFIX}046", "des_plaines"),   # 12.08 m in
-}
+# SIX OF THIS PARCEL'S ROOFS STOOD IN ONE, AND THE SET IS NOW EMPTY (T-1570, 2026-09-28).
+# T-1545 named them here rather than hiding them behind its own re-deal, and handed the
+# act of moving them on; the six offsets are in `STREET_ADJUSTMENTS` above, each with the
+# street it was in, the depth it stood at and the margin it now clears by. All six are
+# this parcel's own — the filing note's guess that west_039 and west_046 belonged to some
+# other generator does not survive the dealing order, which deals every one of the six.
+#
+# THE SET STAYS, EMPTY, AND THE GATE BELOW STILL FIRES. An empty frozen set is the
+# strongest form of this assertion, not the absence of one: any roof of this parcel that
+# re-derives into a drawn roadway is now an ARRIVAL and stops the generator, and the six
+# leaving is itself recorded here as the release T-1545 asked the set to record.
+#
+# WHAT THIS DOES NOT DO — and it is the larger question, filed as its own ticket rather
+# than answered here: the corridor LAYER still omits 46 of the 79 streets this project
+# draws, so this parcel is the only one measured against them. Turning that gate on
+# town-wide would go red on records nobody has adjudicated.
+WEST_DIVISION_CORRIDOR_OCCUPANTS: set[tuple[str, str]] = set()
 
 
 def omitted_street_corridors() -> dict:

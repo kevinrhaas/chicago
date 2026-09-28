@@ -53,6 +53,7 @@
  *   node tools/rederive.mjs --resolvable <paths…>   may these conflicts be cleared?
  *   node tools/rederive.mjs --run                   run the sequence, then the second pass
  *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661)
+ *   node tools/rederive.mjs --resolve               mid-merge: clear derived conflicts by rebuilding
  *   node tools/rederive.mjs --callers <script…>     no caller re-runs a step bare (T-1661)
  *   node tools/rederive.mjs --prove                 does every step write what it claims?
  *   node tools/rederive.mjs --self-test
@@ -328,6 +329,10 @@ function tailFrom(from, m = load()) {
 function tail(from, m = load()) {
   const first = tailFrom(from, m);
   if (first < 0) return 1;
+  return runFrom(first, m);
+}
+
+function runFrom(first, m = load()) {
   const run_ = m.steps.slice(first);
   for (const [i, s] of run_.entries()) {
     const label = s.command.join(' ');
@@ -342,6 +347,119 @@ function tail(from, m = load()) {
   }
   console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
     + 'order, no second pass (the caller has already had it from --run)');
+  return 0;
+}
+
+/* ------------------------------------------------------------------ resolve */
+
+/**
+ * THE LAP'S RESOLUTION, FOR A MERGE IN A CLONE (2026-09-28).
+ *
+ * pr-lap.sh clears a conflict in the derived layer on the server side: take either
+ * side, rebuild from source. A merge made by hand in a clone had no such step.
+ * Measured on PR #137 on 2026-09-27: its merge of `dev` conflicted TWICE in
+ * data/sidecars/1835/sources/ (index.json, andreas_1884_v1.json,
+ * chicago_democrat_1833_1835.json), and each time it was cleared by hand with the
+ * same two moves the lap makes. #130 hit the same files. They conflict on any two branches that both touch a
+ * citation, because the backlink files are one derivation of every citation.
+ *
+ * A merge driver cannot do this. git runs a driver on ONE FILE while the merge is
+ * still going, before the inputs that file is derived from have been merged, so
+ * the most a driver can do is keep one side. The rebuild has to come after the
+ * merge. So this is a step, not a driver:
+ *
+ *   git merge origin/dev           conflicts in derived files are left standing
+ *   node tools/rederive.mjs --resolve
+ *   ./tools/check.sh               the proof, as it is for the lap
+ *   git commit
+ *
+ * It clears ONLY paths the manifest lists (and never one that declares
+ * hand_authored). If anything else is still unmerged it refuses and touches
+ * nothing, because the rebuild reads its inputs and an input with markers in it is
+ * not an input. Resolve those by hand first, then run it again.
+ *
+ * NARROWEST CORRECT REBUILD. It runs `--tail` from the earliest step that owns a
+ * conflicted file, so a conflict only in the source backlinks costs the last
+ * handful of steps, not all 160. But if that step sits at or above a
+ * second-pass step, `--tail` cannot settle the residents/model cycle (see `tail`),
+ * so the whole `--run` is taken instead.
+ */
+function resolvePlan(unmerged, m = load(), handAuthoredOurs = () => false) {
+  const owner = new Map();
+  m.steps.forEach((s, i) => (s.resolves ?? []).forEach((r) => { if (!owner.has(r)) owner.set(r, i); }));
+  const paths = unmerged.map(normalise);
+  const refused = paths.filter((p) => owner.has(p) && handAuthoredOurs(p));
+  const derived = paths.filter((p) => owner.has(p) && !handAuthoredOurs(p));
+  const other = paths.filter((p) => !owner.has(p)).concat(refused);
+  if (derived.length === 0 || other.length) return { derived, other, first: -1, full: false };
+  const first = Math.min(...derived.map((p) => owner.get(p)));
+  const passKeys = new Set((m.second_pass ?? []).map((e) => e.command.join(' ')));
+  const passAt = m.steps.map((s, i) => [i, s]).filter(([, s]) => passKeys.has(s.command.join(' ')))
+    .map(([i]) => i);
+  const full = passAt.some((i) => i >= first);
+  return { derived, other, first, full };
+}
+
+function resolveMerge(m = load()) {
+  const git = (...a) => execFileSync('git', a, { cwd: REPO, encoding: 'utf8' });
+  let unmerged;
+  try {
+    unmerged = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
+  } catch (e) {
+    console.error(`--resolve: could not list unmerged paths — ${String(e.message).split('\n')[0]}`);
+    return 1;
+  }
+  if (unmerged.length === 0) {
+    console.log('--resolve: nothing is unmerged — no conflict to clear');
+    return 0;
+  }
+  // hand_authored is read from OUR side of the index (stage 2): the working copy
+  // has conflict markers in it and would not parse, which would read as "no".
+  const oursDeclares = (rel) => {
+    if (!rel.endsWith('.json')) return false;
+    try { return JSON.parse(git('show', `:2:${rel}`)).hand_authored === true; } catch { return false; }
+  };
+  const plan = resolvePlan(unmerged, m, oursDeclares);
+  if (plan.other.length) {
+    console.error(`--resolve: ${plan.other.length} unmerged path(s) are not the manifest's to clear:`);
+    plan.other.forEach((p) => console.error(`  - ${p}`));
+    console.error(`\nNothing was touched. Resolve ${plan.other.length === 1 ? 'it' : 'those'} by hand `
+      + '(they are inputs or authored), `git add` them, and run --resolve again');
+    if (plan.derived.length) {
+      console.error(`for the ${plan.derived.length} derived file(s) still conflicting, which it `
+        + 'will rebuild from the merged inputs.');
+    }
+    return 1;
+  }
+
+  console.log(`--resolve: ${plan.derived.length} conflicting file(s), all rebuilt from source by the manifest`);
+  git('checkout', '--ours', '--', ...plan.derived);
+
+  // The manifest's LAST step reads the published mirror and refuses without it
+  // (see pr-lap.sh `lap_publish_mirror`, T-1521), and every tail reaches that step.
+  try {
+    execFileSync('bash', ['tools/publish.sh'], { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (e) {
+    console.error('--resolve: the publish the rebuild reads failed:');
+    console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-6).map((l) => `    ${l}`).join('\n'));
+    return 1;
+  }
+
+  const status = plan.full ? run(m) : runFrom(plan.first, m);
+  if (status !== 0) {
+    console.error('--resolve: the rebuild failed. The conflicted files hold OUR side and are NOT added.');
+    return status;
+  }
+
+  // Stage every manifest-owned file the rebuild moved, not just the conflicted
+  // ones: a rebuild that rewrote a file the merge left clean has to ride the same
+  // commit, or that commit ships a tree that does not re-derive.
+  const owned = new Set(allResolved(m));
+  const moved = git('diff', '--name-only').split('\n').filter((p) => p && owned.has(p));
+  const stage = [...new Set([...plan.derived, ...moved])];
+  git('add', '--', ...stage);
+  console.log(`--resolve: ${stage.length} file(s) staged (${plan.derived.length} were conflicting).`);
+  console.log('Next: ./tools/check.sh — the proof, as it is for the lap — then `git commit`.');
   return 0;
 }
 
@@ -510,8 +628,9 @@ async function selfTest() {
   check_('the step a caller re-runs late is found, and it is not the last one',
     tailFrom(scene, real) >= 0 && tailFrom(scene, real) < real.steps.length - 1,
     `step ${tailFrom(scene, real) + 1} of ${real.steps.length}`);
-  check_('and the very next step is the one T-1661 stranded — source-use, off the scene it writes',
-    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('compile_source_use.py'));
+  check_('the scene tail rebuilds jaunts before source-use consumes their claims (T-1253)',
+    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('compile_jaunts.py')
+    && (real.steps[tailFrom(scene, real) + 2]?.command ?? []).join(' ').includes('compile_source_use.py'));
   check_('a name no step runs is refused, not silently skipped', tailFrom('tools/no_such.py', real) === -1);
   check_('a name MANY steps run is refused — the tail has one start', tailFrom('tools/generate_', real) === -1);
   check_('no argument at all is refused', tailFrom('', real) === -1);
@@ -581,6 +700,25 @@ async function selfTest() {
     check_('a repair with no lagging reader above it — it is repairing nothing',
       withPass([{ command: ['python3', 'tools/compile_scene.py'], why: 'downstream of nothing' }]) === 1);
 
+    console.log('\n  and a merge in a clone resolves the way the lap does (--resolve)');
+    const src = (id) => `chicago/4d/data/sidecars/1835/sources/${id}.json`;
+    const srcAt = real.steps.findIndex((st) => st.command.join(' ').includes('compile_source_use'));
+    const p137 = resolvePlan([src('index'), src('andreas_1884_v1'), src('chicago_democrat_1833_1835')], real);
+    check_('#137\'s three source backlinks are all the manifest\'s to clear',
+      p137.derived.length === 3 && p137.other.length === 0, JSON.stringify(p137.other));
+    check_('and they cost a tail from compile_source_use, not the whole sequence',
+      p137.first === srcAt && p137.full === false, `first ${p137.first}, full ${p137.full}`);
+    const pMixed = resolvePlan([src('index'), 'chicago/4d/data/residents/households/hh_taylor_c.json'], real);
+    check_('an authored input still unmerged refuses the set — the rebuild would read its markers',
+      pMixed.other.length === 1 && pMixed.first === -1);
+    const pHand = resolvePlan(['chicago/4d/data/research/land_sales/resident_crosswalk.json'], real,
+      () => true);
+    check_('a listed file whose ours declares hand_authored is refused',
+      pHand.other.length === 1 && pHand.first === -1);
+    const pEarly = resolvePlan(['chicago/4d/data/research/land_sales/resident_crosswalk.json'], real);
+    check_('a conflict above the second pass takes the whole --run — a tail cannot settle the cycle',
+      pEarly.full === true);
+
     console.log('\n  and no caller re-runs a manifest step bare (T-1661)');
     const script = (body) => {
       const f = path.join(tmp, 'caller.sh');
@@ -613,5 +751,6 @@ else if (has('resolvable')) process.exit(resolvable(rest()));
 else if (has('prove')) process.exit(prove());
 else if (has('run')) process.exit(run());
 else if (has('tail')) process.exit(tail(rest()[0]));
+else if (has('resolve')) process.exit(resolveMerge());
 else if (has('callers')) process.exit(callers(rest()));
 else process.exit(check());

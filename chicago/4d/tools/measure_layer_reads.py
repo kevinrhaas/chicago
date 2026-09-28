@@ -203,6 +203,11 @@ MACHINERY_LEAVES = frozenset({
 # renderer has to touch `ground` first. One entry, because the layer rule below
 # removes the need for the rest.
 AMBIGUOUS_LEAVES = frozenset({
+    # T-1277: destination rows use derived_from='structure' to identify fallback
+    # businesses. That is renderer-owned routing metadata, not a read of a
+    # resident's occupation.derived_from. Keep the occupation read detectable
+    # through its parent, as for the other shared vocabulary below.
+    "derived_from",
     "rgb",        # `diffuseColor.rgb` is a three.js shader field, in four files
     "min", "max", # generic range/math leaves; require their data parent to match
     # T-1238's `associated_with[]` rows. `from` and `to` are the two ends of a
@@ -1095,6 +1100,24 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].profile_facts[].record_id": ("shown", "Record ${escapeHtml(String(f.record_id))}"),
     "persons[].profile_facts[].precision": (
         "shown", "the source is exact to the ${escapeHtml(words(f.precision))}"),
+    # T-1588 — what this person HELD, which is its own field because a landholding is a
+    # thing a named man owned and `hh_wright_john` holds a father and a son of nearly the
+    # same name. Every figure is shown: the value, the grade, the volumes, the date the
+    # source speaks about, the sentence it was read from, the reasoning, and the research
+    # record it came from. `place_class` reads as a clause for the same reason it does on
+    # a profile fact — ground outside this town is a different claim and has to say so.
+    "persons[].landholding.value": ("shown", "escapeHtml(String(block.value))"),
+    "persons[].landholding.confidence": ("shown", "swatch(block.confidence)"),
+    "persons[].landholding.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
+    "persons[].landholding.describes_date": (
+        "shown", "escapeHtml(printedOn(block.describes_date))"),
+    "persons[].landholding.place_class": (
+        "shown", "block.place_class === 'outside_chicago' ? ', and ground somewhere other than this town' : ''"),
+    "persons[].landholding.as_read": ("shown", "escapeHtml(String(block.as_read ?? ''))"),
+    "persons[].landholding.note": ("shown", "escapeHtml(String(block.note ?? ''))"),
+    "persons[].landholding.record_id": (
+        "shown", "Record ${escapeHtml(String(block.record_id))}"),
     "persons[].later_census.year": ("shown", "Found again in the ${escapeHtml(String(census.year))} census"),
     "persons[].later_census.source_id": ("shown", "citationsById.get(census.source_id)"),
     "persons[].later_census.serial": ("shown", "enumeration serial ${\n        escapeHtml(String(census.serial))}"),
@@ -2158,6 +2181,11 @@ def self_test() -> int:
          not reads_leaf(src, "cover.litter_fraction")),
         ("the parent-qualified form is used for an ambiguous leaf",
          not reads_leaf(src, "ground.rgb") and reads_leaf(src, "diffuseColor.rgb")),
+        ("destination derivation does not claim an occupation provenance read",
+         not reads_leaf("row.derived_from === 'structure'", "persons[].occupation.derived_from")),
+        ("occupation provenance remains detectable in both access forms",
+         reads_leaf("p.occupation?.derived_from", "persons[].occupation.derived_from")
+         and reads_leaf("p.occupation['derived_from']", "persons[].occupation.derived_from")),
         ("the layer scan sees the layer the renderer does open",
          all(layer_is_opened(src, layer) for layer in LAYERS)),
         # T-0021. `data/residents` had two readers and no read map for eleven

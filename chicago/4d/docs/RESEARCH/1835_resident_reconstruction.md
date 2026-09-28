@@ -198,7 +198,7 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `garrison` | persons | 125 | 11 | **L251** |
 | `underdocumented` | persons | 104 | 96 | **L250**, **L255**, **L269** |
 | `transients` | persons | 307 | 83 | **L249** |
-| `institutional_households` | persons | 2 | 2 | **L267** |
+| `institutional_households` | persons | 1 | 1 | **L267** |
 | `converge` | nothing | — | — | — |
 | **the programme** | | **1,970** | **902** | |
 

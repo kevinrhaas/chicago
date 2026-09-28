@@ -7239,7 +7239,7 @@
    "letter_list_only": true,
    "head": "doolittle_ehjah",
    "division": "unplaced",
-   "division_reconstructed": "north",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "attested": 1
@@ -9869,7 +9869,7 @@
     "attested": 1,
     "inferred": 1
    },
-   "lives_at": "cobweb_castle",
+   "lives_at": "watkins_school_house",
    "works_at": null,
    "present_on_scene_date": "present",
    "review_required": false,
@@ -14014,7 +14014,7 @@
    "letter_list_only": true,
    "head": "luke_pike",
    "division": "unplaced",
-   "division_reconstructed": "north",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -14607,11 +14607,11 @@
    "grades": {
     "attested": 1
    },
-   "lives_at": null,
+   "lives_at": "mckee_log_house",
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "uncertain",
    "review_required": true,
-   "dwelling_evidence": "a_stated_premises"
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_mclintock_thomas",
@@ -17240,11 +17240,11 @@
    "grades": {
     "attested": 1
    },
-   "lives_at": null,
+   "lives_at": "agency_striker_log_house",
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "absent",
    "review_required": true,
-   "dwelling_evidence": "a_stated_premises"
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_pottier_augustin",

@@ -32,6 +32,8 @@ import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
+import { createWelcome } from './welcome.js';
+import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
 import { createStreets } from './streets.js';
@@ -903,6 +905,7 @@ const api = {
   // and null forever if it could not be read — the smoke asserts the displayed
   // figures against this, so a silent failure reads as one.
   census: null,
+  welcome: { state: 'arrival', enter: () => false },
   // T-1126: the town's roll call — indexed, expected to draw, and actually
   // standing, with every absentee named. Null until the buildings are batched.
   roll: null,
@@ -928,6 +931,7 @@ const arrival = createArrival({
   cardEl: document.getElementById('arrival-card'),
   barEl: gateBar,
   buttonEl: gateBtn,
+  onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
@@ -1650,8 +1654,8 @@ async function boot() {
       };
     }
     const pl = loaded.registry.get(id)?.sidecar?.placement;
-    if (!pl) return null;
-    return { e: pl.local_e ?? 0, n: pl.local_n ?? 0 };
+    if (!Number.isFinite(pl?.local_e) || !Number.isFinite(pl?.local_n)) return null;
+    return { e: pl.local_e, n: pl.local_n };
   }
 
   // The route planner and the travel controller. `travel` is assigned after the
@@ -1692,7 +1696,28 @@ async function boot() {
     if (document.getElementById('popup')?.hasAttribute('hidden')) reaimAfterCard();
   }).observe(document.getElementById('popup'), { attributes: true, attributeFilter: ['hidden'] });
 
+  // The town's FIRMS, read BEFORE the two directories that now cross-reference
+  // them (T-1325). The index is one file and the crosswalk is one fold of it; a
+  // person's card and a building's card both ask it the same two questions, so
+  // neither is allowed to fold 196 rows for itself.
+  api.businessIndex = await (async () => {
+    try {
+      const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
+      if (res.ok) return res.json();
+      problems.push(`businesses: businesses/index.json ${res.status} — no firm is listed in Businesses`);
+    } catch (err) {
+      problems.push(`businesses: ${err.message} — no firm is listed in Businesses`);
+    }
+    return null;
+  })();
+  const destinations = createDestinations({
+    scene: loaded.scene, index: loaded.index, registry: loaded.registry, people,
+    businesses: api.businessIndex, positionOf: structurePosition,
+    standFor: framing, router, terrain,
+  });
+  api.destinations = destinations;
   const hud = createHud({
+    destinations,
     root: hudRoot,
     scene: loaded.scene,
     registry: loaded.registry,
@@ -1845,20 +1870,6 @@ async function boot() {
     sceneId: loaded.scene.id ?? YEAR,
     problems,
   });
-  // The town's FIRMS, read BEFORE the two directories that now cross-reference
-  // them (T-1325). The index is one file and the crosswalk is one fold of it; a
-  // person's card and a building's card both ask it the same two questions, so
-  // neither is allowed to fold 196 rows for itself.
-  api.businessIndex = await (async () => {
-    try {
-      const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
-      if (res.ok) return res.json();
-      problems.push(`businesses: businesses/index.json ${res.status} — no firm is listed in Businesses`);
-    } catch (err) {
-      problems.push(`businesses: ${err.message} — no firm is listed in Businesses`);
-    }
-    return null;
-  })();
   const firms = firmCrosswalk(api.businessIndex);
   // A firm chip on a building card opens the firm in the drawer. Declared once
   // here, used by the popup and by both directories, so every route into a
@@ -2059,12 +2070,14 @@ async function boot() {
   });
 
   let gateOpen = true;
+  let enteredWorld = false;
 
   // Exactly one backend is live. Whichever device the visitor actually uses
   // wins, switched by the first real event of that kind — a laptop with a
   // touchscreen must not end up driving both.
-  backends.activate(coarse ? touch : pointerlock);
+  // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
+    if (gateOpen || e.target.closest?.('#jaunt-panel')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -2073,8 +2086,12 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (isTyping(e.target)) return;
-    if (!e.metaKey && !e.ctrlKey) backends.activate(pointerlock);
+    if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
+    if (!e.metaKey && !e.ctrlKey) {
+      backends.activate(pointerlock);
+      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)
+          && document.getElementById('control-help').hidden) pointerlock.lock();
+    }
   }, { capture: true });
 
   canvas.addEventListener('click', () => {
@@ -2286,21 +2303,20 @@ async function boot() {
 
   /** Stand back and look at a structure, framed whole — used by Go to, the rides and the harness. */
   function frame(id, { card = false } = {}) {
-    // `card`: the arrival will open the building's card, so frame into the part
-    // of the screen it leaves free. The harness's bare frame() aims straight, so
-    // the crosshair lands on the building it was pointed at.
-    const f = framing(id, { card });
+    return applyFraming(framing(id, { card }));
+  }
+
+  function applyFraming(f) {
     if (!f) return false;
-    // lookAt places the eye `distance` from the AIM along `bearingDeg` — which is
-    // the stand-off point framing() already probed for free ground — then the
-    // look is turned so the building sits in the part of the screen the card
-    // leaves free.
-    walker.lookAt(f.aim, f.distance, f.bearingDeg);
+    // Use the router's actual safe point, including nearest-cell fallback.
+    // Rebuilding it from the requested distance can put the walker inside a roof.
+    walker.teleport({ local_e: f.e, local_n: f.n });
     const st = walker.state;
+    const de = f.aim.x - st.e, dn = -f.aim.z - st.n;
     walker.teleport({
       local_e: st.e, local_n: st.n,
-      yaw_deg: walker.bearingDeg + f.yawOffsetDeg,
-      pitch_deg: st.pitch / DEG + f.pitchOffsetDeg,
+      yaw_deg: ((Math.atan2(de, dn) / DEG) + 360) % 360 + f.yawOffsetDeg,
+      pitch_deg: Math.atan2(f.aim.y - st.eyeY, Math.max(Math.hypot(de, dn), 0.1)) / DEG + f.pitchOffsetDeg,
     });
     return true;
   }
@@ -2342,37 +2358,155 @@ async function boot() {
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
   function goToTarget(target) {
-    if (!target?.kind) return false;
-    // A person is a place by proxy: where they lived, else where they worked.
-    if (target.kind === 'person') {
-      const id = target.lives_at || target.works_at;
-      if (!id || !loaded.registry.has(id)) return false;
-      return travel.go({ kind: 'structure', id, person: target.id });
+    if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
+    // Explicit coordinate viewpoints predate the shared picker and are used by
+    // the scene measurement harness. Named picker rows still resolve strictly.
+    if (!target?.id && target?.kind === 'intersection'
+        && Number.isFinite(target.local_e) && Number.isFinite(target.local_n)) return travel.go(target);
+    const resolved = destinations.resolve(target);
+    if (!resolved) {
+      const row = target && destinations.byId(target.kind, target.id);
+      if (row?.kind === 'person') {
+        hud.setPanel(true); hud.selectTab('people'); api.people?.open?.(row.id); return true;
+      }
+      if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
+      if (row?.kind === 'business' && row.derived_from === 'structure') {
+        // A fallback firm owns no separate register card; its source building does.
+        hud.setPanel(false); pick(row.at); hud.say(row.limit || 'No safe arrival point'); return true;
+      }
+      return false;
     }
-    return travel.go(target);
+    return travel.go(resolved.structureId
+      ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
+      : resolved);
+  }
+
+  /** The future welcome picker shares resolution, but starts exploration without a ride. */
+  function spawnAtDestination(target) {
+    const resolved = destinations.resolve(target, { card: false });
+    if (!resolved || router.blockedAt(resolved.standOff.e, resolved.standOff.n)) return false;
+    travel.stop('spawn'); lastArrival = null; popup.close(); hud.setPanel(false);
+    hud.setFly(false, { announce: false });
+    if (resolved.structureId) applyFraming(resolved.standOff);
+    else walker.teleport({ local_e: resolved.standOff.e, local_n: resolved.standOff.n,
+      yaw_deg: resolved.yaw_deg ?? 0, pitch_deg: resolved.pitch_deg ?? 0 });
+    return true;
   }
 
   // ---- gate ------------------------------------------------------------- //
 
-  function openWorld() {
-    if (!gateOpen) return;
+  function enterWorld({ spawn: destination = null, resume = false } = {}) {
+    if (!gateOpen || !api.ready) return false;
+    if (!resume) {
+      if (destination) {
+        if (!spawnAtDestination(destination)) return false;
+      } else {
+        travel.stop('spawn'); popup.close();
+        hud.setFly(false, { announce: false });
+        walker.teleport(loaded.scene.spawn ?? spawn);
+      }
+    }
+    const firstEntry = !enteredWorld;
     gateOpen = false;
-    gate?.setAttribute('hidden', '');
+    enteredWorld = true;
+    gate.hidden = true;
+    hudRoot.inert = false;
     hud.show();
-    hud.restore();
-    const controlHelpOpen = hud.showControlHelp({ auto: true });
-    // The gate doubles as the audio-unlock gesture: browsers only allow an
-    // AudioContext to start from one, and ambience lands in a later slice.
+    if (firstEntry) hud.restore();
+    backends.activate(coarse ? touch : pointerlock);
+    if (firstEntry) hud.showControlHelp({ auto: true });
+    // Audio requires the entry gesture; movement capture requires a later one.
     try {
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (Ctx && !api.audio) { api.audio = new Ctx(); api.audio.resume?.(); }
-    } catch { /* no audio is fine; a thrown error is not */ }
-    if (backends.active === pointerlock && !controlHelpOpen) pointerlock.lock();
+    } catch { /* Audio is optional. */ }
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
+    return true;
   }
-  gateBtn?.addEventListener('click', openWorld);
+  let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
+  let jauntEntering = false;
+  const jauntRoot = document.getElementById('welcome-jaunts-content');
+  function jauntError(error) {
+    const message = document.createElement('p'); message.setAttribute('role', 'alert');
+    message.textContent = `The outing could not start: ${error.message}. Choose Start Jaunt to try again.`;
+    jauntRoot.append(message);
+  }
+  function ensureJaunts() {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js')]).then(([preview, runtime, panel, estimates]) => {
+      const resolveJaunt = target => {
+        const resolved = destinations.resolve(target);
+        return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
+      };
+      const estimateOptions = () => ({ resolve: target => {
+        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
+      }, settings: hud.settings, router: travel.router });
+      jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
+        onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      jauntPanel = panel.createJauntPanel({ destinations, actions });
+      jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
+        resolve: resolveJaunt, place: spawnAtDestination,
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(),
+          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
+          from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
+        enter(target, { resume = false } = {}) {
+          jauntEntering = true;
+          try {
+            const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
+            if (ok) hud.dismissControlHelp({ remember: false });
+            return ok;
+          } finally { jauntEntering = false; }
+        },
+        render: state => jauntPanel.render(state),
+        showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
+        closeDetail() { popup.close(); hud.setPanel(false); },
+        async openDetail(link) {
+          if (document.pointerLockElement) document.exitPointerLock?.();
+          try {
+            if (link.kind === 'structure') { hud.setPanel(false); pick(link.id); }
+            else if (link.kind === 'person') { hud.setPanel(true); hud.selectTab('people'); await api.people.open(link.id); }
+            else if (link.kind === 'business') openBusiness(link.id);
+            else { hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showTopic(link.kind === 'source' ? 'sources' : link.id);
+              if (link.kind === 'source') { openSources(); const view = await sourcesPromise; await view?.open(link.id); } }
+          } catch { hud.say('This detail could not load. Close it to return to the outing.'); }
+        }, onError: jauntError,
+      });
+      return jauntRuntime;
+    }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
+  }
+  api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+  };
+  api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
+    onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
+    onJaunts: async () => {
+      const root = document.getElementById('welcome-jaunts-content');
+      try {
+        root.setAttribute('aria-busy', 'true');
+        await ensureJaunts();
+        await jauntPreview.open(jauntReturnId); jauntReturnId = null;
+      } catch {
+        root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
+      } finally { root.removeAttribute('aria-busy'); }
+    },
+    enter: target => enterWorld({ spawn: target }),
+    resume: () => enterWorld({ resume: true }),
+    pause: () => {
+      if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
+      gateOpen = true;
+      backends.activate(null);
+      if (document.pointerLockElement) document.exitPointerLock?.();
+      intent.clear();
+      hud.dismissControlHelp({ remember: false });
+      hud.setPanel(false);
+      hudRoot.inert = true;
+    },
+    hasEntered: () => enteredWorld,
+  });
 
   // ---- resize ----------------------------------------------------------- //
 
@@ -2389,6 +2523,7 @@ async function boot() {
     camera.fov = THREE.MathUtils.clamp(vFov * 180 / Math.PI, 55, 94);
     camera.updateProjectionMatrix();
     document.documentElement.style.setProperty('--vh', `${h}px`);
+    gate?.classList.toggle('welcome-compact', h <= 500);
   }
   window.addEventListener('resize', resize);
   window.addEventListener('orientationchange', resize);
@@ -2439,13 +2574,14 @@ async function boot() {
     // The clock is read either way, so releasing a hold does not deliver the
     // whole held interval as one enormous frame.
     const elapsed = Math.min(clock.getDelta(), 0.25);
-    const frameDt = animationHold ? 0 : elapsed;
+    const frameDt = animationHold || gateOpen ? 0 : elapsed;
     const dt = Math.min(frameDt, 0.05);
 
-    backends.active?.update?.(dt);
+    if (!gateOpen) backends.active?.update?.(dt);
+    else intent.clear();
     // After the backend has written what the visitor is doing and before the
     // walker reads it: a ride in progress either yields to that input or steers.
-    travel.update(dt, intent);
+    if (!gateOpen) travel.update(dt, intent);
     terrain.update(dt);
     const asked = intent.takeInteract();
     // The inspect KEY toggles: the reach that opened the card also closes it
@@ -2455,10 +2591,10 @@ async function boot() {
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
-    for (let i = 0; i < walkSteps; i++) walker.update(walkDt, intent);
+    if (!gateOpen) for (let i = 0; i < walkSteps; i++) walker.update(walkDt, intent);
     // The ride's bookkeeping, after the walker has consumed the intent: its own
     // writes are zeroed, the gait's head movement applied, arrival tested.
-    travel.afterWalk(intent, frameDt);
+    if (!gateOpen) travel.afterWalk(intent, frameDt);
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -2585,6 +2721,7 @@ async function boot() {
       return { x: v.x, y: v.y, z: v.z };
     },
     goToTarget,
+    spawnAtDestination,
     structurePosition,
     setTravelMode(mode) { return hud.setTravelMode(mode); },
     setPace(pace) { return hud.setPace(pace, { announce: false }); },

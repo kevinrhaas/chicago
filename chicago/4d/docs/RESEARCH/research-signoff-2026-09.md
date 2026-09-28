@@ -31,30 +31,26 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 
 | Disposition | Units |
 | --- | ---: |
-| aggregate_only | 310 |
-| asserted | 1,362 |
-| later_only | 12,593 |
-| outside_chicago | 116 |
-| refused | 8,721 |
-| unresolved | 595 |
+| aggregate_only | 376 |
+| asserted | 1,394 |
+| later_only | 12,596 |
+| outside_chicago | 119 |
+| refused | 8,735 |
+| unresolved | 477 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,362 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,394 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
 | Owner | Units | Live |
 | --- | ---: | ---: |
 | T-1335 | 169 | yes |
-| T-1586 | 92 | yes |
 | T-1552 | 26 | yes |
-| T-1587 | 18 | yes |
 | T-1569 | 12 | yes |
-| T-1625 | 6 | yes |
 | T-1315 | 3 | yes |
-| T-1588 | 2 | yes |
 | T-1543 | 1 | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1335 (169), T-1586 (92), T-1552 (26), T-1587 (18), T-1569 (12) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1335 (169), T-1552 (26), T-1569 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -141,15 +137,15 @@ The location limit is how far a firm's own evidence places it, published and the
 
 | Published limit | Businesses |
 | --- | ---: |
-| `street_only` | 60 |
-| `structure` | 57 |
+| `street_only` | 59 |
+| `structure` | 58 |
 | `unplaceable` | 62 |
 
 | Adjudicated grade | Businesses |
 | --- | ---: |
 | `street_only_adopted` | 39 |
-| `street_only_unseated` | 21 |
-| `structure_committed` | 46 |
+| `street_only_unseated` | 20 |
+| `structure_committed` | 47 |
 | `structure_pending` | 11 |
 | `unplaceable` | 62 |
 
@@ -172,16 +168,16 @@ Home and work first, read off the household records:
 | Measure | Households |
 | --- | ---: |
 | Household records | 1,512 |
-| Carrying a `lives_at` | 31 |
+| Carrying a `lives_at` | 33 |
 | Carrying a `works_at` | 50 |
 
 | Seating class | Households |
 | --- | ---: |
-| `division` | 176 |
+| `division` | 174 |
 | `face` | 0 |
 | `lot` | 0 |
 | `none` | 1,305 |
-| `structure` | 31 |
+| `structure` | 33 |
 
 Then every location claim the research makes, reconciled: **1,965** rows, each carrying a disposition, a date precision and — where it stops short — the clause that stops it.
 
@@ -195,10 +191,10 @@ Then every location claim the research makes, reconciled: **1,965** rows, each c
 
 | Disposition | Rows |
 | --- | ---: |
-| `limited` | 298 |
+| `limited` | 295 |
 | `no_claim` | 1,305 |
 | `refused` | 189 |
-| `resolved` | 173 |
+| `resolved` | 176 |
 
 Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. Rows called resolved that resolve onto nothing: **0** (C7). This is the answer to *how many attested location facts sit in prose with no structured target*: none — every claim in the corpus is a row here, and a row that could not be placed says so with its reason rather than being dropped or guessed past.
 
@@ -233,14 +229,14 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 
 ## 5. Withheld is legible
 
-**21,740** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,826** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
-| `aggregate_only` | 310 |
-| `later_only` | 12,593 |
-| `outside_chicago` | 116 |
-| `refused` | 8,721 |
+| `aggregate_only` | 376 |
+| `later_only` | 12,596 |
+| `outside_chicago` | 119 |
+| `refused` | 8,735 |
 
 The same rule over the gate itself: of **180** tools carrying a `--check`, **173** are run by `tools/check.sh` and **7** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
@@ -276,8 +272,8 @@ Reproduce: `node --check renderers/web/js/residents.js` and read the card blocks
 None of these is a condition above, and that is a judgement rather than an oversight: each names something 1835 did not write down, or a contract question about a tool, and neither kind is closed by reading more of what this project already holds.
 
 1. **28 of the 179 firms standing on 1835-07-01 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits it; T-1189 staffs it.
-2. **60 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
-3. **1,481 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
+2. **59 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
+3. **1,479 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
 4. **2,055 of 2,383 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
 5. **Only 81 `associated_with` rows exist.** The plural, dated location row is the agreed shape (T-1147) and the renderer already reads it, but the migration off the singular `lives_at`/`works_at` pair has barely begun: T-1273 writes the committed reconciliations as association rows, T-1274 retires the pair. Until then the reconciliation table above, not the card, is where a person's second address is legible — which is why C7 measures the table.
 6. **One resident derivation cannot be gated on byte identity.** `tools/mint_letter_list_residents.py` is not the last writer of the files it derives, so re-running it over the committed tree would revert the synthesis and upgrade grades this project holds down; T-0662 read that and T-0691 owns the contract that compares only what the pass owns. It is declared on the gate baseline with that reason (C9) and `--gate` and `--self-test` are run in check.sh, which prove different things. This is a tooling contract, not an unspent reading: it cannot cause a reconstruction band to invent over a source, which is why it is listed here and not above.

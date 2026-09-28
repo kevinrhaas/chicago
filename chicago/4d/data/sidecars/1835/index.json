@@ -157,10 +157,38 @@
       "surface": "graded_earth",
       "traffic": "principal",
       "geometry_confidence": "attested",
-      "surface_confidence": "inferred",
+      "surface_confidence": "attested",
       "wear_confidence": "reconstructed",
-      "note": "The curved west approach follows the dry south bank resolved by the committed heightfield; east of Franklin the line follows the modern Wacker control used by the structure placements but is shifted into the dry half of the platted riverfront corridor, AND SINCE 2026-08-28 THAT SHIFT IS A MEASUREMENT RATHER THAN A SENTENCE: 8.28 m south, measured perpendicular to this centreline from `control.south_water_franklin` in data/traces/street_control.json, the first control point ever committed on this street. That is 68 per cent of the 12.192 m half of the 80 ft platted module, so the line sits inside the corridor's dry half with 3.91 m to spare before its south edge if the corridor is centred on the modern junction. Nothing was re-derived and nothing moved — the standoff is the reconstruction decision this note already described, and it is now checkable. The corner of the two committed centrelines falls at local (208.49, +2.83) against the control's (208.46, +11.41): the whole 8.58 m disagreement is across this street and 0.03 m of it is across Franklin. The street stops at the United States Reservation, matching the 1833 order. AND THE WEST END IS NOT WHERE THE NOTE ABOVE IMPLIES, MEASURED 2026-08-29 BY T-0183: the drawn end at local (100, -101) stands 34 m SOUTH of the northernmost line the committed bank allows there, and 9.5 m from Lake Street's own committed centreline, so the last stretch of this street's platted corridor overlaps Lake's by 14.9 m. That is why the corner at Market cannot be closed without emitting blk_south_water_market as a bowtie, and why the block is a wedge the South Branch pinches out rather than a rectangle waiting on a trace — see `refused_control.market_south_water` in data/traces/street_control.json. Track width and ruts are visual interpretation, not measurements. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat's line is the module; the curved west approach and the measured 8.28 m southward shift recorded above are how that platted corridor is SEATED on this ground, and they remain the reasoning for the placement rather than for the existence.",
+      "note": "The curved west approach follows the dry south bank resolved by the committed heightfield; east of Franklin the line follows the modern Wacker control used by the structure placements but is shifted into the dry half of the platted riverfront corridor, AND SINCE 2026-08-28 THAT SHIFT IS A MEASUREMENT RATHER THAN A SENTENCE: 8.28 m south, measured perpendicular to this centreline from `control.south_water_franklin` in data/traces/street_control.json, the first control point ever committed on this street. That is 68 per cent of the 12.192 m half of the 80 ft platted module, so the line sits inside the corridor's dry half with 3.91 m to spare before its south edge if the corridor is centred on the modern junction. Nothing was re-derived and nothing moved — the standoff is the reconstruction decision this note already described, and it is now checkable. The corner of the two committed centrelines falls at local (208.49, +2.83) against the control's (208.46, +11.41): the whole 8.58 m disagreement is across this street and 0.03 m of it is across Franklin. The street stops at the United States Reservation, matching the 1833 order. AND THE WEST END IS NOT WHERE THE NOTE ABOVE IMPLIES, MEASURED 2026-08-29 BY T-0183: the drawn end at local (100, -101) stands 34 m SOUTH of the northernmost line the committed bank allows there, and 9.5 m from Lake Street's own committed centreline, so the last stretch of this street's platted corridor overlaps Lake's by 14.9 m. That is why the corner at Market cannot be closed without emitting blk_south_water_market as a bowtie, and why the block is a wedge the South Branch pinches out rather than a rectangle waiting on a trace — see `refused_control.market_south_water` in data/traces/street_control.json. Track width and ruts are visual interpretation, not measurements. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat's line is the module; the curved west approach and the measured 8.28 m southward shift recorded above are how that platted corridor is SEATED on this ground, and they remain the reasoning for the placement rather than for the existence.\n\nTHE SURFACE GRADE IS THE TOWN'S OWN ORDINANCE SINCE T-1587, AND THAT IS WHY `surface_confidence` READS `attested` ON THIS STREET ALONE. The Trustees ordered this street graduated and printed the order: 'Be it further Ordained, That the Surveyor [shall gradu]ate South Water Street, so that the cen[tre… at] the north line of each block, on said street, [shall] be the highest point in front of each block[. He] shall further graduate said street in such [mann]er, that the water shall flow into the river [at] the intersection of each cross street' — Chicago Democrat, 30 July 1834, page 3 column 3, claim chicago_democrat_1834_07_30#c001, attested by Th. J. V. Owen as president and Isaac Harmon as clerk. So `surface: graded_earth` on this record is no longer an inference off the 1891 chronology's list of early graded routes: the corporation ordered the grading eleven months before the scene date, said which way the crown ran (the highest point at the north line of each block, the river side here) and said where the water went (into the river at every cross-street intersection). `wear_confidence` does NOT move with it — an order to graduate a street is not a statement about how rutted it was by July 1835 — and no geometry moves. WHAT IS NOT CLAIMED: that the Surveyor had finished. The ordinance is an instruction, and this record asserts the CLASS the town legislated for the street, which is the claim `graded_earth` already made. The crown profile itself is not yet drawn; the ribbon this street paints is still the flat panel every other street paints.\n\nAND THE EIGHTY FEET OF THIS CORRIDOR IS THE TOWN'S OWN FIGURE TOO (T-1587). Section 15 of the by-laws passed 4 December 1833 lets every owner or occupant of a lot fronting the river occupy the vacant ground in front of it, 'leaving [e]ighty fee[t] for a stree[t]', on paying fifteen dollars a year in advance to the Treasurer — Chicago Democrat, 7 January 1834, page 4 column 2, claim chicago_democrat_1834_01_07#c003. That is the legal instrument behind this street's whole river frontage and it is the one place on the ground where the 80 ft module was a live question rather than a drafting convention, because it is the place where an abutter was being let build out toward the water. `corridor_width_m` is unchanged at 24.384 and this is a second, contemporary witness to it. The other two things the section settles — that the ground between the lots and the water was occupied by the abutters rather than public open ground, and that the arrangement was a paid annual revocable privilege — belong to the wharf layer and are not claimed here.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in a named week, and often where",
+            "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+            "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+            "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+            "arrivals and clearances, which date the piers and the harbour as working structures",
+            "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+            "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+            "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+          ],
+          "what_it_does_not_supply": [
+            "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+            "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+            "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+            "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+            "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+            "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+            "a citation without an issue page and column"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -560,6 +588,10 @@
       "name_changed": true,
       "path_local_enu_m": [
         [
+          83.473,
+          -519.05
+        ],
+        [
           84.18,
           -400
         ],
@@ -568,6 +600,17 @@
           -110.4
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          84.18,
+          -400
+        ],
+        [
+          85.9,
+          -110.4
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 8.0,
       "surface": "worn_earth",
@@ -575,7 +618,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "RE-FITTED OFF THE PLAT'S OWN MODULE FOR T-0827, 2026-09-12, and it is no longer fitted to N Wacker Drive. Until this reading the whole line was ONE modern junction and a bearing: its north vertex WAS `control.lake_market` — West Lake Street crossing North Upper Wacker Drive, read off OpenStreetMap — to the centimetre, and `refused_control.market_south_water` records the only other junction this project has looked for on this street and could not make. Wacker Drive was built in 1926 on ground made when the river was walled, so that one control stands on ground that did not exist in 1835. THE PITCH IS WHAT SETTLES IT, because Market's centre to Franklin's is one 400 ft module of the plat and three readings of it disagree with the committed lines in the same direction: the platted module is 121.92 m; the Wright 1834 sheet reads 120.21 m — five steps of the uniform ladder of block boundary lines its Lake Street traverse crosses east of the river, committed as pixels in data/traces/vectors/street_corridors_1834.json; the Thompson plat's North Division tier reads 124.81 m (T-0451). The two independently measured sheets BRACKET the module, 1.7 m under and 2.9 m over, which is what two hand-drawn sheets carrying 3-4.5 % paper stretch should do — and the committed pitch of 118.0-119.2 m lay outside that bracket at every northing of the run, the only pitch on this grid that did, where the other five South Division pitches read 121.8-123.6 m. So the line is stepped one module west of the committed `franklin`, which has a real crossing of two named surface roadways at `control.south_water_franklin` and reproduces from it to 0.03 m, and it takes Franklin's bearing with it. It moves 2.72 m west at the south end and 3.30 m west at Lake Street; the northing extent is untouched, because this ticket moves the line across and not along. MARKET IS THE ONE STREET ON THIS GRID NO SHEET FIXES DIRECTLY, and that is why the module had to do it: the street's west side is the river bank its whole length — which is why Wacker Drive stands there now — so the Wright traverse crosses 107 m of blank paper where this line runs, and the Thompson plat cuts block 21 off at the Wolf Point triangle before its west line, leaving its south tier with no measured Market face either. The derivation is tools/measure_market_line.py and its assertions are part of tools/check.sh. WHAT THE MOVE COSTS: the corridor stands 3.3 m nearer the river at its north end, and on e1834_harbor_cut the centreline is dry over its whole run either way (0.39-0.78 m at 5 m sampling) while the west kerb is already under water north of about N -140 on the line this replaces, and is 0.5 m deeper there now. A kerb over the modelled bank is a statement about the bank's own traced position, not about the street: the same 17.5 m of datum uncertainty bounds both. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "RE-FITTED OFF THE PLAT'S OWN MODULE FOR T-0827, 2026-09-12, and it is no longer fitted to N Wacker Drive. Until this reading the whole line was ONE modern junction and a bearing: its north vertex WAS `control.lake_market` — West Lake Street crossing North Upper Wacker Drive, read off OpenStreetMap — to the centimetre, and `refused_control.market_south_water` records the only other junction this project has looked for on this street and could not make. Wacker Drive was built in 1926 on ground made when the river was walled, so that one control stands on ground that did not exist in 1835. THE PITCH IS WHAT SETTLES IT, because Market's centre to Franklin's is one 400 ft module of the plat and three readings of it disagree with the committed lines in the same direction: the platted module is 121.92 m; the Wright 1834 sheet reads 120.21 m — five steps of the uniform ladder of block boundary lines its Lake Street traverse crosses east of the river, committed as pixels in data/traces/vectors/street_corridors_1834.json; the Thompson plat's North Division tier reads 124.81 m (T-0451). The two independently measured sheets BRACKET the module, 1.7 m under and 2.9 m over, which is what two hand-drawn sheets carrying 3-4.5 % paper stretch should do — and the committed pitch of 118.0-119.2 m lay outside that bracket at every northing of the run, the only pitch on this grid that did, where the other five South Division pitches read 121.8-123.6 m. So the line is stepped one module west of the committed `franklin`, which has a real crossing of two named surface roadways at `control.south_water_franklin` and reproduces from it to 0.03 m, and it takes Franklin's bearing with it. It moves 2.72 m west at the south end and 3.30 m west at Lake Street; the northing extent is untouched, because this ticket moves the line across and not along. MARKET IS THE ONE STREET ON THIS GRID NO SHEET FIXES DIRECTLY, and that is why the module had to do it: the street's west side is the river bank its whole length — which is why Wacker Drive stands there now — so the Wright traverse crosses 107 m of blank paper where this line runs, and the Thompson plat cuts block 21 off at the Wolf Point triangle before its west line, leaving its south tier with no measured Market face either. The derivation is tools/measure_market_line.py and its assertions are part of tools/check.sh. WHAT THE MOVE COSTS: the corridor stands 3.3 m nearer the river at its north end, and on e1834_harbor_cut the centreline is dry over its whole run either way (0.39-0.78 m at 5 m sampling) while the west kerb is already under water north of about N -140 on the line this replaces, and is 0.5 m deeper there now. A kerb over the modelled bank is a statement about the bank's own traced position, not about the street: the same 17.5 m of datum uncertainty bounds both. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005939 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [83.473, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.760 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -659,6 +702,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          205.395,
+          -519.05
+        ],
+        [
           206.1,
           -400
         ],
@@ -667,6 +714,17 @@
           5
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          206.1,
+          -400
+        ],
+        [
+          208.5,
+          5
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 7.0,
       "surface": "worn_earth",
@@ -674,7 +732,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 — 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 — 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005926 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [205.395, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.810 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -758,6 +816,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          327.398,
+          -519.05
+        ],
+        [
           328.1,
           -400
         ],
@@ -766,6 +828,17 @@
           7
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          328.1,
+          -400
+        ],
+        [
+          330.5,
+          7
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 7.0,
       "surface": "worn_earth",
@@ -773,7 +846,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005897 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [327.398, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.880 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -857,6 +930,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          449.4,
+          -519.05
+        ],
+        [
           450.1,
           -400
         ],
@@ -865,6 +942,17 @@
           8
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          450.1,
+          -400
+        ],
+        [
+          452.5,
+          8
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 7.0,
       "surface": "worn_earth",
@@ -872,7 +960,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.005882 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [449.400, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.876 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -956,6 +1044,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          572.643,
+          -519.05
+        ],
+        [
           573.4,
           -400
         ],
@@ -964,6 +1056,17 @@
           9
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          573.4,
+          -400
+        ],
+        [
+          576,
+          9
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 7.0,
       "surface": "worn_earth",
@@ -971,7 +1074,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006357 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [572.643, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.866 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -1055,6 +1158,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          695.659,
+          -519.05
+        ],
+        [
           696.4,
           -400
         ],
@@ -1085,7 +1192,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006220 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [695.659, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 0.860 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -1169,6 +1276,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          823.635,
+          -519.05
+        ],
+        [
           824.4,
           -400
         ],
@@ -1177,6 +1288,17 @@
           20
         ]
       ],
+      "drawn_track_local_enu_m": [
+        [
+          824.4,
+          -400
+        ],
+        [
+          827.1,
+          20
+        ]
+      ],
+      "drawn_track_note": "THE PLATTED LINE WAS CARRIED TO MADISON AND THE WORN TRACK WAS NOT (T-1707). This is the wheel line exactly as it stood before that carry, vertex for vertex, so the strip the renderer paints is unchanged and the new platted reach south of Washington Street draws no roadway at all. WHAT BOUNDS THE INVENTION: pinning the track is the refusal to make one. The Washington–Madison tier is the Original Town's last tier and on 1 July 1835 it was open prairie — not one structure record, household seat or business premises this project holds stands south of Washington in the South Division — and `madison` itself is committed as `platted, unopened, unworn` for the same reason, with `track_width_m` 0. So the track ends where the town ended. It is pinned rather than recomputed because a track that followed the platted line would paint a road the plat authorises and nobody drove.",
       "corridor_width_m": 24.384,
       "track_width_m": 6.0,
       "surface": "light_worn_earth",
@@ -1184,7 +1306,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn.",
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CARRIED SOUTH TO MADISON STREET, THE PLAT'S OWN SOUTH BOUNDARY (T-1707). The line stopped at local N -400 and that was never a claim about the street: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own 80 ft corridor, and every north-south column of the south plat was cut at exactly that line because the ground under it stopped there. T-0219 carried the field to local N -3800, so `tools/measure_southern_ground.py` reports Madison on modelled ground and the plat's last tier standing at 24 of its 24 block-boundary points, and the reason for the clip is gone. James Thompson's 1830 plat draws this street from the river to Madison, which is the town's own south line, so carrying it there adds no reach the sheet does not already draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this street's own committed bearing, +0.006429 m of easting per metre of northing, and the old south end is KEPT as a vertex rather than replaced, so no lot of the tiers north of Washington is re-cut: re-deriving the whole grid on the carried lines moves EIGHT leaf values in `data/traces/vectors/thompson_lots.json` and no others — six coordinates by 0.01 m (blk_lake_dearborn's two alley ends and the two lot corners that share them, and one boundary corner of blk_lake_market with the lot corner that shares it) and two block areas by 0.1 m2 (blk_lake_lasalle, blk_randolph_lasalle). That is the last decimal of an offset taken along a polyline that is now longer, not a line that moved: no lot changes frontage, depth or lot count anywhere in the town. It is stated rather than rounded away. The corridor-intrusion count is untouched. The new south vertex is this bearing's intersection with `madison`'s committed line at local N -519.05: [823.635, -519.05], 119.05 m of new platted line. `geometry_confidence` is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 25 samples along the new reach against the committed e1834_harbor_cut heightfield, none of them off the modelled box, the lowest standing 1.483 m above the summer-1835 water surface. AND THE WORN TRACK DOES NOT GO WITH IT — see `drawn_track_note`.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -3473,6 +3595,49 @@
       "note": "Madison Street, the section's own north line and the boundary of the Town of Chicago. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local N -546.0 m and the anchor moves it +26.9 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road. DRAWN LEVEL, AND THAT IS A STATEMENT ABOUT THE GROUND RATHER THAN THE PAPER (T-0959). Re-measured off the same registered raster in ten bands along its length, this line does NOT run level: all thirteen east-west lines of the section tilt the same way, median 0.57 degrees, 16.0 m of rise across the mile. That settles nothing on its own, because all fourteen NORTH-SOUTH lines tilt the same way too, median 0.67 degrees, and a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY. What settles it is the section's own boundary. Section 16's four sides are PLSS lines and run true north and true east on the ground by definition; measured exactly as the interior lines are, they tilt +0.69 degrees in this frame against +0.56 for the interior. A frame that tilts its own cardinal control is describing itself, and the mechanism is in the fit: a general affine with two axis scales 6.2 per cent apart does not preserve angles, so a right angle ruled on the paper leaves it at 91.62 degrees. The tilt therefore comes out with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square — the same anchoring that removes the 3 per cent north-south overrun. `geometry_confidence` stays `inferred` for that reason: the northing is a measurement carried onto a PLSS square, not a figure any record states.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -3597,6 +3762,49 @@
       "wear_confidence": "inferred",
       "note": "The Monroe Street tier of the School Section's grid. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local N -687.0 m and the anchor moves it +31.1 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road. DRAWN LEVEL, AND THAT IS A STATEMENT ABOUT THE GROUND RATHER THAN THE PAPER (T-0959). Re-measured off the same registered raster in ten bands along its length, this line does NOT run level: all thirteen east-west lines of the section tilt the same way, median 0.57 degrees, 16.0 m of rise across the mile. That settles nothing on its own, because all fourteen NORTH-SOUTH lines tilt the same way too, median 0.67 degrees, and a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY. What settles it is the section's own boundary. Section 16's four sides are PLSS lines and run true north and true east on the ground by definition; measured exactly as the interior lines are, they tilt +0.69 degrees in this frame against +0.56 for the interior. A frame that tilts its own cardinal control is describing itself, and the mechanism is in the fit: a general affine with two axis scales 6.2 per cent apart does not preserve angles, so a right angle ruled on the paper leaves it at 91.62 degrees. The tilt therefore comes out with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square — the same anchoring that removes the 3 per cent north-south overrun. `geometry_confidence` stays `inferred` for that reason: the northing is a measurement carried onto a PLSS square, not a figure any record states.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -3723,6 +3931,49 @@
       "note": "The Adams Street tier of the School Section's grid. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local N -832.7 m and the anchor moves it +35.5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road. DRAWN LEVEL, AND THAT IS A STATEMENT ABOUT THE GROUND RATHER THAN THE PAPER (T-0959). Re-measured off the same registered raster in ten bands along its length, this line does NOT run level: all thirteen east-west lines of the section tilt the same way, median 0.57 degrees, 16.0 m of rise across the mile. That settles nothing on its own, because all fourteen NORTH-SOUTH lines tilt the same way too, median 0.67 degrees, and a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY. What settles it is the section's own boundary. Section 16's four sides are PLSS lines and run true north and true east on the ground by definition; measured exactly as the interior lines are, they tilt +0.69 degrees in this frame against +0.56 for the interior. A frame that tilts its own cardinal control is describing itself, and the mechanism is in the fit: a general affine with two axis scales 6.2 per cent apart does not preserve angles, so a right angle ruled on the paper leaves it at 91.62 degrees. The tilt therefore comes out with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square — the same anchoring that removes the 3 per cent north-south overrun. `geometry_confidence` stays `inferred` for that reason: the northing is a measurement carried onto a PLSS square, not a figure any record states.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -3822,9 +4073,9 @@
     },
     {
       "id": "jackson",
-      "name_1835": "Jackson Boulevard",
+      "name_1835": "Jackson Street",
       "name_2026": "Jackson Boulevard",
-      "name_changed": false,
+      "name_changed": true,
       "path_local_enu_m": [
         [
           -767.49,
@@ -3845,8 +4096,51 @@
       "geometry_confidence": "inferred",
       "surface_confidence": "inferred",
       "wear_confidence": "inferred",
-      "note": "The Jackson Boulevard tier of the School Section's grid. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local N -979.9 m and the anchor moves it +39.8 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road. DRAWN LEVEL, AND THAT IS A STATEMENT ABOUT THE GROUND RATHER THAN THE PAPER (T-0959). Re-measured off the same registered raster in ten bands along its length, this line does NOT run level: all thirteen east-west lines of the section tilt the same way, median 0.57 degrees, 16.0 m of rise across the mile. That settles nothing on its own, because all fourteen NORTH-SOUTH lines tilt the same way too, median 0.67 degrees, and a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY. What settles it is the section's own boundary. Section 16's four sides are PLSS lines and run true north and true east on the ground by definition; measured exactly as the interior lines are, they tilt +0.69 degrees in this frame against +0.56 for the interior. A frame that tilts its own cardinal control is describing itself, and the mechanism is in the fit: a general affine with two axis scales 6.2 per cent apart does not preserve angles, so a right angle ruled on the paper leaves it at 91.62 degrees. The tilt therefore comes out with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square — the same anchoring that removes the 3 per cent north-south overrun. `geometry_confidence` stays `inferred` for that reason: the northing is a measurement carried onto a PLSS square, not a figure any record states.",
+      "note": "The Jackson Street tier of the School Section's grid. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local N -979.9 m and the anchor moves it +39.8 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road. DRAWN LEVEL, AND THAT IS A STATEMENT ABOUT THE GROUND RATHER THAN THE PAPER (T-0959). Re-measured off the same registered raster in ten bands along its length, this line does NOT run level: all thirteen east-west lines of the section tilt the same way, median 0.57 degrees, 16.0 m of rise across the mile. That settles nothing on its own, because all fourteen NORTH-SOUTH lines tilt the same way too, median 0.67 degrees, and a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY. What settles it is the section's own boundary. Section 16's four sides are PLSS lines and run true north and true east on the ground by definition; measured exactly as the interior lines are, they tilt +0.69 degrees in this frame against +0.56 for the interior. A frame that tilts its own cardinal control is describing itself, and the mechanism is in the fit: a general affine with two axis scales 6.2 per cent apart does not preserve angles, so a right angle ruled on the paper leaves it at 91.62 degrees. The tilt therefore comes out with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square — the same anchoring that removes the 3 per cent north-south overrun. `geometry_confidence` stays `inferred` for that reason: the northing is a measurement carried onto a PLSS square, not a figure any record states.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -5223,6 +5517,49 @@
       "note": "Des Plaines Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E -508.1 m and the anchor moves it +1.7 m. The sheet draws this one as a PAIR of rules 16.08 m apart, agreed by 5 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -5347,6 +5684,49 @@
       "wear_confidence": "inferred",
       "note": "Jefferson Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E -382.1 m and the anchor moves it +2.2 m. The sheet draws this one as a PAIR of rules 20.49 m apart, agreed by 6 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -5473,6 +5853,49 @@
       "note": "Clinton Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E -270.5 m and the anchor moves it +2.6 m. The sheet draws this one as a PAIR of rules 19.71 m apart, agreed by 6 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -5597,6 +6020,49 @@
       "wear_confidence": "inferred",
       "note": "Canal Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E -147.9 m and the anchor moves it +3.1 m. The sheet draws this one as a PAIR of rules 21.61 m apart, agreed by 6 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -5848,6 +6314,49 @@
       "note": "Market Street, the corridor's north stretch, from Madison Street down to Adams Street. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E +67.4 m and the anchor moves it +3.9 m. The sheet draws this one as a SINGLE rule, so its drawn width is not recoverable and the committed corridor is the 66 ft platted standard. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -5972,6 +6481,49 @@
       "wear_confidence": "inferred",
       "note": "Market Street, the corridor's south stretch, from the tenth tier line down to the section's south boundary. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E +67.4 m and the anchor moves it +3.9 m. The sheet draws this one as a SINGLE rule, so its drawn width is not recoverable and the committed corridor is the 66 ft platted standard. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -6223,6 +6775,49 @@
       "note": "Wells Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E +346.4 m and the anchor moves it +5.0 m. The sheet draws this one as a PAIR of rules 20.41 m apart, agreed by 4 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -6473,6 +7068,49 @@
       "note": "Clark Street, ruled and lettered on the sheet. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E +577.6 m and the anchor moves it +6.0 m. The sheet draws this one as a PAIR of rules 21.15 m apart, agreed by 6 of the sampling bands; the committed corridor is the 66 ft platted standard rather than that pick, because the scatter of individual picks is +/- 5 m. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
         {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
           "url": "https://archive.org/details/258unkngoog",
@@ -6722,6 +7360,49 @@
       "wear_confidence": "inferred",
       "note": "State Street, the section's EAST boundary and the meridian of the Chicago street grid. The town's own State Street is the separate record `state`, which reaches no further south than local N -400 m. Read off Wright's 1834 survey as a ruled line of the School Section's grid (Section 16, T39N R14E) and anchored on the section's own mile square; the measured line is at local E +834.9 m and the anchor moves it +7.0 m. The sheet draws this one as a SINGLE rule, so its drawn width is not recoverable and the committed corridor is the 66 ft platted standard. THE STATUS IS THE OWNER'S READING OF THE SHEET, 2026-09-05: 'no alleys and no street names but still a grid that should have some wilderness trees'. So the corridor is platted and the ground inside it is not: `track_width_m` is 0 because no wagon track is drawn or attested here, `alleys` is false because the sheet rules none inside these blocks, and the flora belts are not cut for it. What a visitor should see is a survey line over prairie, not a road.",
       "citations": [
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
         {
           "source_id": "chicago_dpw_1891_streets",
           "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
@@ -9573,6 +10254,12 @@
   ],
   "structures": [
     {
+      "id": "agency_striker_log_house",
+      "name": "The agency striker's log house",
+      "sidecar": "sidecars/1835/agency_striker_log_house.json",
+      "asset": "gltf/agency_striker_log_house__log_1830.glb"
+    },
+    {
       "id": "bates_auction_room",
       "name": "John Bates Jr.'s Auction Room",
       "sidecar": "sidecars/1835/bates_auction_room.json",
@@ -9583,6 +10270,18 @@
       "name": "Col. Jean Baptiste Beaubien's Barn",
       "sidecar": "sidecars/1835/beaubien_barn.json",
       "asset": "gltf/beaubien_barn__converted_1817.glb"
+    },
+    {
+      "id": "beaubien_new_residence",
+      "name": "Col. Jean Baptiste Beaubien's New Residence",
+      "sidecar": "sidecars/1835/beaubien_new_residence.json",
+      "asset": "gltf/beaubien_new_residence__log_1822.glb"
+    },
+    {
+      "id": "beaubien_trading_post",
+      "name": "Col. Jean Baptiste Beaubien's Trading Post",
+      "sidecar": "sidecars/1835/beaubien_trading_post.json",
+      "asset": "gltf/beaubien_trading_post__log_1822.glb"
     },
     {
       "id": "blacksmith_shop_state_st",
@@ -9601,6 +10300,12 @@
       "name": "Rufus Brown's Boarding House",
       "sidecar": "sidecars/1835/brown_boarding_house.json",
       "asset": "gltf/brown_boarding_house__documented_1835.glb"
+    },
+    {
+      "id": "caldwell_agency_log_house",
+      "name": "The agency log house Andreas gives Billy Caldwell",
+      "sidecar": "sidecars/1835/caldwell_agency_log_house.json",
+      "asset": "gltf/caldwell_agency_log_house__log_1830.glb"
     },
     {
       "id": "carpenter_south_water_store",
@@ -9667,6 +10372,12 @@
       "name": "George W. Dole's Warehouse",
       "sidecar": "sidecars/1835/dole_warehouse_south.json",
       "asset": "gltf/dole_warehouse_south__frame_1832.glb"
+    },
+    {
+      "id": "elston_ash_house",
+      "name": "The ash house at Elston & Co.'s soap and candle works",
+      "sidecar": "sidecars/1835/elston_ash_house.json",
+      "asset": "gltf/elston_ash_house__works_1833.glb"
     },
     {
       "id": "elston_soap_candle_manufactory",
@@ -9781,6 +10492,12 @@
       "name": "Fort Dearborn — root house",
       "sidecar": "sidecars/1835/fort_dearborn_root_house.json",
       "asset": "gltf/fort_dearborn_root_house__cellar_1816.glb"
+    },
+    {
+      "id": "fort_dearborn_root_house_b",
+      "name": "Fort Dearborn — root house (b)",
+      "sidecar": "sidecars/1835/fort_dearborn_root_house_b.json",
+      "asset": "gltf/fort_dearborn_root_house_b__cellar_1816_b.glb"
     },
     {
       "id": "fort_dearborn_shop",
@@ -10113,6 +10830,12 @@
       "asset": "gltf/mason_blacksmith_shop__documented_1835.glb"
     },
     {
+      "id": "mckee_log_house",
+      "name": "David McKee's log house",
+      "sidecar": "sidecars/1835/mckee_log_house.json",
+      "asset": "gltf/mckee_log_house__log_1823.glb"
+    },
+    {
       "id": "miller_house",
       "name": "Miller House",
       "sidecar": "sidecars/1835/miller_house.json",
@@ -10125,16 +10848,46 @@
       "asset": "gltf/miller_tannery__log_1831.glb"
     },
     {
+      "id": "miller_tanyard_bark_shed",
+      "name": "The bark shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_bark_shed.json",
+      "asset": "gltf/miller_tanyard_bark_shed__yard_1831.glb"
+    },
+    {
+      "id": "miller_tanyard_drying_shed",
+      "name": "The drying shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_drying_shed.json",
+      "asset": "gltf/miller_tanyard_drying_shed__yard_1831.glb"
+    },
+    {
       "id": "new_york_house",
       "name": "New York House",
       "sidecar": "sidecars/1835/new_york_house.json",
       "asset": "gltf/new_york_house__frame_1834.glb"
     },
     {
+      "id": "newberry_dole_packing_house_south_branch",
+      "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_packing_house_south_branch.json",
+      "asset": "gltf/newberry_dole_packing_house_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_salt_house_south_branch",
+      "name": "The salt house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_salt_house_south_branch.json",
+      "asset": "gltf/newberry_dole_salt_house_south_branch__works_1834.glb"
+    },
+    {
       "id": "newberry_dole_slaughterhouse_south_branch",
       "name": "Newberry & Dole's Slaughter-House, South Branch",
       "sidecar": "sidecars/1835/newberry_dole_slaughterhouse_south_branch.json",
       "asset": "gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_stock_shed_south_branch",
+      "name": "The stock shed at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_stock_shed_south_branch.json",
+      "asset": "gltf/newberry_dole_stock_shed_south_branch__works_1834.glb"
     },
     {
       "id": "newberry_dole_warehouse",
@@ -10233,22 +10986,22 @@
       "asset": "gltf/recon_1835_blk_lake_clark_a3_04__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d1_01",
-      "name": "Reconstructed D1 older log dwelling #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d1_01.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d1_01__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c1_01",
+      "name": "Reconstructed C1 small shop or office #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c1_01.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c1_01__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d3_02",
-      "name": "Reconstructed D3 one-room frame cottage #02",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d3_02.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d3_02__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c2_02",
+      "name": "Reconstructed C2 store-residence #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c2_02.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c2_02__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d5_03",
-      "name": "Reconstructed D5 deep-plan frame cottage #03",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d5_03.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d5_03__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c3_03",
+      "name": "Reconstructed C3 narrow two-story store #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c3_03.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c3_03__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_franklin_a1_03",
@@ -10257,16 +11010,16 @@
       "asset": "gltf/recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_lake_franklin_c2_01",
+      "name": "Reconstructed C2 store-residence #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_c2_01.json",
+      "asset": "gltf/recon_1835_blk_lake_franklin_c2_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_lake_franklin_d1_02",
       "name": "Reconstructed D1 older log dwelling #02",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_d1_02.json",
       "asset": "gltf/recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_lake_franklin_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_d5_01.json",
-      "asset": "gltf/recon_1835_blk_lake_franklin_d5_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_market_a1_06",
@@ -10279,6 +11032,12 @@
       "name": "Reconstructed A3 privy #07",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_market_a3_07.json",
       "asset": "gltf/recon_1835_blk_lake_market_a3_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_lake_market_c2_01",
+      "name": "Reconstructed C2 store-residence #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_market_c2_01.json",
+      "asset": "gltf/recon_1835_blk_lake_market_c2_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_market_d1_05",
@@ -10303,12 +11062,6 @@
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_market_d4_02.json",
       "asset": "gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_lake_market_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_market_d5_01.json",
-      "asset": "gltf/recon_1835_blk_lake_market_d5_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_randolph_clark_a3_08",
@@ -12064,7 +12817,7 @@
     },
     {
       "id": "watkins_school_house",
-      "name": "Watkins school house",
+      "name": "Richard J. Hamilton's house on Michigan Street",
       "sidecar": "sidecars/1835/watkins_school_house.json",
       "asset": "gltf/watkins_school_house__house_1833.glb"
     },

@@ -79,7 +79,7 @@
   "drawn": {
    "streets": 28,
    "partly_off_grid": 0,
-   "on_grid_m": 15914.01,
+   "on_grid_m": 16747.36,
    "off_grid_m": 0,
    "off_grid_fraction": 0
   },
@@ -269,7 +269,7 @@
   },
   {
    "id": "jackson",
-   "name_1835": "Jackson Boulevard",
+   "name_1835": "Jackson Street",
    "on_grid_m": 1546.86,
    "off_grid_m": 62.49,
    "off_grid_fraction": 0.0388,

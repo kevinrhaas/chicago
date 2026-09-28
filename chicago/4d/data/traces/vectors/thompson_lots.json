@@ -21,7 +21,8 @@
      "south_water",
      "lake",
      "randolph",
-     "washington"
+     "washington",
+     "madison"
     ],
     "north_south": [
      "clinton",
@@ -35,10 +36,10 @@
      "state"
     ]
    },
-   "blocks": 19,
-   "omitted": 5,
+   "blocks": 25,
+   "omitted": 7,
    "numbered": 19,
-   "lots": 144,
+   "lots": 192,
    "subdivided": true,
    "divides_on": "the South Division module, four lots to a face",
    "built_and_not_divided": 0
@@ -188,14 +189,14 @@
   "rule": "a block takes the tract that covers the most of it, by clipped area, using the clipper in tools/sort_land_sales_onto_tracts.py",
   "the_precedence_clause": "EXCEPT that a residual tract — one whose ring is defined as what another tract leaves over — yields any block a non-residual tract covers at least 50% of. canal_section_9_remainder is the layer's only residual. T-1104 states this clause for parcels; a second statement of it would be a second answer, so it is the same clause and the same clipper.",
   "what_the_layer_answers_here": {
-   "blocks_sorted": 72,
+   "blocks_sorted": 78,
    "by_tract": {
-    "canal_commissioners_1830": 28,
+    "canal_commissioners_1830": 34,
     "canal_section_9_remainder": 4,
     "kinzies_addition": 27,
     "wabansia": 13
    },
-   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 28 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
+   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 34 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
    "the_grade_is_inherited": "canal_commissioners_1830 is `conjectural` — its four bounds are the standard account of the 1830 plat and no source record here states them. Any module chosen off that ring would be conjectural for that reason alone. None is: the module below is chosen off the street lines, and the tract is carried as a finding, not used as an input."
   },
   "the_west_division_module": {
@@ -249,23 +250,23 @@
  "confidence": "inferred",
  "confidence_note": "The blocks are arithmetic on inferred inputs — street lines whose own geometry confidence is `inferred`, offset by a module width the street control also grades `inferred` — so `inferred` is the most this grid can carry. The lots and the alleys inside those blocks are `conjectural` and are recorded separately for that reason: a visitor is entitled to know that the block face is a defensible position and the line dividing it is not.",
  "summary": {
-  "blocks": 72,
+  "blocks": 78,
   "blocks_by_grid": {
-   "original_town": 19,
+   "original_town": 25,
    "kinzies_addition": 27,
    "west_division": 9,
    "michigan_st_tract": 4,
    "wabansia": 13
   },
-  "omitted": 53,
+  "omitted": 55,
   "reserved": 1,
   "numbered": 68,
   "numbered_omitted": 48,
-  "lots": 226,
+  "lots": 274,
   "numbered_lots": 174,
   "block_frontage_ft": {
    "min": 120.8,
-   "median": 296.2,
+   "median": 312.0,
    "max": 397.0
   },
   "lot_frontage_ft": {
@@ -2069,7 +2070,7 @@
      -123.46
     ],
     [
-     194.84,
+     194.85,
      -241.85
     ],
     [
@@ -2290,7 +2291,7 @@
        -185.4
       ],
       [
-       194.84,
+       194.85,
        -241.85
       ],
       [
@@ -2953,7 +2954,7 @@
      -244.04
     ]
    ],
-   "area_m2": 11723.9,
+   "area_m2": 11723.8,
    "frontage_m": 99.02,
    "frontage_ft": 324.9,
    "depth_m": 118.4,
@@ -3544,7 +3545,7 @@
    "lots_per_face": 4,
    "alley_local_enu_m": [
     [
-     709.94,
+     709.93,
      -184.11
     ],
     [
@@ -3552,7 +3553,7 @@
      -184.95
     ],
     [
-     813.55,
+     813.56,
      -190.44
     ],
     [
@@ -3579,7 +3580,7 @@
        -184.32
       ],
       [
-       709.94,
+       709.93,
        -184.11
       ]
      ],
@@ -3746,7 +3747,7 @@
        -190.23
       ],
       [
-       813.55,
+       813.56,
        -190.44
       ],
       [
@@ -5010,7 +5011,7 @@
      -379.36
     ]
    ],
-   "area_m2": 10976.4,
+   "area_m2": 10976.3,
    "frontage_m": 98.95,
    "frontage_ft": 324.6,
    "depth_m": 110.93,
@@ -5650,6 +5651,1602 @@
     ],
     "authored_in": "data/traces/thompson_block_numbering.json",
     "note": "READ. Last block of the tier; the Dearborn Street label is in the frame. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_washington_market",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "market",
+    "east": "franklin"
+   },
+   "boundary_local_enu_m": [
+    [
+     96.37,
+     -400.77
+    ],
+    [
+     193.9,
+     -401.56
+    ],
+    [
+     193.28,
+     -506.86
+    ],
+    [
+     95.74,
+     -506.86
+    ]
+   ],
+   "area_m2": 10308.8,
+   "frontage_m": 97.54,
+   "frontage_ft": 320.0,
+   "depth_m": 105.69,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     96.07,
+     -451.07
+    ],
+    [
+     193.6,
+     -451.47
+    ],
+    [
+     193.57,
+     -456.95
+    ],
+    [
+     96.04,
+     -456.56
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 50.25,
+     "polygon": [
+      [
+       96.37,
+       -400.77
+      ],
+      [
+       120.75,
+       -400.97
+      ],
+      [
+       120.45,
+       -451.17
+      ],
+      [
+       96.07,
+       -451.07
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 50.25,
+     "polygon": [
+      [
+       96.04,
+       -456.56
+      ],
+      [
+       120.42,
+       -456.66
+      ],
+      [
+       120.12,
+       -506.86
+      ],
+      [
+       95.74,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 50.15,
+     "polygon": [
+      [
+       120.75,
+       -400.97
+      ],
+      [
+       145.13,
+       -401.17
+      ],
+      [
+       144.84,
+       -451.27
+      ],
+      [
+       120.45,
+       -451.17
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 50.15,
+     "polygon": [
+      [
+       120.42,
+       -456.66
+      ],
+      [
+       144.8,
+       -456.76
+      ],
+      [
+       144.51,
+       -506.86
+      ],
+      [
+       120.12,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 50.05,
+     "polygon": [
+      [
+       145.13,
+       -401.17
+      ],
+      [
+       169.52,
+       -401.36
+      ],
+      [
+       169.22,
+       -451.37
+      ],
+      [
+       144.84,
+       -451.27
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 50.05,
+     "polygon": [
+      [
+       144.8,
+       -456.76
+      ],
+      [
+       169.19,
+       -456.85
+      ],
+      [
+       168.89,
+       -506.86
+      ],
+      [
+       144.51,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 49.95,
+     "polygon": [
+      [
+       169.52,
+       -401.36
+      ],
+      [
+       193.9,
+       -401.56
+      ],
+      [
+       193.6,
+       -451.47
+      ],
+      [
+       169.22,
+       -451.37
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 49.95,
+     "polygon": [
+      [
+       169.19,
+       -456.85
+      ],
+      [
+       193.57,
+       -456.95
+      ],
+      [
+       193.28,
+       -506.86
+      ],
+      [
+       168.89,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 399,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.77,
+    "max_m": 0.83,
+    "mean_m": 0.79,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   }
+  },
+  {
+   "id": "blk_washington_franklin",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "franklin",
+    "east": "wells"
+   },
+   "boundary_local_enu_m": [
+    [
+     218.28,
+     -401.76
+    ],
+    [
+     315.89,
+     -402.55
+    ],
+    [
+     315.28,
+     -506.86
+    ],
+    [
+     217.66,
+     -506.86
+    ]
+   ],
+   "area_m2": 10220.6,
+   "frontage_m": 97.62,
+   "frontage_ft": 320.3,
+   "depth_m": 104.7,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     217.99,
+     -451.57
+    ],
+    [
+     315.6,
+     -451.96
+    ],
+    [
+     315.57,
+     -457.45
+    ],
+    [
+     217.95,
+     -457.05
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.76,
+     "polygon": [
+      [
+       218.28,
+       -401.76
+      ],
+      [
+       242.68,
+       -401.96
+      ],
+      [
+       242.39,
+       -451.67
+      ],
+      [
+       217.99,
+       -451.57
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.76,
+     "polygon": [
+      [
+       217.95,
+       -457.05
+      ],
+      [
+       242.36,
+       -457.15
+      ],
+      [
+       242.06,
+       -506.86
+      ],
+      [
+       217.66,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.66,
+     "polygon": [
+      [
+       242.68,
+       -401.96
+      ],
+      [
+       267.09,
+       -402.16
+      ],
+      [
+       266.79,
+       -451.76
+      ],
+      [
+       242.39,
+       -451.67
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.66,
+     "polygon": [
+      [
+       242.36,
+       -457.15
+      ],
+      [
+       266.76,
+       -457.25
+      ],
+      [
+       266.47,
+       -506.86
+      ],
+      [
+       242.06,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.56,
+     "polygon": [
+      [
+       267.09,
+       -402.16
+      ],
+      [
+       291.49,
+       -402.35
+      ],
+      [
+       291.2,
+       -451.86
+      ],
+      [
+       266.79,
+       -451.76
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.56,
+     "polygon": [
+      [
+       266.76,
+       -457.25
+      ],
+      [
+       291.17,
+       -457.35
+      ],
+      [
+       290.87,
+       -506.86
+      ],
+      [
+       266.47,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.46,
+     "polygon": [
+      [
+       291.49,
+       -402.35
+      ],
+      [
+       315.89,
+       -402.55
+      ],
+      [
+       315.6,
+       -451.96
+      ],
+      [
+       291.2,
+       -451.86
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.46,
+     "polygon": [
+      [
+       291.17,
+       -457.35
+      ],
+      [
+       315.57,
+       -457.45
+      ],
+      [
+       315.28,
+       -506.86
+      ],
+      [
+       290.87,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 420,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.82,
+    "max_m": 0.89,
+    "mean_m": 0.86,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   }
+  },
+  {
+   "id": "blk_washington_wells",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "wells",
+    "east": "lasalle"
+   },
+   "boundary_local_enu_m": [
+    [
+     340.28,
+     -402.75
+    ],
+    [
+     437.89,
+     -403.54
+    ],
+    [
+     437.28,
+     -506.86
+    ],
+    [
+     339.66,
+     -506.86
+    ]
+   ],
+   "area_m2": 10124.0,
+   "frontage_m": 97.62,
+   "frontage_ft": 320.3,
+   "depth_m": 103.71,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     339.99,
+     -452.06
+    ],
+    [
+     437.6,
+     -452.46
+    ],
+    [
+     437.57,
+     -457.94
+    ],
+    [
+     339.95,
+     -457.55
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.26,
+     "polygon": [
+      [
+       340.28,
+       -402.75
+      ],
+      [
+       364.68,
+       -402.95
+      ],
+      [
+       364.39,
+       -452.16
+      ],
+      [
+       339.99,
+       -452.06
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.26,
+     "polygon": [
+      [
+       339.95,
+       -457.55
+      ],
+      [
+       364.36,
+       -457.65
+      ],
+      [
+       364.07,
+       -506.86
+      ],
+      [
+       339.66,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.16,
+     "polygon": [
+      [
+       364.68,
+       -402.95
+      ],
+      [
+       389.08,
+       -403.15
+      ],
+      [
+       388.79,
+       -452.26
+      ],
+      [
+       364.39,
+       -452.16
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.16,
+     "polygon": [
+      [
+       364.36,
+       -457.65
+      ],
+      [
+       388.76,
+       -457.75
+      ],
+      [
+       388.47,
+       -506.86
+      ],
+      [
+       364.07,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 49.06,
+     "polygon": [
+      [
+       389.08,
+       -403.15
+      ],
+      [
+       413.48,
+       -403.34
+      ],
+      [
+       413.2,
+       -452.36
+      ],
+      [
+       388.79,
+       -452.26
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 49.06,
+     "polygon": [
+      [
+       388.76,
+       -457.75
+      ],
+      [
+       413.16,
+       -457.84
+      ],
+      [
+       412.88,
+       -506.86
+      ],
+      [
+       388.47,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 48.96,
+     "polygon": [
+      [
+       413.48,
+       -403.34
+      ],
+      [
+       437.89,
+       -403.54
+      ],
+      [
+       437.6,
+       -452.46
+      ],
+      [
+       413.2,
+       -452.36
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 48.96,
+     "polygon": [
+      [
+       413.16,
+       -457.84
+      ],
+      [
+       437.57,
+       -457.94
+      ],
+      [
+       437.28,
+       -506.86
+      ],
+      [
+       412.88,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 411,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.88,
+    "max_m": 0.9,
+    "mean_m": 0.89,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   }
+  },
+  {
+   "id": "blk_washington_lasalle",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "lasalle",
+    "east": "clark"
+   },
+   "boundary_local_enu_m": [
+    [
+     462.27,
+     -403.74
+    ],
+    [
+     561.18,
+     -404.54
+    ],
+    [
+     560.53,
+     -506.86
+    ],
+    [
+     461.66,
+     -506.86
+    ]
+   ],
+   "area_m2": 10157.5,
+   "frontage_m": 98.89,
+   "frontage_ft": 324.4,
+   "depth_m": 102.72,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     461.98,
+     -452.56
+    ],
+    [
+     560.87,
+     -452.96
+    ],
+    [
+     560.84,
+     -458.44
+    ],
+    [
+     461.95,
+     -458.04
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.73,
+     "depth_m": 48.77,
+     "polygon": [
+      [
+       462.27,
+       -403.74
+      ],
+      [
+       487.0,
+       -403.94
+      ],
+      [
+       486.71,
+       -452.66
+      ],
+      [
+       461.98,
+       -452.56
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.72,
+     "depth_m": 48.77,
+     "polygon": [
+      [
+       461.95,
+       -458.04
+      ],
+      [
+       486.67,
+       -458.14
+      ],
+      [
+       486.38,
+       -506.86
+      ],
+      [
+       461.66,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.73,
+     "depth_m": 48.67,
+     "polygon": [
+      [
+       487.0,
+       -403.94
+      ],
+      [
+       511.72,
+       -404.14
+      ],
+      [
+       511.43,
+       -452.76
+      ],
+      [
+       486.71,
+       -452.66
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.72,
+     "depth_m": 48.67,
+     "polygon": [
+      [
+       486.67,
+       -458.14
+      ],
+      [
+       511.39,
+       -458.24
+      ],
+      [
+       511.1,
+       -506.86
+      ],
+      [
+       486.38,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.73,
+     "depth_m": 48.57,
+     "polygon": [
+      [
+       511.72,
+       -404.14
+      ],
+      [
+       536.45,
+       -404.34
+      ],
+      [
+       536.15,
+       -452.86
+      ],
+      [
+       511.43,
+       -452.76
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.72,
+     "depth_m": 48.57,
+     "polygon": [
+      [
+       511.39,
+       -458.24
+      ],
+      [
+       536.11,
+       -458.34
+      ],
+      [
+       535.81,
+       -506.86
+      ],
+      [
+       511.1,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.73,
+     "depth_m": 48.47,
+     "polygon": [
+      [
+       536.45,
+       -404.34
+      ],
+      [
+       561.18,
+       -404.54
+      ],
+      [
+       560.87,
+       -452.96
+      ],
+      [
+       536.15,
+       -452.86
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.72,
+     "depth_m": 48.47,
+     "polygon": [
+      [
+       536.11,
+       -458.34
+      ],
+      [
+       560.84,
+       -458.44
+      ],
+      [
+       560.53,
+       -506.86
+      ],
+      [
+       535.81,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 420,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.86,
+    "max_m": 0.91,
+    "mean_m": 0.88,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   }
+  },
+  {
+   "id": "blk_washington_clark",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "clark",
+    "east": "dearborn"
+   },
+   "boundary_local_enu_m": [
+    [
+     585.56,
+     -404.74
+    ],
+    [
+     684.17,
+     -405.54
+    ],
+    [
+     683.54,
+     -506.86
+    ],
+    [
+     584.91,
+     -506.86
+    ]
+   ],
+   "area_m2": 10031.6,
+   "frontage_m": 98.62,
+   "frontage_ft": 323.6,
+   "depth_m": 101.72,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     585.25,
+     -453.06
+    ],
+    [
+     683.87,
+     -453.46
+    ],
+    [
+     683.84,
+     -458.94
+    ],
+    [
+     585.22,
+     -458.54
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 48.27,
+     "polygon": [
+      [
+       585.56,
+       -404.74
+      ],
+      [
+       610.21,
+       -404.94
+      ],
+      [
+       609.91,
+       -453.16
+      ],
+      [
+       585.25,
+       -453.06
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.66,
+     "depth_m": 48.27,
+     "polygon": [
+      [
+       585.22,
+       -458.54
+      ],
+      [
+       609.88,
+       -458.64
+      ],
+      [
+       609.57,
+       -506.86
+      ],
+      [
+       584.91,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 48.17,
+     "polygon": [
+      [
+       610.21,
+       -404.94
+      ],
+      [
+       634.87,
+       -405.14
+      ],
+      [
+       634.56,
+       -453.26
+      ],
+      [
+       609.91,
+       -453.16
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.66,
+     "depth_m": 48.17,
+     "polygon": [
+      [
+       609.88,
+       -458.64
+      ],
+      [
+       634.53,
+       -458.74
+      ],
+      [
+       634.23,
+       -506.86
+      ],
+      [
+       609.57,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 48.07,
+     "polygon": [
+      [
+       634.87,
+       -405.14
+      ],
+      [
+       659.52,
+       -405.34
+      ],
+      [
+       659.22,
+       -453.36
+      ],
+      [
+       634.56,
+       -453.26
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.66,
+     "depth_m": 48.07,
+     "polygon": [
+      [
+       634.53,
+       -458.74
+      ],
+      [
+       659.19,
+       -458.84
+      ],
+      [
+       658.89,
+       -506.86
+      ],
+      [
+       634.23,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 47.97,
+     "polygon": [
+      [
+       659.52,
+       -405.34
+      ],
+      [
+       684.17,
+       -405.54
+      ],
+      [
+       683.87,
+       -453.46
+      ],
+      [
+       659.22,
+       -453.36
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.66,
+     "depth_m": 47.97,
+     "polygon": [
+      [
+       659.19,
+       -458.84
+      ],
+      [
+       683.84,
+       -458.94
+      ],
+      [
+       683.54,
+       -506.86
+      ],
+      [
+       658.89,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 389,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.86,
+    "max_m": 0.9,
+    "mean_m": 0.88,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   }
+  },
+  {
+   "id": "blk_washington_dearborn",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "dearborn",
+    "east": "state"
+   },
+   "boundary_local_enu_m": [
+    [
+     708.56,
+     -405.74
+    ],
+    [
+     812.17,
+     -406.58
+    ],
+    [
+     811.52,
+     -506.86
+    ],
+    [
+     707.93,
+     -506.86
+    ]
+   ],
+   "area_m2": 10432.8,
+   "frontage_m": 103.6,
+   "frontage_ft": 339.9,
+   "depth_m": 100.7,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     708.26,
+     -453.56
+    ],
+    [
+     811.86,
+     -453.98
+    ],
+    [
+     811.83,
+     -459.46
+    ],
+    [
+     708.22,
+     -459.04
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 25.9,
+     "depth_m": 47.76,
+     "polygon": [
+      [
+       708.56,
+       -405.74
+      ],
+      [
+       734.46,
+       -405.95
+      ],
+      [
+       734.16,
+       -453.66
+      ],
+      [
+       708.26,
+       -453.56
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 47.76,
+     "polygon": [
+      [
+       708.22,
+       -459.04
+      ],
+      [
+       734.12,
+       -459.15
+      ],
+      [
+       733.83,
+       -506.86
+      ],
+      [
+       707.93,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.9,
+     "depth_m": 47.66,
+     "polygon": [
+      [
+       734.46,
+       -405.95
+      ],
+      [
+       760.36,
+       -406.16
+      ],
+      [
+       760.06,
+       -453.77
+      ],
+      [
+       734.16,
+       -453.66
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 47.66,
+     "polygon": [
+      [
+       734.12,
+       -459.15
+      ],
+      [
+       760.03,
+       -459.25
+      ],
+      [
+       759.72,
+       -506.86
+      ],
+      [
+       733.83,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.9,
+     "depth_m": 47.55,
+     "polygon": [
+      [
+       760.36,
+       -406.16
+      ],
+      [
+       786.26,
+       -406.37
+      ],
+      [
+       785.96,
+       -453.87
+      ],
+      [
+       760.06,
+       -453.77
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 47.55,
+     "polygon": [
+      [
+       760.03,
+       -459.25
+      ],
+      [
+       785.93,
+       -459.36
+      ],
+      [
+       785.62,
+       -506.86
+      ],
+      [
+       759.72,
+       -506.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.9,
+     "depth_m": 47.45,
+     "polygon": [
+      [
+       786.26,
+       -406.37
+      ],
+      [
+       812.17,
+       -406.58
+      ],
+      [
+       811.86,
+       -453.98
+      ],
+      [
+       785.96,
+       -453.87
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 47.45,
+     "polygon": [
+      [
+       785.93,
+       -459.36
+      ],
+      [
+       811.83,
+       -459.46
+      ],
+      [
+       811.52,
+       -506.86
+      ],
+      [
+       785.62,
+       -506.86
+      ]
+     ]
+    }
+   ],
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 420,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.85,
+    "max_m": 1.3,
+    "mean_m": 0.94,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
    }
   },
   {
@@ -13538,6 +15135,28 @@
    "bounded_by": {
     "north": "randolph",
     "south": "washington",
+    "west": "canal",
+    "east": "market"
+   },
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+  },
+  {
+   "id": "blk_washington_clinton",
+   "grid": "original_town",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "reason": "Clinton Street's committed centreline stops 107 m short of this block"
+  },
+  {
+   "id": "blk_washington_canal",
+   "grid": "original_town",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
     "west": "canal",
     "east": "market"
    },

@@ -243,8 +243,8 @@ def section_9_remainder(ring9, ot_bounds, to_grid, from_grid):
                          f"{gap_n:.1f} m off section 9's, past the {CORNER_TOLERANCE_M} m "
                          f"tolerance: the cut is refused")
     ring = [(e0, n0), (ox0, n0), (ox0, oy1), (e1, oy1), (e1, n1), (e0, n1)]
-    return [list(from_grid(x, y)) for x, y in ring], {"east_gap_m": round(gap_e, 2),
-                                                      "south_gap_m": round(gap_n, 2)}
+    return [list(from_grid(x, y)) for x, y in ring], {"east_gap_m": gap_e,
+                                                      "south_gap_m": gap_n}
 
 
 def kinzie_envelope(streets):
@@ -286,8 +286,42 @@ def build_polygons():
         "canal_section_9_remainder": sec9_rest,
     }
     return polys, {"section_9_cut": sec9_gaps, "original_town_bounds_local_m":
-                   {"west_e": round(ot_bounds[0], 2), "east_e": round(ot_bounds[1], 2),
-                    "south_n": round(ot_bounds[2], 2), "north_n": round(ot_bounds[3], 2)}}
+                   {"west_e": ot_bounds[0], "east_e": ot_bounds[1],
+                    "south_n": ot_bounds[2], "north_n": ot_bounds[3]}}
+
+
+# ------------------------------------------------- the cuts, and rounding across machines
+#
+# A cut is STORED to CUT_DP places and the derivation keeps full precision, so the one
+# thing a re-derivation can honestly say about the stored number is that it is *a* faithful
+# rounding of what the derivation gives now. Comparing it to a fresh `round()` for exact
+# equality claims more than that, and on a half-way value it claims something no two
+# machines need agree on: when T-1707 carried the Original Town's seven south columns to
+# Madison Street, the mean of State Street's committed line came to 825.045, and the
+# nearest double to that is decided by the last bit of the reprojection that made the line.
+# It fell one ULP above the half-way point on the steward runner and one below it in CI, so
+# `round(x, 2)` gave 825.05 there and 825.04 here, and neither machine would accept the
+# other's record: check.sh was 679/679 green on one and red on this single step on the
+# other, and no value could be committed that both would take (T-1719).
+#
+# So the gate asks the rounding question instead of the equality one. Both neighbours of a
+# half-way derivation are accepted and nothing further out is, which leaves the hand-edit
+# this step exists to catch — a cut nudged to make a moved bound look unmoved — refused.
+
+CUT_DP = 2
+CUT_TOLERANCE_M = 0.5 * 10 ** -CUT_DP + 1e-9        # half a rounding step, plus a double
+
+
+def round_cuts(cuts: dict) -> dict:
+    """What gets STORED: every cut to CUT_DP places."""
+    return {k: {a: round(b, CUT_DP) for a, b in v.items()} for k, v in cuts.items()}
+
+
+def faithful_round(stored, raw) -> bool:
+    """Is `stored` *a* CUT_DP-place rounding of `raw`? True for either neighbour of a
+    half-way value, false for anything further out."""
+    return isinstance(stored, (int, float)) and not isinstance(stored, bool) \
+        and abs(stored - raw) <= CUT_TOLERANCE_M
 
 
 # ---------------------------------------------------------------- the adjudication
@@ -816,7 +850,7 @@ def assemble(rows_by_class, classes, band_extent):
             "liberty": "L219",
             "note": "Carried, not traced. Inherited from tools/resolve_land_tracts.py.",
         },
-        "cuts": cuts,
+        "cuts": round_cuts(cuts),
         "tracts": tracts,
         "unnamed_chips": verdicts,
         "cross_checks": checks,
@@ -1030,7 +1064,17 @@ def check_properties(doc: dict | None = None) -> int:
                  f"class {k} band at {b['centroid_px']}: local metres drifted")
 
     polys, cuts = build_polygons()
-    want(cuts == doc["cuts"], f"the cuts drifted: stored {doc['cuts']}, re-derived {cuts}")
+    had = doc["cuts"]
+    want({k: sorted(v) for k, v in had.items()} == {k: sorted(v) for k, v in cuts.items()},
+         f"the cuts' shape drifted: stored {sorted(had)} carrying "
+         f"{ {k: sorted(v) for k, v in had.items()} }, re-derived {sorted(cuts)} carrying "
+         f"{ {k: sorted(v) for k, v in cuts.items()} }")
+    for k, v in cuts.items():
+        for a, raw in v.items():
+            was = had.get(k, {}).get(a)
+            want(faithful_round(was, raw),
+                 f"cuts.{k}.{a}: {was} stored, which is not a {CUT_DP}-place rounding of "
+                 f"the {raw:.6f} m this derivation gives")
     for t in doc["tracts"]:
         if not t["placed"]:
             want(t["polygon_local_enu_m"] is None,
@@ -1170,6 +1214,12 @@ def self_test() -> int:
     def shrink_the_patent(doc):
         doc["cross_checks"]["kinzies_addition_against_its_patent"]["patent_acres"] = 1.0
 
+    def nudge_a_cut(doc):
+        doc["cuts"]["original_town_bounds_local_m"]["east_e"] += 0.02
+
+    def drop_a_cut(doc):
+        del doc["cuts"]["section_9_cut"]["south_gap_m"]
+
     print("self-test — every assertion below must fire when its fact is broken")
     fires("a tract vertex moved 5 m", move_vertex)
     fires("an unnamed chip given a polygon", place_an_unnamed_chip)
@@ -1177,11 +1227,36 @@ def self_test() -> int:
     fires("a band's verdict rewritten by hand", fake_a_band_verdict)
     fires("Wabansia given colour evidence it does not have", give_wabansia_colour)
     fires("the patent shrunk below the envelope it bounds", shrink_the_patent)
+    fires("a cut nudged past the rounding step it is stored to", nudge_a_cut)
+    fires("a cut dropped from the record", drop_a_cut)
+
+    # T-1719. The cut step's other half: it must NOT fire on the one disagreement two
+    # machines can honestly have about a stored round. The first four rows are the case
+    # that stopped PR #154 — 825.045, the mean of State Street's line once T-1707 carried
+    # it to Madison — read from both sides of the half-way point.
+    print("\n…and the cut gate accepts either rounding of a half-way derivation, "
+          "and nothing further out")
+    wrong = []
+    for raw, stored, ok in ((825.045, 825.04, True), (825.045, 825.05, True),
+                            (825.045, 825.03, False), (825.045, 825.06, False),
+                            (11.930082489265, 11.93, True),
+                            (11.930082489265, 11.94, False),
+                            (825.045, None, False)):
+        got = faithful_round(stored, raw)
+        if got != ok:
+            wrong.append(f"{stored} against {raw}")
+        print(f"  {'holds ' if got == ok else 'WRONG '} a cut stored {stored} against a "
+              f"derivation of {raw}: "
+              f"{'accepted' if got else 'refused'}, {'accepted' if ok else 'refused'} wanted")
+
     silent = [l for l, ok in fired if not ok]
-    if silent:
-        print(f"SILENT: {len(silent)} assertion(s) did not fire: {silent}")
+    if silent or wrong:
+        if silent:
+            print(f"SILENT: {len(silent)} assertion(s) did not fire: {silent}")
+        if wrong:
+            print(f"WRONG: the cut gate ruled the other way on {len(wrong)}: {wrong}")
         return 1
-    print(f"all {len(fired)} assertions fire")
+    print(f"all {len(fired)} assertions fire, and the cut gate rules both ways correctly")
     return 0
 
 

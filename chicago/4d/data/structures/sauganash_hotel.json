@@ -281,9 +281,9 @@
           "note": "THE PETFORD VIEW'S TONE, AND ONLY ITS: the 1831 watercolour (image 8 of data/sources/assets/owner_brief_2026_08_18/README.md) gives the shingle roof a dark green/moss colour — weathered shingles gone green, or the painter's reading of them — and the engravings, being monochrome, can neither agree nor disagree. A single tier-5 watercolour may drive a material tone as inferred; the exact colour value is the archetype's, claimed at docs/LIBERTIES.md L154. The brief's binaries are not yet committed, so the citation is the README until T-0075 lands identifications."
         },
         "siding_exposure_m": {
-          "value": 0.152,
+          "value": 0.114,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
         },
         "cross_wing": {
           "value": true,

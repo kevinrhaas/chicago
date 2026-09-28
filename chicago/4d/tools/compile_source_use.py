@@ -185,6 +185,17 @@ class Compiler:
                 self.record('loading facts', 'decision', row['id'],
                             dict(source_ids=row['source_ids'], locator=row['fact']['locator'],
                                  confidence=row['fact']['confidence']), 'scene', 'loading_fact')
+        # Compile in memory: check.sh pools validators, so never race on generated files.
+        if (data / 'jaunts/schema.json').exists():
+            from compile_jaunts import Compiler as JauntsCompiler
+            jaunts = JauntsCompiler(self.root)
+            outputs, errors = jaunts.compile()
+            if errors:
+                raise ValueError('; '.join(errors))
+            for row in json.loads(outputs['catalog.json'])['jaunts']:
+                content = json.loads(outputs[row['id'] + '.json'])
+                self.record('jaunt claims', 'jaunt', row['id'], content['evidence'],
+                            'scene' if row['availability'] == 'available' else 'research', 'evidence')
         # A cited current structure must have a backlink, independently of input traversal.
         reached = {e['entity_id'] for edges in self.edges.values() for e in edges.values()
                    if e['entity_type'] == 'structure' and e['use'] == 'scene'}
@@ -244,7 +255,7 @@ class Compiler:
                   '- Decisions cover resident decision records and explicitly cited loading facts. Free-form dossiers, other research ledgers, and decision prose without structured source IDs are not exhaustively indexed.',
                   '- Terrain covers authored JSON/GeoJSON, not binary heightfields. Ancillary terrain readings are research; current-epoch inputs are scene and other epochs are other_scene.',
                   '- Unmodelled flora/fauna zones are research, not scene use. Out-of-scene structure phases are other_scene; this does not claim they are visible in 1835.',
-                  '- Jaunts await their owning ticket; loading facts carry decision/loading_fact backlinks. No PDF/image bytes or asset derivation is produced.',
+                  '- Jaunt evidence claims are validated and registered as typed jaunt backlinks (T-1253); source-free reconstructed narrative has no fabricated source edge. Unavailable jaunts are research use. Loading facts carry decision/loading_fact backlinks. No PDF/image bytes or asset derivation is produced.',
                   '- The compact index holds citation text and explicit type/date/tier metadata. Full public citations, links and source limits are lazy per-source data. Internal source fields and raw research paths are not exported.', '']
         return '\n'.join(lines)
 

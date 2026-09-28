@@ -21,19 +21,19 @@
    "from": "data/reconstruction/1835_reconstruction_order_book.json",
    "how": "every households/<kind>/<division> bucket that carries a target, summed by division — the same sum the book's own households_target is",
    "target_by_division": {
-    "north": 145,
-    "south": 367,
+    "north": 144,
+    "south": 368,
     "west": 132
    },
    "target_total": 644,
    "share_by_division": {
-    "north": 0.225155,
-    "south": 0.569876,
+    "north": 0.223602,
+    "south": 0.571429,
     "west": 0.204969
    },
    "dealt": {
-    "north": 294,
-    "south": 744,
+    "north": 292,
+    "south": 746,
     "west": 267
    },
    "fort_is_not_in_the_shape": "the garrison's households are T-1176's and the book gives households/garrison/fort no target, so a household no source places is never dealt into the military reservation"
@@ -232,70 +232,70 @@
   "households": 1512,
   "businesses": 179,
   "by_rung": {
-   "division_band": 175,
-   "face": 60,
+   "division_band": 173,
+   "face": 59,
    "owed": 11,
    "policy_only": 1305,
-   "structure": 77,
+   "structure": 80,
    "unplaceable": 63
   },
   "by_reach": {
-   "division": 175,
-   "face": 60,
+   "division": 173,
+   "face": 59,
    "none": 1368,
-   "structure": 77,
+   "structure": 80,
    "structure_owed": 11
   },
   "households_by_rung": {
-   "division_band": 175,
+   "division_band": 173,
    "policy_only": 1305,
-   "structure": 31,
+   "structure": 33,
    "unplaceable": 1
   },
   "businesses_by_rung": {
-   "face": 60,
+   "face": 59,
    "owed": 11,
-   "structure": 46,
+   "structure": 47,
    "unplaceable": 62
   },
   "seated": 1617,
   "owed": 11,
   "by_seat_kind": {
-   "division_band": 1480,
-   "street_face": 21,
-   "structure": 116
+   "division_band": 1478,
+   "street_face": 20,
+   "structure": 119
   },
   "by_band": {
    "north/division_ground": 13,
-   "north/farms_and_country_seats": 59,
+   "north/farms_and_country_seats": 58,
    "north/heavy_and_noxious_trades": 1,
    "north/labourer_dwellings": 26,
    "north/merchant_and_professional_dwellings": 88,
-   "north/tradesman_dwellings": 142,
+   "north/tradesman_dwellings": 139,
    "south/division_ground": 31,
-   "south/farms_and_country_seats": 101,
+   "south/farms_and_country_seats": 102,
    "south/heavy_and_noxious_trades": 1,
    "south/labourer_dwellings": 97,
    "south/lodging_near_the_landings": 2,
    "south/merchant_and_professional_dwellings": 242,
-   "south/tradesman_dwellings": 378,
+   "south/tradesman_dwellings": 379,
    "west/division_ground": 8,
    "west/farms_and_country_seats": 44,
    "west/labourer_dwellings": 34,
    "west/merchant_and_professional_dwellings": 76,
    "west/tradesman_dwellings": 137
   },
-  "reconstructed_seats": 1512,
-  "dealt_a_roof": 181,
+  "reconstructed_seats": 1509,
+  "dealt_a_roof": 211,
   "dealt_a_standing_roof": 181,
-  "dealt_a_slot_not_yet_built": 0,
+  "dealt_a_slot_not_yet_built": 30,
   "dealt_by_ticket": {
-   "T-1613": 109,
+   "T-1613": 139,
    "T-1614": 72
   },
   "dealt_by_ground": {
    "off_plat_parcel": 72,
-   "platted_lot": 109
+   "platted_lot": 139
   }
  },
  "rows": [
@@ -2889,7 +2889,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_ashbaugh_fre|T-1522|division:5c92c159be88|class:6587c80c938c",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#06",
+    "block_id": "blk_washington_franklin",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_ashbaugh_fre|T-1522|division:5c92c159be88|class:6587c80c938c",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#06 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_aspam_antoine",
@@ -2929,7 +2946,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_aspam_antoine|T-1522|division:53513e91fdfd|class:4bfe45dc6ef9",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#00",
+    "block_id": "blk_washington_franklin",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_aspam_antoine|T-1522|division:53513e91fdfd|class:4bfe45dc6ef9",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#00 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_aspam_jean_baptiste",
@@ -2969,7 +3003,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_aspam_jean_baptiste|T-1522|division:7faebb7653e2|class:6eff77762af8",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#04",
+    "block_id": "blk_washington_franklin",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_aspam_jean_baptiste|T-1522|division:7faebb7653e2|class:6eff77762af8",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#04 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_aspam_josette",
@@ -3569,7 +3620,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_bailly_esther|T-1522|division:b4f07cb5463c|class:7bbbbd3a56e4",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#02",
+    "block_id": "blk_washington_franklin",
+    "fronts": "washington",
+    "family": "H2",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_bailly_esther|T-1522|division:b4f07cb5463c|class:7bbbbd3a56e4",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_bailly_joseph",
@@ -3725,7 +3793,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_baines_robert|T-1522|division:47da2fdb0bfa|class:518028324b13",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#06",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_baines_robert|T-1522|division:47da2fdb0bfa|class:518028324b13",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#06 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_bakwith_albert",
@@ -3937,7 +4022,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_ballard_c_a|T-1522|division:57fd511bb540|class:4622cfd6d27c",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#00",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_ballard_c_a|T-1522|division:57fd511bb540|class:4622cfd6d27c",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#00 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_ballard_thomas",
@@ -3977,7 +4079,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_ballard_thomas|T-1522|division:47704b8cea93|class:516ae9ac820f",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#04",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_ballard_thomas|T-1522|division:47704b8cea93|class:516ae9ac820f",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#04 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_ballingale_p",
@@ -4707,7 +4826,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_barrest_wilham|T-1522|division:9bf3b3b1c1b4|class:6d3dd2a1d5e6",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#02",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_barrest_wilham|T-1522|division:9bf3b3b1c1b4|class:6d3dd2a1d5e6",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_barrows_mary",
@@ -4861,7 +4997,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_barry_john_s|T-1522|division:b6be09e4b13d|class:5f243beae93f",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#07",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "madison",
+    "family": "H2",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_barry_john_s|T-1522|division:b6be09e4b13d|class:5f243beae93f",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#07 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_barry_william",
@@ -5094,7 +5247,24 @@
     "from_trade": "auctioneer"
    },
    "seed": "hh_bates_john_jr|south|auctioneer|T-1512",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#06",
+    "block_id": "blk_washington_market",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_bates_john_jr|south|auctioneer|T-1512",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#06 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_baxley_j_m",
@@ -5675,7 +5845,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beaubien_caroline|T-1522|division:4af1b2401701|class:4af2444b10a0",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#00",
+    "block_id": "blk_washington_market",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beaubien_caroline|T-1522|division:4af1b2401701|class:4af2444b10a0",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#00 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beaubien_charles",
@@ -5773,7 +5960,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beaubien_charles_h|T-1522|division:6895be0ad8b4|class:6e42e1c52547",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#04",
+    "block_id": "blk_washington_market",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beaubien_charles_h|T-1522|division:6895be0ad8b4|class:6e42e1c52547",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#04 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beaubien_elonore",
@@ -5813,7 +6017,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beaubien_elonore|T-1522|division:3d48aa5902ac|class:886ae38e7ddb",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#02",
+    "block_id": "blk_washington_market",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beaubien_elonore|T-1522|division:3d48aa5902ac|class:886ae38e7ddb",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beaubien_george",
@@ -5853,7 +6074,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beaubien_george|T-1522|division:be682350f743|class:5a2a919170c2",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#07",
+    "block_id": "blk_washington_market",
+    "fronts": "madison",
+    "family": "H2",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beaubien_george|T-1522|division:be682350f743|class:5a2a919170c2",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#07 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beaubien_jean_baptiste",
@@ -6094,7 +6332,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beaubien_monique|T-1522|division:a3ed64170820|class:5f0eb5e87eb6",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#06",
+    "block_id": "blk_washington_wells",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beaubien_monique|T-1522|division:a3ed64170820|class:5f0eb5e87eb6",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#06 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beaubien_robert_jerome",
@@ -6288,7 +6543,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beddlecome_ash|T-1522|division:b99294645a19|class:84cd7e95873d",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#00",
+    "block_id": "blk_washington_wells",
+    "fronts": "washington",
+    "family": "D7",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beddlecome_ash|T-1522|division:b99294645a19|class:84cd7e95873d",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#00 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beech_reuben",
@@ -6328,7 +6600,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beech_reuben|T-1522|division:b6067baf45ba|class:6ff0c15f3eb7",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#04",
+    "block_id": "blk_washington_wells",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_beech_reuben|T-1522|division:b6067baf45ba|class:6ff0c15f3eb7",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#04 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_beegle_a",
@@ -6714,7 +7003,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_benediet_loma|T-1522|division:6b02422e10fb|class:618132f4aeee",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#02",
+    "block_id": "blk_washington_wells",
+    "fronts": "washington",
+    "family": "H1",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_benediet_loma|T-1522|division:6b02422e10fb|class:618132f4aeee",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_benn_eli",
@@ -6812,7 +7118,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_bennet_lyman|T-1522|division:86d970880a9e|class:802114e8bfa6",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#07",
+    "block_id": "blk_washington_wells",
+    "fronts": "madison",
+    "family": "H2",
+    "clause": "merchant_and_professional_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_bennet_lyman|T-1522|division:86d970880a9e|class:802114e8bfa6",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#07 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_bennett_c_h",
@@ -12332,7 +12655,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_clark#05",
+    "block_id": "blk_washington_clark",
+    "fronts": "madison",
+    "family": "D4",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_clark#05 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D4 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_cable_p_b_f",
@@ -12413,7 +12753,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_cady_levi|T-1522|division:b4fc443d7c49|class:aae2d210f873",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_clark#04",
+    "block_id": "blk_washington_clark",
+    "fronts": "washington",
+    "family": "D5",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_cady_levi|T-1522|division:b4fc443d7c49|class:aae2d210f873",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_clark#04 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D5 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_caldwell_billy",
@@ -12489,7 +12846,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_calhoun_alvin|T-1522|division:4384b2df0733|class:e5655f2e8474",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#05",
+    "block_id": "blk_washington_franklin",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_calhoun_alvin|T-1522|division:4384b2df0733|class:e5655f2e8474",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#05 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_calhoun_john",
@@ -12608,7 +12982,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_campbell_james_b|T-1522|division:4d919aa780a3|class:b6200740aacb",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#03",
+    "block_id": "blk_washington_franklin",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_campbell_james_b|T-1522|division:4d919aa780a3|class:b6200740aacb",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#03 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_canp_george_s",
@@ -12808,7 +13199,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_carli_paul_j|T-1522|division:ba17b5598587|class:c95264c96f3a",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_franklin#07",
+    "block_id": "blk_washington_franklin",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_carli_paul_j|T-1522|division:ba17b5598587|class:c95264c96f3a",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_franklin#07 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_carpenter_abel_b",
@@ -12889,7 +13297,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_carpenter_nathaniel|T-1522|division:9f93f0c357ab|class:e1b97aa123f0",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#05",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_carpenter_nathaniel|T-1522|division:9f93f0c357ab|class:e1b97aa123f0",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#05 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_carpenter_philo",
@@ -13027,7 +13452,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_carter_j|T-1522|division:c7463942aefd|class:f92f54648d7d",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_lasalle#03",
+    "block_id": "blk_washington_lasalle",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_carter_j|T-1522|division:c7463942aefd|class:f92f54648d7d",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_lasalle#03 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_carver_david",
@@ -13104,7 +13546,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_cary_junis_a_or_j_r|T-1522|division:afac53ad6eb2|class:d7af5135142d",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#05",
+    "block_id": "blk_washington_market",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_cary_junis_a_or_j_r|T-1522|division:afac53ad6eb2|class:d7af5135142d",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#05 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_case_nehemiah",
@@ -13332,7 +13791,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_casy_honora|T-1522|division:9c8d5f53c3f4|class:fc70803e61cd",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_market#03",
+    "block_id": "blk_washington_market",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_casy_honora|T-1522|division:9c8d5f53c3f4|class:fc70803e61cd",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_market#03 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_caton_john_dean",
@@ -13453,7 +13929,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_catton_william|T-1522|division:61001ba6b4cf|class:dff890aac887",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#05",
+    "block_id": "blk_washington_wells",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_catton_william|T-1522|division:61001ba6b4cf|class:dff890aac887",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#05 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_chadwick_joseph",
@@ -13550,7 +14043,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_chamberlain_l_c|T-1522|division:c25fb18a1219|class:f1ae82f5b824",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_washington_wells#03",
+    "block_id": "blk_washington_wells",
+    "fronts": "madison",
+    "family": "D3",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_chamberlain_l_c|T-1522|division:c25fb18a1219|class:f1ae82f5b824",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_washington_wells#03 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_chambers_john",
@@ -19500,8 +20010,8 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "north/tradesman_dwellings",
-    "division": "north",
+    "id": "south/tradesman_dwellings",
+    "division": "south",
     "clause": "tradesman_dwellings"
    },
    "works_seat": null,
@@ -19510,11 +20020,11 @@
    "division": "unplaced",
    "tier": "reconstructed",
    "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "north/tradesman_dwellings",
+    "band": "south/tradesman_dwellings",
     "clause": "tradesman_dwellings",
     "clause_applies_to": [
      "D3",
@@ -19524,7 +20034,7 @@
     ],
     "clause_tier": "inferred",
     "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": null,
     "division_is_dealt": true,
     "division_dealt_from": "the order book's household target by division",
@@ -26009,14 +26519,14 @@
    "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "cobweb_castle"
+    "id": "watkins_school_house"
    },
    "works_seat": null,
    "reach": "structure",
    "reach_value": null,
    "division": "north",
    "tier": "inferred",
-   "basis": "DOCUMENTED FOR 1832 AND NOT FOR THE SCENE DATE, which is why this is graded derived rather than documented. Andreas, on the founding of the first school: 'In the fall of 1832, Colonel Hamilton and Colonel Owen employed John Watkins to teach a small school in the North Division, near the old Indian agency-house in which Colonel Hamilton then resided.' That is a plain statement that he lived in the building this dataset records as cobweb_castle, and it is nearly three years before 1 July 1835. Nothing reached follows him out of it or keeps him in it. The link is made because it is the only attested residence for any named person in that building and because an unlinked household teaches a reader nothing; the grade is the warning.",
+   "basis": "MOVED OFF THE AGENCY HOUSE AND ONTO HIS OWN, 2026-09-27 UNDER T-1625, AND THE GRADE DID NOT MOVE WITH IT. The note this replaces said the link to `cobweb_castle` rested on one sentence of Andreas — 'In the fall of 1832, Colonel Hamilton and Colonel Owen employed John Watkins to teach a small school in the North Division, near the old Indian agency-house in which Colonel Hamilton then resided' — nearly three years before 1 July 1835, and it said in as many words that 'nothing reached follows him out of it or keeps him in it'. SOMETHING NOW FOLLOWS HIM OUT OF IT. Moses and Kirkland, History of Chicago vol. 2 p. 155, read as `bk_mose2_006`, give the whole sequence: he 'lived first in the fort and, when that grew too crowded with the refugees, he moved to the Agency House; and in 1833, with Col. Owen, hired John Watkins to teach the little school in the old stable near by. At about this time he built his house on what is now Michigan street between Cass and Rush, where he lived for nineteen years.' The first two stages corroborate Andreas — the fort, then the Agency House, then the same two colonels hiring the same schoolmaster in the same year — and the third stage is the one Andreas does not have: a house of his own, built about 1833, held for nineteen years. Nineteen years from 1833 runs to about 1852 and 1835-07-01 falls inside it, so this is a SPAN enclosing the scene date rather than a fact dated outside it and carried back. THE STRUCTURE IT NAMES IS AN IDENTIFICATION AND NOT A STATEMENT. `watkins_school_house` is this project's record of the house on Michigan Street between Cass and Rush that Andreas has Watkins teaching in 'later'; Andreas names no owner for it and Moses and Kirkland name no school in Hamilton's. The join is Hamilton himself, who hired the schoolmaster, and the reasoning, the caveat that no source gives the SIDE of Michigan Street Hamilton built on, and what would refute the whole thing are written on that record's `occupants` block rather than repeated here. NOTHING IS PROMOTED. Moses and Kirkland is a compilation of 1895; under the evidence ladder ratified 2026-09-03 it corroborates and dates and may not raise a confidence, so this stays `inferred` exactly as it was when it pointed at the Agency House. What changed is that the inference now runs forward from a span that covers the scene date instead of backward from a sentence about 1832.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at inferred.",
    "replaceable_by": "a source naming a different building",
    "owed_to": null,
@@ -36128,8 +36638,8 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "north/farms_and_country_seats",
-    "division": "north",
+    "id": "south/farms_and_country_seats",
+    "division": "south",
     "clause": "farms_and_country_seats"
    },
    "works_seat": null,
@@ -36138,11 +36648,11 @@
    "division": "unplaced",
    "tier": "reconstructed",
    "basis": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "north/farms_and_country_seats",
+    "band": "south/farms_and_country_seats",
     "clause": "farms_and_country_seats",
     "clause_applies_to": [
      "D1",
@@ -36150,7 +36660,7 @@
     ],
     "clause_tier": "documented",
     "statement": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": null,
     "division_is_dealt": true,
     "division_dealt_from": "the order book's household target by division",
@@ -37542,40 +38052,25 @@
    "id": "hh_mckee_david",
    "kind": "household",
    "name": "The McKee household",
-   "rung": "division_band",
+   "rung": "structure",
    "seat": {
-    "kind": "division_band",
-    "id": "north/tradesman_dwellings",
-    "division": "north",
-    "clause": "tradesman_dwellings"
+    "kind": "structure",
+    "id": "mckee_log_house"
    },
    "works_seat": {
     "kind": "structure",
     "id": "blacksmith_shop_state_st"
    },
-   "reach": "division",
-   "reach_value": "north",
+   "reach": "structure",
+   "reach_value": null,
    "division": "north",
-   "tier": "reconstructed",
-   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (blacksmith): The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
-   "replaceable_by": "a source naming a street, a corner or a building for this household",
+   "tier": "inferred",
+   "basis": "SEATED 2026-09-28 (T-1714) IN THE BUILDING THIS FIELD SAID DID NOT EXIST. The note here read: \"Andreas puts him in one of the 'small log buildings' near the agency house at the foot of State Street, alongside Billy Caldwell. Those buildings are not in data/structures/ ... so there is nothing to link to and nothing to date.\" They are now: mckee_log_house is one of the ring Wau-Bun and Andreas describe round Cobweb Castle, raised on their two sentences with an invented position and footprint it admits to. Nothing about the EVIDENCE moved — Andreas gives this man a log building in that vicinity and gives him no other house anywhere, so the seat is the only candidate the corpus holds, and it is graded at the inference rather than at his sentence. The date is still the group's: nothing puts this building in 1835 except the continuity argument its own record states.",
+   "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at inferred.",
+   "replaceable_by": "a source naming a different building",
    "owed_to": null,
-   "band": {
-    "band": "north/tradesman_dwellings",
-    "clause": "tradesman_dwellings",
-    "clause_applies_to": [
-     "D3",
-     "D4",
-     "D5",
-     "D6"
-    ],
-    "clause_tier": "inferred",
-    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": false,
-    "from_trade": "blacksmith"
-   },
-   "seed": "hh_mckee_david|north|blacksmith|T-1512",
+   "band": null,
+   "seed": null,
    "dealt_roof": null
   },
   {
@@ -43927,40 +44422,25 @@
    "id": "hh_porthier_joseph",
    "kind": "household",
    "name": "The Porthier household",
-   "rung": "division_band",
+   "rung": "structure",
    "seat": {
-    "kind": "division_band",
-    "id": "north/tradesman_dwellings",
-    "division": "north",
-    "clause": "tradesman_dwellings"
+    "kind": "structure",
+    "id": "agency_striker_log_house"
    },
    "works_seat": {
     "kind": "structure",
     "id": "blacksmith_shop_state_st"
    },
-   "reach": "division",
-   "reach_value": "north",
+   "reach": "structure",
+   "reach_value": null,
    "division": "north",
-   "tier": "reconstructed",
-   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (blacksmith): The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
-   "replaceable_by": "a source naming a street, a corner or a building for this household",
+   "tier": "inferred",
+   "basis": "SEATED 2026-09-28 (T-1714) THROUGH AN OFFICE, NOT A NAME. The note here read 'Not attested in anything this project holds', which was true of this man's name and not of his office: Wau-Bun's ring round the Agency House is 'the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers', and Andreas with the 1830-31 agency staffing names Joseph Porthier as the striker. The office is attested among the residences and the man is attested in the office, so the seat is the join of the two and is graded inferred. His works_at already put him at blacksmith_shop_state_st at attested, twenty metres east of this house.",
+   "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at inferred.",
+   "replaceable_by": "a source naming a different building",
    "owed_to": null,
-   "band": {
-    "band": "north/tradesman_dwellings",
-    "clause": "tradesman_dwellings",
-    "clause_applies_to": [
-     "D3",
-     "D4",
-     "D5",
-     "D6"
-    ],
-    "clause_tier": "inferred",
-    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": false,
-    "from_trade": "blacksmith"
-   },
-   "seed": "hh_porthier_joseph|north|blacksmith|T-1512",
+   "band": null,
+   "seed": null,
    "dealt_roof": null
   },
   {
@@ -45308,7 +45788,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -45911,7 +46391,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -46032,7 +46512,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -48312,7 +48792,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -48334,7 +48814,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -48567,7 +49047,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -48802,7 +49282,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -48891,7 +49371,7 @@
    "reach_value": null,
    "division": "fort",
    "tier": "reconstructed",
-   "basis": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew.",
+   "basis": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
    "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at reconstructed.",
    "replaceable_by": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters",
    "owed_to": null,
@@ -62862,14 +63342,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_d4_02"
+    "id": "recon_1835_blk_south_water_wells_c3_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -62886,14 +63366,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d5_01"
+    "id": "recon_1835_blk_south_water_franklin_d4_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -62956,14 +63436,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_f2_10"
+    "id": "recon_1835_blk_south_water_franklin_c2_10"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63164,14 +63644,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_market_d5_01"
+    "id": "recon_1835_blk_lake_franklin_d1_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d1_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63188,14 +63668,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_08"
+    "id": "recon_1835_blk_south_water_franklin_c4_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63345,14 +63825,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_wells_c3_02"
+    "id": "recon_1835_blk_south_water_wells_c2_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63414,14 +63894,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c4_01"
+    "id": "recon_1835_blk_south_water_dearborn_c1_08"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63529,14 +64009,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c1_08"
+    "id": "recon_1835_blk_south_water_dearborn_c2_07"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63688,14 +64168,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d3_02"
+    "id": "recon_1835_blk_lake_clark_c3_03"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c3_03', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63712,14 +64192,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d2_09"
+    "id": "recon_1835_blk_south_water_lasalle_d4_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64047,14 +64527,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d1_01"
+    "id": "recon_1835_blk_lake_clark_c2_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d1_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c2_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64165,14 +64645,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c2_11"
+    "id": "recon_1835_blk_south_water_lasalle_f2_10"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c2_11', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64189,14 +64669,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c2_07"
+    "id": "recon_1835_blk_south_water_dearborn_c3_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64258,14 +64738,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_wells_c2_01"
+    "id": "recon_1835_blk_south_water_lasalle_c3_13"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_13', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64517,14 +64997,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_09"
+    "id": "recon_1835_blk_south_water_franklin_c2_08"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64917,14 +65397,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_10"
+    "id": "recon_1835_blk_south_water_franklin_c2_09"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65055,14 +65535,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c3_01"
+    "id": "recon_1835_blk_south_water_clark_c2_06"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65266,24 +65746,24 @@
    "id": "business_newberry_dole",
    "kind": "business",
    "name": "Newberry & Dole",
-   "rung": "face",
+   "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_clark_c2_06"
+    "id": "newberry_dole_packing_house_south_branch"
    },
    "works_seat": null,
-   "reach": "face",
-   "reach_value": "South Water Street",
+   "reach": "structure",
+   "reach_value": "Market Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor.",
-   "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'newberry_dole_packing_house_south_branch' is a committed structure.",
+   "words": "The advertisement's anchor reaches a roof this town has built, and the firm is seated on it.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
    "band": null,
    "seed": null,
-   "seat_is_substitutable": true,
-   "adjudicated_grade": "street_only_adopted",
+   "seat_is_substitutable": false,
+   "adjudicated_grade": "structure_committed",
    "dealt_roof": null
   },
   {
@@ -65404,14 +65884,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c3_02"
+    "id": "recon_1835_blk_south_water_dearborn_c3_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65588,14 +66068,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c3_12"
+    "id": "recon_1835_blk_south_water_lasalle_c2_11"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_12', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c2_11', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65811,14 +66291,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c3_13"
+    "id": "recon_1835_blk_south_water_lasalle_c3_12"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_13', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_12', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65835,14 +66315,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_clark_d5_03"
+    "id": "recon_1835_blk_lake_franklin_c2_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d5_03', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66121,14 +66601,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d4_02"
+    "id": "recon_1835_blk_south_water_lasalle_d5_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66253,23 +66733,22 @@
    "name": "[uncertain: DATID GAD], auction and commission merchant, South Water Street",
    "rung": "face",
    "seat": {
-    "kind": "street_face",
-    "id": "south_water",
-    "street_name": "South Water Street"
+    "kind": "structure",
+    "id": "recon_1835_blk_south_water_lasalle_d2_09"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
-   "tier": "reconstructed",
-   "basis": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: every roof on the face is spoken for.",
-   "words": "The paper reaches South Water Street and nothing narrower, and no ROOF on it could be adopted — every one is spoken for. So this firm stands on the FACE itself: on that street, in no building this model holds, with no lot and no coordinate claimed. The street is the reading; standing them on it without a roof is the reconstructed step.",
+   "tier": "inferred",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
    "band": null,
-   "seed": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street|south_water|T-1512",
-   "seat_is_substitutable": false,
-   "adjudicated_grade": "street_only_unseated",
+   "seed": null,
+   "seat_is_substitutable": true,
+   "adjudicated_grade": "street_only_adopted",
    "dealt_roof": null
   },
   {
@@ -66346,14 +66825,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_franklin_d1_02"
+    "id": "recon_1835_west_007"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d1_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66526,14 +67005,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_west_007"
+    "id": "recon_1835_blk_lake_clark_c1_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_west_007', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_c1_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66753,14 +67232,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_lake_franklin_d5_01"
+    "id": "recon_1835_blk_lake_market_c2_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,

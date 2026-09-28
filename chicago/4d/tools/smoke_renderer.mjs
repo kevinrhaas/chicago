@@ -1353,7 +1353,7 @@ for (const [label, viewport, touch] of [
   page.setDefaultTimeout(90_000);
 
   // A fresh boot stands at the GATE SCREEN, and the part that enters the town
-  // is part 6's "the gate and the chrome" section (part 4's until T-0346). Every part after it that
+  // is part 4 for movement, or part 6 for first-entry chrome. Every later part that
   // measures a page.screenshot frame (those include DOM overlays; the
   // GL-capture checks do not) or clicks the panel chrome (which has no layout
   // at all while the gate stands, so a click waits ninety seconds for a
@@ -1364,7 +1364,8 @@ for (const [label, viewport, touch] of [
   // it twice more and made it one function instead of four copies.
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
-      document.getElementById('gate-btn')?.click();
+      if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
+      else document.getElementById('gate-btn')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -4894,7 +4895,32 @@ for (const [label, viewport, touch] of [
         // street edge's own, 86 walk/crossing runs and 31 fence runs, all
         // unchanged. A trade the rule can finally see is still a trade the rule
         // refuses — what changes is that it says so.
-        && frontage.census?.refused === 108
+        // T-1253's full smoke found two already-landed parcels had left this
+        // snapshot at 108. Comparing the authored refusal sets at T-1657
+        // (3424d20f) and dev (face5164) proves +4, with no geometry change here:
+        // T-1640 adds Dearborn lot 6's shed-wall refusal; T-1682 adds Market
+        // lot 6's wall and the two reconstructed C2 trade refusals. Franklin
+        // lot 4's existing wall refusal is renamed, not an additional row.
+        // All walk/crossing/post/fence counts above remain exact and unchanged.
+        // T-1681 (#130) then landed on dev and 112 becomes 115, measured by
+        // diffing the authored refusal sets at ef20f58e and d3260907: the three
+        // re-familied Lake Street units recon_1835_blk_lake_clark_c1_01, _c2_02 and
+        // _c3_03 each gain a clause-3 refusal (the trade is reconstructed), and
+        // lot 0's existing 0.80 m wall refusal is renamed from _d5_03 to _c3_03,
+        // not added. No walk, crossing, post or fence count moves.
+        // T-1707 CARRIED THE SEVEN SOUTH COLUMNS TO MADISON STREET, and 115
+        // becomes 121: the plat's last tier arrives as six blocks with nothing
+        // built on any of them, and the board-walk rule now asks whether a block
+        // is built on before it planks its face — the same question the street
+        // fences and the hitching posts already asked. So the north face of each
+        // of the six is REFUSED IN WRITING rather than planked across 600 m of
+        // open prairie: blk_washington_market_north, _franklin_north,
+        // _wells_north, _lasalle_north, _clark_north and _dearborn_north, and
+        // nothing else on this layer moves. Measured by diffing the authored
+        // refusal sets against dev (d3260907 -> this branch): exactly +6, all
+        // six named above, and the walk, crossing, post and fence counts above
+        // are unchanged because no walk was laid there to move.
+        && frontage.census?.refused === 121
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -7937,6 +7963,9 @@ for (const [label, viewport, touch] of [
     // measuring the Sauganash and measuring the prairie.
     if (stageOn(4)) {
     inStageWork = true;
+    // The welcome deliberately disables every movement backend. Exercise
+    // walking after entry, exactly as a visitor does, not behind the menu.
+    await enterTown();
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
 
     // --- a raycast pick down the crosshair, not just by id ----------------
@@ -8482,7 +8511,7 @@ for (const [label, viewport, touch] of [
     //
     // It inherits NO POSE. `order` below teleports to each stand itself and
     // finishes at the reference frame on purpose, so the cut needed no re-framing
-    // here and no `enterTown()`: the town is not entered until part 6. The one
+    // here and no `enterTown()`: this part only reads the renderer. The one
     // binding that did cross this boundary was the draw-call ceiling, read again
     // below rather than borrowed from part 4's `stats`.
     if (stageOn(5)) {
@@ -8891,8 +8920,7 @@ for (const [label, viewport, touch] of [
     inStageWork = false;
     } // end PART 5 (the scene-detail ladder, cut out of part 4 by T-0346)
     // PART 6 — the gate, the chrome and the confidence menu's own clicks: the
-    // tail of what was part 4, and the point at which an unfiltered pass ENTERS
-    // THE TOWN. It stands alone because the sweep above it had to, and it is the
+    // tail of what was part 4, and the fresh first-entry UI check. It stands alone because the sweep above it had to, and it is the
     // right side of the boundary to have been left on: every check in it is a
     // real click on the HUD, and none of them shares a reading with the budgets
     // or the ladder. Measured at about 1 m 55 s under load on 2026-08-30, the
@@ -8901,10 +8929,16 @@ for (const [label, viewport, touch] of [
     inStageWork = true;
 
     // --- the gate and the chrome -------------------------------------------
+    // Part 4 now enters before testing movement. A combined/unfiltered run
+    // needs a fresh first visit here to retain the first-entry guide checks.
+    if (await page.evaluate(() => window.__chicago4d.welcome?.state === 'world')) {
+      await page.evaluate(() => localStorage.removeItem('chicago4d.controlHelpDismissed'));
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    }
     await page.click('#gate-btn');
     await page.waitForTimeout(150);
-    // Entering the walkthrough grabs the pointer on desktop; release it, or
-    // every later click lands on the locked canvas instead of the HUD.
+    // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
     await page.waitForTimeout(120);
     const chrome = await page.evaluate(() => ({
@@ -11800,7 +11834,7 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const registry = api.registry;
       const rows = () => [...document.querySelectorAll('#jump-results .jump-result')];
-      const KIND_IDS = ['viewpoints', 'corners', 'people', 'taverns', 'stores', 'trades',
+      const KIND_IDS = ['viewpoints', 'corners', 'people', 'businesses', 'taverns', 'stores', 'trades',
         'homes', 'public', 'waterfront'];
       const out = {};
       const pill = document.querySelector('.jump-pill[data-kind="taverns"]');
@@ -11832,16 +11866,22 @@ for (const [label, viewport, touch] of [
       };
       out.groups = {
         rows: all.length,
+        sharedCount: api.destinations.count,
         structures: all.filter((r) => r.dataset.jumpKind === 'structure').length,
         unknownGroup: all.filter((r) => !KIND_IDS.includes(r.dataset.jumpGroup)).map((r) => r.dataset.jumpId),
         misfiled: all.filter((r) => headingFor(r) !== r.dataset.jumpGroup).map((r) => r.dataset.jumpId),
       };
-      // Distance and compass on every row.
+      // Located rows keep the same distance contract. Unknown addresses must not invent one.
+      const targetFor = r => api.destinations.byId(r.dataset.jumpKind, r.dataset.jumpId);
+      const located = r => Number.isFinite(targetFor(r)?.e) && Number.isFinite(targetFor(r)?.n);
       const DIST = /^(\d+(\.\d+)? (ft|m|mi|km)) (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW)$|^here$/;
       out.dist = {
-        bad: all.filter((r) => !DIST.test((r.querySelector('.jump-dist')?.textContent ?? '').trim()))
+        bad: all.filter(located).filter((r) => !DIST.test((r.querySelector('.jump-dist')?.textContent ?? '').trim()))
           .map((r) => `${r.dataset.jumpId} "${(r.querySelector('.jump-dist')?.textContent ?? '').trim()}"`),
-        noMetres: all.filter((r) => !/^\d+$/.test(r.querySelector('.jump-dist')?.dataset.m ?? '')).length,
+        noMetres: all.filter(located).filter((r) => !/^\d+$/.test(r.querySelector('.jump-dist')?.dataset.m ?? '')).length,
+        unknown: all.filter(r => !located(r)).length,
+        dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
+          || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
       };
       api.hud.goTo.setIncludeReconstructed(false);
       // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
@@ -11904,13 +11944,15 @@ for (const [label, viewport, touch] of [
       && gotoMore.taverns.heading === gotoMore.taverns.label && gotoMore.taverns.groups === 1,
       `${gotoMore.taverns.rows} row(s), off-kind [${gotoMore.taverns.offKind.join(', ')}], heading `
       + `"${gotoMore.taverns.heading}" vs pill "${gotoMore.taverns.label}", ${gotoMore.taverns.groups} heading(s)`);
-    check(`${label}: every row is filed under one of the nine kinds, beneath that kind's heading`,
+    check(`${label}: every row is filed under one of the ten groups, beneath that group's heading`,
       gotoMore.groups.structures > 300 && !gotoMore.groups.unknownGroup.length
       && !gotoMore.groups.misfiled.length,
       `${gotoMore.groups.rows} rows; unknown group [${gotoMore.groups.unknownGroup.slice(0, 3).join(', ')}]; `
       + `misfiled [${gotoMore.groups.misfiled.slice(0, 3).join(', ')}]`);
-    check(`${label}: every row says how far and which way`,
-      !gotoMore.dist.bad.length && gotoMore.dist.noMetres === 0,
+    check(`${label}: visible rows equal the shared destination inventory`,
+      gotoMore.groups.rows === gotoMore.groups.sharedCount, JSON.stringify(gotoMore.groups));
+    check(`${label}: located rows say how far and which way; unknown addresses invent no metres`,
+      !gotoMore.dist.bad.length && gotoMore.dist.noMetres === 0 && gotoMore.dist.unknown > 0 && gotoMore.dist.dishonest === 0,
       `bad [${gotoMore.dist.bad.slice(0, 3).join('; ')}], ${gotoMore.dist.noMetres} without metres`);
     check(`${label}: the distances follow the visitor — 100 m further east reads 100 m further`,
       Math.abs(gotoMore.follow.at100.m - 100) <= 2 && Math.abs(gotoMore.follow.at200.m - 200) <= 2
@@ -12961,7 +13003,9 @@ for (const [label, viewport, touch] of [
     // this is the assertion that would catch it before it 404s live.
     await page.evaluate(() => window.localStorage.removeItem('chicago4d.whatsnew.seen'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 30000 });
+    // Use the same 90 s action budget as initial readiness: a reload must
+    // not silently reinstate Playwright's shorter 30 s default (T-1279).
+    await page.waitForFunction(() => window.__chicago4d?.ready === true);
     await clickChrome('#gate-btn');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
@@ -13001,7 +13045,9 @@ for (const [label, viewport, touch] of [
     // release back and exactly the newer entries should carry it.
     await page.evaluate(() => window.localStorage.setItem('chicago4d.whatsnew.seen', '3'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 30000 });
+    // Use the same 90 s action budget as initial readiness: a reload must
+    // not silently reinstate Playwright's shorter 30 s default (T-1279).
+    await page.waitForFunction(() => window.__chicago4d?.ready === true);
     await clickChrome('#gate-btn');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());

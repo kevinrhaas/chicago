@@ -942,6 +942,16 @@ def unresolved_owner_faults(where: str, row: dict) -> list[str]:
 # THE RULING'S PROOF NAMES THE SAME KEY THE DERIVATION DOES (T-1338). `record_id` here is
 # the unit's `record_key`, so a ruling that asserts a file-local unit has to show the
 # FILE-QUALIFIED id on the card. A bare `c004` proved nothing about which issue was read.
+#
+# AND A PROOF MAY NAME A PERSON'S OWN FIELD, NOT ONLY THE HOUSEHOLD'S (T-1588). The licence
+# above could see one shape of card field — a block hanging off the top of a household
+# record — because every field it was built for was a household claim: an origin, a reason
+# for coming, an arrival. A LANDHOLDING is not one of those. It is a thing a named man
+# owned, `hh_wright_john` holds a father and a son of nearly the same name, and a
+# household-level block would deal the son's lots to the father to satisfy a checker. So a
+# `wrote` row may carry `person`, and the block is then read off that person inside the
+# record's `persons[]`. The five checks are unchanged and are still the whole of the
+# licence; what moved is where the block is allowed to live, not what it has to show.
 def asserted_ruling_faults(root: Path, unit_id: str, record_id: str, row: dict) -> list[str]:
     wrote = row.get("wrote")
     where = f"a ruling asserts {unit_id} and"
@@ -957,8 +967,16 @@ def asserted_ruling_faults(root: Path, unit_id: str, record_id: str, row: dict) 
             faults.append(f"{where} names {named['file']}, which is not a file")
             continue
         doc = read_json(path)
-        block = doc.get(str(named["field"])) if isinstance(doc, dict) else None
+        holder = doc if isinstance(doc, dict) else None
         at = f"{named['file']}#{named['field']}"
+        if named.get("person"):
+            at = f"{named['file']}#persons/{named['person']}/{named['field']}"
+            holder = next((p for p in ((doc.get("persons") if isinstance(doc, dict) else None) or [])
+                           if isinstance(p, dict) and p.get("id") == named["person"]), None)
+            if holder is None:
+                faults.append(f"{where} names {at}, and that record holds no such person")
+                continue
+        block = holder.get(str(named["field"])) if isinstance(holder, dict) else None
         if not isinstance(block, dict):
             faults.append(f"{where} names {at}, which carries no block")
             continue
@@ -966,7 +984,19 @@ def asserted_ruling_faults(root: Path, unit_id: str, record_id: str, row: dict) 
             faults.append(f"{where} {at} is not attested, inferred or documented")
         if not field_sources(block):
             faults.append(f"{where} {at} cites no source")
-        if record_id not in json.dumps(block, ensure_ascii=False):
+        # THE FIFTH CHECK IS "THIS BLOCK IS ABOUT THIS UNIT", and a person-scoped proof
+        # answers it by STRUCTURE rather than by a token in prose: the block hangs off the
+        # `persons[]` row whose id IS the unit's record key, which is the identity the
+        # token hunt was only ever a proxy for. Demanding the id inside the block as well
+        # would ask a record to repeat, in its own text, what its position already says —
+        # and this module has been bitten once by reading a repeated id as an assertion
+        # (see TOKEN_BLIND_KEYS). A `wrote` row naming a DIFFERENT person than the unit is
+        # the fault this replaces it with, and it is the same fault stated exactly.
+        if named.get("person"):
+            if str(named["person"]) != record_id:
+                faults.append(f"{where} {at} is a field of {named['person']}, "
+                              f"and the unit is {record_id}")
+        elif record_id not in json.dumps(block, ensure_ascii=False):
             faults.append(f"{where} {at} does not say {record_id}")
     return faults
 
@@ -1137,10 +1167,22 @@ def classify(root: Path, unit: dict, targets: dict[str, list[dict]],
         wrote = [w for w in (ruling.get("wrote") or []) if isinstance(w, dict)]
         if wrote:
             first = wrote[0]
+            # A PERSON-SCOPED PROOF POINTS AT THE PERSON (T-1588). The ledger's own
+            # `field_path` is a JSON pointer resolved against the record, so a field
+            # hanging off a `persons[]` row has to say which row — "/landholding" on a
+            # household resolves to nothing, and the validator says so.
+            path = "/" + pointer_part(str(first.get("field")))
+            if first.get("person"):
+                doc = read_json(root / str(first.get("file")))
+                people = (doc.get("persons") if isinstance(doc, dict) else None) or []
+                index = next((i for i, p in enumerate(people)
+                              if isinstance(p, dict) and p.get("id") == first["person"]), None)
+                if index is not None:
+                    path = f"/persons/{index}{path}"
             row["target"] = {"kind": "resident_record",
                              "id": Path(str(first.get("file"))).stem,
                              "file": first.get("file"),
-                             "field_path": "/" + pointer_part(str(first.get("field")))}
+                             "field_path": path}
             row["wrote"] = wrote
         row["reason"] = said
     elif rule["disposition"] == "refused":
@@ -1539,6 +1581,42 @@ def self_test() -> int:
             else:
                 print(f"  fires: {label}")
 
+        # T-1588: THE ASSERTED LICENCE, REACHING A PERSON'S OWN FIELD. The five checks are
+        # the whole of it, so each one is mutated into the red it exists to print — and the
+        # honest shape is asserted too, because a licence that only ever fails proves
+        # nothing about what it lets through.
+        card = root / "data/residents/households/hh_fixture.json"
+        write_json(card, {"id": "hh_fixture", "persons": [
+            {"id": "one_person", "landholding": {
+                "value": "Held land", "confidence": "inferred", "sources": ["fixture_source"]}},
+            {"id": "other_person"}]})
+        rel = "data/residents/households/hh_fixture.json"
+
+        def licence(label, named, unit_key, want):
+            got = asserted_ruling_faults(root, "u1", unit_key, {"wrote": [named]})
+            if want is None:
+                if got:
+                    failures.append(f"{label}: expected no fault, got {got!r}")
+                else:
+                    print(f"  passes: {label}")
+            elif not any(want in fault for fault in got):
+                failures.append(f"{label}: expected {want!r}, got {got!r}")
+            else:
+                print(f"  fires: {label}")
+
+        licence("a landholding on the person the unit is about",
+                {"file": rel, "person": "one_person", "field": "landholding"},
+                "one_person", None)
+        licence("a proof naming a person the record does not hold",
+                {"file": rel, "person": "nobody", "field": "landholding"},
+                "nobody", "holds no such person")
+        licence("a proof naming a person who is not the unit",
+                {"file": rel, "person": "one_person", "field": "landholding"},
+                "other_person", "and the unit is other_person")
+        licence("a proof naming a field that person does not carry",
+                {"file": rel, "person": "other_person", "field": "landholding"},
+                "other_person", "carries no block")
+
         # T-1421: LIVENESS CLIMBS THE WHOLE CHAIN. A split piece that is itself split
         # used to drop its grandparent back to plain `split`, and twelve unmoved units
         # read as deferred to finished work. Both directions are asserted here: a live
@@ -1716,5 +1794,5 @@ def self_test() -> int:
             print("  fires: a duplicate stable unit id")
     for failure in failures:
         print("   SILENT: " + failure)
-    print("LEDGER SELF-TEST %s — 23 case(s)" % ("FAIL" if failures else "PASS"))
+    print("LEDGER SELF-TEST %s — 27 case(s)" % ("FAIL" if failures else "PASS"))
     return 1 if failures else 0

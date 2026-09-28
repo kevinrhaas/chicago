@@ -117,20 +117,45 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings: with a person's sex and age band fixed the bound is 233, with the trade fixed too it is 123, and with movability applied and a house kept whole it is 73. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 43 if the household kind changed too, 105 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
     "still_owed_now": 299,
     "still_owed_when_the_programme_is_spent": 299,
     "persons_standing_in_the_layer": 2381,
     "converges_to_now": 2680,
-    "converges_to_when_the_programme_is_spent": 2551,
+    "converges_to_when_the_programme_is_spent": 2680,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,551 is inside the model's 2,362-3,265 and 8 above its 2,543 point, against 137 above it today."
+    "reading": "2,680 is inside the model's 2,362-3,265 and 137 above its 2,543 point, against 137 above it today.",
+    "and_the_rules_own_projection_is_not_used": {
+      "the_rule_says": 2551,
+      "this_report_says": 2680,
+      "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
+    }
+  },
+  "the_residue_and_the_ruling_on_it": {
+    "people_still_held": 395,
+    "buckets_they_are_held_in": 44,
+    "and_what_holds_each_of_them": [
+      {
+        "refusal": "a_documented_reading_shrank_the_order",
+        "people": 1
+      },
+      {
+        "refusal": "the_re_cut_reached_work_already_drawn",
+        "people": 394
+      }
+    ],
+    "the_programme_is_settled": true,
+    "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
+    "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
+    "what_becomes_of_them": "nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.",
+    "what_would_reopen_it": "a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.",
+    "read_from": "data/reconstruction/1835_reconstruction_order_book.json § re_family_ledger.the_programme"
   },
   "what_the_book_goes_on_saying": "Each of the buckets below keeps its `held_at` and its `the_re_cut_would_have_ordered` side by side, which is T-1459's ruling of 2026-09-20 and is the state the 2026-09-24 ruling IMPROVED on rather than abolished. docs/LIBERTIES.md L268 is the admission.",
   "what_would_move_the_remainder": [

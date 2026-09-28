@@ -1,0 +1,104 @@
+import { currentStop, choicesFor, canNext } from './jaunts.js';
+import { PACES } from './travel-settings.js';
+import { formatEstimate } from './travel-estimate.js';
+
+/** The scrollable story and persistent controls have separate layout ownership. */
+export function createJauntPanel({ destinations, actions }) {
+  const sheet = document.createElement('link'); sheet.rel = 'stylesheet';
+  sheet.href = new URL('../css/jaunt.css', import.meta.url); document.head.append(sheet);
+  const node = (tag, text, className) => {
+    const el = document.createElement(tag); el.textContent = text;
+    if (className) el.className = className;
+    return el;
+  };
+  const button = (text, fn) => {
+    const el = node('button', text); el.type = 'button'; el.addEventListener('click', fn); return el;
+  };
+  const root = node('section', '', 'jaunt-panel'); root.id = 'jaunt-panel'; root.hidden = true;
+  root.setAttribute('aria-label', 'Current jaunt');
+  const body = node('div', '', 'jaunt-body'), controls = node('nav', '', 'jaunt-controls');
+  controls.setAttribute('aria-label', 'Jaunt navigation');
+  const buttons = {};
+  for (const [id, label] of [['prev', 'Previous Stop'], ['next', 'Next Stop'], ['end', 'End Jaunt'], ['menu', 'Jaunts Menu']]) {
+    buttons[id] = button(label, () => actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
+  }
+  const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
+  mode.title = 'Fly is a viewing convenience, not 1835 transport.';
+  mode.addEventListener('change', () => actions.setMode(mode.value));
+  const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
+  controls.prepend(mode, straight);
+  root.append(body, controls); document.body.append(root);
+  // Native controls and translated/wrapped labels can make this row taller.
+  // Reserve its measured height for cards and drawers instead of guessing it.
+  const controlSize = new ResizeObserver(entries => {
+    const height = entries[0]?.borderBoxSize?.[0]?.blockSize || controls.offsetHeight;
+    if (height > 0) document.documentElement.style.setProperty('--jaunt-nav', `${Math.ceil(height) + 1}px`);
+  });
+  controlSize.observe(controls);
+  root.addEventListener('keydown', e => e.stopPropagation());
+  let state, key;
+  const overlayOpen = () => ['popup', 'panel'].some(id => { const el = document.getElementById(id); return el && !el.hidden; });
+  const syncOverlay = () => {
+    const open = overlayOpen(); root.classList.toggle('jaunt-detail', open); body.hidden = open;
+    if (!open && state?.phase === 'detail') actions.returnFromDetail();
+  };
+  const observer = new MutationObserver(syncOverlay);
+  for (const id of ['popup', 'panel']) {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el, { attributes: true, attributeFilter: ['hidden'] });
+  }
+  function render(next) {
+    const old = state; state = next;
+    const active = !!state.jaunt && !['menu', 'outcome'].includes(state.phase);
+    root.hidden = !active; document.documentElement.toggleAttribute('data-jaunt-active', active);
+    if (!active) { key = null; return; }
+    const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
+    if (old?.session !== state.session) {
+      mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
+        const option = node('option', PACES[id].label); option.value = id; return option;
+      }));
+    }
+    mode.value = state.mode;
+    straight.hidden = !['travelling', 'paused'].includes(state.phase);
+    mode.classList.toggle('jaunt-mode-wide', straight.hidden);
+    const scroll = same ? body.scrollTop : 0, focused = document.activeElement?.dataset.choice;
+    const heading = node('h2', destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id);
+    heading.tabIndex = -1;
+    const progress = node('p', `${state.jaunt.title} · Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`, 'jaunt-progress');
+    progress.setAttribute('aria-live', 'polite'); body.replaceChildren(progress, heading);
+    if (state.estimate) {
+      const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
+    }
+    if (state.mode === 'fly') body.append(node('p', 'Fly is a viewing convenience, not 1835 transport.', 'jaunt-progress'));
+    if (['travelling', 'paused'].includes(state.phase)) {
+      body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.' : state.error || 'On the way to the next stop…'));
+      if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
+      if (state.error) body.append(button('Try this stop again', actions.retry));
+    } else {
+      if (state.stopIndex === 0) {
+        const about = node('details', ''); about.append(node('summary', 'About this outing'), node('p', state.jaunt.opening.text)); body.append(about);
+      }
+      body.append(node('p', stop.text));
+      const visit = state.visited[state.stopIndex];
+      if (visit.committed) {
+        const chosen = stop.choices?.find(c => c.id === visit.choice);
+        if (chosen) body.append(node('p', chosen.consequence));
+      } else if (stop.choices?.length) {
+        const choices = node('div', '', 'jaunt-choices');
+        for (const choice of choicesFor(state)) {
+          const b = button(choice.label, () => actions.choose(choice.id)); b.dataset.choice = choice.id;
+          b.setAttribute('aria-pressed', String(state.choice === choice.id)); choices.append(b);
+        }
+        body.append(choices, node('p', choicesFor(state).find(c => c.id === state.choice)?.consequence
+          || (stop.next ? 'Choose a preference, or continue without one.' : 'Choose an option to continue.')));
+      }
+      for (const link of stop.links || []) body.append(button(link.label, () => actions.detail(link)));
+    }
+    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = !canNext(state);
+    const open = overlayOpen(); root.classList.toggle('jaunt-detail', open); body.hidden = open;
+    body.scrollTop = scroll; key = nextKey;
+    if (focused && same) [...body.querySelectorAll('[data-choice]')].find(el => el.dataset.choice === focused)?.focus();
+    else if (state.phase === 'atStop' && (!same || old?.phase === 'travelling')) heading.focus({ preventScroll: true });
+  }
+  return { render, destroy() { observer.disconnect(); controlSize.disconnect(); root.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
+}

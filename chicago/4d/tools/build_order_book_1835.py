@@ -274,7 +274,26 @@ HOUSEHOLD_BUCKETS = (
 # cut by district and street, so this maps the programme's own group x district
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
-    ("south", "ordinary_dwellings"): "T-1203",
+    # T-1203 WAS SPLIT on 2026-09-28 (T-1707, T-1708, T-1709, T-1710) and this row moved
+    # with it, for the reason the T-1200 block below states at length: a bucket whose
+    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and the
+    # gate says so — it went red on this cell within the hour, reading "structures/
+    # ordinary_dwellings/south has 67 left and is ordered by T-1203, which is split".
+    #
+    # THE CELL GOES TO T-1708, and the measurement is which children raise an ORDINARY
+    # DWELLING. The cell reads 176 target, 109 standing, 67 to build. Of the four children
+    # T-1707 raises no roof at all — it carries the Original Town's seven south columns from
+    # their terrain clip at N -400 to Madison Street, which is street control on ground
+    # T-0219 already modelled, and its own title says it is what
+    # `south_plat_beyond_committed_control`'s 104 roofs still WAIT on. T-1709 is the South
+    # Branch noxious-trade band: work bays, cooperage and tannery yards, stables and sheds —
+    # trade fabric, not dwellings. That leaves two, and T-1708 is the first: "the cottages and
+    # yard buildings the South balance deals to the plat's last tier, on the blocks the street
+    # carry emitted" is this cell in as many words. T-1710 carries the rest of the district's
+    # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
+    # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
+    # cell still owing, the same rule T-1681 was named under one line down.
+    ("south", "ordinary_dwellings"): "T-1708",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -285,17 +304,50 @@ STRUCTURE_TICKETS = {
     # variant ticket against roofs already standing (W1's forge stack) and raises none,
     # exactly as T-1639's own children did not, so it owns no cell.
     #
-    # STORES GO TO T-1681, the first of the two live raisers, and the row moves to T-1682
-    # when it closes with the cell still owing — the T-1640 -> T-1672 shape recorded below.
-    # WORKSHOPS GO TO T-1682, which is the only child that names them: the W1-W4 shops on
-    # State and Dearborn are its second half in as many words.
-    ("south", "stores_mixed_use"): "T-1681",
+    # STORES GO TO T-1694, AND THE ROW'S OWN HISTORY IS THE ARGUMENT. It has now been
+    # swept three times in one afternoon, each sweep sound when it was made and overtaken
+    # by the next close: T-1680 sent it to T-1682 ("the W1-W4 shops are its second half in
+    # as many words"); T-1682 measured that, could not spend it, and sent it to T-1681
+    # ("the first of the two live raisers, and the row moves to T-1682 when it closes with
+    # the cell still owing") — but T-1682 merged the same afternoon, so the successor it
+    # promised was already `done`; T-1683 was then the last live child of T-1201, and it
+    # merged too (#138) while this piece was being re-cut on dev. T-1681 closes with the
+    # pull request this row moves in, so ALL FOUR CHILDREN OF T-1201 ARE NOW CLOSED and
+    # the split parent has no live descendant either. There is no ticket left in that
+    # family to name, and the harm of naming one anyway is the route
+    # `ticket_liveness.py`'s own header describes: the gate reads `review`, which is live,
+    # and the `done` that takes dev red lands afterwards, when the settle workflow runs.
+    #
+    # SO THE CELL GETS A TICKET OF ITS OWN, filed the way T-1684 was filed for the
+    # workshops row one line below — by the run that found the hole, carrying the
+    # measurement rather than an opinion. T-1694: the cell reads 41 standing of 42 with
+    # one owed, and every block of the Lake-Randolph tier reads `at_capacity`, so the last
+    # south store has no ground in the platted core to stand on. That is a question about
+    # where it goes, not a build somebody can just take, and it is not this piece's to
+    # answer: re-familying a fourth roof to close the cell would be inventing a trade,
+    # which is the refusal `blk_lake_dearborn` is already recorded under.
+    # WORKSHOPS GO TO T-1684, and the sentence this replaces is why the row could not stay
+    # on T-1682. T-1680's sweep (above, an hour earlier) sent it to T-1682 because "the
+    # W1-W4 shops on State and Dearborn are its second half in as many words" — sound at
+    # the time, and T-1682 then MEASURED that second half and could not spend it. The whole
+    # `fronts` vocabulary the 22-block recipe uses is `lake`, `randolph`, `south_water`,
+    # `washington` — the four LONG faces — and not one slot in this programme's history has
+    # been dealt onto a cross-street face, so a W2-W4 shop on State or Dearborn needs a
+    # short-face placement term the recipe does not have. Every block on those faces reads
+    # `at_capacity` or deals no W head (`blk_south_water_dearborn`'s 4 of headroom is dealt
+    # A3, D6, D7, H1), and the only W-family roof this town holds anywhere is
+    # `recon_1835_north_w5_040`, in the North Division: neither a slot to deal nor a shop to
+    # re-family. T-1684 carries that measurement and owns the question, and T-1682 closes
+    # with the pull request this row moved in — so leaving the row on it would put a `done`
+    # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
+    # ran, which is the exact harm the sweep above exists to prevent.
+    ("south", "stores_mixed_use"): "T-1694",
     ("south", "larger_boarding_houses"): "T-1209",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
     ("south", "inns_taverns"): "T-1683",
-    ("south", "workshops"): "T-1682",
+    ("south", "workshops"): "T-1684",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the
@@ -2250,6 +2302,80 @@ def refamily_against_buckets(moves: list, buckets: list, drawn: Counter) -> None
                         f"ever drawn there")
 
 
+# WHERE THE PROGRAMME FINISHES, AND IT IS NOT NOUGHT (T-1597, the owner's answer of
+# 2026-09-25). `the_programme` read `settled: still == 0` — the programme finishes when
+# nobody is held, and only then — and that is a finish line the rule built to carry the
+# ruling cannot reach. T-1558's rule yields every move the axes allow and then stops:
+# 129 of them, all spent by T-1563 and T-1564, with 395 people left in 44 buckets the
+# rule REFUSES for reasons that are each a rule and not a gap (a house moves whole or not
+# at all; a move may not change a person's sex or age band). So the step stood
+# permanently unsettled, which by the work-order gate below made it a live order that had
+# to name a ticket a run could claim — and each run that took that ticket found the same
+# fixpoint and handed it to the next. The owner was asked which of three things the 395
+# are, and ruled option (a), verbatim:
+#
+#   "They remain held, recorded as held, and the programme is settled at its fixpoint
+#    rather than at zero — the refusals stand as written and the book says so."
+#
+# THE FINISH LINE IS THEREFORE THE RULE'S OWN FIXPOINT: settled when the rule yields no
+# further move. That is arithmetic exactly as before and still not opinion — what the
+# ruling changed is WHICH arithmetic. Nobody is un-written, no confidence moves and no
+# refusal is reworded, which are the three things T-1597 forbade; and the residue is not
+# silent, because the step carries its count, the buckets that hold it and the refusal
+# holding each person, summing to the count rather than standing beside it.
+#
+# AND IT REOPENS IF THE RULE IS EVER WIDENED, which is option (b) the owner did NOT take.
+# A wider rule yields more moves than are spent, this step goes unsettled, and the
+# work-order gate asks for a live owner again. That is what keeps this a fixpoint rather
+# than a decree: the programme is settled while the rule is spent, and only while.
+def the_programme_step(still: int, refusals: list, moves: list, rule: dict | None) -> dict:
+    """The programme's own step: settled at the rule's fixpoint, with the residue named."""
+    left_to_spend = None if rule is None else max(0, rule["yields"] - len(moves))
+    by_refusal: Counter = Counter()
+    for row in refusals:
+        by_refusal[row.get("cause", "the_re_cut_reached_work_already_drawn")] += row.get(
+            "surplus_still_held",
+            row["already_drawn"] - row["the_re_cut_would_have_ordered"])
+    step = {
+        "ticket": "T-1597",
+        "settled": left_to_spend == 0,
+        "the_finish_line": "the rule's own fixpoint: the programme is settled when "
+                           "T-1558's rule yields no further move, and not when nobody is "
+                           "held. `settled` is arithmetic either way — what the ruling "
+                           "changed is which arithmetic.",
+        "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): "
+                                  "\"They remain held, recorded as held, and the "
+                                  "programme is settled at its fixpoint rather than at "
+                                  "zero — the refusals stand as written and the book says "
+                                  "so.\" It is the ruling of 2026-09-24 asked again of "
+                                  "the residue that rule could not reach.",
+        "moves_the_rule_still_yields": left_to_spend,
+        "people_still_held": still,
+        "buckets_they_are_held_in": len(refusals),
+        "and_what_holds_each_of_them": [{"refusal": cause, "people": n}
+                                       for cause, n in sorted(by_refusal.items())],
+        "the_rungs_the_rule_refuses_on": ([r for r in rule["rungs"]
+                                           if r not in rule["movable"]] if rule else None),
+        "what_becomes_of_them": "nothing, and that is the ruling: each keeps the card, the "
+                                "id, the seed and the confidence the stage that drew him "
+                                "wrote, counted in a cell the sources have since shown the "
+                                "town did not need that many of. Every one of the buckets "
+                                "goes on naming both its figures (T-1459), "
+                                "docs/LIBERTIES.md L268 is the admission, and "
+                                "docs/RESEARCH/1835_refamily_programme.md is the "
+                                "arithmetic.",
+        "what_would_reopen_it": "a wider rule. Option (b) — loosening whole-house, sex or "
+                                "age band — was not taken; if it ever is, the rule yields "
+                                "more moves than are spent, this step goes unsettled, and "
+                                "the work-order gate asks for a live owner again.",
+    }
+    if rule is None:
+        step["why_it_cannot_be_settled_here"] = (
+            "T-1558's rule is not built in this tree, so there is no fixpoint to settle at "
+            "and the programme cannot be finished.")
+    return step
+
+
 def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int,
                     rule: dict | None = None) -> dict:
     """The book's account of what has moved, what is still held, and where it could land."""
@@ -2311,7 +2437,8 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
                                    "into it by hand does not survive a --build.",
         },
         # THE PROGRAMME ITSELF IS A STEP, and `settled` is arithmetic rather than
-        # opinion: it finishes when nobody is held, and only then. Every step here
+        # opinion: it finishes where T-1558's rule does, which is the owner's ruling of
+        # 2026-09-25 and is `the_programme_step` above. Every step here
         # carrying `settled: false` is a forward-looking work order, and
         # `every_work_order_names_a_live_ticket` refuses one whose ticket has closed
         # (T-1530). It has to, because the prose this ledger replaced handed the same
@@ -2326,10 +2453,14 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
         # on the PR that caused it rather than on the next branch to gate, which is the
         # whole point of that step. The order is still LIVE and must stay live: `settled`
         # is arithmetic, 395 people are still held across 44 refused buckets, and it is
-        # T-1597 that now owes them an answer. The ruling itself is unchanged and is still
-        # cited as T-1556 everywhere it is quoted below — what moves here is who OWES the
-        # remaining work, which is the only thing this field has ever meant.
-        "the_programme": {"ticket": "T-1597", "settled": still == 0},
+        # T-1597 that owed them an answer, and T-1597 GOT one: the owner ruled on
+        # 2026-09-25 that they remain held and that the programme is settled at the rule's
+        # fixpoint rather than at nought. `the_programme_step` above is that finish line,
+        # with the 395 and the refusal holding each of them written down beside it, and
+        # `the_programme_finishes_where_the_rule_does` holds the two to each other. The
+        # ruling of 2026-09-24 is unchanged and is still cited as T-1556 everywhere it is
+        # quoted below.
+        "the_programme": the_programme_step(still, refusals, moves, rule),
         "moves": moves,
         "counts": {
             "moves": len(moves),
@@ -3041,6 +3172,78 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
     return said
 
 
+def the_programme_finishes_where_the_rule_does(doc: dict) -> str:
+    """THE FINISH-LINE GATE (T-1597), asked on every --build and --check.
+
+    The work-order gate above asks whether an UNSETTLED step names somebody who can
+    still act. It cannot ask the question underneath it — whether `settled` says the
+    truth — and until the owner's answer of 2026-09-25 there was nothing to ask: the
+    finish line was `still == 0` and the only way to reach it was to move everybody.
+
+    The finish line is the rule's fixpoint now, so `settled` is a claim about TWO other
+    documents and this holds it to them:
+
+      * it agrees with the rule's own remainder — settled exactly when the rule yields
+        no further move, read off `who_makes_the_moves`' spent-against-yielded and never
+        from the flag itself;
+      * the residue it settles over is the refusal table's arithmetic — the count is the
+        held surplus the book already states, and the refusal holding each person sums to
+        that count rather than sitting beside it;
+      * and a programme settled with people still held SAYS SO, in words, naming the
+        ruling that set the line and what becomes of them. A settled step orders nobody,
+        so the work-order gate goes quiet on it; that quiet must not be the only record
+        that 395 invented people are still standing where the re-cut found them.
+
+    The last clause is the one worth the file. `settled: true` with an empty residue
+    statement would take every gate in this project green while saying nothing at all
+    about the people it settles over, which is the shape of the four-day silence
+    `every_work_order_names_a_live_ticket` was written for.
+    """
+    ledger = doc.get("re_family_ledger") or {}
+    step = ledger.get("the_programme")
+    if not isinstance(step, dict):
+        raise Fault("the re-family ledger states no programme step at all, so nothing says "
+                    "where the programme finishes")
+    held = ledger.get("the_held_surplus") or {}
+    makes = ledger.get("who_makes_the_moves") or {}
+    left, yields_, spent = (step.get("moves_the_rule_still_yields"),
+                            makes.get("the_rule_yields"), makes.get("spent"))
+    if yields_ is not None and spent is not None and left != max(0, yields_ - spent):
+        raise Fault(f"the programme says the rule still yields {left} move(s) while the "
+                    f"ledger says {spent} of {yields_} are spent")
+    if bool(step.get("settled")) is not (left == 0):
+        raise Fault(f"the programme reads settled={step.get('settled')!r} with {left} "
+                    f"move(s) the rule still yields: the finish line is the rule's "
+                    f"fixpoint (T-1597) and `settled` may not be set by hand")
+    still = step.get("people_still_held")
+    if still != held.get("people_still_held"):
+        raise Fault(f"the programme holds {still} people and the book's own surplus holds "
+                    f"{held.get('people_still_held')}")
+    named = sum((row.get("people") or 0) for row in step.get("and_what_holds_each_of_them") or ())
+    if named != still:
+        raise Fault(f"the programme holds {still} people and names the refusal that holds "
+                    f"{named} of them")
+    if step.get("settled") and (still or 0) > 0:
+        if step.get("buckets_they_are_held_in") != held.get("buckets_refused"):
+            raise Fault(f"the programme settles over {step.get('buckets_they_are_held_in')} "
+                        f"refused bucket(s) and the book refuses "
+                        f"{held.get('buckets_refused')}")
+        for field in ("the_finish_line", "the_ruling_that_set_it", "what_becomes_of_them",
+                      "what_would_reopen_it"):
+            if not str(step.get(field) or "").strip():
+                raise Fault(f"the programme is settled with {still} people still held and "
+                            f"states no {field}: a settled step orders nobody, so this is "
+                            f"the only place the residue is recorded (T-1597)")
+    if not step.get("settled"):
+        return (f"the re-family programme is unsettled with {left} move(s) the rule still "
+                f"yields")
+    if (still or 0) == 0:
+        return "the re-family programme is settled with nobody held"
+    return (f"the re-family programme is settled at its rule's fixpoint, with {still:,} "
+            f"people recorded as held in {step['buckets_they_are_held_in']} refused "
+            f"bucket(s)")
+
+
 def recut_findings(known: dict, before: dict, families: list, refusals: list) -> list[dict]:
     """What the re-cut made measurable — T-1463's three, and T-1525's fourth.
 
@@ -3255,6 +3458,20 @@ def report_text(doc: dict) -> str:
                 f"({'settled' if rf['who_chooses_who_moves']['settled'] else 'not settled'}): "
                 f"{rf['who_chooses_who_moves']['why']} The moves themselves are "
                 f"{rf['who_makes_the_moves']['ticket']}'s.", ""]
+        prog = rf.get("the_programme") or {}
+        if prog:
+            out += [f"**The programme is "
+                    f"{'settled' if prog.get('settled') else 'not settled'}**, and its "
+                    f"finish line is {prog['the_finish_line']} "
+                    f"{prog['the_ruling_that_set_it']}", ""]
+            if prog.get("settled") and (prog.get("people_still_held") or 0) > 0:
+                out += [f"{prog['people_still_held']:,} person(s) remain held in "
+                        f"{prog['buckets_they_are_held_in']:,} refused bucket(s), and what "
+                        f"becomes of them is {prog['what_becomes_of_them']}", "",
+                        "| the refusal that holds them | people |", "|---|---:|"]
+                out += [f"| `{r['refusal']}` | {r['people']:,} |"
+                        for r in prog["and_what_holds_each_of_them"]]
+                out += ["", f"What would reopen it: {prog['what_would_reopen_it']}", ""]
         if rf["moves"]:
             out += ["| person | out of | into | order filled | rule | ticket | adoptions |",
                     "|---|---|---|---|---|---|---:|"]
@@ -3424,6 +3641,7 @@ def cmd_build() -> int:
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
     owners = every_work_order_names_a_live_ticket(doc)
+    finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     REPORT.parent.mkdir(parents=True, exist_ok=True)
@@ -3433,7 +3651,8 @@ def cmd_build() -> int:
           f"{len(doc['bucket_families'])} families; {doc['totals']['persons_to_reconstruct']:,} "
           f"persons, {doc['totals']['households_to_reconstruct']:,} households, "
           f"{doc['totals']['businesses_to_reconstruct']:,} businesses and "
-          f"{doc['totals']['roofs_to_build']:,} roofs to reconstruct; {lands}; {owners}")
+          f"{doc['totals']['roofs_to_build']:,} roofs to reconstruct; {lands}; {owners}; "
+          f"{finish}")
     return 0
 
 
@@ -3458,7 +3677,8 @@ def cmd_check() -> int:
           f"{t['households_to_reconstruct']:,} households, "
           f"{t['businesses_to_reconstruct']:,} businesses, {t['roofs_to_build']:,} roofs to go; "
           f"{converges_inside_the_model(expected)}; "
-          f"{every_work_order_names_a_live_ticket(expected)}")
+          f"{every_work_order_names_a_live_ticket(expected)}; "
+          f"{the_programme_finishes_where_the_rule_does(expected)}")
     return 0
 
 
@@ -4023,6 +4243,68 @@ def cmd_self_test() -> int:
                                "T-9002": "split", "T-9004": "done",
                                "T-9005": "withdrawn"}, deep))
 
+    # WHERE THE PROGRAMME FINISHES (T-1597). Every case is built by hand rather than taken
+    # off the shipped book, because the shipped book is AT its fixpoint and a gate can only
+    # be proved by the states it refuses.
+    def prog(spent=129, **over):
+        step = {"settled": True, "moves_the_rule_still_yields": 0, "people_still_held": 9,
+                "buckets_they_are_held_in": 2,
+                "and_what_holds_each_of_them": [{"refusal": "a_rule", "people": 9}],
+                "the_finish_line": "the rule's fixpoint",
+                "the_ruling_that_set_it": "the owner, 2026-09-25",
+                "what_becomes_of_them": "nothing", "what_would_reopen_it": "a wider rule"}
+        step.update(over)
+        return {"re_family_ledger": {
+            "the_programme": step,
+            "the_held_surplus": {"people_still_held": 9, "buckets_refused": 2},
+            "who_makes_the_moves": {"the_rule_yields": 129, "spent": spent}}}
+
+    finish = the_programme_finishes_where_the_rule_does
+    assert "settled at its rule's fixpoint" in finish(prog()), finish(prog())
+    # The two other healthy ends: nobody left held, and moves still to spend.
+    empty = prog(people_still_held=0, buckets_they_are_held_in=0,
+                 and_what_holds_each_of_them=[])
+    empty["re_family_ledger"]["the_held_surplus"] = {"people_still_held": 0,
+                                                     "buckets_refused": 0}
+    assert "settled with nobody held" in finish(empty), finish(empty)
+    assert "unsettled with 4" in finish(prog(spent=125, settled=False,
+                                             moves_the_rule_still_yields=4))
+    fires("a programme step the ledger does not state at all",
+          lambda: finish({"re_family_ledger": {}}))
+    fires("a programme settled while the rule still yields a move",
+          lambda: finish(prog(spent=125, moves_the_rule_still_yields=4)))
+    fires("a programme unsettled at the rule's own fixpoint",
+          lambda: finish(prog(settled=False)))
+    fires("a programme whose remainder disagrees with the moves the ledger has spent",
+          lambda: finish(prog(spent=100)))
+    fires("a programme whose count of the held disagrees with the book's own surplus",
+          lambda: finish(prog(people_still_held=8)))
+    fires("a programme that does not say which refusal holds every one of the held",
+          lambda: finish(prog(and_what_holds_each_of_them=[{"refusal": "a_rule",
+                                                            "people": 4}])))
+    fires("a programme settled over more refused buckets than the book refuses",
+          lambda: finish(prog(buckets_they_are_held_in=3)))
+    for field in ("the_finish_line", "the_ruling_that_set_it", "what_becomes_of_them",
+                  "what_would_reopen_it"):
+        fires(f"a programme settled with people still held and no {field}",
+              lambda f=field: finish(prog(**{f: "   "})))
+    # AND THE BOOK AS IT SHIPS IS AT THE FIXPOINT, which is the state the ruling settled:
+    # the rule is spent in full, nobody moves again, and the residue is written down. This
+    # is asserted against the book built WITH the moves on disk — `shipped` above is the
+    # no-moves fixture, where the programme is correctly unsettled with all 129 to spend.
+    finish(shipped)
+    assert shipped["re_family_ledger"]["the_programme"]["settled"] is False
+    on_disk = build(data, _fills_on_disk(), occ, moves=_moves_on_disk())
+    prg = on_disk["re_family_ledger"]["the_programme"]
+    assert prg["settled"] is True and prg["moves_the_rule_still_yields"] == 0, prg
+    assert prg["people_still_held"] == sum(
+        r["surplus_still_held"] for r in on_disk["recut_refusals"]), prg
+    assert sum(r["people"] for r in prg["and_what_holds_each_of_them"]) \
+        == prg["people_still_held"], prg
+    assert finish(on_disk).startswith("the re-family programme is settled at its rule's "
+                                      "fixpoint"), finish(on_disk)
+
+
     # THE CUT'S OWN REFUSALS (T-1672). A cell cut into bands is a finer address for work
     # already counted, and every way that could stop being true is red here. The fixtures
     # bend the committed cut — the SOUTH's `warehouses_freight`, the one cell the inventory
@@ -4111,8 +4393,21 @@ def cmd_self_test() -> int:
     # `tradesman_dwellings` seat in the South Division. Nothing was raised for it and no
     # roof moved; a dwelling the business deal had been standing a shop in went back to the
     # households. The two deals running blind to one pool is T-1669.
+    #
+    # T-1707 TAKES IT TO 211, AND THIRTY OF THE SEATS ARE SLOTS. The platted pass goes
+    # 109 -> 139 and the off-plat pass holds at 72. Nothing was adopted that was not adopted
+    # before: all 30 of the new seats are SLOTS, which is the first time either pass has
+    # carried one since T-1623 refused the last four. The ruling behind them is a ruling
+    # about GROUND and not about households. Carrying the Original Town's seven north-south
+    # columns from their terrain clip at N -400 to Madison Street let
+    # `generate_plat_lots.py` emit the plat's last tier — six blocks and 48 lots between
+    # Market and State — and the 665-roof programme marks all six `open` with 27 roofs of
+    # headroom each, where the South Division's only open blocks before were two South Water
+    # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 19
+    # merchant and professional households and 11 tradesmen's onto them. A slot is a request
+    # and not a roof: T-1708 raises them.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 181
+        data["inventory"], data["programme"], occ))["seated"] == 211
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4120,8 +4415,10 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: the platted pass asked for no slot at all once T-1623 refused the
-    # last four, so claiming one it does not carry is the disagreement to fire on.
+    # currently sit: since T-1707 the platted pass carries 30 slot rows on the plat's last
+    # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
+    # carried none — which is what this fixture said until that ticket, when T-1623 had
+    # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
           seats_with("platted_seats", slots_requested=1, roofs_adopted=99))
     dropped = copy.deepcopy(data)

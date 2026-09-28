@@ -143,6 +143,17 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H2 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
+  "occupants": {
+    "value": "The Abell household — a name the town's own records carry",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835",
+      "fergus_chicago_directory_1843",
+      "second_presbyterian_chicago_1892"
+    ],
+    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's merchant_and_professional_dwellings clause answered on the committed plat: blk_randolph_wells#00, fronting randolph, a standing roof of family H2 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "H2",
@@ -159,6 +170,12 @@
     "roof_condition": "darkened",
     "age_state": "recent"
   },
-  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented.",
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "reconstructed",
+    "note": "T-1685: seated by the placement policy's platted deal under its merchant_and_professional_dwellings clause, on blk_randolph_wells#00 fronting randolph — a standing anonymous roof of family H2 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+    "household_id": "hh_abell_sidney"
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented. TWO OF THIS FAMILY'S NAMED VARIANTS ARE REFUSED AND TWO STAND (T-1686): the hip its roof line offers (\"side gable or hip, 6:12-9:12\") is refused rather than quietly substituted, because a hip, gambrel or mansard roof on a Chicago house in 1835 would be a claim and not a default; the Greek doorway its variants name is refused BY DATE — the earliest Greek Revival house in Chicago is the Clarke House of 1836, which data/exclusions.json keeps out of this scene, so no entablature, corner pilaster or portico stands on a roof of 1835-07-01; and the corner boards and the one-to-two chimneys the same line names already stand: the trim follows the stud module the construction argument picks.",
   "review_required": false
 }
