@@ -691,9 +691,9 @@
     }
   ],
   "coverage": {
-    "documented_roofs_with_a_family": 84,
-    "conforming": 62,
-    "outliers": 22,
+    "documented_roofs_with_a_family": 87,
+    "conforming": 63,
+    "outliers": 24,
     "by_family": {
       "A1": [
         "ancillary_behind_its_own_roof"
@@ -701,6 +701,9 @@
       "A2": [
         "ancillary_behind_its_own_roof",
         "farms_and_country_seats"
+      ],
+      "A4": [
+        "ancillary_behind_its_own_roof"
       ],
       "A5": [
         "ancillary_behind_its_own_roof"
@@ -757,6 +760,9 @@
         "lodging_near_the_landings"
       ],
       "W1": [
+        "mechanics_streets"
+      ],
+      "W3": [
         "mechanics_streets"
       ],
       "W4": [
@@ -904,6 +910,28 @@
         "stands on a light street, which commercial_front avoids"
       ],
       "reason": "on the north bank, at the forks. It is nearest Market Street's north-bank corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m across the river before it; neither is a face this house takes."
+    },
+    {
+      "id": "newberry_dole_salt_house_south_branch",
+      "family": "A4",
+      "street": "market",
+      "class": "principal",
+      "setback_m": 0.17,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "a WORKS building of the South Branch packing plant, on branch frontage no parcel line draws (T-1709). Its letter A4 sends it to `ancillary_behind_its_own_roof`, which avoids the `principal` class, and Market Street's platted corridor runs the length of this reach 0.50 m east of the building's own east wall - so the reading puts it on a principal street it is deliberately kept clear of. It fronts the BRANCH: the plant it serves stands 1.30 m inside Market's corridor and 11.45 m inside Randolph's, which is why this band runs south along the bank instead of behind the plant, and why the one line every building in it shares is the corridor edge rather than a lot. The clause for this ground is `heavy_and_noxious_trades` - `ground:branch`, setback class `unplatted` - written for the plant's own letter W5 and not for its works."
+    },
+    {
+      "id": "newberry_dole_stock_shed_south_branch",
+      "family": "A1",
+      "street": "market",
+      "class": "principal",
+      "setback_m": 0.11,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "the same works and the same reading as the salt house above it in this band (T-1709), at the landward end of it. Letter A1, so `ancillary_behind_its_own_roof` again, and again Market Street's corridor is 0.50 m off its east wall and nothing else is within 14 m. It holds the plant's stock, not a household's horse, and there is no platted lot behind anything here for a `yard` setback to be measured from."
     },
     {
       "id": "north_bank_shed_dearborn_e1",

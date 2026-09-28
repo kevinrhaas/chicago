@@ -108,16 +108,16 @@
   "staffing": null,
   "locations": [
     {
-      "kind": "street_only",
-      "structure_id": null,
+      "kind": "premises",
+      "structure_id": "newberry_dole_packing_house_south_branch",
       "street_id": "south_water",
       "face": null,
       "primary": true,
       "from": "1833-11-26",
       "to": null,
       "tier": "inferred",
-      "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'Fort Dearborn' names nothing the committed town holds."
+      "basis": "The register matches this business onto the committed structure newberry_dole_packing_house_south_branch on its name. newberry_dole_packing_house_south_branch already stands and its name carries dole, newberry — \"The packing and barrelling house at Newberry & Dole's South Branch plant\". The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
     }
   ],
   "dates": {

@@ -44,17 +44,17 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1019,
-  "cards_ruled": 1423,
+  "leads_ruled": 1018,
+  "cards_ruled": 1421,
   "by_outcome": {
-   "refused": 756,
+   "refused": 755,
    "candidate": 263
   },
   "by_class": {
-   "ocr_variant_only": 365,
+   "ocr_variant_only": 364,
    "testable_in_a_held_work": 263,
-   "locality_absent": 292,
-   "surname_only_chicago": 99
+   "locality_absent": 291,
+   "surname_only_chicago": 100
   },
   "matched": 0,
   "discriminators_found": 0
@@ -6556,33 +6556,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v01_caldwoll_structures",
-   "surname_key": "caldwoll",
-   "spellings_as_printed": [
-    "Caldwoll"
-   ],
-   "layer": "structures",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Caldwoll' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Caldwoll' at all. And if it were, a heading against The agency log house Andreas gives Billy Caldwell would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v01_1096"
-   ],
-   "candidates": [
-    {
-     "id": "caldwell_agency_log_house",
-     "name": "The agency log house Andreas gives Billy Caldwell",
-     "rule": "OCR variant (0.88 similarity to 'caldwell')"
-    }
-   ],
-   "person_ids": [],
-   "works_cited": [
-    "moses_illinois_historical_and_statistical"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v01_calhoun_census_1840",
    "surname_key": "calhoun",
    "spellings_as_printed": [
@@ -7654,33 +7627,6 @@
    "held_works": [
     "andreas_history_of_chicago"
    ],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v01_chadwell_structures",
-   "surname_key": "chadwell",
-   "spellings_as_printed": [
-    "Chadwell"
-   ],
-   "layer": "structures",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Chadwell' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Chadwell' at all. And if it were, a heading against The agency log house Andreas gives Billy Caldwell would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v01_1249"
-   ],
-   "candidates": [
-    {
-     "id": "caldwell_agency_log_house",
-     "name": "The agency log house Andreas gives Billy Caldwell",
-     "rule": "OCR variant (0.88 similarity to 'caldwell')"
-    }
-   ],
-   "person_ids": [],
-   "works_cited": [
-    "sons_of_the_american_revolution_illinois_1896"
-   ],
-   "held_works": [],
    "discriminators": []
   },
   {
@@ -12706,7 +12652,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "locality_absent",
-   "reason": "Refused. All 1 card(s) heading 'Dole' name Illinois and neither Chicago nor Cook County, so the lead against George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "reason": "Refused. All 1 card(s) heading 'Dole' name Illinois and neither Chicago nor Cook County, so the lead against George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
    "record_ids": [
     "nbi_v01_1987"
    ],
@@ -12717,8 +12663,23 @@
      "rule": "exact surname"
     },
     {
+     "id": "newberry_dole_packing_house_south_branch",
+     "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+     "rule": "exact surname"
+    },
+    {
+     "id": "newberry_dole_salt_house_south_branch",
+     "name": "The salt house at Newberry & Dole's South Branch plant",
+     "rule": "exact surname"
+    },
+    {
      "id": "newberry_dole_slaughterhouse_south_branch",
      "name": "Newberry & Dole's Slaughter-House, South Branch",
+     "rule": "exact surname"
+    },
+    {
+     "id": "newberry_dole_stock_shed_south_branch",
+     "name": "The stock shed at Newberry & Dole's South Branch plant",
      "rule": "exact surname"
     },
     {
@@ -13251,7 +13212,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Doyle' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Doyle' at all. And if it were, a heading against George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Doyle' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Doyle' at all. And if it were, a heading against George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v01_2038",
     "nbi_v01_2039",
@@ -13265,8 +13226,23 @@
      "rule": "OCR variant (0.89 similarity to 'dole')"
     },
     {
+     "id": "newberry_dole_packing_house_south_branch",
+     "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+     "rule": "OCR variant (0.89 similarity to 'dole')"
+    },
+    {
+     "id": "newberry_dole_salt_house_south_branch",
+     "name": "The salt house at Newberry & Dole's South Branch plant",
+     "rule": "OCR variant (0.89 similarity to 'dole')"
+    },
+    {
      "id": "newberry_dole_slaughterhouse_south_branch",
      "name": "Newberry & Dole's Slaughter-House, South Branch",
+     "rule": "OCR variant (0.89 similarity to 'dole')"
+    },
+    {
+     "id": "newberry_dole_stock_shed_south_branch",
+     "name": "The stock shed at Newberry & Dole's South Branch plant",
      "rule": "OCR variant (0.89 similarity to 'dole')"
     },
     {
@@ -17416,6 +17392,49 @@
    "discriminators": []
   },
   {
+   "lead_id": "lead_v02_hall_structures",
+   "surname_key": "hall",
+   "spellings_as_printed": [
+    "Hall"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "surname_only_chicago",
+   "reason": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold.",
+   "record_ids": [
+    "nbi_v02_0595",
+    "nbi_v02_0596",
+    "nbi_v02_0597",
+    "nbi_v02_0598",
+    "nbi_v02_0599",
+    "nbi_v02_0600",
+    "nbi_v02_0601",
+    "nbi_v02_0602",
+    "nbi_v02_0603",
+    "nbi_v02_0604",
+    "nbi_v02_0605"
+   ],
+   "candidates": [
+    {
+     "id": "miller_tanyard_bark_shed",
+     "name": "The bark shed at Miller and Hall's tanyard",
+     "rule": "exact surname"
+    },
+    {
+     "id": "miller_tanyard_drying_shed",
+     "name": "The drying shed at Miller and Hall's tanyard",
+     "rule": "exact surname"
+    }
+   ],
+   "person_ids": [],
+   "works_cited": [
+    "county_histories_kett_and_co",
+    "moses_kirkland_history_of_chicago"
+   ],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
    "lead_id": "lead_v03_hally_census_1840",
    "surname_key": "hally",
    "spellings_as_printed": [
@@ -17469,6 +17488,36 @@
     "hall_george",
     "hall_benjamin"
    ],
+   "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
+   "lead_id": "lead_v03_hally_structures",
+   "surname_key": "hally",
+   "spellings_as_printed": [
+    "Hally"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "ocr_variant_only",
+   "reason": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard would still be a surname against a person, which is always a refusal here.",
+   "record_ids": [
+    "nbi_v03_0875"
+   ],
+   "candidates": [
+    {
+     "id": "miller_tanyard_bark_shed",
+     "name": "The bark shed at Miller and Hall's tanyard",
+     "rule": "OCR variant (0.89 similarity to 'hall')"
+    },
+    {
+     "id": "miller_tanyard_drying_shed",
+     "name": "The drying shed at Miller and Hall's tanyard",
+     "rule": "OCR variant (0.89 similarity to 'hall')"
+    }
+   ],
+   "person_ids": [],
    "works_cited": [],
    "held_works": [],
    "discriminators": []
@@ -24527,34 +24576,6 @@
    "person_ids": [
     "mckee_david"
    ],
-   "works_cited": [
-    "county_histories_kett_and_co"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v03_mckee_structures",
-   "surname_key": "mckee",
-   "spellings_as_printed": [
-    "McKee"
-   ],
-   "layer": "structures",
-   "outcome": "refused",
-   "class": "locality_absent",
-   "reason": "Refused. All 2 card(s) heading 'McKee' name Illinois and neither Chicago nor Cook County, so the lead against David McKee's log house stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
-   "record_ids": [
-    "nbi_v03_0343",
-    "nbi_v03_0344"
-   ],
-   "candidates": [
-    {
-     "id": "mckee_log_house",
-     "name": "David McKee's log house",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [],
    "works_cited": [
     "county_histories_kett_and_co"
    ],
@@ -44099,10 +44120,10 @@
   {
    "record_id": "nbi_v01_2038",
    "a": "Doyle | .Cook Co., III. (Andreas, A. T.) 1884 '457,",
-   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
+   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Doyle | .Cook Co., III. (Andreas, A. T.) 1884 '457,\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Doyle | .Cook Co., III. (Andreas, A. T.) 1884 '457,\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
    "layers": [
     "census_1840",
     "residents",
@@ -44138,10 +44159,10 @@
   {
    "record_id": "nbi_v01_2039",
    "a": "Doyle | ex- ' Chicago, III, (Mcsct, J, and KlrltlanJ, J.) 1895: —",
-   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
+   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Doyle | ex- ' Chicago, III, (Mcsct, J, and KlrltlanJ, J.) 1895: —\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Doyle | ex- ' Chicago, III, (Mcsct, J, and KlrltlanJ, J.) 1895: —\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
    "layers": [
     "census_1840",
     "residents",
@@ -44177,10 +44198,10 @@
   {
    "record_id": "nbi_v01_2040",
    "a": "Doyle | n. _Madlson Co., III. (Brink, W. R. & Co., Pubs.) ,",
-   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
+   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Doyle | n. _Madlson Co., III. (Brink, W. R. & Co., Pubs.) ,' against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Doyle | n. _Madlson Co., III. (Brink, W. R. & Co., Pubs.) ,' against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
    "layers": [
     "census_1840",
     "residents",
@@ -44216,10 +44237,10 @@
   {
    "record_id": "nbi_v01_2041",
    "a": "Doyle | Pike Co., III. (Chipmin, C. C. & Co., Pirba.) I880i",
-   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
+   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Doyle | Pike Co., III. (Chipmin, C. C. & Co., Pirba.) I880i' against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 2 of the 4 card(s) heading 'Doyle' name Chicago or Cook County, the heading is the surname of Simon Doyle; [?] Smith & Doyle exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Doyle | Pike Co., III. (Chipmin, C. C. & Co., Pirba.) I880i' against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
    "layers": [
     "census_1840",
     "residents",
@@ -62951,37 +62972,6 @@
    "ticket": "T-0590"
   },
   {
-   "record_id": "nbi_v01_1096",
-   "a": "Caldwoll | Illinois. (Mosos, j . ) 1888-92. 2v. See Indet",
-   "b": "The agency log house Andreas gives Billy Caldwell",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Caldwoll' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Caldwoll' at all. And if it were, a heading against The agency log house Andreas gives Billy Caldwell would still be a surname against a person, which is always a refusal here. Ruled on the card 'Caldwoll | Illinois. (Mosos, j . ) 1888-92. 2v. See Indet' against The agency log house Andreas gives Billy Caldwell.",
-   "layers": [
-    "structures"
-   ],
-   "leads": [
-    "lead_v01_caldwoll_structures"
-   ],
-   "person_ids": [],
-   "person_id": null,
-   "evidence": [
-    "nbi_v01_1096",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     2197,
-     2198
-    ],
-    "index_page": 352,
-    "column": 3
-   },
-   "ticket": "T-0590"
-  },
-  {
    "record_id": "nbi_v01_1123",
    "a": "' Campbell | Adama Co., 111. (Murray, Wlllfamaon Canpb",
    "b": "[?]enny Campbell; John Campbell; James B Campbell; J. B. Campbell",
@@ -63624,37 +63614,6 @@
     ],
     "index_page": 384,
     "column": 3
-   },
-   "ticket": "T-0590"
-  },
-  {
-   "record_id": "nbi_v01_1249",
-   "a": "Chadwell | 7 . Illinois. Soc. Sons Am, Rev. 1896:67.",
-   "b": "The agency log house Andreas gives Billy Caldwell",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Chadwell' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Chadwell' at all. And if it were, a heading against The agency log house Andreas gives Billy Caldwell would still be a surname against a person, which is always a refusal here. Ruled on the card 'Chadwell | 7 . Illinois. Soc. Sons Am, Rev. 1896:67.' against The agency log house Andreas gives Billy Caldwell.",
-   "layers": [
-    "structures"
-   ],
-   "leads": [
-    "lead_v01_chadwell_structures"
-   ],
-   "person_ids": [],
-   "person_id": null,
-   "evidence": [
-    "nbi_v01_1249",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     2503,
-     2504
-    ],
-    "index_page": 400,
-    "column": 1
    },
    "ticket": "T-0590"
   },
@@ -67634,10 +67593,10 @@
   {
    "record_id": "nbi_v01_1987",
    "a": "Dole | —Edgar C , III. U n , W., 1-., 8 Co., Putn ) 19)9.'",
-   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
+   "b": "Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Dole' name Illinois and neither Chicago nor Cook County, so the lead against Simon Doyle; [?] Smith & Doyle; George W. Dole stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card \"Dole | —Edgar C , III. U n , W., 1-., 8 Co., Putn ) 19)9.'\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; Newberry & Dole's Slaughter-House, South Branch; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
+   "rule": "Refused. All 1 card(s) heading 'Dole' name Illinois and neither Chicago nor Cook County, so the lead against Simon Doyle; [?] Smith & Doyle; George W. Dole stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card \"Dole | —Edgar C , III. U n , W., 1-., 8 Co., Putn ) 19)9.'\" against Simon Doyle; [?] Smith & Doyle; George W. Dole; George Washington Dole; George W. Dole's Warehouse; The packing and barrelling house at Newberry & Dole's South Branch plant; The salt house at Newberry & Dole's South Branch plant; Newberry & Dole's Slaughter-House, South Branch; The stock shed at Newberry & Dole's South Branch plant; Newberry & Dole's Forwarding and Commission Warehouse; George W. Dole; George W. Dole; George W. Dole.",
    "layers": [
     "census_1840",
     "residents",
@@ -71362,17 +71321,19 @@
   {
    "record_id": "nbi_v02_0595",
    "a": "Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71398,17 +71359,19 @@
   {
    "record_id": "nbi_v02_0596",
    "a": "Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71434,17 +71397,19 @@
   {
    "record_id": "nbi_v02_0597",
    "a": "Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71470,17 +71435,19 @@
   {
    "record_id": "nbi_v02_0598",
    "a": "Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71506,17 +71473,19 @@
   {
    "record_id": "nbi_v02_0599",
    "a": "Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71542,17 +71511,19 @@
   {
    "record_id": "nbi_v02_0600",
    "a": "Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71578,17 +71549,19 @@
   {
    "record_id": "nbi_v02_0601",
    "a": "Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71614,17 +71587,19 @@
   {
    "record_id": "nbi_v02_0602",
    "a": "Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71650,17 +71625,19 @@
   {
    "record_id": "nbi_v02_0603",
    "a": "Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71686,17 +71663,19 @@
   {
    "record_id": "nbi_v02_0604",
    "a": "Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami\" against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami\" against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71722,17 +71701,19 @@
   {
    "record_id": "nbi_v02_0605",
    "a": "Hall | -±~2.' la letk» te,'», 111.19",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | -±~2.' la letk» te,'», 111.19\" against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | -±~2.' la letk» te,'», 111.19\" against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents"
+    "lead_v02_hall_residents",
+    "lead_v02_hall_structures"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -76729,17 +76710,15 @@
   {
    "record_id": "nbi_v03_0343",
    "a": "McKee | Pike Co., III. (Uapntan, C. C. 4 Co.. Puka.1 I960, UcKoo",
-   "b": "David McKee; David McKee's log house",
+   "b": "David McKee",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 2 card(s) heading 'McKee' name Illinois and neither Chicago nor Cook County, so the lead against David McKee stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'McKee | Pike Co., III. (Uapntan, C. C. 4 Co.. Puka.1 I960, UcKoo' against David McKee; David McKee's log house.",
+   "rule": "Refused. All 2 card(s) heading 'McKee' name Illinois and neither Chicago nor Cook County, so the lead against David McKee stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'McKee | Pike Co., III. (Uapntan, C. C. 4 Co.. Puka.1 I960, UcKoo' against David McKee.",
    "layers": [
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
-    "lead_v03_mckee_residents",
-    "lead_v03_mckee_structures"
+    "lead_v03_mckee_residents"
    ],
    "person_ids": [
     "mckee_david"
@@ -76764,17 +76743,15 @@
   {
    "record_id": "nbi_v03_0344",
    "a": "McKee | Winneb.150 Co., III. (Kett, H. F., 4 Co.. P_ub.)",
-   "b": "David McKee; David McKee's log house",
+   "b": "David McKee",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 2 card(s) heading 'McKee' name Illinois and neither Chicago nor Cook County, so the lead against David McKee stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'McKee | Winneb.150 Co., III. (Kett, H. F., 4 Co.. P_ub.)' against David McKee; David McKee's log house.",
+   "rule": "Refused. All 2 card(s) heading 'McKee' name Illinois and neither Chicago nor Cook County, so the lead against David McKee stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'McKee | Winneb.150 Co., III. (Kett, H. F., 4 Co.. P_ub.)' against David McKee.",
    "layers": [
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
-    "lead_v03_mckee_residents",
-    "lead_v03_mckee_structures"
+    "lead_v03_mckee_residents"
    ],
    "person_ids": [
     "mckee_david"
@@ -78853,17 +78830,19 @@
   {
    "record_id": "nbi_v03_0875",
    "a": "Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll",
-   "b": "Henry Hall; George Hall; Benjamin Hall",
+   "b": "Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against Henry Hall would still be a surname against a person, which is always a refusal here. Ruled on the card 'Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll' against Henry Hall; George Hall; Benjamin Hall.",
+   "rule": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against Henry Hall would still be a surname against a person, which is always a refusal here. Ruled on the card 'Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll' against Henry Hall; George Hall; Benjamin Hall; The bark shed at Miller and Hall's tanyard; The drying shed at Miller and Hall's tanyard.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v03_hally_census_1840",
-    "lead_v03_hally_residents"
+    "lead_v03_hally_residents",
+    "lead_v03_hally_structures"
    ],
    "person_ids": [
     "hall_benjamin",

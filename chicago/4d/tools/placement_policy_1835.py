@@ -495,6 +495,24 @@ MULTI_BUILDING_LOT = {
 # alley, there is no platted lot on the reservation to take one from, and their reasons
 # say that already.
 
+# ONE REASON WAS WRITTEN AND WITHDRAWN INSIDE ONE TICKET, T-1709, and it is quoted here
+# because that is where a withdrawn reason goes:
+#
+#   miller_tanyard_bark_shed  A4. Its first seat was the WEST end of the tanyard behind
+#                             `miller_tannery`, where it stood 67.86 m from its nearest
+#                             corridor — beyond the frontage reach, so it fronted no
+#                             street, and `ancillary_behind_its_own_roof` seats by a
+#                             `yard` setback measured off a platted lot this ground does
+#                             not have. The reason said so. The seat then had to move for
+#                             a different instrument's sake: 67.86 m falls inside the
+#                             empty 60.79–74.65 m band `FRONTAGE_REACH_M` is the midpoint
+#                             of, and `measure_frontage_fabric.py`'s self-test refuses a
+#                             building dropped into the gap its own constant is cut from.
+#                             At the east end of the same yard the shed stands 53.98 m
+#                             out, inside the body of the distribution, and it fronts the
+#                             Market north-bank corridor like the tannery it serves. It is
+#                             not an outlier, so it carries no reason.
+#
 OUTLIER_REASONS = {
     "beaubien_trading_post":
         "a private trade room on the unplatted military reservation, 359.59 m from the "
@@ -554,6 +572,25 @@ OUTLIER_REASONS = {
         "on the north bank, at the forks. It is nearest Market Street's north-bank "
         "corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m "
         "across the river before it; neither is a face this house takes.",
+    "newberry_dole_salt_house_south_branch":
+        "a WORKS building of the South Branch packing plant, on branch frontage no parcel "
+        "line draws (T-1709). Its letter A4 sends it to "
+        "`ancillary_behind_its_own_roof`, which avoids the `principal` class, and Market "
+        "Street's platted corridor runs the length of this reach 0.50 m east of the "
+        "building's own east wall - so the reading puts it on a principal street it is "
+        "deliberately kept clear of. It fronts the BRANCH: the plant it serves stands "
+        "1.30 m inside Market's corridor and 11.45 m inside Randolph's, which is why this "
+        "band runs south along the bank instead of behind the plant, and why the one line "
+        "every building in it shares is the corridor edge rather than a lot. The clause "
+        "for this ground is `heavy_and_noxious_trades` - `ground:branch`, setback class "
+        "`unplatted` - written for the plant's own letter W5 and not for its works.",
+    "newberry_dole_stock_shed_south_branch":
+        "the same works and the same reading as the salt house above it in this band "
+        "(T-1709), at the landward end of it. Letter A1, so "
+        "`ancillary_behind_its_own_roof` again, and again Market Street's corridor is "
+        "0.50 m off its east wall and nothing else is within 14 m. It holds the plant's "
+        "stock, not a household's horse, and there is no platted lot behind anything here "
+        "for a `yard` setback to be measured from.",
     "north_bank_shed_dearborn_e1": "a north-bank freight shed: its frontage is the water.",
     "north_bank_shed_dearborn_e2": "a north-bank freight shed: its frontage is the water.",
     "north_bank_shed_dearborn_e3": "a north-bank freight shed: its frontage is the water.",

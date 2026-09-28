@@ -1,11 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1202, ts: '2026-09-28T08:55:07.858Z', date: 'Sep 28, 2026, 3:55 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Three log houses stand again round the old Agency House', kind: 'change',
     items: [
       'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
       'Two men who had no home in this town now have one. David McKee, the agency\u2019s blacksmith, and Joseph Porthier, who struck for him at the anvil: open either card and it names the house. McKee\u2019s card used to say that the buildings he is described in were not in this dataset at all, which was the plain truth and is no longer.',
       'The third house is raised and deliberately left empty. Andreas names Billy Caldwell, the agency\u2019s interpreter, in one of these buildings \u2014 but the same book gives him a frame house well to the north as well, and nothing dates either of them to this summer. Drawing one of the two is not choosing between them, so that roof carries no occupant and says why.',
       'Nothing is known about the shape of any of them, and the records say so plainly. The sources are unusually good on who slept here and silent on everything a visitor can actually see: no size, no place of its own, no bearing. The footprints are placeholders, the positions are offsets from the agency house, and the whole invention is written down.',
       'No fourth house for the \u201Claborers\u201D the same sentence mentions. That is a plural noun and not a count, and this town does not draw people out of one.',
+    ] },
+  { v: 1203, ts: '2026-09-28T08:52:37.417Z', date: 'Sep 28, 2026, 3:52 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
+      'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
+      'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
+  { v: 1202, ts: '2026-09-28T07:54:59.813Z', date: 'Sep 28, 2026, 2:54 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
+    items: [
+      'Follow the South Branch down past the town and Newberry & Dole\u2019s slaughter-house no longer stands alone on an empty bank. Three working buildings now run south from it, each across a cart yard from the last: the packing and barrelling house, a small salt store, and a stock shed at the landward end where the beasts came in off the prairie.',
+      'At the forks, behind John Miller\u2019s log tannery, there is now a yard. A bark shed at one end, a drying shed at the other, both facing in across the open ground the tanning was done on \u2014 and the drying shed has its boards spaced apart, which is how a hide dries.',
+      'Daniel Elston\u2019s soap and candle works on the North Branch gets an ash house behind it. Soap is boiled with lye, lye is leached from wood ash, and ash kept in the rain is worthless.',
+      'Every one of the six is invented, and each one is a sentence the plants themselves had already written. Their own records say the works are missing \u2014 \u201cthe pens, the yard and the barrelling and salting space\u201d; \u201ca tannery is its yard\u201d. Nothing was added that those notes do not name, and all six vanish when you turn the reconstructed layer off.',
+      'The fourth plant gets nothing, on purpose. Archibald Clybourne\u2019s slaughter-house stands about three kilometres from its real site, at the edge of the ground this scene models, because its site is off the map. Building a yard around a building that is knowingly kilometres out would multiply the error rather than reconstruct anything.',
+      'Still not built, and still said out loud: the killing pens, the stock yard, the lime pits and the tan vats. Those are fences and holes in the ground, and this part of the model builds buildings.',
     ] },
   { v: 1201, ts: '2026-09-28T06:46:30.494Z', date: 'Sep 28, 2026, 1:46 AM CT', title: 'Beaubien\u2019s place at the river mouth stands as a homestead', kind: 'change',
     items: [

@@ -256,23 +256,27 @@ export function createTravel({
   }
 
   /** Today's behaviour, and the fallback for every ride that cannot happen. */
-  function goInstantly(target) {
-    if (target.kind === 'anchor') return goToAnchor?.(target.id) ?? false;
+  function arrived(ok, callbacks) {
+    if (ok) callbacks?.onArrive?.(callbacks.token);
+    return ok;
+  }
+  function goInstantly(target, callbacks) {
+    if (target.kind === 'anchor') return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     setFly?.(false);
     if (target.kind === 'structure') {
       const ok = frame?.(target.id) ?? false;
-      if (ok) onArrive?.(target.id);
-      return ok;
+      if (ok && !callbacks) onArrive?.(target.id);
+      return arrived(ok, callbacks);
     }
     const p = ownPoint(target);
     if (target.kind === 'intersection' && p) {
       teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0 });
-      return true;
+      return arrived(true, callbacks);
     }
     return false;
   }
 
-  function newRide(target, to, points, rideMode) {
+  function newRide(target, to, points, rideMode, callbacks) {
     const s = walker.state;
     return {
       mode: rideMode,
@@ -281,6 +285,7 @@ export function createTravel({
       person: target.person ?? null,
       dest: target.label ?? target.name ?? target.id,
       target,
+      callbacks,
       to,
       points,
       index: 0,
@@ -399,9 +404,9 @@ export function createTravel({
         return;
       }
     }
-    const target = r.target;
+    const target = r.target, callbacks = r.callbacks;
     finish();
-    goInstantly(target);
+    if (!goInstantly(target, callbacks)) callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
     hud?.say?.('Could not get through — went straight there');
   }
 
@@ -516,9 +521,10 @@ export function createTravel({
   }
 
   function complete() {
-    const { kind, id, dest } = ride;
+    const { kind, id, dest, callbacks } = ride;
     finish();
-    if (kind === 'structure') onArrive?.(id);
+    if (callbacks) callbacks.onArrive?.(callbacks.token);
+    else if (kind === 'structure') onArrive?.(id);
     else hud?.say?.(`Here — ${dest}`);
   }
 
@@ -526,19 +532,21 @@ export function createTravel({
 
   function stop(reason = 'button') {
     if (phase === 'idle') return;
+    const callbacks = ride?.callbacks;
     finish();
+    callbacks?.onStop?.({ ...callbacks.token, reason });
     if (reason === 'button' || reason === 'input') hud?.say?.('Stopped');
   }
 
-  function go(target) {
+  function go(target, callbacks) {
     if (!target?.kind) return false;
     if (phase !== 'idle') stop('replaced');
     // Aerial viewpoints are always a jump: a ride to the ground under a bird's-eye
     // view is not the view. So is any anchor Go to did not hand coordinates for.
     if (target.kind === 'anchor' && (isAerial(target) || mode === 'instantly' || !ownPoint(target))) {
-      return goToAnchor?.(target.id) ?? false;
+      return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     }
-    if (mode === 'instantly') return goInstantly(target);
+    if (mode === 'instantly') return goInstantly(target, callbacks);
     const to = destinationOf(target);
     if (!to) return false;
 
@@ -546,7 +554,7 @@ export function createTravel({
       const s = walker.state;
       const d = Math.hypot(to.e - s.e, to.n - s.n);
       setFly?.(true);
-      ride = newRide(target, to, [[to.e, to.n]], 'fly');
+      ride = newRide(target, to, [[to.e, to.n]], 'fly', callbacks);
       ride.cruise = PACES.fly.cruise(d);
       ride.progressRef = d;
       phase = 'ascending';
@@ -559,11 +567,11 @@ export function createTravel({
     const s = walker.state;
     const route = router?.plan?.({ e: s.e, n: s.n }, to) ?? null;
     if (!route?.points?.length) {
-      const ok = goInstantly(target);
+      const ok = goInstantly(target, callbacks);
       hud?.say?.('No walkable route was found — went straight there');
       return ok;
     }
-    ride = newRide(target, to, route.points, mode);
+    ride = newRide(target, to, route.points, mode, callbacks);
     ride.progressRef = remaining();
     phase = 'travelling';
     applyPace();   // the ride's pace and seat, restored by finish()

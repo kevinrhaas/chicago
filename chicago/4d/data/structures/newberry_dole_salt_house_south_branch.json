@@ -1,0 +1,95 @@
+{
+  "id": "newberry_dole_salt_house_south_branch",
+  "name": "The salt house at Newberry & Dole's South Branch plant",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "works_1834",
+      "documented_range": {
+        "from": "1834-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "NO SOURCE RECORD DATES THIS BUILDING, BECAUSE NO SOURCE RECORD NAMES IT. The bracket is the plant's own, carried across without being re-argued: `newberry_dole_slaughterhouse_south_branch`, the plant Andreas records Oliver Newberry and George W. Dole having erected on the South Branch in 1834 (scan p. 1151) carries 1834-01-01 to 1835-12-31, the year documented and the month not, and a works building that serves that plant cannot honestly claim to have stood before the plant or after the last date the plant's record needs. It is graded `reconstructed`, as the building is."
+      },
+      "position": {
+        "utm_e": 447145.2,
+        "utm_n": 4637111.0656,
+        "rotation_deg": 270.0,
+        "symbolic_location": "On the east bank of the South Branch below the town, the second building south of Newberry & Dole's slaughter-house, across a cart yard from the packing house, facing the branch with its door on that yard.",
+        "confidence": "reconstructed",
+        "note": "INVENTED, AND SEATED BY THE WORKS RULE BELOW. WHY THE BAND RUNS SOUTH ALONG THE BANK AND NOT BEHIND THE PLANT: behind is east, and east is Market Street - `tools/plat_corridors.corridors()` puts its platted corridor at local E 73.00 to E 97.00 across this reach and the plant already stands 1.30 m inside its west edge. North is Randolph's corridor, local N -265.00 to N -241.00, which the plant stands 11.45 m inside. So the three works buildings stand SOUTH of the plant in the order the work runs, every one of them with its east wall on local E 72.500 - 0.50 m clear of Market's corridor edge - so the band reads as one row and not as three seatings. THIS BUILDING'S NORTHING: its north wall stands 5.20 m south of the packing house's south wall, at local N -282.296, which is the same cart yard figure the packing house takes from the plant. MEASURED ON THIS SEAT, over a 25 x 25 lattice on the placed polygon: the ground stands 0.583 m to 0.710 m above the committed water surface - dry everywhere - with 0.127 m of relief, the flattest of the three; `intrusion` reads it clear of all 33 platted corridors; and no committed footprint stands within 14 m of it. WORKING UNCERTAINTY IS TOTAL and is the plant's own.\n\nTHE WORKS RULE, STATED ONCE AND APPLIED SIX TIMES (T-1709). Every one of the four documented noxious trades on the branches records, in its own footprint note, that the works are outside its polygon: `newberry_dole_slaughterhouse_south_branch` says 'the pens, the yard and the barrelling and salting space that a packing operation needs are outside the footprint and outside this archetype, which builds a building rather than a works'; `miller_tannery` says 'a tannery is its yard - bark mill, lime pits, tan vats, drying sheds, and a water supply - and none of that is in this polygon or in the model'; `clybourn_slaughterhouse` says 'what is not modelled is arguably the bigger half'; `elston_soap_candle_manufactory` gives a shed 'big enough for a rendering kettle, a cooling and moulding floor and an ash leach' and nothing beside it. This building is one of the works those four sentences name, and NOTHING ATTESTS IT. It is placed by a rule and not by a plate. THE RULE: (1) a works building stands BEHIND its plant, on the side away from the water, because the plant's own bearing puts its working face on the water and the ground behind it is what is left; (2) the gap between the plant's wall and the works' wall is 5.20 m, the cart yard T-1640 derived from `data/yard/town_trade_goods.json` - 1.00 m of clearance from the wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall opposite - and the same 5.20 m separates one works building from the next, so the whole band is set out on one committed figure; (3) the works take the plant's own bearing, so the yard between them is square and the doors face it; (4) where the ground behind the plant is a platted street corridor, the works stand ALONG the bank instead, in the order the work runs, on a line that keeps them 0.50 m clear of that corridor's own edge - which is what the South Branch band does, because Market Street's corridor runs E 73.00 to E 97.00 at this reach and the plant itself stands 1.30 m inside it. THE FOUR PREDICATES each seat is held to, on a 25 x 25 lattice over the placed polygon: dry in the committed heightfield (`data/terrain/epochs/e1834_harbor_cut`, WATER_SURFACE_M = 0), relief inside the 0.30 m `generate_block_infill.MAX_RELIEF_M` allows, clear of all 33 platted corridors (`tools/plat_corridors.intrusion`), and clear of every footprint the committed tree already places. docs/RESEARCH/branch_noxious_works.md carries the readings and docs/LIBERTIES.md L284 owns the invention.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The two machine-checkable methods this project has are a platted corner and a traced waterline, and this seat is neither: it is a stated setback from a committed neighbouring building, on that building's own bearing, held clear of a committed corridor edge and tested against the committed heightfield. Every input is committed and the rule is written out in position.note, so it reproduces by hand; no derivation method in the schema can recompute it, and declaring one that could not would be worse than declaring none."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            2.4384,
+            0
+          ],
+          [
+            2.4384,
+            4.8768
+          ],
+          [
+            0,
+            4.8768
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. 2.4384 x 4.8768 m is 8 x 16 ft, inside family A4's band (6-8 ft front, 12-18 ft deep) - the crosswalk's woodshed and storage outbuilding, which is what a salt house is. The size is the family's, not a reading: nothing states that this plant had a salt house, let alone how big it was. What can be said for a small one is that salt came up the lake in barrels and was used by the barrel, so the building is a store between the landing and the packing floor rather than a warehouse. Every number is invented and the polygon cites no sources."
+      },
+      "form": {
+        "construction": {
+          "value": "light_frame",
+          "confidence": "reconstructed",
+          "note": "Boards laid horizontally on a stick frame, the archetype's `light_frame`, which is the tightest wall this vocabulary can say. Salt that gets wet is salt that is lost, so the one thing a salt house wants is a wall that sheds rain - that is reasoning about the use, not a source, and the fabric itself is invented."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "About 7 ft 10 in, a shade over the archetype's size-aware default of 2.31 m for this plan. A man rolls a barrel in and stands it on end; nothing here needs more wall. Invented."
+        },
+        "roof_type": {
+          "value": "shed",
+          "confidence": "reconstructed",
+          "note": "4.88 m of depth is inside the 5.0 m at which `default_roof_type` gives a shed roof, so this is the archetype's own answer for a building this shallow, stated rather than defaulted. Invented."
+        },
+        "roof_pitch_deg": {
+          "value": 18.0,
+          "confidence": "reconstructed",
+          "note": "The archetype's own `default_roof_pitch_deg` for a shed roof - about the shallowest a riven shake roof sheds at - stated. The rise over this 4.88 m run is 1.59 m against a 2.4 m wall, well inside the archetype's own SHED_RISE_RATIO_MAX. Invented."
+        },
+        "door": {
+          "value": "man",
+          "confidence": "reconstructed",
+          "note": "One person and a barrow, the archetype's `man` door. A team has no business inside a salt store; the barrels come off the cart in the yard. Invented."
+        },
+        "door_side": {
+          "value": "right",
+          "confidence": "reconstructed",
+          "note": "The `right` elevation is the max-x wall, which at this bearing faces NORTH, onto the cart yard between this building and the packing house it serves. Invented."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "Unpainted boards, the archetype's default and the treatment every working river building in this dataset carries. Invented."
+        }
+      },
+      "change_note": "One phase. This is a reconstruction of a works building the plant's own record says is missing, not a record of a building anybody named, so it has no history to divide into phases and inventing one would be inventing twice."
+    }
+  ],
+  "function": {
+    "value": "woodshed_or_storage_shed",
+    "confidence": "reconstructed",
+    "note": "The closed vocabulary `data/structures.schema.json` carries has no `salt house` in it, and this record takes the nearest term it does carry rather than widening a shared enumeration for one building: `woodshed_or_storage_shed` is family A4's own name and a salt house is a store. The specific use is in the record's NAME and in this note. The use comes from the plant: meat packed in barrels is packed in brine, and the salt for a season that took 300 cattle and 1,400 hogs is a quantity a works keeps under a roof of its own. Nothing states that this plant had a salt house. No occupant is claimed."
+  },
+  "research_note": "A RECONSTRUCTED WORKS BUILDING, THE SECOND OF THE SOUTH BRANCH BAND - T-1709, of T-1203. WHAT IS HELD: Andreas's packing chapter (scan p. 1151) for the plant and its throughput. WHAT IS INVENTED: this building and every attribute of it, including that it existed. WHAT WOULD UPGRADE IT: any description of the South Branch plant beyond the sentence recording its erection. Built under the owner's standing ruling of 2026-08-18. Links: T-1709 - T-1203 - T-1640 - docs/RESEARCH/branch_noxious_works.md - docs/LIBERTIES.md L284.",
+  "review_required": false
+}

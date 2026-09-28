@@ -1,0 +1,7 @@
+Recovered T-1279, current T-1253 dependency c1e3667.
+node tools/measure_boot_payload.mjs --check
+BOOT PAYLOAD — first visit stands in the 1835 street
+9.815 MB across 1020 requests (gzip, fresh context, ready + 3s settle)
+Within unchanged 12.000 MB budget.
+The play harness separately asserts zero jaunt runtime, panel, stylesheet,
+catalog or content requests at boot.

@@ -36,7 +36,7 @@ building the fourth himself, and *"All these houses were of logs."*
 
 **Not once is a single building given a shape, a size, or a place of its own.** That asymmetry is
 the whole difficulty of this parcel and it is why the footprints are placeholders and the positions
-are offsets. `docs/LIBERTIES.md` **L284** is the admission.
+are offsets. `docs/LIBERTIES.md` **L285** is the admission.
 
 ## 2. Why these three, and why the fourth was refused
 
@@ -133,4 +133,4 @@ and is stated in its record rather than hidden.
 
 **Sources:** `andreas_1884_v1`, `kinzie_waubun_1856`.
 **Links:** T-1714 · T-1204 · T-1374 · `indian_agency_1835.md` · `blacksmith_shop_state_st.md` ·
-`docs/LIBERTIES.md` L284 · AGENTS.md § Standing constraint.
+`docs/LIBERTIES.md` L285 · AGENTS.md § Standing constraint.
