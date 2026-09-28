@@ -1,0 +1,355 @@
+[
+  {
+    "kind": "structure",
+    "id": "estray_pen",
+    "expected": {
+      "e": 467.9734130495408,
+      "n": -389.62160290173665,
+      "distance": 12.322859239090734,
+      "bearingDeg": 182.44913937816668,
+      "aim": {
+        "x": 472.1576,
+        "y": 1.8964999856948854,
+        "z": 374.8716
+      },
+      "radius": 6,
+      "height": 1.83,
+      "yawOffsetDeg": 0,
+      "pitchOffsetDeg": 0,
+      "free": {
+        "x": [
+          -1,
+          1
+        ],
+        "y": [
+          -1,
+          1
+        ]
+      },
+      "y": 0.8949999809265137
+    },
+    "entered": true,
+    "actual": {
+      "e": 467.9734130495408,
+      "n": -389.62160290173665
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "instantly",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "kind": "intersection",
+    "id": "fulton_canal",
+    "expected": {
+      "e": -162,
+      "n": 12.17,
+      "y": 0.9622999945640578
+    },
+    "entered": true,
+    "actual": {
+      "e": -162,
+      "n": 12.17
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "instantly",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "kind": "person",
+    "id": "rc_bacon_alvah",
+    "expected": {
+      "e": 760.000186212681,
+      "n": 381.31694058523124,
+      "distance": 16.316940588248432,
+      "bearingDeg": 359.99889815808626,
+      "aim": {
+        "x": 760.0005,
+        "y": 4.707549952316285,
+        "z": -365
+      },
+      "radius": 6.69256298065249,
+      "height": 8.89855,
+      "yawOffsetDeg": 0,
+      "pitchOffsetDeg": 0,
+      "free": {
+        "x": [
+          -1,
+          1
+        ],
+        "y": [
+          -1,
+          1
+        ]
+      },
+      "y": 1.5626338842347594
+    },
+    "entered": true,
+    "actual": {
+      "e": 760.000186212681,
+      "n": 381.31694058523124
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "instantly",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "overflow": false,
+    "list": {
+      "top": 331.25,
+      "bottom": 436.5,
+      "height": 105.25
+    },
+    "card": {
+      "top": 12,
+      "bottom": 556
+    },
+    "scrollable": true
+  },
+  {
+    "width": 780,
+    "height": 390,
+    "overflow": false,
+    "list": {
+      "top": 159.5,
+      "bottom": 262.5,
+      "height": 103
+    },
+    "card": {
+      "top": 12,
+      "bottom": 378
+    },
+    "scrollable": true
+  },
+  {
+    "width": 390,
+    "height": 780,
+    "overflow": false,
+    "list": {
+      "top": 159.5,
+      "bottom": 272.5,
+      "height": 113
+    },
+    "card": {
+      "top": 12,
+      "bottom": 388
+    },
+    "scrollable": true
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "initial": {
+      "focus": "gate-title",
+      "state": "welcome",
+      "actions": true,
+      "help": true,
+      "progress": "none",
+      "animation": "none",
+      "locked": false
+    },
+    "spawn": {
+      "actual": {
+        "e": 107,
+        "n": -103
+      },
+      "spawn": {
+        "local_e": 107,
+        "local_n": -103,
+        "yaw_deg": 180
+      },
+      "locked": false
+    },
+    "errors": []
+  },
+  {
+    "kind": "structure",
+    "id": "estray_pen",
+    "expected": {
+      "e": 467.7978878777012,
+      "n": -393.7253814193453,
+      "distance": 16.430389787672894,
+      "bearingDeg": 182.44913937816682,
+      "aim": {
+        "x": 472.1576,
+        "y": 1.8964999856948854,
+        "z": 374.8716
+      },
+      "radius": 6,
+      "height": 1.83,
+      "yawOffsetDeg": 0,
+      "pitchOffsetDeg": 0,
+      "free": {
+        "x": [
+          -1,
+          1
+        ],
+        "y": [
+          -1,
+          1
+        ]
+      },
+      "y": 0.8949999809265137
+    },
+    "entered": true,
+    "actual": {
+      "e": 467.7978878777012,
+      "n": -393.7253814193453
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "horse",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "kind": "intersection",
+    "id": "fulton_canal",
+    "expected": {
+      "e": -162,
+      "n": 12.17,
+      "y": 0.9622999945640578
+    },
+    "entered": true,
+    "actual": {
+      "e": -162,
+      "n": 12.17
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "horse",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "kind": "person",
+    "id": "rc_bacon_alvah",
+    "expected": {
+      "e": 760.0000816191794,
+      "n": 386.75580267176946,
+      "distance": 21.755802675792324,
+      "bearingDeg": 359.9988981580864,
+      "aim": {
+        "x": 760.0005,
+        "y": 4.707549952316285,
+        "z": -365
+      },
+      "radius": 6.69256298065249,
+      "height": 8.89855,
+      "yawOffsetDeg": 0,
+      "pitchOffsetDeg": 0,
+      "free": {
+        "x": [
+          -1,
+          1
+        ],
+        "y": [
+          -1,
+          1
+        ]
+      },
+      "y": 1.565000057220459
+    },
+    "entered": true,
+    "actual": {
+      "e": 760.0000816191794,
+      "n": 386.75580267176946
+    },
+    "state": "world",
+    "locked": false,
+    "travel": {
+      "phase": "idle",
+      "mode": "horse",
+      "dest": null,
+      "dest_id": null,
+      "person": null,
+      "dist_m": null,
+      "remaining_points": 0,
+      "started_at": null,
+      "flying": false,
+      "bob": 0
+    }
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "initial": {
+      "focus": "gate-title",
+      "state": "welcome",
+      "actions": true,
+      "help": true,
+      "progress": "none",
+      "animation": "welcome-in",
+      "locked": false
+    },
+    "spawn": {
+      "actual": {
+        "e": 107,
+        "n": -103
+      },
+      "spawn": {
+        "local_e": 107,
+        "local_n": -103,
+        "yaw_deg": 180
+      },
+      "locked": false
+    },
+    "errors": []
+  }
+]

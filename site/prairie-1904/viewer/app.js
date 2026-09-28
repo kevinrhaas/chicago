@@ -26,24 +26,57 @@
     if (!el.childNodes.length) el.append(node('span', 'No source linked to this record.'));
     return el;
   }
+  // A record leaves the list only when its own recorded dates or 1904 status rule it out.
+  // "Demolished before 1904" holds for every later year too; "absent from this site in
+  // 1904" says nothing about other years, so it applies to 1904 alone.
+  const GONE_BY_1904 = /^(demolished|replaced|destroyed|burned|burnt)(?:$|[\s_—:;-])/;
+  const ABSENT_1904 = /^(absent|excluded|not (present|built|standing))(?:$|[\s_—:;-])/;
   function temporal(building, year) {
     const status1904 = plain(building.status_1904).toLowerCase();
-    if (year === 1904 && (building.excluded_1904 === true || /^(absent|excluded|not (present|built|standing)|demolished|replaced|destroyed|burned|burnt)(?:$|[\s_—:;-])/.test(status1904))) return { kind: 'outside', label: 'Excluded from 1904 · recorded status' };
+    if (year >= 1904 && GONE_BY_1904.test(status1904)) return { kind: 'outside', reason: 'gone', label: 'Gone before 1904 · recorded status' };
+    if (year === 1904 && (building.excluded_1904 === true || ABSENT_1904.test(status1904))) return { kind: 'outside', reason: 'gone', label: 'Excluded from 1904 · recorded status' };
     const built = yearNumber(building.built_year), demolished = yearNumber(building.demolished_year);
-    if (built !== null && built > year) return { kind: 'outside', label: 'Not yet built by recorded date' };
-    if (demolished !== null && demolished <= year) return { kind: 'outside', label: demolished === year ? 'Demolition year — exact date needed' : 'Demolished by recorded date' };
+    if (built !== null && built > year) return { kind: 'outside', reason: 'unbuilt', label: 'Not yet built by recorded date' };
+    if (demolished !== null && demolished <= year) return { kind: 'outside', reason: 'demolished', label: demolished === year ? 'Demolition year — exact date needed' : 'Demolished by recorded date' };
     if (built !== null && demolished !== null) return { kind: 'bounded', label: 'Within recorded date bounds' };
     return { kind: 'uncertain', label: 'Compatible year · incomplete date bounds' };
   }
+  const REASONS = { unbuilt: 'not yet built', demolished: 'already demolished', gone: 'recorded as gone by 1904' };
+  function explainCount(year, filter) {
+    const all = array(data.buildings), total = all.length;
+    const outside = all.map(b => ({ b, t: temporal(b, year) })).filter(r => r.t.kind === 'outside');
+    const byReason = {}; outside.forEach(r => { byReason[r.t.reason] = (byReason[r.t.reason] || 0) + 1; });
+    const parts = Object.keys(REASONS).filter(k => byReason[k]).map(k => byReason[k] + ' ' + REASONS[k]);
+    const note = $('countNote'), show = $('showHidden');
+    show.hidden = true;
+    if (!outside.length) note.textContent = 'All ' + total + ' researched buildings fall within ' + year + '.';
+    else if (filter === 'all') note.textContent = 'Showing all ' + total + ', including ' + outside.length + ' outside ' + year + ' (' + parts.join(', ') + ') — marked on each card.';
+    else if (filter === 'compatible') { note.textContent = outside.length + ' not shown for ' + year + (parts.length === 1 ? ' — ' + (outside.length === 1 ? '' : outside.length === 2 ? 'both ' : 'all ') + REASONS[outside[0].t.reason] : ': ' + parts.join(', ')) + '.'; show.hidden = false; }
+    else note.textContent = outside.length + ' fall outside ' + year + ' (' + parts.join(', ') + ').';
+    const help = $('countHelp'); help.replaceChildren();
+    const frontages = frontageRecords().length, leads = array(data.occupancy_candidates).length;
+    const undated = all.filter(b => yearNumber(b.built_year) === null).length;
+    const min = Number($('year').min), atMin = all.filter(b => temporal(b, min).kind !== 'outside').length;
+    help.append(
+      node('p', total + ' is the number of named buildings and building histories researched so far — not a count of every structure that stood on the street. The 1911 Sanborn sheets show ' + frontages + ' mapped frontages, and the directories give ' + leads + ' name-and-address leads; each is a separate evidence layer below.'),
+      node('p', 'The year slider hides a record only when its recorded dates rule it out: built later, demolished by then, or recorded as gone by 1904. Nothing is hidden by guesswork.'),
+      node('p', undated + ' records have no recorded construction year, so they stay in view in every year, marked “incomplete date bounds”. That is why ' + min + ' already shows ' + atMin + ' rather than a handful. Some losses are dated only loosely (“circa 1882”, “1880s”); those houses stay in view until 1904, when their recorded status rules them out.'));
+    if (outside.length) {
+      help.append(node('p', 'Outside ' + year + ':', 'help-head'));
+      const ul = node('ul'); outside.forEach(r => ul.append(node('li', (r.b.name || r.b.id) + ' — ' + (r.b.address || 'address unresolved') + ' · ' + r.t.label))); help.append(ul);
+    }
+    help.append(node('p', 'Date bounds use recorded construction and demolition years, not a verified annual occupancy census. Open a record for its evidence and unresolved details.', 'meta'));
+  }
   function renderBuildings() {
     const year = Number($('year').value), term = $('buildingSearch').value.trim().toLowerCase(), filter = $('yearFilter').value;
-    $('yearOutput').value = year;
+    $('yearOutput').value = year; $('yearHint').textContent = year === 1904 ? 'target' : year === 1911 ? 'map ref.' : '';
     document.querySelectorAll('[data-year]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.year) === year)));
     const buildings = array(data.buildings).filter(b => {
       const state = temporal(b, year).kind;
       return (filter === 'all' || (filter === 'compatible' ? state !== 'outside' : state === filter)) && (!term || [b.name,b.address,b.architect,b.notes,b.id].map(plain).join(' ').toLowerCase().includes(term));
     });
     $('buildingCount').textContent = buildings.length + ' of ' + array(data.buildings).length + ' records · ' + year;
+    explainCount(year, filter);
     const list = $('buildingList'); list.replaceChildren();
     for (const b of buildings) {
       const detail = node('details', null, 'record'), summary = node('summary'), content = node('div', null, 'record-content');
@@ -137,6 +170,24 @@
     const csv = '\uFEFF' + [fields.map(cell).join(','),...records.map(row => fields.map(f => cell(row[f])).join(','))].join('\r\n');
     const url = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})); const a = node('a'); a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
   }
+  // The sticky bar: anchors land below it, and the link for the section in view is marked.
+  function initTopbar() {
+    const bar = $('topbar'), root = document.documentElement;
+    const measure = () => root.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    measure(); if ('ResizeObserver' in window) new ResizeObserver(measure).observe(bar); else addEventListener('resize', measure);
+    const nav = bar.querySelector('.section-links'), links = [...nav.querySelectorAll('a[href^="#"]')];
+    const sections = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    let current = null;
+    const mark = () => {
+      const edge = bar.offsetHeight + 24;
+      let active = null; for (const section of sections) if (section.getBoundingClientRect().top <= edge) active = section;
+      if (innerHeight + scrollY >= root.scrollHeight - 4) active = sections[sections.length - 1];
+      if (active === current) return; current = active;
+      links.forEach(a => { if (active && a.getAttribute('href') === '#' + active.id) { a.setAttribute('aria-current', 'location'); if (nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' }); } else a.removeAttribute('aria-current'); });
+    };
+    let queued = false; addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; mark(); }); } }, { passive: true });
+    mark();
+  }
   async function init() {
     $('downloadBuildings').disabled = true; $('downloadSources').disabled = true;
     try {
@@ -150,13 +201,18 @@
       array(data.glessner?.sections).forEach(section => { const card = node('article',null,'glessner-section'); card.append(node('h3',section.title),node('p',plain(section.text)),citations(section.source_ids)); $('glessnerSections').append(card); });
       $('year').addEventListener('input',renderBuildings); $('buildingSearch').addEventListener('input',renderBuildings); $('yearFilter').addEventListener('change',renderBuildings);
       document.querySelectorAll('[data-year]').forEach(button => button.addEventListener('click', () => { $('year').value = button.dataset.year; renderBuildings(); }));
+      $('showHidden').addEventListener('click', () => { $('yearFilter').value = 'all'; renderBuildings(); });
       $('sourceSearch').addEventListener('input',renderSources); $('sourceKind').addEventListener('change',renderSources); $('mapSelect').addEventListener('change',renderMap);
       $('mapImage').addEventListener('error', () => { $('mapImage').hidden = true; $('mapError').hidden = false; });
       $('downloadBuildings').disabled = false; $('downloadSources').disabled = false;
       $('downloadBuildings').addEventListener('click',() => downloadCSV('prairie-avenue-buildings.csv',array(data.buildings),['id','name','address','architect','built_year','demolished_year','status_1904','notes','source_ids','events']));
       $('downloadSources').addEventListener('click',() => downloadCSV('prairie-avenue-sources.csv',array(data.sources),['id','title','url','kind','date','notes','local_path','rights_status']));
-      renderBuildings(); renderMap(); renderSources(); initEvidenceLayers(); $('loadStatus').textContent = array(data.buildings).length + ' building records · ' + array(data.sources).length + ' sources · ' + array(data.maps).length + ' map references';
+      initEvidenceLayers(); renderBuildings(); renderMap(); renderSources(); $('loadStatus').textContent = array(data.buildings).length + ' building records · ' + array(data.sources).length + ' sources · ' + array(data.maps).length + ' maps & images';
+      // A deep link (#maps, #source-…) was resolved before the content existed; land it now.
+      const target = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
     } catch (error) { $('loadStatus').textContent = 'The collection could not be loaded. Reload this page or open the Research JSON link below. ' + error.message; }
   }
+  initTopbar();
   init();
 })();

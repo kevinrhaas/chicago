@@ -365,6 +365,16 @@ standOff, limit } | null }`. Kinds: `anchor, intersection, structure, business, 
 structure (`derived_from: 'structure'`). Unlocated rows open their card and never gain
 coordinates.
 
+Implemented by T-1277: Go to consumes this inventory directly, including its ordered
+groups and optional visitor-relative browse ordering. The business index is authoritative
+even when empty; nearby anchors and street-only locations do not become premises.
+The renderer injects `standFor`, `router` and `terrain` into the model. Resolution adds
+`structureId` and the safe `standOff` (with surface height), refusing blocked building
+stands. `api.spawnAtDestination(target)` resolves with `card: false`, stops travel,
+grounds the walker and uses the same arrival-framing function without opening a ride.
+Resolving alone, or dismissing with a null selection, never moves the visitor. The
+welcome picker itself remains T-1278.
+
 ### F. Harness contract — ids and signals the gate reads
 
 Keep: `#gate` (the loader/welcome dialog; `hidden` once the world is entered),

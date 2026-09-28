@@ -9,7 +9,7 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "dfc9115187d975b9646947bf5fd575b6f0aa13b9282d63faa7885ac7127600c6",
+    "fingerprint": "3a1038428ed3945ef89c68e823a10ee0d04bc703d3ca043d8ae66223f225b236",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
@@ -21,11 +21,11 @@
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1016,
+    "leads": 1015,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 473,
-      "structures": 37,
+      "structures": 36,
       "voters": 151
     }
   },
@@ -13872,32 +13872,6 @@
         {
           "id": "hamilton_ellen",
           "name": "Ellen Hamilton",
-          "rule": "exact surname"
-        }
-      ],
-      "entries": [
-        "nbi_v02_0625",
-        "nbi_v02_0626",
-        "nbi_v02_0627",
-        "nbi_v02_0630"
-      ],
-      "works_cited": [
-        "andreas_history_of_chicago",
-        "fergus_chicago_directory_1839"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v02_hamilton_structures",
-      "surname_key": "hamilton",
-      "spellings_as_printed": [
-        "Hamilton"
-      ],
-      "layer": "structures",
-      "candidates": [
-        {
-          "id": "watkins_school_house",
-          "name": "Richard J. Hamilton's house on Michigan Street",
           "rule": "exact surname"
         }
       ],

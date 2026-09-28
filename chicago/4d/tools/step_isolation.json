@@ -3507,10 +3507,16 @@
     "tools/test_compile_source_use.py": {
       "wrote": []
     },
+    "tools/test_destinations.mjs": {
+      "wrote": []
+    },
     "tools/test_dev_preview.mjs": {
       "wrote": []
     },
     "tools/test_frontage_faces.py": {
+      "wrote": []
+    },
+    "tools/test_house_front.py": {
       "wrote": []
     },
     "tools/test_loading_content.mjs": {

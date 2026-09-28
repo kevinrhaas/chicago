@@ -10233,22 +10233,22 @@
       "asset": "gltf/recon_1835_blk_lake_clark_a3_04__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d1_01",
-      "name": "Reconstructed D1 older log dwelling #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d1_01.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d1_01__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c1_01",
+      "name": "Reconstructed C1 small shop or office #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c1_01.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c1_01__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d3_02",
-      "name": "Reconstructed D3 one-room frame cottage #02",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d3_02.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d3_02__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c2_02",
+      "name": "Reconstructed C2 store-residence #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c2_02.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c2_02__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_lake_clark_d5_03",
-      "name": "Reconstructed D5 deep-plan frame cottage #03",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_d5_03.json",
-      "asset": "gltf/recon_1835_blk_lake_clark_d5_03__inferred_1835.glb"
+      "id": "recon_1835_blk_lake_clark_c3_03",
+      "name": "Reconstructed C3 narrow two-story store #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_clark_c3_03.json",
+      "asset": "gltf/recon_1835_blk_lake_clark_c3_03__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_franklin_a1_03",
@@ -10257,16 +10257,16 @@
       "asset": "gltf/recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_lake_franklin_c2_01",
+      "name": "Reconstructed C2 store-residence #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_c2_01.json",
+      "asset": "gltf/recon_1835_blk_lake_franklin_c2_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_lake_franklin_d1_02",
       "name": "Reconstructed D1 older log dwelling #02",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_d1_02.json",
       "asset": "gltf/recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_lake_franklin_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_franklin_d5_01.json",
-      "asset": "gltf/recon_1835_blk_lake_franklin_d5_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_market_a1_06",
@@ -10279,6 +10279,12 @@
       "name": "Reconstructed A3 privy #07",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_market_a3_07.json",
       "asset": "gltf/recon_1835_blk_lake_market_a3_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_lake_market_c2_01",
+      "name": "Reconstructed C2 store-residence #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_lake_market_c2_01.json",
+      "asset": "gltf/recon_1835_blk_lake_market_c2_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_market_d1_05",
@@ -10303,12 +10309,6 @@
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_lake_market_d4_02.json",
       "asset": "gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_lake_market_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_lake_market_d5_01.json",
-      "asset": "gltf/recon_1835_blk_lake_market_d5_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_randolph_clark_a3_08",
