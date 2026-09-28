@@ -808,8 +808,8 @@ const FAR_TIMBER = [
      * disagree about where Andreas's belt ends. Move the street and the gate
      * fails until the belt moves with it.
      */
-    path: [[111.1, -106.05], [130.31, -63.79], [148.49, -43.78], [167.3, -27.8],
-      [185.06, -16.25], [221.7, -6.18], [329.41, -5.2]],
+    path: [[111.1, -106.05], [130.31, -63.79], [148.49, -43.78],
+      [167.3, -27.8], [185.06, -16.25], [221.7, -6.18], [328.78, -5.2]],
     confidence: 'reconstructed',
     sources: ['chicagology_prefire273'],
     note: 'Andreas: the South Side timber grew "along the river", "extend[ed] '

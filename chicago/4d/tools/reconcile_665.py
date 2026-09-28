@@ -1357,18 +1357,47 @@ def programme_document():
         unit_id, waiting = BALANCE_UNITS[district]
         if waiting is None:
             waiting = southern_statement
+        # A DISTRICT WHOSE NAMED GROUND HOLDS MORE ROOM THAN IT HAS ROOFS LEFT TO BUILD,
+        # and T-1707 is the first time any district has reached that state. Until this
+        # commit `balance < 0` was a hard refusal on the premise that "the schedule cannot
+        # over-subscribe a district" — and the premise was true only while every district
+        # was short of ground. It is not an over-subscription: `capacity_roofs` on a block
+        # is a CEILING and `block_rooms` is the restraint (see `block_capacity`), and the
+        # deal below is what actually allocates. That deal already handles the surplus
+        # exactly — the balance unit takes what is LEFT of the pool and re-sizes itself to
+        # `len(take)`, which is 0 when the named blocks absorb the whole remainder — so
+        # the only thing the pre-check was doing here was refusing the good news.
+        #
+        # WHAT MADE IT HAPPEN. T-1707 carried the Original Town's seven north-south columns
+        # from their N -400 terrain clip to Madison Street, so `generate_plat_lots.py` emits
+        # the plat's last tier — six blocks and 48 lots between Market and State — and six
+        # units of 27 roofs' headroom each entered the South schedule where a district
+        # balance waiting on street control had stood. The South's constraint has therefore
+        # MOVED, from ground to roofs, and the balance says which rather than reading 0 with
+        # a stale sentence about street control still attached to it.
+        surplus = max(0, -balance)
+        if surplus:
+            waiting = (
+                "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit "
+                f"held {remaining_district[district] and placed - balance or 0} roofs "
+                "waiting on street control; the control is carried and the ground it "
+                f"opened is named block by block. The district's named ground now holds "
+                f"{placed} roofs of headroom against {remaining_district[district]} left "
+                f"to build — a surplus of {surplus} — so nothing in this district is "
+                "beyond committed control any more and this unit holds nothing. What "
+                "limits the district from here is its own remainder, not its ground: the "
+                "named blocks are where the next parcel builds, and a block's "
+                "`capacity_roofs` is a ceiling rather than a claim on the remainder."
+            )
         units.append({
             "id": unit_id, "kind": "district_balance", "district": district,
             "capacity_roofs": max(0, balance), "standing_roofs": 0,
             "headroom": max(0, balance),
-            "state": "complete" if remaining_district[district] == 0 else "gated",
+            "state": ("complete" if remaining_district[district] == 0 or surplus
+                      else "gated"),
             "waiting_on": waiting,
+            **({"surplus_headroom": surplus} if surplus else {}),
         })
-        if balance < 0:
-            raise SystemExit(
-                f"{district}: the named units hold {placed} roofs against a remainder of "
-                f"{remaining_district[district]} — the schedule cannot over-subscribe a "
-                "district, so the capacity rule or the district target has moved")
 
     # Deal each district's remaining families across its units, in schedule order. The
     # deal is what keeps every marginal exact: unit totals, district totals and the
