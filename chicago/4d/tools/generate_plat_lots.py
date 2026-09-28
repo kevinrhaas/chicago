@@ -331,6 +331,7 @@ def block_numbering() -> dict:
 
 
 ADDITION_NUMBERING_PATH = DATA / "traces" / "kinzie_addition_block_numbering.json"
+ADDITION_LOTS_PATH = DATA / "traces" / "kinzie_addition_lot_lines.json"
 
 
 def addition_numbering(rows: list[str], columns: list[str], lines: dict):
@@ -732,14 +733,27 @@ def number_lots_off_the_sheet(entry: dict, record: dict) -> None:
         lot["plat_lot_numeral_read_in"] = "data/traces/thompson_west_division_lots.json"
 
 
-def addition_module() -> dict:
-    """Kinzie's Addition's own module, as Wright's sheet MEASURES it (T-1060, T-1437).
+def addition_lot_lines() -> tuple[dict, dict]:
+    """The lot rules Wright draws inside the Addition's cells, by block (T-1741).
 
-    A tier pitch, a column pitch and a corridor, and no lot rule — which is the whole
-    reason the Addition's blocks are built and not divided. The figures are read from
-    the committed street grid rather than restated here.
+    `tools/read_kinzie_addition_lots.py` reads them off the same raster and in the same
+    registration as the block numerals, and grades each cell. This reads that file: the
+    lines are not re-derived here and no cell's verdict is second-guessed.
+    """
+    doc = load(ADDITION_LOTS_PATH)
+    return {c["block_id"]: c for c in doc["cells"]}, doc
+
+
+def addition_module() -> dict:
+    """Kinzie's Addition's own module, as Wright's sheet MEASURES it (T-1060, T-1437, T-1741).
+
+    A tier pitch, a column pitch, a corridor — and, since T-1741, the lot rules the sheet
+    draws inside five of its twenty-seven cells and the alley they back onto. The figures
+    are read from the committed street grid and the committed lot reading rather than
+    restated here.
     """
     doc = load(DATA / "traces" / "kinzie_addition_street_grid.json")
+    _, lots_doc = addition_lot_lines()
     control = json.loads((DATA / "traces" / "street_control.json").read_text(
         encoding="utf-8"))["north_bank"]["tiers"]["kinzies_addition"]
     return {
@@ -758,21 +772,36 @@ def addition_module() -> dict:
         "division": "north",
         "chosen_by": ("the Addition's own measured module, seated on the two committed "
                       "lines it shares with the town it adjoins"),
+        "lot_rule": {
+            "read_in": "data/traces/kinzie_addition_lot_lines.json",
+            "by": "tools/read_kinzie_addition_lots.py",
+            "ticket": "T-1741",
+            "what_was_read": (lots_doc["the_finding"] if lots_doc else None),
+            "lots_per_face": ((lots_doc or {}).get("summary") or {}).get("lots_per_face"),
+            "lot_frontage_ft": ((lots_doc or {}).get("summary") or {}).get("lot_frontage_ft"),
+            "alley": (lots_doc or {}).get("alley"),
+            "settles": ("the `lot_subdivision_withheld` this module carried until T-1741, "
+                        "which asked for exactly this reading — the lot lines Wright draws "
+                        "inside the Addition's cells, off the same raster and the same "
+                        "registration as the block numerals"),
+        },
         "lot_subdivision_withheld": {
-            "why": ("NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid "
-                    "measures a tier pitch and a column pitch and stops there; the "
-                    "four-to-a-face 80 ft module this generator can seat is a reading of "
-                    "ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md "
-                    "section 8) and carrying it across the river would be a guess dressed "
-                    "as arithmetic. The parent ticket asks for the lots of each plat to "
-                    "come from that plat's own module, and this one's has not been read."),
-            "what_would_settle_it": ("the lot lines and lot numerals Wright draws inside "
-                                     "the Addition's cells, read off wright_1834_nara_hup "
-                                     "the way tools/read_kinzie_addition_numerals.py reads "
-                                     "the block numerals — the same raster, the same "
-                                     "registration, one crop per cell"),
-            "meanwhile": ("the block stands with its boundary, its numeral and its ground, "
-                          "which is what a placement ticket needs to name it"),
+            "why": ("THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright "
+                    "rules lots into five cells of the Addition's twenty-seven, all of "
+                    "them in the two tiers nearest the river; twenty-two he leaves whole, "
+                    "halved without lots, or divided in part. So a withholding stands on "
+                    "those twenty-two — but it is a READING now and not an absence, and "
+                    "each block carries its own sentence saying which of the three it is."),
+            "what_is_still_refused": ("carrying the five lotted cells' six-to-a-face module "
+                                      "north into the tiers Wright draws whole. That is the "
+                                      "same guess dressed as arithmetic T-1437 refused, one "
+                                      "plat closer to home."),
+            "the_lot_numerals": ("Wright numbers the lots 1-12 in the cells that have room "
+                                 "for the figures. Those numerals are NOT transcribed: the "
+                                 "reading counts rules, and a lot here carries no "
+                                 "`plat_lot_number` for that reason."),
+            "meanwhile": ("every block stands with its boundary, its numeral and its "
+                          "ground, which is what a placement ticket needs to name it"),
         },
     }
 
@@ -1341,11 +1370,19 @@ def build_block(north_id, south_id, west_id, east_id, lines, edges, reach_m):
     return {"ring": ring, "north_chain": north_chain, "south_chain": south_chain}, None
 
 
-def subdivide(block: dict, alley_m: float, frontage_m: float) -> dict:
-    """Two tiers of lots either side of a mid-block alley, fronting the E-W streets."""
+def subdivide(block: dict, alley_m: float, frontage_m: float | None,
+              count: int | None = None) -> dict:
+    """Two tiers of lots either side of a mid-block alley, fronting the E-W streets.
+
+    `frontage_m` cuts as many lots as the module's frontage divides the block into, which
+    is what the Original Town's 80 ft module does. `count` cuts a stated number instead,
+    for a block whose lot rules were COUNTED on the sheet rather than derived from a
+    module — Kinzie's Addition, where the number of rules is the reading and a quotient
+    rounding the other way would silently overrule it (T-1741).
+    """
     north_chain, south_chain = block["north_chain"], block["south_chain"]
     frontage = (chain_length(north_chain) + chain_length(south_chain)) / 2.0
-    count = max(1, round(frontage / frontage_m))
+    count = int(count) if count else max(1, round(frontage / frontage_m))
     stations = []
     for index in range(count + 1):
         fraction = index / count
@@ -1967,6 +2004,9 @@ def grid_from_inputs() -> dict:
     spacing_ft = abs(lines["clinton"]["mean_e"] - lines["canal"]["mean_e"]) / FT_M
     blocks, omitted = [], []
     addition = addition_module()
+    addition_cells, addition_lots_doc = addition_lot_lines()
+    # The alley the Addition's own sheet draws, not the Original Town's 18 ft.
+    addition_alley_m = float((addition_lots_doc["alley"] or {})["alley_m"])
     addition_numbers, addition_unreachable, addition_doc = {}, [], None
     for layer in layers:
       rows = sorted(layer["rows"], key=lambda s: -lines[s]["mean_n"])
@@ -2063,12 +2103,19 @@ def grid_from_inputs() -> dict:
                                "this dataset can stand behind")})
                 continue
             figure = west_lot_figure(record) if is_west else None
+            cell = (addition_cells.get(block_id)
+                    if layer["id"] == "kinzies_addition" else None)
             if is_west:
                 divided = subdivide_west(built, alley_m,
                                          len(record["lot_numerals_north_to_south"]))
             elif transposed is not None:
                 divided = subdivide_west(
                     built, alley_m, len(transposed["lot_numerals_north_to_south"]))
+            elif cell and cell["verdict"] == "lotted":
+                # COUNTED, not divided by a module: the number of lots is the number of
+                # rules read in this cell, and the alley is the one this plat draws.
+                divided = subdivide(built, addition_alley_m, None,
+                                    count=cell["lots_per_face"])
             else:
                 divided = subdivide(built, alley_m, frontage_m)
             entry = {
@@ -2100,6 +2147,41 @@ def grid_from_inputs() -> dict:
                 entry["lots_per_face"] = divided["count"]
                 entry["alley_local_enu_m"] = divided["alley"]
                 entry["lots"] = divided["lots"]
+            elif cell and cell["verdict"] == "lotted":
+                # CUT ON THE SHEET'S OWN RULES (T-1741). The count, the frontage they
+                # measure and the alley all come from the reading; the lines below divide
+                # the block the committed corridors give, in the number Wright rules.
+                entry["lots_per_face"] = divided["count"]
+                entry["alley_local_enu_m"] = divided["alley"]
+                entry["alley_width_m"] = round(addition_alley_m, 2)
+                entry["lots"] = divided["lots"]
+                entry["lot_lines_read"] = {
+                    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+                    "rules_px_x": cell["rules_px_x"],
+                    "rule_grades": cell["rule_grades"],
+                    "lot_frontage_ft_read": cell["lot_frontage_ft"],
+                    "evenness": cell["evenness"],
+                    "confidence": "inferred",
+                    "note": ("the RULES are ink in this cell, counted at their own "
+                             "positions; the lot polygon is this grid's even cut of the "
+                             "block the committed corridors give, which is not the same "
+                             "thing and is graded as this file grades every lot line. "
+                             "The sheet's lot numerals are not transcribed, so no lot "
+                             "here carries a `plat_lot_number`."),
+                }
+            elif cell:
+                # Built, and deliberately NOT divided — and since T-1741 the reason is
+                # this CELL's, read off the sheet, rather than the plat's blanket one.
+                entry["subdivision_withheld"] = cell["why"]
+                entry["subdivision_read"] = {
+                    "verdict": cell["verdict"],
+                    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+                    "mid_block_dark_fraction": cell["mid_block_dark_fraction"],
+                    "rules_px_x": cell["rules_px_x"],
+                    "evenness": cell.get("evenness"),
+                }
+                entry["alley_local_enu_m"] = None
+                entry["lots"] = []
             else:
                 # Built, and deliberately NOT divided. The reason is a property of the
                 # plat, so it is carried once on the module and pointed at from here.
@@ -3006,12 +3088,15 @@ def self_test() -> int:
               f"short of the printed module; {held} held by a dealt parcel it carries")
 
     # ------------------------------------------------------------- T-1437, the second grid
-    # Three things have to hold at once for Kinzie's Addition to be a grid and not a
-    # copy of the Original Town's with different street names: every cell the grid cuts
-    # carries the Addition's own numeral, none of them carries a lot, and the faces
-    # measure the ADDITION's module rather than the town's. The third is the one that
-    # catches a regression nobody would see by eye — a 2.2 m corridor difference over an
-    # 89 m block face is the kind of thing that hides in a rounded figure.
+    # Three things have to hold at once for Kinzie's Addition to be a grid and not a copy
+    # of the Original Town's with different street names: every cell the grid cuts carries
+    # the Addition's own numeral, a cell carries lots IF AND ONLY IF the sheet rules them
+    # in it, and the faces measure the ADDITION's module rather than the town's. The third
+    # is the one that catches a regression nobody would see by eye — a 2.2 m corridor
+    # difference over an 89 m block face is the kind of thing that hides in a rounded
+    # figure. The second was `none of them carries a lot` until T-1741 read the rules off
+    # the sheet: what it guards now is that the grid divides exactly the cells the reading
+    # grades `lotted`, which is a stronger claim than the blanket withholding it replaces.
     cases += 1
     addition_blocks = [b for b in (grid["blocks"] if grid else [])
                        if b["grid"] == "kinzies_addition"]
@@ -3019,15 +3104,25 @@ def self_test() -> int:
         print("  NO KINZIE'S ADDITION BLOCK on this grid — the second grid built nothing")
         failed += 1
     else:
+        read_cells, read_doc = addition_lot_lines()
+        should = {k for k, c in read_cells.items() if c["verdict"] == "lotted"}
         unnumbered = [b["id"] for b in addition_blocks if not b.get("plat_block_number")]
-        divided = [b["id"] for b in addition_blocks if b["lots"]]
-        if unnumbered or divided:
-            print(f"  ADDITION GRID WRONG: {len(unnumbered)} unnumbered, "
-                  f"{len(divided)} carrying lots")
+        divided = {b["id"] for b in addition_blocks if b["lots"]}
+        miscount = [b["id"] for b in addition_blocks
+                    if b["id"] in should
+                    and b.get("lots_per_face") != read_cells[b["id"]]["lots_per_face"]]
+        if unnumbered or divided != should or miscount:
+            print(f"  ADDITION GRID WRONG: {len(unnumbered)} unnumbered; divided "
+                  f"{sorted(divided - should)} the sheet does not rule, left whole "
+                  f"{sorted(should - divided)} it does; {len(miscount)} cut to the wrong "
+                  "count")
             failed += 1
         else:
+            per_face = read_doc["summary"]["lots_per_face"]
             print(f"  ok:    {len(addition_blocks)} Kinzie's Addition blocks, every one "
-                  "numbered off the sheet and none of them divided")
+                  f"numbered off the sheet; {len(divided)} cut {per_face} to a face "
+                  f"because the sheet rules them so, {len(addition_blocks) - len(divided)} "
+                  "left whole because it does not")
 
     cases += 1
     numbering = load(ADDITION_NUMBERING_PATH)
