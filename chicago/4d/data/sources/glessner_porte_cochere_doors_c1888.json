@@ -1,0 +1,25 @@
+{
+ "id": "glessner_porte_cochere_doors_c1888",
+ "type": "photograph",
+ "citation": "George Glessner (attributed), photograph of the porte-cochere (carriage) doors of the John J. Glessner House, 1800 Prairie Avenue, circa 1888. Reproduced by Glessner House, 'Porte Cochere doors'.",
+ "author": "George Glessner (as attributed by Glessner House)",
+ "date": "circa 1888",
+ "describes_date": "circa 1888",
+ "repository": "Glessner House (family photograph); read from the museum's web reproduction (image file '82 - Porte cochere doors.jpg', 1979 x 2397, sha256 7ec28333cf83f86af1202e59c577b9e97a2acc5d7e76a4271b6058471c41f900, matching the Prairie library's recorded checksum).",
+ "url": "https://www.glessnerhouse.org/porte-cochere-doors",
+ "locator": "The whole photograph (the pair of doors filling the opening, with the stone jambs and head).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A circa-1888 photograph; the museum's reproduction has no stated licence. Cited in text only; not committed; nothing derived from it as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Fetched 2026-09-28 into a scratch directory from https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/510387f9-71f2-4c3c-adee-50b2f99a0962/82%2B-%2BPorte%2Bcochere%2Bdoors.jpg and viewed. The museum's caption (doors removed in the 1950s for an overhead garage door and recreated from this photograph) is known here only through the Prairie library's dossier (G05) and was not re-read.",
+ "note": "The design of the doors that closed the carriage underpass on the Prairie Avenue front: two leaves, each three panels wide and six high (four above a horizontal iron strap, two below), every square panel sunk within a circular moulding; scroll-ended iron strap hinges top and bottom; a central lock plate with two ring pulls on the strap. The opening's stone jambs have rounded (cushion) blocks at all four corners. HABS (habs_glessner_house_il_1015_data_pages, p. 21) describes the original door in a 1945 photograph as 'two heavily paneled leaves with heavy iron straps and latches', which agrees, so the design stood from circa 1888 to at least 1945 and brackets 1904. The HABS 1965 elevation draws doors of the same pattern; which door it drew (the museum says the originals went in the 1950s) does not matter to 1904.",
+ "what_it_supplies": [
+  "the design of the porte-cochere doors and the form of the opening's corner stones, circa 1888"
+ ],
+ "what_it_does_not_supply": [
+  "dimensions (the opening is measured on HABS sheet 6)",
+  "the wood's finish or colour"
+ ]
+}
