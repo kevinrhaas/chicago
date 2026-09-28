@@ -50,7 +50,7 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 128,
+  "principal_roofs_standing": 131,
   "ground_m2": 7315399.9
  },
  "what_the_roof_programme_does_not_carry": {
@@ -2238,14 +2238,16 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "agency_striker_log_house",
     "north_bank_shed_dearborn_e2",
     "recon_1835_north_d3_016"
    ],
    "standing_families": {
+    "agency_striker_log_house": "D1",
     "north_bank_shed_dearborn_e2": "F1",
     "recon_1835_north_d3_016": "D3"
    },
-   "principal_roofs_standing": 2
+   "principal_roofs_standing": 3
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#02",
@@ -2328,12 +2330,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "mckee_log_house",
     "north_bank_shed_dearborn_e3"
    ],
    "standing_families": {
+    "mckee_log_house": "D1",
     "north_bank_shed_dearborn_e3": "F1"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#04",
@@ -2514,12 +2518,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "caldwell_agency_log_house",
     "cobweb_castle"
    ],
    "standing_families": {
+    "caldwell_agency_log_house": "D1",
     "cobweb_castle": "H1"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_school_section_tier_1",

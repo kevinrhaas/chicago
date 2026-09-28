@@ -209,13 +209,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # so eight more meshes a change to the shared generator modules or to build.py would re-stale;
 # the terrain and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
+# 431 -> 434 and 429 -> 432 on 2026-09-28, when T-1714 merged onto that dev: `mckee_log_house`,
+# `caldwell_agency_log_house` and `agency_striker_log_house`, the three log buildings of the
+# Indian Agency's ring at the foot of State Street. Three more structure assets, so three more
+# meshes the shared modules re-stale; terrain and pier_crib stay at 2 each, and the debt is
+# unchanged.
+#
 STATED = {
-    "assets": 431,
+    "assets": 434,
     "restales": {
-        "generators/common/*.py": 431,
+        "generators/common/*.py": 434,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 429,
+        "generators/emit.py": 432,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

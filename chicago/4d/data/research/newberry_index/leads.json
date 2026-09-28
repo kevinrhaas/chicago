@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "dc79d8915329294cbfccd09ad3b6b187e70ab99ef8158f556159916a66745f0b",
+    "fingerprint": "8bf32e8f001a2dcb454371c727835a775d07d4b8ffbac04be3f74941b3af0dab",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 431,
+      "structures": 434,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1018,
+    "leads": 1021,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 473,
-      "structures": 39,
+      "structures": 42,
       "voters": 151
     }
   },
@@ -5256,6 +5256,28 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
+      "id": "lead_v01_caldwoll_structures",
+      "surname_key": "caldwoll",
+      "spellings_as_printed": [
+        "Caldwoll"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "caldwell_agency_log_house",
+          "name": "The agency log house Andreas gives Billy Caldwell",
+          "rule": "OCR variant (0.88 similarity to 'caldwell')"
+        }
+      ],
+      "entries": [
+        "nbi_v01_1096"
+      ],
+      "works_cited": [
+        "moses_illinois_historical_and_statistical"
+      ],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
       "id": "lead_v01_calhoun_census_1840",
       "surname_key": "calhoun",
       "spellings_as_printed": [
@@ -6111,6 +6133,28 @@
         "la_salle_book_co_cook_county",
         "moses_illinois_historical_and_statistical",
         "moses_kirkland_history_of_chicago"
+      ],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v01_chadwell_structures",
+      "surname_key": "chadwell",
+      "spellings_as_printed": [
+        "Chadwell"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "caldwell_agency_log_house",
+          "name": "The agency log house Andreas gives Billy Caldwell",
+          "rule": "OCR variant (0.88 similarity to 'caldwell')"
+        }
+      ],
+      "entries": [
+        "nbi_v01_1249"
+      ],
+      "works_cited": [
+        "sons_of_the_american_revolution_illinois_1896"
       ],
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
@@ -19433,6 +19477,29 @@
         {
           "id": "mckee_david",
           "name": "David McKee",
+          "rule": "exact surname"
+        }
+      ],
+      "entries": [
+        "nbi_v03_0343",
+        "nbi_v03_0344"
+      ],
+      "works_cited": [
+        "county_histories_kett_and_co"
+      ],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v03_mckee_structures",
+      "surname_key": "mckee",
+      "spellings_as_printed": [
+        "McKee"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "mckee_log_house",
+          "name": "David McKee's log house",
           "rule": "exact surname"
         }
       ],
