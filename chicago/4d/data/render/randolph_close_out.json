@@ -1,0 +1,607 @@
+{
+ "schema": 1,
+ "_doc": "THE RANDOLPH TIER'S BOOKS, CLOSED (T-1688, piece 4 of 4 of T-1202). The three build pieces raised and named this tier's roofs — T-1685 the keepers, T-1686 the merchant and professional seats as H1/H2 houses, T-1687 the civic band beside the public square — and this is the reading the parent asks for before the district is done with: the dwellings falling southward to the modelled edge at Washington, the generator refusals resolved, reconcile_665 at capacity or its headroom stated, and the frame budget measured.",
+ "ticket": "T-1688",
+ "parent_ticket": "T-1202",
+ "read_on": "2026-09-27",
+ "read_at_commit": "ac8ad851",
+ "not_a_reading": "This file adjudicates no source and reads nothing new. It is a reading of the project's own ledger and of its committed geometry, and every number in it is derived by a tool this file names. Nothing here is typed from a source.",
+ "raises_no_roof": true,
+ "writes_no_card": true,
+ "needs_no_bake": "No record's geometry moves, so validate.py --stale has nothing to catch. The frame budget below is measured on the published mirror of this branch and is unchanged from the reading T-1683 took at the same head, which is what a reading that raises no roof should show.",
+ "every_piece_of_the_parent_has_landed": "T-1686 — piece 2, the merchant and professional seats as H1/H2 houses — landed on dev while this reading was being taken, so this is a re-derivation on the tree that carries it and not a forecast of it. It moved nothing in these books, and the reason is worth recording: it gave seven already-standing H1/H2 houses the centre hall their own crosswalk entry requires, which is a change of VARIANT and not of family or footprint. So every figure below is identical to the one this reading derived one commit earlier, save the frame budget, where seven centre halls cost 48 triangles. The three books that are counts of roofs and lots could not have moved, and the one that is a count of geometry moved by a measurable amount that is named.",
+ "district": "The six subdivided units of the Randolph-Washington tier — blk_randolph_{market,franklin,wells,clark,dearborn} in the South Division and blk_randolph_clinton in the West — every one of them bounded north by Randolph Street and south by Washington. The seventh cell of the row, blk_randolph_lasalle, is the Public Square: reserved, not subdivided, and outside the count by the reservation record rather than by omission.",
+ "the_square": {
+  "unit": "blk_randolph_lasalle",
+  "state": "reserved",
+  "reserved": {
+   "reserved_for": "public",
+   "name": "The Public Square",
+   "confidence": "inferred",
+   "sources": [
+    "andreas_1884_v1",
+    "chicagology_prefire273"
+   ],
+   "authored_in": "data/reconstruction/1835_reserved_ground.json",
+   "note": "This block is not subdivided. See the reservation record for the evidence and for what may stand here."
+  },
+  "roofs": [
+   "log_jail"
+  ],
+  "families": {
+   "I3": 1
+  }
+ },
+ "units": [
+  {
+   "unit": "blk_randolph_clinton",
+   "district": "west",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 10,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 10,
+   "families": {
+    "A1": 1,
+    "A2": 1,
+    "A3": 1,
+    "D1": 1,
+    "D3": 1,
+    "D4": 1,
+    "D5": 2,
+    "D6": 1,
+    "D7": 1
+   }
+  },
+  {
+   "unit": "blk_randolph_market",
+   "district": "south",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "market",
+    "east": "franklin"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 14,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 14,
+   "families": {
+    "A2": 1,
+    "D1": 1,
+    "D2": 4,
+    "D3": 2,
+    "D4": 3,
+    "D5": 2,
+    "D6": 1
+   }
+  },
+  {
+   "unit": "blk_randolph_franklin",
+   "district": "south",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "franklin",
+    "east": "wells"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 9,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 9,
+   "families": {
+    "A1": 1,
+    "A3": 1,
+    "D1": 2,
+    "D2": 1,
+    "D3": 1,
+    "D4": 1,
+    "D5": 1,
+    "D6": 1
+   }
+  },
+  {
+   "unit": "blk_randolph_wells",
+   "district": "south",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "wells",
+    "east": "lasalle"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 10,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 10,
+   "families": {
+    "A1": 1,
+    "A3": 1,
+    "A4": 1,
+    "D1": 1,
+    "D2": 1,
+    "D3": 1,
+    "D4": 1,
+    "D5": 1,
+    "H1": 1,
+    "H2": 1
+   }
+  },
+  {
+   "unit": "blk_randolph_clark",
+   "district": "south",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "clark",
+    "east": "dearborn"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 9,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 9,
+   "families": {
+    "A3": 1,
+    "A4": 1,
+    "C2": 1,
+    "D1": 1,
+    "D2": 1,
+    "D6": 1,
+    "H1": 1,
+    "H2": 1,
+    "W4": 1
+   }
+  },
+  {
+   "unit": "blk_randolph_dearborn",
+   "district": "south",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "dearborn",
+    "east": "state"
+   },
+   "lots": 8,
+   "capacity_roofs": 31,
+   "standing_roofs": 17,
+   "free_lots": 1,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs_counted": 17,
+   "families": {
+    "A1": 1,
+    "A2": 2,
+    "A3": 1,
+    "A4": 2,
+    "D1": 3,
+    "D2": 1,
+    "D3": 3,
+    "D4": 1,
+    "D5": 1,
+    "D6": 1,
+    "H1": 1
+   }
+  }
+ ],
+ "the_dwellings_falling_southward": {
+  "instrument": "tools/reconcile_665.py standing_roofs() for which block each roof stands in — the position point against the committed block boundary, not the record's id — and each record's own phases[].footprint.polygon for its area. Grouped by the schedule's bounded_by, which is what names a tier row.",
+  "what_the_parent_asked": "T-1202's acceptance names 'D4-D7 dwellings falling in size southward per the policy'. The policy it cites is data/reconstruction/1835_building_inventory.json districts.south.character: 'Commercial core along South Water and Lake, then mixed blocks with density falling rapidly southward.'",
+  "the_three_committed_rows_of_the_south_plat": [
+   {
+    "row": "south_water->lake",
+    "blocks": 5,
+    "roofs": 74,
+    "roofs_per_block": 14.8,
+    "homes": 28,
+    "home_share_of_roofs_pct": 37.8,
+    "D1_D3": {
+     "roofs": 20,
+     "per_block": 4.0,
+     "mean_footprint_m2": 35.4,
+     "largest_footprint_m2": 50.2
+    },
+    "D4_D7": {
+     "roofs": 6,
+     "per_block": 1.2,
+     "mean_footprint_m2": 53.0,
+     "largest_footprint_m2": 66.5
+    },
+    "H": {
+     "roofs": 2,
+     "per_block": 0.4,
+     "mean_footprint_m2": 84.6,
+     "largest_footprint_m2": 89.2
+    },
+    "all_homes_mean_footprint_m2": 42.7
+   },
+   {
+    "row": "lake->randolph",
+    "blocks": 6,
+    "roofs": 81,
+    "roofs_per_block": 13.5,
+    "homes": 45,
+    "home_share_of_roofs_pct": 55.6,
+    "D1_D3": {
+     "roofs": 19,
+     "per_block": 3.17,
+     "mean_footprint_m2": 34.6,
+     "largest_footprint_m2": 40.3
+    },
+    "D4_D7": {
+     "roofs": 24,
+     "per_block": 4.0,
+     "mean_footprint_m2": 55.0,
+     "largest_footprint_m2": 70.1
+    },
+    "H": {
+     "roofs": 2,
+     "per_block": 0.33,
+     "mean_footprint_m2": 91.4,
+     "largest_footprint_m2": 95.2
+    },
+    "all_homes_mean_footprint_m2": 48.0
+   },
+   {
+    "row": "randolph->washington",
+    "blocks": 5,
+    "roofs": 59,
+    "roofs_per_block": 11.8,
+    "homes": 43,
+    "home_share_of_roofs_pct": 72.9,
+    "D1_D3": {
+     "roofs": 23,
+     "per_block": 4.6,
+     "mean_footprint_m2": 34.0,
+     "largest_footprint_m2": 48.3
+    },
+    "D4_D7": {
+     "roofs": 15,
+     "per_block": 3.0,
+     "mean_footprint_m2": 59.0,
+     "largest_footprint_m2": 67.9
+    },
+    "H": {
+     "roofs": 5,
+     "per_block": 1.0,
+     "mean_footprint_m2": 88.8,
+     "largest_footprint_m2": 98.4
+    },
+    "all_homes_mean_footprint_m2": 49.1
+   }
+  ],
+  "density_falls_southward": "MET, and monotonically: 14.8 roofs per block on the South Water row, 13.5 on the Lake row, 11.8 on this one. That is the policy's own claim, in the policy's own words, and it is the half of the parent's clause the authored document actually asserts.",
+  "the_mix_falls_southward_too": "MET. The large-dwelling band thins and the small one thickens to meet it: D4-D7 stands at 4.0 roofs per block on the Lake row and 3.0 here, while D1-D3 rises from 3.17 to 4.6. D7, the largest dwelling family the programme has, puts 1 roof on the Lake row and 0 on this one. The tier's only D7 stands in blk_randolph_clinton, which is West Division ground across the South Branch and so is not in this comparison at all — the three rows here are the South Division's plat. The South Water row is not in this comparison's line: it is the commercial core the policy's own sentence sets apart with 'then', and its dwellings are few (37.8 per cent of its roofs, against 72.9 here) because its frontage is trade.",
+  "size_does_not_fall_and_there_is_no_term_that_would_make_it": "NOT MET AS WORDED, and it should not be made to pass. A D4-D7 roof gets LARGER going south, not smaller: mean footprint 53.0 m2 on the South Water row, 55.0 on the Lake row, 59.0 here. The reason is in the generator and not in the town: a footprint is 'sampled deterministically inside the family's authored footprint band' (1835_building_inventory.json family_bands_ft), so a D5 in this tier and a D5 on Lake Street are drawn from one band and the difference between them is sampling. There is no size-by-latitude term anywhere in the programme, and inventing one to satisfy a sentence would be tuning the data to the wording. What the authored policy grades by latitude is DENSITY, and density is measured above.",
+  "and_the_mean_home_rises_for_a_reason_the_parent_itself_asked_for": "All homes together read 42.7 / 48.0 / 49.1 m2 across the three rows, rising southward. That is the H band doing it: 1.0 H1/H2 houses per block here against 0.33 on the Lake row, at a mean of 88.8 m2 — the merchant and professional seats T-1199 put in this tier and T-1202's own acceptance asks for in the same sentence as the clause above. So the rise is the parent's requirement being met, not the policy being broken, and T-1686 will raise it further.",
+  "the_modelled_edge_is_no_longer_at_washington": "STATED, and the statement has changed since the parent was written. T-0026's blocker was terrain and it is not any more: T-0219 carried the heightfield to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. tools/measure_southern_ground.py --gate reads SOUTHERN GROUND PASS with no committed platted block off the field. So the tier's dwellings fall southward as far as the COMMITTED STREET CONTROL reaches and no further: the plat's seven north-south columns all still end at local N -400, which is Washington, because they were cut where the ground used to stop. data/traces/vectors/thompson_lots.json holds no blk_washington_* block at all — the last tier is a projection of the plat frame in measure_southern_ground.py, not committed geometry — so the ground south of Washington holds no roof because it has no block, and not because the terrain refuses it.",
+  "handed_to": "T-1695, for the parent's wording; T-1696, for the columns"
+ },
+ "the_refusals": {
+  "instrument": "the `deferred` log in data/reconstruction/1835_platted_block_parcels.json, which tools/generate_block_infill.py writes when it declines a family the schedule dealt a block rather than massing it.",
+  "read_every_recipe_and_not_one_per_block": "A unit can carry more than one parcel recipe — one per programme phase that dealt it — and in this tier three of the six do: blk_randolph_dearborn has three and blk_randolph_market two. Only the FIRST of dearborn's three carries the deferral, so a reading that indexed the file by block_id would have collapsed them and reported this tier clean. It is not.",
+  "recipes_per_unit": {
+   "blk_randolph_clinton": 1,
+   "blk_randolph_market": 2,
+   "blk_randolph_franklin": 1,
+   "blk_randolph_wells": 1,
+   "blk_randolph_clark": 1,
+   "blk_randolph_dearborn": 3,
+   "blk_randolph_lasalle": 0
+  },
+  "units_with_no_parcel_recipe": [
+   "blk_randolph_lasalle"
+  ],
+  "why_one_unit_has_no_recipe": "blk_randolph_lasalle is the Public Square and is not subdivided, so no generator was ever asked to deal it. Its one roof is a named record.",
+  "deferred_in_the_tier": [
+   {
+    "unit": "blk_randolph_dearborn",
+    "recipe_index": 0,
+    "programme_phase": "phase3_platted_block_randolph_dearborn",
+    "family": "I3",
+    "inventory_class": "principal_functional",
+    "why": "The schedule deals this block one civic or public-service roof and the parcel refuses it rather than massing it. I3 resolves through the fort_structure placeholder, whose entire vocabulary of building kinds is garrison words — quarters, barracks, blockhouse, magazine, store, guard, sutler, artillery — and none of them names the adapted office or the engine house the crosswalk says this family spans. Massing an anonymous town civic building through that archetype would not merely guess at a function; it would stand a garrison building in the middle of the platted town, three quarters of a kilometre from the fort. The crosswalk already states the precondition on its own entry: the six-roof aggregate spans unlike functions and they must reconcile to named public records before construction is selected. A dwelling nobody named is the ordinary case in this town; a public building nobody named is a claim that an institution existed and left no record, and the two are not the same kind of anonymity."
+   }
+  ],
+  "count": 1,
+  "deferrals_in_the_whole_tree": [
+   {
+    "unit": "blk_randolph_dearborn",
+    "family": "I3"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "family": "F3"
+   }
+  ],
+  "resolved": "RESOLVED, upstream and on evidence, and this reading is where the tier says so. The refusal was about an archetype — I3 resolves through the fort_structure placeholder, whose whole vocabulary is garrison words, so massing an anonymous town civic roof through it would have stood a garrison building three quarters of a kilometre from the fort — and the answer is that the family has no anonymous slot left to build. tools/measure_institutional_claims.py --gate reads the I3 target of 3 exhausted by three NAMED records with a roof on the scene date (log_jail, council_house, chicago_lighthouse_1832) and asserts in its own words that 'no anonymous roof carries I1 or I3'. T-1687 closed the same question from the other side for this tier: the three civic roofs stand and no fourth is invented. The schedule agrees — all six units read roofs 0 and families {} — so there is no I3 waiting on an archetype here. Nothing is owed.",
+  "and_that_empties_the_log": "With this one discharged the whole committed tree has no live deferral left: the log held two, and T-1683 resolved blk_lake_franklin's F3 against T-0316's waterside term on 2026-09-27. Both entries stay in the file as the record of a generator that declined rather than guessed, which is what they are for."
+ },
+ "the_headroom": {
+  "instrument": "tools/reconcile_665.py, re-derived and --check green on this tree.",
+  "programme": {
+   "standing": 410,
+   "remaining": 258,
+   "of_target": 668
+  },
+  "units": [
+   {
+    "unit": "blk_randolph_clinton",
+    "district": "west",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 10,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_randolph_market",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 14,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_randolph_franklin",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 9,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_randolph_wells",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 10,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_randolph_clark",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 9,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_randolph_dearborn",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 17,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   }
+  ],
+  "at_capacity": [
+   "blk_randolph_clinton",
+   "blk_randolph_market",
+   "blk_randolph_franklin",
+   "blk_randolph_wells",
+   "blk_randolph_clark",
+   "blk_randolph_dearborn"
+  ],
+  "open": [],
+  "gated": [],
+  "headroom_total": 0,
+  "statement": "The Randolph tier IS at capacity: all six subdivided units read at_capacity with headroom 0, so the parent's 'or its headroom stated' clause resolves to zero and the answer is the stronger of the two the ticket allows. Six free lots remain across the tier and not one of them can carry a roof, because capacity here is reckoned on roofs and not on lots and the roof count is already met. This is the same finding T-1683 reached on the Lake district, T-1682 on the Lake frontage and T-1647 on the South Water row, and it is what makes the rest of this tier's work a question of what its standing roofs ARE and never of adding one."
+ },
+ "the_frame_budget": {
+  "instrument": "tools/measure_detail_ceilings.mjs on the PUBLISHED mirror, both viewports.",
+  "generated_by": "./tools/publish.sh  then  node tools/measure_detail_ceilings.mjs --json <out>  and  node tools/measure_detail_ceilings.mjs --only mobile --json <out>",
+  "why_the_published_tree": "The source tree loads uncompressed masters and the site loads compressed derivatives, so a budget measured on the source tree is a budget for a scene no visitor sees. T-1683 set this discipline and this reading keeps it.",
+  "verdict": "PASS — every tier inside its ceiling at both viewports",
+  "desktop": {
+   "viewport": "desktop 1280x800",
+   "errors": [],
+   "verdict": "PASS",
+   "tightest": {
+    "tier": "balanced",
+    "ceiling": 1280000,
+    "worst_stand": "the forks, from Wolf Point",
+    "triangles": 1256544,
+    "calls": 145,
+    "margin": 23456,
+    "margin_pct_of_ceiling": 1.83,
+    "verdict": "PASS"
+   },
+   "tiers": [
+    {
+     "tier": "full",
+     "ceiling": 1460000,
+     "worst_stand": "the forks, from Wolf Point",
+     "triangles": 1408746,
+     "calls": 153,
+     "margin": 51254,
+     "margin_pct_of_ceiling": 3.51,
+     "verdict": "PASS"
+    },
+    {
+     "tier": "balanced",
+     "ceiling": 1280000,
+     "worst_stand": "the forks, from Wolf Point",
+     "triangles": 1256544,
+     "calls": 145,
+     "margin": 23456,
+     "margin_pct_of_ceiling": 1.83,
+     "verdict": "PASS"
+    },
+    {
+     "tier": "light",
+     "ceiling": 825000,
+     "worst_stand": "the open aerial",
+     "triangles": 772462,
+     "calls": 70,
+     "margin": 52538,
+     "margin_pct_of_ceiling": 6.37,
+     "verdict": "PASS"
+    }
+   ]
+  },
+  "mobile": {
+   "viewport": "mobile 390x780",
+   "errors": [],
+   "verdict": "PASS",
+   "tightest": {
+    "tier": "balanced",
+    "ceiling": 1280000,
+    "worst_stand": "Lake Street at Canal, east down the axis",
+    "triangles": 1106903,
+    "calls": 144,
+    "margin": 173097,
+    "margin_pct_of_ceiling": 13.52,
+    "verdict": "PASS"
+   },
+   "tiers": [
+    {
+     "tier": "full",
+     "ceiling": 1460000,
+     "worst_stand": "Lake Street at Canal, east down the axis",
+     "triangles": 1253967,
+     "calls": 152,
+     "margin": 206033,
+     "margin_pct_of_ceiling": 14.11,
+     "verdict": "PASS"
+    },
+    {
+     "tier": "balanced",
+     "ceiling": 1280000,
+     "worst_stand": "Lake Street at Canal, east down the axis",
+     "triangles": 1106903,
+     "calls": 144,
+     "margin": 173097,
+     "margin_pct_of_ceiling": 13.52,
+     "verdict": "PASS"
+    },
+    {
+     "tier": "light",
+     "ceiling": 825000,
+     "worst_stand": "the open aerial",
+     "triangles": 698441,
+     "calls": 63,
+     "margin": 126559,
+     "margin_pct_of_ceiling": 15.34,
+     "verdict": "PASS"
+    }
+   ]
+  },
+  "the_drift_since_T_1683_attributed_commit_by_commit": "T-1683 read this same sweep two commits back and priced the tightest margin at 24,284 triangles, 1.90 per cent of the balanced ceiling. This reading measured it at all three heads, so the drift can be attributed rather than merely noticed: 23,504 (1.84 per cent) after T-1681 at d3260907, and 23,456 (1.83 per cent) after T-1686 here. That is 828 triangles over two commits — 780 of them T-1681's three Lake Street cottages becoming store-residences, because a shopfront carries more geometry than a cottage, and 48 T-1686's seven centre halls. THIS diff raises no roof and contributes none of it, which is the point of recording the figure at each head rather than once. Worth watching and not yet worth acting on: the town has spent 828 of its remaining 23,456 on ten buildings, and the binding stand has not changed — desktop, the balanced tier, the forks from Wolf Point. Mobile's tightest is balanced at Lake Street at Canal, east down the axis, 13.52 per cent clear."
+ },
+ "the_occupancy_this_tier_does_close_but_for_three": {
+  "instrument": "data/structures/*.json for the 69 roofs standing in the tier's six units: a roof is occupied here if its record carries `occupants` or a `resident_assignment`.",
+  "records": 69,
+  "occupied": 49,
+  "ancillary": 17,
+  "empty": 3,
+  "per_unit": {
+   "blk_randolph_clinton": {
+    "roofs": 10,
+    "occupied": 4,
+    "ancillary": 3,
+    "empty": 3
+   },
+   "blk_randolph_market": {
+    "roofs": 14,
+    "occupied": 13,
+    "ancillary": 1,
+    "empty": 0
+   },
+   "blk_randolph_franklin": {
+    "roofs": 9,
+    "occupied": 7,
+    "ancillary": 2,
+    "empty": 0
+   },
+   "blk_randolph_wells": {
+    "roofs": 10,
+    "occupied": 7,
+    "ancillary": 3,
+    "empty": 0
+   },
+   "blk_randolph_clark": {
+    "roofs": 9,
+    "occupied": 7,
+    "ancillary": 2,
+    "empty": 0
+   },
+   "blk_randolph_dearborn": {
+    "roofs": 17,
+    "occupied": 11,
+    "ancillary": 6,
+    "empty": 0
+   }
+  },
+  "ancillary_is_not_a_gap": "A1 is a stable, A2 a barn or carriage shed, A3 a privy, A4 a woodshed and A5 a small utility roof. A yard building has no keeper of its own and never wanted one; it belongs to the household whose yard it stands in.",
+  "the_gap": [
+   {
+    "unit": "blk_randolph_clinton",
+    "id": "recon_1835_west_018",
+    "family": "D5",
+    "source": "generated",
+    "raised_by": "phase2_west_wolf_point_approaches"
+   },
+   {
+    "unit": "blk_randolph_clinton",
+    "id": "recon_1835_west_019",
+    "family": "D7",
+    "source": "generated",
+    "raised_by": "phase2_west_wolf_point_approaches"
+   },
+   {
+    "unit": "blk_randolph_clinton",
+    "id": "recon_1835_west_021",
+    "family": "D6",
+    "source": "generated",
+    "raised_by": "phase2_west_wolf_point_approaches"
+   }
+  ],
+  "why_these_three_and_no_others": "All three stand in blk_randolph_clinton, the tier's one West Division unit, and all three were raised by the west phase under its own ids — recon_1835_west_018, _019 and _021. data/reconstruction/1835_roof_keepers.json declares its scope as block_prefixes ['blk_south_water_', 'blk_randolph_'], so the pass addresses roofs by ID PREFIX. But which block a roof stands in is a matter of POSITION — reconcile_665.standing_roofs() reads it off the record's position point against the committed block boundary, which is the T-A7 finding — so a roof standing on a scoped block under an unscoped id is invisible to the pass by construction. T-1685 wrote 23 keepers and refused 63 on that scope and these three were never offered to it. This is a fault in how the layer selects, not a missing household, and it will recur in every district where a block's ground and a roof's id disagree.",
+  "keeper_layer_scope": {
+   "districts": [
+    "south_water",
+    "randolph"
+   ],
+   "block_prefixes": [
+    "blk_south_water_",
+    "blk_randolph_"
+   ],
+   "districts_available": [
+    "randolph",
+    "south_water"
+   ]
+  },
+  "the_count": "66 of 69 accounted — 49 with a keeper, 17 ancillary by rule — which is 95.7 per cent, against the Lake district's 48 of 92 when T-1683 read it. The parent's stop condition ('every roof occupied') is three roofs short of met in this tier, and the three are named.",
+  "handed_to": "T-1697"
+ }
+}
