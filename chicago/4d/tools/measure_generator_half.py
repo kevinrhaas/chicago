@@ -218,13 +218,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
 # itself moved.
 #
+# 435 -> 439 and 433 -> 437 on 2026-09-28 (T-1736): the four roofs of the first deal on
+# `blk_washington_clark`, the plat's last tier — two frame cottages and the privy and
+# woodshed in their yards. Four new structure assets, so four more meshes the shared
+# generator modules or emit.py would re-stale; the terrain and pier_crib reaches stay at
+# 2 each. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 435,
+    "assets": 439,
     "restales": {
-        "generators/common/*.py": 435,
+        "generators/common/*.py": 439,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 433,
+        "generators/emit.py": 437,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

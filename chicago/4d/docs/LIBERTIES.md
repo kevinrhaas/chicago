@@ -15940,3 +15940,54 @@ for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie
 fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent
 **T-1204**.
 **Recorded:** 2026-09-28.
+
+
+### L287 — Two invented cottages on the plat's last tier, and the two yard buildings dealt one to a lot
+
+**Decision:** `blk_washington_clark` — bounded by Washington, Dearborn, Madison and Clark, and
+standing empty until now — carries **four anonymous roofs**: the deep-plan cottage and the
+two-room cottage the 665-roof programme's schedule apportions it as its only two principal
+roofs, and a privy and a woodshed off the block alley behind them, one to a lot. The ceiling
+and the family mix are the schedule's; **everything below that is invented** — that any
+building stood on this block in July 1835, which buildings they were, that they were
+dwellings, which lot each stands on, how far back from its street edge it sits and how far to
+one side of its lot. No coordinate is authored: every metre is read off the committed lot
+polygon by `tools/generate_block_infill.py` from the recipe entry in
+`data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why these two and not others.** The block is the first this project has built on the plat's
+last tier, the range between Washington Street and Madison Street that T-1707 released by
+carrying the Original Town's seven north-south columns to the line the 1830 plat draws them
+on. Its eight lots all read `free` in the lot ledger and all read dry on the modelled ground.
+The two principal roofs are not this file's choice: T-1522's placement pass wrote a `slot`
+against this block's own committed plan for hh_byram_thomas and hh_cady_levi, naming the D4
+and the D5 the schedule apportions, and this deal builds exactly those two. Of the six yard
+buildings the block's plan also holds — two stables, a barn or carriage shed, a smokehouse
+and these two — only the privy and the woodshed are dealt, because every one of them would
+have to stand in the yard of one of two tradesmen's cottages, and a stable and a barn and a
+smokehouse behind a two-room cottage is a claim about how these households lived that nothing
+supports. Six of the block's eight lots are left open, lot 1 by the schedule's own sizing rule
+and the other five because nothing was dealt to them.
+
+**The roofs were not taken by the households that asked for them, and that is recorded rather
+than tidied.** The adoption step runs before the slot step and scores lots by the clause's own
+stated preferences; `tradesman_dwellings` prefers a quiet street, so the two new cottages on
+Washington and Madison outscored the South Water frontage roofs the two Beaubien households
+stood on, and the Beaubiens took them. **L270** carries the full arithmetic — 38 seats
+cascaded behind that move, the block could then offer no slot to anybody, and the platted
+deal's seated count fell 139 to 137. The same precedence question T-1622 met on
+blk_south_water_franklin is open on **T-1626**; nothing here answers it.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Washington and Madison, Clark and Dearborn, and a reading of Thompson's lot
+numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
+roof and never increases the total. Any evidence that the tier south of Washington was still
+wholly unbuilt in July 1835 would retire all four of these rather than re-place them.
+
+**Covers:** `recon_1835_blk_washington_clark_*.inferred_1835.position`,
+`recon_1835_blk_washington_clark_*.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L270** (the platted deal this block
+answers), **L276** (the keepers the move took off two South Water roofs), **T-1707** (the
+tier), **T-1736**.
+**Recorded:** 2026-09-28.
