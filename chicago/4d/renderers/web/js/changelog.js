@@ -1,11 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1210, ts: '2026-09-28T15:51:52.593Z', date: 'Sep 28, 2026, 10:51 AM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Two houses beside the Lake House building site', kind: 'change',
     items: [
       'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
       'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
       'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
       'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
       'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
+    ] },
+  { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
+    items: [
+      'Cross the river and walk north past Michigan Street and the ground has changed. Everything beyond that line \u2014 Kinzie\u2019s Addition, the fringe toward Rush and Pine, the ground behind the lake shore \u2014 was drawing as open prairie, grass to the horizon. It is timber now: elm, ash and silver maple, with willow in the wet hollows and hazel through the understorey, which is what the one account of the place describes.',
+      'Nobody chose the prairie. The shape that tells the town where the north-side wood stands was drawn when the modelled ground was much smaller, and it followed the edges of that old ground \u2014 a straight line across the north, another down the east, neither of them the boundary of anything. The ground was later carried far past both of them and the wood was never carried with it, so everything the extension opened fell through to the grass.',
+      'The wood\u2019s outline is no longer drawn by hand. It is worked out from the water: the east bank of the North Branch, the north bank of the main river and the lake shore, all three already traced off the 1834 survey, walked round as a single line. 155 hectares where there were 10. A check now fails the build if the outline and the water ever part company again.',
+      'The beach, the dunes, the marshes and the sedge are untouched. The account that describes the timber excepts the sandy hills near the lake and the marshy places, and each of those already wins wherever it stands \u2014 so the wood fills what is left rather than running over them.',
+      'One thing was deliberately not extended. There is a single creek drawn on the north side and the 1834 survey ends it at Michigan Street. That is where the map stops it, not where the tracing stopped, so no channel was invented to carry it further north.',
+      'And the building programme\u2019s note about what the north side is still waiting for was three-quarters wrong. It said the ground, the water, the plants and the map coverage all stopped short of a line the ground had passed weeks ago; only the plants had. It is measured now instead of written down, and what the north is actually waiting for is streets.',
     ] },
   { v: 1209, ts: '2026-09-28T13:52:07.973Z', date: 'Sep 28, 2026, 8:52 AM CT', title: 'Six houses get out of the road', kind: 'fix',
     items: [
