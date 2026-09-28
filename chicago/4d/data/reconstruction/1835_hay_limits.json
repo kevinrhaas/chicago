@@ -471,7 +471,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 7,
+  "scheduling_roofs_outside_the_limit": 9,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_lake_clinton",
@@ -540,6 +540,26 @@
     "centre_local_enu_m": [
      760.04,
      -456.51
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_wolcott",
+    "state": "open",
+    "roofs_scheduled": 43,
+    "centre_local_enu_m": [
+     885.64,
+     525.4
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_cass",
+    "state": "open",
+    "roofs_scheduled": 16,
+    "centre_local_enu_m": [
+     997.2,
+     524.49
     ],
     "inside_the_limit": false
    }
@@ -817,8 +837,8 @@
    },
    {
     "id": "blk_indiana_north_wolcott",
-    "state": "unsubdivided",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 43,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -827,8 +847,8 @@
    },
    {
     "id": "blk_indiana_north_cass",
-    "state": "unsubdivided",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -837,7 +857,7 @@
    },
    {
     "id": "blk_indiana_north_rush",
-    "state": "unsubdivided",
+    "state": "open",
     "roofs_scheduled": 0,
     "centre_local_enu_m": [
      1108.75,
@@ -1060,8 +1080,8 @@
    {
     "id": "north_division_beyond_modelled_ground",
     "kind": "district_balance",
-    "state": "gated",
-    "roofs": 59
+    "state": "complete",
+    "roofs": 0
    },
    {
     "id": "fort_dearborn_compound",
