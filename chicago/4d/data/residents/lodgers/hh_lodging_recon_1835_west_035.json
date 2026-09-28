@@ -2,7 +2,7 @@
  "id": "hh_lodging_recon_1835_west_035",
  "name": "The lodgers of Reconstructed H2 medium boarding house #035",
  "division": "west",
- "head": "rc_pelletier_victoire",
+ "head": "rc_pelletier_charles",
  "source_pass": "reconstructed_lodging_household",
  "lodging_household": {
   "ticket": "T-1371",
@@ -79,11 +79,11 @@
  },
  "persons": [
   {
-   "id": "rc_pelletier_victoire",
-   "name": "Victoire Pelletier",
+   "id": "rc_pelletier_charles",
+   "name": "Charles Pelletier",
    "relationship": "head",
    "grade": "reconstructed",
-   "sex": "female",
+   "sex": "male",
    "age_band": {
     "value": "20-29",
     "low": 20,
@@ -103,7 +103,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Victoire Pelletier",
+    "value": "Charles Pelletier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -121,8 +121,8 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/female/20_29/west/lodging/trade",
-    "note": "The book's bucket persons/female/20_29/west/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
+    "bucket": "persons/male/20_29/west/lodging/trade",
+    "note": "The book's bucket persons/male/20_29/west/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
    },
    "seed": "lodgers:recon_1835_west_035:keeper:001:forename",
    "replaceable_by": {
@@ -284,23 +284,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_hastings_asa",
-   "name": "Asa Hastings",
+   "id": "rc_barnes_otis",
+   "name": "Otis Barnes",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_west_035:male:20_29:003:age_band",
+    "seed": "lodgers:recon_1835_west_035:male:30_39:003:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -308,7 +308,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Asa Hastings",
+    "value": "Otis Barnes",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -316,7 +316,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_west_035:male:20_29:003:forename",
+    "seed": "lodgers:recon_1835_west_035:male:30_39:003:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -326,10 +326,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/20_29/west/lodging/none",
-    "note": "The book's bucket persons/male/20_29/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
+    "bucket": "persons/male/30_39/west/lodging/none",
+    "note": "The book's bucket persons/male/30_39/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
    },
-   "seed": "lodgers:recon_1835_west_035:male:20_29:003:forename",
+   "seed": "lodgers:recon_1835_west_035:male:30_39:003:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -349,23 +349,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_bourassa_joseph",
-   "name": "Joseph Bourassa",
+   "id": "rc_gilbert_lemuel",
+   "name": "Lemuel Gilbert",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_west_035:male:30_39:004:age_band",
+    "seed": "lodgers:recon_1835_west_035:male:40_49:004:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -373,15 +373,15 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Joseph Bourassa",
+    "value": "Lemuel Gilbert",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the french_colonial pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_west_035:male:30_39:004:forename",
+    "seed": "lodgers:recon_1835_west_035:male:40_49:004:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -391,10 +391,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/30_39/west/lodging/none",
-    "note": "The book's bucket persons/male/30_39/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
+    "bucket": "persons/male/40_49/west/lodging/none",
+    "note": "The book's bucket persons/male/40_49/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_west_035's, from the lodging model's ordinary-night figure of 12."
    },
-   "seed": "lodgers:recon_1835_west_035:male:30_39:004:forename",
+   "seed": "lodgers:recon_1835_west_035:male:40_49:004:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -402,7 +402,7 @@
    "reconstruction": {
     "stage": "lodgers",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "french_colonial",
+    "community": "yankee",
     "review_required": false
    },
    "resident_subtype": "reconstructed_lodger",
@@ -414,8 +414,8 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_pelletier_charles",
-   "name": "Charles Pelletier",
+   "id": "rc_pelletier_alexis",
+   "name": "Alexis Pelletier",
    "relationship": "son",
    "grade": "reconstructed",
    "sex": "male",
@@ -438,14 +438,14 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "kin_of": {
-    "person": "rc_pelletier_victoire",
-    "name": "Victoire Pelletier",
+    "person": "rc_pelletier_charles",
+    "name": "Charles Pelletier",
     "household": "hh_lodging_recon_1835_west_035",
     "relation": "child of the keeper of this house",
     "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
    },
    "name_basis": {
-    "value": "Charles Pelletier",
+    "value": "Alexis Pelletier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -486,8 +486,8 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 3 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_pelletier_alexis",
-   "name": "Alexis Pelletier",
+   "id": "rc_pelletier_michel",
+   "name": "Michel Pelletier",
    "relationship": "son",
    "grade": "reconstructed",
    "sex": "male",
@@ -510,14 +510,14 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "kin_of": {
-    "person": "rc_pelletier_victoire",
-    "name": "Victoire Pelletier",
+    "person": "rc_pelletier_charles",
+    "name": "Charles Pelletier",
     "household": "hh_lodging_recon_1835_west_035",
     "relation": "child of the keeper of this house",
     "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
    },
    "name_basis": {
-    "value": "Alexis Pelletier",
+    "value": "Michel Pelletier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

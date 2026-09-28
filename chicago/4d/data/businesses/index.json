@@ -14238,7 +14238,7 @@
     {
       "id": "rcb_cavanagh_boarding_house",
       "file": "rcb_cavanagh_boarding_house.json",
-      "name": "Ellen Cavanagh's boarding house",
+      "name": "Johanna Cavanagh's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14252,8 +14252,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Ellen Cavanagh",
-          "person_id": "rc_cavanagh_ellen",
+          "name": "Johanna Cavanagh",
+          "person_id": "rc_cavanagh_johanna",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -15186,7 +15186,7 @@
     {
       "id": "rcb_pelletier_boarding_house",
       "file": "rcb_pelletier_boarding_house.json",
-      "name": "Victoire Pelletier's boarding house",
+      "name": "Charles Pelletier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15200,8 +15200,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Victoire Pelletier",
-          "person_id": "rc_pelletier_victoire",
+          "name": "Charles Pelletier",
+          "person_id": "rc_pelletier_charles",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,

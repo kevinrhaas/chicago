@@ -465,6 +465,37 @@ def solitary_heads() -> list:
     return out
 
 
+def room_of(bucket: dict) -> int:
+    """A lodging cell's order, LESS the heads the re-family programme lands in it.
+
+    T-1717. `to_reconstruct` is the order; `refamilied_in` is the re-family programme
+    (T-1558) landing a head the town ALREADY HOLDS into that same order, and the book
+    counts it against the order exactly as it counts a draw: `filled` is
+    `drawn - refamilied_out + refamilied_in`, and `build_order_book_1835.py` refuses a
+    landing the cell has no open order for — *"a move needs an open order to fill"*.
+    So a slot a move has taken is not room, and a stage that deals into it is dealing
+    into somebody else's order.
+
+    THIS IS NOT THE THING `filled` IS, and the distinction is the whole reason it can be
+    read here. `filled` is this stage's own counter, so netting it off would make the
+    second build draw against a room the first build had shrunk and `--check` would read
+    the difference as drift — it did, once. `refamilied_in` is not written by this stage
+    and does not move when this stage builds: it is a function of
+    `data/reconstruction/1835_refamily_*.json` and the ladder, so the room this returns is
+    the same on a build and on the check after it.
+
+    Until T-1717 this read the order gross, and it held only by arithmetic luck: four
+    north and west lodging cells sat EXACTLY on their order with the draws and the
+    landings summing to it, so the first lodging roof raised after the re-family
+    programme landed — Kelsey's boarding house, from Bonnell's walk — drew one head past
+    each and the book refused the whole ledger. The order rather than the roof is what is
+    short, and `allocate_within`'s refusal (*"no order left, no mint"*, T-1535) is what
+    the stage is meant to say about that: the beds stand empty and the ledger says so.
+    """
+    return max(0, int(bucket.get("to_reconstruct") or 0)
+               - int(bucket.get("refamilied_in") or 0))
+
+
 def book_lodging_room() -> dict:
     """(division, sex, band, trade axis) -> (bucket key, how many the book orders there NOW.
 
@@ -487,7 +518,7 @@ def book_lodging_room() -> dict:
             if axes.get("household_type") != "lodging":
                 continue
             out[(axes["division"], axes["sex"], axes["age_band"], axes["trade"])] = (
-                bucket["key"], int(bucket.get("to_reconstruct") or 0))
+                bucket["key"], room_of(bucket))
     return out
 
 
@@ -2299,7 +2330,10 @@ def self_test() -> int:
     # the buckets perturbed above PLUS the ones the committed book has already re-cut.
     basis_now = {row["bucket"]: int(row["to_reconstruct"])
                  for row in ledger["quota_basis"]["buckets"]}
-    live_perturbed = {b["key"]: int(b.get("to_reconstruct") or 0)
+    # READ THE WAY THE STAGE READS IT (T-1717): `room_of()` and not the raw order, or
+    # this expectation disagrees with `basis_block()` on every cell the re-family
+    # programme has landed a head in, and calls that a missing statement.
+    live_perturbed = {b["key"]: room_of(b)
                       for fam in perturbed.get("bucket_families", [])
                       if fam.get("key") == "persons"
                       for b in fam.get("buckets", [])
