@@ -1100,6 +1100,24 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].profile_facts[].record_id": ("shown", "Record ${escapeHtml(String(f.record_id))}"),
     "persons[].profile_facts[].precision": (
         "shown", "the source is exact to the ${escapeHtml(words(f.precision))}"),
+    # T-1588 — what this person HELD, which is its own field because a landholding is a
+    # thing a named man owned and `hh_wright_john` holds a father and a son of nearly the
+    # same name. Every figure is shown: the value, the grade, the volumes, the date the
+    # source speaks about, the sentence it was read from, the reasoning, and the research
+    # record it came from. `place_class` reads as a clause for the same reason it does on
+    # a profile fact — ground outside this town is a different claim and has to say so.
+    "persons[].landholding.value": ("shown", "escapeHtml(String(block.value))"),
+    "persons[].landholding.confidence": ("shown", "swatch(block.confidence)"),
+    "persons[].landholding.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
+    "persons[].landholding.describes_date": (
+        "shown", "escapeHtml(printedOn(block.describes_date))"),
+    "persons[].landholding.place_class": (
+        "shown", "block.place_class === 'outside_chicago' ? ', and ground somewhere other than this town' : ''"),
+    "persons[].landholding.as_read": ("shown", "escapeHtml(String(block.as_read ?? ''))"),
+    "persons[].landholding.note": ("shown", "escapeHtml(String(block.note ?? ''))"),
+    "persons[].landholding.record_id": (
+        "shown", "Record ${escapeHtml(String(block.record_id))}"),
     "persons[].later_census.year": ("shown", "Found again in the ${escapeHtml(String(census.year))} census"),
     "persons[].later_census.source_id": ("shown", "citationsById.get(census.source_id)"),
     "persons[].later_census.serial": ("shown", "enumeration serial ${\n        escapeHtml(String(census.serial))}"),

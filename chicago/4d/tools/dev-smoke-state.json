@@ -7,6 +7,37 @@
       "parts": [
         12
       ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 446,
+      "takenAt": "2026-09-28T04:41:34.096Z",
+      "ref": "steward/t-1279-playable-jaunt",
+      "commit": "0e3f0483dca2",
+      "devCommit": "80b15e0c91a6",
+      "treeHash": "sha256:8c5f4566d8c7b904",
+      "treeDirty": false,
+      "changelogHash": "sha256:3826d5508336a97d",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          4.8,
+          6.4,
+          6
+        ]
+      },
+      "source": "/tmp/t1279-smoke-desktop-12-budget.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
       "verdict": "fail",
       "target": "published",
       "passed": 93,
@@ -1903,37 +1934,6 @@
         ]
       },
       "source": "/tmp/smoke_base_d2.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 95,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 234,
-      "takenAt": "2026-09-27T21:29:51.786Z",
-      "ref": "steward/t1685-randolph-keepers",
-      "commit": "2f3f7d3b7275",
-      "devCommit": "ef20f58e5c7b",
-      "treeHash": "sha256:ad9340d566811c7f",
-      "treeDirty": false,
-      "changelogHash": "sha256:a6d01ad972254081",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          4.1,
-          4.1
-        ]
-      },
-      "source": "/tmp/smoke_d3b.log"
     }
   ]
 }

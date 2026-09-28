@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1198, ts: '2026-09-28T04:08:25.373Z', date: 'Sep 27, 2026, 11:08 PM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+  { v: 1199, ts: '2026-09-28T04:45:49.080Z', date: 'Sep 27, 2026, 11:45 PM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
     items: [
       'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
       'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
       'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
+  { v: 1198, ts: '2026-09-28T04:12:20.696Z', date: 'Sep 27, 2026, 11:12 PM CT', title: 'Two cards say what the man owned, not just what happened', kind: 'change',
+    items: [
+      'Open John S. Wright\u2019s card, or Paul Kingston\u2019s, and a new row says what he HELD: Wright\u2019s Chicago land purchases and his lots in the original town, Kingston\u2019s land at Chicago. Both were already known and neither had anywhere to go, so both had been filed under \u201cwhat the sources record\u201d \u2014 the shelf for anything else dated, which says that something happened to a man and not what he owned.',
+      'Land held is not land lived on, and the row says so. Kingston has no address at all: the town cannot place him on any street, and owning ground does not give him one. No parcel, block, lot number or price is stated by any source read for either man, so the row says what was held and never how much, and nothing was drawn on the ground.',
+      'Wright\u2019s row cites two volumes and says what the second one is for. The library\u2019s finding aid states the purchases; the 1885 memorial is there to settle WHICH John Wright this is, because the house holds a father and a son of nearly the same name. The same finding aid\u2019s later deed dates are refused: they are after this scene and are not carried back to it.',
+      'Both readings had sat unspent for months behind a queue of finished work, under a rule whose name was the complaint \u2014 the finding names a landholding and no field carries one. The field now exists, so the rule is gone and the two are closed.',
     ] },
   { v: 1197, ts: '2026-09-28T03:14:19.984Z', date: 'Sep 27, 2026, 10:14 PM CT', title: 'Jackson Street was never Jackson Boulevard', kind: 'fix',
     items: [
