@@ -685,6 +685,17 @@ step "Kinzie's Addition's block numerals re-derive from the reading and the run"
 selftest "…and its own assertions still fire when broken" \
   python3 tools/read_kinzie_addition_numerals.py --self-test
 
+# AND THE LOT LINES INSIDE THOSE CELLS (T-1741). Same raster, same registration, same
+# cell boxes — what is added is which cells Wright rules into lots and which he leaves
+# whole. The reading is what lifted the Addition's blanket `lot_subdivision_withheld`,
+# so it is gated at the same strength: every cell re-derives from the committed pixels
+# or the cut standing on it is not the cut the sheet draws.
+step "Kinzie's Addition's lot lines re-derive from the committed pixels" \
+  python3 tools/read_kinzie_addition_lots.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/read_kinzie_addition_lots.py --self-test
+
 # THE NORTH DIVISION'S SEVEN BLOCK NUMERALS (T-1088). The reading lives in
 # data/traces/thompson_block_numbering.json; what is gated here is the CITATION — every
 # crop region it cites is re-cut from the committed street lines by the same rule, so a

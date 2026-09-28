@@ -397,7 +397,9 @@ STRUCTURE_TICKETS = {
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    ("north", "ordinary_dwellings"): "T-1206",
+    # T-1741 split T-1206 — the Addition's roofs could not be dealt while its blocks
+    # stood unsubdivided — so the order sweeps onto the live half that raises them.
+    ("north", "ordinary_dwellings"): "T-1742",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
@@ -4413,8 +4415,18 @@ def cmd_self_test() -> int:
     # platted pass goes 139 -> 138 and the household that had the second slot goes back on
     # the owed list. Nothing was raised on the plat and no seat moved: one request the plan
     # no longer has room for is withdrawn, and it is withdrawn in writing.
+    #
+    # AND T-1741 TAKES IT TO 230, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
+    # same shape as T-1707 and for the same kind of reason: a ruling about GROUND, not about
+    # households. Kinzie's Addition stood with twenty-seven blocks and no lot line in any of
+    # them — no lot rule had been read for that plat — so the whole North Division's headroom
+    # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
+    # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
+    # and the platted pass goes 138 -> 158: eleven labourers' households onto
+    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # A slot is a request and not a roof: T-1742 raises them.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 210
+        data["inventory"], data["programme"], occ))["seated"] == 230
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
