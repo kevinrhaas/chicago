@@ -1546,3 +1546,19 @@ kbd {
 
 .gate[data-state="welcome"] #gate-build { display: none; }
 .gate[data-state="welcome"] #gate-title:focus { outline: none; }
+
+/* T-1253: a readable, internally scrolling preview inside the existing welcome. */
+.jaunt-card { padding: 12px; margin: 10px 0; border: 1px solid var(--edge); border-radius: 8px; text-align: left; }
+.jaunt-card h3, .jaunt-stops h4 { margin: 0 0 6px; }
+.jaunt-card p, .jaunt-stops p { line-height: 1.5; }
+.jaunt-meta { font-size: 12px; opacity: .8; overflow-wrap: anywhere; }
+.jaunt-stops { padding-left: 24px; text-align: left; }
+.jaunt-stops li { padding: 10px 0; }
+.jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
+#welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
+.gate[data-region="jaunts"] .welcome-intro { display: none; }
+.gate[data-region="jaunts"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.gate[data-region="jaunts"] .welcome-action { padding: 8px; }
+.gate[data-region="jaunts"] .welcome-action strong { font-size: 14px; }
+.gate[data-region="jaunts"] .welcome-action span { display: none; }
+#welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }

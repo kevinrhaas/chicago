@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1196, ts: '2026-09-28T02:37:28.806Z', date: 'Sep 27, 2026, 9:37 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',
+      'The route separates historical facts from its imagined first-day outing and Finding Your Feet keepsake. Hogan’s old mail corner and the Democrat’s former office keep their correct dates.',
+      'This is a reading preview; guided travel and keepsakes will follow. You can return to exploring at any time.',
+    ] },
   { v: 1195, ts: '2026-09-28T01:54:37.172Z', date: 'Sep 27, 2026, 8:54 PM CT', title: 'Nothing you can see: the Randolph blocks close their books', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. The strip between Randolph Street and Washington \u2014 six blocks running west from State to the far side of the South Branch, with the public square sitting in the middle of the row \u2014 has been under construction for four releases, and this one closes its accounts and writes down what is actually standing there.',
