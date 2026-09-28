@@ -1702,8 +1702,8 @@
    },
    "lots": 10,
    "capacity_roofs": 0,
-   "standing_roofs": 1,
-   "free_lots": 9,
+   "standing_roofs": 2,
+   "free_lots": 8,
    "principal_room": 0,
    "ancillary_room": 0,
    "headroom": 0,
@@ -1713,7 +1713,7 @@
    "families": {},
    "principal": 0,
    "ancillary": 0,
-   "lot_ceiling_principal": 8,
+   "lot_ceiling_principal": 7,
    "row_lots_required": 0
   },
   {
