@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1200, ts: '2026-09-28T05:30:12.869Z', date: 'Sep 28, 2026, 12:30 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+  { v: null, ts: '', title: 'Take your first jaunt through Chicago', kind: 'change',
     items: [
       'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
       'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
       'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
+  { v: 1200, ts: '2026-09-28T05:41:45.154Z', date: 'Sep 28, 2026, 12:41 AM CT', title: 'Nothing you can see: 395 invented people are told they are staying', kind: 'fix',
+    items: [
+      'Nothing in the town changed and nobody moved. This release closes the books on the last open question about the town\u2019s reconstructed population \u2014 the 395 invented people the order book was still holding past what it would now order.',
+      'The short version: when the sources named real people in places the project had already filled with invented ones, the invented ones were not deleted. Deleting them would have meant choosing who the town lost, and the rule for choosing would have been which of them failed to get a job. So instead they were to be re-counted elsewhere \u2014 moved into cells the town genuinely still owes people in.',
+      'That worked for 129 of them and then stopped, and it stopped for good reasons. A move may not change who somebody IS: not a person\u2019s sex, not their age. And a household moves whole or not at all, because a record that states one side of the river for a family cannot put a mother on one bank and her daughter on the other. Under those two conditions the people left holding \u2014 138 children under ten, 85 in their teens, 105 women and 67 men \u2014 have nowhere in the town that wants them.',
+      'So the question went to the owner, and the answer is that they remain held, recorded as held, and the programme is FINISHED where the rule runs out rather than at nought. The books now say that in so many words: the count, the 44 cells holding them, the refusal that holds each one, and what would ever reopen it. Every one of those cells goes on showing both figures side by side \u2014 what stands there and what the re-reading would have ordered \u2014 rather than being quietly reconciled to one.',
+      'Two things that were saying otherwise are corrected. The population report predicted the town would still shed 129 people once the programme was spent; it had already spent them, and was subtracting the same 129 twice. And the same report\u2019s account of why the rest cannot move carried numbers from a model that has been rebuilt twice since \u2014 it now reads them off the model instead of repeating them.',
+      'What would discharge this honestly is a source: a record naming a real person in one of those 44 cells retires an invented card there and closes the gap by one.',
     ] },
   { v: 1199, ts: '2026-09-28T04:39:12.310Z', date: 'Sep 27, 2026, 11:39 PM CT', title: 'A house on Michigan Street gets its owner back', kind: 'change',
     items: [

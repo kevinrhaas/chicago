@@ -6453,7 +6453,30 @@
     },
     "the_programme": {
       "ticket": "T-1597",
-      "settled": false
+      "settled": true,
+      "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
+      "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
+      "moves_the_rule_still_yields": 0,
+      "people_still_held": 395,
+      "buckets_they_are_held_in": 44,
+      "and_what_holds_each_of_them": [
+        {
+          "refusal": "a_documented_reading_shrank_the_order",
+          "people": 1
+        },
+        {
+          "refusal": "the_re_cut_reached_work_already_drawn",
+          "people": 394
+        }
+      ],
+      "the_rungs_the_rule_refuses_on": [
+        "R_adopted",
+        "R_house_is_not_wholly_held",
+        "R_seated",
+        "R_division_is_a_reading"
+      ],
+      "what_becomes_of_them": "nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.",
+      "what_would_reopen_it": "a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again."
     },
     "moves": [
       {
