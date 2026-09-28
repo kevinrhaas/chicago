@@ -206,7 +206,15 @@ def write(belt: list[list[float]]) -> None:
     if not block:
         raise Fault(f"cannot find the `{BODY_ID}` entry in trees.js to rewrite")
     old = block.group(1)
-    new = re.sub(r"    path: \[.*?\],\n", as_literal(belt) + "\n", old, flags=re.S)
+    # THE LITERAL IS THE WHOLE ARRAY, AND `.*?` STOPPED AT THE FIRST ROW OF IT (T-1707).
+    # `path: \[.*?\],\n` is non-greedy over DOTALL, so on a path long enough for
+    # `as_literal` to WRAP it — which this belt's is the moment its last vertex needs one
+    # more digit — the match ended at the first line's own trailing `],` and the rewrite
+    # left the rest of the old array orphaned after the new one. That is a JavaScript
+    # syntax error, and `renderer modules parse` is where it lands. Measured on the belt's
+    # own re-derivation when T-1707 carried Wells Street south and its east clip moved
+    # 0.63 m. The pattern now closes on the array's OWN `]]`, which a row cannot contain.
+    new = re.sub(r"    path: \[\[.*?\]\],\n", as_literal(belt) + "\n", old, flags=re.S)
     if new == old:
         raise Fault(f"the `{BODY_ID}` entry has no `path: [ … ],` line to rewrite")
     TREES_JS.write_text(src.replace(old, new), encoding="utf-8")
