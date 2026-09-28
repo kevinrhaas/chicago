@@ -217,14 +217,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules or emit.py would
 # re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
 # itself moved.
+# 435 -> 443 and 433 -> 441 on 2026-09-28 (T-1708): the eight roofs dealt to
+# `blk_washington_clark`, the Clark-to-Dearborn block of the plat's last tier - two frame
+# cottages and the six yard buildings behind them. Eight new structure assets, so eight
+# more meshes a change to the shared generator modules or to emit.py would re-stale; the
+# terrain and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 435,
+    "assets": 443,
     "restales": {
-        "generators/common/*.py": 435,
+        "generators/common/*.py": 443,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 433,
+        "generators/emit.py": 441,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

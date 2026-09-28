@@ -14577,10 +14577,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 274 lots are enumerated from records this project already held, and then 139 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 274 lots are enumerated from records this project already held, and then 137 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 139 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,339
+**Scope:** `platted_seats.seats[dealt]` — 137 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,341
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 274 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14600,20 +14600,25 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 109 of the 139 seats are
+roof of a family its clause admits, on a lot of its own division; 109 of the 137 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **30 of the 139 are that, and every one of them stands on the plat's last
+sizing keeps open; **28 of the 137 are that, and every one of them stands on the plat's last
 tier** (T-1707, 2026-09-28). The count was 0 until that ticket, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
-headroom, and the deal placed 19 merchant and professional households and 11 tradesmen's
-onto them — 28 to the Market, Franklin, Wells and La Salle blocks and 2 to
-the Clark block. A slot is a REQUEST and not a roof: these 30 households have a lot and no
-walls until T-1708 raises them, and each seat says so.
+headroom, and the deal placed 30 households onto them — 28 on the Market, Franklin, Wells and
+La Salle blocks and 2 on the Clark block. **The Clark block's two are gone from this count,
+and they were BUILT rather than withdrawn** (T-1708, 2026-09-28): that parcel raised the D5
+and the D4 the block was asked for, the two roofs went to the Bourrassa and Alexander Beaubien
+households by the same precedence recorded below, and the block has no principal headroom left
+to request a slot on — so the slot count falls 30 -> 28 and both of those requests are
+discharged. The 28 that remain are 18 merchant and professional households and 10 tradesmen's,
+on the four blocks between Market and La Salle. A slot is a REQUEST and not a roof: those 28
+have a lot and no walls until T-1200 through T-1214 raise them, and each seat says so.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
@@ -15920,4 +15925,106 @@ for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie
 **Related:** **L42** and **L43** (the same two classes of invention on the first mound and on the
 fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent
 **T-1204**.
+**Recorded:** 2026-09-28.
+
+### L287 — Two cottages and six yard buildings on the Clark block of the plat's last tier, the first roofs south of Washington Street
+**Decision:** `blk_washington_clark` — the block bounded by Washington, Dearborn, Madison and
+Clark, and one of the six the Original Town's last tier was platted with — carries **eight
+anonymous roofs**: a deep-plan frame cottage on lot 6 and a two-room frame cottage on lot 4, both
+standing back from the Washington Street face at a typology setback, with three yard buildings in
+each of their two yards at the alley end (a stable, a carriage shed and the block's one privy
+behind the deeper cottage; a stable, a woodshed and a smokehouse behind the two-room one). The
+block's other six lots — 0 and 2 on Washington and the whole Madison face, 1, 3, 5 and 7 — are
+left open. **No roof is added to the town:** all eight come out of
+`south_plat_beyond_committed_control`, the district balance that has been waiting on exactly this
+street control, and the 668-roof programme total does not move.
+
+**Why:** T-1708, piece 2 of 4 of T-1203. Until T-1707 carried the Original Town's seven south
+columns from their terrain clip at N -400 down to Madison Street on 2026-09-27, there was no
+street control here for a lot to hang off; the block arrives at this parcel empty, with
+`standing_roofs` 0 and `free_lots` 8. The 665-roof programme's schedule deals it eight roofs and
+exactly two of them are principal — one D5 and one D4 — so this parcel builds the whole of its
+deal and defers nothing.
+
+**THE TWO DWELLINGS WERE ASKED FOR BY NAME.** T-1613's platted seating walked the placement
+policy's order over 1,478 banded households and, for thirty of them, found no standing roof of an
+admitted family free in their division; for each it wrote a `slot` against a block's own committed
+family plan. Two of those thirty ask this block: the Cady household for a D5 and the Byram
+household for a D4. A request is not evidence, and neither roof is graded any higher for having
+been asked for.
+
+**THE FACE RULE, AND THE STREET LAYER SETTLING IT.** `tools/measure_street_frontage.py washington
+madison clark dearborn` counts 1 documented record and 0 inferred households within 25 m of
+Washington's committed centreline against Madison's 0 and 0 — the reconstruction column is this
+programme's own output and does not vote. Those are the only two faces in the running, because the
+committed lot grid fronts lots 0, 2, 4 and 6 on Washington and lots 1, 3, 5 and 7 on Madison. And
+the street layer settles it without needing the count: `data/streets/1835.json` grades Madison
+`platted, unopened, unworn`, with `track_width_m` 0 and traffic `none`, on the owner's reading of
+Wright's 1834 sheet (2026-09-05). A dwelling fronting Madison in July 1835 would front a ruled line
+on the prairie, which is a claim the committed street layer itself refuses. So both dwellings take
+Washington and the whole Madison face is left open.
+
+**THE END RULE, AND THE ONE CRITERION THAT GRADES HERE.** `tools/measure_end_rule.py
+blk_washington_clark --list` reads the north face at a 0.49 m step per party-line unit on the
+STRAIGHT criterion and reports it BELOW THE FLOOR: the four Washington lots lie within 10.15 m of
+one another as the crow flies from the foot of the Dearborn Street drawbridge, the only crossing of
+the main stem in July 1835, so a straight line cannot tell them apart. Walked along the committed
+streets the same four spread 73.96 m at a 6.07 m step and the criterion grades — lot 6 at 435.91 m,
+lot 4 at 460.56 m, lot 2 at 485.22 m, lot 0 at 509.87 m — so the deeper cottage takes lot 6 and the
+two-room one lot 4, and the ordering rests on the network reading alone.
+
+**THE SEATING'S LOT AND THIS FILE'S LOT DISAGREED, AND THE DISAGREEMENT IS RECORDED RATHER THAN
+ABSORBED.** T-1613 put the Byram D4 on lot 5, which is a Madison lot: the seating reads the lot
+ledger, and the lot ledger hands out headroom without asking whether the street was open. This
+parcel asks, so the D4 stands on lot 4 and lot 5 is named open with that reason on it. Which lot a
+family stands on is the block recipe's to author (the rule T-1622 set on the South Water row), and
+this is the second time the two answers have parted.
+
+**AND THE TWO HOUSEHOLDS THAT MOVED IN ARE NOT THE TWO THAT ASKED.** Re-derived over the new roofs,
+the placement policy ranks a household whose name the town's own records carry above one minted
+from the post office's letter lists, so the Bourrassa household (the St Cyr register) and Alexander
+Beaubien's (the St Mary's baptismal register) came off `recon_1835_blk_south_water_wells_d3_04` and
+`_d4_03` onto these two cottages, and the Cady and Byram households came back OWED rather than
+slotted: the block has no principal headroom left to request against, so their two requests are
+discharged by a roof each and the platted deal's slot count falls 30 -> 28 while its seat count
+falls 139 -> 137. That is reported rather than tidied: it is the same precedence T-1622 met on
+South Water and T-1626 carries to the owner. **L270** restates both counts and **L276** its
+keeper count.
+
+**THE BLOCK EAST OF THIS ONE IS NOT OPENED, AND THAT IS A FINDING.** T-1708 names the Clark-State
+tier, which is this block and `blk_washington_dearborn`. The schedule deals that block six roofs
+and every one of them is ancillary — A1, A2, A3 twice, A4 and A5, with `principal` 0 — and
+`tools/generate_block_infill.py` refuses by its own rule a yard building standing behind no roof
+its parcel built: *an ancillary building serves the lot it is in the yard of*. A block of six
+outbuildings and no house is not a reading of 1835 anybody can defend, so the Dearborn-to-State
+block stays shut until the deal gives it a dwelling, and the fault is filed against the DEAL on
+T-1708 rather than against the block.
+
+**WHAT IS INVENTED.** That any building stood on this ground in July 1835; that there were two
+dwellings; that they stood on lots 4 and 6 rather than any other; that six outbuildings stood
+behind them; and which household's yard each one is in — the schedule apportions families to the
+BLOCK and says nothing about whose yard they stand in, so the sharing-out is this file's judgement
+and not the programme's. The block is dealt one privy rather than two because the deal dealt one:
+the second household's privy is a known incompleteness of the deal, not a silent omission here.
+Every dimension is sampled inside the family band the reconstruction spec authors and every value
+on all eight records grades `reconstructed` with its own note. **No coordinate is authored:** the
+lot polygons, the block alley and the outward normal of the north face are all read from the
+committed plat grid in `data/traces/vectors/thompson_lots.json`, and the setbacks are the recipe's
+typology band rather than a measurement of this block. No lot is numbered — this project has never
+read Thompson's numbering off a sheet — and the side lot lines and the alley are conjectural even
+where the block face is not.
+
+**How to resolve:** any period document placing a named occupant on a numbered lot in Block
+bounded by Washington, Dearborn, Madison and Clark — an advertisement giving an address, a tax or
+insurance description, a lot-sale notice from the 1835 land sales — would replace an invented roof
+with a named one on the same ground, which is what the 665-roof programme's substitution clause
+exists for. The 1835 land-sale extraction and the Democrat and American corpora are the most
+likely to carry one.
+
+**Applies to:** `data/structures/recon_1835_blk_washington_clark_d5_01.json`, `data/structures/recon_1835_blk_washington_clark_d4_02.json`, `data/structures/recon_1835_blk_washington_clark_a1_03.json`, `data/structures/recon_1835_blk_washington_clark_a2_04.json`, `data/structures/recon_1835_blk_washington_clark_a3_05.json`, `data/structures/recon_1835_blk_washington_clark_a1_06.json`, `data/structures/recon_1835_blk_washington_clark_a4_07.json`, `data/structures/recon_1835_blk_washington_clark_a5_08.json`.
+**Covers:** `recon_1835_blk_washington_clark_d5_01.inferred_1835.position`, `recon_1835_blk_washington_clark_d5_01.inferred_1835.footprint`, `recon_1835_blk_washington_clark_d4_02.inferred_1835.position`, `recon_1835_blk_washington_clark_d4_02.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a1_03.inferred_1835.position`, `recon_1835_blk_washington_clark_a1_03.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a2_04.inferred_1835.position`, `recon_1835_blk_washington_clark_a2_04.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a3_05.inferred_1835.position`, `recon_1835_blk_washington_clark_a3_05.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a1_06.inferred_1835.position`, `recon_1835_blk_washington_clark_a1_06.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a4_07.inferred_1835.position`, `recon_1835_blk_washington_clark_a4_07.inferred_1835.footprint`, `recon_1835_blk_washington_clark_a5_08.inferred_1835.position`, `recon_1835_blk_washington_clark_a5_08.inferred_1835.footprint`.
+**Related:** **L203** (the same arrangement argued on blk_lake_franklin) · **L270** (the platted
+deal this answers two slots of) · **L276** (the keeper count this moved) · **L144** (the core
+density standard) · **L182** (the end rule) · tickets **T-1708** (this), **T-1203** (its parent),
+**T-1707** (the street carry that emitted the tier), **T-1613** and **T-1622**.
 **Recorded:** 2026-09-28.

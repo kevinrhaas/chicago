@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1209, ts: '2026-09-28T14:19:50.720Z', date: 'Sep 28, 2026, 9:19 AM CT', title: 'Two cottages stand south of Washington, the first in the last tier', kind: 'change',
+    items: [
+      'Walk south of Washington Street between Clark and Dearborn and there are two frame cottages with six yard buildings behind them \u2014 a stable each, a carriage shed, a woodshed, a smokehouse and a privy. This is the first ground built on in the row of blocks the town was platted with and never filled, and it was open prairie until the streets reached it yesterday.',
+      'Both houses face Washington and neither faces Madison. Madison Street was drawn on the plat and named by ordinance in 1833, but on this day it is still an unopened line across the grass \u2014 no track, no traffic \u2014 so nothing here is built to a frontage that did not yet exist. The whole Madison side of the block is left as it was.',
+      'The deeper cottage takes the corner nearest the Dearborn Street bridge. The four lots on this face sit within ten metres of one another as the crow flies, too close for that to decide anything, so the order comes from the distance actually walked: 436 metres against 461.',
+      'Two households moved in, and they are not the two that asked. These roofs were requested for the Cady and Byram households; when they went up the seating gave them instead to the Bourrassa and Beaubien families, whose names the town\u2019s own records carry, and the two tradesmen\u2019s households are owed a roof again. That is reported rather than tidied away.',
+      'The block east of this one, between Dearborn and State, stays empty on purpose. The building programme deals it six yard buildings and no house at all, and an outbuilding with nothing in front of it is not a reading of 1835 anyone can defend.',
+    ] },
   { v: 1208, ts: '2026-09-28T12:49:50.617Z', date: 'Sep 28, 2026, 7:49 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. What changed is how much room the town has left to build in \u2014 8 roofs this morning, 130 tonight.',
