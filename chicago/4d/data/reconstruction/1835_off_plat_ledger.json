@@ -50,7 +50,7 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 128,
+  "principal_roofs_standing": 130,
   "ground_m2": 7315399.9
  },
  "what_the_roof_programme_does_not_carry": {
@@ -6919,6 +6919,8 @@
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
     "beaubien_barn",
+    "beaubien_new_residence",
+    "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "fort_dearborn_artillery_house",
     "fort_dearborn_barracks",
@@ -6944,6 +6946,8 @@
    ],
    "standing_families": {
     "beaubien_barn": "A2",
+    "beaubien_new_residence": "D1",
+    "beaubien_trading_post": "C1",
     "chicago_lighthouse_1832": "I3",
     "fort_dearborn_artillery_house": "M1",
     "fort_dearborn_barracks": "M1",
@@ -6967,7 +6971,7 @@
     "fort_dearborn_wash_house": "A5",
     "jb_beaubien_homestead": "D1"
    },
-   "principal_roofs_standing": 14
+   "principal_roofs_standing": 16
   },
   {
    "parcel_id": "canal_commissioners_1830",

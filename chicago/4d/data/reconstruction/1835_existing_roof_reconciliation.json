@@ -33,6 +33,28 @@
       "reasoning": "A separately documented former cabin used as a barn; one gable roof."
     },
     {
+      "structure_id": "beaubien_new_residence",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The new residence Andreas records Beaubien building at the homestead; one gable roof on a hewn-log dwelling, raised beside the two buildings of the group that already stood. The presence is attested and the position and size are ours (L283), which is the same footing as beaubien_barn and does not change what this row counts."
+    },
+    {
+      "structure_id": "beaubien_trading_post",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "C1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The small trading post Andreas records at the same homestead; one gable roof on a log trade room, the smallest building of the group. C1 rather than C2 because nothing says anybody lived in it, and this is a private trading post on the reservation and not fort_dearborn_us_factors_house, the government factory 140 m south of it."
+    },
+    {
       "structure_id": "blacksmith_shop_state_st",
       "district": "north",
       "roof_count": 1,

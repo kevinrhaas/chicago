@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 413,
-    "standing_after": 413,
-    "short_of_the_programme_before": 255,
-    "short_of_the_programme_after": 255
+    "standing_before": 415,
+    "standing_after": 415,
+    "short_of_the_programme_before": 253,
+    "short_of_the_programme_after": 253
   },
   "ledger": [
     {
@@ -199,11 +199,11 @@
       "group": "ordinary_dwellings",
       "division": "south",
       "target": 176,
-      "standing": 109,
+      "standing": 110,
       "anonymous": 101,
-      "head_before": 67,
-      "standing_after": 109,
-      "head_after": 67
+      "head_before": 66,
+      "standing_after": 110,
+      "head_after": 66
     },
     {
       "bucket": "structures/ordinary_dwellings/west",
@@ -276,11 +276,11 @@
       "group": "stores_mixed_use",
       "division": "south",
       "target": 42,
-      "standing": 41,
+      "standing": 42,
       "anonymous": 26,
-      "head_before": 1,
-      "standing_after": 41,
-      "head_after": 1
+      "head_before": 0,
+      "standing_after": 42,
+      "head_after": 0
     },
     {
       "bucket": "structures/stores_mixed_use/west",

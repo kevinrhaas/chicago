@@ -496,6 +496,17 @@ MULTI_BUILDING_LOT = {
 # say that already.
 
 OUTLIER_REASONS = {
+    "beaubien_trading_post":
+        "a private trade room on the unplatted military reservation, 359.59 m from the "
+        "nearest corridor edge: the commercial clauses seat a C roof by a `street_line` "
+        "setback and there is no street here to measure one from. No street crossed the "
+        "reservation in 1835 — the town ordered South Water Street pitched only as far as "
+        "the reservation's line — so the same reason `fort_dearborn_us_factors_house` "
+        "carries below applies here, on the same ground and for the same reason. It stands "
+        "in the Beaubien homestead group on Beaubien's own pre-emption claim, beside the "
+        "house and the barn `1835_no_build_ground.json` already permits there, and nothing "
+        "in this policy seats it: its position is invented under docs/LIBERTIES.md L283 and "
+        "is a placement by eye inside a group, which is not a clause of anything.",
     "blacksmith_shop_state_st":
         "the GOVERNMENT smithy, not a mechanic's: it belongs to the agency "
         "establishment the 1821 treaty obliged the United States to keep at Chicago, "

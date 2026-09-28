@@ -200,19 +200,25 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules would re-stale; the terrain
 # and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
-# 423 -> 426 and 421 -> 424 on 2026-09-28 (T-1714): `mckee_log_house`,
+# 423 -> 425 and 421 -> 423 on 2026-09-28 (T-1712): `beaubien_new_residence` and
+# `beaubien_trading_post`, the two buildings Andreas records at the Beaubien homestead on the
+# Fort Dearborn reservation that this project had not built. Two new structure assets, so two
+# more meshes the shared generator modules would re-stale; the terrain and pier_crib reaches
+# stay at 2 each. Nothing about the debt itself moved.
+#
+# 425 -> 428 and 423 -> 426 on 2026-09-28 (T-1714): `mckee_log_house`,
 # `caldwell_agency_log_house` and `agency_striker_log_house`, the ring of agency log buildings
 # Wau-Bun and Andreas group round Cobweb Castle at the foot of State Street. Three new structure
 # assets, so three more meshes a change to the shared generator modules would re-stale; the
 # terrain and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 426,
+    "assets": 428,
     "restales": {
-        "generators/common/*.py": 426,
+        "generators/common/*.py": 428,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 424,
+        "generators/emit.py": 426,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
