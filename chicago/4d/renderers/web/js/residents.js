@@ -835,7 +835,8 @@ function landholdingHtml(block, citationsById) {
   const cites = (block.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
   return `<dt>Land held</dt>
     <dd>${swatch(block.confidence)}${escapeHtml(String(block.value))}
-      <br><span class="res-why">Describing ${escapeHtml(printedOn(block.describes_date))}.
+      <br><span class="res-why">Describing ${escapeHtml(printedOn(block.describes_date))}${
+        block.place_class === 'outside_chicago' ? ', and ground somewhere other than this town' : ''}.
         <q>${escapeHtml(String(block.as_read ?? ''))}</q> ${escapeHtml(String(block.note ?? ''))}
         A holding is not a residence and is not drawn on the ground: this card's address,
         where it has one, is a separate claim. Record ${escapeHtml(String(block.record_id))}.</span>

@@ -96,6 +96,35 @@ HOUSEHOLD_FIELDS = {"origin": "origin", "reason_for_coming": "reason_for_coming"
 # adjudicated by the same rules, withheld by the same rulings, and re-derived by --check.
 PERSON_FIELDS = {"landholding": "landholding"}
 
+# WHERE A NEW PERSON BLOCK IS INSERTED, AND WHY IT IS NOT SIMPLY APPENDED. Three other
+# passes prove their own work by stripping their blocks off a card and deriving them
+# again, and a re-derived block lands at the END of the person — so those blocks have to
+# stay last, and `reconstruct_sex_age.settle_order` says so in as many words: "THIS IS A
+# GATE'S REQUIREMENT, NOT A STYLE". A key appended after them reads to all three as 597
+# cards of drift on an ordering difference alone, which is exactly what it did the first
+# time `landholding` was written (T-1588). So a block of this tool's goes in FRONT of
+# whatever settled tail the card already carries.
+SETTLED_TAIL = ("roles", "sex", "sex_basis", "birth_year", "age_band")
+
+
+def put_person_field(person: dict, key: str, block: dict) -> bool:
+    """Set `person[key]` in front of the blocks other passes re-derive onto the end.
+
+    Returns whether anything moved, VALUE OR POSITION, because a card already carrying
+    the right value in the wrong place is the drift this function exists to undo and a
+    re-run that reported "nothing to do" would leave it there.
+    """
+    before = (list(person), person.get(key))
+    person.pop(key, None)
+    keys = list(person)
+    cut = len(keys)
+    while cut and keys[cut - 1] in SETTLED_TAIL:
+        cut -= 1
+    person[key] = block
+    for name in keys[cut:]:
+        person[name] = person.pop(name)
+    return before != (list(person), block)
+
 
 def load(path: Path):
     return json.loads(path.read_text())
@@ -421,8 +450,7 @@ def spend(rows: list[dict], households: list[tuple[Path, dict]]) -> tuple[dict, 
                     block.append(row)
             for key in PERSON_FIELDS.values():
                 if key in own:
-                    if person.get(key) != own[key]:
-                        person[key] = own[key]
+                    if put_person_field(person, key, own[key]):
                         touched = True
                     moved["person_fields"] += 1
                 elif key in person:
