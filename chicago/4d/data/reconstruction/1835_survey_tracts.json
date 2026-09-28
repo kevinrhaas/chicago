@@ -61,12 +61,12 @@
   },
   "cuts": {
     "section_9_cut": {
-      "east_gap_m": 11.93,
+      "east_gap_m": 12.64,
       "south_gap_m": 6.12
     },
     "original_town_bounds_local_m": {
       "west_e": -506.45,
-      "east_e": 825.75,
+      "east_e": 825.05,
       "south_n": -519.05,
       "north_n": 258.97
     }
@@ -315,11 +315,11 @@
           -519.05
         ],
         [
-          825.75,
+          825.05,
           -519.05
         ],
         [
-          825.75,
+          825.05,
           258.97
         ],
         [
@@ -327,8 +327,8 @@
           258.97
         ]
       ],
-      "area_m2": 1036473.8,
-      "area_acres": 256.12,
+      "area_m2": 1035925.3,
+      "area_acres": 255.98,
       "boundary_from": "the four streets every account of the 1830 plat names as its bounds — Kinzie, State, Madison and Des Plaines — each taken from its committed line in data/streets/1835.json.",
       "geometry_confidence": "conjectural",
       "geometry_note": "CONJECTURAL, and for a reason worth stating: the four bounds above are the standard account of the 1830 plat, and NO source record this project holds states them. `thompson_plat_1830` carries the plat's figures — roughly 0.375 square miles, 80-ft streets, 18-ft alleys — and not its perimeter. So the streets are committed and the CHOICE of those four as the bounds is not, which is a conjecture however ordinary it sounds, and it is graded as one until a held source draws the line. What can be checked is checked: all 19 committed plat blocks fall inside the rectangle. It is also an ENVELOPE, bigger than the plat: the printed figure for the Original Town is three-eighths of a square mile; the four bounds give more, because the plat's actual west edge north of Randolph is not committed here and the rectangle carries ground the plat did not. The over-run is measured on this record rather than absorbed.",
@@ -3635,10 +3635,10 @@
   "cross_checks": {
     "committed_plat_blocks_inside_the_original_town": {
       "claim": "If a plat's bounds are where this project puts them, every block it has generated from that plat's module must fall inside them. This does not prove any bounds — a bigger rectangle would pass too — but a block outside its OWN plat would disprove them. Each block is tested against the tract its `grid` names: the Original Town's blocks against the 1830 canal commissioners' four streets, Kinzie's Addition's against Kinzie's.",
-      "blocks": 72,
+      "blocks": 78,
       "by_plat": {
         "kinzies_addition": 27,
-        "original_town": 19,
+        "original_town": 25,
         "wabansia": 13,
         "west_division": 9
       },
@@ -3675,7 +3675,7 @@
     "original_town_against_its_printed_area": {
       "claim": "The 1830 plat is printed as three-eighths of a square mile.",
       "printed_km2": 0.9712,
-      "envelope_km2": 1.0365,
+      "envelope_km2": 1.0359,
       "over_run_ratio": 1.067,
       "reading": "The envelope over-runs the plat, as an envelope of four outer bounds must. It is recorded, not corrected: correcting it would mean inventing the plat's west edge north of Randolph.",
       "confidence": "inferred"

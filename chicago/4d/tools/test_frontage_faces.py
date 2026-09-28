@@ -85,10 +85,18 @@ def main(break_it: bool = False) -> int:
     cross = [f for f in got if f["axis"] == 1]
     along = [f for f in got if f["axis"] == 0]
 
-    # 1. THE PLAT'S OWN COUNT. Seventeen blocks of the South Division are bounded
+    # 1. THE PLAT'S OWN COUNT. Twenty-three blocks of the South Division are bounded
     #    east and west by a cross street; `blk_lake_clinton` is skipped as the
     #    West Division block, and Canal and Clinton Streets bound only it.
-    check("the seven cross streets have 34 platted faces", len(cross) == 34,
+    #
+    #    IT WAS SEVENTEEN BLOCKS AND 34 FACES UNTIL T-1707, which carried the Original
+    #    Town's seven north-south columns from their terrain clip at N -400 to Madison
+    #    Street and so let `generate_plat_lots.py` emit the plat's LAST TIER — the six
+    #    blocks between Market and State that Washington bounds on the north and Madison
+    #    on the south. Each of the six is bounded east and west by one of the covered
+    #    cross streets, which is +12 faces and no other change: the count is the plat's,
+    #    and the plat grew by a tier it had always drawn.
+    check("the seven cross streets have 46 platted faces", len(cross) == 46,
           f"got {len(cross)}")
     check("naming the cross streets does not disturb the east-west faces",
           len(along) == len(faces_with((), lots)),
