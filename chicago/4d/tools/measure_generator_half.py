@@ -218,7 +218,12 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
 # itself moved.
 #
-# 435 -> 437 and 433 -> 435 on 2026-09-28 (T-1717): `kimberly_residence` and
+# 435 -> 436 and 433 -> 434 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters`,
+# the quarters the Chicago light's keepership was paid 'with quarters' for, raised beside the
+# 1832 tower on the reservation. One more structure asset, so one more mesh a change to the
+# shared generator modules or to build.py would re-stale; the terrain and pier_crib reaches
+# stay at 2 each. Nothing about the debt itself moved.
+# 436 -> 438 and 434 -> 436 on 2026-09-28 (T-1717): `kimberly_residence` and
 # `kelsey_boarding_house`, the two houses Bonnell's walk of an August morning in 1835
 # puts east of the Lake House building site on the north bank. Two new structure assets,
 # so two more meshes a change to the shared generator modules or to emit.py would
@@ -226,12 +231,12 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # itself moved.
 #
 STATED = {
-    "assets": 437,
+    "assets": 438,
     "restales": {
-        "generators/common/*.py": 437,
+        "generators/common/*.py": 438,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 435,
+        "generators/emit.py": 436,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

@@ -106,6 +106,7 @@
     if (url && /\.(jpe?g|png|webp|gif|avif)(\?.*)?$/i.test(map.local_path)) { $('mapImage').alt = map.title || 'Historical source sheet'; $('mapImage').src = url; $('mapImage').hidden = false; }
     else $('mapError').hidden = false;
     if (url) $('mapLinks').append(link('Open full-resolution file ↗', map.local_path, true));
+    if (map.archive_url) $('mapLinks').append(link('Master TIFF · Internet Archive ↗', map.archive_url));
     if (map.source_id) $('mapLinks').append(citations([map.source_id]));
   }
   function renderSources() {
@@ -121,7 +122,7 @@
       if (s.notes) card.append(node('p', plain(s.notes)));
       card.append(node('p', 'Retrieval: ' + (s.retrieval_status || 'Not recorded'), 'meta'));
       card.append(node('p', 'Rights: ' + (s.rights_status || 'Not established'), 'meta'));
-      const links = node('div', null, 'links'); if (s.url) links.append(link('Source record ↗', s.url)); if (s.local_path) links.append(link('Stored file ↗', s.local_path, true)); card.append(links); list.append(card);
+      const links = node('div', null, 'links'); if (s.url) links.append(link('Source record ↗', s.url)); if (s.local_path) links.append(link('Stored file ↗', s.local_path, true)); if (s.archive_url) links.append(link('Master TIFF · Internet Archive ↗', s.archive_url)); card.append(links); list.append(card);
     }
     if (!sources.length) list.append(node('p', 'No sources match these filters.', 'empty'));
   }

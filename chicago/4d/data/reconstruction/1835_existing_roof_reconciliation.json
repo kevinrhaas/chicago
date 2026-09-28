@@ -121,6 +121,17 @@
       "reasoning": "Two uses share one documented two-story frame building and therefore one inventory roof."
     },
     {
+      "structure_id": "chicago_lighthouse_keepers_quarters",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 0,
+      "confidence": "low",
+      "reasoning": "T-1716. One gable roof on the keeper's quarters at the Chicago light, 23.7 m west of the tower on the same reservation flat. DISTRICT south, with the tower it belongs to, rather than fort: it is a building of the light station and not of the garrison. D1 (small dwelling) IS READ OFF THE FUNCTION: the record is a 6.1 x 4.9 m one-storey dwelling, which is inside D1's band, and the I3 the lodging layer carries belongs to the INSTITUTION that ordered its household and not to the house. IT SUBSTITUTES NO ANONYMOUS SLOT, and that is the reservation's own rule rather than a choice: 1835_no_build_ground.json refuses every roof of the anonymous programme on this ground, so there is no anonymous D1 slot here for this roof to stand in place of \u2014 the same accounting the garrison's barn, wash house and shop take. The town's standing count therefore rises by one and the programme's 665 does not move. CONFIDENCE LOW, and it is the record's own: the existence of quarters is attested by a salary paid 'with quarters' and every drawn attribute of the building is invented under L288."
+    },
+    {
       "structure_id": "chicago_lighthouse_1832",
       "district": "south",
       "roof_count": 1,
