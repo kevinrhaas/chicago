@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1211, ts: '2026-09-28T17:26:24.991Z', date: 'Sep 28, 2026, 12:26 PM CT', title: 'Walls for the first block of the last tier', kind: 'change',
+    items: [
+      'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
+      'These are the first houses this town has built because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
+      'The better houses face Washington and the plainer ones face Madison, because in July 1835 Madison is a surveyed line across the prairie with no road worn into it. The merchant\u2019s house takes the La Salle corner; the two cottages and the smaller house back onto Madison. A yard building stands behind four of the seven \u2014 a stable for the household with a horse, a privy on each tier, a woodshed.',
+      'One of the eight lots is left empty on purpose, and it is the corner of Madison and La Salle \u2014 the back line meeting the far side. A block with a house on every lot is a claim about 1835 that nothing supports.',
+      'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
+      'Six of the seven families that asked are still waiting \u2014 they moved to the four blocks on the same row that are still empty, seven apiece. The next one is written down as its own piece of work.',
+    ] },
   { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
     items: [
       'Cross the river and walk north past Michigan Street and the ground has changed. Everything beyond that line \u2014 Kinzie\u2019s Addition, the fringe toward Rush and Pine, the ground behind the lake shore \u2014 was drawing as open prairie, grass to the horizon. It is timber now: elm, ash and silver maple, with willow in the wet hollows and hazel through the understorey, which is what the one account of the place describes.',
