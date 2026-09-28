@@ -1,8 +1,11 @@
 /** Lazy catalog, route preview and session handoff. */
-export function createJauntPreview({ root, dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null }) {
+import { PACES } from './travel-settings.js';
+import { formatEstimate } from './travel-estimate.js';
+export function createJauntPreview({ root, dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null }) {
   const base = new URL('sidecars/1835/jaunts/', dataBase);
   let catalogPromise, serial = 0;
   const contents = new Map();
+  const modes = new Map();
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;
@@ -36,16 +39,25 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
         note.append(node('h3', 'Outing complete'), node('p', session.outcome.text),
           node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
       } else note.append(node('h3', `Paused · ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', onResume));
-      note.append(button('Restart Jaunt', () => onStart(session.jaunt.id))); root.append(note);
+      note.append(button('Restart Jaunt', () => onStart(session.jaunt.id, { mode: session.mode }))); root.append(note);
     }
     for (const row of rows) {
       const card = node('article', '', 'jaunt-card'); card.dataset.jaunt = row.id;
       card.append(node('h3', row.title), node('p', `${row.category} · ${row.stop_count} stops · ${row.primary_family}`, 'jaunt-meta'), node('p', row.premise));
       if (row.availability === 'available') {
+        const mode = node('select'); mode.setAttribute('aria-label', `Travel mode for ${row.title}`);
+        for (const id of row.allowed_modes || ['walk', 'wagon', 'horse', 'fly', 'instantly']) {
+          const option = node('option', PACES[id]?.label || id); option.value = id; mode.append(option);
+        }
+        mode.value = modes.get(row.id) || row.default_mode || 'walk';
+        const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
+        const price = () => { modes.set(row.id, mode.value); duration.textContent = formatEstimate(estimate(row, mode.value)); };
+        mode.addEventListener('change', price); price();
+        card.append(mode, duration, node('p', `Recommended: ${PACES[row.default_mode || 'walk'].label}. Fly is a viewing convenience, not 1835 transport.`, 'jaunt-meta'));
         const preview = button('Preview the route', () => select(row));
         const start = onStart && button('Start Jaunt', async () => {
           start.disabled = true;
-          try { await onStart(row.id); } finally { if (start.isConnected) start.disabled = false; }
+          try { await onStart(row.id, { mode: mode.value }); } finally { if (start.isConnected) start.disabled = false; }
         });
         if (start) card.append(start);
         card.append(preview); root.append(card);

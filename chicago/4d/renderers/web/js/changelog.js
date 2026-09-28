@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1199, ts: '2026-09-28T04:08:45.434Z', date: 'Sep 27, 2026, 11:08 PM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
+    items: [
+      'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',
+      'Jaunt cards and the current outing show approximate durations based on the route and your pace settings. Flying is a viewing convenience, not a claim about travel in 1835.',
+      'Take over with your own movement to pause a ride, then Resume ride when ready. Go straight to next stop stays available during travel.',
+    ] },
   { v: 1198, ts: '2026-09-28T04:08:25.373Z', date: 'Sep 27, 2026, 11:08 PM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
     items: [
       'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',

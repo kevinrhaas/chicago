@@ -1,3 +1,10 @@
+## T-1280 — travel selection and quick-play duration
+
+Implemented per-session travel selection before and during a jaunt, routed
+estimates with explicit fallback, paused-ride resume and direct arrival. Validation
+is in progress; the ticket remains the operational state. Narration and catalog
+sort/filter remain with T-1257 and T-1259.
+
 ## T-1279 — playable pilot (2026-09-27)
 
 Implemented the lazy content-driven session engine and persistent two-row stop
