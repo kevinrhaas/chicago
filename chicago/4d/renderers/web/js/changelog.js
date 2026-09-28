@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
+      'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
+      'The corner is empty for now. The house is its own piece of work, and so are the street surfaces. Nothing from the 1835 town is drawn here: no fences, prairie, signs or cabins.',
+      'The year badge reads 1904. The 1835 walk is unchanged.',
+    ] },
   { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
     items: [
       'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',

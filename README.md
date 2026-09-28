@@ -9,6 +9,7 @@ a research dataset with renderers attached. Live at
 | [`/`](https://chicago.polecat.live/) | the Chicago Building Atlas landing page |
 | [`/4d/`](https://chicago.polecat.live/4d/) | the 4D walkthrough — opens on the target year, 1835 |
 | [`/4d/1835/`](https://chicago.polecat.live/4d/1835/), `/4d/1812/`, `/4d/1880/` | a year's front door (a year with no scene yet says so) |
+| `/4d/1904/`, `/4d/dev/1904/` | Prairie Avenue, 1 July 1904: opens on the east sidewalk at E. 18th Street facing the Glessner lot (the `glessner_house` viewpoint, `?year=1904&anchor=glessner_house`) |
 | [`/4d/dev/`](https://chicago.polecat.live/4d/dev/), `/4d/dev/1835/` | the `dev` branch's preview — not production, not indexed |
 | `/4d/?year=1835&debug=1` | query parameters sit on top of any door; further state (a structure to open, a camera) goes in more parameters, never more path |
 | `/4d/dev/1835/?structure=<id>&version=<label>` | one structure swapped for a committed alternate build of it, to compare builds side by side (`version=default` is the canonical record; an unknown label shows the default and says so) — see [`chicago/4d/docs/STRUCTURE-VERSIONS.md`](chicago/4d/docs/STRUCTURE-VERSIONS.md) |
