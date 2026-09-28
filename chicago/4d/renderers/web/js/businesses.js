@@ -698,6 +698,26 @@ export async function mountBusinesses({
       ${block.withdrawn_if ? `<p class="legend-note">Withdrawn if ${escapeHtml(block.withdrawn_if)}.</p>` : ''}`;
   }
 
+  /** HOW IT SERVED THE TOWN (T-1592). `locations` says where a firm stood and `dates`
+   *  when it opened; for a public service neither is the thing a visitor asks it. The
+   *  Post Office at Chicago carried its postmaster, its street and its opening day and
+   *  could not say how often the mail came, because the record had nowhere to put it.
+   *  The block prints its own grade and its own basis, so a reader can see at once that
+   *  a tri-weekly stage in 1835 is an inference off a volume compiled in 1896 and not a
+   *  contemporaneous printing. */
+  function serviceHtml(block) {
+    if (!block || typeof block !== 'object') return '';
+    return `<h4 class="people-card-h">How it served the town</h4>
+      <p class="biz-dates"><i class="grade-dot grade-${escapeHtml(block.tier || 'inferred')}"></i>
+        <b>${escapeHtml(block.frequency || '')}</b>${block.carriage ? ` \u2014 ${escapeHtml(block.carriage)}` : ''}${
+  block.tier ? ` <span class="biz-role">${escapeHtml(block.tier)}</span>` : ''}</p>
+      ${block.reads ? `<p class="legend-note">${escapeHtml(block.reads)}</p>` : ''}
+      ${block.basis ? `<p class="legend-note">${escapeHtml(block.basis)}</p>` : ''}
+      ${(block.claim_ids || []).length
+    ? `<ul class="biz-claims">${block.claim_ids.map((c) => `<li><code>${escapeHtml(c)}</code></li>`).join('')}</ul>`
+    : ''}`;
+  }
+
   function recordHtml(rec, row) {
     // THE KEEPERS AND THE HANDS ARE TWO READINGS AND THE CARD KEEPS THEM APART (T-1462).
     // A proprietor is what the paper printed; a hand is what a later source attested or
@@ -726,6 +746,7 @@ export async function mountBusinesses({
          opened ${escapeHtml(day(rec.dates?.opened))} · closed ${rec.dates?.closed ? escapeHtml(day(rec.dates.closed)) : 'no close recorded'}${
   rec.dates?.precision ? ` <span class="biz-role">${escapeHtml(words(rec.dates.precision))}</span>` : ''}</p>
        ${rec.dates?.basis ? `<p class="legend-note">${escapeHtml(rec.dates.basis)}</p>` : ''}`,
+      serviceHtml(rec.service),
       (rec.goods || []).length
         ? `<h4 class="people-card-h">What it sold</h4><p class="biz-goods">${
           rec.goods.map((g) => `<span class="biz-good">${escapeHtml(g)}</span>`).join('')}</p>`
