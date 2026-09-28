@@ -4450,19 +4450,33 @@ def cmd_self_test() -> int:
     # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
     # A slot is a request and not a roof: T-1742 raises them.
     #
-    # T-1736 TAKES IT TO 213, AND TWENTY-NINE OF THE SEATS ARE SLOTS. The platted pass goes
-    # 140 -> 141 and the off-plat pass holds at 72, and two separate causes are in it. The
-    # first is the build: `blk_washington_clark`'s two cottages now stand, so its remaining
-    # slot has nowhere to go and 35 seats move roof behind the two Beaubien households that
-    # adopt them — the adoption step outbids the slot step for a quiet street, which is the
-    # T-1622 precedence. On its own that settles two seats lower. The second is this file:
-    # the ('north', 'ordinary_dwellings') row named T-1206, which was SPLIT while the branch
-    # was open, and a bucket ordered by a ticket nobody can claim offers no roof for adoption
-    # at all. Swept onto T-1742, the live half that owes the cell's 35 roofs, it offers them
-    # again and two North Division households adopt. Both readings were taken by running the
-    # chain to its fixpoint either way.
+    # T-1734 added the other two, from the same ruling and the second of the same pair of
+    # blocks. `blk_randolph_clinton` is plat block 45, between Clinton and Canal one tier
+    # south of 28, and it could not be cut with its twin: a block parcel had already dealt
+    # seven roofs onto it, argued face by face against Randolph and Washington, and the
+    # transpose removes both of those faces. T-1734 re-argued that deal onto Clinton and
+    # Canal — the two better cottages to Canal, which the committed street hierarchy grades
+    # `ordinary` against Clinton's `light`, exactly as the first argument had put them on
+    # Randolph against Washington — and the cell then moved. Its two new lots took two
+    # slots, the Adams and Bennett households, both on the Canal face. Again nothing was
+    # adopted that was not adopted before: 109 across all four of these changes. What DID
+    # move, and is the difference from 28, is the seven roofs themselves — a dealt roof
+    # stands where its parcel's slot puts it off its own lot's edge, so re-cutting the block
+    # re-derived every position and rotation on it. No mesh changed and nothing was rebaked.
+    #
+    # AND T-1736 TAKES IT TO 235, WITH THE FIRST BUILD ON THE LAST TIER. Every change
+    # above was a ruling about GROUND; this one is a BUILD, and it moves the deal the other
+    # way about. `blk_washington_clark`'s two cottages now stand, so the block has no
+    # principal room left to offer and its last slot goes: the platted pass runs
+    # 162 -> 163 with 111 adoptions against 109, and 52 slots against
+    # 53. 31 adopted seats move roof behind the two Beaubien households that take the
+    # new cottages — the adoption step outbids the slot step for a quiet street, which is the
+    # T-1622 precedence — every one of them in the South Division and none left roofless.
+    # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
+    # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
+    # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 233
+        data["inventory"], data["programme"], occ))["seated"] == 235
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

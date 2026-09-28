@@ -99,7 +99,15 @@ NAMED_BY_THE_REFUSAL = ("T-0444", "T-0445")
 # name the ticket that cut the other cell: a pointer that records finished work as live
 # work goes stale the moment that ticket closes, and the gate then goes red for whoever
 # merges next (`ticket.mjs done` refuses a close that would leave one behind).
-OWNS_THE_MOVE = ("T-1734",)
+#
+# T-1734 EMPTIED IT, which is the point of it being a list and not a sentence. Both cells
+# both grids reach are now transposed — 28 by T-1733 and 45 by T-1734, which re-argued the
+# deal that held it — so there is nothing left for this pointer to name. It stays here,
+# empty, rather than being deleted: the precondition below is NOT retired by the move, and
+# the day the committed Clinton-to-Canal spacing reaches the plat's own figure this
+# reading has to be re-made by somebody. An empty tuple says "nobody owes this"; no tuple
+# at all would say nobody ever could.
+OWNS_THE_MOVE: tuple[str, ...] = ()
 # Which blocks a reconstruction parcel has dealt roofs onto. This is what decides, in
 # tools/generate_plat_lots.py, whether a cell may be transposed — so it is read here too,
 # out of the same committed file, rather than the block ids being named in either place.
@@ -125,6 +133,9 @@ def ticket_state(ticket_id: str) -> str | None:
 # the work is owed, not where in the workflow it sits: a run that claims, reviews or blocks
 # the ticket changes nothing this reading measures, and recording the raw state turned the
 # gate red for every open pull request the moment T-1734 was claimed (2026-09-28).
+# T-1734 CLOSED THE SAME DAY and `OWNS_THE_MOVE` is now empty, so nothing routes through
+# here for the move any more. It still governs `NAMED_BY_THE_REFUSAL`, and it stays: the
+# next ticket named on this reading gets the fix already made rather than the bug again.
 STILL_OWED = {"open", "claimed", "review", "blocked-tech"}
 
 
@@ -188,6 +199,68 @@ def seating(block_id: str) -> dict:
     }
 
 
+def re_argued_deal(block_id: str, twin: dict, parcels: dict, streets: dict) -> dict:
+    """The deal a transposed block carries, read against the faces it now has.
+
+    T-1734, and it is the other half of "recording the move". `seating_by_lot` above says
+    which lot each record landed on, which is true of any re-cut. This says what the
+    RE-ARGUMENT did, which only a block carrying a dealt parcel has: which face each roof
+    fronts now, what that face is graded in the committed street hierarchy, and whether
+    the ranking the old deal was argued on survived the ninety-degree turn.
+
+    NOTHING HERE IS A BEFORE-AND-AFTER. A distance a roof moved could not be re-derived
+    from committed state a day later — only from a diff — and a figure in a derived file
+    that its own tool cannot recompute is the thing `--check` exists to refuse. So this
+    reads the deal and the grid as they now stand, and the move itself is recorded where a
+    move belongs: in the commit, the changelog and the ticket.
+    """
+    traffic = {street["id"]: street.get("traffic") for street in streets["streets"]}
+    bounded = twin["bounded_by"]
+    pair = [bounded["west"], bounded["east"]]
+    removed = [bounded["north"], bounded["south"]]
+    lots = twin.get("lots") or []
+    rank = {"principal": 3, "ordinary": 2, "light": 1}
+    slots = []
+    for parcel in parcels["blocks"]:
+        if parcel["block_id"] != block_id:
+            continue
+        for slot in parcel["slots"]:
+            index = slot.get("lot")
+            lot = lots[index] if isinstance(index, int) and index < len(lots) else None
+            slots.append({
+                "family": slot["family"],
+                "inventory_class": slot["inventory_class"],
+                "lot_index": index,
+                "plat_lot_number": lot.get("plat_lot_number") if lot else None,
+                "column": lot.get("column") if lot else None,
+                "row": lot.get("row") if lot else None,
+                "stands_on": slot["stands_on"],
+                "fronts": slot.get("fronts"),
+                "that_face_is_graded": traffic.get(slot.get("fronts")),
+            })
+    better = max(pair, key=lambda s: rank.get(traffic.get(s), -1))
+    principal = [s for s in slots if s["inventory_class"] == "principal_functional"]
+    return {
+        "the_faces_the_transpose_removed": {
+            street: traffic.get(street) for street in removed},
+        "the_faces_it_gave": {street: traffic.get(street) for street in pair},
+        "the_better_of_the_new_pair": better,
+        "no_slot_fronts_a_face_the_transpose_removed":
+            not [s for s in slots if s["fronts"] in removed],
+        "principal_roofs_on_the_better_face": sorted(
+            s["family"] for s in principal if s["fronts"] == better),
+        "principal_roofs_on_the_lighter_face": sorted(
+            s["family"] for s in principal if s["fronts"] != better),
+        "so": ("the rule the first deal was argued on — the better dwellings take the "
+               "better street of the block's pair, by the grading in "
+               "data/streets/1835.json — is re-applied to the pair the transpose gives. "
+               "It is stated as a re-application and not as a confirmation: the ranking "
+               "of the new pair is read here, and had it come out the other way about the "
+               "four roofs would have crossed the alley."),
+        "slots": slots,
+    }
+
+
 def seating_by_lot(block_id: str, twin: dict) -> list[dict]:
     """Which committed record holds which lot of this block, lot by lot.
 
@@ -237,8 +310,9 @@ def derive() -> dict:
 
     blocks = {b["id"]: b for b in lots["blocks"]}
     sheet_by_number = {b["plat_block_number"]: b for b in sheet["blocks"]}
+    parcels = load(PARCELS)
     dealt: dict[str, list[str]] = {}
-    for parcel in load(PARCELS)["blocks"]:
+    for parcel in parcels["blocks"]:
         dealt.setdefault(parcel["block_id"], []).append(parcel["programme_phase"])
 
     # The pair is DERIVED from the grid's own omissions, never typed. An omission carrying
@@ -360,12 +434,33 @@ def derive() -> dict:
                     "positions and are graded where they are read; the carry of the module "
                     "onto the block is an inference and is graded as one."),
             }
+            # WHETHER A RE-CUT MOVES ANYTHING IS A PROPERTY OF THE BLOCK, NOT OF THE
+            # RULING (T-1734). Block 28 carried no dealt parcel, so no position on it was
+            # derived from a lot line and the re-cut moved no record a metre; block 45
+            # carries one, and a dealt roof's position IS derived from its lot — the
+            # generator reads the lot polygon and sets the roof off its street edge — so
+            # re-cutting the block re-derives every one of them. Both sentences were
+            # written here as one when only the first case existed. They are read off the
+            # parcel file now, because a third cell will be one or the other and nobody
+            # should have to guess which sentence applies.
+            deal_here = sorted(dealt.get(twin_id, []))
             row["the_re_seat"] = {
                 "rule": ("every committed record on this block holds the lot it now stands "
                          "on — the lot nearest its present spot, which after a re-cut that "
-                         "fills the same block boundary is the lot it lies in. No record "
-                         "moved a metre and nothing was rebaked: the block carries no "
-                         "dealt parcel, so no position on it is derived from a lot line."),
+                         "fills the same block boundary is the lot it lies in."),
+                "carries_a_dealt_parcel": deal_here,
+                "so_the_positions_are": (
+                    "RE-DERIVED. A dealt roof stands where its parcel's slot puts it off "
+                    "its own lot's street or alley edge, so every position on this block "
+                    "comes out of a lot line and the re-cut re-computes all of them; the "
+                    "deal that decides WHICH lot had to be re-argued first, which is what "
+                    "held this block while its twin moved. The meshes do not change and "
+                    "nothing is rebaked even so: a re-seat moves a record's position and "
+                    "rotation and leaves its footprint, form and asset exactly as they "
+                    "were." if deal_here else
+                    "UNCHANGED. The block carries no dealt parcel, so no position on it is "
+                    "derived from a lot line: no record moved a metre and nothing was "
+                    "rebaked."),
                 "every_seating_on_this_block_moved_lot": True,
                 "why": ("the transpose shares no line with the cut it replaced. The alley "
                         "turned from east-west to north-south, the faces turned through "
@@ -373,6 +468,9 @@ def derive() -> dict:
                         f"{derived_lots} — so no lot of the old cut survives to be kept."),
                 "lot_by_lot": seating_by_lot(twin_id, twin),
             }
+            if deal_here:
+                row["the_deal_re_argued"] = re_argued_deal(
+                    twin_id, twin, parcels, streets)
         else:
             row["state"] = "held"
             row["what_holds_this_block_now"] = {
@@ -405,12 +503,16 @@ def derive() -> dict:
             "was a refusal with figures, and the figures are all still here — both "
             "refusals are re-derived on the committed lines every time this runs, because "
             "a ruling that overrides a refusal does not make the refusal's arithmetic "
-            "wrong. One of the two blocks is transposed and one is held, and the reason "
-            "each is where it is comes out of committed files rather than out of prose."),
+            "wrong. BOTH blocks are transposed since 2026-09-28 — 28 by T-1733, which "
+            "carried no deal to re-argue, and 45 by T-1734, which re-argued the one that "
+            "held it onto Clinton and Canal — and which state each block is in comes out "
+            "of committed files rather than out of prose, so a block going back to held "
+            "would show here without this file being edited."),
         "tool": "tools/measure_west_grid_migration.py",
         "ticket": "T-1733",
         "parent_ticket": "T-1479",
-        "successor": "T-1734",
+        "successor": None,
+        "both_cells_moved_by": ["T-1733", "T-1734"],
         "generated_from": [
             str(LOTS.relative_to(ROOT)),
             str(SHEET.relative_to(ROOT)),
@@ -442,12 +544,14 @@ def derive() -> dict:
                 "on 2026-09-23 that the module may cut a block printing no figures of its "
                 "own at `inferred` without the spacing moving at all, so the re-cut no "
                 "longer waits on this precondition — T-1479 split into the cell that could "
-                "be transposed at once, which is done and recorded on the block above, and "
-                f"the cell that could not, which is {', '.join(OWNS_THE_MOVE)} and is the "
-                "only thing still owed here. THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed "
-                "module is still not seated at its printed size on either block, and the "
-                "day Clinton and Canal reach the plat's 458 ft the shortfall figure above "
-                "goes to zero and this reading has to be re-made."),
+                "be transposed at once (T-1733) and the cell that could not, because its "
+                "own deal had argued its roofs onto the faces the transpose removes. "
+                "T-1734 re-argued that deal on 2026-09-28 and the second cell moved, so "
+                "the MOVE IS DONE and this pointer names nobody. THE PRECONDITION IS NOT "
+                "RETIRED BY THAT. It is the reason the printed module is still not seated "
+                "at its printed size on either block, and the day Clinton and Canal reach "
+                "the plat's 458 ft the shortfall figure above goes to zero and this "
+                "reading has to be re-made."),
         },
         "the_first_question": {
             "asked_by_the_ticket": (
@@ -482,8 +586,8 @@ def derive() -> dict:
 
 
 def report(d: dict) -> None:
-    print("T-1733 — blocks 28 and 45 onto the West Division grid: which moved, and "
-          "what it cost\n")
+    print("T-1733 and T-1734 — blocks 28 and 45 onto the West Division grid: what each "
+          "move cost\n")
     for b in d["blocks"]:
         print(f"  plat block {b['plat_block_number']}  "
               f"{b['derived_by_the_original_town_grid_as']}  [{b['state'].upper()}]")
@@ -503,7 +607,15 @@ def report(d: dict) -> None:
                   f"committed record; "
                   f"{sum(len(l['records']) for l in seat['lot_by_lot'])} row(s), "
                   f"{len(set(x for l in seat['lot_by_lot'] for x in l['structures']))} "
-                  "structure(s); nothing moved a metre and nothing was rebaked")
+                  f"structure(s); positions {seat['so_the_positions_are'].split('.')[0]}")
+            deal = b.get("the_deal_re_argued")
+            if deal:
+                print(f"    re-argued  {', '.join(seat['carries_a_dealt_parcel'])} onto "
+                      f"{' and '.join(deal['the_faces_it_gave'])}; the better face "
+                      f"({deal['the_better_of_the_new_pair']}) takes "
+                      f"{', '.join(deal['principal_roofs_on_the_better_face'])} and the "
+                      f"lighter takes "
+                      f"{', '.join(deal['principal_roofs_on_the_lighter_face'])}")
         else:
             w = b["what_holds_this_block_now"]
             print(f"    held       {b['the_gap']}")
@@ -513,8 +625,9 @@ def report(d: dict) -> None:
     p = d["the_precondition"]
     print(f"\n  precondition  Clinton to Canal committed at {p['committed_clinton_to_canal_ft']} ft "
           f"against the plat's {p['the_plat_street_module_ft']:.0f} ft — short {p['short_by_ft']} ft")
+    left = ", ".join(f"{k} is {v}" for k, v in p["owns_what_is_left"].items())
     print(f"                {', '.join(f'{k} is {v}' for k, v in p['reported_it_and_closed'].items())}"
-          f"; what is left: {', '.join(f'{k} is {v}' for k, v in p['owns_what_is_left'].items())}")
+          f"; what is left of the MOVE: {left or 'nothing — both cells are transposed'}")
     q = d["the_first_question"]
     print(f"\n  first question  ANSWERED (T-1479, 2026-09-23): the ground is never "
           f"withdrawn, so a structure on a withdrawn lot is not a case — and "
@@ -599,7 +712,16 @@ def self_test() -> int:
     #    falls to nothing, the move becomes cheap and this measurement is stale.
     strands = sum(len(b["the_committed_seating_on_this_block"]
                       ["structures_named_on_those_lots"]) for b in d["blocks"])
-    ck(strands >= 17, "at least seventeen structures stand on these two blocks' lots")
+    # The floor was seventeen while both blocks' lots were reached by the street-edge and
+    # lot-line layers. T-1734 turned block 45 through ninety degrees, so its lots front
+    # Clinton and Canal — streets `generate_frontage_works.py` does not lay, its
+    # `EDGE_CROSS_STREETS` being empty for the triangle budget recorded beside it — and
+    # three street-lining fence runs stopped naming its lots. What the floor is FOR is
+    # unchanged: if the seating ever falls to nothing the move was free and this
+    # measurement is stale. Sixteen is the figure the two cuts leave, and it is the
+    # figure to notice moving.
+    ck(strands >= 16, "at least sixteen structures stand on these two blocks' lots — "
+                      f"read {strands}")
     ck(all(b["the_committed_seating_on_this_block"]["rows_seated_on_those_lots"]
            for b in d["blocks"]),
        "both blocks must carry seated rows in a committed layer")
@@ -610,10 +732,12 @@ def self_test() -> int:
     #     ruling authorised, or a cell held for a deal it does not carry, is a grid saying
     #     one thing and a record saying another.
     states = sorted(b["state"] for b in d["blocks"])
-    ck(states == ["held", "transposed"],
-       "one of the two cells must be transposed and one held — if both are transposed, "
-       f"T-1734 has landed and this reading is stale; if neither is, T-1733 has been "
-       f"reverted. Read: {states}")
+    ck(states == ["transposed", "transposed"],
+       "BOTH cells must be transposed. T-1733 cut block 28, which carried no deal, and "
+       "T-1734 cut block 45 after re-arguing the deal that held it; a cell reading `held` "
+       "again means a parcel has come back onto it without `frontage_argued_on`, or one "
+       "of the two tickets has been reverted. This is the assertion that was the other "
+       f"way about until 2026-09-28, and it is the same consistency check. Read: {states}")
     for b in d["blocks"]:
         if b["state"] == "transposed":
             g = b["what_the_cut_is_graded"]
@@ -658,6 +782,9 @@ def self_test() -> int:
     ck(all(v == "done" for v in p["reported_it_and_closed"].values()),
        "the two tickets that reported this gap must still be closed — if one reopens, "
        "the move has two owners and the successor's scope has to be re-cut")
+    # Vacuously true now that the move is done and `OWNS_THE_MOVE` is empty, and that is
+    # the right shape: it fires again the moment somebody names a ticket here, which is
+    # the only way this pointer can go stale a second time.
     ck(all(v is not None for v in p["owns_what_is_left"].values()),
        "the ticket this refusal points a reader FORWARD at must resolve in tickets/. "
        "That is the whole fault this assertion exists for: for three days the prose "
@@ -686,10 +813,10 @@ def self_test() -> int:
         print(f"SELF-TEST FAIL — {len(fail)} case(s)")
         return 1
     print("SELF-TEST PASS — the pair, the sheet's ten against what each cell now cuts, "
-          "both refusals still standing as arithmetic, the seating, one cell transposed "
-          "at `inferred` with its numerals at their own positions and its re-seat "
-          "accounted lot by lot, one cell held by a deal it carries and owed by a live "
-          "ticket, the precondition, and the first question's answer")
+          "both refusals still standing as arithmetic, the seating, both cells transposed "
+          "at `inferred` with their numerals at their own positions and each re-seat "
+          "accounted lot by lot, block 45's deal re-argued onto the faces the transpose "
+          "gives, the precondition, and the first question's answer")
     return 0
 
 

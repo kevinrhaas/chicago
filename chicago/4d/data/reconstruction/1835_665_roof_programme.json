@@ -58,6 +58,16 @@
      }
     },
     {
+     "district": "west",
+     "blocks": 2,
+     "trade_roofs": 1,
+     "blocks_redealt": 2,
+     "quota": {
+      "blk_lake_clinton": 1,
+      "blk_randolph_clinton": 0
+     }
+    },
+    {
      "district": "north",
      "blocks": 2,
      "trade_roofs": 6,
@@ -335,10 +345,10 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 195,
-  "gated_on_coverage": 47,
-  "statement": "195 of the 242 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 47 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
-  "platted_lots": 336,
+  "schedulable_on_committed_ground": 203,
+  "gated_on_coverage": 39,
+  "statement": "203 of the 242 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "platted_lots": 338,
   "blocks_named": 80,
   "southern_ground": {
    "field_south_edge_n_m": -3800.0,
@@ -529,14 +539,13 @@
     "D2": 1,
     "D3": 1,
     "D4": 1,
-    "D5": 1,
-    "D6": 1,
-    "D7": 1
+    "D5": 2,
+    "W2": 1
    },
    "principal": 6,
    "ancillary": 2,
-   "trade_roofs": 0,
    "frontage_weight": 0.4784,
+   "trade_roofs": 1,
    "lot_ceiling_principal": 2,
    "row_lots_required": 2
   },
@@ -700,20 +709,31 @@
     "west": "clinton",
     "east": "canal"
    },
-   "lots": 8,
-   "capacity_roofs": 31,
+   "lots": 10,
+   "capacity_roofs": 39,
    "standing_roofs": 10,
-   "free_lots": 1,
-   "principal_room": 0,
-   "ancillary_room": 0,
-   "headroom": 0,
-   "state": "at_capacity",
-   "roofs": 0,
-   "families": {},
-   "principal": 0,
-   "ancillary": 0,
-   "lot_ceiling_principal": 0,
-   "row_lots_required": 0
+   "free_lots": 3,
+   "principal_room": 6,
+   "ancillary_room": 2,
+   "headroom": 8,
+   "state": "open",
+   "roofs": 8,
+   "families": {
+    "A3": 1,
+    "A4": 1,
+    "D3": 1,
+    "D4": 1,
+    "D5": 1,
+    "D6": 1,
+    "D7": 1,
+    "H3": 1
+   },
+   "principal": 6,
+   "ancillary": 2,
+   "frontage_weight": 0.4368,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 2,
+   "row_lots_required": 2
   },
   {
    "id": "blk_randolph_market",
@@ -2582,35 +2602,35 @@
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 44,
+   "capacity_roofs": 36,
    "standing_roofs": 0,
-   "headroom": 44,
+   "headroom": 36,
    "state": "gated",
    "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 44,
+   "roofs": 36,
    "families": {
     "A1": 3,
     "A2": 3,
-    "A3": 4,
-    "A4": 4,
+    "A3": 3,
+    "A4": 3,
     "A5": 2,
     "C3": 1,
     "C4": 1,
     "D2": 1,
-    "D3": 4,
-    "D4": 4,
-    "D5": 5,
+    "D3": 3,
+    "D4": 3,
+    "D5": 3,
     "D6": 2,
     "D7": 2,
     "F2": 1,
     "H1": 1,
     "H2": 1,
-    "H3": 2,
+    "H3": 1,
     "W1": 1,
-    "W2": 2
+    "W2": 1
    },
-   "principal": 28,
-   "ancillary": 16
+   "principal": 22,
+   "ancillary": 14
   },
   {
    "id": "north_division_beyond_modelled_ground",
