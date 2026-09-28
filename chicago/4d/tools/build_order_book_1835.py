@@ -4425,16 +4425,18 @@ def cmd_self_test() -> int:
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
     #
-    # T-1735 TAKES IT TO 214, AND IT IS THE FIRST TIME A SLOT HAS BEEN ANSWERED. The platted
-    # pass goes 139 -> 142 and the off-plat pass holds at 72. The ruling behind it is that the
+    # T-1735 TAKES IT TO 216, AND IT IS THE FIRST TIME A SLOT HAS BEEN ANSWERED. The platted
+    # pass goes 139 -> 144 and the off-plat pass holds at 72. The ruling behind it is that the
     # first of the six blocks T-1707 opened was dealt the seven roofs its own seven slot rows
     # asked of it, so `blk_washington_lasalle` has no headroom left to ask against and the pass
-    # ADOPTS there instead: adoptions 109 -> 114, slots 30 -> 28. The three-seat gain is not
-    # seven, because the pass is re-derived whole in the placement policy's clause order and
-    # six of the seven households that asked were re-slotted onto the tier's four remaining
-    # empty blocks rather than housed here. Nothing was retired and no roof moved.
+    # ADOPTS there instead: adoptions 109 -> 116, slots 30 -> 28. The gain is five seats and not
+    # seven, because the pass is re-derived whole in the placement policy's clause order: six of
+    # the seven households that asked this block were re-slotted onto the tier's four remaining
+    # empty blocks rather than housed here, and the roofs the two that DID move here vacated
+    # cascaded down the same ranking, taking four South Water and Randolph keepers with them.
+    # Nothing was retired and no roof moved.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 214
+        data["inventory"], data["programme"], occ))["seated"] == 216
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

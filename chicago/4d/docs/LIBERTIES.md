@@ -14578,10 +14578,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 274 lots are enumerated from records this project already held, and then 142 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 274 lots are enumerated from records this project already held, and then 144 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 142 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,336
+**Scope:** `platted_seats.seats[dealt]` — 144 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,334
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 274 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14674,7 +14674,7 @@ barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unocc
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,336 of the 1,478 banded rows get no lot here, and they are not refused — they
+households. 1,334 of the 1,478 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
@@ -14773,19 +14773,21 @@ Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated 
 order book takes off this pass moves with it. Neither deal can see the other's picks, on the
 reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
 
-**The deal reached 142 on 2026-09-28 (T-1735), and every paragraph above keeps the 139 it was
+**The deal reached 144 on 2026-09-28 (T-1735), and every paragraph above keeps the 139 it was
 written against.** They are dated accounts of what the deal did on the days they describe, and
 restating their arithmetic would falsify the account; the Scope above and the title carry the
 count as it stands. What moved is the FIRST of the slots this liberty said stood on the plat's
 last tier: `blk_washington_lasalle` was dealt the seven dwellings its own seven slot rows asked
 of it (**L287**), so the block's headroom became standing roofs and the pass adopted rather than
-slotted there. Adoptions went 109 -> **114**, slots 30 -> **28**, seated 139 -> **142** and owed
-1,339 -> **1,336**. THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and that is
+slotted there. Adoptions went 109 -> **116**, slots 30 -> **28**, seated 139 -> **144** and owed
+1,339 -> **1,334**. THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and that is
 worth stating plainly because it is the one thing a reader would assume wrongly: this pass is
 re-derived whole in the placement policy's own clause order, so the seven roofs went to the seven
 households the policy ranks first among those an admitted family on this block will hold. One of
 the original seven (`hh_baines_robert`) is among them; the other six are re-slotted onto the four
-Washington-tier blocks still standing empty, seven slots apiece. Nothing about the invention
+Washington-tier blocks still standing empty, seven slots apiece. The gain is seven adoptions
+and not two, because the seven roofs freed by the households that moved here cascaded down the
+same ranking: four South Water and Randolph roofs changed keeper with them (**L276**). Nothing about the invention
 changes: a slot answered is still a household given a roof by a policy rather than by a source.
 
 **Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-28 (T-1735, the seat count and the amendment above).
@@ -15206,14 +15208,25 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
+### L276 — Twenty-two roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-five do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
+**Scope:** `roof_keepers.written[named]` — 22 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 66
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Eight of the 22 are on the
 five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
-Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202.
+
+**It was 23 until 2026-09-28 (T-1735), and the roof that lost its name lost it to a deal on
+another block.** Building `blk_washington_lasalle` drew `hh_beaubien_alexander` and
+`hh_bourrassa_leon` off South Water roofs and onto two of its new cottages, and the platted
+pass — re-derived whole in the placement policy's clause order — cascaded the vacancies
+down its own ranking rather than leaving them open. Four roofs on the two districts changed
+keeper, two gained one and three lost theirs, and the net is one fewer name: written 23 -> 22,
+refused 63 -> 66, owed 23 -> 28. NOTHING WAS REFUSED THAT WAS NOT REFUSED BEFORE, and no
+ruling moved: the households that took the vacated roofs are letter-list-only, which is the
+refusal this entry's own count of 35 is made of. A named keeper is a JOIN and not a property
+of a roof, so it moves when either side of the join does. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.

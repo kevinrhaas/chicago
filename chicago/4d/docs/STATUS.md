@@ -38,7 +38,13 @@ ranks first among those an admitted family on this block will hold. One of the
 original seven, `hh_baines_robert`, is among them; the other six are re-slotted onto
 the four Washington-tier blocks still standing empty — `blk_washington_clark`,
 `_franklin`, `_market` and `_wells`, seven slots apiece, 28 in all. Platted
-adoptions 109 → 114, slots 30 → 28, seated 139 → 142, owed 1,339 → 1,336. The town
+adoptions 109 → 116, slots 30 → 28, seated 139 → 144, owed 1,339 → 1,334, and the
+seating join with the off-plat pass goes 211 → 216. The gain is five adoptions and
+not two: the two households that DID move here vacated South Water roofs, and the
+pass cascaded those vacancies down its own ranking rather than leaving them open, so
+four roofs on South Water and the Randolph tier changed keeper. The named-keeper
+count went 23 → 22 with it and the refusals 63 → 66 — every one of them the
+letter-list-only refusal already on the books, no ruling moved (**L276**). The town
 census reads 432 buildings standing of 668.
 
 **The order book's south ordinary-dwellings row is handed to T-1736, and that is the
@@ -48,7 +54,7 @@ owner and it closes here, which is the `review`-then-`done` trap T-1681's row fe
 into. So the row goes to a ticket that outlives this pull request. The cell reads 176
 target, 114 standing, 62 to build, and T-1736 is the first of the four remaining
 blocks by name. `build_order_book_1835.py`'s seating tripwire is restated from 211 to
-**214** with the ruling behind the three seats, not quietly re-summed.
+**216** with the ruling behind the five seats, not quietly re-summed.
 
 **Verification.** `tools/check.sh` green; `validate.py --all` 0 errors; the eleven
 meshes baked with `bake.sh --only` and their web derivatives recorded; the smoke
