@@ -373,16 +373,16 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,480
-- seated: 213 — 181 by adopting a roof that already stands, 32 by asking for one
-- still on no ground at all: 1,267
+- seated: 212 — 181 by adopting a roof that already stands, 31 by asking for one
+- still on no ground at all: 1,268
 - of the 425 roofs the town already has, 181 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,480 | 141 | 109 | 32 | 1,339 |
-| The ground the plat does not draw | T-1614 | 1,339 | 72 | 72 | 0 | 1,267 |
+| The committed plat | T-1613 | 1,480 | 140 | 109 | 31 | 1,340 |
+| The ground the plat does not draw | T-1614 | 1,340 | 72 | 72 | 0 | 1,268 |
 
-32 slot(s) on 5 block(s) — blk_washington_clark, blk_washington_franklin, blk_washington_lasalle, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+31 slot(s) on 5 block(s) — blk_washington_clark, blk_washington_franklin, blk_washington_lasalle, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
@@ -417,9 +417,8 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_chamberlain_l_c` | `blk_washington_market` | `blk_washington_market#07` | D3 | `tradesman_dwellings` |
 | `hh_chandler_catherine` | `blk_washington_wells` | `blk_washington_wells#05` | D3 | `tradesman_dwellings` |
 | `hh_chapman_george` | `blk_washington_wells` | `blk_washington_wells#03` | D3 | `tradesman_dwellings` |
-| `hh_beaubien_mark` | `blk_washington_clark` | `blk_washington_clark#07` | H3 | `lodging_near_the_landings` |
 
-1,267 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,268 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 

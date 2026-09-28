@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 137
   },
   "reconstructed_seats": 1512,
-  "dealt_a_roof": 213,
+  "dealt_a_roof": 212,
   "dealt_a_standing_roof": 181,
-  "dealt_a_slot_not_yet_built": 32,
+  "dealt_a_slot_not_yet_built": 31,
   "dealt_by_ticket": {
-   "T-1613": 141,
+   "T-1613": 140,
    "T-1614": 72
   },
   "dealt_by_ground": {
    "off_plat_parcel": 72,
-   "platted_lot": 141
+   "platted_lot": 140
   }
  },
  "rows": [
@@ -6292,24 +6292,7 @@
     "from_trade": "tavern_keeper"
    },
    "seed": "hh_beaubien_mark|south|tavern_keeper|T-1512",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_washington_clark#07",
-    "block_id": "blk_washington_clark",
-    "fronts": "madison",
-    "family": "H3",
-    "clause": "lodging_near_the_landings",
-    "district": "south",
-    "stands_on": "street",
-    "deal_seed": "hh_beaubien_mark|south|tavern_keeper|T-1512",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_washington_clark#07 under its lodging_near_the_landings clause, and the roof is not built: the deal REQUESTED a family H3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_beaubien_monique",
