@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "fixture-tavern",
+  "content_version": 1,
+  "title": "Temperance choice fixture",
+  "premise": "Exercise sobriety, two endings and a fully viable abstaining path.",
+  "category": "Taverns",
+  "scene": "1835",
+  "opening": {
+    "text": "This compact tavern fixture tests a bounded sobriety choice without depicting a historical patron or conversation. Both the drink and the abstaining alternative are invented mechanics, not claims about conduct in this building.",
+    "read_s": 8
+  },
+  "default_mode": "walk",
+  "allowed_modes": ["walk", "instantly"],
+  "variables": {
+    "sobriety": { "min": 0, "max": 3, "initial": 3, "unit": "count" }
+  },
+  "stops": [
+    {
+      "id": "door",
+      "destination": { "kind": "structure", "id": "sauganash_hotel" },
+      "text": "Pause outside and choose how the fictional outing ends. Taking a drink lowers the declared sobriety resource by one; choosing water changes nothing and remains a complete, first-class path through the story.",
+      "read_s": 12,
+      "evidence": ["fixture"],
+      "choices": [
+        {
+          "id": "drink",
+          "label": "Take a drink",
+          "consequence": "Sobriety falls by one within its declared bounds.",
+          "effects": [{ "op": "inc", "var": "sobriety", "value": -1 }],
+          "next": "$end"
+        },
+        {
+          "id": "abstain",
+          "label": "Choose water",
+          "consequence": "Sobriety stays unchanged; abstaining is always viable.",
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "one-drink",
+      "when": { "var": "sobriety", "op": "<", "value": 3 },
+      "text": "The fictional outing records the one-drink ending.",
+      "read_s": 5,
+      "completion_eligible": true
+    },
+    {
+      "id": "clear-headed",
+      "default": true,
+      "text": "The fictional outing records the abstaining ending.",
+      "read_s": 5,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "tavern-fixture",
+    "title": "A Clear Choice",
+    "text": "A test keepsake for the fictional tavern path."
+  },
+  "evidence": [
+    {
+      "id": "fixture",
+      "text": "The patron, drink, water, sobriety value, choices and alternate endings are invented test content rather than claims about anyone at the tavern.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-pilot"
+    }
+  ],
+  "review_required": false,
+  "liberties": ["L-jaunt-pilot"]
+}
