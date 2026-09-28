@@ -33,6 +33,28 @@
       "reasoning": "A separately documented former cabin used as a barn; one gable roof."
     },
     {
+      "structure_id": "beaubien_new_residence",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The new residence Andreas records Beaubien building at the homestead; one gable roof on a hewn-log dwelling, raised beside the two buildings of the group that already stood. The presence is attested and the position and size are ours (L283), which is the same footing as beaubien_barn and does not change what this row counts."
+    },
+    {
+      "structure_id": "beaubien_trading_post",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "C1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1712. The small trading post Andreas records at the same homestead; one gable roof on a log trade room, the smallest building of the group. C1 rather than C2 because nothing says anybody lived in it, and this is a private trading post on the reservation and not fort_dearborn_us_factors_house, the government factory 140 m south of it."
+    },
+    {
       "structure_id": "blacksmith_shop_state_st",
       "district": "north",
       "roof_count": 1,
@@ -743,7 +765,7 @@
       "likely_family": "F1",
       "substitutes_anonymous_slots": 1,
       "confidence": "reconstructed",
-      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural \u2014 image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots \u2014 four of them before this roof \u2014 and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
+      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural — image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots — four of them before this roof — and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
     },
     {
       "structure_id": "north_branch_bridge",

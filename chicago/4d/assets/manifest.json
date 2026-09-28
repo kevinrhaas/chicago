@@ -18,6 +18,24 @@
       "phase_id": "converted_1817",
       "structure_id": "beaubien_barn"
     },
+    "beaubien_new_residence__log_1822.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 32360,
+      "inputs_sha256": "70a030578d95ae9d0a1576a93eb00bb0683c112cb43e34c4206a0a986187058e",
+      "kind": "generated",
+      "phase_id": "log_1822",
+      "structure_id": "beaubien_new_residence"
+    },
+    "beaubien_trading_post__log_1822.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 32388,
+      "inputs_sha256": "aa91796ef1cfcc2f7264f5f5cca7c02fc58cad9a623db87292065fb54b19ad3a",
+      "kind": "generated",
+      "phase_id": "log_1822",
+      "structure_id": "beaubien_trading_post"
+    },
     "blacksmith_shop_state_st__log_1823.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
