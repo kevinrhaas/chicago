@@ -12,6 +12,8 @@
     if (local && (/^[a-z]+:/i.test(value) || value.startsWith('/') || value.split('/').includes('..'))) return null;
     try { const url = new URL(local ? '../' + value : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
   }
+  // Where a record's full-resolution original lives, named for the place it links to.
+  const originalLabel = url => /archive\.org/.test(url) ? 'Master TIFF · Internet Archive ↗' : /harvard\.edu/.test(url) ? 'Full-resolution original · Harvard ↗' : 'Full-resolution original ↗';
   function link(text, value, local = false) { const url = safeURL(value, local); if (!url) return node('span', text); const a = node('a', text); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
   // Notes (/notes/notes.js) file against these keys; a key must not change when a
   // record's wording does, so each is the record's own id where it has one.
@@ -106,7 +108,7 @@
     if (url && /\.(jpe?g|png|webp|gif|avif)(\?.*)?$/i.test(map.local_path)) { $('mapImage').alt = map.title || 'Historical source sheet'; $('mapImage').src = url; $('mapImage').hidden = false; }
     else $('mapError').hidden = false;
     if (url) $('mapLinks').append(link('Open full-resolution file ↗', map.local_path, true));
-    if (map.archive_url) $('mapLinks').append(link('Master TIFF · Internet Archive ↗', map.archive_url));
+    if (map.archive_url) $('mapLinks').append(link(originalLabel(map.archive_url), map.archive_url));
     if (map.source_id) $('mapLinks').append(citations([map.source_id]));
   }
   function renderSources() {
@@ -122,7 +124,7 @@
       if (s.notes) card.append(node('p', plain(s.notes)));
       card.append(node('p', 'Retrieval: ' + (s.retrieval_status || 'Not recorded'), 'meta'));
       card.append(node('p', 'Rights: ' + (s.rights_status || 'Not established'), 'meta'));
-      const links = node('div', null, 'links'); if (s.url) links.append(link('Source record ↗', s.url)); if (s.local_path) links.append(link('Stored file ↗', s.local_path, true)); if (s.archive_url) links.append(link('Master TIFF · Internet Archive ↗', s.archive_url)); card.append(links); list.append(card);
+      const links = node('div', null, 'links'); if (s.url) links.append(link('Source record ↗', s.url)); if (s.local_path) links.append(link('Stored file ↗', s.local_path, true)); if (s.archive_url) links.append(link(originalLabel(s.archive_url), s.archive_url)); card.append(links); list.append(card);
     }
     if (!sources.length) list.append(node('p', 'No sources match these filters.', 'empty'));
   }
