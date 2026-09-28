@@ -1,0 +1,30 @@
+{
+ "id": "sanborn_1911_vol3_sheet_28",
+ "type": "map",
+ "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Vol. 3 (1911), sheet 28: E. 18th St. to E. 20th St., Prairie Av. Blvd. and Calumet Av. to the Illinois Central / Michigan Central tracks and Lake Michigan. Scale 1\" = 50'. Stamped 'Fire Insurance Map Collection, Geography and Map Division, Library of Congress'; header 'Chicago Vol. 3', with 1891-edition cross-references (245-246) (252-253).",
+ "author": "Sanborn Map Company",
+ "date": "1911",
+ "describes_date": "1911",
+ "repository": "Library of Congress, Geography and Map Division; the sheet image is committed as chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg (5873 x 7323), supplied to the owner by Glessner House on 2026-09-23 (see that folder's README)",
+ "url": "https://www.loc.gov/item/sanborn01790_020/",
+ "locator": "Sheet 28, block 1 (Prairie Av. Blvd. west side, E. 18th to E. 20th), the NE corner lot marked 1800, with E. 18th St. frontages numbered 221, 225, 227. Measured on the committed image with the sheet's own scale of feet (0-150 ft = 900 px; 6.0 px per foot).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A 1911 publication; the Library of Congress states that its online Sanborn Maps collection is in the public domain.",
+ "asset_use": "geometry",
+ "verified": true,
+ "access_notes": "The sheet was read from the committed image on 2026-09-28. The item URL is the Library of Congress record a web search returned for 'Chicago, Cook County, Illinois, Sanborn Map Company, Vol. 3, 1911, 142 sheets'; the item page answered 403 to this session, so the URL is recorded as the catalogue's and was not opened. A later reader with browser access should confirm it and add the sheet's resource URL.",
+ "note": "A 1911 witness used for a 1904 model, so it is used only where the building is shown not to have changed. For 1800 Prairie it draws: the house in stone (blue) with brick (pink) courtyard faces, 2 stories and basement ('2B') on the main ranges, the west wing marked '1½' and 'GARAGE', 16-inch walls noted, the north face on the E. 18th Street line, the west face on the alley line, the east face set back from the Prairie Avenue line, and the courtyard closed on the south by the house at 1808 (brick, '3B') and its rear two-storey garage. It prints 'WALL B.' inside the south end of the Glessner east wing; that label is recorded as read and not interpreted. The Glessner House correspondent's reading (README of the reference folder) is that nothing on this sheet changed between 1904 and 1911 except at 1609-1611 and 1620 Prairie, which are on sheet 20; that is the correspondent's reading, and this record does not claim to have checked it block by block.",
+ "what_it_supplies": [
+  "the house's position on its lot: north face on the E. 18th Street line, west face on the alley line, east face about 14.7 ft (±1.5 ft) behind the Prairie Avenue street line",
+  "a check on the HABS envelope: about 161 x 75 ft overall and a 35 x 59 ft west wing at 1\" = 50'",
+  "materials by colour (stone street walls, brick courtyard walls) and storeys (2B main house, 1½ west wing) in 1911",
+  "the neighbour that closes the courtyard on the south in 1911 (1808 Prairie and its rear garage)"
+ ],
+ "what_it_does_not_supply": [
+  "anything about 1904 directly: a 1911 sheet shows only that a structure stood in 1911",
+  "the 1904 use of the west wing: '1911 GARAGE' cannot be backdated",
+  "architecture above the footprint - roof pitches, chimneys, openings",
+  "lot dimensions in figures for this lot: none are printed on it"
+ ]
+}

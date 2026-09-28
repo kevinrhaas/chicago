@@ -146,7 +146,18 @@ the project-wide physical-roof reconciliation must decide how many of the 150 th
 2. Run collision, water-mask, terrain-coverage, and family-band validation on the 60-slot recipe.
 3. Generate explicitly flagged placeholder massings for review; keep per-instance provenance at
    `recommended_anonymous`.
-4. Trace the North Branch beyond N +400 and extend terrain/hydrology/flora/collision to N +760.
+4. ~~Trace the North Branch beyond N +400 and extend terrain/hydrology/flora/collision to
+   N +760.~~ **DONE (T-1722).** The branch and both its banks are traced to local N +1079.21
+   and the lake margin to N +1117.30; the modelled field carries to N +1120, so terrain and
+   collision reach this line and past it. The flora did not follow the terrain and does now:
+   `z06_dense_forest`'s ring was still cut to the old box walls at N +340 and E +340, so the
+   whole division above Michigan Street was matching the two prairie elevation bands and
+   drawing as open prairie. It is derived from the committed North Division waterline by
+   `tools/measure_northern_ground.py` and gated in `tools/check.sh` — 155.11 ha, north to the
+   box wall. THE HYDROLOGY IS NOT SHORT AND WAS NOT EXTENDED: Wright draws one watercourse on
+   this side, the unnamed north-side slough, and ends it at Michigan Street (local N +341.7).
+   That is a documented end, not a tracing window, and carrying a channel past it would be an
+   invention.
 5. Add Illinois, Indiana, and Ohio street corridors and extend Wolcott, Cass, and Rush only from
    their 1834 cadastral controls.
 6. Design the remaining 90 North roofs after the extent is visible, maintaining large open tracts

@@ -13,6 +13,9 @@
     try { const url = new URL(local ? '../' + value : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
   }
   function link(text, value, local = false) { const url = safeURL(value, local); if (!url) return node('span', text); const a = node('a', text); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
+  // Notes (/notes/notes.js) file against these keys; a key must not change when a
+  // record's wording does, so each is the record's own id where it has one.
+  const noteKey = (el, key, label) => { el.dataset.note = String(key).slice(0, 300); el.dataset.noteLabel = String(label || key).slice(0, 300); return el; };
   let data, sourcesById;
   function citations(ids) {
     const el = node('div', null, 'citations');
@@ -90,15 +93,15 @@
         b.events.forEach(e => { const item = node('li', typeof e === 'string' ? e : [e.year || e.date || e.date_text,e.type || e.title,e.text || e.description || e.notes].filter(Boolean).map(plain).join(' · ')); if (array(e.source_ids).length) item.append(citations(e.source_ids)); events.append(item); });
         content.append(events);
       }
-      content.append(citations(b.source_ids)); detail.append(summary,content); list.append(detail);
+      content.append(citations(b.source_ids)); detail.append(summary,content); noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
     }
     if (!buildings.length) list.append(node('p', 'No matching buildings. Try another search or show all researched buildings.', 'empty'));
   }
   function renderMap() {
     const map = array(data.maps).find(m => String(m.id) === $('mapSelect').value);
     $('mapLinks').replaceChildren(); $('mapImage').hidden = true; $('mapImage').removeAttribute('src'); $('mapError').hidden = true;
-    if (!map) { $('mapTitle').textContent = 'No map record available'; return; }
-    $('mapTitle').textContent = map.title || map.id; $('mapDate').textContent = 'Source date: ' + (map.date || 'unresolved'); $('mapNote').textContent = map.notes || '';
+    if (!map) { $('mapTitle').textContent = 'No map record available'; delete $('mapTitle').dataset.note; return; }
+    $('mapTitle').textContent = map.title || map.id; noteKey($('mapTitle'), 'map:' + map.id, map.title || map.id); $('mapDate').textContent = 'Source date: ' + (map.date || 'unresolved'); $('mapNote').textContent = map.notes || '';
     const url = safeURL(map.local_path, true);
     if (url && /\.(jpe?g|png|webp|gif|avif)(\?.*)?$/i.test(map.local_path)) { $('mapImage').alt = map.title || 'Historical source sheet'; $('mapImage').src = url; $('mapImage').hidden = false; }
     else $('mapError').hidden = false;
@@ -111,7 +114,7 @@
     $('sourceCount').textContent = sources.length + ' of ' + array(data.sources).length + ' sources';
     const list = $('sourceList'); list.replaceChildren();
     for (const s of sources) {
-      const card = node('article', null, 'source-card'); card.id = 'source-' + encodeURIComponent(s.id);
+      const card = node('article', null, 'source-card'); card.id = 'source-' + encodeURIComponent(s.id); noteKey(card, 'source:' + s.id, s.title || s.id);
       const preview = s.preview_path || s.local_path;
       if (preview && /\.(jpe?g|png|webp|gif|avif)$/i.test(preview) && safeURL(preview,true)) { const img = node('img'); img.src = safeURL(preview,true); img.alt = s.title || ''; img.loading = 'lazy'; img.addEventListener('error', () => { img.hidden = true; }); card.append(img); }
       card.append(node('p', s.id, 'source-id'), node('h3', s.title || 'Untitled source'), node('span', [s.kind || 'Reference',s.date].filter(Boolean).join(' · '), 'badge'));
@@ -136,7 +139,7 @@
       content.append(facts); if (r.notes) content.append(node('p',r.notes));
       content.append(node('p','Source: ' + (r.source_file || 'See source sheet attribution'),'meta'));
       if (r.source_id) content.append(citations([r.source_id]));
-      card.append(summary,content); list.append(card);
+      card.append(summary,content); noteKey(card, 'frontage:' + (r.id || [r.sheet,r.address,r.side].join('|')), [r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' ') + ' · 1911 frontage'); list.append(card);
     });
     if (!records.length) list.append(node('p','No frontage observations match these filters.','empty'));
   }
@@ -150,7 +153,7 @@
       summary.append(node('h3',r.listed_people || 'Name not resolved'),node('span',[r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' '),'address'),node('span','Directory label: ' + (r.year_label || 'unresolved'),'badge'));
       content.append(node('p',r.verification || 'Verification not recorded'),node('p',r.limits || 'Candidate directory reading; does not establish ownership or complete occupancy.'),node('p','Locator: ' + (r.source_locator || 'Not recorded'),'meta'));
       if (r.source_id) content.append(citations([r.source_id]));
-      card.append(summary,content); list.append(card);
+      card.append(summary,content); noteKey(card, 'directory:' + [r.year_label,r.address,r.listed_people].join('|'), (r.listed_people || 'Directory lead') + ' · ' + (r.year_label || '')); list.append(card);
     });
     if (!records.length) list.append(node('p','No directory leads match these filters.','empty'));
   }
@@ -198,7 +201,7 @@
       for (const kind of [...new Set(array(data.sources).map(s => s.kind).filter(Boolean))].sort()) { const option = node('option',kind); option.value = kind; $('sourceKind').append(option); }
       for (const map of array(data.maps)) { const option = node('option',map.title || map.id); option.value = map.id; $('mapSelect').append(option); }
       $('glessnerSummary').textContent = plain(data.glessner?.summary);
-      array(data.glessner?.sections).forEach(section => { const card = node('article',null,'glessner-section'); card.append(node('h3',section.title),node('p',plain(section.text)),citations(section.source_ids)); $('glessnerSections').append(card); });
+      array(data.glessner?.sections).forEach(section => { const card = noteKey(node('article',null,'glessner-section'), 'glessner:' + section.title, 'Glessner House · ' + section.title); card.append(node('h3',section.title),node('p',plain(section.text)),citations(section.source_ids)); $('glessnerSections').append(card); });
       $('year').addEventListener('input',renderBuildings); $('buildingSearch').addEventListener('input',renderBuildings); $('yearFilter').addEventListener('change',renderBuildings);
       document.querySelectorAll('[data-year]').forEach(button => button.addEventListener('click', () => { $('year').value = button.dataset.year; renderBuildings(); }));
       $('showHidden').addEventListener('click', () => { $('yearFilter').value = 'all'; renderBuildings(); });
