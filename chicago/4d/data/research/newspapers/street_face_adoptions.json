@@ -149,36 +149,36 @@
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
     "faces_with_two_or_more_free_roofs": 16,
-    "free_roof_places": 123,
+    "free_roof_places": 124,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2241,
+      "re_families_tried": 2253,
       "places_changed": 2765,
       "worst_single_re_family": 8,
-      "changed_nothing": 1256
+      "changed_nothing": 1268
      },
      "deal_order": {
-      "re_families_tried": 2241,
+      "re_families_tried": 2253,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2241
+      "changed_nothing": 2253
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1941,
+      "re_families_tried": 1963,
       "places_changed": 2615,
       "worst_single_re_family": 8,
-      "changed_nothing": 1048
+      "changed_nothing": 1070
      },
      "deal_order": {
-      "re_families_tried": 1941,
-      "places_changed": 14854,
+      "re_families_tried": 1963,
+      "places_changed": 14959,
       "worst_single_re_family": 24,
-      "changed_nothing": 135
+      "changed_nothing": 122
      }
     }
    }
@@ -197,8 +197,8 @@
   "unplaceable_present_at_scene_date": 62,
   "adopted_into_a_house_of_trade": 26,
   "adopted_into_a_roof_of_no_trade": 13,
-  "roofs_free_and_a_house_of_trade": 27,
-  "houses_of_trade_left_free": 1,
+  "roofs_free_and_a_house_of_trade": 28,
+  "houses_of_trade_left_free": 2,
   "roofs_reserved_for_a_slot_request": 2,
   "reserved_and_held_by_a_committed_occupancy": 0,
   "reserved_without_a_committed_occupancy": 2,

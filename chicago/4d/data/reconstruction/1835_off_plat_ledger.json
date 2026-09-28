@@ -50,8 +50,8 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 133,
-  "ground_m2": 7315399.9
+  "principal_roofs_standing": 131,
+  "ground_m2": 7314855.3
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -6994,7 +6994,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1036478.2,
+   "area_m2": 1035933.6,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",
@@ -7212,7 +7212,6 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
-    "kimberly_residence",
     "lake_house_construction",
     "recon_1835_north_a1_050",
     "recon_1835_north_a2_048",
@@ -7234,7 +7233,6 @@
     "watkins_school_house"
    ],
    "standing_families": {
-    "kimberly_residence": "D6",
     "lake_house_construction": null,
     "recon_1835_north_a1_050": "A1",
     "recon_1835_north_a2_048": "A2",
@@ -7255,7 +7253,7 @@
     "recon_1835_north_h2_045": "H2",
     "watkins_school_house": "I2"
    },
-   "principal_roofs_standing": 14
+   "principal_roofs_standing": 13
   },
   {
    "parcel_id": "school_section",
@@ -7394,7 +7392,6 @@
     "recon_1835_west_041",
     "recon_1835_west_043",
     "recon_1835_west_045",
-    "recon_1835_west_046",
     "recon_1835_west_047",
     "recon_1835_west_048",
     "recon_1835_west_049",
@@ -7434,7 +7431,6 @@
     "recon_1835_west_041": "D2",
     "recon_1835_west_043": "D3",
     "recon_1835_west_045": "D5",
-    "recon_1835_west_046": "F1",
     "recon_1835_west_047": "A1",
     "recon_1835_west_048": "D1",
     "recon_1835_west_049": "D1",
@@ -7445,7 +7441,7 @@
     "recon_1835_west_054": "A1",
     "recon_1835_west_055": "A2"
    },
-   "principal_roofs_standing": 32
+   "principal_roofs_standing": 31
   },
   {
    "parcel_id": "the_landing_place",

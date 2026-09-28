@@ -22,12 +22,12 @@
     "north": {
       "street": "state",
       "name_1835": "State Street",
-      "east_m": 825.8
+      "east_m": 825.0
     },
     "south": {
       "street": "wells",
       "name_1835": "Wells Street",
-      "east_m": 329.3
+      "east_m": 328.7
     }
   },
   "ground": {
@@ -45,7 +45,7 @@
       -3800.0,
       1120.0
     ],
-    "east_limit_m": 825.8,
+    "east_limit_m": 825.0,
     "reached_east_of_limit": 438442,
     "reached_east_of_limit_ha": 274.0
   },
