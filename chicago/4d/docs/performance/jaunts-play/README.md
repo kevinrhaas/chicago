@@ -58,3 +58,11 @@ Part 12 remains pending on the integrated tree. Parts through mobile 13 and desk
 The branch includes dev through 2a199d9, including the separately completed PR #137.
 
 Integrated preflight PASS: 680 steps, changelog-entry and ticket-ID checks.
+
+The integrated desktop part-12 retry passed 93 assertions and reported zero page
+errors, then timed out on the second scene reload. Its first reload had passed.
+The harness sets a 90-second default action/readiness budget, but these two reload
+calls overrode it with 30 seconds. They now use the existing 90-second budget,
+matching initial readiness. No readiness predicate, pixel, input, route or saved-
+state assertion changes. The failed readings remain recorded; the revised-harness
+repeat is pending. The per-command ten-minute budget remains unchanged.
