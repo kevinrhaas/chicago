@@ -2,7 +2,7 @@
 
 **Ticket:** T-1717, piece 4 of 4 of T-1204 · **Records:** `kimberly_residence`,
 `kelsey_boarding_house` (raised), `newberry_dole_warehouse` (a third reading recorded) ·
-**Liberty:** L289 · **Source:** `andreas_1884_v1`, printed pages 136–137
+**Liberty:** L290 · **Source:** `andreas_1884_v1`, printed pages 136–137
 
 T-1204 asks this district for "the Lake House's neighbours on the north bank east end". This
 is the reading that answers it. **The whole of the evidence is one paragraph of one letter**,
@@ -65,7 +65,7 @@ household's spelling and carries Bonnell's in its `aka`.
 
 **So `kimberly_residence` is raised**, east of the Lake House, and it is the one thing in this
 reading where an attested occupant meets a building the town did not have. Everything a visitor
-will see of it is invented and L289 lists every piece.
+will see of it is invented and L290 lists every piece.
 
 ## 3. Kelsey's small yellow house, and the one number the ground supplied
 

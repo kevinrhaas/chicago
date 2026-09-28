@@ -2284,6 +2284,88 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
         })
 
 
+def compile_versions(scene_id: str, target: dt.date, outdir: Path, build_sidecar,
+                     resolved: dict[str, dict]) -> int:
+    """STRUCTURE VERSIONS, compiled beside the scene and fetched only on request (T-1727).
+
+    `data/structures/versions/<id>/<label>.json` is a whole alternate record of one
+    structure (see generators/common/versions.py). Each version the scene resolves is
+    compiled by the SAME builder as the canonical record, into
+    `sidecars/<scene>/versions/<id>/<label>.json`, and listed in
+    `sidecars/<scene>/versions/index.json`.
+
+    That index is deliberately NOT the scene index. `index.json` is what every visitor
+    downloads at boot; the versions index is fetched by `scene-loader.js` only when the
+    address carries `?structure=<id>&version=<label>`, so the boot payload does not grow
+    with every alternate the owner commits. It is always written, empty or not, so the
+    loader reads one shape and never a 404.
+
+    A version is listed only where its canonical structure is also in the scene: the
+    switch SWAPS a building, it never adds one the default town does not have.
+    """
+    if str(ROOT / "generators") not in sys.path:
+        sys.path.insert(0, str(ROOT / "generators"))
+    from common import versions as V  # noqa: PLC0415
+
+    vdir = outdir / "versions"
+    if not CHECK:
+        vdir.mkdir(parents=True, exist_ok=True)
+    listed: dict[str, list[dict]] = {}
+    written: set[Path] = set()
+    for v in V.load_versions(ROOT):
+        sid, label, st = v["id"], v["label"], v["record"]
+        if sid not in resolved or st.get("id") != sid or V.label_problem(label):
+            continue      # tools/validate.py names each of these; nothing to swap here
+        phase = resolve_phase(st, target)
+        if phase is None:
+            continue
+        sidecar = build_sidecar(st, phase)
+        sidecar["asset"] = (None if phase.get("drawn_by")
+                            else f"gltf/{V.asset_key(sid, label, phase['id'])}")
+        block = st.get("version") or {}
+        sidecar["version"] = {
+            "label": label,
+            "summary": block.get("summary", ""),
+            "test_fixture": bool(block.get("test_fixture", False)),
+            "default_sidecar": f"sidecars/{scene_id}/{sid}.json",
+        }
+        path = vdir / sid / f"{label}.json"
+        if not CHECK:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        emit(path, sidecar)
+        written.add(path)
+        listed.setdefault(sid, []).append({
+            "label": label,
+            "summary": sidecar["version"]["summary"],
+            "test_fixture": sidecar["version"]["test_fixture"],
+            "phase": phase["id"],
+            "sidecar": f"sidecars/{scene_id}/versions/{sid}/{label}.json",
+            "asset": sidecar["asset"],
+        })
+    index_path = vdir / "index.json"
+    emit(index_path, {
+        "scene": scene_id,
+        "standard": "T-1727. The committed alternates of single structures, selected by "
+                    "?structure=<id>&version=<label>. Fetched by the renderer only when "
+                    "the address asks for a version — never at boot — and each row swaps "
+                    "exactly one building of this scene for its alternate record and mesh. "
+                    "version=default names the canonical record.",
+        "structures": {sid: rows for sid, rows in sorted(listed.items())},
+    })
+    written.add(index_path)
+    # The same sweep as the scene's own: a version withdrawn from data/ must not go on
+    # being served from its last compile.
+    for stale in sorted(vdir.rglob("*.json")) if vdir.is_dir() else []:
+        if stale in written:
+            continue
+        if CHECK:
+            DRIFT.append(f"{stale.relative_to(ROOT)} is a version sidecar the dataset no "
+                         f"longer carries")
+        else:
+            stale.unlink()
+    return sum(len(rows) for rows in listed.values())
+
+
 def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     scene = load(DATA / "scenes" / f"{scene_id}.json")
     target = dt.date.fromisoformat(scene["target_date"])
@@ -2298,13 +2380,11 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
 
-    for path in sorted((DATA / "structures").glob("*.json")):
-        st = load(path)
-        phase = resolve_phase(st, target)
-        if phase is None:
-            skipped.append(st["id"])
-            continue
-
+    # ONE SIDECAR BUILDER, TWO CALLERS (T-1727). The canonical records below and the
+    # structure VERSIONS after them (data/structures/versions/<id>/<label>.json) are
+    # compiled by this one function, so an alternate build's card can never be a
+    # thinner or differently-shaped account of its evidence than the default's.
+    def build_sidecar(st: dict, phase: dict) -> dict:
         # gather every source cited anywhere in this phase, so the popup can show
         # the evidence without the renderer walking the dataset
         cited: set[str] = set()
@@ -2531,6 +2611,15 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # diff saying nothing, in a mirror published byte-for-byte.
         if st["id"] in lodging:
             sidecar["lodging"] = lodging[st["id"]]
+        return sidecar
+
+    for path in sorted((DATA / "structures").glob("*.json")):
+        st = load(path)
+        phase = resolve_phase(st, target)
+        if phase is None:
+            skipped.append(st["id"])
+            continue
+        sidecar = build_sidecar(st, phase)
         emit(outdir / f"{st['id']}.json", sidecar)
         resolved[st["id"]] = phase
         index.append({"id": st["id"], "name": st["name"],
@@ -2548,6 +2637,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         "structures": index,
         "excluded_by_date": skipped,
     })
+
+    versions_written = compile_versions(scene_id, target, outdir, build_sidecar, resolved)
 
     left_out = compile_exclusions(scene_id, scene, target, sources, exclusions, outdir,
                                   in_scene=resolved)
@@ -2580,7 +2671,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     print(f"scene {scene_id}: {written} sidecar(s), {left_out} researched exclusion(s), "
           f"{ground} ground claim(s), {fauna_cites} fauna source(s), "
           f"{flora_cites} flora source(s), {flora_clamped} clamped plant layer(s), "
-          f"{resident_cites} resident source(s), {people} people in the directory"
+          f"{resident_cites} resident source(s), {people} people in the directory, "
+          f"{versions_written} structure version(s)"
           + (f", {len(skipped)} excluded by date ({', '.join(skipped)})" if skipped else ""))
     return written
 

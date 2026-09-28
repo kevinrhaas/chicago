@@ -2506,6 +2506,9 @@
     "tools/check_shoreline_states.py": {
       "wrote": []
     },
+    "tools/check_terrain_e1871.py": {
+      "wrote": []
+    },
     "tools/check_tool_browser.mjs": {
       "wrote": []
     },
@@ -3041,6 +3044,9 @@
       "wrote": []
     },
     "tools/profile_population_1835.py": {
+      "wrote": []
+    },
+    "tools/promote_version.mjs": {
       "wrote": []
     },
     "tools/publish.py": {
@@ -3587,6 +3593,12 @@
       "wrote": []
     },
     "tools/test_street_confidence.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.py": {
       "wrote": []
     },
     "tools/test_ticket_after.mjs": {

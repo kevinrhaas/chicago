@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1212, ts: '2026-09-28T19:04:57.083Z', date: 'Sep 28, 2026, 2:04 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+  { v: null, ts: '', title: 'Two houses beside the Lake House building site', kind: 'change',
     items: [
       'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
       'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
       'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
       'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
       'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
+    ] },
+  { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+    items: [
+      'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
+      'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
+      'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
+      'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
     ] },
   { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
     items: [

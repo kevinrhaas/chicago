@@ -12,7 +12,9 @@ Two files here are build RECORDS rather than assets, carry no third-party conten
 are covered by the project's own license along with the output they describe:
 `manifest.json`, written by the Blender build, records data → master; and
 `manifest.web.json`, written by `tools/web_derivatives.sh`, records master →
-derivative (ROADMAP K39).
+derivative (ROADMAP K39). A third, `manifest.versions.json`, records both links for
+the structure VERSIONS under `gltf/versions/` and `web/versions/` (T-1727) — generated
+output of the same kind, from alternate records under `data/structures/versions/`.
 
 ## Rights gating
 
