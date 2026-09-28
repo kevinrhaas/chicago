@@ -19,6 +19,23 @@ live test. The only committed version is the smoke's TEST FIXTURE
 equals the committed bake, so its mesh was adopted rather than baked; the pinned
 derivative command reproduces the adopted derivative byte for byte.
 
+## T-1251 — the 1904 ground's zone table (2026-09-28)
+
+Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
+`data/terrain/epochs/e1871_postfire/terrain_spec.json` is an authored zone table serving the
+1904 Prairie Avenue scene: twelve street crowns read off the USGS 3DEP 1 m bare-earth model
+(`data/terrain/e1871_grade_readings.json`), graded lots between them, the Illinois Central
+embankment, the made ground of 1886–1911, the lake shelf and the lake stage, every figure citing
+a numbered zone in `docs/RESEARCH/terrain_e1871_postfire.md` and saying which date it describes.
+Three crowns (Prairie Avenue from 18th Street to 2017 Prairie) are inferred for 1904 because the
+period's houses still stand there at their built grade, their walks within 0.18 ft of the crown;
+the other nine are reconstructed (L289). The datum conversion is tested: City benchmark 289 and
+the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface runs 2.9–5.7 ft,
+so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
+ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
+Not verified: any 1904 level directly — no survey of the period has been found.
+
+
 ## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
 
 Nothing a visitor sees changed; this is the ground the 1904 scene (T-1252) will stand on.

@@ -322,6 +322,18 @@ selftest "…and a moved control, a misread bar or a mislaid house still fails i
 step "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)" \
   python3 tools/trace_ic_edge_1904.py --check
 
+# T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
+# (data/terrain/e1871_grade_readings.json) put through the spec's own datum
+# conversion, its fill is the difference to the committed 1835 heightfield and
+# must not come out constant (the ticket's claim that the two epochs are not
+# offsets of one another), and its evidence limit is derived here rather than
+# carried over from 1835. Every elevation cites a zone the research doc has.
+step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
+  python3 tools/check_terrain_e1871.py --check
+
+selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
+  python3 tools/check_terrain_e1871.py --self-test
+
 # ...and for the North Branch north of it (T-1072). Two tools write one
 # branches.geojson through tools/branches_file.py, and each of these two steps
 # also holds the collection's shared fields and its declared feature order, so

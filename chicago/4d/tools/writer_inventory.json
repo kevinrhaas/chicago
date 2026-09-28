@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "check_terrain_e1871.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote the spec's derived fields byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-09-28 — after tools/trace_ic_edge_1904.py, whose shoreline it reads (T-1251); see the manifest step"
+    },
     "georef_prairie_1904.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
