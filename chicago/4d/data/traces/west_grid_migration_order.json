@@ -395,7 +395,7 @@
    "T-0445": "done"
   },
   "owns_what_is_left": {
-   "T-1734": "open"
+   "T-1734": "claimed"
   },
   "and_the_finding": "the first two tickets the refusal pointed forward to are CLOSED and the spacing is still short, so for a while the move was unowned and the prose in tools/generate_plat_lots.py sent a reader at work already done. T-1540 was the successor the owner ruled on 2026-09-21 must own the whole question — tools/measure_west_division_spacing.py is its measurement, and it finds the shortfall on every interval of the grid rather than on this one, against a plat that gives a module and no positions. It landed on 2026-09-24 and this block went red rather than stale, which is what it is for. And then the answer came: the owner ruled on 2026-09-23 that the module may cut a block printing no figures of its own at `inferred` without the spacing moving at all, so the re-cut no longer waits on this precondition — T-1479 split into the cell that could be transposed at once, which is done and recorded on the block above, and the cell that could not, which is T-1734 and is the only thing still owed here. THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed module is still not seated at its printed size on either block, and the day Clinton and Canal reach the plat's 458 ft the shortfall figure above goes to zero and this reading has to be re-made."
  },

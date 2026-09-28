@@ -12,10 +12,10 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 446840.638,
-        "utm_n": 4637118.581,
-        "rotation_deg": 358.11,
-        "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Randolph, Canal, Washington and Clinton; standing back from the Randolph Street frontage",
+        "utm_e": 446890.394,
+        "utm_n": 4637101.056,
+        "rotation_deg": 90.45,
+        "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Randolph, Canal, Washington and Clinton; standing back from the Canal Street frontage",
         "confidence": "reconstructed",
         "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
         "derivation": {
@@ -161,9 +161,9 @@
     "programme_phase": "phase3_platted_block_randolph_clinton",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_randolph_clinton",
-    "lot_index": 2,
+    "lot_index": 6,
     "stands_on": "street",
-    "fronts": "randolph",
+    "fronts": "canal",
     "sequence": 1,
     "finish_key": "whitewash",
     "roof_condition": "darkened",
