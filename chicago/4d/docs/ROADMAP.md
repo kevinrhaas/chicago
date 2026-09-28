@@ -9,6 +9,7 @@ Validation status is recorded in STATUS and performance/jaunts-play; T-1253 is t
 content dependency. No production promotion is part of this work.
 
 
+
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
 
 New in Chicago is now authored JSON: five short exterior stops, an optional

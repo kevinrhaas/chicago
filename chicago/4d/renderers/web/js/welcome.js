@@ -50,7 +50,7 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     if (explore) { onExplore(); render(); search.focus(); }
     else onJaunts();
   }
-  function show() {
+  function show({ focus = true } = {}) {
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;
     delete gate.dataset.region;
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
@@ -61,7 +61,7 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     $('gate-btn').textContent = isTouch ? 'Tap to enter Chicago' : 'Enter Chicago';
     $('gate-btn').disabled = false;
     close.hidden = !hasEntered();
-    title.focus({ preventScroll: true });
+    if (focus) title.focus({ preventScroll: true });
   }
   function choose(type, id) {
     if (state !== 'welcome') return false;

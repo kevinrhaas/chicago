@@ -1,18 +1,22 @@
 ## T-1279 — playable jaunt and persistent navigation (2026-09-27)
 
-The welcome can start the five-stop pilot, with Previous/Next and End/Menu controls
+The welcome starts the five-stop pilot, with Previous/Next and End/Menu controls
 outside the scrolling stop text. Cards and the drawer leave navigation clear.
 Menu pauses at the current location with Resume/Restart; End cancels immediately;
-Explore clears a paused session. Completion shows an outcome and route note in the
-menu. No daybook persistence, ETA or mode selector is included.
+Explore clears a paused session. Completion shows an outcome and route note.
+No daybook persistence, ETA or mode selector is included in this ticket.
 
-The lazy, content-neutral reducer/controller uses session and leg tokens to reject
-stale travel callbacks. Revisited stops never apply effects twice. Eight reducer
-tests pass, including timer/listener counts and mid-ride replacement. The recovered
-published mobile run passed both the pilot and a second fixture with zero page
-errors and End at 123.6 ms. Desktop and whole-tree release validation are pending;
-see `performance/jaunts-play/` for current receipts. T-1253 is a PR dependency.
-
+The lazy, content-neutral controller rejects stale session/leg callbacks and
+applies revisited effects once. Eight reducer cases and published mobile/desktop
+pilot and fixture play pass with zero page errors. The initial 680-step preflight
+passed; the integrated-tree preflight also passes all 680 steps. Boot payload is 9.815 MB / 12 MB.
+A focused End repeat exposed an unnecessary intermediate heading focus; removing
+it brought End to 1.1 ms mobile / 0.8 ms desktop, with identical near/far framing.
+All mobile shared parts and desktop parts 1–11 and 13 pass. Desktop 11 passed an
+unchanged isolated retry after a click timeout. Desktop 12 awaits a complete
+retry after a reload timeout and an interrupted follow-up. Receipts and conditions
+are in `performance/jaunts-play/`. Dev through 2a199d9 is integrated; PR #137 was
+completed by its other session.
 
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
 

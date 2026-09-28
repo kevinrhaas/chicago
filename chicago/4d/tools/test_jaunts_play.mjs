@@ -70,6 +70,7 @@ try {
     await atStop(); assert(await page.locator('[data-action=prev]').isDisabled());
     console.log(`JAUNT PLAY ${viewport.width}: first stop`);
     await layout(); states.push(await state()); await page.screenshot({ path: path.join(out, `${viewport.width}-stop.png`) });
+    if (process.env.JAUNT_FRAMING_ONLY !== '1') {
     await click(page.locator('#jaunt-panel').getByRole('button', { name: 'About this place' }));
     await page.waitForSelector('#popup:not([hidden])'); await layout('popup');
     await page.screenshot({ path: path.join(out, `${viewport.width}-detail.png`) });
@@ -91,6 +92,7 @@ try {
     await click(page.getByRole('button', { name: 'Resume Jaunt', exact: true })); await atStop();
     assert.equal((await state()).stopIndex, beforePause.stopIndex);
     assert.equal(await page.evaluate(() => JSON.stringify(__chicago4d.walker.state)), position);
+    }
     await click(page.locator('[data-action=next]'));
     const endMs = await page.evaluate(() => { const start = performance.now(); __chicago4d.jaunts.end(); return performance.now() - start; });
     assert(endMs < 200, `End took ${endMs}ms`); assert.equal((await state()).jaunt, null);
@@ -98,16 +100,24 @@ try {
     await page.waitForFunction(() => document.activeElement?.textContent === 'Start Jaunt');
     const framing = [];
     for (const anchor of ['sauganash', 'cermak_prairie']) {
-      await page.evaluate(id => { __chicago4d.welcome.enter('anchor', id); }, anchor);
+      assert(await page.evaluate(id => __chicago4d.welcome.enter('anchor', id), anchor), `entered ${anchor}`);
       assert(await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago'))); await atStop();
       framing.push(await page.evaluate(() => { const s = __chicago4d.walker.state; return [s.e, s.n, s.yaw, s.pitch]; }));
       await page.evaluate(() => __chicago4d.jaunts.end());
       await page.waitForSelector('[data-jaunt="new-in-chicago"]');
     }
     assert.deepEqual(framing[0], framing[1]);
+    console.log(`JAUNT PLAY ${viewport.width}: End ${endMs.toFixed(1)}ms, identical near/far start framing`);
+    if (process.env.JAUNT_FRAMING_ONLY === '1') {
+      assert.deepEqual(errors, []);
+      fs.writeFileSync(path.join(out, `${viewport.width}-framing.json`), JSON.stringify({ viewport, endMs, anchors: ['sauganash', 'cermak_prairie'], framing, pageErrors: errors }, null, 2) + '\n');
+      console.log(`JAUNT FRAMING PASS — ${viewport.width}, both anchors entered, identical framing, layouts and 0 page errors`);
+      await context.close(); continue;
+    }
     assert(await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago'))); await atStop();
     for (let i = 0; i < 6; ++i) {
       const s = await state(); if (s.phase === 'outcome') break; states.push(s);
+      console.log(`JAUNT PLAY ${viewport.width}: pilot stop ${s.stopIndex + 1}`);
       const choice = s.jaunt.stops.find(x => x.id === s.visited[s.stopIndex].id).choices?.[0];
       if (choice) await page.evaluate(id => __chicago4d.jaunts.choose(id), choice.id);
       await page.evaluate(() => __chicago4d.jaunts.next());

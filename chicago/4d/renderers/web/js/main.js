@@ -2453,7 +2453,7 @@ async function boot() {
           } finally { jauntEntering = false; }
         },
         render: state => jauntPanel.render(state),
-        showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show(); api.welcome.enter('jaunts'); },
+        showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail() { popup.close(); hud.setPanel(false); },
         async openDetail(link) {
           if (document.pointerLockElement) document.exitPointerLock?.();
