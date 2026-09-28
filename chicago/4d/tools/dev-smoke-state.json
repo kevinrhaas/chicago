@@ -2,6 +2,37 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 365,
+      "takenAt": "2026-09-28T16:42:57.710Z",
+      "ref": "steward/t-1717-north-bank-east-end",
+      "commit": "55b986836692",
+      "devCommit": "f72041734b0e",
+      "treeHash": "sha256:18bf471f2a10bcd9",
+      "treeDirty": false,
+      "changelogHash": "sha256:876687a49e83a94b",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.4,
+          4.3
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "3",
       "parts": [
@@ -1493,44 +1524,6 @@
         ]
       },
       "source": "/tmp/t1279-smoke-desktop-12-budget.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 93,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the suite body ran to completion — TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
-      ],
-      "wallSeconds": 446,
-      "takenAt": "2026-09-28T04:23:16.649Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2873ffa4a849",
-      "devCommit": "2a199d9b71aa",
-      "treeHash": "sha256:4f2483c18652937b",
-      "treeDirty": false,
-      "changelogHash": "sha256:3826d5508336a97d",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          4.3,
-          5.3,
-          4.1
-        ],
-        "frameCostMs": [
-          8,
-          2266,
-          1991
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-12-integrated.log"
     },
     {
       "viewport": "desktop",

@@ -24,14 +24,9 @@
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
-     "n": 20,
+     "n": 19,
      "trade": 9,
-     "share": 0.45
-    },
-    "none": {
-     "n": 1,
-     "trade": 0,
-     "share": 0.0
+     "share": 0.4737
     },
     "ordinary": {
      "n": 25,
@@ -85,27 +80,27 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 437,
+  "structure_records": 435,
   "physical_roofs": {
-   "min": 423,
-   "max": 424,
+   "min": 421,
+   "max": 422,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
    "generated": 291,
    "inferred_household_programme": 7,
-   "pre_existing": 94,
+   "pre_existing": 92,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 231,
    "west": 83,
-   "north": 93,
+   "north": 91,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 211,
-   "larger_boarding_houses": 18,
+   "ordinary_dwellings": 210,
+   "larger_boarding_houses": 17,
    "stores_mixed_use": 48,
    "inns_taverns": 9,
    "workshops": 22,
@@ -130,13 +125,13 @@
    "D3": 41,
    "D4": 44,
    "D5": 25,
-   "D6": 16,
+   "D6": 15,
    "D7": 3,
    "F1": 10,
    "F2": 4,
    "F3": 0,
    "F4": 1,
-   "H1": 10,
+   "H1": 9,
    "H2": 8,
    "H3": 0,
    "I1": 4,
@@ -172,12 +167,12 @@
   ]
  },
  "remaining": {
-  "roofs": 245,
+  "roofs": 247,
   "of_target": 668,
   "by_district": {
    "south": 134,
    "west": 52,
-   "north": 59,
+   "north": 61,
    "fort": 0
   },
   "by_district_group": {
@@ -201,8 +196,8 @@
    "north": {
     "barns_stables": 9,
     "inns_taverns": 1,
-    "larger_boarding_houses": 1,
-    "ordinary_dwellings": 34,
+    "larger_boarding_houses": 2,
+    "ordinary_dwellings": 35,
     "small_outbuildings": 8,
     "stores_mixed_use": 3,
     "warehouses_freight": 1,
@@ -225,13 +220,13 @@
    "D3": 24,
    "D4": 27,
    "D5": 27,
-   "D6": 13,
+   "D6": 14,
    "D7": 15,
    "F1": 0,
    "F2": 3,
    "F3": 3,
    "F4": 1,
-   "H1": 8,
+   "H1": 9,
    "H2": 6,
    "H3": 10,
    "I1": 0,
@@ -251,14 +246,14 @@
    "south": {
     "A1": 10,
     "A2": 8,
-    "H1": 6,
-    "H2": 5,
+    "H1": 7,
+    "H2": 4,
     "H3": 8,
     "D2": 5,
     "D3": 14,
-    "D4": 16,
+    "D4": 15,
     "D5": 15,
-    "D6": 7,
+    "D6": 8,
     "D7": 9,
     "A3": 11,
     "A4": 9,
@@ -295,8 +290,9 @@
     "A1": 5,
     "A2": 4,
     "T1": 1,
+    "H1": 1,
     "H3": 1,
-    "D2": 2,
+    "D2": 3,
     "D3": 7,
     "D4": 8,
     "D5": 8,
@@ -481,7 +477,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.5325,
+   "frontage_weight": 0.5384,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -2559,12 +2555,12 @@
    "id": "north_division_beyond_modelled_ground",
    "kind": "district_balance",
    "district": "north",
-   "capacity_roofs": 59,
+   "capacity_roofs": 61,
    "standing_roofs": 0,
-   "headroom": 59,
+   "headroom": 61,
    "state": "gated",
    "waiting_on": "North Division ground beyond the initial parcel: the plat grid covers no North Division block at all — that street control is what ROADMAP S9 records as owed — and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
-   "roofs": 59,
+   "roofs": 61,
    "families": {
     "A1": 5,
     "A2": 4,
@@ -2573,19 +2569,20 @@
     "A5": 1,
     "C3": 2,
     "C4": 1,
-    "D2": 2,
+    "D2": 3,
     "D3": 7,
     "D4": 8,
     "D5": 8,
     "D6": 4,
     "D7": 5,
     "F2": 1,
+    "H1": 1,
     "H3": 1,
     "T1": 1,
     "W1": 1,
     "W2": 1
    },
-   "principal": 42,
+   "principal": 44,
    "ancillary": 17
   },
   {
