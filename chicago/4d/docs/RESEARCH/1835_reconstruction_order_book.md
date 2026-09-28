@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 372. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -111,6 +111,17 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 **129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 299 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
+
+**The programme is settled**, and its finish line is the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic. owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
+
+395 person(s) remain held in 44 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+
+| the refusal that holds them | people |
+|---|---:|
+| `a_documented_reading_shrank_the_order` | 1 |
+| `the_re_cut_reached_work_already_drawn` | 394 |
+
+What would reopen it: a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
 
 | person | out of | into | order filled | rule | ticket | adoptions |
 |---|---|---|---|---|---|---:|
@@ -330,8 +341,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1533 | 15 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
-| T-1531 | 2 | 2 |
 | T-1418 | 1 | 1 |
+| T-1531 | 1 | 1 |
 
 
 ## The rules this book adds
@@ -570,12 +581,11 @@ The households the model wants, by kind and division.
 | `households/boarding_house/south` | 41 | 7 | 34 | 1 | T-1538 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-1538 |
 | `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-1171 |
-| `households/family_dwelling/south` | 257 | 41 | 216 | 65 | T-1171 |
+| `households/family_dwelling/south` | 258 | 41 | 217 | 65 | T-1171 |
 | `households/family_dwelling/west` | 110 | 7 | 103 | 33 | T-1171 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-1538 |
 | `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-1538 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-1538 |
-| `households/institutional/north` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 0 | 6 | 0 | T-1171 |
 | `households/store_residence/south` | 61 | 10 | 51 | 0 | T-1171 |

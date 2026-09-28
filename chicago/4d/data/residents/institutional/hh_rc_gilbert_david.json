@@ -21,7 +21,8 @@
    "north_side_school_1833",
    "st_marys_church",
    "temple_building",
-   "walker_meeting_house"
+   "walker_meeting_house",
+   "watkins_school_house"
   ]
  },
  "household_owed": {
@@ -145,7 +146,7 @@
    },
    "resident_subtype": "reconstructed_institutional_head",
    "sources": [],
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because Chicago Lighthouse (1832 tower) is one of two institutional roofs in this town whose own committed record puts a household under it, and because the reconstruction order book counts that household missing. The whole of what is claimed is that somebody lived here. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because Chicago Lighthouse (1832 tower) is an institutional roof of this town whose own committed record puts a household under it and names nobody, and because the reconstruction order book counts that household missing. The whole of what is claimed is that somebody lived here. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
