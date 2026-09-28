@@ -10830,9 +10830,11 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 72 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 74 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 72 structures carry a `land_owner` block that rests on them. The construction is
+traced, and 74 structures carry a `land_owner` block that rests on them (72 until T-1717
+raised the Lake House's two neighbours on the north bank east end; `resolve_land_tracts.py`
+gave each of them the same constructed grid, and neither record states a tract of its own). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,

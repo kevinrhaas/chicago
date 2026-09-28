@@ -36,7 +36,7 @@
     "named_people": 405,
     "named_people_linked_to_a_town_card": 351,
     "works_at_households": 50,
-    "works_at_households_resolving_to_a_business": 36,
+    "works_at_households_resolving_to_a_business": 35,
     "by_grade": {
       "attested": 166,
       "inferred": 72,
@@ -9418,7 +9418,7 @@
       ],
       "where": {
         "kind": "premises",
-        "structure_id": "pruyne_kimball_drugstore",
+        "structure_id": "kimberly_residence",
         "anchor": null,
         "street_id": null,
         "street": null,
@@ -15966,9 +15966,7 @@
       "household_id": "hh_pruyne_kimberly",
       "head": "pruyne_peter",
       "structure_id": "pruyne_kimball_drugstore",
-      "business_ids": [
-        "biz_p_pruyne_co"
-      ]
+      "business_ids": []
     },
     {
       "household_id": "hh_robinson_alexander",

@@ -9,7 +9,7 @@
       "persons": 2667,
       "businesses": 196
     },
-    "structures": 435,
+    "structures": 437,
     "structures_sharing_a_name": 42,
     "streets": 79,
     "resident_persons": 1404
@@ -5903,10 +5903,10 @@
       "anchor_change": null,
       "outside_plat": null,
       "action": "enrich_existing",
-      "action_target": "pruyne_kimball_drugstore",
+      "action_target": "kimberly_residence",
       "match_tier": "occupants",
-      "match_evidence": "Pruyne and Kimball; druggists",
-      "action_note": "pruyne_kimball_drugstore already stands and its occupants carries pruyne — 'Pruyne and Kimball; druggists'. The papers add trade, goods and dates to a record that exists."
+      "match_evidence": "Dr Edmund Stoughton Kimberly; physician and Peter Pruyne's partner in a drug store on South Water Street",
+      "action_note": "kimberly_residence already stands and its occupants carries pruyne — \"Dr Edmund Stoughton Kimberly; physician and Peter Pruyne's partner in a drug store on South Water Street\". The papers add trade, goods and dates to a record that exists."
     },
     {
       "id": "business_p_s_carli_eagle_tavern",

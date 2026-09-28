@@ -29,8 +29,8 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | newberry_index | 0 | 0 | 0 | 0 | 6,658 | 0 | 6,658 |
 | newspapers | 699 | 68 | 9 | 271 | 60 | 82 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
-| residents | 26 | 10 | 0 | 0 | 1,022 | 22 | 1,080 |
-| **Total** | **1,394** | **12,596** | **119** | **376** | **8,735** | **477** | **23,697** |
+| residents | 27 | 10 | 0 | 0 | 1,021 | 22 | 1,080 |
+| **Total** | **1,395** | **12,596** | **119** | **376** | **8,734** | **477** | **23,697** |
 
 ## Second-hop preservation
 

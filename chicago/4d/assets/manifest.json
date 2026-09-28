@@ -783,6 +783,24 @@
       "phase_id": "frame_1835",
       "structure_id": "john_holbrook_store"
     },
+    "kelsey_boarding_house__frame_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 31072,
+      "inputs_sha256": "41db0754e46f8918f3d9ea424007811f9a9cd538d1ec5d67828155dcac06fed5",
+      "kind": "generated",
+      "phase_id": "frame_1835",
+      "structure_id": "kelsey_boarding_house"
+    },
+    "kimberly_residence__frame_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 40080,
+      "inputs_sha256": "25b59c930beabd0a8c2149403c48d1d51ef1f2cb3ca2a1403e9b2d70048eb1fd",
+      "kind": "generated",
+      "phase_id": "frame_1835",
+      "structure_id": "kimberly_residence"
+    },
     "kinzie_hunter_warehouse__warehouse_1834.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

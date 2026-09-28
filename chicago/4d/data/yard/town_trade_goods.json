@@ -7,8 +7,8 @@
   "target_date": "1835-07-01",
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
-    "frontages": 27,
-    "objects": 155,
+    "frontages": 28,
+    "objects": 161,
     "wagons": 70,
     "wagons_by_kind": {
       "farm_box": 25,
@@ -20,8 +20,8 @@
     "wagon_stands_refused": 42,
     "benches": 1,
     "sheds": 1,
-    "marked_objects": 155,
-    "distinct_marks": 75
+    "marked_objects": 161,
+    "distinct_marks": 77
   },
   "existence": {
     "value": true,
@@ -1811,6 +1811,135 @@
           "mark": {
             "lines": [
               "DRY GOODS"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        }
+      ]
+    },
+    {
+      "structure_id": "kelsey_boarding_house",
+      "name": "Kelsey's boarding-house",
+      "trade": "boarding_house",
+      "trade_confidence": "attested",
+      "why_goods": "a lodging house is fed out of the same barrels a tavern is",
+      "confidence": "reconstructed",
+      "facade_bearing_deg": 180.0,
+      "frontage_m": 8.5,
+      "usable_frontage_m": 7.5,
+      "standoff_m": 0.55,
+      "ground_quad_local_enu_m": [
+        [
+          1315.0,
+          485.0
+        ],
+        [
+          1306.5,
+          485.0
+        ],
+        [
+          1306.5,
+          478.9
+        ],
+        [
+          1315.0,
+          478.9
+        ]
+      ],
+      "items": [
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            1314.19,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "VINEGAR"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            1313.57,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "FLOUR"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            1312.95,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "KELSEY"
+            ],
+            "letterform": "brand",
+            "says": "house"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "laid",
+          "at_local_enu_m": [
+            1311.98,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "SALT"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "crate",
+          "tier": 0,
+          "at_local_enu_m": [
+            1310.65,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "KELSEY",
+              "CHICAGO"
+            ],
+            "letterform": "shipping",
+            "says": "shipping"
+          }
+        },
+        {
+          "kind": "crate",
+          "tier": 1,
+          "at_local_enu_m": [
+            1310.65,
+            478.35
+          ],
+          "bearing_deg": 180.0,
+          "mark": {
+            "lines": [
+              "TEA"
             ],
             "letterform": "stencil",
             "says": "commodity"
