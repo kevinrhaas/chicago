@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1197, ts: '2026-09-28T03:14:19.984Z', date: 'Sep 27, 2026, 10:14 PM CT', title: 'Jackson Street was never Jackson Boulevard', kind: 'fix',
+    items: [
+      'Walk south to the last of the four platted tiers below Washington Street and the street readout used to tell you that in 1835 you were on Jackson BOULEVARD. It was not: the boulevard is a twentieth-century thing, and the modern name had been carried back onto an 1835 street. The town itself settles it \u2014 the Trustees\u2019 by-laws of 7 November 1833 name the four streets south of Washington in order, Madison, Monroe, Adams and Jackson-street \u2014 so the readout now says Jackson Street, with Jackson Boulevard kept as the modern name beside it.',
+      'All four of those streets now carry the ordinance that named them. Until now their names came off a surveyor\u2019s sheet that letters the tiers and says nothing about what the corporation called them; the naming act is a contemporary document, printed in the Chicago Democrat\u2019s first issue. Naming a street is not opening one: all four are still platted survey lines over prairie with no track worn on them.',
+      'South Water Street was graded because the town ordered it graded, and the street now says so. The Trustees told the Surveyor in July 1834 to graduate it so that the crown ran along the river side of each block and the water ran off into the river at every cross street. The scene already drew the town\u2019s main street as graded earth on an inference; it now stands on the order itself. How rutted it was is still a reconstruction, and the crown is not drawn.',
+      'And the eighty-foot street the whole plat is built on is the town\u2019s own figure too: a by-law of December 1833 let a riverfront owner build out toward the water so long as he left eighty feet for a street, at fifteen dollars a year.',
+      'Behind all of that, the last eighteen unspent street readings in the research corpus are now each ruled in writing \u2014 including two the papers printed weeks before the scene date, complaining that Chicago\u2019s streets \u201cwould disgrace a piggery\u201d.',
+    ] },
   { v: 1196, ts: '2026-09-28T02:37:28.806Z', date: 'Sep 27, 2026, 9:37 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
     items: [
       'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',
