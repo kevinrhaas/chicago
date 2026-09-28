@@ -1903,6 +1903,133 @@
         ]
       },
       "source": "/tmp/smoke-d23.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 439,
+      "takenAt": "2026-09-28T09:57:06.326Z",
+      "ref": "steward/t-1713-south-outer-books",
+      "commit": "38bacafe90a4",
+      "devCommit": "67229e3a4605",
+      "treeHash": "sha256:02ea7b8f7b4de9fc",
+      "treeDirty": false,
+      "changelogHash": "sha256:3ceaadaef01acfe1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.1,
+          3.9
+        ]
+      },
+      "source": "/tmp/sd2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 240,
+      "takenAt": "2026-09-28T09:49:15.544Z",
+      "ref": "steward/t-1713-south-outer-books",
+      "commit": "38bacafe90a4",
+      "devCommit": "67229e3a4605",
+      "treeHash": "sha256:02ea7b8f7b4de9fc",
+      "treeDirty": false,
+      "changelogHash": "sha256:3ceaadaef01acfe1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          4.3,
+          3.7
+        ]
+      },
+      "source": "/tmp/sm2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 139,
+      "takenAt": "2026-09-28T01:29:40.056Z",
+      "ref": "steward/t1592-infrastructure-book-readings",
+      "commit": "85c227a0d13a",
+      "devCommit": "6226e593cc39",
+      "treeHash": "sha256:9a26e3709b090c2d",
+      "treeDirty": false,
+      "changelogHash": "sha256:a96c3a0247a2cb04",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/s2_m3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2-3",
+      "parts": [
+        2,
+        3
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 172,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 47 walk(s), 39 crossing(s), 18 post(s), 31 fence run(s), 857730 vertices, 115 wall(s) refused, problems [none]"
+      ],
+      "wallSeconds": 299,
+      "takenAt": "2026-09-28T01:29:12.383Z",
+      "ref": "steward/t-1587-street-readings",
+      "commit": "78a8eb424195",
+      "devCommit": "ac8ad8518c23",
+      "treeHash": "sha256:a5e937ac8a43a258",
+      "treeDirty": false,
+      "changelogHash": "sha256:08bfbb6768501ff7",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.3,
+          3.1
+        ]
+      },
+      "source": "/tmp/smoke-m23.log"
     }
   ]
 }
