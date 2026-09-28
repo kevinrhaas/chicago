@@ -896,10 +896,23 @@ def blocks_carrying_a_dealt_parcel() -> dict[str, list[str]]:
     the arrangement that deal was argued on until the argument is re-made (T-1734), and a
     block with no parcel is transposed now. Reading the parcel file rather than naming
     the blocks here is what makes a third such cell arrive on its own.
+
+    AND WHAT RELEASES ONE IS THE PARCEL'S OWN RE-ARGUMENT — T-1734, the other half of the
+    T-1479 split. A hold here is not a permanent property of a block; it is a statement
+    that the deal standing on it was argued against faces the transpose removes. So the
+    parcel says which arrangement its frontage argument was made on, in
+    `frontage_argued_on`, and a parcel that names the West Division's module has already
+    had that argument re-made and holds nothing back. It is read off the parcel and not
+    keyed by block id here for the same reason the hold is: the third such cell releases
+    itself by re-arguing, with no edit to this function. A parcel that names no
+    arrangement at all is one authored before the question existed, and it still holds —
+    silence is not a re-argument.
     """
     doc = load(PARCELS_PATH)
     dealt: dict[str, list[str]] = {}
     for parcel in doc["blocks"]:
+        if parcel.get("frontage_argued_on") == "west_division_thompson_1830":
+            continue
         dealt.setdefault(parcel["block_id"], []).append(parcel["programme_phase"])
     return dealt
 
@@ -2961,10 +2974,19 @@ def self_test() -> int:
 
     cases += 1
     columns_ft = 2 * west["lot_depth_ft"] + west["alley_width_ft"]
+    # EITHER KEY, because a ruling that overrides a refusal keeps the refusal's
+    # arithmetic and only moves where it is written (T-1734). A HELD cell carries it as
+    # `west_division_module_refused`; a TRANSPOSED one carries the same figures as
+    # `the_two_refusals_this_overrode`, re-derived by the same function on the same
+    # committed lines. Selecting on the held key alone made this case go red the day the
+    # last held cell moved — reporting the arithmetic as missing when what had happened
+    # is that every block now records it as overridden.
     west_blocks = [b for b in (grid["blocks"] if grid else [])
-                   if "west_division_module_refused" in b["module"]]
+                   if {"west_division_module_refused",
+                       "the_two_refusals_this_overrode"} & set(b["module"])]
     if not west_blocks:
-        print("  NO WEST DIVISION BLOCK on this grid — the refusal has nothing to refuse")
+        print("  NO BLOCK RECORDS THE WEST DIVISION REFUSAL, held or overridden — the "
+              "arithmetic has gone missing rather than been ruled on")
         failed += 1
     else:
         seatable = [b for b in west_blocks
@@ -2989,8 +3011,17 @@ def self_test() -> int:
     #     the printed module (the arrangement was cut into the ground, not the figure
     #     seated at its size), and the cells that are NOT transposed must be held by a
     #     parcel they actually carry rather than by prose.
+    #     And once a held cell IS released by re-arguing its deal (T-1734), the release
+    #     has to be worth more than the hold was: a parcel that says it was re-argued on
+    #     the West Division's arrangement must actually deal onto the faces that
+    #     arrangement gives. Every lot of a transposed block fronts the NORTH-SOUTH pair,
+    #     so a slot still naming Randolph or Washington is a re-argument in the field and
+    #     not in the deal — which is exactly the state the hold existed to prevent, now
+    #     wearing a label that says it has been fixed.
     cases += 1
     dealt = blocks_carrying_a_dealt_parcel()
+    re_argued = {p["block_id"]: p for p in load(PARCELS_PATH)["blocks"]
+                 if p.get("frontage_argued_on") == "west_division_thompson_1830"}
     carried = {o["already_derived_as"] for o in (grid["omitted"] if grid else [])
                if o.get("already_derived_as")}
     troubles = []
@@ -3013,6 +3044,17 @@ def self_test() -> int:
             troubles.append(f"{block['id']} was transposed while carrying a dealt parcel "
                             f"({', '.join(dealt[block['id']])}) — its roofs were argued "
                             "onto faces this arrangement removes")
+        parcel = re_argued.get(block["id"])
+        if parcel is not None:
+            pair = {block["bounded_by"]["west"], block["bounded_by"]["east"]}
+            astray = sorted({slot["fronts"] for slot in parcel["slots"]
+                             if slot.get("fronts") and slot["fronts"] not in pair})
+            if astray:
+                troubles.append(
+                    f"{block['id']}'s parcel says its frontage argument was re-made on "
+                    f"the West Division arrangement, and {len(astray)} of its slots still "
+                    f"front {', '.join(astray)} — no lot on a transposed block fronts an "
+                    f"east-west street, so the field was changed and the deal was not")
         if module.get("confidence") != "inferred":
             troubles.append(f"{block['id']} grades its module carry "
                             f"{module.get('confidence')!r} and not 'inferred' — this "
