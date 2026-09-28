@@ -1,3 +1,22 @@
+## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
+
+New in Chicago is now authored JSON: five short exterior stops, an optional
+rest/explore preference, explicit historical claims, a continuity inference and
+the reconstructed Finding Your Feet route note. Hogan’s corner is the former
+post office; the Democrat’s named building is also a former office by May 1835.
+The welcome lists the lazy catalog and opens a lazy, read-only route preview with
+per-stop evidence. No guided travel, ETA, reward storage or per-jaunt code ships.
+
+The Draft 2020-12 schema and compiler validate typed destinations, date eligibility,
+registered sources/locators, bounded integers and inventory, all reachable forward
+states, ending reachability and cycle refusals. Review-held content is unavailable
+with a reason. T-1248’s source index registers the pilot’s claims directly. The
+under-200-line authoring guide is linked from the architecture and execution plan.
+Fixtures prove data-only expansion and isolate malformed content; a 27-entry
+catalog is 22,322 bytes / 30,000, the real catalog 869 bytes. Twenty-five semantic
+tests pass. Published browser and full gate receipts are recorded with the PR;
+see docs/performance/jaunts/README.md. Playback remains T-1279’s work.
+
 T-1278: ready arrival opens a mobile welcome, shared starting-place picker and Start / Jaunts return. Jaunt catalog remains T-1253/T-1259. See docs/performance/welcome/README.md.
 
 # ROADMAP

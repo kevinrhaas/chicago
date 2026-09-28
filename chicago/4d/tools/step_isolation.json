@@ -2526,6 +2526,9 @@
     "tools/compile_gazetteer.py": {
       "wrote": []
     },
+    "tools/compile_jaunts.py": {
+      "wrote": []
+    },
     "tools/compile_liberties.py": {
       "wrote": []
     },
@@ -3502,6 +3505,9 @@
       "wrote": []
     },
     "tools/test_changelog_mirror.mjs": {
+      "wrote": []
+    },
+    "tools/test_compile_jaunts.py": {
       "wrote": []
     },
     "tools/test_compile_source_use.py": {

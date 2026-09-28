@@ -1,0 +1,702 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+      "maxLength": 90
+    },
+    "content_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[^<>]*$"
+    },
+    "premise": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 260,
+      "pattern": "^[^<>]*$"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "pattern": "^[^<>]*$"
+    },
+    "scene": {
+      "const": "1835"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "opening": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "read_s": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 600
+        }
+      },
+      "required": [
+        "text",
+        "read_s"
+      ],
+      "additionalProperties": false
+    },
+    "default_mode": {
+      "enum": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ]
+    },
+    "allowed_modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "walk",
+          "wagon",
+          "horse",
+          "fly",
+          "instantly"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "variables": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+        "maxLength": 90
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "integer"
+          },
+          "max": {
+            "type": "integer"
+          },
+          "initial": {
+            "type": "integer"
+          },
+          "unit": {
+            "enum": [
+              "count",
+              "cents",
+              "preference",
+              "minutes"
+            ]
+          }
+        },
+        "required": [
+          "min",
+          "max",
+          "initial",
+          "unit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "uniqueItems": true
+        },
+        "initial": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "uniqueItems": true
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "items",
+        "initial",
+        "capacity"
+      ],
+      "additionalProperties": false
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/stop"
+      },
+      "minItems": 1,
+      "maxItems": 50
+    },
+    "legs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "^[^<>]*$"
+          },
+          "story": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "^[^<>]*$"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "endings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "when": {
+            "$ref": "#/$defs/when"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "^[^<>]*$"
+          },
+          "read_s": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 600
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "completion_eligible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "read_s",
+          "completion_eligible"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "keepsake": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "enum": [
+            "Provisions",
+            "Livelihood",
+            "Wayfinding",
+            "News & Knowledge",
+            "Neighbors"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 90
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        }
+      },
+      "required": [
+        "family",
+        "id",
+        "title",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "secondary_family": {
+      "enum": [
+        "Provisions",
+        "Livelihood",
+        "Wayfinding",
+        "News & Knowledge",
+        "Neighbors"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "minItems": 1
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "review_reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "^[^<>]*$"
+    },
+    "liberties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "pattern": "^[^<>]*$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "content_version",
+    "title",
+    "premise",
+    "category",
+    "scene",
+    "opening",
+    "default_mode",
+    "allowed_modes",
+    "stops",
+    "endings",
+    "keepsake",
+    "evidence",
+    "review_required",
+    "liberties"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "when": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/when"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "any": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/when"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/when"
+            }
+          },
+          "required": [
+            "not"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "has": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            }
+          },
+          "required": [
+            "has"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "var": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            },
+            "op": {
+              "enum": [
+                "<",
+                "<=",
+                "==",
+                ">=",
+                ">",
+                "!="
+              ]
+            },
+            "value": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "var",
+            "op",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "enum": [
+                "set",
+                "inc"
+              ]
+            },
+            "var": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            },
+            "value": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "op",
+            "var",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "enum": [
+                "add",
+                "remove"
+              ]
+            },
+            "item": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            },
+            "value": {
+              "const": 1
+            }
+          },
+          "required": [
+            "op",
+            "item",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "destination": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "structure",
+            "anchor",
+            "intersection",
+            "person",
+            "business"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 90
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "choice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 90
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "consequence": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "when": {
+          "$ref": "#/$defs/when"
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "next": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            },
+            {
+              "enum": [
+                "$end"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "consequence"
+      ],
+      "additionalProperties": false
+    },
+    "stop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 90
+        },
+        "destination": {
+          "$ref": "#/$defs/destination"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "read_s": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 600
+        },
+        "action_s": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 600
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/choice"
+          },
+          "maxItems": 3
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "structure",
+                  "person",
+                  "business",
+                  "source",
+                  "topic"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                "maxLength": 90
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000,
+                "pattern": "^[^<>]*$"
+              }
+            },
+            "required": [
+              "kind",
+              "id",
+              "label"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+              "maxLength": 90
+            },
+            {
+              "enum": [
+                "$end"
+              ]
+            }
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "destination",
+        "text",
+        "read_s",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 90
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "confidence": {
+          "enum": [
+            "attested",
+            "inferred",
+            "reconstructed"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "uniqueItems": true
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "reasoning": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        },
+        "liberty": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[^<>]*$"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "confidence",
+        "sources"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "title": "Chicago jaunt content v1"
+}

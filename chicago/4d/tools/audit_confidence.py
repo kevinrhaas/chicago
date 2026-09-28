@@ -153,7 +153,8 @@ def audit():
             # Reasoning lives under `note` on a structure attribute and under
             # `notes` (a list) on a terrain claim. Checking only the first
             # reported all twelve reasoned river reaches as unreasoned.
-            reasoning = note.strip() or " ".join(
+            # Jaunt evidence carries the same justification as `reasoning` (§C).
+            reasoning = note.strip() or str(block.get("reasoning") or "").strip() or " ".join(
                 str(n) for n in (block.get("notes") or []) if n).strip()
             if conf == INFERRED and not reasoning:
                 # An inference with no stated reasoning is indistinguishable from
