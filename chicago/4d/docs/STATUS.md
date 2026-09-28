@@ -1,3 +1,21 @@
+## T-1738 — the 1904 ground generated and baked (2026-09-28)
+
+Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904
+scene. `generators/terrain_gen_graded.py` turns T-1251's zone table and T-1250's scene line into
+`data/terrain/epochs/e1871_postfire/heightfield.{json,bin}` (281 × 361 samples at 2.5 m over
+E +1100..+1800, N −3800..−2900; land Z 0 to +15.1 ft, the lake 26 % of the box, bed to −8 ft),
+reusing `terrain_gen.py`'s mesher, skirt and 30 mm refusal. Baked with the pinned Blender 4.5.3:
+`assets/gltf/terrain__e1871_postfire.glb` (98,053 triangles, within 2.5 mm of the field) and
+`water__e1871_postfire.glb`, with their web derivatives (the shipped ground 0.0 mm off the master
+in plan, the drawn surface within 6.0 mm of the field). `terrain_inputs.py` hashes the graded
+epoch's own generator and vector file, leaving the 1835 epoch's hash byte-identical; the spec's
+blocks are on the ground gates (GROUND_GROUPS, CONSUMED checked against the generator, `mesh`
+declarations) and L290 admits every reconstructed claim. The apron is 4,669.84 m, not the
+2,109.92 m terrain_gen.py's 1,500 m floor would give a box this small: that floor predates T-1635,
+and `check_haze_reach.mjs` refused an apron ending inside the haze's 2,644.9 m, so the graded
+generator raises the floor to the 1835 apron the air was solved against. Not verified: nothing
+renders it yet.
+
 ## T-1727 — structure versions by URL (2026-09-28)
 
 `?structure=<id>&version=<label>` swaps one structure for a committed alternate record
@@ -18,6 +36,7 @@ live test. The only committed version is the smoke's TEST FIXTURE
 (`bates_auction_room/fixture`), an unchanged copy of the default record whose inputs hash
 equals the committed bake, so its mesh was adopted rather than baked; the pinned
 derivative command reproduces the adopted derivative byte for byte.
+
 
 ## T-1251 — the 1904 ground's zone table (2026-09-28)
 
