@@ -27,6 +27,17 @@
       "also_printed_as": []
     }
   ],
+  "service": {
+    "reads": "The eastern mail: weekly on horseback in 1832, weekly by one-horse wagon the next year, a two-horse wagon in 1833, a semi-weekly four-horse stage line from 1834, tri-weekly in 1835, and daily from 1837.",
+    "frequency": "three times a week",
+    "carriage": "a four-horse stage line from the East",
+    "from": "1835",
+    "to": "1835",
+    "tier": "inferred",
+    "basis": "WHAT THE OFFICE ACTUALLY DID ON THE SCENE DATE, and until T-1592 this record could not say it. Fergus' Historical Series No. 28 prints the eastern mail's carriage year by year and 1835 is in the list by name: a four-horse stage line, established semi-weekly in 1834, ran TRI-WEEKLY in 1835. `inferred` AND NOT `attested`, although data/sources/fergus_historical_series_26_29.json sits at tier 2, and the grade is admitting three things. The volume's No. 28 is the Directory of the City of Chicago for 1843 COMPILED IN 1896 by a man who reached Chicago in 1839, so this is a late recollection of a directory's own history section and not a contemporaneous printing. The reading gives a YEAR and no month, so carrying a tri-weekly stage from an unnamed month of 1835 to 1 July is an inference about continuity within the year. And nothing else in this corpus dates the mail's frequency at all, so there is no second witness to agree or disagree. WHAT IT DOES NOT SAY: nothing here is a premises, a seat or a coordinate \u2014 the office stands on South Water Street at the Franklin end at the tier `locations` gives it, and T-0859's conflict over which door is untouched. The same reading names Jonathan Nash Bailey as the 1832 postmaster and he is NOT carried onto this record: the books crosswalk refuses him against the letter-list Bennet Bailey, so the staff row stays Hogan alone. The mail's earlier state is the measure of the distance travelled and is refused as a scene fact for the same reason \u2014 `bk_hub_072` has Fort Wayne as the nearest post office and the mail once a month on a soldier's back, which is Hubbard's Chicago of 1818-23.",
+    "source_id": "fergus_historical_series_26_29",
+    "claim_ids": ["bk_fer_052"]
+  },
   "locations": [
     {
       "kind": "street_only",
@@ -65,7 +76,8 @@
   },
   "customers": [],
   "sources": [
-    "andreas_1884_v1"
+    "andreas_1884_v1",
+    "fergus_historical_series_26_29"
   ],
   "claim_ids": [],
   "liberties": {

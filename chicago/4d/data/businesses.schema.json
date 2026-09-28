@@ -241,6 +241,20 @@
         "source_id": {"type": "string", "minLength": 1},
         "claim_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "The claims the record was compiled from \u2014 the whole reason the block exists."}
       }},
+    "service": {"type": ["object", "null"], "additionalProperties": false,
+      "required": ["reads", "frequency", "carriage", "from", "to", "tier", "basis", "source_id", "claim_ids"],
+      "description": "HOW THE FIRM SERVED THE TOWN, WHERE THE CORPUS SAYS SO AND THE REST OF THE RECORD CANNOT (T-1592). `locations` says where a firm stood, `dates` when it opened and `staff` who kept it \u2014 and for a PUBLIC SERVICE none of those three is the thing a visitor would ask it. The Post Office at Chicago held its postmaster attested, its street attested and its opening day exact, and said nothing whatever about how often the mail actually came; the one reading in this corpus that dates the eastern mail's carriage in the scene year had nowhere on the record to land, so a card a visitor opens could not answer the first question anybody asks a post office. This block is that place. It is OPTIONAL and absent on every record whose corpus states no service; it claims a FREQUENCY and a CARRIAGE and nothing else; and it is not a door to an upgrade \u2014 it claims no premises, no keeper and no date beyond its own window, all of which stay on `locations`, `staff` and `dates` at the tier the placement policy left them. A block at `inferred` states the inference in `basis` or it is over-graded.",
+      "properties": {
+        "reads": {"type": "string", "minLength": 1, "description": "The service as the reading states it, in the reading's own terms."},
+        "frequency": {"type": "string", "minLength": 1, "description": "How often, in plain words \u2014 `three times a week`, `once a month`."},
+        "carriage": {"type": ["string", "null"], "description": "What brought it, where the source names one \u2014 a four-horse stage, a one-horse wagon, a soldier on foot. Null where the source is silent, which is a silence to be printed and not a gap to be filled."},
+        "from": {"$ref": "#/$defs/date"},
+        "to": {"$ref": "#/$defs/date"},
+        "tier": {"$ref": "#/$defs/tier"},
+        "basis": {"type": "string", "minLength": 1, "description": "Why the grade is the grade, and what the reading does NOT say."},
+        "source_id": {"type": "string", "minLength": 1},
+        "claim_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "The committed readings the block was written from, so the citation is checkable in one grep."}
+      }},
     "proprietors": {"type": "array", "items": {"$ref": "#/$defs/person"}},
     "partners": {"type": "array", "items": {"$ref": "#/$defs/person"}},
     "staff": {"type": "array", "items": {"$ref": "#/$defs/person"},
