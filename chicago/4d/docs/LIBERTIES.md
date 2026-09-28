@@ -15942,3 +15942,33 @@ Library of Congress item, `https://www.loc.gov/item/sanborn01790_020/`) would re
 **Related:** **L239** (the 1835 lake below Twelfth Street, the same refusal to invent past a sheet),
 **L241** (the 1880s day-of-year), `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7, **T-1250**.
 **Recorded:** 2026-09-28.
+
+### L288 — The 1904 ground away from the standing houses: modern crowns carried back, lots graded between them, and a breakwater face nobody measured
+**Decision:** in `data/terrain/epochs/e1871_postfire/terrain_spec.json` (T-1251) four things are
+**reconstructed**: the street crowns on corridors no house of the period still stands on (research
+zone 4 — Prairie at 16th, midway to 18th and at 21st; Indiana and Michigan at 16th, 18th and 21st),
+read off the modern bare-earth model and carried back to 1904; the way the grade runs across a block
+between those crowns (zone 5, inverse distance); the Illinois Central embankment's track bed, held
+at the grade beside it, and its lakeward face at 1 in 1.5 (zone 7); and the 1904 lake stage, the lake
+bed off the right-of-way and a ±0.05 ft surface texture (zones 2, 9, 11).
+**Why:** no survey of the 1904 levels has been found. Where houses of the period stand on Prairie
+Avenue at their built grade (the Glessner House to 2017 Prairie) their walks read within 0.18 ft of
+the modern crown, and there the crown is **inferred** (zone 3). Everywhere else nothing witnesses
+that the modern street has not been re-graded, so the reading is a reconstruction, bounded by the
+confirmed crowns (within 2.8 ft) and by City benchmark 289 at 23rd and Michigan. The embankment and
+the lake bed are needed to make a waterline meet a grade at all, and nothing held gives either.
+**What bounds it:** the crowns stay inside Z +12.3 to +15.1 ft and every lot is interpolated from
+them, so no cell of land can leave that range; the embankment claims the least available — no cut
+and no bank, only the face to the water; the lake stage is the 1835 plane, inside the terrain
+dossier's 576–582 ft range; the texture is half the 1835 ground's.
+**Consequence:** a visitor walking north of 18th Street or west of Prairie Avenue stands on ground
+whose height is the modern street's to within the model's own accuracy, which may be a few inches
+off the 1904 one; the breakwater's slope and the lake's depth are shapes, not measurements.
+**How to resolve:** a 1900s city grade ordinance or street-level book for the south end of the South
+Division would replace zones 4 and 5 outright; a section of the Illinois Central's lakeshore works
+of 1886–1911, zone 7; a Lake Michigan stage record for summer 1904, zone 2.
+**Applies to:** `data/terrain/epochs/e1871_postfire/terrain_spec.json`,
+`data/terrain/e1871_grade_readings.json`.
+**Related:** **L287** (the lake edge those blocks meet), **L3** (flatness),
+`docs/RESEARCH/terrain_e1871_postfire.md`, **T-1251**.
+**Recorded:** 2026-09-28.
