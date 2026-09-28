@@ -187,21 +187,20 @@
      "record_id": "resident_research:T-0485#01",
      "as_read": "a Racine old-settlers record says he came from Chicago on January 2, 1835",
      "note": "A dated leaving six months before the scene, and the strongest thing this card holds about where the man was on 1 July. Presence is not moved by this ticket; the fact is written down so the next reader can move it on evidence."
-    },
-    {
-     "field": "life_event",
-     "value": "Held land at Chicago",
-     "confidence": "inferred",
-     "sources": [
-      "rr_andreas_chicago_1884_pass11"
-     ],
-     "describes_date": "1834-01-01",
-     "place_class": "chicago",
-     "record_id": "resident_research:T-0485#02",
-     "as_read": "identify Paul Kingston as a Chicago landholder",
-     "note": "Landholding is a fact about the person that the early-Chicago sources state; it is not a residence and is not read as one."
     }
    ],
+   "landholding": {
+    "value": "Held land at Chicago",
+    "confidence": "inferred",
+    "sources": [
+     "rr_andreas_chicago_1884_pass11"
+    ],
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "record_id": "resident_research:T-0485#02",
+    "as_read": "identify Paul Kingston as a Chicago landholder",
+    "note": "A LANDHOLDING, AND THE CARD NOW HAS A FIELD THAT SAYS SO. Andreas's early-Chicago pass identifies the man as a Chicago landholder and states nothing else about the holding — no parcel, no division, no date of purchase — so the value is the bare fact and the date is the year the card's own evidence first reaches him. It is read here beside the two other things this card holds, and displaces neither: the postal return of 1 April 1834, which is a bound on presence and not a residence, and the Racine old-settlers record of 2 January 1835 the same pass brought, which stands on this card as a `departure_from_chicago` profile fact and whose spend is T-1354's. A man who held land at Chicago and went to Racine in January is both of those at once; the holding does not lift the presence and the leaving does not retire the holding."
+   },
    "sex": "male",
    "sex_basis": {
     "value": "male",

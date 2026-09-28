@@ -567,7 +567,8 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
     printf 'git checkout -B %s origin/%s\n' "$BR" "$BR"
     printf 'chicago/4d/tools/setup-merge-drivers.sh   # or the merge will not resolve\n'
     printf 'git merge origin/%s\n' "$BASE"
-    printf '# resolve, then:\n'
+    printf '# resolve the content conflicts by hand and git add them; derived files clear themselves:\n'
+    printf '( cd chicago/4d && node tools/rederive.mjs --resolve )\n'
     printf '( cd chicago/4d && node tools/rederive.mjs --run && node tools/ticket.mjs reconcile --base origin/%s && ./tools/publish.sh )\n' "$BASE"
     printf 'git add -A && git commit && git push origin HEAD:%s\n' "$BR"
     printf '```\n\n'
