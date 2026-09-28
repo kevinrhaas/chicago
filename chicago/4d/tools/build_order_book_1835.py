@@ -397,7 +397,14 @@ STRUCTURE_TICKETS = {
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    ("north", "ordinary_dwellings"): "T-1206",
+    # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row went with the half that
+    # owes the roofs. T-1741 is the READING — the lot lines Wright draws inside Kinzie's
+    # Addition, which is the gate under the district's cells — and it raises nothing, so it
+    # cannot carry an order. T-1742 is the BUILD, on the lots that reading cuts, and the 35
+    # roofs this cell still owes are its. Swept here because the book refuses to order work
+    # from a ticket nobody can claim (T-1420): the moment the split landed, every re-derivation
+    # of the book on `dev` failed on this row, whoever was running it.
+    ("north", "ordinary_dwellings"): "T-1742",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
