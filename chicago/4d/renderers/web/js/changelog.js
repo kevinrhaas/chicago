@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A house on Michigan Street gets its owner back', kind: 'change',
+  { v: 1198, ts: '2026-09-28T04:15:23.053Z', date: 'Sep 27, 2026, 11:15 PM CT', title: 'A house on Michigan Street gets its owner back', kind: 'change',
     items: [
       'There is a frame house on the north bank, on the block of Michigan Street between Cass and Rush \u2014 Hubbard Street between Wabash and Rush today. It has stood here on one sentence: a schoolmaster named John Watkins taught in \u201Ca house on Michigan Street between Cass and Rush\u201D. Nobody knew whose house. Its card said so, and said that if it had gone before the summer we draw, nothing in the records would show it.',
       'A page nobody had read against it names the owner. Richard J. Hamilton, clerk of the county, built a house on that block about 1833 and lived in it nineteen years \u2014 a span that covers the first of July 1835, so the house was there and its builder was in it. The card now carries his name and his household.',
