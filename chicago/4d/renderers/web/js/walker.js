@@ -40,20 +40,8 @@ export const WALK = {
  * scaled up — flying answers a different question ("what is the shape of this
  * place") and wants different behaviour.
  */
-export const FLY = {
-  speed: 14,            // m/s — crossing a 640 m scene should take ~45 s, not 7 min
-  sprintSpeed: 46,
-  riseSpeed: 11,        // m/s vertical, independent of look direction
-  minClearance: 1.2,    // m above the terrain; you may skim, not tunnel
-  maxAltitude: 900,     // m above the datum water surface
-  /**
-   * Horizontal speed multiplies with height. At 300 m up, ground features
-   * subtend so little angle that 14 m/s reads as not moving at all — the
-   * classic flight-sim problem where altitude makes the world feel frozen.
-   * Capped so it stays controllable near the top.
-   */
-  altitudeGain: (y) => Math.min(6, 1 + Math.max(0, y) / 90),
-};
+export { FLY } from './travel-settings.js';
+import { FLY } from './travel-settings.js';
 
 /** Point-in-polygon, ray casting. `pts` is [[e, n], ...]. */
 function inside(e, n, pts) {

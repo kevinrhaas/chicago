@@ -90,4 +90,19 @@ await test('a late content load cannot replace the newer session', async () => {
   const before = r.controller.state, renders = r.renders; release(walk); await first;
   assert.equal(r.controller.state, before); assert.equal(r.renders, renders);
 });
+await test('live mode changes invalidate old travel without replaying choices', async () => {
+  const r = rig(); await r.controller.start('branch'); r.controller.choose('buy'); r.controller.next();
+  const before = r.controller.state, old = r.active;
+  r.controller.setMode('fly');
+  assert.equal(r.travel.mode, 'fly'); assert.equal(r.controller.state.stopIndex, before.stopIndex);
+  assert.deepEqual(r.controller.state.vars, before.vars); assert.deepEqual(r.controller.state.inventory, before.inventory);
+  assert.equal(r.controller.state.events.filter(e => e.type === 'decision').length, 1);
+  assert(r.controller.state.leg > before.leg);
+  old.onArrive(old.token); assert.equal(r.controller.state.phase, 'travelling');
+  r.travel.stop('input'); assert.equal(r.controller.state.phase, 'paused'); assert.equal(r.travel.mode, 'horse');
+  r.controller.resumeRide(); assert.equal(r.controller.state.phase, 'travelling'); assert.equal(r.travel.mode, 'fly');
+  r.controller.straight(); assert.equal(r.travel.mode, 'instantly'); assert.equal(r.controller.state.mode, 'fly');
+  r.active.onArrive(r.active.token); assert.equal(r.controller.state.phase, 'atStop');
+  r.controller.end(); assert.equal(r.travel.mode, 'horse');
+});
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);

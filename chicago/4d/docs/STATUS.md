@@ -1,3 +1,27 @@
+## T-1280 — session travel modes and route estimates (2026-09-27)
+
+Jaunt cards and the persistent controls offer Walk, Wagon, Horse, Fly and Instantly.
+Changing mode during a leg cancels and replans from the current location to the
+same stop. Manual movement pauses with Resume ride; Go straight to next stop
+remains available during a moving or paused leg. Choices and inventory survive
+replanning, and mode selection does not write the visitor's saved settings.
+
+The pure estimator shares the controller's pace, altitude gain and arrival-settle
+constants. Ground estimates price the router's length, flight includes ascent,
+cruise and descent, and an unroutable pair is labelled approximate. Missing
+positions produce no estimate. Reading/action inputs are added and the displayed
+duration rounds to half-minutes. Fly is labelled a viewing convenience.
+
+The estimator fixture and nine reducer tests pass. Published browser acceptance
+passes at 390×780 and 1280×800, with zero page errors and unchanged saved settings.
+The pilot now recommends Horse: declared reading plus measured travel took 243.3 s
+against 236.5 s estimated on mobile, and 230.6 s against 227.8 s on desktop (2.9%
+and 1.2% differences). Its formerly recommended walk estimates 9.5–10.5 minutes.
+Full preflight passes all 681 steps; scoped shared smoke remains pending. Receipts and the
+measurement definition are in `performance/jaunt-travel/`. This work depends on
+T-1279; PR #137 remains owned by its other session.
+
+
 ## T-1279 — playable jaunt and persistent navigation (2026-09-27)
 
 The welcome starts the five-stop pilot, with Previous/Next and End/Menu controls

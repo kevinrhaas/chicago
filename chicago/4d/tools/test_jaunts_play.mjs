@@ -54,7 +54,7 @@ try {
     async function layout(overlay) {
       const boxes = await page.evaluate(id => {
         const rect = el => { const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; };
-        return { nav: rect(document.querySelector('.jaunt-controls')), buttons: [...document.querySelectorAll('.jaunt-controls button')].map(rect),
+        return { nav: rect(document.querySelector('.jaunt-controls')), buttons: [...document.querySelectorAll('.jaunt-controls button:not([hidden]), .jaunt-controls select')].map(rect),
           overlay: id ? rect(document.getElementById(id)) : null, width: innerWidth, height: innerHeight, body: document.body.scrollWidth, lock: !!document.pointerLockElement };
       }, overlay);
       assert.equal(boxes.lock, false); assert(boxes.body <= boxes.width + 1);

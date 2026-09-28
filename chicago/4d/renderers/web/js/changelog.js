@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
+    items: [
+      'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',
+      'Jaunt cards and the current outing show approximate durations based on the route and your pace settings. Flying is a viewing convenience, not a claim about travel in 1835.',
+      'Take over with your own movement to pause a ride, then Resume ride when ready. Go straight to next stop stays available during travel.',
+    ] },
   { v: 1205, ts: '2026-09-28T10:17:27.407Z', date: 'Sep 28, 2026, 5:17 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
     items: [
       'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
