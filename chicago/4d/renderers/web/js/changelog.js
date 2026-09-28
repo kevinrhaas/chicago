@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
+  { v: 1201, ts: '2026-09-28T06:51:23.148Z', date: 'Sep 28, 2026, 1:51 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. What changed is how much room the town has left to build in \u2014 8 roofs this morning, 133 tonight.',
       'Seven streets stopped in the middle of Washington Street, and not because anybody said they did. Market, Franklin, Wells, La Salle, Clark, Dearborn and State were each cut off at the same line, and that line was the south edge of the modelled ground as it used to be. The ground was carried three kilometres further south weeks ago and nobody went back for the streets. All seven now run the last 119 metres to Madison Street, which is where the 1830 plat of the town draws them and where the town legally ended.',
