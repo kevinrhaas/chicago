@@ -12,6 +12,37 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
+      "wallSeconds": 250,
+      "takenAt": "2026-09-28T21:47:36.728Z",
+      "ref": "steward/t-1736-washington-clark",
+      "commit": "6e671ee24df8",
+      "devCommit": "cda64c94f810",
+      "treeHash": "sha256:20490230f94e8ab8",
+      "treeDirty": false,
+      "changelogHash": "sha256:63b3c458c5e58a22",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.3,
+          4.4,
+          3.3
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
       "wallSeconds": 354,
       "takenAt": "2026-09-28T21:05:16.039Z",
       "ref": "steward/t-1736-washington-clark",
@@ -1434,37 +1465,6 @@
         ]
       },
       "source": "/tmp/smoke_d3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 210,
-      "takenAt": "2026-09-28T07:17:58.537Z",
-      "ref": "steward/t-1710-country-places-lakefront",
-      "commit": "077f6d4caa2e",
-      "devCommit": "17f42eb3d697",
-      "treeHash": "sha256:442c4d166f5b85f2",
-      "treeDirty": false,
-      "changelogHash": "sha256:387f997cd391144d",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.2,
-          3.7
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
     },
     {
       "viewport": "desktop",
