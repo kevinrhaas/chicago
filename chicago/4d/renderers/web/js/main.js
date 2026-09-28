@@ -2471,6 +2471,9 @@ async function boot() {
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
   let jauntEntering = false;
+  // T-1256: a saved outing is offered back once, the first time the Jaunts menu opens in
+  // this visit, and never over an outing already under way.
+  let jauntRestoreTried = false;
   const jauntRoot = document.getElementById('welcome-jaunts-content');
   function jauntError(error) {
     const message = document.createElement('p'); message.setAttribute('role', 'alert');
@@ -2489,7 +2492,7 @@ async function boot() {
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       jauntPanel = panel.createJauntPanel({ destinations, actions });
       jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
         resolve: resolveJaunt, place: spawnAtDestination,
@@ -2523,7 +2526,7 @@ async function boot() {
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
@@ -2532,6 +2535,7 @@ async function boot() {
       try {
         root.setAttribute('aria-busy', 'true');
         await ensureJaunts();
+        if (!jauntRestoreTried) { jauntRestoreTried = true; if (!jauntRuntime.state.jaunt) await jauntRuntime.restore(); }
         await jauntPreview.open(jauntReturnId); jauntReturnId = null;
       } catch {
         root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';

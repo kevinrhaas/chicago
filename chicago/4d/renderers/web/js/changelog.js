@@ -1,5 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1214, ts: '2026-09-28T20:21:06.534Z', date: 'Sep 28, 2026, 3:21 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
+  { v: null, ts: '', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
+      'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
+      'The corner is empty for now. The house is its own piece of work, and so are the street surfaces. Nothing from the 1835 town is drawn here: no fences, prairie, signs or cabins.',
+      'The year badge reads 1904. The 1835 walk is unchanged.',
+    ] },
+  { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+    items: [
+      'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
+      'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
+      'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
+      'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+      'On a phone the outing panel no longer has to cover the town. Tap ▾ to fold it down to one bar with the stop’s name and Next Stop, look around, then tap the bar to open it again. It opens by itself when you arrive at the next stop.',
+    ] },
+  { v: 1213, ts: '2026-09-28T19:08:47.347Z', date: 'Sep 28, 2026, 2:08 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [
       'Walk to the block between Clinton and Canal, north of Randolph, and it is cut into ten lots instead of eight \u2014 two columns of five with an alley running down the middle, north to south, and each lot fronting Clinton on one side or Canal on the other. That is what the 1830 plat draws there, and this town had been drawing something else.',
       'West of the river the plat uses a different block than it does downtown: two long lots back to back rather than four short ones to a face, and the alley turns ninety degrees with them. The numerals are printed in the block itself \u2014 2 and 1, 3 and 4, 6 and 5, 7 and 8, 10 and 9, reading down \u2014 and every lot now carries the number the sheet gives it at the position the sheet gives it.',
@@ -7,13 +22,6 @@ export const CHANGELOG = [ // newest first
       'Nothing moved a metre. Every building on the block stands exactly where it stood and none of them was rebuilt; what changed is which lot each one is on, and the yard fences and gates that follow the lot lines have been re-laid along the new ones.',
       'Two consequences. The extra lots front streets with no platted frontage here before, so two households \u2014 the Adams family and the Baxleys \u2014 now have an address on them, walls not up yet. And a blacksmithing firm the newspaper places on Canal Street and nowhere narrower has moved onto a roof that faces Canal; it had stood on one facing Randolph, because no Canal frontage existed here to give it.',
       'The block one street south, between Randolph and Washington, is NOT re-cut yet, and that is deliberate. Seven houses were dealt onto it by an argument about which family takes the Randolph face and which takes Washington \u2014 faces this arrangement removes. Re-cutting it means re-making that argument and rebuilding those seven roofs, which is its own piece of work.',
-    ] },
-  { v: 1213, ts: '2026-09-28T19:46:20.730Z', date: 'Sep 28, 2026, 2:46 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
-    items: [
-      'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
-      'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
-      'The corner is empty for now. The house is its own piece of work, and so are the street surfaces. Nothing from the 1835 town is drawn here: no fences, prairie, signs or cabins.',
-      'The year badge reads 1904. The 1835 walk is unchanged.',
     ] },
   { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
     items: [
