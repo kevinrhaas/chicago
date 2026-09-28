@@ -1,3 +1,25 @@
+## T-1279 — playable jaunt and persistent navigation (2026-09-27)
+
+The welcome starts the five-stop pilot, with Previous/Next and End/Menu controls
+outside the scrolling stop text. Cards and the drawer leave navigation clear.
+Menu pauses at the current location with Resume/Restart; End cancels immediately;
+Explore clears a paused session. Completion shows an outcome and route note.
+No daybook persistence, ETA or mode selector is included in this ticket.
+
+The lazy, content-neutral controller rejects stale session/leg callbacks and
+applies revisited effects once. Eight reducer cases and published mobile/desktop
+pilot and fixture play pass with zero page errors. The initial 680-step preflight
+passed; the integrated-tree preflight also passes all 680 steps. Boot payload is 9.815 MB / 12 MB.
+A focused End repeat exposed an unnecessary intermediate heading focus; removing
+it brought End to 1.1 ms mobile / 0.8 ms desktop, with identical near/far framing.
+All thirteen mobile and desktop shared parts pass across the recorded checkpoints.
+Desktop 11 passed an unchanged isolated retry after a click timeout. Desktop 12
+passed 95 assertions with zero page errors in 7m26s after its two reload waits were
+aligned with the harness's existing 90-second default. All readiness and behavior
+assertions remain unchanged; the original 30-second timeout readings are retained. Receipts and conditions
+are in `performance/jaunts-play/`. Dev through d1024c1 is integrated; PR #137 was
+completed by its other session.
+
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
 
 New in Chicago is now authored JSON: five short exterior stops, an optional
