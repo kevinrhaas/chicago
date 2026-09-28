@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
+step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
+  node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
@@ -333,6 +335,12 @@ step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
 
 selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
   python3 tools/check_terrain_e1871.py --self-test
+
+# T-1738. …and the heightfield that zone table and the scene line generate. The
+# field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
+# and are held by their input hash (validate.py --stale) and the fit gates below.
+step "the 1904 heightfield re-derives from its zone table and scene line (T-1738)" \
+  python3 generators/terrain_gen_graded.py --check
 
 # ...and for the North Branch north of it (T-1072). Two tools write one
 # branches.geojson through tools/branches_file.py, and each of these two steps
@@ -2548,6 +2556,11 @@ step "the ground averages the colour each flora zone records" \
 step "the ground mesh still meets the heightfield the walker samples" \
   node tools/measure_terrain_fit.mjs --gate
 
+# …and the 1904 ground's (T-1738), which terrain_gen_graded.py bakes through the
+# same mesher and the same 30 mm refusal.
+step "the 1904 ground mesh meets its heightfield too (T-1738)" \
+  node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate
+
 # The OTHER two axes, which conformGroundToField() cannot repair — it reads a
 # height back off the field at a vertex's shipped (E, N), so a vertex the
 # quantiser moved in plan holds the right height for the wrong place, and on the
@@ -2558,6 +2571,9 @@ step "the ground mesh still meets the heightfield the walker samples" \
 # bytes rather than the arithmetic on the generator's side of the bake (T-0152).
 step "the shipped ground stands where the master does, and inside the road lift" \
   node tools/measure_terrain_horizontal.mjs --gate
+
+step "the shipped 1904 ground stands where its master does (T-1738)" \
+  node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate
 
 # T-1067. The two gates above measure the ground against the mesh drawn FROM it,
 # which cannot see the town standing where there is no ground at all. The box

@@ -14579,12 +14579,12 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 334 lots are enumerated from records this project already held, and then 158 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 336 lots are enumerated from records this project already held, and then 160 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 158 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,320
+**Scope:** `platted_seats.seats[dealt]` — 160 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,318
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
-`--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 334 lots
+`--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 336 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
 fields is read off a committed record and the entry below says which.
 
@@ -14602,12 +14602,14 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 109 of the 138 seats are
+roof of a family its clause admits, on a lot of its own division; 109 of the 140 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **49 of the 158 are that: 29 on the plat's last tier** (T-1707,
-2026-09-28) **and 20 on Kinzie's Addition** (T-1741, 2026-09-28, the paragraph below). The count was 0 until that ticket, and the reason was ground
+sizing keeps open; **51 of the 160 are that: 29 on the plat's last tier** (T-1707,
+2026-09-28), **2 west of the river on ground the plat always drew and this project had cut the
+other way about** (T-1733, 2026-09-28) **and 20 on Kinzie's Addition** (T-1741, 2026-09-28,
+the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
@@ -14617,8 +14619,18 @@ onto them — 28 to the Market, Franklin, Wells and La Salle blocks and 1 to
 the Clark block. It was 19 and 2 until T-1716 raised the keeper's quarters at the Chicago
 light: that roof is a standing roof the programme counts, the family plan it draws for the
 Clark block falls from two principal roofs to one with it, and the household that had the
-second goes back on the owed list. A slot is a REQUEST and not a roof: these 29 households
-have a lot and no walls until T-1708 raises them, and each seat says so.
+second goes back on the owed list.
+**Two more arrived the same way and on the same kind of ground.** `blk_lake_clinton` is
+plat block 28, between Clinton and Canal, and both grids of this project reach it: the West
+Division's own grid gave the cell up to the Original Town's, which cut it four lots to a face
+on the SOUTH Division's module. The sheet reads ten lots there in the West Division's own
+arrangement, two columns fronting Clinton and Canal, and on the owner's ruling of 2026-09-23
+(T-1479, option a) T-1733 cut it that way — at `inferred`, because the block prints no
+dimension of its own. That added two lots to an `open` block, and the deal asked for two slots
+on them: the Adams household on the Canal face (lot 7, merchant and professional) and the
+Baxley household on the Clinton face (lot 2, tradesman). Neither is a new reading of anything.
+They are the same invention this entry already claims, extended by the two lots the plat always
+drew.
 
 **AND TWENTY MORE ON KINZIE'S ADDITION, ON LOT LINES READ OFF THE SHEET (T-1741,
 2026-09-28).** The North Division had no schedulable ground at all — twenty-seven of its
@@ -14628,22 +14640,25 @@ Wright actually draws inside the Addition's cells off `wright_1834_nara_hup`: fi
 twenty-seven, all in the two tiers nearest the river, are ruled six lots to a face, and sixty
 lots were cut on them. The deal then placed eleven labourers' households on
 `blk_indiana_north_wolcott` and nine on `blk_indiana_north_cass`. **The twenty are slots and
-not roofs**, on the same terms as the twenty-nine above, and they stand on the same invention
+not roofs**, on the same terms as the thirty-one above, and they stand on the same invention
 this entry records: which lot a household takes is argued from its clause's stated preferences
 and from nothing else. What the reading changed is that the lots exist and are the sheet's
 own; what it did not change is that no source puts any of these households on one. The
 twenty-two cells the sheet does NOT divide keep their withholding — see
 `data/traces/kinzie_addition_lot_lines.json`, where each cell carries its own sentence.
+
+A slot is a REQUEST and not a roof: all 51 of these households have a lot and no
+walls until T-1708 and T-1742 raise them, and each seat says so.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
 places any of these 109 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
-**An adoption raises no roof and spends no order, and 109 of the 138 are adoptions.** That is
+**An adoption raises no roof and spends no order, and 109 of the 140 are adoptions.** That is
 the part that keeps the invention small. Each of those 109 puts a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
-order book is not drawn on for them at all and nothing is baked for them. The other 29 ARE
+order book is not drawn on for them at all and nothing is baked for them. The other 31 ARE
 households with an address and no walls, which is what a slot is, and the file marks them
 `slot` rather than `adopted` for exactly that reason: they draw on the order book's South
 Division remainder and they are owed a roof.
@@ -16057,4 +16072,23 @@ of 1886–1911, zone 7; a Lake Michigan stage record for summer 1904, zone 2.
 `data/terrain/e1871_grade_readings.json`.
 **Related:** **L287** (the lake edge those blocks meet), **L3** (flatness),
 `docs/RESEARCH/terrain_e1871_postfire.md`, **T-1251**.
+**Recorded:** 2026-09-28.
+
+### L290 — The 1904 ground as built: the reconstructed zones of L289, now standing in a heightfield
+**Decision:** `generators/terrain_gen_graded.py` (T-1738) builds `e1871_postfire`'s heightfield and its
+ground and water meshes out of the zone table T-1251 wrote, so every block **L289** admits as
+reconstructed is now ground a visitor can stand on: the nine street crowns no standing house
+confirms, the lots graded between the crowns by inverse distance, the Illinois Central embankment's
+bed and 1 in 1.5 lakeward face, the lake bed off it, the lake stage and the surface texture. This entry
+is the admission the ground gates read, block by block; the reasoning and the bounds are L289's and
+are not restated.
+**What the build adds that the table did not say:** nothing new is invented. The field is the table's
+arithmetic — inverse distance over the crowns (power 2), the embankment face scaled from the local
+grade, the lake bed's exponential approach — and the mesh departs from the heightfield by at most
+2 mm (rms 0.3 mm), measured at the bake.
+**How to resolve:** as L289.
+**Applies to:** `data/terrain/epochs/e1871_postfire/heightfield.json`, `heightfield.bin`,
+`assets/gltf/terrain__e1871_postfire.glb`, `assets/gltf/water__e1871_postfire.glb`.
+**Covers:** `terrain.e1871_postfire.lake_surface`, `terrain.e1871_postfire.street_crowns.prairie_16th`, `terrain.e1871_postfire.street_crowns.prairie_mid_16_18`, `terrain.e1871_postfire.street_crowns.prairie_21st`, `terrain.e1871_postfire.street_crowns.indiana_16th`, `terrain.e1871_postfire.street_crowns.indiana_18th`, `terrain.e1871_postfire.street_crowns.indiana_21st`, `terrain.e1871_postfire.street_crowns.michigan_16th`, `terrain.e1871_postfire.street_crowns.michigan_18th`, `terrain.e1871_postfire.street_crowns.michigan_21st`, `terrain.e1871_postfire.graded_ground`, `terrain.e1871_postfire.earthworks.ic_row_embankment`, `terrain.e1871_postfire.lake_shelf`, `terrain.e1871_postfire.surface_texture`.
+**Related:** **L289**, **L287**, **T-1738** (piece 1 of **T-1252**).
 **Recorded:** 2026-09-28.

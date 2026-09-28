@@ -298,6 +298,7 @@ RESERVED_PATH = DATA / "reconstruction" / "1835_reserved_ground.json"
 NUMBERING_PATH = DATA / "traces" / "thompson_block_numbering.json"
 TRACTS_PATH = DATA / "reconstruction" / "1835_survey_tracts.json"
 WEST_DIVISION_PATH = DATA / "traces" / "thompson_west_division_lots.json"
+PARCELS_PATH = DATA / "reconstruction" / "1835_platted_block_parcels.json"
 
 # T-1104's precedence clause, carried here rather than re-invented, because the layer is
 # not a partition: a tract whose ring is defined as what another tract leaves over yields
@@ -699,6 +700,19 @@ def stamp_west_numbers(entry: dict, record: dict) -> None:
     how many lots there are, none is numbered and the disagreement is stated.
     """
     entry["plat_block_number"] = west_number_record(record)
+    number_lots_off_the_sheet(entry, record)
+
+
+def number_lots_off_the_sheet(entry: dict, record: dict) -> None:
+    """The sheet's own lot numerals onto a cut cell, each at its own position.
+
+    The lot half of `stamp_west_numbers`, split out at T-1733 because a cell of the
+    ORIGINAL TOWN's grid transposed onto the West Division's arrangement needs these
+    numerals and must NOT take this record's block numeral: that grid's blocks carry the
+    number `data/traces/thompson_block_numbering.json` reads for them, which is a separate
+    reading of a separate sheet, and two readings of the same numeral written over each
+    other is how a provenance chain is lost.
+    """
     numerals = record["lot_numerals_north_to_south"]
     lots = entry.get("lots") or []
     if not lots:
@@ -861,6 +875,182 @@ def west_module_for(entry: dict, record: dict, figure: dict | None, west: dict) 
                "tools/measure_west_division_module.py report the same gap."),
     }
     return taken
+
+
+def blocks_carrying_a_dealt_parcel() -> dict[str, list[str]]:
+    """The blocks a reconstruction parcel has already dealt roofs onto — read, not typed.
+
+    T-1733, and the one thing that decides whether a West Division cell this grid reaches
+    may be TRANSPOSED onto the West Division's own arrangement. The owner ruled on
+    2026-09-23 (T-1479, option a) that the division's module may cut a block printing no
+    lot figures of its own, so neither of the two refusals `module_for` computes holds
+    such a cell shut any longer. What still holds one of them is its own DEAL.
+
+    The transpose turns a block through ninety degrees. Its lots stop fronting the
+    east-west streets and front the north-south pair instead, its alley stops running
+    across the block and runs down it, and its lot count goes from eight to ten. A parcel
+    that argued WHICH FAMILY TAKES WHICH FACE argued it against faces the transpose
+    removes — `blk_randolph_clinton`'s note sends the deep-plan cottages to Randolph
+    "because Randolph is the through street of the pair", and after the transpose no lot
+    on that block fronts Randolph at all. So a block whose parcel is already dealt keeps
+    the arrangement that deal was argued on until the argument is re-made (T-1734), and a
+    block with no parcel is transposed now. Reading the parcel file rather than naming
+    the blocks here is what makes a third such cell arrive on its own.
+    """
+    doc = load(PARCELS_PATH)
+    dealt: dict[str, list[str]] = {}
+    for parcel in doc["blocks"]:
+        dealt.setdefault(parcel["block_id"], []).append(parcel["programme_phase"])
+    return dealt
+
+
+def transposed_west_module(entry: dict, record: dict, west: dict,
+                           spacing_ft: float, refused: dict) -> dict:
+    """The module a transposed Original Town cell is cut on, and what the ruling overrode.
+
+    T-1733. `module_for` refuses this arrangement on two counts, and BOTH ARE KEPT HERE
+    rather than deleted, because a ruling that overrides a refusal does not make the
+    refusal's arithmetic wrong — it decides what to do about it. The figures below are the
+    same figures that stood before the ruling, re-derived by the same function on the same
+    committed lines, and a reader can see exactly what was traded away.
+
+    WHAT IS READ AND WHAT IS INFERRED, kept apart. The ARRANGEMENT is read — two columns
+    backing onto a north-south alley, off the sheet's own legend. The COUNT and the
+    NUMERALS are read, in this block, at their own positions: ten numerals in five rows,
+    2|1, 3|4, 6|5, 7|8, 10|9. What is NOT read is any dimension of this block: its own
+    sheet entry refuses both, `Both dimensions; no marginal figures.` So carrying the
+    tier's module onto it is an INFERENCE, and the module record grades itself that way
+    with the reasoning the tier of a block is a reason to expect its module. It is not
+    `documented`, and the ruling did not make it so.
+
+    The lot LINES keep the grade every lot line in this file carries. Nothing here seats
+    the printed module at its printed size — 180 + 18 + 180 still needs 378 ft of face and
+    the committed lines still give 315.2 — so the arrangement is cut into the block the
+    lines DO give, which is what `west_module_for` does for the twenty blocks of the
+    division's own grid, and the shortfall is published rather than closed.
+    """
+    figures = refused["west_division_module_refused"]
+    gives = figures["what_the_committed_lines_give"]
+    asks_ft = 2 * west["lot_depth_ft"] + west["alley_width_ft"]
+    rows = len(record["lot_numerals_north_to_south"])
+    return {
+        "module": "west_division_thompson_1830",
+        "authored_in": west["authored_in"],
+        "confidence_of_the_figures": west["confidence"],
+        "confidence": "inferred",
+        "confidence_note": (
+            "`inferred` grades THE CARRY, which is the only thing this ruling added. The "
+            "arrangement, the row count and the ten numerals are this block's own ink and "
+            "are read at their own positions; the block's own sheet entry prints NO "
+            "dimension — `" + str(record["refused"]) + "` — so the module that cuts it "
+            "comes from its tier and not from itself. The reasoning is that a tier the "
+            "sheet dimensions once and lets the rest inherit is a tier the draughtsman "
+            "treated as one module, and this block is drawn inside it with the tier's own "
+            "numeral run. That is an inference and it is graded as one. No figure here is "
+            "upgraded by the cut."),
+        "division": "west",
+        "arrangement": (
+            f"two columns of lots backing onto an {west['alley_width_ft']:.0f} ft "
+            "NORTH-SOUTH alley, each lot fronting the north-south street on the outer "
+            "side of its column"),
+        "rows_read": rows,
+        "lots_read": record["lot_count"],
+        "chosen_by": ("this block's own entry on the sheet reading — its numerals and its "
+                      "row count — carried onto the module of the tier it is drawn in"),
+        "authorised_by": {
+            "ticket": "T-1479",
+            "ruling": ("the owner, 2026-09-23, option (a) of three: `Yes: cut with the "
+                       "documented module (inferred tier) and re-seat each structure on "
+                       "the new lot nearest its present spot, recording the move`"),
+            "asked_because": ("T-1455's West Division grid WITHHOLDS the lot lines of a "
+                              "block printing no figures of its own, and applying that "
+                              "rule here would have taken the eight lots this block "
+                              "already had away from the records standing on them"),
+            "and_the_question_it_answered": (
+                "what a structure seated on a withdrawn lot is seated on. The ruling "
+                "answers it by never withdrawing the ground: the lines are re-cut rather "
+                "than withheld, and every record standing on them is re-seated onto the "
+                "new lot nearest where it already stands. "
+                "data/traces/west_grid_migration_order.json carries the moves."),
+        },
+        "what_the_printed_module_asks_for": figures["what_it_asks_for"],
+        "what_the_committed_lines_give": dict(gives),
+        "closure_against_the_committed_lines": {
+            "axis": "east to west",
+            "the_sheet_asks_ft": round(asks_ft, 1),
+            "the_committed_lines_give_ft": gives["east_west_face_ft"],
+            "short_by_ft": round(asks_ft - gives["east_west_face_ft"], 1),
+            "so": ("the lot lines on this block divide the ground the committed lines "
+                   "give, in the arrangement and the count the sheet reads, and are NOT "
+                   "the printed figure seated at its printed size — the same thing every "
+                   "other lot line in this file is. What is short is this project's West "
+                   f"Division street spacing: Clinton to Canal is committed at "
+                   f"{spacing_ft:.1f} ft against the plat's own "
+                   f"{west['street_module_ft']:.0f} ft. T-1540 measured that gap on every "
+                   "interval of this grid and found no single centreline moved can close "
+                   "three of them, so it is published here and not closed here."),
+        },
+        "the_two_refusals_this_overrode": {
+            "the_arithmetic": figures["the_arithmetic"],
+            "and_the_withholding_rule": (
+                "T-1455's grid withholds the lot lines of a block printing no figures of "
+                "its own, and this block prints none. The ruling permits the tier's "
+                "module to cut it at `inferred` instead, which is the lowest honest tier "
+                "and not a promotion of anything."),
+            "neither_is_now_wrong": (
+                "both were re-derived by `module_for` on the committed lines at the moment "
+                "this record was written, and both still hold as arithmetic. What changed "
+                "is what is done about them: an empty block was judged a worse answer than "
+                "a block cut at a stated inference."),
+        },
+        "what_the_transpose_moved": (
+            f"eight lots on the South Division's module — four to a face, an east-west "
+            f"alley, fronting the east-west streets — became {record['lot_count']} on this "
+            "one, and the faces turned through ninety degrees: the lots front "
+            f"`{entry['bounded_by']['west']}` and `{entry['bounded_by']['east']}` now, and "
+            f"no lot of this block fronts `{entry['bounded_by']['north']}` or "
+            f"`{entry['bounded_by']['south']}` any more."),
+    }
+
+
+def hold_the_arrangement(entry: dict, record: dict, phases: list[str]) -> None:
+    """Why a West Division cell keeps the other division's module after the ruling.
+
+    T-1733. The refusal `module_for` computed is left standing exactly as it is — its
+    arithmetic is still true — and what is added is the honest reason it is still acted on
+    here when its twin was transposed. It is no longer the arithmetic, and saying so is
+    the point: a refusal whose stated reason has been overruled elsewhere in the same file
+    is a refusal a reader cannot trust.
+    """
+    figures = entry["module"].get("west_division_module_refused")
+    if figures is None:
+        return
+    figures["but_the_refusal_is_no_longer_what_holds_this_block"] = {
+        "the_ruling": ("the owner, 2026-09-23 on T-1479, option (a): the division's module "
+                       "MAY cut a block printing no lot figures of its own, at `inferred`, "
+                       "with every record on it re-seated onto the nearest new lot"),
+        "and_it_landed": ("on this block's twin. `blk_lake_clinton` stands transposed on "
+                          "this grid, ten lots in the sheet's own arrangement, with its "
+                          "module graded `inferred` and both of these refusals carried on "
+                          "it as what was overridden (T-1733)."),
+        "what_holds_this_one": (
+            "its own deal. A reconstruction parcel has already dealt roofs onto this "
+            "block — " + ", ".join(sorted(phases)) + " — and that parcel argued which "
+            "family takes which FACE against the faces this arrangement removes: its note "
+            "sends the deep-plan and two-room cottages to the "
+            f"`{entry['bounded_by']['north']}` face and the log dwelling and the one-room "
+            f"cottage to `{entry['bounded_by']['south']}`, and after the transpose no lot "
+            "on this block fronts either. Transposing it silently would leave seven roofs "
+            "standing on an argument about ground that no longer exists."),
+        "so": ("this block keeps the arrangement its deal was argued on until that "
+               "argument is re-made on the transposed grid, which is T-1734 — the ticket "
+               "that re-places the seven dealt roofs on the new faces and rebakes them. "
+               "It is NOT a refusal of the module and it is not waiting on T-1540."),
+        "read_not_typed": ("this block is held because "
+                           "data/reconstruction/1835_platted_block_parcels.json deals a "
+                           "parcel onto it, which is where `blocks_carrying_a_dealt_parcel` "
+                           "looks; no block id is named in this generator"),
+    }
 
 
 def module_for(entry: dict, bounded_by: dict, west: dict, spacing_ft: float) -> dict:
@@ -1237,6 +1427,17 @@ def stamp_number(entry: dict, record: dict, scheme: dict) -> None:
         "note": record["note"],
     }
     lots = entry.get("lots") or []
+    if lots and all("plat_lot_numeral_read_in" in lot for lot in lots):
+        # T-1733. This block's lot numbers are READ, in this block, at their own
+        # positions — it is a West Division cell transposed onto the division's own
+        # arrangement. The scheme is a reading of ONE Original Town block carried across
+        # the grid, and carrying it over ink would be the worse of two readings winning.
+        entry["plat_block_number"]["lots_numbered_off_the_sheet"] = (
+            "the scheme is not applied here: every lot of this block carries a numeral "
+            "read at its own position in "
+            f"{lots[0]['plat_lot_numeral_read_in']}, and this block is cut on the West "
+            "Division's arrangement rather than the scheme's four-to-a-face one")
+        return
     per_face = len(lots) // 2
     if per_face != 4 or len(lots) != 2 * per_face:
         # The scheme is 1-4 and 5-8. A block the module divided some other way is
@@ -1781,6 +1982,10 @@ def grid_from_inputs() -> dict:
     west = west_division()
     west_table, west_doc = west_division_table()
     west_reached: set = set()
+    # T-1733. Which cells of THIS grid may be transposed onto the West Division's own
+    # arrangement, and which keep the other division's module because a parcel is already
+    # dealt onto them. Read from the parcel file, never named here.
+    dealt_parcels = blocks_carrying_a_dealt_parcel()
     # The one spacing the West Division refusal turns on, re-derived here from the same
     # committed centrelines every block edge is offset from — never a figure typed in.
     spacing_ft = abs(lines["clinton"]["mean_e"] - lines["canal"]["mean_e"]) / FT_M
@@ -1813,6 +2018,21 @@ def grid_from_inputs() -> dict:
                 west_reached.add((north_id, south_id, west_id, east_id))
             record = (west_table.get((north_id, south_id, west_id, east_id))
                       if is_west else None)
+            # T-1733, the owner's ruling of 2026-09-23 on T-1479. A cell of the Original
+            # Town's grid that stands between two West Division streets AND that the sheet
+            # reads as a West Division block is cut on the West Division's arrangement —
+            # unless a reconstruction parcel has already dealt roofs onto it, in which case
+            # it keeps the module its deal was argued against until T-1734 re-makes that
+            # argument. `transposed` carries the sheet entry that governs the cut; `held`
+            # carries the same entry for the cell that is not cut on it yet.
+            transposed = held = None
+            if not is_west:
+                reading = west_table.get((north_id, south_id, west_id, east_id))
+                if reading is not None:
+                    if block_id in dealt_parcels:
+                        held = reading
+                    else:
+                        transposed = reading
             if is_west and record is None:
                 omitted.append({
                     "id": block_id, "grid": layer["id"], "bounded_by": bounded_by,
@@ -1830,17 +2050,22 @@ def grid_from_inputs() -> dict:
                         "id": block_id, "grid": layer["id"], "bounded_by": bounded_by,
                         "plat_block_number": west_number_record(record),
                         "already_derived_as": twin["id"],
+                        "twin_cut_on": twin["module"]["module"],
                         "reason": (
                             f"this ground is already emitted by the Original Town's grid "
                             f"as `{twin['id']}`, and the same ground derived twice is the "
-                            "one thing a generated layer may not do. It stands there on "
-                            "the SOUTH Division module with a `west_division_module_"
-                            "refused` note beside it, which this reading says is the wrong "
-                            "arrangement for it — and this block prints no dimension of "
-                            "its own, so this grid would withhold its lot lines rather "
-                            "than re-cut them. Moving it onto this grid moves lot lines "
-                            "that committed structure records are seated against, and that "
-                            "is its own ticket rather than this cell's.")})
+                            "one thing a generated layer may not do. WHAT ARRANGEMENT IT "
+                            "IS CUT ON THERE IS NOW A FACT ABOUT THAT CELL AND IS READ "
+                            "OFF IT: `twin_cut_on` above. This block prints no dimension "
+                            "of its own, so THIS grid would withhold its lot lines — but "
+                            "the owner ruled on 2026-09-23 (T-1479, option a) that the "
+                            "division's module may cut such a block at `inferred` with "
+                            "every record on it re-seated onto the nearest new lot, so a "
+                            "twin cut on `west_division_thompson_1830` carries this "
+                            "reading's arrangement and count without standing on this "
+                            "grid (T-1733), and a twin still on the South module is one "
+                            "whose own dealt parcel argued its faces the other way about "
+                            "and is owed by T-1734.")})
                     continue
             if pitch_n > MAX_PITCH_M or pitch_e > MAX_PITCH_M:
                 omitted.append({
@@ -1870,6 +2095,9 @@ def grid_from_inputs() -> dict:
             if is_west:
                 divided = subdivide_west(built, alley_m,
                                          len(record["lot_numerals_north_to_south"]))
+            elif transposed is not None:
+                divided = subdivide_west(
+                    built, alley_m, len(transposed["lot_numerals_north_to_south"]))
             elif cell and cell["verdict"] == "lotted":
                 # COUNTED, not divided by a module: the number of lots is the number of
                 # rules read in this cell, and the alley is the one this plat draws.
@@ -1898,7 +2126,7 @@ def grid_from_inputs() -> dict:
                     "figure is not this block's — see `module.lot_subdivision_withheld`")
                 entry["alley_local_enu_m"] = None
                 entry["lots"] = []
-            elif is_west:
+            elif is_west or transposed is not None:
                 entry["lots_per_column"] = divided["count"]
                 entry["alley_local_enu_m"] = divided["alley"]
                 entry["lots"] = divided["lots"]
@@ -1954,9 +2182,18 @@ def grid_from_inputs() -> dict:
             if is_west:
                 entry["module"] = west_module_for(entry, record, figure, west)
                 stamp_west_numbers(entry, record)
+            elif transposed is not None:
+                # The refusal is re-derived FIRST, on this block's own committed figures,
+                # and then carried inside the seated record as what the ruling overrode.
+                refused = module_for(entry, bounded_by, west, spacing_ft)
+                entry["module"] = transposed_west_module(entry, transposed, west,
+                                                         spacing_ft, refused)
+                number_lots_off_the_sheet(entry, transposed)
             else:
                 entry["module"] = (dict(addition) if not layer["subdivides"]
                                    else module_for(entry, bounded_by, west, spacing_ft))
+                if held is not None:
+                    hold_the_arrangement(entry, held, dealt_parcels[block_id])
             hold = reserved.get(block_id)
             if hold:
                 # The boundary stays; the subdivision goes. `lots_per_face` reports what
@@ -1971,7 +2208,10 @@ def grid_from_inputs() -> dict:
                     "note": "This block is not subdivided. See the reservation record for "
                             "the evidence and for what may stand here.",
                 }
-                entry["lots_per_face_withheld"] = entry.pop("lots_per_face")
+                if "lots_per_face" in entry:
+                    entry["lots_per_face_withheld"] = entry.pop("lots_per_face")
+                elif "lots_per_column" in entry:
+                    entry["lots_per_column_withheld"] = entry.pop("lots_per_column")
                 entry["alley_local_enu_m"] = None
                 entry["lots"] = []
             blocks.append(entry)
@@ -2332,6 +2572,18 @@ def assemble(blocks, omitted, module, alley_m, frontage_m, reach_m, lines,
                 "blocks_of_this_grid_inside_it": sorted(
                     b["id"] for b in blocks
                     if "west_division_module_refused" in b["module"]),
+                # Read off the blocks this grid wrote, never accumulated as it went: a
+                # cell of the Original Town's grid cut on the West Division's module was
+                # transposed (T-1733), and one whose refusal carries the "no longer what
+                # holds this block" note is held for its own deal.
+                "transposed_onto_the_west_arrangement": sorted(
+                    b["id"] for b in blocks
+                    if b["grid"] == "original_town"
+                    and b["module"]["module"] == "west_division_thompson_1830"),
+                "held_on_the_south_module_by_their_own_deal": sorted(
+                    b["id"] for b in blocks
+                    if "but_the_refusal_is_no_longer_what_holds_this_block"
+                    in b["module"].get("west_division_module_refused", {})),
                 "refused_on_every_one_of_them": (
                     "and the refusal is arithmetic, not preference. Two lot columns alone "
                     f"need {2 * west['lot_depth_ft']:.0f} ft; the committed faces west of "
@@ -2349,14 +2601,30 @@ def assemble(blocks, omitted, module, alley_m, frontage_m, reach_m, lines,
                     "centrelines, which is T-1540 and is deliberately not done here: this "
                     "generator writes what the committed lines give and records what the "
                     "sheet asks for beside it."),
-                "what_would_change_if_the_lines_moved": (
-                    "these two blocks would be subdivided the other way about — columns "
-                    "and a north-south alley instead of faces and an east-west one — so "
-                    "this is a refusal that will be worth revisiting the day T-1540 "
-                    "settles the spacing, and not before. It is T-1540 and no longer "
-                    "T-0445 because T-0445 closed without moving a centreline of this "
-                    "grid, and a refusal that points a reader forward at finished work "
-                    "reads as a plan when it is a dead end."),
+                "and_the_ruling_did_not_wait_for_them_to_move": (
+                    "the owner ruled on 2026-09-23 (T-1479, option a) that the division's "
+                    "module may cut a block printing no lot figures of its own, at "
+                    "`inferred`, with every record on it re-seated onto the lot nearest "
+                    "where it already stands. So the block above listed under "
+                    "`transposed_onto_the_west_arrangement` IS subdivided the other way "
+                    "about now — two columns and a north-south alley instead of faces and "
+                    "an east-west one, ten lots carrying the sheet's own numerals — "
+                    "WITHOUT the printed module having been seated at its printed size and "
+                    "without a centreline having moved. The refusal above is still "
+                    "arithmetic and is still true; it is no longer what holds a cell shut. "
+                    "What T-1540 would still change is the SIZE: seated at 378 ft these "
+                    "lots would be the plat's lots rather than the plat's arrangement cut "
+                    "into short ground."),
+                "and_what_holds_the_rest": (
+                    "a cell under `held_on_the_south_module_by_their_own_deal` is held by "
+                    "its own reconstruction parcel and not by this refusal. The transpose "
+                    "turns a block through ninety degrees and its lots stop fronting the "
+                    "east-west streets, so a parcel that argued which family takes which "
+                    "FACE argued it against faces the transpose removes. T-1734 re-makes "
+                    "that argument and re-places those roofs; until it does, the block "
+                    "keeps the arrangement its deal was argued on. Which cells those are "
+                    "is read from data/reconstruction/1835_platted_block_parcels.json, so "
+                    "a parcel dealt onto a third such cell holds it on its own."),
                 "and_since_t_1455_the_division_has_its_own_grid": (
                     "`west_division` above cuts the other twenty of the sheet's "
                     "twenty-two West Division blocks, on the West Division's own tier "
@@ -2364,11 +2632,12 @@ def assemble(blocks, omitted, module, alley_m, frontage_m, reach_m, lines,
                     "the printed module at its printed size either — that is still "
                     "T-1540's — it cuts the printed arrangement and the counted rows into "
                     "the block the committed lines give and publishes the shortfall on "
-                    "each block as `closure_against_the_committed_lines`. The two blocks "
-                    "listed here are the ones both grids can reach; they stay on this "
-                    "grid, because moving them moves lot lines that committed structure "
-                    "records are seated against, and they are carried in the West "
-                    "Division grid's omissions with that said."),
+                    "each block as `closure_against_the_committed_lines`. The two cells "
+                    "both grids can reach stay on THIS grid either way — the same ground "
+                    "derived twice is the one thing a generated layer may not do — and "
+                    "they are carried in the West Division grid's omissions with the "
+                    "arrangement each of them is cut on said there. What the ruling "
+                    "changed is the arrangement, not which grid emits the cell."),
             },
             "omitted_blocks_carry_no_tract": (
                 "an omitted block has no ring to clip, by definition — it is omitted "
@@ -2710,6 +2979,71 @@ def self_test() -> int:
                   f"face and the committed blocks give {faces} ft; Clinton to Canal is "
                   f"{spacing_ft:.1f} ft against the plat's "
                   f"{west['street_module_ft']:.0f} ft")
+
+    # 5b. T-1733. THE TRANSPOSE. The owner ruled (T-1479, 2026-09-23) that the division's
+    #     module may cut a cell printing no lot figures of its own, so a cell of THIS grid
+    #     standing on West Division ground is cut the other way about. Four things have to
+    #     hold at once, and each of them is a way the cut could be wrong while looking
+    #     right: it must carry the sheet's own numerals rather than the town scheme's, it
+    #     must grade the carry `inferred` rather than promote it, it must still be short of
+    #     the printed module (the arrangement was cut into the ground, not the figure
+    #     seated at its size), and the cells that are NOT transposed must be held by a
+    #     parcel they actually carry rather than by prose.
+    cases += 1
+    dealt = blocks_carrying_a_dealt_parcel()
+    carried = {o["already_derived_as"] for o in (grid["omitted"] if grid else [])
+               if o.get("already_derived_as")}
+    troubles = []
+    moved = held = 0
+    for block in (grid["blocks"] if grid else []):
+        if block["id"] not in carried:
+            continue
+        module = block["module"]
+        if module["module"] != "west_division_thompson_1830":
+            held += 1
+            if block["id"] not in dealt:
+                troubles.append(f"{block['id']} is not transposed and carries no dealt "
+                                "parcel — nothing holds it")
+            if "west_division_module_refused" not in module:
+                troubles.append(f"{block['id']} is held with no refusal recorded on it")
+            continue
+        moved += 1
+        lots = block.get("lots") or []
+        if block["id"] in dealt:
+            troubles.append(f"{block['id']} was transposed while carrying a dealt parcel "
+                            f"({', '.join(dealt[block['id']])}) — its roofs were argued "
+                            "onto faces this arrangement removes")
+        if module.get("confidence") != "inferred":
+            troubles.append(f"{block['id']} grades its module carry "
+                            f"{module.get('confidence')!r} and not 'inferred' — this "
+                            "block prints no dimension of its own and the ruling "
+                            "permitted the carry, not a promotion of it")
+        if not lots or any("plat_lot_numeral_read_in" not in lot for lot in lots):
+            troubles.append(f"{block['id']} has a lot with no numeral read in this block "
+                            "— the town scheme has reached a cell it may not number")
+        if len(lots) != module["lots_read"]:
+            troubles.append(f"{block['id']} cuts {len(lots)} lot(s) and the sheet reads "
+                            f"{module['lots_read']} in it")
+        if "lots_per_face" in block:
+            troubles.append(f"{block['id']} still reports lots_per_face, so something "
+                            "downstream will read it as a four-to-a-face block")
+        if block["frontage_m"] / FT_M >= columns_ft:
+            troubles.append(f"{block['id']} now has {block['frontage_m'] / FT_M:.1f} ft of "
+                            f"face against the {columns_ft:.0f} ft the two lot columns "
+                            "want — the printed module FITS, so this cut is no longer the "
+                            "arrangement divided into short ground and has to be re-read")
+    if not moved:
+        print("  NO CELL IS TRANSPOSED — T-1733 has been reverted, or the parcel file now "
+              "deals onto both cells both grids reach")
+        failed += 1
+    elif troubles:
+        for trouble in troubles:
+            print(f"  THE TRANSPOSE IS WRONG: {trouble}")
+        failed += 1
+    else:
+        print(f"  ok:    {moved} cell(s) both grids reach are transposed onto the West "
+              f"Division arrangement at `inferred`, numerals read in the block, still "
+              f"short of the printed module; {held} held by a dealt parcel it carries")
 
     # ------------------------------------------------------------- T-1437, the second grid
     # Three things have to hold at once for Kinzie's Addition to be a grid and not a copy

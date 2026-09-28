@@ -397,8 +397,18 @@ STRUCTURE_TICKETS = {
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    # T-1741 split T-1206 — the Addition's roofs could not be dealt while its blocks
-    # stood unsubdivided — so the order sweeps onto the live half that raises them.
+    # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
+    # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
+    # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
+    # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
+    # has 35 left and is ordered by T-1206, which is split".
+    #
+    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
+    # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
+    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
+    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     ("north", "ordinary_dwellings"): "T-1742",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -4409,24 +4419,38 @@ def cmd_self_test() -> int:
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
     #
-    # T-1716 TAKES IT BACK TO 210, AND TWENTY-NINE OF THE SEATS ARE SLOTS. The keeper's
-    # quarters at the Chicago light is a standing roof the programme counts, so the family
-    # plan it draws for `blk_washington_clark` falls from two principal roofs to one, the
-    # platted pass goes 139 -> 138 and the household that had the second slot goes back on
-    # the owed list. Nothing was raised on the plat and no seat moved: one request the plan
-    # no longer has room for is withdrawn, and it is withdrawn in writing.
+    # T-1733 AND T-1716 TOGETHER TAKE IT TO 212, AND THIRTY-ONE OF THE SEATS ARE SLOTS.
+    # Two rulings about GROUND and one standing roof, composing in opposite directions on
+    # the same platted pass, which went 139 -> 140.
     #
-    # AND T-1741 TAKES IT TO 230, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
-    # same shape as T-1707 and for the same kind of reason: a ruling about GROUND, not about
+    # T-1733 added two. `blk_lake_clinton` is plat block 28, between Clinton and Canal, and
+    # it stands on West Division ground while being emitted by the Original Town's grid; the
+    # owner ruled on 2026-09-23 (T-1479, option a) that the West Division's own arrangement
+    # may cut a block printing no lot figures of its own, at `inferred`, so the cell went
+    # from eight lots four-to-a-face to TEN in two columns fronting Clinton and Canal. Two
+    # more lots on a block the 665-roof programme already marks `open`, and the deal asked
+    # for both: the Adams household on the Canal face and the Baxley household on the
+    # Clinton face. This is the same shape of cause as T-1707's and it is worth saying so:
+    # a ruling about GROUND, not about households. Nothing was adopted that was not adopted
+    # before — 109 both sides of the change — and no roof moved a metre.
+    #
+    # T-1716 took one back. The keeper's quarters at the Chicago light is a standing roof
+    # the programme counts, so the family plan it draws for `blk_washington_clark` falls
+    # from two principal roofs to one, and the household that had the second slot goes back
+    # on the owed list. Nothing was raised on the plat and no seat moved: one request the
+    # plan no longer has room for is withdrawn, and it is withdrawn in writing.
+    #
+    # AND T-1741 TAKES IT TO 232, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
+    # same shape again, and for the same kind of reason: a ruling about GROUND, not about
     # households. Kinzie's Addition stood with twenty-seven blocks and no lot line in any of
     # them — no lot rule had been read for that plat — so the whole North Division's headroom
     # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
     # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
-    # and the platted pass goes 138 -> 158: eleven labourers' households onto
+    # and the platted pass goes 140 -> 160: eleven labourers' households onto
     # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
     # A slot is a request and not a roof: T-1742 raises them.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 230
+        data["inventory"], data["programme"], occ))["seated"] == 232
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
