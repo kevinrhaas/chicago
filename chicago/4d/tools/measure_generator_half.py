@@ -218,19 +218,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
 # itself moved.
 #
-# 434 -> 435 and 432 -> 433 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters`,
+# 435 -> 436 and 433 -> 434 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters`,
 # the quarters the Chicago light's keepership was paid 'with quarters' for, raised beside the
 # 1832 tower on the reservation. One more structure asset, so one more mesh a change to the
 # shared generator modules or to build.py would re-stale; the terrain and pier_crib reaches
 # stay at 2 each. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 435,
+    "assets": 436,
     "restales": {
-        "generators/common/*.py": 435,
+        "generators/common/*.py": 436,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 433,
+        "generators/emit.py": 434,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
