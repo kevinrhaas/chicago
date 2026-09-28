@@ -8,7 +8,7 @@ embankment, the made ground of 1886–1911, the lake shelf and the lake stage, e
 a numbered zone in `docs/RESEARCH/terrain_e1871_postfire.md` and saying which date it describes.
 Three crowns (Prairie Avenue from 18th Street to 2017 Prairie) are inferred for 1904 because the
 period's houses still stand there at their built grade, their walks within 0.18 ft of the crown;
-the other nine are reconstructed (L288). The datum conversion is tested: City benchmark 289 and
+the other nine are reconstructed (L289). The datum conversion is tested: City benchmark 289 and
 the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface runs 2.9–5.7 ft,
 so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
 ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.

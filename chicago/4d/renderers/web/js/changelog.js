@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+    items: [
+      'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
+      'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
+      'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
+      'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
+      'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
+    ] },
   { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
     items: [
       'Cross the river and walk north past Michigan Street and the ground has changed. Everything beyond that line \u2014 Kinzie\u2019s Addition, the fringe toward Rush and Pine, the ground behind the lake shore \u2014 was drawing as open prairie, grass to the horizon. It is timber now: elm, ash and silver maple, with willow in the wet hollows and hazel through the understorey, which is what the one account of the place describes.',
