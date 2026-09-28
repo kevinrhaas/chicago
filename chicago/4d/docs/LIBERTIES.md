@@ -16043,3 +16043,22 @@ of 1886–1911, zone 7; a Lake Michigan stage record for summer 1904, zone 2.
 **Related:** **L287** (the lake edge those blocks meet), **L3** (flatness),
 `docs/RESEARCH/terrain_e1871_postfire.md`, **T-1251**.
 **Recorded:** 2026-09-28.
+
+### L290 — The 1904 ground as built: the reconstructed zones of L289, now standing in a heightfield
+**Decision:** `generators/terrain_gen_graded.py` (T-1738) builds `e1871_postfire`'s heightfield and its
+ground and water meshes out of the zone table T-1251 wrote, so every block **L289** admits as
+reconstructed is now ground a visitor can stand on: the nine street crowns no standing house
+confirms, the lots graded between the crowns by inverse distance, the Illinois Central embankment's
+bed and 1 in 1.5 lakeward face, the lake bed off it, the lake stage and the surface texture. This entry
+is the admission the ground gates read, block by block; the reasoning and the bounds are L289's and
+are not restated.
+**What the build adds that the table did not say:** nothing new is invented. The field is the table's
+arithmetic — inverse distance over the crowns (power 2), the embankment face scaled from the local
+grade, the lake bed's exponential approach — and the mesh departs from the heightfield by at most
+2 mm (rms 0.3 mm), measured at the bake.
+**How to resolve:** as L289.
+**Applies to:** `data/terrain/epochs/e1871_postfire/heightfield.json`, `heightfield.bin`,
+`assets/gltf/terrain__e1871_postfire.glb`, `assets/gltf/water__e1871_postfire.glb`.
+**Covers:** `terrain.e1871_postfire.lake_surface`, `terrain.e1871_postfire.street_crowns.prairie_16th`, `terrain.e1871_postfire.street_crowns.prairie_mid_16_18`, `terrain.e1871_postfire.street_crowns.prairie_21st`, `terrain.e1871_postfire.street_crowns.indiana_16th`, `terrain.e1871_postfire.street_crowns.indiana_18th`, `terrain.e1871_postfire.street_crowns.indiana_21st`, `terrain.e1871_postfire.street_crowns.michigan_16th`, `terrain.e1871_postfire.street_crowns.michigan_18th`, `terrain.e1871_postfire.street_crowns.michigan_21st`, `terrain.e1871_postfire.graded_ground`, `terrain.e1871_postfire.earthworks.ic_row_embankment`, `terrain.e1871_postfire.lake_shelf`, `terrain.e1871_postfire.surface_texture`.
+**Related:** **L289**, **L287**, **T-1738** (piece 1 of **T-1252**).
+**Recorded:** 2026-09-28.

@@ -52,6 +52,7 @@ READERS = {
     ]),
     "numpy": ("numpy", [
         "…every step PIL names above — each needs both",
+        "the 1904 heightfield re-derives from its zone table and scene line (T-1738)",
         "the traced forks still carry what their generator writes",
         "the traced North Branch still carries what its generator writes",
         "the traced South Branch still carries what its generator writes",

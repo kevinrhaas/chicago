@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 292,
+  "count": 293,
   "liberties": [
     {
       "id": "L1",
@@ -18053,6 +18053,116 @@
         {
           "label": "Related",
           "text": "**L287** (the lake edge those blocks meet), **L3** (flatness), `docs/RESEARCH/terrain_e1871_postfire.md`, **T-1251**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-28."
+        }
+      ]
+    },
+    {
+      "id": "L290",
+      "title": "The 1904 ground as built: the reconstructed zones of L289, now standing in a heightfield",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "earthworks.ic_row_embankment"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "graded_ground"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "lake_shelf"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "lake_surface"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.indiana_16th"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.indiana_18th"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.indiana_21st"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.michigan_16th"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.michigan_18th"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.michigan_21st"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.prairie_16th"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.prairie_21st"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "street_crowns.prairie_mid_16_18"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_postfire",
+          "claim": "surface_texture"
+        }
+      ],
+      "recorded": "2026-09-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`generators/terrain_gen_graded.py` (T-1738) builds `e1871_postfire`'s heightfield and its ground and water meshes out of the zone table T-1251 wrote, so every block **L289** admits as reconstructed is now ground a visitor can stand on: the nine street crowns no standing house confirms, the lots graded between the crowns by inverse distance, the Illinois Central embankment's bed and 1 in 1.5 lakeward face, the lake bed off it, the lake stage and the surface texture. This entry is the admission the ground gates read, block by block; the reasoning and the bounds are L289's and are not restated."
+        },
+        {
+          "label": "What the build adds that the table did not say",
+          "text": "nothing new is invented. The field is the table's arithmetic — inverse distance over the crowns (power 2), the embankment face scaled from the local grade, the lake bed's exponential approach — and the mesh departs from the heightfield by at most 2 mm (rms 0.3 mm), measured at the bake."
+        },
+        {
+          "label": "How to resolve",
+          "text": "as L289."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/terrain/epochs/e1871_postfire/heightfield.json`, `heightfield.bin`, `assets/gltf/terrain__e1871_postfire.glb`, `assets/gltf/water__e1871_postfire.glb`."
+        },
+        {
+          "label": "Covers",
+          "text": "`terrain.e1871_postfire.lake_surface`, `terrain.e1871_postfire.street_crowns.prairie_16th`, `terrain.e1871_postfire.street_crowns.prairie_mid_16_18`, `terrain.e1871_postfire.street_crowns.prairie_21st`, `terrain.e1871_postfire.street_crowns.indiana_16th`, `terrain.e1871_postfire.street_crowns.indiana_18th`, `terrain.e1871_postfire.street_crowns.indiana_21st`, `terrain.e1871_postfire.street_crowns.michigan_16th`, `terrain.e1871_postfire.street_crowns.michigan_18th`, `terrain.e1871_postfire.street_crowns.michigan_21st`, `terrain.e1871_postfire.graded_ground`, `terrain.e1871_postfire.earthworks.ic_row_embankment`, `terrain.e1871_postfire.lake_shelf`, `terrain.e1871_postfire.surface_texture`."
+        },
+        {
+          "label": "Related",
+          "text": "**L289**, **L287**, **T-1738** (piece 1 of **T-1252**)."
         },
         {
           "label": "Recorded",

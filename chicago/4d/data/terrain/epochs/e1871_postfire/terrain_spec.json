@@ -41,7 +41,13 @@
    -4.0,
    2.0
   ],
-  "note": "Research zone 2. No 1904 lake stage has been found. The water stands at the 1835 plane, Z = 0, so the two scenes' water is one level; the terrain dossier's historic range of 576-582 ft (Z -4 to +2) bounds it, and a stage record for 1904 would replace it."
+  "note": "Research zone 2. No 1904 lake stage has been found. The water stands at the 1835 plane, Z = 0, so the two scenes' water is one level; the terrain dossier's historic range of 576-582 ft (Z -4 to +2) bounds it, and a stage record for 1904 would replace it.",
+  "mesh": {
+   "surface_ft": "restated_in_code",
+   "range_ft": "record_only",
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "shore_runs": [
   {
@@ -63,7 +69,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "prairie_mid_16_18",
@@ -77,7 +88,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "prairie_18th",
@@ -92,7 +108,12 @@
     "usgs_3dep_1m_dem",
     "habs_glessner_house_il_1015"
    ],
-   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "prairie_mid_18_20",
@@ -107,7 +128,12 @@
     "usgs_3dep_1m_dem",
     "habs_glessner_house_il_1015"
    ],
-   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "prairie_mid_20_21",
@@ -122,7 +148,12 @@
     "usgs_3dep_1m_dem",
     "habs_glessner_house_il_1015"
    ],
-   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "prairie_21st",
@@ -137,7 +168,12 @@
     "usgs_3dep_1m_dem",
     "habs_glessner_house_il_1015"
    ],
-   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+   "note": "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "indiana_16th",
@@ -151,7 +187,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "indiana_18th",
@@ -165,7 +206,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "indiana_21st",
@@ -179,7 +225,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "michigan_16th",
@@ -193,7 +244,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "michigan_18th",
@@ -207,7 +263,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   },
   {
    "id": "michigan_21st",
@@ -221,7 +282,12 @@
    "sources": [
     "usgs_3dep_1m_dem"
    ],
-   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+   "note": "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4.",
+   "mesh": {
+    "reading": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   }
  ],
  "graded_ground": {
@@ -239,7 +305,13 @@
   "range_ft": [
    12.29,
    15.1
-  ]
+  ],
+  "mesh": {
+   "rule": "record_only",
+   "range_ft": "record_only",
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "fill": {
   "id": "post_fire_fill",
@@ -264,6 +336,12 @@
    "michigan_16th_centre": 4.08,
    "michigan_18th_centre": 4.74,
    "michigan_21st_centre": 4.59
+  },
+  "mesh": {
+   "rule": "record_only",
+   "describes": "record_only",
+   "research_zone": "record_only",
+   "depth_ft_at_crowns": "record_only"
   }
  },
  "earthworks": [
@@ -278,7 +356,12 @@
     "sanborn_1911_chicago_v3_sheet_20",
     "sanborn_1911_chicago_v3_sheet_28"
    ],
-   "note": "Research zone 7. The Illinois Central right-of-way is drawn on the sheets as tracks on dry ground with the lake washed against its east edge. Nothing held gives the track bed's level or the embankment's face, so the bed is held at the grade of the ground beside it - the least claim, no cut and no bank - and the lakeward face falls at 1 in 1.5, a stone breakwater's slope, from that grade to the water."
+   "note": "Research zone 7. The Illinois Central right-of-way is drawn on the sheets as tracks on dry ground with the lake washed against its east edge. Nothing held gives the track bed's level or the embankment's face, so the bed is held at the grade of the ground beside it - the least claim, no cut and no bank - and the lakeward face falls at 1 in 1.5, a stone breakwater's slope, from that grade to the water.",
+   "mesh": {
+    "crest": "record_only",
+    "describes": "record_only",
+    "research_zone": "record_only"
+   }
   }
  ],
  "made_ground": {
@@ -296,7 +379,12 @@
    "sanborn_1911_chicago_v3_sheet_20",
    "sanborn_1911_chicago_v3_sheet_28"
   ],
-  "note": "Research zone 8. The 14-21 m strip between the 1886 and the 1911 water's edge was lake in 1886 and ground by 1911; in 1904 the scene line puts it on the land side (L287). An 1888 surface would have most of it under water."
+  "note": "Research zone 8. The 14-21 m strip between the 1886 and the 1911 water's edge was lake in 1886 and ground by 1911; in 1904 the scene line puts it on the land side (L287). An 1888 surface would have most of it under water.",
+  "mesh": {
+   "between": "record_only",
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "lake_shelf": {
   "id": "lake_bed",
@@ -306,7 +394,11 @@
   "research_zone": 9,
   "confidence": "reconstructed",
   "sources": [],
-  "note": "Research zone 9. No sounding of the lake off the right-of-way has been found. The bed falls from the breakwater's toe toward -8 ft with a 40 m e-fold, the shape and scale of the lake shelf the 1835 spec already carries (its channel_profile), and it is under water and seen from the shore only."
+  "note": "Research zone 9. No sounding of the lake off the right-of-way has been found. The bed falls from the breakwater's toe toward -8 ft with a 40 m e-fold, the shape and scale of the lake shelf the 1835 spec already carries (its channel_profile), and it is under water and seen from the shore only.",
+  "mesh": {
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "original_surface": {
   "id": "where_the_1835_ground_shows",
@@ -319,7 +411,12 @@
    "sanborn_1911_chicago_v3_sheet_28",
    "sanborn_1911_chicago_v3_sheet_35"
   ],
-  "note": "Research zone 10. Every block in the box is platted, built on or kept as a yard on the 1911 sheets, and the graded crowns stand 2.9-5.7 ft over the 1835 surface along Prairie Avenue; no unfilled prairie shows in 1904, so none is modelled."
+  "note": "Research zone 10. Every block in the box is platted, built on or kept as a yard on the 1911 sheets, and the graded crowns stand 2.9-5.7 ft over the 1835 surface along Prairie Avenue; no unfilled prairie shows in 1904, so none is modelled.",
+  "mesh": {
+   "shows": "record_only",
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "surface_texture": {
   "amplitude_ft": 0.05,
@@ -331,7 +428,11 @@
   "research_zone": 11,
   "confidence": "reconstructed",
   "describes": "1904-07-01",
-  "note": "Research zone 11. Two octaves of value noise at +/- 0.05 ft, half the 1835 ground's: graded, built-over ground is flatter than prairie. A texture, not a claim."
+  "note": "Research zone 11. Two octaves of value noise at +/- 0.05 ft, half the 1835 ground's: graded, built-over ground is flatter than prairie. A texture, not a claim.",
+  "mesh": {
+   "describes": "record_only",
+   "research_zone": "record_only"
+  }
  },
  "relationship_to_1835": {
   "claim": "the two heightfields are not offsets of one another",
@@ -373,5 +474,6 @@
   },
   "confirmed_what": "the stretch of Prairie Avenue where standing houses confirm the crowns (research zone 3)"
  },
- "_blocks_note": "`lake_surface` and `surface_texture` are this epoch's names for what the 1835 spec calls `water` and `micro_relief`. They are named apart on purpose while no generator reads this spec: the ground gates hold every block named like an 1835 block to the 1835 generator's reads and restatements, and until T-1252 there is no heightfield here for either to restate. T-1252 wires the blocks into the ground gates together with the generator that reads them."
+ "_blocks_note": "`lake_surface` and `surface_texture` are this epoch's names for what the 1835 spec calls `water` and `micro_relief`, kept distinct so the two generators' reads are never held against each other's blocks. Since T-1738 every block here is on the ground gates: tools/compile_scene.GROUND_GROUPS enumerates it, terrain_inputs.CONSUMED names what generators/terrain_gen_graded.py reads of it, and docs/LIBERTIES.md L290 covers every reconstructed claim.",
+ "mesh_note": "Each block's `mesh` map says which of its figures no vertex comes from: the zone it cites, the date it describes, the reading a crown came from and the prose rule a block restates are all `record_only`; `lake_surface.surface_ft` is `restated_in_code` (the graded generator writes the water plane at a literal zero and heightfield.json records it). What generators/terrain_gen_graded.py does read is declared in generators/terrain_inputs.CONSUMED."
 }
