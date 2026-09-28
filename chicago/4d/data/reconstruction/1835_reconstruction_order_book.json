@@ -1356,18 +1356,17 @@
       ]
     },
     {
-      "ticket": "T-1531",
-      "records": 2,
-      "buckets": [
-        "households/institutional/north",
-        "households/institutional/south"
-      ]
-    },
-    {
       "ticket": "T-1418",
       "records": 1,
       "buckets": [
         "businesses/lawyer"
+      ]
+    },
+    {
+      "ticket": "T-1531",
+      "records": 1,
+      "buckets": [
+        "households/institutional/south"
       ]
     }
   ],
@@ -5669,20 +5668,6 @@
   ],
   "fills": [
     {
-      "bucket": "households/institutional/north",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
-      "bucket": "households/institutional/south",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
       "bucket": "persons/female/10_19/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
@@ -6423,6 +6408,13 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "households/institutional/south",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
     }
   ],
   "re_family_ledger": {

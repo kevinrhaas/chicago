@@ -330,8 +330,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1533 | 15 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
-| T-1531 | 2 | 2 |
 | T-1418 | 1 | 1 |
+| T-1531 | 1 | 1 |
 
 
 ## The rules this book adds
