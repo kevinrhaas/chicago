@@ -32,10 +32,10 @@ Unchanged by this pass and restated because it is the other half of the axis T-1
 
 | class | households |
 |---|---:|
-| structure | 31 |
+| structure | 33 |
 | lot | 0 |
 | face | 0 |
-| division | 176 |
+| division | 174 |
 | none | 1305 |
 
 ## The four questions

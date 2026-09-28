@@ -915,7 +915,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 104
+    "roofs": 99
    },
    {
     "id": "west_division_beyond_committed_control",
@@ -927,7 +927,7 @@
     "id": "north_division_beyond_modelled_ground",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 64
+    "roofs": 61
    },
    {
     "id": "fort_dearborn_compound",

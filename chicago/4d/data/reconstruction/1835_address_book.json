@@ -233,17 +233,17 @@
   "businesses": 179,
   "by_rung": {
    "division_band": 173,
-   "face": 60,
+   "face": 59,
    "owed": 11,
    "policy_only": 1305,
-   "structure": 79,
+   "structure": 80,
    "unplaceable": 63
   },
   "by_reach": {
    "division": 173,
-   "face": 60,
+   "face": 59,
    "none": 1368,
-   "structure": 79,
+   "structure": 80,
    "structure_owed": 11
   },
   "households_by_rung": {
@@ -253,17 +253,17 @@
    "unplaceable": 1
   },
   "businesses_by_rung": {
-   "face": 60,
+   "face": 59,
    "owed": 11,
-   "structure": 46,
+   "structure": 47,
    "unplaceable": 62
   },
   "seated": 1617,
   "owed": 11,
   "by_seat_kind": {
    "division_band": 1478,
-   "street_face": 21,
-   "structure": 118
+   "street_face": 20,
+   "structure": 119
   },
   "by_band": {
    "north/division_ground": 13,
@@ -285,7 +285,7 @@
    "west/merchant_and_professional_dwellings": 76,
    "west/tradesman_dwellings": 137
   },
-  "reconstructed_seats": 1510,
+  "reconstructed_seats": 1509,
   "dealt_a_roof": 181,
   "dealt_a_standing_roof": 181,
   "dealt_a_slot_not_yet_built": 0,
@@ -62832,14 +62832,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_d4_02"
+    "id": "recon_1835_blk_south_water_wells_c3_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -62856,14 +62856,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d5_01"
+    "id": "recon_1835_blk_south_water_franklin_d4_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -62926,14 +62926,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_f2_10"
+    "id": "recon_1835_blk_south_water_franklin_c2_10"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63158,14 +63158,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_08"
+    "id": "recon_1835_blk_south_water_franklin_c4_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63315,14 +63315,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_wells_c3_02"
+    "id": "recon_1835_blk_south_water_wells_c2_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63384,14 +63384,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c4_01"
+    "id": "recon_1835_blk_south_water_dearborn_c1_08"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63499,14 +63499,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c1_08"
+    "id": "recon_1835_blk_south_water_dearborn_c2_07"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63682,14 +63682,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d2_09"
+    "id": "recon_1835_blk_south_water_lasalle_d4_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64135,14 +64135,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c2_11"
+    "id": "recon_1835_blk_south_water_lasalle_f2_10"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c2_11', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64159,14 +64159,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c2_07"
+    "id": "recon_1835_blk_south_water_dearborn_c3_02"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64228,14 +64228,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_wells_c2_01"
+    "id": "recon_1835_blk_south_water_lasalle_c3_13"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_wells_c2_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_13', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64487,14 +64487,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_09"
+    "id": "recon_1835_blk_south_water_franklin_c2_08"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64887,14 +64887,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_c2_10"
+    "id": "recon_1835_blk_south_water_franklin_c2_09"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65025,14 +65025,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c3_01"
+    "id": "recon_1835_blk_south_water_clark_c2_06"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65236,24 +65236,24 @@
    "id": "business_newberry_dole",
    "kind": "business",
    "name": "Newberry & Dole",
-   "rung": "face",
+   "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_clark_c2_06"
+    "id": "newberry_dole_packing_house_south_branch"
    },
    "works_seat": null,
-   "reach": "face",
-   "reach_value": "South Water Street",
+   "reach": "structure",
+   "reach_value": "Market Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor.",
-   "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'newberry_dole_packing_house_south_branch' is a committed structure.",
+   "words": "The advertisement's anchor reaches a roof this town has built, and the firm is seated on it.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
    "band": null,
    "seed": null,
-   "seat_is_substitutable": true,
-   "adjudicated_grade": "street_only_adopted",
+   "seat_is_substitutable": false,
+   "adjudicated_grade": "structure_committed",
    "dealt_roof": null
   },
   {
@@ -65374,14 +65374,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_dearborn_c3_02"
+    "id": "recon_1835_blk_south_water_dearborn_c3_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65558,14 +65558,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c3_12"
+    "id": "recon_1835_blk_south_water_lasalle_c2_11"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_12', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c2_11', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65781,14 +65781,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_c3_13"
+    "id": "recon_1835_blk_south_water_lasalle_c3_12"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_13', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c3_12', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66091,14 +66091,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d4_02"
+    "id": "recon_1835_blk_south_water_lasalle_d5_01"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66223,23 +66223,22 @@
    "name": "[uncertain: DATID GAD], auction and commission merchant, South Water Street",
    "rung": "face",
    "seat": {
-    "kind": "street_face",
-    "id": "south_water",
-    "street_name": "South Water Street"
+    "kind": "structure",
+    "id": "recon_1835_blk_south_water_lasalle_d2_09"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
-   "tier": "reconstructed",
-   "basis": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: every roof on the face is spoken for.",
-   "words": "The paper reaches South Water Street and nothing narrower, and no ROOF on it could be adopted — every one is spoken for. So this firm stands on the FACE itself: on that street, in no building this model holds, with no lot and no coordinate claimed. The street is the reading; standing them on it without a roof is the reconstructed step.",
+   "tier": "inferred",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d2_09', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
    "band": null,
-   "seed": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street|south_water|T-1512",
-   "seat_is_substitutable": false,
-   "adjudicated_grade": "street_only_unseated",
+   "seed": null,
+   "seat_is_substitutable": true,
+   "adjudicated_grade": "street_only_adopted",
    "dealt_roof": null
   },
   {
