@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1215, ts: '2026-09-28T21:48:10.092Z', date: 'Sep 28, 2026, 4:48 PM CT', title: 'The first two houses south of Washington Street', kind: 'change',
+  { v: null, ts: '', title: 'The first two houses south of Washington Street', kind: 'change',
     items: [
       'Walk south down Clark Street past Washington and there are buildings on the last row of the plat for the first time. Two cottages and their yard buildings stand on the block between Washington and Madison, Clark and Dearborn \u2014 a deep-plan cottage facing Washington with a privy behind it, a two-room cottage facing Madison with a woodshed behind it. Everything else on that block is still open prairie, which is what it was.',
       'The block was asked for one of them, and the plan it is built to holds the pair. The building programme apportions this block two houses and no more \u2014 a deep-plan one on the Washington face, a two-room one on Madison \u2014 and the pass that deals families onto lots had written a request against the Madison one and left that household standing with an address and no walls. Both are up, because the block is built to the plan it carries rather than one roof at a time.',
       'The families who moved in are not the one who asked. Households pick a lot before they ask for one to be built, and a tradesman\u2019s household prefers a quiet street: the two Beaubien families were living on the busy South Water Street frontage, and the moment these quieter cottages existed they were the better answer. So the Beaubiens moved in, and thirty-three families shuffled up behind them into the roofs they left \u2014 every one of them in the South Division, and not one of them left without a roof.',
       'Two requests became standing houses, and a third family that had nowhere at all now has somewhere. Seth Byam, who had asked for the Madison Street cottage, and Thomas Byram, who had asked for one on the Franklin Street block, both end the pass under houses that already stood on Clark Street north of Washington \u2014 so the block that has raised its plan out has no request left to offer anybody. L. C. Chamberlain, who had no lot this morning, takes the place the shuffle freed on the Wells Street block. The count of families with somewhere to be went from 140 to 141, and the record says which of those numbers came from where.',
       'Nothing on the block is claimed as evidence. No source says a building stood here in 1835, which buildings they were, or where on their lots they sat. What is committed is the lot grid, the street lines and the ground; the rest is the building programme filling a town it can count but cannot name, and the two cottages carry that disclosure on their own cards.',
+    ] },
+  { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
+      'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
+      'The corner is empty for now. The house is its own piece of work, and so are the street surfaces. Nothing from the 1835 town is drawn here: no fences, prairie, signs or cabins.',
+      'The year badge reads 1904. The 1835 walk is unchanged.',
     ] },
   { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
     items: [
