@@ -100,6 +100,9 @@
  *                                 structure, in one Go to tab, each structure
  *                                 graded with its own record's position grade
  *   liberties are readable ...... what we made up is in the panel, not only in the repo
+ *   a structure version ......... ?structure=&version= swaps ONE building's record and
+ *                                 mesh, names it in the HUD and on the card, and moves
+ *                                 nothing else in the town (T-1727, part 3)
  *   draw calls under budget ..... the batch strategy is doing its job, against a
  *                                 ceiling this file pins rather than merely reads
  *   zero page errors ............ everywhere, both widths
@@ -7948,6 +7951,134 @@ for (const [label, viewport, touch] of [
       cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
+
+    // --- T-1727: one structure swapped by URL, and nothing else ----------------------
+    //
+    // `?structure=<id>&version=<label>` loads a committed alternate of ONE structure so
+    // competing builds (the Glessner House first) can be compared side by side. The
+    // fixture is `data/structures/versions/bates_auction_room/fixture.json`, a TEST-ONLY
+    // alternate: the default record copied unchanged, with the canonical mesh adopted
+    // under the version's own path (its inputs hash is identical). So what is proved here
+    // is the MECHANISM — the version's sidecar and the version's GLB are what the page
+    // loads for that id, the default's are never fetched, the HUD and the card name the
+    // version — and that every other one of the town's structures is byte-for-byte and
+    // metre-for-metre where the default boot put it.
+    //
+    // The version is booted in this same tab, which is then booted back at the default
+    // address — see the note at the re-boot for why not a second tab.
+    {
+      const VERSION_ID = 'bates_auction_room';
+      const VERSION_LABEL = 'fixture';
+      const census = (id) => {
+        const api = window.__chicago4d;
+        const fnv = (s) => {
+          let h = 0x811c9dc5;
+          for (let i = 0; i < s.length; i += 1) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+          return h.toString(16);
+        };
+        const r3 = (v) => (v == null ? null : Math.round(v * 1000) / 1000);
+        const bounds = api.buildings?.instanceBounds?.() ?? {};
+        const rows = {};
+        for (const [k, r] of api.registry) {
+          const p = api.buildings?.positionOf?.(k);
+          rows[k] = {
+            sidecarUrl: r.sidecarUrl, assetUrl: r.assetUrl, sidecar: fnv(JSON.stringify(r.sidecar)),
+            drawn: !!r.gltf || !!r.drawnBy, failed: r.loadFailed ?? null, version: r.version?.label ?? null,
+            at: p ? [r3(p.x), r3(p.y), r3(p.z)].join(',') : null,
+            size: bounds[k] ? bounds[k].size.map(r3).join(',') : null,
+          };
+        }
+        const chip = document.getElementById('badge-version');
+        api.pick(id);
+        const flag = document.querySelector('#popup .pop-flag-version');
+        const card = { title: document.querySelector('#popup h2')?.textContent ?? '',
+          flag: flag?.textContent.replace(/\s+/g, ' ').trim() ?? null, flagLabel: flag?.dataset.version ?? null };
+        api.popup.close();
+        return {
+          rows, card, state: api.structureVersion,
+          problems: api.problems.filter((p) => !/provisional|PLACEHOLDER|placeholder|review_required is set/i.test(p)),
+          chip: chip ? { hidden: chip.hidden, text: chip.textContent, tone: chip.dataset.tone ?? null,
+            visible: !chip.hidden && chip.checkVisibility() } : null,
+        };
+      };
+
+      // A plain boot never reaches the versions index: `resolveStructureVersion` returns
+      // before its fetch when nothing is requested (tools/test_structure_versions.mjs
+      // counts the fetches), and this tab's state says nothing was.
+      const before = await page.evaluate(census, VERSION_ID);
+      check(`${label}: a plain boot asks for no structure version and shows none (T-1727)`,
+        before.state?.requested === null && before.state?.active === null
+        && before.chip?.hidden === true && before.rows[VERSION_ID]?.version === null
+        && before.card.flag === null,
+        JSON.stringify({ state: before.state, chip: before.chip, flag: before.card.flag }));
+
+      // THE SAME TAB, RE-BOOTED at the version's address and then back at the default's.
+      // A second tab was tried first and is the wrong instrument here: two WebGL scenes on
+      // one software rasteriser, and at 1280x800 the version tab's boot ran past three
+      // minutes even with the first tab frozen (measured, T-1727). Re-booting this tab is
+      // also what a part-4-only run starts from, so the parts after this one see exactly
+      // the fresh default boot their staged runs already see. Every request of the version
+      // boot is recorded from its first, because the Resource Timing buffer holds 250
+      // entries and this scene makes several hundred, so the page cannot be asked afterwards
+      // whether the default's mesh was fetched. Its errors land in this viewport's
+      // `zero page errors` through the listeners the tab already carries.
+      const bootHere = async (url) => {
+        await page.goto(url, { waitUntil: 'domcontentloaded' });
+        // waitForFunction(fn, ARG, options): the options are the THIRD argument.
+        try {
+          await page.waitForFunction(() => window.__chicago4d?.ready === true || !!window.__chicago4d?.error,
+            null, { timeout: 240_000, polling: 1000 });
+          return await page.evaluate(() => window.__chicago4d?.ready === true);
+        } catch { return false; }
+      };
+      const vrequests = [];
+      const onRequest = (r) => vrequests.push(r.url());
+      page.on('request', onRequest);
+      const vurl = `${base}&structure=${VERSION_ID}&version=${VERSION_LABEL}`;
+      const vready = await bootHere(vurl);
+      page.off('request', onRequest);
+      check(`${label}: ?structure=${VERSION_ID}&version=${VERSION_LABEL} reaches ready (T-1727)`, vready,
+        vready ? '' : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page'));
+      if (vready) {
+        // Into the town, as a visitor would, so the HUD the chip rides in is showing.
+        await enterTown();
+        const after = await page.evaluate(census, VERSION_ID);
+        after.defaultAssetFetched = vrequests.some((u) => /\/gltf\/bates_auction_room__[^/]+\.glb$/.test(u));
+        after.versionFetches = vrequests.filter((u) => /\/versions\//.test(u)).map((u) => u.replace(/^.*?\/(sidecars|gltf)\//, '$1/'));
+        const v = after.rows[VERSION_ID] ?? {};
+        check(`${label}: the version boot loads the fixture's own sidecar and mesh for that one structure (T-1727)`,
+          after.state?.active?.label === VERSION_LABEL && after.state?.notice === null
+          && /\/sidecars\/1835\/versions\/bates_auction_room\/fixture\.json$/.test(v.sidecarUrl ?? '')
+          && /\/gltf\/versions\/bates_auction_room\/fixture\/bates_auction_room__frame_1834\.glb$/.test(v.assetUrl ?? '')
+          && v.drawn && v.failed === null && v.version === VERSION_LABEL
+          && !after.defaultAssetFetched && after.versionFetches.length === 3,
+          JSON.stringify({ state: after.state, row: v, defaultAssetFetched: after.defaultAssetFetched,
+            versionFetches: after.versionFetches }));
+        const ids = Object.keys(before.rows);
+        const moved = ids.filter((k) => k !== VERSION_ID
+          && JSON.stringify(before.rows[k]) !== JSON.stringify(after.rows[k]));
+        const sameSet = ids.length === Object.keys(after.rows).length
+          && ids.every((k) => k in after.rows);
+        check(`${label}: …and every other structure is the same record, the same mesh, in the same place (T-1727)`,
+          sameSet && moved.length === 0 && ids.length > 400
+          && after.problems.every((p) => before.problems.includes(p)),
+          `${moved.length} moved of ${ids.length - 1}: ${moved.slice(0, 3).map((k) => `${k} ${JSON.stringify(before.rows[k])} -> ${JSON.stringify(after.rows[k])}`).join(' | ')}`
+          + `${sameSet ? '' : ' | the registry holds a different set of ids'}`
+          + ` | new problems ${JSON.stringify(after.problems.filter((p) => !before.problems.includes(p)).slice(0, 2))}`);
+        check(`${label}: …the fixture stands exactly where the default did, as its identical record says (T-1727)`,
+          v.at !== null && v.at === before.rows[VERSION_ID]?.at && v.size === before.rows[VERSION_ID]?.size,
+          `${v.at} / ${v.size} vs ${before.rows[VERSION_ID]?.at} / ${before.rows[VERSION_ID]?.size}`);
+        check(`${label}: the HUD and the card both name the version, so two screenshots cannot be confused (T-1727)`,
+          after.chip?.visible === true && after.chip.text === `version ${VERSION_LABEL}` && after.chip.tone === 'active'
+          && after.card.flagLabel === VERSION_LABEL && /test fixture/.test(after.card.flag ?? '')
+          && after.card.title === before.card.title,
+          JSON.stringify({ chip: after.chip, card: after.card }));
+      }
+      // …and back to the default town for whatever part runs next.
+      const back = await bootHere(base);
+      check(`${label}: the default address boots again after the version (T-1727)`, back,
+        back ? '' : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page'));
+    }
 
     inStageWork = false;
     } // end PART 3 (T-0060 stage 2a, cut by T-0121)

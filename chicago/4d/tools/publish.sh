@@ -141,6 +141,13 @@ mkdir -p "$SITE/data/gltf"
 if compgen -G "assets/web/*.glb" > /dev/null; then
   cp -f assets/web/*.glb "$SITE/data/gltf/"
 fi
+# The structure VERSIONS' derivatives (T-1727), under their own subtree so a sidecar's
+# `gltf/versions/<id>/<label>/…` resolves here exactly as `gltf/<name>` does. Copied
+# whole; the renderer fetches one only when an address asks for that version, so they
+# cost the boot nothing. Their freshness is `validate.py --stale`'s version check.
+if [ -d assets/web/versions ]; then
+  cp -a assets/web/versions "$SITE/data/gltf/versions"
+fi
 
 # The two roof coverings' relief maps (T-1488). `renderers/web/js/roof-relief.js`
 # resolves them against the ASSET base — ../../assets/ in the dev tree, ../data/

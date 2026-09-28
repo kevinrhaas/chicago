@@ -14,6 +14,7 @@ import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
 import { createGoTo } from './goto.js';
 import { PACES, gaitName } from './travel.js';
+import { versionBadge } from './structure-versions.js';
 
 const THEME_KEY = 'chicago4d.theme';
 const CONF_KEY = 'chicago4d.confidence';
@@ -65,7 +66,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full',
+  isTouch, resolvedDetail = 'full', structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -97,6 +98,30 @@ export function createHud({
     hint.classList.add('on');
     clearTimeout(hintTimer);
     if (ms) hintTimer = setTimeout(() => hint.classList.remove('on'), ms);
+  }
+
+  // ---- which build of a structure is showing (T-1727) -----------------------
+  //
+  // `?structure=<id>&version=<label>` swaps one building for a committed alternate so
+  // competing builds can be compared side by side. The chip rides in the year badge for
+  // as long as the page is open, so two screenshots of the same corner can never be
+  // confused — and when the label was NOT found it says "default shown" in the warning
+  // tone rather than letting a typo pass for a comparison. Tap it for the full sentence.
+  const badgeVersion = $('badge-version');
+  const versionChip = versionBadge(structureVersion);
+  if (badgeVersion && versionChip) {
+    badgeVersion.textContent = versionChip.text;
+    badgeVersion.title = versionChip.title;
+    badgeVersion.setAttribute('aria-label', versionChip.title);
+    badgeVersion.dataset.tone = versionChip.tone;
+    badgeVersion.removeAttribute('hidden');
+    badgeVersion.closest('.badge')?.classList.add('has-version');
+    badgeVersion.addEventListener('click', () => say(versionChip.title, 7000));
+  }
+  function announceStructureVersion() {
+    if (!versionChip) return false;
+    say(versionChip.announce, versionChip.tone === 'notice' ? 9000 : 5000);
+    return true;
   }
 
   let confidenceOn = false;
@@ -637,6 +662,7 @@ export function createHud({
 
   return {
     say,
+    announceStructureVersion,
     settings,
     setPanel,
     selectTab,

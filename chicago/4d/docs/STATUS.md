@@ -1,3 +1,24 @@
+## T-1727 — structure versions by URL (2026-09-28)
+
+`?structure=<id>&version=<label>` swaps one structure for a committed alternate record
+and mesh (`data/structures/versions/<id>/<label>.json`, mesh under
+`assets/{gltf,web}/versions/`, books in `assets/manifest.versions.json`); `version=default`
+names the canonical record. An unknown id or label loads the default and the HUD chip says
+*default shown*, with the sentence on tap and on entry. The HUD and the card name the
+active version. The versions index is fetched only when asked for, so a plain boot is
+unchanged. `validate.py` holds versions to the structure gate and `--stale` to their
+meshes; `build.py` bakes versions with their structure; `web_derivatives.sh` and
+`publish.sh` carry them. `node tools/promote_version.mjs <id> <label>` makes one the
+default in one diff and keeps the old default as `pre-<label>`. `docs/STRUCTURE-VERSIONS.md`.
+
+**Unverified, stated:** `build.py`'s version loop has been exercised with bpy and the
+emitter stubbed (it chose the version, wrote to the version path and recorded the entry),
+not under Blender — no Blender on this runner. The first real version bake (T-1730) is its
+live test. The only committed version is the smoke's TEST FIXTURE
+(`bates_auction_room/fixture`), an unchanged copy of the default record whose inputs hash
+equals the committed bake, so its mesh was adopted rather than baked; the pinned
+derivative command reproduces the adopted derivative byte for byte.
+
 ## T-1251 — the 1904 ground's zone table (2026-09-28)
 
 Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.

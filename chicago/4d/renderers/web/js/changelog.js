@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+    items: [
+      'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
+      'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
+      'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
+      'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
+    ] },
   { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
     items: [
       'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
