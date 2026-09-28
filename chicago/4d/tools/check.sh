@@ -2107,6 +2107,19 @@ step "the store families' crosswalk variants are the ones the archetype draws" \
 selftest "…and its own assertions still fire when broken" \
   python3 tools/test_store_variants.py --self-test
 
+# The same question one attribute over, and the same answer (T-1686). `plan` decides
+# where a house's front door goes, and five anonymous parcels each decided it beside
+# their own form values — so all five gave H1 the three-bay hall-parlour front of a
+# cottage, while H1's own entry requires `center_hall_one_and_half`, states a bare
+# "5 bays" and is the ONLY family of the thirty-five that names a centre hall. Seven
+# roofs stood on it. This holds the reading, the roofs, the five parcels asking one
+# rule, and H2's two refused variants against the records that refuse them.
+step "H1's centre hall is the crosswalk entry's, and H2's hip and Greek doorway are refused" \
+  python3 tools/test_house_front.py
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/test_house_front.py --self-test
+
 # And the question the two gates above cannot ask, because they read what LANDED: is
 # every family the 665-roof schedule may deal to a platted block buildable at every
 # size its own band allows? A family comes up rarely — there are two H1s and two H2s in

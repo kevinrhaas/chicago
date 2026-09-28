@@ -126,6 +126,7 @@ from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E4
                           stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
+from house_front import bays_for, mapping_note, plan_for  # noqa: E402
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -621,13 +622,22 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
 
     if family.startswith(("D", "H")) and family != "D2":
         big = family in ("D7", "H2")
-        plan = "centre_passage" if big else ("single_pen" if family == "D3" else "hall_parlour")
+        # WHICH HOUSES STAND BEHIND A CENTRE HALL is `tools/house_front.py`'s
+        # answer and no longer this file's (T-1686). The two calls are additive:
+        # each takes this parcel's own default and returns it untouched unless the
+        # family's own crosswalk entry states otherwise. Exactly one does — H1,
+        # whose required variant IS `center_hall_one_and_half` and whose variants
+        # line states a bare "5 bays" — and all five parcels dealt it a three-bay
+        # cottage front with the door off centre.
+        plan = plan_for(family, "centre_passage" if big
+                        else ("single_pen" if family == "D3" else "hall_parlour"))
         result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
             "roof_type": invented("gable", why),
             "roof_pitch_deg": invented(pitch(), why),
             "construction": invented(construction, why), "plan": invented(plan, why),
-            "bays": invented(5 if big else (3 if width >= 5.4 else 2), why),
+            "bays": invented(bays_for(family, 5 if big
+                                       else (3 if width >= 5.4 else 2)), why),
             "chimneys": invented(2 if big else 1, why),
             "paint": invented(paint, why),
         }
@@ -988,9 +998,12 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
             "abuts": anchor.get("abut_west_of") or anchor.get("abut_east_of"),
             "why": block["frontage"]["why"],
         }
-    mapping = (" H-family house massing currently resolves through the frame dwelling "
-               "archetype; no larger house generator is implemented."
-               if family.startswith("H") else "")
+    # T-1686. The sentence is `house_front.mapping_note`'s, because it now says more
+    # than which archetype the family resolves through: for H1 it says the centre hall
+    # and the bay count are the crosswalk entry's rather than this parcel's, and for H2
+    # it records the two named variants this town refuses — the hip and the Greek
+    # doorway — with the reason each is refused on.
+    mapping = mapping_note(family)
     return {
         "id": sid,
         "name": f"Reconstructed {family} {label} #{seq:02d}",
