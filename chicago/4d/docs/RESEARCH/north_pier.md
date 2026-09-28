@@ -162,6 +162,41 @@ never at its head — and that costs nothing while both ends are equally outside
 will need a one-ended mode in the checker when S2e extends the terrain; written up in the
 archetype's parameter module.
 
+## 7b. The works yard: ruled and refused, 2026-09-28 (T-1716)
+
+The parent build ticket (T-1204) asked for "the pier-works yard at the river mouth ... raised
+or refused on what the two pier dossiers allow". **Refused, and the reason is the corpus and
+not the ground.**
+
+A works that sank stone-filled cribs through a bar for three seasons was staged from
+somewhere: a gang, its timber, its stone, its smithing, a slip to build cribs on. Between them
+these two memos carry the appropriations ($25,000 on 2 March 1833; $32,800 in 1835), a start in
+June 1833, the supervising officer (Major George Bender), the first vessel through on
+12 July 1834 and four length readings. **They describe no yard, no shed, no crib slip and no
+camp, and neither says where the work was staged from.** `premises_rulings.json` already
+refused the works' STAFF out of the same corpus — "the works employed a gang across the scene
+date and no committed source names its contractor, its foreman or its strength in any month of
+1835" — and a yard is that same silence in timber. `1835_no_build_ground.json`'s
+`river_mouth_sand_bar` region admits "the harbour works, and nothing else ... on its own
+evidence", and a works yard has none, so raising one would invent a building, its extent and
+its place at the one point in the town where the federal works are otherwise documented to the
+dollar. The refusal is written into that region's `refused` block, with what retires it: the
+Chief Engineer's annual report for 1835, the House Document series, or Graham's 1857–58
+hydrographic surveys.
+
+### And § 7's ground claim is stale — measured the same day
+
+§ 7 says "The heightfield stops at local E +320". **It does not any more.** Sampled on the
+committed `e1834_harbor_cut` field, the box runs to local **E +1700**, and the readings at the
+pier roots are: north root **+0.60 m**, south root **-0.02 m**, mid-channel between them
+**-1.52 m**, and dry ground behind them at **+1.26 m** (E +1150) and **+3.44 m** (E +1100). So
+the mouth IS modelled today, the yard could have been seated if the evidence had allowed one,
+and `ground_contact: outside_modelled_ground` on both pier records is a declaration made
+against a smaller box than the one now committed. **That is not corrected here**: whether
+those two records now land, and what the archetype's half-wrong `GROUND_CONTACT = "ends"`
+should become when a pier's root is inside the box and its head is not, is the question § 7
+itself hands to the checker, and it is filed as its own ticket rather than settled in a memo.
+
 ## 8. What would replace most of this
 
 The Chief Engineer's annual report for 1835, or the House Document series — dossier 01

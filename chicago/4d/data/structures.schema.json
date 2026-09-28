@@ -566,6 +566,31 @@
       "default": false,
       "description": "Blocks release of any scene including this record. Set for anything touching Indigenous history or human depiction pending external review."
     },
+    "version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "summary"
+      ],
+      "description": "T-1727. Present ONLY on a structure VERSION — an alternate build of one structure at data/structures/versions/<id>/<label>.json, opened by ?structure=<id>&version=<label>. A canonical record may not carry it (tools/validate.py refuses it there). Everything else in a version is an ordinary structure record, held to every rule a structure is. See generators/common/versions.py and docs/STRUCTURE-VERSIONS.md.",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The file's stem. A short neutral string (v1, v2, b, hall-plan) — never a model identifier; the label rule is generators/common/versions.py label_problem()."
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What differs from the default, in a sentence the card and the HUD show a visitor while this version is selected."
+        },
+        "test_fixture": {
+          "type": "boolean",
+          "default": false,
+          "description": "True for a test-only alternate that exists so the release smoke can prove the switch; the card says so."
+        }
+      }
+    },
     "resident_assignment": {
       "type": "object",
       "additionalProperties": false,

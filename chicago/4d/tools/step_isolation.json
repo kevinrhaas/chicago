@@ -3,7 +3,7 @@
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
   "measured": "2026-09-28",
   "gate_verdict": "CHECK FAIL",
-  "declared_steps": 656,
+  "declared_steps": 683,
   "exempt": {
     "site/": {
       "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
@@ -1541,7 +1541,6 @@
         "site/4d/data/residents/households/hh_zearly_reason.json",
         "site/4d/data/residents/index.json",
         "site/4d/data/residents/institutional/hh_rc_gilbert_david.json",
-        "site/4d/data/residents/institutional/hh_rc_sawyer_rhoda.json",
         "site/4d/data/residents/kin_readings.json",
         "site/4d/data/residents/kin_rulings.json",
         "site/4d/data/residents/kin_survey.json",
@@ -2246,7 +2245,7 @@
       ],
       "wrote_by": [
         "- ../../site/4d/data/residents",
-        "- ../../site/4d/walk/index.html build 372379fb · Sep 27, 2026, 1:10 AM CT"
+        "- ../../site/4d/walk/index.html build f7204173 · Sep 28, 2026, 9:36 AM CT"
       ]
     },
     "-c": {
@@ -2258,94 +2257,97 @@
     "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-url-check.mjs": {
       "wrote": []
     },
-    "/tmp/c4d-repomode-XH3F4p/bin/gh": {
+    "/tmp/c4d-repomode-883bnh/bin/gh": {
       "wrote": []
     },
-    "/tmp/prstuck-141Lui/gh.mjs": {
+    "/tmp/prstuck-0se5f3/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-1mOiOg/gh.mjs": {
+    "/tmp/prstuck-2Q3QWB/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-1x8vy2/gh.mjs": {
+    "/tmp/prstuck-AvZnvH/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-380fcY/gh.mjs": {
+    "/tmp/prstuck-DU1aVI/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-77ECHN/gh.mjs": {
+    "/tmp/prstuck-F5PaTN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-9vrRrN/gh.mjs": {
+    "/tmp/prstuck-F6j4z7/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-B9xCYd/gh.mjs": {
+    "/tmp/prstuck-GElo2s/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-DhQCXt/gh.mjs": {
+    "/tmp/prstuck-Hwy2j9/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-DrHr3p/gh.mjs": {
+    "/tmp/prstuck-I0x8mt/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-I0zkIa/gh.mjs": {
+    "/tmp/prstuck-MpYEhN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-LNECiC/gh.mjs": {
+    "/tmp/prstuck-OxhPCS/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-MHDoNO/gh.mjs": {
+    "/tmp/prstuck-PzdXGd/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-OMoP4P/gh.mjs": {
+    "/tmp/prstuck-RLp9Qa/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-P561Mz/gh.mjs": {
+    "/tmp/prstuck-TLW4bO/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-PyE8hv/gh.mjs": {
+    "/tmp/prstuck-WGfjGP/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-UJ4IYc/gh.mjs": {
+    "/tmp/prstuck-ZMmiT5/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-XIuqXX/gh.mjs": {
+    "/tmp/prstuck-Zdgk8r/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ZglSsc/gh.mjs": {
+    "/tmp/prstuck-bunC5O/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-aRZQyj/gh.mjs": {
+    "/tmp/prstuck-cFvZ9h/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ey6whR/gh.mjs": {
+    "/tmp/prstuck-dryRZ6/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-f8978z/gh.mjs": {
+    "/tmp/prstuck-ip263c/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-gM2m3o/gh.mjs": {
+    "/tmp/prstuck-mIlw2h/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-hoAbEq/gh.mjs": {
+    "/tmp/prstuck-nZ8SZx/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-hwbEIl/gh.mjs": {
+    "/tmp/prstuck-ph7Ocs/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-mxqpH6/gh.mjs": {
+    "/tmp/prstuck-sFPbk8/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-wm3H8t/gh.mjs": {
+    "/tmp/prstuck-uUAsBa/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-xR7JYo/gh.mjs": {
+    "/tmp/prstuck-wEmRJF/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-zxpHzA/gh.mjs": {
+    "/tmp/prstuck-xiEeoE/gh.mjs": {
       "wrote": []
     },
     "generators/ao_export.py": {
+      "wrote": []
+    },
+    "generators/common/selection.py": {
       "wrote": []
     },
     "generators/inferred_placeholder.py": {
@@ -2484,8 +2486,7 @@
       "wrote": []
     },
     "tools/check_only_selection.py": {
-      "wrote": [],
-      "measured_by": "tools/isolation_probe, scoped to this tool rather than a whole instrumented gate run (T-1652). --build takes one serial gate run, which does not fit a steward run's 600 s foreground ceiling; the probe that produces these rows was run over `--gate` and `--self-test` instead, with the same ISOLATION_ROOT/ISOLATION_OUT contract, and recorded no write inside the repo for either. Measured 2026-09-27. The next full --build folds this row in and this note goes with it — it reads nothing but tools/bake.sh, generators/build.py and data/structures/*.json."
+      "wrote": []
     },
     "tools/check_published.mjs": {
       "wrote": []
@@ -2709,6 +2710,9 @@
     "tools/generate_yard_goods.py": {
       "wrote": []
     },
+    "tools/georef_prairie_1904.py": {
+      "wrote": []
+    },
     "tools/identity_master_guard.py": {
       "wrote": []
     },
@@ -2848,6 +2852,9 @@
       "wrote": []
     },
     "tools/measure_north_of_box.mjs": {
+      "wrote": []
+    },
+    "tools/measure_northern_ground.py": {
       "wrote": []
     },
     "tools/measure_picket_plate.py": {
@@ -3034,6 +3041,9 @@
       "wrote": []
     },
     "tools/profile_population_1835.py": {
+      "wrote": []
+    },
+    "tools/promote_version.mjs": {
       "wrote": []
     },
     "tools/publish.py": {
@@ -3582,6 +3592,12 @@
     "tools/test_street_confidence.mjs": {
       "wrote": []
     },
+    "tools/test_structure_versions.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.py": {
+      "wrote": []
+    },
     "tools/test_ticket_after.mjs": {
       "wrote": []
     },
@@ -3622,14 +3638,7 @@
       "wrote": []
     },
     "tools/ticket.mjs": {
-      "wrote": [
-        "chicago/4d/tickets/BOARD.md",
-        "chicago/4d/tickets/tickets.json",
-        "site/4d/tickets.json"
-      ],
-      "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/ticket.mjs board"
-      ]
+      "wrote": []
     },
     "tools/ticket_liveness.py": {
       "wrote": []
@@ -3638,6 +3647,9 @@
       "wrote": []
     },
     "tools/town_census.py": {
+      "wrote": []
+    },
+    "tools/trace_ic_edge_1904.py": {
       "wrote": []
     },
     "tools/trace_lake_shore_rees_1849.py": {
