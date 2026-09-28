@@ -8,12 +8,12 @@ Registered reading units: **23,697**, as of 2026-09-15. Unclassified: **0**. Ass
 
 | Disposition | Units |
 | --- | ---: |
-| aggregate_only | 370 |
-| asserted | 1,389 |
-| later_only | 12,593 |
+| aggregate_only | 376 |
+| asserted | 1,391 |
+| later_only | 12,596 |
 | outside_chicago | 119 |
-| refused | 8,728 |
-| unresolved | 498 |
+| refused | 8,730 |
+| unresolved | 485 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
@@ -21,9 +21,9 @@ Every asserted unit names the record and field it wrote to. Grouped by the layer
 | --- | ---: |
 | residents | 0 |
 | households | 809 |
-| businesses | 541 |
+| businesses | 542 |
 | structures | 39 |
-| outside the four layers | 0 |
+| outside the four layers | 1 |
 
 **Read this honestly.** The unit-level ledger proves the second hop for households, businesses and structures. It proves nothing at unit level for residents, which is not a claim that the layer is unresearched — the newspaper register below is compiled from the same readings by `tools/compile_register.py`, and the roofs carry their own graded attributes. Sections 4 and 5 read those layers directly for that reason.
 
@@ -121,7 +121,6 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1543 | 1 | yes |
 | T-1552 | 26 | yes |
 | T-1569 | 12 | yes |
-| T-1586 | 13 | **NO** |
 | T-1588 | 2 | yes |
 | T-1625 | 6 | yes |
 
@@ -139,7 +138,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **Every layer is reached at unit level.** 809 asserted units land on residents and households, 541 on businesses and 39 on structures.
+1. **Every layer is reached at unit level.** 809 asserted units land on residents and households, 542 on businesses and 39 on structures.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **62 firms are unplaceable and 60 reach a street and no further.** Those 122 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,481 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
@@ -147,6 +146,6 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 8. Closing
 
-Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **13**.
+Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **0**.
 
 The closed ledger is therefore complete in its own terms, and section 7 names the five places where the research stopped and the ticket that carries each one. This audit makes no GO/NO-GO judgement about reconstruction: that is T-1157's signature, and this is the evidence under it.
