@@ -8,12 +8,12 @@ Registered reading units: **23,697**, as of 2026-09-15. Unclassified: **0**. Ass
 
 | Disposition | Units |
 | --- | ---: |
-| aggregate_only | 310 |
+| aggregate_only | 324 |
 | asserted | 1,362 |
 | later_only | 12,593 |
-| outside_chicago | 116 |
-| refused | 8,721 |
-| unresolved | 595 |
+| outside_chicago | 117 |
+| refused | 8,724 |
+| unresolved | 577 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
@@ -122,7 +122,6 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1552 | 26 | yes |
 | T-1569 | 12 | yes |
 | T-1586 | 92 | yes |
-| T-1587 | 18 | yes |
 | T-1588 | 2 | yes |
 | T-1625 | 6 | yes |
 
