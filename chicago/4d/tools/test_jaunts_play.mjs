@@ -121,8 +121,22 @@ try {
       await context.close(); continue;
     }
     assert(await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago'))); await atStop();
+    // The panel folds to one bar so a stop can be looked at, and opens again on a tap.
+    const panelHeight = async () => (await page.locator('#jaunt-panel').boundingBox()).height;
+    const openHeight = await panelHeight();
+    await click(page.locator('.jaunt-collapse'));
+    assert(await page.locator('.jaunt-bar').isVisible(), 'collapsed to the bar');
+    assert(await page.locator('.jaunt-body').isHidden(), 'the story is folded away');
+    const shutHeight = await panelHeight();
+    assert(shutHeight < 90 && shutHeight < openHeight / 2, `collapsed panel is ${shutHeight}px of ${openHeight}px`);
+    if (process.env.JAUNT_SHOTS) await page.screenshot({ path: path.join(process.env.JAUNT_SHOTS, `${viewport.width}-collapsed.png`) });
+    await click(page.locator('.jaunt-bar-label'));
+    assert(await page.locator('.jaunt-body').isVisible(), 'the bar opens the panel again');
+    if (process.env.JAUNT_SHOTS) await page.screenshot({ path: path.join(process.env.JAUNT_SHOTS, `${viewport.width}-expanded.png`) });
+    await click(page.locator('.jaunt-collapse'));
     for (let i = 0; i < 6; ++i) {
       const s = await state(); if (s.phase === 'outcome') break; states.push(s);
+      if (i === 1) assert(await page.locator('.jaunt-body').isVisible(), 'arriving at a new stop opens a collapsed panel');
       console.log(`JAUNT PLAY ${viewport.width}: pilot stop ${s.stopIndex + 1}`);
       const choice = s.jaunt.stops.find(x => x.id === s.visited[s.stopIndex].id).choices?.[0];
       if (choice) await page.evaluate(id => __chicago4d.jaunts.choose(id), choice.id);

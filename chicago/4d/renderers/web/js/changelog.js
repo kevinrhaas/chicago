@@ -5,6 +5,7 @@ export const CHANGELOG = [ // newest first
       'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
       'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
       'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+      'On a phone the outing panel no longer has to cover the town. Tap ▾ to fold it down to one bar with the stop’s name and Next Stop, look around, then tap the bar to open it again. It opens by itself when you arrive at the next stop.',
     ] },
   { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
     items: [

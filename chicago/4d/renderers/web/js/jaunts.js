@@ -15,6 +15,10 @@ export function matches(test, vars, inventory) {
 export const currentStop = s => s.jaunt?.stops.find(stop => stop.id === s.visited[s.stopIndex]?.id);
 const money = cents => Math.abs(cents) < 100 ? `${Math.abs(cents)} ¢` : `$${(Math.abs(cents) / 100).toFixed(2)}`;
 const label = name => name.replace(/[_-]+/g, ' ').replace(/^./, c => c.toUpperCase());
+// Units a visitor can read as a resource. Any other unit (the pilot's `preference`) is
+// the outing's own bookkeeping for branching, and is never shown as a chip or a cost.
+const SHOWN_UNITS = new Set(['cents', 'minutes', 'count']);
+export const shownResource = spec => SHOWN_UNITS.has(spec?.unit);
 export function formatResource(name, value, spec = {}) {
   if (spec.unit === 'cents') return `${label(name)} ${money(value)}`;
   if (spec.unit === 'minutes') return `${label(name)} ${value} min`;
@@ -61,6 +65,7 @@ export function choiceConsequence(s, choice) {
   for (const e of choice.effects || []) {
     if (e.var) {
       const spec = s.jaunt.variables[e.var];
+      if (!shownResource(spec)) continue;
       if (spec.unit === 'cents' && e.op === 'inc' && e.value < 0)
         details.push(`costs ${money(e.value)} · you have ${money(s.vars[e.var])}`);
       else if (e.op === 'inc') details.push(`${label(e.var)} ${e.value >= 0 ? '+' : ''}${e.value} · you have ${s.vars[e.var]}`);
@@ -71,7 +76,7 @@ export function choiceConsequence(s, choice) {
   return details.length ? details.join(' · ') : choice.consequence;
 }
 export function resourceSummary(s) {
-  const rows = Object.entries(s.jaunt?.variables || {}).map(([name, spec]) => formatResource(name, s.vars[name], spec));
+  const rows = Object.entries(s.jaunt?.variables || {}).filter(([, spec]) => shownResource(spec)).map(([name, spec]) => formatResource(name, s.vars[name], spec));
   if (s.jaunt?.inventory) rows.push(`Basket ${s.inventory.length}/${s.jaunt.inventory.capacity}`);
   return rows;
 }

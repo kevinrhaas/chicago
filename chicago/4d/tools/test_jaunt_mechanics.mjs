@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { emptyState, reduce, currentStop, choicesFor, choiceStatus, resourceSummary,
+import { emptyState, reduce, currentStop, choicesFor, choiceStatus, choiceConsequence, resourceSummary,
   replaySession, createJaunts, SESSION_KEY } from '../renderers/web/js/jaunts.js';
 
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
@@ -64,6 +64,11 @@ await test('story time changes only through an explicit effect and plain outings
   s = reduce(s, { type: 'DETAIL' }); s = reduce(s, { type: 'RETURN' }); s = reduce(s, { type: 'MENU' }); s = reduce(s, { type: 'RESUME' });
   assert.equal(s.vars.time, 0); s = chooseNext(s, 'buy'); assert.equal(s.vars.time, 10);
   assert.deepEqual(resourceSummary(start(plain)), []);
+  // The pilot's `preference` is branching bookkeeping: no chip, and its choices keep their own wording.
+  const pilot = JSON.parse(fs.readFileSync(new URL('../data/jaunts/new-in-chicago.json', import.meta.url)));
+  let p = start(pilot); while (!currentStop(p).choices?.length) p = arrive(reduce(p, { type: 'NEXT' }));
+  assert.deepEqual(resourceSummary(p), []);
+  for (const choice of currentStop(p).choices) assert.equal(choiceConsequence(p, choice), choice.consequence);
 });
 
 class MemoryStorage {
