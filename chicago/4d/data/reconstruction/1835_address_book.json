@@ -65329,14 +65329,14 @@
    "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "pruyne_kimball_drugstore"
+    "id": "kimberly_residence"
    },
    "works_seat": null,
    "reach": "structure",
-   "reach_value": "South Water Street",
+   "reach_value": null,
    "division": null,
    "tier": "inferred",
-   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'pruyne_kimball_drugstore' is a committed structure.",
+   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'kimberly_residence' is a committed structure.",
    "words": "The advertisement's anchor reaches a roof this town has built, and the firm is seated on it.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,

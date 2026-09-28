@@ -54,6 +54,15 @@ identities in `identity_master.json` not one other is a physician or Pruyne's pa
 `hh_kimball_walter` — the only Kimball household in the town — is a South Water Street
 merchant, which is a different man at a different trade.
 
+**And the fifth check is a building this project already stands.**
+`data/structures/pruyne_kimball_drugstore.json` — "Pruyne & Kimball's Drug Store", aka "the drug
+store on South Water Street", occupants "Pruyne and Kimball, druggists" — is committed, on the
+south bank, and has been since before this reading. So the firm Bonnell names had its shop in the
+model and its partner had no house in it. **Note also that this project spells the same man two
+ways**, `Kimball` on the store and `Kimberly` on the household, which is the corpus reproducing
+the sources' own disagreement rather than a second person; the new record is named for the
+household's spelling and carries Bonnell's in its `aka`.
+
 **So `kimberly_residence` is raised**, east of the Lake House, and it is the one thing in this
 reading where an attested occupant meets a building the town did not have. Everything a visitor
 will see of it is invented and L287 lists every piece.

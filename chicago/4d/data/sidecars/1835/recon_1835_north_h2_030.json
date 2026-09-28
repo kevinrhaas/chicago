@@ -354,8 +354,8 @@
   },
   "lodging": {
     "class": "boarding_house",
-    "beds_ordinary": 10,
-    "beds_crowded": 23,
+    "beds_ordinary": 11,
+    "beds_crowded": 25,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 173.34,

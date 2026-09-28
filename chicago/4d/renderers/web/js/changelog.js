@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1208, ts: '2026-09-28T14:20:27.342Z', date: 'Sep 28, 2026, 9:20 AM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+    items: [
+      'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
+      'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
+      'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
+      'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
+      'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
+    ] },
   { v: 1207, ts: '2026-09-28T12:12:15.637Z', date: 'Sep 28, 2026, 7:12 AM CT', title: 'A second root-house on the bank west of the fort', kind: 'change',
     items: [
       'Walk the riverbank west of Fort Dearborn and there are two earth mounds where there was one. The garrison\u2019s root-houses \u2014 cellars cut into the bank and banked over with turf \u2014 were described in the plural by the only person who ever wrote about them, and this town had been drawing a single mound for the word.',

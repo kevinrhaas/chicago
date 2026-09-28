@@ -5798,7 +5798,7 @@ for one.
 
 ### L148 — Every named frame building's siding stock is dealt, not found
 
-**Decision:** the exposed face of the clapboard on the 24 named frame buildings is a per-record
+**Decision:** the exposed face of the clapboard on the 26 named frame buildings is a per-record
 value, `siding_exposure_m`, one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather
 — dealt by `tools/deal_siding_stock.py`: keyed to the phase's construction season, then advanced
 so no frame building standing within 60 m shares its neighbour's stock. Derived records — the
@@ -5818,7 +5818,7 @@ documented. The Evidence panel's `reconstructed` grade and the note on every val
 **How to resolve:** any survivor's account, bill of lading, mill advertisement or measured
 photograph stating a board width for a named building replaces that building's dealt value one
 for one; a document on the town's lumber stock would replace the whole set's bounds.
-**Covers:** `bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`.
+**Covers:** `bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`, `kimberly_residence.frame_1835.form.siding_exposure_m`, `kelsey_boarding_house.frame_1835.form.siding_exposure_m`.
 **Recorded:** 2026-08-20.
 
 ### L152 — The Green Tree's fabric from the plates: bays, end stacks, and the rear ell

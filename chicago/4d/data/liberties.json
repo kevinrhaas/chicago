@@ -10596,6 +10596,8 @@
         "h_jones_store",
         "harmon_loomis_store",
         "jh_kinzie_forwarding_store",
+        "kelsey_boarding_house",
+        "kimberly_residence",
         "lasalle_lake_house",
         "old_bank_building",
         "peck_store",
@@ -10690,6 +10692,18 @@
         },
         {
           "domain": "structure",
+          "structure": "kelsey_boarding_house",
+          "phase": "frame_1835",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimberly_residence",
+          "phase": "frame_1835",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
           "structure": "lasalle_lake_house",
           "phase": "documented_1834",
           "aspect": "form.siding_exposure_m"
@@ -10766,7 +10780,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the exposed face of the clapboard on the 24 named frame buildings is a per-record value, `siding_exposure_m`, one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather — dealt by `tools/deal_siding_stock.py`: keyed to the phase's construction season, then advanced so no frame building standing within 60 m shares its neighbour's stock. Derived records — the anonymous parcels and the five frame buildings the inferred-household programme regenerates byte-exact — stay on the archetypes' 0.14 m default, counted by the deal as fixed neighbours."
+          "text": "the exposed face of the clapboard on the 26 named frame buildings is a per-record value, `siding_exposure_m`, one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather — dealt by `tools/deal_siding_stock.py`: keyed to the phase's construction season, then advanced so no frame building standing within 60 m shares its neighbour's stock. Derived records — the anonymous parcels and the five frame buildings the inferred-household programme regenerates byte-exact — stay on the archetypes' 0.14 m default, counted by the deal as fixed neighbours."
         },
         {
           "label": "Why",
@@ -10782,7 +10796,7 @@
         },
         {
           "label": "Covers",
-          "text": "`bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`."
+          "text": "`bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`, `kimberly_residence.frame_1835.form.siding_exposure_m`, `kelsey_boarding_house.frame_1835.form.siding_exposure_m`."
         },
         {
           "label": "Recorded",
