@@ -14582,10 +14582,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 274 lots are enumerated from records this project already held, and then 137 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 274 lots are enumerated from records this project already held, and then 139 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 137 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,341
+**Scope:** `platted_seats.seats[dealt]` — 139 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,339
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 274 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14605,11 +14605,11 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 109 of the 137 seats are
+roof of a family its clause admits, on a lot of its own division; 111 of the 139 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **28 of the 137 are that, and every one of them stands on the plat's last
+sizing keeps open; **28 of the 139 are that, and every one of them stands on the plat's last
 tier** (T-1707, 2026-09-28). The count was 0 until that ticket, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
@@ -14627,31 +14627,37 @@ principal room left can offer no slot at all, so the last one went too. A slot i
 and not a roof: these 28 households have a lot and no walls until a block recipe raises them,
 and each seat says so.
 
-**BUILDING A BLOCK'S ROOFS CAN TAKE THE DEAL DOWN, AND THAT IS NOT A MISCOUNT.** T-1736 dealt
-`blk_washington_clark` the two cottages its committed plan holds, and the two households that
-moved in are not the two whose slots had requested them. The adoption step runs before the
+**RAISING A BLOCK'S ROOFS RE-DEALS THE ORDER BEHIND THEM, AND THAT IS NOT A MISCOUNT.** T-1736
+dealt `blk_washington_clark` the two cottages its committed plan holds, and the two households
+that moved in are not the two whose slots had requested them. The adoption step runs before the
 slot step and scores lots by the clause's own stated preferences, and `tradesman_dwellings`
 prefers a quiet street: the new cottages on Washington and Madison outscored the South Water
 frontage roofs two Beaubien households were standing on, so hh_beaubien_alexander and
-hh_beaubien_archange took them and twenty seats cascaded down the order behind that, each
-household taking the roof the one above it vacated. The two requesting households —
-hh_byram_thomas and hh_cady_levi — hold slots on `blk_washington_franklin` instead, and one
-household at the tail of the order, hh_chamberlain_l_c, fell out of the deal entirely: with
-the Clark block's principal room spent, every other open block has only the single lot T-1623
-reserves. So 138 seats became 137, the 109 adoptions stayed 109, and the slot count fell by
-the one the block can no longer offer. THE OUTCOME IS REPORTED RATHER THAN TIDIED: a roof
-raised in answer to a request is not reserved to the household that requested it, which is the
-same precedence T-1622 met on blk_south_water_franklin and T-1626 carries to the owner. The
-displaced household is in `owed` with its reason, and nobody lost a roof they were standing
-under — it had a requested slot and never had walls.
+hh_beaubien_archange took them, and 35 of the seats behind them moved roof — each household
+taking the one the household above it vacated, hh_byram_thomas and hh_cady_levi among them,
+both of whom end the pass adopted on `blk_lake_clark` rather than holding the slots they had.
+The Clark block's own slot went with its principal room: a block that has raised its plan out
+can offer none, so the last of the four it had offered is gone. THE OUTCOME IS REPORTED RATHER
+THAN TIDIED: a roof raised in answer to a request is not reserved to the household that
+requested it, which is the same precedence T-1622 met on blk_south_water_franklin and T-1626
+carries to the owner, and nobody in the cascade lost a roof they were standing under.
+
+**AND TWO MORE SEATS CAME FROM SOMEWHERE ELSE IN THE SAME COMMIT, WHICH IS WORTH SEPARATING.**
+The deal went from 138 to 139 and the adoptions from 109 to 111, and only the cascade above is
+T-1736's. The other cause is the order book: its `('north', 'ordinary_dwellings')` row named
+T-1206, which was split while this work was in hand, and a bucket ordered by a ticket nobody
+can claim offers no roof for adoption. Sweeping the row onto T-1742, the live half that owes
+those 35 roofs, made the cell claimable again and two North Division households took standing
+roofs in it. Measured, not reasoned: the same chain run to its fixpoint before the sweep
+settles at 137 seats and 109 adoptions, and after it at 139 and 111.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
 places any of these 109 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
-**An adoption raises no roof and spends no order, and 109 of the 137 are adoptions.** That is
-the part that keeps the invention small. Each of those 109 puts a household under a roof that
+**An adoption raises no roof and spends no order, and 111 of the 139 are adoptions.** That is
+the part that keeps the invention small. Each of those 111 puts a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
 order book is not drawn on for them at all and nothing is baked for them. The other 28 ARE
 households with an address and no walls, which is what a slot is, and the file marks them
