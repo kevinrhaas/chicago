@@ -2306,7 +2306,7 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 | household | structure | its function | class | tier |
 |---|---|---|---|---|
 | The Dr Harmon household | harmon_log_cabin | dwelling | a dwelling or a place of business | attested |
-| The Hamilton household | cobweb_castle | agency house residence | a dwelling or a place of business | inferred |
+| The Hamilton household | watkins_school_house | dwelling former school use unattested | a dwelling or a place of business | inferred |
 | The Heacock household | heacock_house_monroe | dwelling | a dwelling or a place of business | attested |
 | The James Kinzie household | james_kinzie_house | residence | a dwelling or a place of business | inferred |
 | The Jean Baptiste Beaubien household | jb_beaubien_homestead | dwelling and trading house | a dwelling or a place of business | inferred |

@@ -7802,10 +7802,10 @@
   {
    "id": "hh_doolittle_ehjah",
    "kind": "household",
-   "band": "north/tradesman_dwellings",
+   "band": "south/tradesman_dwellings",
    "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14237,9 +14237,9 @@
   {
    "id": "hh_luke_pike",
    "kind": "household",
-   "band": "north/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "north",
+   "district": "south",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },

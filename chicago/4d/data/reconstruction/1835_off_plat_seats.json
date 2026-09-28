@@ -80,8 +80,8 @@
    "tradesman_dwellings": 551
   },
   "owed_by_district": {
-   "north": 285,
-   "south": 759,
+   "north": 283,
+   "south": 761,
    "west": 255
   },
   "roofs_offered_for_adoption": 74,
@@ -100,11 +100,11 @@
    "west": 30
   },
   "rows_owed_by_district": {
-   "north": 285,
-   "south": 759,
+   "north": 283,
+   "south": 761,
    "west": 255
   },
-  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 759 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
+  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 761 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
  },
  "roofs_held_back": [
   {
@@ -6455,10 +6455,10 @@
   {
    "id": "hh_doolittle_ehjah",
    "kind": "household",
-   "band": "north/tradesman_dwellings",
+   "band": "south/tradesman_dwellings",
    "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "every one of the 27 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12602,10 +12602,10 @@
   {
    "id": "hh_luke_pike",
    "kind": "household",
-   "band": "north/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "north",
-   "why": "every one of the 6 off-plat roof(s) of a family this clause admits in this division is already spent, 6 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
