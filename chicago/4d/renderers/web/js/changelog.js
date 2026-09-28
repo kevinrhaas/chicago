@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1195, ts: '2026-09-28T02:17:59.518Z', date: 'Sep 27, 2026, 9:17 PM CT', title: 'Two cards say what the man owned, not just what happened', kind: 'change',
+  { v: 1196, ts: '2026-09-28T02:51:51.031Z', date: 'Sep 27, 2026, 9:51 PM CT', title: 'Two cards say what the man owned, not just what happened', kind: 'change',
     items: [
       'Open John S. Wright\u2019s card, or Paul Kingston\u2019s, and a new row says what he HELD: Wright\u2019s Chicago land purchases and his lots in the original town, Kingston\u2019s land at Chicago. Both were already known and neither had anywhere to go, so both had been filed under \u201cwhat the sources record\u201d \u2014 the shelf for anything else dated, which says that something happened to a man and not what he owned.',
       'Land held is not land lived on, and the row says so. Kingston has no address at all: the town cannot place him on any street, and owning ground does not give him one. No parcel, block, lot number or price is stated by any source read for either man, so the row says what was held and never how much, and nothing was drawn on the ground.',
