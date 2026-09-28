@@ -1,0 +1,137 @@
+{
+  "id": "caldwell_agency_log_house",
+  "phase": "log_1830",
+  "name": "The agency log house Andreas gives Billy Caldwell",
+  "aka": [
+    "the interpreter's log building at the agency"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/caldwell_agency_log_house__log_1830.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1830-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "note": "THE START IS THE DATE OF THE DESCRIPTION, NOT OF THE BUILDING. Andreas's vicinity list describes the settlement about 1830 and Wau-Bun the same ring in 1831; nothing says when any of these buildings went up, so the range opens at the earlier of the two descriptions rather than inventing a construction year. THE END IS THE HONEST MINIMUM, on the same continuity argument the whole group carries: the agency still owed the Potawatomi a blacksmith in 1835 and its establishment was still staffed, so the ring round the agency house is inferred to be standing on the scene date. No source reached gives this building a fate."
+  },
+  "change_note": "Raised 2026-09-28 (T-1714). New record; nothing moved.",
+  "placement": {
+    "local_e": 792.0,
+    "local_n": 124.0,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "PLACED AGAINST THE AGENCY HOUSE AND NOT AGAINST THE GROUND. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. METHOD: 22 m west of this project's cobweb_castle placement and 23 m east of its blacksmith_shop_state_st placement, on the same bank strip, south face about 22 m north of the 1834 drawn bank. THE DIRECTION AND THE DISTANCE ARE INVENTED. The one thing that is reasoned is the ORDER: the agency's interpreter is put nearest the agency house of the three buildings this parcel raises, which is reasoning about an office and not a reading of a sheet. The building is kept west of local E +814.8, the west edge of the Wolcott Street corridor this project derives, so it claims no roadway. Working uncertainty about 40 m. The ground here is the e1834_harbor_cut heightfield at about +1.34 m, so the house stands on traced ground and declares no ground contact. Facade bearing 180 follows the group; nothing states it.",
+    "symbolic_location": "North bank of the main stem, on the riverbank strip between the Government Blacksmith Shop and the Indian Agency House at the foot of State Street.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.5,
+        0
+      ],
+      [
+        5.5,
+        4.3
+      ],
+      [
+        0,
+        4.3
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED. 5.5 x 4.3 m is about 18 x 14 ft, a single-pen log house. Every number is invented; 'small' is the whole of the evidence for scale and it is a word, not a measurement. NOT TO BE CONFUSED WITH THE OTHER HOUSE ANDREAS GIVES THIS MAN: the frame house the Department for Indian Affairs built for Caldwell near what is now State Street and Chicago Avenue is a different building, is described as frame and not log, stands well north of the modelled blocks, and is not in this dataset."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "andreas_1884_v1"
+      ],
+      "note": "Wau-Bun calls the group 'a collection of log buildings'; Andreas calls them 'small log buildings'; and McKee's own recollection of the houses he found and built on this bank in 1823 is 'All these houses were of logs'. The fabric is the one attribute of these buildings that three independent statements agree on."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. Every source on this group says 'small' and 'log' and nothing else; a single-pen log house of one storey is what that describes and what the neighbouring Government Blacksmith Shop record already reads it as."
+    },
+    "wall_height_m": {
+      "value": 2.4,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.4 m is about 8 ft, a single-pen log wall — the reading this project already gives the Sauganash's 1829 cabin and the Government Blacksmith Shop beside this house."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log building roofed in riven shakes. Inferred from practice, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. A dwelling on this bank cooked and heated at a hearth, so it carries one stack; the archetype builds a 0.96 m shaft against the gable end and nothing in any source says where this one stood."
+    },
+    "function": {
+      "value": "dwelling",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas's clause is the whole of it: 'In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.' The use is attested; which of the two men had which building is not, and this record does not claim it."
+    },
+    "occupants": {
+      "value": null,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "NO SEAT IS CLAIMED HERE, AND THE REFUSAL IS THE POINT. Andreas names Billy Caldwell as the occupant of one of the small log buildings in this vicinity, and that is why this record exists. But his household card holds TWO candidate residences and refuses to choose between them: this ring of log buildings, and the frame house 'built for him by the Department for Indian Affairs on the North Side near where is now the corner of State Street and Chicago Avenue', which Andreas elsewhere calls probably the first frame building in Chicago after Robert Kinzie's store. Neither is dated to 1835. Raising this building does not settle that question — it makes one of the two candidates a thing a visitor can see — so hh_caldwell_billy keeps lives_at: null and this roof carries no occupant. THE USE IS STATED INSTEAD: a dwelling of the agency's log ring. Writing a seat here would be this project choosing, by hand, the question its own card says it cannot answer."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "ONE OF THE RING OF AGENCY LOG BUILDINGS, and the one that is raised WITHOUT being seated. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. The building is attested; its occupant on 1835-07-01 is the open question, because the man Andreas names for it had a second house elsewhere on the North Side. THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: this is the United States Indian Agency's establishment, kept at Chicago against a treaty obligation to the Potawatomi, six weeks before the final removal of August 1835. That is Indigenous history whatever the building looked like. Nothing here depicts or narrates it and no figure is drawn. Billy Caldwell (Sauganash) was a Potawatomi chief and the agency's interpreter; this record carries the flag on that ground as well as on the establishment's. See docs/RESEARCH/agency_log_dwellings.md.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: this is the United States Indian Agency's establishment, kept at Chicago against a treaty obligation to the Potawatomi, six weeks before the final removal of August 1835."
+}

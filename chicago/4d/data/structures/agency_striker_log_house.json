@@ -1,0 +1,139 @@
+{
+  "id": "agency_striker_log_house",
+  "name": "The agency striker's log house",
+  "aka": [
+    "one of the log buildings round the Agency House"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1830",
+      "documented_range": {
+        "from": "1830-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "andreas_1884_v1"
+        ],
+        "note": "THE START IS THE DATE OF THE DESCRIPTION, NOT OF THE BUILDING, as for the rest of this ring: Andreas's vicinity list is of about 1830 and Wau-Bun's ring of 1831, and the 1830-31 agency staffing is where the office of striker is listed at all. THE END IS THE HONEST MINIMUM on the group's continuity argument. Nothing dates this building at either end."
+      },
+      "position": {
+        "utm_e": 447799.7,
+        "utm_n": 4637512.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "North bank of the main stem, at the west end of the log row on the riverbank strip west of the Indian Agency House at the foot of State Street.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "kinzie_waubun_1856"
+        ],
+        "note": "PLACED AGAINST THE GROUP AND NOT AGAINST THE GROUND. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. METHOD: 21 m west of this record's mckee_log_house and 42 m west of blacksmith_shop_state_st, on the same bank strip, south face about 15 m north of the 1834 drawn bank. THE DIRECTION AND THE DISTANCE ARE INVENTED and so is the order: the striker is put at the far end of the row because he is the junior of the two men at the anvil, which is reasoning about a wage and not about a house. 'Around the Agency House' is the whole of the locational evidence and this point is 87 m from it — inside a vicinity, and further out than the other two, which is stated here rather than hidden. Working uncertainty about 40 m. The ground is the e1834_harbor_cut heightfield at about +1.28 m, so the house stands on traced ground and declares no ground contact. Facade bearing 180 follows the group; nothing states it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The evidence is an unquantified 'around' and 'in its vicinity'. The coordinate is an offset from this project's own cobweb_castle placement along the same bank strip, by the method blacksmith_shop_state_st used in 2026-08-11 and for the same reason; there is no reading to re-derive it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.2,
+            0
+          ],
+          [
+            5.2,
+            4.0
+          ],
+          [
+            0,
+            4.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED. 5.2 x 4.0 m is about 17 x 13 ft, the smallest of the three this parcel raises. Every number is invented, and that this one is the smallest is an invention about a wage rather than a reading of anything."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856",
+            "andreas_1884_v1"
+          ],
+          "note": "Wau-Bun calls the group 'a collection of log buildings'; Andreas calls them 'small log buildings'; and McKee's own recollection of the houses he found and built on this bank in 1823 is 'All these houses were of logs'. The fabric is the one attribute of these buildings that three independent statements agree on."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. Every source on this group says 'small' and 'log' and nothing else; a single-pen log house of one storey is what that describes and what the neighbouring Government Blacksmith Shop record already reads it as."
+        },
+        "wall_height_m": {
+          "value": 2.3,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.3 m is about 8 ft, a single-pen log wall — the reading this project already gives the Sauganash's 1829 cabin and the Government Blacksmith Shop beside this house."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log building roofed in riven shakes. Inferred from practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A dwelling on this bank cooked and heated at a hearth, so it carries one stack; the archetype builds a 0.96 m shaft against the gable end and nothing in any source says where this one stood."
+        }
+      },
+      "change_note": "Raised 2026-09-28 (T-1714). New record; nothing moved."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Wau-Bun names the OFFICE among the residences and not the building: 'Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.' That the striker had one of the residences is what that sentence says; that it was a separate building rather than a room in the blacksmith's is the inference. Graded below the other two houses of this parcel for that reason."
+  },
+  "occupants": {
+    "value": "The Porthier household — Joseph Porthier, striker at the Government Blacksmith Shop",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "andreas_1884_v1"
+    ],
+    "note": "TWO STEPS, BOTH STATED. Wau-Bun puts a striker's residence in this ring; Andreas and the 1830-31 agency staffing name Joseph Porthier as the striker — 'and Joseph Porthier as striker' — and his own household card already carries works_at: blacksmith_shop_state_st at attested, 'the same shop as McKee'. So the office is attested in the ring and the man is attested in the office, and the seat is the join of the two. His card carried lives_at: null with the note 'Not attested in anything this project holds', which was true of his NAME and not of his OFFICE; that is the gap this record closes. Inferred, not attested: no source puts this man in any building."
+  },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_dearborn_north",
+    "lot_index": 1,
+    "lot_number": 4,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 4 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
+  "research_note": "ONE OF THE RING OF AGENCY LOG BUILDINGS, and the one whose occupant is reached through an office rather than a name. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: this is the United States Indian Agency's establishment, kept at Chicago against a treaty obligation to the Potawatomi, six weeks before the final removal of August 1835. That is Indigenous history whatever the building looked like. Nothing here depicts or narrates it and no figure is drawn. WHAT IS NOT RAISED HERE: the 'laborers' of the same Wau-Bun sentence get no building, because the sentence counts none of them and docs/RESEARCH/indian_agency_1835.md has already ruled that a remainder cannot be drawn out of a count that does not exist. See docs/RESEARCH/agency_log_dwellings.md.",
+  "review_required": true,
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "inferred",
+    "note": "Seated from the household side. hh_porthier_joseph carries lives_at: agency_striker_log_house at inferred — Wau-Bun puts a striker's residence in this ring and Andreas names Porthier as the striker, so the seat is the join of an attested office and an attested man and not a deal's allocation.",
+    "household_id": "hh_porthier_joseph"
+  }
+}

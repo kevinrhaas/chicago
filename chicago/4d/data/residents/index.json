@@ -14607,11 +14607,11 @@
    "grades": {
     "attested": 1
    },
-   "lives_at": null,
+   "lives_at": "mckee_log_house",
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "uncertain",
    "review_required": true,
-   "dwelling_evidence": "a_stated_premises"
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_mclintock_thomas",
@@ -17240,11 +17240,11 @@
    "grades": {
     "attested": 1
    },
-   "lives_at": null,
+   "lives_at": "agency_striker_log_house",
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "absent",
    "review_required": true,
-   "dwelling_evidence": "a_stated_premises"
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_pottier_augustin",

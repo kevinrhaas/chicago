@@ -1,5 +1,14 @@
 {
   "assets": {
+    "agency_striker_log_house__log_1830.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 29308,
+      "inputs_sha256": "2713045ab5f51c3f9ab1cc36ac43ddd944dcdb2e6d90d6aadd50dd84ce328693",
+      "kind": "generated",
+      "phase_id": "log_1830",
+      "structure_id": "agency_striker_log_house"
+    },
     "bates_auction_room__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -44,6 +53,15 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "brown_boarding_house"
+    },
+    "caldwell_agency_log_house__log_1830.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 31184,
+      "inputs_sha256": "ee86fb60e6f9b6a13ee853ce847aadcd10502e019fc3a2449d50746701a1b297",
+      "kind": "generated",
+      "phase_id": "log_1830",
+      "structure_id": "caldwell_agency_log_house"
     },
     "carpenter_south_water_store__frame_1833.glb": {
       "archetype": "frame_storefront",
@@ -800,6 +818,15 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "mason_blacksmith_shop"
+    },
+    "mckee_log_house__log_1823.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 31168,
+      "inputs_sha256": "8d8d43d0b98dff7b1fcfbcc746df474871fcbbf3dcac8fb7c17e81608e80e7f1",
+      "kind": "generated",
+      "phase_id": "log_1823",
+      "structure_id": "mckee_log_house"
     },
     "miller_house__log_frame_1827.glb": {
       "archetype": "log_dwelling",

@@ -1,0 +1,139 @@
+{
+  "id": "mckee_log_house",
+  "name": "David McKee's log house",
+  "aka": [
+    "the blacksmith's house at the agency",
+    "one of the small log buildings at the foot of State Street"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1823",
+      "documented_range": {
+        "from": "1823-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "kinzie_waubun_1856"
+        ],
+        "note": "NEITHER END IS DATED BY A SOURCE and both are the honest bounds of what is attested. THE START is McKee's own arrival: Andreas has him engaged as the agency blacksmith the 1821 treaty required and reaching Fort Dearborn in June 1823, finding 'but two houses on the north side of the river' and building the fourth himself. 1823 is the first year he can have kept a house here and it is the year the neighbouring shop record opens on for the same reason. THE END IS THE HONEST MINIMUM, and it is the weakest line on this record: Andreas's vicinity list describes the settlement about 1830 and Wau-Bun the ring in 1831, and after that nothing names this building. The argument for 1835 is the argument the shop record makes — a Government smith was still owed to the Potawatomi under the 1821 and 1833 treaties — and it is an argument about an obligation rather than about a house. Tagged inferred for that reason."
+      },
+      "position": {
+        "utm_e": 447820.7,
+        "utm_n": 4637517.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "North bank of the main stem, on the riverbank strip west of the Indian Agency House at the foot of State Street, about twenty metres west of the Government Blacksmith Shop.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "kinzie_waubun_1856"
+        ],
+        "note": "PLACED AGAINST TWO OTHER BUILDINGS AND NOT AGAINST THE GROUND. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. METHOD: this coordinate sits on the same riverbank strip as cobweb_castle and blacksmith_shop_state_st, 66 m west of the first and 21 m west of the second, its south face about 20 m north of the 1834 drawn bank. THE DIRECTION AND THE DISTANCE ARE INVENTED, exactly as the shop's own note admits of itself: 'near' is unquantified, no source says which side of the agency house anything stood on, and west was taken because it keeps the house inside the ring the sources describe, off the State Street frontage, and clear of the Wolcott Street corridor this project derives. A SMITH'S HOUSE BY HIS FORGE is the only part of the arrangement that is reasoned rather than chosen, and it is reasoning about a trade, not a reading. Working uncertainty about 40 m — the georeference's 20 m plus the unquantified 'near'. The ground here is the e1834_harbor_cut heightfield at about +1.30 m above the summer-1835 water surface, so the house stands on traced ground and declares no ground contact. Facade bearing 180, due south onto the river, follows the two records it is grouped with; nothing states it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The evidence is an unquantified 'around' and 'in its vicinity'. The coordinate is an offset from this project's own cobweb_castle placement along the same bank strip, by the method blacksmith_shop_state_st used in 2026-08-11 and for the same reason; there is no reading to re-derive it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.1,
+            0
+          ],
+          [
+            6.1,
+            4.6
+          ],
+          [
+            0,
+            4.6
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED. 6.1 x 4.6 m is about 20 x 15 ft, a single-pen log house with room for the two rooms Mrs. Susan M. Callis remembered of the agency house of 1816 minus one. Every number is invented. The only evidence for scale is the word 'small' in Andreas's sentence, which is not a measurement, and the three houses this parcel raises are given three slightly different sizes so the row does not read as one building stamped three times — that variation is invented too."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856",
+            "andreas_1884_v1"
+          ],
+          "note": "Wau-Bun calls the group 'a collection of log buildings'; Andreas calls them 'small log buildings'; and McKee's own recollection of the houses he found and built on this bank in 1823 is 'All these houses were of logs'. The fabric is the one attribute of these buildings that three independent statements agree on."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. Every source on this group says 'small' and 'log' and nothing else; a single-pen log house of one storey is what that describes and what the neighbouring Government Blacksmith Shop record already reads it as."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.4 m is about 8 ft, a single-pen log wall — the reading this project already gives the Sauganash's 1829 cabin and the Government Blacksmith Shop beside this house."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log building roofed in riven shakes. Inferred from practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A dwelling on this bank cooked and heated at a hearth, so it carries one stack; the archetype builds a 0.96 m shaft against the gable end and nothing in any source says where this one stood."
+        }
+      },
+      "change_note": "Raised 2026-09-28 (T-1714). New record; nothing moved."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "'In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — Andreas names the use and the occupant in the same clause. Wau-Bun calls the whole group 'the residences of the different persons in the employ of Government'."
+  },
+  "occupants": {
+    "value": "The McKee household — David McKee, Government blacksmith to the agency",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas gives McKee a log building in this vicinity and gives him no other house anywhere. That the building this record raises is THAT building is the inference, and it is the only candidate the corpus holds for him. His household card carried lives_at: null with the note 'those buildings are not in data/structures/, so there is nothing to link to'; this record is the thing to link to, and the seat is graded at the inference and not at Andreas's sentence."
+  },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_dearborn_north",
+    "lot_index": 3,
+    "lot_number": 3,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 3 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
+  "research_note": "ONE OF THE RING OF AGENCY LOG BUILDINGS, raised because its absence was the stated reason a documented household had no home. Two sentences describe this group and neither describes a building. Wau-Bun, of 1831: \"Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.\" Andreas, of the settlement about 1830: \"In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency.\" Between them the group is attested four ways over — that it existed, that it stood round the Agency House at the foot of State Street, that it was of logs, and who lived in it — and NOT ONCE is a single building given a shape, a size or a place of its own. THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: this is the United States Indian Agency's establishment, kept at Chicago against a treaty obligation to the Potawatomi, six weeks before the final removal of August 1835. That is Indigenous history whatever the building looked like. Nothing here depicts or narrates it and no figure is drawn. WHAT WOULD UPGRADE THIS RECORD: agency accounts or the Indian Office's returns, which paid for these buildings; or any of the recollections that walk the north-bank cluster building by building. See docs/RESEARCH/agency_log_dwellings.md.",
+  "review_required": true,
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "inferred",
+    "note": "Seated from the household side and not by a deal: hh_mckee_david's own card carries lives_at: mckee_log_house at inferred, on Andreas's clause giving this man a log building in this vicinity and no other house anywhere. Graded at the inference, not at the sentence.",
+    "household_id": "hh_mckee_david"
+  }
+}

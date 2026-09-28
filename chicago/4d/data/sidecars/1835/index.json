@@ -10160,6 +10160,12 @@
   ],
   "structures": [
     {
+      "id": "agency_striker_log_house",
+      "name": "The agency striker's log house",
+      "sidecar": "sidecars/1835/agency_striker_log_house.json",
+      "asset": "gltf/agency_striker_log_house__log_1830.glb"
+    },
+    {
       "id": "bates_auction_room",
       "name": "John Bates Jr.'s Auction Room",
       "sidecar": "sidecars/1835/bates_auction_room.json",
@@ -10188,6 +10194,12 @@
       "name": "Rufus Brown's Boarding House",
       "sidecar": "sidecars/1835/brown_boarding_house.json",
       "asset": "gltf/brown_boarding_house__documented_1835.glb"
+    },
+    {
+      "id": "caldwell_agency_log_house",
+      "name": "The agency log house Andreas gives Billy Caldwell",
+      "sidecar": "sidecars/1835/caldwell_agency_log_house.json",
+      "asset": "gltf/caldwell_agency_log_house__log_1830.glb"
     },
     {
       "id": "carpenter_south_water_store",
@@ -10698,6 +10710,12 @@
       "name": "Matthias Mason & Co.'s Blacksmith Shop",
       "sidecar": "sidecars/1835/mason_blacksmith_shop.json",
       "asset": "gltf/mason_blacksmith_shop__documented_1835.glb"
+    },
+    {
+      "id": "mckee_log_house",
+      "name": "David McKee's log house",
+      "sidecar": "sidecars/1835/mckee_log_house.json",
+      "asset": "gltf/mckee_log_house__log_1823.glb"
     },
     {
       "id": "miller_house",
