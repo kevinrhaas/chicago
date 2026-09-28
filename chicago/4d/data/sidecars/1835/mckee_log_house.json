@@ -110,6 +110,12 @@
         "andreas_1884_v1"
       ],
       "note": "Andreas gives McKee a log building in this vicinity and gives him no other house anywhere. That the building this record raises is THAT building is the inference, and it is the only candidate the corpus holds for him. His household card carried lives_at: null with the note 'those buildings are not in data/structures/, so there is nothing to link to'; this record is the thing to link to, and the seat is graded at the inference and not at Andreas's sentence."
+    },
+    "stands_on_lot": {
+      "value": "lot 3, north division tier",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 3 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
     }
   },
   "residents": [

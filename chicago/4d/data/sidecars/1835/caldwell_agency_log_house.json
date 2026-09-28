@@ -109,6 +109,12 @@
         "andreas_1884_v1"
       ],
       "note": "NO SEAT IS CLAIMED HERE, AND THE REFUSAL IS THE POINT. Andreas names Billy Caldwell as the occupant of one of the small log buildings in this vicinity, and that is why this record exists. But his household card holds TWO candidate residences and refuses to choose between them: this ring of log buildings, and the frame house 'built for him by the Department for Indian Affairs on the North Side near where is now the corner of State Street and Chicago Avenue', which Andreas elsewhere calls probably the first frame building in Chicago after Robert Kinzie's store. Neither is dated to 1835. Raising this building does not settle that question — it makes one of the two candidates a thing a visitor can see — so hh_caldwell_billy keeps lives_at: null and this roof carries no occupant. THE USE IS STATED INSTEAD: a dwelling of the agency's log ring. Writing a seat here would be this project choosing, by hand, the question its own card says it cannot answer."
+    },
+    "stands_on_lot": {
+      "value": "lot 1, north division tier",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 63% on lot 1 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
     }
   },
   "residents": [],

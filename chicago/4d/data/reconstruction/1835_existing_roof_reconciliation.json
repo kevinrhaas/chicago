@@ -743,7 +743,7 @@
       "likely_family": "F1",
       "substitutes_anonymous_slots": 1,
       "confidence": "reconstructed",
-      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural \u2014 image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots \u2014 four of them before this roof \u2014 and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
+      "reasoning": "T-1640. The SECOND reconstructed freight shed on the south bank at the Dearborn reach, standing on the same two walls as south_bank_shed_dearborn_e1 above and 5.20 m behind it, with a loading yard between the two. It is built from the same plate and from the one thing that plate holds in the plural — image 3 of the owner's brief of 2026-08-18 draws low warehouseS on both banks, and the north bank has four of them. It stands on the terrace BEHIND the bank strip rather than on the strip itself, because tools/measure_south_bank_ground.py reports that the strip's own one remaining position stands on the ground e1's wagon door opens onto; docs/LIBERTIES.md L281 owns that reasoning. It is an eligible physical roof and it is counted as one, in the south district under family F1 (freight or storage shed). IT SUBSTITUTES ONE ANONYMOUS SLOT, for e1's reason exactly: the South's warehouses_freight row still carries unbuilt, unnamed slots — four of them before this roof — and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size rather than an addition above it, and the town's roof total does not move for it."
     },
     {
       "structure_id": "north_branch_bridge",
@@ -1061,6 +1061,39 @@
       "substitutes_anonymous_slots": 1,
       "confidence": "moderate",
       "reasoning": "One documented single-storey frame dwelling roof, 16 by 30 ft from the Chicago Democrat's own for-sale notice. D1 is read off the AREA and not the proportion: 480 sq ft sits inside D1's 320-520 sq ft band, while the printed shape - wider than it is deep - matches no family band, because the bands describe eaves-front houses deeper than their front."
+    },
+    {
+      "structure_id": "mckee_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "One of the small log buildings Andreas and Wau-Bun group round the north-bank agency house; the Government blacksmith's own dwelling, raised by T-1714. A single-pen log cabin of a mechanic's household, so it substitutes a D1 slot rather than adding above 665."
+    },
+    {
+      "structure_id": "caldwell_agency_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "One of the same ring of agency log buildings, raised by T-1714 on Andreas's clause naming Billy Caldwell in it. Eligible as a roofed dwelling; it carries no occupant because his household holds two candidate houses and refuses to choose, which is a statement about the seat and not about the roof."
+    },
+    {
+      "structure_id": "agency_striker_log_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "low",
+      "reasoning": "The striker's residence Wau-Bun names among the ring, raised by T-1714. Graded low: the office is attested among the residences and the separate building is the inference."
     }
   ]
 }

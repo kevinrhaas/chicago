@@ -64,13 +64,13 @@
     "houses_present_unplaced": 12,
     "records_awaiting_a_household": 1293,
     "houses_present_by_clause": {
-      "a_stated_premises": 34,
-      "a_stated_dwelling": 20,
+      "a_stated_premises": 33,
+      "a_stated_dwelling": 21,
       "a_stated_division": 14,
       "a_stated_kinship": 11,
       "more_than_one_named_person": 3
     },
-    "households_with_a_lives_at": 20,
+    "households_with_a_lives_at": 21,
     "households_with_a_works_at": 49
   },
   "population_ruled_in": {
@@ -1521,8 +1521,8 @@
       "houses_known_now": 82,
       "records_awaiting_a_household": 1293,
       "houses_by_clause": {
-        "a_stated_premises": 34,
-        "a_stated_dwelling": 20,
+        "a_stated_premises": 33,
+        "a_stated_dwelling": 21,
         "a_stated_division": 14,
         "a_stated_kinship": 11,
         "more_than_one_named_person": 3
@@ -4669,7 +4669,7 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 423,
-        "standing_with_an_occupant": 146,
+        "standing_with_an_occupant": 149,
         "standing_without_an_occupant": 277,
         "to_build_total": 258,
         "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 277 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book."
@@ -5627,7 +5627,7 @@
       "id": "every_person_housed",
       "owning_ticket": "T-1215",
       "statement": "Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof.",
-      "measured_now": "20 of 1375 present households name a lives_at."
+      "measured_now": "21 of 1375 present households name a lives_at."
     },
     {
       "id": "every_working_person_has_a_workplace",

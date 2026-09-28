@@ -168,16 +168,16 @@ Home and work first, read off the household records:
 | Measure | Households |
 | --- | ---: |
 | Household records | 1,512 |
-| Carrying a `lives_at` | 31 |
+| Carrying a `lives_at` | 33 |
 | Carrying a `works_at` | 50 |
 
 | Seating class | Households |
 | --- | ---: |
-| `division` | 176 |
+| `division` | 174 |
 | `face` | 0 |
 | `lot` | 0 |
 | `none` | 1,305 |
-| `structure` | 31 |
+| `structure` | 33 |
 
 Then every location claim the research makes, reconciled: **1,965** rows, each carrying a disposition, a date precision and — where it stops short — the clause that stops it.
 
@@ -191,10 +191,10 @@ Then every location claim the research makes, reconciled: **1,965** rows, each c
 
 | Disposition | Rows |
 | --- | ---: |
-| `limited` | 298 |
+| `limited` | 296 |
 | `no_claim` | 1,305 |
 | `refused` | 189 |
-| `resolved` | 173 |
+| `resolved` | 175 |
 
 Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. Rows called resolved that resolve onto nothing: **0** (C7). This is the answer to *how many attested location facts sit in prose with no structured target*: none — every claim in the corpus is a row here, and a row that could not be placed says so with its reason rather than being dropped or guessed past.
 
@@ -273,7 +273,7 @@ None of these is a condition above, and that is a judgement rather than an overs
 
 1. **28 of the 179 firms standing on 1835-07-01 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits it; T-1189 staffs it.
 2. **60 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
-3. **1,481 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
+3. **1,479 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
 4. **2,055 of 2,383 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
 5. **Only 81 `associated_with` rows exist.** The plural, dated location row is the agreed shape (T-1147) and the renderer already reads it, but the migration off the singular `lives_at`/`works_at` pair has barely begun: T-1273 writes the committed reconciliations as association rows, T-1274 retires the pair. Until then the reconciliation table above, not the card, is where a person's second address is legible — which is why C7 measures the table.
 6. **One resident derivation cannot be gated on byte identity.** `tools/mint_letter_list_residents.py` is not the last writer of the files it derives, so re-running it over the committed tree would revert the synthesis and upgrade grades this project holds down; T-0662 read that and T-0691 owns the contract that compares only what the pass owns. It is declared on the gate baseline with that reason (C9) and `--gate` and `--self-test` are run in check.sh, which prove different things. This is a tooling contract, not an unspent reading: it cannot cause a reconstruction band to invent over a source, which is why it is listed here and not above.

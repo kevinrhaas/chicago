@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1200, ts: '2026-09-28T06:31:39.841Z', date: 'Sep 28, 2026, 1:31 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
+    items: [
+      'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
+      'Two men who had no home in this town now have one. David McKee, the agency\u2019s blacksmith, and Joseph Porthier, who struck for him at the anvil: open either card and it names the house. McKee\u2019s card used to say that the buildings he is described in were not in this dataset at all, which was the plain truth and is no longer.',
+      'The third house is raised and deliberately left empty. Andreas names Billy Caldwell, the agency\u2019s interpreter, in one of these buildings \u2014 but the same book gives him a frame house well to the north as well, and nothing dates either of them to this summer. Drawing one of the two is not choosing between them, so that roof carries no occupant and says why.',
+      'Nothing is known about the shape of any of them, and the records say so plainly. The sources are unusually good on who slept here and silent on everything a visitor can actually see: no size, no place of its own, no bearing. The footprints are placeholders, the positions are offsets from the agency house, and the whole invention is written down.',
+      'No fourth house for the \u201Claborers\u201D the same sentence mentions. That is a plural noun and not a count, and this town does not draw people out of one.',
+    ] },
   { v: 1199, ts: '2026-09-28T04:39:12.310Z', date: 'Sep 27, 2026, 11:39 PM CT', title: 'A house on Michigan Street gets its owner back', kind: 'change',
     items: [
       'There is a frame house on the north bank, on the block of Michigan Street between Cass and Rush \u2014 Hubbard Street between Wabash and Rush today. It has stood here on one sentence: a schoolmaster named John Watkins taught in \u201Ca house on Michigan Street between Cass and Rush\u201D. Nobody knew whose house. Its card said so, and said that if it had gone before the summer we draw, nothing in the records would show it.',
