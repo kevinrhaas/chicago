@@ -2381,8 +2381,15 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                              consumed: dict[str, frozenset] | None = None,
                              unlanded: list[tuple] | None = None,
                              ground: dict[str, dict[str, dict]] | None = None,
-                             ground_consumed: dict[str, frozenset] | None = None) -> None:
+                             ground_consumed: dict[str, frozenset] | None = None,
+                             *, forward_only: bool = False) -> None:
     """Every inferred value in a record must be CLAIMED in LIBERTIES.md.
+
+    `forward_only` (T-1727) asks only the first question — is every value these records
+    invent claimed? — for a set that is not the whole town: the structure VERSIONS. The
+    reverse pass (does every claim name something real?) and the ground belong to the
+    whole-town call and would read every liberty about any other building as an
+    over-claim.
 
     This is the inverse of the check the walkthrough already makes. The panel and
     the provenance card report the liberties that were *recorded* — which is not
@@ -2514,6 +2521,11 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                   f"{why}, and the standard is that a visitor can tell you which parts. "
                   f"Append the liberty with '**Covers:** `{token}`' and re-run "
                   f"tools/compile_liberties.py (liberties naming {sid}: {named})")
+
+    if forward_only:
+        rep.note(f"liberties coverage (structure versions): {covered} value(s) owed an "
+                 f"admission, {len(owed) - covered} unclaimed")
+        return
 
     # The ground, on the same terms. Its claims are blocks of a spec rather than
     # attributes of a record, so they are matched by id and not by aspect — but
@@ -5866,6 +5878,148 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
 # loaders
 # --------------------------------------------------------------------------
 
+def check_versions(structures: dict, scenes: dict, sources: dict, source_ids: set,
+                   liberties: dict, consumed: dict, rep: Report, *,
+                   field=None, origin: tuple | None = None,
+                   contacts: dict | None = None) -> dict:
+    """STRUCTURE VERSIONS are held to every rule a structure is (T-1727).
+
+    A version is one committed alternate of one structure — a whole record at
+    `data/structures/versions/<id>/<label>.json`, opened by `?structure=<id>&version=<label>`
+    (generators/common/versions.py has the layout). The ticket's standard is that an
+    alternate is never less honest than the default, so the gate is the structure gate
+    run over it, not a lighter one written for it: the schema, the provenance pass, the
+    evidence ladder, the geometry declarations, the liberties it owes, and ground contact.
+    What it adds is what only a version can get wrong:
+
+      * the file sits at exactly `versions/<id>/<label>.json`, under a canonical record
+        that exists, and carries that canonical record's id;
+      * its label passes the label rule — short, neutral, never a model identifier;
+      * its `version` block names the same label and says what differs;
+      * some scene resolves it where its canonical structure also stands — the switch
+        SWAPS a building and can never add one, and a version no scene resolves is one
+        the bake cannot reach and a visitor cannot open.
+
+    Whether its MESH exists and is fresh is `run_version_stale_check`, under --stale,
+    beside the canonical staleness check.
+    """
+    sys.path.insert(0, str(ROOT / "generators"))
+    from common import versions as V  # noqa: PLC0415
+
+    canon = {st.get("id"): st for st in structures.values() if isinstance(st, dict)}
+    targets = [(sid, d) for sid, d in ((s, parse_date(sc.get("target_date", "")))
+                                       for s, sc in sorted(scenes.items())) if d]
+
+    def covering(st: dict, target) -> list[str]:
+        hits = []
+        for ph in st.get("phases", []):
+            r = ph.get("documented_range", {})
+            frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
+            if frm and to and frm <= target <= to:
+                hits.append(ph.get("id"))
+        return hits
+
+    out: dict[str, dict] = {}
+    for path in V.every_file(ROOT):
+        rel = path.relative_to(ROOT).as_posix()
+        got = V.parse_path(path, ROOT)
+        if got is None:
+            rep.error(rel, "is not a structure version: a version is exactly "
+                           "data/structures/versions/<structure_id>/<label>.json and nothing "
+                           "else lives under that directory (T-1727)")
+            continue
+        sid, label = got
+        where = f"version {sid}/{label}"
+        doc = load_json(path, rep)
+        if not isinstance(doc, dict):
+            continue
+        why = V.label_problem(label)
+        if why:
+            rep.error(where, f"label refused — {why}")
+        if sid not in canon:
+            rep.error(where, f"there is no canonical record data/structures/{sid}.json — a "
+                             f"version is an alternate OF a structure, never a new one")
+            continue
+        if doc.get("id") != sid:
+            rep.error(where, f"id is '{doc.get('id')}' — a version carries its structure's id "
+                             f"'{sid}', because it swaps that building and nothing else")
+        blk = doc.get("version")
+        if not isinstance(blk, dict):
+            rep.error(where, "has no `version` block — {label, summary} says which alternate "
+                             "this is and what differs, and the card shows it")
+        else:
+            if blk.get("label") != label:
+                rep.error(where, f"version.label is {blk.get('label')!r} but the file is "
+                                 f"{label}.json — the URL selects by the file name, so the two "
+                                 f"must agree")
+            if not str(blk.get("summary") or "").strip():
+                rep.error(where, "version.summary is empty — the card and the HUD say what "
+                                 "differs from the default, and nothing is not an answer")
+        check_record_provenance(where, doc, source_ids, rep, {})
+        shown_in = []
+        for scene_id, target in targets:
+            mine = covering(doc, target)
+            if len(mine) > 1:
+                rep.error(where, f"{len(mine)} phases cover scene {scene_id}'s "
+                                 f"{target}; exactly one must")
+            if len(mine) == 1 and len(covering(canon[sid], target)) == 1:
+                shown_in.append(scene_id)
+        if not shown_in:
+            rep.error(where, "no scene resolves this version where its canonical structure "
+                             "also stands, so no address can open it and the bake cannot "
+                             "reach it — give it a phase covering a scene date the default "
+                             "is shown at")
+        out[rel] = doc
+
+    if out:
+        validate_schemas({}, out, {}, rep)
+        check_evidence_ladder(out, sources, rep)
+        check_geometry_declarations(out, consumed, rep)
+        unlanded = unlanded_values(out, scenes, rep, field, origin, contacts)
+        check_ground_contact(out, unlanded, rep)
+        check_liberties_coverage(out, liberties, rep, consumed, unlanded, forward_only=True)
+    ids = {doc.get("id") for doc in out.values()}
+    fixtures = sum(1 for doc in out.values() if (doc.get("version") or {}).get("test_fixture"))
+    rep.note(f"structure versions: {len(out)} version(s) of {len(ids)} structure(s) held to "
+             f"the structure rules" + (f", {fixtures} of them test fixture(s)" if fixtures else ""))
+    return out
+
+
+def check_record_provenance(where: str, st: dict, source_ids: set, rep: Report,
+                            tally: dict) -> None:
+    """The per-record provenance pass: phases, ranges, positions, form, function.
+
+    One function since T-1727, because a structure VERSION is held to exactly the pass
+    a canonical record is — the two callers are `main()`'s structure loop and
+    `check_versions`, and a rule added here reaches both."""
+    phase_ids = set()
+    for ph in st.get("phases", []):
+        pid = ph.get("id", "?")
+        pwhere = f"{where}/{pid}"
+        if pid in phase_ids:
+            rep.error(where, f"duplicate phase id '{pid}'")
+        phase_ids.add(pid)
+        check_range(pwhere, ph.get("documented_range", {}), source_ids, rep)
+
+        pos = ph.get("position", {})
+        if pos.get("utm_e") is None and not (pos.get("symbolic_location") or "").strip():
+            rep.error(pwhere, "position has no coordinates and no symbolic_location — "
+                              "a structure must be locatable in words even before the datum "
+                              "is verified")
+        walk_attested(pwhere, ph.get("form", {}), source_ids, rep, tally, "form")
+        check_attested(pwhere, "position", pos, source_ids, rep)
+        check_attested(pwhere, "footprint", ph.get("footprint", {}), source_ids, rep)
+        tally[pos.get("confidence")] = tally.get(pos.get("confidence"), 0) + 1
+        fp_conf = ph.get("footprint", {}).get("confidence")
+        tally[fp_conf] = tally.get(fp_conf, 0) + 1
+
+    for key in ("function", "occupants"):
+        if key in st:
+            check_attested(where, key, st[key], source_ids, rep)
+            c = st[key].get("confidence")
+            tally[c] = tally.get(c, 0) + 1
+
+
 def load_dir(d: Path, rep: Report) -> dict:
     out = {}
     if not d.exists():
@@ -5938,33 +6092,11 @@ def main() -> int:
             rep.error(where, f"id does not match filename stem '{Path(name).stem}'")
         if not SLUG.match(sid or ""):
             rep.error(where, f"id '{sid}' is not a lowercase slug")
-
-        phase_ids = set()
-        for ph in st.get("phases", []):
-            pid = ph.get("id", "?")
-            pwhere = f"{where}/{pid}"
-            if pid in phase_ids:
-                rep.error(where, f"duplicate phase id '{pid}'")
-            phase_ids.add(pid)
-            check_range(pwhere, ph.get("documented_range", {}), source_ids, rep)
-
-            pos = ph.get("position", {})
-            if pos.get("utm_e") is None and not (pos.get("symbolic_location") or "").strip():
-                rep.error(pwhere, "position has no coordinates and no symbolic_location — "
-                                  "a structure must be locatable in words even before the datum "
-                                  "is verified")
-            walk_attested(pwhere, ph.get("form", {}), source_ids, rep, tally, "form")
-            check_attested(pwhere, "position", pos, source_ids, rep)
-            check_attested(pwhere, "footprint", ph.get("footprint", {}), source_ids, rep)
-            tally[pos.get("confidence")] = tally.get(pos.get("confidence"), 0) + 1
-            fp_conf = ph.get("footprint", {}).get("confidence")
-            tally[fp_conf] = tally.get(fp_conf, 0) + 1
-
-        for key in ("function", "occupants"):
-            if key in st:
-                check_attested(where, key, st[key], source_ids, rep)
-                c = st[key].get("confidence")
-                tally[c] = tally.get(c, 0) + 1
+        if "version" in st:
+            rep.error(where, "carries a `version` block, which only a structure VERSION under "
+                             "data/structures/versions/<id>/<label>.json may carry (T-1727) — "
+                             "the canonical record IS the default and has no label")
+        check_record_provenance(where, st, source_ids, rep, tally)
 
     # what was researched and left out — a record with the same citation rule as
     # anything else here, and now one the walkthrough quotes to a visitor
@@ -6061,6 +6193,10 @@ def main() -> int:
     check_liberties_coverage(structures, liberties, rep, consumed, unlanded, ground_index,
                              ground_consumed)
 
+    # and the structure VERSIONS, each held to the rules above as a structure (T-1727)
+    versions = check_versions(structures, scenes, sources, source_ids, liberties, consumed,
+                              rep, field=field, origin=datum_origin, contacts=contacts)
+
     # and how each of those positions was arrived at, which every record stated
     # in prose and nothing recomputed. The corners come back out of the control
     # and the platted module; the crossing comes back out of the traced bank.
@@ -6101,6 +6237,7 @@ def main() -> int:
         run_license_check(sources, rep)
     if args.stale:
         run_stale_check(structures, rep)
+        run_version_stale_check(versions, scenes, rep)
         run_bake_reach_check(structures, scenes, rep)
     if args.site:
         run_site_check(rep)
@@ -6184,6 +6321,10 @@ def run_license_check(sources: dict, rep: Report) -> None:
     manifest = json.loads(manifest_path.read_text()).get("assets", {}) \
         if manifest_path.exists() else {}
 
+    vpath = ROOT / "assets" / "manifest.versions.json"
+    versions_manifest = json.loads(vpath.read_text()).get("assets", {}) \
+        if vpath.exists() else {}
+
     generated, third_party = 0, 0
     for p in sorted((ROOT / "assets").rglob("*")):
         if p.is_dir() or p.name in ("LICENSES.md", "manifest.json") or p.name.startswith("."):
@@ -6194,6 +6335,15 @@ def run_license_check(sources: dict, rep: Report) -> None:
         # (which records its input hash and the Blender that made it), not by a
         # hand-written licence row. Untracked build output IS an error — it means
         # a file appeared that no recorded bake produced.
+        if rel.startswith(("gltf/versions/", "web/versions/")):
+            # T-1727: a version mesh is tracked by assets/manifest.versions.json, keyed by
+            # its path under gltf/ — never by basename, which it shares with the default's.
+            if rel.split("/", 1)[1] in versions_manifest:
+                generated += 1
+            else:
+                rep.error("licenses", f"assets/{rel} is not in assets/manifest.versions.json — "
+                                      f"no recorded bake produced it")
+            continue
         if rel.startswith(("gltf/", "web/")):
             if p.name in manifest:
                 generated += 1
@@ -6327,6 +6477,118 @@ def run_stale_check(structures: dict, rep: Report) -> None:
              + (f", {unchecked} not input-tracked" if unchecked else "")
              + f"; schemes {scheme} / {manifest.get('terrain_inputs_scheme')}, "
              + f"manifest blender {manifest.get('blender', '?')}")
+
+
+def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
+    """Does every structure VERSION have a mesh, and does it still match its record? (T-1727)
+
+    The canonical check above, applied to the alternates, with the one thing a version
+    adds: its mesh lives at `assets/gltf/versions/<id>/<label>/<id>__<phase>.glb` and is
+    recorded in `assets/manifest.versions.json` rather than in `assets/manifest.json`, so
+    that nothing which walks the canonical manifest — the derivative gate, the budgets,
+    the census of shipped batches — ever counts an alternate as part of the town.
+
+    Every version phase a scene resolves and no other layer draws must have:
+      * a manifest entry naming its structure, label and phase;
+      * a committed master whose recorded inputs hash is what the VERSION record hashes to
+        now (the same `mesh_inputs` recipe, over the version's own record);
+      * a committed web derivative, recorded as made from that exact master (the
+        `web_master_sha256` tools/web_derivatives.sh writes as it writes the bytes).
+    A version with no mesh or a stale mesh is RED, as the ticket asks; and a mesh with no
+    version behind it, or on a phase another layer draws, is red too — the same "every
+    committed mesh has a live route back to the data" rule the bake-reach check states.
+
+    Residual, stated: the derivative is checked against its master by hash, not by the
+    eight geometric assertions `measure_web_derivatives.py` applies to the canonical
+    set. Both are produced by the same pinned command in tools/web_derivatives.sh.
+    """
+    sys.path.insert(0, str(ROOT / "generators"))
+    try:
+        from common import versions as V  # noqa: PLC0415
+        from common.phases import drawn_by_another_layer as drawn  # noqa: PLC0415
+        import mesh_inputs  # noqa: PLC0415
+    except Exception as e:  # noqa: BLE001
+        rep.error("version stale", f"cannot import the version layout or the input-hash "
+                                   f"recipe, so no version mesh can be checked: {e}")
+        return
+
+    manifest = V.read_manifest(ROOT)
+    assets = manifest.get("assets", {})
+    gltf, web = ROOT / "assets" / "gltf", ROOT / "assets" / "web"
+    if assets and manifest.get("inputs_scheme") != mesh_inputs.SCHEME:
+        rep.error("version stale", f"assets/manifest.versions.json is stamped "
+                                   f"{manifest.get('inputs_scheme')!r} but the generators "
+                                   f"compute {mesh_inputs.SCHEME!r} — re-bake the versions "
+                                   f"(tools/bake.sh bakes them with the town)")
+        return
+    targets = [d for d in (parse_date(sc.get("target_date", "")) for sc in scenes.values()) if d]
+
+    expected: dict[str, tuple[dict, dict]] = {}
+    for rel, doc in sorted(versions.items()):
+        got = V.parse_path(ROOT / rel, ROOT)
+        if got is None:
+            continue
+        sid, label = got
+        for ph in doc.get("phases", []):
+            r = ph.get("documented_range", {})
+            frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
+            if not (frm and to and any(frm <= d <= to for d in targets)) or drawn(ph):
+                continue
+            expected[V.asset_key(sid, label, ph.get("id", "?"))] = (doc, ph)
+
+    fresh = 0
+    for key, (doc, ph) in sorted(expected.items()):
+        where = f"version mesh {key}"
+        entry = assets.get(key)
+        if entry is None:
+            rep.error(where, "is not in assets/manifest.versions.json — this version has NO "
+                             "MESH, so selecting it would show nothing where the building "
+                             "stands. Bake it (tools/bake.sh --only <id> bakes a structure "
+                             "and its versions), or `tools/structure_versions.py adopt` if its "
+                             "inputs are identical to the committed canonical bake")
+            continue
+        if not (gltf / key).is_file():
+            rep.error(where, "is listed in assets/manifest.versions.json but the master is "
+                             "not committed at assets/gltf/" + key)
+            continue
+        try:
+            now = mesh_inputs.structure_inputs_sha(doc, ph, doc.get("archetype"))
+        except Exception as e:  # noqa: BLE001 — an unresolvable input is a failure
+            rep.error(where, f"cannot recompute its input hash: {e}")
+            continue
+        if now != entry.get("inputs_sha256"):
+            rep.error(where, f"is STALE — the version record now hashes to {now[:12]}, the "
+                             f"committed mesh was built from "
+                             f"{str(entry.get('inputs_sha256'))[:12]}. Re-bake it with the "
+                             f"change that caused this")
+            continue
+        if not (web / key).is_file():
+            rep.error(where, "has no web derivative at assets/web/" + key + " — the "
+                             "published site loads derivatives, so the version would 404. "
+                             "Run tools/web_derivatives.sh")
+            continue
+        if entry.get("web_master_sha256") != V.sha256_file(gltf / key):
+            rep.error(where, "its web derivative is not recorded as made from the committed "
+                             "master — run tools/web_derivatives.sh --only " + key)
+            continue
+        fresh += 1
+
+    for key in sorted(set(assets) - set(expected)):
+        rep.error(f"version mesh {key}", "is recorded in assets/manifest.versions.json but no "
+                                         "version record resolves that structure, label and "
+                                         "phase into a scene — a mesh with no record behind it")
+    for base in (gltf, web):
+        vroot = base / "versions"
+        for f in sorted(vroot.rglob("*")) if vroot.is_dir() else []:
+            if f.is_file():
+                key = f.relative_to(base).as_posix()
+                if key not in expected and key not in assets:
+                    rep.error(f"version mesh {key}",
+                              f"is committed under {base.relative_to(ROOT)}/versions/ with no "
+                              f"manifest entry and no version record — no recorded bake "
+                              f"produced it")
+    rep.note(f"version stale check: {fresh} of {len(expected)} version mesh(es) present, fresh "
+             f"and derived")
 
 
 def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:

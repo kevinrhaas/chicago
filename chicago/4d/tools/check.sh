@@ -178,6 +178,21 @@ step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
 step "validator self-tests" \
   python3 tools/test_validate.py
 
+# T-1727. STRUCTURE VERSIONS — `?structure=<id>&version=<label>` swaps one building for a
+# committed alternate so competing builds can be compared side by side. validate.py above
+# already holds every version to the structure rules and its mesh to --stale; these prove
+# those reds actually fire (no mesh, a stale mesh, a model identifier as a label…), that
+# the address bar falls back to the default out loud on every miss, and that the
+# one-command promotion moves records, meshes and books together. docs/STRUCTURE-VERSIONS.md.
+selftest "structure versions: no mesh, a stale mesh and a refused label are each red (T-1727)" \
+  python3 tools/test_structure_versions.py --self-test
+
+selftest "…the address bar swaps one committed version and falls back ALOUD on every miss (T-1727)" \
+  node tools/test_structure_versions.mjs --self-test
+
+selftest "…and promote_version.mjs makes a version the default in one diff, reversibly (T-1727)" \
+  node tools/promote_version.mjs --self-test
+
 step "reconciled PRs preserve resident identities and refuse back-projected trades" \
   python3 tools/test_pr_reconciliation.py
 

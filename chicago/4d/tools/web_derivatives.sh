@@ -426,10 +426,19 @@ if [ -n "$resolved_cli" ]; then
   # derived skirt margin above.
   fellback=0
   passthrough=0
-  for f in assets/gltf/*.glb; do
+  # T-1727: the structure VERSIONS' masters sit one subtree down, at
+  # assets/gltf/versions/<id>/<label>/<name>.glb, and are derived by the same pinned
+  # commands into the same relative path under $OUT. `rel` is the path under
+  # assets/gltf/ — the bare name for the town, `versions/…` for an alternate — and
+  # `--only` matches it. A version derivative is recorded in assets/manifest.versions.json
+  # (below), never in manifest.web.json, so nothing that walks the town's derivatives
+  # ever counts an alternate as part of it.
+  for f in assets/gltf/*.glb assets/gltf/versions/*/*/*.glb; do
     [ -e "$f" ] || continue
-    [ -z "$ONLY" ] || [ "$(basename "$f")" = "$ONLY" ] || continue
-    out="$OUT/$(basename "$f")"
+    rel="${f#assets/gltf/}"
+    [ -z "$ONLY" ] || [ "$rel" = "$ONLY" ] || continue
+    out="$OUT/$rel"
+    mkdir -p "$(dirname "$out")"
     case "$(basename "$f")" in
       terrain__*|water__*) bits="$EPOCH_QUANT_BITS"; epoch=1 ;;
       *) bits="$ASSET_QUANT_BITS"; epoch=0 ;;
@@ -466,8 +475,12 @@ if [ -n "$resolved_cli" ]; then
       passthrough=$((passthrough + 1))
       note="  (compression grew it; master passed through)"
     fi
-    echo "$(basename "$f")" >> "$PRODUCED"
-    printf '   %s  %s -> %s bytes%s\n' "$(basename "$f")" \
+    if [ "$rel" = "$(basename "$f")" ]; then
+      echo "$rel" >> "$PRODUCED"
+    elif [ "$OUT" = "assets/web" ]; then
+      python3 tools/structure_versions.py record-web "$rel"
+    fi
+    printf '   %s  %s -> %s bytes%s\n' "$rel" \
       "$(wc -c < "$f" | tr -d ' ')" "$(wc -c < "$out" | tr -d ' ')" "$note"
   done
   # Say it once, at the end, where it cannot scroll past unnoticed. A fallback
@@ -505,6 +518,15 @@ else
     [ -e "$f" ] || continue
     [ -z "$ONLY" ] || [ "$(basename "$f")" = "$ONLY" ] || continue
     echo "$(basename "$f")" >> "$PRODUCED"
+  done
+  # …and the structure versions' masters the same way (T-1727), recorded where they
+  # are tracked. The same warning holds: a copied master is not a derivative.
+  for f in assets/gltf/versions/*/*/*.glb; do
+    [ -e "$f" ] || continue
+    rel="${f#assets/gltf/}"
+    [ -z "$ONLY" ] || [ "$rel" = "$ONLY" ] || continue
+    mkdir -p "$(dirname "$OUT/$rel")" && cp -f "$f" "$OUT/$rel"
+    [ "$OUT" = "assets/web" ] && python3 tools/structure_versions.py record-web "$rel"
   done
 fi
 
