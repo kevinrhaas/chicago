@@ -272,8 +272,25 @@ def self_test(quiet=False):
           and -3.5 < d["control_offset_after"] < -3.0)
 
     committed = d["market"]
+    # THE REFIT IS A SLICE OF THE COMMITTED LINE, NOT THE WHOLE OF IT (T-1707). This was a
+    # positional `zip` of the two paths, which is the same thing only while `market` has
+    # exactly the two vertices this re-fit gave it. T-1707 carried the line's SOUTH end
+    # from its terrain clip at N -400 to Madison Street, so the committed path now opens
+    # with a third vertex the re-fit never spoke about, and a positional compare read the
+    # carried vertex against the re-fit's south end and failed on 119 m of northing. What
+    # T-0827 actually asserts is that the two vertices it re-fitted are still carried, to
+    # the centimetre — so that is what is asked, as a contiguous run anywhere in the path.
+    # A carry along a line's own bearing may lengthen it; it may not move what is on it.
+    def carries(path, wanted):
+        for start in range(len(path) - len(wanted) + 1):
+            if all(abs(a - b) < 0.01
+                   for p, q in zip(path[start:start + len(wanted)], wanted)
+                   for a, b in zip(p, q)):
+                return True
+        return False
+
     check("data/streets/1835.json carries the re-fitted market, to the centimetre",
-          all(abs(a - b) < 0.01 for p, q in zip(committed, d["refit"]) for a, b in zip(p, q)))
+          carries(committed, d["refit"]))
     mn = d["market_north"]
     check("market_north is committed and collinear with the re-fitted parent, "
           "within 0.02 m",
