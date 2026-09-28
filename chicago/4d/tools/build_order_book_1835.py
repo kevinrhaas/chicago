@@ -397,7 +397,13 @@ STRUCTURE_TICKETS = {
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    ("north", "ordinary_dwellings"): "T-1206",
+    # SWEPT 2026-09-28 (T-1420's gate, firing again). T-1206 was split while this
+    # branch was gating: its two pieces are T-1741, which reads the lot lines Wright
+    # draws inside Kinzie's Addition, and T-1742, which raises the roofs onto the lots
+    # that reading cuts. The 34 ordinary dwellings this cell still owes are the second
+    # of those, so the order names T-1742. T-1741 is a precondition and not an owner —
+    # a cell names the ticket a run can raise its roofs under.
+    ("north", "ordinary_dwellings"): "T-1742",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
