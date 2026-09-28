@@ -1,0 +1,16 @@
+{
+  "scene": "1835",
+  "standard": "T-1727. The committed alternates of single structures, selected by ?structure=<id>&version=<label>. Fetched by the renderer only when the address asks for a version — never at boot — and each row swaps exactly one building of this scene for its alternate record and mesh. version=default names the canonical record.",
+  "structures": {
+    "bates_auction_room": [
+      {
+        "label": "fixture",
+        "summary": "Test fixture for the version switch (T-1727): the default record copied unchanged, so the release smoke can prove that ?structure= and ?version= swap exactly one building. Nothing about the auction room differs; this is not an alternative reading of the evidence.",
+        "test_fixture": true,
+        "phase": "frame_1834",
+        "sidecar": "sidecars/1835/versions/bates_auction_room/fixture.json",
+        "asset": "gltf/versions/bates_auction_room/fixture/bates_auction_room__frame_1834.glb"
+      }
+    ]
+  }
+}

@@ -296,6 +296,29 @@ body.is-touch .gate-touch { display: block; }
   font-variant-numeric: tabular-nums;
 }
 .badge-alt[hidden] { display: none; }
+/* T-1727: which build of a structure `?structure=&version=` put on screen. Same rule
+   as the altitude beside it, so two screenshots of one corner can never be mistaken
+   for each other; the warning tone is a label that was NOT found. */
+.badge-version {
+  padding-left: 9px;
+  margin-left: 2px;
+  border-left: 1px solid var(--edge);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: help;
+  max-width: 14em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.badge-version[data-tone="default"] { color: var(--ink-dim); }
+.badge-version[data-tone="notice"] {
+  color: var(--ink);
+  font-style: italic;
+  text-decoration: underline dotted var(--inf);
+  text-underline-offset: 3px;
+}
+.badge-version[hidden] { display: none; }
 .fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
@@ -1349,6 +1372,10 @@ kbd {
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
+  /* The version chip (T-1727) outranks the date too: it is the one fact that tells two
+     phone screenshots apart. */
+  .badge.has-version .badge-sub { display: none; }
+  .badge-version { max-width: 9.5em; }
   .navigation-stack { top: calc(55px + var(--safe-t)); }
   .street-readout { width: 188px; }
   /* The mobile panel spans the same left edge as the navigation readouts. Hide

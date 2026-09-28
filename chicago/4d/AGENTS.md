@@ -693,6 +693,11 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
 
 ## Orientation
 
+**Several builds of one structure** (the owner's side-by-side comparisons, Glessner first)
+are structure VERSIONS — `data/structures/versions/<id>/<label>.json`, opened with
+`?structure=<id>&version=<label>`, promoted with `node tools/promote_version.mjs <id> <label>`;
+`docs/STRUCTURE-VERSIONS.md` is the page (T-1727).
+
 `docs/PLAN.md` is the full development plan. `docs/research/` holds the source dossiers
 (committed verbatim, tagged, with their own gaps stated). `docs/PROVENANCE.md` expands the
 confidence model. `docs/EPOCHS.md` explains the temporal architecture.

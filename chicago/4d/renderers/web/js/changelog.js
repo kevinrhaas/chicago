@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1212, ts: '2026-09-28T18:35:25.880Z', date: 'Sep 28, 2026, 1:35 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
+  { v: 1213, ts: '2026-09-28T19:08:47.347Z', date: 'Sep 28, 2026, 2:08 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [
       'Walk to the block between Clinton and Canal, north of Randolph, and it is cut into ten lots instead of eight \u2014 two columns of five with an alley running down the middle, north to south, and each lot fronting Clinton on one side or Canal on the other. That is what the 1830 plat draws there, and this town had been drawing something else.',
       'West of the river the plat uses a different block than it does downtown: two long lots back to back rather than four short ones to a face, and the alley turns ninety degrees with them. The numerals are printed in the block itself \u2014 2 and 1, 3 and 4, 6 and 5, 7 and 8, 10 and 9, reading down \u2014 and every lot now carries the number the sheet gives it at the position the sheet gives it.',
@@ -7,6 +7,13 @@ export const CHANGELOG = [ // newest first
       'Nothing moved a metre. Every building on the block stands exactly where it stood and none of them was rebuilt; what changed is which lot each one is on, and the yard fences and gates that follow the lot lines have been re-laid along the new ones.',
       'Two consequences. The extra lots front streets with no platted frontage here before, so two households \u2014 the Adams family and the Baxleys \u2014 now have an address on them, walls not up yet. And a blacksmithing firm the newspaper places on Canal Street and nowhere narrower has moved onto a roof that faces Canal; it had stood on one facing Randolph, because no Canal frontage existed here to give it.',
       'The block one street south, between Randolph and Washington, is NOT re-cut yet, and that is deliberate. Seven houses were dealt onto it by an argument about which family takes the Randolph face and which takes Washington \u2014 faces this arrangement removes. Re-cutting it means re-making that argument and rebuilding those seven roofs, which is its own piece of work.',
+    ] },
+  { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+    items: [
+      'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
+      'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
+      'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
+      'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
     ] },
   { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
     items: [

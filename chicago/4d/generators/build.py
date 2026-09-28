@@ -15,6 +15,10 @@
                     that refuses a GLB whose occlusion did not survive the export)
     --out <dir>     output directory (default assets/gltf)
 
+Every STRUCTURE VERSION of a selected id (T-1727; all of them when nothing is
+selected) is baked after the structures, to <out>/versions/<id>/<label>/ and recorded
+in assets/manifest.versions.json — see generators/common/versions.py.
+
 Refuses to run while data/datum.json is unverified — fixing the origin after
 geometry exists means regenerating everything, so the build makes that impossible
 rather than merely discouraged.
@@ -38,6 +42,8 @@ import ao_export  # noqa: E402
 import emit  # noqa: E402
 import mesh_inputs  # noqa: E402
 
+from common.versions import (asset_key, label_problem, load_versions,  # noqa: E402
+                             read_manifest, write_manifest)
 from common.phases import drawn_by_another_layer  # noqa: E402
 from common.selection import REFUSED, parse_only, refusal, selects  # noqa: E402
 
@@ -188,6 +194,67 @@ def main() -> int:
 
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     print(f"\n{built} asset(s) built; manifest updated")
+
+    # T-1727. THE STRUCTURE VERSIONS, baked with the structures they are versions of:
+    # every version of a selected id (all of them, when nothing is selected), so a
+    # full rebake after a generators/ edit heals the alternates too and `--only <id>`
+    # is the one command a version needs. Each is an ordinary record run through the
+    # same emit pipeline; only the output path and the book it is kept in differ —
+    # assets/gltf/versions/<id>/<label>/ and assets/manifest.versions.json, so that
+    # nothing which walks the town's manifest ever counts an alternate as the town.
+    vmanifest = read_manifest()
+    vmanifest["inputs_scheme"] = mesh_inputs.SCHEME
+    vbuilt = 0
+    for v in load_versions():
+        sid, label, st = v["id"], v["label"], v["record"]
+        if not selects(only, sid):
+            continue
+        refused = label_problem(label)
+        if refused or st.get("id") != sid:
+            print(f"skip version {sid}/{label}: {refused or 'record id does not match'}")
+            continue
+        phase = resolve_phase(st, target)
+        if phase is None:
+            print(f"skip version {sid}/{label}: no phase covers {target}")
+            continue
+        if drawn_by_another_layer(phase):
+            print(f"skip version {sid}/{label}: phase '{phase.get('id', '?')}' is drawn by "
+                  f"another layer")
+            continue
+        arch = st["archetype"]
+        if arch not in emit.ARCHETYPES:
+            print(f"skip version {sid}/{label}: archetype '{arch}' has no generator yet")
+            continue
+        key = asset_key(sid, label, phase["id"])
+        target_path = outdir / key
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        made = emit.emit_structure(st, phase, arch, target_path, bake=not args.no_bake,
+                                   ao=args.ao)
+        entry = {
+            "kind": "generated",
+            "structure_id": sid,
+            "version_label": label,
+            "phase_id": phase["id"],
+            "archetype": arch,
+            "inputs_sha256": inputs_hash(st, phase, arch),
+            "bytes": made.path.stat().st_size,
+            "baked_ao": bool(args.ao and not args.no_bake),
+        }
+        if made.baked_mean is not None:
+            try:
+                stats = ao_export.assert_ao_survived_export(made.path, made.baked_mean)
+            except ao_export.AoExportError as e:
+                raise SystemExit(f"REFUSING TO RECORD THIS BAKE: {e}") from e
+            entry["ao_occlusion_mean"] = round(stats["mean"], 6)
+        # web_master_sha256 is written by tools/web_derivatives.sh as it derives this
+        # master; a fresh master has no derivative yet, so the old link is dropped.
+        vmanifest["assets"][key] = entry
+        print(f"built version {key}  {made.path.stat().st_size:,} bytes  ~{made.tris} tris")
+        vbuilt += 1
+        built += 1
+    if vbuilt:
+        write_manifest(vmanifest)
+        print(f"{vbuilt} structure version(s) built; assets/manifest.versions.json updated")
     # Every named id exists — `refusal()` proved that — so one that built nothing
     # was skipped for a reason printed above (no phase covers the scene date, the
     # phase is drawn by another layer, the archetype has no generator). Say which,
