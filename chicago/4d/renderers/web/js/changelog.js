@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Three log houses stand again round the old Agency House', kind: 'change',
+  { v: 1204, ts: '2026-09-28T10:00:52.650Z', date: 'Sep 28, 2026, 5:00 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
     items: [
       'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
       'Two men who had no home in this town now have one. David McKee, the agency\u2019s blacksmith, and Joseph Porthier, who struck for him at the anvil: open either card and it names the house. McKee\u2019s card used to say that the buildings he is described in were not in this dataset at all, which was the plain truth and is no longer.',
