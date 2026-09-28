@@ -7011,15 +7011,15 @@
     "on": "blk_washington_wells#02",
     "block_id": "blk_washington_wells",
     "fronts": "washington",
-    "family": "H1",
+    "family": "H2",
     "clause": "merchant_and_professional_dwellings",
     "district": "south",
     "stands_on": "lot",
     "deal_seed": "hh_benediet_loma|T-1522|division:6b02422e10fb|class:618132f4aeee",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
     "owed_to": "T-1200..T-1214",
     "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_washington_wells#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+    "words": "The placement policy deals this household a place on blk_washington_wells#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
    }
   },
   {
@@ -65839,14 +65839,14 @@
    "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "kimberly_residence"
+    "id": "pruyne_kimball_drugstore"
    },
    "works_seat": null,
    "reach": "structure",
-   "reach_value": null,
+   "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'kimberly_residence' is a committed structure.",
+   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'pruyne_kimball_drugstore' is a committed structure.",
    "words": "The advertisement's anchor reaches a roof this town has built, and the firm is seated on it.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,

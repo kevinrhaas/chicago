@@ -1473,13 +1473,13 @@
    "published_limit": "structure",
    "grade": "structure_committed",
    "evidence_reach": "structure",
-   "evidence_street": null,
-   "model_seat": "kimberly_residence",
+   "evidence_street": "South Water Street",
+   "model_seat": "pruyne_kimball_drugstore",
    "seat_is_substitutable": false,
    "register_action": "enrich_existing",
-   "register_action_target": "kimberly_residence",
+   "register_action_target": "pruyne_kimball_drugstore",
    "printed_place": "STORE BETWEEN CLARK AND DEARBORN-STREETS.",
-   "clause": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'kimberly_residence' is a committed structure."
+   "clause": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'pruyne_kimball_drugstore' is a committed structure."
   },
   {
    "business_id": "business_p_s_carli_eagle_tavern",

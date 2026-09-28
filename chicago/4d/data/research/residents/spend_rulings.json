@@ -22,7 +22,7 @@
     "the_pass_named_a_candidate_and_did_not_assert_it": 162,
     "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
     "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window": 6,
-    "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": 20,
+    "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": 21,
     "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date": 3
   },
   "rules": {
@@ -561,6 +561,11 @@
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/porthier_joseph",
       "rule": "the_enrichment_names_a_departure_from_chicago_no_field_carries",
       "note": "The pass on porthier_joseph returned: “Pioneer History of Milwaukee supplies a materially tighter migration chronology than the existing record: Joseph Porthier left Chicago with Horace Chase on February 27, 1835, briefly returned to Chicago for means, then …” Sources as recorded: buck_pioneer_milwaukee_porthier_1835. T-1301 reads that as a departure dated 27 February 1835 and a return."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/pruyne_peter",
+      "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+      "note": "The pass on pruyne_peter returned: “Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1469 reads that as a drug store kept in partnership from early 1833. The card carries it at data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].occupation = “druggist” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].workplaces[0] = “P. Pruyne & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#works_at = “pruyne_kimball_drugstore” (inferred, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sproat_grenville",
