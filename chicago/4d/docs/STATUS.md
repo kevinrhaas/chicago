@@ -1,3 +1,60 @@
+## T-1727 — structure versions by URL (2026-09-28)
+
+`?structure=<id>&version=<label>` swaps one structure for a committed alternate record
+and mesh (`data/structures/versions/<id>/<label>.json`, mesh under
+`assets/{gltf,web}/versions/`, books in `assets/manifest.versions.json`); `version=default`
+names the canonical record. An unknown id or label loads the default and the HUD chip says
+*default shown*, with the sentence on tap and on entry. The HUD and the card name the
+active version. The versions index is fetched only when asked for, so a plain boot is
+unchanged. `validate.py` holds versions to the structure gate and `--stale` to their
+meshes; `build.py` bakes versions with their structure; `web_derivatives.sh` and
+`publish.sh` carry them. `node tools/promote_version.mjs <id> <label>` makes one the
+default in one diff and keeps the old default as `pre-<label>`. `docs/STRUCTURE-VERSIONS.md`.
+
+**Unverified, stated:** `build.py`'s version loop has been exercised with bpy and the
+emitter stubbed (it chose the version, wrote to the version path and recorded the entry),
+not under Blender — no Blender on this runner. The first real version bake (T-1730) is its
+live test. The only committed version is the smoke's TEST FIXTURE
+(`bates_auction_room/fixture`), an unchanged copy of the default record whose inputs hash
+equals the committed bake, so its mesh was adopted rather than baked; the pinned
+derivative command reproduces the adopted derivative byte for byte.
+
+## T-1251 — the 1904 ground's zone table (2026-09-28)
+
+Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
+`data/terrain/epochs/e1871_postfire/terrain_spec.json` is an authored zone table serving the
+1904 Prairie Avenue scene: twelve street crowns read off the USGS 3DEP 1 m bare-earth model
+(`data/terrain/e1871_grade_readings.json`), graded lots between them, the Illinois Central
+embankment, the made ground of 1886–1911, the lake shelf and the lake stage, every figure citing
+a numbered zone in `docs/RESEARCH/terrain_e1871_postfire.md` and saying which date it describes.
+Three crowns (Prairie Avenue from 18th Street to 2017 Prairie) are inferred for 1904 because the
+period's houses still stand there at their built grade, their walks within 0.18 ft of the crown;
+the other nine are reconstructed (L289). The datum conversion is tested: City benchmark 289 and
+the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface runs 2.9–5.7 ft,
+so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
+ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
+Not verified: any 1904 level directly — no survey of the period has been found.
+
+
+## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
+
+Nothing a visitor sees changed; this is the ground the 1904 scene (T-1252) will stand on.
+Sanborn 1911 vol. 3 sheets 20, 28 and 35 and Robinson 1886 plate 10 each have a source record
+and a GCP file in `data/traces/gcp/` (`sanborn_1911_v3_sheet_{20,28,35}_gcps.json`,
+`robinson_1886_plate_10_gcps.json`), written by `tools/georef_prairie_1904.py` and re-derived by
+`check.sh`. The fits are similarities at each sheet's printed scale — RMS 2.46, 0.34, 0.05 and
+4.54 m — because the free affine (printed beside each) reads a displaced modern Indiana Avenue and
+a widened Cermak Road as paper stretch. Sheet 28, the Glessner House sheet, lands three standing
+houses within 1.47 m RMS of their OpenStreetMap outlines without having been fitted to them.
+
+`tools/trace_ic_edge_1904.py` traces the Illinois Central lake edge: the 1911 edge stands 17–20 m
+east of the 1886 one where both are drawn, so both sheets are bounds and the scene's waterline is
+reconstructed on the eastern bound (L287), with its six segments saying what stands in where no
+1911 sheet draws the edge. The 1852-trestle sentence is ruled against a CPL source. What is not
+verified: the stretch south of 19th Street (no sheet held draws it), and any height — T-1251/T-1252.
+Detail: `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7.
+
+
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 
 Jaunt cards and the persistent controls offer Walk, Wagon, Horse, Fly and Instantly.

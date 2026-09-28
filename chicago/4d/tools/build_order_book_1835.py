@@ -4406,8 +4406,15 @@ def cmd_self_test() -> int:
     # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 19
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
+    #
+    # T-1716 TAKES IT BACK TO 210, AND TWENTY-NINE OF THE SEATS ARE SLOTS. The keeper's
+    # quarters at the Chicago light is a standing roof the programme counts, so the family
+    # plan it draws for `blk_washington_clark` falls from two principal roofs to one, the
+    # platted pass goes 139 -> 138 and the household that had the second slot goes back on
+    # the owed list. Nothing was raised on the plat and no seat moved: one request the plan
+    # no longer has room for is withdrawn, and it is withdrawn in writing.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 211
+        data["inventory"], data["programme"], occ))["seated"] == 210
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4415,7 +4422,7 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 30 slot rows on the plat's last
+    # currently sit: since T-1707 the platted pass carries 29 slot rows on the plat's last
     # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
     # carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.

@@ -22,6 +22,7 @@
  */
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { resolveStructureVersion } from './structure-versions.js';
 
 const GLB_MAGIC = 0x46546c67;   // 'glTF', little-endian
 
@@ -117,12 +118,18 @@ async function fetchAsset(url) {
 /**
  * Load one scene.
  *
+ * `version` is `readVersionRequest(location.search)` — `?structure=<id>&version=<label>`
+ * (T-1727). When it names a committed version, exactly that one entry's sidecar (and so
+ * its mesh) is loaded from the version instead of the default; nothing else changes. The
+ * versions index is fetched ONLY in that case, so a plain boot downloads nothing new.
+ *
  * @returns {Promise<{
  *   year: string, scene: object, datum: object,
- *   registry: Map<string, object>, problems: string[], bytes: number
+ *   registry: Map<string, object>, problems: string[], bytes: number,
+ *   versionState: object|null
  * }>}
  */
-export async function loadScene(year, bases = resolveBases(), { onProgress = () => {} } = {}) {
+export async function loadScene(year, bases = resolveBases(), { onProgress = () => {}, version = null } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
 
@@ -141,7 +148,7 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
     index = await getJSON(indexUrl);
   } catch (err) {
     problems.push(`no sidecar index for scene ${year} (${err.message}) — nothing to place`);
-    return { year, scene, datum, registry: new Map(), problems, bytes: 0 };
+    return { year, scene, datum, registry: new Map(), problems, bytes: 0, versionState: null };
   }
 
   // The index lists either bare ids or `{ id, sidecar, asset }` rows. Accept
@@ -152,13 +159,24 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
     .map((row) => (typeof row === 'string' ? { id: row } : row))
     .filter((row) => row && typeof row.id === 'string');
 
+  // T-1727. One entry, at most, is pointed at a version instead of its default. A copy
+  // of the row, never the row: `index` is handed on to the rest of the page as the
+  // scene's own list, and it must go on saying what the default town is.
+  const versionState = await resolveStructureVersion(version, {
+    year, dataBase, entries, getJSON,
+  });
+  if (versionState.active) {
+    const at = entries.findIndex((row) => row.id === versionState.active.id);
+    entries[at] = { ...entries[at], sidecar: versionState.active.sidecar, version: versionState.active };
+  }
+
   const loader = new GLTFLoader();
   const registry = new Map();
   let bytes = 0;
 
   let completed = 0;
   onProgress(0, entries.length);
-  const loads = entries.map(async ({ id, sidecar: sidecarPath }) => {
+  const loads = entries.map(async ({ id, sidecar: sidecarPath, version: chosen = null }) => {
     const sidecarUrl = new URL(sidecarPath ?? `sidecars/${year}/${id}.json`, dataBase);
     let sidecar;
     try {
@@ -199,6 +217,9 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
         assetRetried: false,
         assetUrl: null,
         sidecarUrl: String(sidecarUrl),
+        /** T-1727: the versions-index row this entry was loaded from, or null for the
+         *  default. The card and the HUD name it; nothing else reads it. */
+        version: chosen,
         instanceId: null,
         node: null,
       });
@@ -269,6 +290,8 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
       assetRetried,
       assetUrl: String(assetUrl),
       sidecarUrl: String(sidecarUrl),
+      /** T-1727: the versions-index row this entry was loaded from, or null. */
+      version: chosen,
       /** filled in by buildings.js once the node is in the batch */
       instanceId: null,
       node: null,
@@ -276,5 +299,5 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
   });
 
   await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
-  return { year, scene, datum, registry, problems, bytes, index };
+  return { year, scene, datum, registry, problems, bytes, index, versionState };
 }

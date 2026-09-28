@@ -1,0 +1,26 @@
+{
+  "id": "usgs_3dep_1m_dem",
+  "type": "dataset",
+  "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+  "author": "U.S. Geological Survey",
+  "date": "2017-06-03 (acquisition, as the service reports it)",
+  "describes_date": "2017",
+  "repository": "USGS, The National Map",
+  "url": "https://epqs.nationalmap.gov/v1/docs",
+  "archived_url": "https://www.usgs.gov/3d-elevation-program",
+  "locator": "point queries recorded one per reading in data/terrain/e1871_grade_readings.json (each row carries its query URL); values in feet, NAVD88",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "A U.S. Government work; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "The point service answered 200 to every query on 2026-09-28; each reading records the acquisition date and the 1 m resolution the service reported.",
+  "note": "MODERN measurement, not historical evidence. Read by T-1251 for the ground's elevation at named points of the 1904 Prairie Avenue reach, and carried back to 1904 only as the terrain spec argues it: inferred where houses of the period still stand at their own grade in front of the reading, reconstructed elsewhere (docs/RESEARCH/terrain_e1871_postfire.md zones 3 and 4). Cross-checked against City of Chicago benchmark 289 (chicago_elevation_benchmarks), which it matches to 0.00 ft under the Chicago City Datum conversion the terrain dossier quotes.",
+  "what_it_supplies": [
+    "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+  ],
+  "what_it_does_not_supply": [
+    "Any elevation as of 1904 on its own authority",
+    "Where the ground has been re-graded since, which only a standing building of the period can witness"
+  ]
+}

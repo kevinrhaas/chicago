@@ -1,11 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1211, ts: '2026-09-28T18:30:04.602Z', date: 'Sep 28, 2026, 1:30 PM CT', title: 'The first two houses south of Washington Street', kind: 'change',
+  { v: null, ts: '', date: '', title: 'The first two houses south of Washington Street', kind: 'change',
     items: [
       'Walk south down Clark Street past Washington and there are buildings on the last row of the plat for the first time. Two cottages and their yard buildings stand on the block between Washington and Madison, Clark and Dearborn \u2014 a deep-plan cottage facing Washington with a privy behind it, a two-room cottage facing Madison with a woodshed behind it. Everything else on that block is still open prairie, which is what it was.',
       'The block was asked for exactly these two. The building programme apportions this block two houses and no more, and the pass that deals families onto lots had written a request against both of them and left the two households standing with an address and no walls. The walls are up.',
       'The two families who moved in are not the two who asked. Households pick a lot before they ask for one to be built, and a tradesman\u2019s household prefers a quiet street: the two Beaubien families were living on the busy South Water Street frontage, and the moment these quieter cottages existed they were the better answer. So the Beaubiens moved in, thirty-eight families shuffled up one place behind them into the roofs they left, and the two tradesmen who asked for these houses \u2014 Thomas Byram and Levi Cady \u2014 hold a place on the Franklin Street block instead.',
       'Two families came off the end of the list, and the town says so rather than hiding it. Building the block\u2019s two houses used up the only two places it had to offer, so the count of families with somewhere to be went from 139 to 137: Lyman Bennet and L. C. Chamberlain now have no lot at all, with the reason written on each of them. Neither lost a house \u2014 both had a request and never had walls.',
       'Nothing on the block is claimed as evidence. No source says a building stood here in 1835, which buildings they were, or where on their lots they sat. What is committed is the lot grid, the street lines and the ground; the rest is the building programme filling a town it can count but cannot name, and the two cottages carry that disclosure on their own cards.',
+    ] },
+  { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+    items: [
+      'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
+      'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
+      'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
+      'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
+    ] },
+  { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+    items: [
+      'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
+      'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
+      'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
+      'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
+      'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
     ] },
   { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
     items: [

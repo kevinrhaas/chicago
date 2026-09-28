@@ -10830,9 +10830,12 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 72 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 73 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 72 structures carry a `land_owner` block that rests on them. The construction is
+traced, and 73 structures carry a `land_owner` block that rests on them (71 until two changes
+landed on the same day: T-1715's second garrison root-house on the reservation bank, and T-1716's
+keeper's quarters at the Chicago light on the reservation tract this same construction
+resolves). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -14092,16 +14095,17 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 419 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 420 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
-why the population is counted here rather than described. It was 403 until three changes
-landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
-works buildings, and T-1714's three agency log buildings at the foot of State Street — each
-of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is
-the least of them: a flat earth bank states a roof type and carries no shingle at all.
-T-1736's first deal on blk_washington_clark makes 419: two frame cottages on the plat's last
-tier and the privy and woodshed in their yards, all four of them shingled by this exposure
-like every other frame roof the block recipe raises. No record's `roof_type` or pitch
+why the population is counted here rather than described. It was 403 until five changes
+landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
+works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second
+garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen
+states a roof type. The root-house is the least of them: a flat earth bank states a roof type and
+carries no shingle at all. T-1736's first deal on blk_washington_clark makes 420: two frame
+cottages on the plat's last tier and the privy and woodshed in their yards, all four of them
+shingled by this exposure like every other frame roof the block recipe raises. No record's
+`roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -14611,40 +14615,45 @@ rather than restraint: the only South Division blocks the programme marked `open
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
-headroom, and the deal placed 30 households onto them: 28 to the Market, Franklin, Wells and
-La Salle blocks and, until T-1736, 2 to the Clark block. A slot is a REQUEST and not a roof:
-these 28 households have a lot and no walls until a block recipe raises them, and each seat
-says so.
+headroom, and the deal placed 18 merchant and professional households and 10 tradesmen's
+onto them — seven apiece to the Market, Franklin, Wells and La Salle blocks, and none at all
+to the Clark block. The Clark count has been 2, then 1, then 0, and each step was measured
+rather than decided. It was 2 while the block's plan held two principal roofs and neither was
+built. T-1716's keeper's quarters at the Chicago light took it to 1: that roof is a standing
+roof the programme counts, so the family plan it draws for the Clark block fell from two
+principal roofs to one, and the household that had the second went back on the owed list.
+T-1736 then BUILT the block's principal room out — see **L290** — and a block with no
+principal room left can offer no slot at all, so the last one went too. A slot is a REQUEST
+and not a roof: these 28 households have a lot and no walls until a block recipe raises them,
+and each seat says so.
 
-**BUILDING THE TWO ROOFS THE CLARK BLOCK WAS ASKED FOR TOOK THE DEAL DOWN BY TWO, AND THAT IS
-NOT A MISCOUNT.** T-1736 dealt blk_washington_clark the D4 and the D5 its committed plan
-holds — the two roofs hh_byram_thomas's and hh_cady_levi's slots had requested by name — and
-the answer that came back was not those two households. The adoption step runs before the
+**BUILDING A BLOCK'S ROOFS CAN TAKE THE DEAL DOWN, AND THAT IS NOT A MISCOUNT.** T-1736 dealt
+`blk_washington_clark` the two cottages its committed plan holds, and the two households that
+moved in are not the two whose slots had requested them. The adoption step runs before the
 slot step and scores lots by the clause's own stated preferences, and `tradesman_dwellings`
-prefers a quiet street: the two new cottages on Washington and Madison outscored the South
-Water frontage roofs the two Beaubien households were standing on, so the Beaubiens took them
-and 38 seats cascaded down the order behind that, each household taking the roof the one
-above it vacated. The block then had no principal headroom left in its plan, so it could
-offer no slot to anybody; the two requesting households moved to slots on blk_washington_
-franklin, and the two at the tail of the order — hh_bennet_lyman and hh_chamberlain_l_c —
-fell out of the deal entirely, because every other open block now has only the single lot
-T-1623 reserves. So 139 seats became 137, the 109 adoptions stayed 109, and the slot count
-fell by exactly the two the block can no longer offer. THE OUTCOME IS REPORTED RATHER THAN
-TIDIED: a roof raised in answer to a request is not reserved to the household that requested
-it, which is the same precedence T-1622 met on blk_south_water_franklin and T-1626 carries to
-the owner. Both displaced households are in `owed` with their reasons, and no household lost
-a roof it was standing under — the two that fell out had a requested slot and never had
-walls.
+prefers a quiet street: the new cottages on Washington and Madison outscored the South Water
+frontage roofs two Beaubien households were standing on, so hh_beaubien_alexander and
+hh_beaubien_archange took them and twenty seats cascaded down the order behind that, each
+household taking the roof the one above it vacated. The two requesting households —
+hh_byram_thomas and hh_cady_levi — hold slots on `blk_washington_franklin` instead, and one
+household at the tail of the order, hh_chamberlain_l_c, fell out of the deal entirely: with
+the Clark block's principal room spent, every other open block has only the single lot T-1623
+reserves. So 138 seats became 137, the 109 adoptions stayed 109, and the slot count fell by
+the one the block can no longer offer. THE OUTCOME IS REPORTED RATHER THAN TIDIED: a roof
+raised in answer to a request is not reserved to the household that requested it, which is the
+same precedence T-1622 met on blk_south_water_franklin and T-1626 carries to the owner. The
+displaced household is in `owed` with its reason, and nobody lost a roof they were standing
+under — it had a requested slot and never had walls.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
 places any of these 109 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
-**An adoption raises no roof and spends no order, and 109 of the 139 are adoptions.** That is
+**An adoption raises no roof and spends no order, and 109 of the 137 are adoptions.** That is
 the part that keeps the invention small. Each of those 109 puts a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
-order book is not drawn on for them at all and nothing is baked for them. The other 30 ARE
+order book is not drawn on for them at all and nothing is baked for them. The other 28 ARE
 households with an address and no walls, which is what a slot is, and the file marks them
 `slot` rather than `adopted` for exactly that reason: they draw on the order book's South
 Division remainder and they are owed a roof.
@@ -15941,8 +15950,137 @@ fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** a
 **T-1204**.
 **Recorded:** 2026-09-28.
 
+### L287 — The 1904 lake edge beside the Illinois Central is a line between two sheets of the wrong date
+**Decision:** the 1904 scene's waterline, `shore_1904_ic_edge` in
+`data/terrain/epochs/e1871_postfire/shoreline.geojson`, is **reconstructed**. It stands on the
+EASTERN side of the band two sheets bound — Sanborn 1911 (sheets 20 and 28) from after, Robinson
+1886 (plate 10) from before — and where no 1911 sheet draws the edge it stands on the 1886 planform
+moved east by the offsets the two sheets measure where both do. South of where sheet 28's
+easternmost track leaves the paper it is carried on the same bearing to Cermak Road, and nothing
+bounds that stretch at all.
+**Why:** neither sheet is of 1904, and the house rule is that an observation from the wrong date may
+bound a state and may not become its line. Where both draw the edge, the 1911 line stands 14–21 m
+east of the 1886 one (means 17.0 m at the 16th Street run, 19.9 m at 18th): the right-of-way
+widened into the lake between them, so the 1904 edge stood somewhere in that band. A scene has to
+render one waterline, so one is chosen, and the choice is ours. **The eastern bound, because** the
+1911 sheets are seven years from the scene and the 1886 plate eighteen, and because Glessner House,
+who supplied the sheets, reads everything on them but two houses as standing in 1904 — attributed
+guidance, recorded in `chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/README.md`
+and not checked. A midpoint would be an average, which is refused everywhere in this terrain.
+**What bounds it:** the band itself, published beside the line as `ic_edge_1886_1911_band` (segments
+A–E). The one inference under the eastern bound is stated: a built edge beside a railway moves only
+lakeward unless something is removed, and nothing in this corpus records a removal. Segment E
+follows the easternmost drawn track, which runs parallel to the traced edge at 324 ± 2 px and
+straight on to the neatline. Segment F, from about N −3365 to the box floor, is a bearing and no
+more: no sheet held here draws the lake east of Calumet Avenue below 20th Street.
+**Consequence:** the lake in the 1904 scene may stand up to about 20 m too far east along the whole
+reach, and anywhere south of 19th Street it is not evidenced at all. From the Prairie Avenue spawn
+it is behind the visitor and several hundred feet away.
+**How to resolve:** Sanborn 1911 vol. 3 sheet 36 (the reach south of 20th Street, on the same
+Library of Congress item, `https://www.loc.gov/item/sanborn01790_020/`) would replace segment F; the
+1905–06 edition of the same atlas, or any dated plan of the Illinois Central's shore works between
+1886 and 1911, would put the 1904 edge inside the band and retire the choice.
+**Applies to:** `data/terrain/epochs/e1871_postfire/shoreline.geojson#shore_1904_ic_edge`,
+`data/terrain/shoreline_states.json#shore_1880s_ic_edge`.
+**Related:** **L239** (the 1835 lake below Twelfth Street, the same refusal to invent past a sheet),
+**L241** (the 1880s day-of-year), `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7, **T-1250**.
+**Recorded:** 2026-09-28.
 
-### L287 — Two invented cottages on the plat's last tier, and the two yard buildings dealt one to a lot
+### L288 — The keeper's quarters at the Chicago light: a house raised out of one word in a salary
+
+**Decision:** a `frame_dwelling` record, `chicago_lighthouse_keepers_quarters`, is raised 23.7 m west
+of the committed position of `chicago_lighthouse_1832`, and the household the institutional lodging
+layer had sleeping inside the tower is moved into it. Its footprint, its fabric, its bearing and the
+offset that places it are all invented.
+
+**What the source says, and it is one word.** Andreas gives the first keeper of this light $350 a year
+**with quarters**. That is the whole of the evidence: a term of a federal appointment, which says
+housing stood at this station and says nothing else about it. It does not say a separate house rather
+than a room; it does not say where at the station; it does not say what of, how large, or how many it
+held. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 had drawn the only conclusion available to it —
+*"No keeper's dwelling is modelled — a small house beside the tower is plausible and unattested"* —
+and the lodging adjudication then had to put the bed somewhere, so it put it at the light itself and
+wrote down what that cost: it would not draw a household size, because *"drawing 4.4 people into a
+forty-foot tower would be the model reaching past the one thing the record gives it."*
+
+**Why raising the house is the smaller invention.** The project had two options and both invent
+something. Leaving the bed in the tower invents a dwelling function for a 40 ft masonry light with a
+bird-cage lantern — a building whose own record describes no room, no hearth and no door a household
+would use. Raising quarters invents a small house whose existence the salary attests and whose every
+drawn attribute is ours. The second keeps the invention where a visitor can see it graded: the house
+carries `construction: braced_frame` and a 6.1 x 4.9 m footprint both at **reconstructed** — the
+generator’s own word for a value with no evidence behind it, built at 1.0 confidence, and the tower goes back to being a tower.
+
+**The invention, stated.** 6.1 x 4.9 m — about 20 x 16 ft — every number chosen, on no evidence but
+the size of a single federal appointment. `braced_frame` is a coin-toss against logs, argued from the
+decade and the paymaster and not from this house; it is graded `reconstructed` rather than hidden
+at `inferred`. The position is an offset from this project's own reading of Wright's 1834 ring: **west**
+was taken because it keeps the house on the landward side, away from the water at the inside of the
+bend, and because it is the quadrant that clears the garrison's big barn — 32 m away on this line and
+14 m if the house had been set south-west. Working uncertainty is about 40 m, the tower's own 22 m
+plus the whole of an offset nothing states. The facade bearing, 90 degrees, faces the light it served
+and is invented too.
+
+**And one invention the house inherited rather than chose.** `tools/deal_siding_stock.py` deals every
+named frame building one of four period mill sidings, and this one wears 4.5 in to the weather. No source
+states the exposed face of any siding in this town; the deal is keyed to the construction season and the
+value is claimed here rather than left to the deal's own entry, because on this building the fabric it is
+an exposure OF is itself invented.
+
+**What is NOT invented.** No person: the keeper on 1 July 1835 is not named by anything reached, and
+the card that lives here is the reconstruction's own, drawn before this entry and unchanged by it. No
+household size — the refusal the lodging layer wrote stands, and it now stands on the evidence rather
+than on the shape of the tower: nothing states a family at this light, and a roof to put one under is
+not evidence that there was one. No capacity, no outbuilding, no yard, no fence. And **the tower's own
+record is untouched**: its height, its lantern, its stone and its Wright-derived position are exactly
+as they were, and this house makes no claim about any of them.
+
+**How to resolve:** the Light-House Board's annual reports or the Fifth Auditor's returns, which paid
+this keeper and would describe his quarters; a keeper's return; or a measured reading of the 1850 von
+Schneidau daguerreotype or the 1855 Hesler photograph, in both of which the station stands. Any of
+those replaces this house; a plan of the station replaces the whole entry.
+
+**Applies to:** `data/structures/chicago_lighthouse_keepers_quarters.json`,
+`data/reconstruction/1835_institutional_lodging.json`.
+
+**Covers:** `chicago_lighthouse_keepers_quarters.quarters_1832.footprint`, `chicago_lighthouse_keepers_quarters.quarters_1832.form.construction`, `chicago_lighthouse_keepers_quarters.quarters_1832.form.siding_exposure_m`.
+
+**Related:** **L44** (the tower's own conjectures, of which this is the neighbour), **L285** (the same
+class of invention on the north bank, and the same reason for it: a documented household with no
+modelled roof), `docs/RESEARCH/chicago_lighthouse_1832.md`, **T-1716** and its parent **T-1204**.
+**Recorded:** 2026-09-28.
+
+### L289 — The 1904 ground away from the standing houses: modern crowns carried back, lots graded between them, and a breakwater face nobody measured
+**Decision:** in `data/terrain/epochs/e1871_postfire/terrain_spec.json` (T-1251) four things are
+**reconstructed**: the street crowns on corridors no house of the period still stands on (research
+zone 4 — Prairie at 16th, midway to 18th and at 21st; Indiana and Michigan at 16th, 18th and 21st),
+read off the modern bare-earth model and carried back to 1904; the way the grade runs across a block
+between those crowns (zone 5, inverse distance); the Illinois Central embankment's track bed, held
+at the grade beside it, and its lakeward face at 1 in 1.5 (zone 7); and the 1904 lake stage, the lake
+bed off the right-of-way and a ±0.05 ft surface texture (zones 2, 9, 11).
+**Why:** no survey of the 1904 levels has been found. Where houses of the period stand on Prairie
+Avenue at their built grade (the Glessner House to 2017 Prairie) their walks read within 0.18 ft of
+the modern crown, and there the crown is **inferred** (zone 3). Everywhere else nothing witnesses
+that the modern street has not been re-graded, so the reading is a reconstruction, bounded by the
+confirmed crowns (within 2.8 ft) and by City benchmark 289 at 23rd and Michigan. The embankment and
+the lake bed are needed to make a waterline meet a grade at all, and nothing held gives either.
+**What bounds it:** the crowns stay inside Z +12.3 to +15.1 ft and every lot is interpolated from
+them, so no cell of land can leave that range; the embankment claims the least available — no cut
+and no bank, only the face to the water; the lake stage is the 1835 plane, inside the terrain
+dossier's 576–582 ft range; the texture is half the 1835 ground's.
+**Consequence:** a visitor walking north of 18th Street or west of Prairie Avenue stands on ground
+whose height is the modern street's to within the model's own accuracy, which may be a few inches
+off the 1904 one; the breakwater's slope and the lake's depth are shapes, not measurements.
+**How to resolve:** a 1900s city grade ordinance or street-level book for the south end of the South
+Division would replace zones 4 and 5 outright; a section of the Illinois Central's lakeshore works
+of 1886–1911, zone 7; a Lake Michigan stage record for summer 1904, zone 2.
+**Applies to:** `data/terrain/epochs/e1871_postfire/terrain_spec.json`,
+`data/terrain/e1871_grade_readings.json`.
+**Related:** **L287** (the lake edge those blocks meet), **L3** (flatness),
+`docs/RESEARCH/terrain_e1871_postfire.md`, **T-1251**.
+**Recorded:** 2026-09-28.
+
+### L290 — Two invented cottages on the plat's last tier, and the two yard buildings dealt one to a lot
 
 **Decision:** `blk_washington_clark` — bounded by Washington, Dearborn, Madison and Clark, and
 standing empty until now — carries **four anonymous roofs**: the deep-plan cottage and the

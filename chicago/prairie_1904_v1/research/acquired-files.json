@@ -412,5 +412,483 @@
     "bytes": 129616,
     "sha256": "c5cfb1b1b75923e0df5efa91bfd7e931d7cf1575c5cdfbff41843098aac462ea",
     "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-01.jpg",
+    "bytes": 356689,
+    "sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-01-thumb.jpg",
+    "bytes": 44254,
+    "sha256": "4b5c3943905cc9ee89a87f98afc76abad79d7543ceec45acf9f3024ad50c0335",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-02.jpg",
+    "bytes": 511157,
+    "sha256": "7347cc0b9957f1e1e6195cdee16366b965120c44d9d61ca69920aa63746f264c",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-02-thumb.jpg",
+    "bytes": 54843,
+    "sha256": "468ca4f92227b9f5ea50bc30b30f4c19991b2200f0e57c5bb10de91fb159ccb5",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-03.jpg",
+    "bytes": 706875,
+    "sha256": "c840d5946425ad75ab1b1e74b1f20982aff82f3d508abf7c84137f57520b557c",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-03-thumb.jpg",
+    "bytes": 78360,
+    "sha256": "5068d6f39bc6850177010f718deecddb98bcdb78c9f070c653cf40eb67385a60",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-04.jpg",
+    "bytes": 560598,
+    "sha256": "b3aec2b71972c6e892667060446090235dca71e28afa06092a3ca4e492c2d054",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-04-thumb.jpg",
+    "bytes": 63486,
+    "sha256": "f3746bb19f6bb99ee002db91373a6406707fc5dd6f77f612ae7448c065bc5a23",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-05.jpg",
+    "bytes": 461620,
+    "sha256": "fd76fb904f489c597042a9347c9dc8bb71505ab77a54e08486fb51b6bf7639a7",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-05-thumb.jpg",
+    "bytes": 52228,
+    "sha256": "f5da61e73aafb6afacea06ae1612d695f319664914c46b1c862c5e2e1de8d016",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-06.jpg",
+    "bytes": 455919,
+    "sha256": "aae848135956c31755d02255f3d1490f15eb029a1d84316d2ab39fdc47d4ad1e",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-06-thumb.jpg",
+    "bytes": 57039,
+    "sha256": "45973c39623e3b0e95c56ba94e54c04e4223d4ac57f7177caeb6d8dfa7bffc3c",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-07.jpg",
+    "bytes": 515186,
+    "sha256": "7529b4605137b8cb31af427c7142d5c7112cb4d577202c6a6efba70772e84cd2",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-07-thumb.jpg",
+    "bytes": 57682,
+    "sha256": "b74d884094c1dcf4e29c4fa928249f4a6cbe3796b3f48416b9eec209f22ed36a",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-08.jpg",
+    "bytes": 454851,
+    "sha256": "6c47084c6d78854ef513d046e1abc636cb192715deb9cd80b237b74908a4f145",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-08-thumb.jpg",
+    "bytes": 57760,
+    "sha256": "fb204436773403422cea6ebebb7f55ea7db90ff0baeb06f45bbde84653d8e7d5",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-09.jpg",
+    "bytes": 437987,
+    "sha256": "0bb2faba87b5bd7455f3add7e025044faf982e8ab6c18b9bf692591e6f09f72a",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-09-thumb.jpg",
+    "bytes": 56261,
+    "sha256": "efb2bc6455069d473a8ee798a16b56172eb65d986aa5f19c877f54d2fb221358",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-10.jpg",
+    "bytes": 417296,
+    "sha256": "d21e114df3e3b34cbc77c21452f2015ca395c51aa42444f50a386c2e7c60ce18",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-10-thumb.jpg",
+    "bytes": 53261,
+    "sha256": "7c404ead8dc2bb0d9209e4b437ae059cf2b48202c6516e19ce9b3b9950d54a6f",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-11.jpg",
+    "bytes": 351674,
+    "sha256": "83716458cf50d8787c39b845a74b4d704ccb7361917d88b00dcad09d00f99162",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-11-thumb.jpg",
+    "bytes": 46533,
+    "sha256": "684abf2d24c0f8bf7ba137e25f2dc15b3cb257c4e253e22119f86b1977b4fb7a",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-12.jpg",
+    "bytes": 239696,
+    "sha256": "2e01b208663710ff179aba66639296fc055055588c1c8ea2f423ffec8c10f744",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-12-thumb.jpg",
+    "bytes": 28671,
+    "sha256": "552d5bfd8db711b141718b50c230788d34e1445644b7fa78ade881135fa2f3d2",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-13.jpg",
+    "bytes": 286917,
+    "sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-13-thumb.jpg",
+    "bytes": 38349,
+    "sha256": "c25679675a7fd58ccf73863d44fcbde056bb78c1e11ecd07288574e3079e6564",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-14.jpg",
+    "bytes": 206998,
+    "sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-14-thumb.jpg",
+    "bytes": 29362,
+    "sha256": "ad439d196493e3dc12ab4d3aba3c61809c90b5d16d8c66fb6ee8ac86cbdec983",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-15.jpg",
+    "bytes": 263863,
+    "sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-15-thumb.jpg",
+    "bytes": 34360,
+    "sha256": "3a778dce983dc2b18f4159c07b6d2c942b1421feb4ecf55d45c910f946c8dfe1",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-16.jpg",
+    "bytes": 346408,
+    "sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-16-thumb.jpg",
+    "bytes": 45092,
+    "sha256": "9aa0891e6f6c17658e5a40f847ba783527c0585824bcf621d07007d5df4bff39",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-17.jpg",
+    "bytes": 295322,
+    "sha256": "74274df9fcebd442d645f42c6c629ea891f44e33a5fc98e14dea66bb390dcf5f",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-17-thumb.jpg",
+    "bytes": 38017,
+    "sha256": "04bc1e495d604311c8919c968d1239fa050785bf92e704f3f107b3c2b48fa4cf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-photo-captions.pdf",
+    "bytes": 24802,
+    "sha256": "8392251649188544fc1f43cf55fed7e5712756cdbb222f0140b4d4fb8f75f86a",
+    "retention": "repository"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060903pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060903pu.tif",
+    "bytes": 16968810,
+    "sha256": "a98e8a9ba1843bb4a4ff43c501728f494670bb269e7f2f470143ae4d027e3753",
+    "sha1": "21daade3f27407954958751e12e03e3bad81563c",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060904pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060904pu.tif",
+    "bytes": 19932752,
+    "sha256": "bfd11b00b7b497d325a51b3a242fb9cfb37b7c8c10899877aff0f8dd49eea3f7",
+    "sha1": "142b53a03122094bd3300c683dbe7eb57ff95ef6",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060905pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060905pu.tif",
+    "bytes": 20037768,
+    "sha256": "42868af8815be62537290af30e191682a699baf1386c2b1b628cbf21ef9ca21b",
+    "sha1": "d5ff33b92d41c9e26a1e230ecf3a16f5a7370433",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060906pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060906pu.tif",
+    "bytes": 19687800,
+    "sha256": "654b8d593db0bb6b1cd2329489e7adb7466e2e16ef875bdaee2442b2176723cc",
+    "sha1": "214499279828bd8bdfde7e7ffd5a3ab7cdae1f2e",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060907pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060907pu.tif",
+    "bytes": 19997760,
+    "sha256": "3f5ea30a8e59840cdaaa450ed4fa7ca455755e2448d5eb0e7052323e8f381855",
+    "sha1": "a70cc2972417a42fd9c095bf0dec743745c8f158",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060908pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060908pu.tif",
+    "bytes": 19852800,
+    "sha256": "a9b7c5e8d157ab25820a3324453b20b62b962c58a173e5b43332478848780128",
+    "sha1": "9e5ebd72d6edc682df72c7e7eb342ac693077e0f",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060909pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060909pu.tif",
+    "bytes": 19782800,
+    "sha256": "dbeeee8decdec807d5482c3182474a295bb46f9b0c4ef75e9ed33e2ff69e4dc4",
+    "sha1": "e45f1430728976cfd27994604d56d6e7f10d7d09",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060910pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060910pu.tif",
+    "bytes": 19892744,
+    "sha256": "285340b8d993ecdf8f7fc8d482f0f484508ec0cb9932ab444ec2cfb9305ac045",
+    "sha1": "43631a6ede76692cf471e6a4663b2e97ed05f013",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060911pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060911pu.tif",
+    "bytes": 19937752,
+    "sha256": "6eb0d8cd40587e31d9b558742b08bf81972c265c45b3c0132e4ce35db9d38b7c",
+    "sha1": "4050512d969a53a1f664a765ebbb406fd86c6533",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060912pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060912pu.tif",
+    "bytes": 19142656,
+    "sha256": "da70bca9158d741754064df37dd2c00df46a25fed47013e64518ecb82c85dcca",
+    "sha1": "5d7f88ad9e7c730a51e53134d9ab77994173142a",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060913pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060913pu.tif",
+    "bytes": 19467696,
+    "sha256": "26d07a7336322e09b137ba03c0bddbe7ee4d75f7601af7c480987cd73af268f9",
+    "sha1": "f75e3d8371ba117f33742bdd970da1a032402368",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060914pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060914pu.tif",
+    "bytes": 19837744,
+    "sha256": "11ff3693229944cd61ccf855bfd026e8f814ce39a7365c629bf1d40938122b76",
+    "sha1": "7ca3c3bb63846ac4fba11b0d189a49f327b3e9c2",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060915pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060915pu.tif",
+    "bytes": 17149548,
+    "sha256": "f2652a0c753ba4b4fb77c00fe750f395400256e36d3037a1910708f1be16b03a",
+    "sha1": "8bf947e8f55a9f54f4900226c17d68ba83510055",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060916pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060916pu.tif",
+    "bytes": 17293372,
+    "sha256": "c24f27bcd86d1d889b0e7141b9faffc2ef9d05d3d468b3bbf9e217fa35b92f94",
+    "sha1": "66e68512ebc0658a436e2d006fa94f33c5f390bd",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060917pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060917pu.tif",
+    "bytes": 17597446,
+    "sha256": "8d4832eb4567f5087c72bc1dbe94a219fa14326f0091a727383435df5ee38db2",
+    "sha1": "16fa84801ad78aa081f655f88d7d3be997445f60",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060918pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060918pu.tif",
+    "bytes": 17307904,
+    "sha256": "14145ddf246a90550075d3641c53186ba248a8c5b938059888be1c9ca917b313",
+    "sha1": "55c8b05943c8ceca4e8858a65877c300917cf4aa",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060919pu.tif",
+    "url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060919pu.tif",
+    "bytes": 17309502,
+    "sha256": "c6a74fb3628d1fac3f1071caa02cbab87281d5ea944a27b42623086e196524b4",
+    "sha1": "243bc5b4a294a8def57486215d580cb82d05511f",
+    "retention": "internet_archive"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-f1.jpg",
+    "bytes": 1157742,
+    "sha256": "9040839e00ca06412f792e31b33b1f07e9d2ce9f896567dc0b176d1499e70803",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-f1-thumb.jpg",
+    "bytes": 15273,
+    "sha256": "fc9bef9be959d9364d2bd4078922b3c8152b15f720291735b7128a13fff93e16",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-d15.jpg",
+    "bytes": 2793773,
+    "sha256": "b899c6183e4f29edcdae8c4e9c64ffe4b0e6a30a6c3d9642d45c7628834efbaf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-d15-thumb.jpg",
+    "bytes": 25928,
+    "sha256": "647b3d49ef234a0ba82b4895ca26cdf3c427f476b79dd3169e79364976b2ef68",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b2.jpg",
+    "bytes": 2222640,
+    "sha256": "ecd16f6013adcd409138eab8f8f28ce5cef7039b0efee084cf30879a136ef0f5",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b2-thumb.jpg",
+    "bytes": 27166,
+    "sha256": "35401e2efea9da652095c709f7265a47fc2efb0024f03501de2fef8f81ed71f1",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b1.jpg",
+    "bytes": 1990100,
+    "sha256": "de838f5d6a99a27117332fd6c32dfa9923dc824a9971a7dffe97a2a446de92fa",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b1-thumb.jpg",
+    "bytes": 24559,
+    "sha256": "3e28f87c52ee8bf9b5c631b207b6a481d57120d2a17fde2a963cefc77aec01da",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b6.jpg",
+    "bytes": 1593441,
+    "sha256": "a7c7a88f88f239705955bd6b792af10a9bb985f2a6b0e75adac7368b974ab511",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b6-thumb.jpg",
+    "bytes": 19721,
+    "sha256": "5d5bd1c096de6e280e392761aed77b16cf737476afa1d191b8df3cea2aaba590",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b7.jpg",
+    "bytes": 1099011,
+    "sha256": "40949eac3c5c9090deb24678c5d901d00c7d9bfe563394ddc8eb626294aed84f",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b7-thumb.jpg",
+    "bytes": 14954,
+    "sha256": "23f9f95883840415e94db994cfec88197a3ff0eee457c32e39d33eb970dabd6d",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b9.jpg",
+    "bytes": 1005046,
+    "sha256": "4acdd360fb0c70bf2eb144e13a15305ab0e03d73604422d6019b9af05be0f5a0",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b9-thumb.jpg",
+    "bytes": 13819,
+    "sha256": "2bc0359920b90a5d91b8817f131e8152e2e0c8dd3dbae877561b3e0ef40dbcb1",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e5y.jpg",
+    "bytes": 1414200,
+    "sha256": "d83ee1d12b8a6cee05169a0f20650da454fb70154ce90dbf21834ebc4c50e154",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e5y-thumb.jpg",
+    "bytes": 9977,
+    "sha256": "4b3b4a39b403eb456efa8d3ac3407eba28207ff4d5752405c4666de912ce505d",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e3.jpg",
+    "bytes": 1636968,
+    "sha256": "59ad5d42b587408f71495facbe4055bd3d2cb7fa7544aa4b7a271fae67a234c9",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e3-thumb.jpg",
+    "bytes": 21195,
+    "sha256": "33c676487c59c69f36e74ccb79d69db1eee002b21f599027d5fa2dda6042b594",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e4d.jpg",
+    "bytes": 1586929,
+    "sha256": "674345087b22446eaded5b6e5330640e147480ce1decf86c86df5c643a5d8e2b",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e4d-thumb.jpg",
+    "bytes": 17586,
+    "sha256": "bb0f3a49715f4db784499cc8d6395c4a9209791dffa334e154240b4730d15407",
+    "retention": "repository"
+  },
+  {
+    "path": "research/houghton-glessner-contents-1-50.pdf",
+    "bytes": 536631,
+    "sha256": "45ac4e4b387f523fce8a1c928e1685c006e6280da72c7c9795e30bb7d459ccbf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/houghton-glessner-contents-51-100.pdf",
+    "bytes": 530617,
+    "sha256": "882e2f10649b36fca807ca1e031ffb57e16023627c6bdad433ebe24d9f775eaa",
+    "retention": "repository"
   }
 ]
