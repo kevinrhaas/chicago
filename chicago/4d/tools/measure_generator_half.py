@@ -200,13 +200,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules would re-stale; the terrain
 # and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
+# 423 -> 425 and 421 -> 423 on 2026-09-28 (T-1712): `beaubien_new_residence` and
+# `beaubien_trading_post`, the two buildings Andreas records at the Beaubien homestead on the
+# Fort Dearborn reservation that this project had not built. Two new structure assets, so two
+# more meshes the shared generator modules would re-stale; the terrain and pier_crib reaches
+# stay at 2 each. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 423,
+    "assets": 425,
     "restales": {
-        "generators/common/*.py": 423,
+        "generators/common/*.py": 425,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 421,
+        "generators/emit.py": 423,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
