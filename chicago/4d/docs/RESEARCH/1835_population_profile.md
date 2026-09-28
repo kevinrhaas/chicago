@@ -2306,7 +2306,7 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 | household | structure | its function | class | tier |
 |---|---|---|---|---|
 | The Dr Harmon household | harmon_log_cabin | dwelling | a dwelling or a place of business | attested |
-| The Hamilton household | cobweb_castle | agency house residence | a dwelling or a place of business | inferred |
+| The Hamilton household | watkins_school_house | dwelling former school use unattested | a dwelling or a place of business | inferred |
 | The Heacock household | heacock_house_monroe | dwelling | a dwelling or a place of business | attested |
 | The James Kinzie household | james_kinzie_house | residence | a dwelling or a place of business | inferred |
 | The Jean Baptiste Beaubien household | jb_beaubien_homestead | dwelling and trading house | a dwelling or a place of business | inferred |
@@ -2343,7 +2343,7 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 
 ## Where they meet the buildings
 
-181 persons resolve into a dwelling that stands in the scene, in 31 households; 1481 households have no dwelling. 410 roofs stand against a programme of 668.
+181 persons resolve into a dwelling that stands in the scene, in 31 households; 1481 households have no dwelling. 418 roofs stand against a programme of 668.
 
 ### Households by division and seating
 
@@ -2363,7 +2363,7 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 |---|---:|
 | people | 3265 |
 | dwellings | 398 |
-| roofs standing in the scene | 410 |
+| roofs standing in the scene | 418 |
 | roofs the programme targets | 668 |
 
 *1305 of 1512 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together.*

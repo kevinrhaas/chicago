@@ -1356,18 +1356,17 @@
       ]
     },
     {
-      "ticket": "T-1531",
-      "records": 2,
-      "buckets": [
-        "households/institutional/north",
-        "households/institutional/south"
-      ]
-    },
-    {
       "ticket": "T-1418",
       "records": 1,
       "buckets": [
         "businesses/lawyer"
+      ]
+    },
+    {
+      "ticket": "T-1531",
+      "records": 1,
+      "buckets": [
+        "households/institutional/south"
       ]
     }
   ],
@@ -1403,8 +1402,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 423,
-    "roofs_to_build": 258,
+    "roofs_standing": 431,
+    "roofs_to_build": 250,
     "persons_standing": 2381,
     "persons_still_owed": 299,
     "persons_when_the_book_is_filled": 2680,
@@ -1413,7 +1412,7 @@
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 422
+    "households_still_owed": 423
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1426,9 +1425,9 @@
     "still_owed": 1299,
     "roofs_adopted": 181,
     "slots_requested": 0,
-    "roofs_standing": 423,
-    "roofs_standing_unseated": 242,
-    "share_of_standing_roofs_seated": 0.4279,
+    "roofs_standing": 431,
+    "roofs_standing_unseated": 250,
+    "share_of_standing_roofs_seated": 0.42,
     "passes": [
       {
         "key": "platted",
@@ -1493,10 +1492,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 372,
+      "household_leg_now": 373,
       "person_leg_before": 374,
       "person_leg_now": 208,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 372. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4074,9 +4073,9 @@
             "household_type": "family_dwelling",
             "division": "south"
           },
-          "target": 257,
+          "target": 258,
           "known": 41,
-          "to_reconstruct": 216,
+          "to_reconstruct": 217,
           "filled": 65,
           "owning_ticket": "T-1171",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
@@ -4132,19 +4131,6 @@
           "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the west division"
-        },
-        {
-          "key": "households/institutional/north",
-          "axes": {
-            "household_type": "institutional",
-            "division": "north"
-          },
-          "target": 1,
-          "known": 0,
-          "to_reconstruct": 1,
-          "filled": 1,
-          "owning_ticket": "T-1531",
-          "basis": "the model's 644 households apportioned on the institutional roofs whose own record puts a household under them (1835_institutional_lodging, T-1531) in the north division"
         },
         {
           "key": "households/institutional/south",
@@ -4682,11 +4668,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 423,
+        "standing_records": 431,
         "standing_with_an_occupant": 146,
-        "standing_without_an_occupant": 277,
-        "to_build_total": 258,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 277 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 285,
+        "to_build_total": 250,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 285 of the 431 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -4696,13 +4682,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 16,
-          "to_build": 19,
+          "standing": 17,
+          "to_build": 18,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 19 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 18 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -4914,13 +4900,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 109,
-          "to_build": 67,
+          "standing": 110,
+          "to_build": 66,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1708",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 67 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 66 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -4961,13 +4947,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 23,
-          "to_build": 25,
+          "standing": 24,
+          "to_build": 24,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 25 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 24 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",
@@ -4993,13 +4979,13 @@
             "division": "north"
           },
           "target": 20,
-          "standing": 9,
-          "to_build": 11,
+          "standing": 12,
+          "to_build": 8,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 11 of them to build"
+          "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 8 of them to build"
         },
         {
           "key": "structures/small_outbuildings/fort",
@@ -5023,13 +5009,13 @@
             "division": "south"
           },
           "target": 42,
-          "standing": 41,
-          "to_build": 1,
+          "standing": 42,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1694",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 1 of them to build"
+          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",
@@ -5159,13 +5145,13 @@
             "division": "south"
           },
           "target": 15,
-          "standing": 10,
-          "to_build": 5,
+          "standing": 11,
+          "to_build": 4,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1684",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 15; the 668-roof programme leaves 5 of them to build"
+          "basis": "the inventory's district/group matrix sets 15; the 668-roof programme leaves 4 of them to build"
         },
         {
           "key": "structures/workshops/west",
@@ -5222,8 +5208,8 @@
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
         "roofs_on_committed_ground": 8,
-        "roofs_gated_on_coverage": 250,
-        "statement": "8 of the 258 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 250 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_gated_on_coverage": 242,
+        "statement": "8 of the 250 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 242 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5545,7 +5531,7 @@
           "axes": {
             "division": "south"
           },
-          "roofs_gated": 104,
+          "roofs_gated": 99,
           "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 437.3369 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -400, -400, -400, -400, -400, -400, -400, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
           "owning_tickets": [],
           "filled": 0
@@ -5567,7 +5553,7 @@
           "axes": {
             "division": "north"
           },
-          "roofs_gated": 67,
+          "roofs_gated": 64,
           "waiting_on": "North Division ground beyond the initial parcel: the plat grid covers no North Division block at all — that street control is what ROADMAP S9 records as owed — and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
           "owning_tickets": [],
           "filled": 0
@@ -5659,7 +5645,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "277 of 423 standing records carry no occupants block."
+      "measured_now": "285 of 431 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
@@ -5681,20 +5667,6 @@
     }
   ],
   "fills": [
-    {
-      "bucket": "households/institutional/north",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
-      "bucket": "households/institutional/south",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
     {
       "bucket": "persons/female/10_19/north/lodging/none",
       "ticket": "T-1371",
@@ -5946,6 +5918,13 @@
       "stage": "stores_and_provisions",
       "records": 2,
       "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "households/institutional/south",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
     },
     {
       "bucket": "persons/female/10_19/north/family/none",
@@ -6474,7 +6453,30 @@
     },
     "the_programme": {
       "ticket": "T-1597",
-      "settled": false
+      "settled": true,
+      "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
+      "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
+      "moves_the_rule_still_yields": 0,
+      "people_still_held": 395,
+      "buckets_they_are_held_in": 44,
+      "and_what_holds_each_of_them": [
+        {
+          "refusal": "a_documented_reading_shrank_the_order",
+          "people": 1
+        },
+        {
+          "refusal": "the_re_cut_reached_work_already_drawn",
+          "people": 394
+        }
+      ],
+      "the_rungs_the_rule_refuses_on": [
+        "R_adopted",
+        "R_house_is_not_wholly_held",
+        "R_seated",
+        "R_division_is_a_reading"
+      ],
+      "what_becomes_of_them": "nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.",
+      "what_would_reopen_it": "a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again."
     },
     "moves": [
       {

@@ -36,10 +36,12 @@ pilot and fixture play pass with zero page errors. The initial 680-step prefligh
 passed; the integrated-tree preflight also passes all 680 steps. Boot payload is 9.815 MB / 12 MB.
 A focused End repeat exposed an unnecessary intermediate heading focus; removing
 it brought End to 1.1 ms mobile / 0.8 ms desktop, with identical near/far framing.
-All mobile shared parts and desktop parts 1–11 and 13 pass. Desktop 11 passed an
-unchanged isolated retry after a click timeout. Desktop 12 awaits a complete
-retry after a reload timeout and an interrupted follow-up. Receipts and conditions
-are in `performance/jaunts-play/`. Dev through 2a199d9 is integrated; PR #137 was
+All thirteen mobile and desktop shared parts pass across the recorded checkpoints.
+Desktop 11 passed an unchanged isolated retry after a click timeout. Desktop 12
+passed 95 assertions with zero page errors in 7m26s after its two reload waits were
+aligned with the harness's existing 90-second default. All readiness and behavior
+assertions remain unchanged; the original 30-second timeout readings are retained. Receipts and conditions
+are in `performance/jaunts-play/`. Dev through d1024c1 is integrated; PR #137 was
 completed by its other session.
 
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)

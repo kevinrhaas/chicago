@@ -66,3 +66,10 @@ calls overrode it with 30 seconds. They now use the existing 90-second budget,
 matching initial readiness. No readiness predicate, pixel, input, route or saved-
 state assertion changes. The failed readings remain recorded; the revised-harness
 repeat is pending. The per-command ten-minute budget remains unchanged.
+
+Final desktop part-12 repeat PASS: 95 assertions, zero failures, zero page errors,
+7m26s, using the established 90-second readiness budget for both reloads. All
+thirteen parts now have passing mobile and desktop readings. The preceding failed
+30-second reload readings are preserved. Subsequent dev integration through
+d1024c1 brings the independently landed landholding data/card and merge-tool work;
+the jaunt runtime is unchanged, and the full repository gate is rerun for it.

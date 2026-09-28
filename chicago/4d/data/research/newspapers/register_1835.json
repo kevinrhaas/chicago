@@ -9,8 +9,8 @@
       "persons": 2667,
       "businesses": 196
     },
-    "structures": 423,
-    "structures_sharing_a_name": 40,
+    "structures": 431,
+    "structures_sharing_a_name": 41,
     "streets": 79,
     "resident_persons": 1404
   },
@@ -23,9 +23,9 @@
         "opening_announced_after_scene_date": 4
       },
       "by_action": {
-        "enrich_existing": 30,
+        "enrich_existing": 31,
         "new_building": 27,
-        "street_only": 60,
+        "street_only": 59,
         "unplaceable": 79
       },
       "by_placement_class": {
@@ -35,9 +35,9 @@
         "street_only": 17
       },
       "present_by_action": {
-        "enrich_existing": 30,
+        "enrich_existing": 31,
         "new_building": 27,
-        "street_only": 60,
+        "street_only": 59,
         "unplaceable": 62
       },
       "outside_the_plat": 5,
@@ -4691,8 +4691,8 @@
       "action": "enrich_existing",
       "action_target": "watkins_school_house",
       "match_tier": "occupants",
-      "match_evidence": "John Watkins; schoolmaster; occupants on the scene date unattested",
-      "action_note": "watkins_school_house already stands and its occupants carries watkins — 'John Watkins; schoolmaster; occupants on the scene date unattested'. The papers add trade, goods and dates to a record that exists."
+      "match_evidence": "Richard Jones Hamilton; clerk of the Cook County Commissioners' Court; and his household; John Watkins taught a school here at some point before that occupancy ended",
+      "action_note": "watkins_school_house already stands and its occupants carries watkins — \"Richard Jones Hamilton; clerk of the Cook County Commissioners' Court; and his household; John Watkins taught a school here at some point before that occupancy \". The papers add trade, goods and dates to a record that exists."
     },
     {
       "id": "business_john_wright",
@@ -5731,11 +5731,11 @@
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "south_water",
-      "match_tier": null,
-      "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor 'Fort Dearborn' names nothing the committed town holds."
+      "action": "enrich_existing",
+      "action_target": "newberry_dole_packing_house_south_branch",
+      "match_tier": "name",
+      "match_evidence": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "action_note": "newberry_dole_packing_house_south_branch already stands and its name carries dole, newberry — \"The packing and barrelling house at Newberry & Dole's South Branch plant\". The papers add trade, goods and dates to a record that exists."
     },
     {
       "id": "business_noble_wesencraft",

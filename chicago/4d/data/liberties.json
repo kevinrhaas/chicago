@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 285,
+  "count": 287,
   "liberties": [
     {
       "id": "L1",
@@ -14340,24 +14340,24 @@
     },
     {
       "id": "L219",
-      "title": "Sixty-eight roofs are told who entered their ground by a survey grid nobody traced",
+      "title": "Seventy roofs are told who entered their ground by a survey grid nobody traced",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 69
+        "count": 71
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 69 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 71 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 69 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 71 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -14372,8 +14372,12 @@
           "text": "a traced section line — the GLO township plat of T39N R14E, or a second committed corner a mile from the first — would replace the nominal mile with a measurement and lift the whole population a tier, and would also say by how much the construction was wrong. The School Section Addition's 1833 plat would separately unlock the 150 rows this entry refuses. Related: **L108** (the reservation boundary, from the same corner and the same bearing) · **L182** (Madison's centreline, likewise) · **L216** (the other placement that rests on lot lines drawn from no sheet) · tickets **T-0609** (this), **T-0557** (the reading it spends)."
         },
         {
+          "label": "Count restated 2026-09-28 (T-1712)",
+          "text": "69 to 71. T-1712 raised the new residence and the small trading post Andreas records at the Beaubien homestead, both inside the United States Reservation, so `tools/resolve_land_tracts.py` wrote each of them the tract row this liberty is about. Nothing else here moved, and the construction, the argument and the discharge condition are untouched."
+        },
+        {
           "label": "Recorded",
-          "text": "2026-09-04; count restated 2026-09-06 (T-0883)."
+          "text": "2026-09-04; count restated 2026-09-06 (T-0883) and 2026-09-28 (T-1712)."
         }
       ]
     },
@@ -16189,14 +16193,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 403
+        "count": 411
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 403 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 411 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16204,7 +16208,7 @@
         },
         {
           "label": "What would discharge it",
-          "text": "a source giving a shingle exposure, a shingle length, or a course count on any Chicago roof of the period. The number is one constant in one substrate row; nothing else has to move when it arrives."
+          "text": "a source giving a shingle exposure, a shingle length, or a course count on any Chicago roof of the period. The number is one constant in one substrate row; nothing else has to move when it arrives. **Count restated 2026-09-28 (T-1712)**, and nothing else here moved. T-1712 raised the two buildings Andreas records at the Beaubien homestead and this project had not built — a new residence and a small trading post, both `log_dwelling` phases that state a roof type — so the population reached by this exposure is 405 rather than 403. The figure is measured over `data/structures/*.json` by `tools/compile_liberties.py --check`; the exposure, the argument for it and its discharge condition are untouched."
         },
         {
           "label": "Recorded",
@@ -16287,7 +16291,7 @@
     },
     {
       "id": "L266",
-      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 73 roofs that are not framed",
+      "title": "The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed",
       "section": "per_subject",
       "subjects": [
         "recon_1835_blk_lake_clark_c1_01",
@@ -16297,18 +16301,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[log_or_fort_archetype]",
-        "count": 73
+        "count": 75
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[log_or_fort_archetype]` — 73 phases: 59 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
+          "text": "`structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
         },
         {
           "label": "Decision",
-          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 73 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 73 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 73 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 73 phases keeps the grade it had."
+          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 75 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 75 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 75 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 75 phases keeps the grade it had."
         },
         {
           "label": "What would discharge it",
@@ -16316,7 +16320,7 @@
         },
         {
           "label": "Related",
-          "text": "**L263** (the exposure, and the ruling that took it), **L264** (the brick course, taken the same day and still unwired), T-1487 (this parcel), T-1488 (the relief binding that makes it visible), T-1465 (the parent ask), T-1450 (the vendored maps), `docs/RESEARCH/materials.md` §2.2 and §3.1. **Counts restated 2026-09-20 (T-1494)**, and nothing else here moved. The phase-one South redeal re-dealt eleven anonymous roofs into the families T-1445 adjudicated for them, and four of the eleven became `log_dwelling` cabins: 49 log dwellings became 53, the scope 63 became 67, and the framed roofs §2.2 grades directly fell from 182 to 180 as seven storefronts and four workshop sheds left those archetypes. Every figure above is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from; the argument, the direction of the error and the discharge condition are untouched."
+          "text": "**L263** (the exposure, and the ruling that took it), **L264** (the brick course, taken the same day and still unwired), T-1487 (this parcel), T-1488 (the relief binding that makes it visible), T-1465 (the parent ask), T-1450 (the vendored maps), `docs/RESEARCH/materials.md` §2.2 and §3.1. **Counts restated 2026-09-20 (T-1494)**, and nothing else here moved. The phase-one South redeal re-dealt eleven anonymous roofs into the families T-1445 adjudicated for them, and four of the eleven became `log_dwelling` cabins: 49 log dwellings became 53, the scope 63 became 67, and the framed roofs §2.2 grades directly fell from 182 to 180 as seven storefronts and four workshop sheds left those archetypes. Every figure above is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from; the argument, the direction of the error and the discharge condition are untouched. **The count moved to 75 on 2026-09-28 (T-1712)**, and it is the first time it moved because a building was ADDED rather than re-familied. T-1712 raised the two buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation and this project had not built — a new residence and a small trading post, both hewn-log — so the log dwellings run 59 to 61 and the scope 73 to 75. The argument above is unchanged and so is the direction of its error: two more roofs now carry a shingled substrate on a grading `docs/RESEARCH/materials.md` §2.2 wrote for framed buildings, and both of them are log. Every figure is measured over `data/structures/*.json`, which is what `tools/compile_liberties.py --check` re-derives this scope from."
         },
         {
           "label": "Recorded",
@@ -16326,34 +16330,35 @@
     },
     {
       "id": "L267",
-      "title": "Two people are invented for the two institutional roofs whose own records put a household under them, and the other seven are refused",
+      "title": "One person is invented for the one institutional roof whose own record puts a household under it and names nobody, and the other eight are refused",
       "section": "per_subject",
       "subjects": [
-        "temple_building"
+        "temple_building",
+        "watkins_school_house"
       ],
       "covers": [],
       "scope": {
         "enumeration": "residents.persons[institutional_households]",
-        "count": 2
+        "count": 1
       },
       "recorded": "2026-09-24",
-      "revised": null,
+      "revised": "2026-09-27",
       "fields": [
         {
           "label": "Decision",
-          "text": "`tools/reconstruct_institutional_households.py` (T-1531) writes **two** reconstructed heads into `data/residents/institutional/` — one at the Chicago light and one in the Michigan Street house John Watkins taught in. They are the whole of what the town's nine standing `institutional_public` roofs yield in people, and `data/reconstruction/1835_institutional_lodging.json` is the adjudication that says so, roof by roof, with the sentence that refuses each of the other seven."
+          "text": "`tools/reconstruct_institutional_households.py` (T-1531) writes **one** reconstructed head into `data/residents/institutional/` — the keeper of the Chicago light. That is the whole of what the town's nine standing `institutional_public` roofs yield in people, and `data/reconstruction/1835_institutional_lodging.json` is the adjudication that says so, roof by roof, with the sentence that refuses each of the other eight."
         },
         {
           "label": "Scope",
-          "text": "`residents.persons[institutional_households]` — 2 people in 2 cards, one head apiece, re-derivable from `tools/reconstruct_institutional_households.py --check`."
+          "text": "`residents.persons[institutional_households]` — 1 person in 1 card, re-derivable from `tools/reconstruct_institutional_households.py --check`."
         },
         {
           "label": "Why",
-          "text": "because the household quota was ordering twelve of them. The model's 643 households are apportioned across the roof groups by ROOF COUNT, which is right for a group whose roofs are houses and wrong for the one group whose roofs are a church, a jail, a council house and a light tower. Nine institutional roofs drew twelve households — more than one per roof — and nobody had ever asked the roofs the question. Ordering ten households that could never honestly be written is not a conservative error; it is a standing instruction to invent ten families and hang them on buildings nothing says anybody slept in. The book now weights those cells on the adjudication instead, and orders two."
+          "text": "because the household quota was ordering twelve of them. The model's 643 households are apportioned across the roof groups by ROOF COUNT, which is right for a group whose roofs are houses and wrong for the one group whose roofs are a church, a jail, a council house and a light tower. Nine institutional roofs drew twelve households — more than one per roof — and nobody had ever asked the roofs the question. Ordering ten households that could never honestly be written is not a conservative error; it is a standing instruction to invent ten families and hang them on buildings nothing says anybody slept in. The book now weights those cells on the adjudication instead, and orders one."
         },
         {
           "label": "What is invented, exactly",
-          "text": "two people and nothing else about the two buildings. Each carries a name from the invented pools; the light keeper's sex is bounded by the three keepers of this light the sources name, all men, and the Watkins house's is drawn from the town model's own sex ratio with the seed printed on the card. No age is written at all — the household buckets carry no age axis, so nothing ordered a band and none is invented. The keeper's occupation is the APPOINTMENT rather than a deal: the keepership is recorded at $350 a year with quarters, and what is reconstructed is the holder, not the post. The Watkins house's head is given no trade, because the obvious guess — a schoolmaster — is exactly the guess this project does not write. **What this deliberately does NOT do.** It seats nobody at St. Mary's, at the First Presbyterian church, in the Temple Building, in the log jail, in Billy Caldwell's council house, in the North Side school or in the Walker meeting house. A congregation is not a household, a use is not a residence, and confinement is not residence; the minister whose lodging the sources DO record — Porter, in the unfinished loft of Peck's store — is lodged somewhere else entirely. And it draws no kin: a Chicago dwelling held 4.4 people on the 1840 histogram, and the size drawn for the Watkins house is written onto `household_owed` with the ticket that seats it (T-1171, T-1174), because seating them here would order the same people twice. The keeper's quarters draw no size at all — a forty-foot light tower is not a distribution over dwellings."
+          "text": "one person and nothing else about the building. He carries a name from the invented pools; his sex is bounded by the three keepers of this light the sources name, all men. No age is written at all — the household buckets carry no age axis, so nothing ordered a band and none is invented. His occupation is the APPOINTMENT rather than a deal: the keepership is recorded at $350 a year with quarters, and what is reconstructed is the holder, not the post. **What this deliberately does NOT do.** It seats nobody at St. Mary's, at the First Presbyterian church, in the Temple Building, in the log jail, in Billy Caldwell's council house, in the North Side school, in the Walker meeting house or in the Michigan Street house. A congregation is not a household, a use is not a residence, and confinement is not residence; the minister whose lodging the sources DO record — Porter, in the unfinished loft of Peck's store — is lodged somewhere else entirely. And it draws no kin at all now: the keeper's quarters draw no size — a forty-foot light tower is not a distribution over dwellings — and the one card that did carry a drawn size on `household_owed` was the Michigan Street house's, which is retired."
         },
         {
           "label": "What would discharge it",
@@ -16366,12 +16371,16 @@
         {
           "label": "Recorded",
           "text": "2026-09-24."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-09-27, T-1625, and it is the discharge this entry itself asked for. The paragraph above says \"a source naming who lived at either building on 1 July 1835 retires that card and puts a reading in its place\"; one turned up for the Michigan Street house. Moses and Kirkland's *History of Chicago* vol. 2 p. 155 names Richard J. Hamilton as the man who built a house on that block face and says he lived in it nineteen years — a span enclosing the scene date — so `hh_hamilton_richard_j` is seated there by a reading and `hh_rc_sawyer_rhoda`, this liberty's second invented person, is retired. Two people became one; the adjudication's north row went to `false` with the reading named in it; the order book orders one institutional household where it ordered two. The identification of Hamilton's house with `watkins_school_house` is an INFERENCE and is not a liberty — it invents nothing, it reads two pages against each other — and what would refute it (no source gives the side of Michigan Street he built on) is written on the record and in `docs/RESEARCH/prose_building_placements_1832_34.md`."
         }
       ]
     },
     {
       "id": "L268",
-      "title": "450 of the 523 invented people the order book holds past its own order cannot be moved anywhere, and the book goes on naming both numbers for them",
+      "title": "395 of the 524 invented people the order book holds past its own order cannot be moved anywhere, the owner has ruled that is where the programme FINISHES, and the book goes on naming both numbers for them",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
@@ -16380,27 +16389,31 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the re-familying programme (T-1556, the owner's ruling of 2026-09-24) moves **73** of the 523 reconstructed people the order book's re-cut holds past what it would now order. The other **450**, standing in **43 of the 48 refused buckets**, stay exactly where they were written: counted in a cell the sources have since shown the town did not need that many of. `docs/RESEARCH/1835_refamily_programme.md` is the arithmetic, re-derivable from `tools/report_refamily_programme.py --check`, and each of those 43 buckets keeps its `held_at` and its `the_re_cut_would_have_ordered` side by side in `data/reconstruction/1835_reconstruction_order_book.json` rather than being quietly clamped to one figure."
+          "text": "the re-familying programme (T-1556, the owner's ruling of 2026-09-24) moved **129** of the 524 reconstructed people the order book's re-cut holds past what it would now order — every move the rule yields, spent in full by T-1563 and T-1564. The other **395**, standing in **all 44 refused buckets**, stay exactly where they were written: counted in a cell the sources have since shown the town did not need that many of. **And that is now the programme's finish line rather than a shortfall in it.** Asked on T-1597 what the 395 are, the owner ruled on 2026-09-25, option (a), verbatim: *\"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\"* `re_family_ledger.the_programme` in `data/reconstruction/1835_reconstruction_order_book.json` therefore reads `settled: true` at the rule's own fixpoint, carrying the count, the buckets and the refusal that holds each person; `docs/RESEARCH/1835_refamily_programme.md` is the arithmetic, re-derivable from `tools/report_refamily_programme.py --check`; and each of the 44 buckets keeps its `held_at` and its `the_re_cut_would_have_ordered` side by side rather than being quietly clamped to one figure."
         },
         {
           "label": "Why",
-          "text": "because every other way out of it is worse, and the owner has ruled on two of them. Reading the Catholic parish register in September 2026 named real people in cells the book had already invented people into — the reading arrived after the invention. **T-1459**, 2026-09-20, refused clamping: a bucket's order may not fall below what was drawn against it, and the refusal is *named with both numbers*. **T-1556**, 2026-09-24, refused retiring: 34 of the 60 trade heads are adopted by name elsewhere in the layer, so deleting the surplus would have chosen the people the town lost by which of them failed to get a job — \"not a modelled criterion\", in the owner's own words. What is left is to move them, and moving them is what the 73 are."
+          "text": "because every other way out of it is worse, and the owner has now ruled on three of them. Reading the Catholic parish register in September 2026 named real people in cells the book had already invented people into — the reading arrived after the invention. **T-1459**, 2026-09-20, refused clamping: a bucket's order may not fall below what was drawn against it, and the refusal is *named with both numbers*. **T-1556**, 2026-09-24, refused retiring: 34 of the 60 trade heads are adopted by name elsewhere in the layer, so deleting the surplus would have chosen the people the town lost by which of them failed to get a job — \"not a modelled criterion\", in the owner's own words. What was left was to move them, and the 129 are what moving them comes to. **T-1597**, 2026-09-25, refused the last way out: widening the rule so more could move. Loosening whole-house, sex or age band would buy a smaller residue at the price of a mother counted on one side of the river and her daughter on the other, which is the worse record."
         },
         {
           "label": "What is invented, exactly",
-          "text": "nothing new here at all — that is the point of the entry. These 450 people were invented by the reconstruction stages that drew them (**L83** is the programme, **L248** the trade heads, **L262** the service houses), each with its own card, seed and confidence, and none of that moves. What this entry admits is an ARITHMETIC liberty on top of them: the town's reconstructed population converges on 2,735 rather than the model's 2,543 point once the programme is spent, and 450 of that 192-person excess is known surplus that no rule in this project can place. It is inside the model's 2,362–3,265 range, and it is not the number the model expects. **Why they cannot be moved, and it is measured rather than asserted:** T-1558 tiered all 1,159 people in the 48 refused buckets against the adoption layers and found the held surplus and the open orders **disjoint on every axis**. Not one refused bucket has a single open slot for its own (sex, age band, household kind, trade) class in any division. A move that changes only which side of the river somebody is counted on — the one axis that is a bare ledger allocation and therefore free — yields nought. The open orders are 285 adult-male slots; the remainder is 150 children under ten, 100 in their teens and 119 women. Keeping a person's sex and age band caps the programme at 233, keeping the trade too at 123, and keeping an invented household whole — one record states one division, so splitting it would put a mother on one bank and her children on the other — brings it to 73. **What this deliberately does NOT do.** No card is deleted, no id is reused, no confidence moves, no citation is dropped, and no bucket is clamped. Nobody is re-sexed, re-aged or re-employed to make the sums close: T-1558 records that folding the trade in would have bought 110 more moves by quietly giving people different jobs, and it was refused. And the book does not stop reporting the gap — a reader of any of the 43 buckets can still see the figure the re-cut would have ordered next to the figure standing."
+          "text": "nothing new here at all — that is the point of the entry. These 395 people were invented by the reconstruction stages that drew them (**L83** is the programme, **L248** the trade heads, **L262** the service houses), each with its own card, seed and confidence, and none of that moves. What this entry admits is an ARITHMETIC liberty on top of them: the town's reconstructed population converges on **2,680** — 2,381 standing plus 299 still owed — against the model's **2,543** point, and the 395 are known surplus that no rule in this project can place. It is inside the model's 2,362–3,265 range, and it is 137 above the number the model expects. **Why they cannot be moved, and it is measured rather than asserted:** T-1558 tiered all **1,145** people in the 44 refused buckets against the adoption layers and found the held surplus and the open orders **disjoint on every axis**. Not one refused bucket has a single open slot for its own (sex, age band, household kind, trade) class in any division. The ceilings, each loosening one more axis than the one above it, are published in `data/reconstruction/1835_refamily_rule.json § the_ceilings`: **1** move if only the division changed, **43** if the household kind changed too, **105** if the trade could change as well, and **129** under the rule as written. The residue those bounds leave is 138 children under ten, 85 in their teens, 105 adult women and 67 adult men, against 299 slots of open order that want somebody else. **What this deliberately does NOT do.** No card is deleted, no id is reused, no confidence moves, no citation is dropped, and no bucket is clamped. Nobody is re-sexed, re-aged or re-employed to make the sums close. **And settling the programme is not a way of closing the question quietly:** `settled` is the rule's remainder and not a flag anybody may set — `build_order_book_1835.py`'s `the_programme_finishes_where_the_rule_does` refuses a book whose `settled` disagrees with the moves the ledger has spent, refuses a settled programme that does not say in words what becomes of the people it holds, and re-opens the programme the moment a wider rule yields a move nobody has made. The book also does not stop reporting the gap: a reader of any of the 44 buckets can still see the figure the re-cut would have ordered next to the figure standing."
         },
         {
           "label": "What would discharge it",
-          "text": "an order book that wants women and children somewhere else. Three named levers, all outside this programme: more orders in those cells, which the lodging band (T-1532, T-1536, T-1538) and the boarding houses T-1209 raises would create directly; a ruling that an employment seat may be RE-SEATED at an equivalent house in the destination division, which would let the 283 people carrying an adoption travel instead of being refused; and T-1199's placement policy re-seating the 22 whose roof already stands. Short of those, a source naming a real person in one of the 43 cells retires an invented card there and closes the gap by one the honest way."
+          "text": "an order book that wants women and children somewhere else. The four named levers are published in the rule's `what_would_raise_the_ceiling`, all outside this programme: more orders in those cells, which the lodging band (T-1532, T-1536, T-1538) and the boarding houses T-1209 raises would create directly; a ruling that an employment seat may be RE-SEATED at an equivalent house in the destination division, which would let the people carrying an adoption travel instead of being refused; T-1199's placement policy re-seating those whose roof already stands; and the honest alternative — a source naming a real person in one of the 44 cells retires an invented card there and closes the gap by one the honest way."
         },
         {
           "label": "Related",
-          "text": "**L83** (the inferred-residents programme this is the accounting of), **L248** (the trade heads), **L262** (the service houses), **L246** (the withheld names re-admitted), T-1560 (this entry), T-1556 (the ruling), T-1557 (the ledger), T-1558 (the rule and the ceilings), T-1559 (the moves), T-1459 (held rather than clamped)."
+          "text": "**L83** (the inferred-residents programme this is the accounting of), **L248** (the trade heads), **L262** (the service houses), **L246** (the withheld names re-admitted), T-1560 (this entry), T-1556 (the ruling), T-1557 (the ledger), T-1558 (the rule and the ceilings), T-1559 (the moves), T-1459 (held rather than clamped), T-1597 (the finish line, and the owner's ruling that the residue remains held)."
         },
         {
           "label": "Recorded",
           "text": "2026-09-25."
+        },
+        {
+          "label": "Amended",
+          "text": "2026-09-28 — the figures re-read off the re-derived rule (129 moves, 395 held, 44 buckets), and the owner's ruling of 2026-09-25 that this is where the programme finishes."
         }
       ]
     },
@@ -17177,6 +17190,551 @@
         {
           "label": "Recorded",
           "text": "2026-09-27."
+        }
+      ]
+    },
+    {
+      "id": "L283",
+      "title": "Two of the Beaubien homestead's four attested buildings are placed and sized by eye, beside the two that already were",
+      "section": "per_subject",
+      "subjects": [
+        "beaubien_barn",
+        "beaubien_new_residence",
+        "beaubien_trading_post",
+        "jb_beaubien_homestead"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_new_residence",
+          "phase": "log_1822",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "beaubien_trading_post",
+          "phase": "log_1822",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-09-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`beaubien_new_residence` (9.75 x 6.10 m, 32 x 20 ft) and `beaubien_trading_post` (6.10 x 4.88 m, 20 x 16 ft) are built on the Fort Dearborn reservation with **invented positions**, **invented footprints** and an **invented storey count**, all graded `reconstructed` and citing no sources. Their PRESENCE and their USE are attested and are not part of this liberty."
+        },
+        {
+          "label": "Why",
+          "text": "Andreas, scan p. 185, lists four elements of Col. Jean Baptiste Beaubien's homestead — the factory building he bought, a cabin he converted to a barn, \"a new residence and a small trading post\" — and Wentworth's account of the sale of June 1839 has James H. Collins bidding for the five lots \"where Beaubien's house, out-buildings, and garden were\". So the town has documentary warrant for a GROUP here and this project stood two of its four buildings. What no source reached gives any of the four is a dimension, a plan, a bearing or a distance from its neighbours. `docs/RESEARCH/jb_beaubien_homestead.md` § 4 therefore refused the three unbuilt ones as \"three invented boxes placed by eye around a fourth\" — and then `beaubien_barn` was built in exactly that way on 2026-08-11 under **L72**, by eye, 16.3 m behind the house, with the direction and the distance written down as invented. The refusal had already been overturned for one of the three while it was still on the page for all three. T-1712 applies the barn's disposition to the two buildings left, on the owner's own ask for this ground (T-1203, \"the documented country seats with their reconstructed neighbours\"), and § 4 is rewritten to the count it now has."
+        },
+        {
+          "label": "The method, stated so it can be checked",
+          "text": "the group's two committed records share one easting 16.3 m apart, the house on the river-facing frontage line and the barn on the yard line behind it. The residence takes the frontage line 17.9 m east of the house's origin — 5.7 m clear of its east wall — and the trading post takes the yard line at the same easting. East rather than west because Wentworth's lots run north from corner lot 11 through lots 10 to 6, so the group's room is away from the corner; and because the fort's stockade stands about 9 m north of the frontage line, which is the one direction with no room in it at all. Both offsets are ours."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor arriving at the river mouth sees four buildings in a yard group where two stood, and the *presence* of every one of the four is evidenced while the *shape and exact place* of three of them are ours. The group reads as a homestead rather than as a house beside a shed, which is what the sources describe — and the risk that buys is that a visitor cannot see which two of the four were placed by measurement, because none of them was. Both new records inherit their parent's open questions unchanged: neither street existed on the unplatted reservation in 1835, and the group's true position is at the remembered corner or an unmeasured distance north of it, never south or west of it."
+        },
+        {
+          "label": "What was NOT done",
+          "text": "no confidence on any committed record was raised, the household was not moved onto either new building (the parent's `occupants` block says which building Beaubien slept in is unattested, and calling one of these a residence does not answer it), and the **garden** the 1839 sale names beside the out-buildings is still unbuilt — it is a fence line and ground cover rather than a structure, and no source gives it an extent."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1839 land-sale plat of Block 5 with the lot dimensions Wentworth's numbers imply, which would turn \"lots 6 to 10\" into a distance north of the corner and fix the whole group to lots instead of to a remembered intersection; failing that the Wright 1834 sheet read at reservation scale, or the 1835 pre-emption papers, which may describe the improvements Beaubien was claiming for."
+        },
+        {
+          "label": "Related",
+          "text": "**L72** (the same move for the barn and the two tavern stables), **L26** (every chimney stands where its archetype puts it), `docs/RESEARCH/jb_beaubien_homestead.md` §§ 1, 4 and 6a, and **T-1203**."
+        },
+        {
+          "label": "Covers",
+          "text": "`beaubien_new_residence.log_1822.position`, `beaubien_new_residence.log_1822.footprint`, `beaubien_new_residence.log_1822.form.stories`, `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.stories`, `beaubien_trading_post.log_1822.form.chimneys`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-28 (T-1712)."
+        }
+      ]
+    },
+    {
+      "id": "L284",
+      "title": "The works the four documented noxious trades imply: six buildings on the branch frontage, and not one of them attested",
+      "section": "per_subject",
+      "subjects": [
+        "clybourn_slaughterhouse",
+        "elston_ash_house",
+        "elston_soap_candle_manufactory",
+        "miller_tannery",
+        "miller_tanyard_bark_shed",
+        "miller_tanyard_drying_shed",
+        "newberry_dole_packing_house_south_branch",
+        "newberry_dole_salt_house_south_branch",
+        "newberry_dole_slaughterhouse_south_branch",
+        "newberry_dole_stock_shed_south_branch",
+        "western_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "elston_ash_house",
+          "phase": "works_1833",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_bark_shed",
+          "phase": "yard_1831",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.board_gap_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "miller_tanyard_drying_shed",
+          "phase": "yard_1831",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_packing_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_salt_house_south_branch",
+          "phase": "works_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_stock_shed_south_branch",
+          "phase": "works_1834",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-09-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`elston_ash_house.function`, `elston_ash_house.works_1833.documented_range`, `elston_ash_house.works_1833.footprint`, `elston_ash_house.works_1833.form.construction`, `elston_ash_house.works_1833.form.door`, `elston_ash_house.works_1833.form.door_side`, `elston_ash_house.works_1833.form.paint`, `elston_ash_house.works_1833.form.roof_pitch_deg`, `elston_ash_house.works_1833.form.roof_type`, `elston_ash_house.works_1833.form.wall_height_m`, `elston_ash_house.works_1833.position`, `miller_tanyard_bark_shed.function`, `miller_tanyard_bark_shed.yard_1831.documented_range`, `miller_tanyard_bark_shed.yard_1831.footprint`, `miller_tanyard_bark_shed.yard_1831.form.construction`, `miller_tanyard_bark_shed.yard_1831.form.door`, `miller_tanyard_bark_shed.yard_1831.form.door_side`, `miller_tanyard_bark_shed.yard_1831.form.paint`, `miller_tanyard_bark_shed.yard_1831.form.roof_pitch_deg`, `miller_tanyard_bark_shed.yard_1831.form.roof_type`, `miller_tanyard_bark_shed.yard_1831.form.wall_height_m`, `miller_tanyard_bark_shed.yard_1831.position`, `miller_tanyard_drying_shed.function`, `miller_tanyard_drying_shed.yard_1831.documented_range`, `miller_tanyard_drying_shed.yard_1831.footprint`, `miller_tanyard_drying_shed.yard_1831.form.board_gap_m`, `miller_tanyard_drying_shed.yard_1831.form.construction`, `miller_tanyard_drying_shed.yard_1831.form.door`, `miller_tanyard_drying_shed.yard_1831.form.door_side`, `miller_tanyard_drying_shed.yard_1831.form.paint`, `miller_tanyard_drying_shed.yard_1831.form.roof_pitch_deg`, `miller_tanyard_drying_shed.yard_1831.form.roof_type`, `miller_tanyard_drying_shed.yard_1831.form.wall_height_m`, `miller_tanyard_drying_shed.yard_1831.position`, `newberry_dole_packing_house_south_branch.function`, `newberry_dole_packing_house_south_branch.works_1834.documented_range`, `newberry_dole_packing_house_south_branch.works_1834.footprint`, `newberry_dole_packing_house_south_branch.works_1834.form.construction`, `newberry_dole_packing_house_south_branch.works_1834.form.door`, `newberry_dole_packing_house_south_branch.works_1834.form.door_side`, `newberry_dole_packing_house_south_branch.works_1834.form.paint`, `newberry_dole_packing_house_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_packing_house_south_branch.works_1834.form.roof_type`, `newberry_dole_packing_house_south_branch.works_1834.form.wall_height_m`, `newberry_dole_packing_house_south_branch.works_1834.position`, `newberry_dole_salt_house_south_branch.function`, `newberry_dole_salt_house_south_branch.works_1834.documented_range`, `newberry_dole_salt_house_south_branch.works_1834.footprint`, `newberry_dole_salt_house_south_branch.works_1834.form.construction`, `newberry_dole_salt_house_south_branch.works_1834.form.door`, `newberry_dole_salt_house_south_branch.works_1834.form.door_side`, `newberry_dole_salt_house_south_branch.works_1834.form.paint`, `newberry_dole_salt_house_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_salt_house_south_branch.works_1834.form.roof_type`, `newberry_dole_salt_house_south_branch.works_1834.form.wall_height_m`, `newberry_dole_salt_house_south_branch.works_1834.position`, `newberry_dole_stock_shed_south_branch.function`, `newberry_dole_stock_shed_south_branch.works_1834.documented_range`, `newberry_dole_stock_shed_south_branch.works_1834.footprint`, `newberry_dole_stock_shed_south_branch.works_1834.form.construction`, `newberry_dole_stock_shed_south_branch.works_1834.form.door`, `newberry_dole_stock_shed_south_branch.works_1834.form.door_side`, `newberry_dole_stock_shed_south_branch.works_1834.form.paint`, `newberry_dole_stock_shed_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_stock_shed_south_branch.works_1834.form.roof_type`, `newberry_dole_stock_shed_south_branch.works_1834.form.wall_height_m`, `newberry_dole_stock_shed_south_branch.works_1834.position`."
+        },
+        {
+          "label": "Decision",
+          "text": "the four documented noxious trades on the branches — Newberry & Dole's South Branch slaughter-house, Miller and Hall's tanyard at the forks, and Daniel Elston's soap and candle works on the North Branch — gain **six works buildings** between them: a packing and barrelling house, a salt house and a stock shed south of the South Branch plant; a bark shed and a drying shed in the tanyard behind the tannery; and an ash house behind Elston's works. **Not one of them is attested.** Every value on all six records is graded `reconstructed`, including the fact that any of them stood, and all six disappear with the rest of the reconstructed tier when a visitor turns it off. **What bounded the invention, and it is the plants' own records.** Each of the four documented plants says, in its own footprint note, that the works are missing: `newberry_dole_slaughterhouse_south_branch` — *\"the pens, the yard and the barrelling and salting space that a packing operation needs are outside the footprint and outside this archetype, which builds a building rather than a works\"*; `miller_tannery` — *\"a tannery is its yard — bark mill, lime pits, tan vats, drying sheds, and a water supply — and none of that is in this polygon or in the model\"*; `clybourn_slaughterhouse` — *\"what is not modelled is arguably the bigger half\"*; `elston_soap_candle_manufactory`, whose shed is sized for *\"a rendering kettle, a cooling and moulding floor and an ash leach\"* and has nothing beside it. **These six buildings are those sentences built.** Nothing was invented that one of those four notes does not name. **The works rule, stated once and applied six times.** (1) A works building stands BEHIND its plant, on the side away from the water, because the plant's own bearing puts its working face on the water. (2) The gap between the plant's wall and the works' wall is **5.20 m**, the cart yard **L281** derived from `data/yard/town_trade_goods.json` — 1.00 m of clearance from the wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall opposite — and the same 5.20 m separates one works building from the next, so the whole band is set out on one committed figure. (3) The works take the plant's own bearing, so the yard is square and the doors face it. (4) Where the ground behind the plant is a platted street corridor, the works stand ALONG the bank instead, in the order the work runs, on a line 0.50 m clear of that corridor's edge. **Clause 4 is the South Branch, and it is the one place the rule had to bend.** Behind Newberry & Dole's plant is east, and east is Market Street: `plat_corridors.corridors()` puts its platted corridor at local E 73.00 to E 97.00 across this whole reach, and **the plant itself already stands 1.30 m inside its west edge**, which `tools/corridor_intrusion_baseline.json` records. North is worse — Randolph Street's corridor runs local N -265.00 to N -241.00 and the plant stands 11.45 m inside it. A works building put behind the plant would repeat a breach the corridor gate exists to find. So the three South Branch buildings run **south** along the bank instead, every one with its east wall on local E 72.500, and the band reads as one row rather than three seatings. **What each seat was held to, on a 25 × 25 lattice over the placed polygon.** Dry in the committed heightfield (`data/terrain/epochs/e1834_harbor_cut`, water surface 0), relief inside the 0.30 m `generate_block_infill.MAX_RELIEF_M` allows, clear of all 33 platted corridors, and clear of every footprint the committed tree places. Measured: | building | ground above water | relief | corridor | nearest committed footprint | |---|---|---|---|---| | `newberry_dole_packing_house_south_branch` | 0.442–0.698 m | 0.256 m | clear | 5.20 m (the plant) | | `newberry_dole_salt_house_south_branch` | 0.583–0.710 m | 0.127 m | clear | none within 14 m | | `newberry_dole_stock_shed_south_branch` | 0.465–0.695 m | 0.230 m | clear | none within 14 m | | `miller_tanyard_bark_shed` | 1.141–1.145 m | 0.004 m | clear | 2.00 m (the drying shed) | | `miller_tanyard_drying_shed` | 1.138–1.140 m | 0.002 m | clear | 5.20 m (the tannery) | | `elston_ash_house` | 1.116–1.121 m | 0.005 m | clear | 5.20 m (the works) |"
+        },
+        {
+          "label": "What is invented",
+          "text": "all six buildings, that any of them stood on 1835-07-01, their seats, their sizes, their eaves, their roofs, their pitches, their constructions, their paint, their openings, the sides those openings are on, the drying shed's 50 mm board gap, and the yards between them. The bark shed stands at the EAST end of the tanyard's back row rather than the west, and that is an instrument's doing rather than a reading's: the west seat fell 67.86 m from its nearest corridor, inside the empty 60.79-74.65 m band `FRONTAGE_REACH_M` is the midpoint of, and an invented shed is not a reason to move a committed constant. `tools/measure_frontage_fabric.py`'s self-test is what says so. The SIZES are their families' own bands from `data/reconstruction/1835_building_inventory.json` — W3 for the packing house, A1 for the stock shed, A4 for the salt and bark sheds, A5 for the drying shed and the ash house — which bounds the invention without evidencing it. **What is refused, and it is the fourth plant.** `clybourn_slaughterhouse` gets **no works**. Its own record says it is DISPLACED: the attested site is the east bank of the North Branch south of the Bloomingdale Road, roughly 3 km north-north-west of the forks and about 2.8 km beyond the edge of the modelled terrain, and the record stands at the edge of modelled ground with an error of kilometres. Building a yard around a building that is knowingly kilometres from its own site would multiply that error by six rather than reconstruct anything, and the stock yard Andreas's plant implies — the one that later gave the trade the Bull's Head name — belongs on ground this scene does not model. **The refusal is the honest half of this entry.** **What is still NOT modelled, and adding roofs does not discharge it.** The killing pens and the stock yard on the South Branch, the lime pits, tan vats and bark mill at the forks, and every yard fence in the band. Those are enclosures, pits and machinery, and `outbuilding_params` declines them in as many words — *\"a yard is an enclosure — a fence line, two gateways and the ground between them — and building it out of an outbuilding would mean calling a fence a building\"*. **L10** has been carrying the same gap for the Western Hotel's wagon yard and still is."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any description of the South Branch plant beyond Andreas's one sentence recording its erection; any account of Miller and Hall's tanyard; an address for Elston & Co. in any printing of 1833–1835. Any of the three would replace an invention with a building. Terrain reaching 3 km up the North Branch would reopen the Clybourne refusal."
+        },
+        {
+          "label": "Related",
+          "text": "**L281** and **L274** (the cart yard figure this band is set out on, and the south-bank row whose idiom it borrows), **L10** (the yard that is still a fence nobody models), the crosswalk's **W3**, **A1**, **A4** and **A5** rows, this ticket **T-1709**, its parent **T-1203**, and `docs/RESEARCH/branch_noxious_works.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-28."
         }
       ]
     },

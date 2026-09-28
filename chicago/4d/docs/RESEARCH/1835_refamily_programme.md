@@ -39,7 +39,7 @@ The remedy reaches 25% of what it was asked to remedy. The other 75% is not owed
 
 395 people stand in 44 of the 44 refused buckets once every move the rule yields has been made. 0 bucket(s) clear completely.
 
-T-1558 measured the ceilings: with a person's sex and age band fixed the bound is 233, with the trade fixed too it is 123, and with movability applied and a house kept whole it is 73. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
+T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 43 if the household kind changed too, 105 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
 
 | sex | age band | still held |
 |---|---|---:|
@@ -56,14 +56,33 @@ T-1558 measured the ceilings: with a person's sex and age band fixed the bound i
 | female | `50_plus` | 4 |
 | male | `50_plus` | 2 |
 
+## Where the programme finishes, and what the residue is
+
+The programme is **settled**, and its finish line is the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.
+
+> owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
+
+**395 people remain held**, in 44 refused bucket(s). What becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+
+| the refusal that holds them | people |
+|---|---:|
+| `a_documented_reading_shrank_the_order` | 1 |
+| `the_re_cut_reached_work_already_drawn` | 394 |
+
+**What would reopen it:** a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
+
+Read from `data/reconstruction/1835_reconstruction_order_book.json § re_family_ledger.the_programme`.
+
 ## What the town converges to
 
 - standing in the layer: 2,381
 - still owed now: 299
 - still owed when the programme is spent: 299
 - converges to now: 2,680
-- converges to when the programme is spent: 2,551
-- 2,551 is inside the model's 2,362-3,265 and 8 above its 2,543 point, against 137 above it today.
+- converges to when the programme is spent: 2,680
+- 2,680 is inside the model's 2,362-3,265 and 137 above its 2,543 point, against 137 above it today.
+
+The rule's own projection of 2,551 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
 
 ## What would move the remainder
 
