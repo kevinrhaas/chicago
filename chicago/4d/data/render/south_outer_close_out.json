@@ -13,7 +13,7 @@
  "CORRIDOR_LINE": "drawn",
  "CORRIDOR_LINE_WHY": "the tier this file measures is a strip between a BLOCK GRID and a survey line, so the question is asked on the drawn line that generate_plat_lots.block_edges offsets — and because the disagreement between the two lines matters to the answer here, both are reported in `the_zero_width_tier.and_the_other_line` rather than only the one used. No module is added by this file; the declaration is made because the reading is one a module would have to declare.",
  "district": "The South Division's OUTER ground, as T-1710 names it: the lakefront tier between the fort reservation and the plat, the documented country seats (Harmon, the Beaubien places) and the Fort Dearborn Addition ground. The South Branch noxious-trade band is the same grandparent's piece 3 and is closed by T-1709, not here; the plat's own last tier is pieces 1 and 2, T-1707 and T-1708.",
- "one_ground_of_t_1203_that_no_piece_of_it_names": "T-1203's body lists its ground as \"the Michigan Street tract's five seated blocks, the lakefront tier between the fort reservation and the plat, the South Branch bank west of Market ... and the documented country seats\". Three of those four are the titles of its four pieces. The Michigan Street tract is in none of them, and the committed dossier puts that tract in the NORTH Division: docs/RESEARCH/michigan_st_tract.md is titled \"The Michigan St tract north of Kinzie Street\" and reads it off Wright's 1834 survey immediately north of Kinzie and east of the North Branch. This file does not close it, does not claim it is South Division ground, and does not re-scope the parent — it records that the ground is named by the grandparent and carried by no piece of it, because a ground that falls between two tickets falls out of the reconstruction in silence. Filed as T-1721.",
+ "one_ground_of_t_1203_that_no_piece_of_it_names": "T-1203's body lists its ground as \"the Michigan Street tract's five seated blocks, the lakefront tier between the fort reservation and the plat, the South Branch bank west of Market ... and the documented country seats\". Three of those four are the titles of its four pieces. The Michigan Street tract is in none of them, and the committed dossier puts that tract in the NORTH Division: docs/RESEARCH/michigan_st_tract.md is titled \"The Michigan St tract north of Kinzie Street\" and reads it off Wright's 1834 survey immediately north of Kinzie and east of the North Branch. This file does not close it, does not claim it is South Division ground, and does not re-scope the parent — it records that the ground is named by the grandparent and carried by no piece of it, because a ground that falls between two tickets falls out of the reconstruction in silence. Written onto T-1215, the convergence ticket, rather than filed as a new line: the queue stands at its ceiling and its own header asks for the finding on an existing ticket first.",
  "the_country_seats_off_the_modelled_ground": {
   "instrument": "data/structures/harmon_log_cabin.json § phases[0].position, data/reconstruction/1835_lot_ledger.json (the lot whose `standing` names it), data/traces/south_anchor_control.json § control.sixteenth_prairie, and data/terrain/epochs/e1834_harbor_cut/terrain_spec.json § grid for the box's own walls.",
   "what_the_parent_asked": "T-1203 asks this ground for \"the documented country seats (Harmon, the Beaubien places) with their reconstructed neighbours\". Two groups, and they close in opposite directions.",
@@ -57,7 +57,7 @@
     }
    ],
    "why_the_cabin_is_not_moved_by_this_file": "Because the box reaching his ground is not the same as the project being able to seat him on it. Nothing in this corpus states LAND south of Twelfth Street: the terrain spec's own § n_min says the 1650 m below it 'was FRAME and not reconstruction', and `evidence_limit` writes every vertex below local N -2149.40 conjectural whatever else it is graded. Standing his cabin on that ground would trade a placement invented on modelled ground for a placement invented on conjectural ground, and neither is a reading. What this file does is state the discrepancy and hand it on; a close-out that quietly re-seated a documented household would be the opposite of closing a book.",
-   "handed_to": "T-1720"
+   "handed_to": "T-1215 § Two findings from T-1713 (2026-09-28), finding 1"
   }
  },
  "the_fort_dearborn_addition_refused": {
@@ -340,16 +340,12 @@
  },
  "what_this_does_not_close": {
   "the_parents_second_half": "T-1203's stop condition is 'the district's slot list reads built, every roof occupied'. This file closes the first half for the outer ground — the slot list has nothing left to deal there — and makes no claim about the second. Occupancy of the outer records is the parent's own remaining business and is not adjudicated here.",
-  "the_tickets_this_book_files": [
-   {
-    "ticket": "T-1721",
-    "why": "T-1203 names the Michigan Street tract as one of the four grounds of this district and no piece of T-1203 carries it, while the committed dossier puts that tract north of Kinzie Street. Either the parent's ground list or the split is wrong, and neither is this file's to fix."
-   },
-   {
-    "ticket": "T-1720",
-    "why": "harmon_log_cabin's position note states two things that measurement contradicts, and the second — that the box does not reach his ground — has been false since T-0464. Whether he moves is a question about frame ground versus modelled ground and is worth its own run."
-   }
-  ]
+  "where_this_books_two_findings_went": {
+   "not_new_tickets": "ticket.mjs new refused the first one, and it was right to: the queue stands at its ceiling and QUEUE.md's own header asks for \"a finding on the ticket it was found in\" before a new line. T-1203 and T-1710 are both closed, so a paragraph on either would be unread. Both went onto T-1215 — the convergence closeout, open, and the ticket whose acceptance both findings bear on — pushed to the tickets repo with ticket.mjs sync.",
+   "where_to_read_them": "T-1215 § \"Two findings from T-1713, the South Division's outer books (2026-09-28)\"",
+   "finding_1": "harmon_log_cabin is seated on a platted town lot, its position note describes a band it is not in, and the note's negative fact about the modelled ground has been false since T-0464.",
+   "finding_2": "the Michigan Street tract is named by T-1203's ground list, carried by none of its four pieces, and placed north of Kinzie Street by its own dossier."
+  }
  },
  "tree": "read on dev at 4e9e7b70 and re-derived on the branch after the merge with dev; tools/publish.sh run before the smoke so the gate reads the tree that ships."
 }
