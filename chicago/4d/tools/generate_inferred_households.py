@@ -57,6 +57,7 @@ from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one ow
 
 from band_notes import split_notes  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
+from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import label  # noqa: E402
 from measure_adoption_tests import floor_evidence  # noqa: E402
 # T-0112. The clapboard stock is dealt at the end of the parcel, because it is the one
@@ -797,9 +798,14 @@ def inferred_form(archetype: str, family: str, spec_note: str, key: str,
         return {"stories": a(stories), "wall_height_m": a(wall),
                 "roof_type": a("gable"), "roof_pitch_deg": a(pitch()),
                 "construction": a("braced_frame"),
-                "plan": a("centre_passage" if two else ("single_pen" if family == "D3"
-                                                        else "hall_parlour")),
-                "bays": a(5 if two else 3), "chimneys": a(1), "paint": a("unpainted")}
+                # WHICH HOUSES STAND BEHIND A CENTRE HALL is `tools/house_front.py`'s
+                # answer and no longer this file's (T-1686) — additive, so this parcel's
+                # storey-keyed default stands wherever the entry says nothing.
+                "plan": a(plan_for(family, "centre_passage" if two
+                                   else ("single_pen" if family == "D3"
+                                         else "hall_parlour"))),
+                "bays": a(bays_for(family, 5 if two else 3)), "chimneys": a(1),
+                "paint": a("unpainted")}
     if archetype == "frame_storefront":
         # A glazed shopfront needs 3.25 m of bay plus a return at each end. Below about
         # 6 m of frontage the archetype cannot build one and neither could a carpenter:
