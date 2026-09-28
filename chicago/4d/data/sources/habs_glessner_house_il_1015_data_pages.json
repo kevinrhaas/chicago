@@ -1,0 +1,29 @@
+{
+ "id": "habs_glessner_house_il_1015_data_pages",
+ "type": "article",
+ "citation": "Historic American Buildings Survey. John J. Glessner House (Now Chicago School of Architecture Foundation), 1800 Prairie Avenue. HABS No. ILL-1015. Photographs; Written Historical and Descriptive Data, data pages 1-23 (prepared by David T. Van Zanten, student assistant architect, and Osmund Overby, supervisory architect, August 1963) and addendum data pages 24-25 (inventory of photogrammetric images, 1985-1986). National Park Service; Library of Congress, Prints and Photographs Division.",
+ "author": "David T. Van Zanten and Osmund Overby (HABS), 1963; addendum by HABS/HAER historians, 1985-1986",
+ "date": "August 1963 (addendum 1985-1986)",
+ "describes_date": "1885-1963",
+ "repository": "Library of Congress, Prints and Photographs Division, item il0118 (data PDF il0118data.pdf); a copy is committed as chicago/prairie_1904_v1/research/public/glessner-habs-data.pdf (27 PDF pages), checksum in chicago/prairie_1904_v1/research/acquired-files.json",
+ "url": "https://www.loc.gov/item/il0118/",
+ "locator": "Cited by HABS data page as printed in each page header ('HABS No. ILL-1015 (Page n)'); PDF page = data page + 1. Part I.A.1 legal description and purchase, p. 1 (PDF 2); A.2 date of erection, A.5 original plans, A.6 alterations (September 1946), p. 2 (PDF 3); Part II.B description of exterior, p. 21 (PDF 22); interior description, pp. 22-23 (PDF 23-24).",
+ "tier": 4,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "HABS written data are works of the U.S. Government.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read in full 2026-09-28 from the committed PDF (text layer extracted and checked against the page images where the OCR garbled a figure). The Prairie library's dossier records this PDF as 'download-blocked-403' in its first pass; its later acquisition (acquired-files.json) supersedes that, and the file is the one read here.",
+ "note": "Two documents in one, and they are cited separately. The HABS architectural description (1963) is this record. Pages 7-21 also transcribe John J. Glessner's March 1923 booklet The Story of a House, which is period testimony by the owner and is cited as glessner_story_of_a_house_1923 so that its date is carried with it. THE ALTERATIONS PARAGRAPH IS WHAT MAKES THE DRAWINGS USABLE FOR 1904: it lists what the September 1946 research-centre conversion changed (stable loft and basement partitioned, stable door replaced, loft door closed up, stable/kitchen/laundry fixtures and the coal furnace removed, school-room woodwork painted, the door of the underpass on the east facade replaced, the courtyard entirely paved as a parking lot) and says the original plan, finishes and permanent furniture were left untouched. It names no change to the masonry envelope or the roofs. The legal description on p. 1: Block 9, lots 38, 39 and 40 of the Assessor's Division of the SW fractional 1/4 of Section 22, T39N, R14E; Glessner bought lots 39, 40 and the north 17 feet of lot 38 on March 24, 1885 (Book 502A pp. 77-79; Document 616860). Note the wall-material name: 'Wellesley Granite' (p. 21), which is also Glessner's 1923 word; the house museum's own page says Braggville pink granite (recorded in the Prairie library's dossier as G02). The disagreement is carried, not resolved.",
+ "what_it_supplies": [
+  "the exterior construction as surveyed in 1963: foundations of Joliet limestone ending at the ground line; brick walls faced with alternately six- and eight-inch sheets of granite with deeper returns at openings; courtyard walls of light pink brick with Joliet limestone lintels and sills; steeply pitched gabled roofs covered with tar-covered terracotta tiles six inches wide, five inches exposed; copper sheathing on the roof of the entrance-hall bow",
+  "the original east carriage (porte-cochere) door as seen in a 1945 photograph: two heavily panelled leaves with heavy iron straps and latches",
+  "the list of 1946 alterations, which is the phase filter every 1963 dimension has to pass for 1904",
+  "the legal description and the March 1885 purchase of lots 39, 40 and the north 17 ft of lot 38"
+ ],
+ "what_it_does_not_supply": [
+  "the widths of lots 38-40 in feet: the lot sizes of the Assessor's Division block are not stated",
+  "the date the stable became a garage, the date the roof tiles were tarred, or any other change between 1887 and 1946 that it does not list",
+  "measurements: the data pages describe; the drawings (habs_glessner_house_il_1015_drawings) measure"
+ ]
+}

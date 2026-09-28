@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1210, ts: '2026-09-28T15:32:07.396Z', date: 'Sep 28, 2026, 10:32 AM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+  { v: null, ts: '', title: 'Compare two builds of one building by address', kind: 'feature',
     items: [
       'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
       'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
       'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
       'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
+    ] },
+  { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
+    items: [
+      'Cross the river and walk north past Michigan Street and the ground has changed. Everything beyond that line \u2014 Kinzie\u2019s Addition, the fringe toward Rush and Pine, the ground behind the lake shore \u2014 was drawing as open prairie, grass to the horizon. It is timber now: elm, ash and silver maple, with willow in the wet hollows and hazel through the understorey, which is what the one account of the place describes.',
+      'Nobody chose the prairie. The shape that tells the town where the north-side wood stands was drawn when the modelled ground was much smaller, and it followed the edges of that old ground \u2014 a straight line across the north, another down the east, neither of them the boundary of anything. The ground was later carried far past both of them and the wood was never carried with it, so everything the extension opened fell through to the grass.',
+      'The wood\u2019s outline is no longer drawn by hand. It is worked out from the water: the east bank of the North Branch, the north bank of the main river and the lake shore, all three already traced off the 1834 survey, walked round as a single line. 155 hectares where there were 10. A check now fails the build if the outline and the water ever part company again.',
+      'The beach, the dunes, the marshes and the sedge are untouched. The account that describes the timber excepts the sandy hills near the lake and the marshy places, and each of those already wins wherever it stands \u2014 so the wood fills what is left rather than running over them.',
+      'One thing was deliberately not extended. There is a single creek drawn on the north side and the 1834 survey ends it at Michigan Street. That is where the map stops it, not where the tracing stopped, so no channel was invented to carry it further north.',
+      'And the building programme\u2019s note about what the north side is still waiting for was three-quarters wrong. It said the ground, the water, the plants and the map coverage all stopped short of a line the ground had passed weeks ago; only the plants had. It is measured now instead of written down, and what the north is actually waiting for is streets.',
     ] },
   { v: 1209, ts: '2026-09-28T13:52:07.973Z', date: 'Sep 28, 2026, 8:52 AM CT', title: 'Six houses get out of the road', kind: 'fix',
     items: [

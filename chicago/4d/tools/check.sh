@@ -1571,6 +1571,21 @@ step "no platted block stands off the modelled ground, and the south's blocker i
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_southern_ground.py --self-test
 
+# T-1722, the same fault at the other end of the box. The North balance said "terrain,
+# hydrology, flora and map coverage stop short of local N +760 m" for as long as it took
+# somebody to measure it — by then the field carried to N +1120, the branch and its banks
+# were traced to N +1079.21 and the lake margin to N +1117.30, and only the FLORA was
+# short: z06's timber ring was still the 19 vertices cut to the old box wall, so the whole
+# division north of Michigan Street drew as open prairie over ground Andreas documents as
+# timbered. Two assertions: the committed timber ring (and the exclusion mirror z01 and z02
+# carry, and the manifest's denormalised copies) is the one the committed waterline
+# derives, and the division's ground reaches the line its own memo asks for.
+step "the North Division's timber stands on the waterline, and its ground reaches the memo's line" \
+  python3 tools/measure_northern_ground.py --gate --quiet
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/measure_northern_ground.py --self-test
+
 # The two numbers on the FRONT screen (T-0036): buildings standing and people housed.
 # Both are reads of the roof programme and the residents layer, and the most visible
 # possible place to carry a stale number is the panel a visitor sees before anything
