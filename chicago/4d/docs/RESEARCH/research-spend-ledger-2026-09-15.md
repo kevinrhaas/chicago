@@ -27,10 +27,10 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | genealogytrails | 0 | 1 | 0 | 1 | 3 | 0 | 5 |
 | land_sales | 313 | 570 | 46 | 0 | 603 | 40 | 1,572 |
 | newberry_index | 0 | 0 | 0 | 0 | 6,658 | 0 | 6,658 |
-| newspapers | 672 | 68 | 7 | 225 | 56 | 161 | 1,189 |
+| newspapers | 699 | 68 | 9 | 271 | 60 | 82 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
 | residents | 24 | 10 | 0 | 0 | 1,022 | 24 | 1,080 |
-| **Total** | **1,362** | **12,593** | **117** | **324** | **8,724** | **577** | **23,697** |
+| **Total** | **1,389** | **12,593** | **119** | **370** | **8,728** | **498** | **23,697** |
 
 ## Second-hop preservation
 
@@ -47,7 +47,7 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 | T-1543 | 1 |
 | T-1552 | 26 |
 | T-1569 | 12 |
-| T-1586 | 92 |
+| T-1586 | 13 |
 | T-1588 | 2 |
 | T-1625 | 6 |
 

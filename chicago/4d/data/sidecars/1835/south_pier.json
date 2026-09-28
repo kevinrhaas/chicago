@@ -15,9 +15,10 @@
     "confidence": "inferred",
     "sources": [
       "andreas_1884_v1",
-      "wikipedia_chicago_river"
+      "wikipedia_chicago_river",
+      "chicago_democrat_1833_1835"
     ],
-    "note": "A STRUCTURE UNDER CONTINUOUS EXTENSION HAS NO STABLE PHASE, AND THIS RANGE IS TWO MONTHS WIDE FOR THE SAME REASON THE NORTH PIER'S IS. Andreas has the south pier 'extended 500 ft in 1835, total 700 ft', so this structure more than trebled during the season this scene sits in the middle of and no state of it lasted a fortnight. What the phase carries is a length INTERPOLATED FOR 1835-07-01, wrong by a growing margin either side of it, and the range is set to the two months around the target rather than to the pier's life. A scene at any other date finds no phase covering it and reports this structure as excluded, which is the correct answer: it stood, and this record does not say how long it was. Adding an 1834 phase and an 1836 phase is the fix and widening this one is not; both are writable from the same two sources and neither is written, because this project's first scene is 1835."
+    "note": "A STRUCTURE UNDER CONTINUOUS EXTENSION HAS NO STABLE PHASE, AND THIS RANGE IS TWO MONTHS WIDE FOR THE SAME REASON THE NORTH PIER'S IS. Andreas has the south pier 'extended 500 ft in 1835, total 700 ft', so this structure more than trebled during the season this scene sits in the middle of and no state of it lasted a fortnight. What the phase carries is a length INTERPOLATED FOR 1835-07-01, wrong by a growing margin either side of it, and the range is set to the two months around the target rather than to the pier's life. A scene at any other date finds no phase covering it and reports this structure as excluded, which is the correct answer: it stood, and this record does not say how long it was. Adding an 1834 phase and an 1836 phase is the fix and widening this one is not; both are writable from the same two sources and neither is written, because this project's first scene is 1835.\n\nTHE CONTRACTS ARE LET IN THE PLURAL, AND THAT IS WHERE THIS STRUCTURE'S 1834 SEASON IS DOCUMENTED (T-1591). Five readings of the Chicago Democrat name the harbour works as a whole and therefore reach this pier as well as its neighbour: chicago_democrat_1834_03_04#c002 and chicago_democrat_1834_03_18#c013, the two printings of the call for oak timber 'for the Piers of the Chicago Harbor'; chicago_democrat_1834_07_09#c015, one thousand cords of prairie stone 'to be delivered into the Piers of the Harbour, or at such of the Piers as may be designated by the Superintendent of the works'; chicago_democrat_1835_01_21#c001, the engineer's return of the first full season with its one hundred and eighty arrivals; and chicago_democrat_1835_03_25#c002, the $32,800 appropriated by Congress towards completion. Together they say that at the scene date this pier stood inside a federal works that was under contract, unfinished, and newly funded. WHAT IS NOT CLAIMED: not one of the five distinguishes the south pier from the north. The plural and the phrase 'such of the Piers as may be designated' are the whole of the evidence that this structure was in those contracts, and no length, no rate of extension and no share of the thousand cords is apportioned to it here. The stone clause is in fact evidence against precision — the Superintendent chose which pier each load went into, and this corpus does not record his choice."
   },
   "change_note": "The one phase this record carries: the south pier as it stood in the summer of 1835, a timber crib line running east-south-east from the reservation shore on the south side of the cut, roughly four hundred feet long and about to be extended by five hundred more before the season closed. A snapshot of a structure that was longer every month, and the documented_range says so.",
   "placement": {
@@ -123,6 +124,34 @@
         "a citation trail for its own elevation figures — nor for anything else on the page, which carries no references at all",
         "an attribution for the Van Osdel quotation: no publication, no date, no page, which is why this record can declare no `transcribes` — that field's rung is a judgement about a named, dated document and the page names none",
         "any witness for the three thicknesses in the soil profile — the foot of black loam, the three to four feet of quicksand and the eight to twelve feet of blue clay are the 2022 author's alone; Van Osdel gives no loam and no dimension"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
       ]
     },
     {
