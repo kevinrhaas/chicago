@@ -1,5 +1,7 @@
 # Arrival and jaunts — execution plan
 
+Authoring contract: [JAUNTS-AUTHORING.md](JAUNTS-AUTHORING.md) (T-1253).
+
 Owner-directed ticket plan, 17 September 2026, **reviewed and re-cut the same day on the
 owner's second instruction** ("review the queue and the overall project … make these tickets
 very detailed and clear for execution so it all comes together in the end"). Planning is

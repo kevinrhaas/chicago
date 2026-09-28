@@ -164,12 +164,58 @@ RESERVED = {
              where="on the east bank of the South Branch, spanning blocks 87 and 88"),
 }
 
+# THE FOUR NAMED TIERS ARE NAMED BY AN ORDINANCE, NOT BY A MODERN STREET SIGN (T-1587).
+# Wright letters these four on the sheet; what he does not supply is the authority for the
+# 1835 form of the name. Section 2 of the Trustees' by-laws of 7 November 1833, printed in
+# the first issue of the Chicago Democrat — claim `chicago_democrat_1833_11_26#c025` — does:
+# "the first [street] in said town south of Washington-street [shall be] named Madison-
+# street; the second one shall be named Monroe-street; the third one shall be named Adams-
+# street; and the fourth one shall be named Jackson-street." That is the town naming its
+# own four southern tiers, in order, by act, twenty months before the scene date, and it is
+# a tier-1 contemporary document rather than a survey sheet read backwards.
+#
+# IT ALSO CORRECTS ONE OF THE FOUR. `jackson` shipped `name_1835: "Jackson Boulevard"`
+# until this ticket, which is the modern name carried back: the line became a boulevard in
+# the twentieth century and was "Jackson-street" when the corporation named it. The street
+# readout in `renderers/web/js/navigation.js` prints `name_1835` to a visitor standing in
+# the corridor, so the scene was telling him the 1835 name of the street was Jackson
+# BOULEVARD. The unnamed tiers below already refuse exactly this — `name_note` there says
+# "`name_1835` is null rather than a modern name carried back, because the later names of
+# these lines are not evidence about 1835" — and the rule was simply not applied to the one
+# named line whose name had in fact changed. `name_2026` keeps the modern name, where a
+# modern name belongs, and `name_changed` is now DERIVED from the pair rather than pinned
+# false, so this cannot go wrong silently again.
 EW_STREET_IDS = [
     ("madison", "Madison Street", "Madison Street"),
     ("monroe", "Monroe Street", "Monroe Street"),
     ("adams", "Adams Street", "Adams Street"),
-    ("jackson", "Jackson Boulevard", "Jackson Boulevard"),
+    ("jackson", "Jackson Street", "Jackson Boulevard"),
 ]
+
+# The ordinance that names them, stated once. It is evidence about the NAME and about
+# nothing else on these records: the line, the corridor width and the unopened status all
+# still rest on Wright's sheet and on the owner's reading of it.
+EW_NAME_ORDINANCE = "chicago_democrat_1833_11_26"
+EW_NAME_NOTE = (
+    "NAMED BY ORDINANCE, 7 NOVEMBER 1833. Section 2 of the Trustees' by-laws, printed in "
+    "the Chicago Democrat's first issue on 26 November 1833 (page 3, column 5, claim "
+    "chicago_democrat_1833_11_26#c025), names the four tiers south of Washington Street in "
+    "order: Madison, Monroe, Adams, Jackson. This is the %s of the four, so the ordinance "
+    "names THIS line, and it is the authority for the 1835 form of the name — Wright's "
+    "sheet letters the tier and says nothing about what the corporation called it. The "
+    "ordinance is evidence about the NAME ONLY: the line, the 80 ft corridor and the "
+    "unopened status are the sheet's and the owner's reading of it, and nothing here opens "
+    "a street or wears one. %s"
+)
+# What the ordinance does and does not settle, per line. Jackson is the one that moved.
+EW_NAME_NOTE_TAIL = {
+    "jackson": (
+        "AND IT CORRECTS THIS RECORD: `name_1835` read \"Jackson Boulevard\" until T-1587 "
+        "— the modern name carried back onto an 1835 street, which the street readout "
+        "printed to a visitor standing in the corridor. The ordinance prints "
+        "\"Jackson-street\"; the boulevard is a twentieth-century thing and stays in "
+        "`name_2026`."),
+}
 
 # --------------------------------------------------------------------------------------
 # THE NORTH-SOUTH LINES — T-0877. Wright rules fourteen of them across the section and
@@ -418,7 +464,7 @@ def street_records(anchor):
             id=sid,
             name_1835=name_1835,
             name_2026=EW_STREET_IDS[j][2] if named else None,
-            name_changed=False,
+            name_changed=bool(named and EW_STREET_IDS[j][1] != EW_STREET_IDS[j][2]),
             path_local_enu_m=[[round(anchor["west"], 2), round(y, 2)],
                               [round(anchor["east"], 2), round(y, 2)]],
             corridor_width_m=EW_CORRIDOR_M,
@@ -432,7 +478,8 @@ def street_records(anchor):
             geometry_confidence="inferred",
             surface_confidence="inferred",
             wear_confidence="inferred",
-            sources=["wright_1834_nara_hup", "wright_1834"],
+            sources=(["wright_1834_nara_hup", "wright_1834", EW_NAME_ORDINANCE] if named
+                     else ["wright_1834_nara_hup", "wright_1834"]),
             note=(
                 "%s. Read off Wright's 1834 survey as a ruled line of the School Section's grid "
                 "(Section 16, T39N R14E) and anchored on the section's own mile square; the "
@@ -450,6 +497,10 @@ def street_records(anchor):
             ),
         )
         rec["note"] += " " + EW_RUN_NOTE
+        if named:
+            rec["name_note"] = EW_NAME_NOTE % (
+                {0: "first", 1: "second", 2: "third", 3: "fourth"}[j],
+                EW_NAME_NOTE_TAIL.get(sid, ""))
         if not named:
             rec["name_note"] = (
                 "UNNAMED ON THE SHEET. Wright rules the tier and writes no name on it; the four "
@@ -532,7 +583,8 @@ def ns_street_records(anchor):
                 geometry_confidence="inferred",
                 surface_confidence="inferred",
                 wear_confidence="inferred",
-                sources=["wright_1834_nara_hup", "wright_1834"],
+                sources=(["wright_1834_nara_hup", "wright_1834", EW_NAME_ORDINANCE] if named
+                     else ["wright_1834_nara_hup", "wright_1834"]),
                 note=(
                     "%s. Read off Wright's 1834 survey as a ruled line of the School "
                     "Section's grid (Section 16, T39N R14E) and anchored on the section's "

@@ -1353,7 +1353,7 @@ for (const [label, viewport, touch] of [
   page.setDefaultTimeout(90_000);
 
   // A fresh boot stands at the GATE SCREEN, and the part that enters the town
-  // is part 6's "the gate and the chrome" section (part 4's until T-0346). Every part after it that
+  // is part 4 for movement, or part 6 for first-entry chrome. Every later part that
   // measures a page.screenshot frame (those include DOM overlays; the
   // GL-capture checks do not) or clicks the panel chrome (which has no layout
   // at all while the gate stands, so a click waits ninety seconds for a
@@ -4895,7 +4895,20 @@ for (const [label, viewport, touch] of [
         // street edge's own, 86 walk/crossing runs and 31 fence runs, all
         // unchanged. A trade the rule can finally see is still a trade the rule
         // refuses — what changes is that it says so.
-        && frontage.census?.refused === 108
+        // T-1253's full smoke found two already-landed parcels had left this
+        // snapshot at 108. Comparing the authored refusal sets at T-1657
+        // (3424d20f) and dev (face5164) proves +4, with no geometry change here:
+        // T-1640 adds Dearborn lot 6's shed-wall refusal; T-1682 adds Market
+        // lot 6's wall and the two reconstructed C2 trade refusals. Franklin
+        // lot 4's existing wall refusal is renamed, not an additional row.
+        // All walk/crossing/post/fence counts above remain exact and unchanged.
+        // T-1681 (#130) then landed on dev and 112 becomes 115, measured by
+        // diffing the authored refusal sets at ef20f58e and d3260907: the three
+        // re-familied Lake Street units recon_1835_blk_lake_clark_c1_01, _c2_02 and
+        // _c3_03 each gain a clause-3 refusal (the trade is reconstructed), and
+        // lot 0's existing 0.80 m wall refusal is renamed from _d5_03 to _c3_03,
+        // not added. No walk, crossing, post or fence count moves.
+        && frontage.census?.refused === 115
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -7938,6 +7951,9 @@ for (const [label, viewport, touch] of [
     // measuring the Sauganash and measuring the prairie.
     if (stageOn(4)) {
     inStageWork = true;
+    // The welcome deliberately disables every movement backend. Exercise
+    // walking after entry, exactly as a visitor does, not behind the menu.
+    await enterTown();
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
 
     // --- a raycast pick down the crosshair, not just by id ----------------
@@ -8483,7 +8499,7 @@ for (const [label, viewport, touch] of [
     //
     // It inherits NO POSE. `order` below teleports to each stand itself and
     // finishes at the reference frame on purpose, so the cut needed no re-framing
-    // here and no `enterTown()`: the town is not entered until part 6. The one
+    // here and no `enterTown()`: this part only reads the renderer. The one
     // binding that did cross this boundary was the draw-call ceiling, read again
     // below rather than borrowed from part 4's `stats`.
     if (stageOn(5)) {
@@ -8892,8 +8908,7 @@ for (const [label, viewport, touch] of [
     inStageWork = false;
     } // end PART 5 (the scene-detail ladder, cut out of part 4 by T-0346)
     // PART 6 — the gate, the chrome and the confidence menu's own clicks: the
-    // tail of what was part 4, and the point at which an unfiltered pass ENTERS
-    // THE TOWN. It stands alone because the sweep above it had to, and it is the
+    // tail of what was part 4, and the fresh first-entry UI check. It stands alone because the sweep above it had to, and it is the
     // right side of the boundary to have been left on: every check in it is a
     // real click on the HUD, and none of them shares a reading with the budgets
     // or the ladder. Measured at about 1 m 55 s under load on 2026-08-30, the
@@ -8902,6 +8917,13 @@ for (const [label, viewport, touch] of [
     inStageWork = true;
 
     // --- the gate and the chrome -------------------------------------------
+    // Part 4 now enters before testing movement. A combined/unfiltered run
+    // needs a fresh first visit here to retain the first-entry guide checks.
+    if (await page.evaluate(() => window.__chicago4d.welcome?.state === 'world')) {
+      await page.evaluate(() => localStorage.removeItem('chicago4d.controlHelpDismissed'));
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    }
     await page.click('#gate-btn');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.

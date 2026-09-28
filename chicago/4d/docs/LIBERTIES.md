@@ -15591,3 +15591,16 @@ its archetype puts it), **L168** (the cat-and-clay fabric this one declines),
 `docs/RESEARCH/chimneys.md` §2 and § the ordinance, **L278** (the same shape of move for
 F1's cargo openings), this ticket **T-1680** and its parent **T-1201**.
 **Recorded:** 2026-09-27.
+
+
+### L-jaunt-pilot — A visitor’s imagined first day and route-note keepsake
+
+**Decision:** New in Chicago links five existing exterior destinations in an invented first-day outing. Its optional rest/explore preference, narrative ending and Finding Your Feet memento are reconstructed, as are the fixtures’ money and receipt. No named person speaks, no vacancy, price or transaction is attested, no interior is opened, and no precise historical front door is claimed. The source-backed facts are separate evidence claims; Hogan’s mail corner and the Democrat corner retain their former-tenancy dates. Brown’s position remains reconstructed. Reading/action seconds are authoring inputs, not measured route durations.
+
+**Bounds:** The approved July 1, 1835 scene, the existing structure records, and brief 03 of JAUNTS-INITIAL-LIBRARY.md. The five-stop route and keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation.
+
+**Applies to:** `data/jaunts/new-in-chicago.json` and test-only `data/jaunts/_fixtures/`.
+
+**Recorded:** 2026-09-27 (T-1253).
