@@ -15645,13 +15645,13 @@ footprint the committed tree places. Measured:
 | `newberry_dole_packing_house_south_branch` | 0.442–0.698 m | 0.256 m | clear | 5.20 m (the plant) |
 | `newberry_dole_salt_house_south_branch` | 0.583–0.710 m | 0.127 m | clear | none within 14 m |
 | `newberry_dole_stock_shed_south_branch` | 0.465–0.695 m | 0.230 m | clear | none within 14 m |
-| `miller_tanyard_bark_shed` | 1.129–1.130 m | 0.001 m | clear | 5.20 m (the tannery) |
+| `miller_tanyard_bark_shed` | 1.141–1.145 m | 0.004 m | clear | 2.00 m (the drying shed) |
 | `miller_tanyard_drying_shed` | 1.138–1.140 m | 0.002 m | clear | 5.20 m (the tannery) |
 | `elston_ash_house` | 1.116–1.121 m | 0.005 m | clear | 5.20 m (the works) |
 
 **What is invented:** all six buildings, that any of them stood on 1835-07-01, their seats, their
 sizes, their eaves, their roofs, their pitches, their constructions, their paint, their openings,
-the sides those openings are on, the drying shed's 50 mm board gap, and the yards between them.
+the sides those openings are on, the drying shed's 50 mm board gap, and the yards between them. The bark shed stands at the EAST end of the tanyard's back row rather than the west, and that is an instrument's doing rather than a reading's: the west seat fell 67.86 m from its nearest corridor, inside the empty 60.79-74.65 m band `FRONTAGE_REACH_M` is the midpoint of, and an invented shed is not a reason to move a committed constant. `tools/measure_frontage_fabric.py`'s self-test is what says so.
 The SIZES are their families' own bands from `data/reconstruction/1835_building_inventory.json` —
 W3 for the packing house, A1 for the stock shed, A4 for the salt and bark sheds, A5 for the drying
 shed and the ash house — which bounds the invention without evidencing it.

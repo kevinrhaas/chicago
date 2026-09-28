@@ -91,6 +91,12 @@
       "value": "small_utility_building",
       "confidence": "reconstructed",
       "note": "The closed vocabulary has no `ash house`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the trade. A soap and candle manufactory runs on tallow and on lye, and lye is leached from wood ash; the works' own footprint note has the leach inside the main shed and says nothing about where the ash was kept. Nothing states that this building existed. No occupant is claimed."
+    },
+    "stands_on_lot": {
+      "value": "lot 4, north division tier",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 96% on lot 4 of blk_kinzie_north_branch in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
     }
   },
   "residents": [],

@@ -24,9 +24,9 @@
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
-     "n": 15,
+     "n": 16,
      "trade": 9,
-     "share": 0.6
+     "share": 0.5625
     },
     "ordinary": {
      "n": 25,
@@ -468,7 +468,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.57,
+   "frontage_weight": 0.5606,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1

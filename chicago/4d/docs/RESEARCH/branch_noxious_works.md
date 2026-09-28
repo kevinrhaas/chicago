@@ -65,14 +65,25 @@ grid north). Dry means above the committed water surface of
 | `newberry_dole_packing_house_south_branch` | W3 | 270 | E 72.5000 / N -277.0960 | E 63.97–72.50, N -277.10 to -271.00 | 0.442–0.698 m | 0.256 m | clear | 5.20 m (the plant) |
 | `newberry_dole_salt_house_south_branch` | A4 | 270 | E 72.5000 / N -284.7344 | E 67.62–72.50, N -284.73 to -282.30 | 0.583–0.710 m | 0.127 m | clear | none within 14 m |
 | `newberry_dole_stock_shed_south_branch` | A1 | 270 | E 72.5000 / N -295.4208 | E 64.58–72.50, N -295.42 to -289.93 | 0.465–0.695 m | 0.230 m | clear | none within 14 m |
-| `miller_tanyard_bark_shed` | A4 | 180 | E 7.0000 / N 88.0768 | E 4.56–7.00, N 83.20–88.08 | 1.129–1.130 m | 0.001 m | clear | 5.20 m (the tannery) |
+| `miller_tanyard_bark_shed` | A4 | 180 | E 20.8768 / N 88.0768 | E 18.44–20.88, N 83.20–88.08 | 1.141–1.145 m | 0.004 m | clear | 2.00 m (the drying shed) |
 | `miller_tanyard_drying_shed` | A5 | 180 | E 16.4384 / N 87.4672 | E 14.00–16.44, N 83.20–87.47 | 1.138–1.140 m | 0.002 m | clear | 5.20 m (the tannery) |
 | `elston_ash_house` | A5 | 270 | E -3.2328 / N 187.9808 | E -7.50 to -3.23, N 187.98–190.42 | 1.116–1.121 m | 0.005 m | clear | 5.20 m (the works) |
 
-The tanyard's two sheds stand on ONE front-wall line, local N 83.200, with the bark shed's east
-wall on the tannery's west wall line (E 7.000) and the drying shed's west wall on the tannery's
-east wall line (E 14.000) — so the three buildings frame the yard rather than scattering behind
-one of them.
+The tanyard's two sheds stand on ONE front-wall line, local N 83.200: the drying shed's west wall
+on the tannery's own east wall line (E 14.000), and the bark shed 2.00 m beyond it (E 18.438 to
+E 20.877), so the pair reads as one back row.
+
+**The bark shed was first drawn at the WEST end of that yard and had to move**, and the reason is
+an instrument rather than a reading. At the west seat it stood **67.86 m** from the corridor it is
+nearest — inside the empty band `FRONTAGE_REACH_M` is cut from. `tools/measure_frontage_fabric.py`
+finds the body of the distance distribution continuous to 60.79 m and the next building anywhere at
+74.65 m, and commits the midpoint of that 13.86 m gap (67.72 m) as the reach beyond which a
+building fronts no street at all. A shed dropped into the middle of that gap does not break the
+town; it breaks the instrument, by making the reach's own justification a 7.07 m band. Its
+self-test caught it. **An invented building is not a reason to move a committed constant**, so the
+building moved: at the east seat it stands 53.98 m out, inside the body where 388 others stand, and
+the band and the reach are exactly what they were. The cost, stated: the two sheds no longer frame
+the yard from its two ends; they stand as a pair, and the yard is open to the west.
 
 ## What was refused, and why
 

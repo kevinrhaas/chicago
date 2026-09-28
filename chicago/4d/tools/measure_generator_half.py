@@ -200,13 +200,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules would re-stale; the terrain
 # and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
+# 423 -> 429 and 421 -> 427 on 2026-09-28 (T-1709): the six works buildings the four documented
+# noxious trades imply - the packing house, salt house and stock shed of the South Branch plant,
+# the bark and drying sheds of Miller and Hall's tanyard, and Elston's ash house. Six new
+# structure assets, so six more meshes a change to the shared generator modules or to build.py
+# would re-stale; the terrain and pier_crib reaches stay at 2 each. All six are outbuildings on
+# branch frontage no parcel line draws, so nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 423,
+    "assets": 429,
     "restales": {
-        "generators/common/*.py": 423,
+        "generators/common/*.py": 429,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 421,
+        "generators/emit.py": 427,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

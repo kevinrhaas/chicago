@@ -90,6 +90,22 @@
     "confidence": "reconstructed",
     "note": "The closed vocabulary has no `ash house`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the trade. A soap and candle manufactory runs on tallow and on lye, and lye is leached from wood ash; the works' own footprint note has the leach inside the main shed and says nothing about where the ash was kept. Nothing states that this building existed. No occupant is claimed."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_north_branch",
+    "lot_index": 1,
+    "lot_number": 4,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 0.956,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 96% on lot 4 of blk_kinzie_north_branch in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
   "research_note": "A RECONSTRUCTED YARD BUILDING AT THE TOWN'S FIRST NEWSPAPER-ATTESTED FACTORY - T-1709, of T-1203. WHAT IS HELD: the Chicago Democrat of 26 November 1833, which attests the business and explicitly supplies nothing about any building's dimensions, form or plan. WHAT IS INVENTED: this building, its seat, its size and every attribute of it - and the works it stands behind is itself placed by argument rather than by evidence, so this is the shakiest ground in the band and says so. WHAT WOULD UPGRADE IT: an address for Elston & Co. in any printing of 1833-1835. Built under the owner's standing ruling of 2026-08-18. Links: T-1709 - T-1203 - T-1640 - docs/RESEARCH/branch_noxious_works.md - docs/LIBERTIES.md L283.",
   "review_required": false
 }

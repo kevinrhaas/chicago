@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 410,
-    "standing_after": 410,
-    "short_of_the_programme_before": 258,
-    "short_of_the_programme_after": 258
+    "standing_before": 416,
+    "standing_after": 416,
+    "short_of_the_programme_before": 252,
+    "short_of_the_programme_after": 252
   },
   "ledger": [
     {
@@ -45,11 +45,11 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 16,
+      "standing": 17,
       "anonymous": 15,
-      "head_before": 19,
-      "standing_after": 16,
-      "head_after": 19
+      "head_before": 18,
+      "standing_after": 17,
+      "head_after": 18
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -232,11 +232,11 @@
       "group": "small_outbuildings",
       "division": "south",
       "target": 48,
-      "standing": 23,
+      "standing": 24,
       "anonymous": 23,
-      "head_before": 25,
-      "standing_after": 23,
-      "head_after": 25
+      "head_before": 24,
+      "standing_after": 24,
+      "head_after": 24
     },
     {
       "bucket": "structures/small_outbuildings/west",
@@ -254,11 +254,11 @@
       "group": "small_outbuildings",
       "division": "north",
       "target": 20,
-      "standing": 9,
+      "standing": 12,
       "anonymous": 9,
-      "head_before": 11,
-      "standing_after": 9,
-      "head_after": 11
+      "head_before": 8,
+      "standing_after": 12,
+      "head_after": 8
     },
     {
       "bucket": "structures/small_outbuildings/fort",
@@ -353,11 +353,11 @@
       "group": "workshops",
       "division": "south",
       "target": 15,
-      "standing": 10,
+      "standing": 11,
       "anonymous": 8,
-      "head_before": 5,
-      "standing_after": 10,
-      "head_after": 5
+      "head_before": 4,
+      "standing_after": 11,
+      "head_after": 4
     },
     {
       "bucket": "structures/workshops/west",
