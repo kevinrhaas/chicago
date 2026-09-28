@@ -877,6 +877,9 @@ def self_test() -> int:
                    f"{band['midpoint_m']:.2f} m vs committed {FRONTAGE_REACH_M:.2f} m"))
 
     # and the census carries the absence rather than dropping the record.
+    # 37 -> 38 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters` was raised beside
+    # the 1832 light tower on the same unplatted reservation, where no street crossed the
+    # ground in 1835 either, so it fronts no street and is reported here rather than dropped.
     # 35 -> 37 on 2026-09-28 (T-1712): `beaubien_new_residence` and `beaubien_trading_post`
     # were raised in the Beaubien homestead group on the unplatted military reservation, where
     # no street crossed the ground in 1835, so both front no street and both are reported here
@@ -884,7 +887,7 @@ def self_test() -> int:
     # quietly missing from this census — so it moves when a streetless building is built.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 37 and all(
+                   "leaving it out", len(absent) == 38 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))
