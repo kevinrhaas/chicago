@@ -71,6 +71,14 @@ HOW A LOT LINE IS TOLD FROM INK. Four tests, all stated in the constants below:
      numeral written across a line breaks it: block 17's north face loses its fourth rule
      under the `17`, and the south face carries it. So the two faces are UNIONED and the
      union is graded -- `clear` where both faces rule it, `one_face` where one does.
+AND THE ALLEY IS A CORRIDOR, NOT A LINE. Every divided cell is ruled TWICE across its
+middle, with paper between the two strokes, and five of the eight give both kerbs cleanly:
+6.6 px apart, sd 0.8. Measured in the registered frame and scaled by the ratio the same
+method reads a PLATTED 80 ft Original Town corridor at -- `control_summary.method_over_read`,
+1.024, the correction every one of this plat's street corridors already carries -- that is
+14.8 ft, graded `inferred`. The sheet dimensions no alley in the Addition; this is what it
+draws, measured the only way the sheet can settle.
+
 And one test on the result: the lots a cell's rules cut must be even, max over min no
 worse than 1.6. The five lotted cells come in at 1.28 to 1.47; block 9's west-end rules
 fail at 4.9 and block 11's lettering at 8.3, and both cells are refused.
@@ -115,6 +123,8 @@ RULE_MIN = 0.70
 ALLEY_MIN = 0.60
 # The alley corridor is the band of rows around that peak still this dark.
 ALLEY_BAND = 0.45
+# Two dark rows this close are one stroke of the pen, not two kerbs.
+ALLEY_MERGE_PX = 2
 # Two candidates this close are one line; two faces' lines this close are the same rule.
 MERGE_PX = 4.0
 # A candidate this close to the cell's own boundary is the boundary.
@@ -216,11 +226,23 @@ def read_cell(arr, ew, ns, north, south, west, east):
     h = dark.shape[0]
 
     rows = dark.mean(axis=1)
-    lo, hi = int(h * 0.35), int(h * 0.65)
+    lo, hi = int(h * 0.30), int(h * 0.70)
     k = int(np.argmax(rows[lo:hi])) + lo
     alley_peak = float(rows[k])
     alley = None
     if alley_peak >= ALLEY_MIN:
+        # The alley is drawn as a CORRIDOR and not a line: two ruled kerbs with paper
+        # between them. Take every row in the middle band dark enough to be a rule,
+        # merge the ones that are one stroke, and the two groups are the two kerbs.
+        hits = [i for i in range(lo, hi)
+                if rows[i] >= ALLEY_MIN and rows[i] >= rows[i - 1] and rows[i] >= rows[i + 1]]
+        runs = []
+        for i in hits:
+            if runs and i - runs[-1][-1] <= ALLEY_MERGE_PX:
+                runs[-1].append(i)
+            else:
+                runs.append([i])
+        kerbs = [float(np.mean(r)) for r in runs]
         a, b = k, k
         while a > 0 and rows[a - 1] >= ALLEY_BAND:
             a -= 1
@@ -228,8 +250,13 @@ def read_cell(arr, ew, ns, north, south, west, east):
             b += 1
         alley = {"centre_px_y": round(a + top + (b - a) / 2, 1),
                  "band_px_y": [round(a + top, 1), round(b + top, 1)],
-                 "width_px": round(float(b - a + 1), 1),
-                 "dark_fraction": round(alley_peak, 3)}
+                 "ink_band_px": round(float(b - a + 1), 1),
+                 "dark_fraction": round(alley_peak, 3),
+                 "kerbs_px_y": [round(c + top, 1) for c in kerbs],
+                 "kerb_to_kerb_px": (round(kerbs[-1] - kerbs[0], 1)
+                                     if len(kerbs) == 2 else None),
+                 "read": ("two ruled kerbs" if len(kerbs) == 2 else
+                          f"{len(kerbs)} rule(s) — the corridor is not read here")}
 
     wb, wf, wk = _boundary(dark, x0, left)
     eb, ef, ek = _boundary(dark, x1, left)
@@ -341,6 +368,39 @@ def build():
                 entry["evenness"] = even
             cells.append(entry)
 
+    # THE ALLEY, measured the way T-1060 measured the street corridors on this sheet:
+    # kerb rule to kerb rule, and then divided by the ratio the same method reads a
+    # PLATTED 80 ft Original Town corridor at. A raw pixel width off a hand-drawn line
+    # is wider than the thing it draws, and the sheet can only settle the comparison.
+    seps = [(c["block_id"], c["alley"]["kerb_to_kerb_px"], c["cell_box_px"])
+            for c in cells if c["alley"] and c["alley"]["kerb_to_kerb_px"]]
+    alley = None
+    if seps:
+        widths = []
+        for _, sep, box in seps:
+            y_mid = (box[1] + box[3]) / 2
+            widths.append(_metres(0.0, sep, y_mid))
+        over = grid_doc["control_summary"]["method_over_read"]
+        read_ft = float(np.mean(widths)) / 0.3048
+        alley = {
+            "kerb_to_kerb_px": {"mean": round(float(np.mean([s[1] for s in seps])), 2),
+                                "sd": round(float(np.std([s[1] for s in seps])), 2),
+                                "n": len(seps),
+                                "cells": [s[0] for s in seps]},
+            "read_ft": round(read_ft, 1),
+            "method_over_read": over,
+            "alley_ft": round(read_ft / over, 1),
+            "alley_m": round(read_ft / over * 0.3048, 2),
+            "confidence": "inferred",
+            "note": ("the Addition's alley is not dimensioned on the sheet. This is the "
+                     "corridor its two ruled kerbs leave, measured in the frame the "
+                     "registration fixes and scaled by `control_summary.method_over_read` "
+                     "— the same correction the street corridors carry, for the same "
+                     "reason and off the same three Original Town corridors."),
+            "cells_that_do_not_read": [c["block_id"] for c in cells
+                                       if c["alley"] and not c["alley"]["kerb_to_kerb_px"]],
+        }
+
     lotted = [c for c in cells if c["verdict"] == "lotted"]
     per_face = sorted({c["lots_per_face"] for c in lotted})
     fronts = [c["lot_frontage_ft"] for c in lotted]
@@ -382,6 +442,7 @@ def build():
             "tiers_with_an_alley": sorted({c["bounded_by"]["north"] for c in cells
                                            if c["alley"]}),
         },
+        "alley": alley,
         "the_finding": (
             "The Addition has no single lot module and that is the reading. Nineteen of "
             "the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and "
@@ -480,6 +541,12 @@ def self_test():
     want("no undivided cell carries a rule",
          all(not c["rules_px_x"] for c in doc["cells"] if c["verdict"] == "undivided"),
          "a whole cell carries a lot rule")
+    want("the alley reads as a corridor on five cells",
+         doc["alley"] and doc["alley"]["kerb_to_kerb_px"]["n"] == 5,
+         doc["alley"] and doc["alley"]["kerb_to_kerb_px"]["n"])
+    want("the alley is an alley and not a street",
+         doc["alley"] and 10.0 <= doc["alley"]["alley_ft"] <= 25.0,
+         doc["alley"] and doc["alley"]["alley_ft"])
     want("every cell's boundaries were read as rules and not taken from the kerb",
          all(c["boundary_read"]["west"] == "ruled" and c["boundary_read"]["east"] == "ruled"
              for c in doc["cells"] if c["verdict"] == "lotted"),
@@ -488,7 +555,7 @@ def self_test():
         for f in fails:
             print(f"self-test FAILED — {f}", file=sys.stderr)
         return 1
-    print("self-test: 9/9 assertions hold")
+    print("self-test: 11/11 assertions hold")
     return 0
 
 
