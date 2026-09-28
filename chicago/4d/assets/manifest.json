@@ -3850,6 +3850,22 @@
       "terrain_epoch": "e1834_harbor_cut",
       "triangles": 1110643
     },
+    "terrain__e1871_postfire.glb": {
+      "baked_ao": false,
+      "bytes": 1970604,
+      "generator": "generators/terrain_gen_graded.py",
+      "inputs_sha256": "1cd64046f3674da1f913fa064f2906dc0bbaefee468a4a803a817bfd404573a0",
+      "kind": "generated",
+      "layer": "ground",
+      "mesh_vs_heightfield": {
+        "max_m": 0.002,
+        "misses": 0,
+        "rms_m": 0.00025,
+        "samples": 11374
+      },
+      "terrain_epoch": "e1871_postfire",
+      "triangles": 98053
+    },
     "thomas_church_store__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -3885,6 +3901,16 @@
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
+      "triangles": 2
+    },
+    "water__e1871_postfire.glb": {
+      "baked_ao": false,
+      "bytes": 1372,
+      "generator": "generators/terrain_gen_graded.py",
+      "inputs_sha256": "1cd64046f3674da1f913fa064f2906dc0bbaefee468a4a803a817bfd404573a0",
+      "kind": "generated",
+      "layer": "water",
+      "terrain_epoch": "e1871_postfire",
       "triangles": 2
     },
     "watkins_school_house__house_1833.glb": {

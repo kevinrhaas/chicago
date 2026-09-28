@@ -422,6 +422,18 @@ GROUND_GROUPS = [
     ("approaches", "the bridge approaches"),
     ("micro_relief", "the surface texture"),
     ("surface_materials", "what the ground is made of"),
+    # The graded ground (e1871_postfire, T-1738): a zone table of street crowns and a
+    # traced waterline rather than a natural shore and three divisions. Distinct
+    # names, so an 1835 block and a 1904 one are never held to each other's reads.
+    ("lake_surface", "the lake surface"),
+    ("street_crowns", "the street crowns"),
+    ("graded_ground", "the graded lots"),
+    ("fill", "the fill over the 1835 ground"),
+    ("earthworks", "the railroad embankment"),
+    ("made_ground", "the made ground beside the tracks"),
+    ("lake_shelf", "the lake bed"),
+    ("original_surface", "where the 1835 ground still shows"),
+    ("surface_texture", "the surface texture"),
 ]
 
 
