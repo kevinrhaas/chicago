@@ -1,3 +1,22 @@
+## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
+
+Nothing a visitor sees changed; this is the ground the 1904 scene (T-1252) will stand on.
+Sanborn 1911 vol. 3 sheets 20, 28 and 35 and Robinson 1886 plate 10 each have a source record
+and a GCP file in `data/traces/gcp/` (`sanborn_1911_v3_sheet_{20,28,35}_gcps.json`,
+`robinson_1886_plate_10_gcps.json`), written by `tools/georef_prairie_1904.py` and re-derived by
+`check.sh`. The fits are similarities at each sheet's printed scale — RMS 2.46, 0.34, 0.05 and
+4.54 m — because the free affine (printed beside each) reads a displaced modern Indiana Avenue and
+a widened Cermak Road as paper stretch. Sheet 28, the Glessner House sheet, lands three standing
+houses within 1.47 m RMS of their OpenStreetMap outlines without having been fitted to them.
+
+`tools/trace_ic_edge_1904.py` traces the Illinois Central lake edge: the 1911 edge stands 17–20 m
+east of the 1886 one where both are drawn, so both sheets are bounds and the scene's waterline is
+reconstructed on the eastern bound (L287), with its six segments saying what stands in where no
+1911 sheet draws the edge. The 1852-trestle sentence is ruled against a CPL source. What is not
+verified: the stretch south of 19th Street (no sheet held draws it), and any height — T-1251/T-1252.
+Detail: `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7.
+
+
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 
 Jaunt cards and the persistent controls offer Walk, Wagon, Horse, Fly and Instantly.

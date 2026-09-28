@@ -1,0 +1,500 @@
+{
+ "_doc": "AUTHORED from a fetched extract. Modern control for georeferencing the Prairie Avenue sheets (tools/georef_prairie_1904.py, T-1250): the present-day street crossings that the Sanborn 1911 sheets and the Robinson 1886 plate also draw, and the outlines of three houses that stand on both, which the georeference is CHECKED against and never fitted to. A modern crossing is a control only for the component of it that is still where the sheets draw it -- tools/georef_prairie_1904.py says, crossing by crossing, which component that is and why.",
+ "id": "prairie_1904_control",
+ "ticket": "T-1250",
+ "read_by": "tools/georef_prairie_1904.py",
+ "method": "The street-crossing rule is data/traces/street_control.json section node_rule, unchanged (the same rule data/traces/south_anchor_control.json used for these same Prairie Avenue crossings under T-0467): the nodes SHARED by the two named surface roadways at the crossing, averaged, reprojected to EPSG:26916 with pyproj, and carried into the local frame by subtracting the datum origin (data/datum.json origin_utm_e 447072.7, origin_utm_n 4637395.8). Cycleways, footways, service ways, paths and platforms are excluded. Building outlines are the way's own nodes, reprojected the same way.",
+ "fetched": "2026-09-28",
+ "fetched_from": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.6290,41.8500,-87.6140,41.8620 (the OSM editing API's bounding-box read). The Overpass API, which every earlier control file used, answered 406 and then reset the connection from this runner on 2026-09-28; the editing API returns the same objects with their versions, so the ids and versions below re-identify every node exactly.",
+ "rights": "OpenStreetMap contributors, ODbL 1.0 -- see data/sources/osm_streets_2026.json.",
+ "sources": [
+  "osm_streets_2026"
+ ],
+ "crosscheck_with_south_anchor_control": "prairie_16th, prairie_18th and prairie_cermak resolve to the same node ids and the same local coordinates as data/traces/south_anchor_control.json, fetched eleven days earlier.",
+ "crossings": {
+  "prairie_16th": {
+   "streets": [
+    "East 16th Street",
+    "South Prairie Avenue"
+   ],
+   "osm_node_ids": [
+    261331671
+   ],
+   "node_versions": [
+    {
+     "id": 261331671,
+     "version": 5,
+     "timestamp": "2010-04-24T06:34:22Z"
+    }
+   ],
+   "nodes_averaged": 1,
+   "lat": 41.8602479,
+   "lon": -87.6208621,
+   "utm_e": 448469.21,
+   "utm_n": 4634446.21,
+   "local_e": 1396.51,
+   "local_n": -2949.59,
+   "node_spread_m": 0.0
+  },
+  "prairie_18th": {
+   "streets": [
+    "East 18th Street",
+    "South Prairie Avenue"
+   ],
+   "osm_node_ids": [
+    261185721
+   ],
+   "node_versions": [
+    {
+     "id": 261185721,
+     "version": 8,
+     "timestamp": "2025-04-07T19:09:01Z"
+    }
+   ],
+   "nodes_averaged": 1,
+   "lat": 41.8579305,
+   "lon": -87.6207753,
+   "utm_e": 448474.56,
+   "utm_n": 4634188.87,
+   "local_e": 1401.86,
+   "local_n": -3206.93,
+   "node_spread_m": 0.0
+  },
+  "prairie_21st": {
+   "streets": [
+    "East 21st Street",
+    "South Prairie Avenue"
+   ],
+   "osm_node_ids": [
+    261137776
+   ],
+   "node_versions": [
+    {
+     "id": 261137776,
+     "version": 6,
+     "timestamp": "2019-02-22T18:59:25Z"
+    }
+   ],
+   "nodes_averaged": 1,
+   "lat": 41.8543275,
+   "lon": -87.620692,
+   "utm_e": 448478.58,
+   "utm_n": 4633788.79,
+   "local_e": 1405.88,
+   "local_n": -3607.01,
+   "node_spread_m": 0.0
+  },
+  "prairie_cermak": {
+   "streets": [
+    "East Cermak Road",
+    "South Prairie Avenue"
+   ],
+   "osm_node_ids": [
+    258018929,
+    258019306
+   ],
+   "node_versions": [
+    {
+     "id": 258018929,
+     "version": 16,
+     "timestamp": "2021-08-19T05:04:16Z"
+    },
+    {
+     "id": 258019306,
+     "version": 10,
+     "timestamp": "2021-08-19T05:04:16Z"
+    }
+   ],
+   "nodes_averaged": 2,
+   "lat": 41.8529058,
+   "lon": -87.620664,
+   "utm_e": 448479.76,
+   "utm_n": 4633630.93,
+   "local_e": 1407.06,
+   "local_n": -3764.87,
+   "node_spread_m": 16.13
+  },
+  "indiana_16th": {
+   "streets": [
+    "East 16th Street",
+    "South Indiana Avenue"
+   ],
+   "osm_node_ids": [
+    261214254,
+    2565208707
+   ],
+   "node_versions": [
+    {
+     "id": 261214254,
+     "version": 11,
+     "timestamp": "2017-02-07T10:11:24Z"
+    },
+    {
+     "id": 2565208707,
+     "version": 3,
+     "timestamp": "2017-02-07T10:11:25Z"
+    }
+   ],
+   "nodes_averaged": 2,
+   "lat": 41.8602765,
+   "lon": -87.6223902,
+   "utm_e": 448342.4,
+   "utm_n": 4634450.31,
+   "local_e": 1269.7,
+   "local_n": -2945.49,
+   "node_spread_m": 13.15
+  },
+  "indiana_18th": {
+   "streets": [
+    "East 18th Street",
+    "South Indiana Avenue"
+   ],
+   "osm_node_ids": [
+    253960263,
+    2565208705
+   ],
+   "node_versions": [
+    {
+     "id": 253960263,
+     "version": 8,
+     "timestamp": "2018-09-17T17:04:06Z"
+    },
+    {
+     "id": 2565208705,
+     "version": 4,
+     "timestamp": "2019-04-15T01:30:53Z"
+    }
+   ],
+   "nodes_averaged": 2,
+   "lat": 41.8579079,
+   "lon": -87.6223346,
+   "utm_e": 448345.11,
+   "utm_n": 4634187.3,
+   "local_e": 1272.41,
+   "local_n": -3208.5,
+   "node_spread_m": 12.44
+  },
+  "indiana_21st": {
+   "streets": [
+    "East 21st Street",
+    "South Indiana Avenue"
+   ],
+   "osm_node_ids": [
+    261137775,
+    2565208699
+   ],
+   "node_versions": [
+    {
+     "id": 261137775,
+     "version": 7,
+     "timestamp": "2019-02-22T18:59:25Z"
+    },
+    {
+     "id": 2565208699,
+     "version": 2,
+     "timestamp": "2019-02-22T18:59:25Z"
+    }
+   ],
+   "nodes_averaged": 2,
+   "lat": 41.8543063,
+   "lon": -87.6222527,
+   "utm_e": 448349.01,
+   "utm_n": 4633787.37,
+   "local_e": 1276.31,
+   "local_n": -3608.43,
+   "node_spread_m": 13.02
+  },
+  "indiana_cermak": {
+   "streets": [
+    "East Cermak Road",
+    "South Indiana Avenue"
+   ],
+   "osm_node_ids": [
+    33412599,
+    258019305
+   ],
+   "node_versions": [
+    {
+     "id": 33412599,
+     "version": 18,
+     "timestamp": "2017-01-17T06:03:13Z"
+    },
+    {
+     "id": 258019305,
+     "version": 11,
+     "timestamp": "2020-02-04T20:19:46Z"
+    }
+   ],
+   "nodes_averaged": 2,
+   "lat": 41.8528814,
+   "lon": -87.6222314,
+   "utm_e": 448349.64,
+   "utm_n": 4633629.16,
+   "local_e": 1276.94,
+   "local_n": -3766.64,
+   "node_spread_m": 15.24
+  },
+  "calumet_18th": {
+   "streets": [
+    "East 18th Street",
+    "South Calumet Avenue"
+   ],
+   "osm_node_ids": [
+    261127072
+   ],
+   "node_versions": [
+    {
+     "id": 261127072,
+     "version": 6,
+     "timestamp": "2010-04-24T03:38:47Z"
+    }
+   ],
+   "nodes_averaged": 1,
+   "lat": 41.8578968,
+   "lon": -87.6196715,
+   "utm_e": 448566.15,
+   "utm_n": 4634184.47,
+   "local_e": 1493.45,
+   "local_n": -3211.33,
+   "node_spread_m": 0.0
+  },
+  "calumet_21st": {
+   "streets": [
+    "East 21st Street",
+    "South Calumet Avenue"
+   ],
+   "osm_node_ids": [
+    6138071863
+   ],
+   "node_versions": [
+    {
+     "id": 6138071863,
+     "version": 2,
+     "timestamp": "2019-02-22T18:59:25Z"
+    }
+   ],
+   "nodes_averaged": 1,
+   "lat": 41.8543495,
+   "lon": -87.6190765,
+   "utm_e": 448612.69,
+   "utm_n": 4633790.26,
+   "local_e": 1539.99,
+   "local_n": -3605.54,
+   "node_spread_m": 0.0
+  },
+  "calumet_cermak": {
+   "streets": [
+    "East Cermak Road",
+    "South Calumet Avenue"
+   ],
+   "osm_node_ids": [
+    258018933,
+    258019309,
+    287273328
+   ],
+   "node_versions": [
+    {
+     "id": 258018933,
+     "version": 11,
+     "timestamp": "2010-04-24T06:43:14Z"
+    },
+    {
+     "id": 258019309,
+     "version": 8,
+     "timestamp": "2023-03-12T14:01:22Z"
+    },
+    {
+     "id": 287273328,
+     "version": 5,
+     "timestamp": "2026-01-16T21:56:30Z"
+    }
+   ],
+   "nodes_averaged": 3,
+   "lat": 41.852781,
+   "lon": -87.6191405,
+   "utm_e": 448606.13,
+   "utm_n": 4633616.15,
+   "local_e": 1533.43,
+   "local_n": -3779.65,
+   "node_spread_m": 43.96
+  }
+ },
+ "check_buildings": {
+  "glessner_house": {
+   "label": "1800 S. Prairie Avenue (John J. Glessner House; the way is the outer ring of multipolygon relation 2031807, \"Glessner House Museum\")",
+   "osm_way_id": 150749383,
+   "way_version": 4,
+   "way_timestamp": "2017-04-22T15:27:55Z",
+   "ring_local": [
+    [
+     1339.42,
+     -3218.98
+    ],
+    [
+     1389.36,
+     -3218.52
+    ],
+    [
+     1389.68,
+     -3240.99
+    ],
+    [
+     1339.66,
+     -3241.11
+    ],
+    [
+     1339.42,
+     -3218.98
+    ]
+   ]
+  },
+  "kimball_house": {
+   "label": "1801 S. Prairie Avenue (William W. Kimball House)",
+   "osm_way_id": 210542581,
+   "way_version": 5,
+   "way_timestamp": "2024-08-23T11:25:19Z",
+   "ring_local": [
+    [
+     1417.75,
+     -3223.75
+    ],
+    [
+     1419.27,
+     -3223.77
+    ],
+    [
+     1419.36,
+     -3218.28
+    ],
+    [
+     1458.21,
+     -3218.29
+    ],
+    [
+     1458.25,
+     -3243.36
+    ],
+    [
+     1449.29,
+     -3243.44
+    ],
+    [
+     1449.28,
+     -3224.08
+    ],
+    [
+     1445.32,
+     -3224.02
+    ],
+    [
+     1445.29,
+     -3226.46
+    ],
+    [
+     1439.65,
+     -3226.52
+    ],
+    [
+     1439.59,
+     -3230.64
+    ],
+    [
+     1433.03,
+     -3230.54
+    ],
+    [
+     1432.86,
+     -3231.75
+    ],
+    [
+     1430.86,
+     -3233.24
+    ],
+    [
+     1427.36,
+     -3233.19
+    ],
+    [
+     1425.85,
+     -3231.8
+    ],
+    [
+     1419.3,
+     -3231.85
+    ],
+    [
+     1419.33,
+     -3230.02
+    ],
+    [
+     1417.8,
+     -3230.15
+    ],
+    [
+     1417.75,
+     -3223.75
+    ]
+   ]
+  },
+  "keith_house_1900": {
+   "label": "1900 S. Prairie Avenue",
+   "osm_way_id": 210537517,
+   "way_version": 1,
+   "way_timestamp": "2013-03-17T02:47:26Z",
+   "ring_local": [
+    [
+     1376.23,
+     -3356.57
+    ],
+    [
+     1371.81,
+     -3356.5
+    ],
+    [
+     1370.01,
+     -3354.64
+    ],
+    [
+     1364.75,
+     -3354.76
+    ],
+    [
+     1364.54,
+     -3345.87
+    ],
+    [
+     1372.31,
+     -3345.7
+    ],
+    [
+     1372.25,
+     -3343.14
+    ],
+    [
+     1386.9,
+     -3342.8
+    ],
+    [
+     1387.12,
+     -3352.63
+    ],
+    [
+     1385.55,
+     -3354.44
+    ],
+    [
+     1377.78,
+     -3354.61
+    ],
+    [
+     1376.23,
+     -3356.57
+    ]
+   ]
+  }
+ },
+ "not_control_for": [
+  "any structure placement -- the check buildings are checks, and placing those houses is T-1729's",
+  "any street record in data/streets/"
+ ]
+}

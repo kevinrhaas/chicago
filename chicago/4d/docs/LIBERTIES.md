@@ -15918,3 +15918,39 @@ for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie
 fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent
 **T-1204**.
 **Recorded:** 2026-09-28.
+
+### L287 — The 1904 lake edge beside the Illinois Central is a line between two sheets of the wrong date
+**Decision:** the 1904 scene's waterline, `shore_1904_ic_edge` in
+`data/terrain/epochs/e1871_postfire/shoreline.geojson`, is **reconstructed**. It stands on the
+EASTERN side of the band two sheets bound — Sanborn 1911 (sheets 20 and 28) from after, Robinson
+1886 (plate 10) from before — and where no 1911 sheet draws the edge it stands on the 1886 planform
+moved east by the offsets the two sheets measure where both do. South of where sheet 28's
+easternmost track leaves the paper it is carried on the same bearing to Cermak Road, and nothing
+bounds that stretch at all.
+**Why:** neither sheet is of 1904, and the house rule is that an observation from the wrong date may
+bound a state and may not become its line. Where both draw the edge, the 1911 line stands 14–21 m
+east of the 1886 one (means 17.0 m at the 16th Street run, 19.9 m at 18th): the right-of-way
+widened into the lake between them, so the 1904 edge stood somewhere in that band. A scene has to
+render one waterline, so one is chosen, and the choice is ours. **The eastern bound, because** the
+1911 sheets are seven years from the scene and the 1886 plate eighteen, and because Glessner House,
+who supplied the sheets, reads everything on them but two houses as standing in 1904 — attributed
+guidance, recorded in `chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/README.md`
+and not checked. A midpoint would be an average, which is refused everywhere in this terrain.
+**What bounds it:** the band itself, published beside the line as `ic_edge_1886_1911_band` (segments
+A–E). The one inference under the eastern bound is stated: a built edge beside a railway moves only
+lakeward unless something is removed, and nothing in this corpus records a removal. Segment E
+follows the easternmost drawn track, which runs parallel to the traced edge at 324 ± 2 px and
+straight on to the neatline. Segment F, from about N −3365 to the box floor, is a bearing and no
+more: no sheet held here draws the lake east of Calumet Avenue below 20th Street.
+**Consequence:** the lake in the 1904 scene may stand up to about 20 m too far east along the whole
+reach, and anywhere south of 19th Street it is not evidenced at all. From the Prairie Avenue spawn
+it is behind the visitor and several hundred feet away.
+**How to resolve:** Sanborn 1911 vol. 3 sheet 36 (the reach south of 20th Street, on the same
+Library of Congress item, `https://www.loc.gov/item/sanborn01790_020/`) would replace segment F; the
+1905–06 edition of the same atlas, or any dated plan of the Illinois Central's shore works between
+1886 and 1911, would put the 1904 edge inside the band and retire the choice.
+**Applies to:** `data/terrain/epochs/e1871_postfire/shoreline.geojson#shore_1904_ic_edge`,
+`data/terrain/shoreline_states.json#shore_1880s_ic_edge`.
+**Related:** **L239** (the 1835 lake below Twelfth Street, the same refusal to invent past a sheet),
+**L241** (the 1880s day-of-year), `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7, **T-1250**.
+**Recorded:** 2026-09-28.

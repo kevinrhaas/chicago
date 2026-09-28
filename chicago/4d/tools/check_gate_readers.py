@@ -47,6 +47,8 @@ READERS = {
         # exactly why it crashed instead of standing on its banked reading. See
         # read_kinzie_addition_water_lots.py § check_sheet.
         "…and the strip still reads the same off the sheet",
+        # T-1250: re-reads the two Sanborn sheets and the Robinson plate.
+        "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)",
     ]),
     "numpy": ("numpy", [
         "…every step PIL names above — each needs both",
