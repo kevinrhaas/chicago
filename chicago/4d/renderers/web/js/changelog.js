@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Choose how your jaunt takes you through town', kind: 'change',
+  { v: 1205, ts: '2026-09-28T10:10:53.410Z', date: 'Sep 28, 2026, 5:10 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
     items: [
       'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',
       'Jaunt cards and the current outing show approximate durations based on the route and your pace settings. Flying is a viewing convenience, not a claim about travel in 1835.',
