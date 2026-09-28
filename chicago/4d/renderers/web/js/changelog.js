@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1207, ts: '2026-09-28T11:44:25.667Z', date: 'Sep 28, 2026, 6:44 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+    items: [
+      'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
+      'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
+      'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
+      'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
+      'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
+    ] },
   { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
     items: [
       'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',

@@ -10244,6 +10244,12 @@
       "asset": "gltf/chicago_lighthouse_1832__tower_1832.glb"
     },
     {
+      "id": "chicago_lighthouse_keepers_quarters",
+      "name": "The keeper's quarters at the Chicago light",
+      "sidecar": "sidecars/1835/chicago_lighthouse_keepers_quarters.json",
+      "asset": "gltf/chicago_lighthouse_keepers_quarters__quarters_1832.glb"
+    },
+    {
       "id": "clybourn_cabins",
       "name": "The Clybourne Cabins on the North Branch",
       "sidecar": "sidecars/1835/clybourn_cabins.json",

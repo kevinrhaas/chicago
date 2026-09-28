@@ -98,8 +98,35 @@ ever plotted, this reading is the thing they test.
 Samuel Lasby (Andreas; "Samuel C. Lasby" in the Chicago Magazine of March 1857) was the
 first keeper, at $350 a year with quarters. **Who kept it on 1835-07-01 was not
 established**: Wentworth names William M. Stevens as keeper when he arrived in October
-1836 and no source reached covers the gap. Mark Beaubien was the last. No keeper's
-dwelling is modelled — a small house beside the tower is plausible and unattested.
+1836 and no source reached covers the gap. Mark Beaubien was the last.
+
+### The quarters are modelled since 2026-09-28 (T-1716), and this section is why they are
+
+This section read "No keeper's dwelling is modelled — a small house beside the tower is
+plausible and unattested", and it was right about the evidence and wrong about the
+consequence. **What the project did with that sentence was sleep a household inside the
+tower.** `data/reconstruction/1835_institutional_lodging.json` admits exactly one of the
+town's nine institutional roofs a household, and it is this one, on this section's own
+phrase: the keepership is paid "with quarters", so somebody slept at the station. With no
+dwelling to point at, the bed went to the light itself — and the adjudication wrote down
+what that cost, refusing to draw a household size because "drawing 4.4 people into a
+forty-foot tower would be the model reaching past the one thing the record gives it".
+
+**The ruling.** *With quarters* is evidence that housing stood at this station. It is not
+evidence of a building: not a separate house rather than a room, not a place, not a fabric,
+not a size. So the quarters are raised as `chicago_lighthouse_keepers_quarters` — a small
+frame dwelling 23.7 m west of the tower, on the landward side, on ground the
+`e1834_harbor_cut` field gives at +2.45 m — with **every drawn attribute invented under
+L286** and the fabric graded `reconstructed` rather than dressed up as inferred. The bed
+moves to it (`sleeps_at` on the adjudication row), `works_at` stays the light because the
+office is the light, and **nothing on the tower's record moves**: its height, its lantern,
+its stone and its Wright-derived position are untouched. Between the two inventions
+available — a dwelling function for a masonry light with a bird-cage lantern, or a small
+house whose existence a salary attests — this is the one a visitor can see graded.
+
+What is still not claimed: who kept the light on the scene date, how many people the
+quarters held, or anything about their arrangement. § 5 below is unchanged and is still
+what would replace them.
 
 ## 5. What would settle it
 

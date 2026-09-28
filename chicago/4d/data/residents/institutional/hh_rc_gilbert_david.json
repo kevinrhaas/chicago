@@ -12,7 +12,7 @@
   "family": "I3",
   "bucket": "households/institutional/south",
   "adjudication_tier": "inferred",
-  "stands_on": "THE QUARTERS ARE PART OF THE APPOINTMENT. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', and the same section records that no keeper's dwelling is modelled — 'a small house beside the tower is plausible and unattested'. So the quarters this project can account for are at the light itself, and a light that was kept nightly was kept by somebody who slept beside it. WHO kept it on 1 July 1835 is expressly unsettled there: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'.",
+  "stands_on": "THE QUARTERS ARE PART OF THE APPOINTMENT, AND SINCE T-1716 THEY ARE A BUILDING. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', which is evidence that housing stood at this station; a light kept nightly was kept by somebody who slept beside it. WHAT CHANGED: this row read 'no keeper's dwelling is modelled, so the quarters this project can account for are at the light itself', and that was true of the project rather than of 1835 — the household it admitted was sleeping inside a forty-foot masonry tower because there was no other roof at the station to point at. T-1716 raised `chicago_lighthouse_keepers_quarters` on the light's own evidence, 23.7 m west of the tower, and `sleeps_at` below moves the bed onto it. THE ADJUDICATION ITSELF IS UNCHANGED: the institution owed a household is still the light, the count is still one, and `works_at` on the card is still the tower, because the office is the light and the house is only where its keeper slept. Every drawn attribute of that house is invented (L286), so what this row claims is what it always claimed — a keeper lived at this station — housed instead of stacked in a lantern. WHO kept it on 1 July 1835 is still expressly unsettled: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'.",
   "withdrawn_if": "a re-reading of this building's record that no longer puts a household under it, or a source naming who actually lived here; the retirement runs through --build, never by hand",
   "the_seven_refused": [
    "council_house",
@@ -30,7 +30,7 @@
   "kin_seated": 1,
   "seed": null,
   "seated_by": "T-1171 (the modelled families), T-1174 (women and children), T-1179 (converge)",
-  "note": "NO SIZE IS DRAWN, AND THAT IS A REFUSAL RATHER THAN AN OVERSIGHT. The 1840 histogram is a distribution over DWELLINGS and these quarters are a light tower's; nothing states a family at the light, and drawing 4.4 people into a forty-foot tower would be the model reaching past the one thing the record gives it. A source naming the keeper's household is what fills this."
+  "note": "NO SIZE IS DRAWN, AND THAT IS A REFUSAL RATHER THAN AN OVERSIGHT. It was written when the bed was in the tower itself — 'drawing 4.4 people into a forty-foot tower would be the model reaching past the one thing the record gives it' — and T-1716 has since raised the quarters the appointment paid for, so that sentence no longer carries it. THE REFUSAL STANDS ON THE EVIDENCE INSTEAD: nothing states a family at this light, the quarters' own record states no capacity and every drawn attribute of them is invented (L286), and the 1840 histogram would be drawing a household out of a house this project made up. A source naming the keeper's household is what fills this; a roof to put it under is not evidence that there was one."
  },
  "arrival": {
   "value": null,
@@ -40,18 +40,19 @@
   "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
  },
  "lives_at": {
-  "value": "chicago_lighthouse_1832",
+  "value": "chicago_lighthouse_keepers_quarters",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "basis": {
    "kind": "rule",
    "id": "1835_institutional_lodging",
-   "note": "THE ROOF IS THE CLAIM, and it is the only part of this card that is not an invention. THE QUARTERS ARE PART OF THE APPOINTMENT. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', and the same section records that no keeper's dwelling is modelled — 'a small house beside the tower is plausible and unattested'. So the quarters this project can account for are at the light itself, and a light that was kept nightly was kept by somebody who slept beside it. WHO kept it on 1 July 1835 is expressly unsettled there: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'."
+   "note": "THE ROOF IS THE CLAIM, and it is the only part of this card that is not an invention. THE QUARTERS ARE PART OF THE APPOINTMENT, AND SINCE T-1716 THEY ARE A BUILDING. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', which is evidence that housing stood at this station; a light kept nightly was kept by somebody who slept beside it. WHAT CHANGED: this row read 'no keeper's dwelling is modelled, so the quarters this project can account for are at the light itself', and that was true of the project rather than of 1835 — the household it admitted was sleeping inside a forty-foot masonry tower because there was no other roof at the station to point at. T-1716 raised `chicago_lighthouse_keepers_quarters` on the light's own evidence, 23.7 m west of the tower, and `sleeps_at` below moves the bed onto it. THE ADJUDICATION ITSELF IS UNCHANGED: the institution owed a household is still the light, the count is still one, and `works_at` on the card is still the tower, because the office is the light and the house is only where its keeper slept. Every drawn attribute of that house is invented (L286), so what this row claims is what it always claimed — a keeper lived at this station — housed instead of stacked in a lantern. WHO kept it on 1 July 1835 is still expressly unsettled: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'."
   },
   "replaceable_by": {
    "kind": "person",
    "match": "a source naming who lived at this building on the scene date"
   },
+  "at_the_institution": "THE BED IS AT The keeper's quarters at the Chicago light AND THE HOUSEHOLD WAS ORDERED BY Chicago Lighthouse (1832 tower) (T-1716). The adjudication asks its question of the institution and the institution answers with its own quarters; `works_at` stays the institution, because that is what the office is.",
   "note": "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family reconstructions, this household is not waiting on T-1199 for a lot: the roof it is under is a committed, placed record and is the reason the household was ordered at all."
  },
  "works_at": {
