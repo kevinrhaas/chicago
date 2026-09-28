@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1199, ts: '2026-09-28T04:45:49.080Z', date: 'Sep 27, 2026, 11:45 PM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+  { v: null, ts: '', title: 'Take your first jaunt through Chicago', kind: 'change',
     items: [
       'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
       'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
       'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
+  { v: 1199, ts: '2026-09-28T04:39:12.310Z', date: 'Sep 27, 2026, 11:39 PM CT', title: 'A house on Michigan Street gets its owner back', kind: 'change',
+    items: [
+      'There is a frame house on the north bank, on the block of Michigan Street between Cass and Rush \u2014 Hubbard Street between Wabash and Rush today. It has stood here on one sentence: a schoolmaster named John Watkins taught in \u201Ca house on Michigan Street between Cass and Rush\u201D. Nobody knew whose house. Its card said so, and said that if it had gone before the summer we draw, nothing in the records would show it.',
+      'A page nobody had read against it names the owner. Richard J. Hamilton, clerk of the county, built a house on that block about 1833 and lived in it nineteen years \u2014 a span that covers the first of July 1835, so the house was there and its builder was in it. The card now carries his name and his household.',
+      'He was living elsewhere in this town until today: the old Indian agency-house at the foot of State Street, on one line about the autumn of 1832. His own card admitted it \u2014 nothing followed him out of that building or kept him in it. Something does now, and it is the same page: the fort, then the agency house, then a house of his own.',
+      'One invented family stood down for him. Because nobody was known to live here, the programme that fills the town had put a made-up two-person household in the house. A roof cannot have a named household and an invented one at once, and the named one is not the invention. The town keeps every roof and loses one imaginary family.',
+      'The join is a reading, not a statement, and the card says which. Two books describe a house on that block face; one gives the owner and no school, the other the school and no owner. Hamilton hired the schoolmaster, which is what ties them. Neither says which SIDE of the street he built on, so a source that does could yet make these two houses \u2014 written on the record, not tucked away.',
+      'Five other prose placements out of the same two books were worked and refused, with the plat in front of them: a Sunday-school room measured from a neighbour\u2019s house this town does not have, a hall whose own page cannot date it, a house eighty rods south of a building we already leave out, and Norris\u2019s inventory of the five buildings that were all of Chicago in 1832. One is a real gap \u2014 the little frame First Baptist meeting house on South Water Street, a chapel on Sundays and a boys\u2019 school on weekdays \u2014 and it is now a job of its own.',
     ] },
   { v: 1198, ts: '2026-09-28T04:12:20.696Z', date: 'Sep 27, 2026, 11:12 PM CT', title: 'Two cards say what the man owned, not just what happened', kind: 'change',
     items: [

@@ -17,17 +17,23 @@ houses) and the twelve appeared, ordered from a ticket nobody could claim.
 
 `data/reconstruction/1835_institutional_lodging.json` is that question asked once of each
 of the nine roofs, out of the committed record's own `function`, `occupants` and
-`research_note` blocks. TWO of the nine hold a household:
+`research_note` blocks. ONE of the nine is owed a household:
 
-  * `watkins_school_house` (north) — the record's own function is
-    `dwelling_former_school_use_unattested`: a HOUSE a school was held in, not a
-    school-house. A dwelling holds a household; who was in it in 1835 is unattested.
   * `chicago_lighthouse_1832` (south) — the keepership is recorded at "$350 a year WITH
     QUARTERS" and no keeper's dwelling is modelled, so the quarters this project can
     account for are at the light. Who kept it on 1 July 1835 is expressly not established.
 
-The other seven are refused by name in the adjudication, each with the sentence that
-refuses it. `tools/build_order_book_1835.py` weights the institutional cells on that file's
+IT WAS TWO UNTIL T-1625, and the second one is the shape this stage is supposed to end in.
+`watkins_school_house` (north) was admitted because its function is domestic — a HOUSE a
+school was held in, not a school-house — and because the record named nobody in it in 1835.
+Moses and Kirkland then named somebody: Richard J. Hamilton built that house and lived in
+it nineteen years, a span enclosing the scene date, so `hh_hamilton_richard_j` is seated
+there by a reading and `hh_rc_sawyer_rhoda` — this stage's invented two-person household
+for that roof — is RETIRED. The adjudication's own `what_would_move_it` described the move
+before it happened: "the reconstruction retires and a reading takes its place." A roof
+cannot carry a named household and an invented one at once, and the named one is not the
+invention. The other eight are refused by name in the adjudication, each with the sentence
+that refuses it. `tools/build_order_book_1835.py` weights the institutional cells on that file's
 `lodging_capable_by_division`, so the book now orders TWO households where it ordered
 twelve, and this stage fills both. A refusal that only lived in a ticket would have left
 the book ordering ten households nobody could ever honestly write.
@@ -378,9 +384,10 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
         "resident_subtype": "reconstructed_institutional_head",
         "sources": [],
         "note": f"RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This "
-                f"person exists because {place_name} is one of two institutional roofs in "
-                f"this town whose own committed record puts a household under it, and "
-                f"because the reconstruction order book counts that household missing. "
+                f"person exists because {place_name} is an institutional roof of this "
+                f"town whose own committed record puts a household under it and names "
+                f"nobody, and because the reconstruction order book counts that "
+                f"household missing. "
                 f"The whole of what is claimed is that somebody lived here. No figure is "
                 f"drawn (L1).",
     }
@@ -726,7 +733,7 @@ def self_test() -> int:
     # not follow from the first.
     saved = dict(ROOFS)
     try:
-        ROOFS.pop("watkins_school_house")
+        ROOFS.pop("chicago_lighthouse_1832")
         try:
             admitted()
             case("fires: an admitted roof this stage has no card rule for", False)

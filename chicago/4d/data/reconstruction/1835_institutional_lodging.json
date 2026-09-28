@@ -6,17 +6,17 @@
   "not_a_reading": "An adjudication of records this project has already read. Every row below is settled out of the committed structure record's own function, occupants and research_note blocks and the research memos those blocks cite; nothing here reads a source the domain has not read, so it must not be counted as research spend.",
   "what_this_is": "WHICH OF THE TOWN'S INSTITUTIONAL ROOFS ANYBODY SLEPT UNDER. The 665-roof programme's `institutional_public` group holds nine standing roofs — four places of worship or meeting, two schools and three civic buildings — and the household quota apportions the town's 643 households across the roof groups by ROOF COUNT. That arithmetic treats a church like a dwelling: on the matrix's nine institutional roofs it ordered twelve households, which is more than one per roof, for a group in which most roofs are a church, a jail, a council house or a light tower. This file is the question the apportionment never asked, asked once, of each roof: did a household live here?",
   "why_it_is_a_file_and_not_a_number": "Because the answer is nine separate judgements about nine separate records, and a bare capacity count would hide all nine. `tools/build_order_book_1835.py` reads `lodging_capable_by_division` below for the institutional weight, so the book orders what these rows admit and nothing more; `tools/reconstruct_institutional_households.py` mints against the same rows. Neither may go past them.",
-  "the_rule_applied": "A roof holds a household where THIS PROJECT'S OWN COMMITTED RECORD of it says somebody lived there, or says the building is a dwelling. A congregation is not a household, a use is not a residence, and confinement is not residence. Where the record is silent about a dwelling, the answer is no — and a no here is not a claim that the building stood empty at night, only that nothing this project holds puts a household under it.",
+  "the_rule_applied": "A roof holds a household where THIS PROJECT'S OWN COMMITTED RECORD of it says somebody lived there, or says the building is a dwelling. A congregation is not a household, a use is not a residence, and confinement is not residence. Where the record is silent about a dwelling, the answer is no — and a no here is not a claim that the building stood empty at night, only that nothing this project holds puts a household under it. AND THE RULE HAS A SECOND CLAUSE SINCE T-1625, which this file promised before it was needed: `what_would_move_it` says of the two admitted rows that they 'move the other way on a source naming who actually lived there: the reconstruction retires and a reading takes its place.' So a roof is admitted where the record says a household was there AND says nothing about WHO — because what this file decides is not whether a building held people, it is whether the reconstruction programme is owed an invented household for it. Once the record names the household the answer is no, and `holds_a_household` goes to `false` with the reading named in the `why`. Reading it as 'this building stood empty' would be reading it as the opposite of what it says.",
   "adjudication": [
     {
       "structure": "watkins_school_house",
       "division": "north",
       "family": "I2",
-      "holds_a_household": true,
+      "holds_a_household": false,
       "tier": "inferred",
-      "why": "THE RECORD'S OWN FUNCTION IS DOMESTIC. `function` reads `dwelling_former_school_use_unattested` and its note draws the distinction in as many words: 'Andreas describes a HOUSE that a school was held in, not a school-house, and the distinction is preserved here: the building's own function is domestic and the teaching is an occupancy.' A dwelling holds a household. WHO that household was on the scene date is the part nothing settles — the same record's `occupants` note says 'No source reached names a householder, a tenant or a teacher in this building in 1835' — so the household is reconstructed and the roof is not.",
-      "sources": ["andreas_1884_v1"],
-      "reads": ["data/structures/watkins_school_house.json"]
+      "why": "RETIRED 2026-09-27 UNDER T-1625 — THE HOUSEHOLD UNDER THIS ROOF IS NAMED, SO NOTHING IS OWED HERE. This row read `true` from 2026-09-2x until now, on the grounds that the record's function is domestic — 'a HOUSE that a school was held in, not a school-house' — while 'no source reached names a householder, a tenant or a teacher in this building in 1835'. THE SECOND HALF OF THAT IS NO LONGER SO. Moses and Kirkland, History of Chicago vol. 2 p. 155 (the reading `bk_mose2_006`), name Richard J. Hamilton as the builder of a house on this block face who 'lived for nineteen years' in it, and nineteen years from about 1833 encloses 1835-07-01. The identification of that house with this record is an inference and says on the record what would refute it; `hh_hamilton_richard_j`'s `lives_at` names this roof and the record carries an `occupants` block for the household. THE BUILDING IS STILL A DWELLING AND STILL HELD PEOPLE. What changed is that the reconstruction programme has nothing left to invent for it, which is the only question this file asks — see `the_rule_applied`'s second clause, and `what_would_move_it`, which described this exact move before it happened. `hh_rc_sawyer_rhoda`, the invented two-person household this row ordered, is retired with it: a roof cannot carry a named household and an invented one at the same time, and the named one is not the invention.",
+      "sources": ["andreas_1884_v1", "moses_kirkland_history_of_chicago_v2"],
+      "reads": ["data/structures/watkins_school_house.json", "data/residents/households/hh_hamilton_richard_j.json", "docs/RESEARCH/prose_building_placements_1832_34.md"]
     },
     {
       "structure": "chicago_lighthouse_1832",
@@ -102,7 +102,7 @@
   "lodging_capable_by_division": {
     "south": 1,
     "west": 0,
-    "north": 1,
+    "north": 0,
     "fort": 0
   },
   "what_the_book_ordered_before_this_file": {

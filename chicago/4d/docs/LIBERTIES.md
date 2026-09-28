@@ -14337,16 +14337,15 @@ the D1 band, which the family–archetype crosswalk deals as `log_dwelling`. So 
 reaches **75**: 61 log dwellings and the same 14 fort structures. The other five are frame
 cottages and rough-plank dwellings and are none of this entry's business.
 
-### L267 — Two people are invented for the two institutional roofs whose own records put a household under them, and the other seven are refused
+### L267 — One person is invented for the one institutional roof whose own record puts a household under it and names nobody, and the other eight are refused
 
-**Decision:** `tools/reconstruct_institutional_households.py` (T-1531) writes **two**
-reconstructed heads into `data/residents/institutional/` — one at the Chicago light and one
-in the Michigan Street house John Watkins taught in. They are the whole of what the town's
-nine standing `institutional_public` roofs yield in people, and
-`data/reconstruction/1835_institutional_lodging.json` is the adjudication that says so,
-roof by roof, with the sentence that refuses each of the other seven.
+**Decision:** `tools/reconstruct_institutional_households.py` (T-1531) writes **one**
+reconstructed head into `data/residents/institutional/` — the keeper of the Chicago light.
+That is the whole of what the town's nine standing `institutional_public` roofs yield in
+people, and `data/reconstruction/1835_institutional_lodging.json` is the adjudication that
+says so, roof by roof, with the sentence that refuses each of the other eight.
 
-**Scope:** `residents.persons[institutional_households]` — 2 people in 2 cards, one head apiece, re-derivable from `tools/reconstruct_institutional_households.py --check`.
+**Scope:** `residents.persons[institutional_households]` — 1 person in 1 card, re-derivable from `tools/reconstruct_institutional_households.py --check`.
 
 **Why:** because the household quota was ordering twelve of them. The model's 643
 households are apportioned across the roof groups by ROOF COUNT, which is right for a group
@@ -14355,28 +14354,23 @@ council house and a light tower. Nine institutional roofs drew twelve households
 than one per roof — and nobody had ever asked the roofs the question. Ordering ten
 households that could never honestly be written is not a conservative error; it is a
 standing instruction to invent ten families and hang them on buildings nothing says anybody
-slept in. The book now weights those cells on the adjudication instead, and orders two.
+slept in. The book now weights those cells on the adjudication instead, and orders one.
 
-**What is invented, exactly:** two people and nothing else about the two buildings. Each
-carries a name from the invented pools; the light keeper's sex is bounded by the three
-keepers of this light the sources name, all men, and the Watkins house's is drawn from the
-town model's own sex ratio with the seed printed on the card. No age is written at all — the
-household buckets carry no age axis, so nothing ordered a band and none is invented. The
-keeper's occupation is the APPOINTMENT rather than a deal: the keepership is recorded at
-$350 a year with quarters, and what is reconstructed is the holder, not the post. The
-Watkins house's head is given no trade, because the obvious guess — a schoolmaster — is
-exactly the guess this project does not write.
+**What is invented, exactly:** one person and nothing else about the building. He carries a
+name from the invented pools; his sex is bounded by the three keepers of this light the
+sources name, all men. No age is written at all — the household buckets carry no age axis, so
+nothing ordered a band and none is invented. His occupation is the APPOINTMENT rather than a
+deal: the keepership is recorded at $350 a year with quarters, and what is reconstructed is
+the holder, not the post.
 
 **What this deliberately does NOT do.** It seats nobody at St. Mary's, at the First
 Presbyterian church, in the Temple Building, in the log jail, in Billy Caldwell's council
-house, in the North Side school or in the Walker meeting house. A congregation is not a
+house, in the North Side school, in the Walker meeting house or in the Michigan Street house. A congregation is not a
 household, a use is not a residence, and confinement is not residence; the minister whose
 lodging the sources DO record — Porter, in the unfinished loft of Peck's store — is lodged
-somewhere else entirely. And it draws no kin: a Chicago dwelling held 4.4 people on the 1840
-histogram, and the size drawn for the Watkins house is written onto `household_owed` with
-the ticket that seats it (T-1171, T-1174), because seating them here would order the same
-people twice. The keeper's quarters draw no size at all — a forty-foot light tower is not a
-distribution over dwellings.
+somewhere else entirely. And it draws no kin at all now: the keeper's quarters draw no
+size — a forty-foot light tower is not a distribution over dwellings — and the one card that
+did carry a drawn size on `household_owed` was the Michigan Street house's, which is retired.
 
 **What would discharge it:** a source naming who lived at either building on 1 July 1835
 retires that card and puts a reading in its place. A source putting a household under any of
@@ -14388,6 +14382,19 @@ raises the division's capable count, and the book orders the household on the ne
 (the lodgers), **L1** (no human figure is drawn, for anybody), T-1531 (this entry),
 T-1476 (which made the household quota speak at all), T-1196 (the roof programme).
 **Recorded:** 2026-09-24.
+**Revised:** 2026-09-27, T-1625, and it is the discharge this entry itself asked for. The
+paragraph above says "a source naming who lived at either building on 1 July 1835 retires
+that card and puts a reading in its place"; one turned up for the Michigan Street house.
+Moses and Kirkland's *History of Chicago* vol. 2 p. 155 names Richard J. Hamilton as the
+man who built a house on that block face and says he lived in it nineteen years — a span
+enclosing the scene date — so `hh_hamilton_richard_j` is seated there by a reading and
+`hh_rc_sawyer_rhoda`, this liberty's second invented person, is retired. Two people became
+one; the adjudication's north row went to `false` with the reading named in it; the order
+book orders one institutional household where it ordered two. The identification of
+Hamilton's house with `watkins_school_house` is an INFERENCE and is not a liberty — it
+invents nothing, it reads two pages against each other — and what would refute it (no source
+gives the side of Michigan Street he built on) is written on the record and in
+`docs/RESEARCH/prose_building_placements_1832_34.md`.
 
 ### L268 — 450 of the 523 invented people the order book holds past its own order cannot be moved anywhere, and the book goes on naming both numbers for them
 

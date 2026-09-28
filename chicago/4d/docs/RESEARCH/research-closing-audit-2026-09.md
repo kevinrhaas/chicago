@@ -9,18 +9,18 @@ Registered reading units: **23,697**, as of 2026-09-15. Unclassified: **0**. Ass
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 376 |
-| asserted | 1,393 |
+| asserted | 1,394 |
 | later_only | 12,596 |
 | outside_chicago | 119 |
-| refused | 8,730 |
-| unresolved | 483 |
+| refused | 8,735 |
+| unresolved | 477 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
 | Layer | Asserted units landed |
 | --- | ---: |
 | residents | 0 |
-| households | 811 |
+| households | 812 |
 | businesses | 542 |
 | structures | 39 |
 | outside the four layers | 1 |
@@ -121,7 +121,6 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1543 | 1 | yes |
 | T-1552 | 26 | yes |
 | T-1569 | 12 | yes |
-| T-1625 | 6 | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 
@@ -137,7 +136,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **Every layer is reached at unit level.** 811 asserted units land on residents and households, 542 on businesses and 39 on structures.
+1. **Every layer is reached at unit level.** 812 asserted units land on residents and households, 542 on businesses and 39 on structures.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **62 firms are unplaceable and 60 reach a street and no further.** Those 122 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,481 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
