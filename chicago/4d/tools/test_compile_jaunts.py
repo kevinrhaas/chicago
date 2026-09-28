@@ -40,7 +40,7 @@ class JauntTests(unittest.TestCase):
             files, errors = self.compiler.compile(tmp)
             self.assertEqual(len(errors), 1)
             self.assertIn('malformed.json', errors[0])
-            self.assertEqual(len(json.loads(files['catalog.json'])['jaunts']), 2)
+            self.assertEqual(len(json.loads(files['catalog.json'])['jaunts']), 4)
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
             walk = (self.fixtures / 'fixture-walk.json').read_text()
