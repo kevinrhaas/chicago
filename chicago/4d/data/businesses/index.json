@@ -29,8 +29,8 @@
     },
     "by_location_kind": {
       "anchored": 28,
-      "premises": 53,
-      "street_only": 87,
+      "premises": 54,
+      "street_only": 86,
       "unplaceable": 108
     },
     "named_people": 405,
@@ -44,8 +44,8 @@
     },
     "by_where_kind": {
       "anchored": 28,
-      "premises": 52,
-      "street_only": 87,
+      "premises": 53,
+      "street_only": 86,
       "unplaceable": 104
     },
     "by_street": {
@@ -9100,15 +9100,15 @@
         }
       ],
       "where": {
-        "kind": "street_only",
-        "structure_id": null,
+        "kind": "premises",
+        "structure_id": "newberry_dole_packing_house_south_branch",
         "anchor": null,
         "street_id": "south_water",
         "street": "South Water Street",
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'Fort Dearborn' names nothing the committed town holds."
+        "limit_reason": null
       },
       "locations": 1,
       "opened": "1833-11-26",

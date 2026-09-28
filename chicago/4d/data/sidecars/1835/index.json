@@ -10256,6 +10256,12 @@
       "asset": "gltf/dole_warehouse_south__frame_1832.glb"
     },
     {
+      "id": "elston_ash_house",
+      "name": "The ash house at Elston & Co.'s soap and candle works",
+      "sidecar": "sidecars/1835/elston_ash_house.json",
+      "asset": "gltf/elston_ash_house__works_1833.glb"
+    },
+    {
       "id": "elston_soap_candle_manufactory",
       "name": "Daniel Elston & Co.'s Soap and Candle Manufactory",
       "sidecar": "sidecars/1835/elston_soap_candle_manufactory.json",
@@ -10712,16 +10718,46 @@
       "asset": "gltf/miller_tannery__log_1831.glb"
     },
     {
+      "id": "miller_tanyard_bark_shed",
+      "name": "The bark shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_bark_shed.json",
+      "asset": "gltf/miller_tanyard_bark_shed__yard_1831.glb"
+    },
+    {
+      "id": "miller_tanyard_drying_shed",
+      "name": "The drying shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_drying_shed.json",
+      "asset": "gltf/miller_tanyard_drying_shed__yard_1831.glb"
+    },
+    {
       "id": "new_york_house",
       "name": "New York House",
       "sidecar": "sidecars/1835/new_york_house.json",
       "asset": "gltf/new_york_house__frame_1834.glb"
     },
     {
+      "id": "newberry_dole_packing_house_south_branch",
+      "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_packing_house_south_branch.json",
+      "asset": "gltf/newberry_dole_packing_house_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_salt_house_south_branch",
+      "name": "The salt house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_salt_house_south_branch.json",
+      "asset": "gltf/newberry_dole_salt_house_south_branch__works_1834.glb"
+    },
+    {
       "id": "newberry_dole_slaughterhouse_south_branch",
       "name": "Newberry & Dole's Slaughter-House, South Branch",
       "sidecar": "sidecars/1835/newberry_dole_slaughterhouse_south_branch.json",
       "asset": "gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_stock_shed_south_branch",
+      "name": "The stock shed at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_stock_shed_south_branch.json",
+      "asset": "gltf/newberry_dole_stock_shed_south_branch__works_1834.glb"
     },
     {
       "id": "newberry_dole_warehouse",

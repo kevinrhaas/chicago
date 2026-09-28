@@ -14091,7 +14091,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 403 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 409 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -15585,6 +15585,96 @@ its archetype puts it), **L168** (the cat-and-clay fabric this one declines),
 F1's cargo openings), this ticket **T-1680** and its parent **T-1201**.
 **Recorded:** 2026-09-27.
 
+
+### L283 — The works the four documented noxious trades imply: six buildings on the branch frontage, and not one of them attested
+
+**Covers:** `elston_ash_house.function`, `elston_ash_house.works_1833.documented_range`, `elston_ash_house.works_1833.footprint`, `elston_ash_house.works_1833.form.construction`, `elston_ash_house.works_1833.form.door`, `elston_ash_house.works_1833.form.door_side`, `elston_ash_house.works_1833.form.paint`, `elston_ash_house.works_1833.form.roof_pitch_deg`, `elston_ash_house.works_1833.form.roof_type`, `elston_ash_house.works_1833.form.wall_height_m`, `elston_ash_house.works_1833.position`, `miller_tanyard_bark_shed.function`, `miller_tanyard_bark_shed.yard_1831.documented_range`, `miller_tanyard_bark_shed.yard_1831.footprint`, `miller_tanyard_bark_shed.yard_1831.form.construction`, `miller_tanyard_bark_shed.yard_1831.form.door`, `miller_tanyard_bark_shed.yard_1831.form.door_side`, `miller_tanyard_bark_shed.yard_1831.form.paint`, `miller_tanyard_bark_shed.yard_1831.form.roof_pitch_deg`, `miller_tanyard_bark_shed.yard_1831.form.roof_type`, `miller_tanyard_bark_shed.yard_1831.form.wall_height_m`, `miller_tanyard_bark_shed.yard_1831.position`, `miller_tanyard_drying_shed.function`, `miller_tanyard_drying_shed.yard_1831.documented_range`, `miller_tanyard_drying_shed.yard_1831.footprint`, `miller_tanyard_drying_shed.yard_1831.form.board_gap_m`, `miller_tanyard_drying_shed.yard_1831.form.construction`, `miller_tanyard_drying_shed.yard_1831.form.door`, `miller_tanyard_drying_shed.yard_1831.form.door_side`, `miller_tanyard_drying_shed.yard_1831.form.paint`, `miller_tanyard_drying_shed.yard_1831.form.roof_pitch_deg`, `miller_tanyard_drying_shed.yard_1831.form.roof_type`, `miller_tanyard_drying_shed.yard_1831.form.wall_height_m`, `miller_tanyard_drying_shed.yard_1831.position`, `newberry_dole_packing_house_south_branch.function`, `newberry_dole_packing_house_south_branch.works_1834.documented_range`, `newberry_dole_packing_house_south_branch.works_1834.footprint`, `newberry_dole_packing_house_south_branch.works_1834.form.construction`, `newberry_dole_packing_house_south_branch.works_1834.form.door`, `newberry_dole_packing_house_south_branch.works_1834.form.door_side`, `newberry_dole_packing_house_south_branch.works_1834.form.paint`, `newberry_dole_packing_house_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_packing_house_south_branch.works_1834.form.roof_type`, `newberry_dole_packing_house_south_branch.works_1834.form.wall_height_m`, `newberry_dole_packing_house_south_branch.works_1834.position`, `newberry_dole_salt_house_south_branch.function`, `newberry_dole_salt_house_south_branch.works_1834.documented_range`, `newberry_dole_salt_house_south_branch.works_1834.footprint`, `newberry_dole_salt_house_south_branch.works_1834.form.construction`, `newberry_dole_salt_house_south_branch.works_1834.form.door`, `newberry_dole_salt_house_south_branch.works_1834.form.door_side`, `newberry_dole_salt_house_south_branch.works_1834.form.paint`, `newberry_dole_salt_house_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_salt_house_south_branch.works_1834.form.roof_type`, `newberry_dole_salt_house_south_branch.works_1834.form.wall_height_m`, `newberry_dole_salt_house_south_branch.works_1834.position`, `newberry_dole_stock_shed_south_branch.function`, `newberry_dole_stock_shed_south_branch.works_1834.documented_range`, `newberry_dole_stock_shed_south_branch.works_1834.footprint`, `newberry_dole_stock_shed_south_branch.works_1834.form.construction`, `newberry_dole_stock_shed_south_branch.works_1834.form.door`, `newberry_dole_stock_shed_south_branch.works_1834.form.door_side`, `newberry_dole_stock_shed_south_branch.works_1834.form.paint`, `newberry_dole_stock_shed_south_branch.works_1834.form.roof_pitch_deg`, `newberry_dole_stock_shed_south_branch.works_1834.form.roof_type`, `newberry_dole_stock_shed_south_branch.works_1834.form.wall_height_m`, `newberry_dole_stock_shed_south_branch.works_1834.position`.
+
+**Decision:** the four documented noxious trades on the branches — Newberry & Dole's South Branch
+slaughter-house, Miller and Hall's tanyard at the forks, and Daniel Elston's soap and candle works
+on the North Branch — gain **six works buildings** between them: a packing and barrelling house, a
+salt house and a stock shed south of the South Branch plant; a bark shed and a drying shed in the
+tanyard behind the tannery; and an ash house behind Elston's works. **Not one of them is attested.**
+Every value on all six records is graded `reconstructed`, including the fact that any of them
+stood, and all six disappear with the rest of the reconstructed tier when a visitor turns it off.
+
+**What bounded the invention, and it is the plants' own records.** Each of the four documented
+plants says, in its own footprint note, that the works are missing:
+`newberry_dole_slaughterhouse_south_branch` — *"the pens, the yard and the barrelling and salting
+space that a packing operation needs are outside the footprint and outside this archetype, which
+builds a building rather than a works"*; `miller_tannery` — *"a tannery is its yard — bark mill,
+lime pits, tan vats, drying sheds, and a water supply — and none of that is in this polygon or in
+the model"*; `clybourn_slaughterhouse` — *"what is not modelled is arguably the bigger half"*;
+`elston_soap_candle_manufactory`, whose shed is sized for *"a rendering kettle, a cooling and
+moulding floor and an ash leach"* and has nothing beside it. **These six buildings are those
+sentences built.** Nothing was invented that one of those four notes does not name.
+
+**The works rule, stated once and applied six times.** (1) A works building stands BEHIND its
+plant, on the side away from the water, because the plant's own bearing puts its working face on
+the water. (2) The gap between the plant's wall and the works' wall is **5.20 m**, the cart yard
+**L281** derived from `data/yard/town_trade_goods.json` — 1.00 m of clearance from the wall a wagon
+stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall opposite — and
+the same 5.20 m separates one works building from the next, so the whole band is set out on one
+committed figure. (3) The works take the plant's own bearing, so the yard is square and the doors
+face it. (4) Where the ground behind the plant is a platted street corridor, the works stand ALONG
+the bank instead, in the order the work runs, on a line 0.50 m clear of that corridor's edge.
+
+**Clause 4 is the South Branch, and it is the one place the rule had to bend.** Behind Newberry &
+Dole's plant is east, and east is Market Street: `plat_corridors.corridors()` puts its platted
+corridor at local E 73.00 to E 97.00 across this whole reach, and **the plant itself already stands
+1.30 m inside its west edge**, which `tools/corridor_intrusion_baseline.json` records. North is
+worse — Randolph Street's corridor runs local N -265.00 to N -241.00 and the plant stands 11.45 m
+inside it. A works building put behind the plant would repeat a breach the corridor gate exists to
+find. So the three South Branch buildings run **south** along the bank instead, every one with its
+east wall on local E 72.500, and the band reads as one row rather than three seatings.
+
+**What each seat was held to, on a 25 × 25 lattice over the placed polygon.** Dry in the committed
+heightfield (`data/terrain/epochs/e1834_harbor_cut`, water surface 0), relief inside the 0.30 m
+`generate_block_infill.MAX_RELIEF_M` allows, clear of all 33 platted corridors, and clear of every
+footprint the committed tree places. Measured:
+
+| building | ground above water | relief | corridor | nearest committed footprint |
+|---|---|---|---|---|
+| `newberry_dole_packing_house_south_branch` | 0.442–0.698 m | 0.256 m | clear | 5.20 m (the plant) |
+| `newberry_dole_salt_house_south_branch` | 0.583–0.710 m | 0.127 m | clear | none within 14 m |
+| `newberry_dole_stock_shed_south_branch` | 0.465–0.695 m | 0.230 m | clear | none within 14 m |
+| `miller_tanyard_bark_shed` | 1.129–1.130 m | 0.001 m | clear | 5.20 m (the tannery) |
+| `miller_tanyard_drying_shed` | 1.138–1.140 m | 0.002 m | clear | 5.20 m (the tannery) |
+| `elston_ash_house` | 1.116–1.121 m | 0.005 m | clear | 5.20 m (the works) |
+
+**What is invented:** all six buildings, that any of them stood on 1835-07-01, their seats, their
+sizes, their eaves, their roofs, their pitches, their constructions, their paint, their openings,
+the sides those openings are on, the drying shed's 50 mm board gap, and the yards between them.
+The SIZES are their families' own bands from `data/reconstruction/1835_building_inventory.json` —
+W3 for the packing house, A1 for the stock shed, A4 for the salt and bark sheds, A5 for the drying
+shed and the ash house — which bounds the invention without evidencing it.
+
+**What is refused, and it is the fourth plant.** `clybourn_slaughterhouse` gets **no works**.
+Its own record says it is DISPLACED: the attested site is the east bank of the North Branch south
+of the Bloomingdale Road, roughly 3 km north-north-west of the forks and about 2.8 km beyond the
+edge of the modelled terrain, and the record stands at the edge of modelled ground with an error of
+kilometres. Building a yard around a building that is knowingly kilometres from its own site would
+multiply that error by six rather than reconstruct anything, and the stock yard Andreas's plant
+implies — the one that later gave the trade the Bull's Head name — belongs on ground this scene
+does not model. **The refusal is the honest half of this entry.**
+
+**What is still NOT modelled, and adding roofs does not discharge it.** The killing pens and the
+stock yard on the South Branch, the lime pits, tan vats and bark mill at the forks, and every yard
+fence in the band. Those are enclosures, pits and machinery, and `outbuilding_params` declines them
+in as many words — *"a yard is an enclosure — a fence line, two gateways and the ground between them
+— and building it out of an outbuilding would mean calling a fence a building"*. **L10** has been
+carrying the same gap for the Western Hotel's wagon yard and still is.
+
+**How to resolve:** any description of the South Branch plant beyond Andreas's one sentence
+recording its erection; any account of Miller and Hall's tanyard; an address for Elston & Co. in
+any printing of 1833–1835. Any of the three would replace an invention with a building. Terrain
+reaching 3 km up the North Branch would reopen the Clybourne refusal.
+
+**Related:** **L281** and **L274** (the cart yard figure this band is set out on, and the south-bank
+row whose idiom it borrows), **L10** (the yard that is still a fence nobody models), the crosswalk's
+**W3**, **A1**, **A4** and **A5** rows, this ticket **T-1709**, its parent **T-1203**, and
+`docs/RESEARCH/branch_noxious_works.md`.
+**Recorded:** 2026-09-28.
 
 ### L-jaunt-pilot — A visitor’s imagined first day and route-note keepsake
 

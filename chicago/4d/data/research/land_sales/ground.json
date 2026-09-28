@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 423,
+    "structures_placed": 429,
     "structures_reached": 69,
     "structures_reached_by_grade": {
       "inferred": 19,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 352,
+      "09": 358,
       "10": 1,
       "16": 1
     },
@@ -39524,6 +39524,7 @@
       "cook_county_courthouse_1835",
       "dearborn_street_drawbridge",
       "dole_warehouse_south",
+      "elston_ash_house",
       "elston_soap_candle_manufactory",
       "estray_pen",
       "exchange_coffee_house",
@@ -39577,8 +39578,13 @@
       "mason_blacksmith_shop",
       "miller_house",
       "miller_tannery",
+      "miller_tanyard_bark_shed",
+      "miller_tanyard_drying_shed",
       "new_york_house",
+      "newberry_dole_packing_house_south_branch",
+      "newberry_dole_salt_house_south_branch",
       "newberry_dole_slaughterhouse_south_branch",
+      "newberry_dole_stock_shed_south_branch",
       "newberry_dole_warehouse",
       "north_bank_shed_dearborn_e1",
       "north_bank_shed_dearborn_e2",

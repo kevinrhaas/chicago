@@ -1,0 +1,95 @@
+{
+  "id": "elston_ash_house",
+  "name": "The ash house at Elston & Co.'s soap and candle works",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "works_1833",
+      "documented_range": {
+        "from": "1833-11-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "NO SOURCE RECORD DATES THIS BUILDING, BECAUSE NO SOURCE RECORD NAMES IT. The bracket is the works' own, carried across without being re-argued: `elston_soap_candle_manufactory` opens on 1833-11-01, the date of the Chicago Democrat advertisement that attests the business, and closes at the end of 1835. Graded `reconstructed`, as the building is."
+      },
+      "position": {
+        "utm_e": 447069.4672,
+        "utm_n": 4637583.7808,
+        "rotation_deg": 270.0,
+        "symbolic_location": "On the east bank of the North Branch above the forks, in the yard behind Daniel Elston's soap and candle works, across a cart yard from it and facing it, with the works between this building and the water.",
+        "confidence": "reconstructed",
+        "note": "INVENTED, AND SEATED BY THE WORKS RULE BELOW. The works stands at bearing 270 with its face west on the branch, so behind it is EAST, away from the water and out on the open ground north of the town - and unlike the South Branch band there is no platted corridor behind this one to refuse it. This building's front wall stands 5.20 m east of the works' east wall, at local E -7.500, and is centred on the works' own north-south extent. MEASURED ON THIS SEAT, over a 25 x 25 lattice on the placed polygon: the ground stands 1.116 m to 1.121 m above the committed water surface - dry, with 0.005 m of relief; `intrusion` reads it clear of all 33 platted corridors; and the nearest committed footprint is the works' own east wall at 5.20 m. WORKING UNCERTAINTY IS THE WORKS' OWN AND IT IS THE WORST OF THE FOUR SITES: the advertisement that attests the business gives no address at all, so the works itself is an argument about where a nuisance trade sits and this building inherits every bit of that, plus a setback nobody attested.\n\nTHE WORKS RULE, STATED ONCE AND APPLIED SIX TIMES (T-1709). Every one of the four documented noxious trades on the branches records, in its own footprint note, that the works are outside its polygon: `newberry_dole_slaughterhouse_south_branch` says 'the pens, the yard and the barrelling and salting space that a packing operation needs are outside the footprint and outside this archetype, which builds a building rather than a works'; `miller_tannery` says 'a tannery is its yard - bark mill, lime pits, tan vats, drying sheds, and a water supply - and none of that is in this polygon or in the model'; `clybourn_slaughterhouse` says 'what is not modelled is arguably the bigger half'; `elston_soap_candle_manufactory` gives a shed 'big enough for a rendering kettle, a cooling and moulding floor and an ash leach' and nothing beside it. This building is one of the works those four sentences name, and NOTHING ATTESTS IT. It is placed by a rule and not by a plate. THE RULE: (1) a works building stands BEHIND its plant, on the side away from the water, because the plant's own bearing puts its working face on the water and the ground behind it is what is left; (2) the gap between the plant's wall and the works' wall is 5.20 m, the cart yard T-1640 derived from `data/yard/town_trade_goods.json` - 1.00 m of clearance from the wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall opposite - and the same 5.20 m separates one works building from the next, so the whole band is set out on one committed figure; (3) the works take the plant's own bearing, so the yard between them is square and the doors face it; (4) where the ground behind the plant is a platted street corridor, the works stand ALONG the bank instead, in the order the work runs, on a line that keeps them 0.50 m clear of that corridor's own edge - which is what the South Branch band does, because Market Street's corridor runs E 73.00 to E 97.00 at this reach and the plant itself stands 1.30 m inside it. THE FOUR PREDICATES each seat is held to, on a 25 x 25 lattice over the placed polygon: dry in the committed heightfield (`data/terrain/epochs/e1834_harbor_cut`, WATER_SURFACE_M = 0), relief inside the 0.30 m `generate_block_infill.MAX_RELIEF_M` allows, clear of all 33 platted corridors (`tools/plat_corridors.intrusion`), and clear of every footprint the committed tree already places. docs/RESEARCH/branch_noxious_works.md carries the readings and docs/LIBERTIES.md L283 owns the invention.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The two machine-checkable methods this project has are a platted corner and a traced waterline, and this seat is neither: it is a stated setback from a committed neighbouring building, on that building's own bearing, held clear of a committed corridor edge and tested against the committed heightfield. Every input is committed and the rule is written out in position.note, so it reproduces by hand; no derivation method in the schema can recompute it, and declaring one that could not would be worse than declaring none."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            2.4384,
+            0
+          ],
+          [
+            2.4384,
+            4.2672
+          ],
+          [
+            0,
+            4.2672
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. 2.4384 x 4.2672 m is 8 x 14 ft, inside family A5's band (6-8 ft front, 12-16 ft deep) - the crosswalk's small mixed utility outbuilding. Soap is boiled with lye, lye is leached from wood ash, and ash is kept dry under its own roof or it is worthless. The works' own footprint note allows 'an ash leach' inside the main shed; this building is the store the leach draws on, which is the part that has to stand out of the rain. Nothing states that this works had one. Every number is invented."
+      },
+      "form": {
+        "construction": {
+          "value": "plank",
+          "confidence": "reconstructed",
+          "note": "Sawn boards nailed up vertically. Elston's was a manufactory advertised in the town's own newspaper rather than a settler's outbuilding, so boards rather than logs - which is an argument about the concern and not a source. Invented."
+        },
+        "wall_height_m": {
+          "value": 2.3,
+          "confidence": "reconstructed",
+          "note": "About 7 ft 6 in, at the archetype's size-aware default of 2.28 m for this plan, rounded. A man shovels ash under a low roof. Invented."
+        },
+        "roof_type": {
+          "value": "shed",
+          "confidence": "reconstructed",
+          "note": "4.27 m of depth is inside the 5.0 m at which `default_roof_type` gives a shed roof. Invented."
+        },
+        "roof_pitch_deg": {
+          "value": 18.0,
+          "confidence": "reconstructed",
+          "note": "The archetype's default for a shed roof; the rise over this run is 1.39 m against a 2.3 m wall. Invented."
+        },
+        "door": {
+          "value": "man",
+          "confidence": "reconstructed",
+          "note": "One person and a barrow. Invented."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "The `front` elevation is the max-y wall, which at this bearing faces WEST, onto the yard between this building and the works it serves. Invented."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "Unpainted boards. Invented."
+        }
+      },
+      "change_note": "One phase. This is a reconstruction of a works building the plant's own record says is missing, not a record of a building anybody named, so it has no history to divide into phases and inventing one would be inventing twice."
+    }
+  ],
+  "function": {
+    "value": "small_utility_building",
+    "confidence": "reconstructed",
+    "note": "The closed vocabulary has no `ash house`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the trade. A soap and candle manufactory runs on tallow and on lye, and lye is leached from wood ash; the works' own footprint note has the leach inside the main shed and says nothing about where the ash was kept. Nothing states that this building existed. No occupant is claimed."
+  },
+  "research_note": "A RECONSTRUCTED YARD BUILDING AT THE TOWN'S FIRST NEWSPAPER-ATTESTED FACTORY - T-1709, of T-1203. WHAT IS HELD: the Chicago Democrat of 26 November 1833, which attests the business and explicitly supplies nothing about any building's dimensions, form or plan. WHAT IS INVENTED: this building, its seat, its size and every attribute of it - and the works it stands behind is itself placed by argument rather than by evidence, so this is the shakiest ground in the band and says so. WHAT WOULD UPGRADE IT: an address for Elston & Co. in any printing of 1833-1835. Built under the owner's standing ruling of 2026-08-18. Links: T-1709 - T-1203 - T-1640 - docs/RESEARCH/branch_noxious_works.md - docs/LIBERTIES.md L283.",
+  "review_required": false
+}

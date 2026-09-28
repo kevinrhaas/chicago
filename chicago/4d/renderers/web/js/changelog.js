@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1199, ts: '2026-09-28T05:26:41.672Z', date: 'Sep 28, 2026, 12:26 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
+    items: [
+      'Follow the South Branch down past the town and Newberry & Dole\u2019s slaughter-house no longer stands alone on an empty bank. Three working buildings now run south from it, each across a cart yard from the last: the packing and barrelling house, a small salt store, and a stock shed at the landward end where the beasts came in off the prairie.',
+      'At the forks, behind John Miller\u2019s log tannery, there is now a yard. A bark shed at one end, a drying shed at the other, both facing in across the open ground the tanning was done on \u2014 and the drying shed has its boards spaced apart, which is how a hide dries.',
+      'Daniel Elston\u2019s soap and candle works on the North Branch gets an ash house behind it. Soap is boiled with lye, lye is leached from wood ash, and ash kept in the rain is worthless.',
+      'Every one of the six is invented, and each one is a sentence the plants themselves had already written. Their own records say the works are missing \u2014 \u201cthe pens, the yard and the barrelling and salting space\u201d; \u201ca tannery is its yard\u201d. Nothing was added that those notes do not name, and all six vanish when you turn the reconstructed layer off.',
+      'The fourth plant gets nothing, on purpose. Archibald Clybourne\u2019s slaughter-house stands about three kilometres from its real site, at the edge of the ground this scene models, because its site is off the map. Building a yard around a building that is knowingly kilometres out would multiply the error rather than reconstruct anything.',
+      'Still not built, and still said out loud: the killing pens, the stock yard, the lime pits and the tan vats. Those are fences and holes in the ground, and this part of the model builds buildings.',
+    ] },
   { v: 1198, ts: '2026-09-28T04:12:20.696Z', date: 'Sep 27, 2026, 11:12 PM CT', title: 'Two cards say what the man owned, not just what happened', kind: 'change',
     items: [
       'Open John S. Wright\u2019s card, or Paul Kingston\u2019s, and a new row says what he HELD: Wright\u2019s Chicago land purchases and his lots in the original town, Kingston\u2019s land at Chicago. Both were already known and neither had anywhere to go, so both had been filed under \u201cwhat the sources record\u201d \u2014 the shelf for anything else dated, which says that something happened to a man and not what he owned.',
