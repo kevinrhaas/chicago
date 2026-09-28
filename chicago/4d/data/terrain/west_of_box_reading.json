@@ -141,7 +141,7 @@
     },
     {
      "id": "jackson",
-     "name_1835": "Jackson Boulevard",
+     "name_1835": "Jackson Street",
      "west_end_e_m": -767.49,
      "metres_past_the_derived_wall": 62.49
     },
@@ -319,8 +319,8 @@
     "westmost_e_m": 35.92,
     "westmost_at_n_m": -404.33,
     "inside_the_derived_wall": true,
-    "north_end_e_m": 390.12,
-    "north_end_n_m": 42.85,
+    "north_end_e_m": 307.72,
+    "north_end_n_m": 35.3,
     "terminus_brought_inside_by_the_move": false
    },
    {
@@ -357,7 +357,7 @@
     "file": "shoreline.geojson",
     "id": "South shore of the harbour reach and the lake shore south of it: south bank of the main stem east of the forks box, the Fort Dearborn reservation's lake shore, the west bank of the old southward channel behind the bar, and the east edge of Fractional Section 15 to the foot of the sheet",
     "westmost_e_m": 314,
-    "westmost_at_n_m": 42.72,
+    "westmost_at_n_m": 35.16,
     "inside_the_derived_wall": true,
     "north_end_e_m": 1175.16,
     "north_end_n_m": 265.59,
