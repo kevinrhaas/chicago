@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Jackson Street was never Jackson Boulevard', kind: 'fix',
+  { v: 1196, ts: '2026-09-28T02:29:13.068Z', date: 'Sep 27, 2026, 9:29 PM CT', title: 'Jackson Street was never Jackson Boulevard', kind: 'fix',
     items: [
       'Walk south to the last of the four platted tiers below Washington Street and the street readout used to tell you that in 1835 you were on Jackson BOULEVARD. It was not: the boulevard is a twentieth-century thing, and the modern name had been carried back onto an 1835 street. The town itself settles it \u2014 the Trustees\u2019 by-laws of 7 November 1833 name the four streets south of Washington in order, Madison, Monroe, Adams and Jackson-street \u2014 so the readout now says Jackson Street, with Jackson Boulevard kept as the modern name beside it.',
       'All four of those streets now carry the ordinance that named them. Until now their names came off a surveyor\u2019s sheet that letters the tiers and says nothing about what the corporation called them; the naming act is a contemporary document, printed in the Chicago Democrat\u2019s first issue. Naming a street is not opening one: all four are still platted survey lines over prairie with no track worn on them.',
