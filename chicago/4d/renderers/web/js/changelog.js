@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1216, ts: '2026-09-28T23:16:33.255Z', date: 'Sep 28, 2026, 6:16 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
+    items: [
+      'At /4d/1904/ the ground now has its streets. Prairie, Indiana and Calumet Avenues and 16th to 22nd Streets are laid out as the 1911 fire-insurance maps draw them: 66 feet wide, with 16th Street 50. Behind the houses run the alleys, at the widths the maps print.',
+      'Along every block, from the property line out, come a narrow margin, the sidewalk, a planted strip and the curb, then the roadway. The width of the sidewalk strip and where the walk sits in it follow Chicago’s 1905 street code. The walk’s own width and the curb’s are our reconstruction.',
+      'The lot lines are drawn on both sides of Prairie from 16th to 22nd, 92 lots in all. Aim at the ground and a card shows which lot you are on and the address the 1911 map prints there.',
+      'The Glessner corner lot at 1800 Prairie measures 74.7 feet along the avenue. That settles the 74-or-77 question the house research left open.',
+      'The surfaces are plain placeholder tones for now. What the roadway, curbs and walks were made of is the next piece of work.',
+    ] },
   { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
     items: [
       'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',

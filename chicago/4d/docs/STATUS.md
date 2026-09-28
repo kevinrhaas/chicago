@@ -1,3 +1,45 @@
+## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
+
+`/4d/1904/` now stands on streets. `tools/trace_prairie_1904_grid.py` reads the three Sanborn 1911
+sheets (vol. 3, sheets 20, 28 and 35) through T-1250's georeference and writes
+`data/street_grid/1904.json`; `renderers/web/js/street-grid.js` drapes it on the e1871 heightfield.
+The scene lists the new `street_grid` layer; 1835 does not and draws none of it.
+
+- **Streets**, 16th to 22nd, Indiana to Calumet and the IC: 14 carriageway segments (Prairie,
+  Indiana, Calumet with its curve out of 18th, 16th, 18th, 20th, 21st, 22nd), printed widths 66 ft
+  and 16th Street 50 ft. Each runs through its intersections so no seam opens.
+- **Block faces**: 31, each laid out from the street line as margin 0–1 ft, walk, parkway, curb, to
+  a 14-ft sidewalk space (10 ft on 16th). Space and walk set-back are the Revised Municipal Code of
+  1905, secs. 2072 and 2062 (new source `chicago_revised_municipal_code_1905`) — inferred; the walk
+  (6 ft; 5 on 16th), curb (6 in) and parkway (6.5 ft; 3.5) are reconstructed, **L291**. Mitred
+  corners, no curb radius, no crossings, no reveal or crown.
+- **Alleys**: 7, at their drawn widths (20, 24 and 18 ft printed), the Prairie–Calumet alley with
+  its head at the 1811/1815 line and its jog behind 1827/1901.
+- **Parcels**: 92 lots on both faces of Prairie, each with the 1911 address(es) printed beside it,
+  the Prairie library frontage row(s) it matches, its street face and block. Three labels read
+  differently from the library (1605/1603, 1721/1719, "1918 (1936)"/"1916 (1930)") and carry the
+  difference; seven lots carry no printed address.
+- **The ruling T-1731 left**: the frontage of 1800 Prairie is **74.7 ft (±1.1)**, not 77 and not
+  exactly 74. Parcel **`prairie_1800`**, face **`prairie__indiana_prairie_18_20`**, NE corner
+  E 1392.05 N −3217.24 (0.4 m from T-1739's derived corner), 74.7 × 177.1 ft.
+  `docs/RESEARCH/prairie_1904_street_grid.md` § 3.
+- A pick on the ground opens a card: the lot (frontage, depth, 1911 addresses, sheet), or the band,
+  roadway or alley (width, tier, what it rests on). Surfaces are neutral tones; no material is
+  claimed (T-1728).
+
+Measured at the spawn (SwiftShader, published mirror): before, 9 draw calls and about 41k triangles
+(T-1739's reading); after, 16 draw calls and 74k triangles at 1280×800, 81k at 390×780, inside the
+215-call budget; zero problems, zero page errors. The smoke's part 13 now also asserts the grid is
+drawn, the Glessner lot is `prairie_1800` and the door lands on Prairie's east walk.
+
+**Not done here:** Robinson 1886's legal lot numbers for 16th–18th, and the lots on the Indiana and
+Calumet frontages (filed as a follow-up). Indiana between 18th and 20th is on sheet 27, which was not
+supplied, so its line is carried between sheets 20 and 35. Michigan Avenue is west of every supplied
+sheet and is not drawn. `data/street_grid/` is one dated file and carries no `index.json`, so
+`measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
+generator half.
+
+
 ## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 
 `data/scenes/1904.json` is the second scene: 1 July 1904 on `e1871_postfire`, lit at 10:30 local
