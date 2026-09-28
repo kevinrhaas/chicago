@@ -84,10 +84,10 @@
    "south": 732,
    "west": 255
   },
-  "roofs_offered_for_adoption": 74,
+  "roofs_offered_for_adoption": 73,
   "roofs_held_back": 14,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 2
+  "roofs_offered_and_unspent": 1
  },
  "what_this_ground_could_not_hold": {
   "rows": 1268,
@@ -97,7 +97,7 @@
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
    "north": 44,
-   "west": 30
+   "west": 29
   },
   "rows_owed_by_district": {
    "north": 281,
@@ -238,13 +238,6 @@
    "family": "C2",
    "district": "west",
    "parcel_id": "canal_commissioners_1830",
-   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
-  },
-  {
-   "structure_id": "recon_1835_west_046",
-   "family": "F1",
-   "district": "west",
-   "parcel_id": "canal_section_9_remainder",
    "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
   }
  ],

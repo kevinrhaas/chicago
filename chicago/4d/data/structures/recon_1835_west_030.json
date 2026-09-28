@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
       },
       "position": {
-        "utm_e": 446659.264,
+        "utm_e": 446655.514,
         "utm_n": 4637272.12,
         "rotation_deg": 88.0,
         "symbolic_location": "Anonymous reconstructed roof on the West Division approaches",
         "confidence": "reconstructed",
-        "note": "Interpretive placement within the reviewed West Division cluster w3_jefferson_lake_residential. The recipe coordinate is a production-layout control, not a recovered lot.",
+        "note": "Interpretive placement within the reviewed West Division cluster w3_jefferson_lake_residential. The recipe coordinate is a production-layout control, not a recovered lot. Set back 3.8 m from the recipe coordinate, which placed it inside a platted street corridor; the move is well inside the ±20 m uncertainty the recipe states for its own layout controls.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 West Division roof register survives in the supplied evidence."

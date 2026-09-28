@@ -1,0 +1,128 @@
+/* Chicago Building Atlas — notes. Pairs with notes.js; everything is scoped to
+   .an-* so it can sit on any Atlas page without touching the page's own CSS. */
+:root {
+  --an-ink: #192d3b; --an-muted: #5c686b; --an-card: #fffdf8; --an-line: #d7d1c3;
+  --an-soft: #ece8dc; --an-accent: #aa3c27; --an-lake: #207c91; --an-on-accent: #fff;
+  --an-shadow: 0 18px 50px #1d18103d, 0 2px 8px #1d18101f;
+}
+:root[data-theme="dark"] {
+  --an-ink: #e6edf3; --an-muted: #9aa7b1; --an-card: #161b22; --an-line: #313843;
+  --an-soft: #222932; --an-accent: #f0883e; --an-lake: #58a6ff; --an-on-accent: #111;
+  --an-shadow: 0 18px 50px #0009, 0 2px 8px #0006;
+}
+
+/* Hosts: the pencil takes the top-right corner unless placed inline. */
+[data-note] { position: relative; }
+.an-pencil, .an-toggle { font: inherit; -webkit-tap-highlight-color: transparent; }
+.an-pencil {
+  display: none; position: absolute; top: 8px; right: 8px; z-index: 2;
+  align-items: center; justify-content: center; gap: 3px;
+  min-width: 30px; height: 30px; min-height: 0; padding: 0 7px; margin: 0;
+  border: 1px solid transparent; border-radius: 999px; background: transparent;
+  color: var(--an-muted); opacity: .6; cursor: pointer; line-height: 1;
+  transition: opacity .15s, background-color .15s, color .15s, border-color .15s;
+}
+.an-pencil.an-inline { position: static; vertical-align: middle; margin-left: 6px; }
+.an-pencil:hover, .an-pencil:focus-visible, .an-pencil[aria-expanded="true"] {
+  opacity: 1; color: var(--an-lake); background: var(--an-soft); border-color: var(--an-line);
+}
+.an-pencil .an-n:empty { display: none; }
+.an-pencil.an-has { opacity: 1; color: var(--an-accent); background: var(--an-card); border-color: var(--an-line); }
+.an-pencil .an-n, .an-toggle .an-n, .an-index .an-n {
+  font-size: 11.5px; font-weight: 750; font-variant-numeric: tabular-nums;
+}
+/* Readers see a pencil only where there is something to read; editors everywhere. */
+.an-ready .an-pencil.an-has, .an-editor .an-pencil { display: inline-flex; }
+/* Keep card titles clear of a corner pencil. */
+.an-ready details[data-note]:has(> summary > .an-has:not(.an-inline)) > summary,
+.an-ready [data-note]:has(> .an-has:not(.an-inline)),
+.an-editor details[data-note] > summary:has(> .an-pencil:not(.an-inline)),
+.an-editor [data-note]:has(> .an-pencil:not(.an-inline)) { padding-right: 40px; }
+
+/* The page's Notes button — in a slot, or floating. */
+.an-toggle {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  min-height: 36px; padding: 6px 13px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--an-line); background: var(--an-card); color: var(--an-ink);
+  font-size: .86rem; font-weight: 700; white-space: nowrap;
+}
+.an-toggle:hover, .an-toggle[aria-expanded="true"] { border-color: var(--an-accent); color: var(--an-accent); }
+.an-toggle .an-n:not(:empty) {
+  min-width: 20px; padding: 2px 6px; border-radius: 999px; background: var(--an-accent); color: var(--an-on-accent); text-align: center;
+}
+.an-fab { position: fixed; right: 16px; bottom: 16px; z-index: 40; box-shadow: var(--an-shadow); min-height: 44px; }
+.an-toggle[hidden] { display: none !important; }
+
+/* The panel: a popover on desktop, a bottom sheet on phones. */
+.an-backdrop { position: fixed; inset: 0; z-index: 60; background: transparent; }
+.an-backdrop.an-dim { background: #0f141a66; }
+.an-backdrop:not(.an-dim) { pointer-events: none; }
+.an-panel {
+  position: absolute; z-index: 61; width: min(380px, calc(100vw - 24px)); max-height: min(560px, calc(100vh - 32px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--an-card); color: var(--an-ink); border: 1px solid var(--an-line); border-radius: 14px;
+  box-shadow: var(--an-shadow); font: 15px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left; letter-spacing: normal; text-transform: none;
+}
+.an-panel.an-sheet {
+  position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: 100%;
+  max-height: 82vh; border-radius: 16px 16px 0 0; border-bottom: 0; padding-bottom: env(safe-area-inset-bottom);
+}
+.an-panel[hidden], .an-backdrop[hidden] { display: none !important; }
+.an-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 14px 10px 18px; border-bottom: 1px solid var(--an-line); }
+.an-kicker { margin: 0 0 2px; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--an-accent); }
+.an-title { margin: 0; font: 700 1.12rem/1.2 Georgia, serif; color: var(--an-ink); overflow-wrap: anywhere; }
+.an-close {
+  flex: none; width: 34px; height: 34px; min-height: 0; padding: 0; border-radius: 999px; cursor: pointer;
+  border: 1px solid transparent; background: transparent; color: var(--an-muted); font-size: 1.4rem; line-height: 1;
+}
+.an-close:hover { background: var(--an-soft); color: var(--an-ink); }
+.an-scroll { flex: 1 1 auto; min-height: 110px; overflow-y: auto; overscroll-behavior: contain; padding: 12px 18px 14px; }
+.an-list { list-style: none; margin: 0 0 10px; padding: 0; }
+.an-note { padding: 10px 0; border-bottom: 1px solid var(--an-line); }
+.an-note:first-child { padding-top: 2px; }
+.an-note-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; font-size: .8rem; color: var(--an-muted); }
+.an-note-head strong { color: var(--an-ink); font-weight: 700; }
+.an-body { margin: 4px 0 2px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .93rem; }
+.an-archived .an-body { color: var(--an-muted); text-decoration: line-through; text-decoration-color: var(--an-line); }
+.an-meta { margin: 2px 0 0; font-size: .75rem; color: var(--an-muted); overflow-wrap: anywhere; }
+.an-empty { margin: 2px 0 12px; color: var(--an-muted); font-size: .9rem; }
+.an-status { margin: 8px 0 0; font-size: .82rem; color: var(--an-lake); }
+.an-warn { color: var(--an-accent); margin: 0 0 10px; }
+.an-link {
+  min-height: 0; padding: 4px 0; margin: 2px 12px 0 0; border: 0; border-radius: 0; background: none; cursor: pointer;
+  color: var(--an-lake); font: inherit; font-size: .8rem; font-weight: 650; text-decoration: underline; text-underline-offset: 3px;
+}
+.an-link:hover { color: var(--an-accent); }
+.an-compose { flex: none; padding: 10px 18px 12px; border-top: 1px solid var(--an-line); }
+.an-compose .an-status { margin: 6px 0 0; }
+.an-form { margin: 0; }
+.an-scroll .an-list:last-child .an-note:last-child { border-bottom: 0; }
+.an-form textarea {
+  display: block; width: 100%; min-height: 64px; resize: vertical; box-sizing: border-box; margin: 0;
+  padding: 10px 11px; border: 1px solid var(--an-line); border-radius: 10px;
+  background: var(--an-card); color: var(--an-ink); font: inherit; font-size: 16px; /* 16px: no iOS zoom */
+}
+.an-form textarea:focus { outline: 2px solid var(--an-lake); outline-offset: 1px; }
+.an-form-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+.an-save {
+  min-height: 38px; padding: 7px 16px; border-radius: 999px; cursor: pointer; font: inherit; font-size: .88rem; font-weight: 700;
+  border: 1px solid var(--an-accent); background: var(--an-accent); color: var(--an-on-accent);
+}
+.an-save:disabled { opacity: .6; cursor: default; }
+/* Pages style bare button:hover (0,1,1); these must win over it. */
+.an-panel .an-save:hover { color: var(--an-on-accent); border-color: var(--an-accent); background: var(--an-accent); filter: brightness(1.08); }
+.an-panel .an-index-item:hover { color: var(--an-ink); }
+.an-sub { margin: 18px 0 8px; font: 800 .7rem/1.2 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--an-muted); }
+.an-index { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.an-index-item {
+  display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; width: 100%; min-height: 0; padding: 9px 11px; text-align: left; cursor: pointer;
+  border: 1px solid var(--an-line); border-radius: 10px; background: transparent; color: var(--an-ink); font: inherit;
+}
+.an-index-item:hover { border-color: var(--an-lake); }
+.an-index-label { font-weight: 700; font-size: .88rem; overflow-wrap: anywhere; }
+.an-index .an-n { align-self: start; color: var(--an-accent); }
+.an-index-snip { grid-column: 1 / -1; font-size: .8rem; color: var(--an-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.an-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; padding: 9px 18px; border-top: 1px solid var(--an-line); font-size: .76rem; color: var(--an-muted); }
+.an-foot .an-link { margin: 0; font-size: .76rem; }
+@media (prefers-reduced-motion: reduce) { .an-pencil { transition: none; } }

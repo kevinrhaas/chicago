@@ -15,6 +15,8 @@ a research dataset with renderers attached. Live at
 
 The Prairie Avenue 1904 research package is in [`chicago/prairie_1904_v1/`](chicago/prairie_1904_v1/README.md); its dev browser is `/4d/dev/prairie-1904/viewer/`.
 
+The documentation sites (landing, pre-fire, rebuilding, Prairie Avenue — not 4D) carry **notes**: a pencil on each card, map, image and page, read by anyone, written through personal edit links. Setup and access rules: [`chicago/atlas-notes/`](chicago/atlas-notes/README.md).
+
 ## Where things are
 
 | path | what it is |

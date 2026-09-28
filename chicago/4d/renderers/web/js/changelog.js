@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1209, ts: '2026-09-28T13:48:27.212Z', date: 'Sep 28, 2026, 8:48 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+  { v: null, ts: '', date: '', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
     items: [
       'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
       'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
       'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
       'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
       'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
+    ] },
+  { v: 1209, ts: '2026-09-28T13:52:07.973Z', date: 'Sep 28, 2026, 8:52 AM CT', title: 'Six houses get out of the road', kind: 'fix',
+    items: [
+      'Six buildings on the west side of the river were standing in the middle of streets. Two in Fulton, two in Jefferson, two in Des Plaines \u2014 and one of them, a cottage on Des Plaines, was twelve metres in, far enough that a wagon could not have passed it. All six have moved onto the ground beside the road they were blocking.',
+      'Nobody had put them there on purpose. The streets were drawn after the houses were placed, and the check that catches a building in a roadway only looked at 33 of the 79 streets this town draws \u2014 so for the other 46, including all three of these, it said nothing at all.',
+      'It had already been noticed, and unevenly acted on: two houses that were never built got refused for standing 11.9 and 9.7 metres into Jefferson, while two that were built stayed put inside the same street, and the Des Plaines cottage stood deeper than either of the refused pair. A rule that stops a house going up but leaves one standing is not a rule, so the six moved.',
+      'Each moved the shortest distance that clears the road and still works \u2014 between 2.75 and 13.25 metres, none of them leaving its own corner of town, and each now a comfortable margin clear of the roadway rather than a hair. Nothing else about any of them changed: same house, same size, same age, same paint.',
+      'The wider question \u2014 whether the roadway check should look at all 79 streets rather than 33 \u2014 is written down as its own piece of work rather than answered here.',
     ] },
   { v: 1208, ts: '2026-09-28T12:49:50.617Z', date: 'Sep 28, 2026, 7:49 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
     items: [

@@ -53,7 +53,7 @@ function mediaMarkup(row) {
   return `<div class="building-media-gallery">${media.map(item => {
     const representation = (item.representation_type || 'historical image').replaceAll('_',' ');
     const caution = item.accuracy_note ? `<span class="image-caution">${escapeHtml(item.accuracy_note)}</span>` : '';
-    return `<figure class="building-media"><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer"><img src="../${escapeHtml(item.local_path)}" alt="${escapeHtml(item.title)}" loading="lazy"></a><figcaption><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a><span>${escapeHtml(item.depicted_year || 'date unknown')} · ${escapeHtml(representation)}</span>${caution}</figcaption></figure>`;
+    return `<figure class="building-media" data-note="image:${escapeHtml(item.media_id)}" data-note-label="${escapeHtml(item.title)}"><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer"><img src="../${escapeHtml(item.local_path)}" alt="${escapeHtml(item.title)}" loading="lazy"></a><figcaption><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a><span>${escapeHtml(item.depicted_year || 'date unknown')} · ${escapeHtml(representation)}</span>${caution}</figcaption></figure>`;
   }).join('')}</div>`;
 }
 
@@ -73,7 +73,7 @@ function render() {
   const selected = model.maps.find(m => m.map_id === variant.value);
   const map = selected?.reference_year === nearest.reference_year ? selected : nearest;
   variant.value = map.map_id;
-  $('mapTitle').textContent = map.title; $('mapYear').textContent = `shows ${map.reference_year}`;
+  $('mapTitle').textContent = map.title; $('mapTitle').dataset.note = `map:${map.map_id}`; $('mapTitle').dataset.noteLabel = map.title; $('mapYear').textContent = `shows ${map.reference_year}`;
   $('mapImage').src = `../${map.local_image_path.replace('maps/','maps/')}`;
   $('mapImage').alt = `${map.title}, reference year ${map.reference_year}`;
   $('mapLink').href = map.source_url;
@@ -107,7 +107,7 @@ function render() {
     const jumpYear = knownStart(r);
     const aliasMarkup = aliases.length ? `<span class="aliases">Also known as ${escapeHtml(aliases.join(' · '))}</span>` : '';
     const jumpMarkup = jumpYear === null ? '—' : `<button class="jump-year" data-jump-year="${jumpYear}">View ${jumpYear}</button>`;
-    return `<tr><td><strong>${escapeHtml(r.canonical_name)}</strong>${r.needs_review==='true'?' <small>⚑ review</small>':''}${aliasMarkup}</td><td>${mediaMarkup(r)}</td><td>${escapeHtml(knownSpan(r))}</td><td>${escapeHtml((r.building_type||'—').replaceAll('_',' '))}</td><td>${escapeHtml(r.address_historical||'—')}</td><td>${escapeHtml(r.fire_fate_1871||'—')}</td><td>${escapeHtml(r.confidence)}</td><td>${jumpMarkup}</td></tr>`;
+    return `<tr><td data-note="building:${escapeHtml(r.building_id)}" data-note-label="${escapeHtml(r.canonical_name)}" data-note-place="inline"><strong>${escapeHtml(r.canonical_name)}</strong>${r.needs_review==='true'?' <small>⚑ review</small>':''}${aliasMarkup}</td><td>${mediaMarkup(r)}</td><td>${escapeHtml(knownSpan(r))}</td><td>${escapeHtml((r.building_type||'—').replaceAll('_',' '))}</td><td>${escapeHtml(r.address_historical||'—')}</td><td>${escapeHtml(r.fire_fate_1871||'—')}</td><td>${escapeHtml(r.confidence)}</td><td>${jumpMarkup}</td></tr>`;
   }).join('') : '<tr><td colspan="8" class="empty-state">No matching records. Try another name, alias, address, type, or year.</td></tr>';
 }
 
