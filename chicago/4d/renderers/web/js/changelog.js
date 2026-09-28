@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1211, ts: '2026-09-28T17:42:33.450Z', date: 'Sep 28, 2026, 12:42 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+  { v: null, ts: '', title: 'Compare two builds of one building by address', kind: 'feature',
     items: [
       'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
       'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
       'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
       'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
+    ] },
+  { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+    items: [
+      'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
+      'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
+      'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
+      'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
+      'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
     ] },
   { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
     items: [
