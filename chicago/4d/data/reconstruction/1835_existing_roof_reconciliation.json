@@ -1083,6 +1083,72 @@
       "substitutes_anonymous_slots": 1,
       "confidence": "moderate",
       "reasoning": "One documented single-storey frame dwelling roof, 16 by 30 ft from the Chicago Democrat's own for-sale notice. D1 is read off the AREA and not the proportion: 480 sq ft sits inside D1's 320-520 sq ft band, while the printed shape - wider than it is deep - matches no family band, because the bands describe eaves-front houses deeper than their front."
-    }
+    },
+    {
+      "structure_id": "newberry_dole_packing_house_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "W3",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The packing and barrelling house of the South Branch works, standing 5.20 m south of `newberry_dole_slaughterhouse_south_branch` across a cart yard. One roof, and it is counted in the SOUTH district under family W3 - the crosswalk's cooper, wagon and wheelwright shop, whose visible signature is hoops and barrels, which is what a packing house is full of between seasons. IT SUBSTITUTES ONE ANONYMOUS SLOT, on the same reasoning every named works building here takes: the South's workshops row still carries unbuilt, unnamed W3 slots and an authored slot yields to a record that names a building. So this roof is a re-typing inside the programme's size and the town's roof total does not move for it."
+},
+    {
+      "structure_id": "newberry_dole_salt_house_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A4",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The salt house of the South Branch works, 5.20 m south of the packing house. One roof, counted in the SOUTH district under family A4 - the woodshed and storage outbuilding, which is what a salt store is. It substitutes one anonymous A4 slot: the South's small_outbuildings row carries unbuilt ones and a record that names a building takes precedence over an authored slot. The town's roof total does not move."
+},
+    {
+      "structure_id": "newberry_dole_stock_shed_south_branch",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A1",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The stock shed at the landward end of the South Branch works, 5.20 m south of the salt house. One roof, counted in the SOUTH district under family A1 - the lofted stable, the family whose signature is a stable door. It substitutes one anonymous A1 slot from the South's barns_stables row. The town's roof total does not move. The killing pens and the stock yard the plant's own record names are NOT this roof and are still unmodelled: they are enclosures, not buildings."
+},
+    {
+      "structure_id": "miller_tanyard_bark_shed",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A4",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The bark shed in the yard behind `miller_tannery` at the forks, 5.20 m north of the tannery's back wall. One roof, counted in the NORTH district under family A4 - the woodshed and storage outbuilding. It substitutes one anonymous A4 slot from the North's small_outbuildings row. The town's roof total does not move."
+},
+    {
+      "structure_id": "miller_tanyard_drying_shed",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A5",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "reconstructed",
+      "reasoning": "T-1709. The drying shed at the east end of the same tanyard, standing on the same front-wall line as the bark shed. One roof, counted in the NORTH district under family A5 - the small mixed utility outbuilding. It substitutes one anonymous A5 slot from the North's small_outbuildings row. The town's roof total does not move. The lime pits and tan vats `miller_tannery` names are not roofs and are still unmodelled."
+},
+    {
+      "structure_id": "elston_ash_house",
+      "district": "north",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A5",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "low",
+      "reasoning": "T-1709. The ash house behind `elston_soap_candle_manufactory` on the North Branch, 5.20 m east of the works. One roof, counted in the NORTH district under family A5. It substitutes one anonymous A5 slot from the North's small_outbuildings row, which takes that row's remaining North A5 slots to nil. The town's roof total does not move. Confidence is LOW and it is the works' own: the advertisement that attests Elston & Co. gives no address, so the works itself is placed by argument and this building inherits all of it."
+}
   ]
 }
