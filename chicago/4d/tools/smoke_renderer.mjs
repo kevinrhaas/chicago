@@ -4902,7 +4902,13 @@ for (const [label, viewport, touch] of [
         // lot 6's wall and the two reconstructed C2 trade refusals. Franklin
         // lot 4's existing wall refusal is renamed, not an additional row.
         // All walk/crossing/post/fence counts above remain exact and unchanged.
-        && frontage.census?.refused === 112
+        // T-1681 (#130) then landed on dev and 112 becomes 115, measured by
+        // diffing the authored refusal sets at ef20f58e and d3260907: the three
+        // re-familied Lake Street units recon_1835_blk_lake_clark_c1_01, _c2_02 and
+        // _c3_03 each gain a clause-3 refusal (the trade is reconstructed), and
+        // lot 0's existing 0.80 m wall refusal is renamed from _d5_03 to _c3_03,
+        // not added. No walk, crossing, post or fence count moves.
+        && frontage.census?.refused === 115
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
