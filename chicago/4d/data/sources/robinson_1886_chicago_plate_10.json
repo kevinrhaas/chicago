@@ -1,0 +1,26 @@
+{
+  "id": "robinson_1886_chicago_plate_10",
+  "type": "map",
+  "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+  "author": "E. Robinson",
+  "date": "1886",
+  "describes_date": "1886",
+  "repository": "Unknown: the copy is a photograph of a bound atlas page supplied by Glessner House; no catalogue record has been matched",
+  "locator": "Plate 10 (the plate's own heading; 'Scale 100 feet to One inch'): 16th to 18th Street, Indiana Av. to Lake Michigan, with subdivision and lot numbers. Committed copy chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/robinson_1886_plate_10.jpg, 1467 x 2000 px.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1886; public domain.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "The atlas's title, publisher and year are taken from Glessner House's covering note and the owner's README (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/README.md) together with the plate's own printed heading and scale; this record did not find the volume in a library catalogue, and the Prairie Avenue research library lists its bibliographic identification as pending (chicago/prairie_1904_v1/data/sources.csv, MAP-1886). The copy is a photograph of a bound page: rotated, and curved toward the gutter at its left edge.",
+  "note": "Spent first by T-1250: georeferenced by tools/georef_prairie_1904.py (data/traces/gcp/robinson_1886_plate_10_gcps.json, 4.54 m RMS -- the weakest of the four fits, for the reasons its locator gives) and read for the 1886 water's edge from above 16th Street to 18th (tools/trace_ic_edge_1904.py). That line BOUNDS the 1904 edge from before; the 1911 edge stands 17-20 m east of it where both are drawn. Tier 2 because it is a compiled real-estate atlas rather than a measured survey, like rees_rucker_1849.",
+  "what_it_supplies": [
+    "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+    "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+  ],
+  "what_it_does_not_supply": [
+    "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+    "Anything as of 1904 on its own authority",
+    "Elevations or grades"
+  ]
+}
