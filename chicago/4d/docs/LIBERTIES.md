@@ -14577,10 +14577,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 274 lots are enumerated from records this project already held, and then 137 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 274 lots are enumerated from records this project already held, and then 139 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 137 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,341
+**Scope:** `platted_seats.seats[dealt]` — 139 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,339
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 274 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14600,25 +14600,29 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 109 of the 137 seats are
+roof of a family its clause admits, on a lot of its own division; 111 of the 139 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **28 of the 137 are that, and every one of them stands on the plat's last
+sizing keeps open; **28 of the 139 are that, and every one of them stands on the plat's last
 tier** (T-1707, 2026-09-28). The count was 0 until that ticket, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
 headroom, and the deal placed 30 households onto them — 28 on the Market, Franklin, Wells and
-La Salle blocks and 2 on the Clark block. **The Clark block's two are gone from this count,
-and they were BUILT rather than withdrawn** (T-1708, 2026-09-28): that parcel raised the D5
-and the D4 the block was asked for, the two roofs went to the Bourrassa and Alexander Beaubien
-households by the same precedence recorded below, and the block has no principal headroom left
-to request a slot on — so the slot count falls 30 -> 28 and both of those requests are
-discharged. The 28 that remain are 18 merchant and professional households and 10 tradesmen's,
+La Salle blocks and 2 on the Clark block. **THE CLARK BLOCK'S TWO ARE NO LONGER SLOTS BECAUSE
+THEY WERE BUILT** (T-1708, 2026-09-28). That parcel raised the D5 and the D4 the block's own
+committed plan was asked for; re-derived over the new roofs the deal takes them as ADOPTIONS
+rather than requests, so adoptions rise 109 -> 111, slots fall 30 -> 28 and the seat total does
+not move. The 28 that remain are 18 merchant and professional households and 10 tradesmen's,
 on the four blocks between Market and La Salle. A slot is a REQUEST and not a roof: those 28
 have a lot and no walls until T-1200 through T-1214 raise them, and each seat says so.
+**And the two households that walked into the new cottages are not the two that asked for
+them** — the same precedence recorded below. Bernard Bousque took the D5 and Alexander
+Beaubien the D4; the Cady and Byram households, whose slots the block was carrying, are owed a
+roof again, and each of the four roofs downstream of the move was re-adopted in the deal's own
+order. **L287** is the parcel and **L276** restates the keeper count the cascade moved.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
@@ -15207,18 +15211,23 @@ district at a time and its scope is data rather than a constant — a district e
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
 
-**IT WAS 23 UNTIL T-1708, AND THE TWO IT LOST ARE A MOVE RATHER THAN A WITHDRAWAL.** The
-eight roofs that ticket raised on `blk_washington_clark` — the Clark-to-Dearborn block of
-the plat's last tier — put two dwellings in front of the placement policy on a re-deal, and
-the policy ranks a household whose name the town's own records carry above one minted from
-the post office's letter lists. So the Bourrassa household (the St Cyr register) and
-Alexander Beaubien's (the St Mary's baptismal register) came off
-`recon_1835_blk_south_water_wells_d3_04` and `_d4_03` and onto the two new cottages, which
-stand in a block this pass's `DISTRICTS` does not yet cover. Both are still seated and both
-are still disclosed in L270; what they are not is *named on a roof this liberty's scope
-reaches*, so `written` falls 23 → 21 and `owed` rises 23 → 25. The count is restated rather
-than the scope widened: the pass runs one district at a time on purpose, and the Washington–
-Madison tier enters `DISTRICTS` with the ticket that carries it.
+**IT WAS 23 UNTIL T-1708, AND WHAT MOVED IS A CASCADE RATHER THAN A WITHDRAWAL.** The eight
+roofs that ticket raised on `blk_washington_clark` — the Clark-to-Dearborn block of the plat's
+last tier — put two free dwellings in front of the placement policy, and the deal took them as
+adoptions: Bernard Bousque onto `recon_1835_blk_washington_clark_d5_01` and Alexander Beaubien
+onto `_d4_02`. That block is not in this pass's `DISTRICTS`, so neither seat is named on a roof
+this liberty's scope reaches; and the four roofs the two of them vacated were re-adopted down
+the deal's own order, which moved four more keepers inside the scope
+(`recon_1835_blk_randolph_wells_d3_05`, `recon_1835_blk_south_water_lasalle_d3_06`,
+`recon_1835_blk_south_water_wells_d3_04` and `_d4_03` each change hands).
+Net over the two districts: three roofs lose a named keeper
+(`recon_1835_blk_randolph_market_d4_12`, `recon_1835_blk_south_water_franklin_d3_03`,
+`recon_1835_blk_south_water_lasalle_d3_03`) and one gains one
+(`recon_1835_blk_randolph_market_d4_07`), so `written` falls 23 → 21, refusals rise 63 → 64
+and `owed` rises 23 → 26. Every one of those households is still seated and still disclosed in
+**L270**. The count is restated rather than the scope widened: the pass runs one district at a
+time on purpose, and the Washington–Madison tier enters `DISTRICTS` with the ticket that
+carries it.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -15980,16 +15989,15 @@ parcel asks, so the D4 stands on lot 4 and lot 5 is named open with that reason 
 family stands on is the block recipe's to author (the rule T-1622 set on the South Water row), and
 this is the second time the two answers have parted.
 
-**AND THE TWO HOUSEHOLDS THAT MOVED IN ARE NOT THE TWO THAT ASKED.** Re-derived over the new roofs,
-the placement policy ranks a household whose name the town's own records carry above one minted
-from the post office's letter lists, so the Bourrassa household (the St Cyr register) and Alexander
-Beaubien's (the St Mary's baptismal register) came off `recon_1835_blk_south_water_wells_d3_04` and
-`_d4_03` onto these two cottages, and the Cady and Byram households came back OWED rather than
-slotted: the block has no principal headroom left to request against, so their two requests are
-discharged by a roof each and the platted deal's slot count falls 30 -> 28 while its seat count
-falls 139 -> 137. That is reported rather than tidied: it is the same precedence T-1622 met on
-South Water and T-1626 carries to the owner. **L270** restates both counts and **L276** its
-keeper count.
+**AND THE TWO HOUSEHOLDS THAT MOVED IN ARE NOT THE TWO THAT ASKED.** Re-derived over the new
+roofs, the placement policy offers a free roof to the whole banded list in its own clause order
+rather than to the household whose slot raised it, and the two that reach these cottages first are
+Bernard Bousque (the D5 on lot 6) and Alexander Beaubien (the D4 on lot 4). The Cady and Byram
+households come back OWED rather than slotted. The deal's totals move accordingly — adoptions
+109 → 111, slots 30 → 28, the seat total unchanged at 139 — and four further roofs change hands
+down the order behind the move. That is reported rather than tidied: it is the same precedence
+T-1622 met on the South Water row and T-1626 carries to the owner. **L270** restates the deal's
+counts and **L276** the keeper count the cascade moved.
 
 **THE BLOCK EAST OF THIS ONE IS NOT OPENED, AND THAT IS A FINDING.** T-1708 names the Clark-State
 tier, which is this block and `blk_washington_dearborn`. The schedule deals that block six roofs

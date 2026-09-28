@@ -293,7 +293,22 @@ STRUCTURE_TICKETS = {
     # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
     # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
     # cell still owing, the same rule T-1681 was named under one line down.
-    ("south", "ordinary_dwellings"): "T-1708",
+    #
+    # MOVED TO T-1735 on 2026-09-28, in the pull request that closed T-1708, and the
+    # successor named above was already dead when it was written. T-1708 built the two
+    # cottages and six yard buildings `blk_washington_clark` was dealt and the cell still
+    # owes 64 roofs, so it cannot stay there; and T-1710 is in state `split` with BOTH of
+    # its children — T-1712 and T-1713 — already `done`, so T-1203's whole subtree closes
+    # with this pull request and there is no live descendant of it to sweep to. T-1713 is
+    # where the district's outer books were closed and it closed them at nought: the
+    # lakefront tier is a zero-width strip, the Fort Dearborn Addition does not exist in
+    # 1835 and the country seats are off the modelled ground, so every one of the 64 is
+    # INSIDE the old plat. That is the question the remaining roofs pose and it is the
+    # plat's last tier that answers it: the platted deal holds 28 slots on the Market,
+    # Franklin, Wells and La Salle blocks, each with a lot and no walls. T-1735 is the
+    # first of those blocks and is the live owner of the cell; the row sweeps on to the
+    # next of them when it closes with the cell still owing, by the rule above.
+    ("south", "ordinary_dwellings"): "T-1735",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
