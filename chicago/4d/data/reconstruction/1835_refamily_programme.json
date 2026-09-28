@@ -38,23 +38,23 @@
     }
   ],
   "the_programme_in_four_numbers": {
-    "held_when_the_ruling_was_made": 524,
+    "held_when_the_ruling_was_made": 525,
     "moves_T_1556_named": 265,
     "moves_the_rule_yields": 129,
-    "people_still_held_when_it_is_spent": 395,
-    "the_remedy_reaches": 0.2462
+    "people_still_held_when_it_is_spent": 396,
+    "the_remedy_reaches": 0.2457
   },
   "where_the_programme_stands": {
     "moves_made": 129,
     "moves_outstanding": 0,
     "outstanding_by_the_ticket_the_move_names": [],
-    "surplus_still_held_today": 395
+    "surplus_still_held_today": 396
   },
   "what_it_is_left_holding": {
-    "people": 395,
-    "buckets": 44,
+    "people": 396,
+    "buckets": 45,
     "buckets_cleared": 0,
-    "of_refused_buckets": 44,
+    "of_refused_buckets": 45,
     "by_family": [
       {
         "sex": "female",
@@ -74,7 +74,7 @@
       {
         "sex": "male",
         "age_band": "10_19",
-        "people_still_held": 46
+        "people_still_held": 47
       },
       {
         "sex": "female",
@@ -117,7 +117,7 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 42 if the household kind changed too, 104 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 44 if the household kind changed too, 106 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
     "still_owed_now": 290,
@@ -138,12 +138,12 @@
     }
   },
   "the_residue_and_the_ruling_on_it": {
-    "people_still_held": 395,
-    "buckets_they_are_held_in": 44,
+    "people_still_held": 396,
+    "buckets_they_are_held_in": 45,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
-        "people": 1
+        "people": 2
       },
       {
         "refusal": "the_re_cut_reached_work_already_drawn",
@@ -161,17 +161,17 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 223 people under twenty and 105 adult women, and their cells hold 36 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 38 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "277 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "278 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
       "id": "the_22_seated_households",
-      "says": "23 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "says": "24 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
       "who_owns_it": "T-1199"
     },
     {
@@ -566,6 +566,16 @@
       "owning_ticket": "T-1174",
       "held_at": 2,
       "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/10_19/north/lodging/trade",
+      "owning_ticket": "T-1532",
+      "held_at": 1,
+      "the_re_cut_would_have_ordered": 0,
       "surplus_still_held": 1,
       "refamilied_out_already": 0,
       "outstanding_moves": 0,

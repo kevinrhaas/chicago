@@ -71,8 +71,8 @@
  },
  "persons": [
   {
-   "id": "rc_corrigan_alice",
-   "name": "Alice Corrigan",
+   "id": "rc_corrigan_mary",
+   "name": "Mary Corrigan",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "female",
@@ -95,7 +95,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Alice Corrigan",
+    "value": "Mary Corrigan",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -266,23 +266,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 5 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_tobin_hugh",
-   "name": "Hugh Tobin",
+   "id": "rc_murphy_edward",
+   "name": "Edward Murphy",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "40-49",
-    "low": 40,
-    "high": 49,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:kelsey_boarding_house:male:40_49:004:age_band",
+    "seed": "lodgers:kelsey_boarding_house:male:30_39:004:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -290,7 +290,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Hugh Tobin",
+    "value": "Edward Murphy",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -298,7 +298,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the irish pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:kelsey_boarding_house:male:40_49:004:forename",
+    "seed": "lodgers:kelsey_boarding_house:male:30_39:004:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -308,10 +308,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/40_49/north/lodging/none",
-    "note": "The book's bucket persons/male/40_49/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is kelsey_boarding_house's, from the lodging model's ordinary-night figure of 5."
+    "bucket": "persons/male/30_39/north/lodging/none",
+    "note": "The book's bucket persons/male/30_39/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is kelsey_boarding_house's, from the lodging model's ordinary-night figure of 5."
    },
-   "seed": "lodgers:kelsey_boarding_house:male:40_49:004:forename",
+   "seed": "lodgers:kelsey_boarding_house:male:30_39:004:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"

@@ -3511,6 +3511,34 @@
       }
     },
     {
+      "person": "rc_barnes_ezra",
+      "household": "hh_lodging_recon_1835_north_h2_022",
+      "relationship": "head",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/10_19/north/lodging/trade",
+      "rung": "R_seated",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
+      "deal_key": "hh_lodging_recon_1835_north_h2_022:rc_barnes_ezra",
+      "axes": {
+        "sex": "male",
+        "age_band": "10_19",
+        "division": "north",
+        "household": "lodging",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_fitzgerald_martin",
       "household": "hh_lodging_recon_1835_west_006",
       "relationship": "head",
@@ -29077,38 +29105,38 @@
     }
   ],
   "counts": {
-    "people_in_the_refused_buckets": 1145,
-    "the_surplus_those_buckets_hold": 395,
+    "people_in_the_refused_buckets": 1146,
+    "the_surplus_those_buckets_hold": 396,
     "by_rung": {
       "C0": 220,
       "C1": 430,
       "R_adopted": 394,
       "R_house_is_not_wholly_held": 25,
-      "R_seated": 23,
+      "R_seated": 24,
       "R_division_is_a_reading": 53
     },
     "movable_people": 650,
-    "refused_on_their_own_account": 352,
+    "refused_on_their_own_account": 353,
     "refused_with_their_house": 143,
-    "carrying_an_adoption_themselves": 277,
+    "carrying_an_adoption_themselves": 278,
     "moves_the_rule_yields": 129,
     "buckets_moved_out_of": 39,
     "buckets_moved_into": 41,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 44 refused buckets accounted for, 1,145 people named"
+    "the_roster_is_reconciled": "all 45 refused buckets accounted for, 1,146 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
-    "if_only_the_division_changed": 1,
-    "if_the_household_kind_changed_too": 42,
-    "if_the_trade_could_change_as_well": 104,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 39,
+    "if_only_the_division_changed": 2,
+    "if_the_household_kind_changed_too": 44,
+    "if_the_trade_could_change_as_well": 106,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 40,
     "under_this_rule": 129,
-    "what_the_whole_house_condition_costs": -90,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -90 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "what_the_whole_house_condition_costs": -89,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -89 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 104: 253 of the 290 open slots stand in adult-MALE cells while the surplus holds 223 people under twenty and 105 adult women, whose cells hold 37 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 39 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 106: 251 of the 290 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 39 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 38 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
     "persons_standing_in_the_layer": 2381,
@@ -29125,17 +29153,17 @@
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 223 people under twenty and 105 adult women, and their cells hold 36 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 38 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "277 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "278 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
       "id": "the_22_seated_households",
-      "says": "23 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "says": "24 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
       "who_owns_it": "T-1199"
     },
     {
