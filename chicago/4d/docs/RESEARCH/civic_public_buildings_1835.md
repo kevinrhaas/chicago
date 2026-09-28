@@ -274,12 +274,81 @@ date, position or fabric changed; the standing count is 338 exactly as before. T
 correction is to a target, and the only thing a target can be wrong about is what is still
 owed.
 
-## 7. What is still owed
+## 7. What was owed, and what is owed now
 
-- The court-house's **corner** and **fabric**, now attested, applied to the record. Needs
-  a bake, because a changed form value stales the mesh.
-- Nothing else. The enumeration is closed on the sources this project holds; a new source
-  could add a building, and if one does it arrives as a named record and not as a slot —
-  and it will move the target, the district row and the town total with it, because the
-  gate now refuses a row that does not equal the census. That is the intended cost: an
-  institutional roof cannot be added quietly.
+**The court-house's corner and fabric are applied, 2026-09-27 (T-1687).** `position` is
+`inferred` — documented corner, derived coordinate, the same rule the estray pen and the log
+jail stand under on this same block — and `form.construction` is `brick` at `attested`. Not one
+number in the record moved: the building's north-east corner sat on the square's north-east
+corner before the amendment and sits there after it. What moved is what the record claims, and
+one of the claims it dropped is an admission: the "sting in the tail" this parcel recorded in
+August — that the north-east corner might be an 1837 description leaking backwards into an 1835
+record — is refuted by the passage that dates the building, which gives the corner to THIS
+court-house. `docs/LIBERTIES.md` L61 is revised and two of its seven invented attributes are
+withdrawn; L264's brick population is restated from three records to four.
+
+**The line above said "needs a bake", and that is why it sat for six weeks.** It was true when
+this section was written on 16 August and stopped being true on 23 August, when T-0139 retired
+this record's committed GLB — the bake cannot reach a phase no scene resolves, so an asset for
+it was a trap rather than a spare — and wrote into the record itself, in terms, that the two
+parked amendments were unblocked and "There is no mesh to stale." Nothing came back for them,
+because the place the debt was filed still priced it as geometry. Worth stating as a process
+finding and not just a fix: **a debt filed against an obstacle that has since been removed is a
+debt nobody comes back for**, and the cure is that the debt is written where the obstacle is,
+which is the record.
+
+**What is owed now, and it is not a citation — it is an archetype.** `outbuilding` cannot build
+brick: its vocabulary is log, plank and light_frame. The record carries the attested fabric
+anyway, and the first scene that ever covers the fall of 1835 will refuse the phase rather than
+build a plank court-house. That refusal is the wanted one, in the wanted place: the crosswalk's
+I3 canonical archetype `institution_civic` does not exist, and choosing how to mass a
+one-story-and-basement brick county building with its court room over its offices is a geometry
+decision for the parcel that builds it. The same parcel owns the placement question
+`tools/measure_reserved_ground.py` prints in its own docstring — the building's corner is set ON
+the block's corner, so as the plat module draws the block it reads 1 of 4 corners in and
+overhangs Randolph Street.
+
+**Nothing else.** The enumeration is closed on the sources this project holds; a new source
+could add a building, and if one does it arrives as a named record and not as a slot —
+and it will move the target, the district row and the town total with it, because the
+gate now refuses a row that does not equal the census. That is the intended cost: an
+institutional roof cannot be added quietly.
+
+## 8. The civic band beside the public square, read for the Randolph–Washington district (T-1687)
+
+Piece 3 of 4 of T-1202, and the answer is a closed book rather than a roof. The parent asks for
+"the I1 worship roofs and I2 school roofs the civic band established WHERE the civic dossier
+allows (the three civic roofs stand; no fourth is invented)". Read against this district's own
+ground — `blk_randolph_{clinton,market,franklin,wells,clark,dearborn}`, the square reserved —
+the dossier allows none, and every part of that is checkable:
+
+- **The schedule dealt this district exactly one institutional slot, ever.** Across the nine
+  deals the six blocks carry in `data/reconstruction/1835_platted_block_parcels.json`, the only
+  family in the I band is the **one I3 on `blk_randolph_dearborn`'s first deal (2026-08-14)**,
+  and it is in that block's `deferred` list with its forty words of reasoning rather than in its
+  `families`. No I1 and no I2 slot was ever dealt here. The deferral's stated reason — that I3
+  resolves through the `fort_structure` placeholder, whose whole vocabulary is garrison words —
+  has since been overtaken by a stronger one: T-0032 took route 1 of §6, the I3 target is the
+  three roofs that stood, and **the live remainder against the family is zero**. A slot that
+  counts nothing cannot be built by any archetype.
+- **The roofs the dossier does allow all stand, and none of them stands here.** The gate's own
+  census: I1 four named records — `first_presbyterian_church` (Lake and Clark),
+  `st_marys_church` (Lake and State), `temple_building` (South Water near Franklin),
+  `walker_meeting_house` (the forks, west bank); I2 two — `north_side_school_1833` (the north
+  bank east of Clark) and `watkins_school_house` (Michigan Street in Kinzie's Addition); I3
+  three — `log_jail`, `council_house`, `chicago_lighthouse_1832`. By division that is south 5,
+  west 1, north 3, fort 0, which is what the inventory's institutional row now reads. Not one of
+  the six worship or school roofs is in the Randolph–Washington tier.
+- **So the district's civic band is the square's, and the square's is two structures**: the log
+  jail on the north-west corner, standing, and the estray pen on the south-west corner,
+  roofless. Both cards now say so, with the two later county buildings dated out by name. The
+  east half of the square is open, unimproved prairie, and that is a finding rather than an
+  omission.
+- **No fourth civic roof is invented, and the gate is what says so rather than this page.**
+  `tools/measure_institutional_claims.py --gate` holds I1 at 4/4, I2 at 2/2 and I3 at 3/3, with
+  zero anonymous roofs in any of the three families; `tools/measure_reserved_ground.py --gate`
+  reports three permitted structures on the reserved block and nothing unpermitted. Both run in
+  `tools/check.sh`.
+
+What this piece does NOT close is the district's books: the dwellings falling southward, the
+generator refusals, `reconcile_665` headroom and the frame budget are T-1688's, which is piece 4.
