@@ -403,7 +403,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_beaubien_monique` | `blk_washington_wells` | `blk_washington_wells#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beddlecome_ash` | `blk_washington_wells` | `blk_washington_wells#00` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beech_reuben` | `blk_washington_wells` | `blk_washington_wells#04` | H1 | `merchant_and_professional_dwellings` |
-| `hh_benediet_loma` | `blk_washington_wells` | `blk_washington_wells#02` | H1 | `merchant_and_professional_dwellings` |
+| `hh_benediet_loma` | `blk_washington_wells` | `blk_washington_wells#02` | H2 | `merchant_and_professional_dwellings` |
 | `hh_bennet_lyman` | `blk_washington_wells` | `blk_washington_wells#07` | H2 | `merchant_and_professional_dwellings` |
 | `hh_byram_thomas` | `blk_washington_clark` | `blk_washington_clark#05` | D4 | `tradesman_dwellings` |
 | `hh_cady_levi` | `blk_washington_clark` | `blk_washington_clark#04` | D5 | `tradesman_dwellings` |

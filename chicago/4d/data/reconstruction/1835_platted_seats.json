@@ -54,8 +54,8 @@
    "D5": 16,
    "D6": 9,
    "D7": 10,
-   "H1": 11,
-   "H2": 7
+   "H1": 10,
+   "H2": 8
   },
   "lots_taken": 121,
   "roofs_adopted": 109,
@@ -671,7 +671,7 @@
   {
    "block_id": "blk_washington_wells",
    "family": "D4",
-   "roofs": 3,
+   "roofs": 4,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -685,7 +685,7 @@
   {
    "block_id": "blk_washington_wells",
    "family": "D6",
-   "roofs": 2,
+   "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -1419,18 +1419,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "H1",
+   "family": "H2",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": {
     "block_id": "blk_washington_wells",
-    "family": "H1",
+    "family": "H2",
     "district": "south"
    },
    "seed": "hh_benediet_loma|T-1522|division:6b02422e10fb|class:618132f4aeee",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_bennet_lyman",
