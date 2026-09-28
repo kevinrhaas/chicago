@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "af9f63d5612a8dc7cbfc9477a8573c0d4c541fad5f806227063b7cd46add751d",
+    "fingerprint": "8bf32e8f001a2dcb454371c727835a775d07d4b8ffbac04be3f74941b3af0dab",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 426,
+      "structures": 434,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1019,
+    "leads": 1021,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 473,
-      "structures": 40,
+      "structures": 42,
       "voters": 151
     }
   },
@@ -10121,8 +10121,23 @@
           "rule": "exact surname"
         },
         {
+          "id": "newberry_dole_packing_house_south_branch",
+          "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+          "rule": "exact surname"
+        },
+        {
+          "id": "newberry_dole_salt_house_south_branch",
+          "name": "The salt house at Newberry & Dole's South Branch plant",
+          "rule": "exact surname"
+        },
+        {
           "id": "newberry_dole_slaughterhouse_south_branch",
           "name": "Newberry & Dole's Slaughter-House, South Branch",
+          "rule": "exact surname"
+        },
+        {
+          "id": "newberry_dole_stock_shed_south_branch",
+          "name": "The stock shed at Newberry & Dole's South Branch plant",
           "rule": "exact surname"
         },
         {
@@ -10542,8 +10557,23 @@
           "rule": "OCR variant (0.89 similarity to 'dole')"
         },
         {
+          "id": "newberry_dole_packing_house_south_branch",
+          "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+          "rule": "OCR variant (0.89 similarity to 'dole')"
+        },
+        {
+          "id": "newberry_dole_salt_house_south_branch",
+          "name": "The salt house at Newberry & Dole's South Branch plant",
+          "rule": "OCR variant (0.89 similarity to 'dole')"
+        },
+        {
           "id": "newberry_dole_slaughterhouse_south_branch",
           "name": "Newberry & Dole's Slaughter-House, South Branch",
+          "rule": "OCR variant (0.89 similarity to 'dole')"
+        },
+        {
+          "id": "newberry_dole_stock_shed_south_branch",
+          "name": "The stock shed at Newberry & Dole's South Branch plant",
           "rule": "OCR variant (0.89 similarity to 'dole')"
         },
         {
@@ -13800,6 +13830,44 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
+      "id": "lead_v02_hall_structures",
+      "surname_key": "hall",
+      "spellings_as_printed": [
+        "Hall"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "miller_tanyard_bark_shed",
+          "name": "The bark shed at Miller and Hall's tanyard",
+          "rule": "exact surname"
+        },
+        {
+          "id": "miller_tanyard_drying_shed",
+          "name": "The drying shed at Miller and Hall's tanyard",
+          "rule": "exact surname"
+        }
+      ],
+      "entries": [
+        "nbi_v02_0595",
+        "nbi_v02_0596",
+        "nbi_v02_0597",
+        "nbi_v02_0598",
+        "nbi_v02_0599",
+        "nbi_v02_0600",
+        "nbi_v02_0601",
+        "nbi_v02_0602",
+        "nbi_v02_0603",
+        "nbi_v02_0604",
+        "nbi_v02_0605"
+      ],
+      "works_cited": [
+        "county_histories_kett_and_co",
+        "moses_kirkland_history_of_chicago"
+      ],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
       "id": "lead_v03_hally_census_1840",
       "surname_key": "hally",
       "spellings_as_printed": [
@@ -13835,6 +13903,31 @@
         {
           "id": "hall_benjamin",
           "name": "Benjamin Hall",
+          "rule": "OCR variant (0.89 similarity to 'hall')"
+        }
+      ],
+      "entries": [
+        "nbi_v03_0875"
+      ],
+      "works_cited": [],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v03_hally_structures",
+      "surname_key": "hally",
+      "spellings_as_printed": [
+        "Hally"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "miller_tanyard_bark_shed",
+          "name": "The bark shed at Miller and Hall's tanyard",
+          "rule": "OCR variant (0.89 similarity to 'hall')"
+        },
+        {
+          "id": "miller_tanyard_drying_shed",
+          "name": "The drying shed at Miller and Hall's tanyard",
           "rule": "OCR variant (0.89 similarity to 'hall')"
         }
       ],

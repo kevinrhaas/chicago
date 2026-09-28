@@ -87,16 +87,43 @@ Any future evidence should be read as fixing this building relative to the **for
 that arrived later. The facade bearing has **no attested basis whatever** and is a placeholder
 inherited from the retrospective grid.
 
-## 4. The homestead was four buildings and one is modelled
+## 4. The homestead was four buildings and all four are now modelled
 
 Andreas describes: the factory building (this record), a **new residence**, a **small trading
-post**, and a **cabin converted to a barn**. The other three are attested and **not built** —
-nothing reached gives any of them a size, a material, a form, or a position relative to the
-factory building, so they would be three invented boxes placed by eye around a fourth. They are
-recorded here and in the record's `research_note` instead.
+post**, and a **cabin converted to a barn**.
 
-Note the consequence for `occupants`: Andreas says Beaubien built a **new residence**, so which
-building of the group he actually slept in on the scene date is unattested, and the record says so.
+**This section used to say "and one is modelled", and to refuse the other three** — "nothing
+reached gives any of them a size, a material, a form, or a position relative to the factory
+building, so they would be three invented boxes placed by eye around a fourth." **That refusal was
+already out of date when it was read on 2026-09-28**, and this is the correction rather than a new
+argument: `beaubien_barn` was built on 2026-08-11 in exactly the way this section forbids — by eye,
+16.3 m behind the house, with the direction and the distance recorded as invented and the invention
+claimed by **L72** — so one of the three had been standing for seven weeks while the page still
+refused all three.
+
+**T-1712 applies the barn's disposition to the two that were left.** `beaubien_new_residence`
+(9.75 x 6.10 m, 32 x 20 ft, on the frontage line 17.9 m east of this record's origin) and
+`beaubien_trading_post` (6.10 x 4.88 m, 20 x 16 ft, on the yard line at the same easting) are built
+as log dwellings with their **presence and their use attested** and their **position, footprint and
+storey count invented and graded `reconstructed`**, and **L283** carries the invention, the method
+and what it costs. The ask is the owner's: T-1203 asks this ground for "the documented country seats
+with their reconstructed neighbours".
+
+**What was NOT done, and each of these is a live thread rather than an omission.**
+
+- **No confidence on any committed record was raised.** Everything §§ 2, 6 and 6a say about how
+  loosely this group is placed is unchanged, and the two new records inherit all of it.
+- **`occupants` still answers nothing.** Andreas says Beaubien built a new residence, so which
+  building of the group he actually slept in on the scene date is unattested; this record's
+  `occupants` block says so, and the new residence is deliberately given **no occupants at all**,
+  because a record called a residence is not evidence about where a man slept.
+- **The garden is still unbuilt.** Wentworth's sale passage names "Beaubien's house, out-buildings,
+  and garden" together on lots 6–10, so a garden on this ground is documented — but it is a fence
+  line and ground cover rather than a structure, no source gives it an extent, and
+  `fort_dearborn_garrison_garden` only has one because the 1830 plate draws its four corners.
+- **"Out-buildings" is plural and the group now stands two of them.** The barn and the trading post
+  are both out-buildings of a sort; nothing says either was one of the ones standing in 1839, and
+  the plural is not spent as evidence for a fifth building.
 
 ## 5. Why review is flagged
 
