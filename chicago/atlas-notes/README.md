@@ -31,10 +31,11 @@ in their own `atlas_notes_private` schema — nothing of analytics' is touched:
 | pages | project |
 |---|---|
 | chicago.polecat.live (production) | `polecat` (`lnngiprrrcxtsawamqei`) |
-| the `/…/dev/…` previews and a local server | `polecat_dev` |
+| the `/…/dev/…` previews and a local server | `polecat_dev` (`lbelrlliaagqxbfuiawr`) |
 
 `PROJECTS` at the top of `site/notes/notes.js` holds each one's URL and
-publishable key. An environment with no URL/key yet is unchanged: no pencils, no
+publishable key (the publishable key is designed to be public; never put a
+secret key there). An environment with no URL/key is unchanged: no pencils, no
 button, no network calls. An edit link belongs to one project, so production and
 dev each have their own links, remembered separately.
 
@@ -54,9 +55,7 @@ dev each have their own links, remembered separately.
    `polecat_dev`. Opening it once remembers the editor on that device and removes
    the token from the address bar, so a URL copied afterwards never carries it.
    Notes are signed with the name given here.
-3. **`polecat_dev` only:** put its *Project URL* and *publishable* key
-   (`sb_publishable_…`, never the secret one) into `PROJECTS.dev`. Production's
-   are already there — the same pair `app/workspaces.js` in analytics ships.
+Both projects had `setup.sql` applied on 2026-09-28.
 
 ## Running it
 

@@ -32,7 +32,7 @@
   // functions are the only way in. See chicago/atlas-notes/README.md.
   const PROJECTS = {
     prod: { url: 'https://lnngiprrrcxtsawamqei.supabase.co', key: 'sb_publishable_jQ3rgqN2swVo4WmLZp143A_2OrI8xc3' },
-    dev: { url: '', key: '' }, // polecat_dev — until filled in, previews simply show no notes
+    dev: { url: 'https://lbelrlliaagqxbfuiawr.supabase.co', key: 'sb_publishable_MmWDieFj6z_qfWG5Dtv89w_378lm5Sk' }, // polecat_dev
   };
   const ENV = /(^|\/)dev\//.test(location.pathname) || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) ? 'dev' : 'prod';
   const DB = window.ATLAS_NOTES_DB || PROJECTS[ENV]; // a test (chicago/atlas-notes/smoke.mjs) may inject its own

@@ -93,18 +93,19 @@ for (const [tag, viewport] of [['mobile 390x780', { width: 390, height: 780 }], 
   console.log(tag + ':');
   rows = []; seq = 0;
 
-  // 0. Served locally with no injected project, the page is the dev environment; with
-  //    polecat_dev's keys not filled in it must stay silent and never call production.
+  // 0. Served locally with no injected project, the page is the dev environment: it
+  //    must talk to polecat_dev and never to production. (Answered here with a 404,
+  //    as an un-set-up project would, so the test never touches a live database.)
   {
     const context = await browser.newContext({ viewport });
-    const page = await context.newPage(), calls = [], errors = [];
-    page.on('request', r => { if (/supabase\.co/.test(r.url())) calls.push(r.url()); });
+    const calls = [], errors = [];
+    await context.route(/supabase\.co\//, route => { calls.push(route.request().url()); return route.fulfill({ status: 404, body: '{}' }); });
+    const page = await context.newPage();
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(base + '/prairie-1904/viewer/?notes=' + TOKEN);
-    await page.waitForSelector('#buildingList details');
-    await page.waitForTimeout(300);
-    const dev = await page.evaluate(() => ({ ui: document.querySelectorAll('.an-toggle, .an-pencil').length, ready: document.documentElement.classList.contains('an-ready') }));
-    check(!calls.length && !dev.ui && !dev.ready && !errors.length, `${tag}: an unconfigured environment shows nothing and calls no database`, JSON.stringify({ calls, dev, errors }));
+    await page.goto(base + '/prairie-1904/viewer/');
+    await page.waitForFunction(() => document.documentElement.classList.contains('an-ready'));
+    check(calls.length > 0 && calls.every(u => u.startsWith('https://lbelrlliaagqxbfuiawr.supabase.co/')), `${tag}: a local / preview page uses polecat_dev, never production`, calls.join(' '));
+    check(await page.locator('.an-toggle').isHidden() && !errors.length, `${tag}: a project not yet set up leaves readers' pages unchanged`, errors.join(' | '));
     await context.close();
   }
 
