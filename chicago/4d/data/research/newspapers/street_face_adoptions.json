@@ -199,9 +199,9 @@
   "adopted_into_a_roof_of_no_trade": 13,
   "roofs_free_and_a_house_of_trade": 27,
   "houses_of_trade_left_free": 1,
-  "roofs_reserved_for_a_slot_request": 2,
+  "roofs_reserved_for_a_slot_request": 4,
   "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 2,
+  "reserved_without_a_committed_occupancy": 4,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -225,14 +225,14 @@
     "businesses_naming_it": 16,
     "adopted": 6,
     "roofs_lot_front": 0,
-    "roofs_corner_side": 17,
-    "roofs_on_the_adopted_face": 17,
+    "roofs_corner_side": 21,
+    "roofs_on_the_adopted_face": 21,
     "roofs_free": 6,
     "roofs_home": 7,
     "roofs_home_named": 0,
     "roofs_home_inferred": 7,
-    "roofs_yard": 4,
-    "roofs_requested_by_a_seat": 0,
+    "roofs_yard": 7,
+    "roofs_requested_by_a_seat": 1,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 2,
     "adopted_into_a_house_of_trade": 2
@@ -361,6 +361,28 @@
    "requested_by_seat": "hh_bryant_j_r_m",
    "order_book_draw": "blk_south_water_franklin / D4 / south",
    "dealt_by_ticket": "T-1622",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clark_d4_02",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark",
+   "family": "D4",
+   "requested_by_seat": "hh_byram_thomas",
+   "order_book_draw": "blk_washington_clark / D4 / south",
+   "dealt_by_ticket": "T-1708",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clark_d5_01",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark",
+   "family": "D5",
+   "requested_by_seat": "hh_cady_levi",
+   "order_book_draw": "blk_washington_clark / D5 / south",
+   "dealt_by_ticket": "T-1708",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   }
@@ -1948,7 +1970,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -1956,7 +1978,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_cooley_and_hol_b_man",
@@ -1964,7 +1986,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_elmira_fowler",
@@ -1972,7 +1994,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_george_holsman",
@@ -1980,7 +2002,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
@@ -1996,7 +2018,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -2004,7 +2026,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "21 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 7 are yard buildings the parcels dealt behind a lot, 1 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",

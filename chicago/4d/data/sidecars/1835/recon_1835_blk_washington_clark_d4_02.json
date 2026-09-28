@@ -1,10 +1,10 @@
 {
-  "id": "recon_1835_blk_south_water_wells_d4_03",
+  "id": "recon_1835_blk_washington_clark_d4_02",
   "phase": "inferred_1835",
-  "name": "Reconstructed D4 two-room frame cottage #03",
+  "name": "Reconstructed D4 two-room frame cottage #02",
   "aka": [],
   "archetype": "frame_dwelling",
-  "asset": "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb",
+  "asset": "gltf/recon_1835_blk_washington_clark_d4_02__inferred_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
   "documented_range": {
@@ -16,13 +16,13 @@
   },
   "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
   "placement": {
-    "local_e": 404.279,
-    "local_n": -86.121,
-    "rotation_deg": 180.34,
+    "local_e": 645.459,
+    "local_n": -420.034,
+    "rotation_deg": 0.36,
     "position_confidence": "reconstructed",
     "position_sources": [],
     "position_note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 6.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
-    "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, Lasalle, Lake and Wells; standing back from the Lake Street frontage",
+    "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Washington, Dearborn, Madison and Clark; standing back from the Washington Street frontage",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -35,21 +35,21 @@
         0
       ],
       [
-        6.263,
+        6.285,
         0
       ],
       [
-        6.263,
-        8.646
+        6.285,
+        8.805
       ],
       [
         0,
-        8.646
+        8.805
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "A 6.26 × 8.65 m rectangle sampled deterministically inside the D4 family's authored footprint band; no individual dimensions are documented."
+    "note": "A 6.29 × 8.80 m rectangle sampled deterministically inside the D4 family's authored footprint band; no individual dimensions are documented."
   },
   "attributes": {
     "stories": {
@@ -61,7 +61,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "wall_height_m": {
-      "value": 3.026,
+      "value": 2.446,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -77,7 +77,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "roof_pitch_deg": {
-      "value": 30.8,
+      "value": 37.9,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -117,7 +117,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
     },
     "paint": {
-      "value": "unpainted",
+      "value": "whitewash",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -176,15 +176,15 @@
     "family": "D4",
     "district": "south",
     "inventory_class": "principal_functional",
-    "programme_phase": "phase3_platted_block_south_water_wells",
+    "programme_phase": "phase3_platted_block_washington_clark",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "block_id": "blk_south_water_wells",
-    "lot_index": 5,
+    "block_id": "blk_washington_clark",
+    "lot_index": 4,
     "stands_on": "street",
-    "fronts": "lake",
-    "sequence": 3,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "fronts": "washington",
+    "sequence": 2,
+    "finish_key": "whitewash",
+    "roof_condition": "patched",
+    "age_state": "established"
   }
 }

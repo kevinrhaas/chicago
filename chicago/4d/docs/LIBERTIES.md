@@ -14092,13 +14092,15 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 415 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 423 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until three changes
 landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, and T-1714's three agency log buildings at the foot of State Street — each
-of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is
-the least of them: a flat earth bank states a roof type and carries no shingle at all. No record's `roof_type` or pitch
+of the eleven states a roof type. T-1715's second garrison root-house made 415, and it was
+the least of them: a flat earth bank states a roof type and carries no shingle at all.
+T-1708's eight roofs on blk_washington_clark — the two cottages and six yard buildings the
+plat's last tier was dealt — make 423. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -15188,17 +15190,30 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
+### L276 — Twenty-one roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 21 are on the
 five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
 Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**IT WAS 23 UNTIL T-1708, AND THE TWO IT LOST ARE A MOVE RATHER THAN A WITHDRAWAL.** The
+eight roofs that ticket raised on `blk_washington_clark` — the Clark-to-Dearborn block of
+the plat's last tier — put two dwellings in front of the placement policy on a re-deal, and
+the policy ranks a household whose name the town's own records carry above one minted from
+the post office's letter lists. So the Bourrassa household (the St Cyr register) and
+Alexander Beaubien's (the St Mary's baptismal register) came off
+`recon_1835_blk_south_water_wells_d3_04` and `_d4_03` and onto the two new cottages, which
+stand in a block this pass's `DISTRICTS` does not yet cover. Both are still seated and both
+are still disclosed in L270; what they are not is *named on a roof this liberty's scope
+reaches*, so `written` falls 23 → 21 and `owed` rises 23 → 25. The count is restated rather
+than the scope widened: the pass runs one district at a time on purpose, and the Washington–
+Madison tier enters `DISTRICTS` with the ticket that carries it.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
