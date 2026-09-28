@@ -351,6 +351,15 @@
       "phase_id": "cellar_1816",
       "structure_id": "fort_dearborn_root_house"
     },
+    "fort_dearborn_root_house_b__cellar_1816_b.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 4500,
+      "inputs_sha256": "b6f58dd045f28959580d3d1e37e0226186db81803f5d36d7239ddabc6cdb8e78",
+      "kind": "generated",
+      "phase_id": "cellar_1816_b",
+      "structure_id": "fort_dearborn_root_house_b"
+    },
     "fort_dearborn_shop__shop_1830.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

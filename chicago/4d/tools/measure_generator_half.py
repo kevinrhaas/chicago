@@ -212,14 +212,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # Eleven new structure assets between them, so eleven more meshes a change to the shared
 # generator modules or to build.py would re-stale; the terrain and pier_crib reaches stay at
 # 2 each. Nothing about the debt itself moved.
+# 434 -> 435 and 432 -> 433 on 2026-09-28 (T-1715): `fort_dearborn_root_house_b`, the
+# second of the root-houses Kinzie puts on the river bank west of the fort. One new
+# structure asset, so one more mesh the shared generator modules or emit.py would
+# re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
+# itself moved.
 #
 STATED = {
-    "assets": 434,
+    "assets": 435,
     "restales": {
-        "generators/common/*.py": 434,
+        "generators/common/*.py": 435,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 432,
+        "generators/emit.py": 433,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

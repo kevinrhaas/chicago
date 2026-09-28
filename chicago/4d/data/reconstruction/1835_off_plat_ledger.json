@@ -50,7 +50,7 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 131,
+  "principal_roofs_standing": 132,
   "ground_m2": 7315399.9
  },
  "what_the_roof_programme_does_not_carry": {
@@ -6939,6 +6939,7 @@
     "fort_dearborn_palisade",
     "fort_dearborn_parade",
     "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
     "fort_dearborn_shop",
     "fort_dearborn_store_house",
     "fort_dearborn_sutlers_store",
@@ -6966,6 +6967,7 @@
     "fort_dearborn_palisade": null,
     "fort_dearborn_parade": null,
     "fort_dearborn_root_house": "M1",
+    "fort_dearborn_root_house_b": "M1",
     "fort_dearborn_shop": "W4",
     "fort_dearborn_store_house": "M1",
     "fort_dearborn_sutlers_store": "M1",
@@ -6973,7 +6975,7 @@
     "fort_dearborn_wash_house": "A5",
     "jb_beaubien_homestead": "D1"
    },
-   "principal_roofs_standing": 16
+   "principal_roofs_standing": 17
   },
   {
    "parcel_id": "canal_commissioners_1830",

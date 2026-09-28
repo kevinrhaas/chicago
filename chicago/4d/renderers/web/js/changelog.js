@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1206, ts: '2026-09-28T11:18:11.231Z', date: 'Sep 28, 2026, 6:18 AM CT', title: 'A second root-house on the bank west of the fort', kind: 'change',
+    items: [
+      'Walk the riverbank west of Fort Dearborn and there are two earth mounds where there was one. The garrison\u2019s root-houses \u2014 cellars cut into the bank and banked over with turf \u2014 were described in the plural by the only person who ever wrote about them, and this town had been drawing a single mound for the word.',
+      'Two is not a guess; it is the smallest number that sentence allows. It is also all it allows: nothing says how many, how big, or exactly where. So there is a second mound the same size as the first, nine metres further west \u2014 and no third, because a third would be ours and not hers.',
+      'It is the last one the bank will take. The stockade\u2019s west wall stands thirteen metres east of the first mound and the bank starts falling away six metres west of the second, so the pair now fills the open ground between them \u2014 which is what \u201Coccupied by the root-houses\u201D was describing.',
+      'The fort\u2019s married families were re-checked against the only plan of the post, and they stay in the barracks. That plan letters a barn, a wash house, a shop, a well and two unnamed out-buildings, and no married quarters at all, so nothing was invented to house them.',
+      'And the sum that made the barracks look too small was reading the wrong file. On one floor the range falls twenty-six places short of quartering the garrison; the record for that building has said two storeys all along, and on two floors there is room to spare.',
+    ] },
   { v: 1205, ts: '2026-09-28T10:17:27.407Z', date: 'Sep 28, 2026, 5:17 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
     items: [
       'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
