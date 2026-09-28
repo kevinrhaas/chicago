@@ -6,6 +6,135 @@ Shared destinations recovered from draft chicago PR #129. No separate destinatio
 
 # STATUS
 
+## The Randolph tier's books, closed — T-1688, 2026-09-27
+
+Piece 4 of 4 of T-1202, and the last of them: T-1685 named this tier's keepers, T-1687 settled
+the civic band beside the square, and T-1686 gave its larger houses their centre halls. This
+piece answers the four questions the parent asks before the district is done with, on the
+published tree, and **changes nothing in the town**.
+The reading is committed at `data/render/randolph_close_out.json`, deliberately the same four
+books as `data/render/lake_close_out.json` and `data/render/south_water_close_out.json` so
+the three districts compare. Every number in it is derived by a tool the file names; none is
+typed.
+
+**The tier** is the six subdivided units bounded north by Randolph and south by Washington:
+`blk_randolph_{market,franklin,wells,clark,dearborn}` in the South Division and
+`blk_randolph_clinton` in the West. The seventh cell of the row, `blk_randolph_lasalle`, is
+the Public Square — reserved, not subdivided, holding the log jail at its north-west corner —
+and it is out of the count by the reservation record rather than by omission.
+
+**T-1686 landed while this was being read, and it moved nothing in these books.** It is a
+re-derivation on the tree that carries it, not a forecast of it. The reason it moved nothing is
+worth recording: it gave seven already-standing H1/H2 houses the centre hall their crosswalk
+entry requires, which is a change of *variant* and not of family or footprint. Every figure
+below is identical to the one this reading derived one commit earlier, save the frame budget,
+where seven centre halls cost 48 triangles.
+
+**Book one — the refusals: one deferral, and closing it empties the whole tree's log.**
+Exactly one entry in the tier: `blk_randolph_dearborn` defers an I3, and the refusal was about
+an archetype rather than about the block. I3 resolves through the `fort_structure`
+placeholder, whose entire vocabulary is garrison words, so massing an anonymous town civic
+roof through it would have stood a garrison building three quarters of a kilometre from the
+fort. **It is resolved, upstream and on evidence, and the answer is that the family has no
+anonymous slot left to build.** `tools/measure_institutional_claims.py --gate` reads the I3
+target of 3 exhausted by three *named* records with a roof on the scene date — the log jail,
+the council house and the 1832 lighthouse — and asserts in its own words that "no anonymous
+roof carries I1 or I3". T-1687 closed the same question from the other side for this tier: the
+three civic roofs stand and no fourth is invented. The schedule agrees, all six units reading
+`roofs 0` and `families {}`. With this one discharged the committed tree has no live deferral
+left; the log held two, and T-1683 resolved `blk_lake_franklin`'s F3 the same day.
+
+**A unit can carry more than one parcel recipe, and reading one per block hides a refusal.**
+Three of the six units here carry more than one — `blk_randolph_dearborn` three and
+`blk_randolph_market` two, one per programme phase that dealt them — and only the FIRST of
+dearborn's three holds the deferral. Indexing `1835_platted_block_parcels.json` by
+`block_id` collapses them and reports this tier clean. It is not clean, and this reading found
+that out by doing it wrong first.
+
+**Book two — the headroom: zero, and the tier is at capacity.** All six subdivided units read
+`at_capacity` with headroom 0 on a `tools/reconcile_665.py --check` that is green here, so the
+parent's "or its headroom stated" clause resolves to zero and the answer is the stronger of
+the two the ticket allows. Six free lots remain across the tier and not one can carry a roof:
+capacity is reckoned on roofs and not on lots, and the roof count is met. That is the same
+finding T-1683 reached on the Lake district, T-1682 on the Lake frontage and T-1647 on the
+South Water row, and it is what makes the rest of this tier's work a question of what its
+standing roofs ARE and never of adding one.
+
+**Book three — the dwellings falling southward. Two of the clause's three halves hold, and
+the third names a term the programme does not have.** Measured across the three committed rows
+of the South Division's plat, north to south:
+
+| row | roofs/block | homes | D1–D3 /block | D4–D7 /block | D4–D7 mean | H /block |
+|---|---|---|---|---|---|---|
+| South Water → Lake | 14.8 | 37.8 % | 4.0 | 1.2 | 53.0 m² | 0.4 |
+| Lake → Randolph | 13.5 | 55.6 % | 3.17 | 4.0 | 55.0 m² | 0.33 |
+| Randolph → Washington | 11.8 | 72.9 % | 4.6 | 3.0 | 59.0 m² | 1.0 |
+
+Density falls southward monotonically — 14.8, 13.5, 11.8 roofs per block — which is precisely
+what the authored policy claims in its own words ("mixed blocks with density falling rapidly
+southward", `1835_building_inventory.json` `districts.south.character`). The mix falls with
+it: D4–D7 thins from 4.0 roofs per block to 3.0 while D1–D3 thickens from 3.17 to 4.6, and D7,
+the largest dwelling family the programme has, puts one roof on the Lake row and none on this
+one. The South Water row is not in that line — it is the commercial core the policy's own
+sentence sets apart with "then", and its dwellings are few because its frontage is trade.
+
+**What does not fall is SIZE, and it must not be made to.** A D4–D7 roof gets *larger* going
+south: 53.0, 55.0, 59.0 m². The reason is in the generator and not in the town — a footprint
+is sampled deterministically inside the family's authored band, so a D5 here and a D5 on Lake
+Street are drawn from one band and the difference between them is sampling. There is no
+size-by-latitude term anywhere in the programme, and inventing one to satisfy a sentence would
+be tuning the data to the wording. The mean over *all* homes rises too (42.7, 48.0, 49.1 m²),
+and that is the H band doing it: 1.0 H1/H2 house per block here against 0.33 on the Lake row,
+at a mean of 88.8 m² — the merchant and professional seats T-1199 put in this tier and
+T-1202's own acceptance asks for in the same sentence as the clause above. So the rise is the
+parent's requirement being met, not the policy being broken. **T-1695** carries the wording.
+
+**And the modelled edge is no longer at Washington, which changes what the clause is about.**
+T-0026's blocker was terrain and is not any more: T-0219 carried the heightfield to local
+N −3800 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — six blocks
+and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its
+block-boundary points, with `tools/measure_southern_ground.py --gate` reading SOUTHERN GROUND
+PASS and no committed platted block off the field. What still ends at Washington is the
+committed **street control**: the plat's seven north–south columns all end at local N −400,
+cut where the ground used to stop, and `thompson_lots.json` holds no `blk_washington_*` block
+at all — the last tier is a projection of the plat frame, not committed geometry. So the
+ground south of Washington holds no roof because it has no block, not because the terrain
+refuses it. **T-1696** carries the columns.
+
+**Book four — the frame budget: PASS at both viewports, on the published mirror.** The
+tightest margin in the town is desktop, the balanced tier, from the forks at Wolf Point —
+1,256,544 triangles of 1,280,000 on 145 draw calls, 23,456 clear,
+1.83 % of the ceiling. Mobile's tightest is balanced at Lake
+Street and Canal, 1,106,903 of 1,280,000,
+13.52 % clear.
+
+**It has drifted 828 triangles since T-1683 read it two commits back, and this diff is none of
+it.** Because this reading measured the sweep at all three heads, the drift can be attributed
+rather than merely noticed: T-1683 priced the stand at 24,284 clear (1.90 %), it was 23,504
+(1.84 %) after T-1681, and it is 23,456 (1.83 %) after T-1686
+here. 780 of the 828 are T-1681's three Lake Street cottages becoming store-residences — a
+shopfront carries more geometry than a cottage — and 48 are T-1686's seven centre halls. That
+is the point of recording the figure at each head rather than once: a reading that raises no
+roof must be able to show that the movement was somebody else's. Worth watching, not yet worth
+acting on — the town spent 828 of its remaining 23,456 on ten buildings — and the
+binding stand has not changed.
+
+**What the books leave open — three roofs, and the reason is a selector.** Sixty-nine roofs
+stand in the tier's six units: 49 carry a keeper, 17 are ancillary by rule (a stable, a barn,
+a privy, a woodshed has no keeper of its own and never wanted one), and **3 are neither** —
+66 of 69 accounted, 95.7 %, against the Lake district's 48 of 92 when T-1683 read it. So the
+parent's stop condition, *every roof occupied*, is three roofs short in this tier, and the
+three are named: `recon_1835_west_018` (D5), `_019` (D7) and `_021` (D6), all in
+`blk_randolph_clinton`, all raised by the west phase under its own ids.
+`1835_roof_keepers.json` declares its scope as `block_prefixes: ['blk_south_water_',
+'blk_randolph_']`, so the pass selects roofs by **id prefix** — but which block a roof stands
+in is a matter of **position**, read off the record's position point against the committed
+block boundary, which is the T-A7 finding. A roof standing on a scoped block under an unscoped
+id is therefore invisible to the pass by construction. T-1685 wrote 23 keepers and refused 63
+on that scope and these three were never offered to it. That is a fault in how the layer
+selects and not a missing household, and it will recur in every district where a block's
+ground and a roof's id disagree. **T-1697** carries it.
+
 ## H1's centre hall, and H2's two refused variants — T-1686, 2026-09-27
 
 Piece 2 of 4 of T-1202. The Randolph–Washington tier's merchant and professional seats
