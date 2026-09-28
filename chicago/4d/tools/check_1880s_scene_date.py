@@ -267,7 +267,7 @@ def main() -> int:
     if not bad:
         adopted = docs[0]["adopted"]["date"]
         print(f"OK the 1880s scene date is {adopted}, re-derived from the Glessner House bound; "
-              f"{EPOCH_ID} carries it and {STATE_ID} records superseding it for 1904; no ground yet")
+              f"{EPOCH_ID} carries it and {STATE_ID} records superseding it for 1904; no scene renders the epoch yet")
     return 1 if bad else 0
 
 

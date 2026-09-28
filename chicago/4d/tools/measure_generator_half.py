@@ -223,21 +223,28 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # 1832 tower on the reservation. One more structure asset, so one more mesh a change to the
 # shared generator modules or to build.py would re-stale; the terrain and pier_crib reaches
 # stay at 2 each. Nothing about the debt itself moved.
-# 436 -> 440 and 434 -> 438 on 2026-09-28 (T-1736): the four roofs of the first deal on
+#
+# 436 -> 438, and the terrain reach 2 -> 4, on 2026-09-28 (T-1738): the 1904 ground and
+# water, `terrain__e1871_postfire.glb` and `water__e1871_postfire.glb`, baked by
+# generators/terrain_gen_graded.py, which reuses terrain_gen.py's mesher and so is re-staled
+# by it. Two more committed assets the shared generator modules reach; emit.py and pier_crib
+# are untouched, and nothing about the debt itself moved.
+#
+# 438 -> 442 and 434 -> 438 on 2026-09-28 (T-1736): the four roofs of the first deal on
 # `blk_washington_clark`, the plat's last tier — two frame cottages and the privy and
 # woodshed in their yards. Four new structure assets, so four more meshes the shared
-# generator modules or emit.py would re-stale; the terrain and pier_crib reaches stay at
-# 2 each. Nothing about the debt itself moved.
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 440,
+    "assets": 442,
     "restales": {
-        "generators/common/*.py": 440,
+        "generators/common/*.py": 442,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
         "generators/emit.py": 438,
         "generators/build.py": 0,
-        "generators/terrain_gen.py": 2,
+        "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
     },
     "layers_drawn_at_load": 10,
