@@ -10266,6 +10266,18 @@
       "asset": "gltf/beaubien_barn__converted_1817.glb"
     },
     {
+      "id": "beaubien_new_residence",
+      "name": "Col. Jean Baptiste Beaubien's New Residence",
+      "sidecar": "sidecars/1835/beaubien_new_residence.json",
+      "asset": "gltf/beaubien_new_residence__log_1822.glb"
+    },
+    {
+      "id": "beaubien_trading_post",
+      "name": "Col. Jean Baptiste Beaubien's Trading Post",
+      "sidecar": "sidecars/1835/beaubien_trading_post.json",
+      "asset": "gltf/beaubien_trading_post__log_1822.glb"
+    },
+    {
       "id": "blacksmith_shop_state_st",
       "name": "Government Blacksmith Shop",
       "sidecar": "sidecars/1835/blacksmith_shop_state_st.json",
