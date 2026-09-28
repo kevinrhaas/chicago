@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1193, ts: '2026-09-28T00:52:01.192Z', date: 'Sep 27, 2026, 7:52 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
+  { v: 1194, ts: '2026-09-28T01:12:29.745Z', date: 'Sep 27, 2026, 8:12 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
     items: [
       'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',
       'The route separates historical facts from its imagined first-day outing and Finding Your Feet keepsake. Hogan’s old mail corner and the Democrat’s former office keep their correct dates.',
       'This is a reading preview; guided travel and keepsakes will follow. You can return to exploring at any time.',
+    ] },
+  { v: 1193, ts: '2026-09-28T00:47:10.343Z', date: 'Sep 27, 2026, 7:47 PM CT', title: 'Nine buildings get the town\u2019s own newspapers as witnesses', kind: 'feature',
+    items: [
+      'Nine cards a visitor opens now carry what the Chicago Democrat and the Chicago American say about the building itself \u2014 the two harbour piers, the two branch bridges, the fort\u2019s store house, the Mansion House, the Tremont House, the Exchange and the Presbyterian church. Nothing moved and no confidence was raised; each gained a witness printed at the time.',
+      'The best of it is a bill of materials. In February 1834 the trustees advertised to repair both town bridges and printed what they wanted: oak braces six inches square, oak railing eight by four, oak standards four feet high at four-foot centres, floors of two-inch oak plank pinned down with oak pins an inch and a half through and two feet long, and a new oak bent for the south bridge. Until now the modelled railings and decks rested on an 1883 reminiscence.',
+      'The piers get their construction season. The town\u2019s own boundary of November 1833 is surveyed \u201calong said pier to the termination thereof\u201d, so the north pier was already walkable; the engineer says almost nothing had been built that first winter; ten thousand feet of squared oak and a thousand cords of prairie stone were advertised for in 1834; a hundred hands were pushing the pier across the sand bar that August; and in 1835 Congress was still paying to finish it.',
+      'One building is named by the men who supplied it: two army notices of 1834 call a range at the fort \u201cthe subsistance store house\u201d, the door the garrison\u2019s beef came in at, four hundred pounds a week. A second refused to be found. A county court order of December 1834 sends a defendant to the next term \u201cholden in the Court House at Chicago\u201d on 14 May 1835 \u2014 but the court house we hold is the brick one built that autumn, so the room the spring term sat in is a building the town does not have, and looking for it is now a job of its own.',
+      'And four rooms the town governed itself from: the trustees sat at Dexter Graves\u2019s house in March 1834, at Haddock\u2019s in June, in the Presbyterian church in September, at the Tremont House twice that autumn and at the Exchange in November. Five of those printings land on one building, because the record already holds Graves\u2019s tavern and Haddock\u2019s Mansion House as the same house.',
+      'Fifty-two more readings got an answer that places nothing, and one of them is the point: the army\u2019s wood contracts pile the cord wood \u201cat such place near Fort Dearborn as will be designated by the Asst. Quartermaster\u201d. That designates no place, so there is no woodpile anywhere in the town.',
     ] },
   { v: 1192, ts: '2026-09-27T23:42:45.315Z', date: 'Sep 27, 2026, 6:42 PM CT', title: 'Seven larger houses get the centre hall they were owed', kind: 'change',
     items: [
