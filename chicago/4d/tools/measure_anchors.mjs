@@ -54,6 +54,14 @@
  *   node tools/measure_anchors.mjs --gate          assert against the reading
  *   node tools/measure_anchors.mjs --write         rewrite the reading
  *   node tools/measure_anchors.mjs --self-test     the rules, on synthetic ground
+ *   … --scene 1904                                 one scene; without it, EVERY scene
+ *
+ * EVERY SCENE, EACH ON ITS OWN GROUND (T-1739). The 1904 scene stands on
+ * `e1871_postfire`, a box on Prairie Avenue three kilometres south of the 1835
+ * town, so its anchors are held against THAT heightfield and its own sidecars, and
+ * its reading is its own file (`anchor_ground_reading.<scene>.json`; the 1835
+ * reading keeps the name it always had). Without `--scene` every file in
+ * data/scenes/ is measured, so a scene added later is gated the day it lands.
  *
  * `--gate` holds `data/render/anchor_ground_reading.json` against a
  * re-derivation AND asserts the two properties that are not opinions — every
@@ -68,6 +76,9 @@ import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const READING = 'data/render/anchor_ground_reading.json';
+/** Where a scene's reading lives: the 1835 one kept its original name. */
+const readingFor = (scene) => (scene === '1835' ? READING
+  : `data/render/anchor_ground_reading.${scene}.json`);
 
 /** `renderers/web/js/terrain.js` § Heightfield.fallbackY. */
 const FALLBACK_Y = 0;
@@ -314,39 +325,52 @@ const opt = (name, fallback) => {
 
 if (flag('--self-test')) process.exit(selfTest() ? 0 : 1);
 
-const reading = await measure({ scene: opt('--scene', '1835') });
-const bad = faults(reading);
+const sceneIds = opt('--scene', null) ? [opt('--scene', null)]
+  : (await readdir(path.join(ROOT, 'data/scenes')))
+    .filter((f) => /^[a-z0-9_]+\.json$/.test(f)).map((f) => f.replace(/\.json$/, '')).sort();
+let failed = false;
+const readings = [];
+for (const sceneId of sceneIds) {
+  const reading = await measure({ scene: sceneId });
+  readings.push(reading);
+  const bad = faults(reading);
+  const READING_PATH = readingFor(sceneId);
 
-if (flag('--json')) {
-  console.log(JSON.stringify(reading, null, 2));
-} else if (!flag('--gate') || bad.length) {
-  const w = (s, n) => String(s).padEnd(n);
-  console.log(`anchors of scene ${reading.scene} on epoch ${reading.epoch}\n`);
-  console.log(`${w('id', 30)}${w('e', 11)}${w('n', 11)}${w('ground', 9)}${w('margin', 9)}stand`);
-  for (const a of reading.anchors) {
-    const stand = !a.inside ? 'OFF THE BOX' : !a.dry ? 'IN THE WATER'
-      : a.inside_a_roof ? `IN ${a.inside_a_roof}` : a.stands_on ? `on ${a.stands_on}`
-        : a.aerial ? 'aerial' : 'ok';
-    console.log(`${w(a.id, 30)}${w(a.local_e, 11)}${w(a.local_n, 11)}${w(`${a.ground_m} m`, 9)}${w(a.margin_m === null ? `>${MARGIN_MAX_M} m` : `${a.margin_m} m`, 9)}${stand}`);
+  if (flag('--json')) continue;
+  if (!flag('--gate') || bad.length) {
+    const w = (s, n) => String(s).padEnd(n);
+    console.log(`anchors of scene ${reading.scene} on epoch ${reading.epoch}\n`);
+    console.log(`${w('id', 30)}${w('e', 11)}${w('n', 11)}${w('ground', 9)}${w('margin', 9)}stand`);
+    for (const a of reading.anchors) {
+      const stand = !a.inside ? 'OFF THE BOX' : !a.dry ? 'IN THE WATER'
+        : a.inside_a_roof ? `IN ${a.inside_a_roof}` : a.stands_on ? `on ${a.stands_on}`
+          : a.aerial ? 'aerial' : 'ok';
+      console.log(`${w(a.id, 30)}${w(a.local_e, 11)}${w(a.local_n, 11)}${w(`${a.ground_m} m`, 9)}${w(a.margin_m === null ? `>${MARGIN_MAX_M} m` : `${a.margin_m} m`, 9)}${stand}`);
+    }
+    console.log(`\n${reading.totals.anchors} anchors, southernmost at n ${reading.totals.southernmost_n} m\n`);
   }
-  console.log(`\n${reading.totals.anchors} anchors, southernmost at n ${reading.totals.southernmost_n} m`);
-}
 
-if (flag('--write')) {
-  await writeFile(path.join(ROOT, READING), `${JSON.stringify(reading, null, 2)}\n`);
-  console.log(`wrote ${READING}`);
-}
-
-if (flag('--gate')) {
-  const committed = JSON.parse(await readFile(path.join(ROOT, READING), 'utf8'));
-  const moved = drift(reading, committed);
-  for (const line of bad) console.error(`FAIL  ${line}`);
-  for (const line of moved) console.error(`FAIL  the committed reading no longer re-derives — ${line}`);
-  if (bad.length || moved.length) {
-    console.error('\nAn anchor is a place the app OFFERS. Fix the coordinate, or re-measure with '
-      + '--write when the ground moved under it on purpose.');
-    process.exit(1);
+  if (flag('--write')) {
+    await writeFile(path.join(ROOT, READING_PATH), `${JSON.stringify(reading, null, 2)}\n`);
+    console.log(`wrote ${READING_PATH}`);
   }
-  console.log(`anchor ground: ${reading.totals.anchors} anchors, all inside the box, dry and out of a wall; `
-    + 'the committed reading re-derives.');
+
+  if (flag('--gate')) {
+    const committed = JSON.parse(await readFile(path.join(ROOT, READING_PATH), 'utf8'));
+    const moved = drift(reading, committed);
+    for (const line of bad) console.error(`FAIL  ${sceneId}: ${line}`);
+    for (const line of moved) console.error(`FAIL  ${sceneId}: the committed reading no longer re-derives — ${line}`);
+    if (bad.length || moved.length) {
+      failed = true;
+      continue;
+    }
+    console.log(`anchor ground, scene ${sceneId} on ${reading.epoch}: ${reading.totals.anchors} anchors, all inside `
+      + 'the box, dry and out of a wall; the committed reading re-derives.');
+  }
+}
+if (flag('--json')) console.log(JSON.stringify(readings.length === 1 ? readings[0] : readings, null, 2));
+if (failed) {
+  console.error('\nAn anchor is a place the app OFFERS. Fix the coordinate, or re-measure with '
+    + '--write when the ground moved under it on purpose.');
+  process.exit(1);
 }
