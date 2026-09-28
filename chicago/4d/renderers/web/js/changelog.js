@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Preview your first jaunt through Chicago', kind: 'change',
+  { v: 1196, ts: '2026-09-28T02:37:28.806Z', date: 'Sep 27, 2026, 9:37 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
     items: [
       'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',
       'The route separates historical facts from its imagined first-day outing and Finding Your Feet keepsake. Hogan’s old mail corner and the Democrat’s former office keep their correct dates.',
