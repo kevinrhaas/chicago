@@ -4908,7 +4908,19 @@ for (const [label, viewport, touch] of [
         // _c3_03 each gain a clause-3 refusal (the trade is reconstructed), and
         // lot 0's existing 0.80 m wall refusal is renamed from _d5_03 to _c3_03,
         // not added. No walk, crossing, post or fence count moves.
-        && frontage.census?.refused === 115
+        // T-1707 CARRIED THE SEVEN SOUTH COLUMNS TO MADISON STREET, and 115
+        // becomes 121: the plat's last tier arrives as six blocks with nothing
+        // built on any of them, and the board-walk rule now asks whether a block
+        // is built on before it planks its face — the same question the street
+        // fences and the hitching posts already asked. So the north face of each
+        // of the six is REFUSED IN WRITING rather than planked across 600 m of
+        // open prairie: blk_washington_market_north, _franklin_north,
+        // _wells_north, _lasalle_north, _clark_north and _dearborn_north, and
+        // nothing else on this layer moves. Measured by diffing the authored
+        // refusal sets against dev (d3260907 -> this branch): exactly +6, all
+        // six named above, and the walk, crossing, post and fence counts above
+        // are unchanged because no walk was laid there to move.
+        && frontage.census?.refused === 121
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
