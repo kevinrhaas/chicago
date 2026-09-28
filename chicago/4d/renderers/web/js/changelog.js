@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1207, ts: '2026-09-28T12:12:15.637Z', date: 'Sep 28, 2026, 7:12 AM CT', title: 'A second root-house on the bank west of the fort', kind: 'change',
+    items: [
+      'Walk the riverbank west of Fort Dearborn and there are two earth mounds where there was one. The garrison\u2019s root-houses \u2014 cellars cut into the bank and banked over with turf \u2014 were described in the plural by the only person who ever wrote about them, and this town had been drawing a single mound for the word.',
+      'Two is not a guess; it is the smallest number that sentence allows. It is also all it allows: nothing says how many, how big, or exactly where. So there is a second mound the same size as the first, nine metres further west \u2014 and no third, because a third would be ours and not hers.',
+      'It is the last one the bank will take. The stockade\u2019s west wall stands thirteen metres east of the first mound and the bank starts falling away six metres west of the second, so the pair now fills the open ground between them \u2014 which is what \u201Coccupied by the root-houses\u201D was describing.',
+      'The fort\u2019s married families were re-checked against the only plan of the post, and they stay in the barracks. That plan letters a barn, a wash house, a shop, a well and two unnamed out-buildings, and no married quarters at all, so nothing was invented to house them.',
+      'And the sum that made the barracks look too small was reading the wrong file. On one floor the range falls twenty-six places short of quartering the garrison; the record for that building has said two storeys all along, and on two floors there is room to spare.',
+    ] },
   { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
     items: [
       'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',

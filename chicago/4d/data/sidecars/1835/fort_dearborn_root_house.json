@@ -4,7 +4,8 @@
   "name": "Fort Dearborn — root house",
   "aka": [
     "the root-houses of the garrison",
-    "the garrison cellars"
+    "the garrison cellars",
+    "the first of the two mounds"
   ],
   "archetype": "fort_structure",
   "asset": "gltf/fort_dearborn_root_house__cellar_1816.glb",
@@ -26,7 +27,7 @@
     "rotation_deg": 188.0,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "A BANK, NOT A POINT. Kinzie, of 1831: 'The bank of the river which stretches to the west, now covered by the light-house buildings, and inclosed by docks, was then occupied by the root-houses of the garrison.' That names a stretch of riverbank and gives no position on it, and the 1830 plan - which labels the wash house, the well, the shop and the barn - does not draw them. This point is on that bank about 45 m north-west of the fort's centre and it is ours. THE PLURAL IS NOT MODELLED EITHER: Kinzie says root-houses and this record builds one, because a count invented would be a second invention on top of a position invented. MOVED 2026-08-11 FOR THE SAME REASON AS THE LIGHTHOUSE. The first point sat on the face of the river bank the newly extended heightfield draws, so the mound straddled a 0.85 m fall. It now stands at local E +1115, N +234, on the bank top west-north-west of the fort. Kinzie's 'bank of the river which stretches to the west' is satisfied either way; a cellar dug INTO the face of a bank is what she is describing and what this project cannot model, since the archetype banks earth over a level floor.",
+    "position_note": "A BANK, NOT A POINT. Kinzie, of 1831: 'The bank of the river which stretches to the west, now covered by the light-house buildings, and inclosed by docks, was then occupied by the root-houses of the garrison.' That names a stretch of riverbank and gives no position on it, and the 1830 plan - which labels the wash house, the well, the shop and the barn - does not draw them. This point is on that bank about 45 m north-west of the fort's centre and it is ours. THE PLURAL IS MODELLED SINCE T-1715: Kinzie says root-houses, this record is the first of them and `fort_dearborn_root_house_b` is the second, 9.0 m due west on the same bank top. Two is the floor her plural states and no source gives a count beyond it, so two is what stands. MOVED 2026-08-11 FOR THE SAME REASON AS THE LIGHTHOUSE. The first point sat on the face of the river bank the newly extended heightfield draws, so the mound straddled a 0.85 m fall. It now stands at local E +1115, N +234, on the bank top west-north-west of the fort. Kinzie's 'bank of the river which stretches to the west' is satisfied either way; a cellar dug INTO the face of a bank is what she is describing and what this project cannot model, since the archetype banks earth over a level floor.",
     "symbolic_location": "On the south bank of the Chicago River west of Fort Dearborn, between the fort and the bend.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -129,7 +130,7 @@
       "tier_label": "near-primary recollection"
     }
   ],
-  "research_note": "ONE SENTENCE OF EVIDENCE AND EVERYTHING ELSE OURS. Kinzie puts the root-houses on the river bank west of the fort in 1831; nothing says how many, how big, what shape or exactly where. It is built because it is the kind of structure that makes a military post read as a place people lived rather than a parade of buildings, and it is graded conjectural in position, footprint and every dimension so that a visitor can see that the mound is our idea of a root house standing at our idea of a spot.",
+  "research_note": "ONE SENTENCE OF EVIDENCE AND EVERYTHING ELSE OURS. Kinzie puts the root-houses on the river bank west of the fort in 1831; nothing says how big, what shape or exactly where, and the only thing she does say about how many is that there was more than one — carried since T-1715 by `fort_dearborn_root_house_b`. It is built because it is the kind of structure that makes a military post read as a place people lived rather than a parade of buildings, and it is graded conjectural in position, footprint and every dimension so that a visitor can see that the mound is our idea of a root house standing at our idea of a spot.",
   "research_doc": "docs/RESEARCH/fort_dearborn_root_house.md",
   "review_required": false
 }

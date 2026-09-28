@@ -35,11 +35,11 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 434,
-    "structures_reached": 71,
+    "structures_placed": 435,
+    "structures_reached": 72,
     "structures_reached_by_grade": {
       "inferred": 21,
-      "reconstructed": 50
+      "reconstructed": 51
     },
     "structures_unreached_by_section": {
       "09": 361,
@@ -2573,6 +2573,10 @@
         {
           "id": "fort_dearborn_root_house",
           "margin_m": 19.5
+        },
+        {
+          "id": "fort_dearborn_root_house_b",
+          "margin_m": 16.2
         },
         {
           "id": "fort_dearborn_shop",
