@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1207, ts: '2026-09-28T11:44:25.667Z', date: 'Sep 28, 2026, 6:44 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+  { v: null, ts: '', date: '', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
     items: [
       'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
       'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
       'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
       'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
       'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
+    ] },
+  { v: 1207, ts: '2026-09-28T12:12:15.637Z', date: 'Sep 28, 2026, 7:12 AM CT', title: 'A second root-house on the bank west of the fort', kind: 'change',
+    items: [
+      'Walk the riverbank west of Fort Dearborn and there are two earth mounds where there was one. The garrison\u2019s root-houses \u2014 cellars cut into the bank and banked over with turf \u2014 were described in the plural by the only person who ever wrote about them, and this town had been drawing a single mound for the word.',
+      'Two is not a guess; it is the smallest number that sentence allows. It is also all it allows: nothing says how many, how big, or exactly where. So there is a second mound the same size as the first, nine metres further west \u2014 and no third, because a third would be ours and not hers.',
+      'It is the last one the bank will take. The stockade\u2019s west wall stands thirteen metres east of the first mound and the bank starts falling away six metres west of the second, so the pair now fills the open ground between them \u2014 which is what \u201Coccupied by the root-houses\u201D was describing.',
+      'The fort\u2019s married families were re-checked against the only plan of the post, and they stay in the barracks. That plan letters a barn, a wash house, a shop, a well and two unnamed out-buildings, and no married quarters at all, so nothing was invented to house them.',
+      'And the sum that made the barracks look too small was reading the wrong file. On one floor the range falls twenty-six places short of quartering the garrison; the record for that building has said two storeys all along, and on two floors there is room to spare.',
     ] },
   { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
     items: [

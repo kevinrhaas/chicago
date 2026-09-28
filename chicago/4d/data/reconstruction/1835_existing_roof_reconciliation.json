@@ -129,7 +129,7 @@
       "likely_family": "D1",
       "substitutes_anonymous_slots": 0,
       "confidence": "low",
-      "reasoning": "T-1716. One gable roof on the keeper's quarters at the Chicago light, 23.7 m west of the tower on the same reservation flat. DISTRICT south, with the tower it belongs to, rather than fort: it is a building of the light station and not of the garrison. D1 (small dwelling) IS READ OFF THE FUNCTION: the record is a 6.1 x 4.9 m one-storey dwelling, which is inside D1's band, and the I3 the lodging layer carries belongs to the INSTITUTION that ordered its household and not to the house. IT SUBSTITUTES NO ANONYMOUS SLOT, and that is the reservation's own rule rather than a choice: 1835_no_build_ground.json refuses every roof of the anonymous programme on this ground, so there is no anonymous D1 slot here for this roof to stand in place of \u2014 the same accounting the garrison's barn, wash house and shop take. The town's standing count therefore rises by one and the programme's 665 does not move. CONFIDENCE LOW, and it is the record's own: the existence of quarters is attested by a salary paid 'with quarters' and every drawn attribute of the building is invented under L286."
+      "reasoning": "T-1716. One gable roof on the keeper's quarters at the Chicago light, 23.7 m west of the tower on the same reservation flat. DISTRICT south, with the tower it belongs to, rather than fort: it is a building of the light station and not of the garrison. D1 (small dwelling) IS READ OFF THE FUNCTION: the record is a 6.1 x 4.9 m one-storey dwelling, which is inside D1's band, and the I3 the lodging layer carries belongs to the INSTITUTION that ordered its household and not to the house. IT SUBSTITUTES NO ANONYMOUS SLOT, and that is the reservation's own rule rather than a choice: 1835_no_build_ground.json refuses every roof of the anonymous programme on this ground, so there is no anonymous D1 slot here for this roof to stand in place of \u2014 the same accounting the garrison's barn, wash house and shop take. The town's standing count therefore rises by one and the programme's 665 does not move. CONFIDENCE LOW, and it is the record's own: the existence of quarters is attested by a salary paid 'with quarters' and every drawn attribute of the building is invented under L287."
     },
     {
       "structure_id": "chicago_lighthouse_1832",
@@ -466,6 +466,17 @@
       "substitutes_anonymous_slots": 1,
       "confidence": "moderate",
       "reasoning": "A distinct covered root cellar outside the fort, counted in the ten-roof compound schedule."
+    },
+    {
+      "structure_id": "fort_dearborn_root_house_b",
+      "district": "fort",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 0,
+      "likely_family": "M1",
+      "substitutes_anonymous_slots": 0,
+      "confidence": "moderate",
+      "reasoning": "T-1715. The second of the root-houses Kinzie puts on the river bank west of the fort, 9.0 m west of the first and identical to it. ONE PHYSICAL ROOF MASS AND NO INVENTORY ROOF, and that pair of numbers is this ticket's ruling rather than a way of fitting the column. THE INVENTORY COUNTS WHAT A SOURCE DESCRIBES: this file's own method says inventory_roof_count 'counts attached ranges as one roofed building but counts separately described cabins separately', and the garrison's root-houses are not separately described by anybody. Juliette Kinzie's one sentence — 'the bank of the river which stretches to the west ... was then occupied by the root-houses of the garrison' — is the whole of the evidence, and it describes ONE thing in the plural. `fort_dearborn_root_house` already holds that thing at one inventory roof; this record gives it its second mass, which is why roof_count is 1 and inventory_roof_count is 0. Modelling a plural with two mounds instead of one is a modelling decision and it is not a discovery of another building, so it may not spend a slot. AND THE FORT COLUMN IS FULL, WHICH IS WHY THAT DISTINCTION HAD TO BE MADE RATHER THAN ASSUMED: the inventory authorises 16 roofs in the fort district — ten principal roofs in the compound and the six buildings on the reservation outside the pickets — and 16 stand. A seventeenth INVENTORY roof here would be a re-budget of the 668-roof schedule, which is the owner's decision and not a run's; a seventeenth MASS for a thing already counted is neither. ONE FINDING FILED AND NOT ACTED ON: the first mound is inside the ten and stands OUTSIDE the pickets — about 30 m from a 53 m enclosure's centre, on the bank — so the ten are nine roofs in the compound and one on the riverbank. The permitted-ground entry that said 'Inside the stockade' is corrected by this ticket; restating the column itself would free an M1 slot the redeal must deal somewhere else, on ground 1835_no_build_ground.json refuses to anonymous infill, so it is filed."
     },
     {
       "structure_id": "fort_dearborn_store_house",

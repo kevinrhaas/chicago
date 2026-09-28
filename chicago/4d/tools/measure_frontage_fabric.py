@@ -885,6 +885,9 @@ def self_test() -> int:
     # no street crossed the ground in 1835, so both front no street and both are reported here
     # rather than dropped. The count is banked deliberately — it is what stops a roof going
     # quietly missing from this census — so it moves when a streetless building is built.
+    # 37 -> 38 on 2026-09-28 (T-1715): `fort_dearborn_root_house_b`, the second of the
+    # garrison's root-houses, on the river bank west of the fort. Same ground as the two
+    # above and the same reason — the reservation carried no street in 1835.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
                    "leaving it out", len(absent) == 38 and all(

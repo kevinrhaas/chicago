@@ -212,6 +212,11 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # Eleven new structure assets between them, so eleven more meshes a change to the shared
 # generator modules or to build.py would re-stale; the terrain and pier_crib reaches stay at
 # 2 each. Nothing about the debt itself moved.
+# 434 -> 435 and 432 -> 433 on 2026-09-28 (T-1715): `fort_dearborn_root_house_b`, the
+# second of the root-houses Kinzie puts on the river bank west of the fort. One new
+# structure asset, so one more mesh the shared generator modules or emit.py would
+# re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
+# itself moved.
 #
 # 434 -> 435 and 432 -> 433 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters`,
 # the quarters the Chicago light's keepership was paid 'with quarters' for, raised beside the

@@ -117,7 +117,7 @@ evidence of a building: not a separate house rather than a room, not a place, no
 not a size. So the quarters are raised as `chicago_lighthouse_keepers_quarters` — a small
 frame dwelling 23.7 m west of the tower, on the landward side, on ground the
 `e1834_harbor_cut` field gives at +2.45 m — with **every drawn attribute invented under
-L286** and the fabric graded `reconstructed` rather than dressed up as inferred. The bed
+L287** and the fabric graded `reconstructed` rather than dressed up as inferred. The bed
 moves to it (`sleeps_at` on the adjudication row), `works_at` stays the light because the
 office is the light, and **nothing on the tower's record moves**: its height, its lantern,
 its stone and its Wright-derived position are untouched. Between the two inventions

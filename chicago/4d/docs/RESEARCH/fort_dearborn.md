@@ -192,6 +192,7 @@ the assignment is wrong the two small buildings swap and nothing else moves.
 | `fort_dearborn_artillery_house` | east, south end | 8.0 × 5.0 m | conjectural |
 | `fort_dearborn_parade` | the court | 21.8 × 33.2 m | inferred |
 | `fort_dearborn_root_house` | river bank, west | 5.0 × 3.6 m | conjectural |
+| `fort_dearborn_root_house_b` | river bank, west, 9 m further | 5.0 × 3.6 m | reconstructed |
 | `fort_dearborn_garrison_garden` | south-west, outside | 77 × 77 m | inferred |
 | `chicago_lighthouse_1832` | north-west, outside | 5.6 m dia. | conjectural |
 
@@ -544,3 +545,99 @@ The general lesson is the one T-0089 and T-0126 already paid for and this makes 
 ceiling does not say whose triangles they are*, and the two questions — "is the town over?"
 and "did this branch put it over?" — are answered by different numbers. The second one takes
 about nine minutes on a quiet box.
+
+---
+
+## 11. The yard ruled (T-1715, 2026-09-28)
+
+Three questions about the ground OUTSIDE the ranges had been left open in three different
+files, and this section answers all three in one place. None of them needed a new source;
+two of them needed a record that was already committed to be read.
+
+### 11.1 The root-houses were a plural carried by one mound, and now there are two
+
+Juliette Kinzie, of 1831, is the only witness to them at any date:
+
+> The bank of the river which stretches to the west … was then occupied by the root-houses
+> of the garrison.
+
+**Root-houses is plural.** `fort_dearborn_root_house` stood for the whole clause and said so
+itself, in its own position note: *"THE PLURAL IS NOT MODELLED EITHER: Kinzie says root-houses
+and this record builds one, because a count invented would be a second invention on top of a
+position invented."*
+
+That is the rationing instinct AGENTS.md § RECONSTRUCTED IS A TIER exists to correct, and the
+correction is narrow: **two is not an invented count.** It is the floor the source states.
+Building one mound for a plural is not the cautious reading of the sentence; it is a reading
+that drops a word out of it. So `fort_dearborn_root_house_b` is built, 9.0 m due west of the
+first, on the same bank top, at the same 5.0 × 3.6 m — the first mound's invented figure
+repeated rather than a second figure invented.
+
+**Nothing supports a third and none is raised.** The plural gives a floor; no source, plan or
+return gives a number, a spacing or a size. The pair is bounded on both sides by things that
+are not sources: the palisade's west face about 13 m east of the first mound, and the bank's
+own fall about 6 m west of the second (the committed 1834-harbour-cut heightfield reads
+3.59–3.61 m across the new footprint and 3.21 m six metres further west). So the two mounds
+occupy the whole of the open bank top between the stockade and the drop, which is what
+"occupied by the root-houses" describes and is as far as this evidence reaches. **L286** owns
+it.
+
+### 11.2 The second mound is a second MASS, not a seventeenth roof
+
+`1835_building_inventory.json` authorises **16 roofs in the fort district** — ten principal
+roofs in the compound and the six buildings on the reservation outside the pickets — and 16
+stand. A new inventory roof here would be a re-budget of the 668-roof schedule, which is the
+owner's decision and not a run's.
+
+It is not one. `1835_existing_roof_reconciliation.json`'s own method counts *"attached ranges
+as one roofed building but counts separately described cabins separately"* — and **the
+garrison's root-houses are not separately described by anybody.** Kinzie's sentence describes
+one thing in the plural, the inventory already holds that thing at one roof, and the new
+record gives it its second mass: `roof_count: 1`, `inventory_roof_count: 0`. A modelling
+decision about how to draw a plural is not the discovery of a building, and only a building
+may spend a slot.
+
+**And one finding is filed here rather than acted on.** The first mound is inside the ten
+principal roofs and it stands OUTSIDE the pickets — about 30 m from the centre of a 53 m
+enclosure, on the bank. So the ten are nine roofs in the compound and one on the riverbank,
+and the fort column's own sentence never said otherwise; it simply was not read that way. The
+permitted-ground entry in `1835_no_build_ground.json` that said this record stood *"Inside the
+stockade"* IS corrected by this ticket. Restating the column is not, because it would free an
+M1 slot the anonymous redeal must then deal somewhere in the fort district — which is ground
+`1835_no_build_ground.json` refuses to anonymous infill — so the correction would order a roof
+that cannot be built.
+
+### 11.3 The married quarters, re-examined against the plan — and the check that argued against them was reading the wrong file
+
+Eight married soldiers' households, carrying the eight washerwomen of the two companies, are
+seated at `fort_dearborn_barracks` under a rule whose id is
+`no_married_quarters_are_drawn_so_the_barracks_carries_them`, and every card called it *"the
+weakest line on this card"*. Their `replaceable_by` asks for **a plan of the post that assigns
+its quarters**. There is one plan, and it was read again for this.
+
+**The 1830 Harrison survey letters no married quarters.** It letters the barn, the wash house,
+the shop, the well and a pair of blocks it calls `Out Buildings` — and that pair is the only
+candidate on the sheet. It is refused: 24 × 19 ft and 13 × 10 ft, unlabelled, already built as
+`fort_dearborn_out_building_a` and `_b` on records that deliberately decline to name a use.
+Moving eight households onto them would be naming one, off a plan that does not.
+
+**So the seating stands — but the arithmetic that made it look like a compromise was wrong.**
+`1835_garrison.json`'s quartering check read art. 31's allowance (225 square feet to every six)
+against the barracks' drawn 3,265 sq ft, got 84 quarters on one floor against 110 to quarter,
+and offered three readings while picking none. Its first reading was *"the barracks had more
+than one floor (the usual form, and **the record asserts no storey count**)"*. **The record
+asserts one.** `fort_dearborn_barracks` carries `form.stories = 2`, graded reconstructed, with
+its own note — two companies do not fit on one floor of a ninety-foot range — and **L42** covers
+it. The decision the check was waiting for had been taken one file away, and the check was
+sending its reader to look for it.
+
+On the storeys the record asserts, the allowance is **met**: 168 quarters against 110 to
+quarter. The shortfall of 26 is a property of one floor and of nothing that stands. The check
+now reports both figures and keeps the one-floor number as a floor: if a plan ever puts this
+range at one storey, the quartering arithmetic is what has to give, not the plan. The other two
+readings are untouched and neither is needed to close this — the footprint may be short at the
+±20 % the record already invites, and the companies most likely stood below establishment,
+which is exactly what an establishment ceiling cannot see.
+
+The seating is still `reconstructed` and still replaceable by a plan that assigns quarters. It
+is no longer the weakest line on the card.
