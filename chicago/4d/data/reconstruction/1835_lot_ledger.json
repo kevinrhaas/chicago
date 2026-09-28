@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 81,
-   "free": 205,
+   "at_capacity": 88,
+   "free": 198,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 136,
-  "lots_barring_another_roof": 134,
+  "lots_with_a_roof": 143,
+  "lots_barring_another_roof": 141,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 195,
+  "principal_roofs_standing": 202,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8993,7 +8993,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9006,14 +9006,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_a1_08",
+    "recon_1835_blk_washington_lasalle_h2_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_a1_08": "A1",
+    "recon_1835_blk_washington_lasalle_h2_01": "H2"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#01",
@@ -9022,7 +9028,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9051,7 +9057,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9064,14 +9070,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_a3_09",
+    "recon_1835_blk_washington_lasalle_h1_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_a3_09": "A3",
+    "recon_1835_blk_washington_lasalle_h1_02": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#03",
@@ -9080,7 +9092,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9093,14 +9105,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_a3_10",
+    "recon_1835_blk_washington_lasalle_d7_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_a3_10": "A3",
+    "recon_1835_blk_washington_lasalle_d7_05": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#04",
@@ -9109,7 +9127,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9122,14 +9140,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_h1_03"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_h1_03": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#05",
@@ -9138,7 +9160,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9151,14 +9173,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_a4_11",
+    "recon_1835_blk_washington_lasalle_d3_06"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_a4_11": "A4",
+    "recon_1835_blk_washington_lasalle_d3_06": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#06",
@@ -9167,7 +9195,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9180,14 +9208,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_d7_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_d7_04": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#07",
@@ -9196,7 +9228,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9209,14 +9241,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_lasalle_d3_07"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_lasalle_d3_07": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#00",
