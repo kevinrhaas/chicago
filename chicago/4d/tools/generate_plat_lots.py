@@ -90,7 +90,7 @@ GROUND_STEP_M = 5.0
 # The north-side streets are NOT here and T-1194 is the ticket that would add them: the
 # plat draws seven numbered blocks in the North Division and one of them, block 6, is
 # drawn across the slough (T-0452 § 4).
-EW_STREETS = ["south_water", "lake", "randolph", "washington"]
+EW_STREETS = ["south_water", "lake", "randolph", "washington", "madison"]
 NS_STREETS = ["clinton", "canal", "market", "franklin", "wells", "lasalle", "clark",
               "dearborn", "state"]
 

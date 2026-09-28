@@ -274,7 +274,16 @@ HOUSEHOLD_BUCKETS = (
 # cut by district and street, so this maps the programme's own group x district
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
-    ("south", "ordinary_dwellings"): "T-1203",
+    # T-1203 WAS SPLIT on 2026-09-28 (T-1707, T-1708, T-1709, T-1710) and this row moved
+    # with it, for the reason the T-1200 block below states at length: a bucket whose
+    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and
+    # `every_work_order_names_a_live_ticket` says so — it fired on T-1707's own branch.
+    # The 67 ordinary dwellings go to T-1708, which is the one child of the four that
+    # deals them: T-1707 carries the street control that lets the plat's last tier be
+    # emitted at all and raises nothing, T-1709 builds the South Branch trade band's work
+    # bays and yard buildings, and T-1710 the country places and the lakefront tier. So
+    # the row names the child that owes the DWELLINGS, not the child that goes first.
+    ("south", "ordinary_dwellings"): "T-1708",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
