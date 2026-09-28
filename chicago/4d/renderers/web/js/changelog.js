@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Take your first jaunt through Chicago', kind: 'change',
+  { v: 1200, ts: '2026-09-28T05:30:12.869Z', date: 'Sep 28, 2026, 12:30 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
     items: [
       'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
       'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
