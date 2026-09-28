@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 312,
-  "outside": 122,
+  "outside": 133,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 26,
    "north_of_the_limit": 23,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 1,
+   "south_of_washington_street": 12,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -453,7 +453,18 @@
     "recon_1835_west_055"
    ],
    "south_of_washington_street": [
-    "heacock_house_monroe"
+    "heacock_house_monroe",
+    "recon_1835_blk_washington_lasalle_a1_08",
+    "recon_1835_blk_washington_lasalle_a3_09",
+    "recon_1835_blk_washington_lasalle_a3_10",
+    "recon_1835_blk_washington_lasalle_a4_11",
+    "recon_1835_blk_washington_lasalle_d3_06",
+    "recon_1835_blk_washington_lasalle_d3_07",
+    "recon_1835_blk_washington_lasalle_d7_04",
+    "recon_1835_blk_washington_lasalle_d7_05",
+    "recon_1835_blk_washington_lasalle_h1_02",
+    "recon_1835_blk_washington_lasalle_h1_03",
+    "recon_1835_blk_washington_lasalle_h2_01"
    ],
    "east_of_the_limit_in_the_water": [
     "south_pier"
@@ -469,7 +480,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 6,
+  "scheduling_roofs_outside_the_limit": 5,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_washington_market",
@@ -502,19 +513,9 @@
     "inside_the_limit": false
    },
    {
-    "id": "blk_washington_lasalle",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     511.41,
-     -455.5
-    ],
-    "inside_the_limit": false
-   },
-   {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 22,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -585,8 +586,8 @@
    },
    {
     "id": "blk_washington_lasalle",
-    "state": "open",
-    "roofs_scheduled": 27,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      511.41,
      -455.5
@@ -596,7 +597,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 22,
     "centre_local_enu_m": [
      634.55,
      -456.0
