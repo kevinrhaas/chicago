@@ -12,6 +12,37 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
+      "wallSeconds": 343,
+      "takenAt": "2026-09-28T09:58:29.874Z",
+      "ref": "steward/t-1714-agency-log-dwellings",
+      "commit": "c36bb7739858",
+      "devCommit": "4e9e7b702014",
+      "treeHash": "sha256:9978b30763e29cfe",
+      "treeDirty": false,
+      "changelogHash": "sha256:dfc80396be5dd59d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.1,
+          3.6
+        ]
+      },
+      "source": "/tmp/smoke-d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
       "wallSeconds": 359,
       "takenAt": "2026-09-28T08:13:42.495Z",
       "ref": "steward/t1709-south-branch-noxious-band",
@@ -1723,37 +1754,6 @@
         ]
       },
       "source": "/tmp/t1253-smoke-desktop-1-full.log /tmp/t1253-smoke-mobile-1-2-full.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 95,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 216,
-      "takenAt": "2026-09-27T21:54:07.001Z",
-      "ref": "steward/t1685-randolph-keepers",
-      "commit": "a254738ae5b1",
-      "devCommit": "face5164ae9f",
-      "treeHash": "sha256:3a731a50d9b583e9",
-      "treeDirty": false,
-      "changelogHash": "sha256:112a52cfb6203748",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4,
-          3.4
-        ]
-      },
-      "source": "/tmp/smoke_d3c.log"
     },
     {
       "viewport": "desktop",
