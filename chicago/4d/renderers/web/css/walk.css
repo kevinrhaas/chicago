@@ -1550,6 +1550,7 @@ kbd {
 /* T-1253: a readable, internally scrolling preview inside the existing welcome. */
 .jaunt-card { padding: 12px; margin: 10px 0; border: 1px solid var(--edge); border-radius: 8px; text-align: left; }
 .jaunt-card h3, .jaunt-stops h4 { margin: 0 0 6px; }
+.jaunt-card select { min-height: 44px; max-width: 100%; color: var(--ink); background: var(--panel-solid); border: 1px solid var(--edge); border-radius: 7px; padding: 8px; font: inherit; }
 .jaunt-card p, .jaunt-stops p { line-height: 1.5; }
 .jaunt-meta { font-size: 12px; opacity: .8; overflow-wrap: anywhere; }
 .jaunt-stops { padding-left: 24px; text-align: left; }

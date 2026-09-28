@@ -3,6 +3,9 @@
   display: flex; flex-direction: column; color: var(--ink, #eee); background: var(--panel-solid, #182326);
   border: 1px solid #64716e; border-radius: 14px; box-shadow: 0 8px 30px #0007; overflow: hidden; }
 .jaunt-panel[hidden], .jaunt-body[hidden] { display: none; }
+.jaunt-controls [hidden] { display: none; }
+.jaunt-panel select, .jaunt-card select { min-height: 44px; min-width: 0; color: var(--ink); background: var(--panel-solid); border: 1px solid #88968c; border-radius: 7px; padding: 8px; font: inherit; }
+.jaunt-mode-wide { grid-column: 1 / -1; }
 .jaunt-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px; }
 .jaunt-body h2 { margin: 5px 0 12px; font-size: 1.2rem; }
 .jaunt-body p { line-height: 1.45; }
@@ -17,7 +20,7 @@
 .jaunt-detail { top: auto; bottom: calc(150px + env(safe-area-inset-bottom)); }
 .jaunt-session-note { border: 1px solid currentColor; border-radius: 10px; padding: 12px; margin: 10px 0; }
 @media (max-width: 900px) {
-  html[data-jaunt-active] { --jaunt-floor: clamp(80px, 18vh, 140px); --jaunt-nav: 112px; }
+  html[data-jaunt-active] { --jaunt-floor: clamp(80px, 18vh, 140px); --jaunt-nav: 168px; }
   .jaunt-panel { top: calc(100px + env(safe-area-inset-top)); left: 8px; right: 8px; width: auto;
     bottom: calc(var(--jaunt-floor) + env(safe-area-inset-bottom)); max-height: none; }
   .jaunt-body { flex: 1; }

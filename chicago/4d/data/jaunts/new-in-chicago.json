@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "new-in-chicago",
-  "content_version": 1,
+  "content_version": 2,
   "title": "New in Chicago",
   "premise": "Find your bearings, a bed and a practical next step on an imagined first day in town.",
   "category": "Orientation",
@@ -11,7 +11,7 @@
     "text": "A few familiar corners can make a new town feel smaller. Preview five exterior stops and the evidence behind them. This first-day outing is a narrative reconstruction; no conversation, booking or purchase is claimed as history.",
     "read_s": 15
   },
-  "default_mode": "walk",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",

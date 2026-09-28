@@ -2434,16 +2434,24 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js')]).then(([preview, runtime, panel]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js')]).then(([preview, runtime, panel, estimates]) => {
+      const resolveJaunt = target => {
+        const resolved = destinations.resolve(target);
+        return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
+      };
+      const estimateOptions = () => ({ resolve: target => {
+        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
+      }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
-        onStart: id => jauntRuntime.start(id), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+        onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       jauntPanel = panel.createJauntPanel({ destinations, actions });
       jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
-        resolve: target => {
-          const resolved = destinations.resolve(target);
-          return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
-        }, place: spawnAtDestination,
+        resolve: resolveJaunt, place: spawnAtDestination,
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(),
+          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
+          from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
           jauntEntering = true;
           try {
@@ -2470,8 +2478,8 @@ async function boot() {
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
-    async start(id) { try { return (await ensureJaunts()).start(id); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
