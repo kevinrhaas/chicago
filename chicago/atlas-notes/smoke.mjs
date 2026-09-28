@@ -50,15 +50,15 @@ let rows = [], seq = 0;
 const EDITOR = 'Bill Tyre';
 function answer(fn, a) {
   const editor = a.p_token ? (a.p_token === TOKEN ? EDITOR : false) : null;
-  if (editor === false || (fn !== 'notes_list' && !editor)) return [401, { code: '28P01', message: 'notes: edit link not recognised' }];
+  if (editor === false || (fn !== 'atlas_notes_list' && !editor)) return [401, { code: '28P01', message: 'notes: edit link not recognised' }];
   const out = r => editor ? r : { ...r, ip: null, ua: null, device: null, archived_by: null };
-  if (fn === 'notes_whoami') return [200, { name: EDITOR }];
-  if (fn === 'notes_list') return [200, rows.filter(r => r.page === a.p_page && (editor || !r.archived_at)).map(out)];
-  if (fn === 'notes_add') {
+  if (fn === 'atlas_notes_whoami') return [200, { name: EDITOR }];
+  if (fn === 'atlas_notes_list') return [200, rows.filter(r => r.page === a.p_page && (editor || !r.archived_at)).map(out)];
+  if (fn === 'atlas_notes_add') {
     const r = { id: 'n' + ++seq, page: a.p_page, target: a.p_target, target_label: a.p_label, body: a.p_body.trim(), author: EDITOR, created_at: new Date(Date.now() + seq).toISOString(), archived_at: null, archived_by: null, ip: '203.0.113.7', ua: 'Mozilla/5.0 (iPhone) Safari/605', device: a.p_device, path: a.p_path };
     rows.unshift(r); return [200, [r]];
   }
-  if (fn === 'notes_archive') {
+  if (fn === 'atlas_notes_archive') {
     const r = rows.find(x => x.id === a.p_id); if (!r) return [200, []];
     r.archived_at = a.p_archive ? new Date().toISOString() : null; r.archived_by = a.p_archive ? EDITOR : null; return [200, [r]];
   }
@@ -93,6 +93,21 @@ for (const [tag, viewport] of [['mobile 390x780', { width: 390, height: 780 }], 
   console.log(tag + ':');
   rows = []; seq = 0;
 
+  // 0. Served locally with no injected project, the page is the dev environment; with
+  //    polecat_dev's keys not filled in it must stay silent and never call production.
+  {
+    const context = await browser.newContext({ viewport });
+    const page = await context.newPage(), calls = [], errors = [];
+    page.on('request', r => { if (/supabase\.co/.test(r.url())) calls.push(r.url()); });
+    page.on('pageerror', e => errors.push(e.message));
+    await page.goto(base + '/prairie-1904/viewer/?notes=' + TOKEN);
+    await page.waitForSelector('#buildingList details');
+    await page.waitForTimeout(300);
+    const dev = await page.evaluate(() => ({ ui: document.querySelectorAll('.an-toggle, .an-pencil').length, ready: document.documentElement.classList.contains('an-ready') }));
+    check(!calls.length && !dev.ui && !dev.ready && !errors.length, `${tag}: an unconfigured environment shows nothing and calls no database`, JSON.stringify({ calls, dev, errors }));
+    await context.close();
+  }
+
   // 1. A reader on a page with no notes: nothing extra shows.
   let s = await session(viewport);
   await s.page.goto(base + '/prairie-1904/viewer/');
@@ -110,7 +125,7 @@ for (const [tag, viewport] of [['mobile 390x780', { width: 390, height: 780 }], 
   await s.page.goto(base + '/prairie-1904/viewer/?notes=' + TOKEN + '#buildings');
   await s.page.waitForFunction(() => document.documentElement.classList.contains('an-editor'));
   check(!s.page.url().includes(TOKEN) && s.page.url().endsWith('#buildings'), `${tag}: the token leaves the address bar, the hash stays`, s.page.url());
-  check(await s.page.evaluate(t => localStorage.getItem('atlas.notes.token') === t, TOKEN), `${tag}: the token is kept on this device`);
+  check(await s.page.evaluate(t => localStorage.getItem('atlas.notes.token.dev') === t && localStorage.getItem('atlas.notes.token') === null, TOKEN), `${tag}: the token is kept on this device, under this environment's key`);
   const cards = await s.page.locator('#buildingList details').count();
   check(await visible(s.page, '#buildingList details .an-pencil') === cards, `${tag}: editor sees a pencil on every building card`, cards + ' cards');
   check(await visible(s.page, '#sourceList .an-pencil') > 0 && await visible(s.page, '#glessnerSections .an-pencil') > 0 && await visible(s.page, 'h2 .an-pencil') === 6 && await visible(s.page, '#mapTitle .an-pencil') === 1,
@@ -180,7 +195,7 @@ for (const [tag, viewport] of [['mobile 390x780', { width: 390, height: 780 }], 
   s = await session(viewport);
   await s.page.goto(base + '/prairie-1904/viewer/?notes=not-a-real-token');
   await s.page.waitForFunction(() => document.documentElement.classList.contains('an-ready') && !document.querySelector('.an-toggle').hidden);
-  check(!(await s.page.evaluate(() => document.documentElement.classList.contains('an-editor'))) && await s.page.evaluate(() => localStorage.getItem('atlas.notes.token') === null), `${tag}: a wrong edit link gives read-only access and is not kept`);
+  check(!(await s.page.evaluate(() => document.documentElement.classList.contains('an-editor'))) && await s.page.evaluate(() => localStorage.getItem('atlas.notes.token.dev') === null), `${tag}: a wrong edit link gives read-only access and is not kept`);
   await s.page.locator('.an-toggle').click();
   check(/not recognised/.test(await s.page.locator('.an-panel').textContent()), `${tag}: and says so`);
   await s.context.close();

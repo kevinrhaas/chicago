@@ -19,23 +19,32 @@
  * moved off the address bar into this browser's storage on arrival, so a copied
  * URL never carries it. `?notes=signout` forgets it.
  *
- * Until DB below is filled in, this script does nothing at all.
+ * Where the project for this environment has no URL/key yet, this script does
+ * nothing at all.
  */
 (() => {
   'use strict';
-  // The notes project (Supabase). The publishable key is designed to ship in a
-  // public page: every table is closed to it, and the four notes_* functions
-  // are the only way in. See chicago/atlas-notes/README.md.
-  const DB = window.ATLAS_NOTES_DB || { // a test (chicago/atlas-notes/smoke.mjs) may inject its own
-    url: '',
-    key: '',
+  // The notes live in the Polecat Supabase projects (the ones analytics.polecat.live
+  // uses), in their own atlas_notes_private schema. Production pages use `polecat`;
+  // the /dev/ previews and a local server use `polecat_dev`, so trying something
+  // out never writes to production. A publishable key is designed to ship in a
+  // public page: every notes table is closed to it, and the four atlas_notes_*
+  // functions are the only way in. See chicago/atlas-notes/README.md.
+  const PROJECTS = {
+    prod: { url: 'https://lnngiprrrcxtsawamqei.supabase.co', key: 'sb_publishable_jQ3rgqN2swVo4WmLZp143A_2OrI8xc3' },
+    dev: { url: '', key: '' }, // polecat_dev — until filled in, previews simply show no notes
   };
+  const ENV = /(^|\/)dev\//.test(location.pathname) || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) ? 'dev' : 'prod';
+  const DB = window.ATLAS_NOTES_DB || PROJECTS[ENV]; // a test (chicago/atlas-notes/smoke.mjs) may inject its own
   const SITE = 'chicago.polecat.live';
-  const K = { token: 'atlas.notes.token', device: 'atlas.notes.device' };
+  // An edit link belongs to one project, so each environment keeps its own; both
+  // share this origin's storage, and a prod token tried against dev would be refused
+  // and forgotten.
+  const K = { token: ENV === 'dev' ? 'atlas.notes.token.dev' : 'atlas.notes.token', device: 'atlas.notes.device' };
 
   const script = document.currentScript;
   const PAGE = (script && script.dataset.page) || location.pathname.split('/').filter(Boolean)[0] || 'home';
-  if (!DB.url || !DB.key) return;
+  if (!DB || !DB.url || !DB.key) return;
 
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
@@ -80,14 +89,14 @@
     state.error = null;
     try {
       if (state.token) {
-        try { state.editor = await rpc('notes_whoami', { p_token: state.token }); }
+        try { state.editor = await rpc('atlas_notes_whoami', { p_token: state.token }); }
         catch (e) {
           if (e.code !== 'auth') throw e;
           state.token = null; state.editor = null; store.set(K.token, null);
           state.notice = 'That edit link is not recognised, so this page is read-only. Ask for a new link.';
         }
       }
-      state.rows = await rpc('notes_list', { p_site: SITE, p_page: PAGE, p_token: state.editor ? state.token : null }) || [];
+      state.rows = await rpc('atlas_notes_list', { p_site: SITE, p_page: PAGE, p_token: state.editor ? state.token : null }) || [];
       state.loaded = true;
     } catch (e) { state.error = e.message; }
     paint();
@@ -324,7 +333,7 @@
     const label = panelTarget === 'page' ? document.title : (node && node.dataset.noteLabel) || panelLabel;
     busy = true; status = ''; renderPanel();
     try {
-      const rows = await rpc('notes_add', { p_token: state.token, p_site: SITE, p_page: PAGE, p_target: panelTarget, p_label: label, p_body: body, p_path: location.pathname, p_device: device });
+      const rows = await rpc('atlas_notes_add', { p_token: state.token, p_site: SITE, p_page: PAGE, p_target: panelTarget, p_label: label, p_body: body, p_path: location.pathname, p_device: device });
       state.rows.unshift(...(rows || []));
       draft = ''; status = 'Saved.';
     } catch (e) { status = e.message; }
@@ -334,7 +343,7 @@
   async function archive(row, flag) {
     status = '';
     try {
-      const [updated] = await rpc('notes_archive', { p_token: state.token, p_id: row.id, p_archive: flag }) || [];
+      const [updated] = await rpc('atlas_notes_archive', { p_token: state.token, p_id: row.id, p_archive: flag }) || [];
       if (updated) Object.assign(row, updated);
       status = flag ? 'Archived — hidden from the page, kept in the database.' : 'Restored.';
     } catch (e) { status = e.message; }
