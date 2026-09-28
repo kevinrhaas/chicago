@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The first two houses south of Washington Street', kind: 'change',
+  { v: 1215, ts: '2026-09-28T21:54:47.599Z', date: 'Sep 28, 2026, 4:54 PM CT', title: 'The first two houses south of Washington Street', kind: 'change',
     items: [
       'Walk south down Clark Street past Washington and there are buildings on the last row of the plat for the first time. Two cottages and their yard buildings stand on the block between Washington and Madison, Clark and Dearborn \u2014 a deep-plan cottage facing Washington with a privy behind it, a two-room cottage facing Madison with a woodshed behind it. Everything else on that block is still open prairie, which is what it was.',
       'The block was asked for one of them, and the plan it is built to holds the pair. The building programme apportions this block two houses and no more \u2014 a deep-plan one on the Washington face, a two-room one on Madison \u2014 and the pass that deals families onto lots had written a request against the Madison one and left that household standing with an address and no walls. Both are up, because the block is built to the plan it carries rather than one roof at a time.',
