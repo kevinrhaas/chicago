@@ -147,37 +147,37 @@
   "re_family_stability": {
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
-    "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 124,
+    "faces_with_two_or_more_free_roofs": 17,
+    "free_roof_places": 123,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2244,
-      "places_changed": 2765,
+      "re_families_tried": 2223,
+      "places_changed": 2721,
       "worst_single_re_family": 8,
-      "changed_nothing": 1259
+      "changed_nothing": 1260
      },
      "deal_order": {
-      "re_families_tried": 2244,
+      "re_families_tried": 2223,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2244
+      "changed_nothing": 2223
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1972,
-      "places_changed": 2615,
+      "re_families_tried": 1959,
+      "places_changed": 2589,
       "worst_single_re_family": 8,
       "changed_nothing": 1079
      },
      "deal_order": {
-      "re_families_tried": 1972,
-      "places_changed": 13463,
-      "worst_single_re_family": 21,
-      "changed_nothing": 192
+      "re_families_tried": 1959,
+      "places_changed": 12388,
+      "worst_single_re_family": 19,
+      "changed_nothing": 144
      }
     }
    }
@@ -206,14 +206,14 @@
     "street_name": "Canal Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 2,
-    "roofs_corner_side": 5,
-    "roofs_on_the_adopted_face": 7,
-    "roofs_free": 4,
-    "roofs_home": 0,
+    "roofs_lot_front": 6,
+    "roofs_corner_side": 4,
+    "roofs_on_the_adopted_face": 10,
+    "roofs_free": 5,
+    "roofs_home": 1,
     "roofs_home_named": 0,
-    "roofs_home_inferred": 0,
-    "roofs_yard": 3,
+    "roofs_home_inferred": 1,
+    "roofs_yard": 4,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 1,
@@ -308,14 +308,14 @@
     "street_name": "Randolph Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 59,
+    "roofs_lot_front": 54,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 59,
-    "roofs_free": 24,
+    "roofs_on_the_adopted_face": 54,
+    "roofs_free": 20,
     "roofs_home": 21,
     "roofs_home_named": 0,
     "roofs_home_inferred": 21,
-    "roofs_yard": 14,
+    "roofs_yard": 13,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 3,
     "roofs_free_and_a_house_of_trade": 3,
