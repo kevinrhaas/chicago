@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Two houses beside the Lake House building site', kind: 'change',
+  { v: 1216, ts: '2026-09-28T22:56:12.500Z', date: 'Sep 28, 2026, 5:56 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
     items: [
       'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
       'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
