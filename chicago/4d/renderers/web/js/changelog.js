@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1216, ts: '2026-09-28T22:37:42.609Z', date: 'Sep 28, 2026, 5:37 PM CT', title: 'The north side gets its lot lines back from the map', kind: 'change',
+    items: [
+      'Kinzie\u2019s Addition \u2014 the whole north side above the river \u2014 had twenty-seven blocks drawn on it and not one lot line inside any of them, so the town could not put a single house there. The 1834 survey has been read cell by cell to find out what the surveyor actually drew, and five of those blocks turn out to be ruled into lots: six to a face, twelve to the block, about forty-eight feet of frontage each, either side of a fifteen-foot alley. Sixty lots where there were none.',
+      'Twenty households have moved onto them \u2014 labourers\u2019 families on Indiana Street between Wolcott and Rush, the first people this reconstruction has been able to address north of the river\u2019s own bank. They have a lot and an address and no walls yet; the houses come next.',
+      'The other twenty-two blocks stay empty on purpose, and that is the interesting half. The surveyor ruled lots into the two tiers nearest the river and stopped \u2014 which is what a plat sold from the water northward looks like two years in. One block is halved by its alley and never lotted; one is the block he lettered Kinzie Block instead of numbering; one is ruled at its west end only and open ground after that. Each now says which of those it is, instead of all of them saying the same thing: that nobody had looked.',
+      'Nothing was carried across the river to fill the gap. The Original Town\u2019s eighty-foot lots stop at the water, where they always did.',
+    ] },
   { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
     items: [
       'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
