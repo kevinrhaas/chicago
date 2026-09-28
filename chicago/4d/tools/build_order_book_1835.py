@@ -4440,6 +4440,16 @@ def cmd_self_test() -> int:
     # on the owed list. Nothing was raised on the plat and no seat moved: one request the
     # plan no longer has room for is withdrawn, and it is withdrawn in writing.
     #
+    # AND T-1741 TAKES IT TO 232, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
+    # same shape again, and for the same kind of reason: a ruling about GROUND, not about
+    # households. Kinzie's Addition stood with twenty-seven blocks and no lot line in any of
+    # them — no lot rule had been read for that plat — so the whole North Division's headroom
+    # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
+    # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
+    # and the platted pass goes 140 -> 160: eleven labourers' households onto
+    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # A slot is a request and not a roof: T-1742 raises them.
+    #
     # T-1736 TAKES IT TO 213, AND TWENTY-NINE OF THE SEATS ARE SLOTS. The platted pass goes
     # 140 -> 141 and the off-plat pass holds at 72, and two separate causes are in it. The
     # first is the build: `blk_washington_clark`'s two cottages now stand, so its remaining
@@ -4452,7 +4462,7 @@ def cmd_self_test() -> int:
     # again and two North Division households adopt. Both readings were taken by running the
     # chain to its fixpoint either way.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 213
+        data["inventory"], data["programme"], occ))["seated"] == 233
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

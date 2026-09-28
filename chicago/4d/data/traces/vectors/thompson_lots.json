@@ -69,10 +69,10 @@
    "blocks": 27,
    "omitted": 25,
    "numbered": 27,
-   "lots": 0,
+   "lots": 60,
    "subdivided": false,
    "divides_on": null,
-   "built_and_not_divided": 27
+   "built_and_not_divided": 22
   },
   "west_division": {
    "plat": "thompson_plat_1830",
@@ -143,12 +143,53 @@
    ],
    "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
    "division": "north",
-   "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins"
+   "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+   "lot_rule": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "by": "tools/read_kinzie_addition_lots.py",
+    "ticket": "T-1741",
+    "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+    "lots_per_face": [
+     6
+    ],
+    "lot_frontage_ft": {
+     "min": 45.8,
+     "max": 47.4,
+     "mean": 46.9
+    },
+    "alley": {
+     "kerb_to_kerb_px": {
+      "mean": 6.6,
+      "sd": 0.8,
+      "n": 5,
+      "cells": [
+       "blk_indiana_north_wolcott",
+       "blk_indiana_north_pine",
+       "blk_illinois_north_wolcott",
+       "blk_illinois_north_rush",
+       "blk_illinois_north_pine"
+      ]
+     },
+     "read_ft": 15.1,
+     "method_over_read": 1.024,
+     "alley_ft": 14.8,
+     "alley_m": 4.5,
+     "confidence": "inferred",
+     "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+     "cells_that_do_not_read": [
+      "blk_indiana_north_cass",
+      "blk_indiana_north_rush",
+      "blk_illinois_north_cass"
+     ]
+    },
+    "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+   }
   },
   "lot_subdivision_withheld": {
-   "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-   "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-   "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+   "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+   "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+   "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+   "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
   },
   "numbering": {
    "authored_in": "data/traces/kinzie_addition_block_numbering.json",
@@ -268,7 +309,7 @@
   "reserved": 1,
   "numbered": 68,
   "numbered_omitted": 48,
-  "lots": 276,
+  "lots": 336,
   "numbered_lots": 176,
   "block_frontage_ft": {
    "min": 120.8,
@@ -7390,7 +7431,14 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.28,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7428,10 +7476,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7481,7 +7570,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.28,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7518,10 +7614,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7571,7 +7708,14 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.40 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.396,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7608,10 +7752,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7661,7 +7846,14 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.14,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.275,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7699,10 +7891,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7752,7 +7985,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.30 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.301,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7789,10 +8029,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7842,7 +8123,14 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.31 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.307,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7879,10 +8167,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -7932,7 +8261,14 @@
    "frontage_m": 89.4,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.34 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.341,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -7969,10 +8305,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8022,7 +8399,14 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.284,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8060,10 +8444,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8113,7 +8538,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.39 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.387,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8150,10 +8582,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8203,7 +8676,14 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.35 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.348,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8240,10 +8720,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8293,7 +8814,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.31 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.309,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8330,10 +8858,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8383,7 +8952,14 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.279,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8421,10 +8997,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8474,7 +9091,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.35 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.355,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8511,10 +9135,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8564,7 +9229,14 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.44 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.441,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8601,10 +9273,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8654,7 +9367,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.42 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.418,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8691,10 +9411,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8744,7 +9505,14 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.32 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.317,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8782,10 +9550,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8835,7 +9644,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.26 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.264,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8872,10 +9688,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -8925,7 +9782,14 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.37 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.368,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -8962,10 +9826,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9015,7 +9920,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.14,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "Wright draws this cell whole: no mid-block rule (darkest middle row 0.23 of the cell's width, against 0.60 for a rule) and no lot line.",
+   "subdivision_read": {
+    "verdict": "undivided",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.231,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -9052,10 +9964,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9105,9 +10058,325 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_face": 6,
+   "alley_local_enu_m": [
+    [
+     842.07,
+     528.01
+    ],
+    [
+     930.35,
+     527.29
+    ],
+    [
+     930.32,
+     522.79
+    ],
+    [
+     842.04,
+     523.51
+    ]
+   ],
+   "alley_width_m": 4.5,
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       842.28,
+       559.34
+      ],
+      [
+       857.0,
+       559.21
+      ],
+      [
+       856.78,
+       527.89
+      ],
+      [
+       842.07,
+       528.01
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       842.04,
+       523.51
+      ],
+      [
+       856.75,
+       523.39
+      ],
+      [
+       856.54,
+       492.06
+      ],
+      [
+       841.82,
+       492.18
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       857.0,
+       559.21
+      ],
+      [
+       871.71,
+       559.09
+      ],
+      [
+       871.49,
+       527.77
+      ],
+      [
+       856.78,
+       527.89
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       856.75,
+       523.39
+      ],
+      [
+       871.46,
+       523.27
+      ],
+      [
+       871.25,
+       491.94
+      ],
+      [
+       856.54,
+       492.06
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       871.71,
+       559.09
+      ],
+      [
+       886.42,
+       558.97
+      ],
+      [
+       886.21,
+       527.65
+      ],
+      [
+       871.49,
+       527.77
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       871.46,
+       523.27
+      ],
+      [
+       886.18,
+       523.15
+      ],
+      [
+       885.96,
+       491.82
+      ],
+      [
+       871.25,
+       491.94
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       886.42,
+       558.97
+      ],
+      [
+       901.14,
+       558.85
+      ],
+      [
+       900.92,
+       527.53
+      ],
+      [
+       886.21,
+       527.65
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       886.18,
+       523.15
+      ],
+      [
+       900.89,
+       523.03
+      ],
+      [
+       900.68,
+       491.7
+      ],
+      [
+       885.96,
+       491.82
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       901.14,
+       558.85
+      ],
+      [
+       915.85,
+       558.73
+      ],
+      [
+       915.63,
+       527.41
+      ],
+      [
+       900.92,
+       527.53
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       900.89,
+       523.03
+      ],
+      [
+       915.6,
+       522.91
+      ],
+      [
+       915.39,
+       491.58
+      ],
+      [
+       900.68,
+       491.7
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       915.85,
+       558.73
+      ],
+      [
+       930.56,
+       558.61
+      ],
+      [
+       930.35,
+       527.29
+      ],
+      [
+       915.63,
+       527.41
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       915.6,
+       522.91
+      ],
+      [
+       930.32,
+       522.79
+      ],
+      [
+       930.1,
+       491.46
+      ],
+      [
+       915.39,
+       491.58
+      ]
+     ]
+    }
+   ],
+   "lot_lines_read": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "rules_px_x": [
+     2988.5,
+     3007.5,
+     3030.1,
+     3055.8,
+     3076.0
+    ],
+    "rule_grades": [
+     "clear",
+     "clear",
+     "clear",
+     "clear",
+     "clear"
+    ],
+    "lot_frontage_ft_read": 47.0,
+    "evenness": 1.47,
+    "confidence": "inferred",
+    "note": "the RULES are ink in this cell, counted at their own positions; the lot polygon is this grid's even cut of the block the committed corridors give, which is not the same thing and is graded as this file grades every lot line. The sheet's lot numerals are not transcribed, so no lot here carries a `plat_lot_number`."
+   },
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -9143,10 +10412,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9160,8 +10470,7 @@
      "wright_1834_nara_hup"
     ],
     "authored_in": "data/traces/kinzie_addition_block_numbering.json",
-    "note": "Wolcott Street to Cass Street",
-    "lots_not_numbered": "this grid draws no lot lines inside the Addition, so there is nothing here to number; the Democrat's land notices sell by block AND lot, and only the block half of that address is placeable today"
+    "note": "Wolcott Street to Cass Street"
    }
   },
   {
@@ -9196,9 +10505,325 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_face": 6,
+   "alley_local_enu_m": [
+    [
+     952.52,
+     527.1
+    ],
+    [
+     1041.91,
+     526.37
+    ],
+    [
+     1041.88,
+     521.87
+    ],
+    [
+     952.49,
+     522.6
+    ]
+   ],
+   "alley_width_m": 4.5,
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       952.73,
+       558.43
+      ],
+      [
+       967.63,
+       558.31
+      ],
+      [
+       967.42,
+       526.98
+      ],
+      [
+       952.52,
+       527.1
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       952.49,
+       522.6
+      ],
+      [
+       967.38,
+       522.48
+      ],
+      [
+       967.17,
+       491.16
+      ],
+      [
+       952.27,
+       491.28
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       967.63,
+       558.31
+      ],
+      [
+       982.53,
+       558.18
+      ],
+      [
+       982.31,
+       526.86
+      ],
+      [
+       967.42,
+       526.98
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       967.38,
+       522.48
+      ],
+      [
+       982.28,
+       522.36
+      ],
+      [
+       982.07,
+       491.03
+      ],
+      [
+       967.17,
+       491.16
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       982.53,
+       558.18
+      ],
+      [
+       997.43,
+       558.06
+      ],
+      [
+       997.21,
+       526.74
+      ],
+      [
+       982.31,
+       526.86
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       982.28,
+       522.36
+      ],
+      [
+       997.18,
+       522.24
+      ],
+      [
+       996.97,
+       490.91
+      ],
+      [
+       982.07,
+       491.03
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       997.43,
+       558.06
+      ],
+      [
+       1012.33,
+       557.94
+      ],
+      [
+       1012.11,
+       526.62
+      ],
+      [
+       997.21,
+       526.74
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       997.18,
+       522.24
+      ],
+      [
+       1012.08,
+       522.12
+      ],
+      [
+       1011.87,
+       490.79
+      ],
+      [
+       996.97,
+       490.91
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1012.33,
+       557.94
+      ],
+      [
+       1027.22,
+       557.82
+      ],
+      [
+       1027.01,
+       526.49
+      ],
+      [
+       1012.11,
+       526.62
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1012.08,
+       522.12
+      ],
+      [
+       1026.98,
+       521.99
+      ],
+      [
+       1026.76,
+       490.67
+      ],
+      [
+       1011.87,
+       490.79
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1027.22,
+       557.82
+      ],
+      [
+       1042.12,
+       557.7
+      ],
+      [
+       1041.91,
+       526.37
+      ],
+      [
+       1027.01,
+       526.49
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1026.98,
+       521.99
+      ],
+      [
+       1041.88,
+       521.87
+      ],
+      [
+       1041.66,
+       490.55
+      ],
+      [
+       1026.76,
+       490.67
+      ]
+     ]
+    }
+   ],
+   "lot_lines_read": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "rules_px_x": [
+     3146.0,
+     3166.0,
+     3189.1,
+     3211.6,
+     3232.9
+    ],
+    "rule_grades": [
+     "clear",
+     "one_face",
+     "clear",
+     "clear",
+     "clear"
+    ],
+    "lot_frontage_ft_read": 47.4,
+    "evenness": 1.28,
+    "confidence": "inferred",
+    "note": "the RULES are ink in this cell, counted at their own positions; the lot polygon is this grid's even cut of the block the committed corridors give, which is not the same thing and is graded as this file grades every lot line. The sheet's lot numerals are not transcribed, so no lot here carries a `plat_lot_number`."
+   },
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -9233,10 +10858,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9250,8 +10916,7 @@
      "wright_1834_nara_hup"
     ],
     "authored_in": "data/traces/kinzie_addition_block_numbering.json",
-    "note": "Cass Street to Rush Street",
-    "lots_not_numbered": "this grid draws no lot lines inside the Addition, so there is nothing here to number; the Democrat's land notices sell by block AND lot, and only the block half of that address is placeable today"
+    "note": "Cass Street to Rush Street"
    }
   },
   {
@@ -9286,9 +10951,325 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_face": 6,
+   "alley_local_enu_m": [
+    [
+     1064.08,
+     526.19
+    ],
+    [
+     1153.46,
+     525.46
+    ],
+    [
+     1153.43,
+     520.96
+    ],
+    [
+     1064.05,
+     521.69
+    ]
+   ],
+   "alley_width_m": 4.5,
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1064.29,
+       557.51
+      ],
+      [
+       1079.19,
+       557.39
+      ],
+      [
+       1078.97,
+       526.07
+      ],
+      [
+       1064.08,
+       526.19
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1064.05,
+       521.69
+      ],
+      [
+       1078.94,
+       521.57
+      ],
+      [
+       1078.73,
+       490.24
+      ],
+      [
+       1063.83,
+       490.36
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1079.19,
+       557.39
+      ],
+      [
+       1094.09,
+       557.27
+      ],
+      [
+       1093.87,
+       525.94
+      ],
+      [
+       1078.97,
+       526.07
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1078.94,
+       521.57
+      ],
+      [
+       1093.84,
+       521.44
+      ],
+      [
+       1093.63,
+       490.12
+      ],
+      [
+       1078.73,
+       490.24
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1094.09,
+       557.27
+      ],
+      [
+       1108.98,
+       557.15
+      ],
+      [
+       1108.77,
+       525.82
+      ],
+      [
+       1093.87,
+       525.94
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1093.84,
+       521.44
+      ],
+      [
+       1108.74,
+       521.32
+      ],
+      [
+       1108.52,
+       490.0
+      ],
+      [
+       1093.63,
+       490.12
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1108.98,
+       557.15
+      ],
+      [
+       1123.88,
+       557.03
+      ],
+      [
+       1123.66,
+       525.7
+      ],
+      [
+       1108.77,
+       525.82
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1108.74,
+       521.32
+      ],
+      [
+       1123.63,
+       521.2
+      ],
+      [
+       1123.42,
+       489.88
+      ],
+      [
+       1108.52,
+       490.0
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1123.88,
+       557.03
+      ],
+      [
+       1138.78,
+       556.9
+      ],
+      [
+       1138.56,
+       525.58
+      ],
+      [
+       1123.66,
+       525.7
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1123.63,
+       521.2
+      ],
+      [
+       1138.53,
+       521.08
+      ],
+      [
+       1138.32,
+       489.75
+      ],
+      [
+       1123.42,
+       489.88
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1138.78,
+       556.9
+      ],
+      [
+       1153.67,
+       556.78
+      ],
+      [
+       1153.46,
+       525.46
+      ],
+      [
+       1138.56,
+       525.58
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 31.33,
+     "polygon": [
+      [
+       1138.53,
+       521.08
+      ],
+      [
+       1153.43,
+       520.96
+      ],
+      [
+       1153.21,
+       489.63
+      ],
+      [
+       1138.32,
+       489.75
+      ]
+     ]
+    }
+   ],
+   "lot_lines_read": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "rules_px_x": [
+     3305.0,
+     3326.2,
+     3349.4,
+     3371.5,
+     3388.6
+    ],
+    "rule_grades": [
+     "clear",
+     "clear",
+     "clear",
+     "one_face",
+     "clear"
+    ],
+    "lot_frontage_ft_read": 45.8,
+    "evenness": 1.36,
+    "confidence": "inferred",
+    "note": "the RULES are ink in this cell, counted at their own positions; the lot polygon is this grid's even cut of the block the committed corridors give, which is not the same thing and is graded as this file grades every lot line. The sheet's lot numerals are not transcribed, so no lot here carries a `plat_lot_number`."
+   },
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -9323,10 +11304,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9340,8 +11362,7 @@
      "wright_1834_nara_hup"
     ],
     "authored_in": "data/traces/kinzie_addition_block_numbering.json",
-    "note": "Rush Street to Pine Street",
-    "lots_not_numbered": "this grid draws no lot lines inside the Addition, so there is nothing here to number; the Democrat's land notices sell by block AND lot, and only the block half of that address is placeable today"
+    "note": "Rush Street to Pine Street"
    }
   },
   {
@@ -9376,7 +11397,14 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 67.15,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "the alley is ruled and the faces are not: this cell is halved and not lotted.",
+   "subdivision_read": {
+    "verdict": "halved_not_lotted",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.91,
+    "rules_px_x": [],
+    "evenness": null
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -9413,10 +11441,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9466,9 +11535,325 @@
    "frontage_m": 88.28,
    "frontage_ft": 289.6,
    "depth_m": 66.04,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_face": 6,
+   "alley_local_enu_m": [
+    [
+     841.46,
+     439.25
+    ],
+    [
+     929.74,
+     438.52
+    ],
+    [
+     929.71,
+     434.02
+    ],
+    [
+     841.43,
+     434.75
+    ]
+   ],
+   "alley_width_m": 4.5,
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       841.67,
+       470.02
+      ],
+      [
+       856.38,
+       469.89
+      ],
+      [
+       856.17,
+       439.13
+      ],
+      [
+       841.46,
+       439.25
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       841.43,
+       434.75
+      ],
+      [
+       856.14,
+       434.63
+      ],
+      [
+       855.93,
+       403.86
+      ],
+      [
+       841.22,
+       403.98
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       856.38,
+       469.89
+      ],
+      [
+       871.1,
+       469.77
+      ],
+      [
+       870.89,
+       439.0
+      ],
+      [
+       856.17,
+       439.13
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       856.14,
+       434.63
+      ],
+      [
+       870.86,
+       434.51
+      ],
+      [
+       870.65,
+       403.74
+      ],
+      [
+       855.93,
+       403.86
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       871.1,
+       469.77
+      ],
+      [
+       885.81,
+       469.65
+      ],
+      [
+       885.6,
+       438.88
+      ],
+      [
+       870.89,
+       439.0
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       870.86,
+       434.51
+      ],
+      [
+       885.57,
+       434.38
+      ],
+      [
+       885.36,
+       403.62
+      ],
+      [
+       870.65,
+       403.74
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       885.81,
+       469.65
+      ],
+      [
+       900.52,
+       469.53
+      ],
+      [
+       900.31,
+       438.76
+      ],
+      [
+       885.6,
+       438.88
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       885.57,
+       434.38
+      ],
+      [
+       900.28,
+       434.26
+      ],
+      [
+       900.07,
+       403.49
+      ],
+      [
+       885.36,
+       403.62
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       900.52,
+       469.53
+      ],
+      [
+       915.24,
+       469.41
+      ],
+      [
+       915.03,
+       438.64
+      ],
+      [
+       900.31,
+       438.76
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       900.28,
+       434.26
+      ],
+      [
+       915.0,
+       434.14
+      ],
+      [
+       914.79,
+       403.37
+      ],
+      [
+       900.07,
+       403.49
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       915.24,
+       469.41
+      ],
+      [
+       929.95,
+       469.29
+      ],
+      [
+       929.74,
+       438.52
+      ],
+      [
+       915.03,
+       438.64
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.71,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       915.0,
+       434.14
+      ],
+      [
+       929.71,
+       434.02
+      ],
+      [
+       929.5,
+       403.25
+      ],
+      [
+       914.79,
+       403.37
+      ]
+     ]
+    }
+   ],
+   "lot_lines_read": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "rules_px_x": [
+     2989.0,
+     3008.8,
+     3030.2,
+     3055.1,
+     3076.8
+    ],
+    "rule_grades": [
+     "clear",
+     "clear",
+     "clear",
+     "clear",
+     "clear"
+    ],
+    "lot_frontage_ft_read": 47.0,
+    "evenness": 1.45,
+    "confidence": "inferred",
+    "note": "the RULES are ink in this cell, counted at their own positions; the lot polygon is this grid's even cut of the block the committed corridors give, which is not the same thing and is graded as this file grades every lot line. The sheet's lot numerals are not transcribed, so no lot here carries a `plat_lot_number`."
+   },
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -9504,10 +11889,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9521,8 +11947,7 @@
      "wright_1834_nara_hup"
     ],
     "authored_in": "data/traces/kinzie_addition_block_numbering.json",
-    "note": "Wolcott Street to Cass Street",
-    "lots_not_numbered": "this grid draws no lot lines inside the Addition, so there is nothing here to number; the Democrat's land notices sell by block AND lot, and only the block half of that address is placeable today"
+    "note": "Wolcott Street to Cass Street"
    }
   },
   {
@@ -9557,7 +11982,18 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 66.04,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "the rules in this cell cut lots 8.3 to 1 uneven, against 1.6 — the sheet divides part of the cell and leaves the rest undrawn, and a part-divided cell is not a cell whose lots can be cut.",
+   "subdivision_read": {
+    "verdict": "partly_drawn",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.936,
+    "rules_px_x": [
+     3151.0,
+     3159.5,
+     3230.0
+    ],
+    "evenness": 8.29
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -9594,10 +12030,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9647,9 +12124,325 @@
    "frontage_m": 89.38,
    "frontage_ft": 293.3,
    "depth_m": 66.04,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_face": 6,
+   "alley_local_enu_m": [
+    [
+     1063.47,
+     437.42
+    ],
+    [
+     1152.85,
+     436.69
+    ],
+    [
+     1152.82,
+     432.19
+    ],
+    [
+     1063.44,
+     432.92
+    ]
+   ],
+   "alley_width_m": 4.5,
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1063.68,
+       468.19
+      ],
+      [
+       1078.58,
+       468.07
+      ],
+      [
+       1078.37,
+       437.3
+      ],
+      [
+       1063.47,
+       437.42
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1063.44,
+       432.92
+      ],
+      [
+       1078.34,
+       432.8
+      ],
+      [
+       1078.12,
+       402.03
+      ],
+      [
+       1063.23,
+       402.15
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1078.58,
+       468.07
+      ],
+      [
+       1093.47,
+       467.95
+      ],
+      [
+       1093.26,
+       437.18
+      ],
+      [
+       1078.37,
+       437.3
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1078.34,
+       432.8
+      ],
+      [
+       1093.23,
+       432.68
+      ],
+      [
+       1093.02,
+       401.91
+      ],
+      [
+       1078.12,
+       402.03
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1093.47,
+       467.95
+      ],
+      [
+       1108.37,
+       467.83
+      ],
+      [
+       1108.16,
+       437.06
+      ],
+      [
+       1093.26,
+       437.18
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1093.23,
+       432.68
+      ],
+      [
+       1108.13,
+       432.56
+      ],
+      [
+       1107.92,
+       401.79
+      ],
+      [
+       1093.02,
+       401.91
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1108.37,
+       467.83
+      ],
+      [
+       1123.27,
+       467.71
+      ],
+      [
+       1123.06,
+       436.93
+      ],
+      [
+       1108.16,
+       437.06
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1108.13,
+       432.56
+      ],
+      [
+       1123.03,
+       432.43
+      ],
+      [
+       1122.82,
+       401.66
+      ],
+      [
+       1107.92,
+       401.79
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1123.27,
+       467.71
+      ],
+      [
+       1138.16,
+       467.58
+      ],
+      [
+       1137.95,
+       436.81
+      ],
+      [
+       1123.06,
+       436.93
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1123.03,
+       432.43
+      ],
+      [
+       1137.92,
+       432.31
+      ],
+      [
+       1137.71,
+       401.54
+      ],
+      [
+       1122.82,
+       401.66
+      ]
+     ]
+    },
+    {
+     "tier": "north",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1138.16,
+       467.58
+      ],
+      [
+       1153.06,
+       467.46
+      ],
+      [
+       1152.85,
+       436.69
+      ],
+      [
+       1137.95,
+       436.81
+      ]
+     ]
+    },
+    {
+     "tier": "south",
+     "frontage_m": 14.9,
+     "depth_m": 30.77,
+     "polygon": [
+      [
+       1137.92,
+       432.31
+      ],
+      [
+       1152.82,
+       432.19
+      ],
+      [
+       1152.61,
+       401.42
+      ],
+      [
+       1137.71,
+       401.54
+      ]
+     ]
+    }
+   ],
+   "lot_lines_read": {
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "rules_px_x": [
+     3305.8,
+     3326.8,
+     3350.2,
+     3371.5,
+     3388.0
+    ],
+    "rule_grades": [
+     "clear",
+     "clear",
+     "clear",
+     "clear",
+     "one_face"
+    ],
+    "lot_frontage_ft_read": 47.4,
+    "evenness": 1.42,
+    "confidence": "inferred",
+    "note": "the RULES are ink in this cell, counted at their own positions; the lot polygon is this grid's even cut of the block the committed corridors give, which is not the same thing and is graded as this file grades every lot line. The sheet's lot numerals are not transcribed, so no lot here carries a `plat_lot_number`."
+   },
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -9684,10 +12477,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {
@@ -9701,8 +12535,7 @@
      "wright_1834_nara_hup"
     ],
     "authored_in": "data/traces/kinzie_addition_block_numbering.json",
-    "note": "Rush Street to Pine Street",
-    "lots_not_numbered": "this grid draws no lot lines inside the Addition, so there is nothing here to number; the Democrat's land notices sell by block AND lot, and only the block half of that address is placeable today"
+    "note": "Rush Street to Pine Street"
    }
   },
   {
@@ -9737,7 +12570,17 @@
    "frontage_m": 89.39,
    "frontage_ft": 293.3,
    "depth_m": 66.04,
-   "subdivision_withheld": "no lot rule has been read for this plat — see `module.lot_subdivision_withheld`",
+   "subdivision_withheld": "the rules in this cell cut lots 4.9 to 1 uneven, against 1.6 — the sheet divides part of the cell and leaves the rest undrawn, and a part-divided cell is not a cell whose lots can be cut.",
+   "subdivision_read": {
+    "verdict": "partly_drawn",
+    "read_in": "data/traces/kinzie_addition_lot_lines.json",
+    "mid_block_dark_fraction": 0.844,
+    "rules_px_x": [
+     3460.7,
+     3481.8
+    ],
+    "evenness": 4.87
+   },
    "alley_local_enu_m": null,
    "lots": [],
    "ground": {
@@ -9774,10 +12617,51 @@
     "seated_on_note": "the Addition's module is hung on the two committed lines it shares with the town it adjoins, not on this sheet's own fit — read straight through that fit Michigan Street lands 19.8 m south of `michigan_north`, which is the same street",
     "division": "north",
     "chosen_by": "the Addition's own measured module, seated on the two committed lines it shares with the town it adjoins",
+    "lot_rule": {
+     "read_in": "data/traces/kinzie_addition_lot_lines.json",
+     "by": "tools/read_kinzie_addition_lots.py",
+     "ticket": "T-1741",
+     "what_was_read": "The Addition has no single lot module and that is the reading. Nineteen of the twenty-seven cells — every cell in the Superior, Huron, Erie, Ontario and Ohio tiers — are drawn whole, with neither an alley nor a lot line inside the block rule. The eight cells of the Indiana and Illinois tiers, nearest the river, all carry a mid-block alley; five of them are ruled six lots to a face and Wright numbers them 1-12 where there is room to write. Block 18 carries the alley and not one lot rule; the only marks inside block 11 are the lettering `Kinzie Block` Wright writes there instead of a figure, refused by the evenness test at 8.3 to 1; block 9 is ruled at its west end only — two lots and then 61 m of undrawn ground — refused at 4.9 to 1. So the sheet divides the two tiers the Addition had sold and stops, which is what a plat drawn in 1834 of a subdivision platted in 1833 and sold from the river northward should look like.",
+     "lots_per_face": [
+      6
+     ],
+     "lot_frontage_ft": {
+      "min": 45.8,
+      "max": 47.4,
+      "mean": 46.9
+     },
+     "alley": {
+      "kerb_to_kerb_px": {
+       "mean": 6.6,
+       "sd": 0.8,
+       "n": 5,
+       "cells": [
+        "blk_indiana_north_wolcott",
+        "blk_indiana_north_pine",
+        "blk_illinois_north_wolcott",
+        "blk_illinois_north_rush",
+        "blk_illinois_north_pine"
+       ]
+      },
+      "read_ft": 15.1,
+      "method_over_read": 1.024,
+      "alley_ft": 14.8,
+      "alley_m": 4.5,
+      "confidence": "inferred",
+      "note": "the Addition's alley is not dimensioned on the sheet. This is the corridor its two ruled kerbs leave, measured in the frame the registration fixes and scaled by `control_summary.method_over_read` — the same correction the street corridors carry, for the same reason and off the same three Original Town corridors.",
+      "cells_that_do_not_read": [
+       "blk_indiana_north_cass",
+       "blk_indiana_north_rush",
+       "blk_illinois_north_cass"
+      ]
+     },
+     "settles": "the `lot_subdivision_withheld` this module carried until T-1741, which asked for exactly this reading — the lot lines Wright draws inside the Addition's cells, off the same raster and the same registration as the block numerals"
+    },
     "lot_subdivision_withheld": {
-     "why": "NO LOT RULE HAS BEEN READ FOR THIS PLAT. The Addition's street grid measures a tier pitch and a column pitch and stops there; the four-to-a-face 80 ft module this generator can seat is a reading of ONE Original Town block (docs/RESEARCH/clark_reach_bulge_1834.md section 8) and carrying it across the river would be a guess dressed as arithmetic. The parent ticket asks for the lots of each plat to come from that plat's own module, and this one's has not been read.",
-     "what_would_settle_it": "the lot lines and lot numerals Wright draws inside the Addition's cells, read off wright_1834_nara_hup the way tools/read_kinzie_addition_numerals.py reads the block numerals — the same raster, the same registration, one crop per cell",
-     "meanwhile": "the block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
+     "why": "THE RULE IS NOW READ, AND IT DOES NOT DIVIDE THE WHOLE PLAT. Wright rules lots into five cells of the Addition's twenty-seven, all of them in the two tiers nearest the river; twenty-two he leaves whole, halved without lots, or divided in part. So a withholding stands on those twenty-two — but it is a READING now and not an absence, and each block carries its own sentence saying which of the three it is.",
+     "what_is_still_refused": "carrying the five lotted cells' six-to-a-face module north into the tiers Wright draws whole. That is the same guess dressed as arithmetic T-1437 refused, one plat closer to home.",
+     "the_lot_numerals": "Wright numbers the lots 1-12 in the cells that have room for the figures. Those numerals are NOT transcribed: the reading counts rules, and a lot here carries no `plat_lot_number` for that reason.",
+     "meanwhile": "every block stands with its boundary, its numeral and its ground, which is what a placement ticket needs to name it"
     }
    },
    "plat_block_number": {

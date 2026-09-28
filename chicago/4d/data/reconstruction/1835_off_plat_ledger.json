@@ -46,9 +46,10 @@
   },
   "in_the_roof_schedule": 27,
   "by_schedule_state": {
-   "unsubdivided": 27
+   "open": 5,
+   "unsubdivided": 22
   },
-  "may_raise_a_slot": 0,
+  "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
   "principal_roofs_standing": 132,
   "ground_m2": 7314847.5
@@ -5920,7 +5921,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -5957,7 +5958,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -5994,7 +5995,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.40 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6031,7 +6032,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6068,7 +6069,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.30 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6105,7 +6106,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.31 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6142,7 +6143,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.34 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6179,7 +6180,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6216,7 +6217,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.39 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6253,7 +6254,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.35 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6290,7 +6291,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.31 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6327,7 +6328,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.28 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6364,7 +6365,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.35 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6401,7 +6402,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.44 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6438,7 +6439,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.42 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6475,7 +6476,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.32 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6512,7 +6513,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.26 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6549,7 +6550,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.37 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6586,7 +6587,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: Wright draws this cell whole: no mid-block rule (darkest middle row 0.23 of the cell's width, against 0.60 for a rule) and no lot line.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6620,10 +6621,10 @@
    "district": "north",
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
-   "schedule_state": "unsubdivided",
-   "slot_headroom": 0,
-   "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "schedule_state": "open",
+   "slot_headroom": 33,
+   "may_raise_a_slot": true,
+   "why_no_slot": null,
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6657,10 +6658,10 @@
    "district": "north",
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
-   "schedule_state": "unsubdivided",
-   "slot_headroom": 0,
-   "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "schedule_state": "open",
+   "slot_headroom": 33,
+   "may_raise_a_slot": true,
+   "why_no_slot": null,
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6694,10 +6695,10 @@
    "district": "north",
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
-   "schedule_state": "unsubdivided",
-   "slot_headroom": 0,
-   "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "schedule_state": "open",
+   "slot_headroom": 33,
+   "may_raise_a_slot": true,
+   "why_no_slot": null,
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6734,7 +6735,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: the alley is ruled and the faces are not: this cell is halved and not lotted.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6768,10 +6769,10 @@
    "district": "north",
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
-   "schedule_state": "unsubdivided",
-   "slot_headroom": 0,
-   "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "schedule_state": "open",
+   "slot_headroom": 33,
+   "may_raise_a_slot": true,
+   "why_no_slot": null,
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6808,7 +6809,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: the rules in this cell cut lots 8.3 to 1 uneven, against 1.6 — the sheet divides part of the cell and leaves the rest undrawn, and a part-divided cell is not a cell whose lots can be cut.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6842,10 +6843,10 @@
    "district": "north",
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
-   "schedule_state": "unsubdivided",
-   "slot_headroom": 0,
-   "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "schedule_state": "open",
+   "slot_headroom": 33,
+   "may_raise_a_slot": true,
+   "why_no_slot": null,
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
@@ -6882,7 +6883,7 @@
    "schedule_state": "unsubdivided",
    "slot_headroom": 0,
    "may_raise_a_slot": false,
-   "why_no_slot": "this plat's own lot rule: no lot rule has been read for this plat — see `module.lot_subdivision_withheld`. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
+   "why_no_slot": "this plat's own lot rule: the rules in this cell cut lots 4.9 to 1 uneven, against 1.6 — the sheet divides part of the cell and leaves the rest undrawn, and a part-divided cell is not a cell whose lots can be cut.. The block stands on the grid with its boundary, its numeral and its ground; what it has no line to deal a roof onto is a lot.",
    "standing": [],
    "standing_families": {},
    "principal_roofs_standing": 0
