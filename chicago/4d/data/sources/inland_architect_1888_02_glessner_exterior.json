@@ -1,0 +1,28 @@
+{
+ "id": "inland_architect_1888_02_glessner_exterior",
+ "type": "photograph",
+ "citation": "Exterior photograph of the John J. Glessner House, 1800 Prairie Avenue, from the north-east (Prairie Avenue and E. 18th Street), winter. The Inland Architect and News Record, vol. XI, no. 1 (February 1888), photograph section. Reproduced by Glessner House, 'Exterior from Inland Architect'.",
+ "date": "1888-02",
+ "describes_date": "winter 1887-1888",
+ "repository": "Published in The Inland Architect and News Record; read from the reproduction on the Glessner House museum website (image file '74 - Inland Architect Vol XI No 1 - Feb 1888.jpg', 2500 x 1929, sha256 d81ed50777e458fdaa28753ce385e6054479e725065fa97f0642601b733f96f7, which matches the checksum the Prairie library recorded for its copy).",
+ "url": "https://www.glessnerhouse.org/exterior-from-inland-architect",
+ "locator": "The whole plate. Read for: the Prairie Avenue facade (openings, chimneys, roof, porte-cochere opening), the north gable of the east wing and the 18th Street front of the north range and the west wing (eave line, great arch, carriage doorway, stable gable and ridge turret).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The underlying 1888 publication is public domain in the United States; the museum's digital reproduction carries no stated licence (the Prairie library's dossier says the same). check_required: cited in text, nothing derived from the image as an asset, and the image is not committed.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Fetched 2026-09-28 from https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/2ac22506-7367-4eec-8fc0-55974e09ded3/74%2B-%2BInland%2BArchitect%2BVol%2BXI%2BNo%2B1%2B-%2BFeb%2B1888.jpg into a scratch directory only, and viewed at full resolution. The museum page itself was not re-read.",
+ "note": "THE EARLIEST DATED VIEW OF THE FINISHED EXTERIOR, published two months after the family moved in (December 1887). What makes it valuable for 1904 is that it agrees with the 1965 photogrammetric elevation (habs_glessner_house_il_1015_drawings sheet 6) opening for opening: on Prairie Avenue a single second-floor window, a group of three, a group of four and a group of three under the eave; a pair of small windows, two large windows, the fan-arched front door and two large windows on the first floor; three-by-three basement lights under the large windows; the porte-cochere opening at the south end; three chimneys; a crested tile roof with no dormers on the Prairie Avenue slope; and a stone parapet gable on 18th Street with its chimney at the apex. A facade that is the same in 1888 and 1965 was the same in 1904 unless something says it changed and was changed back, and nothing does. It also shows what the drawings do not: the 18th Street eave line running level from the east gable to the west wing's gable, and a small square turret with a pyramidal roof riding the west wing's ridge.",
+ "what_it_supplies": [
+  "the 1888 state of the Prairie Avenue facade and the north gable, bracketing the 1965 elevation",
+  "the 18th Street eave line and the west wing's north gable and ridge turret, which no HABS sheet draws",
+  "the absence of dormers on the Prairie Avenue roof slope"
+ ],
+ "what_it_does_not_supply": [
+  "dimensions: it is an oblique photograph",
+  "colour",
+  "the courtyard or the alley side",
+  "the state of the vines in 1904 (in the photograph the walls are bare)"
+ ]
+}

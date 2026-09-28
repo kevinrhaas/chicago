@@ -1,0 +1,25 @@
+{
+  "id": "cpl_grant_park_history_1830_1871",
+  "type": "website",
+  "citation": "Chicago Public Library. \"History of Grant Park, 1830-1871.\" Chicago Public Library blog, 3 November 2014.",
+  "author": "Chicago Public Library",
+  "date": "2014-11-03",
+  "describes_date": "1830-1871",
+  "repository": "Chicago Public Library",
+  "url": "https://www.chipublib.org/blogs/post/history-of-grant-park-1830-1871/",
+  "locator": "the paragraph beginning 'The State of Illinois owned the lakebed'",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-09-28 (answered 200). No archived copy recorded: the Wayback availability and CDX endpoints answered 429 and then reset the connection from this runner the same day.",
+  "note": "Opened by T-1250 to rule on the sentence 'the Illinois Central's 1852 trestle then fixed the line' (docs/research/01-terrain-hydrology.md sec 4), which the e1871_postfire epoch used to repeat. It reads: 'In 1852 the Illinois Central built a trestle about 300 feet east of Michigan Avenue and the breakwater a little farther out. This left a substantial lagoon extending south to 12th street where the railroad came on shore.' So the 1852 trestle is sourced here, and so is the refusal of the sentence as written: north of Twelfth Street the trestle stood OUT in the lake with water behind it, which is the opposite of fixing the shore, and south of Twelfth -- the whole of the Prairie Avenue reach -- the railroad ran on the shore and no trestle is described at all.",
+  "what_it_supplies": [
+    "That the Illinois Central built a trestle about 300 ft east of Michigan Avenue in 1852, with a breakwater beyond it and a lagoon behind it as far south as 12th Street",
+    "That south of 12th Street the railroad came on shore"
+  ],
+  "what_it_does_not_supply": [
+    "Any position for the lake edge between 16th and 22nd Street, in 1852 or later",
+    "When the lagoon north of 12th Street was filled"
+  ]
+}

@@ -107,18 +107,71 @@
     },
     {
       "id": "shore_1880s_ic_edge",
-      "label": "1880s \u2014 Illinois Central edge and post-fire fill",
+      "label": "1 July 1904 \u2014 Lake Michigan's edge beside the Illinois Central, Prairie Avenue",
       "epoch_id": "e1871_postfire",
       "address_range": {
-        "from": "1880-01-01",
-        "to": "1889-12-31"
+        "from": "1886-01-01",
+        "to": "1911-12-31"
       },
-      "address_date": "1888-07-01",
-      "address_date_derivation": "1880s_scene_date_constraints.json",
-      "status": "planned",
-      "geometry": null,
-      "sources": [],
-      "note": "Reserved for T-0473. It is deliberately not an alias of either earlier state: the 1880s lake edge must represent the Illinois Central corridor and period fill rather than the natural or 1835 shore. THE DATE IS SETTLED AND THE LINE IS NOT (T-1249). address_date is now 1 July 1888, derived in 1880s_scene_date_constraints.json and re-derived by tools/check_1880s_scene_date.py; the decade-wide address_range is kept because it is the window the date was chosen inside, not because the state is vague about which day it addresses. geometry stays null and status stays planned: T-1250 owns the sourced trace, and a date is not permission to borrow a line."
+      "address_date": "1904-07-01",
+      "address_date_basis": "the owner's ruling of 2026-09-26, with Glessner House: the Prairie Avenue model is centred on 1904, and its scene defaults to 1 July (the project's day-of-year convention, as 1835-07-01).",
+      "address_date_superseded": {
+        "date": "1888-07-01",
+        "derivation": "1880s_scene_date_constraints.json",
+        "why": "T-1249 derived 1 July 1888 for the 1880s framing this state was reserved under. The owner's ruling of 2026-09-26 moved the Prairie Avenue scene to 1904 and said the 1888 records may stay; they do, and the 1880s date still resolves to this state through e1871_postfire, but the line this state carries is the one a 1904 scene stands on and nothing here is dated 1888."
+      },
+      "status": "traced",
+      "geometry": {
+        "dated_lines": [
+          {
+            "role": "eastern_bound_from_after",
+            "observed_date": "1911-01-01",
+            "path": "epochs/e1871_postfire/shoreline.geojson",
+            "feature_id": "ic_edge_1911_sheet_20",
+            "source_id": "sanborn_1911_chicago_v3_sheet_20",
+            "note": "Seven years after the scene: the 1904 edge stood on it or west of it, on the one inference that a built edge beside the railway moves only lakeward unless something is removed, and nothing records a removal."
+          },
+          {
+            "role": "eastern_bound_from_after",
+            "observed_date": "1911-01-01",
+            "path": "epochs/e1871_postfire/shoreline.geojson",
+            "feature_id": "ic_edge_1911_sheet_28",
+            "source_id": "sanborn_1911_chicago_v3_sheet_28"
+          },
+          {
+            "role": "western_bound_from_before",
+            "observed_date": "1886-01-01",
+            "path": "epochs/e1871_postfire/shoreline.geojson",
+            "feature_id": "ic_edge_1886_plate_10",
+            "source_id": "robinson_1886_chicago_plate_10",
+            "note": "Eighteen years before the scene: the 1904 edge stood on it or east of it."
+          }
+        ],
+        "disagreement_bands": [
+          {
+            "path": "epochs/e1871_postfire/shoreline.geojson",
+            "feature_id": "ic_edge_1886_1911_band"
+          }
+        ],
+        "scene_line": {
+          "path": "epochs/e1871_postfire/shoreline.geojson",
+          "feature_id": "shore_1904_ic_edge",
+          "confidence": "reconstructed",
+          "liberty": "L287",
+          "note": "The one waterline a scene has to render. Neither sheet is of 1904, so neither becomes this state's line: the scene line is reconstructed inside the band they bound, on its eastern (1911) bound where a 1911 sheet draws the edge, and on the 1886 planform moved east by the measured offsets where none does. Past the last sheet (segment F) it is carried on a bearing and nothing bounds it."
+        },
+        "derivation": {
+          "tool": "tools/trace_ic_edge_1904.py",
+          "georeference": "tools/georef_prairie_1904.py -> data/traces/gcp/{sanborn_1911_v3_sheet_20,sanborn_1911_v3_sheet_28,robinson_1886_plate_10}_gcps.json",
+          "check": "tools/trace_ic_edge_1904.py --check, and tools/check_shoreline_states.py"
+        }
+      },
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "sanborn_1911_chicago_v3_sheet_28",
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Supplied by T-1250. Two sheets bracket 1904 and neither is it: Sanborn 1911 (sheets 20 and 28) inks the water's edge beside the Illinois Central in two short runs, and Robinson 1886 (plate 10) draws it from above 16th Street to 18th. Where both draw it the 1911 edge stands EAST of the 1886 one \u2014 14.0-18.7 m (mean 17.0) at the 16th Street run and 17.8-21.2 m (mean 19.9) at the 18th \u2014 which the two fits' few metres of uncertainty cannot explain: the right-of-way widened into the lake between them. Both sheets are therefore BOUNDS, 1886 from before and 1911 from after, and the spread between them is the named band, not a midpoint. The scene still needs one waterline, so `scene_line` is one, reconstructed (L287) on the band's eastern bound - the nearer date, and Glessner House reads everything on these sheets but two houses as standing in 1904 - with six segments saying which stretch stands on the traced 1911 edge, which on the 1886 planform moved by measured offsets, and which (F, south of where sheet 28's easternmost track leaves the paper) on a bearing alone. It is deliberately not an alias of either earlier state, and tools/check_shoreline_states.py compares coordinates to prove it."
     }
   ]
 }
