@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary } from './jaunts.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 
@@ -66,6 +66,11 @@ export function createJauntPanel({ destinations, actions }) {
     heading.tabIndex = -1;
     const progress = node('p', `${state.jaunt.title} · Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`, 'jaunt-progress');
     progress.setAttribute('aria-live', 'polite'); body.replaceChildren(progress, heading);
+    const resources = resourceSummary(state);
+    if (resources.length) {
+      const strip = node('ul', '', 'jaunt-resources'); strip.setAttribute('aria-label', 'Outing resources');
+      strip.replaceChildren(...resources.map(text => node('li', text))); body.append(strip);
+    }
     if (state.estimate) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
@@ -83,11 +88,14 @@ export function createJauntPanel({ destinations, actions }) {
       if (visit.committed) {
         const chosen = stop.choices?.find(c => c.id === visit.choice);
         if (chosen) body.append(node('p', chosen.consequence));
+        if (stop.choices?.length) body.append(button('Revise choice', actions.revise));
       } else if (stop.choices?.length) {
         const choices = node('div', '', 'jaunt-choices');
-        for (const choice of choicesFor(state)) {
+        for (const choice of stop.choices) {
+          const status = choiceStatus(state, choice), option = node('div', '', 'jaunt-choice');
           const b = button(choice.label, () => actions.choose(choice.id)); b.dataset.choice = choice.id;
-          b.setAttribute('aria-pressed', String(state.choice === choice.id)); choices.append(b);
+          b.setAttribute('aria-pressed', String(state.choice === choice.id)); b.disabled = !status.available;
+          option.append(b, node('small', status.reason || choiceConsequence(state, choice))); choices.append(option);
         }
         body.append(choices, node('p', choicesFor(state).find(c => c.id === state.choice)?.consequence
           || (stop.next ? 'Choose a preference, or continue without one.' : 'Choose an option to continue.')));

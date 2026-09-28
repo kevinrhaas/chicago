@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
+step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
+  node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \

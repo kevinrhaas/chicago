@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1213, ts: '2026-09-28T19:36:15.006Z', date: 'Sep 28, 2026, 2:36 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+    items: [
+      'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
+      'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
+      'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
+      'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+    ] },
   { v: 1212, ts: '2026-09-28T18:28:01.079Z', date: 'Sep 28, 2026, 1:28 PM CT', title: 'Compare two builds of one building by address', kind: 'feature',
     items: [
       'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',

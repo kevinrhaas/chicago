@@ -1,6 +1,8 @@
 /** Content-only session state. No destination or jaunt identity is special. */
+export const SESSION_KEY = 'c4d.jaunt.session.v1';
 export const emptyState = () => ({ jaunt: null, session: null, leg: 0, stopIndex: 0,
-  visited: [], vars: {}, inventory: [], events: [], phase: 'menu', choice: null, mode: null, estimate: null });
+  visited: [], vars: {}, inventory: [], events: [], eventSeq: 0, phase: 'menu', choice: null,
+  mode: null, estimate: null, notice: null, restored: false });
 export function matches(test, vars, inventory) {
   if (!test) return true;
   if (test.all) return test.all.every(t => matches(t, vars, inventory));
@@ -11,23 +13,105 @@ export function matches(test, vars, inventory) {
   return ({ '<': a < b, '<=': a <= b, '==': a === b, '!=': a !== b, '>=': a >= b, '>': a > b })[test.op] ?? false;
 }
 export const currentStop = s => s.jaunt?.stops.find(stop => stop.id === s.visited[s.stopIndex]?.id);
-export const choicesFor = s => (currentStop(s)?.choices || []).filter(c => matches(c.when, s.vars, s.inventory));
-export const canNext = s => ['atStop', 'detail'].includes(s.phase)
-  && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
-const append = (s, type, data = {}) => ({ ...s, events: [...s.events,
-  { id: `${s.session}:${s.events.length + 1}`, type, ...data }] });
-function effects(s, list = []) {
+const money = cents => Math.abs(cents) < 100 ? `${Math.abs(cents)} ¢` : `$${(Math.abs(cents) / 100).toFixed(2)}`;
+const label = name => name.replace(/[_-]+/g, ' ').replace(/^./, c => c.toUpperCase());
+export function formatResource(name, value, spec = {}) {
+  if (spec.unit === 'cents') return `${label(name)} ${money(value)}`;
+  if (spec.unit === 'minutes') return `${label(name)} ${value} min`;
+  return `${label(name)} ${value}`;
+}
+function rawEffects(s, list = []) {
   const vars = { ...s.vars }, inventory = new Set(s.inventory);
+  let overflow = null;
   for (const e of list) {
     if (e.var) {
-      vars[e.var] = e.op === 'set' ? e.value : vars[e.var] + e.value;
-      const bounds = s.jaunt.variables[e.var];
-      if (!Number.isInteger(vars[e.var]) || vars[e.var] < bounds.min || vars[e.var] > bounds.max) throw new Error('Variable outside validated bounds');
-    } else if (e.op === 'add') inventory.add(e.item);
-    else if (e.op === 'remove') inventory.delete(e.item);
+      const spec = s.jaunt.variables[e.var], raw = e.op === 'set' ? e.value : vars[e.var] + e.value;
+      if (raw < spec.min || raw > spec.max) overflow ??= { kind: 'variable', name: e.var, raw, spec };
+      vars[e.var] = Math.max(spec.min, Math.min(spec.max, raw));
+    } else if (e.op === 'add') {
+      if (!inventory.has(e.item) && inventory.size >= (s.jaunt.inventory?.capacity ?? 0))
+        overflow ??= { kind: 'inventory', item: e.item };
+      else inventory.add(e.item);
+    } else if (e.op === 'remove') inventory.delete(e.item);
   }
-  if (inventory.size > (s.jaunt.inventory?.capacity ?? 0)) throw new Error('Inventory capacity exceeded');
-  return { ...s, vars, inventory: [...inventory] };
+  return { vars, inventory: [...inventory], overflow };
+}
+export function choiceStatus(s, choice) {
+  if (!matches(choice.when, s.vars, s.inventory)) {
+    const test = choice.when;
+    if (test?.var && s.jaunt.variables[test.var]?.unit === 'cents')
+      return { available: false, reason: `Needs ${money(test.value)} · you have ${money(s.vars[test.var])}` };
+    if (test?.has) return { available: false, reason: `Needs ${label(test.has)}` };
+    return { available: false, reason: 'Unavailable after your earlier choices' };
+  }
+  const result = rawEffects(s, choice.effects);
+  if (result.overflow?.kind === 'inventory')
+    return { available: false, reason: `Basket full · ${s.inventory.length} of ${s.jaunt.inventory.capacity}` };
+  if (result.overflow?.kind === 'variable') {
+    const { name, raw, spec } = result.overflow;
+    if (spec.unit === 'cents' && raw < spec.min)
+      return { available: false, reason: `Not enough ${label(name).toLowerCase()} · you have ${money(s.vars[name])}` };
+    return { available: false, reason: `${label(name)} is already at its ${raw > spec.max ? 'maximum' : 'minimum'}` };
+  }
+  return { available: true, reason: null };
+}
+export const choicesFor = s => (currentStop(s)?.choices || []).filter(c => choiceStatus(s, c).available);
+export function choiceConsequence(s, choice) {
+  const details = [];
+  for (const e of choice.effects || []) {
+    if (e.var) {
+      const spec = s.jaunt.variables[e.var];
+      if (spec.unit === 'cents' && e.op === 'inc' && e.value < 0)
+        details.push(`costs ${money(e.value)} · you have ${money(s.vars[e.var])}`);
+      else if (e.op === 'inc') details.push(`${label(e.var)} ${e.value >= 0 ? '+' : ''}${e.value} · you have ${s.vars[e.var]}`);
+      else details.push(`${label(e.var)} becomes ${formatResource(e.var, e.value, spec).replace(`${label(e.var)} `, '')}`);
+    } else if (e.op === 'add') details.push(`adds ${label(e.item).toLowerCase()} · basket ${s.inventory.length}/${s.jaunt.inventory?.capacity ?? 0}`);
+    else if (e.op === 'remove') details.push(`uses ${label(e.item).toLowerCase()}`);
+  }
+  return details.length ? details.join(' · ') : choice.consequence;
+}
+export function resourceSummary(s) {
+  const rows = Object.entries(s.jaunt?.variables || {}).map(([name, spec]) => formatResource(name, s.vars[name], spec));
+  if (s.jaunt?.inventory) rows.push(`Basket ${s.inventory.length}/${s.jaunt.inventory.capacity}`);
+  return rows;
+}
+export const canNext = s => ['atStop', 'detail'].includes(s.phase)
+  && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
+const append = (s, type, data = {}, eventId = null) => {
+  const eventSeq = s.eventSeq + 1;
+  return { ...s, eventSeq, events: [...s.events,
+    { id: eventId || `${s.session}:${eventSeq}`, type, ...data }] };
+};
+function effects(s, list = []) {
+  const { vars, inventory } = rawEffects(s, list);
+  return { ...s, vars, inventory };
+}
+function initialResources(jaunt) {
+  return { vars: Object.fromEntries(Object.entries(jaunt.variables || {}).map(([k, v]) => [k, v.initial])),
+    inventory: [...(jaunt.inventory?.initial || [])] };
+}
+function revise(s) {
+  const kept = s.visited.slice(0, s.stopIndex + 1).map((v, i) => i === s.stopIndex
+    ? { id: v.id } : { ...v });
+  let resources = { ...s, ...initialResources(s.jaunt) };
+  for (const visit of kept.slice(0, -1)) {
+    const stop = s.jaunt.stops.find(x => x.id === visit.id);
+    const choice = stop?.choices?.find(x => x.id === visit.choice);
+    resources = effects(resources, choice?.effects);
+  }
+  const cut = s.events.findIndex(event => event.type === 'decision' && event.stop === currentStop(s).id);
+  resources = { ...resources, visited: kept, choice: null, phase: 'atStop', outcome: null,
+    error: null, events: cut < 0 ? s.events : s.events.slice(0, cut), restored: false };
+  return append(resources, 'revise', { stop: currentStop(s).id });
+}
+const fallbackEnding = () => ({ id: 'content-error', fallback: true, completion_eligible: false, read_s: 0,
+  text: 'This outing reached an unfinished ending. Return to the Jaunts Menu and choose another route.' });
+function endingFor(s, next) {
+  const endings = s.jaunt.endings || [];
+  if (next === '$end') return endings.find(x => !x.default && matches(x.when, s.vars, s.inventory))
+    || endings.find(x => x.default) || fallbackEnding();
+  const ending = endings.find(x => x.id === next);
+  return ending && matches(ending.when, s.vars, s.inventory) ? ending : fallbackEnding();
 }
 function move(s, index) {
   return append({ ...s, stopIndex: index, leg: s.leg + 1, phase: 'travelling', choice: null, error: null, instant: false },
@@ -38,8 +122,7 @@ export function reduce(s, e) {
     if (!e.jaunt?.stops?.length || e.jaunt.review_required) throw new Error('Jaunt unavailable');
     return append({ ...emptyState(), jaunt: e.jaunt, session: e.session, leg: 1, phase: 'opening',
       visited: [{ id: e.jaunt.stops[0].id }], mode: e.jaunt.allowed_modes?.includes(e.mode) ? e.mode : e.jaunt.default_mode,
-      vars: Object.fromEntries(Object.entries(e.jaunt.variables || {}).map(([k, v]) => [k, v.initial])),
-      inventory: [...(e.jaunt.inventory?.initial || [])] }, 'start');
+      ...initialResources(e.jaunt) }, 'start');
   }
   if (!s.jaunt) return s;
   if (['ARRIVE', 'STOPPED', 'FAILED'].includes(e.type) && (e.session !== s.session || e.leg !== s.leg)) return s;
@@ -68,25 +151,59 @@ export function reduce(s, e) {
   if (e.type === 'RETURN' && s.phase === 'detail') return { ...s, phase: 'atStop' };
   if (e.type === 'RETRY' && s.phase === 'travelling' && s.error) return move(s, s.stopIndex);
   if (e.type === 'PREV' && ['travelling', 'paused', 'atStop', 'detail'].includes(s.phase)) return s.stopIndex ? move(s, s.stopIndex - 1) : s;
+  if (e.type === 'REVISE' && ['atStop', 'detail'].includes(s.phase) && s.visited[s.stopIndex]?.committed) return revise(s);
   if (!['atStop', 'detail'].includes(s.phase)) return s;
   if (e.type === 'CHOOSE' && !s.visited[s.stopIndex].committed && choicesFor(s).some(c => c.id === e.id)) return { ...s, choice: e.id };
   if (e.type !== 'NEXT' || !canNext(s)) return s;
   if (s.stopIndex < s.visited.length - 1) return move(s, s.stopIndex + 1);
-  const stop = currentStop(s), choice = choicesFor(s).find(c => c.id === s.choice), next = choice?.next ?? stop.next;
+  const stop = currentStop(s), choice = stop.choices?.find(c => c.id === s.choice), next = choice?.next ?? stop.next;
   if (next === 'Previous') return s.stopIndex ? move(s, s.stopIndex - 1) : s;
+  const eventId = e.eventId || `${s.session}:decision:${stop.id}:${choice?.id ?? 'continue'}`;
+  if (s.events.some(event => event.id === eventId)) return s;
   let updated = effects(s, choice?.effects);
-  updated = append({ ...updated, visited: s.visited.map((v, i) => i === s.stopIndex ? { ...v, committed: true, choice: choice?.id, next } : v) }, 'decision', { stop: stop.id, choice: choice?.id ?? null });
-  const ending = next === '$end'
-    ? s.jaunt.endings.find(x => !x.default && matches(x.when, updated.vars, updated.inventory)) || s.jaunt.endings.find(x => x.default)
-    : s.jaunt.endings.find(x => x.id === next);
-  if (ending) return append({ ...updated, phase: 'outcome', outcome: ending, choice: null, leg: s.leg + 1 }, 'complete', { ending: ending.id });
+  updated = append({ ...updated, visited: s.visited.map((v, i) => i === s.stopIndex ? { ...v, committed: true, choice: choice?.id, next } : v) },
+    'decision', { stop: stop.id, choice: choice?.id ?? null }, eventId);
+  const ending = next === '$end' || s.jaunt.endings.some(x => x.id === next) ? endingFor(updated, next) : null;
+  if (ending) return append({ ...updated, phase: 'outcome', outcome: ending, choice: null, leg: s.leg + 1,
+    error: ending.fallback ? 'No declared ending matched this route.' : null }, 'complete', { ending: ending.id });
   if (!s.jaunt.stops.some(x => x.id === next)) throw new Error('Unknown validated stop');
   return move({ ...updated, visited: [...updated.visited, { id: next }] }, updated.visited.length);
 }
 
+export function replaySession(jaunt, saved, session = 1) {
+  if (!saved || saved.jaunt !== jaunt.id || saved.content_version !== jaunt.content_version || !Array.isArray(saved.events))
+    throw new Error('version');
+  if (saved.events.length > 500 || saved.events.some(e => !e || typeof e.id !== 'string' || typeof e.type !== 'string'))
+    throw new Error('corrupt');
+  const mode = [...saved.events].reverse().find(e => e.type === 'mode')?.mode || jaunt.default_mode;
+  let state = reduce(emptyState(), { type: 'START', jaunt, session, mode });
+  state = reduce(state, { type: 'ARRIVE', session, leg: state.leg });
+  for (const event of saved.events.filter(e => e.type === 'decision')) {
+    if (state.phase === 'outcome' || currentStop(state)?.id !== event.stop) throw new Error('corrupt');
+    if (event.choice != null) state = reduce(state, { type: 'CHOOSE', id: event.choice });
+    state = reduce(state, { type: 'NEXT', eventId: event.id });
+    if (state.phase === 'travelling') state = reduce(state, { type: 'ARRIVE', session, leg: state.leg });
+  }
+  if (saved.events.some(e => e.type === 'complete') && state.phase !== 'outcome') throw new Error('corrupt');
+  const position = [...saved.events].reverse().find(e => ['arrival', 'depart'].includes(e.type) && e.stop);
+  const positionIndex = position && state.visited.findIndex(visit => visit.id === position.stop);
+  if (positionIndex >= 0 && state.phase !== 'outcome') state = { ...state, stopIndex: positionIndex };
+  return state.phase === 'outcome' ? { ...state, restored: true }
+    : { ...state, phase: 'menu', resumePhase: 'atStop', restored: true };
+}
+
 /** Adapters own UI and travel. Tokens invalidate every obsolete completion. */
-export function createJaunts({ load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError, estimate = () => null }) {
+export function createJaunts({ load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
+  estimate = () => null, storage: suppliedStorage }) {
   let state = emptyState(), serial = 0, request, destroyed = false, previousMode;
+  let storage = suppliedStorage;
+  if (storage === undefined) { try { storage = globalThis.localStorage; } catch { storage = null; } }
+  const clearSaved = () => { try { storage?.removeItem(SESSION_KEY); } catch { /* memory-only */ } };
+  const persist = () => {
+    if (!state.jaunt) return clearSaved();
+    try { storage?.setItem(SESSION_KEY, JSON.stringify({ content_version: state.jaunt.content_version,
+      jaunt: state.jaunt.id, events: state.events })); } catch { /* memory-only */ }
+  };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
   function dispatch(event) {
@@ -110,11 +227,12 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
     } else if (['menu', 'outcome'].includes(state.phase)) {
       cancel(); closeDetail(); restore(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
     }
+    persist();
     return true;
   }
   async function start(id, { mode } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); cancel(); closeDetail(); restore(); render(state);
+    state = emptyState(); clearSaved(); cancel(); closeDetail(); restore(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -128,14 +246,38 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
     } catch (error) { if (generation === serial && error.name !== 'AbortError') onError(error); return false; }
     finally { if (generation === serial) request = null; }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); cancel(); closeDetail(); restore(); render(state); };
+  async function restoreSession() {
+    let saved;
+    try {
+      const raw = storage?.getItem(SESSION_KEY);
+      if (!raw) return false;
+      saved = JSON.parse(raw);
+      if (!saved || typeof saved.jaunt !== 'string' || !Array.isArray(saved.events)) throw new Error('corrupt');
+    } catch {
+      clearSaved(); state = { ...emptyState(), notice: 'A damaged saved outing was discarded.' }; render(state); return false;
+    }
+    try {
+      const jaunt = await load(saved.jaunt);
+      if (saved.content_version !== jaunt.content_version) throw new Error('version');
+      state = replaySession(jaunt, saved, ++serial); render(state); persist(); return true;
+    } catch (error) {
+      clearSaved(); state = { ...emptyState(), notice: error.message === 'version'
+        ? 'A saved outing from an older version was discarded.' : 'A damaged saved outing was discarded.' };
+      render(state); return false;
+    }
+  }
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); closeDetail(); restore(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
+    revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,
     setMode: mode => dispatch({ type: 'MODE', mode }), straight: () => dispatch({ type: 'INSTANT' }),
     resumeRide: () => dispatch({ type: 'RIDE' }),
     end() { ++serial; request?.abort(); return dispatch({ type: 'END' }); }, menu: () => dispatch({ type: 'MENU' }),
-    resume() { if (state.phase !== 'menu' || !state.jaunt || !enter(null, { resume: true })) return false;
-      previousMode = travel.mode; return dispatch({ type: 'RESUME' }); },
+    resume() { if (state.phase !== 'menu' || !state.jaunt) return false;
+      const target = state.restored ? resolve(currentStop(state).destination) : null;
+      if (state.restored && (!target || !enter(target) || !place(target))) return false;
+      if (!state.restored && !enter(null, { resume: true })) return false;
+      previousMode = travel.mode; state = { ...state, restored: false }; return dispatch({ type: 'RESUME' }); },
     restart: () => state.jaunt && start(state.jaunt.id, { mode: state.mode }),
     detail(link) { if (dispatch({ type: 'DETAIL' })) openDetail(link); },
     returnFromDetail: () => dispatch({ type: 'RETURN' }), explore,
