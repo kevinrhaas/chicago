@@ -3,6 +3,11 @@
  *
  *   ?year=1835     which scene (default 1835)
  *   ?anchor=fort   start at a named camera anchor from the scene file
+ *   ?structure=<id>&version=<label>
+ *                  swap ONE structure for a committed alternate build of it
+ *                  (T-1727; structure-versions.js). version=default names the
+ *                  canonical record; an unknown id or label loads the default and
+ *                  the HUD says so.
  *   ?data= ?assets=  override where the dataset lives
  *   ?debug=1       print budgets to the console after boot
  *
@@ -21,6 +26,7 @@ const DEG = Math.PI / 180;
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases } from './scene-loader.js';
+import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
@@ -875,6 +881,9 @@ const params = new URLSearchParams(location.search);
 const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1];
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
 const DEBUG = params.get('debug') === '1';
+/** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
+ *  for comparing competing builds side by side. Null when the address asks for none. */
+const VERSION_REQUEST = readVersionRequest(location.search);
 
 const canvas = document.getElementById('view');
 const gate = document.getElementById('gate');
@@ -909,6 +918,9 @@ const api = {
   // T-1126: the town's roll call — indexed, expected to draw, and actually
   // standing, with every absentee named. Null until the buildings are batched.
   roll: null,
+  // T-1727: {requested, active, explicitDefault, notice, available, name} for
+  // `?structure=&version=`, from structure-versions.js. Null until the scene loads.
+  structureVersion: null,
 };
 window.__chicago4d = api;
 let bootStorage;
@@ -1031,7 +1043,12 @@ async function boot() {
 
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
+    version: VERSION_REQUEST,
   });
+  // Which structure version the address asked for and what it got — the HUD chip and
+  // the smoke both read it. A fallback is carried here as `notice`, NOT pushed onto
+  // `problems`: an unknown label is the visitor's typo, not a defect in the build.
+  api.structureVersion = loaded.versionState;
   bootController.end('scene');
   bootController.start('terrain');
   await yieldToPaint();
@@ -1728,6 +1745,7 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
+    structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
@@ -2423,6 +2441,9 @@ async function boot() {
     hud.say(backends.name === 'touch'
       ? 'Left thumb walks · drag the right side to look · tap a building'
       : 'W A S D to walk · E to inspect what you are looking at');
+    // T-1727: an address that asked for a structure version hears, on the way in, what
+    // it got — above all when it did NOT get it, which must never pass silently.
+    if (firstEntry) hud.announceStructureVersion();
     return true;
   }
   let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;

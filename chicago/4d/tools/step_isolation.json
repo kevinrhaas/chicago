@@ -3036,6 +3036,9 @@
     "tools/profile_population_1835.py": {
       "wrote": []
     },
+    "tools/promote_version.mjs": {
+      "wrote": []
+    },
     "tools/publish.py": {
       "wrote": [
         "site/4d/prairie-1904/data/address_crosswalk.csv",
@@ -3580,6 +3583,12 @@
       "wrote": []
     },
     "tools/test_street_confidence.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.py": {
       "wrote": []
     },
     "tools/test_ticket_after.mjs": {

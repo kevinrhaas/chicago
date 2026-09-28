@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1210, ts: '2026-09-28T15:32:07.396Z', date: 'Sep 28, 2026, 10:32 AM CT', title: 'Compare two builds of one building by address', kind: 'feature',
+    items: [
+      'A building can now have more than one build on the preview site at once. Add ?structure= and ?version= to the address — for example ?structure=bates_auction_room&version=fixture — and that one building is swapped for the alternate while everything else in the town stays exactly where it was. Open two tabs with two versions and compare them side by side.',
+      'The year badge says which version you are looking at, and so does the top of the building’s card, so two screenshots of the same corner cannot be confused. version=default shows the ordinary build, labelled as such.',
+      'Ask for a version that does not exist and you get the ordinary building, with the badge saying “default shown” and a note naming the versions that do exist — never a blank space.',
+      'Every alternate is a full record held to the same sourcing rules as the building it replaces. The only one committed so far is a test copy of the Bates auction room, identical to the original and marked as a test on its card; the first real alternates, of the Glessner House, come next. A normal visit loads nothing extra.',
+    ] },
   { v: 1209, ts: '2026-09-28T13:52:07.973Z', date: 'Sep 28, 2026, 8:52 AM CT', title: 'Six houses get out of the road', kind: 'fix',
     items: [
       'Six buildings on the west side of the river were standing in the middle of streets. Two in Fulton, two in Jefferson, two in Des Plaines \u2014 and one of them, a cottage on Des Plaines, was twelve metres in, far enough that a wagon could not have passed it. All six have moved onto the ground beside the road they were blocking.',

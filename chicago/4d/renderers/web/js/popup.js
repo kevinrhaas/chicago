@@ -844,6 +844,17 @@ function headHtml(s, record, called, p, place) {
   }</strong></p>`;
 
   const flags = [];
+  // T-1727. WHICH BUILD THIS IS, first, because it qualifies everything under it: the
+  // card is describing an alternate that `?structure=&version=` put in place of the
+  // default, and a screenshot of the card must say so as plainly as the HUD does. The
+  // fact rides on the registry entry from the loader that swapped it in.
+  if (record.version) {
+    const v = record.version;
+    flags.push(`<span class="pop-flag pop-flag-version" data-version="${escapeHtml(v.label)}"><strong>Version “${
+      escapeHtml(v.label)}”${v.test_fixture ? ' — a test fixture' : ''}.</strong>
+      ${escapeHtml(v.summary ?? '')} This alternate is shown in place of the default build
+      because the address asked for it; remove <code>version=</code> to see the default.</span>`);
+  }
   if (p.placement_provisional) {
     flags.push(`<span class="pop-flag">Position is provisional — the coordinates are a stand-in,
       not a survey. Georeferencing from the 1834 sheets is not better than about
@@ -1389,7 +1400,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
         ${spec}
         <p class="pop-foot">Full dossier: ${doc}<br>
           Phase <code>${escapeHtml(s.phase ?? '—')}</code> ·
-          record <code>${escapeHtml(record.id)}</code></p>`;
+          record <code>${escapeHtml(record.id)}</code>${record.version
+            ? ` · version <code>${escapeHtml(record.version.label)}</code>` : ''}</p>`;
 
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}
