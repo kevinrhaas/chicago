@@ -298,6 +298,30 @@ step "the 1880s scene date re-derives from its readings, and nothing has drifted
 selftest "…and its own assertions still fire when broken" \
   python3 tools/check_1880s_scene_date.py --self-test
 
+# T-1250. The Prairie Avenue sheets -- Sanborn 1911 vol. 3 sheets 20, 28 and 35 and
+# Robinson 1886 plate 10 -- georeferenced once, for every ticket that reads a line
+# off them (the lake edge here; the streets, T-0474; the Glessner House, T-1729).
+# The four GCP files in data/traces/gcp/ are generated from picks written in the
+# tool and the modern control in data/traces/prairie_1904_control.json, and the
+# rasters' sha256 are checked before any pick is trusted. The fit is a similarity
+# at each sheet's PRINTED scale, and the tool's docstring says why the free affine
+# is fitted and printed and not adopted; its contract fails if the street bands
+# stop agreeing with the bar, or if the Glessner sheet's three standing houses stop
+# landing within 5 m of their OpenStreetMap outlines.
+step "the four Prairie Avenue sheets still re-derive their georeference (T-1250)" \
+  python3 tools/georef_prairie_1904.py --check
+
+selftest "…and a moved control, a misread bar or a mislaid house still fails it" \
+  python3 tools/georef_prairie_1904.py --self-test
+
+# ...and the lake edge read off three of them. Both sheets are the wrong date for
+# 1904, so both are bounds; the scene line between them is reconstructed (L287).
+# --check re-reads the sheets, which needs Pillow and numpy
+# (tools/check_gate_readers.py); without them it holds the committed file together
+# and says it did not re-read.
+step "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)" \
+  python3 tools/trace_ic_edge_1904.py --check
+
 # ...and for the North Branch north of it (T-1072). Two tools write one
 # branches.geojson through tools/branches_file.py, and each of these two steps
 # also holds the collection's shared fields and its declared feature order, so

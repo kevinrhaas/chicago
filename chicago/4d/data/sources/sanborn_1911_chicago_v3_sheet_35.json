@@ -1,0 +1,29 @@
+{
+  "id": "sanborn_1911_chicago_v3_sheet_35",
+  "type": "map",
+  "author": "Sanborn Map Company",
+  "date": "1911",
+  "describes_date": "1911",
+  "repository": "Library of Congress, Geography and Map Division, Fire Insurance Map Collection (stamped on the sheet)",
+  "url": "https://www.loc.gov/item/sanborn01790_020/",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1911; public domain. The LOC credit stamp is retained on the sheet.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "The copy read is the one Glessner House (William Tyre) supplied to the owner on 2026-09-23, committed at chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/ with its sha256 in data/traces/gcp/. https://www.loc.gov/item/sanborn01790_020/ -- \"Sanborn Fire Insurance Map from Chicago, Cook County, Illinois\", created/published \"Sanborn Map Company, Vol. 3, 1911\", \"142 sheet(s)\", \"Bound\"; resource g4104cm.g01790191103 (143 images). Item metadata read with ?fo=json on 2026-09-28 (answered 200). Which of the 143 LOC images carries this sheet was NOT matched; the printed sheet number governs, as the Prairie Avenue research library (chicago/prairie_1904_v1/data/sources.csv, MAP-1911-20/-28/-35) also rules.",
+  "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
+  "locator": "Sheet 35 (1891 edition sheets 252-253): E. 20th to E. 22nd St., Indiana Av. to Calumet Av. Committed copy chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_35.jpg, 1602 x 2000 px as the owner attached it -- about 0.6 ft to the pixel, so anything read off it carries a wider tolerance than sheets 20 and 28.",
+  "note": "Spent first by T-1250: georeferenced by tools/georef_prairie_1904.py (data/traces/gcp/sanborn_1911_v3_sheet_35_gcps.json). It draws no lake edge -- it stops at Calumet Avenue -- and it is used for one thing now: its Prairie & Twentieth crossing is sheet 28's second control point.",
+  "what_it_supplies": [
+    "Footprints, lots and street widths from 20th to 22nd Street between Indiana and Calumet, as of 1911, at the copy's coarser resolution",
+    "The position of Twentieth Street, which is vacated between Indiana and Calumet today"
+  ],
+  "what_it_does_not_supply": [
+    "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+    "A construction date for any building it draws",
+    "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+    "Architecture above the footprint beyond its story count, material colour and roof symbol",
+    "Any lake edge: the sheet ends at Calumet Avenue"
+  ]
+}
