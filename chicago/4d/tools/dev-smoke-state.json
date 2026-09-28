@@ -3,6 +3,38 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "2-3",
+      "parts": [
+        2,
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 173,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 351,
+      "takenAt": "2026-09-28T17:41:40.491Z",
+      "ref": "steward/t-1716-river-mouth",
+      "commit": "d73593e4b868",
+      "devCommit": "2265e89fd6c7",
+      "treeHash": "sha256:015a4f9944aa09d1",
+      "treeDirty": false,
+      "changelogHash": "sha256:505b5f41d06d6924",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          3.9,
+          2.6
+        ]
+      },
+      "source": "/tmp/smoke_d23.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "12",
       "parts": [
         12
@@ -1463,37 +1495,6 @@
         ]
       },
       "source": "/tmp/smoke-m12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 216,
-      "takenAt": "2026-09-28T05:40:19.094Z",
-      "ref": "steward/file-t1625-lap-readings",
-      "commit": "d085b6aa1fdb",
-      "devCommit": "0ebc945b3257",
-      "treeHash": "sha256:f53268503b634ecd",
-      "treeDirty": false,
-      "changelogHash": "sha256:b38d5abad8f79c55",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          4.2,
-          4.1
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
     },
     {
       "viewport": "mobile",
