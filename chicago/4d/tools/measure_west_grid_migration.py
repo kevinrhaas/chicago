@@ -94,9 +94,12 @@ SEATED_IN = (
 # the whole question, and it is the one that has to still be unfinished for this
 # precondition to hold.
 NAMED_BY_THE_REFUSAL = ("T-0444", "T-0445")
-# T-1733. The ruling landed and T-1479 split, so the pointer is now the pair of tickets
-# that hold what is left: the one that cut block 28 and the one that still owes block 45.
-OWNS_THE_MOVE = ("T-1733", "T-1734")
+# T-1733. The ruling landed and T-1479 split, so this names WHAT IS STILL OWED and
+# nothing else — the cell that could not be transposed at once. It deliberately does not
+# name the ticket that cut the other cell: a pointer that records finished work as live
+# work goes stale the moment that ticket closes, and the gate then goes red for whoever
+# merges next (`ticket.mjs done` refuses a close that would leave one behind).
+OWNS_THE_MOVE = ("T-1734",)
 # Which blocks a reconstruction parcel has dealt roofs onto. This is what decides, in
 # tools/generate_plat_lots.py, whether a cell may be transposed — so it is read here too,
 # out of the same committed file, rather than the block ids being named in either place.
@@ -426,8 +429,9 @@ def derive() -> dict:
                 "on 2026-09-23 that the module may cut a block printing no figures of its "
                 "own at `inferred` without the spacing moving at all, so the re-cut no "
                 "longer waits on this precondition — T-1479 split into the cell that could "
-                f"be transposed at once and the cell that could not ({', '.join(OWNS_THE_MOVE)}). "
-                "THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed "
+                "be transposed at once, which is done and recorded on the block above, and "
+                f"the cell that could not, which is {', '.join(OWNS_THE_MOVE)} and is the "
+                "only thing still owed here. THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed "
                 "module is still not seated at its printed size on either block, and the "
                 "day Clinton and Canal reach the plat's 458 ft the shortfall figure above "
                 "goes to zero and this reading has to be re-made."),
