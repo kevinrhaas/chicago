@@ -847,6 +847,13 @@
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
+    "read_kinzie_addition_lots.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote its own trace byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-09-28 \u2014 with the readers at the head and before tools/generate_plat_lots.py, which reads its output; see the manifest step"
+    },
     "read_kinzie_addition_numerals.py": {
       "placement": "manifest",
       "write_mode": "--write",

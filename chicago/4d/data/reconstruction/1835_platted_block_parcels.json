@@ -304,78 +304,87 @@
         "D4": 1,
         "D5": 1
       },
-      "arrangement_note": "The first West Division block this module reaches, bounded by Randolph, Canal, Washington and Clinton, and the first block off the reconciled schedule that was NOT empty when the parcel arrived. Three anonymous roofs from the pre-plat West approaches parcel already stand inside it — recon_1835_west_018, _019 and _021, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot. The generator now derives which lots they hold from their own committed footprints rather than being told, and refuses a principal roof on any of them; the schedule's headroom of seven is the block's headroom and never a licence to stand a second house on an occupied lot. That leaves five free lots for the four principal roofs the schedule deals, and one is left open. What is argued here and not found: the deep-plan and two-room cottages take the Randolph face, because Randolph is the through street of the pair in the module's own street hierarchy and carries the crossing to the west side, which is the same frontage-value typology both Randolph-tier blocks before this one recorded; the log dwelling and the one-room cottage take Washington. The barn or carriage shed takes the western end lot, where the block backs onto ground beyond Clinton that has no committed street control and the town gives out — the same typology of where a town keeps a large animal shelter that the Randolph and Dearborn block applied at its eastern end, and the geography here reverses it, which is the test of whether it was a typology or a habit. The stable and the privy stand behind the cottages on their own lots. None of it is evidence about this block.",
+      "arrangement_note": "The first West Division block this module reaches, bounded by Randolph, Canal, Washington and Clinton, and the first block off the reconciled schedule that was NOT empty when the parcel arrived. Three anonymous roofs from the pre-plat West approaches parcel already stand inside it — recon_1835_west_018, _019 and _021, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot. The generator derives which lots they hold from their own committed footprints rather than being told, and refuses a principal roof on any of them; the schedule's headroom of seven is the block's headroom and never a licence to stand a second house on an occupied lot. RE-ARGUED ON THE TRANSPOSED GRID (T-1734), and `frontage_argued_on` above is the field that says so rather than prose anybody has to find. The owner ruled on 2026-09-23 (T-1479, option a) that the West Division's own module may cut a block printing no lot figure of its own, and this block — plat block 45, whose ten numerals the sheet prints inside it — is now cut that way: two columns of five backing onto a north-south alley, ten lots where there were eight, every one of them fronting Clinton or Canal and not one of them fronting Randolph or Washington. The deal below was argued face by face against Randolph and Washington when it was claimed, and the transpose removes both of those faces, so the argument had to be MADE AGAIN and not relabelled — which is why this block waited while T-1733 transposed its twin `blk_lake_clinton` at once, that one carrying no deal to re-argue. WHAT THE RE-ARGUMENT KEPT, AND WHY IT COULD. The old argument ranked the block's two faces off the committed street hierarchy (data/streets/1835.json) and gave the two better dwellings the better street: Randolph is `ordinary` and Washington is `light`, so the deep-plan and two-room cottages took Randolph and the log dwelling and the one-room cottage took Washington. The same hierarchy ranks the new pair the same way — Canal is `ordinary`, Clinton is `light` — so the RULE survives the transpose and the faces change under it: the deep-plan (D5) and two-room (D4) cottages take Canal, the one-room cottage (D3) and the older log cabin (D1) take Clinton. That the ranking held is a fact about the hierarchy and not a confirmation of the typology. Had Clinton outranked Canal all four roofs would have crossed the alley, and this sentence would have been written the other way about. WHAT CHANGED BECAUSE THE GEOGRAPHY DID. The old note sent the barn or carriage shed to “the western end lot, where the block backs onto ground beyond Clinton that has no committed street control and the town gives out”. On the transposed grid there is no western end lot — the two columns run north and south, and the alley runs down between them — and the lot that answers that description is the Clinton column's southern end, lot index 4, the block's south-west corner. The barn stands there, in the yard of the log cabin, which is the same reasoning applied to the arrangement the sheet gives instead of the one the town scheme gave. The stable keeps the deep-plan cottage's yard and the privy the one-room cottage's, which is the pairing the first deal already had; only the lots they are in moved. WITHIN EACH FACE the order is the end rule's (placement_rule.end_rule): the better roof stands nearer the Dearborn Street drawbridge, and on a north-south face that is the northern end, so D5 stands north of D4 on Canal and D3 north of D1 on Clinton. Three lots are left open rather than one, because the transpose gave this block two lots more than the deal it carries was sized against and a parcel does not raise a roof it was never dealt in order to fill new ground. Which three is arbitrary within what the standing roofs leave, and each entry says so. None of it is evidence about this block. Every metre below comes from the committed lot polygons; the families, the lots, the setbacks and the lateral offsets are inventions bounded by the programme.",
       "open_lots": [
         {
-          "lot": 5,
-          "why": "A south-tier interior lot between an already-built lot and the Washington end lot, left open. Which lot is arbitrary within the tier; that a West Division block a bridge's distance from the business street is not a completed terrace is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target."
+          "lot": 1,
+          "why": "The Clinton column's one remaining free lot, between the standing west_019 roof at the column's north end and the one-room cottage dealt below it, left open. The programme's own assumption of alternating vacancy puts the gap between two occupied lots rather than filling the column, and the schedule's capacity of ten is a ceiling and not a target."
+        },
+        {
+          "lot": 7,
+          "why": "A Canal-column lot standing between the two cottages this parcel deals to that face, left open for the same alternating vacancy. Which of the face's free lots takes the gap is arbitrary once the end rule has ordered the two roofs on it; that there is a gap at all is the assumption, and it is the programme's."
+        },
+        {
+          "lot": 9,
+          "why": "The Canal column's southern end lot, left open because nothing was ever dealt to it. The transpose cut this block into ten lots where the deal it carries was argued against eight, and the two lots that arrived with the new arrangement are not a reason to raise two more roofs: the deal is frozen in drawn_from_schedule and the 665-roof total does not move because a block was re-cut."
         }
       ],
       "slots": [
         {
           "family": "D5",
           "inventory_class": "principal_functional",
-          "lot": 2,
+          "lot": 6,
           "stands_on": "street",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 5.0,
           "lateral_m": -1.5
         },
         {
           "family": "D4",
           "inventory_class": "principal_functional",
-          "lot": 6,
+          "lot": 8,
           "stands_on": "street",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 5.5,
           "lateral_m": 2.0
         },
         {
           "family": "D1",
           "inventory_class": "principal_functional",
-          "lot": 1,
+          "lot": 4,
           "stands_on": "street",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 6.0,
           "lateral_m": -2.0
         },
         {
           "family": "D3",
           "inventory_class": "principal_functional",
-          "lot": 7,
+          "lot": 2,
           "stands_on": "street",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 4.5,
           "lateral_m": 1.5
         },
         {
           "family": "A2",
           "inventory_class": "ancillary",
-          "lot": 1,
+          "lot": 4,
           "stands_on": "alley",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 5.0,
           "lateral_m": 5.0
         },
         {
           "family": "A1",
           "inventory_class": "ancillary",
-          "lot": 2,
+          "lot": 6,
           "stands_on": "alley",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 4.5,
           "lateral_m": -5.5
         },
         {
           "family": "A3",
           "inventory_class": "ancillary",
-          "lot": 7,
+          "lot": 2,
           "stands_on": "alley",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 5.5,
           "lateral_m": 4.5
         }
-      ]
+      ],
+      "frontage_argued_on": "west_division_thompson_1830"
     },
     {
       "block_id": "blk_randolph_market",

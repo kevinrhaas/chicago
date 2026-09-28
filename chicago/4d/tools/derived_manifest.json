@@ -368,6 +368,20 @@
       ]
     },
     {
+      "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1741). Which of Kinzie's Addition's twenty-seven cells Wright rules into lots on the 1834 survey, read off the same raster and in the same registration as the block numerals directly above it. It sits with the readers at the head of the manifest for the same reason they do, and it must stand before tools/generate_plat_lots.py, which reads this file to decide which Addition cells it may cut and how many lots into: run after that tool, a changed reading would leave a stale grid behind it. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT — `resolves` stays empty, on the same reasoning as the eighty-nine readers beside it.",
+      "command": [
+        "python3",
+        "tools/read_kinzie_addition_lots.py",
+        "--write"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/read_kinzie_addition_lots.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL. Nothing in the layer above it exists until this has run, so it sits with the other readers at the head of the manifest. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
       "command": [
         "python3",

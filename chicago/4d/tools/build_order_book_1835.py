@@ -4439,8 +4439,32 @@ def cmd_self_test() -> int:
     # from two principal roofs to one, and the household that had the second slot goes back
     # on the owed list. Nothing was raised on the plat and no seat moved: one request the
     # plan no longer has room for is withdrawn, and it is withdrawn in writing.
+    #
+    # AND T-1741 TAKES IT TO 232, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
+    # same shape again, and for the same kind of reason: a ruling about GROUND, not about
+    # households. Kinzie's Addition stood with twenty-seven blocks and no lot line in any of
+    # them — no lot rule had been read for that plat — so the whole North Division's headroom
+    # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
+    # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
+    # and the platted pass goes 140 -> 160: eleven labourers' households onto
+    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # A slot is a request and not a roof: T-1742 raises them.
+    #
+    # T-1734 added the other two, from the same ruling and the second of the same pair of
+    # blocks. `blk_randolph_clinton` is plat block 45, between Clinton and Canal one tier
+    # south of 28, and it could not be cut with its twin: a block parcel had already dealt
+    # seven roofs onto it, argued face by face against Randolph and Washington, and the
+    # transpose removes both of those faces. T-1734 re-argued that deal onto Clinton and
+    # Canal — the two better cottages to Canal, which the committed street hierarchy grades
+    # `ordinary` against Clinton's `light`, exactly as the first argument had put them on
+    # Randolph against Washington — and the cell then moved. Its two new lots took two
+    # slots, the Adams and Bennett households, both on the Canal face. Again nothing was
+    # adopted that was not adopted before: 109 across all four of these changes. What DID
+    # move, and is the difference from 28, is the seven roofs themselves — a dealt roof
+    # stands where its parcel's slot puts it off its own lot's edge, so re-cutting the block
+    # re-derived every position and rotation on it. No mesh changed and nothing was rebaked.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 212
+        data["inventory"], data["programme"], occ))["seated"] == 234
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
