@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 288,
+  "count": 289,
   "liberties": [
     {
       "id": "L1",
@@ -14346,18 +14346,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 71
+        "count": 72
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 71 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 72 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 71 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 72 structures carry a `land_owner` block that rests on them. The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -16193,14 +16193,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 414
+        "count": 415
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 414 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until three changes landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, and T-1714's three agency log buildings at the foot of State Street — each of the eleven states a roof type. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 415 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until three changes landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, and T-1714's three agency log buildings at the foot of State Street — each of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is the least of them: a flat earth bank states a roof type and carries no shingle at all. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16298,6 +16298,8 @@
         "beaubien_new_residence",
         "beaubien_trading_post",
         "caldwell_agency_log_house",
+        "fort_dearborn_root_house",
+        "fort_dearborn_root_house_b",
         "mckee_log_house",
         "recon_1835_blk_lake_clark_c1_01",
         "recon_1835_blk_south_water_wells_d1_07",
@@ -16306,18 +16308,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[log_or_fort_archetype]",
-        "count": 78
+        "count": 79
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[log_or_fort_archetype]` — 78 phases: 64 log dwellings and 14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. Two tickets then took it the other way and added five between them. T-1712 raised `beaubien_new_residence` and `beaubien_trading_post`, the two log buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation; T-1714 raised the agency's ring at the foot of State Street — `mckee_log_house`, `caldwell_agency_log_house` and `agency_striker_log_house`, log dwellings on the north bank. All five are shingled by the same selector and on the same argument as the other 59. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
+          "text": "`structures.phases[log_or_fort_archetype]` — 79 phases: 64 log dwellings and 15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. T-1681 took the sixtieth the same way and for the same reason, one street south: `recon_1835_blk_lake_clark_d1_01`, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now `recon_1835_blk_lake_clark_c1_01`, a C1 shop. Two tickets then took it the other way and added five between them. T-1712 raised `beaubien_new_residence` and `beaubien_trading_post`, the two log buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation; T-1714 raised the agency's ring at the foot of State Street — `mckee_log_house`, `caldwell_agency_log_house` and `agency_striker_log_house`, log dwellings on the north bank. T-1715 raised `fort_dearborn_root_house_b`, the second of the garrison's root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry deals reaches it and draws nothing. All six are shingled by the same selector and on the same argument as the other 59. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
         },
         {
           "label": "Decision",
-          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 78 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 78 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 75 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 75 phases keeps the grade it had."
+          "text": "`generators/common/materials.py`'s `roof_substrate()` deals the `shingle` substrate to every roofed building that is not an outbuilding. For the 180 framed roofs that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 79 it is a claim, and this is the claim. **What §2.2 actually grades, and where it stops.** It grades a shingled covering **attested** on the North Side school of 1833 — *\"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof\"* — and **inferred** as *the ordinary covering of a framed building here*. The second half of that sentence says **framed**. A log cabin is not a framed building, and the fort's eight garrison kinds are not all framed either. So the rule reaches these 78 roofs by an argument and not by the grading, and the argument is set out here rather than left implicit in a selector. **The argument.** The two coverings this project can argue split on **what a roof is for**, not on what the walls beneath it are made of. The board roof is argued — by `generators/archetypes/outbuilding.py`, which §2.2 grades on — as the covering of a **shed**: *\"a shingle field on an outbuilding would be claiming a finish.\"* A privy, a stable, a wagon shed and a smokehouse are roofed to keep rain off a thing. A log cabin is a **dwelling**: it carries a family through a Chicago winter, and it meets the same demand the framed dwelling's roof meets, at the same cost to whoever built it. The fort's garrison buildings are quarters, a magazine, a storehouse and a guardhouse — buildings the United States Army roofed to keep, not sheds. Reading the split as wall-fabric rather than purpose would put a shed's covering on fifty-nine homes because their walls were cheap, which is a claim in the other direction and a worse one. **Which way it is wrong if it is wrong.** Toward a town that reads slightly better built than it was. If a share of the 1835 cabins were roofed with riven clapboards weighted under poles rather than with a nailed shingle field — a covering this project holds no source for at all, and therefore has no row for — then those roofs are drawn with a finer and more regular rhythm than they had. The error is bounded and visible: it is one substrate row on 75 roofs, and every one of them is reachable through this scope line. **What is NOT claimed.** No exposure — that is **L263**, taken separately and on the owner's ruling of 2026-09-20. No weathering: `roof_finish()` grades the roof's condition from the 218 records that state one and this entry does not touch it. No colour: no substrate owns one (§1.1). And no confidence moves — a covering dealt by rule does not make a roof better attested, and every one of these 75 phases keeps the grade it had."
         },
         {
           "label": "What would discharge it",
@@ -17833,6 +17835,81 @@
         {
           "label": "Related",
           "text": "**L44** and **L54** (the Agency House's own conjectures), the entry covering `blacksmith_shop_state_st.log_1823.footprint` (the same class of invention on the same bank), `docs/RESEARCH/indian_agency_1835.md`, `docs/RESEARCH/agency_log_dwellings.md`, **T-1714** and its parent **T-1204**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-28."
+        }
+      ]
+    },
+    {
+      "id": "L286",
+      "title": "The second of the garrison's root-houses: a count taken from a plural, and a point taken from nothing",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_root_house",
+        "fort_dearborn_root_house_b"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_root_house_b",
+          "phase": "cellar_1816_b",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_root_house_b",
+          "phase": "cellar_1816_b",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_root_house_b",
+          "phase": "cellar_1816_b",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_root_house_b",
+          "phase": "cellar_1816_b",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-09-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`fort_dearborn_root_house_b` is built. Its **count** is read off one plural noun; its **position**, **outline**, **bank height** and **roof form** are ours, and are the first mound's figures repeated rather than invented a second time."
+        },
+        {
+          "label": "Why",
+          "text": "Juliette Kinzie, of 1831, is the only witness to these structures at any date: *\"The bank of the river which stretches to the west … was then occupied by the root-houses of the garrison.\"* **Root-houses is plural, and until T-1715 the model carried one mound for it** — and said so, in the first record's own position note: *\"THE PLURAL IS NOT MODELLED EITHER … because a count invented would be a second invention on top of a position invented.\"* That reasoning is what this entry overturns, and the ground for overturning it is that **two is not an invented count**. It is the floor her sentence states. Building one mound for a plural is not the cautious reading of the source; it is a reading that drops a word from it."
+        },
+        {
+          "label": "Nothing supports a third and none is raised",
+          "text": "the plural gives a floor and no source, plan or return gives a number, a spacing or a size, so a row of five would be the invention this pair is not. **What bounds the point.** The second mound stands 9.0 m due west of the first, on the same bank top, on the stretch Kinzie names and outside the pickets. The committed 1834-harbour-cut heightfield runs 3.59–3.61 m across its footprint — a fall of 0.02 m — against the 0.85 m fall that displaced the first mound in August 2026; the bank's face begins about 6 m further west again, so this is the last full footprint the bank top carries, and the pair occupies the whole of the open ground between the stockade's west face and the drop. That is a constraint from the terrain and from the stockade, not from a source, and it is why the position is graded `reconstructed`."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor on the north bank, or walking the river west of the fort, sees two mounds where one stood. The massing change is small — 5.0 × 3.6 m, 1.9 m of bank — and the reading change is not: a pair reads as a garrison's cellars, and a single mound read as a curiosity."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a quartermaster's return, a post repair estimate or an inventory of the reservation's buildings for 1816–1836 would give the count, the sizes and the ground. So would the 1830 Harrison plan re-read at page-image level along the bank west of the fort: it letters the wash house, the well, the shop, the barn and the out buildings, and this project has never looked at it for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie's sentence alone."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/structures/fort_dearborn_root_house_b.json`."
+        },
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_root_house_b.cellar_1816_b.position`, `fort_dearborn_root_house_b.cellar_1816_b.footprint`, `fort_dearborn_root_house_b.cellar_1816_b.form.wall_height_m`, `fort_dearborn_root_house_b.cellar_1816_b.form.roof_type`."
+        },
+        {
+          "label": "Related",
+          "text": "**L42** and **L43** (the same two classes of invention on the first mound and on the fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent **T-1204**."
         },
         {
           "label": "Recorded",

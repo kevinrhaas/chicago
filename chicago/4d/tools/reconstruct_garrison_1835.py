@@ -820,12 +820,23 @@ def married_card(hid: str, company: int, soldier: dict, wife: dict, children: li
         f"{soldier['name']}, {wife['name']} and their children",
         soldier["id"],
         BARRACKS,
-        "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS "
-        "CARD. The 1835 General Regulations quarter washerwomen inside the same allowance "
-        "as the men (art. 31) but this project has no plan of married quarters at Chicago "
-        "and the 1830 Harrison plan labels none. The barracks is where the dataset can put "
-        "them without inventing a building; a hut outside the palisade, which is where "
-        "married soldiers often were, would be a structure nobody drew.",
+        "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD "
+        "ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same "
+        "allowance as the men (art. 31), so the barracks is where the Regulations "
+        "themselves put them and the seating is not a shortcut. The plan this project "
+        "holds is the 1830 Harrison survey, and it was read again for this: it letters the "
+        "barn, the wash house, the shop, the well and a pair of blocks it calls `Out "
+        "Buildings`, and it letters NO married quarters. The pair is the only candidate "
+        "and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as "
+        "`fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; "
+        "moving eight households onto them would be naming one. A hut outside the "
+        "palisade, which is where married soldiers often were, is still a structure "
+        "nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the "
+        "quartering check used to report the barracks 26 quarters short and offer the "
+        "storey count as an open reading, and the record asserts two storeys, so on what "
+        "stands the allowance is met with room over. The seating is still reconstructed "
+        "and still replaceable by a plan that assigns quarters; it is no longer the "
+        "weakest line on this card.",
         "PRESENCE IS THE POST'S. The fort was held on the scene date; a held company had "
         "its washerwomen with it because its own regulations provided for them.",
         "no_married_quarters_are_drawn_so_the_barracks_carries_them")
@@ -1059,9 +1070,21 @@ def barracks_area_m2() -> float:
     return abs(area) / 2.0
 
 
+def barracks_storeys() -> int:
+    """The storey count the barracks record asserts, read from the record itself.
+
+    T-1715. It is read and not assumed because this check spent a release saying the
+    record asserted none, which sent the reader looking for a decision that had already
+    been taken one file away.
+    """
+    record = json.loads((STRUCTURES / f"{BARRACKS}.json").read_text(encoding="utf-8"))
+    return int(record["phases"][0]["form"]["stories"]["value"])
+
+
 def quartering_check(to_quarter: int) -> dict:
     """Art. 31 read against this project's own barracks. It does not come out comfortable."""
     area = barracks_area_m2()
+    storeys = barracks_storeys()
     sqft = area * SQFT_PER_M2
     holds = int(sqft // SQFT_PER_SIX) * 6
     return {
@@ -1076,17 +1099,27 @@ def quartering_check(to_quarter: int) -> dict:
         "one_floor_quarters": holds,
         "to_quarter": to_quarter,
         "shortfall_on_one_floor": max(0, to_quarter - holds),
-        "reading": "A CHECK THIS STAGE RUNS AND DOES NOT ACT ON. The barracks record argues "
-                   "its own footprint partly from coherence — 'the largest building in the "
-                   "complex, which is what a barracks for two companies of infantry should "
-                   "be'. The Regulations' own allowance turns that argument into a number, "
-                   "and on ONE floor the drawn range does not reach it. Three readings "
-                   "survive and this stage picks none: the barracks had more than one floor "
-                   "(the usual form, and the record asserts no storey count); or the "
-                   "footprint is short, which the record already invites at plus or minus 20 "
-                   "per cent; or the companies stood below establishment, which is the "
-                   "likeliest thing of all and is exactly what the establishment ceiling "
-                   "cannot see. Recorded for the ticket; nothing here is reduced to fit.",
+        "storeys_the_record_asserts": storeys,
+        "quarters_on_the_record_s_storeys": holds * storeys,
+        "shortfall_on_the_record_s_storeys": max(0, to_quarter - holds * storeys),
+        "reading": "RULED, T-1715, AND THE RULING STARTS BY CORRECTING THIS CHECK'S OWN "
+                   "READING OF THE RECORD. It used to offer three surviving readings and "
+                   "pick none, and the first of them was 'the barracks had more than one "
+                   "floor (the usual form, and the record asserts no storey count)'. THE "
+                   "RECORD ASSERTS ONE: `fort_dearborn_barracks` carries form.stories = 2, "
+                   "graded reconstructed, with its own note — two companies do not fit on "
+                   "one floor of a ninety-foot range — and L42 covers it. So the decision "
+                   "this check was waiting for had already been taken one file away, and "
+                   "the check was sending its reader to look for it. On the storeys the "
+                   "record asserts the allowance is MET, with room over; the shortfall is a "
+                   "property of one floor and of nothing that stands. THE OTHER TWO "
+                   "READINGS ARE UNTOUCHED and neither is needed to close this: the "
+                   "footprint may be short, which the record invites at plus or minus 20 "
+                   "per cent, and the companies most likely stood below establishment, "
+                   "which is what an establishment ceiling cannot see. WHAT THE CHECK IS "
+                   "FOR NOW is the one-floor figure as a floor: if a plan of the post ever "
+                   "puts this range at one storey, the quartering arithmetic and not the "
+                   "plan is what has to give. Nothing here is reduced to fit.",
     }
 
 

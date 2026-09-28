@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1207, ts: '2026-09-28T11:55:51.858Z', date: 'Sep 28, 2026, 6:55 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
+  { v: 1208, ts: '2026-09-28T12:49:50.617Z', date: 'Sep 28, 2026, 7:49 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. What changed is how much room the town has left to build in \u2014 8 roofs this morning, 130 tonight.',
       'Seven streets stopped in the middle of Washington Street, and not because anybody said they did. Market, Franklin, Wells, La Salle, Clark, Dearborn and State were each cut off at the same line, and that line was the south edge of the modelled ground as it used to be. The ground was carried three kilometres further south weeks ago and nobody went back for the streets. All seven now run the last 119 metres to Madison Street, which is where the 1830 plat of the town draws them and where the town legally ended.',
@@ -7,6 +7,14 @@ export const CHANGELOG = [ // newest first
       'Thirty families already have an address on that row. The pass that deals households onto lots had nowhere left to put anybody in the South Division and was handing all of them on; nineteen merchant and professional households and eleven tradesmen\u2019s now hold a lot on the new blocks. They have no walls yet \u2014 that is the next release \u2014 and the record says so on each one.',
       'And no plank sidewalk was laid on the prairie, which is what would have happened. The rule that lays board walks asks whether the ground is dry, flat and clear, and six empty blocks are exactly that, so it would have planked 600 metres of Washington Street in front of nothing. It now asks first whether anything is built on the block \u2014 the same question the street fences and the hitching posts have always asked, in the same words.',
       'One thing was quietly broken and is now fixed: the tool that writes the tree line along the main stem into the renderer had been corrupting the file whenever that line grew long enough to need a second row of numbers.',
+    ] },
+  { v: 1207, ts: '2026-09-28T12:12:15.637Z', date: 'Sep 28, 2026, 7:12 AM CT', title: 'A second root-house on the bank west of the fort', kind: 'change',
+    items: [
+      'Walk the riverbank west of Fort Dearborn and there are two earth mounds where there was one. The garrison\u2019s root-houses \u2014 cellars cut into the bank and banked over with turf \u2014 were described in the plural by the only person who ever wrote about them, and this town had been drawing a single mound for the word.',
+      'Two is not a guess; it is the smallest number that sentence allows. It is also all it allows: nothing says how many, how big, or exactly where. So there is a second mound the same size as the first, nine metres further west \u2014 and no third, because a third would be ours and not hers.',
+      'It is the last one the bank will take. The stockade\u2019s west wall stands thirteen metres east of the first mound and the bank starts falling away six metres west of the second, so the pair now fills the open ground between them \u2014 which is what \u201Coccupied by the root-houses\u201D was describing.',
+      'The fort\u2019s married families were re-checked against the only plan of the post, and they stay in the barracks. That plan letters a barn, a wash house, a shop, a well and two unnamed out-buildings, and no married quarters at all, so nothing was invented to house them.',
+      'And the sum that made the barracks look too small was reading the wrong file. On one floor the range falls twenty-six places short of quartering the garrison; the record for that building has said two storeys all along, and on two floors there is room to spare.',
     ] },
   { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
     items: [

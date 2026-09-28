@@ -10830,9 +10830,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 71 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 72 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 71 structures carry a `land_owner` block that rests on them. The construction is
+traced, and 72 structures carry a `land_owner` block that rests on them. The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -14092,12 +14092,13 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 414 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 415 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until three changes
 landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, and T-1714's three agency log buildings at the foot of State Street — each
-of the eleven states a roof type. No record's `roof_type` or pitch
+of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is
+the least of them: a flat earth bank states a roof type and carries no shingle at all. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -14263,8 +14264,8 @@ and whose execution is therefore an id migration across the derived layer, are *
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 78 phases: 64 log dwellings and
-14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
+**Scope:** `structures.phases[log_or_fort_archetype]` — 79 phases: 64 log dwellings and
+15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
 the framed one. T-1681 took the sixtieth the same way and for the same reason, one street
@@ -14275,15 +14276,17 @@ added five between them. T-1712 raised `beaubien_new_residence` and `beaubien_tr
 the two log buildings Andreas records at the Beaubien homestead on the Fort Dearborn
 reservation; T-1714 raised the agency's ring at the foot of State Street —
 `mckee_log_house`, `caldwell_agency_log_house` and `agency_striker_log_house`, log dwellings
-on the north bank. All five are shingled by the same selector and on the same argument as
-the other 59.
+on the north bank. T-1715 raised `fort_dearborn_root_house_b`, the second of the garrison's
+root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry
+deals reaches it and draws nothing. All six are shingled by the same selector and on the same
+argument as the other 59.
 The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 
 **Decision:** `generators/common/materials.py`'s `roof_substrate()` deals the `shingle`
 substrate to every roofed building that is not an outbuilding. For the 180 framed roofs
-that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 78
+that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 79
 it is a claim, and this is the claim.
 
 **What §2.2 actually grades, and where it stops.** It grades a shingled covering
@@ -15866,4 +15869,40 @@ source that dates either of Caldwell's two houses to 1835.
 `blacksmith_shop_state_st.log_1823.footprint` (the same class of invention on the same bank),
 `docs/RESEARCH/indian_agency_1835.md`, `docs/RESEARCH/agency_log_dwellings.md`, **T-1714** and its
 parent **T-1204**.
+**Recorded:** 2026-09-28.
+
+### L286 — The second of the garrison's root-houses: a count taken from a plural, and a point taken from nothing
+**Decision:** `fort_dearborn_root_house_b` is built. Its **count** is read off one plural noun; its
+**position**, **outline**, **bank height** and **roof form** are ours, and are the first mound's
+figures repeated rather than invented a second time.
+**Why:** Juliette Kinzie, of 1831, is the only witness to these structures at any date: *"The bank of
+the river which stretches to the west … was then occupied by the root-houses of the garrison."*
+**Root-houses is plural, and until T-1715 the model carried one mound for it** — and said so, in the
+first record's own position note: *"THE PLURAL IS NOT MODELLED EITHER … because a count invented
+would be a second invention on top of a position invented."* That reasoning is what this entry
+overturns, and the ground for overturning it is that **two is not an invented count**. It is the
+floor her sentence states. Building one mound for a plural is not the cautious reading of the
+source; it is a reading that drops a word from it. **Nothing supports a third and none is raised:**
+the plural gives a floor and no source, plan or return gives a number, a spacing or a size, so a row
+of five would be the invention this pair is not.
+**What bounds the point.** The second mound stands 9.0 m due west of the first, on the same bank
+top, on the stretch Kinzie names and outside the pickets. The committed 1834-harbour-cut heightfield
+runs 3.59–3.61 m across its footprint — a fall of 0.02 m — against the 0.85 m fall that displaced the
+first mound in August 2026; the bank's face begins about 6 m further west again, so this is the last
+full footprint the bank top carries, and the pair occupies the whole of the open ground between the
+stockade's west face and the drop. That is a constraint from the terrain and from the stockade, not
+from a source, and it is why the position is graded `reconstructed`.
+**Consequence:** a visitor on the north bank, or walking the river west of the fort, sees two mounds
+where one stood. The massing change is small — 5.0 × 3.6 m, 1.9 m of bank — and the reading change
+is not: a pair reads as a garrison's cellars, and a single mound read as a curiosity.
+**How to resolve:** a quartermaster's return, a post repair estimate or an inventory of the
+reservation's buildings for 1816–1836 would give the count, the sizes and the ground. So would the
+1830 Harrison plan re-read at page-image level along the bank west of the fort: it letters the wash
+house, the well, the shop, the barn and the out buildings, and this project has never looked at it
+for the root-houses. If it draws none, the pair stays a reconstruction on Kinzie's sentence alone.
+**Applies to:** `data/structures/fort_dearborn_root_house_b.json`.
+**Covers:** `fort_dearborn_root_house_b.cellar_1816_b.position`, `fort_dearborn_root_house_b.cellar_1816_b.footprint`, `fort_dearborn_root_house_b.cellar_1816_b.form.wall_height_m`, `fort_dearborn_root_house_b.cellar_1816_b.form.roof_type`.
+**Related:** **L42** and **L43** (the same two classes of invention on the first mound and on the
+fort's other thin records), `docs/RESEARCH/fort_dearborn.md` § 11, **T-1715** and its parent
+**T-1204**.
 **Recorded:** 2026-09-28.

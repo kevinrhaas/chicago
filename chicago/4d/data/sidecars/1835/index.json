@@ -10494,6 +10494,12 @@
       "asset": "gltf/fort_dearborn_root_house__cellar_1816.glb"
     },
     {
+      "id": "fort_dearborn_root_house_b",
+      "name": "Fort Dearborn — root house (b)",
+      "sidecar": "sidecars/1835/fort_dearborn_root_house_b.json",
+      "asset": "gltf/fort_dearborn_root_house_b__cellar_1816_b.glb"
+    },
+    {
       "id": "fort_dearborn_shop",
       "name": "Fort Dearborn — the shop",
       "sidecar": "sidecars/1835/fort_dearborn_shop.json",

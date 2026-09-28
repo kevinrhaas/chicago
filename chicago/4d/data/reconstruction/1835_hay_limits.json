@@ -315,10 +315,10 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 312,
-  "outside": 121,
+  "outside": 122,
   "no_committed_position": 0,
   "outside_by_where": {
-   "on_the_united_states_reservation": 25,
+   "on_the_united_states_reservation": 26,
    "north_of_the_limit": 23,
    "west_of_canal_street": 71,
    "south_of_washington_street": 1,
@@ -346,6 +346,7 @@
     "fort_dearborn_palisade",
     "fort_dearborn_parade",
     "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
     "fort_dearborn_shop",
     "fort_dearborn_store_house",
     "fort_dearborn_sutlers_store",

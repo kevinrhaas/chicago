@@ -3,10 +3,11 @@
   "$note.passthrough": "ROADMAP K38. Assets whose shipped derivative IS the master, byte for byte, because tools/web_derivatives.sh measured the compressed file as the bigger of the two and kept the smaller one (K37). This list is the DECISION. It is asserted in both directions and it is not a ratchet: a derivative that is a master copy and is not listed here means something other than the web-derivative step wrote it \u2014 assets/web/ has three writers, and assertions 1-7 cannot see a copy at all. A listed asset that is compressed now is a repair, and repairs are recorded rather than discovered. Regenerate with --write-baseline in the commit that moves it.",
   "material_identity": {},
   "measured": "2026-08-16",
-  "pairs": 372,
+  "pairs": 435,
   "passthrough": [
     "fort_dearborn_magazine__brick_1816.glb",
     "fort_dearborn_root_house__cellar_1816.glb",
+    "fort_dearborn_root_house_b__cellar_1816_b.glb",
     "lake_house_construction__shell_1835.glb"
   ]
 }
