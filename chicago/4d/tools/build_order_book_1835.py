@@ -4406,8 +4406,21 @@ def cmd_self_test() -> int:
     # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 19
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
+    #
+    # T-1733 TAKES IT TO 213, AND BOTH OF THE TWO ARE SLOTS AS WELL. The platted pass goes
+    # 139 -> 141 and the off-plat pass holds at 72 again, so the platted slot count goes
+    # 30 -> 32. This is the same shape of cause as T-1707's and it is worth saying so: a
+    # ruling about GROUND, not about households. `blk_lake_clinton` is plat block 28,
+    # between Clinton and Canal, and it stands on West Division ground while being emitted
+    # by the Original Town's grid; the owner ruled on 2026-09-23 (T-1479, option a) that the
+    # West Division's own arrangement may cut a block printing no lot figures of its own, at
+    # `inferred`, so the cell went from eight lots four-to-a-face to TEN in two columns
+    # fronting Clinton and Canal. Two more lots on a block the 665-roof programme already
+    # marks `open`, and the deal asked for both: the Adams household on the Canal face and
+    # the Baxley household on the Clinton face. Nothing was adopted that was not adopted
+    # before — 109 both sides of the change — and no roof moved a metre.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 211
+        data["inventory"], data["programme"], occ))["seated"] == 213
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

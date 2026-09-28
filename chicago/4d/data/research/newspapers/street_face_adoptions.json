@@ -32,12 +32,12 @@
      "lot front"
     ],
     "in_force": false,
-    "would_seat": 29,
-    "would_seat_on_distinct_roofs": 29,
+    "would_seat": 30,
+    "would_seat_on_distinct_roofs": 30,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 29,
+    "per_face_ledger_would_seat": 30,
     "per_face_ledger_would_deal_twice": {},
-    "against_the_reading_in_force": -10,
+    "against_the_reading_in_force": -9,
     "seats_that_the_reading_in_force_does_not": [
      "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
     ],
@@ -52,15 +52,14 @@
      "business_j_l_wilson_co",
      "business_james_grant",
      "business_magie_wilkinson",
-     "business_pierce_french",
      "business_s_abell_attorney_and_counsellor",
      "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
      "business_unnamed_new_store_la_salle_street"
     ],
-    "would_still_refuse": 30,
+    "would_still_refuse": 29,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
-     "the face holds no roof standing on it": 24,
+     "the face holds no roof standing on it": 23,
      "this face already holds this proprietor": 5,
      "every roof on the face is spoken for": 1
     }
@@ -148,37 +147,37 @@
   "re_family_stability": {
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
-    "faces_with_two_or_more_free_roofs": 16,
+    "faces_with_two_or_more_free_roofs": 18,
     "free_roof_places": 124,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2253,
+      "re_families_tried": 2244,
       "places_changed": 2765,
       "worst_single_re_family": 8,
-      "changed_nothing": 1268
+      "changed_nothing": 1259
      },
      "deal_order": {
-      "re_families_tried": 2253,
+      "re_families_tried": 2244,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2253
+      "changed_nothing": 2244
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1963,
+      "re_families_tried": 1972,
       "places_changed": 2615,
       "worst_single_re_family": 8,
-      "changed_nothing": 1070
+      "changed_nothing": 1079
      },
      "deal_order": {
-      "re_families_tried": 1963,
-      "places_changed": 14959,
-      "worst_single_re_family": 24,
-      "changed_nothing": 122
+      "re_families_tried": 1972,
+      "places_changed": 13463,
+      "worst_single_re_family": 21,
+      "changed_nothing": 192
      }
     }
    }
@@ -207,18 +206,18 @@
     "street_name": "Canal Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 0,
-    "roofs_corner_side": 3,
-    "roofs_on_the_adopted_face": 3,
-    "roofs_free": 2,
+    "roofs_lot_front": 2,
+    "roofs_corner_side": 5,
+    "roofs_on_the_adopted_face": 7,
+    "roofs_free": 4,
     "roofs_home": 0,
     "roofs_home_named": 0,
     "roofs_home_inferred": 0,
-    "roofs_yard": 1,
+    "roofs_yard": 3,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 0,
-    "roofs_free_and_a_house_of_trade": 0,
-    "adopted_into_a_house_of_trade": 0
+    "roofs_free_and_a_house_of_trade": 1,
+    "adopted_into_a_house_of_trade": 1
    },
    "dearborn": {
     "street_name": "Dearborn Street",
@@ -241,18 +240,18 @@
     "street_name": "Lake Street",
     "businesses_naming_it": 7,
     "adopted": 7,
-    "roofs_lot_front": 51,
+    "roofs_lot_front": 49,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 51,
-    "roofs_free": 17,
+    "roofs_on_the_adopted_face": 49,
+    "roofs_free": 15,
     "roofs_home": 24,
     "roofs_home_named": 0,
     "roofs_home_inferred": 24,
     "roofs_yard": 10,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 6,
-    "roofs_free_and_a_house_of_trade": 6,
-    "adopted_into_a_house_of_trade": 6
+    "roofs_free_and_a_house_of_trade": 5,
+    "adopted_into_a_house_of_trade": 5
    },
    "lasalle": {
     "street_name": "La Salle Street",
@@ -309,14 +308,14 @@
     "street_name": "Randolph Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 64,
+    "roofs_lot_front": 59,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 64,
-    "roofs_free": 27,
+    "roofs_on_the_adopted_face": 59,
+    "roofs_free": 24,
     "roofs_home": 21,
     "roofs_home_named": 0,
     "roofs_home_inferred": 21,
-    "roofs_yard": 16,
+    "roofs_yard": 14,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 3,
     "roofs_free_and_a_house_of_trade": 3,
@@ -499,13 +498,13 @@
    "first_issue": "1835-06-24",
    "last_issue": "1835-06-24",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+   "structure_id": "recon_1835_blk_lake_market_d4_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "D1",
-   "roof_function": "older_log_dwelling",
+   "roof_family": "D4",
+   "roof_function": "two_room_frame_cottage",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a older log dwelling — family D1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its lot front: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 6 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a two room frame cottage — family D4, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its lot front: 6 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 5 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1517,17 +1516,17 @@
    "first_issue": "1834-06-25",
    "last_issue": "1834-12-17",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_randolph_clinton_d4_02",
-   "face": "corner side",
+   "structure_id": "recon_1835_west_007",
+   "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "D4",
-   "roof_function": "two_room_frame_cottage",
-   "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a two room frame cottage — family D4, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 0 roof(s) reach this street that way and are of the C, W or F bands, and of those 0 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 0 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "roof_family": "C1",
+   "roof_function": "small_shop_or_office",
+   "roof_is_a_house_of_trade": true,
+   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
-   "note": "The advertisement names Canal Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets Canal Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
+   "note": "The advertisement names Canal Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces Canal Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
    "business_id": "business_rockwell_cabinet_furniture_warehouse",
@@ -1771,13 +1770,13 @@
    "first_issue": "1834-07-09",
    "last_issue": "1834-07-09",
    "mentions": 1,
-   "structure_id": "recon_1835_west_007",
+   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C1",
-   "roof_function": "small_shop_or_office",
-   "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "roof_family": "D1",
+   "roof_function": "older_log_dwelling",
+   "roof_is_a_house_of_trade": false,
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a older log dwelling — family D1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its lot front: 6 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 5 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
