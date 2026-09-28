@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1203, ts: '2026-09-28T08:52:37.417Z', date: 'Sep 28, 2026, 3:52 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
+      'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
+      'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
   { v: 1202, ts: '2026-09-28T07:54:59.813Z', date: 'Sep 28, 2026, 2:54 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
     items: [
       'Follow the South Branch down past the town and Newberry & Dole\u2019s slaughter-house no longer stands alone on an empty bank. Three working buildings now run south from it, each across a cart yard from the last: the packing and barrelling house, a small salt store, and a stock shed at the landward end where the beasts came in off the prairie.',

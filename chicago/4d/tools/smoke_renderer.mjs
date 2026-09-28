@@ -12991,7 +12991,9 @@ for (const [label, viewport, touch] of [
     // this is the assertion that would catch it before it 404s live.
     await page.evaluate(() => window.localStorage.removeItem('chicago4d.whatsnew.seen'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 30000 });
+    // Use the same 90 s action budget as initial readiness: a reload must
+    // not silently reinstate Playwright's shorter 30 s default (T-1279).
+    await page.waitForFunction(() => window.__chicago4d?.ready === true);
     await clickChrome('#gate-btn');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
@@ -13031,7 +13033,9 @@ for (const [label, viewport, touch] of [
     // release back and exactly the newer entries should carry it.
     await page.evaluate(() => window.localStorage.setItem('chicago4d.whatsnew.seen', '3'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 30000 });
+    // Use the same 90 s action budget as initial readiness: a reload must
+    // not silently reinstate Playwright's shorter 30 s default (T-1279).
+    await page.waitForFunction(() => window.__chicago4d?.ready === true);
     await clickChrome('#gate-btn');
     await page.waitForTimeout(150);
     await page.evaluate(() => document.exitPointerLock?.());
