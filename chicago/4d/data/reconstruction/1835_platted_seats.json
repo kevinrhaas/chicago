@@ -31,20 +31,19 @@
  ],
  "counts": {
   "rows_in_scope": 1480,
-  "seated": 141,
-  "owed": 1339,
+  "seated": 140,
+  "owed": 1340,
   "by_how": {
    "adopted": 109,
-   "slot": 32
+   "slot": 31
   },
   "by_clause": {
    "labourer_dwellings": 34,
-   "lodging_near_the_landings": 1,
    "merchant_and_professional_dwellings": 27,
    "tradesman_dwellings": 79
   },
   "by_district": {
-   "south": 125,
+   "south": 124,
    "west": 16
   },
   "by_family": {
@@ -56,18 +55,17 @@
    "D6": 9,
    "D7": 9,
    "H1": 11,
-   "H2": 7,
-   "H3": 1
+   "H2": 7
   },
-  "lots_taken": 123,
+  "lots_taken": 122,
   "roofs_adopted": 109,
-  "slots_requested": 32,
+  "slots_requested": 31,
   "owed_by_band_clause": {
    "division_ground": 52,
    "farms_and_country_seats": 204,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 123,
-   "lodging_near_the_landings": 1,
+   "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 379,
    "tradesman_dwellings": 578
   },
@@ -75,9 +73,9 @@
   "roofs_held_back": 54
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1339,
+  "rows": 1340,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 141 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 140 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "roofs_held_back": [
   {
@@ -503,13 +501,6 @@
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
-   "block_id": "blk_washington_clark",
-   "family": "W2",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
    "block_id": "blk_washington_franklin",
    "family": "D2",
    "roofs": 1,
@@ -519,14 +510,14 @@
   {
    "block_id": "blk_washington_franklin",
    "family": "D4",
-   "roofs": 4,
+   "roofs": 3,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_franklin#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_washington_franklin",
    "family": "D5",
-   "roofs": 3,
+   "roofs": 4,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_franklin#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -539,14 +530,14 @@
   },
   {
    "block_id": "blk_washington_franklin",
-   "family": "F2",
+   "family": "F3",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_franklin",
-   "family": "F3",
+   "family": "F4",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -574,13 +565,6 @@
   },
   {
    "block_id": "blk_washington_lasalle",
-   "family": "D3",
-   "roofs": 1,
-   "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_lasalle#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_washington_lasalle",
    "family": "D4",
    "roofs": 3,
    "district": "south",
@@ -603,7 +587,7 @@
   {
    "block_id": "blk_washington_lasalle",
    "family": "H3",
-   "roofs": 1,
+   "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_lasalle#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -623,13 +607,6 @@
   },
   {
    "block_id": "blk_washington_market",
-   "family": "C3",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_washington_market",
    "family": "D1",
    "roofs": 1,
    "district": "south",
@@ -645,14 +622,14 @@
   {
    "block_id": "blk_washington_market",
    "family": "D4",
-   "roofs": 3,
+   "roofs": 4,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_washington_market",
    "family": "D5",
-   "roofs": 4,
+   "roofs": 3,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -662,6 +639,13 @@
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_washington_market",
+   "family": "F2",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_market",
@@ -686,6 +670,13 @@
   },
   {
    "block_id": "blk_washington_wells",
+   "family": "D3",
+   "roofs": 1,
+   "district": "south",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_washington_wells",
    "family": "D4",
    "roofs": 3,
    "district": "south",
@@ -694,7 +685,7 @@
   {
    "block_id": "blk_washington_wells",
    "family": "D5",
-   "roofs": 4,
+   "roofs": 3,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -707,13 +698,6 @@
   },
   {
    "block_id": "blk_washington_wells",
-   "family": "F4",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_washington_wells",
    "family": "H3",
    "roofs": 2,
    "district": "south",
@@ -722,6 +706,13 @@
   {
    "block_id": "blk_washington_wells",
    "family": "W1",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  },
+  {
+   "block_id": "blk_washington_wells",
+   "family": "W2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -4211,34 +4202,6 @@
    "order_book_draw": null,
    "seed": "hh_humphrey_fre_lemuel|T-1522|division:5a8b1485a38e|class:3853777aa1e6",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_beaubien_mark",
-   "kind": "household",
-   "name": "The Mark Beaubien household",
-   "clause": "lodging_near_the_landings",
-   "district": "south",
-   "band": "south/lodging_near_the_landings",
-   "lot_id": "blk_washington_clark#07",
-   "block_id": "blk_washington_clark",
-   "lot_index": 7,
-   "fronts": "madison",
-   "street_class": "none",
-   "corner": true,
-   "how": "slot",
-   "structure_id": null,
-   "family": "H3",
-   "stands_on": "street",
-   "setback_class": "street_line",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "lodging_near_the_landings",
-   "order_book_draw": {
-    "block_id": "blk_washington_clark",
-    "family": "H3",
-    "district": "south"
-   },
-   "seed": "hh_beaubien_mark|south|tavern_keeper|T-1512",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   }
  ],
  "owed": [
@@ -13960,6 +13923,15 @@
    "clause": "labourer_dwellings",
    "district": "south",
    "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_washington_franklin (blk_washington_franklin#01), blk_washington_lasalle (blk_washington_lasalle#01), blk_washington_market (blk_washington_market#01), blk_washington_wells (blk_washington_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_beaubien_mark",
+   "kind": "household",
+   "band": "south/lodging_near_the_landings",
+   "clause": "lodging_near_the_landings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_washington_franklin (blk_washington_franklin#01), blk_washington_lasalle (blk_washington_lasalle#01), blk_washington_market (blk_washington_market#01), blk_washington_wells (blk_washington_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {

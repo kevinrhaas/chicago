@@ -373,19 +373,53 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,480
-- seated: 181 — 181 by adopting a roof that already stands, 0 by asking for one
-- still on no ground at all: 1,299
+- seated: 213 — 181 by adopting a roof that already stands, 32 by asking for one
+- still on no ground at all: 1,267
 - of the 425 roofs the town already has, 181 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,480 | 109 | 109 | 0 | 1,371 |
-| The ground the plat does not draw | T-1614 | 1,371 | 72 | 72 | 0 | 1,299 |
+| The committed plat | T-1613 | 1,480 | 141 | 109 | 32 | 1,339 |
+| The ground the plat does not draw | T-1614 | 1,339 | 72 | 72 | 0 | 1,267 |
 
-no slot was requested: every seat is an adoption of a roof already standing.
+32 slot(s) on 5 block(s) — blk_washington_clark, blk_washington_franklin, blk_washington_lasalle, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
+| household | block | lot | family | clause |
+|---|---|---|---|---|
+| `hh_ashbaugh_fre` | `blk_washington_franklin` | `blk_washington_franklin#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_aspam_antoine` | `blk_washington_franklin` | `blk_washington_franklin#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_aspam_jean_baptiste` | `blk_washington_franklin` | `blk_washington_franklin#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_bailly_esther` | `blk_washington_franklin` | `blk_washington_franklin#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_baines_robert` | `blk_washington_lasalle` | `blk_washington_lasalle#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_ballard_c_a` | `blk_washington_lasalle` | `blk_washington_lasalle#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_ballard_thomas` | `blk_washington_lasalle` | `blk_washington_lasalle#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_barrest_wilham` | `blk_washington_lasalle` | `blk_washington_lasalle#02` | H1 | `merchant_and_professional_dwellings` |
+| `hh_barry_john_s` | `blk_washington_lasalle` | `blk_washington_lasalle#07` | H2 | `merchant_and_professional_dwellings` |
+| `hh_bates_john_jr` | `blk_washington_market` | `blk_washington_market#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_caroline` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_charles_h` | `blk_washington_market` | `blk_washington_market#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_elonore` | `blk_washington_market` | `blk_washington_market#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_george` | `blk_washington_wells` | `blk_washington_wells#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_monique` | `blk_washington_wells` | `blk_washington_wells#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beddlecome_ash` | `blk_washington_wells` | `blk_washington_wells#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beech_reuben` | `blk_washington_wells` | `blk_washington_wells#02` | H1 | `merchant_and_professional_dwellings` |
+| `hh_benediet_loma` | `blk_washington_wells` | `blk_washington_wells#07` | H2 | `merchant_and_professional_dwellings` |
+| `hh_byram_thomas` | `blk_washington_clark` | `blk_washington_clark#05` | D3 | `tradesman_dwellings` |
+| `hh_cady_levi` | `blk_washington_clark` | `blk_washington_clark#04` | D4 | `tradesman_dwellings` |
+| `hh_calhoun_alvin` | `blk_washington_clark` | `blk_washington_clark#03` | D5 | `tradesman_dwellings` |
+| `hh_campbell_james_b` | `blk_washington_franklin` | `blk_washington_franklin#05` | D3 | `tradesman_dwellings` |
+| `hh_carli_paul_j` | `blk_washington_franklin` | `blk_washington_franklin#03` | D3 | `tradesman_dwellings` |
+| `hh_carpenter_nathaniel` | `blk_washington_franklin` | `blk_washington_franklin#07` | D3 | `tradesman_dwellings` |
+| `hh_carter_j` | `blk_washington_lasalle` | `blk_washington_lasalle#05` | D3 | `tradesman_dwellings` |
+| `hh_cary_junis_a_or_j_r` | `blk_washington_lasalle` | `blk_washington_lasalle#03` | D3 | `tradesman_dwellings` |
+| `hh_casy_honora` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
+| `hh_catton_william` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
+| `hh_chamberlain_l_c` | `blk_washington_market` | `blk_washington_market#07` | D3 | `tradesman_dwellings` |
+| `hh_chandler_catherine` | `blk_washington_wells` | `blk_washington_wells#05` | D3 | `tradesman_dwellings` |
+| `hh_chapman_george` | `blk_washington_wells` | `blk_washington_wells#03` | D3 | `tradesman_dwellings` |
+| `hh_beaubien_mark` | `blk_washington_clark` | `blk_washington_clark#07` | H3 | `lodging_near_the_landings` |
 
-1,299 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,267 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -641,9 +675,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 8
-- `roofs_gated_on_coverage`: 248
-- `statement`: 8 of the 256 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 248 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 131
+- `roofs_gated_on_coverage`: 125
+- `statement`: 131 of the 256 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 125 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -674,7 +708,6 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 | T-1414 |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 | T-1414 |
 | `ground/blk_south_water_market` | 27 | — | — | 0 |  |
-| `ground/south_plat_beyond_committed_control` | 102 | — | — | 0 |  |
 | `ground/west_division_beyond_committed_control` | 52 | — | — | 0 | T-1414 |
 | `ground/north_division_beyond_modelled_ground` | 67 | — | — | 0 |  |
 
