@@ -133,6 +133,6 @@
   "resident_assignment": {
     "status": "assigned",
     "confidence": "inferred",
-    "note": "Seated from the household side and not by a deal: hh_mckee_david's own card carries lives_at: mckee_log_house at inferred, on Andreas's clause giving this man a log building in this vicinity and no other house anywhere. Graded at the inference, not at the sentence. NO household_id IS WRITTEN HERE: that field is the platted deal's own marker, read by tools/name_the_keepers_1835.py to recognise a roof it seated, and this seat is a source's argument rather than the deal's allocation. The link lives on the household card's lives_at, which is the direction the evidence runs in."
+    "note": "The seat comes from the household side and not by a deal: hh_mckee_david's own card carries lives_at: mckee_log_house at inferred, on Andreas's clause giving this man a log building in this vicinity and no other house anywhere. Graded at the inference, not at the sentence. NO household_id IS WRITTEN HERE: that field is the platted deal's own marker, read by tools/name_the_keepers_1835.py to recognise a roof it seated, and this seat is a source's argument rather than the deal's allocation. The link lives on the household card's lives_at, which is the direction the evidence runs in."
   }
 }

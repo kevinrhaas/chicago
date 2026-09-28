@@ -132,6 +132,6 @@
   "resident_assignment": {
     "status": "unassigned",
     "confidence": "reconstructed",
-    "note": "DELIBERATELY UNASSIGNED. Andreas names Billy Caldwell as the occupant of one of the small log buildings in this vicinity, and that is why the building is raised; but his household card holds two candidate residences — this ring, and the frame house near State Street and Chicago Avenue — and refuses to choose. hh_caldwell_billy keeps lives_at: null, so this roof carries no occupant and states its use instead. Unassigned stock here is a refusal, not an absence of work."
+    "note": "DELIBERATELY UNASSIGNED. Andreas names Billy Caldwell as the occupant of one of the small log buildings in this vicinity, and that is why the building is raised; but his household card holds two candidate residences — this ring, and the frame house near State Street and Chicago Avenue — and refuses to choose. hh_caldwell_billy keeps lives_at: null, so this roof carries no occupant and states its use instead. unassigned stock here is a refusal, not an absence of work."
   }
 }
