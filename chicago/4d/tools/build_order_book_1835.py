@@ -4420,8 +4420,20 @@ def cmd_self_test() -> int:
     # platted pass goes 139 -> 138 and the household that had the second slot goes back on
     # the owed list. Nothing was raised on the plat and no seat moved: one request the plan
     # no longer has room for is withdrawn, and it is withdrawn in writing.
+    #
+    # T-1736 TAKES IT TO 211, AND TWENTY-EIGHT OF THE SEATS ARE SLOTS. The platted pass goes
+    # 138 -> 139 and the off-plat pass holds at 72, and two separate causes are in it. The
+    # first is the build: `blk_washington_clark`'s two cottages now stand, so its remaining
+    # slot has nowhere to go and 35 seats move roof behind the two Beaubien households that
+    # adopt them — the adoption step outbids the slot step for a quiet street, which is the
+    # T-1622 precedence. On its own that settles at 137 seats and 109 adoptions. The second
+    # is this file: the ('north', 'ordinary_dwellings') row named T-1206, which was SPLIT
+    # while the branch was open, and a bucket ordered by a ticket nobody can claim offers no
+    # roof for adoption at all. Swept onto T-1742, the live half that owes the cell's 35
+    # roofs, it offers them again and two North Division households adopt, which is the 139
+    # and the 111. Both readings were taken by running the chain to its fixpoint either way.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 210
+        data["inventory"], data["programme"], occ))["seated"] == 211
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4429,9 +4441,9 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 29 slot rows on the plat's last
-    # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
-    # carried none — which is what this fixture said until that ticket, when T-1623 had
+    # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
+    # — 28 of them since T-1736 took the Clark block's — so claiming ONE of them is as much a
+    # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
           seats_with("platted_seats", slots_requested=1, roofs_adopted=99))
