@@ -4,7 +4,8 @@
 This is a contract check, not a terrain generator.  It proves four things:
 
 * 1812, 1835 and the 1880s resolve through their terrain epochs to three
-  different shoreline-state ids;
+  different shoreline-state ids, and 1904 -- the Prairie Avenue scene, since the
+  owner's ruling of 2026-09-26 -- resolves to the 1880s one;
 * a state without its own trace does not borrow the active 1835 geometry while
   waiting for its own ticket, and a state that HAS one does not alias it either;
 * every active geometry reference resolves to the named feature and source;
@@ -12,7 +13,11 @@ This is a contract check, not a terrain generator.  It proves four things:
   readings, with no adopted midpoint hiding their disagreement; and
 * the 1812 state re-derives exactly from `data/terrain/1812_mouth_readings.json`
   and the Wright 1834 trace, still carries no drafted pier vertex, and still
-  adopts a reading rather than a midpoint between two.
+  adopts a reading rather than a midpoint between two; and
+* the 1904 state (T-1250) names its two wrong-dated sheets as BOUNDS, one from
+  each side, keeps their spread as a band, and renders a scene line that says it
+  is reconstructed and names its liberty -- and none of its coordinates is an
+  1812 or 1835 line's.
 """
 from __future__ import annotations
 
@@ -33,11 +38,13 @@ EPOCHS_PATH = TERRAIN / "epochs.json"
 DATUM_PATH = ROOT / "data" / "datum.json"
 OVERLAP_PATH = TERRAIN / "epochs" / "e1834_harbor_cut" / "lake_shore_below_twelfth.geojson"
 DERIVED_1812_PATH = TERRAIN / "epochs" / "e1830_natural" / "shoreline.geojson"
+SHORE_1904_PATH = TERRAIN / "epochs" / "e1871_postfire" / "shoreline.geojson"
 BASE_1834_PATH = TERRAIN / "epochs" / "e1834_harbor_cut" / "shoreline.geojson"
 READINGS_1812_PATH = TERRAIN / "1812_mouth_readings.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import derive_shore_1812  # noqa: E402  (same directory, deliberately not a package)
+import trace_ic_edge_1904  # noqa: E402
 from exact_sums import consistent_reading  # noqa: E402
 
 CONSTRAINTS_PATH = TERRAIN / "1880s_scene_date_constraints.json"
@@ -63,16 +70,21 @@ ADDRESS_DATES = {
     "1812": date(1812, 8, 15),
     "1835": date(1835, 7, 1),
     "1880s": scene_date_1880s(),
+    # The owner's ruling of 2026-09-26: Prairie Avenue is centred on 1904, and the
+    # scene takes the project's 1 July. It addresses the same state as the 1880s.
+    "1904": date(1904, 7, 1),
 }
 EXPECTED_IDS = {
     "1812": "shore_1812_pre_cut",
     "1835": "shore_1835_harbor_cut",
     "1880s": "shore_1880s_ic_edge",
+    "1904": "shore_1880s_ic_edge",
 }
+SEPARATE = ("1812", "1835", "1880s")
 # The three status words, and which state is entitled to which one. `planned` is
 # no geometry at all; `traced` is the state's own sourced geometry with no ground
 # generated from it; `active` is the state the scene renders.
-EXPECTED_STATUS = {"1812": "traced", "1835": "active", "1880s": "planned"}
+EXPECTED_STATUS = {"1812": "traced", "1835": "active", "1880s": "traced"}
 
 
 def load(path: Path) -> dict:
@@ -113,7 +125,7 @@ def expected_band(overlap: dict, datum: dict) -> tuple[list[list[float]], list[f
 
 
 def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
-             datum: dict, overlap: dict, derived_1812: dict) -> list[str]:
+             datum: dict, overlap: dict, derived_1812: dict, shore_1904: dict) -> list[str]:
     bad: list[str] = []
     states_list = states_doc.get("states", [])
     state_ids = [s.get("id") for s in states_list]
@@ -140,7 +152,7 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
             bad.append(f"{sid} points at epoch {state.get('epoch_id')!r}, not "
                        f"{epoch.get('id')!r}")
 
-    if len(set(addressed.values())) != len(ADDRESS_DATES):
+    if len({addressed.get(k) for k in SEPARATE}) != len(SEPARATE):
         bad.append("1812, 1835 and the 1880s do not have separate shoreline-state ids")
 
     active = states.get(EXPECTED_IDS["1835"], {})
@@ -150,9 +162,7 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
         state = states.get(EXPECTED_IDS[label], {})
         if state.get("status") != want:
             bad.append(f"the {label} shoreline state is {state.get('status')!r}, expected {want!r}")
-    planned = states.get(EXPECTED_IDS["1880s"], {})
-    if planned.get("geometry") is not None:
-        bad.append("the planned 1880s state borrows geometry before its ticket supplies it")
+    s1904 = states.get(EXPECTED_IDS["1904"], {})
     traced = states.get(EXPECTED_IDS["1812"], {})
     if not traced.get("geometry"):
         bad.append("the 1812 state has no geometry of its own")
@@ -169,6 +179,9 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
             bad.append(f"1812 feature {f.get('id')!r} carries an 1835 line's own coordinates")
 
     bad += check_1812(traced, derived_1812)
+    frozen = active_coords | {json.dumps(f.get("geometry", {}).get("coordinates"))
+                              for f in derived_1812.get("features", [])}
+    bad += check_1904(s1904, shore_1904, frozen)
 
     source_ids = {p.stem for p in (ROOT / "data" / "sources").glob("*.json")}
     geometry = active.get("geometry") or {}
@@ -296,12 +309,46 @@ def check_1812(state: dict, derived: dict) -> list[str]:
     return bad
 
 
-def documents() -> tuple[dict, dict, dict, dict, dict, dict]:
+def check_1904(state: dict, shore: dict, frozen: set[str]) -> list[str]:
+    """The 1904 state: two bounds of the wrong date, a band, and a scene line that says what it is."""
+    bad: list[str] = []
+    source_ids = {p.stem for p in (ROOT / "data" / "sources").glob("*.json")}
+    geometry = state.get("geometry") or {}
+    lines = geometry.get("dated_lines", [])
+    if not lines:
+        return ["the 1904 state names no dated lines"]
+    roles = {r.get("role") for r in lines}
+    if roles != {"eastern_bound_from_after", "western_bound_from_before"}:
+        bad.append(f"the 1904 state's dated lines are {sorted(r for r in roles if r)}: both sheets are of the wrong "
+                   "date, so each must be a bound, one from each side")
+    for r in lines:
+        if r.get("source_id") not in source_ids:
+            bad.append(f"1904 dated line cites unresolved source {r.get('source_id')!r}")
+        if not (r.get("observed_date") or "").startswith(("1886", "1911")):
+            bad.append(f"1904 dated line {r.get('feature_id')!r} observed {r.get('observed_date')!r}, not 1886 or 1911")
+    refs = lines + geometry.get("disagreement_bands", []) + [geometry.get("scene_line") or {}]
+    for r in refs:
+        f = feature_at(r.get("path", ""), r.get("feature_id", "") or "")
+        if f is None:
+            bad.append(f"1904 reference does not resolve: {r.get('path')}#{r.get('feature_id')}")
+        elif json.dumps(f.get("geometry", {}).get("coordinates")) in frozen:
+            bad.append(f"1904 feature {r.get('feature_id')!r} carries an 1812 or 1835 line's own coordinates")
+    scene = geometry.get("scene_line") or {}
+    if scene.get("confidence") != "reconstructed" or not scene.get("liberty"):
+        bad.append("the 1904 scene line does not say it is reconstructed and name its liberty")
+    if not geometry.get("disagreement_bands"):
+        bad.append("the 1904 state drops the 1886/1911 spread instead of naming it")
+    # the file itself: re-read offline by the tool that writes it
+    bad += [f"1904 shoreline: {b}" for b in trace_ic_edge_1904.check_properties(shore)]
+    return bad
+
+
+def documents() -> tuple[dict, dict, dict, dict, dict, dict, dict]:
     return (load(STATES_PATH), load(BANDS_PATH), load(EPOCHS_PATH),
-            load(DATUM_PATH), load(OVERLAP_PATH), load(DERIVED_1812_PATH))
+            load(DATUM_PATH), load(OVERLAP_PATH), load(DERIVED_1812_PATH), load(SHORE_1904_PATH))
 
 
-def self_test(docs: tuple[dict, dict, dict, dict, dict, dict]) -> int:
+def self_test(docs: tuple[dict, dict, dict, dict, dict, dict, dict]) -> int:
     cases = []
 
     d = copy.deepcopy(docs)
@@ -310,7 +357,24 @@ def self_test(docs: tuple[dict, dict, dict, dict, dict, dict]) -> int:
 
     d = copy.deepcopy(docs)
     d[0]["states"][2]["geometry"] = d[0]["states"][1]["geometry"]
-    cases.append(("a planned state borrowing 1835 geometry fails", bool(validate(*d))))
+    cases.append(("the 1904 state taking the 1835 geometry fails", bool(validate(*d))))
+
+    d = copy.deepcopy(docs)
+    d[0]["states"][2]["geometry"]["dated_lines"][0]["role"] = "primary_where_drawn"
+    cases.append(("promoting the 1911 sheet from a bound to the 1904 line fails", bool(validate(*d))))
+
+    d = copy.deepcopy(docs)
+    d[0]["states"][2]["geometry"]["dated_lines"] = d[0]["states"][2]["geometry"]["dated_lines"][:2]
+    cases.append(("dropping the 1886 bound fails", bool(validate(*d))))
+
+    d = copy.deepcopy(docs)
+    d[0]["states"][2]["geometry"]["scene_line"]["confidence"] = "inferred"
+    cases.append(("the 1904 scene line claiming inferred fails", bool(validate(*d))))
+
+    d = copy.deepcopy(docs)
+    band = next(f for f in d[6]["features"] if f["id"] == "ic_edge_1886_1911_band")
+    band["properties"]["adopted_midpoint"] = [0.0, 0.0]
+    cases.append(("averaging the 1886/1911 spread fails", bool(validate(*d))))
 
     d = copy.deepcopy(docs)
     d[5]["features"][3]["geometry"]["coordinates"][0][0] += 1.0
@@ -358,9 +422,10 @@ def main() -> int:
     for problem in bad:
         print("FAIL", problem)
     if not bad:
-        print("OK 1812, 1835 and 1880s resolve to separate shoreline states; "
+        print("OK 1812, 1835 and 1880s resolve to separate shoreline states and 1904 to the 1880s one; "
               "the 1834/1849 spread remains an unresolved 50.0-134.4 m band; "
-              "the 1812 shore re-derives, carries no pier and adopts a reading")
+              "the 1812 shore re-derives, carries no pier and adopts a reading; "
+              "1904 is bounded by 1886 and 1911 and its scene line says it is reconstructed")
     return 1 if bad else 0
 
 

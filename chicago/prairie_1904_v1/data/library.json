@@ -1175,7 +1175,9 @@
         "pa-glessner-habs-data",
         "pa-glessner-habs-sheet-2",
         "pa-glessner-habs-sheet-3",
-        "pa-glessner-habs-sheet-6"
+        "pa-glessner-habs-sheet-6",
+        "G01-P",
+        "pa-glessner-habs-captions"
       ],
       "built_year": 1887,
       "demolished_year": null,
@@ -3436,7 +3438,7 @@
       "url": "https://www.loc.gov/item/il0118/",
       "kind": "federal architectural survey",
       "date": "{\"construction\": \"1886–1887\", \"documentation\": \"after 1933\"}",
-      "notes": "Catalog identifies 17 photographs, six measured drawings, 27 data pages, one caption page; unprocessed field notes FN-128. Call number HABS ILL,16-CHIG,17-. Later survey requires phase reconciliation; copied historical images may have separate rights. Item catalog verified via indexed metadata; image/PDF downloads returned 403. Acquisition update: report and six measured sheets now stored. Earlier 403 attempts remain in dossier as history; 17-photo series still not fully acquired.",
+      "notes": "Catalog identifies 17 photographs, six measured drawings, 27 data pages, one caption page; unprocessed field notes FN-128. Call number HABS ILL,16-CHIG,17-. Later survey requires phase reconciliation; copied historical images may have separate rights. Item catalog verified via indexed metadata; image/PDF downloads returned 403. Acquisition update: report and six measured sheets now stored. Earlier 403 attempts remain in dossier as history; 17-photo series and caption page acquired 2026-09-28 (pa-glessner-habs-photo-01…17, pa-glessner-habs-captions).",
       "rights_status": "item_level_review",
       "retrieval_status": "Catalog reviewed; all six measured drawings and 27-page report subsequently acquired",
       "local_path": "research/public/glessner-habs-data.pdf"
@@ -3493,7 +3495,7 @@
       "date": "{}",
       "notes": "Links the LOC survey to the Harvard Richardson originals. Preliminary design is not proof of as-built form.",
       "rights_status": "item_level_review",
-      "retrieval_status": "indexed-record-verified"
+      "retrieval_status": "indexed-record-verified; acquired 2026-09-28 as pa-glessner-habs-photo-12"
     },
     {
       "id": "G01-P",
@@ -3501,9 +3503,9 @@
       "url": "https://www.loc.gov/resource/hhh.il0118.photos?st=gallery",
       "kind": "federal photo collection",
       "date": "{}",
-      "notes": "17 cataloged photographs. Individual dates and captions must be read before assigning chronological state.",
+      "notes": "17 cataloged photographs. Individual dates and captions must be read before assigning chronological state. Acquired 2026-09-28: all 17, captioned from their LOC records and the index to photographs.",
       "rights_status": "item_level_review",
-      "retrieval_status": "indexed-record-verified; download-blocked"
+      "retrieval_status": "indexed-record-verified; all 17 acquired 2026-09-28 as pa-glessner-habs-photo-01…17"
     },
     {
       "id": "G01-T",
@@ -3511,7 +3513,7 @@
       "url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/data/il0118data.pdf",
       "kind": "federal survey report",
       "date": "{}",
-      "notes": "Cataloged 27-page report; acquisition target. No report measurements transcribed because binary retrieval failed. Acquisition update: report and six measured sheets now stored. Earlier 403 attempts remain in dossier as history; 17-photo series still not fully acquired.",
+      "notes": "Cataloged 27-page report; acquisition target. No report measurements transcribed because binary retrieval failed. Acquisition update: report and six measured sheets now stored. Earlier 403 attempts remain in dossier as history; 17-photo series and caption page acquired 2026-09-28.",
       "rights_status": "item_level_review",
       "retrieval_status": "Catalog reviewed; all six measured drawings and 27-page report subsequently acquired",
       "local_path": "research/public/glessner-habs-data.pdf"
@@ -3524,7 +3526,7 @@
       "date": "{}",
       "notes": "Caption list acquisition target. Must reconcile photographed dates, views, and alterations.",
       "rights_status": "item_level_review",
-      "retrieval_status": "download-blocked-403"
+      "retrieval_status": "download-blocked-403 on 2026-09-26; acquired 2026-09-28 as pa-glessner-habs-captions"
     },
     {
       "id": "G02",
@@ -4376,6 +4378,238 @@
       "retrieval_status": "downloaded; repository original",
       "local_path": "research/public/glessner-habs-sheet-6.tif",
       "preview_path": "research/public/glessner-habs-sheet-6.png"
+    },
+    {
+      "id": "pa-glessner-habs-photo-01",
+      "title": "Glessner HABS photo 1: Exterior from northwest",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+      "kind": "acquired HABS photograph",
+      "date": "1963-07-23",
+      "notes": "HABS IL-1015 photograph 1 of 17. LOC caption: “1. Historic American Buildings Survey Cervin Robinson, Photographer July 23, 1963 EXTERIOR FROM NORTHWEST - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Cervin Robinson, photographer, for HABS, July 23, 1963. Call number HABS ILL,16-CHIG,17--1. Master TIFF 060903pu.tif (4867×3486 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house in 1963, after the Glessner family years. Use for surviving exterior fabric, not as the 1904 state.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-01.jpg",
+      "preview_path": "research/public/glessner-habs-photo-01-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060903pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-02",
+      "title": "Glessner HABS photo 2: Front elevation",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060904p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 2 of 17. LOC caption: “2. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House FRONT ELEVATION - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--2. Master TIFF 060904pu.tif (5000×3986 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-02.jpg",
+      "preview_path": "research/public/glessner-habs-photo-02-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060904pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-03",
+      "title": "Glessner HABS photo 3: 18th Street arch",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060905p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 3 of 17. LOC caption: “3. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House 18th STREET ARCH - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--3. Master TIFF 060905pu.tif (5000×4007 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-03.jpg",
+      "preview_path": "research/public/glessner-habs-photo-03-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060905pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-04",
+      "title": "Glessner HABS photo 4: Detail: gable and chimney 18th Street side",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060906p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 4 of 17. LOC caption: “4. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House DETAIL: GABLE AND CHIMNEY 18th STREET SIDE - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--4. Master TIFF 060906pu.tif (3937×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-04.jpg",
+      "preview_path": "research/public/glessner-habs-photo-04-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060906pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-05",
+      "title": "Glessner HABS photo 5: Interior court",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-05.jpg",
+      "preview_path": "research/public/glessner-habs-photo-05-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060907pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-06",
+      "title": "Glessner HABS photo 6: First floor staircase: main hall north end",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060908p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 6 of 17. LOC caption: “6. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House FIRST FLOOR STAIRCASE: MAIN HALL NORTH END - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--6. Master TIFF 060908pu.tif (3970×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-06.jpg",
+      "preview_path": "research/public/glessner-habs-photo-06-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060908pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-07",
+      "title": "Glessner HABS photo 7: First floor stairhall: south",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060909p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 7 of 17. LOC caption: “7. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House FIRST FLOOR STAIRHALL: SOUTH - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--7. Master TIFF 060909pu.tif (3956×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-07.jpg",
+      "preview_path": "research/public/glessner-habs-photo-07-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060909pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-08",
+      "title": "Glessner HABS photo 8: Library: west and north sides",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060910p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 8 of 17. LOC caption: “8. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House LIBRARY: WEST AND NORTH SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--8. Master TIFF 060910pu.tif (5000×3978 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-08.jpg",
+      "preview_path": "research/public/glessner-habs-photo-08-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060910pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-09",
+      "title": "Glessner HABS photo 9: School room",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060911p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 9 of 17. LOC caption: “9. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House SCHOOL ROOM - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--9. Master TIFF 060911pu.tif (5000×3987 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-09.jpg",
+      "preview_path": "research/public/glessner-habs-photo-09-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060911pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-10",
+      "title": "Glessner HABS photo 10: Dining room: west and north sides",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060912p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 10 of 17. LOC caption: “10. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House DINING ROOM: WEST AND NORTH SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--10. Master TIFF 060912pu.tif (5000×3828 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-10.jpg",
+      "preview_path": "research/public/glessner-habs-photo-10-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060912pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-11",
+      "title": "Glessner HABS photo 11: Upper hall — north and west sides",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060913p",
+      "kind": "acquired HABS photocopy of a historic photograph",
+      "date": "c. 1923 (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 11 of 17. LOC caption: “11. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House UPPER HALL - NORTH AND WEST SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--11. Master TIFF 060913pu.tif (5000×3893 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904.",
+      "rights_status": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-11.jpg",
+      "preview_path": "research/public/glessner-habs-photo-11-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060913pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-12",
+      "title": "Glessner HABS photo 12: Photocopy of preliminary design",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060914p",
+      "kind": "acquired HABS photocopy of an architectural drawing",
+      "date": "undated preliminary design (copied for HABS)",
+      "notes": "HABS IL-1015 photograph 12 of 17. LOC caption: “12. Historic American Buildings Survey PHOTOCOPY OF PRELIMINARY DESIGN Courtesy Houghton Library, Harvard University - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of H. H. Richardson’s preliminary design, courtesy Houghton Library, Harvard University. Call number HABS ILL,16-CHIG,17--12. Master TIFF 060914pu.tif (5000×3967 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A preliminary design is not the as-built form.",
+      "rights_status": "Third-party original (Houghton Library, Harvard University). LOC: images copied from other sources may be restricted; review before republication.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-12.jpg",
+      "preview_path": "research/public/glessner-habs-photo-12-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060914pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-13",
+      "title": "Glessner HABS photo 13: North elevation — level: left stereopair",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060915p",
+      "kind": "acquired HABS copy of a photogrammetric plate",
+      "date": "1965",
+      "notes": "HABS IL-1015 photograph 13 of 17. LOC caption: “13. NORTH ELEVATION--LEVEL: LEFT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-201L, - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--13. Master TIFF 060915pu.tif (4933×3476 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-13.jpg",
+      "preview_path": "research/public/glessner-habs-photo-13-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060915pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-14",
+      "title": "Glessner HABS photo 14: North elevation — inclined: left stereopair",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+      "kind": "acquired HABS copy of a photogrammetric plate",
+      "date": "1965",
+      "notes": "HABS IL-1015 photograph 14 of 17. LOC caption: “14. NORTH ELEVATION--INCLINED: LEFT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-202L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--14. Master TIFF 060916pu.tif (4953×3491 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-14.jpg",
+      "preview_path": "research/public/glessner-habs-photo-14-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060916pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-15",
+      "title": "Glessner HABS photo 15: North elevation: right stereopair",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+      "kind": "acquired HABS copy of a photogrammetric plate",
+      "date": "1965",
+      "notes": "HABS IL-1015 photograph 15 of 17. LOC caption: “15. NORTH ELEVATION: RIGHT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-203L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--15. Master TIFF 060917pu.tif (4983×3531 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-15.jpg",
+      "preview_path": "research/public/glessner-habs-photo-15-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060917pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-16",
+      "title": "Glessner HABS photo 16: East elevation — level",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060918p",
+      "kind": "acquired HABS copy of a photogrammetric plate",
+      "date": "1965",
+      "notes": "HABS IL-1015 photograph 16 of 17. LOC caption: “16. EAST ELEVATION--LEVEL. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-204L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--16. Master TIFF 060918pu.tif (4901×3531 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-16.jpg",
+      "preview_path": "research/public/glessner-habs-photo-16-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060918pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-photo-17",
+      "title": "Glessner HABS photo 17: Northeast — angled view",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060919p",
+      "kind": "acquired HABS copy of a photogrammetric plate",
+      "date": "1965",
+      "notes": "HABS IL-1015 photograph 17 of 17. LOC caption: “17. NE--ANGLED VIEW. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-205L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--17. Master TIFF 060919pu.tif (4935×3507 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904.",
+      "rights_status": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+      "retrieval_status": "downloaded 2026-09-28; LOC master TIFF via Internet Archive (SHA-1 verified); web copy in repository",
+      "local_path": "research/public/glessner-habs-photo-17.jpg",
+      "preview_path": "research/public/glessner-habs-photo-17-thumb.jpg",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060919pu.tif"
+    },
+    {
+      "id": "pa-glessner-habs-captions",
+      "title": "Glessner HABS: index to photographs (caption page)",
+      "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0100/il0118/data/il0118cap.pdf",
+      "kind": "acquired federal survey caption list",
+      "date": "addendum, after 1965",
+      "notes": "One-page HABS index to photographs, addendum to HABS No. IL-1015. It captions photographs IL-1015-13 to -17 (copies of 1965 photogrammetric plates LC-HABS-GS05-T-3224-201L to -205L, photographs by Perry E. Borchers, Ohio State University, 1965) and states that 1 to 12 were transmitted earlier. Captions 1 to 12 are taken from each photograph’s LOC catalog record.",
+      "rights_status": "HABS survey document, United States federal government work.",
+      "retrieval_status": "downloaded 2026-09-28 (earlier 403 kept in the dossier); also supplied by the owner, byte-identical",
+      "local_path": "research/public/glessner-habs-photo-captions.pdf"
     }
   ],
   "maps": [
@@ -4466,6 +4700,159 @@
       "local_path": "research/public/glessner-habs-sheet-6.png",
       "source_id": "pa-glessner-habs-sheet-6",
       "notes": "Later measured survey; original TIFF available in source record. Exclude circa-1955 rear wooden stair from 1904. Probable historic partitions remain labeled probable. Elevation datum is drawing-local, not City Datum. Front-elevation sheet dated April 6, 1965 (photogrammetry), later than the 1963 plan sheets."
+    },
+    {
+      "id": "pa-glessner-habs-photo-01",
+      "title": "Glessner HABS · photo 1 · Exterior from northwest (1963 photograph)",
+      "date": 1963,
+      "local_path": "research/public/glessner-habs-photo-01.jpg",
+      "source_id": "pa-glessner-habs-photo-01",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060903pu.tif",
+      "notes": "Cervin Robinson, photographer, for HABS, July 23, 1963. Shows the house in 1963, after the Glessner family years. Use for surviving exterior fabric, not as the 1904 state. LOC HABS ILL,16-CHIG,17--1."
+    },
+    {
+      "id": "pa-glessner-habs-photo-02",
+      "title": "Glessner HABS · photo 2 · Front elevation (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-02.jpg",
+      "source_id": "pa-glessner-habs-photo-02",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060904pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--2."
+    },
+    {
+      "id": "pa-glessner-habs-photo-03",
+      "title": "Glessner HABS · photo 3 · 18th Street arch (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-03.jpg",
+      "source_id": "pa-glessner-habs-photo-03",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060905pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--3."
+    },
+    {
+      "id": "pa-glessner-habs-photo-04",
+      "title": "Glessner HABS · photo 4 · Detail: gable and chimney 18th Street side (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-04.jpg",
+      "source_id": "pa-glessner-habs-photo-04",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060906pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--4."
+    },
+    {
+      "id": "pa-glessner-habs-photo-05",
+      "title": "Glessner HABS · photo 5 · Interior court (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-05.jpg",
+      "source_id": "pa-glessner-habs-photo-05",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060907pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--5."
+    },
+    {
+      "id": "pa-glessner-habs-photo-06",
+      "title": "Glessner HABS · photo 6 · First floor staircase: main hall north end (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-06.jpg",
+      "source_id": "pa-glessner-habs-photo-06",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060908pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--6."
+    },
+    {
+      "id": "pa-glessner-habs-photo-07",
+      "title": "Glessner HABS · photo 7 · First floor stairhall: south (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-07.jpg",
+      "source_id": "pa-glessner-habs-photo-07",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060909pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--7."
+    },
+    {
+      "id": "pa-glessner-habs-photo-08",
+      "title": "Glessner HABS · photo 8 · Library: west and north sides (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-08.jpg",
+      "source_id": "pa-glessner-habs-photo-08",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060910pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--8."
+    },
+    {
+      "id": "pa-glessner-habs-photo-09",
+      "title": "Glessner HABS · photo 9 · School room (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-09.jpg",
+      "source_id": "pa-glessner-habs-photo-09",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060911pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--9."
+    },
+    {
+      "id": "pa-glessner-habs-photo-10",
+      "title": "Glessner HABS · photo 10 · Dining room: west and north sides (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-10.jpg",
+      "source_id": "pa-glessner-habs-photo-10",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060912pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--10."
+    },
+    {
+      "id": "pa-glessner-habs-photo-11",
+      "title": "Glessner HABS · photo 11 · Upper hall — north and west sides (c. 1923 photograph)",
+      "date": "c. 1923",
+      "local_path": "research/public/glessner-habs-photo-11.jpg",
+      "source_id": "pa-glessner-habs-photo-11",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060913pu.tif",
+      "notes": "HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. LOC HABS ILL,16-CHIG,17--11."
+    },
+    {
+      "id": "pa-glessner-habs-photo-12",
+      "title": "Glessner HABS · photo 12 · Photocopy of preliminary design (preliminary design)",
+      "date": null,
+      "local_path": "research/public/glessner-habs-photo-12.jpg",
+      "source_id": "pa-glessner-habs-photo-12",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060914pu.tif",
+      "notes": "HABS photocopy of H. H. Richardson’s preliminary design, courtesy Houghton Library, Harvard University. A preliminary design is not the as-built form. LOC HABS ILL,16-CHIG,17--12."
+    },
+    {
+      "id": "pa-glessner-habs-photo-13",
+      "title": "Glessner HABS · photo 13 · North elevation — level: left stereopair (1965 photogrammetric plate)",
+      "date": 1965,
+      "local_path": "research/public/glessner-habs-photo-13.jpg",
+      "source_id": "pa-glessner-habs-photo-13",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060915pu.tif",
+      "notes": "Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. LOC HABS ILL,16-CHIG,17--13."
+    },
+    {
+      "id": "pa-glessner-habs-photo-14",
+      "title": "Glessner HABS · photo 14 · North elevation — inclined: left stereopair (1965 photogrammetric plate)",
+      "date": 1965,
+      "local_path": "research/public/glessner-habs-photo-14.jpg",
+      "source_id": "pa-glessner-habs-photo-14",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060916pu.tif",
+      "notes": "Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. LOC HABS ILL,16-CHIG,17--14."
+    },
+    {
+      "id": "pa-glessner-habs-photo-15",
+      "title": "Glessner HABS · photo 15 · North elevation: right stereopair (1965 photogrammetric plate)",
+      "date": 1965,
+      "local_path": "research/public/glessner-habs-photo-15.jpg",
+      "source_id": "pa-glessner-habs-photo-15",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060917pu.tif",
+      "notes": "Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. LOC HABS ILL,16-CHIG,17--15."
+    },
+    {
+      "id": "pa-glessner-habs-photo-16",
+      "title": "Glessner HABS · photo 16 · East elevation — level (1965 photogrammetric plate)",
+      "date": 1965,
+      "local_path": "research/public/glessner-habs-photo-16.jpg",
+      "source_id": "pa-glessner-habs-photo-16",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060918pu.tif",
+      "notes": "Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. LOC HABS ILL,16-CHIG,17--16."
+    },
+    {
+      "id": "pa-glessner-habs-photo-17",
+      "title": "Glessner HABS · photo 17 · Northeast — angled view (1965 photogrammetric plate)",
+      "date": 1965,
+      "local_path": "research/public/glessner-habs-photo-17.jpg",
+      "source_id": "pa-glessner-habs-photo-17",
+      "archive_url": "https://archive.org/download/master-pnp-habshaer-il-il0100-il0118-photos/master-pnp-habshaer-il-il0100-il0118-photos-060919pu.tif",
+      "notes": "Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. LOC HABS ILL,16-CHIG,17--17."
     }
   ],
   "glessner": {
@@ -4682,6 +5069,16 @@
         "source_ids": [
           "pa-glessner-habs-sheet-6"
         ]
+      },
+      {
+        "title": "HABS photographs",
+        "source_ids": [
+          "G01-P",
+          "pa-glessner-habs-captions",
+          "pa-glessner-habs-photo-02",
+          "pa-glessner-habs-photo-08"
+        ],
+        "text": "The HABS record (IL-1015) holds 17 photographs, all now in Maps & images. Photo 1 is Cervin Robinson’s exterior from the northwest, July 23, 1963. Photos 2 to 11 are HABS copies of c. 1923 photographs from J. J. Glessner’s The Story of a House: the front elevation, the 18th Street arch, the gable and chimney on 18th Street, the interior court, the first-floor stair hall (north end and south), the library, the schoolroom, the dining room and the upper hall. They are the nearest views to 1904 in the set, but they are 19 years later. Photo 12 copies H. H. Richardson’s preliminary design (Houghton Library, Harvard). Photos 13 to 17 are 1965 photogrammetric plates by Perry E. Borchers of Ohio State University: three of the north elevation, the east elevation and a northeast angled view."
       }
     ]
   },
@@ -7082,87 +7479,155 @@
       {
         "sequence": 1,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=1",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+        "title": "Exterior from northwest",
+        "date": "1963-07-23",
+        "source_id": "pa-glessner-habs-photo-01",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 2,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=2",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060904p",
+        "title": "Front elevation",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-02",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 3,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=3",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060905p",
+        "title": "18th Street arch",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-03",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 4,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=4",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060906p",
+        "title": "Detail: gable and chimney 18th Street side",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-04",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 5,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=5",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
+        "title": "Interior court",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-05",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 6,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=6",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060908p",
+        "title": "First floor staircase: main hall north end",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-06",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 7,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=7",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060909p",
+        "title": "First floor stairhall: south",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-07",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 8,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=8",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060910p",
+        "title": "Library: west and north sides",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-08",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 9,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=9",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060911p",
+        "title": "School room",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-09",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 10,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=10",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060912p",
+        "title": "Dining room: west and north sides",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-10",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 11,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=11",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060913p",
+        "title": "Upper hall — north and west sides",
+        "date": "c. 1923 (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-11",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 12,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=12",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060914p",
+        "title": "Photocopy of preliminary design",
+        "date": "undated preliminary design (copied for HABS)",
+        "source_id": "pa-glessner-habs-photo-12",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 13,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=13",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060915p",
+        "title": "North elevation — level: left stereopair",
+        "date": "1965",
+        "source_id": "pa-glessner-habs-photo-13",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 14,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=14",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+        "title": "North elevation — inclined: left stereopair",
+        "date": "1965",
+        "source_id": "pa-glessner-habs-photo-14",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 15,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=15",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+        "title": "North elevation: right stereopair",
+        "date": "1965",
+        "source_id": "pa-glessner-habs-photo-15",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 16,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=16",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060918p",
+        "title": "East elevation — level",
+        "date": "1965",
+        "source_id": "pa-glessner-habs-photo-16",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       },
       {
         "sequence": 17,
         "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=17",
-        "verification": "catalog count supports sequence; caption extraction pending"
+        "record_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060919p",
+        "title": "Northeast — angled view",
+        "date": "1965",
+        "source_id": "pa-glessner-habs-photo-17",
+        "verification": "caption from the LOC catalog record; master TIFF acquired 2026-09-28"
       }
     ],
     "verified_photo_assets": [
