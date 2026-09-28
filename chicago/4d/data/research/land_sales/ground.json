@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 431,
+    "structures_placed": 434,
     "structures_reached": 71,
     "structures_reached_by_grade": {
       "inferred": 21,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 358,
+      "09": 361,
       "10": 1,
       "16": 1
     },
@@ -39519,10 +39519,12 @@
   ],
   "structures_unreached_by_section": {
     "09": [
+      "agency_striker_log_house",
       "bates_auction_room",
       "blacksmith_shop_state_st",
       "brickyard_north_side",
       "brown_boarding_house",
+      "caldwell_agency_log_house",
       "carpenter_south_water_store",
       "chappel_infant_school",
       "chicago_american_office",
@@ -39584,6 +39586,7 @@
       "madore_beaubien_house",
       "mansion_house",
       "mason_blacksmith_shop",
+      "mckee_log_house",
       "miller_house",
       "miller_tannery",
       "miller_tanyard_bark_shed",
