@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+    items: [
+      'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
+      'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
+      'Outings can now carry simple resources, such as a purse, a basket or story time. When one does, a small strip shows what you have, and a choice you cannot afford is greyed out with the reason beside it, always next to a path you can take. No published jaunt uses them yet.',
+      'If an outing ever reaches a route with no written ending, it now says so plainly and sends you back to the menu instead of stopping without a word.',
+      'On a phone the outing panel no longer has to cover the town. Tap ▾ to fold it down to one bar with the stop’s name and Next Stop, look around, then tap the bar to open it again. It opens by itself when you arrive at the next stop.',
+    ] },
   { v: 1213, ts: '2026-09-28T19:08:47.347Z', date: 'Sep 28, 2026, 2:08 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [
       'Walk to the block between Clinton and Canal, north of Randolph, and it is cut into ten lots instead of eight \u2014 two columns of five with an alley running down the middle, north to south, and each lot fronting Clinton on one side or Canal on the other. That is what the 1830 plat draws there, and this town had been drawing something else.',

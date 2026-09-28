@@ -33,11 +33,12 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
   function list(rows, returnId, focusStart = false) {
     root.replaceChildren(node('p', 'Choose an outing, or read its route before you start.'));
     const session = getSession();
+    if (session?.notice) root.append(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
       if (session.phase === 'outcome') {
-        note.append(node('h3', 'Outing complete'), node('p', session.outcome.text),
-          node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
+        note.append(node('h3', session.outcome.fallback ? 'Outing interrupted' : 'Outing complete'), node('p', session.outcome.text));
+        if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
       } else note.append(node('h3', `Paused · ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', onResume));
       note.append(button('Restart Jaunt', () => onStart(session.jaunt.id, { mode: session.mode }))); root.append(note);
     }
