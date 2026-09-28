@@ -24,9 +24,14 @@
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
-     "n": 19,
+     "n": 20,
      "trade": 9,
-     "share": 0.4737
+     "share": 0.45
+    },
+    "none": {
+     "n": 1,
+     "trade": 0,
+     "share": 0.0
     },
     "ordinary": {
      "n": 25,
@@ -80,27 +85,27 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 435,
+  "structure_records": 437,
   "physical_roofs": {
-   "min": 421,
-   "max": 422,
+   "min": 423,
+   "max": 424,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
    "generated": 291,
    "inferred_household_programme": 7,
-   "pre_existing": 92,
+   "pre_existing": 94,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 231,
    "west": 83,
-   "north": 91,
+   "north": 93,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 210,
-   "larger_boarding_houses": 17,
+   "ordinary_dwellings": 211,
+   "larger_boarding_houses": 18,
    "stores_mixed_use": 48,
    "inns_taverns": 9,
    "workshops": 22,
@@ -125,13 +130,13 @@
    "D3": 41,
    "D4": 44,
    "D5": 25,
-   "D6": 15,
+   "D6": 16,
    "D7": 3,
    "F1": 10,
    "F2": 4,
    "F3": 0,
    "F4": 1,
-   "H1": 9,
+   "H1": 10,
    "H2": 8,
    "H3": 0,
    "I1": 4,
@@ -167,12 +172,12 @@
   ]
  },
  "remaining": {
-  "roofs": 247,
+  "roofs": 245,
   "of_target": 668,
   "by_district": {
    "south": 134,
    "west": 52,
-   "north": 61,
+   "north": 59,
    "fort": 0
   },
   "by_district_group": {
@@ -196,8 +201,8 @@
    "north": {
     "barns_stables": 9,
     "inns_taverns": 1,
-    "larger_boarding_houses": 2,
-    "ordinary_dwellings": 35,
+    "larger_boarding_houses": 1,
+    "ordinary_dwellings": 34,
     "small_outbuildings": 8,
     "stores_mixed_use": 3,
     "warehouses_freight": 1,
@@ -220,13 +225,13 @@
    "D3": 24,
    "D4": 27,
    "D5": 27,
-   "D6": 14,
+   "D6": 13,
    "D7": 15,
    "F1": 0,
    "F2": 3,
    "F3": 3,
    "F4": 1,
-   "H1": 9,
+   "H1": 8,
    "H2": 6,
    "H3": 10,
    "I1": 0,
@@ -246,14 +251,14 @@
    "south": {
     "A1": 10,
     "A2": 8,
-    "H1": 7,
-    "H2": 4,
+    "H1": 6,
+    "H2": 5,
     "H3": 8,
     "D2": 5,
     "D3": 14,
-    "D4": 15,
+    "D4": 16,
     "D5": 15,
-    "D6": 8,
+    "D6": 7,
     "D7": 9,
     "A3": 11,
     "A4": 9,
@@ -290,9 +295,8 @@
     "A1": 5,
     "A2": 4,
     "T1": 1,
-    "H1": 1,
     "H3": 1,
-    "D2": 3,
+    "D2": 2,
     "D3": 7,
     "D4": 8,
     "D5": 8,
@@ -325,8 +329,8 @@
  },
  "coverage": {
   "schedulable_on_committed_ground": 130,
-  "gated_on_coverage": 117,
-  "statement": "130 of the 247 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 117 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "gated_on_coverage": 115,
+  "statement": "130 of the 245 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 115 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 274,
   "blocks_named": 80,
   "southern_ground": {
@@ -477,7 +481,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.5384,
+   "frontage_weight": 0.5325,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -883,7 +887,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.5046,
+   "frontage_weight": 0.3725,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -926,7 +930,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.4446,
+   "frontage_weight": 0.3125,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -958,19 +962,19 @@
     "A5": 1,
     "D2": 1,
     "D3": 3,
-    "D4": 3,
+    "D4": 4,
     "D5": 3,
-    "D6": 2,
+    "D6": 1,
     "D7": 2,
-    "H1": 2,
-    "H2": 1,
+    "H1": 1,
+    "H2": 2,
     "H3": 2,
     "W1": 1,
     "W3": 1
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.4446,
+   "frontage_weight": 0.3125,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -1012,7 +1016,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.4446,
+   "frontage_weight": 0.3125,
    "trade_roofs": 1,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -1047,7 +1051,7 @@
    },
    "principal": 2,
    "ancillary": 6,
-   "frontage_weight": 0.4446,
+   "frontage_weight": 0.3125,
    "trade_roofs": 0,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
@@ -1080,7 +1084,7 @@
    },
    "principal": 0,
    "ancillary": 6,
-   "frontage_weight": 0.463,
+   "frontage_weight": 0.325,
    "trade_roofs": 0,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
@@ -2555,12 +2559,12 @@
    "id": "north_division_beyond_modelled_ground",
    "kind": "district_balance",
    "district": "north",
-   "capacity_roofs": 61,
+   "capacity_roofs": 59,
    "standing_roofs": 0,
-   "headroom": 61,
+   "headroom": 59,
    "state": "gated",
    "waiting_on": "North Division ground beyond the initial parcel: the plat grid covers no North Division block at all — that street control is what ROADMAP S9 records as owed — and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
-   "roofs": 61,
+   "roofs": 59,
    "families": {
     "A1": 5,
     "A2": 4,
@@ -2569,20 +2573,19 @@
     "A5": 1,
     "C3": 2,
     "C4": 1,
-    "D2": 3,
+    "D2": 2,
     "D3": 7,
     "D4": 8,
     "D5": 8,
     "D6": 4,
     "D7": 5,
     "F2": 1,
-    "H1": 1,
     "H3": 1,
     "T1": 1,
     "W1": 1,
     "W2": 1
    },
-   "principal": 44,
+   "principal": 42,
    "ancillary": 17
   },
   {

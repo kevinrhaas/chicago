@@ -218,13 +218,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
 # itself moved.
 #
+# 435 -> 437 and 433 -> 435 on 2026-09-28 (T-1717): `kimberly_residence` and
+# `kelsey_boarding_house`, the two houses Bonnell's walk of an August morning in 1835
+# puts east of the Lake House building site on the north bank. Two new structure assets,
+# so two more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
+# itself moved.
+#
 STATED = {
-    "assets": 435,
+    "assets": 437,
     "restales": {
-        "generators/common/*.py": 435,
+        "generators/common/*.py": 437,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 433,
+        "generators/emit.py": 435,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
