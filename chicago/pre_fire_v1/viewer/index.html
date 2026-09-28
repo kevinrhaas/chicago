@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chicago Before the Fire — Year Explorer</title>
   <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="/notes/notes.css">
+  <script src="/notes/notes.js" data-page="pre-fire" defer></script>
 </head>
 <body>
   <header>
@@ -34,7 +36,7 @@
     <section class="dashboard">
       <article class="map-card">
         <div class="card-heading">
-          <div><p class="kicker">Closest reference</p><h2 id="mapTitle">Loading…</h2></div>
+          <div><p class="kicker">Closest reference</p><h2 id="mapTitle" data-note-place="inline">Loading…</h2></div>
           <div class="map-tools"><span id="mapYear" class="year-badge"></span><label for="mapVariant">Map/view</label><select id="mapVariant"></select></div>
         </div>
         <a id="mapLink" target="_blank" rel="noreferrer"><img id="mapImage" alt="Historic Chicago map"></a>
@@ -51,7 +53,7 @@
     </section>
 
     <section class="records">
-      <div class="card-heading"><div><p class="kicker">Structures</p><h2 id="recordsHeading">Known active records</h2></div><input id="search" type="search" placeholder="Search all years by name or alias" aria-label="Search buildings across all years"></div>
+      <div class="card-heading"><div><p class="kicker">Structures</p><h2 id="recordsHeading" data-note="section:records" data-note-label="Structures (the records table)" data-note-place="inline">Known active records</h2></div><input id="search" type="search" placeholder="Search all years by name or alias" aria-label="Search buildings across all years"></div>
       <p class="warning">This is an evidence index, not a claim that every historical structure can be individually named. “Active” is computed from available construction and loss years; undated losses remain visible.</p>
       <p id="recordsStatus" class="records-status" aria-live="polite"></p>
       <div class="table-wrap"><table><thead><tr><th>Name</th><th>Images</th><th>Known span</th><th>Type</th><th>Historical address</th><th>1871 fire fate</th><th>Confidence</th><th>Timeline</th></tr></thead><tbody id="buildingRows"></tbody></table></div>
@@ -59,6 +61,6 @@
   </main>
 
   <footer>Static research viewer. Map provenance is retained in <code>map_references.csv</code>; building-image rights, dates, creators, repositories, and subject links are retained in <code>media.csv</code> and <code>media_buildings.csv</code>.</footer>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
