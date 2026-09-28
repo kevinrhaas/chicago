@@ -200,13 +200,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules would re-stale; the terrain
 # and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
+# 423 -> 426 and 421 -> 424 on 2026-09-28 (T-1714): `mckee_log_house`,
+# `caldwell_agency_log_house` and `agency_striker_log_house`, the ring of agency log buildings
+# Wau-Bun and Andreas group round Cobweb Castle at the foot of State Street. Three new structure
+# assets, so three more meshes a change to the shared generator modules would re-stale; the
+# terrain and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 423,
+    "assets": 426,
     "restales": {
-        "generators/common/*.py": 423,
+        "generators/common/*.py": 426,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 421,
+        "generators/emit.py": 424,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

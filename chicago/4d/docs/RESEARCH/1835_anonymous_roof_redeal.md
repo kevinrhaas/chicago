@@ -9,7 +9,7 @@ an adjudication over committed derived files — no page of any source was opene
 - refamily: **8** (6 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 410 stand, so the town is 258 roofs short before this audit and 258 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 413 stand, so the town is 255 roofs short before this audit and 255 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -31,7 +31,7 @@ The programme wants 668 roofs and 410 stand, so the town is 258 roofs short befo
 | `structures/larger_boarding_houses/north` | 8 | 6 | 5 | 2 | 6 | 2 |
 | `structures/ordinary_dwellings/south` | 176 | 109 | 101 | 67 | 109 | 67 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 48 | 24 | 53 | 22 |
-| `structures/ordinary_dwellings/north` | 84 | 46 | 44 | 38 | 46 | 38 |
+| `structures/ordinary_dwellings/north` | 84 | 49 | 44 | 35 | 49 | 35 |
 | `structures/small_outbuildings/south` | 48 | 23 | 23 | 25 | 23 | 25 |
 | `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |
 | `structures/small_outbuildings/north` | 20 | 9 | 9 | 11 | 9 | 11 |
