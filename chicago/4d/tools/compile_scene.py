@@ -309,7 +309,12 @@ def compile_exclusions(scene_id: str, scene: dict, target: dt.date,
     in_scene = in_scene or {}
     year = target.year
     entries = []
-    for ex in exclusions.get("excluded", []):
+    # T-1739. The record is the 1835 town's: every entry is a building researched for the
+    # town by the river. A scene that does not list `exclusions` (1904, on Prairie Avenue
+    # three kilometres south) gets the file with both lists EMPTY and a standard that says
+    # why, so the panel says so rather than listing 1835 buildings under a 1904 badge.
+    applies = "exclusions" in scene.get("layers", [])
+    for ex in (exclusions.get("excluded", []) if applies else []):
         earliest = str(ex.get("earliest_scene") or "")
         if earliest.isdigit() and int(earliest) <= year:
             continue
@@ -322,16 +327,19 @@ def compile_exclusions(scene_id: str, scene: dict, target: dt.date,
             "citations": cite(ex.get("sources", []) or [], sources),
         })
 
-    uncertain = compile_watch_list(scene_id, sources, exclusions, in_scene)
+    uncertain = compile_watch_list(scene_id, sources, exclusions, in_scene) if applies else []
 
     emit(outdir / "exclusions.json", {
         "scene": scene_id,
         "target_date": scene["target_date"],
         # What the list covers, stated in the derived file so the renderer quotes
         # it rather than composing its own claim about the dataset's completeness.
-        "standard": "Structures this project researched and deliberately left out of "
-                    "this scene, with the evidence that dates them. It is not a list of "
-                    "everything missing: most of the town is simply not built yet.",
+        "standard": ("Structures this project researched and deliberately left out of "
+                     "this scene, with the evidence that dates them. It is not a list of "
+                     "everything missing: most of the town is simply not built yet.") if applies
+                    else ("No structure has been researched for this scene and left out yet. "
+                          "The record of what was left out, and why, is the 1835 town's, and "
+                          "none of it stands on this ground."),
         "excluded": entries,
         # T-0305: this sentence counted, and it had gone wrong the way the
         # paraphrase it replaced went wrong. "One of them is standing in front of
@@ -1774,6 +1782,24 @@ def compile_ground(scene_id: str, scene: dict, sources: dict, outdir: Path) -> i
     return len(claims)
 
 
+def on_the_ground(rows: list[dict], scene: dict) -> list[dict]:
+    """The junctions a scene can offer: those on its own modelled ground (T-1739).
+
+    Go to paints every row of `intersections` and travel rides to it, and the survey
+    control is the 1835 town's, up by the river. The 1904 scene's ground is a box on
+    Prairie Avenue three kilometres south, so a junction outside the box is a place the
+    walker would stand on the constant beyond the ground's edge. The box is the one the
+    epoch's generator wrote into heightfield.json — the same one measure_anchors holds
+    the scene's own viewpoints to."""
+    hf_path = DATA / "terrain" / "epochs" / scene.get("terrain_epoch", "") / "heightfield.json"
+    if not hf_path.exists():
+        return rows
+    box = load(hf_path).get("box_local_enu_m") or {}
+    (e0, e1), (n0, n1) = box.get("e", (-1e9, 1e9)), box.get("n", (-1e9, 1e9))
+    return [r for r in rows
+            if e0 <= r["local_e"] <= e1 and n0 <= r["local_n"] <= n1]
+
+
 def compile_intersections(datum: dict) -> list[dict]:
     """Every verified street-control junction, flattened for navigation.
 
@@ -2643,7 +2669,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     emit(outdir / "index.json", {
         "scene": scene_id,
         "target_date": scene["target_date"],
-        "intersections": compile_intersections(datum),
+        "intersections": on_the_ground(compile_intersections(datum), scene),
         "street_standard": street_standard,
         "streets": streets,
         "structures": index,
@@ -2659,7 +2685,10 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     flora_cites = compile_flora_sources(scene_id, sources, outdir)
     flora_clamped = compile_flora_clamp(scene_id, outdir)
     resident_cites = compile_residents_sources(scene_id, sources, outdir)
-    people = compile_people(scene_id, outdir)
+    # T-1739. The directory is the 1835 town's — every row is a household of 1 July
+    # 1835 — so only a scene that lists `residents` gets one; the renderer asks for
+    # none otherwise. Without this the 1904 scene carried 3,308 people of 1835.
+    people = compile_people(scene_id, outdir) if "residents" in scene.get("layers", []) else 0
 
     # A SIDECAR WHOSE STRUCTURE HAS GONE IS NOT INERT, which is why this sweeps
     # rather than leaves them. The compiler only ever wrote sidecars, so a record
@@ -2670,7 +2699,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     # ghost. Found 2026-08-22 in T-0105's own merge, which left three of them.
     keep = {entry["id"] for entry in index} | set(skipped) | {
         "index", "exclusions", "terrain", "fauna_sources", "flora_sources",
-        "flora_clamp", "residents_sources", "people"}
+        "flora_clamp", "residents_sources"} | ({"people"} if people else set())
     for stale in sorted(outdir.glob("*.json")):
         if stale.stem in keep:
             continue

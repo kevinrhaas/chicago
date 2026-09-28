@@ -501,8 +501,12 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
         # building to 1837 is not an exclusion from an 1837 scene. Nothing here
         # is wrong at one year and becomes wrong later without saying so — this
         # project is year-parameterized, so the year has to be asked.
+        # T-1739: asked only of a scene that lists `exclusions`. The record is the 1835
+        # town's; the 1904 scene stands on Prairie Avenue, where none of it is, and an
+        # 1837 brick block on Clark Street is not an exclusion from that ground at all.
         earliest = str(ex.get("earliest_scene") or "")
-        if earliest.isdigit() and int(earliest) <= target.year:
+        if ("exclusions" in scene.get("layers", []) and earliest.isdigit()
+                and int(earliest) <= target.year):
             rep.error(where, f"'{ex.get('id')}' is excluded, but its own earliest_scene "
                              f"({earliest}) is on or before this scene ({target.year}) — "
                              f"it belongs in the dataset here, or the entry is wrong")
