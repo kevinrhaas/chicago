@@ -400,6 +400,14 @@ is the contract. The short form:
   it: `ticket.mjs check`/`board`, `publish.sh` before its copy, `deploy.yml` before the
   Pages upload. **Never `git add -f` them**; if one shows in `git status`, the ignore rule
   is the fault.
+- **The derived research files are tracked, and a merge in a clone clears them with ONE
+  command.** Two branches that each touch a citation both rewrite
+  `data/sidecars/1835/sources/` (#137 and #130 conflicted there, 2026-09-27). Never
+  hand-merge them. Mid-merge, run `node tools/rederive.mjs --resolve`: it takes one side of
+  every conflicted file `tools/derived_manifest.json` lists, rebuilds from the earliest
+  owning step down, and stages the result. It refuses and touches nothing while any
+  authored file is still unmerged, so resolve those first. The PR lap already does this on
+  the server; this is the same move for a local merge. `./tools/check.sh` is still the proof.
 - **New work found mid-run: extend, place, or make it an epic — in that order** (owner,
   2026-09-10, after the queue reached 195 lines: *"I don't want you to keep adding a whole
   bunch of tickets below your current one and working them … I want fewer tickets to
