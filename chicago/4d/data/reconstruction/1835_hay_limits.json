@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 312,
-  "outside": 122,
+  "outside": 126,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 26,
    "north_of_the_limit": 23,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 1,
+   "south_of_washington_street": 5,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -453,7 +453,11 @@
     "recon_1835_west_055"
    ],
    "south_of_washington_street": [
-    "heacock_house_monroe"
+    "heacock_house_monroe",
+    "recon_1835_blk_washington_clark_a3_03",
+    "recon_1835_blk_washington_clark_a4_04",
+    "recon_1835_blk_washington_clark_d4_02",
+    "recon_1835_blk_washington_clark_d5_01"
    ],
    "east_of_the_limit_in_the_water": [
     "south_pier"

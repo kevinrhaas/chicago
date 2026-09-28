@@ -41,9 +41,9 @@
   ],
   "counts": {
     "adopted_seats": 109,
-    "written": 23,
+    "written": 21,
     "refused": 63,
-    "owed": 23,
+    "owed": 25,
     "refused_letter_list": 61,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
@@ -607,33 +607,6 @@
       }
     },
     {
-      "household_id": "hh_beaubien_archange",
-      "structure_id": "recon_1835_blk_south_water_lasalle_d3_06",
-      "block_id": "blk_south_water_lasalle",
-      "lot_id": "blk_south_water_lasalle#03",
-      "clause": "tradesman_dwellings",
-      "family": "D3",
-      "district": "south",
-      "name": "The Beaubien household — a name the town's own records carry",
-      "sources": [
-        "st_marys_baptismal_register_1833_1835"
-      ],
-      "occupants": {
-        "value": "The Beaubien household — a name the town's own records carry",
-        "confidence": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_south_water_lasalle#03, fronting lake, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-      },
-      "resident_assignment": {
-        "status": "assigned",
-        "confidence": "reconstructed",
-        "note": "T-1638: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_south_water_lasalle#03 fronting lake — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-        "household_id": "hh_beaubien_archange"
-      }
-    },
-    {
       "household_id": "hh_blanshard_g",
       "structure_id": "recon_1835_blk_south_water_wells_d1_05",
       "block_id": "blk_south_water_wells",
@@ -685,33 +658,6 @@
         "confidence": "reconstructed",
         "note": "T-1638: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_south_water_wells#07 fronting lake — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_bourrassa_leon"
-      }
-    },
-    {
-      "household_id": "hh_beaubien_alexander",
-      "structure_id": "recon_1835_blk_south_water_wells_d4_03",
-      "block_id": "blk_south_water_wells",
-      "lot_id": "blk_south_water_wells#05",
-      "clause": "tradesman_dwellings",
-      "family": "D4",
-      "district": "south",
-      "name": "The Beaubien household — a name the town's own records carry",
-      "sources": [
-        "st_marys_baptismal_register_1833_1835"
-      ],
-      "occupants": {
-        "value": "The Beaubien household — a name the town's own records carry",
-        "confidence": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_south_water_wells#05, fronting lake, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-      },
-      "resident_assignment": {
-        "status": "assigned",
-        "confidence": "reconstructed",
-        "note": "T-1638: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_south_water_wells#05 fronting lake — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-        "household_id": "hh_beaubien_alexander"
       }
     }
   ],
@@ -1614,6 +1560,26 @@
       "lot_id": "blk_lake_market#02",
       "clause": "tradesman_dwellings",
       "family": "D3",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_beaubien_alexander",
+      "structure_id": "recon_1835_blk_washington_clark_d4_02",
+      "block_id": "blk_washington_clark",
+      "lot_id": "blk_washington_clark#05",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_beaubien_archange",
+      "structure_id": "recon_1835_blk_washington_clark_d5_01",
+      "block_id": "blk_washington_clark",
+      "lot_id": "blk_washington_clark#04",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
       "district": "south",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },

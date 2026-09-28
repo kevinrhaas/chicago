@@ -14578,10 +14578,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 274 lots are enumerated from records this project already held, and then 139 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 274 lots are enumerated from records this project already held, and then 137 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 139 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,339
+**Scope:** `platted_seats.seats[dealt]` — 137 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,341
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 274 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14601,20 +14601,40 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 109 of the 139 seats are
+roof of a family its clause admits, on a lot of its own division; 109 of the 137 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **30 of the 139 are that, and every one of them stands on the plat's last
+sizing keeps open; **28 of the 137 are that, and every one of them stands on the plat's last
 tier** (T-1707, 2026-09-28). The count was 0 until that ticket, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
-headroom, and the deal placed 19 merchant and professional households and 11 tradesmen's
-onto them — 28 to the Market, Franklin, Wells and La Salle blocks and 2 to
-the Clark block. A slot is a REQUEST and not a roof: these 30 households have a lot and no
-walls until T-1708 raises them, and each seat says so.
+headroom, and the deal placed 30 households onto them: 28 to the Market, Franklin, Wells and
+La Salle blocks and, until T-1736, 2 to the Clark block. A slot is a REQUEST and not a roof:
+these 28 households have a lot and no walls until a block recipe raises them, and each seat
+says so.
+
+**BUILDING THE TWO ROOFS THE CLARK BLOCK WAS ASKED FOR TOOK THE DEAL DOWN BY TWO, AND THAT IS
+NOT A MISCOUNT.** T-1736 dealt blk_washington_clark the D4 and the D5 its committed plan
+holds — the two roofs hh_byram_thomas's and hh_cady_levi's slots had requested by name — and
+the answer that came back was not those two households. The adoption step runs before the
+slot step and scores lots by the clause's own stated preferences, and `tradesman_dwellings`
+prefers a quiet street: the two new cottages on Washington and Madison outscored the South
+Water frontage roofs the two Beaubien households were standing on, so the Beaubiens took them
+and 38 seats cascaded down the order behind that, each household taking the roof the one
+above it vacated. The block then had no principal headroom left in its plan, so it could
+offer no slot to anybody; the two requesting households moved to slots on blk_washington_
+franklin, and the two at the tail of the order — hh_bennet_lyman and hh_chamberlain_l_c —
+fell out of the deal entirely, because every other open block now has only the single lot
+T-1623 reserves. So 139 seats became 137, the 109 adoptions stayed 109, and the slot count
+fell by exactly the two the block can no longer offer. THE OUTCOME IS REPORTED RATHER THAN
+TIDIED: a roof raised in answer to a request is not reserved to the household that requested
+it, which is the same precedence T-1622 met on blk_south_water_franklin and T-1626 carries to
+the owner. Both displaced households are in `owed` with their reasons, and no household lost
+a roof it was standing under — the two that fell out had a requested slot and never had
+walls.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
@@ -15191,17 +15211,28 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
+### L276 — Twenty-one roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 21 are on the
 five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
 Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**It was 23 until T-1736, and the two it lost show what "one district at a time" costs.**
+That ticket dealt the first two roofs on blk_washington_clark, on the plat's last tier, and
+the placement policy moved the two Beaubien households onto them — off
+`recon_1835_blk_south_water_wells_d4_03` and `recon_1835_blk_south_water_lasalle_d3_06`,
+which are inside this pass's districts, and onto a Washington-tier block which is not. Both
+South Water roofs are still adopted, by the two households the cascade moved up behind them,
+and both of those are letter-list names this pass already refuses; so the two keepers are
+not refused, they are OWED, and the owed count goes 23 to 25 as the written count goes 23 to
+21. Nothing about the naming rule changed and no name moved to a roof it was not dealt: the
+seats moved and the district boundary of this pass did not follow them.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
