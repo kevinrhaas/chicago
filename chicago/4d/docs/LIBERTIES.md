@@ -14617,7 +14617,7 @@ rather than restraint: the only South Division blocks the programme marked `open
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
-headroom, and the deal placed 19 merchant and professional households and 10 tradesmen's
+headroom, and the deal placed 18 merchant and professional households and 11 tradesmen's
 onto them — 28 to the Market, Franklin, Wells and La Salle blocks and 1 to
 the Clark block. It was 19 and 2 until T-1716 raised the keeper's quarters at the Chicago
 light: that roof is a standing roof the programme counts, the family plan it draws for the
@@ -16078,6 +16078,7 @@ grade, the lake bed's exponential approach — and the mesh departs from the hei
 `assets/gltf/terrain__e1871_postfire.glb`, `assets/gltf/water__e1871_postfire.glb`.
 **Covers:** `terrain.e1871_postfire.lake_surface`, `terrain.e1871_postfire.street_crowns.prairie_16th`, `terrain.e1871_postfire.street_crowns.prairie_mid_16_18`, `terrain.e1871_postfire.street_crowns.prairie_21st`, `terrain.e1871_postfire.street_crowns.indiana_16th`, `terrain.e1871_postfire.street_crowns.indiana_18th`, `terrain.e1871_postfire.street_crowns.indiana_21st`, `terrain.e1871_postfire.street_crowns.michigan_16th`, `terrain.e1871_postfire.street_crowns.michigan_18th`, `terrain.e1871_postfire.street_crowns.michigan_21st`, `terrain.e1871_postfire.graded_ground`, `terrain.e1871_postfire.earthworks.ic_row_embankment`, `terrain.e1871_postfire.lake_shelf`, `terrain.e1871_postfire.surface_texture`.
 **Related:** **L289**, **L287**, **T-1738** (piece 1 of **T-1252**).
+**Recorded:** 2026-09-28.
 
 ### L291 — The Lake House’s two neighbours: one sentence each, and everything a visitor sees of them is ours
 

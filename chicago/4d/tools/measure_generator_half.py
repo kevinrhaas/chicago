@@ -236,10 +236,15 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # by it. Two more committed assets the shared generator modules reach; emit.py and pier_crib
 # are untouched, and nothing about the debt itself moved.
 #
+# 438 -> 440 on 2026-09-28 (T-1738, merged in): the 1904 scene's terrain and water
+# meshes, baked out of the e1871_postfire heightfield. Two more committed assets, and
+# both of them the ground's, so `generators/terrain_gen.py` was already at 4 and
+# `generators/emit.py` does not move. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 438,
+    "assets": 440,
     "restales": {
-        "generators/common/*.py": 438,
+        "generators/common/*.py": 440,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
         "generators/emit.py": 436,
