@@ -341,6 +341,17 @@
    "last_tier_area_ha": 6.31,
    "last_tier_ring_points_on_field": 24,
    "last_tier_ring_points": 24
+  },
+  "northern_ground": {
+   "field_north_edge_n_m": 1120.0,
+   "north_branch_water_n_max_m": 1079.21,
+   "north_branch_east_bank_n_max_m": 1076.41,
+   "lake_shore_n_max_m": 1117.3,
+   "hydrology_n_max_m": 341.69,
+   "timbered_ground_ha": 155.11,
+   "timbered_ground_n_max_m": 1120.0,
+   "memo_line_n_m": 760.0,
+   "ground_reaches_memo_line": true
   }
  },
  "schedule": [
@@ -2559,7 +2570,7 @@
    "standing_roofs": 0,
    "headroom": 61,
    "state": "gated",
-   "waiting_on": "North Division ground beyond the initial parcel: the plat grid covers no North Division block at all — that street control is what ROADMAP S9 records as owed — and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
+   "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, in the ground, nothing else. The plat grid covers no North Division block at all. THE GROUND IS NO LONGER THE BLOCKER, and the sentence that used to stand here said it was: T-1722 carried this district's flora onto the same waterline the terrain already stood on, so 155.11 ha of North Division land now lies inside the timber Andreas documents, north to local N +1120.00 m — past the N +760.0 m the district's own memo asks for — where the ring before it was cut to a box wall at N +340 and the whole division above Michigan Street was drawing as open prairie. The modelled field carries to local N +1120.0 m; the North Branch is traced to N +1079.21 m with both its banks, and the lake margin to N +1117.30 m. The hydrology layer is not short and was not extended: Wright draws ONE watercourse on this side, the unnamed north-side slough, and his sheet ends it at Michigan Street — local N +341.69 m is a documented end, not a tracing window, and carrying a channel past it would be an invention. Measured by tools/measure_northern_ground.py.",
    "roofs": 61,
    "families": {
     "A1": 5,
