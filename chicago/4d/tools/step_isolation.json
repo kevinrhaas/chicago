@@ -2709,6 +2709,9 @@
     "tools/generate_yard_goods.py": {
       "wrote": []
     },
+    "tools/georef_prairie_1904.py": {
+      "wrote": []
+    },
     "tools/identity_master_guard.py": {
       "wrote": []
     },
@@ -3638,6 +3641,9 @@
       "wrote": []
     },
     "tools/town_census.py": {
+      "wrote": []
+    },
+    "tools/trace_ic_edge_1904.py": {
       "wrote": []
     },
     "tools/trace_lake_shore_rees_1849.py": {
