@@ -14781,6 +14781,105 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.popup.close());
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
 
+    // --- the 1904 scene's front door (T-1739) --------------------------------
+    // The owner's landing, 2026-09-28: /4d/1904/ opens on Prairie Avenue at E. 18th
+    // Street, on the east sidewalk, FACING THE GLESSNER LOT at 1800 Prairie. This tab
+    // is re-booted at that door, as T-1727's version boot re-boots it, and it is the
+    // LAST thing in the last part, so nothing after it reads the 1835 town it leaves.
+    // The lot is NOT read off the scene file: its street corner and centroid are
+    // re-derived here from the sheet-28 fit (data/traces/gcp/) and T-1731's lot frame,
+    // so a spawn that drifts off the lot fails even when the scene file agrees with
+    // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
+    // through the listeners the tab already carries.
+    {
+      const here4d = path.resolve(HERE, '..');
+      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
+      const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
+      const k = gcp28.fit.coefficients;
+      const [px, py] = gcp28.gcps.find((g) => g.id === 'prairie_18th').pixel;
+      const sc = Math.hypot(k.a, k.d);
+      const east = [k.a / sc, k.d / sc];
+      const south = [k.b / sc, k.e / sc];
+      const along = (o, de, ds) => [o[0] + de * east[0] + ds * south[0], o[1] + de * east[1] + ds * south[1]];
+      // Both streets 66 ft as sheet 28 prints them; the lot frame is x east, y north.
+      const halfStreet = 33 * 0.3048;
+      const neLot = along([k.a * px + k.b * py + k.c, k.d * px + k.e * py + k.f], -halfStreet, halfStreet);
+      const cs = Object.values(lotFrame);
+      const lotMid = along(neLot, cs.reduce((t, v) => t + v[0], 0) / cs.length,
+        -cs.reduce((t, v) => t + v[1], 0) / cs.length);
+
+      const door = wantPublished ? `http://127.0.0.1:${PORT}/1904/`
+        : `http://127.0.0.1:${PORT}${ENTRY}?year=1904`;
+      await page.goto(door, { waitUntil: 'domcontentloaded' });
+      let doorReady = false;
+      try {
+        await page.waitForFunction(() => window.__chicago4d?.ready === true || !!window.__chicago4d?.error,
+          null, { timeout: 240_000, polling: 1000 });
+        doorReady = await page.evaluate(() => window.__chicago4d?.ready === true);
+      } catch { doorReady = false; }
+      const doorState = doorReady ? null
+        : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page');
+      check(`${label}: /1904/ boots the 1904 scene on its own ground (T-1739)`, doorReady
+        && await page.evaluate(() => window.__chicago4d.scene.id === '1904'
+          && window.__chicago4d.scene.terrain_epoch === 'e1871_postfire'
+          && window.__chicago4d.terrain.epochId === 'e1871_postfire'),
+        doorState ?? '');
+      if (doorReady) {
+        await enterTown();
+        await page.evaluate(() => new Promise((r) => { requestAnimationFrame(() => requestAnimationFrame(r)); }));
+        const at = await page.evaluate(({ neLot, lotMid }) => {
+          const a = window.__chicago4d;
+          const lift = (e, n) => a.terrain.surfaceHeight(e, n) + 1.0;
+          const anchor = a.scene.anchors.find((x) => x.id === 'glessner_house') ?? null;
+          const drawn = {};
+          for (const name of ['structures', 'streets', 'enclosures', 'yard-ground', 'signage', 'yard',
+            'frontage', 'wharves', 'boats', 'wells', 'flora', 'trees']) {
+            let meshes = 0;
+            a.scene3d.getObjectByName(name)?.traverse((o) => { if (o.isMesh || o.isInstancedMesh) meshes += 1; });
+            drawn[name] = meshes;
+          }
+          const s = a.stats();
+          return {
+            e: a.walker.state.e, n: a.walker.state.n, bearing: a.walker.bearingDeg,
+            eye: a.camera.position.y - a.terrain.surfaceHeight(a.walker.state.e, a.walker.state.n),
+            spawn: a.scene.spawn, anchor,
+            corner: a.project(neLot[0], neLot[1], lift(neLot[0], neLot[1])),
+            middle: a.project(lotMid[0], lotMid[1], lift(lotMid[0], lotMid[1])),
+            drawn, registry: a.registry.size,
+            problems: a.problems.filter((p) => !/provisional|PLACEHOLDER|placeholder/i.test(p)),
+            budget: { calls: s.drawCalls, triangles: s.triangles, within: s.withinBudget, fps: s.fps,
+              ceiling: s.budget },
+          };
+        }, { neLot, lotMid });
+        const off = (x, y) => Math.abs(((x - y + 540) % 360) - 180);
+        check(`${label}: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739)`,
+          Math.hypot(at.e - at.spawn.local_e, at.n - at.spawn.local_n) < 0.5
+          && off(at.bearing, at.spawn.yaw_deg) < 1
+          && at.anchor && at.anchor.local_e === at.spawn.local_e && at.anchor.local_n === at.spawn.local_n
+          && at.anchor.yaw_deg === at.spawn.yaw_deg
+          && at.eye > 1.2 && at.eye < 2.0,
+          `stood at E ${at.e.toFixed(2)} N ${at.n.toFixed(2)} bearing ${at.bearing.toFixed(2)}, eye ${at.eye.toFixed(2)} m; `
+          + `spawn ${JSON.stringify(at.spawn)}; anchor ${JSON.stringify(at.anchor)}`, true);
+        const inFront = (p) => p.z > -1 && p.z < 1;
+        check(`${label}: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739)`,
+          inFront(at.middle) && at.middle.x > -1 && at.middle.x < 0 && Math.abs(at.middle.y) < 1
+          && inFront(at.corner) && at.corner.x > at.middle.x,
+          `lot centroid E ${lotMid[0].toFixed(2)} N ${lotMid[1].toFixed(2)} at NDC `
+          + `(${at.middle.x.toFixed(3)}, ${at.middle.y.toFixed(3)}, z ${at.middle.z.toFixed(4)}); `
+          + `street corner at NDC x ${at.corner.x.toFixed(3)}`, true);
+        const stray = Object.entries(at.drawn).filter(([, n]) => n > 0);
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers (T-1739)`,
+          stray.length === 0 && at.registry === 0,
+          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${at.registry}`);
+        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
+          at.problems.slice(0, 3).join(' | '));
+        check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
+          `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
+          + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
+      }
+    }
+
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
     } catch (e) {
