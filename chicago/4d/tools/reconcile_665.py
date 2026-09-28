@@ -263,12 +263,15 @@ BALANCE_UNITS = {
         "control west of Clinton and Canal, and no unified terrain, hydrology or map "
         "coverage past the recipe's own gate at local E -700 m.",
     ),
-    "north": (
-        "north_division_beyond_modelled_ground",
-        "North Division ground beyond the initial parcel: the plat grid covers no North "
-        "Division block at all — that street control is what ROADMAP S9 records as owed — "
-        "and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
-    ),
+    # T-1722, and the same fault the south had, caught the same way. The north's sentence
+    # was a STRING, and by the time it was read it was three-quarters wrong: it said
+    # "terrain, hydrology, flora and map coverage stop short of local N +760 m" while the
+    # field already carried to N +1120, the North Branch and both its banks were traced to
+    # N +1079.21 and the lake margin to N +1117.30. Only the flora was actually short, and
+    # nothing in the schedule could say so because nothing in the schedule was measuring.
+    # It is composed below now, from `tools/measure_northern_ground.py`, so the day the
+    # ground moves again the sentence moves with it.
+    "north": ("north_division_beyond_modelled_ground", None),
     "fort": (
         "fort_dearborn_compound",
         "The compound's ten principal roofs are placed; the stockade, parade and props "
@@ -1022,6 +1025,54 @@ def southern_ground() -> tuple[dict, str]:
     )
 
 
+def northern_ground() -> tuple[dict, str]:
+    """The measured state of the North Division's ground, and what it says.
+
+    T-1722. Same discipline as `southern_ground()` above and imported for the same
+    reason: the blocker a district balance names and the command a reader can run to
+    check it are one arithmetic. `tools/measure_northern_ground.py --gate` holds the
+    pair together in `tools/check.sh`.
+    """
+    from measure_northern_ground import coverage_figures, measure  # noqa: PLC0415
+
+    m = measure()
+    figures = coverage_figures(m)
+
+    ground = (
+        f"The modelled field carries to local N {figures['field_north_edge_n_m']:+.1f} m; the "
+        f"North Branch is traced to N {figures['north_branch_water_n_max_m']:+.2f} m with both "
+        f"its banks, and the lake margin to N {figures['lake_shore_n_max_m']:+.2f} m. The "
+        f"hydrology layer is not short and was not extended: Wright draws ONE watercourse on "
+        f"this side, the unnamed north-side slough, and his sheet ends it at Michigan Street — "
+        f"local N {figures['hydrology_n_max_m']:+.2f} m is a documented end, not a tracing "
+        f"window, and carrying a channel past it would be an invention. Measured by "
+        f"tools/measure_northern_ground.py."
+    )
+
+    if not figures["ground_reaches_memo_line"]:
+        return figures, (
+            f"GROUND, and the street control with it. The district's derived timber stops at "
+            f"local N {figures['timbered_ground_n_max_m']:+.2f} m, short of the N "
+            f"{figures['memo_line_n_m']:+.1f} m that "
+            f"docs/RESEARCH/1835_north_division_extent_and_infill.md build order item 4 asks "
+            f"the ground to reach before the remaining north roofs are designed. {ground}"
+        )
+
+    return figures, (
+        f"STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this "
+        f"schedule was written — and, in the ground, nothing else. The plat grid covers no "
+        f"North Division block at all. THE GROUND IS NO LONGER THE BLOCKER, and the sentence "
+        f"that used to stand here said it was: T-1722 carried this district's flora onto the "
+        f"same waterline the terrain already stood on, so "
+        f"{figures['timbered_ground_ha']:.2f} ha of North Division land now lies inside the "
+        f"timber Andreas documents, north to local N "
+        f"{figures['timbered_ground_n_max_m']:+.2f} m — past the N "
+        f"{figures['memo_line_n_m']:+.1f} m the district's own memo asks for — where the "
+        f"ring before it was cut to a box wall at N +340 and the whole division above "
+        f"Michigan Street was drawing as open prairie. {ground}"
+    )
+
+
 def programme_document():
     inventory = load(RECON / "1835_building_inventory.json")
     grid = load(DATA / "traces" / "vectors" / "thompson_lots.json")
@@ -1350,13 +1401,15 @@ def programme_document():
     })
 
     southern_figures, southern_statement = southern_ground()
+    northern_figures, northern_statement = northern_ground()
+    composed = {"south": southern_statement, "north": northern_statement}
 
     for district in DISTRICTS:
         placed = sum(u["headroom"] for u in units if u["district"] == district)
         balance = remaining_district[district] - placed
         unit_id, waiting = BALANCE_UNITS[district]
         if waiting is None:
-            waiting = southern_statement
+            waiting = composed[district]
         # A DISTRICT WHOSE NAMED GROUND HOLDS MORE ROOM THAN IT HAS ROOFS LEFT TO BUILD,
         # and T-1707 is the first time any district has reached that state. Until this
         # commit `balance < 0` was a hard refusal on the premise that "the schedule cannot
@@ -1643,6 +1696,10 @@ def programme_document():
             # by a rule. Carried here so a scheduler reads them without re-running a
             # command, and held to the ground by tools/measure_southern_ground.py --gate.
             "southern_ground": southern_figures,
+            # T-1722. The north's own measurement, for the same reason the south's is here:
+            # the balance sentence above is composed from these figures, so a reader can run
+            # the command and get the numbers the schedule is standing on.
+            "northern_ground": northern_figures,
         },
         "schedule": units,
     }

@@ -19,80 +19,144 @@
         "exclude_polygons": [
           [
             [
-              -60,
-              340
+              -441.48,
+              1076.41
             ],
             [
-              -52,
-              300
+              -433.81,
+              843.23
             ],
             [
-              -44,
-              262
+              -421.04,
+              809.44
             ],
             [
-              -32,
-              220
+              -393.57,
+              770.15
             ],
             [
-              -32,
-              180
+              -303.86,
+              716.93
             ],
             [
-              -30,
-              120
+              -272.92,
+              679.89
             ],
             [
-              -28,
-              60
+              -144.17,
+              403.56
             ],
             [
-              -20,
-              36
+              -128.81,
+              403.15
             ],
             [
-              -4,
-              10
+              -72.52,
+              333.3
             ],
             [
-              16,
-              -6
+              -47.01,
+              270.05
             ],
             [
-              48,
-              8
+              -30.95,
+              153.72
             ],
             [
-              80,
-              26
+              -35.9,
+              46.37
             ],
             [
-              112,
-              42
+              2.85,
+              -11.53
             ],
             [
-              138,
-              58
+              30.08,
+              -10.24
             ],
             [
-              152,
-              86
+              117.72,
+              49.54
             ],
             [
-              172,
-              108
+              187.67,
+              148.09
             ],
             [
-              230,
-              118
+              229.03,
+              122.13
             ],
             [
-              340,
-              126
+              408.6,
+              106.27
             ],
             [
-              340,
-              340
+              443.62,
+              90.33
+            ],
+            [
+              470.78,
+              101.76
+            ],
+            [
+              831.2,
+              92.54
+            ],
+            [
+              896.6,
+              133.02
+            ],
+            [
+              986.7,
+              249.38
+            ],
+            [
+              1070.91,
+              298.94
+            ],
+            [
+              1212.54,
+              321.44
+            ],
+            [
+              1372.04,
+              276.18
+            ],
+            [
+              1405.51,
+              283.39
+            ],
+            [
+              1372.66,
+              405.91
+            ],
+            [
+              1374.59,
+              550.88
+            ],
+            [
+              1342.67,
+              635
+            ],
+            [
+              1344.89,
+              848.82
+            ],
+            [
+              1304.49,
+              948.71
+            ],
+            [
+              1243.17,
+              1043.82
+            ],
+            [
+              1221.78,
+              1120
+            ],
+            [
+              -441.48,
+              1120
             ]
           ]
         ],
@@ -102,7 +166,7 @@
           "chicagology_prefire273",
           "white_1978_inai"
         ],
-        "note": "Andreas: 'The West Side was an open prairie, entirely free from timber, except for a grove up the South Branch', and the South Side was 'low and marshy ground' under 'a free and boundless prospect of open prairie'. That is documented. The BOUNDARY is not: the community is placed by elevation against the committed heightfield, taking every land surface from 0.50 m above the datum water (above the marshy shore strip) up to the top of the plain, and the North Division is excluded by polygon because Andreas documents it as timbered. No survey drew these lines."
+        "note": "Andreas: 'The West Side was an open prairie, entirely free from timber, except for a grove up the South Branch', and the South Side was 'low and marshy ground' under 'a free and boundless prospect of open prairie'. That is documented. The BOUNDARY is not: the community is placed by elevation against the committed heightfield, taking every land surface from 0.50 m above the datum water (above the marshy shore strip) up to the top of the plain, and the North Division is excluded by polygon because Andreas documents it as timbered. No survey drew these lines. T-1722: THE EXCLUSION RING IS NO LONGER HAND-CARRIED. It is the same ring the dense timber north-east of the forks holds, derived from the committed North Division waterline by tools/measure_northern_ground.py and written into all three records and the manifest together; the gate in that tool fails the commit if the four ever drift apart. It was cut to the old box at N +340 and E +340, so every acre of the division north of Michigan Street was matching these bands and drawing prairie over Andreas's timber."
       },
       "ground_rgb": [
         72,
@@ -132,87 +196,151 @@
         "exclude_polygons": [
           [
             [
-              -60,
-              340
+              -441.48,
+              1076.41
             ],
             [
-              -52,
-              300
+              -433.81,
+              843.23
             ],
             [
-              -44,
-              262
+              -421.04,
+              809.44
             ],
             [
-              -32,
-              220
+              -393.57,
+              770.15
             ],
             [
-              -32,
-              180
+              -303.86,
+              716.93
             ],
             [
-              -30,
-              120
+              -272.92,
+              679.89
             ],
             [
-              -28,
-              60
+              -144.17,
+              403.56
             ],
             [
-              -20,
-              36
+              -128.81,
+              403.15
             ],
             [
-              -4,
-              10
+              -72.52,
+              333.3
             ],
             [
-              16,
-              -6
+              -47.01,
+              270.05
             ],
             [
-              48,
-              8
+              -30.95,
+              153.72
             ],
             [
-              80,
-              26
+              -35.9,
+              46.37
             ],
             [
-              112,
-              42
+              2.85,
+              -11.53
             ],
             [
-              138,
-              58
+              30.08,
+              -10.24
             ],
             [
-              152,
-              86
+              117.72,
+              49.54
             ],
             [
-              172,
-              108
+              187.67,
+              148.09
             ],
             [
-              230,
-              118
+              229.03,
+              122.13
             ],
             [
-              340,
-              126
+              408.6,
+              106.27
             ],
             [
-              340,
-              340
+              443.62,
+              90.33
+            ],
+            [
+              470.78,
+              101.76
+            ],
+            [
+              831.2,
+              92.54
+            ],
+            [
+              896.6,
+              133.02
+            ],
+            [
+              986.7,
+              249.38
+            ],
+            [
+              1070.91,
+              298.94
+            ],
+            [
+              1212.54,
+              321.44
+            ],
+            [
+              1372.04,
+              276.18
+            ],
+            [
+              1405.51,
+              283.39
+            ],
+            [
+              1372.66,
+              405.91
+            ],
+            [
+              1374.59,
+              550.88
+            ],
+            [
+              1342.67,
+              635
+            ],
+            [
+              1344.89,
+              848.82
+            ],
+            [
+              1304.49,
+              948.71
+            ],
+            [
+              1243.17,
+              1043.82
+            ],
+            [
+              1221.78,
+              1120
+            ],
+            [
+              -441.48,
+              1120
             ]
           ]
         ],
         "priority": 22,
         "confidence": "inferred",
         "sources": [],
-        "note": "There is no survey of the wet/mesic boundary at the forks and no source distinguishes them here at all. This takes the highest ground in the committed heightfield (1.18 m and up, the inland crest of the West Division, about 3.9 ft above the water, at the top of the terrain spec's +3 to +6 ft range for that division) as the drier community. It is a reading of the terrain, not evidence, and a critic should treat the line as ours."
+        "note": "There is no survey of the wet/mesic boundary at the forks and no source distinguishes them here at all. This takes the highest ground in the committed heightfield (1.18 m and up, the inland crest of the West Division, about 3.9 ft above the water, at the top of the terrain spec's +3 to +6 ft range for that division) as the drier community. It is a reading of the terrain, not evidence, and a critic should treat the line as ours. T-1722: THE EXCLUSION RING IS NO LONGER HAND-CARRIED. It is the same ring the dense timber north-east of the forks holds, derived from the committed North Division waterline by tools/measure_northern_ground.py and written into all three records and the manifest together; the gate in that tool fails the commit if the four ever drift apart. It was cut to the old box at N +340 and E +340, so every acre of the division north of Michigan Street was matching these bands and drawing prairie over Andreas's timber."
       },
       "ground_rgb": [
         86,
@@ -510,88 +638,153 @@
         "kind": "polygon",
         "polygon": [
           [
-            -60,
-            340
+            -441.48,
+            1076.41
           ],
           [
-            -52,
-            300
+            -433.81,
+            843.23
           ],
           [
-            -44,
-            262
+            -421.04,
+            809.44
           ],
           [
-            -32,
-            220
+            -393.57,
+            770.15
           ],
           [
-            -32,
-            180
+            -303.86,
+            716.93
           ],
           [
-            -30,
-            120
+            -272.92,
+            679.89
           ],
           [
-            -28,
-            60
+            -144.17,
+            403.56
           ],
           [
-            -20,
-            36
+            -128.81,
+            403.15
           ],
           [
-            -4,
-            10
+            -72.52,
+            333.3
           ],
           [
-            16,
-            -6
+            -47.01,
+            270.05
           ],
           [
-            48,
-            8
+            -30.95,
+            153.72
           ],
           [
-            80,
-            26
+            -35.9,
+            46.37
           ],
           [
-            112,
-            42
+            2.85,
+            -11.53
           ],
           [
-            138,
-            58
+            30.08,
+            -10.24
           ],
           [
-            152,
-            86
+            117.72,
+            49.54
           ],
           [
-            172,
-            108
+            187.67,
+            148.09
           ],
           [
-            230,
-            118
+            229.03,
+            122.13
           ],
           [
-            340,
-            126
+            408.6,
+            106.27
           ],
           [
-            340,
-            340
+            443.62,
+            90.33
+          ],
+          [
+            470.78,
+            101.76
+          ],
+          [
+            831.2,
+            92.54
+          ],
+          [
+            896.6,
+            133.02
+          ],
+          [
+            986.7,
+            249.38
+          ],
+          [
+            1070.91,
+            298.94
+          ],
+          [
+            1212.54,
+            321.44
+          ],
+          [
+            1372.04,
+            276.18
+          ],
+          [
+            1405.51,
+            283.39
+          ],
+          [
+            1372.66,
+            405.91
+          ],
+          [
+            1374.59,
+            550.88
+          ],
+          [
+            1342.67,
+            635
+          ],
+          [
+            1344.89,
+            848.82
+          ],
+          [
+            1304.49,
+            948.71
+          ],
+          [
+            1243.17,
+            1043.82
+          ],
+          [
+            1221.78,
+            1120
+          ],
+          [
+            -441.48,
+            1120
           ]
         ],
         "priority": 25,
         "confidence": "inferred",
         "sources": [
-          "chicagology_prefire273"
+          "chicagology_prefire273",
+          "wright_1834"
         ],
-        "note": "The polygon is the North Division inside the box: the land north of the main stem and east of the North Branch, traced off the waterline of the committed heightfield. Andreas documents the North Side as carrying 'a body of thrifty heavy growth of timber', excepting the sandy hills near the lake and the marshy places, which is why the whole division is timbered here. The 1821 surveyor's 'swampy timber thicket' note that gives the community its character is on the section 4-5 line about 2.5 km NORTH of this box, so the composition is carried down to this stand by inference, not by a survey of it."
+        "note": "The polygon is the North Division inside the box: the land north of the main stem and east of the North Branch, traced off the waterline of the committed heightfield. Andreas documents the North Side as carrying 'a body of thrifty heavy growth of timber', excepting the sandy hills near the lake and the marshy places, which is why the whole division is timbered here. The 1821 surveyor's 'swampy timber thicket' note that gives the community its character is on the section 4-5 line about 2.5 km NORTH of this box, so the composition is carried down to this stand by inference, not by a survey of it. T-1722 RE-DERIVED IT, AND THE OLD RING WAS THE BOX AND NOT THE DIVISION. Until this commit the polygon ran 19 vertices with a straight edge along N +340 and a second along E +340 — the walls of the box as it stood before the terrain extension carried the field to N +1120 and E +1700. Neither was a boundary of anything, and north of Michigan Street the whole division — Kinzie's Addition, the Rush–Pine fringe, the ground behind the lake shore — was falling through to the two prairie elevation bands and rendering as open prairie, against the sentence above. The ring is now DERIVED, by tools/measure_northern_ground.py, from the three runs of waterline the terrain spec itself tags `division: north_division`: north_branch_east_bank (branches.geojson), north_division_shore (river.geojson) and north_shore_harbor_reach (shoreline.geojson), walked in that order from the branch's traced head down to the forks, east along the main stem and north up the lake shore. 155.11 ha against 10.11 ha. Simplified at 10 m, half the ±20 m affine residual every vertex on those runs already carries, so the tolerance is drafting and not a claim. THE ONE INFERENCE IN IT is the close: north of the last traced bank vertex at N +1076.41 — Wright's own north survey line — the boundary is carried straight north to the box wall at N +1120, because the trace ends there and the ground does not. Andreas's exception clause is not cut out of this ring and does not need to be: at priority 25 the timber sits under riverbank timber (30), sand prairie (40), lakeshore (45), sedge meadow (55) and marsh (70), so the sandy hills near the lake and the marshy places win the overlap wherever they stand. The timber is the FLOOR of the North Division, which is the shape of the sentence that documents it."
       },
       "ground_rgb": [
         52,
