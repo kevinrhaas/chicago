@@ -305,21 +305,6 @@
      "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
     }
    ],
-   "profile_facts": [
-    {
-     "field": "life_event",
-     "value": "Bought Chicago land and original-town lots",
-     "confidence": "inferred",
-     "sources": [
-      "cpl_john_s_wright_papers"
-     ],
-     "describes_date": "1835-01-01",
-     "place_class": "chicago",
-     "record_id": "resident_research:T-0479#01",
-     "as_read": "identifies John S. Wright's Chicago land purchases and original-town lots",
-     "note": "Landholding, stated by the library's finding aid. The block is explicit that later deed dates are not back-projected, and this row carries no deed date."
-    }
-   ],
    "roles": [
     {
      "role": "clerk",
@@ -399,6 +384,19 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('wright_john_s:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "landholding": {
+    "value": "Chicago land purchases and lots in the original town",
+    "confidence": "inferred",
+    "sources": [
+     "cpl_john_s_wright_papers",
+     "wright_in_memoriam_1885"
+    ],
+    "describes_date": "1835-01-01",
+    "place_class": "chicago",
+    "record_id": "resident_research:T-0479#01",
+    "as_read": "identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology",
+    "note": "A LANDHOLDING, AND THE CARD NOW HAS A FIELD THAT SAYS SO. The library's finding aid states the purchases and the original-town lots; the 1885 In Memoriam is cited beside it for what it actually does, which is to anchor WHICH John Wright this is — the card carries a father and a son of nearly the same name in one household — and not to add a lot. No parcel, no block and no number is stated by either, so the value says what was held and not how much: the finding aid's own later deed dates are read as a separate row and withheld `later_only`. Nothing here moves a confidence, seats a lot on the ground or makes this man a landlord of the two buildings his father advertised to let."
    }
   }
  ],

@@ -806,10 +806,41 @@ const FACT_LABELS = new Map([
   ['death', 'Died'],
   ['marriage', 'Married'],
   ['life_event', 'What the sources record'],
+  // `landholding` is spent as its own block and never appears in this list —
+  // see landholdingHtml below. It is named here so the vocabulary stays complete.
+  ['landholding', 'Land held'],
   ['departure_from_chicago', 'Left Chicago'],
   ['workplace', 'Worked at'],
   ['role', 'Trade or office'],
 ]);
+
+/**
+ * WHAT THIS PERSON HELD (T-1588).
+ *
+ * Two readings in the cohort passes named a LANDHOLDING — John S. Wright's Chicago
+ * purchases and his lots in the original town, Paul Kingston as a Chicago landholder —
+ * and no field on any card said what a man owned, so both sat unspent in the research
+ * ledger under a rule whose name was the complaint. They were carried as `life_event`,
+ * the class for "anything else dated", which says that something happened to a man and
+ * not what he held.
+ *
+ * LAND HELD IS NOT LAND LIVED ON, and this row never reads as an address. The card's
+ * `lives_at` is a separate claim and may be null beside a holding: a man may own a lot
+ * he never built on, and Kingston's card places him nowhere at all. Nothing here seats a
+ * parcel on the ground — no source read for either of them states a block, a lot number
+ * or a price, so the value says what was held and never how much.
+ */
+function landholdingHtml(block, citationsById) {
+  if (!block || !block.value) return '';
+  const cites = (block.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
+  return `<dt>Land held</dt>
+    <dd>${swatch(block.confidence)}${escapeHtml(String(block.value))}
+      <br><span class="res-why">Describing ${escapeHtml(printedOn(block.describes_date))}.
+        <q>${escapeHtml(String(block.as_read ?? ''))}</q> ${escapeHtml(String(block.note ?? ''))}
+        A holding is not a residence and is not drawn on the ground: this card's address,
+        where it has one, is a separate claim. Record ${escapeHtml(String(block.record_id))}.</span>
+      ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
+}
 
 function profileFactsHtml(facts, citationsById) {
   const rows = (facts || []).filter(Boolean);
@@ -1654,6 +1685,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
       ${person.note ? `<dt>What the sources say</dt><dd>${escapeHtml(person.note)}</dd>` : ''}
       ${reconstructionHtml(person)}
       ${nameRulingHtml(person.name_ruling, citationsById)}
+      ${landholdingHtml(person.landholding, citationsById)}
       ${profileFactsHtml(person.profile_facts, citationsById)}
       ${withheldFactsHtml(withheldByPerson.get(person.id), citationsById)}
       ${evidenceLadderHtml(person, citationsById, ladderRules)}

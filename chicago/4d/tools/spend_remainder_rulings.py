@@ -363,41 +363,41 @@ RULES = {
             "against them, and that walk is what a post found in a volume still needs."
             " AND THE HAND-OFF IS T-1569 SINCE 2026-09-25: T-1189's own chain is spent — T-1432 and T-1433 done, T-1434 split to T-1448 (done, #40) and T-1449, whose pieces T-1461 and T-1462 are done — so the ticket that was going to do the walk has stopped without doing it. T-1569 is that walk, and it is a SPEND rather than a routing: the join those pieces built is what gives these twelve a field to be written into."),
     },
-    "the_enrichment_names_a_landholding_no_field_carries": {
-        "disposition": "unresolved",
-        # AND THE LANDHOLDING POINTER WENT THE WAY OF THE CIVIC ONE ABOVE, one day later and
-        # for the same reason (T-1584). T-1198 was split into T-1491, T-1492 and T-1493, and
-        # the chain's last live leaf T-1523 settled `done` at 22:35Z on 2026-09-25 — so these
-        # two units, which had not moved, were deferring to finished work and took four gate
-        # steps red with them on a clean `origin/dev`.
+    "the_landholding_is_written_onto_the_card_as_what_the_person_held": {
+        "disposition": "asserted",
+        # T-1588 SPENT THESE TWO, AND THE RULE THEY SAT UNDER IS GONE WITH THEM. Its name
+        # was the whole complaint -- `the_enrichment_names_a_landholding_no_field_carries`
+        # -- and it was true when it was written: the two readings named LAND, the layer
+        # had no field that said what a person held, and they had been parked behind
+        # T-1198 and then, when that chain closed, behind T-1588 itself. Carrying them as
+        # `life_event` -- the class for "anything else dated" -- recorded that something
+        # happened to a man and not what he owned.
         #
-        # T-1198's PIECES DO NOT COVER THEM. Those three built the address book, seated its
-        # reconstructed reach and made a seat navigable: they put HOUSEHOLDS on ground. What
-        # these two readings name is what a PERSON HELD — John S. Wright's Chicago purchases
-        # and original-town lots, Paul Kingston as a Chicago landholder — and a seat on the
-        # ground is not a field for that. So the hand-off is T-1588, filed beside T-1315,
-        # T-1335 and T-1569, which are this same shape for the dated births, the kin and the
-        # civic posts: a spend against the cards, with the field decided in writing first.
-        "ticket": "T-1588",
+        # `persons[].landholding` is that field, decided before it was written (the
+        # ticket's acceptance 2) and built in tools/spend_person_facts.py beside the
+        # candidate-fact table that already adjudicates these readings. It is a PERSON
+        # field and not a household one because `hh_wright_john` holds a father and a son
+        # of nearly the same name, and a household block would deal the son's lots to the
+        # father. Nothing was minted and no confidence moved: both blocks are `inferred`,
+        # exactly as the rows were, and they cite the volumes the findings carried.
         "statement": (
-            "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
-            "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
-            "extends the card and that no exact source-bearing structured field on that card "
-            "carries today. It is not refused, because it is true research; it is not written here, "
-            "because writing one attribute at a time, out of one pass and without the other sources "
-            "beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them "
-            "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
-            "fact it names; this unit's own note says which field that is. This one names LAND "
-            "rather than a trade or a roof -- a purchase, an original-town lot, a holding -- and "
-            "T-1198 was the pass that seats every attested and inferred household and business on "
-            "the ground its evidence allows, plural and dated, with no fabricated coordinates."
-            " AND THE HAND-OFF IS T-1588 SINCE 2026-09-25: T-1198 was split into T-1491, T-1492 "
-            "and T-1493 and the chain's last live leaf closed, so the ticket these two were "
-            "waiting on has stopped. Its pieces do not cover them either -- they built the "
-            "address book, seated its reconstructed reach and made a seat navigable, which puts "
-            "HOUSEHOLDS on ground and gives no field for what a PERSON HELD. T-1588 is that "
-            "spend, filed beside T-1315, T-1335 and T-1569 for the dated births, the kin and the "
-            "civic posts, and it decides the field in writing before writing anything into it."),
+            "The completed pass returned `corroborated_enrichment` naming a LANDHOLDING -- a "
+            "purchase, a lot in the original town, a holding a source states -- and T-1588 "
+            "WROTE IT ONTO THE CARD. Until then no field on a resident record said what a "
+            "person HELD, which is what the rule these two units used to sit under was named "
+            "for; they were carried in the candidate-fact table as `life_event`, the class for "
+            "anything else dated, which records that something happened to a man and not what "
+            "he owned. `persons[].landholding` is the field, written by "
+            "tools/spend_person_facts.py out of data/research/residents/person_fact_readings.json "
+            "and re-derived under that tool's --check, graded `inferred` and citing the volumes "
+            "the finding named rather than the one the reading was registered with -- which is "
+            "why the ledger's own derivation cannot see this spend and why the ruling has to "
+            "prove itself. The `wrote` list on each row names the record, the person and the "
+            "field, and tools/research_spend_ledger.py re-reads every one. A HOLDING IS NOT A "
+            "RESIDENCE and is never read as one: neither card gains an address, neither gains "
+            "a lot on the ground, no parcel or price is stated by any source read for them, "
+            "and Kingston's dated departure for Racine stays where it was, as "
+            "`departure_from_chicago`, whose spend is T-1354's."),
     },
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": {
         "disposition": "later_only",
@@ -842,7 +842,7 @@ KIN = "the_enrichment_names_kin_no_field_carries"
 # constant only says which of the 96 enrichments go to it (T-1469).
 TRADE = "routed_to_the_trade_and_premises_spend"
 CIVIC = "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"
-LAND = "the_enrichment_names_a_landholding_no_field_carries"
+LAND = "the_landholding_is_written_onto_the_card_as_what_the_person_held"
 LATER = "the_later_volume_enriches_a_biography_and_names_no_1835_field"
 
 ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
@@ -923,7 +923,7 @@ ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("10", "christy_nathan"): (CARRIED, "a dated 1834 letter-list appearance"),
     ("10", "cleland_martin"): (DEPARTURE, "an 1834 prospecting journey from Chautauqua, New York"),
     ("10", "vasseur_noel"): (CARRIED, "an 1835 postal list and an 1833 treaty schedule"),
-    ("11", "kingston_paul"): (LAND, "a Chicago landholding and a dated January 1835 departure"),
+    ("11", "kingston_paul"): (LAND, "a Chicago landholding, and a dated January 1835 departure which is T-1354's field and not this one's"),
     ("11", "lathrop_samuel_s"): (CIVIC, "First Baptist membership from October 1833"),
     ("12", "woodworth_james_h"): (CARRIED, "a move to Chicago in 1833"),
     ("14", "bailey_bennet"): (TRADE, "a carpenter and builder's trade printed in 1839"),
@@ -1002,6 +1002,17 @@ def rule_residents(unit: dict, finding: dict | None, preamble: str) -> tuple[str
         # found, and its note prints the finding beside the field that answers it.
         from spend_trade_premises import carrier_sentence, rule_for
         return (rule_for(key), carrier_sentence(key))
+    if rule == LAND:
+        # A SPENT UNIT'S NOTE SAYS WHERE IT WENT, not which ticket it was routed to
+        # (T-1588). The routing sentence below was right while these two were waiting;
+        # now that the field exists, the useful sentence is the field and the value.
+        return (rule,
+                f"The pass on {unit['source_record_id']} returned: “{summary}” "
+                f"Sources as recorded: {clip(sources, 180)}. T-1301 read that as {field}, "
+                f"and T-1588 wrote it onto the card as `persons[].landholding` — what this "
+                f"person HELD, graded inferred, citing the volume it was read off. A holding "
+                f"is not a residence: nothing on this card gained an address, a lot or a "
+                f"coordinate for it.")
     return (rule,
             f"The pass on {unit['source_record_id']} returned: “{summary}” "
             f"Sources as recorded: {clip(sources, 180)}. T-1301 reads that as {field}.")
@@ -1433,6 +1444,32 @@ def wrote_by_spend(person_id: str) -> list[dict]:
             for field in sorted(row["writes"])]
 
 
+def wrote_landholding(person_id: str) -> list[dict]:
+    """Where tools/spend_person_facts.py put this landholding (T-1588).
+
+    READ OFF THE RECORDS, not declared here, for the reason `wrote_by_spend` above is an
+    import: the pass that wrote the block is the one that knows where it went, and a
+    register that restates the destination in its own words is a second place for it to
+    drift from. A person the layer does not hold, or a holding that never landed, is a
+    SystemExit here rather than a `wrote` row the ledger will read as a proof and find
+    empty.
+    """
+    from spend_person_facts import PERSON_FIELDS, households_on_disk
+    field = PERSON_FIELDS["landholding"]
+    for path, household in households_on_disk():
+        for person in household.get("persons") or []:
+            if person.get("id") != person_id:
+                continue
+            if not isinstance(person.get(field), dict):
+                raise SystemExit(
+                    f"{person_id} is ruled a spent landholding and carries no {field} "
+                    f"block — run tools/spend_person_facts.py in this commit")
+            return [{"file": path.relative_to(ROOT).as_posix(),
+                     "person": person_id, "field": field}]
+    raise SystemExit(f"{person_id} is ruled a spent landholding and the layer holds no "
+                     f"person with that id")
+
+
 def corpus_ticket(unit: dict) -> str:
     """Which ticket's remainder this unit is (T-1509). The readings' own `kind` decides."""
     return BUSINESS_TICKET if unit["record"].get("kind") == "business" else TICKET
@@ -1449,6 +1486,10 @@ def build_documents(root: Path = ROOT) -> dict[str, dict]:
         if rule is None:                   # spent on a card; see church_appearance_rule
             continue
         row = {"unit": unit["unit_id"], "rule": rule, "note": note}
+        if rule == LAND:
+            # T-1588, and for the same reason as WRITTEN below: the pass that put the
+            # block on the card is the pass that says where it went.
+            row["wrote"] = wrote_landholding(unit["source_record_id"])
         if rule == WRITTEN:
             # THE FIELDS ARE THE WRITING PASS'S TO NAME, not this one's. Importing the
             # adjudication keeps one table in charge of both halves: the pass that put the
@@ -1787,7 +1828,7 @@ def self_test() -> int:
             ("a pre-scene engagement", "04", "handy_major", TRADE_UNREACHED),
             ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_CONTRADICTING),
             ("a county office", "04", "steele_ashbel", "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"),
-            ("a landholding", "05", "wright_john_s", "the_enrichment_names_a_landholding_no_field_carries"),
+            ("a landholding", "05", "wright_john_s", LAND),
             ("a later volume", "15", "doolittle_ehjah", "the_later_volume_enriches_a_biography_and_names_no_1835_field")):
         held(f"an enrichment naming {label}", enrichment(pass_no, person), want,
              fn=lambda u: rule_residents(u, {"outcome": "corroborated_enrichment",
