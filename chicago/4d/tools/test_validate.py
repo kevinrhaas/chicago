@@ -1710,7 +1710,10 @@ def test_declared_terrain_reads_are_real_reads() -> None:
     import re  # noqa: PLC0415
     root = Path(__file__).resolve().parent.parent
     T, _ = _terrain_inputs()
-    src = (root / "generators/terrain_gen.py").read_text()
+    # The 1835 generator and the graded one (T-1738) between them read every key
+    # CONSUMED declares; each block is read by the generator of the epoch it serves.
+    src = ((root / "generators/terrain_gen.py").read_text()
+           + (root / "generators/terrain_gen_graded.py").read_text())
 
     def reads(key: str) -> bool:
         return bool(re.search(rf"""\[\s*['"]{re.escape(key)}['"]\s*\]""", src)
