@@ -14092,13 +14092,16 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 415 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 419 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until three changes
 landed on the same day: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, and T-1714's three agency log buildings at the foot of State Street — each
 of the eleven states a roof type. T-1715's second garrison root-house makes 415, and it is
-the least of them: a flat earth bank states a roof type and carries no shingle at all. No record's `roof_type` or pitch
+the least of them: a flat earth bank states a roof type and carries no shingle at all.
+T-1736's first deal on blk_washington_clark makes 419: two frame cottages on the plat's last
+tier and the privy and woodshed in their yards, all four of them shingled by this exposure
+like every other frame roof the block recipe raises. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
