@@ -2358,6 +2358,10 @@ async function boot() {
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
   function goToTarget(target) {
+    // Explicit coordinate viewpoints predate the shared picker and are used by
+    // the scene measurement harness. Named picker rows still resolve strictly.
+    if (!target?.id && target?.kind === 'intersection'
+        && Number.isFinite(target.local_e) && Number.isFinite(target.local_n)) return travel.go(target);
     const resolved = destinations.resolve(target);
     if (!resolved) {
       const row = target && destinations.byId(target.kind, target.id);
@@ -2420,7 +2424,20 @@ async function boot() {
       : 'W A S D to walk · E to inspect what you are looking at');
     return true;
   }
+  api.jaunts = { catalog: null };
+  let jauntPreview;
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
+    onJaunts: async () => {
+      const root = document.getElementById('welcome-jaunts-content');
+      try {
+        root.setAttribute('aria-busy', 'true');
+        const { createJauntPreview } = await import('./jaunt-preview.js');
+        jauntPreview ??= createJauntPreview({ root, dataBase: bases.dataBase, destinations, api: api.jaunts });
+        await jauntPreview.open();
+      } catch {
+        root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
+      } finally { root.removeAttribute('aria-busy'); }
+    },
     enter: target => enterWorld({ spawn: target }),
     resume: () => enterWorld({ resume: true }),
     pause: () => {

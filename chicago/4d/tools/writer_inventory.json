@@ -1565,6 +1565,13 @@
       "measured": "2026-09-26",
       "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
       "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
+    },
+    "compile_jaunts.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-27",
+      "finding": "Reproduces: staged catalog.json and new-in-chicago.json, ran bare compiler, and git diff --exit-code over those outputs reported no changed byte. Fixture expansion and two independent in-memory builds are also tested.",
+      "placed": "after compile_scene.py and before compile_source_use.py: destinations first, jaunt claims second, source backlinks last (T-1253)"
     }
   }
 }

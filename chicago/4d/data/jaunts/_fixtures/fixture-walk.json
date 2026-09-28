@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "id": "fixture-walk",
+  "content_version": 1,
+  "title": "Two-stop fixture",
+  "premise": "Find your bearings, a bed and a practical next step on an imagined first day in town.",
+  "category": "Orientation",
+  "scene": "1835",
+  "featured": true,
+  "opening": {
+    "text": "A few familiar corners can make a new town feel smaller. Preview five exterior stops and the evidence behind them. This first-day outing is a narrative reconstruction; no conversation, booking or purchase is claimed as history.",
+    "read_s": 15
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {},
+  "stops": [
+    {
+      "id": "arrival",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
+      "read_s": 22,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "sauganash",
+        "continuity",
+        "outing"
+      ],
+      "next": "mail-corner"
+    },
+    {
+      "id": "mail-corner",
+      "destination": {
+        "kind": "structure",
+        "id": "hogan_store"
+      },
+      "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
+      "read_s": 22,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "hogan_store",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "mail",
+        "continuity",
+        "outing"
+      ],
+      "next": "$end"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finding-your-feet",
+      "text": "You have a few names and corners to connect. Your imagined route note is a beginning, not a record of a historical journey.",
+      "read_s": 12,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "finding-your-feet",
+    "title": "Finding Your Feet",
+    "text": "A fictional route note linking five first-day landmarks."
+  },
+  "evidence": [
+    {
+      "id": "sauganash",
+      "text": "Kinzie describes the Sauganash in 1831 as a white two-storey building with blue shutters.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Chapter XVII, Chicago in 1831; description of Mark Beaubien’s newly completed house."
+    },
+    {
+      "id": "mail",
+      "text": "Hogan’s store housed the post office in 1833; the office moved to Franklin and South Water about July 1834.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed pp. 139–140, Postal Affairs; removal paragraph on p. 140."
+    },
+    {
+      "id": "peck",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck’s two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "democrat",
+      "text": "The Democrat’s first issue places its office at South Water and Clark; by 20 May 1835 its colophon places it over Jones and King’s hardware store.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "26 Nov 1833, imprint; 20 May 1835, p. 4, col. 6, colophon (transcription lines 4177–4180)."
+    },
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as a boarding-house keeper in his account of 1833, and places Brown’s log house behind Peck’s store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "continuity",
+      "text": "The early lodging and store sites are treated as orientation stops in the July 1835 reconstruction; earlier descriptions do not prove a vacancy or a transaction that day.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Uses the existing scene-date structure phases and their continuity arguments. Stop labels are building identities, not proof of continuing tenancies. Brown’s absolute placement is reconstructed; the other four positions are inferred."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor’s first-day errand, optional preference, route note, timing inputs and Finding Your Feet keepsake are invented connective narrative, not historical events.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-pilot"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-pilot"
+  ]
+}

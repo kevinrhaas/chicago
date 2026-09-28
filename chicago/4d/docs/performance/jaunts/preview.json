@@ -1,0 +1,46 @@
+[
+  {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "prefix": "/walk/",
+    "bootJauntRequests": 0,
+    "stops": 5,
+    "catalogAttempts": 2,
+    "contentAttempts": 2,
+    "requests": [
+      "http://127.0.0.1:36783/walk/js/jaunt-preview.js",
+      "http://127.0.0.1:36783/data/sidecars/1835/jaunts/catalog.json",
+      "http://127.0.0.1:36783/data/sidecars/1835/jaunts/catalog.json",
+      "http://127.0.0.1:36783/data/sidecars/1835/jaunts/new-in-chicago.json",
+      "http://127.0.0.1:36783/data/sidecars/1835/jaunts/new-in-chicago.json"
+    ],
+    "pageErrors": []
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "prefix": "/dev/walk/",
+    "bootJauntRequests": 0,
+    "stops": 5,
+    "catalogAttempts": 2,
+    "contentAttempts": 2,
+    "requests": [
+      "http://127.0.0.1:36783/dev/walk/js/jaunt-preview.js",
+      "http://127.0.0.1:36783/dev/data/sidecars/1835/jaunts/catalog.json",
+      "http://127.0.0.1:36783/dev/data/sidecars/1835/jaunts/catalog.json",
+      "http://127.0.0.1:36783/dev/data/sidecars/1835/jaunts/new-in-chicago.json",
+      "http://127.0.0.1:36783/dev/data/sidecars/1835/jaunts/new-in-chicago.json"
+    ],
+    "pageErrors": []
+  },
+  {
+    "unavailable": {
+      "text": "A first look at the stories taking shape. Read a route here; guided travel will follow.Awaiting reviewOrientation · 2 stops · WayfindingA held story.Unavailable — Consultation required.",
+      "buttons": 0
+    }
+  }
+]
