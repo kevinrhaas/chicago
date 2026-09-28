@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1203, ts: '2026-09-28T09:33:39.582Z', date: 'Sep 28, 2026, 4:33 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
+  { v: null, ts: '', title: 'Three log houses stand again round the old Agency House', kind: 'change',
     items: [
       'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
       'Two men who had no home in this town now have one. David McKee, the agency\u2019s blacksmith, and Joseph Porthier, who struck for him at the anvil: open either card and it names the house. McKee\u2019s card used to say that the buildings he is described in were not in this dataset at all, which was the plain truth and is no longer.',
       'The third house is raised and deliberately left empty. Andreas names Billy Caldwell, the agency\u2019s interpreter, in one of these buildings \u2014 but the same book gives him a frame house well to the north as well, and nothing dates either of them to this summer. Drawing one of the two is not choosing between them, so that roof carries no occupant and says why.',
       'Nothing is known about the shape of any of them, and the records say so plainly. The sources are unusually good on who slept here and silent on everything a visitor can actually see: no size, no place of its own, no bearing. The footprints are placeholders, the positions are offsets from the agency house, and the whole invention is written down.',
       'No fourth house for the \u201Claborers\u201D the same sentence mentions. That is a plural noun and not a count, and this town does not draw people out of one.',
+    ] },
+  { v: 1203, ts: '2026-09-28T08:52:37.417Z', date: 'Sep 28, 2026, 3:52 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
+      'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
+      'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
     ] },
   { v: 1202, ts: '2026-09-28T07:54:59.813Z', date: 'Sep 28, 2026, 2:54 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
     items: [
