@@ -1,3 +1,59 @@
+## T-1735 — the first block of the plat's last tier built to its seats (2026-09-28)
+
+`blk_washington_lasalle` — Washington to Madison, LaSalle to Clark, the south-west
+block of the tier T-1707's street control emitted — stood empty and now carries
+**eleven anonymous roofs**: seven principal dwellings, one per lot on seven of its
+eight lots, and four yard buildings off the mid-block alley. Lot 1, the
+LaSalle-and-Madison corner, is left open. The 665-roof programme apportions the
+block 31 roofs of capacity and 27 of headroom over eight free lots, and its
+principal ceiling is seven — three party-line units per free lot less the one the
+sizing reserves, which on a block with no frontage run resolves to one roof per lot.
+The deal takes the ceiling and stops.
+
+**Every dwelling was asked for, and that is the first time.** T-1613's platted
+seating found no free roof of an admitted family in the South Division for seven
+banded households and wrote seven `slot` rows against this block's own committed
+family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
+A request is not evidence: the roofs grade at the bottom tier with the same
+reasoning notes as every other anonymous count-unit, and the liberty is **L287**.
+
+**The face argument.** Washington is opened, worn and graded `light`; Madison is
+platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
+So the four better dwellings take the Washington tier (H2 8.71 × 10.26 m on lot 0 at
+the LaSalle corner, H1 7.83 × 10.62 m on lot 2, H1 7.85 × 9.64 m on lot 4, D7
+6.79 × 9.64 m on lot 6) and the three meanest take Madison (D7 6.63 × 9.26 m on lot
+3, D3 5.22 × 6.90 m on lot 5, D3 5.41 × 6.91 m on lot 7). The D7 pair straddles the
+break because the request holds two and the better face has four lots. Yard
+buildings: a stable behind the merchant's house on lot 0, a privy behind the H1 on
+lot 2, a privy behind the D7 on lot 3, a woodshed behind the D3 on lot 5 — four of
+the six the schedule apportions, which is inside the ceiling and is not a refusal of
+the other two. No coordinate is authored; every metre is a committed lot polygon and
+every dimension a family band. The block's ground reads dry, 420 samples between
+0.86 m and 0.91 m above datum.
+
+**THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and it is
+reported rather than tidied.** The seating pass is re-derived whole in the placement
+policy's clause order, so the seven roofs went to the seven households the policy
+ranks first among those an admitted family on this block will hold. One of the
+original seven, `hh_baines_robert`, is among them; the other six are re-slotted onto
+the four Washington-tier blocks still standing empty — `blk_washington_clark`,
+`_franklin`, `_market` and `_wells`, seven slots apiece, 28 in all. Platted
+adoptions 109 → 114, slots 30 → 28, seated 139 → 142, owed 1,339 → 1,336. The town
+census reads 432 buildings standing of 668.
+
+**The order book's south ordinary-dwellings row is handed to T-1736, and that is the
+point of this ticket's filing.** The row named T-1708, whose documented successor
+T-1710 was split the day it was written down; T-1735 was filed to be the next live
+owner and it closes here, which is the `review`-then-`done` trap T-1681's row fell
+into. So the row goes to a ticket that outlives this pull request. The cell reads 176
+target, 114 standing, 62 to build, and T-1736 is the first of the four remaining
+blocks by name. `build_order_book_1835.py`'s seating tripwire is restated from 211 to
+**214** with the ruling behind the three seats, not quietly re-summed.
+
+**Verification.** `tools/check.sh` green; `validate.py --all` 0 errors; the eleven
+meshes baked with `bake.sh --only` and their web derivatives recorded; the smoke
+parts `smoke_budget.mjs --for-diff` named for this diff run in the foreground.
+
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 
 Jaunt cards and the persistent controls offer Walk, Wagon, Horse, Fly and Instantly.
