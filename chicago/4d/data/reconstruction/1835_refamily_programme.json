@@ -40,36 +40,36 @@
   "the_programme_in_four_numbers": {
     "held_when_the_ruling_was_made": 524,
     "moves_T_1556_named": 265,
-    "moves_the_rule_yields": 129,
-    "people_still_held_when_it_is_spent": 395,
-    "the_remedy_reaches": 0.2462
+    "moves_the_rule_yields": 140,
+    "people_still_held_when_it_is_spent": 384,
+    "the_remedy_reaches": 0.2672
   },
   "where_the_programme_stands": {
-    "moves_made": 129,
+    "moves_made": 140,
     "moves_outstanding": 0,
     "outstanding_by_the_ticket_the_move_names": [],
-    "surplus_still_held_today": 395
+    "surplus_still_held_today": 384
   },
   "what_it_is_left_holding": {
-    "people": 395,
-    "buckets": 44,
+    "people": 384,
+    "buckets": 43,
     "buckets_cleared": 0,
-    "of_refused_buckets": 44,
+    "of_refused_buckets": 43,
     "by_family": [
       {
         "sex": "female",
         "age_band": "under_10",
-        "people_still_held": 69
+        "people_still_held": 67
       },
       {
         "sex": "male",
         "age_band": "under_10",
-        "people_still_held": 69
+        "people_still_held": 64
       },
       {
         "sex": "female",
         "age_band": "20_29",
-        "people_still_held": 64
+        "people_still_held": 62
       },
       {
         "sex": "male",
@@ -79,7 +79,7 @@
       {
         "sex": "female",
         "age_band": "10_19",
-        "people_still_held": 39
+        "people_still_held": 38
       },
       {
         "sex": "male",
@@ -99,7 +99,7 @@
       {
         "sex": "female",
         "age_band": "40_49",
-        "people_still_held": 9
+        "people_still_held": 8
       },
       {
         "sex": "male",
@@ -117,29 +117,29 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 43 if the household kind changed too, 105 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 29 if the household kind changed too, 96 if the trade could change as well, and 140 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
-    "still_owed_now": 299,
-    "still_owed_when_the_programme_is_spent": 299,
+    "still_owed_now": 279,
+    "still_owed_when_the_programme_is_spent": 279,
     "persons_standing_in_the_layer": 2381,
-    "converges_to_now": 2680,
-    "converges_to_when_the_programme_is_spent": 2680,
+    "converges_to_now": 2660,
+    "converges_to_when_the_programme_is_spent": 2660,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,680 is inside the model's 2,362-3,265 and 137 above its 2,543 point, against 137 above it today.",
+    "reading": "2,660 is inside the model's 2,362-3,265 and 117 above its 2,543 point, against 117 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 2551,
-      "this_report_says": 2680,
+      "the_rule_says": 2520,
+      "this_report_says": 2660,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },
   "the_residue_and_the_ruling_on_it": {
-    "people_still_held": 395,
-    "buckets_they_are_held_in": 44,
+    "people_still_held": 384,
+    "buckets_they_are_held_in": 43,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
@@ -147,7 +147,7 @@
       },
       {
         "refusal": "the_re_cut_reached_work_already_drawn",
-        "people": 394
+        "people": 383
       }
     ],
     "the_programme_is_settled": true,
@@ -161,12 +161,12 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 223 people under twenty and 105 adult women, and their cells hold 37 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 215 people under twenty and 102 adult women, and their cells hold 23 and 6 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "277 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "275 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 151 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
@@ -242,24 +242,14 @@
       "surplus_when_the_programme_is_spent": 20
     },
     {
-      "bucket": "persons/male/under_10/north/family/none",
-      "owning_ticket": "T-1174",
-      "held_at": 44,
-      "the_re_cut_would_have_ordered": 28,
-      "surplus_still_held": 16,
-      "refamilied_out_already": 7,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 16
-    },
-    {
       "bucket": "persons/female/under_10/north/family/none",
       "owning_ticket": "T-1174",
-      "held_at": 41,
+      "held_at": 39,
       "the_re_cut_would_have_ordered": 26,
-      "surplus_still_held": 15,
-      "refamilied_out_already": 4,
+      "surplus_still_held": 13,
+      "refamilied_out_already": 6,
       "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 15
+      "surplus_when_the_programme_is_spent": 13
     },
     {
       "bucket": "persons/male/30_39/south/family/trade",
@@ -270,16 +260,6 @@
       "refamilied_out_already": 3,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 13
-    },
-    {
-      "bucket": "persons/female/20_29/south/family/trade",
-      "owning_ticket": "T-1347",
-      "held_at": 30,
-      "the_re_cut_would_have_ordered": 19,
-      "surplus_still_held": 11,
-      "refamilied_out_already": 5,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 11
     },
     {
       "bucket": "persons/female/30_39/south/family/none",
@@ -312,24 +292,44 @@
       "surplus_when_the_programme_is_spent": 11
     },
     {
-      "bucket": "persons/female/20_29/north/family/none",
+      "bucket": "persons/male/under_10/north/family/none",
       "owning_ticket": "T-1174",
-      "held_at": 26,
-      "the_re_cut_would_have_ordered": 16,
+      "held_at": 39,
+      "the_re_cut_would_have_ordered": 28,
+      "surplus_still_held": 11,
+      "refamilied_out_already": 12,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 11
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 29,
+      "the_re_cut_would_have_ordered": 19,
       "surplus_still_held": 10,
-      "refamilied_out_already": 2,
+      "refamilied_out_already": 6,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 10
     },
     {
-      "bucket": "persons/female/10_19/north/family/none",
+      "bucket": "persons/female/20_29/north/family/none",
       "owning_ticket": "T-1174",
-      "held_at": 24,
-      "the_re_cut_would_have_ordered": 15,
+      "held_at": 25,
+      "the_re_cut_would_have_ordered": 16,
       "surplus_still_held": 9,
-      "refamilied_out_already": 2,
+      "refamilied_out_already": 3,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 9
+    },
+    {
+      "bucket": "persons/female/10_19/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 23,
+      "the_re_cut_would_have_ordered": 15,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
     },
     {
       "bucket": "persons/female/10_19/west/family/none",
@@ -532,16 +532,6 @@
       "surplus_when_the_programme_is_spent": 1
     },
     {
-      "bucket": "persons/female/40_49/north/family/none",
-      "owning_ticket": "T-1174",
-      "held_at": 4,
-      "the_re_cut_would_have_ordered": 3,
-      "surplus_still_held": 1,
-      "refamilied_out_already": 1,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 1
-    },
-    {
       "bucket": "persons/female/40_49/west/family/trade",
       "owning_ticket": "T-1347",
       "held_at": 2,
@@ -572,7 +562,7 @@
       "surplus_when_the_programme_is_spent": 1
     },
     {
-      "bucket": "persons/male/10_19/west/lodging/trade",
+      "bucket": "persons/male/10_19/north/lodging/trade",
       "owning_ticket": "T-1532",
       "held_at": 1,
       "the_re_cut_would_have_ordered": 0,

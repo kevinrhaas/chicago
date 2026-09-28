@@ -266,16 +266,16 @@
    "structure": 119
   },
   "by_band": {
-   "north/division_ground": 13,
+   "north/division_ground": 12,
    "north/farms_and_country_seats": 58,
    "north/heavy_and_noxious_trades": 1,
-   "north/labourer_dwellings": 26,
+   "north/labourer_dwellings": 25,
    "north/merchant_and_professional_dwellings": 88,
    "north/tradesman_dwellings": 139,
-   "south/division_ground": 31,
+   "south/division_ground": 32,
    "south/farms_and_country_seats": 102,
    "south/heavy_and_noxious_trades": 1,
-   "south/labourer_dwellings": 97,
+   "south/labourer_dwellings": 98,
    "south/lodging_near_the_landings": 2,
    "south/merchant_and_professional_dwellings": 242,
    "south/tradesman_dwellings": 379,
@@ -7011,15 +7011,15 @@
     "on": "blk_washington_wells#02",
     "block_id": "blk_washington_wells",
     "fronts": "washington",
-    "family": "H1",
+    "family": "H2",
     "clause": "merchant_and_professional_dwellings",
     "district": "south",
     "stands_on": "lot",
     "deal_seed": "hh_benediet_loma|T-1522|division:6b02422e10fb|class:618132f4aeee",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
     "owed_to": "T-1200..T-1214",
     "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_washington_wells#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+    "words": "The placement policy deals this household a place on blk_washington_wells#02 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H2 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
    }
   },
   {
@@ -45678,25 +45678,25 @@
   {
    "id": "hh_rc_carroll_ellen",
    "kind": "household",
-   "name": "Reconstructed household — Ellen Carroll, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Ellen Carroll, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "north/labourer_dwellings",
-    "division": "north",
+    "id": "south/labourer_dwellings",
+    "division": "south",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "north",
-   "division": "north",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "north/labourer_dwellings",
+    "band": "south/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -45704,10 +45704,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_carroll_ellen|north|laundress|T-1512",
+   "seed": "hh_rc_carroll_ellen|south|laundress|T-1512",
    "dealt_roof": null
   },
   {
@@ -49293,25 +49293,25 @@
   {
    "id": "hh_rc_vieau_angelique",
    "kind": "household",
-   "name": "Reconstructed household — Angelique Vieau, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Angelique Vieau, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "north/division_ground",
-    "division": "north",
+    "id": "south/division_ground",
+    "division": "south",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "north",
-   "division": "north",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "north/division_ground",
+    "band": "south/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -49319,7 +49319,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_vieau_angelique|north|no_trade|T-1512",
+   "seed": "hh_rc_vieau_angelique|south|no_trade|T-1512",
    "dealt_roof": null
   },
   {
@@ -65839,14 +65839,14 @@
    "rung": "structure",
    "seat": {
     "kind": "structure",
-    "id": "kimberly_residence"
+    "id": "pruyne_kimball_drugstore"
    },
    "works_seat": null,
    "reach": "structure",
-   "reach_value": null,
+   "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'kimberly_residence' is a committed structure.",
+   "basis": "The advertisement's anchor reaches a roof and the register's enrich_existing target 'pruyne_kimball_drugstore' is a committed structure.",
    "words": "The advertisement's anchor reaches a roof this town has built, and the firm is seated on it.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,

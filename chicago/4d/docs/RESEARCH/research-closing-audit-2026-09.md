@@ -63,9 +63,9 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Division | Households |
 | --- | ---: |
 | fort | 13 |
-| north | 37 |
+| north | 35 |
 | outside_town | 1 |
-| south | 120 |
+| south | 122 |
 | unplaced | 1,305 |
 | west | 36 |
 

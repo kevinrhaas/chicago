@@ -13218,10 +13218,10 @@
   {
    "id": "hh_rc_carroll_ellen",
    "kind": "household",
-   "band": "north/labourer_dwellings",
+   "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_washington_franklin (blk_washington_franklin#01), blk_washington_lasalle (blk_washington_lasalle#01), blk_washington_market (blk_washington_market#01), blk_washington_wells (blk_washington_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -15648,9 +15648,9 @@
   {
    "id": "hh_rc_vieau_angelique",
    "kind": "household",
-   "band": "north/division_ground",
+   "band": "south/division_ground",
    "clause": "division_ground",
-   "district": "north",
+   "district": "south",
    "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
    "handed_to": "T-1614"
   },

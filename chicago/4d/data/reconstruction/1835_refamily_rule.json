@@ -5882,31 +5882,13 @@
       }
     },
     {
-      "person": "rc_carroll_ellen",
-      "household": "hh_rc_carroll_ellen",
-      "relationship": "head",
-      "stage": "women_and_children",
-      "ticket": "T-1174",
-      "bucket": "persons/female/40_49/north/family/none",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "hh_rc_carroll_ellen:rc_carroll_ellen",
-      "axes": {
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_carroll_ellen_1",
       "household": "hh_rc_carroll_ellen",
       "relationship": "son",
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_carroll_ellen:rc_carroll_ellen_1",
       "axes": {
@@ -5915,7 +5897,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_carroll_ellen_2",
@@ -5924,7 +5907,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/under_10/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_carroll_ellen:rc_carroll_ellen_2",
       "axes": {
@@ -5933,7 +5916,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_carroll_honora",
@@ -9654,37 +9638,13 @@
       }
     },
     {
-      "person": "rc_fisk_eliza",
-      "household": "hh_rc_fisk_eliza",
-      "relationship": "head",
-      "stage": "women_and_children",
-      "ticket": "T-1174",
-      "bucket": "persons/female/40_49/north/family/none",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "on_their_own_account",
-          "houses": []
-        }
-      ],
-      "deal_key": "hh_rc_fisk_eliza:rc_fisk_eliza",
-      "axes": {
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_fisk_eliza_1",
       "household": "hh_rc_fisk_eliza",
       "relationship": "son",
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "R_adopted",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_fisk_eliza:rc_fisk_eliza_1",
       "axes": {
@@ -9703,7 +9663,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "R_adopted",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_fisk_eliza:rc_fisk_eliza_2",
       "axes": {
@@ -9722,7 +9682,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "R_adopted",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_fisk_eliza:rc_fisk_eliza_3",
       "axes": {
@@ -9741,7 +9701,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "R_adopted",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_fisk_eliza:rc_fisk_eliza_4",
       "axes": {
@@ -11056,31 +11016,13 @@
       }
     },
     {
-      "person": "rc_gilbert_mary",
-      "household": "hh_rc_gilbert_mary",
-      "relationship": "head",
-      "stage": "women_and_children",
-      "ticket": "T-1174",
-      "bucket": "persons/female/40_49/north/family/none",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "hh_rc_gilbert_mary:rc_gilbert_mary",
-      "axes": {
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_gilbert_mary_1",
       "household": "hh_rc_gilbert_mary",
       "relationship": "daughter",
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/10_19/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_gilbert_mary:rc_gilbert_mary_1",
       "axes": {
@@ -11089,7 +11031,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_gilbert_mary_2",
@@ -11098,7 +11041,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/10_19/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_gilbert_mary:rc_gilbert_mary_2",
       "axes": {
@@ -11107,7 +11050,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_gilbert_mary_3",
@@ -11116,7 +11060,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/10_19/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_gilbert_mary:rc_gilbert_mary_3",
       "axes": {
@@ -11125,7 +11069,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_gilbert_mary_4",
@@ -11134,7 +11079,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/10_19/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_gilbert_mary:rc_gilbert_mary_4",
       "axes": {
@@ -11143,7 +11088,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_gilbert_nancy",
@@ -12747,31 +12693,13 @@
       }
     },
     {
-      "person": "rc_kelly_honora",
-      "household": "hh_rc_kelly_honora",
-      "relationship": "head",
-      "stage": "women_and_children",
-      "ticket": "T-1174",
-      "bucket": "persons/female/40_49/north/family/none",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "hh_rc_kelly_honora:rc_kelly_honora",
-      "axes": {
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_kelly_honora_1",
       "household": "hh_rc_kelly_honora",
       "relationship": "son",
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_kelly_honora:rc_kelly_honora_1",
       "axes": {
@@ -12780,7 +12708,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_kelly_honora_2",
@@ -12789,7 +12718,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/north/family/none",
-      "rung": "C1",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_kelly_honora:rc_kelly_honora_2",
       "axes": {
@@ -12798,7 +12727,8 @@
         "division": "north",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_laframboise_angelique",
@@ -17230,47 +17160,13 @@
       }
     },
     {
-      "person": "rc_pratt_lydia",
-      "household": "hh_rc_pratt_lydia",
-      "relationship": "head",
-      "stage": "women_and_children",
-      "ticket": "T-1174",
-      "bucket": "persons/female/40_49/north/family/none",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "at_a_seat_this_project_drew",
-          "houses": [
-            "biz_mrs_h_sherman"
-          ]
-        },
-        {
-          "layer": "business",
-          "business": "biz_mrs_h_sherman"
-        },
-        {
-          "layer": "business",
-          "business": "index"
-        }
-      ],
-      "deal_key": "hh_rc_pratt_lydia:rc_pratt_lydia",
-      "axes": {
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_pratt_lydia_1",
       "household": "hh_rc_pratt_lydia",
       "relationship": "daughter",
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/10_19/north/family/none",
-      "rung": "R_adopted",
+      "rung": "R_house_is_not_wholly_held",
       "adoptions": [],
       "deal_key": "hh_rc_pratt_lydia:rc_pratt_lydia_1",
       "axes": {
@@ -26112,7 +26008,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_parmelee_almira.json"
+      }
     },
     {
       "person": "rc_vieau_angelique",
@@ -26125,7 +26026,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_1",
@@ -26138,7 +26044,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_2",
@@ -26151,7 +26062,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_3",
@@ -26164,7 +26080,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_4",
@@ -26177,7 +26098,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_5",
@@ -26190,7 +26116,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_vieau_angelique_6",
@@ -26203,7 +26134,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_vieau_angelique.json"
+      }
     },
     {
       "person": "rc_carroll_ellen",
@@ -26216,7 +26152,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_carroll_ellen.json"
+      }
     },
     {
       "person": "rc_carroll_ellen_1",
@@ -26229,7 +26170,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_carroll_ellen.json"
+      }
     },
     {
       "person": "rc_carroll_ellen_2",
@@ -26242,7 +26188,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1564",
+        "stage": "reconstructed_women_children",
+        "card": "households/hh_rc_carroll_ellen.json"
+      }
     }
   ],
   "who_cannot_move_and_why": [
@@ -28403,36 +28354,6 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_gilbert_mary",
-      "household": "hh_rc_gilbert_mary",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_gilbert_mary_1",
-      "household": "hh_rc_gilbert_mary",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_gilbert_mary_2",
-      "household": "hh_rc_gilbert_mary",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_gilbert_mary_3",
-      "household": "hh_rc_gilbert_mary",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_gilbert_mary_4",
-      "household": "hh_rc_gilbert_mary",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
       "person": "rc_flynn_mary",
       "household": "hh_rc_flynn_mary",
       "rung": "C1",
@@ -29154,60 +29075,60 @@
     }
   ],
   "counts": {
-    "people_in_the_refused_buckets": 1145,
-    "the_surplus_those_buckets_hold": 395,
+    "people_in_the_refused_buckets": 1140,
+    "the_surplus_those_buckets_hold": 384,
     "by_rung": {
       "C0": 220,
-      "C1": 430,
-      "R_adopted": 394,
-      "R_house_is_not_wholly_held": 25,
+      "C1": 419,
+      "R_adopted": 387,
+      "R_house_is_not_wholly_held": 38,
       "R_seated": 23,
       "R_division_is_a_reading": 53
     },
-    "movable_people": 650,
-    "refused_on_their_own_account": 352,
-    "refused_with_their_house": 143,
-    "carrying_an_adoption_themselves": 277,
+    "movable_people": 639,
+    "refused_on_their_own_account": 350,
+    "refused_with_their_house": 151,
+    "carrying_an_adoption_themselves": 275,
     "moves_the_rule_yields": 140,
     "buckets_moved_out_of": 39,
     "buckets_moved_into": 41,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 44 refused buckets accounted for, 1,145 people named"
+    "the_roster_is_reconciled": "all 43 refused buckets accounted for, 1,140 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
     "if_only_the_division_changed": 1,
-    "if_the_household_kind_changed_too": 40,
-    "if_the_trade_could_change_as_well": 107,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 38,
+    "if_the_household_kind_changed_too": 29,
+    "if_the_trade_could_change_as_well": 96,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 27,
     "under_this_rule": 140,
-    "what_the_whole_house_condition_costs": -102,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -102 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "what_the_whole_house_condition_costs": -113,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -113 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 107: 250 of the 290 open slots stand in adult-MALE cells while the surplus holds 223 people under twenty and 105 adult women, whose cells hold 40 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 43 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 96: 250 of the 279 open slots stand in adult-MALE cells while the surplus holds 215 people under twenty and 102 adult women, whose cells hold 29 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 39 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
     "persons_standing_in_the_layer": 2381,
-    "still_owed_now": 290,
-    "converges_to_now": 2671,
-    "converges_to_if_the_rule_is_spent": 2531,
+    "still_owed_now": 279,
+    "converges_to_now": 2660,
+    "converges_to_if_the_rule_is_spent": 2520,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,531 is inside the model's 2,362-3,265 and 12 below its 2,543 point, against 128 above it today."
+    "reading": "2,520 is inside the model's 2,362-3,265 and 23 below its 2,543 point, against 117 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 223 people under twenty and 105 adult women, and their cells hold 31 and 9 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 215 people under twenty and 102 adult women, and their cells hold 23 and 6 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "277 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "275 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 151 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {

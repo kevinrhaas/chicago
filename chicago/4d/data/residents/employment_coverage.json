@@ -85,16 +85,16 @@
       "at_a_named_house": 112,
       "at_a_seat_this_project_drew": 123,
       "at_a_trade_with_no_house_to_join": 269,
-      "no_trade_recorded": 2603,
-      "on_their_own_account": 209
+      "no_trade_recorded": 2604,
+      "on_their_own_account": 208
     },
     "by_reason": {
       "class_held_no_house": 71,
-      "keeps_their_own_house": 209,
+      "keeps_their_own_house": 208,
       "named_by_a_source": 112,
       "no_employer_named": 162,
       "no_ruling_on_the_trade": 5,
-      "no_trade_recorded": 2603,
+      "no_trade_recorded": 2604,
       "seated_by_the_staffing_model": 123,
       "trade_attested_no_house_named": 31
     },
@@ -107,8 +107,8 @@
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 2,
         "at_a_trade_with_no_house_to_join": 20,
-        "no_trade_recorded": 521,
-        "on_their_own_account": 3
+        "no_trade_recorded": 522,
+        "on_their_own_account": 2
       },
       "below_working_age": {
         "no_trade_recorded": 531
@@ -121,7 +121,7 @@
         "on_their_own_account": 206
       }
     },
-    "placed_at_work": 444,
+    "placed_at_work": 443,
     "carry_a_trade": 663,
     "working_age": 2239,
     "working_age_placed_at_work": 439,
@@ -131,7 +131,7 @@
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 444,
+      "the_layer_places": 443,
       "inside_the_band": true,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -145,7 +145,7 @@
   },
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
-    "it_supplies_no_trade": "2603 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
+    "it_supplies_no_trade": "2604 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
     "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
@@ -18653,9 +18653,9 @@
       "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -18681,7 +18681,7 @@
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
       "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#boarding_house_keeper = own_premises",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -32125,7 +32125,7 @@
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
       "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#boarding_house_keeper = own_premises",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {

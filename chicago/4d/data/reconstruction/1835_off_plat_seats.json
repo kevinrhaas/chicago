@@ -80,8 +80,8 @@
    "tradesman_dwellings": 538
   },
   "owed_by_district": {
-   "north": 281,
-   "south": 731,
+   "north": 279,
+   "south": 733,
    "west": 255
   },
   "roofs_offered_for_adoption": 73,
@@ -100,11 +100,11 @@
    "west": 29
   },
   "rows_owed_by_district": {
-   "north": 281,
-   "south": 731,
+   "north": 279,
+   "south": 733,
    "west": 255
   },
-  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 731 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
+  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 733 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
  },
  "roofs_held_back": [
   {
@@ -10606,10 +10606,10 @@
   {
    "id": "hh_rc_carroll_ellen",
    "kind": "household",
-   "band": "north/labourer_dwellings",
+   "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
-   "district": "north",
-   "why": "every one of the 10 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -13540,9 +13540,9 @@
   {
    "id": "hh_rc_vieau_angelique",
    "kind": "household",
-   "band": "north/division_ground",
+   "band": "south/division_ground",
    "clause": "division_ground",
-   "district": "north",
+   "district": "south",
    "why": "the band names a division and stops — no clause of the placement policy reaches this head's trade, so there is no rule here to deal any ground by, on the plat or off it",
    "handed_to": "T-1615"
   },

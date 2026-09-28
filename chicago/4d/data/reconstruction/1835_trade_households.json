@@ -1643,7 +1643,7 @@
    "file": "reconstructed_trades/hh_rc_parmelee_almira.json",
    "bucket": "persons/female/20_29/south/family/trade",
    "trade": "domestic",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_parmelee_alvah",
@@ -2426,9 +2426,9 @@
   "parent_ticket": "T-1559",
   "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
   "read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
-  "heads_moved": 39,
+  "heads_moved": 40,
   "out_of": {
-   "persons/female/20_29/south/family/trade": 5,
+   "persons/female/20_29/south/family/trade": 6,
    "persons/female/20_29/west/family/trade": 4,
    "persons/female/30_39/west/family/trade": 1,
    "persons/female/40_49/south/family/trade": 1,
@@ -2448,7 +2448,7 @@
   "into": {
    "persons/female/20_29/north/lodging/trade": 1,
    "persons/female/20_29/south/lodging/trade": 6,
-   "persons/female/20_29/west/lodging/trade": 2,
+   "persons/female/20_29/west/lodging/trade": 3,
    "persons/female/30_39/north/lodging/trade": 1,
    "persons/female/40_49/north/lodging/trade": 1,
    "persons/female/40_49/west/lodging/trade": 1,

@@ -86,11 +86,11 @@
   "persons/male/under_10/south/family/none": 81,
   "persons/male/under_10/west/family/none": 23
  },
- "refamilied_people": 90,
- "refamilied_households": 25,
+ "refamilied_people": 100,
+ "refamilied_households": 27,
  "refamilied_by_division": {
   "north -> north": 7,
-  "north -> south": 14,
+  "north -> south": 24,
   "south -> north": 6,
   "south -> south": 15,
   "south -> west": 18,

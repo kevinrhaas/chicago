@@ -197,14 +197,14 @@
   "locations": [
     {
       "kind": "premises",
-      "structure_id": "kimberly_residence",
+      "structure_id": "pruyne_kimball_drugstore",
       "street_id": null,
       "face": null,
       "primary": true,
       "from": "1833-12-03",
       "to": null,
       "tier": "attested",
-      "basis": "The register matches this business onto the committed structure kimberly_residence on its occupants. kimberly_residence already stands and its occupants carries pruyne — \"Dr Edmund Stoughton Kimberly; physician and Peter Pruyne's partner in a drug store on South Water Street\". The papers add trade, goods and dates to a record that exists.",
+      "basis": "The register matches this business onto the committed structure pruyne_kimball_drugstore on its occupants. pruyne_kimball_drugstore already stands and its occupants carries pruyne — 'Pruyne and Kimball; druggists'. The papers add trade, goods and dates to a record that exists.",
       "limit_reason": null
     }
   ],
