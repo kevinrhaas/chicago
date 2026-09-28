@@ -3,6 +3,68 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 406,
+      "takenAt": "2026-09-28T01:53:27.154Z",
+      "ref": "steward/t1688-randolph-books-closed",
+      "commit": "e6a120f68306",
+      "devCommit": "6226e593cc39",
+      "treeHash": "sha256:3fbd8603a0d1a67f",
+      "treeDirty": false,
+      "changelogHash": "sha256:ff672edd15ab9714",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.7,
+          2.9
+        ]
+      },
+      "source": "/tmp/smoke-d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 230,
+      "takenAt": "2026-09-28T01:53:27.076Z",
+      "ref": "steward/t1688-randolph-books-closed",
+      "commit": "e6a120f68306",
+      "devCommit": "6226e593cc39",
+      "treeHash": "sha256:3fbd8603a0d1a67f",
+      "treeDirty": false,
+      "changelogHash": "sha256:ff672edd15ab9714",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.7,
+          2.9
+        ]
+      },
+      "source": "/tmp/smoke-m12.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -1527,68 +1589,6 @@
         ]
       },
       "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 94,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 490,
-      "takenAt": "2026-09-27T07:40:05.178Z",
-      "ref": "steward/t1665-shopfront-bay-definition",
-      "commit": "cde750187142",
-      "devCommit": "f448c194ddd4",
-      "treeHash": "sha256:29a77c41dad97914",
-      "treeDirty": false,
-      "changelogHash": "sha256:432e5e49936d5686",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          4
-        ]
-      },
-      "source": "/tmp/smoke-d12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 94,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 275,
-      "takenAt": "2026-09-27T07:40:05.082Z",
-      "ref": "steward/t1665-shopfront-bay-definition",
-      "commit": "cde750187142",
-      "devCommit": "f448c194ddd4",
-      "treeHash": "sha256:29a77c41dad97914",
-      "treeDirty": false,
-      "changelogHash": "sha256:432e5e49936d5686",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          4
-        ]
-      },
-      "source": "/tmp/smoke-m12.log"
     },
     {
       "viewport": "mobile",
