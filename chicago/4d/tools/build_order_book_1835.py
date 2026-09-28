@@ -289,11 +289,29 @@ STRUCTURE_TICKETS = {
     # Branch noxious-trade band: work bays, cooperage and tannery yards, stables and sheds —
     # trade fabric, not dwellings. That leaves two, and T-1708 is the first: "the cottages and
     # yard buildings the South balance deals to the plat's last tier, on the blocks the street
-    # carry emitted" is this cell in as many words. T-1710 carries the rest of the district's
+    # carry emitted" is this cell in as many words. T-1710 carried the rest of the district's
     # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
-    # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
-    # cell still owing, the same rule T-1681 was named under one line down.
-    ("south", "ordinary_dwellings"): "T-1708",
+    # and closed the district's books, so the row was to move to T-1710 when T-1708 closed with
+    # the cell still owing, the same rule T-1681 was named under one line down.
+    #
+    # THAT SUCCESSOR IS ALREADY DEAD, AND THE ROW GOES TO T-1736 (T-1735, 2026-09-28). T-1710
+    # was SPLIT the day the paragraph above was written, so that sentence names a ticket nobody
+    # can claim; T-1707 and T-1709 are closed; and the ticket filed to be this cell's next live
+    # owner, T-1735, closes in the pull request that moves this row — it reads `review` while
+    # the gate reads it and `done` an hour later, which is exactly the route
+    # ticket_liveness.py's own header describes and exactly the trap T-1681's row fell into.
+    # So the row is not handed to a ticket that is finishing. It goes to one that will still be
+    # open after this lands, filed the way T-1684 and T-1694 were filed — by the run that
+    # found the hole, carrying the measurement rather than an opinion.
+    #
+    # THE MEASUREMENT: the cell reads 176 target, 114 standing and 62 to build after T-1735's
+    # first deal on `blk_washington_lasalle`. That deal answered the seven slots the platted
+    # seating had written against that block, and the re-derived pass slots the six households
+    # it displaced onto the four Washington-tier blocks T-1707's street control emitted and
+    # nobody has built — blk_washington_clark, _franklin, _market and _wells, seven slots
+    # apiece, 28 in all. T-1736 is the first of those four by name. The row moves again when
+    # it closes with the cell still owing, which on these numbers it will.
+    ("south", "ordinary_dwellings"): "T-1736",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -4406,8 +4424,17 @@ def cmd_self_test() -> int:
     # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 19
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
+    #
+    # T-1735 TAKES IT TO 214, AND IT IS THE FIRST TIME A SLOT HAS BEEN ANSWERED. The platted
+    # pass goes 139 -> 142 and the off-plat pass holds at 72. The ruling behind it is that the
+    # first of the six blocks T-1707 opened was dealt the seven roofs its own seven slot rows
+    # asked of it, so `blk_washington_lasalle` has no headroom left to ask against and the pass
+    # ADOPTS there instead: adoptions 109 -> 114, slots 30 -> 28. The three-seat gain is not
+    # seven, because the pass is re-derived whole in the placement policy's clause order and
+    # six of the seven households that asked were re-slotted onto the tier's four remaining
+    # empty blocks rather than housed here. Nothing was retired and no roof moved.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 211
+        data["inventory"], data["programme"], occ))["seated"] == 214
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
