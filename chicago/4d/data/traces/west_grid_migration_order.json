@@ -1,9 +1,13 @@
 {
- "_doc": "T-1733, on the ruling T-1479 asked for. What moving plat blocks 28 and 45 onto the West Division grid cost, what the ruling overrode to do it, and which of the two moved. NOTHING IS MOVED BY THE TOOL THAT WRITES THIS FILE: it reads the committed grid and says what the grid did. Until 2026-09-28 it was a refusal with figures, and the figures are all still here — both refusals are re-derived on the committed lines every time this runs, because a ruling that overrides a refusal does not make the refusal's arithmetic wrong. One of the two blocks is transposed and one is held, and the reason each is where it is comes out of committed files rather than out of prose.",
+ "_doc": "T-1733, on the ruling T-1479 asked for. What moving plat blocks 28 and 45 onto the West Division grid cost, what the ruling overrode to do it, and which of the two moved. NOTHING IS MOVED BY THE TOOL THAT WRITES THIS FILE: it reads the committed grid and says what the grid did. Until 2026-09-28 it was a refusal with figures, and the figures are all still here — both refusals are re-derived on the committed lines every time this runs, because a ruling that overrides a refusal does not make the refusal's arithmetic wrong. BOTH blocks are transposed since 2026-09-28 — 28 by T-1733, which carried no deal to re-argue, and 45 by T-1734, which re-argued the one that held it onto Clinton and Canal — and which state each block is in comes out of committed files rather than out of prose, so a block going back to held would show here without this file being edited.",
  "tool": "tools/measure_west_grid_migration.py",
  "ticket": "T-1733",
  "parent_ticket": "T-1479",
- "successor": "T-1734",
+ "successor": null,
+ "both_cells_moved_by": [
+  "T-1733",
+  "T-1734"
+ ],
  "generated_from": [
   "data/traces/vectors/thompson_lots.json",
   "data/traces/thompson_west_division_lots.json",
@@ -118,7 +122,9 @@
     "why_not_documented": "this block prints no dimension of its own, so the module that cuts it comes from its tier. The numerals are ink in this block at their own positions and are graded where they are read; the carry of the module onto the block is an inference and is graded as one."
    },
    "the_re_seat": {
-    "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in. No record moved a metre and nothing was rebaked: the block carries no dealt parcel, so no position on it is derived from a lot line.",
+    "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in.",
+    "carries_a_dealt_parcel": [],
+    "so_the_positions_are": "UNCHANGED. The block carries no dealt parcel, so no position on it is derived from a lot line: no record moved a metre and nothing was rebaked.",
     "every_seating_on_this_block_moved_lot": true,
     "why": "the transpose shares no line with the cut it replaced. The alley turned from east-west to north-south, the faces turned through ninety degrees, and the lot count went from eight to 10 — so no lot of the old cut survives to be kept.",
     "lot_by_lot": [
@@ -312,12 +318,12 @@
     "confidence": "documented"
    },
    "what_the_layer_cuts": {
-    "module": "south_division_thompson_1830",
-    "lot_count": 8,
-    "lot_frontage_ft": 80.0,
-    "alley_runs": "east-west, mid-block"
+    "module": "west_division_thompson_1830",
+    "lot_count": 10,
+    "lot_frontage_ft": null,
+    "alley_runs": "two columns of lots backing onto an 18 ft NORTH-SOUTH alley, each lot fronting the north-south street on the outer side of its column"
    },
-   "the_gap": "the sheet counts 10 lots in 5 rows of 2; the layer cuts 8 on the south_division_thompson_1830 module, 2 fewer and in the other arrangement",
+   "the_gap": "the sheet counts 10 lots in 5 rows of 2; the layer cuts 10 on the west_division_thompson_1830 module, 0 fewer and in the other arrangement",
    "refusal_1_the_module_does_not_fit": {
     "the_committed_face_ft": 326.1,
     "the_committed_depth_ft": 364.0,
@@ -345,14 +351,14 @@
     ],
     "lots_reached_by_a_committed_record": [
      "blk_randolph_clinton_lot0",
-     "blk_randolph_clinton_lot1",
      "blk_randolph_clinton_lot2",
      "blk_randolph_clinton_lot3",
+     "blk_randolph_clinton_lot4",
      "blk_randolph_clinton_lot6",
-     "blk_randolph_clinton_lot7"
+     "blk_randolph_clinton_lot8"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 22
+     "data/enclosures/town_lot_line_rails.json": 23
     },
     "structures_named_on_those_lots": [
      "recon_1835_blk_randolph_clinton_a1_06",
@@ -362,7 +368,6 @@
      "recon_1835_blk_randolph_clinton_d3_04",
      "recon_1835_blk_randolph_clinton_d4_02",
      "recon_1835_blk_randolph_clinton_d5_01",
-     "recon_1835_west_018",
      "recon_1835_west_019",
      "recon_1835_west_021"
     ]
@@ -373,15 +378,267 @@
     "answer": "(a) Yes: cut with the documented module (inferred tier) and re-seat each structure on the new lot nearest its present spot, recording the move",
     "so_neither_refusal_above_holds_a_cell_shut_any_more": "both are still TRUE as arithmetic and both are re-derived above at the moment this file is written; what the ruling changed is what is done about them. An empty block was judged a worse answer than a block cut at a stated inference."
    },
-   "state": "held",
-   "what_holds_this_block_now": {
-    "not_the_arithmetic": "the ruling overrode both refusals above, and it landed: this block's twin stands transposed on this same grid.",
-    "its_own_deal": [
+   "state": "transposed",
+   "the_gap_is_closed": "the sheet counts 10 lots in 5 rows of 2 and the layer now cuts 10 on the west_division_thompson_1830 module, in that arrangement, with every numeral read at its own position",
+   "what_the_cut_is_graded": {
+    "the_module_carry": "inferred",
+    "the_numerals": [
+     "documented"
+    ],
+    "why_not_documented": "this block prints no dimension of its own, so the module that cuts it comes from its tier. The numerals are ink in this block at their own positions and are graded where they are read; the carry of the module onto the block is an inference and is graded as one."
+   },
+   "the_re_seat": {
+    "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in.",
+    "carries_a_dealt_parcel": [
      "phase3_platted_block_randolph_clinton"
     ],
-    "why_that_holds_it": "the transpose turns the block through ninety degrees and its lots stop fronting the east-west streets. A parcel that argued WHICH FAMILY TAKES WHICH FACE argued it against faces the transpose removes, so transposing this block silently would leave its dealt roofs standing on an argument about ground that no longer exists.",
-    "owed_by": "T-1734",
-    "and_what_a_withheld_cut_would_strand_is_still_the_size_of_it": "10 structure(s), 22 seated row(s) across 6 lot(s)"
+    "so_the_positions_are": "RE-DERIVED. A dealt roof stands where its parcel's slot puts it off its own lot's street or alley edge, so every position on this block comes out of a lot line and the re-cut re-computes all of them; the deal that decides WHICH lot had to be re-argued first, which is what held this block while its twin moved. The meshes do not change and nothing is rebaked even so: a re-seat moves a record's position and rotation and leaves its footprint, form and asset exactly as they were.",
+    "every_seating_on_this_block_moved_lot": true,
+    "why": "the transpose shares no line with the cut it replaced. The alley turned from east-west to north-south, the faces turned through ninety degrees, and the lot count went from eight to 10 — so no lot of the old cut survives to be kept.",
+    "lot_by_lot": [
+     {
+      "lot_id": "blk_randolph_clinton_lot0",
+      "plat_lot_number": 2,
+      "plat_lot_confidence": "documented",
+      "column": "west",
+      "row": 1,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot0",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot0_1",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot0_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot0_n",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot0_s"
+      ],
+      "structures": [
+       "recon_1835_west_019"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot1",
+      "plat_lot_number": 3,
+      "plat_lot_confidence": "documented",
+      "column": "west",
+      "row": 2,
+      "records": [],
+      "structures": []
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot2",
+      "plat_lot_number": 6,
+      "plat_lot_confidence": "documented",
+      "column": "west",
+      "row": 3,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot2",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot2_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot2_blk_randolph_clinton_lot3_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot2_n"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a3_07",
+       "recon_1835_blk_randolph_clinton_d3_04",
+       "recon_1835_west_021"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot3",
+      "plat_lot_number": 7,
+      "plat_lot_confidence": "documented",
+      "column": "west",
+      "row": 4,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot3",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot3_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot2_blk_randolph_clinton_lot3_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a2_05",
+       "recon_1835_blk_randolph_clinton_a3_07",
+       "recon_1835_blk_randolph_clinton_d1_03",
+       "recon_1835_blk_randolph_clinton_d3_04",
+       "recon_1835_west_021"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot4",
+      "plat_lot_number": 10,
+      "plat_lot_confidence": "documented",
+      "column": "west",
+      "row": 5,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot4",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot4_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot4_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a2_05",
+       "recon_1835_blk_randolph_clinton_d1_03",
+       "recon_1835_west_021"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot5",
+      "plat_lot_number": 1,
+      "plat_lot_confidence": "documented",
+      "column": "east",
+      "row": 1,
+      "records": [],
+      "structures": []
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot6",
+      "plat_lot_number": 4,
+      "plat_lot_confidence": "documented",
+      "column": "east",
+      "row": 2,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot6",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot6_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_n",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a1_06",
+       "recon_1835_blk_randolph_clinton_d5_01"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot7",
+      "plat_lot_number": 5,
+      "plat_lot_confidence": "documented",
+      "column": "east",
+      "row": 3,
+      "records": [],
+      "structures": []
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot8",
+      "plat_lot_number": 8,
+      "plat_lot_confidence": "documented",
+      "column": "east",
+      "row": 4,
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_n",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_d4_02"
+      ]
+     },
+     {
+      "lot_id": "blk_randolph_clinton_lot9",
+      "plat_lot_number": 9,
+      "plat_lot_confidence": "documented",
+      "column": "east",
+      "row": 5,
+      "records": [],
+      "structures": []
+     }
+    ]
+   },
+   "the_deal_re_argued": {
+    "the_faces_the_transpose_removed": {
+     "randolph": "ordinary",
+     "washington": "light"
+    },
+    "the_faces_it_gave": {
+     "clinton": "light",
+     "canal": "ordinary"
+    },
+    "the_better_of_the_new_pair": "canal",
+    "no_slot_fronts_a_face_the_transpose_removed": true,
+    "principal_roofs_on_the_better_face": [
+     "D4",
+     "D5"
+    ],
+    "principal_roofs_on_the_lighter_face": [
+     "D1",
+     "D3"
+    ],
+    "so": "the rule the first deal was argued on — the better dwellings take the better street of the block's pair, by the grading in data/streets/1835.json — is re-applied to the pair the transpose gives. It is stated as a re-application and not as a confirmation: the ranking of the new pair is read here, and had it come out the other way about the four roofs would have crossed the alley.",
+    "slots": [
+     {
+      "family": "D5",
+      "inventory_class": "principal_functional",
+      "lot_index": 6,
+      "plat_lot_number": 4,
+      "column": "east",
+      "row": 2,
+      "stands_on": "street",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "D4",
+      "inventory_class": "principal_functional",
+      "lot_index": 8,
+      "plat_lot_number": 8,
+      "column": "east",
+      "row": 4,
+      "stands_on": "street",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "D1",
+      "inventory_class": "principal_functional",
+      "lot_index": 4,
+      "plat_lot_number": 10,
+      "column": "west",
+      "row": 5,
+      "stands_on": "street",
+      "fronts": "clinton",
+      "that_face_is_graded": "light"
+     },
+     {
+      "family": "D3",
+      "inventory_class": "principal_functional",
+      "lot_index": 2,
+      "plat_lot_number": 6,
+      "column": "west",
+      "row": 3,
+      "stands_on": "street",
+      "fronts": "clinton",
+      "that_face_is_graded": "light"
+     },
+     {
+      "family": "A2",
+      "inventory_class": "ancillary",
+      "lot_index": 4,
+      "plat_lot_number": 10,
+      "column": "west",
+      "row": 5,
+      "stands_on": "alley",
+      "fronts": "clinton",
+      "that_face_is_graded": "light"
+     },
+     {
+      "family": "A1",
+      "inventory_class": "ancillary",
+      "lot_index": 6,
+      "plat_lot_number": 4,
+      "column": "east",
+      "row": 2,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A3",
+      "inventory_class": "ancillary",
+      "lot_index": 2,
+      "plat_lot_number": 6,
+      "column": "west",
+      "row": 3,
+      "stands_on": "alley",
+      "fronts": "clinton",
+      "that_face_is_graded": "light"
+     }
+    ]
    }
   }
  ],
@@ -394,10 +651,8 @@
    "T-0444": "done",
    "T-0445": "done"
   },
-  "owns_what_is_left": {
-   "T-1734": "claimed"
-  },
-  "and_the_finding": "the first two tickets the refusal pointed forward to are CLOSED and the spacing is still short, so for a while the move was unowned and the prose in tools/generate_plat_lots.py sent a reader at work already done. T-1540 was the successor the owner ruled on 2026-09-21 must own the whole question — tools/measure_west_division_spacing.py is its measurement, and it finds the shortfall on every interval of the grid rather than on this one, against a plat that gives a module and no positions. It landed on 2026-09-24 and this block went red rather than stale, which is what it is for. And then the answer came: the owner ruled on 2026-09-23 that the module may cut a block printing no figures of its own at `inferred` without the spacing moving at all, so the re-cut no longer waits on this precondition — T-1479 split into the cell that could be transposed at once, which is done and recorded on the block above, and the cell that could not, which is T-1734 and is the only thing still owed here. THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed module is still not seated at its printed size on either block, and the day Clinton and Canal reach the plat's 458 ft the shortfall figure above goes to zero and this reading has to be re-made."
+  "owns_what_is_left": {},
+  "and_the_finding": "the first two tickets the refusal pointed forward to are CLOSED and the spacing is still short, so for a while the move was unowned and the prose in tools/generate_plat_lots.py sent a reader at work already done. T-1540 was the successor the owner ruled on 2026-09-21 must own the whole question — tools/measure_west_division_spacing.py is its measurement, and it finds the shortfall on every interval of the grid rather than on this one, against a plat that gives a module and no positions. It landed on 2026-09-24 and this block went red rather than stale, which is what it is for. And then the answer came: the owner ruled on 2026-09-23 that the module may cut a block printing no figures of its own at `inferred` without the spacing moving at all, so the re-cut no longer waits on this precondition — T-1479 split into the cell that could be transposed at once (T-1733) and the cell that could not, because its own deal had argued its roofs onto the faces the transpose removes. T-1734 re-argued that deal on 2026-09-28 and the second cell moved, so the MOVE IS DONE and this pointer names nobody. THE PRECONDITION IS NOT RETIRED BY THAT. It is the reason the printed module is still not seated at its printed size on either block, and the day Clinton and Canal reach the plat's 458 ft the shortfall figure above goes to zero and this reading has to be re-made."
  },
  "the_first_question": {
   "asked_by_the_ticket": "what is a structure seated on a withdrawn lot seated on?",

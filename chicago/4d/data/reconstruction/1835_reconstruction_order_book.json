@@ -1421,10 +1421,10 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1478,
-    "seated": 212,
-    "still_owed": 1266,
+    "seated": 214,
+    "still_owed": 1264,
     "roofs_adopted": 181,
-    "slots_requested": 31,
+    "slots_requested": 33,
     "roofs_standing": 436,
     "roofs_standing_unseated": 255,
     "share_of_standing_roofs_seated": 0.4151,
@@ -1436,22 +1436,22 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1478,
-        "seated": 140,
-        "handed_on": 1338,
+        "seated": 142,
+        "handed_on": 1336,
         "roofs_adopted": 109,
-        "slots_requested": 31,
+        "slots_requested": 33,
         "roofs_offered_for_adoption": 112,
         "roofs_held_back": 54,
-        "ground_taken": 122,
+        "ground_taken": 124,
         "ground_taken_unit": "lots",
         "by_district": {
           "south": 121,
-          "west": 19
+          "west": 21
         },
         "by_clause": {
           "labourer_dwellings": 34,
           "merchant_and_professional_dwellings": 28,
-          "tradesman_dwellings": 78
+          "tradesman_dwellings": 80
         }
       },
       {
@@ -1460,9 +1460,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1338,
+        "rows_offered": 1336,
         "seated": 72,
-        "handed_on": 1266,
+        "handed_on": 1264,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 73,
@@ -1487,8 +1487,8 @@
         "name": "The Adams household — a name the town's own records carry",
         "district": "west",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_lake_clinton",
-        "lot_id": "blk_lake_clinton#07",
+        "block_id": "blk_randolph_clinton",
+        "lot_id": "blk_randolph_clinton#09",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1678,7 +1678,27 @@
         "district": "west",
         "clause": "tradesman_dwellings",
         "block_id": "blk_lake_clinton",
+        "lot_id": "blk_lake_clinton#07",
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_beaubien_b",
+        "name": "The Beaubien household — a name the town's own records carry",
+        "district": "west",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_lake_clinton",
         "lot_id": "blk_lake_clinton#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_bennett_h_c",
+        "name": "The Bennett household — a documented attorney, unplaced in the town",
+        "district": "west",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_randolph_clinton",
+        "lot_id": "blk_randolph_clinton#07",
         "family": "D3",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1795,14 +1815,15 @@
     ],
     "slot_blocks": [
       "blk_lake_clinton",
+      "blk_randolph_clinton",
       "blk_washington_clark",
       "blk_washington_franklin",
       "blk_washington_lasalle",
       "blk_washington_market",
       "blk_washington_wells"
     ],
-    "what_the_slots_wait_on": "31 slot(s) on 6 block(s) — blk_lake_clinton, blk_washington_clark, blk_washington_franklin, blk_washington_lasalle, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,266 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_the_slots_wait_on": "33 slot(s) on 7 block(s) — blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_franklin, blk_washington_lasalle, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,264 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5525,9 +5546,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 137,
-        "roofs_gated_on_coverage": 109,
-        "statement": "137 of the 246 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 109 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 145,
+        "roofs_gated_on_coverage": 101,
+        "statement": "145 of the 246 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 101 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5849,7 +5870,7 @@
           "axes": {
             "division": "west"
           },
-          "roofs_gated": 44,
+          "roofs_gated": 36,
           "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
           "owning_tickets": [
             "T-1414"

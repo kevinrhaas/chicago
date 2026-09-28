@@ -138,13 +138,50 @@ def main(break_it: bool = False) -> int:
         check(f"{f['block']['id']} {f['face']} face looks across its street",
               abs(e) > abs(n), f"outward {f['frame']['outward']}")
 
-    # 5. A CROSS-STREET FACE IS THE END OF A LOT ROW. Every lot in the Thompson
-    #    plat fronts an east-west street, which is why the fence and hitching-post
-    #    rules — both per-lot — have nothing to stand on there, and why the
-    #    generator writes that refusal instead of leaving a silence.
-    tiers = {lot.get("tier") for f in got for lot in f["block"].get("lots", [])}
-    check("no platted lot fronts a cross street", tiers <= {"north", "south"},
-          f"tiers {sorted(t for t in tiers if t)}")
+    # 5. A FACE CARRIES THE LOTS OF ITS OWN TIER, AND A LOT WHOSE TIER NOBODY LAYS
+    #    IS OUT OF THIS LAYER'S REACH — which must be a number and not a silence.
+    #
+    #    This check read "no platted lot fronts a cross street" until T-1734, and
+    #    that was a true statement about the Original Town's module: every lot it
+    #    cuts fronts an east-west street, which is why the fence and hitching-post
+    #    rules — both per-lot — have nothing to stand on a cross-street face, and
+    #    why the generator writes that refusal rather than leaving a silence.
+    #    T-1479's ruling retired the statement rather than broke it. A cell of this
+    #    grid standing on West Division ground is now cut on the DIVISION's module
+    #    (T-1733 for block 28, T-1734 for block 45), two columns of five backing
+    #    onto a north-south alley — so its lots front Clinton and Canal, and its
+    #    Randolph and Washington faces are the ENDS of the lot rows, which is what
+    #    a cross-street face has always been.
+    #
+    #    So the invariant is restated where it still bites. A tier is the name of a
+    #    face, and a lot claiming one its own block is not bounded by is the
+    #    ninety-degree error this file exists to catch. And the lots this layer
+    #    cannot reach are COUNTED and named: with `EDGE_CROSS_STREETS` empty for
+    #    the triangle budget recorded beside it, nothing lays a north-south face at
+    #    all, so a transposed block's lots take no street fence and no hitching
+    #    post. That is the budget's doing and not the deal's, it is visible in the
+    #    scene, and the ticket that owns it is T-0192 — the cross streets' own
+    #    frontages, blocked on the frame budget since 2026-08-24.
+    for f in got:
+        block = f["block"]
+        bounds = set(block["bounded_by"])
+        astray = sorted({lot.get("tier") for lot in block.get("lots", [])} - bounds)
+        check(f"{block['id']} lots all front a face the block is bounded by",
+              not astray, f"tier(s) {astray} name no bound of {sorted(bounds)}")
+    # Measured on the SHIPPED enumeration and not on `got`: `got` covers all seven
+    # cross streets so that the axis checks above have faces to walk, while
+    # `EDGE_CROSS_STREETS` is empty in the build. Asking `got` what the layer
+    # reaches would answer for a layer nobody ships.
+    laid = {f["face"] for f in shipped}
+    reach = [(f["block"]["id"], lot.get("tier"))
+             for f in shipped for lot in f["block"].get("lots", [])]
+    out_of_reach = sorted({bid for bid, tier in reach if tier not in laid})
+    check("every lot this layer cannot reach is named, not silently dropped",
+          out_of_reach == ["blk_randolph_clinton"],
+          f"blocks whose lots front a face nothing lays: {out_of_reach}. Faces laid: "
+          f"{sorted(laid)}. A block arriving here has been transposed onto the West "
+          f"Division's module and its lots now front a north-south street; add it and "
+          f"say so, or cover the street.")
 
     print()
     if FAILED:
