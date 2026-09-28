@@ -1,0 +1,351 @@
+{
+ "schema": 1,
+ "_doc": "THE SOUTH DIVISION'S OUTER BOOKS, CLOSED (T-1713, piece 2 of 2 of T-1710, which is piece 4 of 4 of T-1203). T-1712 raised the Beaubien homestead's other two buildings; this piece answers the four questions the parent asks before the district's outer ground is done with, and CHANGES NOTHING IN THE TOWN. Every number here is read off committed data or re-derived by a committed tool, and the commands are named beside each book.",
+ "ticket": "T-1713",
+ "parent_ticket": "T-1710",
+ "grandparent_ticket": "T-1203",
+ "read_on": "2026-09-28",
+ "read_at_commit": "4e9e7b70",
+ "not_a_reading": "This file adjudicates no source and reads no page. It is a reading of the project's own ledgers, traces and generators, so it is not counted by measure_research_spend.py.",
+ "raises_no_roof": true,
+ "writes_no_card": true,
+ "needs_no_bake": "No record's geometry moves and no record is added, so validate.py --stale has nothing to catch and no GLB is regenerated.",
+ "CORRIDOR_LINE": "drawn",
+ "CORRIDOR_LINE_WHY": "the tier this file measures is a strip between a BLOCK GRID and a survey line, so the question is asked on the drawn line that generate_plat_lots.block_edges offsets — and because the disagreement between the two lines matters to the answer here, both are reported in `the_zero_width_tier.and_the_other_line` rather than only the one used. No module is added by this file; the declaration is made because the reading is one a module would have to declare.",
+ "district": "The South Division's OUTER ground, as T-1710 names it: the lakefront tier between the fort reservation and the plat, the documented country seats (Harmon, the Beaubien places) and the Fort Dearborn Addition ground. The South Branch noxious-trade band is the same grandparent's piece 3 and is closed by T-1709, not here; the plat's own last tier is pieces 1 and 2, T-1707 and T-1708.",
+ "one_ground_of_t_1203_that_no_piece_of_it_names": "T-1203's body lists its ground as \"the Michigan Street tract's five seated blocks, the lakefront tier between the fort reservation and the plat, the South Branch bank west of Market ... and the documented country seats\". Three of those four are the titles of its four pieces. The Michigan Street tract is in none of them, and the committed dossier puts that tract in the NORTH Division: docs/RESEARCH/michigan_st_tract.md is titled \"The Michigan St tract north of Kinzie Street\" and reads it off Wright's 1834 survey immediately north of Kinzie and east of the North Branch. This file does not close it, does not claim it is South Division ground, and does not re-scope the parent — it records that the ground is named by the grandparent and carried by no piece of it, because a ground that falls between two tickets falls out of the reconstruction in silence. Written onto T-1215, the convergence ticket, rather than filed as a new line: the queue stands at its ceiling and its own header asks for the finding on an existing ticket first.",
+ "the_country_seats_off_the_modelled_ground": {
+  "instrument": "data/structures/harmon_log_cabin.json § phases[0].position, data/reconstruction/1835_lot_ledger.json (the lot whose `standing` names it), data/traces/south_anchor_control.json § control.sixteenth_prairie, and data/terrain/epochs/e1834_harbor_cut/terrain_spec.json § grid for the box's own walls.",
+  "what_the_parent_asked": "T-1203 asks this ground for \"the documented country seats (Harmon, the Beaubien places) with their reconstructed neighbours\". Two groups, and they close in opposite directions.",
+  "the_beaubien_places": {
+   "records": [
+    "jb_beaubien_homestead",
+    "beaubien_barn",
+    "beaubien_new_residence",
+    "beaubien_trading_post"
+   ],
+   "where": "all four on the United States Reservation, all four inside the modelled box, all four named on the reservation's own `what_may_stand_here.permitted` list, and all four with 4 of 4 footprint corners inside the derived polygon (tools/measure_no_build_ground.py).",
+   "state": "closed by T-1712; nothing is owed here."
+  },
+  "harmons_country_place": {
+   "the_record_stands_here": {
+    "structure_id": "harmon_log_cabin",
+    "symbolic_location": "South Division, local ENU E 249 N -272",
+    "position_confidence": "reconstructed",
+    "derivation_method": "not_derivable",
+    "lot_it_occupies": "blk_randolph_franklin#02",
+    "plat": "thompson_plat_1830",
+    "grid": "original_town",
+    "plat_lot_number": 3,
+    "fronts": "randolph",
+    "bars_another_roof": true
+   },
+   "the_evidence_puts_his_ground_here": {
+    "what_the_source_says": "Andreas's medical chapter attests the fabric and the use — 'his residence was a cabin of hewn logs' — and says nothing about where it stood. What the record has about his GROUND is negative and it is the pre-emption: a hundred and forty acres whose northern boundary was near Sixteenth Street.",
+    "sixteenth_street_at_prairie_local_n": -2949.59,
+    "the_cabin_local_n": -272.0,
+    "the_cabin_stands_north_of_that_line_by_m": 2677.6
+   },
+   "two_things_the_position_note_says_that_are_no_longer_true": [
+    {
+     "the_note_says": "which is two kilometres south of the modelled ground",
+     "measured": "the box's south wall is at local N -3800.0 and has been since T-0464 carried it from Madison Street to Twenty-Second; Sixteenth Street at Prairie stands at N -2949.59, 850.4 m INSIDE that wall. The line the note calls two kilometres outside the modelled ground has been inside it since the southern extension landed."
+    },
+    {
+     "the_note_says": "This record sits in the South Division outer band where the reconstruction recipes put older log dwellings",
+     "measured": "it sits on a platted lot of the Original Town — blk_randolph_franklin#02, plat lot 3, fronting randolph — and the lot ledger records that it bars another roof there. It is not on outer ground at all, which is why this book is the place the discrepancy surfaces."
+    }
+   ],
+   "why_the_cabin_is_not_moved_by_this_file": "Because the box reaching his ground is not the same as the project being able to seat him on it. Nothing in this corpus states LAND south of Twelfth Street: the terrain spec's own § n_min says the 1650 m below it 'was FRAME and not reconstruction', and `evidence_limit` writes every vertex below local N -2149.40 conjectural whatever else it is graded. Standing his cabin on that ground would trade a placement invented on modelled ground for a placement invented on conjectural ground, and neither is a reading. What this file does is state the discrepancy and hand it on; a close-out that quietly re-seated a documented household would be the opposite of closing a book.",
+   "handed_to": "T-1215 § Two findings from T-1713 (2026-09-28), finding 1"
+  }
+ },
+ "the_fort_dearborn_addition_refused": {
+  "instrument": "data/reconstruction/1835_no_build_ground.json § regions[fort_dearborn_reservation], tools/measure_no_build_ground.py --gate, and data/research/directories/claims/fergus_1839_ft_dearborn_lots.json.",
+  "what_the_parent_asked": "T-1710 asks for \"the Fort Dearborn Addition dwellings the no-build ground allows\". The answer is NONE, and the reason is not a shortage of evidence — it is that the Addition is not 1835 ground.",
+  "the_refusal_already_committed": {
+   "region": "fort_dearborn_reservation",
+   "name": "The United States Reservation",
+   "confidence": "documented",
+   "sources": [
+    "andreas_1884_v1",
+    "chicagology_southwaterstreet",
+    "chicagology_prefire278"
+   ],
+   "documented_area_acres": 75.69,
+   "derived_area_acres": 65.7,
+   "the_claim_on_the_scene_date": "Jean Baptiste Beaubien's pre-emption certificate for the whole reservation is dated 1835-05-28 and was recorded 1835-06-26 — about five weeks old on 1835-07-01, and voided by the Supreme Court in Wilcox v. Jackson four years later.",
+   "what_stands_there_today": 26,
+   "unpermitted_records_standing_there": 0,
+   "under_coverage_cells": 0
+  },
+  "and_the_addition_itself_is_four_years_late": {
+   "source_id": "fergus_chicago_directory_1839",
+   "what_the_page_prints": "Fergus' Directory of the City of Chicago, 1839, printed pages 47-49: \"LOTS SOLD IN FT. DEARBORN ADDITION TO THE TOWN OF CHICAGO, from the 10th to the 24th June, 1839, inclusive — known as the Beaubien, or Reservation, lands.\"",
+   "rows_read": 268,
+   "bidders_named": 96,
+   "aggregate_printed_usd": 100000,
+   "what_that_settles": "The Addition is a subdivision of the SAME reservation ground, platted for a sale that opened on 1839-06-10 — three years and eleven months after the scene date. A lot of the Fort Dearborn Addition is not ground a dwelling can stand on in July 1835, because in July 1835 there is no lot: there is a fractional quarter section the United States has not sold, carrying no street and no lot line, under one contested claim five weeks old. The refusal is `documented`, and it rests on a page this project has read rather than on an absence."
+  },
+  "so_the_parent_asks_for_nothing_buildable_here": "The ask is answered in full and it is answered NIL. No record is added, no ground is regraded, and the reservation's permission list is untouched."
+ },
+ "the_zero_width_tier": {
+  "instrument": "tools/generate_plat_lots.py § street_lines + block_edges for the plat, and tools/measure_no_build_ground.py § reservation_ring / section_corner for the reservation's two survey lines. Both resolved at read time; no vertex is typed here.",
+  "what_the_parent_asked": "T-1203 names \"the lakefront tier between the fort reservation and the plat\" as one of the four grounds of this district. Measured, there is no tier: the two boundaries are the same line to within a width no lot can be cut in.",
+  "why_they_are_the_same_line": "G1 of data/traces/gcp/wright_1834_gcps.json is the PLSS corner of sections 9/10/15/16 — State Street at Madison Street — and the file itself records that it is 'the town plat's SE corner' and that 'Madison's line continues east as the reservation's south boundary'. The reservation's west line is taken north from that corner and its south line east from it. So the plat's south-east corner and the reservation's south-west corner are one committed point, and the \"tier\" between them is whatever the plat's own east street corridor leaves over.",
+  "g1_local": {
+   "e": 837.63,
+   "n": -525.27
+  },
+  "state_street": {
+   "drawn_centreline_local_enu_m": [
+    [
+     824.4,
+     -400.0
+    ],
+    [
+     827.1,
+     20.0
+    ]
+   ],
+   "corridor_m": 24.384,
+   "geometry_confidence": "attested",
+   "note": "the drawn centreline stops at local N -400, which is the terrain clip T-1707 carries to Madison; this reading takes the corridor as the record draws it and does not extend it."
+  },
+  "the_strip": [
+   {
+    "at_local_n": -400.08,
+    "plat_east_boundary_e": 836.592,
+    "reservation_west_line_e": 838.646,
+    "strip_width_m": 2.054
+   },
+   {
+    "at_local_n": 19.92,
+    "plat_east_boundary_e": 839.292,
+    "reservation_west_line_e": 842.054,
+    "strip_width_m": 2.762
+   }
+  ],
+  "verdict": "The widest the strip gets anywhere along the committed run of State Street is 2.762 m. A platted lot in this town is 24.4 m of frontage by 45-57 m of depth; the narrowest thing the plat cuts anywhere is an 18 ft (5.49 m) alley. A 2 m strip is not a tier, not a lot, and not a place a dwelling can be seated — and it is 6.3 times smaller than the georeference's own RMS uncertainty (17.5 m) and 11.8 times smaller than its worst residual (32.7 m), data/datum.json § derivation. That is the honest reason to call the tier zero rather than to call it two metres: the strip is narrower than the error bar on either line that bounds it.",
+  "and_the_other_line": {
+   "what": "Madison Street shows the same abutment and the same small disagreement on its own axis, and it is reported because a reader who checks this file against the street layer will meet it.",
+   "madison_drawn_line_local_n": -519.05,
+   "reservation_south_line_at_state_local_n": -525.27,
+   "disagreement_m": 6.22,
+   "why_they_differ": "Madison's drawn record is a ruled horizontal line read off Wright's sheet and anchored on the section's mile square; the reservation's south line is Madison's line carried east from G1 on the plat's own east-west bearing (slope -0.008115, the figure the three committed centrelines of Lake, Randolph and Washington all give). Two constructions of one street, 6.2 m apart at State Street, inside the 17.5 m the datum carries. Neither is re-cut onto the other here: T-0419 ruled that the block grid is not re-cut onto survey control, and this file takes no step toward doing it."
+  },
+  "what_this_is_not": "Not a claim that the reservation and the plat touched on the ground in 1835 to the centimetre. It is a claim about what this project holds: two boundaries derived from one control point cannot enclose a buildable tier, so the \"lakefront tier\" is struck as a ground of this district rather than left open as work somebody will look for."
+ },
+ "the_headroom": {
+  "instrument": "tools/reconcile_665.py --check, green on this tree, and data/reconstruction/1835_off_plat_ledger.json for the ground the plat does not draw.",
+  "programme": {
+   "standing_records": 431,
+   "physical_roofs_min": 418,
+   "remaining": 250,
+   "of_target": 668,
+   "south_remaining": 134
+  },
+  "the_souths_units": [
+   {
+    "unit": "blk_south_water_franklin",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 17,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_south_water_wells",
+    "kind": "platted_block",
+    "state": "open",
+    "lots": 8,
+    "standing_roofs": 12,
+    "headroom": 4
+   },
+   {
+    "unit": "blk_south_water_lasalle",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 18,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_south_water_clark",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 12,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_south_water_dearborn",
+    "kind": "platted_block",
+    "state": "open",
+    "lots": 8,
+    "standing_roofs": 15,
+    "headroom": 4
+   },
+   {
+    "unit": "blk_lake_market",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 10,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 14,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_lake_wells",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 14,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 14,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_lake_clark",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 16,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 13,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_market",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 14,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_franklin",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 9,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_wells",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 10,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_lasalle",
+    "kind": "platted_block_reserved",
+    "state": "reserved",
+    "lots": 0,
+    "standing_roofs": 1,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_clark",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 9,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_randolph_dearborn",
+    "kind": "platted_block",
+    "state": "at_capacity",
+    "lots": 8,
+    "standing_roofs": 17,
+    "headroom": 0
+   },
+   {
+    "unit": "blk_south_water_market",
+    "kind": "platted_block_awaiting_street_control",
+    "state": "gated",
+    "lots": 8,
+    "standing_roofs": 0,
+    "headroom": 27
+   },
+   {
+    "unit": "south_plat_beyond_committed_control",
+    "kind": "district_balance",
+    "state": "gated",
+    "lots": 0,
+    "standing_roofs": 0,
+    "headroom": 99
+   }
+  ],
+  "south_headroom_total": 134,
+  "where_that_headroom_is": {
+   "on_ground_the_project_has_coverage_for": 8,
+   "the_two_units_that_hold_it": [
+    "blk_south_water_wells",
+    "blk_south_water_dearborn"
+   ],
+   "gated_on_street_control": 126,
+   "the_two_units_that_hold_that": [
+    "blk_south_water_market",
+    "south_plat_beyond_committed_control"
+   ],
+   "both_of_them_inside_the_plat": true
+  },
+  "and_the_outer_ground_holds_none_of_it": {
+   "instrument": "data/reconstruction/1835_off_plat_ledger.json § counts and § parcels.",
+   "parcels_in_the_ledger": 177,
+   "may_raise_a_slot": 0,
+   "parcels_with_no_row_in_the_programme": 150,
+   "the_south_has_no_parcel_line_finer_than_a_survey_tract": "Every tier lot and tier block in that ledger belongs to the school_section_tier or the north_division_tier, and every addition block to Kinzie's Addition. The South Division's outer ground appears only as survey tracts, which is the coarsest granularity the file has.",
+   "the_tracts_that_cover_this_district": [
+    {
+     "parcel_id": "us_military_reservation",
+     "area_m2": 265878.7,
+     "principal_roofs_standing": 16,
+     "slot_headroom": 0,
+     "may_raise_a_slot": false
+    },
+    {
+     "parcel_id": "fractional_section_15",
+     "area_m2": 827083.5,
+     "principal_roofs_standing": 0,
+     "slot_headroom": 0,
+     "may_raise_a_slot": false
+    }
+   ]
+  },
+  "statement": "The South Division's outer ground closes at zero headroom of its own, and that is not a shortfall. Of the 134 roofs the programme still owes the South, 8 stand on two platted blocks with coverage and 126 are gated on street control the plat has not been given — every one of the 134 inside the Original Town. Not one is dealt to the reservation, the tier, the Addition or a country seat, because the ledger authors no parcel there that could carry a family plan. The district's outer books therefore close on a nil balance rather than on a remainder, and the thing that moves the South's number next is the street carry, not this ground."
+ },
+ "what_this_does_not_close": {
+  "the_parents_second_half": "T-1203's stop condition is 'the district's slot list reads built, every roof occupied'. This file closes the first half for the outer ground — the slot list has nothing left to deal there — and makes no claim about the second. Occupancy of the outer records is the parent's own remaining business and is not adjudicated here.",
+  "where_this_books_two_findings_went": {
+   "not_new_tickets": "ticket.mjs new refused the first one, and it was right to: the queue stands at its ceiling and QUEUE.md's own header asks for \"a finding on the ticket it was found in\" before a new line. T-1203 and T-1710 are both closed, so a paragraph on either would be unread. Both went onto T-1215 — the convergence closeout, open, and the ticket whose acceptance both findings bear on — pushed to the tickets repo with ticket.mjs sync.",
+   "where_to_read_them": "T-1215 § \"Two findings from T-1713, the South Division's outer books (2026-09-28)\"",
+   "finding_1": "harmon_log_cabin is seated on a platted town lot, its position note describes a band it is not in, and the note's negative fact about the modelled ground has been false since T-0464.",
+   "finding_2": "the Michigan Street tract is named by T-1203's ground list, carried by none of its four pieces, and placed north of Kinzie Street by its own dossier."
+  }
+ },
+ "tree": "read on dev at 4e9e7b70 and re-derived on the branch after the merge with dev; tools/publish.sh run before the smoke so the gate reads the tree that ships."
+}

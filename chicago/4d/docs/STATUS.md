@@ -47,6 +47,104 @@ Shared destinations recovered from draft chicago PR #129. No separate destinatio
 
 # STATUS
 
+## The South Division's outer books, closed — T-1713, 2026-09-28
+
+Piece 2 of 2 of T-1710, which is piece 4 of 4 of T-1203. T-1712 raised the Beaubien
+homestead's other two buildings; this one answers the four questions the parent asks before
+this district's outer ground is done with, and **changes nothing in the town** — no roof, no
+card, no confidence, no bake. The reading is committed at
+`data/render/south_outer_close_out.json`, in deliberately the same shape as
+`south_water_close_out.json`, `lake_close_out.json` and `randolph_close_out.json` so the
+districts compare. Every number is read at load time off committed data or resolved by a
+committed tool; none is typed. **Three of the four books close NIL, and a nil answered on
+evidence is a result rather than a gap.**
+
+**Which line the tier reading stands on.** The file declares `CORRIDOR_LINE: drawn`, because
+the strip it measures runs between a block grid and a survey line and the block grid is cut
+on the drawn line (T-0419). The disagreement between the two lines matters to this answer, so
+both are reported rather than only the one used.
+
+**Book one — the country seats, and the one that is not where its note says.** The Beaubien
+places close: four records (`jb_beaubien_homestead`, `beaubien_barn`,
+`beaubien_new_residence`, `beaubien_trading_post`), all on the United States Reservation, all
+inside the modelled box, all on the reservation's own permitted list, all with 4 of 4
+footprint corners inside the derived polygon. Harmon's does not. `harmon_log_cabin` stands on
+`blk_randolph_franklin#02` — **plat lot 3 of the Original Town, fronting Randolph, barring
+another roof on that lot** — while its own `position_note` says it "sits in the South Division
+outer band". And the note's negative fact is stale: it says Harmon's pre-empted hundred and
+forty acres, whose north boundary his record puts near Sixteenth Street, is "two kilometres
+south of the modelled ground", but Sixteenth Street at Prairie stands at local **N -2949.59**
+and the box's south wall at **N -3800.0**, so that line has been **850.4 m inside** the
+modelled ground since T-0464 carried the wall to Twenty-Second Street. The cabin stands
+**2 677.6 m north** of it. **The record was deliberately not moved.** Nothing in this corpus
+states land south of Twelfth Street — `evidence_limit` writes every vertex below N -2149.40
+conjectural and the terrain spec calls the 1650 m below it frame, not reconstruction — so
+re-seating him there would trade an invention on modelled ground for an invention on
+conjectural ground, which is not a reading. The discrepancy is written onto **T-1215**, the
+convergence closeout, with its measurements.
+
+**Book two — the Fort Dearborn Addition, refused, and four years late.** T-1710 asks for "the
+Fort Dearborn Addition dwellings the no-build ground allows" and the answer is **none**. The
+ground is the United States Reservation, refused `documented` in
+`1835_no_build_ground.json` on three sources: 75.69 documented acres (65.70 derived,
+a 13.2 % shortfall the file records rather than tunes away), unplatted, crossed by no street,
+and under Jean Baptiste Beaubien's pre-emption certificate of 1835-05-28 — recorded
+1835-06-26, five weeks old on the scene date, voided in *Wilcox v. Jackson* four years later.
+`measure_no_build_ground.py` finds **26** records standing there, **0** of them unpermitted,
+and **0** cells of under-coverage. And the Addition itself is not 1835 ground at all: Fergus'
+Directory of 1839, printed pages 47–49, prints *"LOTS SOLD IN FT. DEARBORN ADDITION TO THE
+TOWN OF CHICAGO, from the 10th to the 24th June, 1839, inclusive — known as the Beaubien, or
+Reservation, lands"* — **268 rows, 96 bidders named, $100,000 printed in aggregate**, a sale
+that opened three years and eleven months after 1835-07-01. In July 1835 there is no lot to
+build on, so the ask is answered nil on a page this project has read rather than on an
+absence.
+
+**Book three — the lakefront tier is zero-width, and it is struck.** T-1203 names "the
+lakefront tier between the fort reservation and the plat" as one of this district's four
+grounds. There is no tier. G1 of `wright_1834_gcps.json` is the PLSS corner of sections
+9/10/15/16 — State at Madison — and the file already records that it is the plat's SE corner
+and that Madison's line continues east as the reservation's south boundary, so the plat's
+south-east corner and the reservation's south-west corner are **one committed point**.
+Measured between the plat's east block-grid boundary and the reservation's west survey line:
+**2.054 m at local N -400 and 2.762 m at N +20**. A lot here is 24.4 m of frontage; the
+narrowest thing the plat cuts anywhere is an 18 ft (5.49 m) alley. The strip is **6.3 times
+narrower than the georeference's own RMS (17.5 m) and 11.8 times narrower than its worst
+residual (32.7 m)** — narrower than the error bar on either line that bounds it, which is the
+honest reason to call it zero rather than to call it two metres. The same abutment shows on
+Madison's axis with the same small disagreement: Madison's drawn record is a ruled horizontal
+line at N -519.05 and the reservation's south line passes State Street at N -525.27, **6.22 m
+apart**, inside the datum's 17.5 m. Neither line is re-cut onto the other here — T-0419 ruled
+that the block grid is not re-cut onto survey control, and this reading takes no step toward
+it.
+
+**Book four — the headroom, stated, and it is nil of its own.** `reconcile_665.py --check` is
+green on this tree: 431 standing records, 418 physical roofs, **250 remaining of 668**, of
+which the South owes **134**. All 134 are inside the Original Town — **8** on two platted
+blocks with coverage (`blk_south_water_wells`, `blk_south_water_dearborn`) and **126** gated
+on street control the plat has not been given (`blk_south_water_market` 27,
+`south_plat_beyond_committed_control` 99). **Not one is dealt to the reservation, the tier,
+the Addition or a country seat**, and the reason is structural rather than an oversight:
+`1835_off_plat_ledger.json` draws 177 parcels of off-plat ground and **every** tier lot, tier
+block and addition block in it belongs to the school-section tier, the north-division tier or
+Kinzie's Addition. The South Division's outer ground appears only as survey tracts — the
+coarsest granularity that file has — so `may_raise_a_slot` is **0** across all 177 rows and
+150 of them carry no row in the roof programme at all. This district's outer books therefore
+close **on a nil balance rather than on a remainder**, and the thing that moves the South's
+number next is the street carry (T-1707), not this ground.
+
+**What this does not close, said plainly.** T-1203's stop condition is "the district's slot
+list reads built, every roof occupied". This closes the first half for the outer ground and
+makes no claim about the second; occupancy of the outer records is the parent's own remaining
+business. **One ground of T-1203 is carried by no piece of it:** its body lists "the Michigan
+Street tract's five seated blocks" first among the four grounds of this band, the other three
+are the titles of its four pieces, and `docs/RESEARCH/michigan_st_tract.md` is titled "The
+Michigan St tract north of Kinzie Street" and reads it off Wright's 1834 survey in the
+**North** Division. Either the parent's ground list names a tract that is not in its district
+or a ground of this one has fallen between two tickets; this run recorded it and adjudicated
+neither. Both findings are on **T-1215**, not filed as new lines — the queue stands at its
+ceiling and its own header asks for the finding on an existing ticket first, and T-1203 and
+T-1710 are both closed, so a paragraph on either would be unread.
+
 ## The Randolph tier's books, closed — T-1688, 2026-09-27
 
 Piece 4 of 4 of T-1202, and the last of them: T-1685 named this tier's keepers, T-1687 settled
