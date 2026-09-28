@@ -118,11 +118,16 @@ ROOFS = {
             "rather than a reading of this person, who is not named by anything."),
         "draw_a_family": False,
         "family_note": (
-            "NO SIZE IS DRAWN, AND THAT IS A REFUSAL RATHER THAN AN OVERSIGHT. The 1840 "
-            "histogram is a distribution over DWELLINGS and these quarters are a light "
-            "tower's; nothing states a family at the light, and drawing 4.4 people into a "
+            "NO SIZE IS DRAWN, AND THAT IS A REFUSAL RATHER THAN AN OVERSIGHT. It was "
+            "written when the bed was in the tower itself \u2014 'drawing 4.4 people into a "
             "forty-foot tower would be the model reaching past the one thing the record "
-            "gives it. A source naming the keeper's household is what fills this."),
+            "gives it' \u2014 and T-1716 has since raised the quarters the appointment paid "
+            "for, so that sentence no longer carries it. THE REFUSAL STANDS ON THE "
+            "EVIDENCE INSTEAD: nothing states a family at this light, the quarters' own "
+            "record states no capacity and every drawn attribute of them is invented "
+            "(L288), and the 1840 histogram would be drawing a household out of a house "
+            "this project made up. A source naming the keeper's household is what fills "
+            "this; a roof to put it under is not evidence that there was one."),
     },
     "watkins_school_house": {
         "household_name": "The household of the Michigan Street house Watkins taught in",
@@ -301,6 +306,18 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
     taken_names.add(name.lower())
 
     place_name = structure_name(sid)
+    # THE INSTITUTION ORDERS THE HOUSEHOLD; A BUILDING OF IT HOLDS THE BED (T-1716).
+    # `place` is the roof the adjudication asked its question of and it never moves. Where
+    # that institution has quarters of its own — the Chicago light, whose keepership was
+    # paid "with quarters" and whose quarters are now a record — the row names them in
+    # `sleeps_at` and the bed goes there. Until T-1716 the card slept the keeper inside a
+    # forty-foot masonry tower, because the project had no other roof at the station to
+    # point at; a row that names one is not a second claim, it is the same claim housed.
+    bed = row.get("sleeps_at") or sid
+    if not (STRUCTURES / f"{bed}.json").exists():
+        raise SystemExit(
+            "%s sleeps_at %s, which is not a committed structure record. A bed may only "
+            "be moved onto a building this project has raised." % (sid, bed))
     bucket = f"households/institutional/{division}"
     size = pick(f"{slot}:household_size", sizes) if rule["draw_a_family"] else None
 
@@ -438,7 +455,7 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
             "seated_by": "T-1169 (the arrival fill), T-1179 (converge)",
         },
         "lives_at": {
-            "value": sid,
+            "value": bed,
             "confidence": RECONSTRUCTED,
             "tier": RECONSTRUCTED,
             "basis": {
@@ -451,6 +468,11 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
                 "kind": "person",
                 "match": "a source naming who lived at this building on the scene date",
             },
+            "at_the_institution": None if bed == sid else (
+                f"THE BED IS AT {structure_name(bed)} AND THE HOUSEHOLD WAS ORDERED BY "
+                f"{place_name} (T-1716). The adjudication asks its question of the "
+                f"institution and the institution answers with its own quarters; "
+                f"`works_at` stays the institution, because that is what the office is."),
             "note": "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family "
                     "reconstructions, this household is not waiting on T-1199 for a lot: "
                     "the roof it is under is a committed, placed record and is the reason "
@@ -728,6 +750,16 @@ def self_test() -> int:
          all(n <= int(adj["lodging_capable_by_division"][b.rsplit("/", 1)[1]])
              for b, n in buckets().items()))
 
+    # A BED ON A BUILDING NOBODY RAISED IS REFUSED, not written onto a missing roof.
+    light = dict(ROOFS["chicago_lighthouse_1832"])
+    try:
+        card_for({"structure": "chicago_lighthouse_1832", "division": "south",
+                  "why": "self-test", "sleeps_at": "no_such_record_at_all"},
+                 light, load(POOLS), size_rows(), set(), set())
+        case("fires: a bed moved onto a record that does not exist", False)
+    except SystemExit:
+        case("fires: a bed moved onto a record that does not exist", True)
+
     # A ROOF ADMITTED WITH NO CARD RULE IS REFUSED, not quietly skipped: the evidence
     # says a household lived there and the rule says what to write, and the second does
     # not follow from the first.
@@ -746,9 +778,17 @@ def self_test() -> int:
     cards, ledger = fill()
     case("no card carries an age band it was never ordered",
          all(c["persons"][0]["age_band"] is None for c in cards.values()))
-    case("every card is seated on the roof that ordered it",
-         all(c["lives_at"]["value"] == c["institutional_household"]["place"]
+    beds = {r["structure"]: (r.get("sleeps_at") or r["structure"]) for r in rows}
+    case("every card is seated on the roof the adjudication names for its bed",
+         all(c["lives_at"]["value"] == beds[c["institutional_household"]["place"]]
              for c in cards.values()))
+    case("a bed moved off the roof that ordered it still works at the institution",
+         all(c["works_at"]["value"] == c["institutional_household"]["place"]
+             for c in cards.values()
+             if c["works_at"]["value"] and
+             c["lives_at"]["value"] != c["institutional_household"]["place"]))
+    case("every sleeps_at names a committed structure record",
+         all((STRUCTURES / f'{b}.json').exists() for b in beds.values()))
     case("no invented name is a name the layer's real people bear",
          not ({c["persons"][0]["name"].lower() for c in cards.values()}
               & {n for n in layer()[0]} - {c["persons"][0]["name"].lower()

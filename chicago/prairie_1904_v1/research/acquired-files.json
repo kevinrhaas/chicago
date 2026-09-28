@@ -758,5 +758,137 @@
     "sha256": "c6a74fb3628d1fac3f1071caa02cbab87281d5ea944a27b42623086e196524b4",
     "sha1": "243bc5b4a294a8def57486215d580cb82d05511f",
     "retention": "internet_archive"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-f1.jpg",
+    "bytes": 1157742,
+    "sha256": "9040839e00ca06412f792e31b33b1f07e9d2ce9f896567dc0b176d1499e70803",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-f1-thumb.jpg",
+    "bytes": 15273,
+    "sha256": "fc9bef9be959d9364d2bd4078922b3c8152b15f720291735b7128a13fff93e16",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-d15.jpg",
+    "bytes": 2793773,
+    "sha256": "b899c6183e4f29edcdae8c4e9c64ffe4b0e6a30a6c3d9642d45c7628834efbaf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-d15-thumb.jpg",
+    "bytes": 25928,
+    "sha256": "647b3d49ef234a0ba82b4895ca26cdf3c427f476b79dd3169e79364976b2ef68",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b2.jpg",
+    "bytes": 2222640,
+    "sha256": "ecd16f6013adcd409138eab8f8f28ce5cef7039b0efee084cf30879a136ef0f5",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b2-thumb.jpg",
+    "bytes": 27166,
+    "sha256": "35401e2efea9da652095c709f7265a47fc2efb0024f03501de2fef8f81ed71f1",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b1.jpg",
+    "bytes": 1990100,
+    "sha256": "de838f5d6a99a27117332fd6c32dfa9923dc824a9971a7dffe97a2a446de92fa",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b1-thumb.jpg",
+    "bytes": 24559,
+    "sha256": "3e28f87c52ee8bf9b5c631b207b6a481d57120d2a17fde2a963cefc77aec01da",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b6.jpg",
+    "bytes": 1593441,
+    "sha256": "a7c7a88f88f239705955bd6b792af10a9bb985f2a6b0e75adac7368b974ab511",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b6-thumb.jpg",
+    "bytes": 19721,
+    "sha256": "5d5bd1c096de6e280e392761aed77b16cf737476afa1d191b8df3cea2aaba590",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b7.jpg",
+    "bytes": 1099011,
+    "sha256": "40949eac3c5c9090deb24678c5d901d00c7d9bfe563394ddc8eb626294aed84f",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b7-thumb.jpg",
+    "bytes": 14954,
+    "sha256": "23f9f95883840415e94db994cfec88197a3ff0eee457c32e39d33eb970dabd6d",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b9.jpg",
+    "bytes": 1005046,
+    "sha256": "4acdd360fb0c70bf2eb144e13a15305ab0e03d73604422d6019b9af05be0f5a0",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-b9-thumb.jpg",
+    "bytes": 13819,
+    "sha256": "2bc0359920b90a5d91b8817f131e8152e2e0c8dd3dbae877561b3e0ef40dbcb1",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e5y.jpg",
+    "bytes": 1414200,
+    "sha256": "d83ee1d12b8a6cee05169a0f20650da454fb70154ce90dbf21834ebc4c50e154",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e5y-thumb.jpg",
+    "bytes": 9977,
+    "sha256": "4b3b4a39b403eb456efa8d3ac3407eba28207ff4d5752405c4666de912ce505d",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e3.jpg",
+    "bytes": 1636968,
+    "sha256": "59ad5d42b587408f71495facbe4055bd3d2cb7fa7544aa4b7a271fae67a234c9",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e3-thumb.jpg",
+    "bytes": 21195,
+    "sha256": "33c676487c59c69f36e74ccb79d69db1eee002b21f599027d5fa2dda6042b594",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e4d.jpg",
+    "bytes": 1586929,
+    "sha256": "674345087b22446eaded5b6e5330640e147480ce1decf86c86df5c643a5d8e2b",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-houghton-gle-e4d-thumb.jpg",
+    "bytes": 17586,
+    "sha256": "bb0f3a49715f4db784499cc8d6395c4a9209791dffa334e154240b4730d15407",
+    "retention": "repository"
+  },
+  {
+    "path": "research/houghton-glessner-contents-1-50.pdf",
+    "bytes": 536631,
+    "sha256": "45ac4e4b387f523fce8a1c928e1685c006e6280da72c7c9795e30bb7d459ccbf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/houghton-glessner-contents-51-100.pdf",
+    "bytes": 530617,
+    "sha256": "882e2f10649b36fca807ca1e031ffb57e16023627c6bdad433ebe24d9f775eaa",
+    "retention": "repository"
   }
 ]

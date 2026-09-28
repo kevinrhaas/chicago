@@ -4407,20 +4407,28 @@ def cmd_self_test() -> int:
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
     #
-    # T-1733 TAKES IT TO 213, AND BOTH OF THE TWO ARE SLOTS AS WELL. The platted pass goes
-    # 139 -> 141 and the off-plat pass holds at 72 again, so the platted slot count goes
-    # 30 -> 32. This is the same shape of cause as T-1707's and it is worth saying so: a
-    # ruling about GROUND, not about households. `blk_lake_clinton` is plat block 28,
-    # between Clinton and Canal, and it stands on West Division ground while being emitted
-    # by the Original Town's grid; the owner ruled on 2026-09-23 (T-1479, option a) that the
-    # West Division's own arrangement may cut a block printing no lot figures of its own, at
-    # `inferred`, so the cell went from eight lots four-to-a-face to TEN in two columns
-    # fronting Clinton and Canal. Two more lots on a block the 665-roof programme already
-    # marks `open`, and the deal asked for both: the Adams household on the Canal face and
-    # the Baxley household on the Clinton face. Nothing was adopted that was not adopted
+    # T-1733 AND T-1716 TOGETHER TAKE IT TO 212, AND THIRTY-ONE OF THE SEATS ARE SLOTS.
+    # Two rulings about GROUND and one standing roof, composing in opposite directions on
+    # the same platted pass, which went 139 -> 140.
+    #
+    # T-1733 added two. `blk_lake_clinton` is plat block 28, between Clinton and Canal, and
+    # it stands on West Division ground while being emitted by the Original Town's grid; the
+    # owner ruled on 2026-09-23 (T-1479, option a) that the West Division's own arrangement
+    # may cut a block printing no lot figures of its own, at `inferred`, so the cell went
+    # from eight lots four-to-a-face to TEN in two columns fronting Clinton and Canal. Two
+    # more lots on a block the 665-roof programme already marks `open`, and the deal asked
+    # for both: the Adams household on the Canal face and the Baxley household on the
+    # Clinton face. This is the same shape of cause as T-1707's and it is worth saying so:
+    # a ruling about GROUND, not about households. Nothing was adopted that was not adopted
     # before — 109 both sides of the change — and no roof moved a metre.
+    #
+    # T-1716 took one back. The keeper's quarters at the Chicago light is a standing roof
+    # the programme counts, so the family plan it draws for `blk_washington_clark` falls
+    # from two principal roofs to one, and the household that had the second slot goes back
+    # on the owed list. Nothing was raised on the plat and no seat moved: one request the
+    # plan no longer has room for is withdrawn, and it is withdrawn in writing.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 213
+        data["inventory"], data["programme"], occ))["seated"] == 212
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4428,7 +4436,7 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 30 slot rows on the plat's last
+    # currently sit: since T-1707 the platted pass carries 29 slot rows on the plat's last
     # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
     # carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.

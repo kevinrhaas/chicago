@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1211, ts: '2026-09-28T17:15:12.243Z', date: 'Sep 28, 2026, 12:15 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
+  { v: 1212, ts: '2026-09-28T18:35:25.880Z', date: 'Sep 28, 2026, 1:35 PM CT', title: 'Clinton to Canal: a block cut the way the plat cuts it', kind: 'change',
     items: [
       'Walk to the block between Clinton and Canal, north of Randolph, and it is cut into ten lots instead of eight \u2014 two columns of five with an alley running down the middle, north to south, and each lot fronting Clinton on one side or Canal on the other. That is what the 1830 plat draws there, and this town had been drawing something else.',
       'West of the river the plat uses a different block than it does downtown: two long lots back to back rather than four short ones to a face, and the alley turns ninety degrees with them. The numerals are printed in the block itself \u2014 2 and 1, 3 and 4, 6 and 5, 7 and 8, 10 and 9, reading down \u2014 and every lot now carries the number the sheet gives it at the position the sheet gives it.',
@@ -7,6 +7,14 @@ export const CHANGELOG = [ // newest first
       'Nothing moved a metre. Every building on the block stands exactly where it stood and none of them was rebuilt; what changed is which lot each one is on, and the yard fences and gates that follow the lot lines have been re-laid along the new ones.',
       'Two consequences. The extra lots front streets with no platted frontage here before, so two households \u2014 the Adams family and the Baxleys \u2014 now have an address on them, walls not up yet. And a blacksmithing firm the newspaper places on Canal Street and nowhere narrower has moved onto a roof that faces Canal; it had stood on one facing Randolph, because no Canal frontage existed here to give it.',
       'The block one street south, between Randolph and Washington, is NOT re-cut yet, and that is deliberate. Seven houses were dealt onto it by an argument about which family takes the Randolph face and which takes Washington \u2014 faces this arrangement removes. Re-cutting it means re-making that argument and rebuilding those seven roofs, which is its own piece of work.',
+    ] },
+  { v: 1211, ts: '2026-09-28T16:43:09.466Z', date: 'Sep 28, 2026, 11:43 AM CT', title: 'The lighthouse keeper gets the quarters his wages paid for', kind: 'change',
+    items: [
+      'A small house now stands beside the 1832 light tower at the river mouth, west of the fort, and the light-keeper lives in it. Until now this dataset had him sleeping inside the tower \u2014 a forty-foot masonry shaft with a lantern on top \u2014 because the tower was the only roof at the station anyone had drawn.',
+      'One word in one sentence is the whole reason the house is there. Andreas records the first keeper of this light at three hundred and fifty dollars a year \u201Cwith quarters\u201D, and quarters paid as wages are quarters that stood. Nothing else about them is recorded anywhere this project has reached: not where at the station, not how big, not what of. So the house is drawn at the tier that says so, and its card says every drawn thing about it is ours.',
+      'Open the keeper\u2019s card and he now works at the light and lives next door, which is the arrangement the sources describe. His household is still left unsized on purpose: nothing says he had a family here, and a house to put one in is not evidence that he did.',
+      'The tower itself is untouched \u2014 same height, same lantern, same position read off Wright\u2019s 1834 sheet.',
+      'And no works yard at the piers. The federal harbour works are documented to the dollar and the season, and not one source reached says where the gang kept its timber, its stone or its forge \u2014 so nothing is built for them, and the refusal is written down beside the piers with the report that would overturn it.',
     ] },
   { v: 1210, ts: '2026-09-28T14:29:49.974Z', date: 'Sep 28, 2026, 9:29 AM CT', title: 'The north side is a wood again', kind: 'fix',
     items: [
