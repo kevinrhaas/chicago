@@ -18,19 +18,19 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 
 | Domain | Asserted | Later only | Outside Chicago | Aggregate only | Refused | Unresolved | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| books | 26 | 82 | 1 | 81 | 101 | 12 | 303 |
+| books | 26 | 82 | 1 | 85 | 102 | 7 | 303 |
 | census_1830 | 16 | 0 | 0 | 0 | 188 | 0 | 204 |
 | census_1840 | 0 | 1,080 | 0 | 0 | 0 | 0 | 1,080 |
 | church | 21 | 1,432 | 63 | 6 | 56 | 173 | 1,751 |
 | civic | 292 | 13 | 0 | 5 | 36 | 157 | 503 |
-| directories | 0 | 8,246 | 0 | 8 | 1 | 3 | 8,258 |
+| directories | 0 | 8,246 | 0 | 8 | 2 | 2 | 8,258 |
 | genealogytrails | 0 | 1 | 0 | 1 | 3 | 0 | 5 |
 | land_sales | 313 | 570 | 46 | 0 | 603 | 40 | 1,572 |
 | newberry_index | 0 | 0 | 0 | 0 | 6,658 | 0 | 6,658 |
-| newspapers | 699 | 68 | 8 | 261 | 59 | 94 | 1,189 |
+| newspapers | 699 | 68 | 9 | 271 | 60 | 82 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
 | residents | 26 | 10 | 0 | 0 | 1,022 | 22 | 1,080 |
-| **Total** | **1,393** | **12,596** | **118** | **362** | **8,727** | **501** | **23,697** |
+| **Total** | **1,393** | **12,596** | **119** | **376** | **8,730** | **483** | **23,697** |
 
 ## Second-hop preservation
 
@@ -47,7 +47,6 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 | T-1543 | 1 |
 | T-1552 | 26 |
 | T-1569 | 12 |
-| T-1587 | 18 |
 | T-1625 | 6 |
 
 **266** unit(s) wait on evidence rather than on a ticket, under 5 stated reopening condition(s):
