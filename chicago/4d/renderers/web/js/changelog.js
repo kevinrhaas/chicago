@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
+  { v: 1214, ts: '2026-09-28T20:26:04.823Z', date: 'Sep 28, 2026, 3:26 PM CT', title: 'Jaunts remember your outing, and a choice can be revised', kind: 'feature',
     items: [
       'Leave a jaunt partway through and the Jaunts menu now offers to pick it up where you stopped, even after a reload. A saved outing from an older version of the jaunt, or one that can no longer be read, is set aside with a short note rather than restarting wrongly.',
       'A choice you have made can be revised. “Revise choice” rewinds the outing to that stop, undoes whatever the later stops spent, and lets you take the other path to a different ending.',
