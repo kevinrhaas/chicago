@@ -2656,6 +2656,130 @@
         ]
       },
       "source": "/tmp/t1591/smoke_d3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 393,
+      "takenAt": "2026-09-28T02:12:19.747Z",
+      "ref": "steward/t1688-randolph-books-closed",
+      "commit": "4c31692dc191",
+      "devCommit": "06129a653548",
+      "treeHash": "sha256:3fe6356a0645b7bf",
+      "treeDirty": false,
+      "changelogHash": "sha256:5629b7f1f67abf3c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          4,
+          3.7
+        ]
+      },
+      "source": "/tmp/smoke-d12b.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 217,
+      "takenAt": "2026-09-28T02:12:19.669Z",
+      "ref": "steward/t1688-randolph-books-closed",
+      "commit": "4c31692dc191",
+      "devCommit": "06129a653548",
+      "treeHash": "sha256:3fe6356a0645b7bf",
+      "treeDirty": false,
+      "changelogHash": "sha256:5629b7f1f67abf3c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          4,
+          3.7
+        ]
+      },
+      "source": "/tmp/smoke-m12b.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 536,
+      "takenAt": "2026-09-28T01:38:40.826Z",
+      "ref": "steward/t1592-infrastructure-book-readings",
+      "commit": "85c227a0d13a",
+      "devCommit": "6226e593cc39",
+      "treeHash": "sha256:9a26e3709b090c2d",
+      "treeDirty": false,
+      "changelogHash": "sha256:a96c3a0247a2cb04",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          4.1
+        ]
+      },
+      "source": "/tmp/s2_d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 139,
+      "takenAt": "2026-09-28T01:29:40.056Z",
+      "ref": "steward/t1592-infrastructure-book-readings",
+      "commit": "85c227a0d13a",
+      "devCommit": "6226e593cc39",
+      "treeHash": "sha256:9a26e3709b090c2d",
+      "treeDirty": false,
+      "changelogHash": "sha256:a96c3a0247a2cb04",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/s2_m3.log"
     }
   ]
 }
