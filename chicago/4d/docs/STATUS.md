@@ -1,3 +1,19 @@
+## T-1279 — playable jaunt and persistent navigation (2026-09-27)
+
+The welcome can start the five-stop pilot, with Previous/Next and End/Menu controls
+outside the scrolling stop text. Cards and the drawer leave navigation clear.
+Menu pauses at the current location with Resume/Restart; End cancels immediately;
+Explore clears a paused session. Completion shows an outcome and route note in the
+menu. No daybook persistence, ETA or mode selector is included.
+
+The lazy, content-neutral reducer/controller uses session and leg tokens to reject
+stale travel callbacks. Revisited stops never apply effects twice. Eight reducer
+tests pass, including timer/listener counts and mid-ride replacement. The recovered
+published mobile run passed both the pilot and a second fixture with zero page
+errors and End at 123.6 ms. Desktop and whole-tree release validation are pending;
+see `performance/jaunts-play/` for current receipts. T-1253 is a PR dependency.
+
+
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
 
 New in Chicago is now authored JSON: five short exterior stops, an optional

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1195, ts: '2026-09-28T01:39:47.127Z', date: 'Sep 27, 2026, 8:39 PM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
+      'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
+      'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
   { v: 1194, ts: '2026-09-28T01:12:29.745Z', date: 'Sep 27, 2026, 8:12 PM CT', title: 'Preview your first jaunt through Chicago', kind: 'change',
     items: [
       'Choose Jaunts on the welcome to preview New in Chicago: five short stops from the Sauganash to Brown’s boarding house, with the evidence behind each stop.',

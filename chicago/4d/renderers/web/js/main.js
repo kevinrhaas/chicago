@@ -2077,7 +2077,7 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen) return;
+    if (gateOpen || e.target.closest?.('#jaunt-panel')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -2086,7 +2086,7 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || isTyping(e.target)) return;
+    if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
       if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)
@@ -2358,6 +2358,7 @@ async function boot() {
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
   function goToTarget(target) {
+    if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
     // Explicit coordinate viewpoints predate the shared picker and are used by
     // the scene measurement harness. Named picker rows still resolve strictly.
     if (!target?.id && target?.kind === 'intersection'
@@ -2424,16 +2425,62 @@ async function boot() {
       : 'W A S D to walk · E to inspect what you are looking at');
     return true;
   }
-  api.jaunts = { catalog: null };
-  let jauntPreview;
+  let jauntPreview, jauntRuntime, jauntPanel, jauntReady, jauntReturnId;
+  let jauntEntering = false;
+  const jauntRoot = document.getElementById('welcome-jaunts-content');
+  function jauntError(error) {
+    const message = document.createElement('p'); message.setAttribute('role', 'alert');
+    message.textContent = `The outing could not start: ${error.message}. Choose Start Jaunt to try again.`;
+    jauntRoot.append(message);
+  }
+  function ensureJaunts() {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js')]).then(([preview, runtime, panel]) => {
+      jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
+        onStart: id => jauntRuntime.start(id), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state });
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'retry', 'detail', 'returnFromDetail'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      jauntPanel = panel.createJauntPanel({ destinations, actions });
+      jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
+        resolve: target => {
+          const resolved = destinations.resolve(target);
+          return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
+        }, place: spawnAtDestination,
+        enter(target, { resume = false } = {}) {
+          jauntEntering = true;
+          try {
+            const ok = api.welcome.state === 'world' || (resume ? api.welcome.close() : api.welcome.enter(target.kind, target.id));
+            if (ok) hud.dismissControlHelp({ remember: false });
+            return ok;
+          } finally { jauntEntering = false; }
+        },
+        render: state => jauntPanel.render(state),
+        showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show(); api.welcome.enter('jaunts'); },
+        closeDetail() { popup.close(); hud.setPanel(false); },
+        async openDetail(link) {
+          if (document.pointerLockElement) document.exitPointerLock?.();
+          try {
+            if (link.kind === 'structure') { hud.setPanel(false); pick(link.id); }
+            else if (link.kind === 'person') { hud.setPanel(true); hud.selectTab('people'); await api.people.open(link.id); }
+            else if (link.kind === 'business') openBusiness(link.id);
+            else { hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showTopic(link.kind === 'source' ? 'sources' : link.id);
+              if (link.kind === 'source') { openSources(); const view = await sourcesPromise; await view?.open(link.id); } }
+          } catch { hud.say('This detail could not load. Close it to return to the outing.'); }
+        }, onError: jauntError,
+      });
+      return jauntRuntime;
+    }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
+  }
+  api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    async start(id) { try { return (await ensureJaunts()).start(id); } catch (error) { jauntError(error); return false; } },
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+  };
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
+    onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');
       try {
         root.setAttribute('aria-busy', 'true');
-        const { createJauntPreview } = await import('./jaunt-preview.js');
-        jauntPreview ??= createJauntPreview({ root, dataBase: bases.dataBase, destinations, api: api.jaunts });
-        await jauntPreview.open();
+        await ensureJaunts();
+        await jauntPreview.open(jauntReturnId); jauntReturnId = null;
       } catch {
         root.textContent = 'Jaunt previews could not load. Choose Jaunts to try again, or explore on your own.';
       } finally { root.removeAttribute('aria-busy'); }
@@ -2441,6 +2488,7 @@ async function boot() {
     enter: target => enterWorld({ spawn: target }),
     resume: () => enterWorld({ resume: true }),
     pause: () => {
+      if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
       backends.activate(null);
       if (document.pointerLockElement) document.exitPointerLock?.();

@@ -39,6 +39,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "Jaunt session history, cancellation and replacement (T-1279)" \
+  node tools/test_jaunts_reducer.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
   python3 tools/check_loading_content.py
 step "loading evidence refuses promoted or unrelated facts (T-1275)" \

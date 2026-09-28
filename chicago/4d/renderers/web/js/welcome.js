@@ -1,5 +1,5 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
-export function createWelcome({ gate, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, isTouch = false }) {
+export function createWelcome({ gate, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -47,7 +47,7 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     gate.dataset.region = which;
     $('welcome-explore').setAttribute('aria-expanded', String(explore));
     $('welcome-jaunts').setAttribute('aria-expanded', String(!explore));
-    if (explore) { render(); search.focus(); }
+    if (explore) { onExplore(); render(); search.focus(); }
     else onJaunts();
   }
   function show() {
@@ -68,6 +68,7 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     if (type === 'jaunts' || type === 'explore') { region(type); return true; }
     const target = type === 'spawn' ? null : destinations.byId(type, id);
     if (type !== 'spawn' && !target) return false;
+    onExplore();
     if (!enter(target)) {
       message.textContent = 'There is no safe starting place here. Please choose another.';
       return false;
