@@ -156,7 +156,10 @@ try {
       } else if (doc.id === 'fixture-tavern') {
         await page.evaluate(() => { __chicago4d.jaunts.choose('abstain'); __chicago4d.jaunts.next(); });
         assert.equal((await state()).outcome.id, 'clear-headed');
-      } else await page.evaluate(() => __chicago4d.jaunts.next());
+      } else {
+        // fixture-walk has two stops: ride to the second, then end there (as the walk above does).
+        await page.evaluate(() => __chicago4d.jaunts.next()); await finishRide(); await page.evaluate(() => __chicago4d.jaunts.next());
+      }
       assert.equal((await state()).phase, 'outcome');
     }
     await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago')); await atStop();
