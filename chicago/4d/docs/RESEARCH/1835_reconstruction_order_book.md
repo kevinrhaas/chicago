@@ -112,6 +112,17 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
+**The programme is settled**, and its finish line is the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic. owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
+
+395 person(s) remain held in 44 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+
+| the refusal that holds them | people |
+|---|---:|
+| `a_documented_reading_shrank_the_order` | 1 |
+| `the_re_cut_reached_work_already_drawn` | 394 |
+
+What would reopen it: a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
+
 | person | out of | into | order filled | rule | ticket | adoptions |
 |---|---|---|---|---|---|---:|
 | `rc_newell_seth` | `persons/male/50_plus/south/family/trade` | `persons/male/50_plus/north/lodging/trade` |  | C1 | T-1556 | 0 |
