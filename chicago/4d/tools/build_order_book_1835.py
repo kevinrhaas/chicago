@@ -4394,9 +4394,9 @@ def cmd_self_test() -> int:
     # roof moved; a dwelling the business deal had been standing a shop in went back to the
     # households. The two deals running blind to one pool is T-1669.
     #
-    # T-1707 TAKES IT TO 213, AND THIRTY-TWO OF THE SEATS ARE SLOTS. The platted pass goes
-    # 109 -> 141 and the off-plat pass holds at 72. Nothing was adopted that was not adopted
-    # before: all 32 of the new seats are SLOTS, which is the first time either pass has
+    # T-1707 TAKES IT TO 212, AND THIRTY-ONE OF THE SEATS ARE SLOTS. The platted pass goes
+    # 109 -> 140 and the off-plat pass holds at 72. Nothing was adopted that was not adopted
+    # before: all 31 of the new seats are SLOTS, which is the first time either pass has
     # carried one since T-1623 refused the last four. The ruling behind them is a ruling
     # about GROUND and not about households. Carrying the Original Town's seven north-south
     # columns from their terrain clip at N -400 to Madison Street let
@@ -4404,10 +4404,10 @@ def cmd_self_test() -> int:
     # Market and State — and the 665-roof programme marks all six `open` with 27 roofs of
     # headroom each, where the South Division's only open blocks before were two South Water
     # blocks whose free lots T-1623's rule reserves. So the deal could ask, and it asked 18
-    # merchant and professional households, 13 tradesmen's and one lodging household onto
-    # them. A slot is a request and not a roof: T-1708 raises them.
+    # merchant and professional households and 13 tradesmen's onto them. A slot is a request
+    # and not a roof: T-1708 raises them.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 213
+        data["inventory"], data["programme"], occ))["seated"] == 212
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4415,7 +4415,7 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 32 slot rows on the plat's last
+    # currently sit: since T-1707 the platted pass carries 31 slot rows on the plat's last
     # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
     # carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
