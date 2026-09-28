@@ -1,3 +1,22 @@
+## T-1280 — travel selection and quick-play duration
+
+Implemented per-session travel selection before and during a jaunt, routed
+estimates with explicit fallback, paused-ride resume and direct arrival. Validation
+is in progress; the ticket remains the operational state. Narration and catalog
+sort/filter remain with T-1257 and T-1259.
+
+## T-1279 — playable pilot (2026-09-27)
+
+Implemented the lazy content-driven session engine and persistent two-row stop
+navigation. Uses the shared resolver and travel adapter without jaunt-ID branches.
+History effects apply once, cancellation rejects old tokens, and the menu owns
+pause/resume/restart and compact outcomes. T-1280, T-1256, T-1257 and T-1258 retain
+mode selection, mechanics, between-stop context and durable daybook work.
+Validation status is recorded in STATUS and performance/jaunts-play; T-1253 is the
+content dependency. No production promotion is part of this work.
+
+
+
 ## T-1253 — validated jaunt content and a real welcome preview (2026-09-27)
 
 New in Chicago is now authored JSON: five short exterior stops, an optional

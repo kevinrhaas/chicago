@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1202, ts: '2026-09-28T07:37:43.892Z', date: 'Sep 28, 2026, 2:37 AM CT', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Nothing you can see: seven streets reach Madison, and room appears', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. What changed is how much room the town has left to build in \u2014 8 roofs this morning, 131 tonight.',
       'Seven streets stopped in the middle of Washington Street, and not because anybody said they did. Market, Franklin, Wells, La Salle, Clark, Dearborn and State were each cut off at the same line, and that line was the south edge of the modelled ground as it used to be. The ground was carried three kilometres further south weeks ago and nobody went back for the streets. All seven now run the last 119 metres to Madison Street, which is where the 1830 plat of the town draws them and where the town legally ended.',
@@ -7,6 +7,44 @@ export const CHANGELOG = [ // newest first
       'Thirty-one families already have an address on that row. The pass that deals households onto lots had nowhere left to put anybody in the South Division and was handing all of them on; eighteen merchant and professional households and thirteen tradesmen\u2019s now hold a lot on the new blocks. They have no walls yet \u2014 that is the next release \u2014 and the record says so on each one.',
       'And no plank sidewalk was laid on the prairie, which is what would have happened. The rule that lays board walks asks whether the ground is dry, flat and clear, and six empty blocks are exactly that, so it would have planked 600 metres of Washington Street in front of nothing. It now asks first whether anything is built on the block \u2014 the same question the street fences and the hitching posts have always asked, in the same words.',
       'One thing was quietly broken and is now fixed: the tool that writes the tree line along the main stem into the renderer had been corrupting the file whenever that line grew long enough to need a second row of numbers.',
+    ] },
+  { v: 1206, ts: '2026-09-28T10:33:03.112Z', date: 'Sep 28, 2026, 5:33 AM CT', title: 'Choose how your jaunt takes you through town', kind: 'change',
+    items: [
+      'Choose Walk, Wagon, Horse, Fly or Instantly before starting a jaunt, or change mode along the way. New in Chicago recommends Horse for a shorter outing. Your stops and choices are preserved, and your saved travel settings stay as they were.',
+      'Jaunt cards and the current outing show approximate durations based on the route and your pace settings. Flying is a viewing convenience, not a claim about travel in 1835.',
+      'Take over with your own movement to pause a ride, then Resume ride when ready. Go straight to next stop stays available during travel.',
+    ] },
+  { v: 1205, ts: '2026-09-28T10:17:27.407Z', date: 'Sep 28, 2026, 5:17 AM CT', title: 'Three log houses stand again round the old Agency House', kind: 'change',
+    items: [
+      'Walk the north bank to the foot of State Street and there are three more log buildings beside the Indian Agency House and the Government Blacksmith Shop. Two old recollections describe them \u2014 a collection of log buildings grouped round the agency house, the residences of the men the Government employed there \u2014 and until now not one of them was drawn.',
+      'Two men who had no home in this town now have one. David McKee, the agency\u2019s blacksmith, and Joseph Porthier, who struck for him at the anvil: open either card and it names the house. McKee\u2019s card used to say that the buildings he is described in were not in this dataset at all, which was the plain truth and is no longer.',
+      'The third house is raised and deliberately left empty. Andreas names Billy Caldwell, the agency\u2019s interpreter, in one of these buildings \u2014 but the same book gives him a frame house well to the north as well, and nothing dates either of them to this summer. Drawing one of the two is not choosing between them, so that roof carries no occupant and says why.',
+      'Nothing is known about the shape of any of them, and the records say so plainly. The sources are unusually good on who slept here and silent on everything a visitor can actually see: no size, no place of its own, no bearing. The footprints are placeholders, the positions are offsets from the agency house, and the whole invention is written down.',
+      'No fourth house for the \u201Claborers\u201D the same sentence mentions. That is a plural noun and not a count, and this town does not draw people out of one.',
+    ] },
+  { v: 1204, ts: '2026-09-28T09:37:21.658Z', date: 'Sep 28, 2026, 4:37 AM CT', title: 'Nothing you can see: the town\u2019s south-east corner is closed', kind: 'fix',
+    items: [
+      'Nothing in the town changed and nothing moved. This closes the books on the last open ground in the South Division \u2014 the strip east of State Street, the reservation at the river mouth, the country places outside it. Three of the four questions close at nought, which is an answer and not a gap.',
+      'There is no strip. The plan of the town has always been said to leave a lakefront tier between the plat and the fort\u2019s reservation, and the two boundaries turn out to be one line: the corner of State and Madison is a single surveyed point, and both run away from it. Measured between the plat\u2019s own block edge and the reservation\u2019s survey line, the gap is two metres at the south end and under three at the north \u2014 narrower than the error bar on either line. Two metres is not a place to put a house, so the tier is struck rather than left open.',
+      'The Fort Dearborn Addition cannot have houses in it because in 1835 it does not exist. That name belongs to a subdivision of the same reservation ground, and Fergus\u2019 directory of 1839 prints its lots being sold that June \u2014 two hundred and sixty-eight lots and ninety-six bidders \u2014 nearly four years after the day this scene draws. On that day the ground is a quarter-section the United States has not sold, with no street and no lot line on it, under a single claim five weeks old.',
+      'Colonel Beaubien\u2019s place at the river mouth closes properly: four buildings, all on the reservation, all on the list of what may stand there. Dr Harmon\u2019s does not. His cabin stands on a platted town lot on Randolph Street, while the only thing any source says about his ground puts it a hundred and forty acres out on the prairie, two and a half kilometres south \u2014 and the note on the record still calls that ground two kilometres outside the model, which stopped being true when the model was carried south to Twenty-Second Street.',
+      'He was left where he is, on purpose. The model reaches his ground now, but nothing in the sources describes it: every height down there is a guess, so moving him would swap one invention for another. The discrepancy is written down instead, with its numbers, on the job that converges the whole town.',
+      'The town still owes the South Division a hundred and thirty-four roofs \u2014 every one inside the old plat, and a hundred and twenty-six of those waiting on street lines the plat has not been given. Not one is owed to the reservation, the tier, the Addition or a country place.',
+    ] },
+  { v: 1203, ts: '2026-09-28T08:52:37.417Z', date: 'Sep 28, 2026, 3:52 AM CT', title: 'Take your first jaunt through Chicago', kind: 'change',
+    items: [
+      'Start New in Chicago from Jaunts and visit five exterior landmarks, with short readings and links to their existing place cards.',
+      'Previous Stop, Next Stop, End Jaunt and Jaunts Menu stay within reach. Revisit stops without repeating a choice’s effects; pause and resume your outing, or restart it.',
+      'Ending cancels travel immediately and returns to Jaunts. Completing the route shows its outcome and reconstructed route note. Exploring on your own clears a paused outing.',
+    ] },
+  { v: 1202, ts: '2026-09-28T07:54:59.813Z', date: 'Sep 28, 2026, 2:54 AM CT', title: 'The works behind the town\u2019s dirtiest trades', kind: 'change',
+    items: [
+      'Follow the South Branch down past the town and Newberry & Dole\u2019s slaughter-house no longer stands alone on an empty bank. Three working buildings now run south from it, each across a cart yard from the last: the packing and barrelling house, a small salt store, and a stock shed at the landward end where the beasts came in off the prairie.',
+      'At the forks, behind John Miller\u2019s log tannery, there is now a yard. A bark shed at one end, a drying shed at the other, both facing in across the open ground the tanning was done on \u2014 and the drying shed has its boards spaced apart, which is how a hide dries.',
+      'Daniel Elston\u2019s soap and candle works on the North Branch gets an ash house behind it. Soap is boiled with lye, lye is leached from wood ash, and ash kept in the rain is worthless.',
+      'Every one of the six is invented, and each one is a sentence the plants themselves had already written. Their own records say the works are missing \u2014 \u201cthe pens, the yard and the barrelling and salting space\u201d; \u201ca tannery is its yard\u201d. Nothing was added that those notes do not name, and all six vanish when you turn the reconstructed layer off.',
+      'The fourth plant gets nothing, on purpose. Archibald Clybourne\u2019s slaughter-house stands about three kilometres from its real site, at the edge of the ground this scene models, because its site is off the map. Building a yard around a building that is knowingly kilometres out would multiply the error rather than reconstruct anything.',
+      'Still not built, and still said out loud: the killing pens, the stock yard, the lime pits and the tan vats. Those are fences and holes in the ground, and this part of the model builds buildings.',
     ] },
   { v: 1201, ts: '2026-09-28T06:46:30.494Z', date: 'Sep 28, 2026, 1:46 AM CT', title: 'Beaubien\u2019s place at the river mouth stands as a homestead', kind: 'change',
     items: [

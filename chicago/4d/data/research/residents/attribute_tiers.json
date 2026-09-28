@@ -30,9 +30,9 @@
     "tiers_written_on_the_card": 10019,
     "by_tier": {
       "attested": 592,
-      "inferred": 3558,
+      "inferred": 3560,
       "reconstructed": 10205,
-      "unknown": 6501
+      "unknown": 6499
     },
     "by_attribute": {
       "arrival": {
@@ -85,9 +85,9 @@
       },
       "lives_at": {
         "attested": 8,
-        "inferred": 12,
+        "inferred": 14,
         "reconstructed": 11,
-        "unknown": 1481
+        "unknown": 1479
       },
       "origin": {
         "attested": 11,

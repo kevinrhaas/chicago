@@ -1,5 +1,14 @@
 {
   "assets": {
+    "agency_striker_log_house__log_1830.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 29308,
+      "inputs_sha256": "2713045ab5f51c3f9ab1cc36ac43ddd944dcdb2e6d90d6aadd50dd84ce328693",
+      "kind": "generated",
+      "phase_id": "log_1830",
+      "structure_id": "agency_striker_log_house"
+    },
     "bates_auction_room__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -62,6 +71,15 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "brown_boarding_house"
+    },
+    "caldwell_agency_log_house__log_1830.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 31184,
+      "inputs_sha256": "ee86fb60e6f9b6a13ee853ce847aadcd10502e019fc3a2449d50746701a1b297",
+      "kind": "generated",
+      "phase_id": "log_1830",
+      "structure_id": "caldwell_agency_log_house"
     },
     "carpenter_south_water_store__frame_1833.glb": {
       "archetype": "frame_storefront",
@@ -161,6 +179,15 @@
       "kind": "generated",
       "phase_id": "frame_1832",
       "structure_id": "dole_warehouse_south"
+    },
+    "elston_ash_house__works_1833.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 48524,
+      "inputs_sha256": "ec5229ceecd88c10d0907515c2173d59948d0c5deaa6352307b58b9e43a44aff",
+      "kind": "generated",
+      "phase_id": "works_1833",
+      "structure_id": "elston_ash_house"
     },
     "elston_soap_candle_manufactory__works_1833.glb": {
       "archetype": "outbuilding",
@@ -819,6 +846,15 @@
       "phase_id": "documented_1835",
       "structure_id": "mason_blacksmith_shop"
     },
+    "mckee_log_house__log_1823.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 31168,
+      "inputs_sha256": "8d8d43d0b98dff7b1fcfbcc746df474871fcbbf3dcac8fb7c17e81608e80e7f1",
+      "kind": "generated",
+      "phase_id": "log_1823",
+      "structure_id": "mckee_log_house"
+    },
     "miller_house__log_frame_1827.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -837,6 +873,24 @@
       "phase_id": "log_1831",
       "structure_id": "miller_tannery"
     },
+    "miller_tanyard_bark_shed__yard_1831.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 38216,
+      "inputs_sha256": "cabbda6975a51c07e05d611503670e05cdf62b9c7c02f6a1e39725891a6e5f7b",
+      "kind": "generated",
+      "phase_id": "yard_1831",
+      "structure_id": "miller_tanyard_bark_shed"
+    },
+    "miller_tanyard_drying_shed__yard_1831.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 45428,
+      "inputs_sha256": "30b40bcc627e5d09091579986ca4a0e82f159858f827a1d52a422763cf59223e",
+      "kind": "generated",
+      "phase_id": "yard_1831",
+      "structure_id": "miller_tanyard_drying_shed"
+    },
     "new_york_house__frame_1834.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -846,6 +900,24 @@
       "phase_id": "frame_1834",
       "structure_id": "new_york_house"
     },
+    "newberry_dole_packing_house_south_branch__works_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 113208,
+      "inputs_sha256": "17b5be541bb8e58d7e9c96434d057bbedcf5cbe4491d6aaaadbd19219bfb57d9",
+      "kind": "generated",
+      "phase_id": "works_1834",
+      "structure_id": "newberry_dole_packing_house_south_branch"
+    },
+    "newberry_dole_salt_house_south_branch__works_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 71344,
+      "inputs_sha256": "023c4458b042b11f2a1ed7a35b61b8fa5c4cf6a47a25ee2517c453b080146eb7",
+      "kind": "generated",
+      "phase_id": "works_1834",
+      "structure_id": "newberry_dole_salt_house_south_branch"
+    },
     "newberry_dole_slaughterhouse_south_branch__works_1834.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -854,6 +926,15 @@
       "kind": "generated",
       "phase_id": "works_1834",
       "structure_id": "newberry_dole_slaughterhouse_south_branch"
+    },
+    "newberry_dole_stock_shed_south_branch__works_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 105852,
+      "inputs_sha256": "0575e3bfcb3cbde615ddfdec75ebd79b5598b3efdf8925fc9dc9a561f6e10829",
+      "kind": "generated",
+      "phase_id": "works_1834",
+      "structure_id": "newberry_dole_stock_shed_south_branch"
     },
     "newberry_dole_warehouse__frame_1833.glb": {
       "archetype": "outbuilding",

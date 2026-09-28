@@ -1,8 +1,11 @@
-/** A lazy, read-only content preview. Story playback belongs to T-1279. */
-export function createJauntPreview({ root, dataBase, destinations, api, fetcher = fetch }) {
+/** Lazy catalog, route preview and session handoff. */
+import { PACES } from './travel-settings.js';
+import { formatEstimate } from './travel-estimate.js';
+export function createJauntPreview({ root, dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null }) {
   const base = new URL('sidecars/1835/jaunts/', dataBase);
   let catalogPromise, serial = 0;
   const contents = new Map();
+  const modes = new Map();
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;
@@ -12,8 +15,8 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
     const el = node('button', text, 'welcome-link'); el.type = 'button';
     el.addEventListener('click', action); return el;
   };
-  async function json(name) {
-    const response = await fetcher(new URL(name, base));
+  async function json(name, options) {
+    const response = await fetcher(new URL(name, base), options);
     if (!response.ok) throw new Error(`Jaunt request failed: ${response.status}`);
     return response.json();
   }
@@ -27,15 +30,38 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
   function focus(el) {
     if (!root.closest('[hidden]')) { el.tabIndex = -1; el.focus({ preventScroll: true }); }
   }
-  function list(rows, returnId) {
-    root.replaceChildren(node('p', 'A first look at the stories taking shape. Read a route here; guided travel will follow.'));
+  function list(rows, returnId, focusStart = false) {
+    root.replaceChildren(node('p', 'Choose an outing, or read its route before you start.'));
+    const session = getSession();
+    if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
+      const note = node('section', '', 'jaunt-session-note');
+      if (session.phase === 'outcome') {
+        note.append(node('h3', 'Outing complete'), node('p', session.outcome.text),
+          node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
+      } else note.append(node('h3', `Paused · ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', onResume));
+      note.append(button('Restart Jaunt', () => onStart(session.jaunt.id, { mode: session.mode }))); root.append(note);
+    }
     for (const row of rows) {
       const card = node('article', '', 'jaunt-card'); card.dataset.jaunt = row.id;
       card.append(node('h3', row.title), node('p', `${row.category} · ${row.stop_count} stops · ${row.primary_family}`, 'jaunt-meta'), node('p', row.premise));
       if (row.availability === 'available') {
+        const mode = node('select'); mode.setAttribute('aria-label', `Travel mode for ${row.title}`);
+        for (const id of row.allowed_modes || ['walk', 'wagon', 'horse', 'fly', 'instantly']) {
+          const option = node('option', PACES[id]?.label || id); option.value = id; mode.append(option);
+        }
+        mode.value = modes.get(row.id) || row.default_mode || 'walk';
+        const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
+        const price = () => { modes.set(row.id, mode.value); duration.textContent = formatEstimate(estimate(row, mode.value)); };
+        mode.addEventListener('change', price); price();
+        card.append(mode, duration, node('p', `Recommended: ${PACES[row.default_mode || 'walk'].label}. Fly is a viewing convenience, not 1835 transport.`, 'jaunt-meta'));
         const preview = button('Preview the route', () => select(row));
+        const start = onStart && button('Start Jaunt', async () => {
+          start.disabled = true;
+          try { await onStart(row.id, { mode: mode.value }); } finally { if (start.isConnected) start.disabled = false; }
+        });
+        if (start) card.append(start);
         card.append(preview); root.append(card);
-        if (returnId === row.id) preview.focus({ preventScroll: true });
+        if (returnId === row.id) (focusStart && start ? start : preview).focus({ preventScroll: true });
       } else {
         card.append(node('p', `Unavailable — ${row.reason || 'Awaiting review.'}`, 'jaunt-meta'));
         root.append(card);
@@ -43,18 +69,27 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
     }
     if (!rows.length) root.append(node('p', 'No route previews are available yet.'));
   }
+  async function load(id, options) {
+    const rows = await catalog();
+    if (!rows.some(row => row.id === id && row.availability === 'available') || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
+    let content = contents.get(id);
+    if (!content) {
+      content = await json(`${id}.json`, options);
+      if (content.id !== id || content.review_required || !content.stops?.length) throw new Error('Invalid jaunt');
+      contents.set(id, content);
+    }
+    return content;
+  }
   async function select(row) {
     const request = ++serial;
     root.replaceChildren(node('p', 'Loading the route…'));
     try {
       // Only a catalog identity can reach this URL; never interpret authored code/HTML.
-      if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(row.id)) throw new Error('Invalid identity');
-      let content = contents.get(row.id);
-      if (!content) { content = await json(`${row.id}.json`); contents.set(row.id, content); }
+      const content = await load(row.id);
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(button('Back to Jaunts', () => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview · not yet a guided jaunt', 'jaunt-meta'), node('p', content.opening.text));
+        node('p', 'Route preview', 'jaunt-meta'), node('p', content.opening.text));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
         const item = node('li', '');
@@ -84,11 +119,11 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
         button('Try the route again', () => select(row)), button('Back to Jaunts', () => list(api.catalog, row.id)));
     }
   }
-  async function open() {
+  async function open(returnId) {
     const request = ++serial;
     root.replaceChildren(node('p', 'Loading jaunts…'));
-    try { const rows = await catalog(); if (request === serial) list(rows); }
+    try { const rows = await catalog(); if (request === serial) list(rows, returnId, true); }
     catch { if (request === serial) root.replaceChildren(node('p', 'Jaunts could not load. You can still explore on your own.'), button('Try again', open)); }
   }
-  return { open };
+  return { open, load };
 }

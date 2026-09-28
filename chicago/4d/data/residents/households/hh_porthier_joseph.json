@@ -48,9 +48,13 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
-  "value": null,
-  "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "value": "agency_striker_log_house",
+  "confidence": "inferred",
+  "sources": [
+   "kinzie_waubun_1856",
+   "andreas_1884_v1"
+  ],
+  "note": "SEATED 2026-09-28 (T-1714) THROUGH AN OFFICE, NOT A NAME. The note here read 'Not attested in anything this project holds', which was true of this man's name and not of his office: Wau-Bun's ring round the Agency House is 'the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers', and Andreas with the 1830-31 agency staffing names Joseph Porthier as the striker. The office is attested among the residences and the man is attested in the office, so the seat is the join of the two and is graded inferred. His works_at already put him at blacksmith_shop_state_st at attested, twenty metres east of this house."
  },
  "works_at": {
   "value": "blacksmith_shop_state_st",

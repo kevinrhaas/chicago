@@ -27,7 +27,7 @@
   "persons_with_a_role": 328,
   "households_naming_an_origin": 1512,
   "households_naming_a_reason": 1512,
-  "households_naming_a_lives_at": 31,
+  "households_naming_a_lives_at": 33,
   "axes_answered_by_every_person": 6,
   "persons_answering_every_axis": 850
  },
@@ -12955,7 +12955,7 @@
   {
    "id": "lodging",
    "title": "Lodging",
-   "lead": "31 of 1512 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.",
+   "lead": "33 of 1512 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.",
    "tables": [
     {
      "title": "Where a household is lodged",
@@ -12968,8 +12968,8 @@
      "rows": [
       [
        "no lives_at at all",
-       1481,
-       "97.9%"
+       1479,
+       "97.8%"
       ],
       [
        "the fort",
@@ -12978,8 +12978,8 @@
       ],
       [
        "a dwelling or a place of business",
-       10,
-       "0.7%"
+       12,
+       "0.8%"
       ],
       [
        "a house of entertainment",
@@ -13043,6 +13043,13 @@
        "attested"
       ],
       [
+       "The McKee household",
+       "mckee_log_house",
+       "dwelling",
+       "a dwelling or a place of business",
+       "inferred"
+      ],
+      [
        "The Peck household",
        "peck_store",
        "store and dwelling",
@@ -13055,6 +13062,13 @@
        "store and dwelling",
        "a dwelling or a place of business",
        "attested"
+      ],
+      [
+       "The Porthier household",
+       "agency_striker_log_house",
+       "dwelling",
+       "a dwelling or a place of business",
+       "inferred"
       ],
       [
        "The Robinson household at Wolf Point",
@@ -13229,7 +13243,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "181 persons resolve into a dwelling that stands in the scene, in 31 households; 1481 households have no dwelling. 412 roofs stand against a programme of 668.",
+   "lead": "183 persons resolve into a dwelling that stands in the scene, in 33 households; 1479 households have no dwelling. 421 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -13252,9 +13266,9 @@
       [
        "north",
        37,
-       2,
+       4,
        10,
-       35
+       33
       ],
       [
        "west",
@@ -13287,9 +13301,9 @@
       [
        "TOTAL",
        1512,
-       31,
+       33,
        50,
-       1481
+       1479
       ]
      ],
      "note": ""
@@ -13312,7 +13326,7 @@
       ],
       [
        "roofs standing in the scene",
-       412
+       421
       ],
       [
        "roofs the programme targets",

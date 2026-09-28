@@ -58,39 +58,8 @@ const TAU = Math.PI * 2;
  * speed of its own — it is the Settings slider — and `instantly` is not a pace at
  * all, just the mode Go to has always had. Interface choices; see the header.
  */
-export const PACES = {
-  instantly: { label: 'Instantly', hint: 'straight there, as before' },
-  // Each ground pace has its own slider (T-0823): `settingKey` names the stored
-  // value, `defaultSpeed` is what a fresh visitor gets, `maxSpeed` is the slider's
-  // ceiling — 20, 30 and 60 mph, the owner's figures — and `sprintFactor` is what
-  // Shift does to it (a run on foot, nothing on a wagon, a gallop on a horse),
-  // capped at the ceiling. The gait names a slider shows are in GAITS below.
-  walk: {
-    label: 'Walk', verb: 'Walking to', eyeOffset: 0, turnRate: 150,
-    settingKey: 'speed', defaultSpeed: 1.45, maxSpeed: 8.94, sprintFactor: 2.28,
-    hint: 'your own two feet',
-  },
-  wagon: {
-    label: 'Wagon', verb: 'Driving to', eyeOffset: 0.5, turnRate: 70,
-    settingKey: 'wagonSpeed', defaultSpeed: 3.6, maxSpeed: 13.41, sprintFactor: 1,
-    hint: 'a light wagon',
-  },
-  horse: {
-    label: 'Horse', verb: 'Riding to', eyeOffset: 0.75, turnRate: 90,
-    settingKey: 'horseSpeed', defaultSpeed: 6.5, maxSpeed: 26.82, sprintFactor: 1.7,
-    // The gait figures are a canter's (2 strides a second at 6.5 m/s); updateBob
-    // scales the beat with the speed the slider actually set.
-    bob: { hz: 2.0, amp: 0.06, sprintHz: 1.6, sprintAmp: 0.09, atSpeed: 6.5 },
-    hint: 'in the saddle; Shift to gallop',
-  },
-  fly: {
-    label: 'Fly', verb: 'Flying to', turnRate: 120,
-    /** Cruise height in metres for a trip of `d` metres: low for a hop, higher
-     *  for a crossing so the whole route is in view. */
-    cruise: (d) => Math.min(80, Math.max(20, 12 + 0.15 * d)),
-    hint: 'up, across and down to the door',
-  },
-};
+export { PACES, paceSpeed } from './travel-settings.js';
+import { PACES, paceSpeed, ARRIVAL_SETTLE_S } from './travel-settings.js';
 
 /**
  * What a speed is CALLED, per pace — the word a slider shows as it moves. Metres
@@ -119,14 +88,6 @@ export function gaitName(pace, metresPerSecond) {
   return table[table.length - 1][1];
 }
 
-/** The slider value for a pace: the stored setting, clamped to the pace's range. */
-export function paceSpeed(pace, settings = {}) {
-  const p = typeof pace === 'string' ? PACES[pace] : pace;
-  if (!p?.settingKey) return null;
-  const stored = Number(settings[p.settingKey]);
-  const base = Number.isFinite(stored) ? stored : p.defaultSpeed;
-  return clamp(base, 0.5, p.maxSpeed);
-}
 
 /** The paces that ride along the ground and take the router's route. */
 const GROUND = new Set(['walk', 'wagon', 'horse']);
@@ -137,7 +98,7 @@ const GRACE_S = 0.25;          // look deltas ignored this long after go() (a se
 const STALL_WINDOW_S = 2;      // no progress for this long …
 const STALL_PROGRESS_M = 0.25; // … means less than this much closer
 const BLOCKED_S = 1;           // or the walker refusing the step this long
-const ARRIVE_TURN_S = 0.5;     // easing the look onto the building
+const ARRIVE_TURN_S = ARRIVAL_SETTLE_S; // easing the look onto the building
 const BANNER_INTERVAL_S = 0.25; // ≤ 4 Hz repaints of the distance
 const GLIDE_TAN = Math.tan(18 * DEG); // descend once horizontal ≤ altitude / tan 18°
 const LAND_HORIZ_M = 2.5;
@@ -256,23 +217,27 @@ export function createTravel({
   }
 
   /** Today's behaviour, and the fallback for every ride that cannot happen. */
-  function goInstantly(target) {
-    if (target.kind === 'anchor') return goToAnchor?.(target.id) ?? false;
+  function arrived(ok, callbacks) {
+    if (ok) callbacks?.onArrive?.(callbacks.token);
+    return ok;
+  }
+  function goInstantly(target, callbacks) {
+    if (target.kind === 'anchor') return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     setFly?.(false);
     if (target.kind === 'structure') {
       const ok = frame?.(target.id) ?? false;
-      if (ok) onArrive?.(target.id);
-      return ok;
+      if (ok && !callbacks) onArrive?.(target.id);
+      return arrived(ok, callbacks);
     }
     const p = ownPoint(target);
     if (target.kind === 'intersection' && p) {
       teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0 });
-      return true;
+      return arrived(true, callbacks);
     }
     return false;
   }
 
-  function newRide(target, to, points, rideMode) {
+  function newRide(target, to, points, rideMode, callbacks) {
     const s = walker.state;
     return {
       mode: rideMode,
@@ -281,6 +246,7 @@ export function createTravel({
       person: target.person ?? null,
       dest: target.label ?? target.name ?? target.id,
       target,
+      callbacks,
       to,
       points,
       index: 0,
@@ -399,9 +365,9 @@ export function createTravel({
         return;
       }
     }
-    const target = r.target;
+    const target = r.target, callbacks = r.callbacks;
     finish();
-    goInstantly(target);
+    if (!goInstantly(target, callbacks)) callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
     hud?.say?.('Could not get through — went straight there');
   }
 
@@ -516,9 +482,10 @@ export function createTravel({
   }
 
   function complete() {
-    const { kind, id, dest } = ride;
+    const { kind, id, dest, callbacks } = ride;
     finish();
-    if (kind === 'structure') onArrive?.(id);
+    if (callbacks) callbacks.onArrive?.(callbacks.token);
+    else if (kind === 'structure') onArrive?.(id);
     else hud?.say?.(`Here — ${dest}`);
   }
 
@@ -526,19 +493,21 @@ export function createTravel({
 
   function stop(reason = 'button') {
     if (phase === 'idle') return;
+    const callbacks = ride?.callbacks;
     finish();
+    callbacks?.onStop?.({ ...callbacks.token, reason });
     if (reason === 'button' || reason === 'input') hud?.say?.('Stopped');
   }
 
-  function go(target) {
+  function go(target, callbacks) {
     if (!target?.kind) return false;
     if (phase !== 'idle') stop('replaced');
     // Aerial viewpoints are always a jump: a ride to the ground under a bird's-eye
     // view is not the view. So is any anchor Go to did not hand coordinates for.
     if (target.kind === 'anchor' && (isAerial(target) || mode === 'instantly' || !ownPoint(target))) {
-      return goToAnchor?.(target.id) ?? false;
+      return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     }
-    if (mode === 'instantly') return goInstantly(target);
+    if (mode === 'instantly') return goInstantly(target, callbacks);
     const to = destinationOf(target);
     if (!to) return false;
 
@@ -546,7 +515,7 @@ export function createTravel({
       const s = walker.state;
       const d = Math.hypot(to.e - s.e, to.n - s.n);
       setFly?.(true);
-      ride = newRide(target, to, [[to.e, to.n]], 'fly');
+      ride = newRide(target, to, [[to.e, to.n]], 'fly', callbacks);
       ride.cruise = PACES.fly.cruise(d);
       ride.progressRef = d;
       phase = 'ascending';
@@ -559,11 +528,11 @@ export function createTravel({
     const s = walker.state;
     const route = router?.plan?.({ e: s.e, n: s.n }, to) ?? null;
     if (!route?.points?.length) {
-      const ok = goInstantly(target);
+      const ok = goInstantly(target, callbacks);
       hud?.say?.('No walkable route was found — went straight there');
       return ok;
     }
-    ride = newRide(target, to, route.points, mode);
+    ride = newRide(target, to, route.points, mode, callbacks);
     ride.progressRef = remaining();
     phase = 'travelling';
     applyPace();   // the ride's pace and seat, restored by finish()
@@ -634,6 +603,7 @@ export function createTravel({
     afterWalk,
     simulate,
     router,
+    destinationOf,
     get state() {
       return {
         phase,

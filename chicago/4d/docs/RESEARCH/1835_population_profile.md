@@ -2290,15 +2290,15 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 
 ## Lodging
 
-31 of 1512 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.
+33 of 1512 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.
 
 ### Where a household is lodged
 
 | class | households | share |
 |---|---:|---:|
-| no lives_at at all | 1481 | 97.9% |
+| no lives_at at all | 1479 | 97.8% |
 | the fort | 13 | 0.9% |
-| a dwelling or a place of business | 10 | 0.7% |
+| a dwelling or a place of business | 12 | 0.8% |
 | a house of entertainment | 8 | 0.5% |
 
 ### Every household with a lives_at
@@ -2311,8 +2311,10 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 | The James Kinzie household | james_kinzie_house | residence | a dwelling or a place of business | inferred |
 | The Jean Baptiste Beaubien household | jb_beaubien_homestead | dwelling and trading house | a dwelling or a place of business | inferred |
 | The Madore Beaubien household | madore_beaubien_house | dwelling and store | a dwelling or a place of business | attested |
+| The McKee household | mckee_log_house | dwelling | a dwelling or a place of business | inferred |
 | The Peck household | peck_store | store and dwelling | a dwelling or a place of business | inferred |
 | The Porter household | peck_store | store and dwelling | a dwelling or a place of business | attested |
+| The Porthier household | agency_striker_log_house | dwelling | a dwelling or a place of business | inferred |
 | The Robinson household at Wolf Point | robinson_caldwell_cabins | dwelling | a dwelling or a place of business | attested |
 | The presbytery household at St Mary's | st_marys_church | church | a dwelling or a place of business | inferred |
 | The Brown boarding-house household | brown_boarding_house | boarding house | a house of entertainment | attested |
@@ -2343,19 +2345,19 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 
 ## Where they meet the buildings
 
-181 persons resolve into a dwelling that stands in the scene, in 31 households; 1481 households have no dwelling. 412 roofs stand against a programme of 668.
+183 persons resolve into a dwelling that stands in the scene, in 33 households; 1479 households have no dwelling. 421 roofs stand against a programme of 668.
 
 ### Households by division and seating
 
 | division | households | housed | roofed workplace | no dwelling |
 |---|---:|---:|---:|---:|
 | south | 120 | 12 | 33 | 108 |
-| north | 37 | 2 | 10 | 35 |
+| north | 37 | 4 | 10 | 33 |
 | west | 36 | 4 | 5 | 32 |
 | fort | 13 | 13 | 1 | 0 |
 | outside_town | 1 | 0 | 1 | 1 |
 | unplaced | 1305 | 0 | 0 | 1305 |
-| TOTAL | 1512 | 31 | 50 | 1481 |
+| TOTAL | 1512 | 33 | 50 | 1479 |
 
 ### The town census of November 1835
 
@@ -2363,7 +2365,7 @@ Every household carries an arrival block and 95.6% of them (1446) hold a `not_la
 |---|---:|
 | people | 3265 |
 | dwellings | 398 |
-| roofs standing in the scene | 412 |
+| roofs standing in the scene | 421 |
 | roofs the programme targets | 668 |
 
 *1305 of 1512 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together.*

@@ -24,34 +24,34 @@
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
-     "n": 14,
+     "n": 19,
      "trade": 9,
-     "share": 0.6429
+     "share": 0.4737
     },
     "ordinary": {
-     "n": 24,
+     "n": 25,
      "trade": 10,
-     "share": 0.4167
+     "share": 0.4
     },
     "principal": {
-     "n": 22,
-     "trade": 15,
-     "share": 0.6818
+     "n": 25,
+     "trade": 16,
+     "share": 0.64
     }
    },
    "moved": [
     {
      "district": "south",
      "blocks": 9,
-     "trade_roofs": 8,
-     "blocks_redealt": 4,
+     "trade_roofs": 7,
+     "blocks_redealt": 2,
      "quota": {
       "blk_south_water_wells": 0,
       "blk_south_water_dearborn": 0,
       "blk_washington_market": 2,
       "blk_washington_franklin": 2,
       "blk_washington_wells": 2,
-      "blk_washington_lasalle": 2,
+      "blk_washington_lasalle": 1,
       "blk_washington_clark": 0,
       "blk_washington_dearborn": 0,
       "blk_south_water_market": 0
@@ -80,47 +80,47 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 425,
+  "structure_records": 434,
   "physical_roofs": {
-   "min": 412,
-   "max": 413,
+   "min": 421,
+   "max": 422,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
    "generated": 291,
    "inferred_household_programme": 7,
-   "pre_existing": 83,
+   "pre_existing": 92,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 228,
+   "south": 231,
    "west": 83,
-   "north": 85,
+   "north": 91,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 207,
+   "ordinary_dwellings": 210,
    "larger_boarding_houses": 17,
    "stores_mixed_use": 48,
    "inns_taverns": 9,
-   "workshops": 21,
+   "workshops": 22,
    "warehouses_freight": 15,
    "institutional_public": 9,
    "fort_principal": 10,
-   "barns_stables": 37,
-   "small_outbuildings": 39
+   "barns_stables": 38,
+   "small_outbuildings": 43
   },
   "by_family": {
-   "A1": 22,
+   "A1": 23,
    "A2": 15,
    "A3": 21,
-   "A4": 10,
-   "A5": 8,
+   "A4": 12,
+   "A5": 10,
    "C1": 19,
    "C2": 14,
    "C3": 13,
    "C4": 2,
-   "D1": 49,
+   "D1": 52,
    "D2": 30,
    "D3": 41,
    "D4": 44,
@@ -143,7 +143,7 @@
    "T3": 1,
    "W1": 4,
    "W2": 0,
-   "W3": 3,
+   "W3": 4,
    "W4": 7,
    "W5": 7
   },
@@ -166,22 +166,22 @@
   ]
  },
  "remaining": {
-  "roofs": 256,
+  "roofs": 247,
   "of_target": 668,
   "by_district": {
-   "south": 137,
+   "south": 134,
    "west": 52,
-   "north": 67,
+   "north": 61,
    "fort": 0
   },
   "by_district_group": {
    "south": {
-    "barns_stables": 19,
+    "barns_stables": 18,
     "larger_boarding_houses": 19,
     "ordinary_dwellings": 66,
-    "small_outbuildings": 25,
+    "small_outbuildings": 24,
     "warehouses_freight": 3,
-    "workshops": 5
+    "workshops": 4
    },
    "west": {
     "barns_stables": 8,
@@ -196,8 +196,8 @@
     "barns_stables": 9,
     "inns_taverns": 1,
     "larger_boarding_houses": 2,
-    "ordinary_dwellings": 38,
-    "small_outbuildings": 11,
+    "ordinary_dwellings": 35,
+    "small_outbuildings": 8,
     "stores_mixed_use": 3,
     "warehouses_freight": 1,
     "workshops": 2
@@ -205,16 +205,16 @@
    "fort": {}
   },
   "by_family": {
-   "A1": 20,
+   "A1": 19,
    "A2": 16,
    "A3": 19,
-   "A4": 18,
-   "A5": 9,
+   "A4": 16,
+   "A5": 7,
    "C1": 0,
    "C2": 0,
    "C3": 4,
    "C4": 3,
-   "D1": 3,
+   "D1": 0,
    "D2": 8,
    "D3": 24,
    "D4": 27,
@@ -237,32 +237,31 @@
    "T3": 0,
    "W1": 2,
    "W2": 8,
-   "W3": 3,
+   "W3": 2,
    "W4": 0,
    "W5": 0
   },
   "by_district_family": {
    "south": {
-    "A1": 11,
+    "A1": 10,
     "A2": 8,
     "H1": 7,
     "H2": 4,
     "H3": 8,
-    "D1": 2,
     "D2": 5,
-    "D3": 13,
+    "D3": 14,
     "D4": 15,
     "D5": 15,
     "D6": 8,
-    "D7": 8,
-    "A3": 10,
-    "A4": 10,
-    "A5": 5,
+    "D7": 9,
+    "A3": 11,
+    "A4": 9,
+    "A5": 4,
     "F2": 1,
     "F3": 1,
     "F4": 1,
     "W1": 1,
-    "W2": 3,
+    "W2": 2,
     "W3": 1
    },
    "west": {
@@ -271,10 +270,9 @@
     "H1": 1,
     "H2": 1,
     "H3": 2,
-    "D1": 1,
     "D2": 2,
     "D3": 5,
-    "D4": 5,
+    "D4": 6,
     "D5": 5,
     "D6": 3,
     "D7": 3,
@@ -284,8 +282,8 @@
     "C3": 1,
     "C4": 1,
     "F2": 1,
-    "W2": 2,
-    "W3": 1
+    "W1": 1,
+    "W2": 2
    },
    "north": {
     "A1": 5,
@@ -293,21 +291,20 @@
     "T1": 1,
     "H1": 1,
     "H3": 1,
-    "D1": 1,
-    "D2": 2,
-    "D3": 8,
-    "D4": 9,
-    "D5": 9,
+    "D2": 3,
+    "D3": 7,
+    "D4": 8,
+    "D5": 8,
     "D6": 4,
     "D7": 5,
-    "A3": 5,
-    "A4": 4,
-    "A5": 2,
+    "A3": 4,
+    "A4": 3,
+    "A5": 1,
     "C3": 2,
     "C4": 1,
     "F2": 1,
-    "W2": 1,
-    "W3": 1
+    "W1": 1,
+    "W2": 1
    },
    "fort": {}
   },
@@ -326,9 +323,9 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 131,
-  "gated_on_coverage": 125,
-  "statement": "131 of the 256 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 125 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "schedulable_on_committed_ground": 130,
+  "gated_on_coverage": 117,
+  "statement": "130 of the 247 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 117 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 274,
   "blocks_named": 80,
   "southern_ground": {
@@ -390,14 +387,14 @@
    "state": "open",
    "roofs": 4,
    "families": {
-    "A1": 1,
+    "A3": 1,
     "D3": 1,
     "D4": 1,
     "D5": 1
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.5492,
+   "frontage_weight": 0.52,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -472,14 +469,14 @@
    "state": "open",
    "roofs": 4,
    "families": {
-    "A3": 1,
+    "A1": 1,
     "D6": 1,
     "D7": 1,
     "H3": 1
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.6058,
+   "frontage_weight": 0.5384,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -871,13 +868,12 @@
     "A3": 1,
     "A4": 2,
     "A5": 1,
-    "D1": 1,
     "D2": 2,
     "D3": 3,
     "D4": 4,
     "D5": 3,
     "D6": 1,
-    "D7": 1,
+    "D7": 2,
     "F2": 1,
     "H1": 2,
     "H2": 1,
@@ -886,7 +882,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.5804,
+   "frontage_weight": 0.5046,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -913,9 +909,8 @@
    "families": {
     "A1": 1,
     "A2": 2,
-    "A3": 1,
+    "A3": 2,
     "A4": 1,
-    "A5": 1,
     "D2": 1,
     "D3": 3,
     "D4": 3,
@@ -930,7 +925,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.5142,
+   "frontage_weight": 0.4446,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -957,8 +952,9 @@
    "families": {
     "A1": 2,
     "A2": 1,
-    "A3": 2,
+    "A3": 1,
     "A4": 1,
+    "A5": 1,
     "D2": 1,
     "D3": 3,
     "D4": 3,
@@ -969,11 +965,11 @@
     "H2": 1,
     "H3": 2,
     "W1": 1,
-    "W2": 1
+    "W3": 1
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.5142,
+   "frontage_weight": 0.4446,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -1000,12 +996,10 @@
    "families": {
     "A1": 1,
     "A2": 1,
-    "A3": 1,
+    "A3": 2,
     "A4": 2,
-    "A5": 1,
-    "D1": 1,
     "D2": 1,
-    "D3": 2,
+    "D3": 4,
     "D4": 3,
     "D5": 3,
     "D6": 2,
@@ -1013,13 +1007,12 @@
     "H1": 2,
     "H2": 1,
     "H3": 2,
-    "W2": 1,
-    "W3": 1
+    "W2": 1
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.5142,
-   "trade_roofs": 2,
+   "frontage_weight": 0.4446,
+   "trade_roofs": 1,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
   },
@@ -1041,20 +1034,19 @@
    "ancillary_room": 6,
    "headroom": 27,
    "state": "open",
-   "roofs": 9,
+   "roofs": 8,
    "families": {
     "A1": 2,
     "A2": 1,
     "A3": 1,
     "A4": 1,
     "A5": 1,
-    "D3": 1,
     "D4": 1,
     "D5": 1
    },
-   "principal": 3,
+   "principal": 2,
    "ancillary": 6,
-   "frontage_weight": 0.5142,
+   "frontage_weight": 0.4446,
    "trade_roofs": 0,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
@@ -1082,11 +1074,12 @@
     "A1": 1,
     "A2": 1,
     "A3": 2,
-    "A4": 2
+    "A4": 1,
+    "A5": 1
    },
    "principal": 0,
    "ancillary": 6,
-   "frontage_weight": 0.5707,
+   "frontage_weight": 0.463,
    "trade_roofs": 0,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
@@ -2453,17 +2446,16 @@
    "state": "gated",
    "waiting_on": "South Water Street's committed centreline stops 32 m short of this block — the street control ROADMAP S9 records as owed. Measured dry: tools/measure_block_gating.py carries South Water toward this block over 25 m of ground with no wet sample on it, so this one really is waiting on a trace. What is missing is one control point at Market and South Water: the committed set holds four (Lake-Canal, Lake-Market, Randolph-Canal, Kinzie-Canal) and NONE anywhere on South Water, and Market's centreline stops at its single control point where Lake crosses it. AND THAT POINT CANNOT BE DERIVED, MEASURED 2026-08-27 BY T-0183. Under the node rule in data/traces/street_control.json the two modern successors — North Upper Wacker Drive and West Upper Wacker Drive — share exactly two nodes, and they are lake_market's own committed pair: Wacker changes name through a bend at the Lake Street junction rather than crossing at South Water, so the rule returns a plausible point 110 m south of the corner it names. Re-run it with tools/refetch_control.py --discover market_south_water, which now refuses the set rather than reporting it; the reading is filed under `refused_control` in street_control.json. So this block is NOT waiting on somebody fetching a junction. It is waiting on an owner decision — close South Water's west end onto Market from the 1834 sheets and the committed bank, which is what the rest of that curve already stands on, or return these 27 roofs to the South balance. HE RULED FOR THE CLOSURE ON 2026-08-29, AND THE GROUND REFUSED IT. Executed on the line as committed, the closure emits this block as a bowtie — South Water has converged on Lake Street before it reaches Market and their platted corridors overlap by 14.9 m there — and carried as far north as the committed waterline allows it leaves 2.8 m of block depth at Market against the 24.384 m one platted lot fronts. So these 27 roofs are not on the ground the ruling was about: the block is a wedge the South Branch pinches out at its west corner, and only its eastern two thirds could ever carry a lot. The refusal now fires in tools/generate_plat_lots.py --self-test rather than emitting a 4,411 m2 block with a plausible depth; the measurement is under `refused_control.market_south_water` in street_control.json and in docs/RESEARCH/thompson_plat_grid.md § 6.2, and what to do with the wedge is back with the owner.",
    "lots_note": "eight lots assumed from the emitted blocks' own subdivision; the block itself is not generated, so it has no measured geometry",
-   "roofs": 6,
+   "roofs": 4,
    "families": {
-    "A1": 2,
+    "A1": 1,
     "A2": 1,
     "A3": 1,
-    "A4": 1,
-    "A5": 1
+    "A4": 1
    },
    "principal": 0,
-   "ancillary": 6,
-   "frontage_weight": 0.6155,
+   "ancillary": 4,
+   "frontage_weight": 0.58,
    "trade_roofs": 0,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
@@ -2517,8 +2509,8 @@
    "standing_roofs": 0,
    "headroom": 0,
    "state": "complete",
-   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 257 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 197 roofs of headroom against 137 left to build — a surplus of 60 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
-   "surplus_headroom": 60,
+   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 260 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 197 roofs of headroom against 134 left to build — a surplus of 63 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
+   "surplus_headroom": 63,
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2542,10 +2534,9 @@
     "A5": 2,
     "C3": 1,
     "C4": 1,
-    "D1": 1,
     "D2": 2,
     "D3": 5,
-    "D4": 5,
+    "D4": 6,
     "D5": 5,
     "D6": 3,
     "D7": 3,
@@ -2553,8 +2544,8 @@
     "H1": 1,
     "H2": 1,
     "H3": 2,
-    "W2": 2,
-    "W3": 1
+    "W1": 1,
+    "W2": 2
    },
    "principal": 34,
    "ancillary": 18
@@ -2563,36 +2554,35 @@
    "id": "north_division_beyond_modelled_ground",
    "kind": "district_balance",
    "district": "north",
-   "capacity_roofs": 67,
+   "capacity_roofs": 61,
    "standing_roofs": 0,
-   "headroom": 67,
+   "headroom": 61,
    "state": "gated",
    "waiting_on": "North Division ground beyond the initial parcel: the plat grid covers no North Division block at all — that street control is what ROADMAP S9 records as owed — and terrain, hydrology, flora and map coverage stop short of local N +760 m.",
-   "roofs": 67,
+   "roofs": 61,
    "families": {
     "A1": 5,
     "A2": 4,
-    "A3": 5,
-    "A4": 4,
-    "A5": 2,
+    "A3": 4,
+    "A4": 3,
+    "A5": 1,
     "C3": 2,
     "C4": 1,
-    "D1": 1,
-    "D2": 2,
-    "D3": 8,
-    "D4": 9,
-    "D5": 9,
+    "D2": 3,
+    "D3": 7,
+    "D4": 8,
+    "D5": 8,
     "D6": 4,
     "D7": 5,
     "F2": 1,
     "H1": 1,
     "H3": 1,
     "T1": 1,
-    "W2": 1,
-    "W3": 1
+    "W1": 1,
+    "W2": 1
    },
-   "principal": 47,
-   "ancillary": 20
+   "principal": 44,
+   "ancillary": 17
   },
   {
    "id": "fort_dearborn_compound",

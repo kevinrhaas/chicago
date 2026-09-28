@@ -200,19 +200,26 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # structure asset, so one more mesh the shared generator modules would re-stale; the terrain
 # and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
 #
-# 423 -> 425 and 421 -> 423 on 2026-09-28 (T-1712): `beaubien_new_residence` and
-# `beaubien_trading_post`, the two buildings Andreas records at the Beaubien homestead on the
-# Fort Dearborn reservation that this project had not built. Two new structure assets, so two
-# more meshes the shared generator modules would re-stale; the terrain and pier_crib reaches
-# stay at 2 each. Nothing about the debt itself moved.
+# 423 -> 434 and 421 -> 432 on 2026-09-28: THREE changes landed together, and this
+# reading is the merged one. T-1712 built `beaubien_new_residence` and
+# `beaubien_trading_post`, the two buildings Andreas records at the Beaubien homestead on
+# the Fort Dearborn reservation that this project had not built; T-1709 built the six works
+# buildings the four documented noxious trades imply - the packing house, salt house and
+# stock shed of the South Branch plant, the bark and drying sheds of Miller and Hall's
+# tanyard, and Elston's ash house; T-1714 built `mckee_log_house`,
+# `caldwell_agency_log_house` and `agency_striker_log_house`, the ring of agency log
+# buildings Wau-Bun and Andreas group round Cobweb Castle at the foot of State Street.
+# Eleven new structure assets between them, so eleven more meshes a change to the shared
+# generator modules or to build.py would re-stale; the terrain and pier_crib reaches stay at
+# 2 each. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 425,
+    "assets": 434,
     "restales": {
-        "generators/common/*.py": 425,
+        "generators/common/*.py": 434,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 423,
+        "generators/emit.py": 432,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

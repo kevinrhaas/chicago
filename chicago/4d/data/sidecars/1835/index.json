@@ -10254,6 +10254,12 @@
   ],
   "structures": [
     {
+      "id": "agency_striker_log_house",
+      "name": "The agency striker's log house",
+      "sidecar": "sidecars/1835/agency_striker_log_house.json",
+      "asset": "gltf/agency_striker_log_house__log_1830.glb"
+    },
+    {
       "id": "bates_auction_room",
       "name": "John Bates Jr.'s Auction Room",
       "sidecar": "sidecars/1835/bates_auction_room.json",
@@ -10294,6 +10300,12 @@
       "name": "Rufus Brown's Boarding House",
       "sidecar": "sidecars/1835/brown_boarding_house.json",
       "asset": "gltf/brown_boarding_house__documented_1835.glb"
+    },
+    {
+      "id": "caldwell_agency_log_house",
+      "name": "The agency log house Andreas gives Billy Caldwell",
+      "sidecar": "sidecars/1835/caldwell_agency_log_house.json",
+      "asset": "gltf/caldwell_agency_log_house__log_1830.glb"
     },
     {
       "id": "carpenter_south_water_store",
@@ -10360,6 +10372,12 @@
       "name": "George W. Dole's Warehouse",
       "sidecar": "sidecars/1835/dole_warehouse_south.json",
       "asset": "gltf/dole_warehouse_south__frame_1832.glb"
+    },
+    {
+      "id": "elston_ash_house",
+      "name": "The ash house at Elston & Co.'s soap and candle works",
+      "sidecar": "sidecars/1835/elston_ash_house.json",
+      "asset": "gltf/elston_ash_house__works_1833.glb"
     },
     {
       "id": "elston_soap_candle_manufactory",
@@ -10806,6 +10824,12 @@
       "asset": "gltf/mason_blacksmith_shop__documented_1835.glb"
     },
     {
+      "id": "mckee_log_house",
+      "name": "David McKee's log house",
+      "sidecar": "sidecars/1835/mckee_log_house.json",
+      "asset": "gltf/mckee_log_house__log_1823.glb"
+    },
+    {
       "id": "miller_house",
       "name": "Miller House",
       "sidecar": "sidecars/1835/miller_house.json",
@@ -10818,16 +10842,46 @@
       "asset": "gltf/miller_tannery__log_1831.glb"
     },
     {
+      "id": "miller_tanyard_bark_shed",
+      "name": "The bark shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_bark_shed.json",
+      "asset": "gltf/miller_tanyard_bark_shed__yard_1831.glb"
+    },
+    {
+      "id": "miller_tanyard_drying_shed",
+      "name": "The drying shed at Miller and Hall's tanyard",
+      "sidecar": "sidecars/1835/miller_tanyard_drying_shed.json",
+      "asset": "gltf/miller_tanyard_drying_shed__yard_1831.glb"
+    },
+    {
       "id": "new_york_house",
       "name": "New York House",
       "sidecar": "sidecars/1835/new_york_house.json",
       "asset": "gltf/new_york_house__frame_1834.glb"
     },
     {
+      "id": "newberry_dole_packing_house_south_branch",
+      "name": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_packing_house_south_branch.json",
+      "asset": "gltf/newberry_dole_packing_house_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_salt_house_south_branch",
+      "name": "The salt house at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_salt_house_south_branch.json",
+      "asset": "gltf/newberry_dole_salt_house_south_branch__works_1834.glb"
+    },
+    {
       "id": "newberry_dole_slaughterhouse_south_branch",
       "name": "Newberry & Dole's Slaughter-House, South Branch",
       "sidecar": "sidecars/1835/newberry_dole_slaughterhouse_south_branch.json",
       "asset": "gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb"
+    },
+    {
+      "id": "newberry_dole_stock_shed_south_branch",
+      "name": "The stock shed at Newberry & Dole's South Branch plant",
+      "sidecar": "sidecars/1835/newberry_dole_stock_shed_south_branch.json",
+      "asset": "gltf/newberry_dole_stock_shed_south_branch__works_1834.glb"
     },
     {
       "id": "newberry_dole_warehouse",
