@@ -10830,9 +10830,11 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 71 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 72 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 71 structures carry a `land_owner` block that rests on them. The construction is
+traced, and 72 structures carry a `land_owner` block that rests on them (71 until T-1716 raised
+the keeper's quarters at the Chicago light on the reservation tract this same construction
+resolves). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -15890,6 +15892,12 @@ bend, and because it is the quadrant that clears the garrison's big barn — 32 
 plus the whole of an offset nothing states. The facade bearing, 90 degrees, faces the light it served
 and is invented too.
 
+**And one invention the house inherited rather than chose.** `tools/deal_siding_stock.py` deals every
+named frame building one of four period mill sidings, and this one wears 4.5 in to the weather. No source
+states the exposed face of any siding in this town; the deal is keyed to the construction season and the
+value is claimed here rather than left to the deal's own entry, because on this building the fabric it is
+an exposure OF is itself invented.
+
 **What is NOT invented.** No person: the keeper on 1 July 1835 is not named by anything reached, and
 the card that lives here is the reconstruction's own, drawn before this entry and unchanged by it. No
 household size — the refusal the lodging layer wrote stands, and it now stands on the evidence rather
@@ -15906,7 +15914,7 @@ those replaces this house; a plan of the station replaces the whole entry.
 **Applies to:** `data/structures/chicago_lighthouse_keepers_quarters.json`,
 `data/reconstruction/1835_institutional_lodging.json`.
 
-**Covers:** `chicago_lighthouse_keepers_quarters.quarters_1832.footprint`, `chicago_lighthouse_keepers_quarters.quarters_1832.form.construction`.
+**Covers:** `chicago_lighthouse_keepers_quarters.quarters_1832.footprint`, `chicago_lighthouse_keepers_quarters.quarters_1832.form.construction`, `chicago_lighthouse_keepers_quarters.quarters_1832.form.siding_exposure_m`.
 
 **Related:** **L44** (the tower's own conjectures, of which this is the neighbour), **L285** (the same
 class of invention on the north bank, and the same reason for it: a documented household with no

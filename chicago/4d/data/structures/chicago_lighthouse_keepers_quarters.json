@@ -85,6 +85,11 @@
           "value": 1,
           "confidence": "inferred",
           "note": "Not attested. Quarters kept through a Chicago winter by a man who watched a light all night cooked and heated at a hearth, so the record carries one stack; where it stood is not stated and the archetype places it against the gable end."
+        },
+        "siding_exposure_m": {
+          "value": 0.114,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
         }
       },
       "change_note": "Raised 2026-09-28 (T-1716). New record; nothing moved. The tower's own record is untouched."
@@ -96,12 +101,24 @@
     "sources": [
       "andreas_1884_v1"
     ],
-    "note": "THE QUARTERS ARE THE DOCUMENTED PART OF THE APPOINTMENT. Andreas gives the first keeper of this light $350 a year AND QUARTERS; a keepership paid partly in housing is evidence that housing stood at the station, and a light kept nightly was kept by somebody who slept beside it. What the phrase does NOT give is a building: it does not say a separate house, it does not say where, and it does not say what of. So the USE is inferred from the terms of a federal appointment, and every drawn attribute of the thing that carries the use is invented under L286.",
-    "reads": [
-      "docs/RESEARCH/chicago_lighthouse_1832.md",
-      "data/reconstruction/1835_institutional_lodging.json"
-    ]
+    "note": "THE QUARTERS ARE THE DOCUMENTED PART OF THE APPOINTMENT. Andreas gives the first keeper of this light $350 a year AND QUARTERS; a keepership paid partly in housing is evidence that housing stood at the station, and a light kept nightly was kept by somebody who slept beside it. What the phrase does NOT give is a building: it does not say a separate house, it does not say where, and it does not say what of. So the USE is inferred from the terms of a federal appointment, and every drawn attribute of the thing that carries the use is invented under L286. Read at docs/RESEARCH/chicago_lighthouse_1832.md § 4 and data/reconstruction/1835_institutional_lodging.json."
   },
   "research_note": "RAISED BECAUSE A HOUSEHOLD WAS SLEEPING IN A FORTY-FOOT MASONRY TOWER. `data/reconstruction/1835_institutional_lodging.json` admitted one household to the town's nine institutional roofs — the keeper's, at `chicago_lighthouse_1832` — on the grounds that the keepership was paid 'with quarters' and 'no keeper's dwelling is modelled, so the quarters this project can account for are at the light itself'. That row also recorded what it cost: its own card refuses to draw a household size, because 'drawing 4.4 people into a forty-foot tower would be the model reaching past the one thing the record gives it'. The defect was never the adjudication; it was that the project had no roof for it to point at. This record is that roof, and the bed moves to it. WHAT IS NOT CLAIMED: who kept the light on 1835-07-01 (Andreas has Lasby first, Wentworth has William M. Stevens only from October 1836, and no source reached covers the gap), how many people the quarters held, what they were built of, how large they were, or where at the station they stood. No occupant is written on this record: the household is the reconstruction's own, it lives on its card, and a source naming the keeper retires the invention rather than joining it. WHAT WOULD UPGRADE THIS RECORD: the Light-House Board's annual reports or the Fifth Auditor's returns, which paid the keeper and would describe his quarters; a keeper's return; or a measured reading of the 1850 von Schneidau daguerreotype or the 1855 Hesler photograph, in both of which the station stands. See docs/RESEARCH/chicago_lighthouse_1832.md § 4 and docs/LIBERTIES.md L286.",
-  "review_required": false
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 21 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 20.7,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
 }
