@@ -131,6 +131,12 @@
         "reconstructed": 0,
         "unknown": 3
       },
+      "persons[].landholding": {
+        "attested": 0,
+        "inferred": 2,
+        "reconstructed": 0,
+        "unknown": 0
+      },
       "persons[].name_basis": {
         "attested": 0,
         "inferred": 0,
@@ -145,7 +151,7 @@
       },
       "persons[].profile_facts[]": {
         "attested": 1,
-        "inferred": 39,
+        "inferred": 37,
         "reconstructed": 0,
         "unknown": 0
       },

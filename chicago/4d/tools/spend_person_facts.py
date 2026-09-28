@@ -68,13 +68,62 @@ VERDICTS = ("asserted", "duplicate", "contradicted", "insufficient_identity",
             "later_only", "outside_chicago", "no_candidate")
 FIELDS = ("arrival_at_chicago", "origin", "reason_for_coming", "sex", "name_as_printed",
           "birth_year_bound", "death", "marriage", "life_event", "departure_from_chicago",
-          "workplace", "role", "none")
+          "landholding", "workplace", "role", "none")
 PLACE_CLASSES = ("chicago", "outside_chicago", "not_a_place")
 
 # The only fields a row is allowed to write onto a household's own claim blocks, and only
 # where that block is null and the household holds one person. A household field is a claim
 # about everybody under the roof; one person's origin may not be dealt to a second person.
 HOUSEHOLD_FIELDS = {"origin": "origin", "reason_for_coming": "reason_for_coming"}
+
+# A FIELD THAT SAYS WHAT A PERSON HELD (T-1588).
+#
+# Two readings in the 75-person cohort passes named a LANDHOLDING — John S. Wright's
+# Chicago purchases and original-town lots, Paul Kingston as a Chicago landholder — and
+# the research ledger parked both for eight months under a rule whose whole name was the
+# complaint: `the_enrichment_names_a_landholding_no_field_carries`. They were carried here
+# as `life_event`, the class for "anything else dated", which records that something
+# happened to a man and not what he held.
+#
+# `landholding` is that field, and it is a PERSON field rather than a household one for the
+# same reason `origin` is a household one: a holding is a thing a named man owned, and
+# `hh_wright_john` holds a father and a son. A person-level block also keeps it off the
+# ground — land HELD is not land LIVED ON, `lives_at` is the field for the second, and
+# nothing here seats a lot, draws a parcel or makes a landlord.
+#
+# A row in this set is written as its own block on the person and is NOT repeated in
+# `profile_facts`: one fact, one field. Everything else about it is unchanged — it is
+# adjudicated by the same rules, withheld by the same rulings, and re-derived by --check.
+PERSON_FIELDS = {"landholding": "landholding"}
+
+# WHERE A NEW PERSON BLOCK IS INSERTED, AND WHY IT IS NOT SIMPLY APPENDED. Three other
+# passes prove their own work by stripping their blocks off a card and deriving them
+# again, and a re-derived block lands at the END of the person — so those blocks have to
+# stay last, and `reconstruct_sex_age.settle_order` says so in as many words: "THIS IS A
+# GATE'S REQUIREMENT, NOT A STYLE". A key appended after them reads to all three as 597
+# cards of drift on an ordering difference alone, which is exactly what it did the first
+# time `landholding` was written (T-1588). So a block of this tool's goes in FRONT of
+# whatever settled tail the card already carries.
+SETTLED_TAIL = ("roles", "sex", "sex_basis", "birth_year", "age_band")
+
+
+def put_person_field(person: dict, key: str, block: dict) -> bool:
+    """Set `person[key]` in front of the blocks other passes re-derive onto the end.
+
+    Returns whether anything moved, VALUE OR POSITION, because a card already carrying
+    the right value in the wrong place is the drift this function exists to undo and a
+    re-run that reported "nothing to do" would leave it there.
+    """
+    before = (list(person), person.get(key))
+    person.pop(key, None)
+    keys = list(person)
+    cut = len(keys)
+    while cut and keys[cut - 1] in SETTLED_TAIL:
+        cut -= 1
+    person[key] = block
+    for name in keys[cut:]:
+        person[name] = person.pop(name)
+    return before != (list(person), block)
 
 
 def load(path: Path):
@@ -106,6 +155,22 @@ def check_row(row: dict, where: str, source_ids: set, on_record: dict) -> list[s
                    f"use one of {VERDICTS} or unresolved:T-NNNN")
     if row.get("source") and row.get("source") not in source_ids:
         bad.append(f"{where}: source {row.get('source')!r} does not resolve in data/sources/")
+    # A SOURCE LIST, WHERE MORE THAN ONE VOLUME BEARS ON THE SAME FACT (T-1588). `source`
+    # stays the one the value is read OFF; `sources` names every volume the finding
+    # carried for it, in the order the card should cite them, and the first of them must
+    # be that same primary — a list whose head disagrees with the row's own source would
+    # let a card cite one volume and the table another.
+    plural = row.get("sources")
+    if plural is not None:
+        if not isinstance(plural, list) or not plural:
+            bad.append(f"{where}: 'sources' is present and is not a non-empty list")
+        else:
+            for sid in plural:
+                if sid not in source_ids:
+                    bad.append(f"{where}: source {sid!r} does not resolve in data/sources/")
+            if plural[0] != row.get("source"):
+                bad.append(f"{where}: 'sources' leads with {plural[0]!r} and the row is read "
+                           f"off {row.get('source')!r}")
     if len(str(row.get("reason") or "")) < 40:
         bad.append(f"{where}: the reason is shorter than a sentence. A verdict without its "
                    f"reasoning is the prose this table exists to replace")
@@ -197,6 +262,7 @@ def build(readings: dict, households: list[tuple[Path, dict]], source_ids: set):
                         rows.append({
                             **base,
                             "source_id": row.get("source"),
+                            **({"source_ids": list(row["sources"])} if row.get("sources") else {}),
                             "claim_or_record_id": f"{base['claim_or_record_id']}#{i + 1:02d}",
                             "describes_date": row.get("describes_date"),
                             "field": row.get("field"),
@@ -335,9 +401,10 @@ def withheld_document(rows: list[dict]) -> dict:
 def spend(rows: list[dict], households: list[tuple[Path, dict]]) -> tuple[dict, int]:
     """Write the asserted rows onto the records, and count what moved.
 
-    Two places, and no third: a person's own `profile_facts` list, which is additive and
-    cannot displace anything; and a household's null `origin`/`reason_for_coming`, only
-    where the household holds ONE person, because a household field speaks for everybody
+    Three places, and no fourth: a person's own `profile_facts` list, which is additive and
+    cannot displace anything; the person's own `landholding` block, for the one fact class
+    that has a field of its own (T-1588); and a household's null `origin`/`reason_for_coming`,
+    only where the household holds ONE person, because a household field speaks for everybody
     under the roof.
     """
     by_person: dict = {}
@@ -345,24 +412,26 @@ def spend(rows: list[dict], households: list[tuple[Path, dict]]) -> tuple[dict, 
         if r["adjudication"] == "asserted":
             by_person.setdefault(r["person_id"], []).append(r)
 
-    moved = {"profile_facts": 0, "household_fields": 0, "people": 0}
+    moved = {"profile_facts": 0, "person_fields": 0, "household_fields": 0, "people": 0}
     for path, h in households:
         persons = h.get("persons") or []
         touched = False
         for person in persons:
             facts = by_person.get(person.get("id"))
             if not facts:
-                if "profile_facts" in person:
-                    del person["profile_facts"]
-                    touched = True
+                for key in ("profile_facts", *PERSON_FIELDS.values()):
+                    if key in person:
+                        del person[key]
+                        touched = True
                 continue
             block = []
+            own: dict = {}
             for r in facts:
                 row = {
                     "field": r["field"],
                     "value": r["proposed_value"],
                     "confidence": r["confidence"],
-                    "sources": [r["source_id"]],
+                    "sources": list(r.get("source_ids") or [r["source_id"]]),
                     "describes_date": r["describes_date"],
                     "place_class": r["place_class"],
                     "record_id": r["claim_or_record_id"],
@@ -371,9 +440,28 @@ def spend(rows: list[dict], households: list[tuple[Path, dict]]) -> tuple[dict, 
                 }
                 if r.get("precision"):
                     row["precision"] = r["precision"]
-                block.append(row)
-            if person.get("profile_facts") != block:
-                person["profile_facts"] = block
+                key = PERSON_FIELDS.get(r["field"])
+                if key:
+                    # Its own block, and NOT a second copy in the general list: a reader
+                    # who finds a landholding twice on one card cannot tell which of them
+                    # the layer means.
+                    own[key] = {k: v for k, v in row.items() if k != "field"}
+                else:
+                    block.append(row)
+            for key in PERSON_FIELDS.values():
+                if key in own:
+                    if put_person_field(person, key, own[key]):
+                        touched = True
+                    moved["person_fields"] += 1
+                elif key in person:
+                    del person[key]
+                    touched = True
+            if block:
+                if person.get("profile_facts") != block:
+                    person["profile_facts"] = block
+                    touched = True
+            elif "profile_facts" in person:
+                del person["profile_facts"]
                 touched = True
             moved["profile_facts"] += len(block)
             moved["people"] += 1
@@ -409,7 +497,7 @@ def households_on_disk() -> list[tuple[Path, dict]]:
 def self_test() -> int:
     """The adjudication rules, each mutated into the failure it exists to catch."""
     ok = True
-    src = {"a_source"}
+    src = {"a_source", "b_source"}
     good = {"field": "arrival_at_chicago", "value": "1833-12-01", "confidence": "inferred",
             "source": "a_source", "describes_date": "1833-12-01", "place_class": "chicago",
             "quote": "arrival in Chicago Dec. 1, 1833", "adjudication": "asserted",
@@ -434,6 +522,16 @@ def self_test() -> int:
          {**good, "reason": "because"}, {}, 1),
         ("a fact class off the vocabulary",
          {**good, "field": "favourite_colour"}, {}, 1),
+        # T-1588's source list, held in both directions.
+        ("a landholding with two resolving sources",
+         {**good, "field": "landholding", "place_class": "chicago",
+          "sources": ["a_source", "b_source"]}, {}, 0),
+        ("a source list carrying a source that does not resolve",
+         {**good, "sources": ["a_source", "no_such_source"]}, {}, 1),
+        ("a source list that leads with a volume the row was not read off",
+         {**good, "sources": ["b_source", "a_source"]}, {}, 1),
+        ("a source list that is not a list",
+         {**good, "sources": "a_source"}, {}, 1),
     ]
     for name, row, on_record, want in cases:
         got = len(check_row(row, "t", src, on_record))
@@ -491,12 +589,19 @@ def main(argv: list[str]) -> int:
         have: dict = {}
         for _, h in households:
             for person in h.get("persons") or []:
-                pf = person.get("profile_facts")
-                if pf:
-                    have[person["id"]] = [(f.get("field"), f.get("value")) for f in pf]
+                on_card = [(f.get("field"), f.get("value"))
+                           for f in (person.get("profile_facts") or [])]
+                # T-1588: the fields that stand on their own are read back under their own
+                # names, so a landholding deleted off a card is a red here and not a silence.
+                for field, key in sorted(PERSON_FIELDS.items()):
+                    block = person.get(key)
+                    if isinstance(block, dict):
+                        on_card.append((field, block.get("value")))
+                if on_card:
+                    have[person["id"]] = on_card
         for pid in sorted(set(want) | set(have)):
             if sorted(want.get(pid, [])) != sorted(have.get(pid, [])):
-                print(f"  {pid}: the record's profile_facts and the table disagree — "
+                print(f"  {pid}: the record's spent fields and the table disagree — "
                       f"{len(have.get(pid, []))} on the record, {len(want.get(pid, []))} asserted")
                 red += 1
         if red:
@@ -514,6 +619,7 @@ def main(argv: list[str]) -> int:
     print(f"  withheld projection: {withheld_doc['counts']['rows']} refusal(s) over "
           f"{withheld_doc['counts']['people']} person(s)")
     print(f"  spent onto {people} person(s): {moved['profile_facts']} profile fact(s), "
+          f"{moved['person_fields']} person field(s), "
           f"{moved['household_fields']} household field(s) filled")
     return 0
 

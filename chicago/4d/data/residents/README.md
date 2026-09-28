@@ -33,6 +33,24 @@ minted them belongs in this name.** Those are fields:
   provenance about the *tooling*, not a finding about the *person*, so it is
   not part of the public `vocabulary` block in `index.json`.
 
+## `persons[].landholding` — what a person HELD (T-1588)
+
+A landholding is a fact about a named man and it has its own field. It is written by
+`tools/spend_person_facts.py` out of `data/research/residents/person_fact_readings.json`,
+graded like every other reading (`inferred` here, never `reconstructed`), cited by a
+`sources` LIST because more than one volume can bear on one holding, and re-derived by
+that tool's `--check`. It is never hand-written and never appears a second time in
+`profile_facts` — one fact, one field.
+
+**It is a PERSON field and not a household one.** `hh_wright_john` holds a father and a
+son of nearly the same name; a household-level block would deal the son's lots to the
+father, which is the same rule `HOUSEHOLD_FIELDS` states for `origin`.
+
+**A HOLDING IS NOT A RESIDENCE.** `lives_at` is the field for where somebody lived and
+may be null beside a holding — `hh_kingston_paul` has no address at all. Nothing in this
+field seats a lot, draws a parcel or states a price; where no source gives a block or a
+number, the value says what was held and not how much.
+
 ## A RECORD AND A HOUSEHOLD ARE NOT THE SAME UNIT (T-1476)
 
 The owner ruled on 2026-09-21: **a name on a post-office letter list is evidence

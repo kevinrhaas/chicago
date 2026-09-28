@@ -18,7 +18,8 @@
   "asserted_by_field": {
    "arrival_at_chicago": 4,
    "departure_from_chicago": 3,
-   "life_event": 23,
+   "landholding": 2,
+   "life_event": 21,
    "marriage": 1,
    "name_as_printed": 3,
    "origin": 6
@@ -8755,14 +8756,17 @@
    "source_id": "rr_andreas_chicago_1884_pass11",
    "claim_or_record_id": "resident_research:T-0485#02",
    "describes_date": "1834-01-01",
-   "field": "life_event",
+   "source_ids": [
+    "rr_andreas_chicago_1884_pass11"
+   ],
+   "field": "landholding",
    "proposed_value": "Held land at Chicago",
    "precision": null,
    "confidence": "inferred",
    "place_class": "chicago",
    "quote": "identify Paul Kingston as a Chicago landholder",
    "adjudication": "asserted",
-   "reason": "Landholding is a fact about the person that the early-Chicago sources state; it is not a residence and is not read as one."
+   "reason": "A LANDHOLDING, AND THE CARD NOW HAS A FIELD THAT SAYS SO. Andreas's early-Chicago pass identifies the man as a Chicago landholder and states nothing else about the holding — no parcel, no division, no date of purchase — so the value is the bare fact and the date is the year the card's own evidence first reaches him. It is read here beside the two other things this card holds, and displaces neither: the postal return of 1 April 1834, which is a bound on presence and not a residence, and the Racine old-settlers record of 2 January 1835 the same pass brought, which stands on this card as a `departure_from_chicago` profile fact and whose spend is T-1354's. A man who held land at Chicago and went to Racine in January is both of those at once; the holding does not lift the presence and the leaving does not retire the holding."
   },
   {
    "person_id": "kinsey_joshua",
@@ -16300,14 +16304,18 @@
    "source_id": "cpl_john_s_wright_papers",
    "claim_or_record_id": "resident_research:T-0479#01",
    "describes_date": "1835-01-01",
-   "field": "life_event",
-   "proposed_value": "Bought Chicago land and original-town lots",
+   "source_ids": [
+    "cpl_john_s_wright_papers",
+    "wright_in_memoriam_1885"
+   ],
+   "field": "landholding",
+   "proposed_value": "Chicago land purchases and lots in the original town",
    "precision": null,
    "confidence": "inferred",
    "place_class": "chicago",
-   "quote": "identifies John S. Wright's Chicago land purchases and original-town lots",
+   "quote": "identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology",
    "adjudication": "asserted",
-   "reason": "Landholding, stated by the library's finding aid. The block is explicit that later deed dates are not back-projected, and this row carries no deed date."
+   "reason": "A LANDHOLDING, AND THE CARD NOW HAS A FIELD THAT SAYS SO. The library's finding aid states the purchases and the original-town lots; the 1885 In Memoriam is cited beside it for what it actually does, which is to anchor WHICH John Wright this is — the card carries a father and a son of nearly the same name in one household — and not to add a lot. No parcel, no block and no number is stated by either, so the value says what was held and not how much: the finding aid's own later deed dates are read as a separate row and withheld `later_only`. Nothing here moves a confidence, seats a lot on the ground or makes this man a landlord of the two buildings his father advertised to let."
   },
   {
    "person_id": "wright_john_s",
