@@ -2,6 +2,68 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 110,
+      "takenAt": "2026-09-28T07:23:32.515Z",
+      "ref": "steward/t1709-south-branch-noxious-band",
+      "commit": "773e9dab84b9",
+      "devCommit": "17f42eb3d697",
+      "treeHash": "sha256:c465ce4e9ce11ceb",
+      "treeDirty": false,
+      "changelogHash": "sha256:6f8346abc663952c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4,
+          3.2
+        ]
+      },
+      "source": "/tmp/smoke_m1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 189,
+      "takenAt": "2026-09-28T07:23:32.445Z",
+      "ref": "steward/t1709-south-branch-noxious-band",
+      "commit": "773e9dab84b9",
+      "devCommit": "17f42eb3d697",
+      "treeHash": "sha256:c465ce4e9ce11ceb",
+      "treeDirty": false,
+      "changelogHash": "sha256:6f8346abc663952c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4,
+          3.2
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "13",
       "parts": [
@@ -1694,71 +1756,6 @@
         ]
       },
       "source": "/tmp/smoke_m34.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "2-3",
-      "parts": [
-        2,
-        3
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 172,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 47 walk(s), 39 crossing(s), 18 post(s), 31 fence run(s), 860730 vertices, 109 wall(s) refused, problems [none]"
-      ],
-      "wallSeconds": 379,
-      "takenAt": "2026-09-27T21:48:24.966Z",
-      "ref": "steward/t1687-civic-band-square",
-      "commit": "d21fd096e823",
-      "devCommit": "b80bc4edb04b",
-      "treeHash": "sha256:2c277de5a08f0040",
-      "treeDirty": false,
-      "changelogHash": "sha256:a507cf3ac9b2b6b8",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          4,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_d23.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 95,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 176,
-      "takenAt": "2026-09-27T21:35:13.187Z",
-      "ref": "HEAD",
-      "commit": "b80bc4edb04b",
-      "devCommit": "b80bc4edb04b",
-      "treeHash": "sha256:b773b38f7e48f4be",
-      "treeDirty": false,
-      "changelogHash": "sha256:f56b7a579b2b789e",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.9,
-          3.6,
-          3.3
-        ]
-      },
-      "source": "/tmp/smoke_base_d3.log"
     },
     {
       "viewport": "desktop",
