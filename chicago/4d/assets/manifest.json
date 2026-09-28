@@ -126,6 +126,15 @@
       "phase_id": "tower_1832",
       "structure_id": "chicago_lighthouse_1832"
     },
+    "chicago_lighthouse_keepers_quarters__quarters_1832.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 26744,
+      "inputs_sha256": "0c2348323f1ac30b8eb31d2c5331b6805c00c97a2b1db8c38c9f5a58666feea5",
+      "kind": "generated",
+      "phase_id": "quarters_1832",
+      "structure_id": "chicago_lighthouse_keepers_quarters"
+    },
     "clybourn_cabins__log_1824.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -3922,6 +3931,22 @@
       "terrain_epoch": "e1834_harbor_cut",
       "triangles": 1110643
     },
+    "terrain__e1871_postfire.glb": {
+      "baked_ao": false,
+      "bytes": 1970604,
+      "generator": "generators/terrain_gen_graded.py",
+      "inputs_sha256": "1cd64046f3674da1f913fa064f2906dc0bbaefee468a4a803a817bfd404573a0",
+      "kind": "generated",
+      "layer": "ground",
+      "mesh_vs_heightfield": {
+        "max_m": 0.002,
+        "misses": 0,
+        "rms_m": 0.00025,
+        "samples": 11374
+      },
+      "terrain_epoch": "e1871_postfire",
+      "triangles": 98053
+    },
     "thomas_church_store__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -3957,6 +3982,16 @@
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
+      "triangles": 2
+    },
+    "water__e1871_postfire.glb": {
+      "baked_ao": false,
+      "bytes": 1372,
+      "generator": "generators/terrain_gen_graded.py",
+      "inputs_sha256": "1cd64046f3674da1f913fa064f2906dc0bbaefee468a4a803a817bfd404573a0",
+      "kind": "generated",
+      "layer": "water",
+      "terrain_epoch": "e1871_postfire",
       "triangles": 2
     },
     "watkins_school_house__house_1833.glb": {

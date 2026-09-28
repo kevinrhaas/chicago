@@ -1,64 +1,113 @@
-## T-1735 — the first block of the plat's last tier built to its seats (2026-09-28)
+## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 
-`blk_washington_lasalle` — Washington to Madison, LaSalle to Clark, the south-west
-block of the tier T-1707's street control emitted — stood empty and now carries
-**eleven anonymous roofs**: seven principal dwellings, one per lot on seven of its
-eight lots, and four yard buildings off the mid-block alley. Lot 1, the
-LaSalle-and-Madison corner, is left open. The 665-roof programme apportions the
-block 31 roofs of capacity and 27 of headroom over eight free lots, and its
-principal ceiling is seven — three party-line units per free lot less the one the
-sizing reserves, which on a block with no frontage run resolves to one roof per lot.
-The deal takes the ceiling and stops.
+`data/scenes/1904.json` is the second scene: 1 July 1904 on `e1871_postfire`, lit at 10:30 local
+mean time. `/4d/1904/` and `?year=1904&anchor=glessner_house` open at the same pose, on Prairie
+Avenue's east sidewalk just south of 18th Street at E 1410.12, N −3218.01, bearing 264.94°. The
+pose is derived: the sheet-28 crossing from the T-1250 fit, both streets 66 ft as printed, and
+T-1731's lot rectangle give the lot's street corner (E 1391.98, N −3216.83) and centroid
+(E 1365.37, N −3229.04). The yaw bisects the two bearings, so the centroid sits left of centre
+(NDC x −0.29 at 390×780, −0.19 at 1280×800). The 2.0 m and 1.5 m walk offsets are a camera,
+not a claim.
 
-**Every dwelling was asked for, and that is the first time.** T-1613's platted
-seating found no free roof of an admitted family in the South Division for seven
-banded households and wrote seven `slot` rows against this block's own committed
-family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
-A request is not evidence: the roofs grade at the bottom tier with the same
-reasoning notes as every other anonymous count-unit, and the liberty is **L287**.
+The scene's `layers` list is now the renderer's contract. A layer the scene does not list gets
+no data base, so each module's own empty answer mounts and nothing is fetched. 1835 lists
+everything it drew; 1904 lists `terrain` and `water` only. No 1835 street, fence, sign, goods,
+walk, dock, boat, well, plant, tree, substrate colour or person reaches 1904, and no structure
+resolves at 1904.
 
-**The face argument.** Washington is opened, worn and graded `light`; Madison is
-platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
-So the four better dwellings take the Washington tier (H2 8.71 × 10.26 m on lot 0 at
-the LaSalle corner, H1 7.83 × 10.62 m on lot 2, H1 7.85 × 9.64 m on lot 4, D7
-6.79 × 9.64 m on lot 6) and the three meanest take Madison (D7 6.63 × 9.26 m on lot
-3, D3 5.22 × 6.90 m on lot 5, D3 5.41 × 6.91 m on lot 7). The D7 pair straddles the
-break because the request holds two and the better face has four lots. Yard
-buildings: a stable behind the merchant's house on lot 0, a privy behind the H1 on
-lot 2, a privy behind the D7 on lot 3, a woodshed behind the D3 on lot 5 — four of
-the six the schedule apportions, which is inside the ceiling and is not a refusal of
-the other two. No coordinate is authored; every metre is a committed lot polygon and
-every dimension a family band. The block's ground reads dry, 420 samples between
-0.86 m and 0.91 m above datum.
+Other changes:
+- `compile_scene.py` compiles the people directory only for a scene listing `residents`, and
+  offers only the junctions on the scene's own ground.
+- `exclusions.json` records the 1835 town's left-out buildings, so it now applies only to a
+  scene listing `exclusions`. Without that, `validate.py` failed 1904 on 13 buildings from 1836 to
+  1860, none of them on Prairie Avenue, and "What is not here" would have listed them.
+- `measure_anchors.mjs` measures every scene against its own heightfield.
+- `check_1880s_scene_date.py` holds the 1904 scene to the shoreline gate's 1904 address.
 
-**THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and it is
-reported rather than tidied.** The seating pass is re-derived whole in the placement
-policy's clause order, so the seven roofs went to the seven households the policy
-ranks first among those an admitted family on this block will hold. One of the
-original seven, `hh_baines_robert`, is among them; the other six are re-slotted onto
-the four Washington-tier blocks still standing empty — `blk_washington_clark`,
-`_franklin`, `_market` and `_wells`, seven slots apiece, 28 in all. Platted
-adoptions 109 → 116, slots 30 → 28, seated 139 → 144, owed 1,339 → 1,334, and the
-seating join with the off-plat pass goes 211 → 216. The gain is five adoptions and
-not two: the two households that DID move here vacated South Water roofs, and the
-pass cascaded those vacancies down its own ranking rather than leaving them open, so
-four roofs on South Water and the Randolph tier changed keeper. The named-keeper
-count went 23 → 22 with it and the refusals 63 → 66 — every one of them the
-letter-list-only refusal already on the books, no ruling moved (**L276**). The town
-census reads 432 buildings standing of 668.
+Measured at the spawn: a 9 s boot, 9 draw calls and about 41k triangles, zero problems and zero
+page errors at both viewports.
 
-**The order book's south ordinary-dwellings row is handed to T-1736, and that is the
-point of this ticket's filing.** The row named T-1708, whose documented successor
-T-1710 was split the day it was written down; T-1735 was filed to be the next live
-owner and it closes here, which is the `review`-then-`done` trap T-1681's row fell
-into. So the row goes to a ticket that outlives this pull request. The cell reads 176
-target, 114 standing, 62 to build, and T-1736 is the first of the four remaining
-blocks by name. `build_order_book_1835.py`'s seating tripwire is restated from 211 to
-**216** with the ruling behind the five seats, not quietly re-summed.
+**Not done here:** the rest of the drawer's text panels are still the 1835 town's in 1904:
+Residents, Businesses, Wildlife, Plants, Population, the order book, the jaunts and the source
+index, all authored for 1835 (filed as T-1740). The house (T-1729) and the street
+surfaces (T-1728) are their own tickets.
 
-**Verification.** `tools/check.sh` green; `validate.py --all` 0 errors; the eleven
-meshes baked with `bake.sh --only` and their web derivatives recorded; the smoke
-parts `smoke_budget.mjs --for-diff` named for this diff run in the foreground.
+
+## T-1738 — the 1904 ground generated and baked (2026-09-28)
+
+Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904
+scene. `generators/terrain_gen_graded.py` turns T-1251's zone table and T-1250's scene line into
+`data/terrain/epochs/e1871_postfire/heightfield.{json,bin}` (281 × 361 samples at 2.5 m over
+E +1100..+1800, N −3800..−2900; land Z 0 to +15.1 ft, the lake 26 % of the box, bed to −8 ft),
+reusing `terrain_gen.py`'s mesher, skirt and 30 mm refusal. Baked with the pinned Blender 4.5.3:
+`assets/gltf/terrain__e1871_postfire.glb` (98,053 triangles, within 2.5 mm of the field) and
+`water__e1871_postfire.glb`, with their web derivatives (the shipped ground 0.0 mm off the master
+in plan, the drawn surface within 6.0 mm of the field). `terrain_inputs.py` hashes the graded
+epoch's own generator and vector file, leaving the 1835 epoch's hash byte-identical; the spec's
+blocks are on the ground gates (GROUND_GROUPS, CONSUMED checked against the generator, `mesh`
+declarations) and L290 admits every reconstructed claim. The apron is 4,669.84 m, not the
+2,109.92 m terrain_gen.py's 1,500 m floor would give a box this small: that floor predates T-1635,
+and `check_haze_reach.mjs` refused an apron ending inside the haze's 2,644.9 m, so the graded
+generator raises the floor to the 1835 apron the air was solved against. Not verified: nothing
+renders it yet.
+
+## T-1727 — structure versions by URL (2026-09-28)
+
+`?structure=<id>&version=<label>` swaps one structure for a committed alternate record
+and mesh (`data/structures/versions/<id>/<label>.json`, mesh under
+`assets/{gltf,web}/versions/`, books in `assets/manifest.versions.json`); `version=default`
+names the canonical record. An unknown id or label loads the default and the HUD chip says
+*default shown*, with the sentence on tap and on entry. The HUD and the card name the
+active version. The versions index is fetched only when asked for, so a plain boot is
+unchanged. `validate.py` holds versions to the structure gate and `--stale` to their
+meshes; `build.py` bakes versions with their structure; `web_derivatives.sh` and
+`publish.sh` carry them. `node tools/promote_version.mjs <id> <label>` makes one the
+default in one diff and keeps the old default as `pre-<label>`. `docs/STRUCTURE-VERSIONS.md`.
+
+**Unverified, stated:** `build.py`'s version loop has been exercised with bpy and the
+emitter stubbed (it chose the version, wrote to the version path and recorded the entry),
+not under Blender — no Blender on this runner. The first real version bake (T-1730) is its
+live test. The only committed version is the smoke's TEST FIXTURE
+(`bates_auction_room/fixture`), an unchanged copy of the default record whose inputs hash
+equals the committed bake, so its mesh was adopted rather than baked; the pinned
+derivative command reproduces the adopted derivative byte for byte.
+
+
+## T-1251 — the 1904 ground's zone table (2026-09-28)
+
+Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
+`data/terrain/epochs/e1871_postfire/terrain_spec.json` is an authored zone table serving the
+1904 Prairie Avenue scene: twelve street crowns read off the USGS 3DEP 1 m bare-earth model
+(`data/terrain/e1871_grade_readings.json`), graded lots between them, the Illinois Central
+embankment, the made ground of 1886–1911, the lake shelf and the lake stage, every figure citing
+a numbered zone in `docs/RESEARCH/terrain_e1871_postfire.md` and saying which date it describes.
+Three crowns (Prairie Avenue from 18th Street to 2017 Prairie) are inferred for 1904 because the
+period's houses still stand there at their built grade, their walks within 0.18 ft of the crown;
+the other nine are reconstructed (L289). The datum conversion is tested: City benchmark 289 and
+the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface runs 2.9–5.7 ft,
+so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
+ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
+Not verified: any 1904 level directly — no survey of the period has been found.
+
+
+## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
+
+Nothing a visitor sees changed; this is the ground the 1904 scene (T-1252) will stand on.
+Sanborn 1911 vol. 3 sheets 20, 28 and 35 and Robinson 1886 plate 10 each have a source record
+and a GCP file in `data/traces/gcp/` (`sanborn_1911_v3_sheet_{20,28,35}_gcps.json`,
+`robinson_1886_plate_10_gcps.json`), written by `tools/georef_prairie_1904.py` and re-derived by
+`check.sh`. The fits are similarities at each sheet's printed scale — RMS 2.46, 0.34, 0.05 and
+4.54 m — because the free affine (printed beside each) reads a displaced modern Indiana Avenue and
+a widened Cermak Road as paper stretch. Sheet 28, the Glessner House sheet, lands three standing
+houses within 1.47 m RMS of their OpenStreetMap outlines without having been fitted to them.
+
+`tools/trace_ic_edge_1904.py` traces the Illinois Central lake edge: the 1911 edge stands 17–20 m
+east of the 1886 one where both are drawn, so both sheets are bounds and the scene's waterline is
+reconstructed on the eastern bound (L287), with its six segments saying what stands in where no
+1911 sheet draws the edge. The 1852-trestle sentence is ruled against a CPL source. What is not
+verified: the stretch south of 19th Street (no sheet held draws it), and any height — T-1251/T-1252.
+Detail: `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7.
+
 
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 

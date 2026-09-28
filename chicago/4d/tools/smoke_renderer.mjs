@@ -100,6 +100,9 @@
  *                                 structure, in one Go to tab, each structure
  *                                 graded with its own record's position grade
  *   liberties are readable ...... what we made up is in the panel, not only in the repo
+ *   a structure version ......... ?structure=&version= swaps ONE building's record and
+ *                                 mesh, names it in the HUD and on the card, and moves
+ *                                 nothing else in the town (T-1727, part 3)
  *   draw calls under budget ..... the batch strategy is doing its job, against a
  *                                 ceiling this file pins rather than merely reads
  *   zero page errors ............ everywhere, both widths
@@ -7949,6 +7952,134 @@ for (const [label, viewport, touch] of [
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
 
+    // --- T-1727: one structure swapped by URL, and nothing else ----------------------
+    //
+    // `?structure=<id>&version=<label>` loads a committed alternate of ONE structure so
+    // competing builds (the Glessner House first) can be compared side by side. The
+    // fixture is `data/structures/versions/bates_auction_room/fixture.json`, a TEST-ONLY
+    // alternate: the default record copied unchanged, with the canonical mesh adopted
+    // under the version's own path (its inputs hash is identical). So what is proved here
+    // is the MECHANISM — the version's sidecar and the version's GLB are what the page
+    // loads for that id, the default's are never fetched, the HUD and the card name the
+    // version — and that every other one of the town's structures is byte-for-byte and
+    // metre-for-metre where the default boot put it.
+    //
+    // The version is booted in this same tab, which is then booted back at the default
+    // address — see the note at the re-boot for why not a second tab.
+    {
+      const VERSION_ID = 'bates_auction_room';
+      const VERSION_LABEL = 'fixture';
+      const census = (id) => {
+        const api = window.__chicago4d;
+        const fnv = (s) => {
+          let h = 0x811c9dc5;
+          for (let i = 0; i < s.length; i += 1) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+          return h.toString(16);
+        };
+        const r3 = (v) => (v == null ? null : Math.round(v * 1000) / 1000);
+        const bounds = api.buildings?.instanceBounds?.() ?? {};
+        const rows = {};
+        for (const [k, r] of api.registry) {
+          const p = api.buildings?.positionOf?.(k);
+          rows[k] = {
+            sidecarUrl: r.sidecarUrl, assetUrl: r.assetUrl, sidecar: fnv(JSON.stringify(r.sidecar)),
+            drawn: !!r.gltf || !!r.drawnBy, failed: r.loadFailed ?? null, version: r.version?.label ?? null,
+            at: p ? [r3(p.x), r3(p.y), r3(p.z)].join(',') : null,
+            size: bounds[k] ? bounds[k].size.map(r3).join(',') : null,
+          };
+        }
+        const chip = document.getElementById('badge-version');
+        api.pick(id);
+        const flag = document.querySelector('#popup .pop-flag-version');
+        const card = { title: document.querySelector('#popup h2')?.textContent ?? '',
+          flag: flag?.textContent.replace(/\s+/g, ' ').trim() ?? null, flagLabel: flag?.dataset.version ?? null };
+        api.popup.close();
+        return {
+          rows, card, state: api.structureVersion,
+          problems: api.problems.filter((p) => !/provisional|PLACEHOLDER|placeholder|review_required is set/i.test(p)),
+          chip: chip ? { hidden: chip.hidden, text: chip.textContent, tone: chip.dataset.tone ?? null,
+            visible: !chip.hidden && chip.checkVisibility() } : null,
+        };
+      };
+
+      // A plain boot never reaches the versions index: `resolveStructureVersion` returns
+      // before its fetch when nothing is requested (tools/test_structure_versions.mjs
+      // counts the fetches), and this tab's state says nothing was.
+      const before = await page.evaluate(census, VERSION_ID);
+      check(`${label}: a plain boot asks for no structure version and shows none (T-1727)`,
+        before.state?.requested === null && before.state?.active === null
+        && before.chip?.hidden === true && before.rows[VERSION_ID]?.version === null
+        && before.card.flag === null,
+        JSON.stringify({ state: before.state, chip: before.chip, flag: before.card.flag }));
+
+      // THE SAME TAB, RE-BOOTED at the version's address and then back at the default's.
+      // A second tab was tried first and is the wrong instrument here: two WebGL scenes on
+      // one software rasteriser, and at 1280x800 the version tab's boot ran past three
+      // minutes even with the first tab frozen (measured, T-1727). Re-booting this tab is
+      // also what a part-4-only run starts from, so the parts after this one see exactly
+      // the fresh default boot their staged runs already see. Every request of the version
+      // boot is recorded from its first, because the Resource Timing buffer holds 250
+      // entries and this scene makes several hundred, so the page cannot be asked afterwards
+      // whether the default's mesh was fetched. Its errors land in this viewport's
+      // `zero page errors` through the listeners the tab already carries.
+      const bootHere = async (url) => {
+        await page.goto(url, { waitUntil: 'domcontentloaded' });
+        // waitForFunction(fn, ARG, options): the options are the THIRD argument.
+        try {
+          await page.waitForFunction(() => window.__chicago4d?.ready === true || !!window.__chicago4d?.error,
+            null, { timeout: 240_000, polling: 1000 });
+          return await page.evaluate(() => window.__chicago4d?.ready === true);
+        } catch { return false; }
+      };
+      const vrequests = [];
+      const onRequest = (r) => vrequests.push(r.url());
+      page.on('request', onRequest);
+      const vurl = `${base}&structure=${VERSION_ID}&version=${VERSION_LABEL}`;
+      const vready = await bootHere(vurl);
+      page.off('request', onRequest);
+      check(`${label}: ?structure=${VERSION_ID}&version=${VERSION_LABEL} reaches ready (T-1727)`, vready,
+        vready ? '' : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page'));
+      if (vready) {
+        // Into the town, as a visitor would, so the HUD the chip rides in is showing.
+        await enterTown();
+        const after = await page.evaluate(census, VERSION_ID);
+        after.defaultAssetFetched = vrequests.some((u) => /\/gltf\/bates_auction_room__[^/]+\.glb$/.test(u));
+        after.versionFetches = vrequests.filter((u) => /\/versions\//.test(u)).map((u) => u.replace(/^.*?\/(sidecars|gltf)\//, '$1/'));
+        const v = after.rows[VERSION_ID] ?? {};
+        check(`${label}: the version boot loads the fixture's own sidecar and mesh for that one structure (T-1727)`,
+          after.state?.active?.label === VERSION_LABEL && after.state?.notice === null
+          && /\/sidecars\/1835\/versions\/bates_auction_room\/fixture\.json$/.test(v.sidecarUrl ?? '')
+          && /\/gltf\/versions\/bates_auction_room\/fixture\/bates_auction_room__frame_1834\.glb$/.test(v.assetUrl ?? '')
+          && v.drawn && v.failed === null && v.version === VERSION_LABEL
+          && !after.defaultAssetFetched && after.versionFetches.length === 3,
+          JSON.stringify({ state: after.state, row: v, defaultAssetFetched: after.defaultAssetFetched,
+            versionFetches: after.versionFetches }));
+        const ids = Object.keys(before.rows);
+        const moved = ids.filter((k) => k !== VERSION_ID
+          && JSON.stringify(before.rows[k]) !== JSON.stringify(after.rows[k]));
+        const sameSet = ids.length === Object.keys(after.rows).length
+          && ids.every((k) => k in after.rows);
+        check(`${label}: …and every other structure is the same record, the same mesh, in the same place (T-1727)`,
+          sameSet && moved.length === 0 && ids.length > 400
+          && after.problems.every((p) => before.problems.includes(p)),
+          `${moved.length} moved of ${ids.length - 1}: ${moved.slice(0, 3).map((k) => `${k} ${JSON.stringify(before.rows[k])} -> ${JSON.stringify(after.rows[k])}`).join(' | ')}`
+          + `${sameSet ? '' : ' | the registry holds a different set of ids'}`
+          + ` | new problems ${JSON.stringify(after.problems.filter((p) => !before.problems.includes(p)).slice(0, 2))}`);
+        check(`${label}: …the fixture stands exactly where the default did, as its identical record says (T-1727)`,
+          v.at !== null && v.at === before.rows[VERSION_ID]?.at && v.size === before.rows[VERSION_ID]?.size,
+          `${v.at} / ${v.size} vs ${before.rows[VERSION_ID]?.at} / ${before.rows[VERSION_ID]?.size}`);
+        check(`${label}: the HUD and the card both name the version, so two screenshots cannot be confused (T-1727)`,
+          after.chip?.visible === true && after.chip.text === `version ${VERSION_LABEL}` && after.chip.tone === 'active'
+          && after.card.flagLabel === VERSION_LABEL && /test fixture/.test(after.card.flag ?? '')
+          && after.card.title === before.card.title,
+          JSON.stringify({ chip: after.chip, card: after.card }));
+      }
+      // …and back to the default town for whatever part runs next.
+      const back = await bootHere(base);
+      check(`${label}: the default address boots again after the version (T-1727)`, back,
+        back ? '' : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page'));
+    }
+
     inStageWork = false;
     } // end PART 3 (T-0060 stage 2a, cut by T-0121)
     // PART 4 — the raycast pick through the confidence menu's own clicks:
@@ -14649,6 +14780,105 @@ for (const [label, viewport, touch] of [
       `popup after click: "${clickPick.after}"`);
     await page.evaluate(() => window.__chicago4d.popup.close());
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
+
+    // --- the 1904 scene's front door (T-1739) --------------------------------
+    // The owner's landing, 2026-09-28: /4d/1904/ opens on Prairie Avenue at E. 18th
+    // Street, on the east sidewalk, FACING THE GLESSNER LOT at 1800 Prairie. This tab
+    // is re-booted at that door, as T-1727's version boot re-boots it, and it is the
+    // LAST thing in the last part, so nothing after it reads the 1835 town it leaves.
+    // The lot is NOT read off the scene file: its street corner and centroid are
+    // re-derived here from the sheet-28 fit (data/traces/gcp/) and T-1731's lot frame,
+    // so a spawn that drifts off the lot fails even when the scene file agrees with
+    // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
+    // through the listeners the tab already carries.
+    {
+      const here4d = path.resolve(HERE, '..');
+      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
+      const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
+      const k = gcp28.fit.coefficients;
+      const [px, py] = gcp28.gcps.find((g) => g.id === 'prairie_18th').pixel;
+      const sc = Math.hypot(k.a, k.d);
+      const east = [k.a / sc, k.d / sc];
+      const south = [k.b / sc, k.e / sc];
+      const along = (o, de, ds) => [o[0] + de * east[0] + ds * south[0], o[1] + de * east[1] + ds * south[1]];
+      // Both streets 66 ft as sheet 28 prints them; the lot frame is x east, y north.
+      const halfStreet = 33 * 0.3048;
+      const neLot = along([k.a * px + k.b * py + k.c, k.d * px + k.e * py + k.f], -halfStreet, halfStreet);
+      const cs = Object.values(lotFrame);
+      const lotMid = along(neLot, cs.reduce((t, v) => t + v[0], 0) / cs.length,
+        -cs.reduce((t, v) => t + v[1], 0) / cs.length);
+
+      const door = wantPublished ? `http://127.0.0.1:${PORT}/1904/`
+        : `http://127.0.0.1:${PORT}${ENTRY}?year=1904`;
+      await page.goto(door, { waitUntil: 'domcontentloaded' });
+      let doorReady = false;
+      try {
+        await page.waitForFunction(() => window.__chicago4d?.ready === true || !!window.__chicago4d?.error,
+          null, { timeout: 240_000, polling: 1000 });
+        doorReady = await page.evaluate(() => window.__chicago4d?.ready === true);
+      } catch { doorReady = false; }
+      const doorState = doorReady ? null
+        : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page');
+      check(`${label}: /1904/ boots the 1904 scene on its own ground (T-1739)`, doorReady
+        && await page.evaluate(() => window.__chicago4d.scene.id === '1904'
+          && window.__chicago4d.scene.terrain_epoch === 'e1871_postfire'
+          && window.__chicago4d.terrain.epochId === 'e1871_postfire'),
+        doorState ?? '');
+      if (doorReady) {
+        await enterTown();
+        await page.evaluate(() => new Promise((r) => { requestAnimationFrame(() => requestAnimationFrame(r)); }));
+        const at = await page.evaluate(({ neLot, lotMid }) => {
+          const a = window.__chicago4d;
+          const lift = (e, n) => a.terrain.surfaceHeight(e, n) + 1.0;
+          const anchor = a.scene.anchors.find((x) => x.id === 'glessner_house') ?? null;
+          const drawn = {};
+          for (const name of ['structures', 'streets', 'enclosures', 'yard-ground', 'signage', 'yard',
+            'frontage', 'wharves', 'boats', 'wells', 'flora', 'trees']) {
+            let meshes = 0;
+            a.scene3d.getObjectByName(name)?.traverse((o) => { if (o.isMesh || o.isInstancedMesh) meshes += 1; });
+            drawn[name] = meshes;
+          }
+          const s = a.stats();
+          return {
+            e: a.walker.state.e, n: a.walker.state.n, bearing: a.walker.bearingDeg,
+            eye: a.camera.position.y - a.terrain.surfaceHeight(a.walker.state.e, a.walker.state.n),
+            spawn: a.scene.spawn, anchor,
+            corner: a.project(neLot[0], neLot[1], lift(neLot[0], neLot[1])),
+            middle: a.project(lotMid[0], lotMid[1], lift(lotMid[0], lotMid[1])),
+            drawn, registry: a.registry.size,
+            problems: a.problems.filter((p) => !/provisional|PLACEHOLDER|placeholder/i.test(p)),
+            budget: { calls: s.drawCalls, triangles: s.triangles, within: s.withinBudget, fps: s.fps,
+              ceiling: s.budget },
+          };
+        }, { neLot, lotMid });
+        const off = (x, y) => Math.abs(((x - y + 540) % 360) - 180);
+        check(`${label}: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739)`,
+          Math.hypot(at.e - at.spawn.local_e, at.n - at.spawn.local_n) < 0.5
+          && off(at.bearing, at.spawn.yaw_deg) < 1
+          && at.anchor && at.anchor.local_e === at.spawn.local_e && at.anchor.local_n === at.spawn.local_n
+          && at.anchor.yaw_deg === at.spawn.yaw_deg
+          && at.eye > 1.2 && at.eye < 2.0,
+          `stood at E ${at.e.toFixed(2)} N ${at.n.toFixed(2)} bearing ${at.bearing.toFixed(2)}, eye ${at.eye.toFixed(2)} m; `
+          + `spawn ${JSON.stringify(at.spawn)}; anchor ${JSON.stringify(at.anchor)}`, true);
+        const inFront = (p) => p.z > -1 && p.z < 1;
+        check(`${label}: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739)`,
+          inFront(at.middle) && at.middle.x > -1 && at.middle.x < 0 && Math.abs(at.middle.y) < 1
+          && inFront(at.corner) && at.corner.x > at.middle.x,
+          `lot centroid E ${lotMid[0].toFixed(2)} N ${lotMid[1].toFixed(2)} at NDC `
+          + `(${at.middle.x.toFixed(3)}, ${at.middle.y.toFixed(3)}, z ${at.middle.z.toFixed(4)}); `
+          + `street corner at NDC x ${at.corner.x.toFixed(3)}`, true);
+        const stray = Object.entries(at.drawn).filter(([, n]) => n > 0);
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers (T-1739)`,
+          stray.length === 0 && at.registry === 0,
+          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${at.registry}`);
+        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
+          at.problems.slice(0, 3).join(' | '));
+        check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
+          `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
+          + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
+      }
+    }
 
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)

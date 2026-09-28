@@ -20,6 +20,14 @@ This proves four things:
   day, because the two data files and the gate now read one file; and
 * the epoch that day resolves to is unique, and is still ``planned`` with no
   borrowed geometry — a settled date is not permission to draw ground.
+
+T-1250 changed two things this file holds, and both are written down where they
+are checked. The owner's ruling of 2026-09-26 moved the Prairie Avenue scene to
+1904, so the shoreline state now ADDRESSES 1 July 1904 and records this file's 1888
+as the date it superseded (``address_date_superseded``) — the link is kept, not
+dropped. And the state now carries a line, which is allowed only because the
+ticket that owns the trace supplied it: a state whose geometry does not name
+tools/trace_ic_edge_1904.py as its derivation is still a date ticket drawing a coast.
 """
 from __future__ import annotations
 
@@ -38,6 +46,7 @@ STATES_PATH = TERRAIN / "shoreline_states.json"
 SOURCES_DIR = ROOT / "data" / "sources"
 
 EPOCH_ID = "e1871_postfire"
+TRACE_TOOL = "tools/trace_ic_edge_1904.py"   # T-1250, the ticket that owns the line
 STATE_ID = "shore_1880s_ic_edge"
 
 
@@ -153,10 +162,17 @@ def validate(constraints: dict, epochs_doc: dict, states_doc: dict,
 
     states = {s.get("id"): s for s in states_doc.get("states", [])}
     state = states.get(STATE_ID, {})
-    if state.get("address_date") != adopted.isoformat():
-        bad.append(f"{STATE_ID} addresses {state.get('address_date')!r}, "
-                   f"not the adopted {adopted.isoformat()!r}")
-    if state.get("geometry") is not None or state.get("status") != "planned":
+    sup = state.get("address_date_superseded") or {}
+    if state.get("address_date") != adopted.isoformat() and not (
+            sup.get("date") == adopted.isoformat() and sup.get("derivation") == CONSTRAINTS_PATH.name
+            and sup.get("why")):
+        bad.append(f"{STATE_ID} addresses {state.get('address_date')!r}, not the adopted "
+                   f"{adopted.isoformat()!r}, and does not record superseding it")
+    geometry = state.get("geometry")
+    if geometry is None:
+        if state.get("status") != "planned":
+            bad.append(f"{STATE_ID} has no line and does not say it is planned")
+    elif (geometry.get("derivation") or {}).get("tool") != TRACE_TOOL or state.get("status") not in ("traced", "active"):
         bad.append(f"{STATE_ID} acquired a line from a ticket that only settled a date")
     rng = state.get("address_range", {})
     if not (rng.get("from") and rng.get("to")
@@ -174,15 +190,15 @@ def documents() -> tuple[dict, dict, dict, set[str]]:
             {p.stem for p in SOURCES_DIR.glob("*.json")})
 
 
-def gate_address_date() -> date:
-    """What tools/check_shoreline_states.py itself resolves for the 1880s."""
+def gate_address_date(label: str = "1880s") -> date:
+    """What tools/check_shoreline_states.py itself resolves for the 1880s (or `label`)."""
     import importlib.util
 
     spec = importlib.util.spec_from_file_location(
         "_c4d_shoreline_states", Path(__file__).with_name("check_shoreline_states.py"))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.ADDRESS_DATES["1880s"]
+    return module.ADDRESS_DATES[label]
 
 
 def self_test(docs: tuple[dict, dict, dict, set[str]], gate_date: date) -> int:
@@ -246,12 +262,28 @@ def main() -> int:
     if args.self_test:
         return self_test(docs, gate_date)
     bad = validate(docs[0], docs[1], docs[2], docs[3], gate_date)
+    # T-1739. The scene that renders the epoch is dated by the owner's 1904 ruling, not
+    # by the 1888 derivation above, and the shoreline gate resolves its lake edge at that
+    # same address. A scene on this epoch dated anywhere else would stand on a lake edge
+    # drawn for another day.
+    renders = []
+    scene_date = gate_address_date("1904")
+    for path in sorted((ROOT / "data" / "scenes").glob("*.json")):
+        scene = json.loads(path.read_text())
+        if scene.get("terrain_epoch") == EPOCH_ID:
+            renders.append(scene["id"])
+            if scene.get("target_date") != scene_date.isoformat():
+                bad.append(f"scene {scene['id']} renders {EPOCH_ID} at {scene.get('target_date')}, but "
+                           f"tools/check_shoreline_states.py resolves the epoch's 1904 lake edge at "
+                           f"{scene_date.isoformat()} — the scene and its shore must name one day")
     for problem in bad:
         print("FAIL", problem)
     if not bad:
         adopted = docs[0]["adopted"]["date"]
-        print(f"OK the 1880s scene stands at {adopted}, re-derived from the Glessner House "
-              f"bound; {EPOCH_ID} and {STATE_ID} address the same day and neither has ground yet")
+        shown = (f"scene {', '.join(renders)} renders the epoch at {scene_date.isoformat()}" if renders
+                 else "no scene renders the epoch yet")
+        print(f"OK the 1880s scene date is {adopted}, re-derived from the Glessner House bound; "
+              f"{EPOCH_ID} carries it and {STATE_ID} records superseding it for 1904; {shown}")
     return 1 if bad else 0
 
 

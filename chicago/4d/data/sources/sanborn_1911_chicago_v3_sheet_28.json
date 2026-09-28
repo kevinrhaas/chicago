@@ -1,0 +1,30 @@
+{
+  "id": "sanborn_1911_chicago_v3_sheet_28",
+  "type": "map",
+  "author": "Sanborn Map Company",
+  "date": "1911",
+  "describes_date": "1911",
+  "repository": "Library of Congress, Geography and Map Division, Fire Insurance Map Collection (stamped on the sheet)",
+  "url": "https://www.loc.gov/item/sanborn01790_020/",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1911; public domain. The LOC credit stamp is retained on the sheet.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "The copy read is the one Glessner House (William Tyre) supplied to the owner on 2026-09-23, committed at chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/ with its sha256 in data/traces/gcp/. https://www.loc.gov/item/sanborn01790_020/ -- \"Sanborn Fire Insurance Map from Chicago, Cook County, Illinois\", created/published \"Sanborn Map Company, Vol. 3, 1911\", \"142 sheet(s)\", \"Bound\"; resource g4104cm.g01790191103 (143 images). Item metadata read with ?fo=json on 2026-09-28 (answered 200). Which of the 143 LOC images carries this sheet was NOT matched; the printed sheet number governs, as the Prairie Avenue research library (chicago/prairie_1904_v1/data/sources.csv, MAP-1911-20/-28/-35) also rules.",
+  "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+  "locator": "Sheet 28 (1891 edition sheets 245-246 and 252-253): E. 18th to E. 20th St., Prairie Av. Blvd. and Calumet Av. to the Illinois Central tracks and Lake Michigan; the Glessner House at 1800 Prairie and the Kimball house at 1801. Committed copy chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg, 5873 x 7323 px.",
+  "note": "Spent first by T-1250: georeferenced by tools/georef_prairie_1904.py (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json) and checked against three houses standing on it today (1800, 1801 and 1900 Prairie), 1.47 m RMS; read for the lake edge from about 40 m north of 18th Street to 80 m south of it (tools/trace_ic_edge_1904.py). This is the sheet the 1904 scene's spawn looks at (T-1252) and the one T-1729 builds the Glessner House from.",
+  "what_it_supplies": [
+    "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+    "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+    "Its own printed Scale of Feet"
+  ],
+  "what_it_does_not_supply": [
+    "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+    "A construction date for any building it draws",
+    "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+    "Architecture above the footprint beyond its story count, material colour and roof symbol",
+    "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+  ]
+}

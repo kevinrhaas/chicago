@@ -309,7 +309,12 @@ def compile_exclusions(scene_id: str, scene: dict, target: dt.date,
     in_scene = in_scene or {}
     year = target.year
     entries = []
-    for ex in exclusions.get("excluded", []):
+    # T-1739. The record is the 1835 town's: every entry is a building researched for the
+    # town by the river. A scene that does not list `exclusions` (1904, on Prairie Avenue
+    # three kilometres south) gets the file with both lists EMPTY and a standard that says
+    # why, so the panel says so rather than listing 1835 buildings under a 1904 badge.
+    applies = "exclusions" in scene.get("layers", [])
+    for ex in (exclusions.get("excluded", []) if applies else []):
         earliest = str(ex.get("earliest_scene") or "")
         if earliest.isdigit() and int(earliest) <= year:
             continue
@@ -322,16 +327,19 @@ def compile_exclusions(scene_id: str, scene: dict, target: dt.date,
             "citations": cite(ex.get("sources", []) or [], sources),
         })
 
-    uncertain = compile_watch_list(scene_id, sources, exclusions, in_scene)
+    uncertain = compile_watch_list(scene_id, sources, exclusions, in_scene) if applies else []
 
     emit(outdir / "exclusions.json", {
         "scene": scene_id,
         "target_date": scene["target_date"],
         # What the list covers, stated in the derived file so the renderer quotes
         # it rather than composing its own claim about the dataset's completeness.
-        "standard": "Structures this project researched and deliberately left out of "
-                    "this scene, with the evidence that dates them. It is not a list of "
-                    "everything missing: most of the town is simply not built yet.",
+        "standard": ("Structures this project researched and deliberately left out of "
+                     "this scene, with the evidence that dates them. It is not a list of "
+                     "everything missing: most of the town is simply not built yet.") if applies
+                    else ("No structure has been researched for this scene and left out yet. "
+                          "The record of what was left out, and why, is the 1835 town's, and "
+                          "none of it stands on this ground."),
         "excluded": entries,
         # T-0305: this sentence counted, and it had gone wrong the way the
         # paraphrase it replaced went wrong. "One of them is standing in front of
@@ -422,6 +430,18 @@ GROUND_GROUPS = [
     ("approaches", "the bridge approaches"),
     ("micro_relief", "the surface texture"),
     ("surface_materials", "what the ground is made of"),
+    # The graded ground (e1871_postfire, T-1738): a zone table of street crowns and a
+    # traced waterline rather than a natural shore and three divisions. Distinct
+    # names, so an 1835 block and a 1904 one are never held to each other's reads.
+    ("lake_surface", "the lake surface"),
+    ("street_crowns", "the street crowns"),
+    ("graded_ground", "the graded lots"),
+    ("fill", "the fill over the 1835 ground"),
+    ("earthworks", "the railroad embankment"),
+    ("made_ground", "the made ground beside the tracks"),
+    ("lake_shelf", "the lake bed"),
+    ("original_surface", "where the 1835 ground still shows"),
+    ("surface_texture", "the surface texture"),
 ]
 
 
@@ -1762,6 +1782,24 @@ def compile_ground(scene_id: str, scene: dict, sources: dict, outdir: Path) -> i
     return len(claims)
 
 
+def on_the_ground(rows: list[dict], scene: dict) -> list[dict]:
+    """The junctions a scene can offer: those on its own modelled ground (T-1739).
+
+    Go to paints every row of `intersections` and travel rides to it, and the survey
+    control is the 1835 town's, up by the river. The 1904 scene's ground is a box on
+    Prairie Avenue three kilometres south, so a junction outside the box is a place the
+    walker would stand on the constant beyond the ground's edge. The box is the one the
+    epoch's generator wrote into heightfield.json — the same one measure_anchors holds
+    the scene's own viewpoints to."""
+    hf_path = DATA / "terrain" / "epochs" / scene.get("terrain_epoch", "") / "heightfield.json"
+    if not hf_path.exists():
+        return rows
+    box = load(hf_path).get("box_local_enu_m") or {}
+    (e0, e1), (n0, n1) = box.get("e", (-1e9, 1e9)), box.get("n", (-1e9, 1e9))
+    return [r for r in rows
+            if e0 <= r["local_e"] <= e1 and n0 <= r["local_n"] <= n1]
+
+
 def compile_intersections(datum: dict) -> list[dict]:
     """Every verified street-control junction, flattened for navigation.
 
@@ -2284,6 +2322,88 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
         })
 
 
+def compile_versions(scene_id: str, target: dt.date, outdir: Path, build_sidecar,
+                     resolved: dict[str, dict]) -> int:
+    """STRUCTURE VERSIONS, compiled beside the scene and fetched only on request (T-1727).
+
+    `data/structures/versions/<id>/<label>.json` is a whole alternate record of one
+    structure (see generators/common/versions.py). Each version the scene resolves is
+    compiled by the SAME builder as the canonical record, into
+    `sidecars/<scene>/versions/<id>/<label>.json`, and listed in
+    `sidecars/<scene>/versions/index.json`.
+
+    That index is deliberately NOT the scene index. `index.json` is what every visitor
+    downloads at boot; the versions index is fetched by `scene-loader.js` only when the
+    address carries `?structure=<id>&version=<label>`, so the boot payload does not grow
+    with every alternate the owner commits. It is always written, empty or not, so the
+    loader reads one shape and never a 404.
+
+    A version is listed only where its canonical structure is also in the scene: the
+    switch SWAPS a building, it never adds one the default town does not have.
+    """
+    if str(ROOT / "generators") not in sys.path:
+        sys.path.insert(0, str(ROOT / "generators"))
+    from common import versions as V  # noqa: PLC0415
+
+    vdir = outdir / "versions"
+    if not CHECK:
+        vdir.mkdir(parents=True, exist_ok=True)
+    listed: dict[str, list[dict]] = {}
+    written: set[Path] = set()
+    for v in V.load_versions(ROOT):
+        sid, label, st = v["id"], v["label"], v["record"]
+        if sid not in resolved or st.get("id") != sid or V.label_problem(label):
+            continue      # tools/validate.py names each of these; nothing to swap here
+        phase = resolve_phase(st, target)
+        if phase is None:
+            continue
+        sidecar = build_sidecar(st, phase)
+        sidecar["asset"] = (None if phase.get("drawn_by")
+                            else f"gltf/{V.asset_key(sid, label, phase['id'])}")
+        block = st.get("version") or {}
+        sidecar["version"] = {
+            "label": label,
+            "summary": block.get("summary", ""),
+            "test_fixture": bool(block.get("test_fixture", False)),
+            "default_sidecar": f"sidecars/{scene_id}/{sid}.json",
+        }
+        path = vdir / sid / f"{label}.json"
+        if not CHECK:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        emit(path, sidecar)
+        written.add(path)
+        listed.setdefault(sid, []).append({
+            "label": label,
+            "summary": sidecar["version"]["summary"],
+            "test_fixture": sidecar["version"]["test_fixture"],
+            "phase": phase["id"],
+            "sidecar": f"sidecars/{scene_id}/versions/{sid}/{label}.json",
+            "asset": sidecar["asset"],
+        })
+    index_path = vdir / "index.json"
+    emit(index_path, {
+        "scene": scene_id,
+        "standard": "T-1727. The committed alternates of single structures, selected by "
+                    "?structure=<id>&version=<label>. Fetched by the renderer only when "
+                    "the address asks for a version — never at boot — and each row swaps "
+                    "exactly one building of this scene for its alternate record and mesh. "
+                    "version=default names the canonical record.",
+        "structures": {sid: rows for sid, rows in sorted(listed.items())},
+    })
+    written.add(index_path)
+    # The same sweep as the scene's own: a version withdrawn from data/ must not go on
+    # being served from its last compile.
+    for stale in sorted(vdir.rglob("*.json")) if vdir.is_dir() else []:
+        if stale in written:
+            continue
+        if CHECK:
+            DRIFT.append(f"{stale.relative_to(ROOT)} is a version sidecar the dataset no "
+                         f"longer carries")
+        else:
+            stale.unlink()
+    return sum(len(rows) for rows in listed.values())
+
+
 def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     scene = load(DATA / "scenes" / f"{scene_id}.json")
     target = dt.date.fromisoformat(scene["target_date"])
@@ -2298,13 +2418,11 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
 
-    for path in sorted((DATA / "structures").glob("*.json")):
-        st = load(path)
-        phase = resolve_phase(st, target)
-        if phase is None:
-            skipped.append(st["id"])
-            continue
-
+    # ONE SIDECAR BUILDER, TWO CALLERS (T-1727). The canonical records below and the
+    # structure VERSIONS after them (data/structures/versions/<id>/<label>.json) are
+    # compiled by this one function, so an alternate build's card can never be a
+    # thinner or differently-shaped account of its evidence than the default's.
+    def build_sidecar(st: dict, phase: dict) -> dict:
         # gather every source cited anywhere in this phase, so the popup can show
         # the evidence without the renderer walking the dataset
         cited: set[str] = set()
@@ -2531,6 +2649,15 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # diff saying nothing, in a mirror published byte-for-byte.
         if st["id"] in lodging:
             sidecar["lodging"] = lodging[st["id"]]
+        return sidecar
+
+    for path in sorted((DATA / "structures").glob("*.json")):
+        st = load(path)
+        phase = resolve_phase(st, target)
+        if phase is None:
+            skipped.append(st["id"])
+            continue
+        sidecar = build_sidecar(st, phase)
         emit(outdir / f"{st['id']}.json", sidecar)
         resolved[st["id"]] = phase
         index.append({"id": st["id"], "name": st["name"],
@@ -2542,12 +2669,14 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     emit(outdir / "index.json", {
         "scene": scene_id,
         "target_date": scene["target_date"],
-        "intersections": compile_intersections(datum),
+        "intersections": on_the_ground(compile_intersections(datum), scene),
         "street_standard": street_standard,
         "streets": streets,
         "structures": index,
         "excluded_by_date": skipped,
     })
+
+    versions_written = compile_versions(scene_id, target, outdir, build_sidecar, resolved)
 
     left_out = compile_exclusions(scene_id, scene, target, sources, exclusions, outdir,
                                   in_scene=resolved)
@@ -2556,7 +2685,10 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     flora_cites = compile_flora_sources(scene_id, sources, outdir)
     flora_clamped = compile_flora_clamp(scene_id, outdir)
     resident_cites = compile_residents_sources(scene_id, sources, outdir)
-    people = compile_people(scene_id, outdir)
+    # T-1739. The directory is the 1835 town's — every row is a household of 1 July
+    # 1835 — so only a scene that lists `residents` gets one; the renderer asks for
+    # none otherwise. Without this the 1904 scene carried 3,308 people of 1835.
+    people = compile_people(scene_id, outdir) if "residents" in scene.get("layers", []) else 0
 
     # A SIDECAR WHOSE STRUCTURE HAS GONE IS NOT INERT, which is why this sweeps
     # rather than leaves them. The compiler only ever wrote sidecars, so a record
@@ -2567,7 +2699,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     # ghost. Found 2026-08-22 in T-0105's own merge, which left three of them.
     keep = {entry["id"] for entry in index} | set(skipped) | {
         "index", "exclusions", "terrain", "fauna_sources", "flora_sources",
-        "flora_clamp", "residents_sources", "people"}
+        "flora_clamp", "residents_sources"} | ({"people"} if people else set())
     for stale in sorted(outdir.glob("*.json")):
         if stale.stem in keep:
             continue
@@ -2580,7 +2712,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     print(f"scene {scene_id}: {written} sidecar(s), {left_out} researched exclusion(s), "
           f"{ground} ground claim(s), {fauna_cites} fauna source(s), "
           f"{flora_cites} flora source(s), {flora_clamped} clamped plant layer(s), "
-          f"{resident_cites} resident source(s), {people} people in the directory"
+          f"{resident_cites} resident source(s), {people} people in the directory, "
+          f"{versions_written} structure version(s)"
           + (f", {len(skipped)} excluded by date ({', '.join(skipped)})" if skipped else ""))
     return written
 

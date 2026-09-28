@@ -885,9 +885,12 @@ def self_test() -> int:
     # 37 -> 38 on 2026-09-28 (T-1715): `fort_dearborn_root_house_b`, the second of the
     # garrison's root-houses, on the river bank west of the fort. Same ground as the two
     # above and the same reason — the reservation carried no street in 1835.
+    # 38 -> 39 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters` was raised beside
+    # the 1832 light tower on the same unplatted reservation, where no street crossed the
+    # ground in 1835 either, so it fronts no street and is reported here rather than dropped.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 38 and all(
+                   "leaving it out", len(absent) == 39 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))

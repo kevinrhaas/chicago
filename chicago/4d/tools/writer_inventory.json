@@ -7,6 +7,27 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "check_terrain_e1871.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote the spec's derived fields byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-09-28 — after tools/trace_ic_edge_1904.py, whose shoreline it reads (T-1251); see the manifest step"
+    },
+    "georef_prairie_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
+    },
+    "trace_ic_edge_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
+    },
     "adjudicate_wright_na_fit.py": {
       "placement": "not_derivable",
       "write_mode": "--write",
@@ -818,6 +839,13 @@
       "write_mode": null,
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+    },
+    "read_kinzie_addition_lots.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote its own trace byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-09-28 \u2014 with the readers at the head and before tools/generate_plat_lots.py, which reads its output; see the manifest step"
     },
     "read_kinzie_addition_numerals.py": {
       "placement": "manifest",

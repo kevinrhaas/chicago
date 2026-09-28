@@ -1,0 +1,1333 @@
+{
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "epoch": "e1871_postfire",
+  "scope": "Michigan Avenue to Lake Michigan, just north of 16th Street to Cermak Road: the Prairie Avenue district as the Sanborn 1911 sheets 20, 28 and 35 and the Robinson 1886 plate draw it, the Illinois Central right-of-way on its made ground, and the lake beyond it.",
+  "standard": "No survey of 1904 levels in this reach has been found. The grade is read off the MODERN ground where the modern street is the 1911 one, and it is inferred to be the 1904 grade only where houses of the period still stand on it at their own grade (research zone 3). Everywhere else it is reconstructed, and no land elevation here is attested.",
+  "context": [
+    {
+      "label": "Zero",
+      "text": "Z = 0.0 ft at the summer-1835 lake and river water surface (data/datum.json)"
+    },
+    {
+      "label": "The modelled box",
+      "text": "700 x 900 m at 2.5 m cells (the e1834 box's own cell), 281 x 361 samples; the shoreline file spans it."
+    },
+    {
+      "label": "Measured relief",
+      "text": "Land in the modelled box runs 0.0 to 15.1 ft above the water surface, and the channel floor reaches -7.996 ft below it. Measured from the committed heightfield, not asserted."
+    }
+  ],
+  "claims": [
+    {
+      "id": "lake_surface",
+      "group": "the lake surface",
+      "label": "lake_surface",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "surface_ft",
+          "value": 0.0,
+          "mesh": "restated_in_code"
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 2,
+          "mesh": "record_only"
+        },
+        {
+          "key": "range_ft",
+          "value": [
+            -4.0,
+            2.0
+          ],
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [],
+      "citations": [],
+      "notes": [
+        "Research zone 2. No 1904 lake stage has been found. The water stands at the 1835 plane, Z = 0, so the two scenes' water is one level; the terrain dossier's historic range of 576-582 ft (Z -4 to +2) bounds it, and a stage record for 1904 would replace it."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_16th",
+      "group": "the street crowns",
+      "label": "prairie_16th",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_16th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1396.51
+        },
+        {
+          "key": "n_m",
+          "value": -2949.59
+        },
+        {
+          "key": "crown_ft",
+          "value": 12.29
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_mid_16_18",
+      "group": "the street crowns",
+      "label": "prairie_mid_16_18",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_mid_16_18",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1399.0
+        },
+        {
+          "key": "n_m",
+          "value": -3078.0
+        },
+        {
+          "key": "crown_ft",
+          "value": 12.63
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_18th",
+      "group": "the street crowns",
+      "label": "prairie_18th",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_18th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1401.86
+        },
+        {
+          "key": "n_m",
+          "value": -3206.93
+        },
+        {
+          "key": "crown_ft",
+          "value": 14.21
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 3,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem",
+        "habs_glessner_house_il_1015"
+      ],
+      "citations": [
+        {
+          "source_id": "habs_glessner_house_il_1015",
+          "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+          "url": "https://www.loc.gov/item/il0118/",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+            "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+          ],
+          "what_it_does_not_supply": [
+            "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+          ]
+        },
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_mid_18_20",
+      "group": "the street crowns",
+      "label": "prairie_mid_18_20",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_mid_18_20",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1403.4
+        },
+        {
+          "key": "n_m",
+          "value": -3340.0
+        },
+        {
+          "key": "crown_ft",
+          "value": 15.08
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 3,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem",
+        "habs_glessner_house_il_1015"
+      ],
+      "citations": [
+        {
+          "source_id": "habs_glessner_house_il_1015",
+          "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+          "url": "https://www.loc.gov/item/il0118/",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+            "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+          ],
+          "what_it_does_not_supply": [
+            "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+          ]
+        },
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_mid_20_21",
+      "group": "the street crowns",
+      "label": "prairie_mid_20_21",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_mid_20_21",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1405.0
+        },
+        {
+          "key": "n_m",
+          "value": -3530.0
+        },
+        {
+          "key": "crown_ft",
+          "value": 15.1
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 3,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem",
+        "habs_glessner_house_il_1015"
+      ],
+      "citations": [
+        {
+          "source_id": "habs_glessner_house_il_1015",
+          "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+          "url": "https://www.loc.gov/item/il0118/",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+            "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+          ],
+          "what_it_does_not_supply": [
+            "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+          ]
+        },
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+      ]
+    },
+    {
+      "id": "street_crowns.prairie_21st",
+      "group": "the street crowns",
+      "label": "prairie_21st",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "prairie_21st_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1405.88
+        },
+        {
+          "key": "n_m",
+          "value": -3607.01
+        },
+        {
+          "key": "crown_ft",
+          "value": 14.74
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem",
+        "habs_glessner_house_il_1015"
+      ],
+      "citations": [
+        {
+          "source_id": "habs_glessner_house_il_1015",
+          "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+          "url": "https://www.loc.gov/item/il0118/",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+            "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+          ],
+          "what_it_does_not_supply": [
+            "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+          ]
+        },
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+      ]
+    },
+    {
+      "id": "street_crowns.indiana_16th",
+      "group": "the street crowns",
+      "label": "indiana_16th",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "indiana_16th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1269.7
+        },
+        {
+          "key": "n_m",
+          "value": -2945.49
+        },
+        {
+          "key": "crown_ft",
+          "value": 13.22
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.indiana_18th",
+      "group": "the street crowns",
+      "label": "indiana_18th",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "indiana_18th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1272.41
+        },
+        {
+          "key": "n_m",
+          "value": -3208.5
+        },
+        {
+          "key": "crown_ft",
+          "value": 14.62
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.indiana_21st",
+      "group": "the street crowns",
+      "label": "indiana_21st",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "indiana_21st_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1276.31
+        },
+        {
+          "key": "n_m",
+          "value": -3608.43
+        },
+        {
+          "key": "crown_ft",
+          "value": 14.7
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.michigan_16th",
+      "group": "the street crowns",
+      "label": "michigan_16th",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "michigan_16th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1136.67
+        },
+        {
+          "key": "n_m",
+          "value": -2947.88
+        },
+        {
+          "key": "crown_ft",
+          "value": 12.58
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.michigan_18th",
+      "group": "the street crowns",
+      "label": "michigan_18th",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "michigan_18th_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1140.75
+        },
+        {
+          "key": "n_m",
+          "value": -3209.38
+        },
+        {
+          "key": "crown_ft",
+          "value": 13.24
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "street_crowns.michigan_21st",
+      "group": "the street crowns",
+      "label": "michigan_21st",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "reading",
+          "value": "michigan_21st_centre",
+          "mesh": "record_only"
+        },
+        {
+          "key": "e_m",
+          "value": 1144.02
+        },
+        {
+          "key": "n_m",
+          "value": -3609.88
+        },
+        {
+          "key": "crown_ft",
+          "value": 13.09
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 4,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "The crown of a street on a corridor the 1911 sheets draw, read from the modern bare-earth model and carried back to 1904 with no standing building of the period to confirm it here. RECONSTRUCTED: bounded by the confirmed Prairie Avenue crowns 250-650 m away, which it agrees with to 2.8 ft, and by the 1966 city benchmark at 23rd and Michigan. Research zone 4."
+      ]
+    },
+    {
+      "id": "graded_ground",
+      "group": "the graded lots",
+      "label": "graded_lots",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "rule",
+          "value": "every land cell stands at the inverse-distance-weighted crown of the street crowns (power 2)",
+          "mesh": "record_only"
+        },
+        {
+          "key": "power",
+          "value": 2.0
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 5,
+          "mesh": "record_only"
+        },
+        {
+          "key": "range_ft",
+          "value": [
+            12.29,
+            15.1
+          ],
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "habs_glessner_house_il_1015",
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "habs_glessner_house_il_1015",
+          "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+          "url": "https://www.loc.gov/item/il0118/",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+            "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+          ],
+          "what_it_does_not_supply": [
+            "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+          ]
+        },
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "Research zone 5. The blocks between the streets were filled to the grade of the streets about them - the Glessner House's front door sill stands 0.74 ft above the walk before it on the 1965 measured elevation, which is a house built to its street's grade. HOW the grade runs between two crowns is not recorded anywhere, so the interpolation is ours; it cannot leave the range of the crowns it is drawn from (Z +12.3 to +15.1 ft)."
+      ]
+    },
+    {
+      "id": "fill",
+      "group": "the fill over the 1835 ground",
+      "label": "post_fire_fill",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "rule",
+          "value": "graded_ground minus the e1834_harbor_cut surface at the same point",
+          "mesh": "record_only"
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 6,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "usgs_3dep_1m_dem"
+      ],
+      "citations": [
+        {
+          "source_id": "usgs_3dep_1m_dem",
+          "citation": "U.S. Geological Survey. 3D Elevation Program (3DEP) 1-metre bare-earth digital elevation model, Cook County, Illinois (lidar acquired 3 June 2017), read through the USGS Elevation Point Query Service.",
+          "url": "https://epqs.nationalmap.gov/v1/docs",
+          "archived_url": "https://www.usgs.gov/3d-elevation-program",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "The modern bare-earth elevation, to the nearest hundredth of a foot, at any point queried"
+          ],
+          "what_it_does_not_supply": [
+            "Any elevation as of 1904 on its own authority",
+            "Where the ground has been re-graded since, which only a standing building of the period can witness"
+          ]
+        }
+      ],
+      "notes": [
+        "Research zone 6. The ground the grade raise and the building of the district put over the 1835 surface. It is a DIFFERENCE and is stated as one, never used to make one surface from the other: tools/check_terrain_e1871.py measures it at every crown against the committed 1835 heightfield and fails if it ever comes out constant."
+      ]
+    },
+    {
+      "id": "earthworks.ic_row_embankment",
+      "group": "the railroad embankment",
+      "label": "ic_row_embankment",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "crest",
+          "value": "graded_ground",
+          "mesh": "record_only"
+        },
+        {
+          "key": "face_slope",
+          "value": 1.5
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 7,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "citations": [
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_20",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+            "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+            "Its own printed Scale of Feet, which the georeference uses as its scale"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        },
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_28",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+            "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+            "Its own printed Scale of Feet"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        }
+      ],
+      "notes": [
+        "Research zone 7. The Illinois Central right-of-way is drawn on the sheets as tracks on dry ground with the lake washed against its east edge. Nothing held gives the track bed's level or the embankment's face, so the bed is held at the grade of the ground beside it - the least claim, no cut and no bank - and the lakeward face falls at 1 in 1.5, a stone breakwater's slope, from that grade to the water."
+      ]
+    },
+    {
+      "id": "made_ground",
+      "group": "the made ground beside the tracks",
+      "label": "made_ground_1886_1911",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "between",
+          "value": [
+            "ic_edge_1886_plate_10",
+            "ic_edge_1911_sheet_20",
+            "ic_edge_1911_sheet_28"
+          ],
+          "mesh": "record_only"
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 8,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "robinson_1886_chicago_plate_10",
+        "sanborn_1911_chicago_v3_sheet_20",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "citations": [
+        {
+          "source_id": "robinson_1886_chicago_plate_10",
+          "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+          "url": "",
+          "archived_url": "",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+            "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+          ],
+          "what_it_does_not_supply": [
+            "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+            "Anything as of 1904 on its own authority",
+            "Elevations or grades"
+          ]
+        },
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_20",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+            "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+            "Its own printed Scale of Feet, which the georeference uses as its scale"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        },
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_28",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+            "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+            "Its own printed Scale of Feet"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        }
+      ],
+      "notes": [
+        "Research zone 8. The 14-21 m strip between the 1886 and the 1911 water's edge was lake in 1886 and ground by 1911; in 1904 the scene line puts it on the land side (L287). An 1888 surface would have most of it under water."
+      ]
+    },
+    {
+      "id": "lake_shelf",
+      "group": "the lake bed",
+      "label": "lake_bed",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "bed_ft",
+          "value": -8.0
+        },
+        {
+          "key": "e_fold_m",
+          "value": 40.0
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 9,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [],
+      "citations": [],
+      "notes": [
+        "Research zone 9. No sounding of the lake off the right-of-way has been found. The bed falls from the breakwater's toe toward -8 ft with a 40 m e-fold, the shape and scale of the lake shelf the 1835 spec already carries (its channel_profile), and it is under water and seen from the shore only."
+      ]
+    },
+    {
+      "id": "original_surface",
+      "group": "where the 1835 ground still shows",
+      "label": "where_the_1835_ground_shows",
+      "confidence": "inferred",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "shows",
+          "value": "nowhere",
+          "mesh": "record_only"
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        },
+        {
+          "key": "research_zone",
+          "value": 10,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "sanborn_1911_chicago_v3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "citations": [
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_20",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+            "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+            "Its own printed Scale of Feet, which the georeference uses as its scale"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        },
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_28",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+            "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+            "Its own printed Scale of Feet"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+          ]
+        },
+        {
+          "source_id": "sanborn_1911_chicago_v3_sheet_35",
+          "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
+          "url": "https://www.loc.gov/item/sanborn01790_020/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Footprints, lots and street widths from 20th to 22nd Street between Indiana and Calumet, as of 1911, at the copy's coarser resolution",
+            "The position of Twentieth Street, which is vacated between Indiana and Calumet today"
+          ],
+          "what_it_does_not_supply": [
+            "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+            "A construction date for any building it draws",
+            "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+            "Architecture above the footprint beyond its story count, material colour and roof symbol",
+            "Any lake edge: the sheet ends at Calumet Avenue"
+          ]
+        }
+      ],
+      "notes": [
+        "Research zone 10. Every block in the box is platted, built on or kept as a yard on the 1911 sheets, and the graded crowns stand 2.9-5.7 ft over the 1835 surface along Prairie Avenue; no unfilled prairie shows in 1904, so none is modelled."
+      ]
+    },
+    {
+      "id": "surface_texture",
+      "group": "the surface texture",
+      "label": "surface_texture",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "amplitude_ft",
+          "value": 0.05
+        },
+        {
+          "key": "wavelengths_m",
+          "value": [
+            40.0,
+            17.0
+          ]
+        },
+        {
+          "key": "seed",
+          "value": 19040701
+        },
+        {
+          "key": "research_zone",
+          "value": 11,
+          "mesh": "record_only"
+        },
+        {
+          "key": "describes",
+          "value": "1904-07-01",
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [],
+      "citations": [],
+      "notes": [
+        "Research zone 11. Two octaves of value noise at +/- 0.05 ft, half the 1835 ground's: graded, built-over ground is flatter than prairie. A texture, not a claim."
+      ]
+    },
+    {
+      "id": "datum.lake_stage",
+      "group": "the vertical datum",
+      "label": "How high the 1835 water surface stood",
+      "confidence": "reconstructed",
+      "confidence_key": "lake_stage_confidence",
+      "fields": [
+        {
+          "key": "export_offset_ft_asl",
+          "value": 580.0
+        }
+      ],
+      "sources": [],
+      "citations": [],
+      "notes": [
+        "No 1835 Lake Michigan stage record located. The mid-1830s fall in a high-water phase; 580 +/- 1.5 ft ASL is the working assumption. Check NOAA/GLERL historical Michigan-Huron reconstructions to narrow it.",
+        "Z = 0.0 ft at the summer-1835 lake and river water surface"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "dossier_zone": null,
+      "why": "narrower than a 2.5 m cell and the street layer's to draw (T-0474); the heightfield carries the crown line only"
+    },
+    {
+      "dossier_zone": null,
+      "why": "the buildings' (T-1729 and after); the one reading that fell on a terrace (1900 Prairie) is refused for that reason"
+    },
+    {
+      "dossier_zone": null,
+      "why": "no level is held for them; the right-of-way is the embankment block's"
+    }
+  ]
+}

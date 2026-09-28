@@ -2506,6 +2506,9 @@
     "tools/check_shoreline_states.py": {
       "wrote": []
     },
+    "tools/check_terrain_e1871.py": {
+      "wrote": []
+    },
     "tools/check_tool_browser.mjs": {
       "wrote": []
     },
@@ -2708,6 +2711,9 @@
       "wrote": []
     },
     "tools/generate_yard_goods.py": {
+      "wrote": []
+    },
+    "tools/georef_prairie_1904.py": {
       "wrote": []
     },
     "tools/identity_master_guard.py": {
@@ -3040,6 +3046,9 @@
     "tools/profile_population_1835.py": {
       "wrote": []
     },
+    "tools/promote_version.mjs": {
+      "wrote": []
+    },
     "tools/publish.py": {
       "wrote": [
         "site/4d/prairie-1904/data/address_crosswalk.csv",
@@ -3116,6 +3125,9 @@
       "wrote": []
     },
     "tools/read_genealogytrails.py": {
+      "wrote": []
+    },
+    "tools/read_kinzie_addition_lots.py": {
       "wrote": []
     },
     "tools/read_kinzie_addition_numerals.py": {
@@ -3529,6 +3541,9 @@
     "tools/test_house_front.py": {
       "wrote": []
     },
+    "tools/test_jaunt_mechanics.mjs": {
+      "wrote": []
+    },
     "tools/test_jaunts_reducer.mjs": {
       "wrote": []
     },
@@ -3586,6 +3601,12 @@
     "tools/test_street_confidence.mjs": {
       "wrote": []
     },
+    "tools/test_structure_versions.mjs": {
+      "wrote": []
+    },
+    "tools/test_structure_versions.py": {
+      "wrote": []
+    },
     "tools/test_ticket_after.mjs": {
       "wrote": []
     },
@@ -3635,6 +3656,9 @@
       "wrote": []
     },
     "tools/town_census.py": {
+      "wrote": []
+    },
+    "tools/trace_ic_edge_1904.py": {
       "wrote": []
     },
     "tools/trace_lake_shore_rees_1849.py": {

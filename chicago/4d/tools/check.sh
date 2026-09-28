@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
+step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
+  node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
@@ -178,6 +180,21 @@ step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
 step "validator self-tests" \
   python3 tools/test_validate.py
 
+# T-1727. STRUCTURE VERSIONS — `?structure=<id>&version=<label>` swaps one building for a
+# committed alternate so competing builds can be compared side by side. validate.py above
+# already holds every version to the structure rules and its mesh to --stale; these prove
+# those reds actually fire (no mesh, a stale mesh, a model identifier as a label…), that
+# the address bar falls back to the default out loud on every miss, and that the
+# one-command promotion moves records, meshes and books together. docs/STRUCTURE-VERSIONS.md.
+selftest "structure versions: no mesh, a stale mesh and a refused label are each red (T-1727)" \
+  python3 tools/test_structure_versions.py --self-test
+
+selftest "…the address bar swaps one committed version and falls back ALOUD on every miss (T-1727)" \
+  node tools/test_structure_versions.mjs --self-test
+
+selftest "…and promote_version.mjs makes a version the default in one diff, reversibly (T-1727)" \
+  node tools/promote_version.mjs --self-test
+
 step "reconciled PRs preserve resident identities and refuse back-projected trades" \
   python3 tools/test_pr_reconciliation.py
 
@@ -282,6 +299,48 @@ step "the 1880s scene date re-derives from its readings, and nothing has drifted
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/check_1880s_scene_date.py --self-test
+
+# T-1250. The Prairie Avenue sheets -- Sanborn 1911 vol. 3 sheets 20, 28 and 35 and
+# Robinson 1886 plate 10 -- georeferenced once, for every ticket that reads a line
+# off them (the lake edge here; the streets, T-0474; the Glessner House, T-1729).
+# The four GCP files in data/traces/gcp/ are generated from picks written in the
+# tool and the modern control in data/traces/prairie_1904_control.json, and the
+# rasters' sha256 are checked before any pick is trusted. The fit is a similarity
+# at each sheet's PRINTED scale, and the tool's docstring says why the free affine
+# is fitted and printed and not adopted; its contract fails if the street bands
+# stop agreeing with the bar, or if the Glessner sheet's three standing houses stop
+# landing within 5 m of their OpenStreetMap outlines.
+step "the four Prairie Avenue sheets still re-derive their georeference (T-1250)" \
+  python3 tools/georef_prairie_1904.py --check
+
+selftest "…and a moved control, a misread bar or a mislaid house still fails it" \
+  python3 tools/georef_prairie_1904.py --self-test
+
+# ...and the lake edge read off three of them. Both sheets are the wrong date for
+# 1904, so both are bounds; the scene line between them is reconstructed (L287).
+# --check re-reads the sheets, which needs Pillow and numpy
+# (tools/check_gate_readers.py); without them it holds the committed file together
+# and says it did not re-read.
+step "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)" \
+  python3 tools/trace_ic_edge_1904.py --check
+
+# T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
+# (data/terrain/e1871_grade_readings.json) put through the spec's own datum
+# conversion, its fill is the difference to the committed 1835 heightfield and
+# must not come out constant (the ticket's claim that the two epochs are not
+# offsets of one another), and its evidence limit is derived here rather than
+# carried over from 1835. Every elevation cites a zone the research doc has.
+step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
+  python3 tools/check_terrain_e1871.py --check
+
+selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
+  python3 tools/check_terrain_e1871.py --self-test
+
+# T-1738. …and the heightfield that zone table and the scene line generate. The
+# field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
+# and are held by their input hash (validate.py --stale) and the fit gates below.
+step "the 1904 heightfield re-derives from its zone table and scene line (T-1738)" \
+  python3 generators/terrain_gen_graded.py --check
 
 # ...and for the North Branch north of it (T-1072). Two tools write one
 # branches.geojson through tools/branches_file.py, and each of these two steps
@@ -633,6 +692,17 @@ step "Kinzie's Addition's block numerals re-derive from the reading and the run"
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/read_kinzie_addition_numerals.py --self-test
+
+# AND THE LOT LINES INSIDE THOSE CELLS (T-1741). Same raster, same registration, same
+# cell boxes — what is added is which cells Wright rules into lots and which he leaves
+# whole. The reading is what lifted the Addition's blanket `lot_subdivision_withheld`,
+# so it is gated at the same strength: every cell re-derives from the committed pixels
+# or the cut standing on it is not the cut the sheet draws.
+step "Kinzie's Addition's lot lines re-derive from the committed pixels" \
+  python3 tools/read_kinzie_addition_lots.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/read_kinzie_addition_lots.py --self-test
 
 # THE NORTH DIVISION'S SEVEN BLOCK NUMERALS (T-1088). The reading lives in
 # data/traces/thompson_block_numbering.json; what is gated here is the CITATION — every
@@ -2486,6 +2556,11 @@ step "the ground averages the colour each flora zone records" \
 step "the ground mesh still meets the heightfield the walker samples" \
   node tools/measure_terrain_fit.mjs --gate
 
+# …and the 1904 ground's (T-1738), which terrain_gen_graded.py bakes through the
+# same mesher and the same 30 mm refusal.
+step "the 1904 ground mesh meets its heightfield too (T-1738)" \
+  node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate
+
 # The OTHER two axes, which conformGroundToField() cannot repair — it reads a
 # height back off the field at a vertex's shipped (E, N), so a vertex the
 # quantiser moved in plan holds the right height for the wrong place, and on the
@@ -2496,6 +2571,9 @@ step "the ground mesh still meets the heightfield the walker samples" \
 # bytes rather than the arithmetic on the generator's side of the bake (T-0152).
 step "the shipped ground stands where the master does, and inside the road lift" \
   node tools/measure_terrain_horizontal.mjs --gate
+
+step "the shipped 1904 ground stands where its master does (T-1738)" \
+  node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate
 
 # T-1067. The two gates above measure the ground against the mesh drawn FROM it,
 # which cannot see the town standing where there is no ground at all. The box

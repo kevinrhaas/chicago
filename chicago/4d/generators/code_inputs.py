@@ -83,6 +83,14 @@ NO_GEOMETRY: dict[str, str] = {
                     "was selected. It is gated instead by "
                     "tools/check_only_selection.py and by its own --self-test, "
                     "both in check.sh.",
+    "versions.py": "T-1727's structure-version layout and label rule (see the module "
+                   "docstring). It says WHERE an alternate record and its mesh live "
+                   "and which labels may name one — the same category as "
+                   "selection.py: it decides which records are reached and where "
+                   "the output file goes, and makes no geometry. A version's own "
+                   "record is what its hash is taken over, exactly as for a "
+                   "canonical record. Gated by tools/validate.py (check_versions, "
+                   "run_version_stale_check) and tools/test_structure_versions.py.",
 }
 
 
