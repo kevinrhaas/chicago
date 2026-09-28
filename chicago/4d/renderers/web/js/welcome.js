@@ -1,5 +1,5 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
-export function createWelcome({ gate, destinations, enter, resume, pause, hasEntered, isTouch = false }) {
+export function createWelcome({ gate, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -48,6 +48,7 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     $('welcome-explore').setAttribute('aria-expanded', String(explore));
     $('welcome-jaunts').setAttribute('aria-expanded', String(!explore));
     if (explore) { render(); search.focus(); }
+    else onJaunts();
   }
   function show() {
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;

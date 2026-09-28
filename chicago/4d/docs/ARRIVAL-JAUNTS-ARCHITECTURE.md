@@ -1,5 +1,7 @@
 # Arrival, jaunts, and the sources behind Chicago
 
+Authoring contract: [JAUNTS-AUTHORING.md](JAUNTS-AUTHORING.md) (T-1253).
+
 Owner-directed design, 17 September 2026. This document specifies future work;
 the associated ticket filing does not claim that the experience is implemented.
 Execution order and requirement coverage: [ARRIVAL-JAUNTS-EXECUTION.md](ARRIVAL-JAUNTS-EXECUTION.md).
@@ -342,6 +344,12 @@ set | inc, var | item, value }`. `endings[]`: `{ id, when?, text, default? }`. `
 `{ text, confidence: attested | inferred | reconstructed, sources[], locator?, reasoning?,
 liberty? }` — a `reconstructed` sentence never cites as if attested; a quotation is never
 attributed to a named person. No `eval`, no HTML, no per-jaunt code.
+
+T-1253 implements this contract with stable evidence IDs and explicit stop-to-evidence
+references, declared inventory item IDs/initial contents, optional `action_s`, and
+ending `read_s`/`completion_eligible`. `$end` selects the first matching ending,
+then the default; `Previous` is history navigation without effects. Exact field
+shapes and refusal rules are in [JAUNTS-AUTHORING.md](JAUNTS-AUTHORING.md).
 
 ### D. Source-use index
 

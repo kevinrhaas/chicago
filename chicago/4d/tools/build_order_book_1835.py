@@ -276,13 +276,23 @@ HOUSEHOLD_BUCKETS = (
 STRUCTURE_TICKETS = {
     # T-1203 WAS SPLIT on 2026-09-28 (T-1707, T-1708, T-1709, T-1710) and this row moved
     # with it, for the reason the T-1200 block below states at length: a bucket whose
-    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and
-    # `every_work_order_names_a_live_ticket` says so — it fired on T-1707's own branch.
-    # The 67 ordinary dwellings go to T-1708, which is the one child of the four that
-    # deals them: T-1707 carries the street control that lets the plat's last tier be
-    # emitted at all and raises nothing, T-1709 builds the South Branch trade band's work
-    # bays and yard buildings, and T-1710 the country places and the lakefront tier. So
-    # the row names the child that owes the DWELLINGS, not the child that goes first.
+    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and the
+    # gate says so — it went red on this cell within the hour, reading "structures/
+    # ordinary_dwellings/south has 67 left and is ordered by T-1203, which is split".
+    #
+    # THE CELL GOES TO T-1708, and the measurement is which children raise an ORDINARY
+    # DWELLING. The cell reads 176 target, 109 standing, 67 to build. Of the four children
+    # T-1707 raises no roof at all — it carries the Original Town's seven south columns from
+    # their terrain clip at N -400 to Madison Street, which is street control on ground
+    # T-0219 already modelled, and its own title says it is what
+    # `south_plat_beyond_committed_control`'s 104 roofs still WAIT on. T-1709 is the South
+    # Branch noxious-trade band: work bays, cooperage and tannery yards, stables and sheds —
+    # trade fabric, not dwellings. That leaves two, and T-1708 is the first: "the cottages and
+    # yard buildings the South balance deals to the plat's last tier, on the blocks the street
+    # carry emitted" is this cell in as many words. T-1710 carries the rest of the district's
+    # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
+    # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
+    # cell still owing, the same rule T-1681 was named under one line down.
     ("south", "ordinary_dwellings"): "T-1708",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
