@@ -8649,7 +8649,7 @@
    "band": "south/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_south_water_wells (blk_south_water_wells#01), blk_washington_franklin (blk_washington_franklin#01), blk_washington_lasalle (blk_washington_lasalle#01), blk_washington_market (blk_washington_market#01), blk_washington_wells (blk_washington_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
