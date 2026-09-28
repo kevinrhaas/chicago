@@ -7,6 +7,106 @@
       "parts": [
         12
       ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 93,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+      ],
+      "wallSeconds": 531,
+      "takenAt": "2026-09-28T03:42:48.309Z",
+      "ref": "steward/t1625-prose-placements",
+      "commit": "bf46e5161849",
+      "devCommit": "06129a653548",
+      "treeHash": "sha256:7069bf5bb2fde38f",
+      "treeDirty": false,
+      "changelogHash": "sha256:99aaa8f34e1fb40d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.7,
+          3.5
+        ],
+        "frameCostMs": [
+          8,
+          3129,
+          3120
+        ]
+      },
+      "source": "/tmp/smoke_d12b.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 114,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 316,
+      "takenAt": "2026-09-28T03:42:48.212Z",
+      "ref": "steward/t1625-prose-placements",
+      "commit": "bf46e5161849",
+      "devCommit": "06129a653548",
+      "treeHash": "sha256:7069bf5bb2fde38f",
+      "treeDirty": false,
+      "changelogHash": "sha256:99aaa8f34e1fb40d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.7,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m13.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 305,
+      "takenAt": "2026-09-28T03:42:48.116Z",
+      "ref": "steward/t1625-prose-placements",
+      "commit": "bf46e5161849",
+      "devCommit": "06129a653548",
+      "treeHash": "sha256:7069bf5bb2fde38f",
+      "treeDirty": false,
+      "changelogHash": "sha256:99aaa8f34e1fb40d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.8,
+          3.7,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
       "verdict": "pass",
       "target": "published",
       "passed": 95,
@@ -1493,99 +1593,6 @@
           3.9,
           4,
           3.8
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 94,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 120,
-      "takenAt": "2026-09-27T09:30:05.551Z",
-      "ref": "steward/t1652-bake-only-list",
-      "commit": "dced0cfd548d",
-      "devCommit": "e9e5a6a6e6f7",
-      "treeHash": "sha256:f79ab9245b54d390",
-      "treeDirty": false,
-      "changelogHash": "sha256:ee06500a30d213b7",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          3.6,
-          2.4
-        ]
-      },
-      "source": "/tmp/smoke-d3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 94,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 72,
-      "takenAt": "2026-09-27T09:30:05.490Z",
-      "ref": "steward/t1652-bake-only-list",
-      "commit": "dced0cfd548d",
-      "devCommit": "e9e5a6a6e6f7",
-      "treeHash": "sha256:f79ab9245b54d390",
-      "treeDirty": false,
-      "changelogHash": "sha256:ee06500a30d213b7",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          3.6,
-          2.4
-        ]
-      },
-      "source": "/tmp/smoke-m3.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 339,
-      "takenAt": "2026-09-27T09:27:40.382Z",
-      "ref": "steward/t1662-freight-shed-cargo-openings",
-      "commit": "6c41e01d1858",
-      "devCommit": "e9e5a6a6e6f7",
-      "treeHash": "sha256:fc973b82a1083b4e",
-      "treeDirty": false,
-      "changelogHash": "sha256:26be6d3979470b05",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          3.9,
-          2.7
         ]
       },
       "source": "/tmp/smoke_d1.log"
