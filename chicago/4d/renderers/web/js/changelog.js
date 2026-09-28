@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
+  { v: 1215, ts: '2026-09-28T21:45:30.234Z', date: 'Sep 28, 2026, 4:45 PM CT', title: 'A second year: Prairie Avenue, 1 July 1904', kind: 'feature',
     items: [
       'Open /4d/1904/ and you stand on the east sidewalk of Prairie Avenue at Eighteenth Street on a July morning in 1904, looking across the street at the corner lot where the Glessner House stood. The Go to menu has the same view under Viewpoints.',
       'The ground is new: the city as graded after the fire. Prairie Avenue’s crown stands about fourteen feet above the 1835 lake level, which is three to six feet above our reconstruction of the original sand. The lake edge runs along the Illinois Central embankment, drawn between where the 1886 and 1911 atlases put it.',
