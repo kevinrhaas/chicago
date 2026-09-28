@@ -652,7 +652,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
 | `structures/ordinary_dwellings/south` | 176 | 111 | 65 | 0 | T-1708 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
-| `structures/ordinary_dwellings/north` | 84 | 49 | 35 | 0 | T-1206 |
+| `structures/ordinary_dwellings/north` | 84 | 49 | 35 | 0 | T-1742 |
 | `structures/small_outbuildings/south` | 48 | 24 | 24 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 12 | 8 | 0 | T-1212 |

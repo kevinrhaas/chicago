@@ -397,7 +397,19 @@ STRUCTURE_TICKETS = {
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    ("north", "ordinary_dwellings"): "T-1206",
+    # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
+    # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
+    # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
+    # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
+    # has 35 left and is ordered by T-1206, which is split".
+    #
+    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
+    # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
+    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
+    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
+    ("north", "ordinary_dwellings"): "T-1742",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
