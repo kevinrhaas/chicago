@@ -1445,8 +1445,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 449,
-    "roofs_to_build": 233,
+    "roofs_standing": 453,
+    "roofs_to_build": 229,
     "persons_standing": 2381,
     "persons_still_owed": 290,
     "persons_when_the_book_is_filled": 2671,
@@ -1466,11 +1466,11 @@
     "rows_offered": 1478,
     "seated": 240,
     "still_owed": 1238,
-    "roofs_adopted": 188,
-    "slots_requested": 52,
-    "roofs_standing": 449,
-    "roofs_standing_unseated": 261,
-    "share_of_standing_roofs_seated": 0.4187,
+    "roofs_adopted": 190,
+    "slots_requested": 50,
+    "roofs_standing": 453,
+    "roofs_standing_unseated": 263,
+    "share_of_standing_roofs_seated": 0.4194,
     "passes": [
       {
         "key": "platted",
@@ -1481,9 +1481,9 @@
         "rows_offered": 1478,
         "seated": 168,
         "handed_on": 1310,
-        "roofs_adopted": 116,
-        "slots_requested": 52,
-        "roofs_offered_for_adoption": 119,
+        "roofs_adopted": 118,
+        "slots_requested": 50,
+        "roofs_offered_for_adoption": 121,
         "roofs_held_back": 54,
         "ground_taken": 150,
         "ground_taken_unit": "lots",
@@ -1602,7 +1602,7 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#04",
+        "lot_id": "blk_washington_clark#02",
         "family": "H2",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1897,18 +1897,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cady_levi",
-        "name": "The Cady household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#05",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_calhoun_alvin",
-        "name": "The Calhoun household — a name the town's own records carry",
+        "household_id": "hh_campbell_james_b",
+        "name": "The Campbell household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_clark",
@@ -1917,24 +1907,14 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_campbell_james_b",
-        "name": "The Campbell household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#02",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_carli_paul_j",
         "name": "The Carli household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_clark",
         "lot_id": "blk_washington_clark#07",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_carpenter_nathaniel",
@@ -2057,7 +2037,7 @@
       "blk_washington_market",
       "blk_washington_wells"
     ],
-    "what_the_slots_wait_on": "52 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_franklin, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_the_slots_wait_on": "50 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_franklin, blk_washington_market, blk_washington_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
     "what_is_left": "1,238 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
@@ -5231,11 +5211,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 449,
-        "standing_with_an_occupant": 150,
-        "standing_without_an_occupant": 299,
-        "to_build_total": 233,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 299 of the 449 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_records": 453,
+        "standing_with_an_occupant": 148,
+        "standing_without_an_occupant": 305,
+        "to_build_total": 229,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 305 of the 453 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5463,13 +5443,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 115,
-          "to_build": 61,
+          "standing": 117,
+          "to_build": 59,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1708",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 61 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 59 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5499,7 +5479,7 @@
           "to_build": 34,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1742",
+          "owning_ticket": "T-1754",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 84; the 668-roof programme leaves 34 of them to build"
         },
@@ -5510,13 +5490,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 27,
-          "to_build": 21,
+          "standing": 29,
+          "to_build": 19,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 21 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 19 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",
@@ -5770,9 +5750,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 191,
-        "roofs_gated_on_coverage": 42,
-        "statement": "191 of the 233 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 42 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 188,
+        "roofs_gated_on_coverage": 41,
+        "statement": "188 of the 229 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 41 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -6188,7 +6168,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "299 of 449 standing records carry no occupants block."
+      "measured_now": "305 of 453 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

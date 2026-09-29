@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 88,
-   "free": 200,
+   "at_capacity": 90,
+   "free": 198,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 143,
-  "lots_barring_another_roof": 141,
+  "lots_with_a_roof": 145,
+  "lots_barring_another_roof": 143,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 202,
+  "principal_roofs_standing": 204,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8484,14 +8484,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a3_03",
+    "recon_1835_blk_washington_clark_d5_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a3_03": "A3",
+    "recon_1835_blk_washington_clark_d5_01": "D5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#05",
@@ -8513,14 +8519,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a4_04",
+    "recon_1835_blk_washington_clark_d4_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a4_04": "A4",
+    "recon_1835_blk_washington_clark_d4_02": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#06",
@@ -9791,7 +9803,7 @@
    "street_class": "ordinary",
    "corner": true,
    "frontage_m": 23.7,
-   "depth_m": 59.27,
+   "depth_m": 59.73,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9826,7 +9838,7 @@
    "street_class": "ordinary",
    "corner": false,
    "frontage_m": 23.7,
-   "depth_m": 58.51,
+   "depth_m": 58.93,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9855,7 +9867,7 @@
    "street_class": "ordinary",
    "corner": false,
    "frontage_m": 23.7,
-   "depth_m": 57.76,
+   "depth_m": 58.14,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9884,7 +9896,7 @@
    "street_class": "ordinary",
    "corner": false,
    "frontage_m": 23.7,
-   "depth_m": 57.0,
+   "depth_m": 57.35,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9913,7 +9925,7 @@
    "street_class": "ordinary",
    "corner": true,
    "frontage_m": 23.7,
-   "depth_m": 56.25,
+   "depth_m": 56.55,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9942,7 +9954,7 @@
    "street_class": "light",
    "corner": true,
    "frontage_m": 23.68,
-   "depth_m": 59.27,
+   "depth_m": 59.73,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -9971,7 +9983,7 @@
    "street_class": "light",
    "corner": false,
    "frontage_m": 23.68,
-   "depth_m": 58.51,
+   "depth_m": 58.93,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -10000,7 +10012,7 @@
    "street_class": "light",
    "corner": false,
    "frontage_m": 23.68,
-   "depth_m": 57.76,
+   "depth_m": 58.14,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -10029,7 +10041,7 @@
    "street_class": "light",
    "corner": false,
    "frontage_m": 23.68,
-   "depth_m": 57.0,
+   "depth_m": 57.35,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",
@@ -10058,7 +10070,7 @@
    "street_class": "light",
    "corner": true,
    "frontage_m": 23.68,
-   "depth_m": 56.25,
+   "depth_m": 56.55,
    "ground_reading": "dry: every sample stands above datum on the modelled field",
    "dry": true,
    "multi_building_rule": "one_principal_roof",

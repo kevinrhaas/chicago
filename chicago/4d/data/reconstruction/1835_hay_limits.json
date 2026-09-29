@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 313,
-  "outside": 135,
+  "outside": 139,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 24,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 12,
+   "south_of_washington_street": 16,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -456,6 +456,10 @@
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",
+    "recon_1835_blk_washington_clark_a3_03",
+    "recon_1835_blk_washington_clark_a4_04",
+    "recon_1835_blk_washington_clark_d4_02",
+    "recon_1835_blk_washington_clark_d5_01",
     "recon_1835_blk_washington_lasalle_a1_08",
     "recon_1835_blk_washington_lasalle_a3_09",
     "recon_1835_blk_washington_lasalle_a3_10",
@@ -537,7 +541,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 21,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -639,7 +643,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 21,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      634.55,
      -456.0

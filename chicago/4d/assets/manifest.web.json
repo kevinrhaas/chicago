@@ -1,6 +1,5 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
-  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "e240c6ae892486771b709a4cc7df1a73c43a748e2d54dcd4bfbe074703200ab3",
     "bates_auction_room__frame_1834.glb": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227",
@@ -253,6 +252,10 @@
     "recon_1835_blk_south_water_wells_d2_06__inferred_1835.glb": "0c870de50721305899fa5ca41c0875c73dfecf68ff415ca0f97ab7f80552c1b5",
     "recon_1835_blk_south_water_wells_d3_04__inferred_1835.glb": "a1d03d9af05df1b9539a2608b6bfaaec9408f6be1491dec0f54c1ef0e2c88a27",
     "recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb": "71594dca9efbec5cb3757471b3d3758d3eddba3865864c235c1dd195c16f1dd9",
+    "recon_1835_blk_washington_clark_a3_03__inferred_1835.glb": "cc2c2e341cae7924fd3c04e41eecf56c2bf4528b8829146394bb05c250b1a598",
+    "recon_1835_blk_washington_clark_a4_04__inferred_1835.glb": "1fe57b4dc24fd67381728ebdee00e13339a12af154fd8e8ab05067e31605585a",
+    "recon_1835_blk_washington_clark_d4_02__inferred_1835.glb": "497fe68fae1c63798a351a14a0700d54f08efb750796b69963807049b405b3a1",
+    "recon_1835_blk_washington_clark_d5_01__inferred_1835.glb": "04ed0a75bf09da04b5878743d90389cdf175fd5f3391047e10b5776a885c6468",
     "recon_1835_blk_washington_lasalle_a1_08__inferred_1835.glb": "2467adf22c241e4e1be5169fc6991fef212350f55239d37e88ed7aad9559dd4c",
     "recon_1835_blk_washington_lasalle_a3_09__inferred_1835.glb": "36008485af06026b326b93832e2eef86fa5b46cfb69913dc3f23aca03000a422",
     "recon_1835_blk_washington_lasalle_a3_10__inferred_1835.glb": "94b0e9054918108d266b9567e475ffc4f7e87d9ba7f3ca354ba32dc03a162376",
@@ -453,5 +456,6 @@
     "wolf_point_tavern_stable__stable_1831.glb": "5d7a13006ab595c626a706f1bf2bfe5076c7eb6b435b44bc067ef3c33da0c926",
     "wright_building_to_let_a__documented_1835.glb": "77312dd809fcf9bc5e243de2fe95de2227fd8a96a8027cb41b89a60444abf073",
     "wright_building_to_let_b__documented_1835.glb": "ede18f6170198504b62b3f9bbf0b2cf2c423e3dc5ad9c55301679dd5d1ef37cb"
-  }
+  },
+  "written_by": "tools/web_derivatives.sh"
 }

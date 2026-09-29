@@ -1,0 +1,98 @@
+{
+ "_doc": "What Wright's 1834 sheet says about the 288.3 m the corporate boundary extrapolates.\n\nT-1544. The Trustees' walk of 7 November 1833 runs its west leg *\"north along said last\nmentioned street and its continuation to Ohio street\"*, and this repository resolves that\nleg on two committed readings of Jefferson Street (T-1490). Both of them stop: the West\nDivision's reading ends at local north +381.887, on the surviving Hubbard Street\nintersection, and **modern Jefferson does not survive north of Hubbard**, so there is no\nthird node to carry it on. The last 288.3 m to Ohio Street is arithmetic and nothing else,\nand the leg's own note says so.\n\nA node is not the only kind of control. The ordinance's \"continuation\" crosses ground this\nproject has already READ — Wabansia, surveyed 1831 and drawn whole on J. S. Wright's 1834\nsurvey, whose street corridors (T-0790), block columns (T-1074) and river-front wedge\n(T-1077) are committed traces, seated on the committed `kinzie` line by T-1070/T-1086. So\nthe question this command asks is the one the ticket asks: **does the sheet draw the\ncontinuation?**\n\n## The answer is no, and the refusal is the finding\n\n- **Wright draws no north-south street on Jefferson's line.** Over the four tiers the leg\n  crosses, the nearest drawn corridor is the one between Wabansia's middle and east block\n  columns, about 81 m west of the extrapolation — five times the 16.02 m RMS this sheet's\n  own registration admits. No re-seating of this sheet inside its own error can put a\n  street where the leg runs.\n- **The leg runs down the middle of Wabansia's easternmost block column**, from Hubbard to\n  Ohio, crossing Owen Street and Hight Street and ending on platted ground of an addition\n  the ordinance never names.\n- **The one drawn line that could be mistaken for the continuation is the tract's east\n  boundary against the North Branch**, and this reading refuses that identification on\n  BEARING rather than on offset: the two stand 16.0 m apart at Hubbard and 23.1 m apart at\n  Ohio. A true identification would close over 288 m; these diverge.\n\nSo the leg stays `inferred` and stays an extrapolation. What changes is that it is now\nextrapolated across ground that has been looked at: the sheet bounds it instead of saying\nnothing about it, and this command is the gate that keeps the bound honest.\n\n    tools/measure_jefferson_continuation.py               the reading\n    tools/measure_jefferson_continuation.py --write       write the trace\n    tools/measure_jefferson_continuation.py --check       re-derive every metre committed\n    tools/measure_jefferson_continuation.py --gate        exit 1 if the refusal stops holding\n    tools/measure_jefferson_continuation.py --check-sheet re-measure the rules off the raster\n    tools/measure_jefferson_continuation.py --self-test   the assertions, fired\n\nThe gate never fails because the leg is an extrapolation — that is a fact about 1833 and\nabout what survives. It fails when the refusal above stops being true: when a drawn\ncorridor comes within the sheet's own RMS of the leg, when the leg stops standing on\nWabansia's platted ground, when the tract boundary starts converging on it, or when the\nextension grows close enough to a drawn building to decide its side of the line.\n",
+ "ticket": "T-1544",
+ "leg": "west — Jefferson, north to Ohio",
+ "length_m": 288.3,
+ "sheet": {
+  "source_id": "wright_1834_nara_hup",
+  "registration_rms_m": 16.02,
+  "m_per_px": 0.70581,
+  "readings": [
+   "data/traces/wabansia_streets.json",
+   "data/traces/wabansia_block_numbering.json",
+   "data/traces/wabansia_seating.json"
+  ]
+ },
+ "the_ground_it_crosses": {
+  "tract": "Wabansia, surveyed 1831, drawn whole on Wright's 1834 survey",
+  "column": "the easternmost block column (C) of tiers t4, t5, t6, t7",
+  "column_width_m": 96.31,
+  "stations_off_the_platted_grid": [],
+  "corner_south_of_the_grid_east_side_end_m": 23.67,
+  "streets_crossed": [
+   {
+    "street": "hubbard",
+    "at_local_enu_m": [
+     -410.017,
+     387.804
+    ]
+   },
+   {
+    "street": "owen",
+    "at_local_enu_m": [
+     -412.843,
+     505.719
+    ]
+   },
+   {
+    "street": "hight",
+    "at_local_enu_m": [
+     -415.729,
+     626.19
+    ]
+   }
+  ]
+ },
+ "no_corridor_is_drawn_here": {
+  "nearest_drawn_north_south_corridor": "the street between Wabansia's middle and east block columns",
+  "corridor_width_m": 28.9,
+  "measured": [
+   {
+    "where": "south end, on Hubbard's line",
+    "corridor_centre_e_m": -504.606,
+    "leg_east_of_corridor_centre_m": 94.73,
+    "leg_east_of_corridor_east_rule_m": 80.279
+   },
+   {
+    "where": "north end, on Ohio's line",
+    "corridor_centre_e_m": -504.445,
+    "leg_east_of_corridor_centre_m": 87.664,
+    "leg_east_of_corridor_east_rule_m": 73.213
+   }
+  ],
+  "reading": "Wright draws no north-south street on the leg's line. The nearest one is about 80 m west of it, which is more than five times the 16.02 m RMS this sheet's registration admits, so no re-seating inside the sheet's own error puts a corridor where the leg runs."
+ },
+ "the_tract_boundary_is_not_the_continuation": {
+  "candidate": "the east rule of Wabansia's block grid — the west line of the water-lot wedge on the North Branch",
+  "measured": [
+   {
+    "where": "south end, on Hubbard's line",
+    "leg_local_enu_m": [
+     -409.876,
+     381.887
+    ],
+    "tract_east_boundary_e_m": -393.847,
+    "leg_west_of_boundary_m": 16.029
+   },
+   {
+    "where": "north end, on Ohio's line",
+    "leg_local_enu_m": [
+     -416.781,
+     670.101
+    ],
+    "tract_east_boundary_e_m": -393.686,
+    "leg_west_of_boundary_m": 23.095
+   }
+  ],
+  "divergence_over_the_leg_m": 7.066,
+  "bearing_difference_deg": 1.404,
+  "refused": "The two are 16 m apart at Hubbard and 23 m apart at Ohio. An identification would CLOSE over 288 m; these diverge, so the refusal rests on bearing and not on an offset that could be argued away inside the registration's RMS."
+ },
+ "it_decides_no_building": {
+  "nearest_structure": "kelsey_boarding_house",
+  "clearance_m": 1718.21,
+  "along_the_leg_m": 55.88,
+  "drift_at_that_point_m": 20.46
+ },
+ "what_would_change_this": "A north-south rule read on Jefferson's line on some other sheet, or a surviving intersection north of Hubbard. Neither exists in this corpus: modern Jefferson does not survive north of Hubbard Street, and Wright is the only surveyor in this corpus who draws this ground at all."
+}
