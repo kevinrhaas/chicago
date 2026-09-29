@@ -300,12 +300,12 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # at a time.
 #
 STATED = {
-    "assets": 479,
+    "assets": 483,
     "restales": {
-        "generators/common/*.py": 479,
+        "generators/common/*.py": 483,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 475,
+        "generators/emit.py": 479,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
