@@ -3070,6 +3070,89 @@
         }
       ],
       "arrangement_note": "FOUR ROOFS ON TWELVE LOTS, AND THE ALTERNATION IS NOW COMPLETE ON BOTH FACES. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 31 of the 35 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces — Indiana Street on the north and Illinois Street on the south — are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE TWO YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL. A woodshed stands off the alley behind the Indiana Street cottage and a privy off the alley behind the Illinois Street one, each serving the lot it stands on. They are the last A4 and one of the two remaining A3 the block's plan holds. The plan also holds three stables, two barns or carriage sheds and a smokehouse; every one of them would have to stand in the yard of one of these four cottages, and a stable AND a barn AND a smokehouse behind a one-room cottage is a claim about how these households lived that nothing supports, so the rest stay in the plan for the roofs that come after them.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces and the alley line are committed; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+    },
+    {
+      "block_id": "blk_lake_clinton",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_lake_clinton",
+      "claimed": "2026-09-29",
+      "bounded_by": {
+        "north": "lake",
+        "south": "randolph",
+        "west": "clinton",
+        "east": "canal"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 39,
+        "standing_roofs": 11,
+        "free_lots": 3,
+        "headroom": 8,
+        "dealt_roofs": 3,
+        "dealt_principal": 2,
+        "dealt_ancillary": 1,
+        "principal": 2,
+        "ancillary": 1
+      },
+      "families": {
+        "D4": 1,
+        "D3": 1,
+        "A1": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1760",
+        "parent": "T-1207",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_baxley_j_m",
+            "family": "D3",
+            "order_book_draw": "blk_lake_clinton / D3 / west"
+          },
+          {
+            "seat": "hh_beaubien_b",
+            "family": "D4",
+            "order_book_draw": "blk_lake_clinton / D4 / west"
+          }
+        ],
+        "why": "THE BLOCK'S WHOLE REQUEST, RAISED, WITH THE TWO FACES EXCHANGED BY THE COMMITTED STREET HIERARCHY. The seating file asks two roofs on this block and no more — hh_baxley_j_m's D3 on lot 7 fronting Canal and hh_beaubien_b's D4 on lot 2 fronting Clinton — which is exactly the ceiling the schedule's free-lots-less-one sizing puts on it, so there is no third request to rank and nothing here is refused for being awkward. The deal raises both families and swaps the faces: Canal is `ordinary` and Clinton is `light` in the lot ledger's reading of `data/streets/1835.json`, the D4 two-room cottage outranks the D3 one-room cottage, and the better face therefore takes the better house. That rule is `blk_randolph_clinton`'s, written into this file one block south when T-1734 re-argued it on the transposed cut, and it is applied here rather than quietly inverted. A REQUEST IS NOT EVIDENCE: both roofs are anonymous count-units at the bottom tier, standing on invented positions on conjectural side lot lines, and both carry the reasoning notes every other roof of this programme carries."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Clinton column's second lot from Lake Street, plat numeral 3, and the lot this block keeps open. The schedule's own sizing reserves one — principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot — and of the three free lots it is the one the seating asks nothing on, so reserving it refuses no request. It also puts the Clinton column's gap between the standing recon_1835_west_008 roof on the Lake corner and the cottage this deal stands two lots south of it, which is the alternating vacancy the phase-one parcel already assumes."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.5,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "clinton",
+          "setback_m": 5.25,
+          "lateral_m": -2.5
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 7,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        }
+      ],
+      "arrangement_note": "THE FIRST DEAL ON THE ORIGINAL TOWN'S WEST TIER SINCE THE TRANSPOSE, AND THE FRONTAGE ARGUMENT IS MADE HERE FOR THE FIRST TIME RATHER THAN RE-MADE. `blk_randolph_clinton`, one block south, carried a deal argued face by face against Randolph and Washington and had to re-argue it when T-1734 turned the cut; this block carried no deal at all, so T-1733 transposed it at once and the argument below is the only one it has ever had. `frontage_argued_on` says so in the field rather than in prose anybody has to find. The cut is two columns of five backing onto a north-south alley, every lot fronting Clinton or Canal and none fronting Lake or Randolph, and this block is one of the few where the sheet's own numerals are read at their own positions — 2|1, 3|4, 6|5, 7|8, 10|9, graded `documented` in the lot ledger. The side lot lines within them and the alley between the columns are still conjectural, and they are what every setback below is measured against.\n\nELEVEN ROOFS ALREADY STOOD HERE AND NOT ONE OF THEM IS THIS RECIPE'S. Seven came from the pre-plat West approaches parcel — recon_1835_west_007, _008, _014, _015, _016, _023 and _024, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot — and four are the West trade ecology the inferred pass seated: inf_artisan_dwelling_west_a on the Canal-and-Lake corner, inf_blacksmith_shop_west on lot 4 of the sheet, inf_teamster_dwelling_west on lot 8 and inf_teamster_stable_west on the Canal-and-Randolph corner. The generator derives which lots all eleven hold from their own committed footprints rather than being told, and refuses a principal roof on any lot they bar. Three lots are free — indices 1, 2 and 7 — and the schedule's own sizing counts principal room over the free lots LESS ONE, so this block's ceiling is two principal roofs and two is what stands here. The headroom of eight is the block's and never a licence to stand a second house on an occupied lot.\n\nTHE TWO HOUSEHOLDS ARE THE BLOCK'S WHOLE REQUEST, AND THE FACES ARE EXCHANGED BY THE FACE RULE. `1835_platted_seats.json` holds exactly two slot requests on this block: hh_baxley_j_m's D3 on lot index 7, fronting Canal, and hh_beaubien_b's D4 on lot index 2, fronting Clinton — both under the `tradesman_dwellings` clause, both on free lots, and together they are the two the ceiling admits. The deal builds both families on both lots and exchanges which face each stands on, because the committed street hierarchy ranks the two faces and the two houses the opposite way round from the request. Canal Street is `worn_earth` in `data/streets/1835.json` and reads `ordinary` in the lot ledger; Clinton is `light_worn_earth` and reads `light`. A two-room frame cottage (D4) is the better of the two dwellings and a one-room cottage (D3) the plainer, so the D4 takes the Canal lot and the D3 the Clinton lot. That is the same rule `blk_randolph_clinton`'s re-argument turned on one block south — the better face takes the better house, off the hierarchy and not off a preference — and applying it here rather than taking the requested lots as given is the one place this deal departs from the seating pass. Neither household is refused: both families are raised, both lots are built on, and what moved is which of the two roofs each lot carries. The seating pass re-runs whole behind every deal and its adoption step runs before its slot step, so which household ends up under which of these two roofs is the pass's answer after the deal and not a number this file can freeze; `dealt_against_a_request` below names what it asked for before it.\n\nONE YARD BUILDING, AND IT IS THE ONE THE BLOCK'S OWN PLAN AND ITS OWN TRADE BOTH ASK FOR. The schedule apportions this block two ancillary roofs and names them: an A1 stable and an A2 barn or carriage shed. The stable is dealt, off the alley behind the Canal-face cottage. Canal Street is the graded approach from the forks and this block is already the town's teamster corner — a teamster's dwelling on lot 8, his stable on the Canal-and-Randolph corner and a blacksmith's shop between them — so a stable in a Canal-face yard is the ordinary yard building on this face and not a flourish. The barn or carriage shed stays in the plan. A barn behind a one-room cottage on a `light` street is a thing that household MIGHT have had, and this deal builds what a household of this kind certainly had; the plan still apportions it, and a later deal takes it with its own argument. So one of the two cottages stands with no yard building at all, which is what a block dealt two outbuildings for two households on different faces has to mean.\n\nTHE SET-OUT IS DELIBERATELY NOT THE TWIN BLOCK'S. `blk_randolph_clinton` stands its Canal roofs 5.0 m and 5.5 m back and its Clinton roofs 6.0 m and 4.5 m back; these stand at 6.5 m on Canal and 5.25 m on Clinton, with laterals of the opposite sign to their nearest counterpart across Randolph Street. The two blocks share both of their long faces with each other across one street, and two roofs at an identical set-out on the same face of adjoining blocks would read as a surveyed building line — which is the one thing the 1834 survey geometry does not show on this side of the river. The variation is a typology, not a measurement of these lots.\n\nWHAT THE DENSITY READING SAYS ABOUT FILLING THE CANAL COLUMN. `docs/RESEARCH/west_division_infill_1835.md` puts this ground in Zone B — the Canal/Lake mixed approach — and asks for side gaps `mainly inside the specification's 10-35 ft band`, with `larger breaks between yard groups, not a continuous frontage`. After this deal every one of the Canal column's five lots carries a roof, and that is NOT the continuous frontage the memo refuses: the lots are 23.7 m of frontage each and these cottages are a fifth of that, and the gaps are MEASURED off the committed footprints rather than asserted. The Canal cottage's nearest neighbour of any kind is the blacksmith's shop at 11.34 m — 37.2 ft — and the teamster's dwelling at 14.38 m, 47.2 ft; the Clinton cottage's is recon_1835_west_016 at 19.64 m, 64.4 ft. Every one of those is ABOVE the top of the 10-35 ft band, so the face this deal completes is looser than Zone B's own recommendation and not tighter, and the memo's sentence is about how close buildings stand rather than how many lots are spoken for. The Clinton column keeps its open lot.\n\nWHAT IS INVENTED IS EVERYTHING THAT MATTERS: that any building stood on these two lots in July 1835, which buildings they were, that they were dwellings, which face each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines, the ten lot numerals are read off the sheet, and the ground reading under all three roofs is `dry: every sample stands above datum on the modelled field`. None of that is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {
