@@ -1,0 +1,26 @@
+{
+ "id": "habs_glessner_photo_16_east_level_1965",
+ "type": "photograph",
+ "citation": "Perry E. Borchers (Ohio State University) for HABS, 'East elevation - level', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-204L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 16 of 17 (call number HABS ILL,16-CHIG,17--16). Library of Congress.",
+ "author": "Perry E. Borchers (HABS)",
+ "date": "1965",
+ "describes_date": "1965",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS). Master TIFF 060918pu.tif in the owner's Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos (checksummed in chicago/prairie_1904_v1/research/acquired-files.json); 1800 px web copy committed at chicago/prairie_1904_v1/research/public/glessner-habs-photo-16.jpg (Prairie library, PR #169); the index to photographs (glessner-habs-photo-captions.pdf, same folder) gives the caption and plate number.",
+ "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060918p",
+ "locator": "The whole plate: the Prairie Avenue front from the south end (porte-cochere) past the door, camera level; the plate sheet 6 was plotted from.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Made for HABS (U.S. Government); LOC: no known restrictions. Measurements only; nothing derived as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-29 (T-1730, version v2) as a cross-check on sheet 6. The caption and plate number are the HABS index to photographs; the handle follows photograph 13's record (060915p), the plates being consecutive in the master TIFF series.",
+ "note": "A 1965 photogrammetric plate of the series sheet 6 was plotted from (photographs 13-17 are the Borchers plates; the index says 1-12 were transmitted earlier). Used only for masonry and roofs, which the 1946 alteration list (HABS data p. 2) does not touch.",
+ "what_it_supplies": [
+  "confirmation of sheet 6's openings, opening for opening",
+  "the vines on the Prairie front in 1965 (not a 1904 reading)"
+ ],
+ "what_it_does_not_supply": [
+  "heights beyond sheet 6's",
+  "the 1904 extent of the vines"
+ ]
+}

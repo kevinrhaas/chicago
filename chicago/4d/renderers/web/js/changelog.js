@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1230, ts: '2026-09-29T09:23:58.113Z', date: 'Sep 29, 2026, 4:23 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
+  { v: 1231, ts: '2026-09-29T09:31:57.130Z', date: 'Sep 29, 2026, 4:31 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
     items: [
       'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
       'The granite reads warmer and pinker, toward the museum’s own name for the stone rather than the family memoir’s. The stable’s roofline runs level, centred on the wing, instead of angled toward the carriage doors below it.',
       'The round tower at the 18th Street corner is a touch smaller, the chimneys a touch slimmer, the dormers a touch deeper, and the courtyard drive runs a straighter line to the alley gate.',
       'Drop the &version=v3 from the address and the first reading comes back. Both are built from the same drawings, plate and photographs; a card on each says where they part ways.',
+    ] },
+  { v: 1230, ts: '2026-09-29T09:09:24.452Z', date: 'Sep 29, 2026, 4:09 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+    items: [
+      'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
+      'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
+      'The round tower at the corner is larger, about twenty feet across under its cone, and the Eighteenth Street eave and the coach-house roof are read off four 1965 survey photographs the first build did not use.',
+      'The house sits on the alley line the 1911 insurance map draws, about a foot west of the first build.',
+      'The colours are v2\u2019s own choice: granite darkened by seventeen years of coal smoke, and copper gone brown rather than green. No record shows the house in colour, so they are marked as reconstruction.',
     ] },
   { v: 1229, ts: '2026-09-29T08:15:07.333Z', date: 'Sep 29, 2026, 3:15 AM CT', title: 'Two invented streams on the west prairie go to the owner', kind: 'change',
     items: [

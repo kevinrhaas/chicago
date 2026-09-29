@@ -1,3 +1,27 @@
+## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
+
+`data/structures/versions/glessner_house/v2.json` (T-1727's mechanism, same archetype
+`masonry_house`, same phase `as_built_1887`) is opened with
+`/4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v2`; the default is untouched
+(its master and derivative are byte-identical after the bake). v2 re-read HABS IL-1015 sheets 2–6
+and photographs 1 and 13, and read four public-domain photogrammetric plates the default did not
+(photographs 14–17, new source records). It takes no geometry from a `check_required` source except
+the dining bay's roof form.
+
+- **Different readings** (docs/RESEARCH/glessner_house_1904.md § 14 has the full table): the east
+  wing's ridge at W 17.3, not the centre line (from photograph 14 and the chimneys' faces on sheets 6
+  and 4); a 19.7-ft north tower cone; the 18th Street eave at 23.8 and the stable's ridge and eaves
+  from the level plates 13 and 15; the house on the Sanborn alley line (0.35 m west of the default);
+  sheet 4's heights read at 97.7 px/ft, calibrated to sheet 6, instead of its scale bar.
+- **Reconstructed** (L299): a smoke-weathered palette, the dormers' depth, the stable turret's size,
+  the stable's south end and 1904 carriage doors, opening heights read off plans, cornice projections,
+  the gate's heights, the courtyard drive and lawn.
+- Frame at the spawn (published mirror, SwiftShader): default 22 calls / 74,979 tris desktop, 21 /
+  79,751 mobile; v2 22 / 75,035 and 21 / 79,807 — the same draw calls, +56 triangles.
+
+**Unverified:** the east wing's ridge position (no roof plan read; photograph 14's west rake reads
+shallower than v2's court slope), the north tower's W (± 3 ft), and every colour.
+
 ## T-1728 — the 1904 Prairie Avenue street surfaces: asphalt, macadam, cement, sandstone and turf (2026-09-29)
 
 `/4d/1904/` is paved. `data/street_surfaces/1904.json` (authored) names a material, a tier, its
