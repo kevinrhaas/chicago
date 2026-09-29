@@ -298,3 +298,50 @@ Window interiors use varied top-down pale linen shades and occasional simple
 side curtains behind physical glass, with dark interior backing further inside.
 These are reconstructed period-compatible treatments, not a claim that the
 exact photographed shade positions or room furnishings existed on the scene date.
+
+
+The Prairie entrance ornament is revised after close comparison with supplied
+image(5) and the HABS entry views: four principal foliate scrolls around a central
+stem, nested archivolts, carved leaf and dentil bands, three distinct capitals,
+and egg-and-dart / bead-and-reel sill carving. The leaf lobes, drilled pockets,
+small stems and tool-scale surfaces are reconstructed geometry, not a scan.
+The semicircular carving is seated in a masonry recess with a continuous stone
+backing; ashlar does not continue through its surface. Reconstructed sill ends
+extend 0.435 m beyond the central band's bounds, with the recess following their
+full envelope. These microdimensions remain artistic, not HABS measurements.
+
+Granite color now uses a separately preserved original generated material image
+at a reconstructed 0.22-m repeat, with restrained normal-map strength and the
+existing physical block relief. Its exact prompt, method, original-image hash
+and provenance are in `assets/textures/glessner-v4/granite_photographic_provenance.json`.
+It contains no sampled historical or owner-reference pixels and is not a
+photograph of the building. The numeric granite albedo remains preserved but
+is not the rendered color map. Prairie upper shades are partly raised, with
+reconstructed varied heights exposing the lower panes as in the reference.
+
+
+### Courtyard close-up material refinement
+
+The active granite albedo repeat is 0.22 m, revised from the earlier 0.6-m
+trial after its crystals read too large. Normal strength is 0.40 on ashlar and
+0.32 on courtyard rock-faced trim, with reduced numeric fracture warp. Common
+brick uses a gray-tan clay body and occasional warmer/buff/smoky firing; this
+represents the surviving material, not a claim to reproduce modern weathering.
+Oak midtones and restrained varnish roughness make existing joinery readable.
+
+A separate original generated turf albedo repeats at 0.4 m. It supplements the
+existing lawn polygon, together with 20,000 seeded one-triangle blades, 10–40 mm
+high and 1–3 mm wide. Every vertex lies inside the lawn and outside the drive
+with a boundary margin. Blade positions, density, colours and heights are
+reconstructed and carry conjectural `_CONFIDENCE=1.0`; no plant inventory or
+new garden extent is claimed. Three added plain green material slots bring
+the model library to 28 slots. Both original generated images are preserved
+unchanged with prompts and provenance; the numeric recipes never overwrite them.
+
+
+The exposed stair-tower foundation carries six rough stones around only its
+courtyard arc, stepping from about 0.30 to 0.12 m toward the passage. Owner
+image10 and the west-facing tunnel photograph establish this material transition;
+HABS photo5 is obscured by ivy and shadow, so the precise height, block joints
+and relief are reconstructed rather than measured. The tower's datum and
+openings stay fixed.

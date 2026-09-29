@@ -13,8 +13,15 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# The two oversized v4 GLBs are losslessly packed in committed archive parts.
+# Restore only missing ignored outputs; divergent existing bytes fail with repack
+# guidance. This never derives a mesh or replaces a derivative with its master.
+python3 tools/recover_glessner_v4.py --materialize
+
 # ---------------------------------------------------------------------------
-# THIS SCRIPT IS NOT A WRITER OF assets/web/ — ROADMAP K38.
+# THIS SCRIPT DOES NOT DERIVE OR REPLACE assets/web/ — ROADMAP K38.
+# The explicit two-file package materialization above writes only absent,
+# ignored outputs whose exact source bytes and hashes are already committed.
 #
 # It used to be. Any master newer by mtime than its derivative was copied
 # through, here, into the TRACKED source tree and then into the mirror. The

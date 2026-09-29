@@ -2,8 +2,8 @@
 
 This module is deliberately local to the opt-in v4 builder. Nothing here changes
 the shared town palette or a previous Glessner version. The maps are reconstructed
-surface studies, made by the numeric generator beside them; photographs were read
-as visual references, never sampled, traced, projected or embedded. Material names
+surface studies: nine numeric fabrics plus original generated granite and turf albedos.
+Photographs were read as visual references, never sampled, traced, projected or embedded. Material names
 retain the legacy roof_plane contract. Copper is a metal; the window surface is
 dielectric glass with real environment reflections, not painted blue rectangles.
 
@@ -33,6 +33,9 @@ TILE_M = {
     "turf": (2.4, 2.4),
     "gravel": (2.0, 2.0),
 }
+# The generated albedo depicts a smaller crystal field than the procedural
+# normal/roughness repeat. UV0 stays metric; glTF carries this texture's scale.
+ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (0.4, 0.4)}
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -44,6 +47,7 @@ ROOF_VARIANTS = (19, 20, 21)
 LINEN = 22
 PAINTED_WOOD = 23
 ROUGH_TRIM = 24
+GRASS_BLADES = (25, 26, 27)
 
 SLOT_FABRIC = {
     0: "granite", 1: "brick", 2: "limestone", 3: "terracotta",
@@ -60,6 +64,8 @@ def _image(bpy, fabric, suffix, colour=False):
     """Load the exact committed map. Missing output is a build error, never a flat fallback."""
     ext = "jpg" if suffix == "basecolor" else "png"
     path = TEXTURES / f"{fabric}_{suffix}.{ext}"
+    if fabric in ALBEDO_TILE_M and suffix == "basecolor":
+        path = TEXTURES / f"{fabric}_photographic_basecolor.png"
     if not path.is_file():
         raise FileNotFoundError(f"Glessner v4 PBR map missing: {path}")
     image = bpy.data.images.load(str(path), check_existing=True)
@@ -98,7 +104,16 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
         tex.image = _image(bpy, source_fabric, suffix, colour)
         tex.interpolation = "Linear"
         tex.extension = "REPEAT"
-        nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
+        if suffix == "basecolor" and source_fabric in ALBEDO_TILE_M:
+            mapping = nt.nodes.new("ShaderNodeMapping")
+            mapping.vector_type = "POINT"
+            target_u, target_v = ALBEDO_TILE_M[source_fabric]
+            source_u, source_v = TILE_M[fabric]
+            mapping.inputs["Scale"].default_value = (source_u / target_u, source_v / target_v, 1.0)
+            nt.links.new(uv.outputs["UV"], mapping.inputs["Vector"])
+            nt.links.new(mapping.outputs["Vector"], tex.inputs["Vector"])
+        else:
+            nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
         if suffix == "normal":
             normal = nt.nodes.new("ShaderNodeNormalMap")
             normal.uv_map = SURFACE_UV
@@ -120,11 +135,15 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
     material["surface_tier"] = "reconstructed"
     material["texture_generator"] = "assets/textures/glessner-v4/generate.py"
     material["tile_m"] = list(TILE_M[fabric])
+    albedo_source = albedo_fabric or fabric
+    if albedo_source in ALBEDO_TILE_M:
+        material["albedo_provenance"] = f"assets/textures/glessner-v4/{albedo_source}_photographic_provenance.json"
+        material["albedo_tile_m"] = list(ALBEDO_TILE_M[albedo_source])
     return material
 
 
 def build_materials(colours=None):
-    """Return 25 slots. Colours comes from the structure's resolved data record.
+    """Return 28 slots. Colours comes from the structure's resolved data record.
 
     Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
     pale compacted gravel preserve the record's courtyard material reading.
@@ -132,16 +151,16 @@ def build_materials(colours=None):
     import bpy
     colours = colours or {}
     mats = [
-        _pbr(bpy, "granite", "granite", normal_strength=1.15),
+        _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.40),
         _pbr(bpy, "brick", "brick", normal_strength=0.85),
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
         _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
         _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
-        _pbr(bpy, "lawn", "turf", normal_strength=0.55),
+        _pbr(bpy, "lawn", "turf", normal_strength=0.25),
         _pbr(bpy, "drive", "gravel", normal_strength=0.55),
-        _pbr(bpy, "mortar", "limestone", tint=(0.52, 0.49, 0.44), normal_strength=0.25),
+        _pbr(bpy, "mortar", "limestone", tint=(0.60, 0.58, 0.53), normal_strength=0.25),
         _plain(bpy, "iron", (0.013, 0.017, 0.015, 1), roughness=0.40, metallic=0.70),
         _plain(bpy, "glass_dark", (0.005, 0.007, 0.006, 1), roughness=0.92),
     ]
@@ -153,19 +172,19 @@ def build_materials(colours=None):
     glass.inputs["Transmission Weight"].default_value = 0.94
     if "Specular IOR Level" in glass.inputs:
         glass.inputs["Specular IOR Level"].default_value = 0.50
-    # Quarried blocks have restrained grey, pink-feldspar and cream variation.
-    # The previous 1-7% linear variation vanished in the broad facade review.
-    for i, tint in enumerate(((0.72, 0.79, 0.85), (0.97, 0.91, 0.87),
-                              (0.86, 0.84, 0.81), (1.00, 0.985, 0.965))):
-        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.15))
+    # Neutralise the generated image's warm feldspar balance while retaining
+    # restrained grey, cream and slightly pink variation between quarried units.
+    for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
+                              (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
+        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=0.40))
     # Kiln firing varies individual common bricks. The geometry deals mostly
-    # the main red-brown slot1, then dark red16, buff17 and occasional smoky18.
+    # the main grey-tan slot1, then warm red16, buff17 and occasional smoky18.
     # The neutral limestone grain image supplies the latter colour fields only;
     # their relief and roughness remain brick. No additional atlas is duplicated.
-    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.70, 0.73, 0.76), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.40, 0.28, 0.18), normal_strength=0.85,
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(1.0, 0.70, 0.60), normal_strength=0.85))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.46, 0.41, 0.33), normal_strength=0.85,
                      albedo_fabric="limestone"))
-    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.20, 0.16, 0.13), normal_strength=0.85,
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.15, 0.16, 0.155), normal_strength=0.85,
                      albedo_fabric="limestone"))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
@@ -174,7 +193,13 @@ def build_materials(colours=None):
     # Rock-faced window heads/sills share the visible grey mineral fabric of the
     # street stone. Dressed cornices and carved mouldings retain smoother slot2.
     # This is reconstructed appearance, not a petrographic identification.
-    mats.append(_pbr(bpy, "rough_stone_trim", "granite", normal_strength=0.90))
+    mats.append(_pbr(bpy, "rough_stone_trim", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.32))
+    # Thin geometry blades sit over the independently textured lawn. These
+    # muted linear colours sit below its average reflectance, avoiding lime tips.
+    for name, colour in (("dark", (.045, .080, .017)),
+                         ("middle", (.075, .120, .028)),
+                         ("light", (.105, .150, .045))):
+        mats.append(_plain(bpy, f"turf_blade_{name}", (*colour, 1), roughness=0.92))
     return mats
 
 

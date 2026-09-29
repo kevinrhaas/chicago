@@ -116,6 +116,26 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+# T-1730. A fresh checkout has neither ignored v4 GLB. Recover that exact pair
+# before the canonical producer walks its inputs. Never restore over a new master
+# or a lone/stale derivative, and leave --out measurements and unrelated ids alone.
+GLESSNER_V4="versions/glessner_house/v4/glessner_house__as_built_1887.glb"
+if [ "$OUT" = "assets/web" ] && { [ -z "$ONLY" ] || [ "$ONLY" = "$GLESSNER_V4" ]; } \
+  && [ ! -e "assets/gltf/$GLESSNER_V4" ] && [ ! -e "assets/web/$GLESSNER_V4" ]; then
+  python3 tools/recover_glessner_v4.py --materialize
+fi
+
+# The archive follows its producer, just like the master/derivative hash below.
+# Both version branches call this only AFTER writing their final derivative. A
+# failed record-web stops before packing; noncanonical outputs never update it.
+record_version() {
+  [ "$OUT" = "assets/web" ] || return 0
+  python3 tools/structure_versions.py record-web "$1"
+  if [ "$1" = "$GLESSNER_V4" ]; then
+    python3 tools/recover_glessner_v4.py --pack
+  fi
+}
+
 # WHAT THIS STEP KNOWS AND NOTHING ELSE DOES — ROADMAP K39.
 #
 # It knows which master it just compressed. Until K39 it wrote that down nowhere, so
@@ -478,7 +498,7 @@ if [ -n "$resolved_cli" ]; then
     if [ "$rel" = "$(basename "$f")" ]; then
       echo "$rel" >> "$PRODUCED"
     elif [ "$OUT" = "assets/web" ]; then
-      python3 tools/structure_versions.py record-web "$rel"
+      record_version "$rel"
     fi
     printf '   %s  %s -> %s bytes%s\n' "$rel" \
       "$(wc -c < "$f" | tr -d ' ')" "$(wc -c < "$out" | tr -d ' ')" "$note"
@@ -526,9 +546,8 @@ else
     rel="${f#assets/gltf/}"
     [ -z "$ONLY" ] || [ "$rel" = "$ONLY" ] || continue
     mkdir -p "$(dirname "$OUT/$rel")" && cp -f "$f" "$OUT/$rel"
-    [ "$OUT" = "assets/web" ] && python3 tools/structure_versions.py record-web "$rel"
+    record_version "$rel"
   done
 fi
 
 record_masters
-

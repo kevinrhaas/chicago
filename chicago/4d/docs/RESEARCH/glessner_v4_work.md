@@ -145,7 +145,10 @@ parts, per-part and per-member SHA256 values, and a verifier/restorer at
 `tools/recover_glessner_v4.py`. Verification reports all 13 members byte-identical
 to the working assets. This is a transport recovery measure, not a new asset
 format. Restore the archive before continuing validation in a fresh checkout.
-The normal GLB files still need an authenticated git push before a release PR.
+Checkpoint 5 supersedes this transport limitation: the normal publish/check path now
+materializes only the two exact ignored v4 GLBs from the committed package. The
+canonical derivative producer refreshes that package after a deliberate rebuild.
+No authenticated native push or renderer format change is required.
 
 Final source validation: parameter/license validation passed with 0 errors and
 259 inherited warnings; isolated version regressions passed with 0 failures.
@@ -160,3 +163,61 @@ commit `590ad4c3`, and published files match source. No assertion was weakened.
 Final 1600-pixel actual-GLB overcast renders are running serially. The preceding
 review drove additional material, stone-relief and shade corrections; no final
 photographic-quality acceptance claim is made at this checkpoint.
+
+
+## Checkpoint 5 — close-up correction and durable build lifecycle
+
+The 1600-pixel entry review rejected the earlier repeated star carving, crumpled
+stone normal and closed uniform blinds. New geometry now has four foliate scrolls,
+nested arch mouldings, three distinct central capitals and an egg-and-dart sill.
+The first subsequent 800-pixel render exposed false diagonal joints caused by
+chamfering the convex fragments of an arch subtraction as though each were a
+physical stone. The fix constructs each stone once and clips only its completed
+surfaces, preserving depth, material and true perimeter. A regression samples
+805 exterior points and 616 aperture points each on brick and granite.
+
+Original generated granite and turf albedos supplement the numeric PBR library;
+the exact prompts and unchanged bitmaps are preserved beside the recipes.
+Granite crystal scale, normal strength, common-brick body colour and oak midtones
+are being judged against the actual GLB renders, not merely the source maps.
+An optional documented CC0 sky-only HDRI supplies real cloud radiance in review
+lighting without adding buildings or historical scene evidence.
+
+Packaging is now part of the canonical v4 derivative producer, followed by the
+ordinary provenance/asset gates. Fresh checkouts restore only the two missing
+outputs. Stale existing output is refused, never overwritten with an earlier
+model. Focused tests cover both optimized and passthrough producers, fresh
+restoration, custom output directories, unrelated versions and failed producers.
+Promotion of v4 to default must explicitly retire or retarget this alternate-only
+package; that future operation is outside the present v4 comparison.
+
+The full mobile published smoke completed 569 passes and the same three
+T-1752 frontage-census failures, with zero page errors. Its full log is in
+`glessner-v4-qa/mobile-checkpoint4.log`; its standing-record tree hash is deliberately
+unavailable because later model changes were made before the result was filed.
+Desktop parts 5–13 continue after the earlier interrupted full run completed
+parts 1–4. The first preflight's four failures were resolved (public citation
+contained a private research path; local tickets directory was a symlink). Their
+focused checks now pass. The final full preflight and newest-model browser/visual
+reviews still remain. No photographic-quality acceptance is asserted here.
+
+
+Checkpoint 5 baked candidate: pinned Blender emitted **580,172 triangles**,
+28 materials, and 20,000 lawn blades. The automatic canonical derivative hook
+refreshed the exact two-file package successfully. Current bytes/hashes:
+
+- `assets/gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb`: 70,375,492 bytes; SHA256 `e72fad0af84e141179b9969c4af3bb63d030f986afffe522238caba990fc99a1`.
+- `assets/web/versions/glessner_house/v4/glessner_house__as_built_1887.glb`: 32,115,656 bytes; SHA256 `0b7ec129659d83a385fd5eb7d925e09f836e7f1f10279179b6fa89f69399b5d0`.
+
+The full preflight is running against this candidate. Neutral entry/access
+and sky-lit courtyard renders remain under visual review.
+
+
+The new neutral 800-pixel entry confirms the false diagonal joints are gone.
+The granite is finer and cooler, with coherent carving and window reveals. The
+service view confirms warmer timber, corrected brick tones and finer lawn detail.
+These actual-model renders and their hashes/settings are preserved under
+`images/glessner-v4/refined-02-neutral/`. Rock-face relief still reads too shallow
+in the frontal neutral view; a controlled material study is under way before
+photographic acceptance. Dev was rechecked via native remote and exact GitHub
+branch endpoint and remains `308dcacf`; there is no integration drift.

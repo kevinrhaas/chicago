@@ -17,6 +17,7 @@ import random
 
 from common.mesh import MeshBuilder
 from archetypes import masonry_house as legacy
+from archetypes import masonry_house_v4_ornament as ornament
 
 GRANITE, BRICK, TRIM, ROOF, COPPER, GLASS, WOOD, LAWN, DRIVE = range(9)
 MORTAR, IRON, DARK_GLASS = 9, 10, 11
@@ -56,7 +57,11 @@ def clean(poly):
 
 
 def clip(poly, a, b, inside=True):
-    """Clip a polygon to the left of an oriented line, or its right half-plane."""
+    """Clip in the first two coordinates, interpolating any vertex attributes.
+
+    Relief surfaces carry depth as a third coordinate. Keeping it through a
+    cut preserves the original stone's plane across computational fragments.
+    """
     if not poly:
         return []
     sign = 1 if inside else -1
@@ -70,7 +75,7 @@ def clip(poly, a, b, inside=True):
             out.append(p)
         if ip != iq:
             t = dp/(dp-dq)
-            out.append((p[0]+t*(q[0]-p[0]), p[1]+t*(q[1]-p[1])))
+            out.append(tuple(p[k]+t*(q[k]-p[k]) for k in range(len(p))))
     return clean(out)
 
 
@@ -184,12 +189,23 @@ class DetailBuilder(MeshBuilder):
             return (u[0]*q[0]+n[0]*(d+off),u[1]*q[0]+n[1]*(d+off),q[1])
         holes = []
         for o in self.openings:
-            if o['kind'] in ('fan','band'):
-                continue
             on = legacy._plane_dir(o)
             if dot(n,on)<.999 or abs(dot(legacy._plane_point(o,0,0),n)-d)>.055:
                 continue
-            holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in aperture(o)])
+            if o['kind']=='fan':
+                # Carved stone is seated inside the masonry, not overlaid on
+                # rock faces. Its recessed bed closes the radial stone joints.
+                centre=(o['u0']+o['u1'])/2;radius=o['r_out']
+                cut=[(centre+radius*math.cos(math.pi*i/80),
+                      o['spring_z']+radius*math.sin(math.pi*i/80)) for i in range(81)]
+            elif o['kind']=='band':
+                if not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
+                    continue
+                cut=[(o['u0']-.435,o['z0']-.025),(o['u1']+.435,o['z0']-.025),
+                     (o['u1']+.435,o['z1']+.045),(o['u0']-.435,o['z1']+.045)]
+            else:
+                cut=aperture(o)
+            holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in cut])
         for h in custom_holes or []:
             holes.append([(dot(p,u),p[2]) for p in h])
         for fragment in subtract(polygon,holes):
@@ -217,17 +233,40 @@ class DetailBuilder(MeshBuilder):
                 gap = .009 if mat==BRICK else .014
                 tile = rect_clip(polygon,a+gap/2,za+gap/2,c-gap/2,zb-gap/2)
                 if tile:
-                    for fragment in subtract(tile,holes):
-                        self.block(fragment,point,n,confidence,mat,rng)
+                    # A clipped fragment is not another physical stone. Build
+                    # this stone once, then clip its already-finished surfaces.
+                    self.block(tile,point,n,confidence,mat,rng,holes=holes)
                 a = c
 
-    def block(self, polygon, point, normal, confidence, mat, rng):
+    def block(self, polygon, point, normal, confidence, mat, rng, holes=None):
         if len(polygon)<3:
             return
         x0,y0,x1,y1 = bounds(polygon)
         if min(x1-x0,y1-y0)<.002:
             return
-        self.masonry_blocks += 1
+        nearby=[]
+        for hole in holes or []:
+            ha,hb,hc,hd=bounds(hole)
+            if x1>ha and x0<hc and y1>hb and y0<hd:
+                nearby.append(hole)
+        emitted=False
+
+        def surface(poly, facing=normal):
+            """Cut finished facets without adding bevels at partition edges."""
+            nonlocal emitted
+            # Triangulate before clipping: an uneven quad is not one plane.
+            # Every resulting fragment then retains its parent's exact plane,
+            # colour, depth and metric UV frame, so internal cuts are invisible.
+            pieces=([poly] if not nearby else
+                    [part for i in range(1,len(poly)-1)
+                     for part in subtract([poly[0],poly[i],poly[i+1]],nearby)])
+            for piece in pieces:
+                if not emitted:
+                    self.masonry_blocks+=1
+                    emitted=True
+                self.raw([point((q[0],q[1]),q[2]) for q in piece],
+                         confidence,variant,facing)
+
         cx,cy = sum(p[0] for p in polygon)/len(polygon),sum(p[1] for p in polygon)/len(polygon)
         bevel = .005 if mat==BRICK else .012
         depth = rng.uniform(.001,.006) if mat==BRICK else rng.uniform(*self.params.detail['ashlar_relief_m'])
@@ -247,7 +286,7 @@ class DetailBuilder(MeshBuilder):
             # A single relief face per brick; the recessed continuous mortar bed
             # closes the wall. Invisible backs and microscopic internal bevels
             # are intentionally omitted from the shipped inspection model.
-            self.raw([point(q,depth) for q in polygon],confidence,variant,normal)
+            surface([(*q,depth) for q in polygon])
             return
         # Large ashlar faces get several angular split planes, rather than a
         # single four-triangle pyramid. The envelope remains the measured course.
@@ -265,7 +304,7 @@ class DetailBuilder(MeshBuilder):
             for ix in range(nx):
                 for iy in range(ny):
                     cell=[grid[ix,iy],grid[ix+1,iy],grid[ix+1,iy+1],grid[ix,iy+1]]
-                    self.raw([point((q[0],q[1]),q[2]) for q in cell],confidence,variant,normal)
+                    surface(cell)
             # Chipped/chamfered perimeter pieces, deliberately irregular along
             # their run while leaving narrow, consistent mortar at the joint.
             ring=[grid[ix,0] for ix in range(nx+1)]+[grid[nx,iy] for iy in range(1,ny+1)]+[grid[ix,ny] for ix in range(nx-1,-1,-1)]+[grid[0,iy] for iy in range(ny-1,0,-1)]
@@ -273,21 +312,21 @@ class DetailBuilder(MeshBuilder):
                 def edge(q):
                     ex=x0 if abs(q[0]-xa)<1e-7 else (x1 if abs(q[0]-xc)<1e-7 else q[0])
                     ey=y0 if abs(q[1]-ya)<1e-7 else (y1 if abs(q[1]-yc)<1e-7 else q[1])
-                    return point((ex,ey),-.009)
-                self.raw([edge(qa),edge(qc),point((qc[0],qc[1]),qc[2]),point((qa[0],qa[1]),qa[2])],confidence,variant)
+                    return (ex,ey,-.009)
+                surface([edge(qa),edge(qc),qc,qa],None)
             return
-        back=[point(q,-.009) for q in polygon]
-        front=[point(q,depth+rng.uniform(-.001,.001)) for q in inner]
+        back=[(*q,-.009) for q in polygon]
+        front=[(*q,depth+rng.uniform(-.001,.001)) for q in inner]
         for i in range(len(polygon)):
             j=(i+1)%len(polygon)
-            self.raw([back[i],back[j],front[j],front[i]],confidence,variant)
+            surface([back[i],back[j],front[j],front[i]],None)
         if mat==BRICK or len(polygon)>6:
-            self.raw(front,confidence,variant,normal)
+            surface(front)
         else:
             # Broken stone has an uneven face without rounded cobblestone silhouettes.
-            center=point((cx,cy),depth+rng.uniform(.001,.009))
+            center=(cx,cy,depth+rng.uniform(.001,.009))
             for i in range(len(front)):
-                self.raw([front[i],front[(i+1)%len(front)],center],confidence,variant,normal)
+                surface([front[i],front[(i+1)%len(front)],center])
 
     def tiles(self, pts, confidence):
         normal=norm(legacy._normal(pts))
@@ -357,10 +396,14 @@ def cylinder(b,cx,cy,z0,z1,r,conf,mat,segments=16):
         b.raw([(p[0],p[1],z0),(q[0],q[1],z0),(q[0],q[1],z1),(p[0],p[1],z1)],conf,mat,(math.cos((a+c)/2),math.sin((a+c)/2),0))
 
 
-def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed):
+def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed,prairie_colonnade=False):
     """Reconstructed pale roller shades descend from the head, behind glass."""
     rng=random.Random(seed)
-    closure=(0,.30,.62,.74,.82,.90,.97,1,1,1)[rng.randrange(10)]
+    # The Prairie upper colonnade reference shows lower panes exposed, unlike
+    # the more closed courtyard rooms. Heights remain reconstructed rather than
+    # a claim about the position of an individual shade on the scene date.
+    choices=(.06,.10,.16,.22,.28,.34) if prairie_colonnade else (0,.30,.62,.74,.82,.90,.97,1,1,1)
+    closure=choices[rng.randrange(len(choices))]
     a,c=u0+.075,u1-.075;top=z1-.07
     if c<=a or top<=z0+.07:return
     if closure:
@@ -368,7 +411,7 @@ def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed):
         b.raw([point(a,bottom,-.335),point(c,bottom,-.335),point(c,top,-.335),point(a,top,-.335)],conf,22,normal)
         # Small turned linen hem, not an opaque glazing-height stripe.
         b.raw([point(a,bottom,-.329),point(c,bottom,-.329),point(c,bottom+.018,-.335),point(a,bottom+.018,-.335)],conf,22,normal)
-    if closure<=.30 and rng.random()<.7:
+    if not prairie_colonnade and closure<=.30 and rng.random()<.7:
         # A minority of open rooms have quiet, narrow side drapes. Their folds
         # are geometry behind the clear glass, with the room backing farther in.
         width=(c-a)*.19
@@ -384,15 +427,13 @@ def opening(b,o,courtyard=False):
     """An opening with 280 mm deep jambs, inset glazing, sash and separate sill."""
     kind=o['kind']; a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']; conf=o['conf']
     if kind=='band':
-        slab(b,o,a,c,z0,z1,0,.095,conf,TRIM)
-        if c-a>3 and z0>5:
-            for i in range(max(1,int((c-a)/.095))):
-                u=a+.0475+i*.095;cz=(z0+z1)/2
-                egg=[(u+.029*math.cos(2*math.pi*j/12),cz+.040*math.sin(2*math.pi*j/12)) for j in range(12)]
-                solid_polygon(b,o,egg,.095,.108,conf,TRIM)
+        if o.get('face')=='east' and c-a>3 and z0>5:
+            ornament.sill(b,o)
+        else:
+            slab(b,o,a,c,z0,z1,0,.095,conf,TRIM)
         return
     if kind=='fan':
-        fan(b,o)
+        ornament.fan(b,o)
         return
     if kind=='dark' and o.get('face')=='west' and o.get('at',0)>30 and z0<.1 and c-a>2:
         # The porte-cochere is a through passage, not a panel of black glazing.
@@ -449,7 +490,8 @@ def opening(b,o,courtyard=False):
             slab(b,o,midu-.025,midu+.025,z0+frame,z1-frame,-.285,-.17,conf,PAINTED_WOOD)
         if z0>2:
             linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
-                        legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003))
+                        legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
+                        prairie_colonnade=(not courtyard and kind=='window' and o.get('face')=='east' and z0>5))
         slab(b,o,a-.09,c+.09,z0-.085,z0+.025,-.055,.11,conf,ROUGH_TRIM if courtyard else GRANITE)
     if courtyard and not small:
         # Courtyard photographs show brick jambs with rock-faced limestone
@@ -514,59 +556,6 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
         poly=[(uc+rin*math.cos(a),zs+rin*math.sin(a)),(uc+rout*math.cos(a),zs+rout*math.sin(a)),
               (uc+rout*math.cos(c),zs+rout*math.sin(c)),(uc+rin*math.cos(c),zs+rin*math.sin(c))]
         solid_polygon(b,pl,poly,-.02,.065,conf,12+i%4)
-
-
-def fan(b,o):
-    uc=(o['u0']+o['u1'])/2;zs=o['spring_z'];r=o['r_in'];conf=o['conf']
-    poly=[(uc+r*math.cos(math.pi*i/32),zs+r*math.sin(math.pi*i/32)) for i in range(33)]
-    solid_polygon(b,o,poly,.022,.050,conf,TRIM)
-    ring(b,o,uc,zs,r+.04,o['r_out'],o.get('voussoirs') or 11,conf)
-    # A dense low foliate field bounded by the photographed tympanum. The
-    # flower layout is explicitly reconstructed, never claimed as a scan.
-    spacing=.145
-    for row in range(max(1,int(r/spacing)+1)):
-        cz=zs+.065+row*spacing*.83
-        for col in range(-int(r/spacing)-1,int(r/spacing)+2):
-            cu=uc+col*spacing+(spacing/2 if row%2 else 0)
-            if (cu-uc)**2+(cz-zs)**2>(r-.075)**2:continue
-            radius=.070
-            flower=[]
-            for i in range(24):
-                theta=2*math.pi*i/24
-                rr=radius*(.72+.28*math.cos(theta*6))
-                flower.append((cu+rr*math.cos(theta),cz+rr*math.sin(theta)))
-            solid_polygon(b,o,flower,.049,.071,conf,TRIM)
-            center=[(cu+.015*math.cos(2*math.pi*i/8),cz+.015*math.sin(2*math.pi*i/8)) for i in range(8)]
-            solid_polygon(b,o,center,.071,.081,conf,TRIM)
-
-
-def columns(b,params):
-    ops=sorted([o for o in params.openings if o['kind']=='window' and o['face']=='east' and o['z0']>5],key=lambda o:(round(o['at'],3),round(o['z0'],2),o['u0']))
-    for a,c in zip(ops,ops[1:]):
-        gap=c['u0']-a['u1']
-        if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:
-            continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];conf=max(a['conf'],c['conf'])
-        pt=legacy._plane_point(a,u,0,.07)
-        cylinder(b,pt[0],pt[1],z0+.05,z1-.24,gap*.62,conf,TRIM,20)
-        slab(b,a,u-gap*.78,u+gap*.78,z0,z0+.09,-.08,.16,conf,TRIM)
-        slab(b,a,u-gap*.88,u+gap*.88,z1-.19,z1-.035,-.07,.18,conf,TRIM)
-        for j in range(5):
-            dx=(j-2)*gap*.29
-            # Small carved facets cast shadows on the capital, not a smooth cube.
-            poly=[(u+dx-.022,z1-.13),(u+dx,z1-.195),(u+dx+.022,z1-.13),(u+dx,z1-.055)]
-            solid_polygon(b,a,poly,.17,.185,conf,TRIM)
-        # Eight lobed leaves around a tapered Romanesque capital: their
-        # undercuts read in silhouette and cast shadows at grazing street light.
-        for leaf in range(8):
-            theta=2*math.pi*leaf/8
-            for j in range(4):
-                t0,t1=j/4,(j+1)/4
-                def P(t,side):
-                    rad=gap*(.60+.22*math.sin(math.pi*t))
-                    angle=theta+side*.27*math.sin(math.pi*t)
-                    return (pt[0]+rad*math.cos(angle),pt[1]+rad*math.sin(angle),z1-.29+.25*t)
-                b.raw([P(t0,-1),P(t0,1),P(t1,1),P(t1,-1)],conf,TRIM,(math.cos(theta),math.sin(theta),0))
 
 
 def roof_ridges(b,params):
@@ -1024,6 +1013,8 @@ def _discard_export_scratch_uv(ob):
 
 def build(params,name):
     from archetypes.masonry_house_v4_materials import build_materials, assign_metric_uvs
+    from archetypes.masonry_house_v4_landscape import add_lawn_blades
+    from archetypes.masonry_house_v4_foundation import stair_tower_plinth
     b=DetailBuilder(name,params)
     for r in params.ranges:legacy._range(b,r)
     for t in params.towers:tower(b,t,params)
@@ -1047,7 +1038,8 @@ def build(params,name):
     for w in params.walls:legacy._gate_piece(b,w)
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
-    columns(b,params)
+    grass_blades=add_lawn_blades(b,params)
+    ornament.columns(b,params)
     roof_ridges(b,params)
     b.decorate=True
     supplemental(b,params)
@@ -1055,12 +1047,14 @@ def build(params,name):
     service_stair(b,params)
     underpass(b,params)
     date_stones(b,params)
+    stair_tower_plinth(b,params)
     obj=b.to_object(build_materials(params.colours))
     assign_metric_uvs(obj)
     _discard_export_scratch_uv(obj)
     obj['detail_profile']='glessner_v4'
     obj['masonry_blocks']=b.masonry_blocks
     obj['roof_tiles']=b.roof_tiles
+    obj['grass_blades']=grass_blades
     axial=len([o for o in params.openings if o['kind'] not in ('fan','band')])
     bowed=sum(w['lights_per_row']*len(w['light_rows']) for w in params.bows)
     round_tower=len(params.detail.get('tower_stair_windows',{}).get('openings',[]))

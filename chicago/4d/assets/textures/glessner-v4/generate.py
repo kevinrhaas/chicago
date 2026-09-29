@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Deterministic original PBR studies for Glessner v4; no photographic pixels.
+"""Nine deterministic original PBR studies for Glessner v4; no photographic pixels.
 
 python assets/textures/glessner-v4/generate.py
 Requires numpy, Pillow and scipy. The house's stone courses and moulded details
 are geometry; these maps provide grain, mortar, clay laminations and metal aging.
 The maps are reconstructed, bounded by the material descriptions and the visual
 scale of existing HABS evidence, never measured samples of the historic surfaces.
+The separate granite_photographic_basecolor.png and turf_photographic_basecolor.png
+are original generated bitmaps; this recipe preserves them unchanged and never
+regenerates or overwrites them.
 """
 from __future__ import annotations
 import hashlib
@@ -54,8 +57,10 @@ def fracture_field(rng, cells):
     values = np.tile(heights, 9)
     interp = LinearNDInterpolator(points, values)
     q = (np.arange(SIZE, dtype=np.float32) + .5) / SIZE
-    warp_x = field(rng, 28) * .015
-    warp_y = field(rng, 28) * .015
+    # Only break mathematical triangle edges slightly; a stronger warp bent
+    # the whole split plane into a crumpled sheet in the close-view review.
+    warp_x = field(rng, 28) * .004
+    warp_y = field(rng, 28) * .004
     out = np.empty((SIZE, SIZE), dtype=np.float32)
     for start in range(0, SIZE, 128):
         xx, yy = np.meshgrid(q, q[start:start + 128])
@@ -141,13 +146,13 @@ def brick():
     soft = field(rng, 7)
     roughclay = field(rng, 2.1)
     shifts = .018 * field(rng, 35)
-    bodycolour = np.array([.475, .287, .208]) + shifts[..., None]
+    bodycolour = np.array([.460, .385, .295]) + shifts[..., None]
     bodycolour += (.012 * grit + .021 * soft + .012 * roughclay)[..., None]
     fired = smoothstep(.8, 2.0, field(rng, 20))
     bodycolour -= fired[..., None] * np.array([.033, .022, .014])
     height = .00012 * grit + .00030 * roughclay + .0005 * soft
     rough = .815 + .025 * roughclay
-    return save("brick", bodycolour, height, rough, "Reconstructed fired red-brown clay grain. "
+    return save("brick", bodycolour, height, rough, "Reconstructed grey-tan common-brick clay grain. "
                 "Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.", seed)
 
 
@@ -196,10 +201,10 @@ def oak(painted=False):
         note = "Reconstructed muted dark green painted sash and carriage joinery; a thin "
         note += "smooth coating with restrained grain telegraphing, not a sampled modern finish."
     else:
-        rgb = np.array([.213, .175, .120]) + (.011 * grain + .007 * broad)[..., None]
+        rgb = np.array([.380, .275, .165]) + (.014 * grain + .011 * broad)[..., None]
         h = .00006 * grain
-        rough = .53 + .045 * grain
-        note = "Subtle, vertically grained dark exterior oak. Reconstructed finish, not a sampled timber."
+        rough = np.clip(.51 + .035 * grain, .40, .61)
+        note = "Warm brown vertically grained exterior oak with restrained varnish roughness. Reconstructed finish, not a sampled timber."
     return save("painted_wood" if painted else "oak", rgb, h, rough, note, seed)
 
 
@@ -283,6 +288,10 @@ def main():
     doc = {"title": "Glessner v4 original material studies", "version": 1,
            "generated_by": "generate.py", "confidence": "reconstructed", "materials": mats,
            "rights": "Original procedural pixels; project-permissive terms in LICENSE.txt", "files": assets}
+    generated = sorted(OUT.glob("*_photographic_provenance.json"))
+    if generated:
+        doc["generated_albedos"] = [json.loads(path.read_text()) for path in generated]
+        doc["rights"] = "Original procedural and generated pixels; project-permissive terms in LICENSE.txt"
     (OUT / "material-library.json").write_text(json.dumps(doc, indent=2) + "\n")
     print(f"Generated {len(mats)} original PBR materials ({sum(v['bytes'] for v in assets.values()):,} bytes)")
 

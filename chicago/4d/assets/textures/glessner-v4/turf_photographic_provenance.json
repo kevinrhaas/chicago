@@ -1,0 +1,26 @@
+{
+  "title": "Original photographic turf albedo for Glessner House v4",
+  "created": "2026-09-29",
+  "method": "Built-in image generation; generic original material created from a text prompt. No reference photograph pixels supplied or sampled.",
+  "prompt": "Use case: photorealistic-natural\nAsset type: original seamless PBR diffuse/albedo texture for the mown courtyard lawn in a historically reconstructed architectural 3D model.\nPrimary request: a straight-down orthographic macro photograph of a 40 cm by 40 cm patch of dense, short, finely bladed cool-season lawn, suitable for seamless tiling on real geometry. Razor-sharp natural individual 1-3 mm wide blades and small flattened cut ends, a little sparse fine tan thatch and dark soil visible between blades. Natural irregular fine growth, no broad cloudy noise.\nComposition: square, entire frame filled edge to edge with grass; consistent detail density everywhere; seamless opposite edges.\nLighting: flat neutral diffuse albedo capture, evenly illuminated, no directional highlights, no large shadows, no vignette, no baked ambient-occlusion halos.\nPalette: restrained natural medium olive and cool dark green, individual yellow-green tips, subtle brown thatch, no saturated neon green.\nConstraints: photographic botanical detail; short maintained lawn, no tall meadow, no flowers, no stones, no leaves, no objects, no text, no border, no watermarks. This is a generic newly created material, not an image of a particular historical garden.",
+  "asset": "turf_photographic_basecolor.png",
+  "physical_repeat_m": [
+    0.4,
+    0.4
+  ],
+  "interpretation": "Reconstructed maintained lawn material, not evidence for particular historic blades or planting.",
+  "reproducibility": "Generated bitmap is preserved unchanged; numeric generator must retain it.",
+  "ai_generated": true,
+  "sha256": "bba9a7f4f432c442c86ec4a8bcf1190d5b195f47229f0073c6bebd5296b625b1",
+  "bytes": 3881389,
+  "size_px": [
+    1254,
+    1254
+  ],
+  "colour_space": "sRGB",
+  "output_modified": false,
+  "confidence": "reconstructed",
+  "reference_images": [],
+  "rights": "Use, modification and redistribution with this project under LICENSE.txt; retain provenance and reconstructed confidence.",
+  "limitations": "Original generated material study, not a photograph of the historic courtyard. Seamlessness and flat albedo illumination are generation targets, not measurements."
+}

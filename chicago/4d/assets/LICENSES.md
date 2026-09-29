@@ -435,19 +435,25 @@ detailing, signboards). They are exempt from regeneration but **not** from prove
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner v4 original materials — `textures/glessner-v4/`
 
-Nine original procedural PBR materials for the opt-in v4 building: granite,
-limestone, red-brown brick, terracotta, copper, oak, painted wood, short turf and pale compacted gravel. Deterministic
-`generate.py` supplies 2K building / 1K ground albedo and filtered 1K / 512px normal/roughness maps; the building
-geometry owns masonry joints, blocks, window recesses, roof tiles and metal seams.
-All pixel arrangements, exact colours, aging and grain are reconstructed.
+Nine original procedural PBR fabrics plus two separately preserved original
+generated albedos for the opt-in v4 building. Numeric fabrics: granite, limestone,
+grey-tan common brick, terracotta, copper, oak, painted wood, turf and pale gravel.
+`generate.py` reproduces the numeric maps and never overwrites either generated PNG.
+The original generated granite and turf images have exact prompts, SHA256, methods
+and limitations in their corresponding `*_photographic_provenance.json` files.
+No historical, supplied, Google, aerial or other photograph pixels were sampled,
+traced or embedded. Generated images were created from text prompts without
+reference-image input. They are material studies, not photographs of the house.
+All pixel arrangements, exact colours, grain, aging and sampling scales are
+reconstructed visual choices rather than measured historical evidence.
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|
-| `textures/glessner-v4/**` — original numeric-noise surface studies | **Project-permissive, CC0-equivalent**, the existing PBR libraries' terms; full text in `textures/glessner-v4/LICENSE.txt` | Use, modification and redistribution with this project, including regeneration | Stripping confidence/provenance or presenting procedural maps as photographs or measured historic fabric. No third-party photo or Google pixels are embedded, traced or sampled |
+| `textures/glessner-v4/**` — original procedural studies and generated granite/turf albedos | **Project-permissive, CC0-equivalent**, the existing PBR libraries' terms; full text in `textures/glessner-v4/LICENSE.txt` | Use, modification and redistribution with this project; regeneration of the nine numeric fabrics | Stripping confidence/provenance or presenting reconstructed textures as photographs of the house or measured historical fabric |
 
-The GLB embeds the maps it uses. Individual map files remain reproducible source
-assets. Existing HABS and supplied modern images were read as visual references,
-not reused as texture pixels.
+The GLB embeds the maps it uses. Original numeric albedos remain source assets even
+where the active material uses a generated bitmap. The building geometry owns
+masonry joints, block outlines, openings, roof tiles and standing seams.
 
 Every file, as the checker matches them one by one:
 
@@ -463,6 +469,8 @@ textures/glessner-v4/copper_roughness.png
 textures/glessner-v4/generate.py
 textures/glessner-v4/granite_basecolor.jpg
 textures/glessner-v4/granite_normal.png
+textures/glessner-v4/granite_photographic_basecolor.png
+textures/glessner-v4/granite_photographic_provenance.json
 textures/glessner-v4/granite_roughness.png
 textures/glessner-v4/gravel_basecolor.jpg
 textures/glessner-v4/gravel_normal.png
@@ -482,5 +490,7 @@ textures/glessner-v4/terracotta_normal.png
 textures/glessner-v4/terracotta_roughness.png
 textures/glessner-v4/turf_basecolor.jpg
 textures/glessner-v4/turf_normal.png
+textures/glessner-v4/turf_photographic_basecolor.png
+textures/glessner-v4/turf_photographic_provenance.json
 textures/glessner-v4/turf_roughness.png
 ```

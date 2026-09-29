@@ -1,0 +1,2958 @@
+{
+  "id": "glessner_house",
+  "phase": "as_built_1887",
+  "name": "John J. Glessner House",
+  "aka": [
+    "1800 Prairie Avenue",
+    "1800 S. Prairie Avenue"
+  ],
+  "archetype": "masonry_house",
+  "asset": "gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1887-12-01",
+    "to": "1946-08-31",
+    "confidence": "attested",
+    "sources": [
+      "glessner_story_of_a_house_1923",
+      "habs_glessner_house_il_1015_data_pages",
+      "inland_architect_1888_02_glessner_exterior"
+    ],
+    "note": "FROM: the family moved in in December 1887 (Glessner 1923; HABS data p. 1), and the February 1888 Inland Architect photograph shows the finished exterior; the day of the month is not stated, so the range opens on the 1st. TO: the research-centre conversion of September 1946 (HABS data p. 2) — stable door replaced, loft door closed up, courtyard paved — is the first exterior change recorded. The 1892 changes were interior. The phase is modelled as it stood on 1 July 1904, the scene date; values carried from the 1963-65 survey are ones the 1888 photograph brackets or the 1946 list does not touch (docs/RESEARCH/glessner_house_1904.md § 2)."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1338.69,
+    "local_n": -3240.42,
+    "rotation_deg": -0.669,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28",
+      "habs_glessner_house_il_1015_drawings"
+    ],
+    "position_note": "ON THE T-0474 PARCEL. data/street_grid/1904.json parcel prairie_1800 (Sanborn 1911 sheet 28) puts the lot's NE street corner at local E 1392.05, N -3217.24 and its NW rear corner at E 1338.07, N -3217.87. The house's north face stands on that 18th Street line and its east face 14.7 ft (4.481 m) behind the Prairie Avenue line — T-1731's reading of the same sheet at 6.0 px/ft, +/- 1.5 ft. Its NE corner is therefore E 1387.570, N -3217.292, and the footprint's origin (the SW corner of its bounding box) E 1338.687, N -3240.420. Rotation -0.669 degrees is the 18th Street line's own bearing (89.331 degrees, west to east) less 90, the long face's alignment. RECONCILED WITH THE PARCEL: the parcel is 177.1 ft deep, the house 161.25 ft plus the 14.7 ft setback, so the west face stands 0.35 m (1.16 ft) inside the parcel's alley line rather than on it; both readings carry more tolerance than that (+/- 1.5 ft on the setback, the parcel's own lines inferred), and the setback is kept because it is the one the street view depends on. Likewise the house's 74'-0\" leaves 0.7 ft of the parcel's 74.7-ft frontage to the south of it. INFERRED for 1904: a 1911 map, carried back because the building did not move (1888 photograph; HABS 1963).",
+    "symbolic_location": "1800 S. Prairie Avenue: the south-west corner of Prairie Avenue and E. 18th Street, on parcel prairie_1800 (data/street_grid/1904.json).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        4.343
+      ],
+      [
+        10.82,
+        4.343
+      ],
+      [
+        10.82,
+        14.377
+      ],
+      [
+        24.674,
+        14.377
+      ],
+      [
+        24.674,
+        13.658
+      ],
+      [
+        25.42,
+        12.207
+      ],
+      [
+        26.813,
+        11.36
+      ],
+      [
+        28.447,
+        11.36
+      ],
+      [
+        29.84,
+        12.207
+      ],
+      [
+        30.587,
+        13.658
+      ],
+      [
+        30.587,
+        14.377
+      ],
+      [
+        37.548,
+        14.374
+      ],
+      [
+        37.573,
+        13.631
+      ],
+      [
+        37.78,
+        12.911
+      ],
+      [
+        38.152,
+        12.265
+      ],
+      [
+        38.667,
+        11.729
+      ],
+      [
+        39.298,
+        11.329
+      ],
+      [
+        40.005,
+        11.095
+      ],
+      [
+        41.072,
+        11.095
+      ],
+      [
+        41.072,
+        7.376
+      ],
+      [
+        40.52,
+        7.361
+      ],
+      [
+        40.008,
+        7.166
+      ],
+      [
+        39.594,
+        6.809
+      ],
+      [
+        39.322,
+        6.331
+      ],
+      [
+        39.228,
+        5.791
+      ],
+      [
+        39.322,
+        5.252
+      ],
+      [
+        39.594,
+        4.773
+      ],
+      [
+        40.008,
+        4.417
+      ],
+      [
+        40.52,
+        4.221
+      ],
+      [
+        41.072,
+        4.206
+      ],
+      [
+        41.072,
+        0.0
+      ],
+      [
+        49.149,
+        0.0
+      ],
+      [
+        49.149,
+        22.555
+      ],
+      [
+        0.0,
+        22.555
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "habs_glessner_house_il_1015_drawings",
+      "sanborn_1911_vol3_sheet_28",
+      "inland_architect_1888_02_glessner_exterior"
+    ],
+    "note": "The ground-floor masonry outline, courtyard excluded: 34 points, about 7,054 sq ft, from HABS sheet 2's dimension strings (sheet 3 for the 99'-3\" courtyard), checked against Sanborn 1911 sheet 28 (the house drawn as a stone courtyard plan with the coach house at the alley) and the 1888 photograph — T-1731's outline (data/research/glessner_house_1904_spec.json § footprint), converted from the building frame to metres: x = (161.25 - W) * 0.3048, y = (74 - S) * 0.3048. The courtyard projections (stair tower, hall bow, dining bay) are measured, +/- 0.5 ft; printed runs +/- 0.1 ft."
+  },
+  "attributes": {
+    "frame_ft": {
+      "value": {
+        "length_ft": 161.25,
+        "depth_ft": 74.0,
+        "door_datum_above_grade_ft": 0.74,
+        "W": "feet west of the Prairie Avenue (east) face",
+        "S": "feet south of the E. 18th Street (north) face"
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "THE BUILDING FRAME every other attribute here is written in: HABS IL-1015's own, the plans' frame with their north arrow pointing down the sheet. 161'-3\" along 18th Street and 74'-0\" on Prairie Avenue are printed on sheet 2. Heights are in feet above one of two datums, named with each value: `door` is sheet 6's '0.00 AT DOOR' (the front-door sill), and the sidewalk before the doorway is printed at -0.74, so a door-datum height stands 0.74 ft higher above the walk; `ng` is the grade sheet 4 draws at the 18th Street wall. generators/archetypes/masonry_house_params.py converts all of them to metres once, into the footprint's frame (origin at the SW corner of the house's bounding box, x east, y north)."
+    },
+    "grade_datum": {
+      "value": {
+        "north_grade_above_grade_ft": 0.0
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "Sheet 4's 18th Street grade is taken as level with the Prairie Avenue sidewalk (sheet 6's -0.74). The offset between the two datums is not measured by any sheet; T-1731 found them agreeing within about a foot where they overlap (the east wing's eave and ridge), and the committed heightfield is flat across the lot to 2 cm (e1871_postfire, 4.32-4.34 m), so the two grades are one ground here."
+    },
+    "construction": {
+      "value": "stone",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Street walls of rock-faced granite ashlar in alternating high and low courses over brick (Glessner 1923; HABS data pp. 20-21, sheet 5); courtyard walls of common brick with limestone lintels and sills. THE STONE'S NAME IS DISPUTED and is carried, not resolved: 'Wellesley granite' (Glessner 1923; HABS 1963) against 'Braggville pink granite' (the museum, per the Prairie library dossier G02). Neither reading changes the geometry."
+    },
+    "paint": {
+      "value": "stone",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Bare masonry: nothing records a painted or limewashed surface on the house, and the 1888 photograph shows the dressed stone itself. `stone` is the value renderers/web/js/facades.js reads as masonry (jitter only, no silvering)."
+    },
+    "roof_covering": {
+      "value": "terracotta_tile",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Red baked terracotta tiles, unglazed (Glessner 1923), about 6 in wide with 5 in exposed (HABS data p. 21, 1963, when they had been tar-covered; the tar is later than 1904 and excluded). The ridges are crested with raised tiles at about 1.16 ft centres (sheet 6; the 1888 photograph), which the mesh draws as a plain ridge roll."
+    },
+    "granite_tint": {
+      "value": [
+        0.46,
+        0.41,
+        0.37
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "LINEAR rgb. A pale pinkish grey. No colour source was read: the 1888 photograph is monochrome and shows a pale stone, and 'pink granite' is the museum's phrase as the Prairie library records it (G02). Bounded by the pale value of the 1888 plate and the pinkish name. HABS photograph 1 (1963) shows the same walls near black with soot; how far that had gone by 1904 is unknown and is not drawn."
+    },
+    "brick_tint": {
+      "value": [
+        0.36,
+        0.14,
+        0.1
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "LINEAR rgb. 'Common brick of slightly pinkish colour' is attested for the courtyard walls (Glessner 1923; HABS 1963); the tint itself is ours, a warm red-brown lifted toward pink. It is deliberately NOT the town's 1835 brick row (common/materials.py BRICK), which is a soft-mud brick argued off a different building."
+    },
+    "trim_tint": {
+      "value": [
+        0.52,
+        0.5,
+        0.42
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "LINEAR rgb. Grey Joliet limestone lintels and sills on the courtyard walls are attested (Glessner 1923; HABS 1963); the grey is ours. The same slot carries the copings, the voussoir rings and the carved tympanum over the front door."
+    },
+    "roof_tint": {
+      "value": [
+        0.22,
+        0.055,
+        0.035
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "note": "LINEAR rgb. 'Red baked terracotta tiles, unglazed' (Glessner 1923) states the colour family; the value is ours, a dull brick-red dimmed for seventeen Chicago winters."
+    },
+    "copper_tint": {
+      "value": [
+        0.12,
+        0.1,
+        0.07
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "LINEAR rgb. Copper sheathing on the hall bow's roof is recorded by HABS (1963); by 1904 it had weathered for seventeen years in coal smoke, so it is drawn a dark brown rather than new copper or a full green patina. Also used for finials and the dining bay's faceted roof (see bay_dining_elevation)."
+    },
+    "wood_tint": {
+      "value": [
+        0.08,
+        0.038,
+        0.017
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "glessner_porte_cochere_doors_c1888",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "LINEAR rgb. The porte-cochere and front doors are oak (the c. 1888 photograph; HABS data p. 21), and their finish is not recorded; a dark oiled oak is ours. The stable's carriage doors and the courtyard gate take the same slot."
+    },
+    "range_east_wing": {
+      "value": {
+        "W": [
+          0.0,
+          26.5
+        ],
+        "S": [
+          0.0,
+          74.0
+        ],
+        "ridge_axis": "ns",
+        "walls": {
+          "east": "granite",
+          "north": "granite",
+          "south": "granite",
+          "west": "brick"
+        },
+        "wall_skip": {
+          "west": [
+            [
+              0.0,
+              26.83
+            ]
+          ]
+        }
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "sanborn_1911_vol3_sheet_28",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "The Prairie Avenue range: 74'-0\" along Prairie by 26'-6\" (sheet 2), two storeys over a raised basement with an attic under a steep N-S gable (Sanborn '2B'; sheets 4, 6). Street faces granite; its courtyard (west) face brick (sheet 2 hatching; Glessner 1923). The south face is drawn granite on the evidence of sheet 4's stipple — Sanborn prints 'WALL B.' inside it, recorded and not interpreted. Its west wall north of the north range's courtyard face is inside the house and is not drawn."
+    },
+    "ridge_east_wing": {
+      "value": {
+        "W": 13.25,
+        "ridge": [
+          45.7,
+          "door"
+        ],
+        "eave_east": [
+          27.1,
+          "door"
+        ],
+        "eave_west": [
+          26.5,
+          "ng"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Eave 27.1 ft and ridge 45.7 ft above the door datum are measured on sheet 6 (73.9 px/ft vertical, fixed by the sheet's printed 48.62 at the north chimney); the courtyard eave is 26.5 ft above north grade on sheet 4. INFERRED because the ridge LINE is placed on the wing's centre line (W 13.25): no roof plan confirms it, and the pitch that follows (about 55 degrees east, 56 west) depends on it. HABS data p. 21: 'steeply pitched, gabled roofs'. The 1888 photograph and HABS photograph 1 (1963) both show a symmetrical-reading gable end."
+    },
+    "gable_east_wing_north": {
+      "value": {
+        "end": "parapet",
+        "parapet_ft": 1.2
+      },
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "A stone parapet gable facing 18th Street, its coping rising from the eave corners to a chimney centred on the apex (1888 photograph; sheet 6 in profile; HABS photograph 1, 1963). The parapet's height above the roof (1.2 ft) is read off the 1888 plate against the eave, within about half a foot."
+    },
+    "gable_east_wing_south": {
+      "value": {
+        "end": "parapet",
+        "parapet_ft": 1.2
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "sanborn_1911_vol3_sheet_28"
+      ],
+      "note": "Sheet 4 draws the south gable edge-on in stipple (stone) rising to about ridge height, and sheet 6 draws its coping at the south end of the Prairie slope; so a parapet gable to match the north one. In 1904 the three-storey house at 1808 (Sanborn '3B') stood against most of it — that house is T-0475's, not drawn here."
+    },
+    "range_north_range": {
+      "value": {
+        "W": [
+          26.5,
+          125.75
+        ],
+        "S": [
+          0.0,
+          26.83
+        ],
+        "ridge_axis": "ew",
+        "walls": {
+          "north": "granite",
+          "south": "brick",
+          "east": "none",
+          "west": "none"
+        },
+        "wall_skip": {
+          "south": [
+            [
+              26.5,
+              38.1
+            ]
+          ]
+        },
+        "roof_extends_to": {
+          "east": 20.0,
+          "west": 161.25
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "sanborn_1911_vol3_sheet_28",
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_photo_01_nw_1963",
+        "owner_glessner_v4_reconstruction_brief_2026"
+      ],
+      "note": "The E. 18th Street range between the east wing (W 26.5) and the stable (W 125.75), 26'-10\" deep (1'-7\" + 4'-1\" + 1'-8\" + 18'-0\" + 1'-6\", sheet 2), two storeys over the basement (Sanborn '2B'). Granite to the street, brick to the courtyard. Its west end (about W 96.5-125.75) is the service block, entered 'through the great arch on Eighteenth Street' (Glessner 1923). The roof is drawn running into the east wing's and the stable's (to W 20 and W 139), under their slopes, so the valleys are the true intersections; its courtyard wall behind the hall bow is inside the house. V4: continue the north-range roof to the measured alley plane W 161.25, through the stable roof. HABS photograph 1 shows both the stable north gable and a ridge continuing behind it toward the alley; the owner's supplied modern overview confirms the cross-gabled reading qualitatively. The roof extension is inferred from the unchanged masonry envelope and the two intersecting ranges, rather than traced from the modern image. The alley triangular closure is declared in v4_detail."
+    },
+    "ridge_north_range": {
+      "value": {
+        "S": 14.6,
+        "ridge": [
+          34.1,
+          "ng"
+        ],
+        "eave_north": [
+          23.1,
+          "ng"
+        ],
+        "eave_south": [
+          26.5,
+          "ng"
+        ],
+        "kick": {
+          "side": "south",
+          "run_ft": 5.7,
+          "pitch_deg": 26.6
+        }
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "Sheet 4 (Section A-A, cut at W 51.3): ridge 34.1 ft above north grade, 14.6 ft south of the street face; street eave 23.1 ft, courtyard eave 26.5 ft; 36.6 degrees both ways, the courtyard slope flattening to about 27 degrees over its lowest 5.7 ft. The section is the only cut, and the profile is carried the length of the range on the evidence of the 1888 photograph (the 18th Street eave running level from the east gable to the stable's) and HABS photograph 1 (1963: one straight ridge from the east wing to the stable)."
+    },
+    "range_west_wing": {
+      "value": {
+        "W": [
+          125.75,
+          161.25
+        ],
+        "S": [
+          0.0,
+          59.75
+        ],
+        "ridge_axis": "ns",
+        "walls": {
+          "north": "granite",
+          "west": "granite",
+          "east": "brick",
+          "south": "brick"
+        },
+        "wall_skip": {
+          "east": [
+            [
+              0.0,
+              26.83
+            ]
+          ]
+        }
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "sanborn_1911_vol3_sheet_28",
+        "glessner_story_of_a_house_1923"
+      ],
+      "note": "The coach house — stable, carriage room, harness room and hay loft with the coachmen's rooms over — 35'-6\" E-W by 59'-9\" N-S at the alley (sheets 2-3), 1 1/2 storeys over the furnace room (Sanborn '1 1/2'; Glessner 1923: heating 'from the furnace room under the garage'). Granite on 18th Street and the alley; brick on its courtyard and south faces (sheet 2 hatching). ITS 1904 USE is inferred to be the stable it was built as: Glessner in 1923 writes 'the carriage house and stables (now garage)', and Sanborn labels it GARAGE in 1911, but nothing read dates the conversion before 1904. The exterior is the same either way."
+    },
+    "ridge_west_wing": {
+      "value": {
+        "W": 141.0,
+        "ridge": [
+          38.6,
+          "ng"
+        ],
+        "eave_east": [
+          23.1,
+          "ng"
+        ],
+        "eave_west": [
+          26.3,
+          "ng"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_photo_01_nw_1963",
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_house_il_1015_drawings",
+        "houghton_glessner_gle_b9_side_elevation"
+      ],
+      "note": "SETTLED BY HABS PHOTOGRAPH 1 (Cervin Robinson, 23 July 1963, 'exterior from northwest'), which T-1731 had not read and which replaces the spec's reconstructed 45-degree symmetric roof. On that print the gable apex, the loft opening and the carriage doorway stand on one axis, and sheet 2 prints the doorway at W 134.9-147.0, so the RIDGE is at W 141.0 (centre of the doorway), not at the wing's centre line (W 143.5). Scaled off the same print against the printed 12'-0\" doorway (13.3-13.5 px/ft at the stable face): gable coping apex about 39.6 ft above grade, so the ridge about 38.6 ft; the west eave at the NW corner about 26.3 ft; the east slope comes down to the 18th Street eave line at 23.1 ft, which the 1888 photograph shows running level into the foot of this gable. Tolerance about 1.5 ft on each height (a 1963 oblique photograph). The pitches that follow are about 41 degrees east and 31 west. Carried to 1904 because the 1946 alteration list (HABS data p. 2) names no roof work and the 1888 photograph shows the same gable and turret. Richardson's side-elevation sketch GLE B9 (Houghton; design intent, NOT evidence of the as-built form) draws the same gable centred on the carriage doorway."
+    },
+    "gable_west_wing_north": {
+      "value": {
+        "end": "parapet",
+        "parapet_ft": 1.0
+      },
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "A stone parapet gable on 18th Street with a relieving arch of radiating voussoirs over the loft opening (1888 photograph; HABS photograph 1). The coping stands about 1 ft above the roof line on the 1963 print."
+    },
+    "gable_west_wing_south": {
+      "value": {
+        "end": "plain"
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "The stable's south end (toward the courtyard's alley end and 1808's rear yard) is not drawn or photographed in anything read. Sheet 2 draws its south wall in brick. A plain brick gable matching the north end's roof is the simplest reading; a hip is equally possible. docs/LIBERTIES.md L295."
+    },
+    "tower_stair": {
+      "value": {
+        "centre_W": 27.3,
+        "centre_S": 55.0,
+        "r_ft": 5.25,
+        "eave_r_ft": 5.75,
+        "wall_top": [
+          32.5,
+          "ng"
+        ],
+        "apex": [
+          42.3,
+          "ng"
+        ],
+        "finial_ft": 2.0,
+        "wall": "brick",
+        "segments": 64
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "The round stair tower on the east wing's courtyard face: centre and radius measured on sheet 2 (+/- 0.5 ft), wall top 32.5 and cone apex 42.3 ft above north grade on sheet 4. HABS photograph 5 (c. 1923, the court) shows it: brick, conical roof, finial. The eave's half-foot overhang is the drawing's (sheet 4)."
+    },
+    "tower_north": {
+      "value": {
+        "base": [
+          20.0,
+          "ng"
+        ],
+        "wall_top": [
+          32.9,
+          "ng"
+        ],
+        "apex": [
+          43.9,
+          "ng"
+        ],
+        "finial_ft": 2.0,
+        "wall": "granite",
+        "segments": 64
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963",
+        "habs_glessner_photo_13_north_1965",
+        "houghton_glessner_gle_b9_side_elevation"
+      ],
+      "note": "THE 'LARGE PYRAMID-ROOFED ELEMENT' OF THE SPEC, NOW READ AS A ROUND TOWER. Sheet 4 draws, beyond the section plane at the north end, a masonry mass rising above the north range's roof with a pointed roof: eave 32.9, apex 43.9 ft above north grade, S 0-16.7 (attested there). Two photographs T-1731 had not read show its form: HABS photograph 1 (1963, from the north-west) has a round drum with a conical roof standing above the north range roof just west of the east wing's gable, and HABS photograph 13 (1965 photogrammetric plate, north elevation) shows the curved rock-faced drum at the junction. Richardson's sketch GLE B9 (design intent) draws a round tower with a conical roof at the same junction. So: a round granite drum and a tiled cone, INFERRED as a form from two dated photographs and a section. Its base is drawn from inside the north range (buried) up to the section's eave."
+    },
+    "tower_north_plan": {
+      "value": {
+        "centre_W": 35.0,
+        "centre_S": 8.6,
+        "r_ft": 7.35,
+        "eave_r_ft": 8.35
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "Where in plan the north tower stands is not drawn by any sheet. Its N-S extent (S 0-16.7, sheet 4) fixes the cone's eave diameter at 16.7 ft; the drum is taken a foot inside that, and its centre is put tangent to the east wing's west face (W 26.5 + 8.35) on HABS photograph 1, where the cone starts at the east gable's coping line. Bounded by the section and the print; W +/- 3 ft. docs/LIBERTIES.md L295."
+    },
+    "hall_bow": {
+      "value": {
+        "centre_W": 28.0,
+        "centre_S": 27.7,
+        "r_ft": 10.1,
+        "from": [
+          26.5,
+          37.6
+        ],
+        "to": [
+          38.06,
+          26.84
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "The curved wall of the entrance hall in the inner NE corner of the courtyard: '9'-6\" R' printed inside on sheet 2, centre measured, outer radius 10.1 ft; it sweeps from the east wing (S 37.6) to the north range (W 38.1). Sheet 3 draws it at the second floor with piers between large lights."
+    },
+    "hall_bow_height": {
+      "value": {
+        "wall_top": [
+          26.5,
+          "ng"
+        ],
+        "light_rows": [
+          [
+            9.3,
+            14.5
+          ],
+          [
+            19.5,
+            24.0
+          ]
+        ],
+        "lights_per_row": 3
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "Two storeys to the courtyard eave (26.5 ft, sheet 4): sheet 4 draws the bow beyond its section plane with its wall top at the eave line, and HABS photograph 5 (c. 1923) shows it, brick with stone lintels and sills, three lights to a storey, rising to the eave of the east wing's courtyard slope. The light rows are the house's own first- and second-floor window heights (sheets 4-5)."
+    },
+    "hall_bow_roof": {
+      "value": {
+        "rise_ft": 3.5,
+        "colour": "copper"
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "HABS data p. 21 (1963): 'The roof of the bow of the entrance hall in the ell of the house is covered with copper sheathing' — the material is carried to 1904 (nothing records a change). Its FORM is not drawn: sheet 4 shows only a short low roof over the bow meeting the main slopes. Drawn as a low cone sector rising 3.5 ft to meet them. docs/LIBERTIES.md L295."
+    },
+    "bay_dining": {
+      "value": {
+        "outline": [
+          [
+            80.3,
+            26.83
+          ],
+          [
+            80.3,
+            29.19
+          ],
+          [
+            77.85,
+            33.95
+          ],
+          [
+            73.28,
+            36.73
+          ],
+          [
+            67.92,
+            36.73
+          ],
+          [
+            63.35,
+            33.95
+          ],
+          [
+            60.9,
+            29.19
+          ],
+          [
+            60.9,
+            26.83
+          ]
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "The dining-room bay on the north range's courtyard face: five facets, 19.4 ft wide, projecting 10.3 ft (sheet 2; the room inside printed 17'-8\" x 11'-0\")."
+    },
+    "bay_dining_elevation": {
+      "value": {
+        "wall_top": [
+          17.4,
+          "ng"
+        ],
+        "glazed_band_top": [
+          20.5,
+          "ng"
+        ],
+        "roof_apex": [
+          70.6,
+          20.0,
+          [
+            34.0,
+            "ng"
+          ]
+        ],
+        "light_row": [
+          9.3,
+          14.5
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_photo_05_court_c1923",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "SETTLED IN FORM BY HABS PHOTOGRAPH 5 (a c. 1923 view of the court from The Story of a House), where T-1731 had a one-storey bay 'roofed below the second-floor windows' from sheet 3 alone. The photograph shows the bay as a masonry storey of large lights with a stone band at the second-floor level, over it a continuous glazed band of multi-pane sash, and a tall faceted roof of seamed sheet metal rising into the north range's slope. Sheet 3's light, many-sided outline at the second floor agrees: a glazed band drawn as joinery, not masonry. The HEIGHTS are read off the print against the adjoining wall's floor levels (sheet 4: second floor 17.4 ft), within about 1.5 ft: band top 20.5 ft in v4; the faceted roof's point at the height of the north range's ridge (34.0 ft), where the print puts it, standing on the slope 6.8 ft behind the wall. Phase: a 1923 photograph, carried to 1904 because the 1892 changes were interior and nothing records exterior work before 1946. The roof metal is drawn in the copper slot; its material is not stated. V4 re-reads the full-resolution photograph: the glazed band is about 78 px high against 129 px for the 5.2-ft main sash, implying about 3.1 ft above the 17.4-ft masonry. Its 20.5-ft top replaces the default’s inferred 23-ft reading, with approximately 1-ft uncertainty. The band has two glazed pane rows with a horizontal rail, rather than floor-height single sheets."
+    },
+    "dormers": {
+      "value": {
+        "face": "west",
+        "centres_S": [
+          32.3,
+          45.0,
+          66.8
+        ],
+        "width_ft": 4.4,
+        "eave": [
+          32.9,
+          "ng"
+        ],
+        "apex": [
+          37.0,
+          "ng"
+        ],
+        "light": [
+          [
+            30.0,
+            "ng"
+          ],
+          [
+            32.4,
+            "ng"
+          ]
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Three small pyramid-roofed dormers with finials on the east wing's courtyard slope (sheet 4: centres S 32.3, 45.0, 66.8; 4.4 ft wide; eave 32.9, apex 37.0 ft above north grade), one square light each. HABS photograph 5 (c. 1923) shows them. None on the Prairie slope (sheet 6; the 1888 photograph)."
+    },
+    "dormer_depth": {
+      "value": {
+        "front_W": 25.2,
+        "back_W": 21.0,
+        "bottom": [
+          27.5,
+          "ng"
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "How far the dormers stand forward on the slope is not drawn (sheet 4 is an elevation of the slope). Their fronts are set 1.3 ft back from the courtyard eave line, where the roof is about 28.5 ft high, and their cheeks run back into the slope; bounded by the section's eave and apex heights. docs/LIBERTIES.md L295."
+    },
+    "turret_stable": {
+      "value": {
+        "centre_W": 141.0,
+        "centre_S": 8.0,
+        "plan_ft": 6.0,
+        "base": [
+          36.0,
+          "ng"
+        ],
+        "body_top": [
+          41.1,
+          "ng"
+        ],
+        "louvre": [
+          38.9,
+          40.8
+        ],
+        "apex": [
+          46.7,
+          "ng"
+        ],
+        "finial_ft": 1.5
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "A small square louvred turret with a pyramidal roof and finial rides the stable's ridge — the FORM is attested by the 1888 photograph and HABS photograph 1 (1963). Every number is reconstructed from photograph 1's proportions against the printed carriage doorway: about 6 ft square, its body about 2.5 ft clear of the ridge with a louvred band, a pyramid about 5.6 ft high; set on the ridge just behind the gable (S 8, from the print's parallax). Its 1904 presence is inferred — no source reports a removal. docs/LIBERTIES.md L295."
+    },
+    "chimneys": {
+      "value": {
+        "north_gable": {
+          "S": [
+            0.5,
+            3.1
+          ],
+          "top": [
+            48.62,
+            "door"
+          ]
+        },
+        "south": {
+          "S": [
+            57.2,
+            61.2
+          ],
+          "top": [
+            48.5,
+            "door"
+          ]
+        },
+        "middle": {
+          "S": [
+            25.8,
+            28.6
+          ],
+          "top": [
+            48.5,
+            "door"
+          ]
+        },
+        "great": {
+          "S": [
+            16.5,
+            20.5
+          ],
+          "top": [
+            46.6,
+            "ng"
+          ]
+        }
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Four stone stacks. North gable: '48.62 +/- 0.02 AT TOP OF NORTH CHIMNEY' printed on sheet 6. South (12.85-16.81 ft north of the south end) and middle (base emerging 2 ft east of the ridge at 42.4 ft): sheet 6, tops measured. Great chimney behind the north gable: sheet 4 (S 16.5-20.5, top 46.6 ft above north grade); the 1888 photograph shows all four. N-S extents and tops only — see chimney_plans for the rest."
+    },
+    "chimney_plans": {
+      "value": {
+        "north_gable": {
+          "W": [
+            10.7,
+            15.8
+          ],
+          "base": [
+            40.0,
+            "door"
+          ]
+        },
+        "south": {
+          "W": [
+            9.5,
+            17.0
+          ],
+          "base": [
+            40.0,
+            "door"
+          ]
+        },
+        "middle": {
+          "W": [
+            9.25,
+            13.25
+          ],
+          "base": [
+            40.0,
+            "door"
+          ]
+        },
+        "great": {
+          "W": [
+            37.8,
+            42.2
+          ],
+          "base": [
+            28.0,
+            "ng"
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior",
+        "owner_glessner_v4_reconstruction_brief_2026"
+      ],
+      "note": "V4 retains HABS sheet 6's N-S positions, the printed north-stack top of 48.62 ft above door datum and the two measured 48.5-ft tops. E-W plan depths are reconstructed within the HABS plan envelope: north gable 5.1 ft, middle 4.0 ft, south 7.5 ft, great 4.4 ft. The south stack is deliberately broader in the transverse direction, bounded by the broad multiple-flue form the owner's overview flags; no screenshot is traced. These widths are not HABS dimensions. The default incorrectly gave every stack the same 4-ft depth. Bases stay buried in the roof. Coursed faces, tapered cap stones, flue mouths and roof flashings are v4_detail refinements. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry."
+    },
+    "chimney_dining_room": {
+      "value": {
+        "W": [
+          68.0,
+          72.0
+        ],
+        "S": [
+          9.0,
+          12.5
+        ],
+        "base": [
+          25.0,
+          "ng"
+        ],
+        "top": [
+          39.0,
+          "ng"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_photo_01_nw_1963",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "A FIFTH STACK the T-1731 spec does not list, on the north range's street slope near W 70: HABS photograph 1 (1963) shows it rising from the slope between the north tower and the great arch, and HABS photograph 5 (c. 1923) shows a stack over the dining bay — the dining room has a fireplace (HABS photograph 10). Position and top are read off photograph 1 against the printed openings below, about +/- 2 ft; its size is taken like the others'."
+    },
+    "openings_prairie": {
+      "value": {
+        "face": "east",
+        "at": 0.0,
+        "datum": "door",
+        "items": [
+          {
+            "what": "porte-cochere, closed by its two oak leaves",
+            "kind": "doors",
+            "at": [
+              62.38,
+              70.16
+            ],
+            "z": [
+              -1.9,
+              7.0
+            ],
+            "style": "porte_cochere"
+          },
+          {
+            "what": "pair of small first-floor windows",
+            "at": [
+              [
+                67.0,
+                69.3
+              ],
+              [
+                63.5,
+                66.2
+              ]
+            ],
+            "z": [
+              11.8,
+              16.2
+            ],
+            "style": "prairie_sash"
+          },
+          {
+            "what": "first-floor windows",
+            "at": [
+              [
+                54.4,
+                58.3
+              ],
+              [
+                45.1,
+                49.0
+              ],
+              [
+                16.9,
+                20.8
+              ],
+              [
+                8.1,
+                12.0
+              ]
+            ],
+            "z": [
+              9.2,
+              14.5
+            ],
+            "style": "prairie_sash"
+          },
+          {
+            "what": "front door",
+            "kind": "door",
+            "at": [
+              30.4,
+              35.4
+            ],
+            "z": [
+              0.0,
+              7.75
+            ],
+            "style": "prairie_front_door"
+          },
+          {
+            "what": "stone lintel over the door",
+            "kind": "band",
+            "at": [
+              30.1,
+              35.7
+            ],
+            "z": [
+              7.75,
+              9.3
+            ],
+            "style": "prairie_sash"
+          },
+          {
+            "what": "carved tympanum in a fan of radiating voussoirs",
+            "kind": "fan",
+            "at": [
+              30.4,
+              35.4
+            ],
+            "z": [
+              9.3,
+              15.7
+            ],
+            "spring": 9.3,
+            "inner_ft": 2.6,
+            "ring_ft": 6.4,
+            "voussoirs": 11,
+            "style": "prairie_sash"
+          },
+          {
+            "what": "basement lights, 3 x 3",
+            "at": [
+              [
+                54.4,
+                58.3
+              ],
+              [
+                45.1,
+                49.0
+              ],
+              [
+                16.9,
+                20.8
+              ],
+              [
+                8.1,
+                12.0
+              ]
+            ],
+            "z": [
+              0.8,
+              4.7
+            ],
+            "grid": [
+              3,
+              3
+            ],
+            "mullion_ft": 0.35,
+            "style": "stone_grille"
+          },
+          {
+            "what": "second-floor single window",
+            "at": [
+              64.6,
+              68.0
+            ],
+            "z": [
+              19.8,
+              24.3
+            ],
+            "style": "prairie_sash"
+          },
+          {
+            "what": "second-floor group of three, colonnettes between",
+            "at": [
+              46.7,
+              56.8
+            ],
+            "z": [
+              19.8,
+              24.3
+            ],
+            "lights": 3,
+            "style": "prairie_colonnade"
+          },
+          {
+            "what": "second-floor group of four",
+            "at": [
+              26.2,
+              40.0
+            ],
+            "z": [
+              19.8,
+              24.3
+            ],
+            "lights": 4,
+            "style": "prairie_colonnade"
+          },
+          {
+            "what": "carved string course under the group of four",
+            "kind": "band",
+            "at": [
+              26.2,
+              40.0
+            ],
+            "z": [
+              19.2,
+              19.6
+            ],
+            "style": "prairie_sash"
+          },
+          {
+            "what": "second-floor group of three",
+            "at": [
+              9.3,
+              19.4
+            ],
+            "z": [
+              19.8,
+              24.3
+            ],
+            "lights": 3,
+            "style": "prairie_colonnade"
+          }
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior",
+        "glessner_porte_cochere_doors_c1888"
+      ],
+      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps not modelled — see porte_cochere_doors."
+    },
+    "openings_18th": {
+      "value": {
+        "face": "north",
+        "at": 0.0,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "narrow corridor windows, first floor",
+            "row": "first",
+            "at": [
+              [
+                4.0,
+                5.6
+              ],
+              [
+                28.7,
+                30.3
+              ],
+              [
+                50.2,
+                51.5
+              ],
+              [
+                59.5,
+                60.8
+              ],
+              [
+                71.7,
+                73.0
+              ],
+              [
+                84.1,
+                85.3
+              ]
+            ]
+          },
+          {
+            "what": "wider first-floor window, 4 ft",
+            "row": "first",
+            "at": [
+              116.1,
+              120.1
+            ]
+          },
+          {
+            "what": "the great arch, over a recessed porch",
+            "kind": "arch",
+            "at": [
+              96.5,
+              108.5
+            ],
+            "z": [
+              0.0,
+              10.8
+            ],
+            "spring": 4.6,
+            "ring_ft": 9.5,
+            "voussoirs": 15
+          },
+          {
+            "what": "wide window over the great arch",
+            "at": [
+              97.7,
+              110.1
+            ],
+            "z": [
+              20.0,
+              23.7
+            ],
+            "lights": 3
+          },
+          {
+            "what": "paired second-floor windows, east wing gable",
+            "row": "second",
+            "at": [
+              [
+                7.2,
+                10.1
+              ],
+              [
+                12.0,
+                14.7
+              ]
+            ]
+          },
+          {
+            "what": "second-floor windows",
+            "row": "second",
+            "at": [
+              [
+                25.8,
+                28.1
+              ],
+              [
+                30.0,
+                32.9
+              ],
+              [
+                47.7,
+                48.5
+              ],
+              [
+                59.5,
+                60.8
+              ],
+              [
+                71.7,
+                73.1
+              ],
+              [
+                83.8,
+                85.1
+              ],
+              [
+                116.1,
+                120.2
+              ],
+              [
+                122.8,
+                125.2
+              ]
+            ]
+          },
+          {
+            "what": "service door immediately east of the stable carriage block",
+            "kind": "door",
+            "at": [
+              122.8,
+              125.2
+            ],
+            "z": [
+              0.0,
+              10.4
+            ],
+            "style": "service_door"
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior",
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_photo_01_nw_1963",
+        "habs_glessner_photo_15_north_stable_1965"
+      ],
+      "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (20.0-23.7 ft, sheet 5) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft)."
+    },
+    "openings_18th_photo": {
+      "value": {
+        "face": "north",
+        "at": 0.0,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "first-floor window in the east wing's north face",
+            "row": "first",
+            "at": [
+              17.6,
+              19.0
+            ]
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_photo_13_north_1965"
+      ],
+      "note": "A first-floor window in the east wing's 18th Street face that the plan reading did not list: HABS photograph 13 (1965 photogrammetric plate, north elevation) shows two first-floor slit windows under the paired second-floor windows, at about W 4-5.6 and W 17.6-19.0 (scaled on the print against the 26'-6\" gable, 34 px/ft)."
+    },
+    "openings_18th_stable": {
+      "value": {
+        "face": "north",
+        "at": 0.0,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "loft opening over the carriage doorway, open in 1904",
+            "kind": "dark",
+            "at": [
+              137.5,
+              144.7
+            ],
+            "z": [
+              17.4,
+              24.4
+            ]
+          },
+          {
+            "what": "small windows flanking the loft opening",
+            "at": [
+              [
+                132.4,
+                133.6
+              ],
+              [
+                149.1,
+                150.3
+              ]
+            ],
+            "z": [
+              17.8,
+              22.9
+            ]
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_photo_01_nw_1963",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Positions from sheet 3 (W 137.5-144.7; 132.4-133.6; 149.1-150.3). Heights read off HABS photograph 1 (1963) against the printed 12'-0\" doorway: loft opening 17.4-24.4 ft, flanking lights 17.8-22.9 ft. HABS data p. 2 lists the loft door as 'closed up' in 1946, so it was an open loft door before; drawn as an opening."
+    },
+    "openings_stable_doors": {
+      "value": {
+        "face": "north",
+        "at": 0.0,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "the stable's carriage doorway, closed by two leaves",
+            "kind": "doors",
+            "at": [
+              134.9,
+              147.0
+            ],
+            "z": [
+              0.0,
+              12.6
+            ],
+            "style": "stable_carriage_doors"
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "The DOORWAY is attested: rectangular, 11.9-12.1 ft wide, 12.6 ft to the soffit of a single flat granite lintel (sheets 2, 5). The DOORS of 1904 are not known — HABS records the stable door replaced in 1946, and HABS photograph 1 shows the 1946 overhead door. Drawn as a pair of plain oak leaves filling the opening; the panel drawn carries the reconstructed grade because the leaves are ours. docs/LIBERTIES.md L295."
+    },
+    "openings_alley": {
+      "value": {
+        "face": "west",
+        "at": 161.25,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "ground-floor lights",
+            "row": "first",
+            "at": [
+              [
+                6.2,
+                11.0
+              ],
+              [
+                19.9,
+                24.5
+              ],
+              [
+                34.4,
+                36.9
+              ],
+              [
+                41.3,
+                43.9
+              ],
+              [
+                48.2,
+                49.8
+              ],
+              [
+                53.8,
+                55.7
+              ]
+            ]
+          },
+          {
+            "what": "loft windows",
+            "row": "second",
+            "at": [
+              [
+                7.5,
+                8.9
+              ],
+              [
+                15.9,
+                16.7
+              ]
+            ]
+          },
+          {
+            "what": "wide upper opening, a second candidate for a loft door",
+            "kind": "dark",
+            "row": "second",
+            "at": [
+              43.0,
+              50.3
+            ]
+          }
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "The stable's granite alley wall, openings read as gaps on sheets 2-3 (+/- 0.4 ft). No sheet draws their heights: see opening_heights."
+    },
+    "openings_court": {
+      "value": {
+        "face": "west",
+        "at": 26.5,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "underpass exit into the courtyard",
+            "kind": "dark",
+            "at": [
+              63.3,
+              72.9
+            ],
+            "z": [
+              0.0,
+              8.1
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "first-floor window",
+            "at": [
+              43.0,
+              47.5
+            ],
+            "z": [
+              9.5,
+              14.6
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "tall narrow second-floor light",
+            "at": [
+              44.9,
+              46.7
+            ],
+            "z": [
+              19.5,
+              25.6
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "windows over the underpass",
+            "at": [
+              [
+                62.0,
+                64.5
+              ],
+              [
+                67.5,
+                70.0
+              ]
+            ],
+            "z": [
+              12.3,
+              16.9
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "windows under the eave over the underpass",
+            "at": [
+              [
+                62.0,
+                64.5
+              ],
+              [
+                67.5,
+                70.0
+              ]
+            ],
+            "z": [
+              21.0,
+              24.8
+            ],
+            "style": "courtyard_sash"
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "The east wing's courtyard face, read off sheet 4's elevation beyond the section plane (99 px/ft at full scale, read at 19.5 px/ft, +/- 1 ft; the sheet's horizontal origin is about 2.8 ft off the plan's, and positions are aligned to the stair tower the plan fixes) and checked against HABS photograph 5 (c. 1923). The underpass exit is 9.6 ft wide and 8.1 ft clear (sheet 4)."
+    },
+    "openings_court_north": {
+      "value": {
+        "face": "south",
+        "at": 26.83,
+        "datum": "ng",
+        "items": [
+          {
+            "what": "north range courtyard windows, first floor",
+            "row": "first",
+            "at": [
+              [
+                40,
+                44.5
+              ],
+              [
+                46,
+                50
+              ],
+              [
+                52,
+                56
+              ],
+              [
+                82,
+                86
+              ],
+              [
+                92,
+                96
+              ],
+              [
+                112,
+                118
+              ]
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "north range courtyard windows, second floor",
+            "row": "second",
+            "at": [
+              [
+                40,
+                42
+              ],
+              [
+                44,
+                48
+              ],
+              [
+                50,
+                54
+              ],
+              [
+                82,
+                86
+              ],
+              [
+                92,
+                96
+              ],
+              [
+                101,
+                105
+              ],
+              [
+                108,
+                109.5
+              ],
+              [
+                114,
+                119
+              ]
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "service entrance into the courtyard, with stone threshold",
+            "kind": "door",
+            "at": [
+              100,
+              104
+            ],
+            "z": [
+              6.0,
+              14.5
+            ],
+            "style": "courtyard_sash"
+          },
+          {
+            "what": "garden-level north-court lights below the principal rooms",
+            "at": [
+              [
+                40,
+                44.5
+              ],
+              [
+                46,
+                50
+              ],
+              [
+                52,
+                56
+              ],
+              [
+                82,
+                86
+              ],
+              [
+                92,
+                96
+              ],
+              [
+                112,
+                118
+              ]
+            ],
+            "z": [
+              0.8,
+              5.4
+            ],
+            "style": "courtyard_sash"
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923",
+        "owner_glessner_v4_reconstruction_brief_2026"
+      ],
+      "note": "V4 re-reading of HABS sheets 2-3: first-floor window gaps are retained at the measured north-court wall, but the swinging leaf at W 100-104 is a DOOR rather than a window. Second-floor gaps differ from the first-floor rhythm and are no longer a duplicated row. The three openings east of the dining bay are narrower above than below. Horizontal bounds are rounded plan readings, +/- 1.5 ft. The first- and second-floor heights retain the default. The garden row is reconstructed using the garden lights visible in HABS photograph 5 beside the dining bay and the floor levels on sheet 4; repeating their height at the other plan bays is a reconstruction, not a measured basement survey. The courtyard service door sill of 6 ft uses sheet 4's first-floor level. Modern references are qualitative cross-checks only. See docs/RESEARCH/glessner_house_v4.md; docs/LIBERTIES.md v4 entry."
+    },
+    "opening_heights": {
+      "value": {
+        "openings_18th": {
+          "first": [
+            9.3,
+            15.2
+          ],
+          "second": [
+            20.5,
+            23.8
+          ]
+        },
+        "openings_18th_photo": {
+          "first": [
+            9.3,
+            15.2
+          ]
+        },
+        "openings_alley": {
+          "first": [
+            7.0,
+            10.5
+          ],
+          "second": [
+            17.8,
+            22.9
+          ]
+        },
+        "openings_court_north": {
+          "first": [
+            9.3,
+            14.5
+          ],
+          "second": [
+            19.5,
+            24.0
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "Heights for openings whose positions are read off plans. 18th Street: sheet 5 draws one pair of the narrow corridor windows beside the great arch (first floor 9.3-15.2, second 20.5-23.8 ft above grade), and those heights are applied to every narrow opening on the face — the spec called that step inferred; it is carried here at the grade of the weakest row this attribute also holds. The alley wall's ground-floor lights are set high, as stable lights are (7.0-10.5 ft), and its loft lights take the 17.8-22.9 ft HABS photograph 1 shows on the stable's 18th Street face. The north range's courtyard rows take the house's first- and second-floor window rows. docs/LIBERTIES.md L295."
+    },
+    "eave_cornice": {
+      "value": {
+        "bands": [
+          {
+            "face": "east",
+            "at": 0.0,
+            "span": [
+              0.0,
+              74.0
+            ],
+            "z": [
+              [
+                26.4,
+                "door"
+              ],
+              [
+                27.1,
+                "door"
+              ]
+            ],
+            "proj_ft": 0.7
+          },
+          {
+            "face": "north",
+            "at": 0.0,
+            "span": [
+              26.5,
+              125.75
+            ],
+            "z": [
+              22.6,
+              23.1
+            ],
+            "proj_ft": 0.5
+          },
+          {
+            "face": "west",
+            "at": 161.25,
+            "span": [
+              0.0,
+              59.75
+            ],
+            "z": [
+              25.8,
+              26.3
+            ],
+            "proj_ft": 0.5
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "A moulded stone cornice under the Prairie Avenue eave and a plain eave course on 18th Street and the alley are visible in the 1888 photograph and HABS photograph 1; their depth and projection (0.5-0.7 ft) are ours. docs/LIBERTIES.md L295."
+    },
+    "courtyard_gate": {
+      "value": {
+        "face": "west",
+        "at": 161.25,
+        "thick_ft": 1.5,
+        "pieces": [
+          {
+            "kind": "wall",
+            "S": [
+              59.75,
+              61.3
+            ]
+          },
+          {
+            "kind": "gate",
+            "S": [
+              61.3,
+              70.8
+            ]
+          },
+          {
+            "kind": "pier",
+            "S": [
+              70.8,
+              74.0
+            ]
+          }
+        ]
+      },
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "glessner_story_of_a_house_1923"
+      ],
+      "note": "The courtyard's entrance from the alley, 'through which the family moved in, unseen, in December 1887' (Glessner 1923): sheet 2 draws a pair of gate leaves at S 61.3-70.8 between a stub of the stable wall and a granite gate pier (S 70.8-74.8; drawn to the lot's 74.0)."
+    },
+    "courtyard_gate_heights": {
+      "value": {
+        "wall": [
+          9.0,
+          "ng"
+        ],
+        "gate": [
+          8.0,
+          "ng"
+        ],
+        "pier": [
+          9.5,
+          "ng"
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "No sheet draws the gate or its pier in elevation. A 9-ft wall stub, an 8-ft pair of boarded oak leaves (closed) and a 9.5-ft pier are ours, bounded by the underpass's 8.1-ft clear height at the other end of the same carriage way. docs/LIBERTIES.md L295."
+    },
+    "courtyard_ground": {
+      "value": {
+        "surfaces": [
+          {
+            "kind": "lawn",
+            "tint": [
+              0.1,
+              0.155,
+              0.045
+            ],
+            "lift_ft": 0.05,
+            "outline": [
+              [
+                26.5,
+                26.83
+              ],
+              [
+                125.75,
+                26.83
+              ],
+              [
+                125.75,
+                59.75
+              ],
+              [
+                161.25,
+                59.75
+              ],
+              [
+                161.25,
+                74.0
+              ],
+              [
+                26.5,
+                74.0
+              ]
+            ]
+          },
+          {
+            "kind": "drive",
+            "tint": [
+              0.3,
+              0.28,
+              0.24
+            ],
+            "lift_ft": 0.12,
+            "outline": [
+              [
+                26.5,
+                63.3
+              ],
+              [
+                110.0,
+                63.3
+              ],
+              [
+                161.25,
+                61.3
+              ],
+              [
+                161.25,
+                70.8
+              ],
+              [
+                110.0,
+                72.9
+              ],
+              [
+                26.5,
+                72.9
+              ]
+            ]
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_photo_05_court_c1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "The courtyard was not a paved lot before 1946 (HABS data p. 2: 'entirely paved' then). HABS photograph 5 (c. 1923) shows it as a lawn with a hard carriage drive running from the underpass exit along the south side toward the alley gate. That is nineteen years after the scene date, so for 1904 the lawn and the drive's line are RECONSTRUCTED on that photograph's evidence rather than claimed from it; the drive's surface (the 1923 print reads as concrete) is drawn a neutral pale gravel tone. docs/LIBERTIES.md L295."
+    },
+    "porte_cochere_doors": {
+      "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",
+      "confidence": "attested",
+      "sources": [
+        "glessner_porte_cochere_doors_c1888",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "The c. 1888 photograph; HABS data p. 21 describes the same doors in a 1945 photograph. SIMPLIFIED in the mesh: the leaves are drawn as a flat oak panel with a centre joint (openings_prairie); the panels, mouldings and ironwork are not modelled.",
+      "geometry": "simplified"
+    },
+    "front_door": {
+      "value": "heavily panelled oak with iron straps and a large square window behind an iron grille, under a stone lintel and a carved tympanum",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_house_il_1015_data_pages",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "note": "Sheets 5-6; HABS data. SIMPLIFIED: drawn as a flat oak panel under a stone lintel and a plain tympanum inside the voussoir fan; the carving, grille and straps are not modelled.",
+      "geometry": "simplified"
+    },
+    "vines": {
+      "value": "Boston ivy on the street fronts and Virginia creeper on the courtyard walls, planted 1887; their extent in 1904 unknown",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "Glessner 1923 records both plantings in 1887. The 1888 photograph shows bare walls and HABS photograph 5 (c. 1923) shows bare stems on the courtyard's stair tower and bow. How far they had grown by 1904 is not recorded, and NO VINE IS DRAWN: the walls stand bare. docs/LIBERTIES.md L295.",
+      "geometry": "absent"
+    },
+    "ironwork_finish": {
+      "value": "Bower-Barffed iron, never painted",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "note": "Glessner 1923. The door straps, grilles and hinges it describes are not modelled (see porte_cochere_doors, front_door), so this is a statement about fabric no mesh surface carries.",
+      "geometry": "record_only"
+    },
+    "detail_profile": {
+      "value": "glessner_v4",
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923",
+        "owner_glessner_v4_reconstruction_brief_2026"
+      ],
+      "note": "Opt-in to the detailed v4 mesh treatment. It applies only to this version. Surface roughness, glazing, joinery and the dimensions in v4_detail are reconstructed within the cited measured sheets and photographs; the profile is not an additional historical fact. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry."
+    },
+    "v4_detail": {
+      "value": {
+        "ashlar_courses_in": [
+          18,
+          18,
+          15.5,
+          9.5,
+          13.5,
+          14.5,
+          7.5,
+          14.5,
+          7.5,
+          11.5,
+          7.5,
+          11.5,
+          7.5,
+          9.5,
+          7.5,
+          20,
+          8.5,
+          11.5,
+          17.5,
+          7.5,
+          9.5,
+          9.5,
+          9.5,
+          4
+        ],
+        "ashlar_joint_ft": 0.025,
+        "ashlar_relief_ft": [
+          0.025,
+          0.15
+        ],
+        "supplemental_openings": [
+          {
+            "face": "east",
+            "at": 125.75,
+            "datum": "ng",
+            "items": [
+              {
+                "what": "stable courtyard narrow first-floor windows, HABS sheet 2 plan gaps",
+                "at": [
+                  [
+                    30.5,
+                    32.0
+                  ],
+                  [
+                    41.7,
+                    43.2
+                  ],
+                  [
+                    51.8,
+                    53.4
+                  ]
+                ],
+                "z": [
+                  7.5,
+                  13.5
+                ],
+                "style": "courtyard_sash"
+              },
+              {
+                "what": "stable courtyard upper windows, HABS sheet 3 plan gaps",
+                "at": [
+                  [
+                    29.3,
+                    34.3
+                  ],
+                  [
+                    41.0,
+                    45.3
+                  ],
+                  [
+                    51.0,
+                    55.0
+                  ]
+                ],
+                "z": [
+                  18.0,
+                  22.5
+                ],
+                "style": "courtyard_sash"
+              },
+              {
+                "what": "stable courtyard garden lights, reconstructed beneath the stable window bays",
+                "at": [
+                  [
+                    29.5,
+                    33.0
+                  ],
+                  [
+                    41.0,
+                    44.5
+                  ],
+                  [
+                    50.8,
+                    54.3
+                  ]
+                ],
+                "z": [
+                  0.8,
+                  4.2
+                ],
+                "style": "courtyard_sash"
+              },
+              {
+                "what": "stable courtyard door beside the north-range junction",
+                "kind": "door",
+                "at": [
+                  26.9,
+                  29.4
+                ],
+                "z": [
+                  5.8,
+                  14.0
+                ],
+                "style": "courtyard_sash"
+              }
+            ]
+          },
+          {
+            "face": "south",
+            "at": 59.75,
+            "datum": "ng",
+            "items": [
+              {
+                "what": "stable south upper windows, HABS sheet 3 plan gaps; excludes the c.1955 stair door",
+                "at": [
+                  [
+                    138.8,
+                    141.4
+                  ],
+                  [
+                    143.5,
+                    146.0
+                  ],
+                  [
+                    148.0,
+                    150.4
+                  ]
+                ],
+                "z": [
+                  20.0,
+                  23.0
+                ],
+                "style": "courtyard_sash"
+              },
+              {
+                "what": "stable south lower windows, reconstructed from the stable window rhythm",
+                "at": [
+                  [
+                    130.5,
+                    134.0
+                  ],
+                  [
+                    152.0,
+                    155.5
+                  ]
+                ],
+                "z": [
+                  7.0,
+                  11.0
+                ],
+                "style": "courtyard_sash"
+              }
+            ]
+          },
+          {
+            "face": "west",
+            "at": 26.5,
+            "datum": "ng",
+            "items": [
+              {
+                "what": "east-wing courtyard garden light beside the stair tower, HABS sheet 4",
+                "at": [
+                  43.0,
+                  48.5
+                ],
+                "z": [
+                  1.0,
+                  4.5
+                ],
+                "style": "courtyard_sash"
+              }
+            ]
+          },
+          {
+            "face": "north",
+            "at": 0,
+            "datum": "ng",
+            "items": [
+              {
+                "what": "east-wing north-gable arched attic slit, HABS photo 14",
+                "kind": "arch",
+                "at": [
+                  12.5,
+                  14.0
+                ],
+                "z": [
+                  29.0,
+                  35.2
+                ],
+                "spring": 34.45,
+                "ring_ft": 4.7,
+                "voussoirs": 11,
+                "style": "gable_slit"
+              }
+            ]
+          },
+          {
+            "face": "north",
+            "at": 0,
+            "datum": "ng",
+            "items": [
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  136.75,
+                  137.25
+                ],
+                "z": [
+                  31.0,
+                  31.85
+                ],
+                "spring": 31.6,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  138.75,
+                  139.25
+                ],
+                "z": [
+                  31.0,
+                  31.85
+                ],
+                "spring": 31.6,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  140.75,
+                  141.25
+                ],
+                "z": [
+                  31.0,
+                  31.85
+                ],
+                "spring": 31.6,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  142.75,
+                  143.25
+                ],
+                "z": [
+                  31.0,
+                  31.85
+                ],
+                "spring": 31.6,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  144.75,
+                  145.25
+                ],
+                "z": [
+                  31.0,
+                  31.85
+                ],
+                "spring": 31.6,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  138.75,
+                  139.25
+                ],
+                "z": [
+                  33.0,
+                  34.2
+                ],
+                "spring": 33.95,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  140.75,
+                  141.25
+                ],
+                "z": [
+                  33.0,
+                  34.2
+                ],
+                "spring": 33.95,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  142.75,
+                  143.25
+                ],
+                "z": [
+                  33.0,
+                  34.2
+                ],
+                "spring": 33.95,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              },
+              {
+                "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+                "kind": "arch",
+                "at": [
+                  140.75,
+                  141.25
+                ],
+                "z": [
+                  35.2,
+                  36.4
+                ],
+                "spring": 36.15,
+                "ring_ft": 0.25,
+                "voussoirs": 0,
+                "style": "pigeon_vent"
+              }
+            ]
+          }
+        ],
+        "west_cross_gable": {
+          "W": 161.25,
+          "S": [
+            0,
+            26.83
+          ],
+          "ridge_S": 14.6,
+          "ridge": [
+            34.1,
+            "ng"
+          ],
+          "eaves": [
+            [
+              23.1,
+              "ng"
+            ],
+            [
+              26.5,
+              "ng"
+            ]
+          ]
+        },
+        "west_dormer": {
+          "centre_S": 47.0,
+          "width_ft": 8.0,
+          "front_W": 161.5,
+          "back_W": 153.0,
+          "base": [
+            25.0,
+            "ng"
+          ],
+          "eave": [
+            29.0,
+            "ng"
+          ],
+          "apex": [
+            35.0,
+            "ng"
+          ]
+        },
+        "copper_return": {
+          "W": [
+            38.0,
+            55.5
+          ],
+          "S": [
+            20.5,
+            28.0
+          ],
+          "wall_top": [
+            26.5,
+            "ng"
+          ],
+          "rise_ft": 3.5
+        },
+        "bow_garden_window_z": [
+          1.0,
+          5.5
+        ],
+        "bow_garden_windows": 2,
+        "dining_garden_window_z": [
+          1.0,
+          5.0
+        ],
+        "chimney_details": {
+          "north_gable": {
+            "flues": [
+              2,
+              1
+            ],
+            "cap_slope_ft": 0.35
+          },
+          "middle": {
+            "flues": [
+              2,
+              1
+            ],
+            "cap_slope_ft": 0.3
+          },
+          "south": {
+            "flues": [
+              3,
+              2
+            ],
+            "cap_slope_ft": 0.35
+          },
+          "great": {
+            "flues": [
+              2,
+              2
+            ],
+            "cap_slope_ft": 0.4
+          },
+          "dining_room": {
+            "flues": [
+              2,
+              1
+            ],
+            "cap_slope_ft": 0.3
+          }
+        },
+        "gable_details": {
+          "east_north": {
+            "centre_W": 13.25,
+            "date_stone_W": [
+              11.3,
+              15.2
+            ],
+            "date_stone_z": [
+              43.6,
+              45.5
+            ],
+            "ad_stone_z": [
+              45.8,
+              47.2
+            ],
+            "date_text": "1886",
+            "ad_text": "A.D."
+          },
+          "stable_north": {
+            "pigeon_ledge_W": [
+              135.9,
+              146.1
+            ],
+            "pigeon_ledge_z": [
+              30.4,
+              30.8
+            ],
+            "projection_ft": 0.8
+          }
+        },
+        "joinery": {
+          "window_recess_ft": 0.55,
+          "courtyard_lintel_height_ft": 0.8,
+          "courtyard_sill_height_ft": 0.3,
+          "courtyard_jamb_width_ft": 0.45,
+          "sash_frame_width_ft": 0.15,
+          "sash_meeting_rail_ft": 0.12,
+          "porte_cochere_leaves": 2,
+          "porte_cochere_panels_per_leaf": [
+            3,
+            6
+          ],
+          "front_door_grille": [
+            7,
+            7
+          ],
+          "front_door_glazing_z": [
+            3.8,
+            6.8
+          ],
+          "front_door_lower_panel_z": [
+            0.8,
+            3.3
+          ]
+        },
+        "tower_stair_windows": {
+          "angle_convention": "degrees from mesh +x east towards +y north",
+          "slits": [
+            {
+              "azimuth_deg": 145,
+              "width_ft": 1.0,
+              "z": [
+                7.6,
+                12.5
+              ]
+            },
+            {
+              "azimuth_deg": 145,
+              "width_ft": 1.0,
+              "z": [
+                17.8,
+                22.0
+              ]
+            },
+            {
+              "azimuth_deg": 215,
+              "width_ft": 1.0,
+              "z": [
+                4.5,
+                9.2
+              ]
+            },
+            {
+              "azimuth_deg": 215,
+              "width_ft": 1.0,
+              "z": [
+                15.7,
+                19.8
+              ]
+            }
+          ],
+          "lantern": [
+            {
+              "azimuth_deg": 135,
+              "width_ft": 2.2,
+              "z": [
+                27.0,
+                31.0
+              ]
+            },
+            {
+              "azimuth_deg": 180,
+              "width_ft": 2.2,
+              "z": [
+                27.0,
+                31.0
+              ]
+            },
+            {
+              "azimuth_deg": 225,
+              "width_ft": 2.2,
+              "z": [
+                27.0,
+                31.0
+              ]
+            }
+          ],
+          "lantern_sill_band_z": [
+            25.8,
+            27.0
+          ],
+          "lantern_lintel_band_z": [
+            31.0,
+            32.5
+          ],
+          "lantern_panes": [
+            2,
+            3
+          ]
+        },
+        "bow_terrace": {
+          "centre_W": 28.0,
+          "centre_S": 27.7,
+          "outer_r_ft": 14.0,
+          "top_z": [
+            6.1,
+            "ng"
+          ],
+          "coping_ft": 0.4,
+          "wall_thickness_ft": 1.2,
+          "window_count": 2,
+          "window_z": [
+            1.0,
+            3.8
+          ],
+          "parapet_height_ft": 2.2,
+          "stair_steps": 9
+        },
+        "bow_first_floor_central_door": true,
+        "underpass": {
+          "plan_WS": [
+            [
+              0,
+              62.38
+            ],
+            [
+              0,
+              70.16
+            ],
+            [
+              26.5,
+              72.9
+            ],
+            [
+              26.5,
+              63.3
+            ]
+          ],
+          "ceiling_prairie": [
+            7.0,
+            "door"
+          ],
+          "ceiling_court": [
+            8.1,
+            "ng"
+          ],
+          "floor": [
+            0,
+            "ng"
+          ]
+        },
+        "porte_cochere_open_deg": 82,
+        "dining_garden_window_facets": [
+          0,
+          2,
+          4
+        ],
+        "north_court_service_stair": {
+          "landing_W": [
+            98.7,
+            112.9
+          ],
+          "landing_S": [
+            26.83,
+            32.2
+          ],
+          "flight_W": [
+            108.2,
+            112.1
+          ],
+          "flight_S": [
+            32.2,
+            41.1
+          ],
+          "landing_z": [
+            6,
+            "ng"
+          ],
+          "steps": 10,
+          "rail_height_ft": 3
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_05_court_c1923",
+        "owner_glessner_v4_reconstruction_brief_2026",
+        "habs_glessner_photo_14_north_inclined_1965",
+        "habs_glessner_photo_15_north_stable_1965"
+      ],
+      "note": "V4 detail schedule. The 24 ashlar course heights are TRANSCRIBED IN INCHES, bottom-to-top, from HABS sheet 5's dimension string, totalling 271 in (22.5833 ft); carrying the sequence around other granite faces and repeating shorter upper courses above it is reconstructed. Stable courtyard and south upper opening horizontal bounds are measurements from sheets 2-3, rounded to half-foot-scale accuracy; their heights and the unrecorded garden/south lower lights are reconstructed. East court garden light and bow basement pair are visible on sheet 4; dining garden lights are visible in photograph 5. Cross-gable roof dimensions use the canonical ranges and the HABS footprint; the smaller alley dormer, the copper return and chimney-flue layouts are reconstructed forms, bounded by the owner's requested omissions and surviving fabric comparisons without tracing modern imagery. The corner copper roof remains a copper-clad bow joined to a shallow pitched north-range return, not a separate floating awning. Full per-feature evidence and uncertainty: docs/RESEARCH/glessner_house_v4.md. Surface joint width and relief are artistic reconstructions; they are not survey measurements. docs/LIBERTIES.md v4 entry. HABS photographs 14-15 also supply the omitted east-wing high arched slit and the stable gable's 5-3-1 pigeon-hole arrangement and ledge. Their dimensions are reconstructed photographic proportions (+/- 1 ft), not survey labels. Joinery recesses, sash widths, carved detail depths and grille thicknesses are reconstructed; the Prairie basement 3-by-3 stone grilles and the porte-cochere's two leaves with 3-by-6 panels each are attested by sheets 5-6 and the c.1888 door photograph. The 7-by-7 front door iron grid is a simplified reconstruction of the denser grille shown on sheet 5. The stair tower has four staggered slit windows and an upper three-light front lantern row, heights measured from sheet 4 (+/-1 ft); angles/widths are reconstructed on the measured drum. A low projecting bowed terrace carries TWO basement grilles and a main-level central door, as sheet 4/photo 5 show. Terrace radius 14 ft and coping dimensions are reconstructed. The underpass is an actual opening through the east range with stone returns, its plan bounds from sheet 2 and entrance heads from sheets 4/6; it is not an opaque dark panel. Later owner views image(9), image(10), and the courtyard westward view received 2026-09-29 confirm those distinctions qualitatively. That westward view also resolves the stable upper windows as nearly square, not transoms: z18–22.5 with the sheet3 widths; lower narrow lights z7.5–13.5. These unprinted heights remain reconstructed. The historical paired porte-cochere leaves are posed 82 degrees inward, a reconstructed momentary operating position chosen to reveal the full passage; their documented construction is retained. Modern images inform feature arrangement, counts and material boundaries where explicitly named; no photographed pixels are reused. The modern courtyard image(9) refines the reconstructed bow-terrace grille height to z 1–3.8 ft ng (beneath a 6.1-ft platform) and dining garden lights to z 1–5 ft ng; these are proportion estimates, not HABS dimensions. Image(10) also supports a parapet above the walking platform that partly hides the central door. Its 2.2-ft height (about 0.67 m, bounded 0.55–0.8 m) is a proportional reconstruction; nine risers are reconstructed from the 1.68-m rise, not counted in the partially visible photograph. The doorway threshold aligns with the platform. HABS photograph 5 and supplied courtyard image(9) show garden grilles alternating beneath the principal dining-bay sash: three openings on normalized principal facets 0, 2 and 4, with brick beneath facets 1 and 3. The tower lantern retains the six-pane (2 columns by 3 rows) lights visible in HABS photograph 5, rather than the replacement 1-over-1 sash in modern views. The raised north-court service door has the landing and south-descending stair drawn on HABS sheet 2. Plan bounds are scaled against the four-foot door, approximately +/- 0.5 ft; the ten risers and three-foot rail are reconstructed. Stone slab/treads, two slender brick landing supports, a brick stair cheek and iron rail are bounded by the supplied tunnel-facing courtyard photograph, not claimed as measured original details. This is separate from the later wooden stairs outside the stable south wall."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "The house of John Jacob Glessner (1843-1936) and Frances Macbeth Glessner, designed by H. H. Richardson and built by Norcross Brothers, 1886-1887; the family lived here from December 1887 (Glessner 1923; HABS data p. 1). The west wing was the family's stable and carriage house (see range_west_wing)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "glessner_porte_cochere_doors_c1888",
+      "citation": "George Glessner (attributed), photograph of the porte-cochere (carriage) doors of the John J. Glessner House, 1800 Prairie Avenue, circa 1888. Reproduced by Glessner House, 'Porte Cochere doors'.",
+      "url": "https://www.glessnerhouse.org/porte-cochere-doors",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the design of the porte-cochere doors and the form of the opening's corner stones, circa 1888"
+      ],
+      "what_it_does_not_supply": [
+        "dimensions (the opening is measured on HABS sheet 6)",
+        "the wood's finish or colour"
+      ]
+    },
+    {
+      "source_id": "glessner_story_of_a_house_1923",
+      "citation": "Glessner, John J. The Story of a House. Unpublished typescript booklet written for his children George and Frances, signed 'Faithfully your father, John J. Glessner', March 1923. Transcribed in full in HABS No. ILL-1015, Written Historical and Descriptive Data, data pages 7-21 (1963).",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the roof covering as built: red baked tiles, unglazed",
+        "the street walls of Wellesley granite; all walls lined with hollow brick",
+        "the courtyard elevation of common brick of slightly pinkish colour with grey limestone trimmings, matched in the adjoining house's wall",
+        "the courtyard entrance from the alley, used on moving day in December 1887",
+        "Virginia creeper on the courtyard walls (carried from the old house, 1887) and Boston ivy on the street front (from plants sent after June 1887)",
+        "the service entrance 'through the great arch on Eighteenth Street'; the Eighteenth Street door and back stairs",
+        "outside iron-work Bower-Barffed rather than painted"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension",
+        "the extent of the ivy or creeper in any year",
+        "when the stable became a garage"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_house_il_1015_data_pages",
+      "citation": "Historic American Buildings Survey. John J. Glessner House (Now Chicago School of Architecture Foundation), 1800 Prairie Avenue. HABS No. ILL-1015. Photographs; Written Historical and Descriptive Data, data pages 1-23 (prepared by David T. Van Zanten, student assistant architect, and Osmund Overby, supervisory architect, August 1963) and addendum data pages 24-25 (inventory of photogrammetric images, 1985-1986). National Park Service; Library of Congress, Prints and Photographs Division.",
+      "url": "https://www.loc.gov/item/il0118/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the exterior construction as surveyed in 1963: foundations of Joliet limestone ending at the ground line; brick walls faced with alternately six- and eight-inch sheets of granite with deeper returns at openings; courtyard walls of light pink brick with Joliet limestone lintels and sills; steeply pitched gabled roofs covered with tar-covered terracotta tiles six inches wide, five inches exposed; copper sheathing on the roof of the entrance-hall bow",
+        "the original east carriage (porte-cochere) door as seen in a 1945 photograph: two heavily panelled leaves with heavy iron straps and latches",
+        "the list of 1946 alterations, which is the phase filter every 1963 dimension has to pass for 1904",
+        "the legal description and the March 1885 purchase of lots 39, 40 and the north 17 ft of lot 38"
+      ],
+      "what_it_does_not_supply": [
+        "the widths of lots 38-40 in feet: the lot sizes of the Assessor's Division block are not stated",
+        "the date the stable became a garage, the date the roof tiles were tarred, or any other change between 1887 and 1946 that it does not list",
+        "measurements: the data pages describe; the drawings (habs_glessner_house_il_1015_drawings) measure"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_house_il_1015_drawings",
+      "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 S. Prairie Avenue, Chicago, Cook County, Illinois. HABS IL-1015 (HABS ILL,16-CHIG,17-), measured drawings, sheets 1-6: sheet 1 title sheet with neighborhood plan (1\" = 100', buildings from Bromley 1892), sheet 2 first floor plan (3/32\" = 1'-0\", del. Robert C. Giebner, June 1963), sheet 3 second floor plan (3/32\" = 1'-0\", del. Giebner), sheet 4 Section A-A (1/4\" = 1'-0\", del. Janis J. Erins), sheet 5 masonry details (1/4\" = 1'-0\", del. David T. Van Zanten), sheet 6 front (east) elevation (photogrammetric, photographed April 6, 1965, plotted at the Ohio State University under Perry E. Borchers, drawn by Eric N. DeLony). Library of Congress, Prints and Photographs Division.",
+      "url": "https://www.loc.gov/item/il0118/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the plan envelope of the house: 161'-3\" along E. 18th Street, 74'-0\" along Prairie Avenue, the 26'-6\" east wing, the 35'-6\" by 59'-9\" west (stable) wing, the 26'-10\" north range and the 47'-2\" / 99'-3\" courtyard (sheets 2-3 dimension strings)",
+        "courtyard-side projections: the round stair tower, the 9'-6\" radius hall bow and the dining-room bay (sheet 2)",
+        "the east (Prairie Avenue) facade opening by opening, and its heights: 24.30 ft to the second-floor window soffits and 48.62 ft to the top of the north chimney above the door sill (sheet 6)",
+        "floor levels, eave and ridge heights and the roof profile of the north range, and the dormers, tower and eave of the east wing's courtyard slope (sheet 4)",
+        "the 18th Street entrance arch, the 18th Street carriage doorway, the Prairie Avenue entrance and the granite coursing (sheet 5)",
+        "the street-face openings of the north and west walls at first- and second-floor level, as gaps in the plans (sheets 2-3)"
+      ],
+      "what_it_does_not_supply": [
+        "a north (18th Street), west (alley) or courtyard elevation: none of the six sheets draws one, so heights on those faces come from sheets 4-5 and the 1888 photograph or are reconstructed",
+        "a roof plan: the E-W extent of the pyramid-roofed element in Section A-A, the stable roof and the roofs over the bays are not drawn",
+        "anything about 1904 as such: it is a 1963-1965 record",
+        "the colour of any material, or door and window hardware beyond what sheets 5-6 draw",
+        "lot lines: no sheet draws the property boundary except the thin south boundary wall on sheets 2-3"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_photo_01_nw_1963",
+      "citation": "Cervin Robinson for the Historic American Buildings Survey, 'Exterior from northwest', John J. Glessner House, 1800 South Prairie Avenue, Chicago, 23 July 1963. HABS IL-1015, photograph 1 of 17 (call number HABS ILL,16-CHIG,17--1). Library of Congress, Prints and Photographs Division.",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the stable's gable and ridge position and approximate heights",
+        "the round form of the north tower",
+        "a chimney on the north range near W 70",
+        "the heights of the stable's loft opening and flanking lights"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state of the doors (replaced 1946)",
+        "colour (the walls are soot-black in 1963)",
+        "the courtyard"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_photo_05_court_c1923",
+      "citation": "'Interior court', John J. Glessner House, 1800 South Prairie Avenue, Chicago, photograph circa 1923 from J. J. Glessner, The Story of a House (1923); HABS photocopy, HABS IL-1015 photograph 5 of 17 (call number HABS ILL,16-CHIG,17--5). Library of Congress, Prints and Photographs Division.",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the dining bay's elevation and roof form",
+        "the hall bow's height and lights",
+        "the courtyard's lawn and drive in c. 1923",
+        "confirmation of the dormers and stair tower"
+      ],
+      "what_it_does_not_supply": [
+        "dimensions (an oblique view)",
+        "colour",
+        "the 1904 state of the planting"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_photo_13_north_1965",
+      "citation": "Perry E. Borchers (Ohio State University) for HABS, 'North elevation - level: left stereopair', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-201L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 13 of 17 (call number HABS ILL,16-CHIG,17--13). Library of Congress.",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060915p",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second first-floor window in the east wing's north face (about W 17.6-19.0)",
+        "the round, stone form of the north tower's drum"
+      ],
+      "what_it_does_not_supply": [
+        "heights above the frame's top edge",
+        "the 1904 state of anything the 1946 list names"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_photo_14_north_inclined_1965",
+      "citation": "Perry E. Borchers (Ohio State University) for HABS, 'North elevation - inclined: left stereopair', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-202L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 14 of 17 (call number HABS ILL,16-CHIG,17--14). Library of Congress.",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the position of the 18th Street gable's apex and its chimney (W ~17, the chimney ~6.2 ft wide)",
+        "the round tower's cone beside the gable, and a first estimate of its axis (W ~37 after the depth correction)",
+        "the two first-floor slits and second-floor pairs of the east wing's north face"
+      ],
+      "what_it_does_not_supply": [
+        "reliable heights (the plate is tilted)",
+        "anything south of the gable"
+      ]
+    },
+    {
+      "source_id": "habs_glessner_photo_15_north_stable_1965",
+      "citation": "Perry E. Borchers (Ohio State University) for HABS, 'North elevation: right stereopair', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-203L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 15 of 17 (call number HABS ILL,16-CHIG,17--15). Library of Congress.",
+      "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the stable's gable: rakes meeting at W 140.2, 38.0 ft above grade; the west eave 23.55",
+        "the 18th Street eave line at the west end of the north range (23.9)",
+        "the loft door, flanking lights, carriage doorway, and the north range's west-end windows and service door, with heights",
+        "the band of lights over the great arch"
+      ],
+      "what_it_does_not_supply": [
+        "the stable's turret above the top edge",
+        "the 1904 doors (the 1946 replacements are shown)"
+      ]
+    },
+    {
+      "source_id": "houghton_glessner_gle_b9_side_elevation",
+      "citation": "Office of H. H. Richardson, 'Sketch elevation of side', design drawing for the J. J. Glessner house, Chicago, graphite on tracing paper, 1885-1887. Houghton Library, Harvard University, Henry Hobson Richardson drawings, Glessner house (GLE), drawing GLE B9 (one of catalog entries 8-12; Box 2, Folders 7-8).",
+      "url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the designer's intent for the 18th Street elevation: the north tower and the stable gable's axis"
+      ],
+      "what_it_does_not_supply": [
+        "the as-built form",
+        "dimensions"
+      ]
+    },
+    {
+      "source_id": "inland_architect_1888_02_glessner_exterior",
+      "citation": "Exterior photograph of the John J. Glessner House, 1800 Prairie Avenue, from the north-east (Prairie Avenue and E. 18th Street), winter. The Inland Architect and News Record, vol. XI, no. 1 (February 1888), photograph section. Reproduced by Glessner House, 'Exterior from Inland Architect'.",
+      "url": "https://www.glessnerhouse.org/exterior-from-inland-architect",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the 1888 state of the Prairie Avenue facade and the north gable, bracketing the 1965 elevation",
+        "the 18th Street eave line and the west wing's north gable and ridge turret, which no HABS sheet draws",
+        "the absence of dormers on the Prairie Avenue roof slope"
+      ],
+      "what_it_does_not_supply": [
+        "dimensions: it is an oblique photograph",
+        "colour",
+        "the courtyard or the alley side",
+        "the state of the vines in 1904 (in the photograph the walls are bare)"
+      ]
+    },
+    {
+      "source_id": "owner_glessner_v4_reconstruction_brief_2026",
+      "citation": "Project owner, Glessner House version 4 reconstruction brief, 29 September 2026: correct intersecting roofs, courtyard and garden-level openings, continuous copper roof at the inner northeast corner, variable-height ashlar courses, and east-wing chimneys.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "The owner-requested visible omissions to correct in version 4.",
+        "Qualitative cross-check that a cross gable, west-wing courtyard windows, garden-level lights and a continuous corner copper roof should not be omitted."
+      ],
+      "what_it_does_not_supply": [
+        "A measured survey or a dated 1904 view.",
+        "Reusable photographic textures or permission to redistribute third-party reference images.",
+        "Exact dimensions, colour, roof patina, plantings, or a pre-1946 date for an otherwise undocumented opening."
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_vol3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Vol. 3 (1911), sheet 28: E. 18th St. to E. 20th St., Prairie Av. Blvd. and Calumet Av. to the Illinois Central / Michigan Central tracks and Lake Michigan. Scale 1\" = 50'. Stamped 'Fire Insurance Map Collection, Geography and Map Division, Library of Congress'; header 'Chicago Vol. 3', with 1891-edition cross-references (245-246) (252-253).",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the house's position on its lot: north face on the E. 18th Street line, west face on the alley line, east face about 14.7 ft (±1.5 ft) behind the Prairie Avenue street line",
+        "a check on the HABS envelope: about 161 x 75 ft overall and a 35 x 59 ft west wing at 1\" = 50'",
+        "materials by colour (stone street walls, brick courtyard walls) and storeys (2B main house, 1½ west wing) in 1911",
+        "the neighbour that closes the courtyard on the south in 1911 (1808 Prairie and its rear garage)"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1904 directly: a 1911 sheet shows only that a structure stood in 1911",
+        "the 1904 use of the west wing: '1911 GARAGE' cannot be backdated",
+        "architecture above the footprint - roof pitches, chimneys, openings",
+        "lot dimensions in figures for this lot: none are printed on it"
+      ]
+    }
+  ],
+  "research_note": "THE DEFAULT VERSION OF THE GLESSNER HOUSE (T-1732), built from T-1731's specification (docs/RESEARCH/glessner_house_1904.md) and tightened by two sets of sources that landed after it: the 17 HABS photographs (PR #169) and ten Richardson drawings from Houghton Library (PR #171). What they settled, and what they did not, is § 13 of the research page. Alternates for the owner's comparison are T-1730's, under data/structures/versions/glessner_house/. Interior out of scope. The courtyard's south side — 1808 Prairie's north wall — is that house's (T-0475) and is not drawn here, so until it lands the courtyard reads open to the south. V4 retains the canonical building placement and measured envelope. Its additional fabric and the precise distinction between HABS measurements and reconstruction are recorded in docs/RESEARCH/glessner_house_v4.md. Modern reference images inform reconstructed feature arrangement and material boundaries; no photographed pixels are copied into textures or meshes, and their modern state is not asserted as measured 1904 fabric.",
+  "research_doc": "",
+  "review_required": false,
+  "version": {
+    "label": "v4",
+    "summary": "Detailed masonry, complete courtyard openings, intersecting service roofs and a continuous copper corner roof, based on the default with declared reconstructions.",
+    "test_fixture": false,
+    "default_sidecar": "sidecars/1904/glessner_house.json"
+  }
+}

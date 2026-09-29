@@ -1,60 +1,72 @@
 # Glessner v4 material studies
 
-Nine original deterministic PBR fabrics, generated with numeric noise:
-granite grain, limestone grain, red-brown courtyard brick grain,
-fine terracotta clay grain, muted weathered copper, dark oak and
-muted deep green painted joinery, short clipped turf and pale compacted gravel.
+Nine original deterministic PBR fabrics made with numeric noise, plus separately
+preserved original generated granite and turf albedos. The procedural fabrics are granite,
+limestone, grey-tan common brick, terracotta, weathered copper, oak, green painted wood,
+short turf and pale compacted gravel. Every appearance is **reconstructed**.
 
-Run `python assets/textures/glessner-v4/generate.py` from `chicago/4d/` to regenerate.
+## Reproduction and provenance
+
+Run `python assets/textures/glessner-v4/generate.py` from `chicago/4d/` to regenerate
+the nine numeric fabrics. The recipe never overwrites
+`granite_photographic_basecolor.png` or `turf_photographic_basecolor.png`. Both 1254²
+RGB PNGs are unchanged original outputs of text-to-image generation without
+reference images. Their exact prompts, methods, SHA256 and limitations are in
+`granite_photographic_provenance.json` and `turf_photographic_provenance.json`.
+No historical, supplied, Google, aerial or other photographic pixels were sampled,
+traced or embedded. This generated material study is not a photograph or measured
+reflectance scan of Glessner House and cannot establish historical appearance.
+
 `material-library.json` records metric repeat, seed, channel conventions and hashes.
-Building albedo is 2048² sRGB JPEG; normal is 1024² OpenGL tangent-space PNG;
+The 29 source maps total 20,387,130 bytes, including the 3,850,146-byte generated
+granite PNG and 3,881,389-byte generated turf PNG. The active building uses them
+for granite and lawn colour only; both numeric albedos remain reproducible source.
+Building numeric albedo is 2048² sRGB JPEG; normal is 1024² OpenGL tangent-space PNG;
 roughness is 1024² linear PNG. Ground albedo is 1024², with 512² normal/roughness.
-Normals and roughness are filtered before reduction to avoid shimmer. Granite
-albedo uses JPEG quality 89; other albedo maps use quality 92. This keeps stronger
-mineral contrast within the existing payload budget without reducing resolution.
-No ambient occlusion is baked into the colour, and no third-party pixels are used.
+Granite numeric albedo uses JPEG quality 89; other numeric albedos use quality 92.
+Normals and roughness are filtered before reduction to avoid shimmer. The numeric
+maps contain no baked ambient occlusion. The generated albedo prompt targets even
+diffuse illumination and seamless edges; these are targets, not measurements.
 
-Every appearance is **reconstructed**. Stone and brick courses, joints, roof tiles,
-the rock-faced silhouette,
-openings, mouldings and copper standing seams are geometry, not flat photographs.
-The copper's exact 1904 oxidation and every texture's microscopic arrangement are
-artistic choices. The material library cannot establish a historical fact.
+## Material transport
 
-Export verification completed on 2026-09-29 with pinned Blender 4.5.3: all 25
-material slots exported, 27 images deduplicated, albedo/normal/roughness all bound
-to TEXCOORD_0, and metric SurfaceUV remained byte-for-byte unchanged through the
-shared smart-unwrap step. Tint factors, copper metallicity and transmissive glass
-with IOR 1.52 survived export.
-The revised full material probe GLB was 14,518,200 bytes; the 27 source maps totalled
-12,691,945 bytes, with no individual source map above 1.57 MB. This verifies the
-material transport, not the finished building's visual quality.
+Export verified on 2026-09-29 with pinned Blender 4.5.3: 28 material slots, 27 images
+deduplicated, and metric SurfaceUV unchanged through the shared smart-unwrap step.
+All texture references use TEXCOORD_0. Granite albedo repeats at 0.22 m through
+KHR_texture_transform (scale 7.2727273); its procedural normal and roughness repeat
+at 1.6 m. Turf albedo repeats at 0.4 m (scale 6), with numeric normal/roughness at
+2.4 m. Granite normal strength is 0.40, rough court trim 0.32 and turf 0.25.
+Three appended double-sided blade materials (slots25–27) use plain muted greens
+and roughness0.92. The full material probe GLB is 20,808,352 bytes. Tint factors, copper metallicity and clear glass with
+transmission 0.94 / IOR 1.52 survive export. This verifies transport, not completed
+photographic likeness of the whole building.
 
-The first close-view review exposed a stucco-like granite surface. The revised
-granite normal has original domain-warped fracture fields at roughly 4–14 cm scale,
-under its finer mineral grain; the warp breaks the conspicuous triangular pattern
-seen in the second review. The glass now transmits through to the geometry's
-separate dark backing and differently lowered blinds; it is not an opaque painted
-window rectangle. Courtyard form and photographic likeness still require review
-of the combined generated building.
+## Reconstruction choices
 
-The courtyard drive keeps the structure record's reconstructed pale gravel
-interpretation for 1904; this library does not retroject the later concrete
-paving into the model. The two ground fabrics add 1,586,424 source-map bytes.
-Rough stone headers use slot24, which shares granite mineral grain and fracture
-relief at lower strength; smooth carved cornices retain slot2. The choice describes
-reconstructed appearance, not petrographic identification.
-The brick slots distinguish main red-brown, dark-fired red, muted buff and smoky
-gray-brown units. Buff and smoky variants reuse the neutral limestone colour
-image with brick normal/roughness maps, adding no image payload. Their mixed
-distribution is reconstructed kiln variability, not measured 1904 weathering.
+Stone courses, joints, block outlines, openings, mouldings, roof tiles and copper
+standing seams are geometry. The earlier crumpled procedural stone appearance led
+to replacing active granite albedo with the original generated crystal study.
+The 0.6 m initial repeat made crystals look pebbly; 0.22 m makes them finer. Cool
+material multipliers counter excess pink feldspar. Numeric normal domain warp was
+reduced from0.015 to0.004 to retain more angular fractures, and intermediate normal
+strength restores relief without the earlier crumpled appearance. Numeric maps remain available;
+none is presented as a measured historic surface. Rough court heads and sills use
+granite grain; smooth carved cornices retain the separate limestone study. These
+are reconstructed visual choices, not petrographic identification.
 
-The final lit review narrowed the brick firing contrast to remove an overly
-mosaic-like result, and expanded restrained grey/pink/cream variation between
-street stone blocks. Stronger dark mica and pale mineral grains replace the
-earlier stucco-like low-contrast granite. Pale linen blinds and muted green
-joinery remain separate from clear transmissive glass; no scene reflections
-are painted into the window textures.
-The copper's patina contrast, micro-normal and roughness variation were reduced
-after a close view read as mottled camouflage. Standing seams provide its visible
-construction; restrained brown/green sheet variation is retained. The final maps
-are 662,833 bytes smaller than the earlier full material set.
+The brick body is grey-tan common clay, with intermittent warm red-fired, neutral
+buff and smoky units, rather than predominantly saturated orange-red. Existing
+60/20/14/6 unit distribution is retained. Slightly lighter, more neutral lime mortar
+keeps joints legible; no soot or modern age staining is added. Buff and smoky units reuse limestone colour with
+brick normal/roughness maps. This is reconstructed kiln variability, not measured
+1904 weathering. Copper uses subdued brown/green patina; its exact oxidation after
+17 years is an artistic choice. Its low-contrast maps let standing seams carry the
+sheet construction. Pale linen blinds and muted green joinery are separate from
+clear glass; no scene reflections are painted into windows. Oak midtones are warm
+brown with restrained grain and varnish roughness bounded0.40–0.61, replacing the
+earlier nearly black door appearance.
+
+The drive retains the structure record's reconstructed pale gravel interpretation
+for 1904. No later concrete paving is retrojected. The original numeric turf and gravel maps add 1,586,424
+source-map bytes; the separate generated turf albedo is retained unchanged. Whole-building materials, geometry, lighting and historical
+confidence still require review together.

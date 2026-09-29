@@ -25,11 +25,16 @@ south-facing masonry illuminated. The default sun favours the street facades.
 Use --sky overcast for a diffuse architectural review under a CIE overcast
 distribution. This is a mathematical luminance field, with no photographic
 backdrop, invented cloud patterns, or changes to the imported model.
+Use --sky photographic for the licensed, sky-only HDR environment recorded in
+docs/RESEARCH/glessner-v4-lighting. Its horizontal illuminance is normalized to
+the mathematical overcast mode, preserving the -1.5 EV comparison exposure.
+The same environment supplies illumination, reflections and the visible sky.
 """
 
 from __future__ import annotations
 
 import argparse
+from array import array
 import hashlib
 import json
 import math
@@ -58,6 +63,8 @@ CAMERAS = {
     "overhead-west": {"position": (-25, -35, 62), "target": (24.6, 11.3, 3.0), "lens": 48},
 }
 OVERCAST_ZENITH_RGB = (5.58, 5.79, 6.0)
+DEFAULT_SKY_FILE = (Path(__file__).resolve().parents[1] / "docs" / "RESEARCH" /
+                    "glessner-v4-lighting" / "overcast_soil_puresky_2k.hdr")
 
 
 def parse_args():
@@ -69,7 +76,11 @@ def parse_args():
     parser.add_argument("--size", type=int, default=800, help="Image width; 5:4 ratio.")
     parser.add_argument("--samples", type=int, default=48)
     parser.add_argument("--threads", type=int, default=4)
-    parser.add_argument("--sky", choices=("clear", "overcast"), default="clear")
+    parser.add_argument("--sky", choices=("clear", "overcast", "photographic"), default="clear")
+    parser.add_argument("--sky-file", type=Path, default=DEFAULT_SKY_FILE)
+    parser.add_argument("--sky-rotation", type=float, default=0, help="HDR environment Z rotation, degrees.")
+    parser.add_argument("--sky-strength", type=float, default=1,
+                        help="Multiplier after photographic-sky irradiance normalization.")
     parser.add_argument("--sun-elevation", type=float, default=32)
     parser.add_argument("--sun-azimuth", type=float, default=45,
                         help="Degrees in the building frame; keep equal for comparisons.")
@@ -89,6 +100,44 @@ def configure_daylight(scene, args):
     background = tree.nodes.new("ShaderNodeBackground")
     output = tree.nodes.new("ShaderNodeOutputWorld")
     tree.links.new(background.outputs["Background"], output.inputs["Surface"])
+    if args.sky == "photographic":
+        source = args.sky_file.resolve(strict=True)
+        sky_image = bpy.data.images.load(str(source), check_existing=True)
+        sky_image.colorspace_settings.name = "Linear Rec.709"
+        width, height = sky_image.size
+        pixels = array("f", [0.0]) * (width * height * 4)
+        sky_image.pixels.foreach_get(pixels)
+        # Integrate L*cos(zenith) over the upper hemisphere of the unchanged
+        # equirectangular HDR. CIE-overcast target: E_horizontal=7*pi*Lz/9.
+        irradiance = 0.0
+        for y in range(height // 2, height):
+            elevation = math.pi * ((y + 0.5) / height - 0.5)
+            row = y * width * 4
+            luminance = sum(0.2126 * pixels[i] + 0.7152 * pixels[i + 1] + 0.0722 * pixels[i + 2]
+                            for i in range(row, row + width * 4, 4))
+            irradiance += luminance * math.sin(elevation) * math.cos(elevation)
+        irradiance *= (math.pi / height) * (2 * math.pi / width)
+        target = 7 * math.pi / 9 * sum(a * b for a, b in zip(OVERCAST_ZENITH_RGB, (0.2126, 0.7152, 0.0722)))
+        if not math.isfinite(irradiance) or irradiance <= 0 or args.sky_strength <= 0:
+            raise ValueError("Photographic sky must have positive finite radiance and strength")
+        strength = target / irradiance * args.sky_strength
+        environment = tree.nodes.new("ShaderNodeTexEnvironment")
+        environment.image = sky_image
+        environment.projection = "EQUIRECTANGULAR"
+        coordinates = tree.nodes.new("ShaderNodeTexCoord")
+        mapping = tree.nodes.new("ShaderNodeMapping")
+        mapping.inputs["Rotation"].default_value[2] = math.radians(args.sky_rotation)
+        tree.links.new(coordinates.outputs["Generated"], mapping.inputs["Vector"])
+        tree.links.new(mapping.outputs["Vector"], environment.inputs["Vector"])
+        background.inputs["Strength"].default_value = strength
+        tree.links.new(environment.outputs["Color"], background.inputs["Color"])
+        sky_image.pack()
+        return {"path": str(source), "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                "bytes": source.stat().st_size, "rotation_deg": args.sky_rotation,
+                "strength": strength, "user_strength_multiplier": args.sky_strength,
+                "source_horizontal_irradiance_relative": irradiance,
+                "target_horizontal_irradiance_relative": target,
+                "normalization": "Equal horizontal luminance-weighted irradiance to CIE overcast review sky"}
     if args.sky == "overcast":
         # CIE overcast: L(elevation)/L(zenith) = (1 + 2 sin(elevation))/3.
         # https://www.cie.co.at/publications/spatial-distribution-daylight-cie-standard-general-sky
@@ -212,7 +261,7 @@ def main():
     model = model_description(imported)
     scene = bpy.context.scene
     scene_settings(scene, args)
-    configure_daylight(scene, args)
+    photographic_sky = configure_daylight(scene, args)
     neutral_ground()
     bpy.ops.object.camera_add()
     camera = bpy.context.object
@@ -232,13 +281,15 @@ def main():
                      "sky": args.sky,
                      "sun_elevation_deg": args.sun_elevation,
                      "sun_azimuth_deg": args.sun_azimuth,
-                     "world_strength": 1.0 if args.sky == "overcast" else 0.25,
-                     "sun_intensity": 0.0 if args.sky == "overcast" else 0.7,
+                     "world_strength": photographic_sky["strength"] if photographic_sky else (1.0 if args.sky == "overcast" else 0.25),
+                     "sun_intensity": 0.7 if args.sky == "clear" else 0.0,
+                     "photographic_sky": photographic_sky,
                      "overcast_relative_distribution": "(1+2*sin(elevation))/3" if args.sky == "overcast" else None,
                      "overcast_zenith_linear_rgb": list(OVERCAST_ZENITH_RGB) if args.sky == "overcast" else None},
         "model": model,
         "review_additions": ["Neutral ground plane, z=-0.005 m",
-                             "CIE overcast mathematical sky" if args.sky == "overcast" else "Procedural Nishita sky",
+                             {"clear": "Procedural Nishita sky", "overcast": "CIE overcast mathematical sky",
+                              "photographic": "Licensed sky-only HDR environment; illumination, reflections and visible sky share one source"}[args.sky],
                              "Review camera; no GLB mesh or material edits"],
         "renders": [],
     }
