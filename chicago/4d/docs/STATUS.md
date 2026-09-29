@@ -1,3 +1,89 @@
+## T-1728 — the 1904 Prairie Avenue street surfaces: asphalt, macadam, cement, sandstone and turf (2026-09-29)
+
+`/4d/1904/` is paved. `data/street_surfaces/1904.json` (authored) names a material, a tier, its
+sources and an in-place range bounding 1 July 1904 for every one of T-0474's 14 carriageways, 7
+alleys and 31 × 4 sidewalk bands; `renderers/web/js/street-grid.js` binds the seven procedural
+materials of the new `assets/textures/prairie_1904_pbr/` at their metric tiles.
+`tools/check_street_surfaces.py --check` holds it in `check.sh`, with a 15-case self-test.
+
+- **Found: the city's own records name the district's roadways.** The Council's printed proceedings
+  (Newberry copies, via the Internet Archive's full-text search) carry the Board of Local
+  Improvements' ordinance of 9 Feb 1903 for asphalt on **Prairie 16th–20th**, its condition report of
+  2 Nov 1903 ("Good condition") and of 7 Nov 1906 (asphalt, R. F. Conway Co.) — **attested sheet
+  asphalt** — and the Department of Public Works' survey of 1 Dec 1904 listing **Prairie 20th–22nd,
+  18th, 20th and 21st Streets and part of Calumet as worn macadam** out of guaranty — **attested**.
+  16th Street and 22nd Street (asphalt) and Indiana 16th–18th (brick) are **inferred** from 1899
+  contracts and ordinances.
+- **Found: Prairie Avenue was not a boulevard in 1904.** The South Park Commissioners took Prairie
+  16th–29th and 16th Street on 24 Oct 1906 (city consent 28 May 1904, effective 30 Oct 1905); on the
+  scene date both were city streets. The 1911 sheets' "Prairie Av. Blvd." is a later fact.
+- **Reconstructed** (L296): every walk as Portland cement concrete in the 1905 code's 5 × 6 ft
+  blocks, every curb as sandstone curbstones, every parkway and margin as turf, and the look of every
+  map. (L297): Indiana 18th–22nd drawn as finished asphalt, the rest of Calumet 18th–20th as macadam,
+  every alley as earth and cinders, the avenue drawn over its cross streets, no streetcar tracks.
+- **Bounds only, never attestation**: the 1904 paving report (Prairie library `civic-paving-1904`) and
+  the 1905 code; the checker refuses an attested block that rests on them. The c. 1923 HABS views of
+  both Glessner frontages are the later bound for walk, curb and parkway.
+- New sources: eight volumes of the Council's proceedings (1899–1907), the South Park Commissioners'
+  1897 code and 1908 statutes, Alvord's 1904 report, the HABS IL-1015 photographs; the 1905 code's
+  record extended.
+- Frame at the spawn (published, SwiftShader): **16 → 20 draw calls** desktop, **16 → 19** mobile,
+  ceiling 215; triangles 74,049 → 72,829 / 81,123 → 77,601; 21 more textures, 1.62 MB more fetched.
+
+**Unverified:** the walk, curb and parkway materials (no block-level sidewalk or curb record read);
+completion of the 1899 contracts; which side of 1 July 1904 Indiana 18th–22nd and the 20th–21st alley
+were finished on. `docs/RESEARCH/prairie_1904_street_surfaces.md` § 8 names what would close each.
+
+## T-1732 — the Glessner House at 1800 Prairie, as it stood in 1904: the default version (2026-09-29)
+
+`/4d/1904/` is no longer an empty lot. `data/structures/glessner_house.json` (archetype
+`masonry_house`, new in `generators/archetypes/`; phase `as_built_1887`, 1887-12-01 to
+1946-08-31) stands on T-0474's parcel `prairie_1800`, built from T-1731's specification and
+tightened by the HABS photographs (PR #169) and read against the Houghton drawings (PR #171).
+It is the DEFAULT record that T-1730's alternates will be compared against.
+
+- **Placement**: north face on the parcel's 18th Street line, east face 14.7 ft behind the Prairie
+  line (the spec's Sanborn 1911 sheet 28 reading), rotation −0.669° to the sheet's axes; the
+  177.1-ft parcel leaves the west face 0.35 m inside the alley line, and the 74.7-ft frontage
+  leaves 0.7 ft to the 1808 line. Inferred.
+- **Footprint**: the 34-point ground-floor outline, about 7,054 sq ft, from HABS sheet 2's
+  dimension strings, checked against Sanborn 1911 sheet 28. Attested.
+- **Massing and roofs**: the east wing (eave 27.1, ridge 45.7 ft), the 18th Street range
+  (eave 23.1, ridge 34.1 ft, 36.6° with the courtyard kick), the coach house and stable at the
+  alley with its ridge turret, the round stair tower, the north tower, the hall bow, the dining
+  bay, three courtyard dormers, five chimneys, the courtyard gate and a lawn with its carriage
+  drive. 52 form attributes: 23 attested, 11 inferred, 18 reconstructed (with placement inferred, footprint and dates attested).
+- **What the new photographs settled** (docs/RESEARCH/glessner_house_1904.md § 13): the stable's
+  roof (ridge on the carriage doorway's axis at about 38.6 ft, not the spec's symmetric 45°), the
+  "pyramid element" (a round tower), the dining bay (a glazed band and a tall faceted roof), a
+  fifth chimney and a second window in the east wing's north face — all now inferred.
+- **Reconstructed, L295**: every colour, the north tower's plan, the bow roof, the dormers'
+  depth, the turret's dimensions, the chimneys' E-W sizes, the stable's south end and 1904
+  carriage doors, the north range's courtyard openings, heights read off plans, cornices, gate
+  heights, the courtyard ground. Vines not drawn.
+- **Code**: `generators/build.py` now resolves phases against every scene in `data/scenes/` (a
+  full rebake used to skip every 1904 structure); `tools/town_year.py` keeps the 1835 books
+  (the 665 ledger, the redeal, the name pool, the order book, the register, the Newberry
+  index) to the records that touch 1835. The smoke's part 13 now asserts the house draws at the
+  spawn and a pick on its front opens it, and that it is the only structure placed in 1904.
+
+Measured at the spawn (SwiftShader, published mirror): before — dev without the house, T-0474's
+reading — 16 draw calls, 74.0k triangles at 1280×800 and 81.1k at 390×780; after, 18 calls and
+76.2k / 83.3k, inside the 215-call budget, zero problems, zero page errors. The house is one mesh
+of nine material primitives and 1,075 triangles (the web derivative 25.5 KB). The bake: Blender
+4.5.3 `bake.sh --only glessner_house` (96,496-byte master); a full rebake to re-stamp every
+asset after `emit.py` took the new archetype reproduced all other masters byte for byte except
+`miller_tanyard_bark_shed__yard_1831.glb` (same vertex counts, 38,216 → 47,404 bytes), which ships
+as rebuilt.
+
+**Not done here:** the house's interior (out of scope), the porte-cochère and front-door
+panelling (flat oak panels), the vines, and 1808 Prairie — whose north wall closed the
+courtyard — so the court reads open to the south. The rights bank
+(`tools/rights_derivation_baseline.json`) records 34 of the house's attributes citing a
+`check_required` source (the 1888 *Inland Architect* plate, Glessner 1923, the c. 1888 door
+photograph, HABS photograph 5, Houghton GLE B9); three stand on such sources alone (`paint`,
+`granite_tint`, `roof_tint`) — K41's open question.
+
 ## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
 
 `/4d/1904/` now stands on streets. `tools/trace_prairie_1904_grid.py` reads the three Sanborn 1911
@@ -42,6 +128,21 @@ sheet and is not drawn. `data/street_grid/` is one dated file and carries no `in
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
 
+## T-1257 — optional history beside a jaunt (2026-09-28)
+
+Stop chips open existing structure, person, business, source and Evidence cards.
+Returning restores scroll and choices; reading pauses travel without spending
+resources or awarding events. Canceled asynchronous reads cannot reopen a card
+after End. The compact control row reserves room beneath cards and drawers.
+
+Travel reports its actual planned polyline, including replans and straight hops.
+Structure stand-offs within 25 m are ordered along that line. Generated notes are
+labelled [MAP]; authored notes carry evidence references. Invented connective prose
+is styled separately from historical text. The Green Tree/Wolf Point/bridge unit
+case uses an explicit route fixture, not a claim that every A* route passes there.
+
+The PR records final test results. Browser evidence is generated in
+`docs/performance/jaunt-context/`.
 
 ## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 

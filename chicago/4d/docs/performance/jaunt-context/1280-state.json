@@ -1,0 +1,310 @@
+{
+  "records": [
+    {
+      "kind": "structure",
+      "before": {
+        "stopIndex": 0,
+        "choice": null,
+        "vars": {
+          "preference": 0
+        },
+        "inventory": [],
+        "events": [
+          {
+            "id": "1:1",
+            "type": "start"
+          },
+          {
+            "id": "1:2",
+            "type": "arrival",
+            "stop": "arrival",
+            "leg": 1
+          }
+        ],
+        "estimate": {
+          "seconds": 127,
+          "approx": false,
+          "legs": [
+            {
+              "seconds": 0.5,
+              "length_m": 31.80399159397415,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 335.2300792763646,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 124.5580193213836,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 118.38257589294274,
+              "approx": false
+            }
+          ]
+        },
+        "scroll": 107
+      },
+      "layout": {
+        "card": {
+          "x": 828,
+          "y": 64,
+          "w": 440,
+          "h": 516
+        },
+        "nav": {
+          "x": 15,
+          "y": 587.953125,
+          "w": 348,
+          "h": 71.046875
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "bodyWidth": 1280
+      }
+    },
+    {
+      "kind": "person",
+      "before": {
+        "stopIndex": 0,
+        "choice": null,
+        "vars": {
+          "preference": 0
+        },
+        "inventory": [],
+        "events": [
+          {
+            "id": "1:1",
+            "type": "start"
+          },
+          {
+            "id": "1:2",
+            "type": "arrival",
+            "stop": "arrival",
+            "leg": 1
+          }
+        ],
+        "estimate": {
+          "seconds": 127,
+          "approx": false,
+          "legs": [
+            {
+              "seconds": 0.5,
+              "length_m": 31.80399159397415,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 335.2300792763646,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 124.5580193213836,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 118.38257589294274,
+              "approx": false
+            }
+          ]
+        },
+        "scroll": 107
+      },
+      "layout": {
+        "card": {
+          "x": 840,
+          "y": 64,
+          "w": 440,
+          "h": 516
+        },
+        "nav": {
+          "x": 15,
+          "y": 587.953125,
+          "w": 348,
+          "h": 71.046875
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "bodyWidth": 1280
+      }
+    },
+    {
+      "kind": "source",
+      "before": {
+        "stopIndex": 0,
+        "choice": null,
+        "vars": {
+          "preference": 0
+        },
+        "inventory": [],
+        "events": [
+          {
+            "id": "1:1",
+            "type": "start"
+          },
+          {
+            "id": "1:2",
+            "type": "arrival",
+            "stop": "arrival",
+            "leg": 1
+          }
+        ],
+        "estimate": {
+          "seconds": 127,
+          "approx": false,
+          "legs": [
+            {
+              "seconds": 0.5,
+              "length_m": 31.80399159397415,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 335.2300792763646,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 124.5580193213836,
+              "approx": false
+            },
+            {
+              "seconds": 0.5,
+              "length_m": 118.38257589294274,
+              "approx": false
+            }
+          ]
+        },
+        "scroll": 157
+      },
+      "layout": {
+        "card": {
+          "x": 840,
+          "y": 64,
+          "w": 440,
+          "h": 516
+        },
+        "nav": {
+          "x": 15,
+          "y": 587.953125,
+          "w": 348,
+          "h": 71.046875
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "bodyWidth": 1280
+      }
+    }
+  ],
+  "chosen": {
+    "stopIndex": 4,
+    "choice": "rest",
+    "vars": {
+      "preference": 0
+    },
+    "inventory": [],
+    "events": [
+      {
+        "id": "2:1",
+        "type": "start"
+      },
+      {
+        "id": "2:2",
+        "type": "arrival",
+        "stop": "arrival",
+        "leg": 1
+      },
+      {
+        "id": "2:decision:arrival:continue",
+        "type": "decision",
+        "stop": "arrival",
+        "choice": null
+      },
+      {
+        "id": "2:4",
+        "type": "depart",
+        "stop": "mail-corner",
+        "leg": 2
+      },
+      {
+        "id": "2:5",
+        "type": "arrival",
+        "stop": "mail-corner",
+        "leg": 2
+      },
+      {
+        "id": "2:decision:mail-corner:continue",
+        "type": "decision",
+        "stop": "mail-corner",
+        "choice": null
+      },
+      {
+        "id": "2:7",
+        "type": "depart",
+        "stop": "store",
+        "leg": 3
+      },
+      {
+        "id": "2:8",
+        "type": "arrival",
+        "stop": "store",
+        "leg": 3
+      },
+      {
+        "id": "2:decision:store:continue",
+        "type": "decision",
+        "stop": "store",
+        "choice": null
+      },
+      {
+        "id": "2:10",
+        "type": "depart",
+        "stop": "newspaper",
+        "leg": 4
+      },
+      {
+        "id": "2:11",
+        "type": "arrival",
+        "stop": "newspaper",
+        "leg": 4
+      },
+      {
+        "id": "2:decision:newspaper:continue",
+        "type": "decision",
+        "stop": "newspaper",
+        "choice": null
+      },
+      {
+        "id": "2:13",
+        "type": "depart",
+        "stop": "lodging",
+        "leg": 5
+      },
+      {
+        "id": "2:14",
+        "type": "arrival",
+        "stop": "lodging",
+        "leg": 5
+      }
+    ],
+    "estimate": {
+      "seconds": 22,
+      "approx": false,
+      "legs": []
+    },
+    "scroll": 0
+  },
+  "pageErrors": []
+}

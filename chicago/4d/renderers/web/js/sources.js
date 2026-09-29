@@ -57,9 +57,9 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
   const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('../css/sources.css',import.meta.url);document.head.append(css);
   const scroll=root.closest('.panel-scroll') || root.parentElement;
   const state={query:'',all:false,type:'',tier:'',use:'',sort:'claims',filtersOpen:false,limit:40,scroll:0,detailScroll:0,detail:null};
-  const cache=new Map();let rows=[], sequence=0;
+  const cache=new Map();let rows=[], sequence=0, navigation=new AbortController();
   root.innerHTML='<p role="status">Loading source catalog…</p>';
-  const api={state,show, get rows(){return rows;},open:openDetail};
+  const api={state,show, get rows(){return rows;},open:openDetail,cancel(){sequence++;navigation.abort();navigation=new AbortController();}};
   async function loadIndex() { try {
     const res=await fetcher(new URL('sidecars/1835/sources/index.json',dataBase));
     if(!res.ok)throw Error(`HTTP ${res.status}`);
@@ -94,7 +94,7 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
     if(e.target.closest('[data-more]')){state.limit+=40;renderRows();return;}
     const source=e.target.closest('[data-source]');if(source){state.scroll=scroll.scrollTop;await openDetail(source.dataset.source);return;}
     const link=e.target.closest('[data-edge]');if(link){const edge=cache.get(state.detail).edges[Number(link.dataset.edge)];const top=scroll.scrollTop;state.detailScroll=top;
-      const opened=await onOpen(edge,()=>{state.detailScroll=top;onTitle('Source details',back);requestAnimationFrame(()=>{scroll.scrollTop=top;});});
+      const opened=await onOpen(edge,()=>{state.detailScroll=top;onTitle('Source details',back);requestAnimationFrame(()=>{scroll.scrollTop=top;});},navigation.signal);
       if(opened===false){const note=document.createElement('p');note.setAttribute('role','status');note.textContent='No existing card is available for this record in this scene.';link.after(note);}}
   });
   scroll.addEventListener('scroll',()=>{
@@ -115,12 +115,13 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
     const append=()=>{list.insertAdjacentHTML('beforeend',edges.slice(limit,limit+40).map(e=>edgeHtml(e,all.indexOf(e))).join(''));limit+=40;more.hidden=limit>=edges.length;};
     append();more.onclick=append;const box=document.createElement('div');box.append(list,more);return box;
   }
-  async function openDetail(id){
+  async function openDetail(id, { signal } = {}){
+    if(signal?.aborted)return false;
     const token=++sequence;state.detail=id;title();scroll.scrollTop=0;
     root.innerHTML='<p role="status">Loading this source’s uses…</p>';
     try {
       if(!cache.has(id)){const res=await fetcher(new URL(`sidecars/1835/sources/${encodeURIComponent(id)}.json`,dataBase));if(!res.ok)throw Error();cache.set(id,await res.json());}
-      if(token!==sequence)return;
+      if(token!==sequence || signal?.aborted)return false;
       const data=cache.get(id),s=data.source,row=rows.find(r=>r.source_id===id);
       const prose=value=>(Array.isArray(value)?value:[value]).filter(Boolean).map(v=>`<li>${esc(v)}</li>`).join('') || '<li>Not recorded.</li>';
       root.innerHTML=`<div class="src-detail" data-source-id="${esc(id)}"><h4>${esc(s.citation)}</h4>${counts(row)}<h4>What it supplies</h4><ul>${prose(s.what_it_supplies)}</ul><h4>What it does not supply</h4><ul>${prose(s.what_it_does_not_supply)}</ul><p>${urlLink(s.url,'Original') || 'No original link on record'} · ${urlLink(s.archived_url,'Archive copy') || 'no archive copy on record'}</p><div class="src-issues"></div><h4>Used for</h4><p>Claims are grouped by kind of record. Links open existing cards; other records remain decision summaries.</p><div class="src-groups"></div></div>`;
@@ -135,7 +136,8 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
         fold.addEventListener('toggle',()=>{if(fold.open&&!fold.dataset.loaded){fold.dataset.loaded='true';fold.append(edgeList(edges,data.edges));}});groupRoot.append(fold);
       }
       if(!data.edges.length)groupRoot.textContent='No recorded uses.';
-    }catch{if(token===sequence)root.innerHTML='<p role="status">This source’s details could not be loaded. Use Back to return to the catalog.</p>';}
+      return true;
+    }catch{if(token===sequence && !signal?.aborted)root.innerHTML='<p role="status">This source’s details could not be loaded. Use Back to return to the catalog.</p>';return false;}
   }
   return api;
 }
@@ -146,21 +148,21 @@ export function attachSources({api,registry,hud,popup,dataBase,root}) {
     canOpen: edge => edge.entity_type === 'terrain' ? !!terrainCardId(edge,api.ground?.claims || []) : undefined,
     onTitle: (text, back) => { if (api.evidenceHub.topic === 'sources') hud.setTitle(text, back); },
     onBack: () => api.evidenceHub.showHub({focusTile:'sources'}),
-      onOpen: async (edge, restore) => {
+      onOpen: async (edge, restore, signal) => {
         const returnToSource = () => {
           hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showTopic('sources'); restore();
         };
         if (edge.entity_type === 'structure') {
           const record = registry.get(edge.entity_id); if (!record) return false;
           hud.setPanel(false); popup.show(record);
-          document.getElementById('popup')?.addEventListener('source-card-close', returnToSource, {once:true});
+          document.getElementById('popup')?.addEventListener('source-card-close', returnToSource, {once:true,signal});
           return true;
         }
         if (edge.entity_type === 'person' || edge.entity_type === 'business') {
           const kind = edge.entity_type === 'person' ? 'people' : 'businesses';
-          const opened = await api[kind]?.open(edge.entity_id); if (!opened) return false;
+          const opened = await api[kind]?.open(edge.entity_id, {signal}); if (!opened || signal?.aborted) return false;
           hud.selectTab(kind);
-          document.getElementById(kind === 'people' ? 'people-directory' : 'businesses-directory').addEventListener('source-card-close', returnToSource, {once:true});
+          document.getElementById(kind === 'people' ? 'people-directory' : 'businesses-directory').addEventListener('source-card-close', returnToSource, {once:true,signal});
           hud.setTitle('Record from this source', () => api[kind].close());
           return true;
         }

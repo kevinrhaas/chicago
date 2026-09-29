@@ -1,0 +1,45 @@
+{
+  "id": "vitrified_paving_brick",
+  "directional": true,
+  "group": "roadway",
+  "span_m": 2.12,
+  "kind": "brick",
+  "mean_roughness": 0.8,
+  "colors": [
+    [
+      122,
+      64,
+      50
+    ],
+    [
+      84,
+      52,
+      46
+    ]
+  ],
+  "note": "Vitrified paving brick laid on edge across the street in running bond, sand joints: 20 courses of 0.106 m along and 10 bricks of 0.212 m across per tile (a 4 x 8.5 in brick with its joint). The brick size and colour are reconstructed (L296).",
+  "span_along_m": 2.12,
+  "span_across_m": 2.12,
+  "resolution_px": 512,
+  "px_per_m": 241.51,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "vitrified_paving_brick_basecolor_web.jpg",
+    "normal_gl": "vitrified_paving_brick_normal_gl_web.jpg",
+    "orm": "vitrified_paving_brick_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19040903,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

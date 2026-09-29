@@ -1,0 +1,45 @@
+{
+  "id": "grass_plat",
+  "directional": false,
+  "group": "parkway",
+  "span_m": 3.0,
+  "kind": "grass",
+  "mean_roughness": 0.95,
+  "colors": [
+    [
+      86,
+      112,
+      52
+    ],
+    [
+      58,
+      80,
+      38
+    ]
+  ],
+  "note": "A mown grass plat in July: mixed greens, clover and a few dry patches. The 1905 code's sec. 2077 names grass plats for this space; the turf is reconstructed (L296).",
+  "span_along_m": 3.0,
+  "span_across_m": 3.0,
+  "resolution_px": 512,
+  "px_per_m": 170.67,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "grass_plat_basecolor_web.jpg",
+    "normal_gl": "grass_plat_normal_gl_web.jpg",
+    "orm": "grass_plat_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041307,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}
