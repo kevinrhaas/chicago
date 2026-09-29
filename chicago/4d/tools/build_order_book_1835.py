@@ -457,10 +457,17 @@ STRUCTURE_TICKETS = {
     #     remaining freight roof goes to the child that reconciles what the others leave. If
     #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
     #     building it out of place.
-    ("west", "stores_mixed_use"): "T-1763",
+    # AND T-1763 WAS SPLIT IN TURN on 2026-09-29 (T-1765, T-1766), so these two rows move
+    # again, by the same test: WHICH CHILD RAISES THE ROOFS THAT ARE LEFT. T-1763 named two
+    # different kinds of work in one title — the crossings' furniture and the approach's shop
+    # frontage — and only the first fitted a run. T-1765 is the crossings and raises no roof
+    # at all; T-1766 is "the grocery and the workshops the memo seats on the Canal Street
+    # approach: the west's two remaining stores and three shops", which is these two rows
+    # spelled out. So both point at T-1766 and neither at T-1765.
+    ("west", "stores_mixed_use"): "T-1766",
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1763",
+    ("west", "workshops"): "T-1766",
     ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
