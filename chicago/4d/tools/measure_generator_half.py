@@ -293,6 +293,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # on `dev` at its TENTH lap, not the 449/445 it was written off: the debt is cumulative,
 # so T-1708's eleven, T-1756's four, the Glessner versions and T-1735's eleven are all
 # counted first and these four go on top of them.
+# 479 -> 492 and 475 -> 488 on 2026-09-29 (T-1751): the thirteen roofs of the deal on
+# `blk_washington_franklin`, the plat's last tier dealt out to its lot ceiling — seven
+# dwellings and the six yard buildings behind them. Thirteen new structure assets on the
+# same terms as every entry above: thirteen more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved. The from-numbers are the ones this branch found on `dev` at its
+# FOURTH lap, not the 475/471 it was written off: the debt is cumulative, so T-1753's four
+# are counted first and these thirteen go on top of them. IT IS ALSO THE LARGEST SINGLE
+# MOVE THIS ROW HAS TAKEN, which is the measurement working as intended rather than a
+# surprise — the debt is per-ASSET, so a block dealt out to its ceiling enlarges it by a
+# whole block.
 # THIS ROW HAS NOW MOVED SIX TIMES IN TWO DAYS — five block deals and the Glessner
 # House — which is the measurement working as intended and also the shape of what it
 # measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
@@ -300,12 +311,12 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # at a time.
 #
 STATED = {
-    "assets": 479,
+    "assets": 492,
     "restales": {
-        "generators/common/*.py": 479,
+        "generators/common/*.py": 492,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 475,
+        "generators/emit.py": 488,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
