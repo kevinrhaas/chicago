@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1227, ts: '2026-09-29T07:13:35.659Z', date: 'Sep 29, 2026, 2:13 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+  { v: null, ts: '', title: 'A second Glessner House to compare: version v2', kind: 'feature',
     items: [
       'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
       'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
       'The round tower at the corner is larger, about twenty feet across under its cone, and the Eighteenth Street eave and the coach-house roof are read off four 1965 survey photographs the first build did not use.',
       'The house sits on the alley line the 1911 insurance map draws, about a foot west of the first build.',
       'The colours are v2\u2019s own choice: granite darkened by seventeen years of coal smoke, and copper gone brown rather than green. No record shows the house in colour, so they are marked as reconstruction.',
+    ] },
+  { v: 1227, ts: '2026-09-29T06:42:08.624Z', date: 'Sep 29, 2026, 1:42 AM CT', title: 'History along your outing', kind: 'change',
+    items: [
+      'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
+      'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
     ] },
   { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [
