@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **337** anonymous roofs
-- keep: **329** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- audited: **341** anonymous roofs
+- keep: **333** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
 - refamily: **8** (6 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 439 stand, so the town is 229 roofs short before this audit and 229 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 443 stand, so the town is 225 roofs short before this audit and 225 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -31,10 +31,10 @@ The programme wants 668 roofs and 439 stand, so the town is 229 roofs short befo
 | `structures/larger_boarding_houses/north` | 8 | 7 | 5 | 1 | 7 | 1 |
 | `structures/ordinary_dwellings/south` | 176 | 117 | 107 | 59 | 117 | 59 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 48 | 24 | 53 | 22 |
-| `structures/ordinary_dwellings/north` | 84 | 50 | 44 | 34 | 50 | 34 |
+| `structures/ordinary_dwellings/north` | 84 | 52 | 46 | 32 | 52 | 32 |
 | `structures/small_outbuildings/south` | 48 | 29 | 28 | 19 | 29 | 19 |
 | `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |
-| `structures/small_outbuildings/north` | 20 | 12 | 9 | 8 | 12 | 8 |
+| `structures/small_outbuildings/north` | 20 | 14 | 11 | 6 | 14 | 6 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 26 | 0 | 42 | 0 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 3 | 2 | 3 | 3 |

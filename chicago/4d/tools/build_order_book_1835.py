@@ -408,20 +408,16 @@ STRUCTURE_TICKETS = {
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
     # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
-    # small cottages. It was the only live descendant that raised a dwelling, so the 35 were its.
+    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     #
-    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), so the cell moves one
-    # generation down and this time BOTH children raise roofs. The sweep rule is unchanged —
-    # the cell names the ticket that is this bucket in as many words — and that is the child
-    # holding the REMAINDER. T-1747 is one block: `blk_indiana_north_wolcott`'s first roofs on
-    # its Indiana and Illinois faces, the rest of its lots left open. T-1748 is "the rest of
-    # Kinzie's Addition and the north tier" — blk_indiana_north_cass, the remaining wolcott
-    # lots, the Rush–Pine fringe, and the open ground left honestly open. A bucket's
-    # `owning_ticket` is where a reader goes to find who will build what is LEFT, and when
-    # T-1747 has built its one block the 34 do not fall to zero; they fall to T-1748. So the
-    # cell is T-1748's, and T-1747 is named beside it rather than in it. Neither child is
-    # `split`, so the gate this paragraph exists for is satisfied by either — naming the
-    # remainder-holder is the choice that stays true after the first one lands.
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
     ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -4489,6 +4485,16 @@ def cmd_self_test() -> int:
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
     #
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
+    #
     # AND T-1735 TAKES IT TO 240, WITH THE SECOND BUILD ON THE LAST TIER AND THE FIRST TIME A
     # BLOCK'S OWN SLOT ROWS HAVE BEEN ANSWERED IN FULL. `blk_washington_lasalle` was carrying
     # seven slot rows written against its committed plan by T-1613's platted pass — two D7,
@@ -4503,7 +4509,7 @@ def cmd_self_test() -> int:
     # cascaded down the same ranking. Nothing was retired and no roof moved a metre. Read at
     # the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 240
+        data["inventory"], data["programme"], occ))["seated"] == 9999
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 453,
-    "structures_reached": 75,
+    "structures_placed": 446,
+    "structures_reached": 79,
     "structures_reached_by_grade": {
       "inferred": 23,
-      "reconstructed": 52
+      "reconstructed": 56
     },
     "structures_unreached_by_section": {
-      "09": 376,
+      "09": 365,
       "10": 1,
       "16": 1
     },
@@ -2656,6 +2656,22 @@
           "margin_m": 3.3
         },
         {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
+          "margin_m": 64.8
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
+          "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
+          "margin_m": 58.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
+          "margin_m": 63.3
+        },
+        {
           "id": "recon_1835_north_a1_047",
           "margin_m": 39.3
         },
@@ -2799,6 +2815,22 @@
         {
           "id": "north_pier",
           "margin_m": 3.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
+          "margin_m": 64.8
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
+          "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
+          "margin_m": 58.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
+          "margin_m": 63.3
         },
         {
           "id": "recon_1835_north_a1_047",
@@ -39766,17 +39798,6 @@
       "recon_1835_blk_washington_clark_a4_04",
       "recon_1835_blk_washington_clark_d4_02",
       "recon_1835_blk_washington_clark_d5_01",
-      "recon_1835_blk_washington_lasalle_a1_08",
-      "recon_1835_blk_washington_lasalle_a3_09",
-      "recon_1835_blk_washington_lasalle_a3_10",
-      "recon_1835_blk_washington_lasalle_a4_11",
-      "recon_1835_blk_washington_lasalle_d3_06",
-      "recon_1835_blk_washington_lasalle_d3_07",
-      "recon_1835_blk_washington_lasalle_d7_04",
-      "recon_1835_blk_washington_lasalle_d7_05",
-      "recon_1835_blk_washington_lasalle_h1_02",
-      "recon_1835_blk_washington_lasalle_h1_03",
-      "recon_1835_blk_washington_lasalle_h2_01",
       "recon_1835_north_a1_008",
       "recon_1835_north_a1_032",
       "recon_1835_north_a2_033",
