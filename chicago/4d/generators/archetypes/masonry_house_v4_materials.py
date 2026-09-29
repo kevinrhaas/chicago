@@ -52,7 +52,7 @@ SLOT_FABRIC = {
     16: "brick", 17: "brick", 18: "brick",
     19: "terracotta", 20: "terracotta", 21: "terracotta",
     23: "painted_wood",
-    24: "limestone",
+    24: "granite",
 }
 
 
@@ -132,11 +132,11 @@ def build_materials(colours=None):
     import bpy
     colours = colours or {}
     mats = [
-        _pbr(bpy, "granite", "granite", normal_strength=0.85),
+        _pbr(bpy, "granite", "granite", normal_strength=1.15),
         _pbr(bpy, "brick", "brick", normal_strength=0.85),
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
         _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
-        _pbr(bpy, "copper", "copper", normal_strength=0.40, metallic=0.78),
+        _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
         _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
         _pbr(bpy, "lawn", "turf", normal_strength=0.55),
@@ -153,27 +153,28 @@ def build_materials(colours=None):
     glass.inputs["Transmission Weight"].default_value = 0.94
     if "Specular IOR Level" in glass.inputs:
         glass.inputs["Specular IOR Level"].default_value = 0.50
-    for i, tint in enumerate(((0.93, 0.94, 0.95), (1.0, 0.992, 0.983),
-                              (0.965, 0.955, 0.94), (1.00, 0.98, 0.965))):
-        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=0.85))
+    # Quarried blocks have restrained grey, pink-feldspar and cream variation.
+    # The previous 1-7% linear variation vanished in the broad facade review.
+    for i, tint in enumerate(((0.72, 0.79, 0.85), (0.97, 0.91, 0.87),
+                              (0.86, 0.84, 0.81), (1.00, 0.985, 0.965))):
+        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.15))
     # Kiln firing varies individual common bricks. The geometry deals mostly
     # the main red-brown slot1, then dark red16, buff17 and occasional smoky18.
     # The neutral limestone grain image supplies the latter colour fields only;
     # their relief and roughness remain brick. No additional atlas is duplicated.
-    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.50, 0.53, 0.58), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.62, 0.45, 0.30), normal_strength=0.85,
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.70, 0.73, 0.76), normal_strength=0.85))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.40, 0.28, 0.18), normal_strength=0.85,
                      albedo_fabric="limestone"))
-    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.20, 0.19, 0.17), normal_strength=0.85,
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.20, 0.16, 0.13), normal_strength=0.85,
                      albedo_fabric="limestone"))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
-    mats.append(_plain(bpy, "linen_blind", (0.54, 0.50, 0.41, 1), roughness=0.98))
+    mats.append(_plain(bpy, "linen_blind", (0.74, 0.73, 0.68, 1), roughness=0.98))
     mats.append(_pbr(bpy, "painted_wood", "painted_wood", normal_strength=0.30))
-    # Only rock-faced window heads/sills use this slot. Dressed cornices and
-    # carved mouldings retain the smoother limestone slot2. The fracture map is
-    # original procedural stone relief, not a claim that two stones share grain.
-    mats.append(_pbr(bpy, "rough_limestone", "limestone", normal_strength=0.35,
-                     normal_fabric="granite"))
+    # Rock-faced window heads/sills share the visible grey mineral fabric of the
+    # street stone. Dressed cornices and carved mouldings retain smoother slot2.
+    # This is reconstructed appearance, not a petrographic identification.
+    mats.append(_pbr(bpy, "rough_stone_trim", "granite", normal_strength=0.90))
     return mats
 
 

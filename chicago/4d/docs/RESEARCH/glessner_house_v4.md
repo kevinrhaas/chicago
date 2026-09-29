@@ -277,3 +277,24 @@ top; neither band height is a printed HABS dimension.
 The dining-bay garden grilles alternate beneath the principal sash, as seen in
 HABS photo 5 and supplied image(9): three openings on principal facets 0, 2 and 4,
 with solid brick below facets 1 and 3. They are not repeated under every light.
+
+
+The north-court service door receives the landing and stair drawn on HABS sheet 2.
+Scaled against the four-foot doorway, the landing spans W98.7–112.9 / S26.83–32.2
+ft, and a flight descends south at its west end through W108.2–112.1 /
+S32.2–41.1 ft (approximately ±0.5 ft). The landing meets the 6-ft-ng threshold.
+Ten risers and a 3-ft-high rail are reconstructed. The owner's tunnel-facing
+courtyard photograph bounds the stone slab/treads, two slender brick landing
+supports, brick stair cheek and iron rail; it does not certify those exact
+materials and thicknesses for 1904. This is distinct from the later wooden stair
+outside the stable south wall, which remains excluded.
+
+
+Final surface review keeps the measured planes and course heights but varies
+reconstructed rock-face relief within the declared 0.025–0.15-ft block depth
+range, with bounded local fracture peaks. Individual mineral color and firing
+variation are artistic material studies, not samples from reference pixels.
+Window interiors use varied top-down pale linen shades and occasional simple
+side curtains behind physical glass, with dark interior backing further inside.
+These are reconstructed period-compatible treatments, not a claim that the
+exact photographed shade positions or room furnishings existed on the scene date.

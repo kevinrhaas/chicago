@@ -230,7 +230,7 @@ class DetailBuilder(MeshBuilder):
         self.masonry_blocks += 1
         cx,cy = sum(p[0] for p in polygon)/len(polygon),sum(p[1] for p in polygon)/len(polygon)
         bevel = .005 if mat==BRICK else .012
-        depth = rng.uniform(.001,.006) if mat==BRICK else rng.uniform(.018,.035)
+        depth = rng.uniform(.001,.006) if mat==BRICK else rng.uniform(*self.params.detail['ashlar_relief_m'])
         if mat==BRICK:
             firing=rng.random()
             variant=BRICK if firing<.60 else (16 if firing<.80 else (17 if firing<.94 else 18))
@@ -258,9 +258,9 @@ class DetailBuilder(MeshBuilder):
                 for iy in range(ny+1):
                     xx=xa+(xc-xa)*ix/nx;yy=ya+(yc-ya)*iy/ny
                     boundary=ix in (0,nx) or iy in (0,ny)
-                    if 0<ix<nx:xx+=rng.uniform(-.035,.035)*(xc-xa)
-                    if 0<iy<ny:yy+=rng.uniform(-.05,.05)*(yc-ya)
-                    off=depth if boundary else depth+rng.uniform(-.010,.012)
+                    if 0<ix<nx:xx+=rng.uniform(-.075,.075)*(xc-xa)
+                    if 0<iy<ny:yy+=rng.uniform(-.09,.09)*(yc-ya)
+                    off=max(.004,depth+rng.uniform(-.005,.009) if boundary else depth+rng.uniform(-.015,.025))
                     grid[ix,iy]=(xx,yy,off)
             for ix in range(nx):
                 for iy in range(ny):
@@ -357,6 +357,29 @@ def cylinder(b,cx,cy,z0,z1,r,conf,mat,segments=16):
         b.raw([(p[0],p[1],z0),(q[0],q[1],z0),(q[0],q[1],z1),(p[0],p[1],z1)],conf,mat,(math.cos((a+c)/2),math.sin((a+c)/2),0))
 
 
+def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed):
+    """Reconstructed pale roller shades descend from the head, behind glass."""
+    rng=random.Random(seed)
+    closure=(0,.30,.62,.74,.82,.90,.97,1,1,1)[rng.randrange(10)]
+    a,c=u0+.075,u1-.075;top=z1-.07
+    if c<=a or top<=z0+.07:return
+    if closure:
+        bottom=top-(z1-z0-.14)*closure
+        b.raw([point(a,bottom,-.335),point(c,bottom,-.335),point(c,top,-.335),point(a,top,-.335)],conf,22,normal)
+        # Small turned linen hem, not an opaque glazing-height stripe.
+        b.raw([point(a,bottom,-.329),point(c,bottom,-.329),point(c,bottom+.018,-.335),point(a,bottom+.018,-.335)],conf,22,normal)
+    if closure<=.30 and rng.random()<.7:
+        # A minority of open rooms have quiet, narrow side drapes. Their folds
+        # are geometry behind the clear glass, with the room backing farther in.
+        width=(c-a)*.19
+        for left in (a,c-width):
+            for i in range(6):
+                ua=left+width*i/6;ub=left+width*(i+1)/6
+                oa=-.35+(.014 if i%2 else 0);ob=-.35+(.014 if (i+1)%2 else 0)
+                bottom=z0+.08+abs(2*(i+.5)/6-1)*.035
+                b.raw([point(ua,bottom,oa),point(ub,bottom,ob),point(ub,top,ob),point(ua,top,oa)],conf,22,normal)
+
+
 def opening(b,o,courtyard=False):
     """An opening with 280 mm deep jambs, inset glazing, sash and separate sill."""
     kind=o['kind']; a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']; conf=o['conf']
@@ -424,10 +447,9 @@ def opening(b,o,courtyard=False):
         if c-a>1.7:
             midu=(a+c)/2
             slab(b,o,midu-.025,midu+.025,z0+frame,z1-frame,-.285,-.17,conf,PAINTED_WOOD)
-        # Restrained off-white blinds on a deterministic minority of upper lights.
-        blind_fraction=(0,.25,.5,.8,1)[int((a+c)*100)%5]
-        if blind_fraction and z0>2:
-            slab(b,o,a+.075,c-.075,z1-(z1-z0-.08)*blind_fraction,z1-.075,-.335,-.33,conf,22)
+        if z0>2:
+            linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
+                        legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003))
         slab(b,o,a-.09,c+.09,z0-.085,z0+.025,-.055,.11,conf,ROUGH_TRIM if courtyard else GRANITE)
     if courtyard and not small:
         # Courtyard photographs show brick jambs with rock-faced limestone
@@ -640,7 +662,7 @@ def bow(b,w):
 
 
 
-def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None):
+def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True):
     """Recessed sash on an arbitrarily oriented planar bay facet."""
     tangent=norm(sub((*q,0),(*p,0)));width=math.dist(p,q)
     def P(u,z,off):
@@ -658,8 +680,7 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
         for i in range(4):
             j=(i+1)%4;b.raw([front[i],back[i],back[j],front[j]],conf,mat)
     if not small and not door:
-        closure=(0,.25,.5,.8,1)[int((p[0]+q[1])*100)%5]
-        if closure:box(.07,width-.07,z1-(z1-z0-.08)*closure,z1-.07,-.335,-.33,22)
+        linen_shade(b,0,width,z0,z1,P,normal,conf,int((p[0]*17+q[1]*31+z0)*10003))
     if door:
         box(0,width,z0,z1,-.28,-.20,WOOD)
         box(.12,width-.12,z0+.12,z0+(z1-z0)*.4,-.2,-.17,WOOD)
@@ -673,9 +694,9 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
             z=z0+(z1-z0)*row/rows;frames.append((0,width,z-.022,z+.022))
         for ua,ub,za,zb in frames:
             box(ua,ub,za,zb,-.285,-.18,PAINTED_WOOD)
-    surrounds=[(-.20,width+.20,z0-.1,z0),(-.20,width+.20,z1,z1+.18)]
-    if stone_jambs:surrounds += [(-.27,0,z0,z1),(width,width+.27,z0,z1)]
-    for ua,ub,za,zb in surrounds:
+    stones=[(-.20,width+.20,z0-.1,z0),(-.20,width+.20,z1,z1+.18)] if surrounds else []
+    if stone_jambs:stones += [(-.27,0,z0,z1),(width,width+.27,z0,z1)]
+    for ua,ub,za,zb in stones:
         box(ua,ub,za,zb,-.03,.05,ROUGH_TRIM)
 
 
@@ -791,8 +812,9 @@ def tower(b,t,params):
     curved_masonry(b,cx,cy,r,t['z0'],t['wall_top_z'],conf,BRICK,windows)
     for w in windows:
         a,c=w['a0'],w['a1'];p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
+        lantern=w['z0']>=data['bands'][0][0]
         facet_window(b,p,q,w['z0'],w['z1'],(math.cos(w['angle']),math.sin(w['angle']),0),conf,stone_jambs=False,
-                     panes=data['lantern_panes'] if w['z0']>=data['bands'][0][0] else None)
+                     panes=data['lantern_panes'] if lantern else None,surrounds=not lantern)
     old=b.decorate;b.decorate=False
     for z0,z1 in data['bands']:
         legacy._drum(b,cx,cy,r+.06,z0,z1,conf,TRIM,64)
@@ -845,6 +867,62 @@ def terrace(b,params):
         legacy._box(b,end[0]-width,y,0,end[0],y+run,z,conf,TRIM)
         # A thin projecting tread nose makes each normal-height riser legible.
         legacy._box(b,end[0]-width-.02,y-.035,z-.045,end[0]+.02,y+run,z,conf,TRIM)
+    b.decorate=old
+
+
+def service_stair(b,params):
+    """HABS sheet 2 north service landing and south-descending flight.
+
+    The record owns the measured plan and threshold. Slab, cheek/support and
+    simple iron rail construction are bounded reconstructions from courtyard
+    photographs, distinct from the excluded later stair south of the stable.
+    """
+    s=params.detail.get('north_court_service_stair')
+    if not s:return
+    x0,x1=s['landing_x'];y0,y1=s['landing_y'];z=s['landing_z']
+    fx0,fx1=s['flight_x'];fy0,fy1=s['flight_y']
+    conf=params.detail['conf'];old=b.decorate;b.decorate=False
+    thickness=.14
+    legacy._box(b,x0,y0,z-thickness,x1,y1,z,conf,TRIM)
+    # Two slim brick supports leave the documented garden-level wall visible.
+    b.decorate=True
+    for x in (x1-.23,(x0+x1)/2):
+        legacy._box(b,x-.13,y0+.06,0,x+.13,y0+.32,z-thickness,conf,BRICK)
+    count=s['steps'];run=(fy1-fy0)/count;rise=z/count
+    b.decorate=False
+    for i in range(count):
+        a=fy0+run*i;c=a+run;top=rise*(i+1)
+        legacy._box(b,fx0,a,0,fx1,c,top,conf,TRIM)
+        legacy._box(b,fx0-.015,a-.025,top-.04,fx1+.015,c,top,conf,TRIM)
+    # A brick cheek under the outside tread ends, never a solid landing plinth.
+    b.decorate=True
+    for x,want in ((fx1+.045,(1,0,0)),(fx1-.105,(-1,0,0))):
+        poly=[(x,fy0,0),(x,fy1,0),(x,fy1,z-.10),(x,fy0,.04)]
+        if dot(legacy._normal(poly),want)<0:poly.reverse()
+        b.wall(poly,conf,BRICK)
+    b.decorate=False
+
+    def rail(a,c):
+        height=s['rail_height_m'];length=math.dist(a,c)
+        posts=max(1,math.ceil(length/.6))
+        for i in range(posts+1):
+            t=i/posts;p=tuple(a[k]+(c[k]-a[k])*t for k in range(3))
+            cylinder(b,p[0],p[1],p[2],p[2]+height,.013,conf,IRON,6)
+        # Square iron handrail plus one light horizontal lower member.
+        direction=norm(sub(c,a));side=norm((-direction[1],direction[0],0))
+        for level in (.16,height):
+            half=.018 if level==height else .010
+            points=[]
+            for p in (a,c):
+                points.append([(p[0]+side[0]*u,p[1]+side[1]*u,p[2]+level+v)
+                               for u,v in ((-half,-half),(half,-half),(half,half),(-half,half))])
+            for i in range(4):
+                j=(i+1)%4
+                b.raw([points[0][i],points[1][i],points[1][j],points[0][j]],conf,IRON)
+    rail((fx1+.025,y0-.015,z),(x1-.03,y0-.015,z))
+    rail((x1-.03,y0,z),(x1-.03,y1,z))
+    for x in (fx0-.025,fx1+.025):
+        rail((x,fy0,rise),(x,fy1,z))
     b.decorate=old
 
 
@@ -974,6 +1052,7 @@ def build(params,name):
     b.decorate=True
     supplemental(b,params)
     terrace(b,params)
+    service_stair(b,params)
     underpass(b,params)
     date_stones(b,params)
     obj=b.to_object(build_materials(params.colours))

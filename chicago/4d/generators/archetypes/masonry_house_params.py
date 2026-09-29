@@ -43,10 +43,11 @@ corner of the building's bounding box, and every point of the house has x, y >= 
 
 ## What it deliberately does not do
 
-Interiors are out of scope everywhere in this project, so an opening is a surface and
-not a hole: a dark panel standing a few centimetres proud of the wall. Neighbouring
-buildings are their own records — the Glessner courtyard's south side is the north
-wall of 1808 Prairie, which belongs to that house (T-0475), not to this one.
+Full interiors remain out of scope. Legacy profiles represent openings as surface
+panels; the explicitly selected glessner_v4 profile clips real wall apertures, adds
+recessed glazing and shallow dark room backing, and preserves the open underpass.
+Neighbouring buildings are their own records — the Glessner courtyard's south side
+is the north wall of 1808 Prairie, which belongs to that house (T-0475).
 """
 
 from __future__ import annotations
@@ -619,6 +620,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         raw = val("v4_detail", {})
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
+        p.detail["ashlar_relief_m"] = [float(v) * FT for v in
+                                        raw.get("ashlar_relief_ft", [0.025,0.15])]
         p.detail["conf"] = cf("v4_detail")
         cg = raw.get("west_cross_gable")
         if cg:
@@ -667,6 +670,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
+        service_stair = raw.get("north_court_service_stair")
+        if service_stair:
+            p.detail["north_court_service_stair"] = {
+                "landing_x": sorted(fr.x(v) for v in service_stair["landing_W"]),
+                "landing_y": sorted(fr.y(v) for v in service_stair["landing_S"]),
+                "flight_x": sorted(fr.x(v) for v in service_stair["flight_W"]),
+                "flight_y": sorted(fr.y(v) for v in service_stair["flight_S"]),
+                "landing_z": fr.zval(service_stair["landing_z"]),
+                "steps": int(service_stair["steps"]),
+                "rail_height_m": float(service_stair["rail_height_ft"]) * FT}
         un = raw.get("underpass")
         if un:
             p.detail["underpass"] = {"pts": [fr.xy(v) for v in un["plan_WS"]],

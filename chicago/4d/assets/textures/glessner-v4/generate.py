@@ -77,7 +77,10 @@ def normals(height, tile_m):
 
 def save(name, rgb, height, rough, description, seed):
     rgb = np.clip(rgb, 0.02, .94)
-    Image.fromarray(np.uint8(rgb * 255 + .5)).save(OUT / f"{name}_basecolor.jpg", quality=92,
+    # The stronger granite mineral contrast compresses less readily. Q89 keeps
+    # its original 2K detail within the same shipped texture payload budget.
+    quality = 89 if name == "granite" else 92
+    Image.fromarray(np.uint8(rgb * 255 + .5)).save(OUT / f"{name}_basecolor.jpg", quality=quality,
                                                subsampling=0, optimize=True)
     # Low-pass before reducing resolution: high-frequency micro-normals shimmer
     # rather than looking like stone. Albedo keeps the 2K mineral detail.
@@ -117,8 +120,12 @@ def stone(name, seed, smooth=False):
         rough = .83 + .028 * grain + .035 * medium
         tone += .006 * fracture
     rgb = base + tone[..., None]
-    rgb -= mineral[..., None] * np.array([.060, .059, .052])
-    rgb += pale[..., None] * np.array([.035, .037, .039])
+    # Distinct dark mica and pale quartz/feldspar grains matter in close views;
+    # the previous low-contrast speckle read as uniformly coloured stucco.
+    dark_mineral = [.060, .059, .052] if smooth else [.155, .151, .141]
+    pale_mineral = [.035, .037, .039] if smooth else [.060, .064, .068]
+    rgb -= mineral[..., None] * np.array(dark_mineral)
+    rgb += pale[..., None] * np.array(pale_mineral)
     note = ("Original fine limestone grain; dressing and block shapes are geometry." if smooth else
             "Original mineral grain over domain-warped angular split-face fracture planes at about "
             "4-14 cm scale, 5.5 mm large-plane variation and 1.5 mm smaller splinters. Physical courses, "
@@ -162,13 +169,13 @@ def copper():
     seed = 190404
     rng = np.random.default_rng(seed)
     fine, patches, large = field(rng, .65), field(rng, 24), field(rng, 104)
-    patina = np.clip(.50 + .15 * patches + .12 * large, .05, .95)
+    patina = np.clip(.50 + .05 * patches + .04 * large, .25, .75)
     aged = np.array([.264, .283, .232])
     green = np.array([.299, .369, .301])
     rgb = aged + patina[..., None] * (green - aged)
-    rgb += (.008 * fine + .009 * patches)[..., None]
-    h = .00004 * fine + .00009 * patches
-    rough = .45 + .30 * patina + .025 * patches
+    rgb += (.002 * fine + .002 * patches)[..., None]
+    h = .00001 * fine + .00002 * patches
+    rough = .56 + .12 * patina + .008 * patches
     return save("copper", rgb, h, rough, "Reconstructed 17-year copper weathering: brown metal with "
                 "uneven muted green oxidation; standing seams belong to geometry. Modern bright "
                 "turquoise oxidation is not asserted as the 1904 colour.", seed)
@@ -183,10 +190,10 @@ def oak(painted=False):
     broad = gaussian_filter(a, (150, 12), mode="wrap")
     broad /= max(float(broad.std()), 1e-6)
     if painted:
-        rgb = np.array([.182, .194, .142]) + (.0045 * grain + .004 * broad)[..., None]
+        rgb = np.array([.160, .230, .195]) + (.0045 * grain + .004 * broad)[..., None]
         h = .000025 * grain
         rough = .46 + .025 * grain
-        note = "Reconstructed dark olive painted sash and carriage joinery; a thin "
+        note = "Reconstructed muted dark green painted sash and carriage joinery; a thin "
         note += "smooth coating with restrained grain telegraphing, not a sampled modern finish."
     else:
         rgb = np.array([.213, .175, .120]) + (.011 * grain + .007 * broad)[..., None]

@@ -1,0 +1,96 @@
+{
+  "purpose": "Exact generated-asset recovery until authenticated git can upload files larger than the connector request limit. Not a substitute for final validation.",
+  "files": {
+    "assets/gltf/glessner_house__as_built_1887.glb": {
+      "bytes": 96496,
+      "sha256": "b04ab5c15f8df19158544e2df64e239ed4716eec9f89b2f9b835b65ec85f604c"
+    },
+    "assets/web/glessner_house__as_built_1887.glb": {
+      "bytes": 25540,
+      "sha256": "c0ecd376fd5abb23d67aee0b701eb67c3eb5f42cb02850f7fdc067464b7e09a4"
+    },
+    "assets/gltf/versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
+      "bytes": 98832,
+      "sha256": "98aaea0aa8f7772c23c7c1d634ea72735ff450f984ffd766d9c7655ff0f9a6b0"
+    },
+    "assets/gltf/versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
+      "bytes": 95728,
+      "sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
+    },
+    "assets/gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb": {
+      "bytes": 49288948,
+      "sha256": "9a4f768973e409bdeb555a19d9f365ad4df190c794039e4769e7828262ad48f5"
+    },
+    "assets/web/versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
+      "bytes": 26564,
+      "sha256": "d33e95f9b16c42e38ba4771c8839d188935bdff4a24a433a039825cb32bd8a08"
+    },
+    "assets/web/versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
+      "bytes": 26188,
+      "sha256": "95d0182acf2f594903f513b97855a7888c10a4613d9cd90df0a79a6bea70a8ac"
+    },
+    "assets/web/versions/glessner_house/v4/glessner_house__as_built_1887.glb": {
+      "bytes": 21493940,
+      "sha256": "578020a4897c5b473fd7bb3aade8f8aded073fef02f86f3a4bc703f66e0d8690"
+    },
+    "assets/manifest.json": {
+      "bytes": 173089,
+      "sha256": "dbbb4bc3d48ee8a9461488e568859ea6656f71f56a0cfd9c8b4910dc88d08ef6"
+    },
+    "assets/manifest.web.json": {
+      "bytes": 60770,
+      "sha256": "bcb975f1990c5618de4c923895ae9ed544eb8256b5df194b55276a0371993aa6"
+    },
+    "assets/manifest.versions.json": {
+      "bytes": 2670,
+      "sha256": "ed7809bd9374ee33ecfaaa28055f80cfb06c61d79bbad2686e5da08c4e1392a9"
+    },
+    "data/sidecars/1904/versions/index.json": {
+      "bytes": 2023,
+      "sha256": "3767d8a381eb1bdee13002eb2e5213bfa18db8b4c7ad633e9d88f2b0977c41d6"
+    },
+    "data/sidecars/1904/versions/glessner_house/v4.json": {
+      "bytes": 107878,
+      "sha256": "cea46f139fd78c42b17678a0b87acb0d858646bbc50da47ec917a815b592fdcb"
+    }
+  },
+  "parts": [
+    {
+      "name": "assets.zip.part00",
+      "bytes": 6291456,
+      "sha256": "1fd046dd3aa16981c53ace42b8e0b449c50496dcb3a807992c1573d6cac0cd34"
+    },
+    {
+      "name": "assets.zip.part01",
+      "bytes": 6291456,
+      "sha256": "a636a9305cb750149c2ff32f3e5b2d68f8d6aaffe794151dbece7761057399af"
+    },
+    {
+      "name": "assets.zip.part02",
+      "bytes": 6291456,
+      "sha256": "63f532b55440ec371127263193c4d2945965e49f5e3fc8409b4e5b2c10f44fce"
+    },
+    {
+      "name": "assets.zip.part03",
+      "bytes": 6291456,
+      "sha256": "5402425dd70f608948201b8ad7f0d6ba72166061dfa9b3c2071de9c4e2b97b97"
+    },
+    {
+      "name": "assets.zip.part04",
+      "bytes": 6291456,
+      "sha256": "4ccc7b20334cee15cbce703dcf347c487e399d5fe68592bdb9492c09929530c2"
+    },
+    {
+      "name": "assets.zip.part05",
+      "bytes": 6291456,
+      "sha256": "31d6976b5d785657655a28573f2363686e3d04c9cc6af8e0eff0595ffd1302c1"
+    },
+    {
+      "name": "assets.zip.part06",
+      "bytes": 3384125,
+      "sha256": "5f94c9c49417b7a35e711d2cdd02b76da293da9b4437d8dcb467b8c942aa968e"
+    }
+  ],
+  "archive_sha256": "e9aea1dc2c585bf08ac38a766df5e856f8e0d9cfa8480b48e8440d11fbbf2695",
+  "archive_bytes": 41132861
+}

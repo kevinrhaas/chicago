@@ -117,3 +117,46 @@ photographic-quality review (current broad views still read as CG), bake/derive
 the final assets, rerun selected-model browser QA, complete the full preflight
 and both published smoke viewports, and record the exact results. T-1730 remains
 open for owner comparison. Do not promote v4 or production merely on a checkpoint.
+
+
+Final candidate refinements after checkpoint 3: HABS north service landing and
+ten steps; deeper bounded split-face granite using existing vertices; subtle
+mineral variation; restrained brick and copper contrast; pale varied linen
+shades and muted green frames. Original maps now total 12,691,945 bytes across
+27 maps. An isolated material export verifies 25 materials and UV0 bindings;
+the renderer confirms imported glass transmission 0.94 / IOR1.52 / roughness0.065.
+The optional overcast review lighting is mathematically defined and recorded,
+not a photographic backdrop. Final all-variant bake is running.
+
+
+## Checkpoint 4 — exact baked-asset recovery
+
+Pinned Blender rebuilt all four Glessner variants. Final v4 master:
+49,288,948 bytes, 422,723 triangles, SHA256
+`9a4f768973e409bdeb555a19d9f365ad4df190c794039e4769e7828262ad48f5`.
+The web derivative is 21,493,940 bytes. All four derivatives were regenerated,
+then scenes compiled and the published mirror rebuilt.
+
+The GitHub connector rejects bodies exceeding 16 MiB, including base64 overhead;
+there is no authenticated native git push configured in this workspace. Direct
+upload of both large GLBs therefore failed. The source/maps and **exact baked
+assets** are preserved by `docs/RESEARCH/glessner-v4-recovery/`: seven archive
+parts, per-part and per-member SHA256 values, and a verifier/restorer at
+`tools/recover_glessner_v4.py`. Verification reports all 13 members byte-identical
+to the working assets. This is a transport recovery measure, not a new asset
+format. Restore the archive before continuing validation in a fresh checkout.
+The normal GLB files still need an authenticated git push before a release PR.
+
+Final source validation: parameter/license validation passed with 0 errors and
+259 inherited warnings; isolated version regressions passed with 0 failures.
+Preflight and mobile published smoke are still running. Desktop completed parts1–4,
+then was stopped at the start of part5 to relieve memory pressure; resume parts5–13
+after mobile finishes. Both smoke
+viewports have the same three inherited frontage-count failures already owned
+by T-1752: 51 walks / 46 crossings / 58 authored meshes / 40 block faces against
+older asserted counts. Data, frontage renderer and assertions match pre-v4
+commit `590ad4c3`, and published files match source. No assertion was weakened.
+
+Final 1600-pixel actual-GLB overcast renders are running serially. The preceding
+review drove additional material, stone-relief and shade corrections; no final
+photographic-quality acceptance claim is made at this checkpoint.

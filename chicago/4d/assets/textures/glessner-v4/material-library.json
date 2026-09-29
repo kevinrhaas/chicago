@@ -110,7 +110,7 @@
       ],
       "seed": 190406,
       "confidence": "reconstructed",
-      "description": "Reconstructed dark olive painted sash and carriage joinery; a thin smooth coating with restrained grain telegraphing, not a sampled modern finish.",
+      "description": "Reconstructed muted dark green painted sash and carriage joinery; a thin smooth coating with restrained grain telegraphing, not a sampled modern finish.",
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
@@ -164,20 +164,20 @@
       "bytes": 330118
     },
     "copper_basecolor.jpg": {
-      "sha256": "29732e3b5baeba268b318e99d407b13e96dfb901306e16432dbc1e7b121c39b1",
-      "bytes": 563460
+      "sha256": "e021a67d8c2291b08ab69ac140f502a9a3b5ed4fa089515936e5123741578d32",
+      "bytes": 176924
     },
     "copper_normal.png": {
-      "sha256": "aba696aff875c1446904f4daf2fc4183c51484af2552aecfd6719a67b87826be",
-      "bytes": 567206
+      "sha256": "42e3c199f6e5d0e1ad359545a8a2927121fdf226a955a02e7b16ffae6f110417",
+      "bytes": 430679
     },
     "copper_roughness.png": {
-      "sha256": "04071e249486f7b75ded0a9062fa1aeb511532a9521045ef35be440c33fb71e9",
-      "bytes": 154454
+      "sha256": "7d84c8c84af6aae8b112013032d9cce98bdd2b7cf18de23306e13bb7fc37903a",
+      "bytes": 73123
     },
     "granite_basecolor.jpg": {
-      "sha256": "edff2ae0a886300a963b0ff58f48177e2d8579c2ef8c8711bc074b7d4389440e",
-      "bytes": 1114741
+      "sha256": "20528e1510ad3ab3eefe8ca5998196bf0389cdac1bdce3674abe83fa294ec22b",
+      "bytes": 1057648
     },
     "granite_normal.png": {
       "sha256": "aea5035bb94420b9059cdcb1fa23b035976ff52e07e2875ecd1c69d7bf96a842",
@@ -224,8 +224,8 @@
       "bytes": 83719
     },
     "painted_wood_basecolor.jpg": {
-      "sha256": "5005a786dbff23b7514543b00a6365ae27f06ef8e95948cf215d5dd4932a2a1b",
-      "bytes": 201740
+      "sha256": "90313db7153b3332509472d5f54eb03598c80ef7dbe0327dadb3bba8bf16f11d",
+      "bytes": 200394
     },
     "painted_wood_normal.png": {
       "sha256": "52192d06822c1b2ba6331b69d9b7be3e41f61b81585ea46e2ca10ca0af48a1ab",

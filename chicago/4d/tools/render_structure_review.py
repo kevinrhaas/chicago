@@ -3,11 +3,12 @@
 Run with the project's pinned Blender, from any working directory::
 
     blender -b --factory-startup --python tools/render_structure_review.py -- \
-      --glb assets/gltf/glessner_house__as_built_1887.glb --out /tmp/glessner-default
+      --glb assets/gltf/glessner_house__as_built_1887.glb --out /tmp/glessner-default \
+      --exposure -1.5
 
     blender -b --factory-startup --python tools/render_structure_review.py -- \
       --glb assets/gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb \
-      --out /tmp/glessner-v4 --size 1600 --samples 128
+      --out /tmp/glessner-v4 --size 1600 --samples 128 --exposure -1.5
 
 This is a review renderer, not a geometry or material generator. The imported
 GLB's meshes, UVs, textures and materials are unchanged. A neutral ground plane
@@ -18,6 +19,12 @@ No contemporary surroundings or photograph is composited into the result.
 Camera coordinates are metres in the imported building frame: X east, Y north,
 Z up; SW footprint origin. The glTF importer converts the shipped Y-up GLB back
 to this Z-up frame. Use the SAME command/settings for baseline and candidate.
+The reviewed daylight exposure is -1.5 EV with AgX Base Contrast. Courtyard
+closeups additionally use --sun-elevation 50 --sun-azimuth 225, keeping the
+south-facing masonry illuminated. The default sun favours the street facades.
+Use --sky overcast for a diffuse architectural review under a CIE overcast
+distribution. This is a mathematical luminance field, with no photographic
+backdrop, invented cloud patterns, or changes to the imported model.
 """
 
 from __future__ import annotations
@@ -46,9 +53,11 @@ CAMERAS = {
     "courtyard-west": {"position": (37, 5, 1.7), "target": (10.82, 9, 5.0), "lens": 28},
     "courtyard-bow-detail": {"position": (27, 2, 1.7), "target": (41, 9, 4.5), "lens": 30},
     "dining-bay-detail": {"position": (27.6, 1, 1.7), "target": (27.6, 12, 4.3), "lens": 32},
+    "courtyard-access-detail": {"position": (18.2, 1, 1.7), "target": (18.2, 14.1, 3.7), "lens": 30},
     "overhead": {"position": (64, -38, 68), "target": (24.6, 11.3, 3.0), "lens": 48},
     "overhead-west": {"position": (-25, -35, 62), "target": (24.6, 11.3, 3.0), "lens": 48},
 }
+OVERCAST_ZENITH_RGB = (5.58, 5.79, 6.0)
 
 
 def parse_args():
@@ -60,6 +69,7 @@ def parse_args():
     parser.add_argument("--size", type=int, default=800, help="Image width; 5:4 ratio.")
     parser.add_argument("--samples", type=int, default=48)
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--sky", choices=("clear", "overcast"), default="clear")
     parser.add_argument("--sun-elevation", type=float, default=32)
     parser.add_argument("--sun-azimuth", type=float, default=45,
                         help="Degrees in the building frame; keep equal for comparisons.")
@@ -76,6 +86,32 @@ def configure_daylight(scene, args):
     scene.world = world
     tree = world.node_tree
     tree.nodes.clear()
+    background = tree.nodes.new("ShaderNodeBackground")
+    output = tree.nodes.new("ShaderNodeOutputWorld")
+    tree.links.new(background.outputs["Background"], output.inputs["Surface"])
+    if args.sky == "overcast":
+        # CIE overcast: L(elevation)/L(zenith) = (1 + 2 sin(elevation))/3.
+        # https://www.cie.co.at/publications/spatial-distribution-daylight-cie-standard-general-sky
+        # Relative radiance is calibrated for the same -1.5 EV review exposure;
+        # this is not an absolute photometric illuminance measurement.
+        width, height = 256, 128
+        pixels = []
+        for y in range(height):
+            elevation = math.pi * ((y + 0.5) / height - 0.5)
+            relative = (1.0 + 2.0 * max(0.0, math.sin(elevation))) / 3.0
+            rgb = [relative * channel for channel in OVERCAST_ZENITH_RGB]
+            pixels.extend((rgb + [1.0]) * width)
+        sky_image = bpy.data.images.new("REVIEW_ONLY_CIE_overcast", width, height,
+                                        alpha=False, float_buffer=True)
+        sky_image.colorspace_settings.name = "Linear Rec.709"
+        sky_image.pixels.foreach_set(pixels)
+        sky_image.pack()
+        environment = tree.nodes.new("ShaderNodeTexEnvironment")
+        environment.image = sky_image
+        environment.projection = "EQUIRECTANGULAR"
+        background.inputs["Strength"].default_value = 1.0
+        tree.links.new(environment.outputs["Color"], background.inputs["Color"])
+        return
     sky = tree.nodes.new("ShaderNodeTexSky")
     sky.sky_type = "NISHITA"
     sky.sun_disc = True
@@ -87,11 +123,8 @@ def configure_daylight(scene, args):
     sky.air_density = 1.0
     sky.dust_density = 1.0
     sky.ozone_density = 1.0
-    background = tree.nodes.new("ShaderNodeBackground")
     background.inputs["Strength"].default_value = 0.25
-    output = tree.nodes.new("ShaderNodeOutputWorld")
     tree.links.new(sky.outputs["Color"], background.inputs["Color"])
-    tree.links.new(background.outputs["Background"], output.inputs["Surface"])
 
 
 def neutral_ground():
@@ -137,13 +170,27 @@ def model_description(imported):
     points = [obj.matrix_world @ Vector(corner) for obj in imported
               if obj.type == "MESH" for corner in obj.bound_box]
     meshes = [obj for obj in imported if obj.type == "MESH"]
+    materials = {mat for obj in meshes for mat in obj.data.materials if mat}
+    shader_parameters = {}
+    for material in materials:
+        if not material.use_nodes:
+            continue
+        bsdf = next((node for node in material.node_tree.nodes
+                     if node.type == "BSDF_PRINCIPLED"), None)
+        if bsdf is not None:
+            shader_parameters[material.name] = {
+                name: "texture-linked" if bsdf.inputs[name].is_linked
+                else round(bsdf.inputs[name].default_value, 6)
+                for name in ("Transmission Weight", "IOR", "Roughness", "Metallic")
+            }
     return {
         "bounds_m": {"min": [min(p[i] for p in points) for i in range(3)],
                      "max": [max(p[i] for p in points) for i in range(3)]},
         "mesh_objects": len(meshes),
         "vertices": sum(len(obj.data.vertices) for obj in meshes),
         "polygons": sum(len(obj.data.polygons) for obj in meshes),
-        "materials": sorted({mat.name for obj in meshes for mat in obj.data.materials if mat}),
+        "materials": sorted(mat.name for mat in materials),
+        "imported_shader_parameters": shader_parameters,
         "images": [{"name": img.name, "size": list(img.size)} for img in bpy.data.images
                    if img.name not in {"Render Result", "Viewer Node"}],
     }
@@ -182,11 +229,16 @@ def main():
                      "view_transform": "AgX", "look": scene.view_settings.look,
                      "exposure_ev": args.exposure,
                      "neutral_ground_linear_rgb": [0.18, 0.17, 0.15],
+                     "sky": args.sky,
                      "sun_elevation_deg": args.sun_elevation,
                      "sun_azimuth_deg": args.sun_azimuth,
-                     "world_strength": 0.25, "sun_intensity": 0.7},
+                     "world_strength": 1.0 if args.sky == "overcast" else 0.25,
+                     "sun_intensity": 0.0 if args.sky == "overcast" else 0.7,
+                     "overcast_relative_distribution": "(1+2*sin(elevation))/3" if args.sky == "overcast" else None,
+                     "overcast_zenith_linear_rgb": list(OVERCAST_ZENITH_RGB) if args.sky == "overcast" else None},
         "model": model,
-        "review_additions": ["Neutral ground plane, z=-0.005 m", "Procedural Nishita sky",
+        "review_additions": ["Neutral ground plane, z=-0.005 m",
+                             "CIE overcast mathematical sky" if args.sky == "overcast" else "Procedural Nishita sky",
                              "Review camera; no GLB mesh or material edits"],
         "renders": [],
     }
