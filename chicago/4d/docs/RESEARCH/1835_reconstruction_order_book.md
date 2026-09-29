@@ -374,23 +374,22 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,478
-- seated: 250 — 205 by adopting a roof that already stands, 45 by asking for one
-- still on no ground at all: 1,228
+- seated: 249 — 205 by adopting a roof that already stands, 44 by asking for one
+- still on no ground at all: 1,229
 - of the 480 roofs the town already has, 205 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,478 | 178 | 133 | 45 | 1,300 |
-| The ground the plat does not draw | T-1614 | 1,300 | 72 | 72 | 0 | 1,228 |
+| The committed plat | T-1613 | 1,478 | 177 | 133 | 44 | 1,301 |
+| The ground the plat does not draw | T-1614 | 1,301 | 72 | 72 | 0 | 1,229 |
 
-45 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+44 slot(s) on 7 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
 | `hh_adams_elizabeth` | `blk_indiana_north_cass` | `blk_indiana_north_cass#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_allen_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D7 | `merchant_and_professional_dwellings` |
-| `hh_arrowsmith_sidney` | `blk_randolph_clinton` | `blk_randolph_clinton#01` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_caroline` | `blk_washington_clark` | `blk_washington_clark#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_charles_h` | `blk_washington_dearborn` | `blk_washington_dearborn#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_elonore` | `blk_washington_dearborn` | `blk_washington_dearborn#00` | H1 | `merchant_and_professional_dwellings` |
@@ -433,7 +432,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_cleaveland_wm_p` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
 | `hh_clement_dorcinrk` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 
-1,228 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,229 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 

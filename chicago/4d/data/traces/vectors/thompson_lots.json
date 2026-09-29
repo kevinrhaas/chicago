@@ -39,7 +39,7 @@
    "blocks": 25,
    "omitted": 7,
    "numbered": 19,
-   "lots": 194,
+   "lots": 196,
    "subdivided": true,
    "divides_on": "the South Division module, four lots to a face",
    "built_and_not_divided": 0
@@ -251,16 +251,13 @@
     "jefferson",
     "west_water"
    ],
-   "blocks_of_this_grid_inside_it": [
-    "blk_randolph_clinton"
-   ],
+   "blocks_of_this_grid_inside_it": [],
    "transposed_onto_the_west_arrangement": [
-    "blk_lake_clinton"
-   ],
-   "held_on_the_south_module_by_their_own_deal": [
+    "blk_lake_clinton",
     "blk_randolph_clinton"
    ],
-   "refused_on_every_one_of_them": "and the refusal is arithmetic, not preference. Two lot columns alone need 360 ft; the committed faces west of the river are 326.1 ft. The arrangement does not fit before the alley is cut.",
+   "held_on_the_south_module_by_their_own_deal": [],
+   "refused_on_every_one_of_them": "and the refusal is arithmetic, not preference. Two lot columns alone need 360 ft; the committed faces west of the river are . The arrangement does not fit before the alley is cut.",
    "what_is_short_is_the_spacing_not_the_module": "Clinton to Canal is committed at 367.9 ft against the plat's 458 ft — 90.1 ft short, the same finding tools/measure_west_division_module.py reports and the owner reported on 2026-08-31. Seating the printed module means moving those centrelines, which is T-1540 and is deliberately not done here: this generator writes what the committed lines give and records what the sheet asks for beside it.",
    "and_the_ruling_did_not_wait_for_them_to_move": "the owner ruled on 2026-09-23 (T-1479, option a) that the division's module may cut a block printing no lot figures of its own, at `inferred`, with every record on it re-seated onto the lot nearest where it already stands. So the block above listed under `transposed_onto_the_west_arrangement` IS subdivided the other way about now — two columns and a north-south alley instead of faces and an east-west one, ten lots carrying the sheet's own numerals — WITHOUT the printed module having been seated at its printed size and without a centreline having moved. The refusal above is still arithmetic and is still true; it is no longer what holds a cell shut. What T-1540 would still change is the SIZE: seated at 378 ft these lots would be the plat's lots rather than the plat's arrangement cut into short ground.",
    "and_what_holds_the_rest": "a cell under `held_on_the_south_module_by_their_own_deal` is held by its own reconstruction parcel and not by this refusal. The transpose turns a block through ninety degrees and its lots stop fronting the east-west streets, so a parcel that argued which family takes which FACE argued it against faces the transpose removes. T-1734 re-makes that argument and re-places those roofs; until it does, the block keeps the arrangement its deal was argued on. Which cells those are is read from data/reconstruction/1835_platted_block_parcels.json, so a parcel dealt onto a third such cell holds it on its own.",
@@ -309,8 +306,8 @@
   "reserved": 1,
   "numbered": 68,
   "numbered_omitted": 48,
-  "lots": 336,
-  "numbered_lots": 176,
+  "lots": 338,
+  "numbered_lots": 178,
   "block_frontage_ft": {
    "min": 120.8,
    "median": 312.0,
@@ -3977,225 +3974,305 @@
    "frontage_m": 99.39,
    "frontage_ft": 326.1,
    "depth_m": 110.94,
-   "lots_per_face": 4,
+   "lots_per_column": 5,
    "alley_local_enu_m": [
     [
-     -266.34,
-     -315.24
+     -221.27,
+     -262.87
     ],
     [
-     -167.01,
-     -316.03
+     -215.86,
+     -262.91
     ],
     [
-     -166.75,
-     -321.51
+     -211.81,
+     -373.89
     ],
     [
-     -266.2,
-     -320.72
+     -217.37,
+     -373.84
     ]
    ],
    "lots": [
     {
-     "tier": "north",
-     "frontage_m": 24.52,
-     "depth_m": 52.76,
+     "tier": "west",
+     "column": "west",
+     "row": 1,
+     "frontage_m": 22.2,
+     "depth_m": 46.45,
      "polygon": [
       [
        -267.6,
        -262.5
       ],
       [
-       -243.08,
-       -262.69
+       -221.27,
+       -262.87
       ],
       [
-       -241.5,
-       -315.43
+       -220.49,
+       -285.06
       ],
       [
-       -266.34,
-       -315.24
+       -267.07,
+       -284.69
       ]
      ],
-     "plat_lot_number": 4,
-     "plat_lot_confidence": "conjectural"
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
     },
     {
-     "tier": "south",
-     "frontage_m": 25.18,
-     "depth_m": 52.76,
+     "tier": "west",
+     "column": "west",
+     "row": 2,
+     "frontage_m": 22.2,
+     "depth_m": 46.7,
      "polygon": [
       [
-       -266.2,
-       -320.72
+       -267.07,
+       -284.69
       ],
       [
-       -241.34,
-       -320.92
+       -220.49,
+       -285.06
       ],
       [
-       -239.76,
-       -373.66
+       -219.71,
+       -307.26
+      ],
+      [
+       -266.54,
+       -306.88
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 3,
+     "frontage_m": 22.2,
+     "depth_m": 46.95,
+     "polygon": [
+      [
+       -266.54,
+       -306.88
+      ],
+      [
+       -219.71,
+       -307.26
+      ],
+      [
+       -218.93,
+       -329.45
+      ],
+      [
+       -266.0,
+       -329.07
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 4,
+     "frontage_m": 22.2,
+     "depth_m": 47.2,
+     "polygon": [
+      [
+       -266.0,
+       -329.07
+      ],
+      [
+       -218.93,
+       -329.45
+      ],
+      [
+       -218.15,
+       -351.65
+      ],
+      [
+       -265.47,
+       -351.26
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 5,
+     "frontage_m": 22.2,
+     "depth_m": 47.45,
+     "polygon": [
+      [
+       -265.47,
+       -351.26
+      ],
+      [
+       -218.15,
+       -351.65
+      ],
+      [
+       -217.37,
+       -373.84
       ],
       [
        -264.94,
        -373.45
       ]
      ],
-     "plat_lot_number": 5,
-     "plat_lot_confidence": "conjectural"
+     "plat_lot_number": 10,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
     },
     {
-     "tier": "north",
-     "frontage_m": 24.52,
-     "depth_m": 52.77,
+     "tier": "east",
+     "column": "east",
+     "row": 1,
+     "frontage_m": 22.22,
+     "depth_m": 46.45,
      "polygon": [
       [
-       -243.08,
-       -262.69
-      ],
-      [
-       -218.57,
-       -262.89
-      ],
-      [
-       -216.67,
-       -315.63
-      ],
-      [
-       -241.5,
-       -315.43
-      ]
-     ],
-     "plat_lot_number": 3,
-     "plat_lot_confidence": "conjectural"
-    },
-    {
-     "tier": "south",
-     "frontage_m": 25.18,
-     "depth_m": 52.77,
-     "polygon": [
-      [
-       -241.34,
-       -320.92
-      ],
-      [
-       -216.48,
-       -321.12
-      ],
-      [
-       -214.59,
-       -373.86
-      ],
-      [
-       -239.76,
-       -373.66
-      ]
-     ],
-     "plat_lot_number": 6,
-     "plat_lot_confidence": "conjectural"
-    },
-    {
-     "tier": "north",
-     "frontage_m": 24.52,
-     "depth_m": 52.79,
-     "polygon": [
-      [
-       -218.57,
-       -262.89
-      ],
-      [
-       -194.05,
-       -263.08
-      ],
-      [
-       -191.84,
-       -315.83
-      ],
-      [
-       -216.67,
-       -315.63
-      ]
-     ],
-     "plat_lot_number": 2,
-     "plat_lot_confidence": "conjectural"
-    },
-    {
-     "tier": "south",
-     "frontage_m": 25.18,
-     "depth_m": 52.79,
-     "polygon": [
-      [
-       -216.48,
-       -321.12
-      ],
-      [
-       -191.61,
-       -321.31
-      ],
-      [
-       -189.41,
-       -374.07
-      ],
-      [
-       -214.59,
-       -373.86
-      ]
-     ],
-     "plat_lot_number": 7,
-     "plat_lot_confidence": "conjectural"
-    },
-    {
-     "tier": "north",
-     "frontage_m": 24.52,
-     "depth_m": 52.81,
-     "polygon": [
-      [
-       -194.05,
-       -263.08
+       -215.86,
+       -262.91
       ],
       [
        -169.53,
        -263.27
       ],
       [
-       -167.01,
-       -316.03
+       -168.47,
+       -285.47
       ],
       [
-       -191.84,
-       -315.83
+       -215.05,
+       -285.1
       ]
      ],
      "plat_lot_number": 1,
-     "plat_lot_confidence": "conjectural"
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
     },
     {
-     "tier": "south",
-     "frontage_m": 25.18,
-     "depth_m": 52.81,
+     "tier": "east",
+     "column": "east",
+     "row": 2,
+     "frontage_m": 22.22,
+     "depth_m": 46.7,
      "polygon": [
       [
-       -191.61,
-       -321.31
+       -215.05,
+       -285.1
       ],
       [
-       -166.75,
-       -321.51
+       -168.47,
+       -285.47
+      ],
+      [
+       -167.41,
+       -307.67
+      ],
+      [
+       -214.24,
+       -307.3
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 3,
+     "frontage_m": 22.22,
+     "depth_m": 46.95,
+     "polygon": [
+      [
+       -214.24,
+       -307.3
+      ],
+      [
+       -167.41,
+       -307.67
+      ],
+      [
+       -166.35,
+       -329.87
+      ],
+      [
+       -213.43,
+       -329.49
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 4,
+     "frontage_m": 22.22,
+     "depth_m": 47.2,
+     "polygon": [
+      [
+       -213.43,
+       -329.49
+      ],
+      [
+       -166.35,
+       -329.87
+      ],
+      [
+       -165.29,
+       -352.07
+      ],
+      [
+       -212.62,
+       -351.69
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 5,
+     "frontage_m": 22.22,
+     "depth_m": 47.45,
+     "polygon": [
+      [
+       -212.62,
+       -351.69
+      ],
+      [
+       -165.29,
+       -352.07
       ],
       [
        -164.23,
        -374.27
       ],
       [
-       -189.41,
-       -374.07
+       -211.81,
+       -373.89
       ]
      ],
-     "plat_lot_number": 8,
-     "plat_lot_confidence": "conjectural"
+     "plat_lot_number": 9,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
     }
    ],
    "ground": {
@@ -4219,32 +4296,40 @@
     "precedence_clause_fired": null
    },
    "module": {
-    "module": "south_division_thompson_1830",
-    "lot_frontage_ft": 80.0,
-    "alley_width_ft": 18.0,
-    "alley_runs": "east-west, mid-block",
-    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "module": "west_division_thompson_1830",
+    "authored_in": "data/traces/thompson_west_division_lots.json",
+    "confidence_of_the_figures": "documented",
+    "confidence": "inferred",
+    "confidence_note": "`inferred` grades THE CARRY, which is the only thing this ruling added. The arrangement, the row count and the ten numerals are this block's own ink and are read at their own positions; the block's own sheet entry prints NO dimension — `Both dimensions; no marginal figures.` — so the module that cuts it comes from its tier and not from itself. The reasoning is that a tier the sheet dimensions once and lets the rest inherit is a tier the draughtsman treated as one module, and this block is drawn inside it with the tier's own numeral run. That is an inference and it is graded as one. No figure here is upgraded by the cut.",
     "division": "west",
-    "west_division_module_refused": {
-     "module": "west_division_thompson_1830",
-     "authored_in": "data/traces/thompson_west_division_lots.json",
-     "confidence_of_the_figures": "documented",
-     "what_it_asks_for": "two columns of 180 ft lots backing onto an 18 ft north-south alley — 378 ft east to west — and 75 3/5 ft of frontage to a lot, 378 ft north to south",
-     "what_the_committed_lines_give": {
-      "east_west_face_ft": 326.1,
-      "north_south_depth_ft": 364.0
-     },
+    "arrangement": "two columns of lots backing onto an 18 ft NORTH-SOUTH alley, each lot fronting the north-south street on the outer side of its column",
+    "rows_read": 5,
+    "lots_read": 10,
+    "chosen_by": "this block's own entry on the sheet reading — its numerals and its row count — carried onto the module of the tier it is drawn in",
+    "authorised_by": {
+     "ticket": "T-1479",
+     "ruling": "the owner, 2026-09-23, option (a) of three: `Yes: cut with the documented module (inferred tier) and re-seat each structure on the new lot nearest its present spot, recording the move`",
+     "asked_because": "T-1455's West Division grid WITHHOLDS the lot lines of a block printing no figures of its own, and applying that rule here would have taken the eight lots this block already had away from the records standing on them",
+     "and_the_question_it_answered": "what a structure seated on a withdrawn lot is seated on. The ruling answers it by never withdrawing the ground: the lines are re-cut rather than withheld, and every record standing on them is re-seated onto the new lot nearest where it already stands. data/traces/west_grid_migration_order.json carries the moves."
+    },
+    "what_the_printed_module_asks_for": "two columns of 180 ft lots backing onto an 18 ft north-south alley — 378 ft east to west — and 75 3/5 ft of frontage to a lot, 378 ft north to south",
+    "what_the_committed_lines_give": {
+     "east_west_face_ft": 326.1,
+     "north_south_depth_ft": 364.0
+    },
+    "closure_against_the_committed_lines": {
+     "axis": "east to west",
+     "the_sheet_asks_ft": 378.0,
+     "the_committed_lines_give_ft": 326.1,
+     "short_by_ft": 51.9,
+     "so": "the lot lines on this block divide the ground the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size — the same thing every other lot line in this file is. What is short is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. T-1540 measured that gap on every interval of this grid and found no single centreline moved can close three of them, so it is published here and not closed here."
+    },
+    "the_two_refusals_this_overrode": {
      "the_arithmetic": "the two lot columns alone need 360 ft and this block's face is 326.1 ft, so the arrangement does not fit before the alley is cut; 378 ft is 51.9 ft more than the block has. North to south 364.0 ft divides into 4.81 lots of 75 3/5 ft, and a plat does not print a fifth of a lot.",
-     "why_the_lines_and_not_the_module": "the module is `documented` — figures printed on the sheet and numerals counted in a block — and it closes exactly at 378 ft each way. What does not close is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. Seating the printed module would mean moving those lines, which is T-1540's ticket and not this one's, and the same short spacing is what T-0444 reported. T-0444 REPORTED the gap and T-0445 SEATED three missing lines without closing it, so both are done and neither moved this spacing; T-1540 is the successor the owner ruled must own the whole question, and tools/measure_west_division_spacing.py is its measurement — the gap is on every interval of this grid, not on this one, and no single centreline moved can close three of them.",
-     "so": "this block keeps the South Division subdivision it was already built on, and says here that it is not the module the West Division plat prints",
-     "but_the_refusal_is_no_longer_what_holds_this_block": {
-      "the_ruling": "the owner, 2026-09-23 on T-1479, option (a): the division's module MAY cut a block printing no lot figures of its own, at `inferred`, with every record on it re-seated onto the nearest new lot",
-      "and_it_landed": "on this block's twin. `blk_lake_clinton` stands transposed on this grid, ten lots in the sheet's own arrangement, with its module graded `inferred` and both of these refusals carried on it as what was overridden (T-1733).",
-      "what_holds_this_one": "its own deal. A reconstruction parcel has already dealt roofs onto this block — phase3_platted_block_randolph_clinton_second_deal — and that parcel argued which family takes which FACE against the faces this arrangement removes: its note sends the deep-plan and two-room cottages to the `randolph` face and the log dwelling and the one-room cottage to `washington`, and after the transpose no lot on this block fronts either. Transposing it silently would leave seven roofs standing on an argument about ground that no longer exists.",
-      "so": "this block keeps the arrangement its deal was argued on until that argument is re-made on the transposed grid, which is T-1734 — the ticket that re-places the seven dealt roofs on the new faces and rebakes them. It is NOT a refusal of the module and it is not waiting on T-1540.",
-      "read_not_typed": "this block is held because data/reconstruction/1835_platted_block_parcels.json deals a parcel onto it, which is where `blocks_carrying_a_dealt_parcel` looks; no block id is named in this generator"
-     }
-    }
+     "and_the_withholding_rule": "T-1455's grid withholds the lot lines of a block printing no figures of its own, and this block prints none. The ruling permits the tier's module to cut it at `inferred` instead, which is the lowest honest tier and not a promotion of anything.",
+     "neither_is_now_wrong": "both were re-derived by `module_for` on the committed lines at the moment this record was written, and both still hold as arithmetic. What changed is what is done about them: an empty block was judged a worse answer than a block cut at a stated inference."
+    },
+    "what_the_transpose_moved": "eight lots on the South Division's module — four to a face, an east-west alley, fronting the east-west streets — became 10 on this one, and the faces turned through ninety degrees: the lots front `clinton` and `canal` now, and no lot of this block fronts `randolph` or `washington` any more."
    },
    "plat_block_number": {
     "number": 45,
@@ -4254,7 +4339,8 @@
      "wright_1834"
     ],
     "authored_in": "data/traces/thompson_block_numbering.json",
-    "note": "READ. West Division, west bank. The Washington Street label is in the frame, and the block west of it carries lot numerals 1 4 5 8 9 — a TEN-lot block, which the module does not know about and which is recorded in `lot_numbering` rather than acted on. Randolph-Washington tier; the run falls eastward again."
+    "note": "READ. West Division, west bank. The Washington Street label is in the frame, and the block west of it carries lot numerals 1 4 5 8 9 — a TEN-lot block, which the module does not know about and which is recorded in `lot_numbering` rather than acted on. Randolph-Washington tier; the run falls eastward again.",
+    "lots_numbered_off_the_sheet": "the scheme is not applied here: every lot of this block carries a numeral read at its own position in data/traces/thompson_west_division_lots.json, and this block is cut on the West Division's arrangement rather than the scheme's four-to-a-face one"
    }
   },
   {
@@ -18325,7 +18411,7 @@
     "note": "block of the Randolph - Washington tier"
    },
    "already_derived_as": "blk_randolph_clinton",
-   "twin_cut_on": "south_division_thompson_1830",
+   "twin_cut_on": "west_division_thompson_1830",
    "reason": "this ground is already emitted by the Original Town's grid as `blk_randolph_clinton`, and the same ground derived twice is the one thing a generated layer may not do. WHAT ARRANGEMENT IT IS CUT ON THERE IS NOW A FACT ABOUT THAT CELL AND IS READ OFF IT: `twin_cut_on` above. This block prints no dimension of its own, so THIS grid would withhold its lot lines — but the owner ruled on 2026-09-23 (T-1479, option a) that the division's module may cut such a block at `inferred` with every record on it re-seated onto the nearest new lot, so a twin cut on `west_division_thompson_1830` carries this reading's arrangement and count without standing on this grid (T-1733), and a twin still on the South module is one whose own dealt parcel argued its faces the other way about and is owed by T-1734."
   },
   {

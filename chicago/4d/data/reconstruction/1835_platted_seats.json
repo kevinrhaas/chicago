@@ -31,21 +31,21 @@
  ],
  "counts": {
   "rows_in_scope": 1478,
-  "seated": 178,
-  "owed": 1300,
+  "seated": 177,
+  "owed": 1301,
   "by_how": {
    "adopted": 133,
-   "slot": 45
+   "slot": 44
   },
   "by_clause": {
    "labourer_dwellings": 34,
-   "merchant_and_professional_dwellings": 36,
+   "merchant_and_professional_dwellings": 35,
    "tradesman_dwellings": 108
   },
   "by_district": {
    "north": 22,
    "south": 134,
-   "west": 22
+   "west": 21
   },
   "by_family": {
    "D1": 21,
@@ -54,29 +54,29 @@
    "D4": 34,
    "D5": 20,
    "D6": 9,
-   "D7": 17,
+   "D7": 16,
    "H1": 11,
    "H2": 8
   },
-  "lots_taken": 160,
+  "lots_taken": 159,
   "roofs_adopted": 133,
-  "slots_requested": 45,
+  "slots_requested": 44,
   "owed_by_band_clause": {
    "division_ground": 52,
    "farms_and_country_seats": 204,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 123,
    "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 370,
+   "merchant_and_professional_dwellings": 371,
    "tradesman_dwellings": 547
   },
   "roofs_offered_for_adoption": 136,
   "roofs_held_back": 54
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1300,
+  "rows": 1301,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 178 of the 1478 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 177 of the 1478 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "roofs_held_back": [
   {
@@ -580,45 +580,10 @@
   },
   {
    "block_id": "blk_lake_clinton",
-   "family": "W2",
-   "roofs": 1,
-   "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_randolph_clinton",
-   "family": "D3",
-   "roofs": 1,
-   "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_randolph_clinton",
-   "family": "D4",
-   "roofs": 1,
-   "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_randolph_clinton",
-   "family": "D5",
-   "roofs": 1,
-   "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_randolph_clinton",
    "family": "D6",
    "roofs": 1,
    "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_randolph_clinton",
-   "family": "H3",
-   "roofs": 1,
-   "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_lake_clinton#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_south_water_dearborn",
@@ -1138,34 +1103,6 @@
    "order_book_draw": null,
    "seed": "hh_arrasmith_james|T-1522|division:ab2810db3d04|class:5a54c0f3f039",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_arrowsmith_sidney",
-   "kind": "household",
-   "name": "The Arrowsmith household — a name from the post office's letter lists",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "west",
-   "band": "west/merchant_and_professional_dwellings",
-   "lot_id": "blk_randolph_clinton#01",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 1,
-   "fronts": "clinton",
-   "street_class": "light",
-   "corner": false,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D7",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "merchant_and_professional_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_randolph_clinton",
-    "family": "D7",
-    "district": "west"
-   },
-   "seed": "hh_arrowsmith_sidney|T-1522|division:e4c73b71b90e|class:7183be677821",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_asa_nc_doel",
@@ -5299,6 +5236,15 @@
    "band": "north/merchant_and_professional_dwellings",
    "clause": "merchant_and_professional_dwellings",
    "district": "north",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_arrowsmith_sidney",
+   "kind": "household",
+   "band": "west/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
