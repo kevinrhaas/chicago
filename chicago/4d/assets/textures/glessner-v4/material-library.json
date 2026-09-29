@@ -1,0 +1,207 @@
+{
+  "title": "Glessner v4 original material studies",
+  "version": 1,
+  "generated_by": "generate.py",
+  "confidence": "reconstructed",
+  "materials": [
+    {
+      "name": "granite",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.6,
+        1.6
+      ],
+      "seed": 190400,
+      "confidence": "reconstructed",
+      "description": "Original fine mineral grain; physical courses, bevels and rock-faced relief are generated geometry. No mortar lines baked into the stone.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "limestone",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "seed": 190401,
+      "confidence": "reconstructed",
+      "description": "Original fine mineral grain; physical courses, bevels and rock-faced relief are generated geometry. No mortar lines baked into the stone.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "brick",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.7272,
+        2.1336
+      ],
+      "seed": 190402,
+      "confidence": "reconstructed",
+      "description": "Reconstructed fired red-brown clay grain. Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "terracotta",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4384,
+        1.95072
+      ],
+      "seed": 190403,
+      "confidence": "reconstructed",
+      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry; reconstructed exposure is 0.12192 m (4.8 in), not Spanish barrel tile.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "copper",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4,
+        2.4
+      ],
+      "seed": 190404,
+      "confidence": "reconstructed",
+      "description": "Reconstructed 17-year copper weathering: brown metal with uneven muted green oxidation; standing seams belong to geometry. Modern bright turquoise oxidation is not asserted as the 1904 colour.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "oak",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        0.8,
+        2.4
+      ],
+      "seed": 190405,
+      "confidence": "reconstructed",
+      "description": "Subtle, vertically grained dark exterior oak. Reconstructed finish, not a sampled timber.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "painted_wood",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        0.8,
+        2.4
+      ],
+      "seed": 190406,
+      "confidence": "reconstructed",
+      "description": "Reconstructed dark olive painted sash and carriage joinery; a thin smooth coating with restrained grain telegraphing, not a sampled modern finish.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    }
+  ],
+  "rights": "Original procedural pixels; project-permissive terms in LICENSE.txt",
+  "files": {
+    "brick_basecolor.jpg": {
+      "sha256": "bebf7f748829dba77f9118685575aa059047a7b4ee843fe52adeb993c5299a46",
+      "bytes": 757827
+    },
+    "brick_normal.png": {
+      "sha256": "cc50c9a9e2aec1b8a2aec31ac04dbb14f03ca82f98c40d8660177608ac9d38c9",
+      "bytes": 1565582
+    },
+    "brick_roughness.png": {
+      "sha256": "ed2bdc3a66cbd03be99ec5df10e86dfd7d84faa54da21933a82f446b5038cd3f",
+      "bytes": 330118
+    },
+    "copper_basecolor.jpg": {
+      "sha256": "29732e3b5baeba268b318e99d407b13e96dfb901306e16432dbc1e7b121c39b1",
+      "bytes": 563460
+    },
+    "copper_normal.png": {
+      "sha256": "aba696aff875c1446904f4daf2fc4183c51484af2552aecfd6719a67b87826be",
+      "bytes": 567206
+    },
+    "copper_roughness.png": {
+      "sha256": "04071e249486f7b75ded0a9062fa1aeb511532a9521045ef35be440c33fb71e9",
+      "bytes": 154454
+    },
+    "granite_basecolor.jpg": {
+      "sha256": "18162ab55b64514f54ef22b43097953cbd1f2e5dbd4601af9d84a831507bf674",
+      "bytes": 1114524
+    },
+    "granite_normal.png": {
+      "sha256": "b2a5df79e62b83bd2ac3a02275ab1bf91fa8fe64f3d57f28257854c73066960d",
+      "bytes": 1683008
+    },
+    "granite_roughness.png": {
+      "sha256": "bc6c18860db95ec71cf92199e83b530189bb89282754992ca1bd42342362bcfa",
+      "bytes": 439385
+    },
+    "limestone_basecolor.jpg": {
+      "sha256": "634a3a28906687847a2d3682a1dc7a0420f6eca12a5961e8394975d587a78926",
+      "bytes": 909501
+    },
+    "limestone_normal.png": {
+      "sha256": "829379050563e2e8efbd4dc8eb28cd8fa6442a7eeaa6d50d92dbf7a18783a056",
+      "bytes": 1229176
+    },
+    "limestone_roughness.png": {
+      "sha256": "4ab59500ec419a392c54719eb90bb75438102602b6899fc2a2c8188014788404",
+      "bytes": 422577
+    },
+    "oak_basecolor.jpg": {
+      "sha256": "f39c40e9061a72c8c30cd096fcf5595c49f7140b44916f81e993dda049ab61f8",
+      "bytes": 282417
+    },
+    "oak_normal.png": {
+      "sha256": "97df63f868f2e49470205a555dcd2f16cdea099f768427e421da9959187a4c88",
+      "bytes": 129099
+    },
+    "oak_roughness.png": {
+      "sha256": "b6b8545a716ccfd50103985dd325d70552c763d85b6afb5c13451964c42e7176",
+      "bytes": 83719
+    },
+    "painted_wood_basecolor.jpg": {
+      "sha256": "5005a786dbff23b7514543b00a6365ae27f06ef8e95948cf215d5dd4932a2a1b",
+      "bytes": 201740
+    },
+    "painted_wood_normal.png": {
+      "sha256": "52192d06822c1b2ba6331b69d9b7be3e41f61b81585ea46e2ca10ca0af48a1ab",
+      "bytes": 76702
+    },
+    "painted_wood_roughness.png": {
+      "sha256": "775efdb1e5e4197ab943db1bcc1e265c1c1b0f87bb14c11006a3a143587d74aa",
+      "bytes": 56669
+    },
+    "terracotta_basecolor.jpg": {
+      "sha256": "60fd39a00dfbbfc673c269e01352b1b4e88d32ca94f64ff683f66c1a929cef70",
+      "bytes": 608951
+    },
+    "terracotta_normal.png": {
+      "sha256": "ae2ab44d489eaa7bfd827123059952b3630580a0088a79dd3b26f344687e52ca",
+      "bytes": 617672
+    },
+    "terracotta_roughness.png": {
+      "sha256": "e9f1bb60903f5307b63fb1d18d914eb5c6e60aa5285a5b144fec6432c681242f",
+      "bytes": 364656
+    }
+  }
+}

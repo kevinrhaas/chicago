@@ -188,7 +188,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.
-        maps = sorted((ROOT / "assets" / "textures" / "glessner-v4").rglob("*.png"))
+        texture_root = ROOT / "assets" / "textures" / "glessner-v4"
+        maps = sorted(p for p in texture_root.rglob("*")
+                      if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".py"})
         if not maps:
             raise InputsError("Glessner v4 texture maps are missing")
         doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in maps}

@@ -17207,3 +17207,45 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/prairie-avenue-orientation.json`.
 
 **Recorded:** 2026-09-29 (T-1767).
+
+### L305 — Glessner v4: reconstructed fabric and openings within a measured house
+
+**Decision:** At the owner's request, v4 uses the default's measured envelope and
+adds detailed masonry, joinery and roof fabric. HABS dimensions retain their own
+evidence grades. The added detail is reconstructed, including individual stone
+lengths and rock faces, mortar widths, brick and tile relief, sash depths, carved
+ornament, weathering, glass appearance and original procedural texture pixels.
+The stone-course heights transcribed from sheet 5 are measured at that section;
+carrying that sequence around every granite face and up the chimneys is an
+invention, not a survey of every stone.
+
+**Bounds:** HABS sheets 2–6, the circa-1923 courtyard photograph and other HABS
+exterior photographs bound the placement. Fourteen owner-supplied modern views
+also inform reconstructed opening counts, material boundaries, curved terraces
+and roof connections. They are explicitly modern comparisons, not evidence of
+the 1904 date. No photograph pixels or photogrammetric mesh are incorporated.
+The precise west dormer, copper return, chimney transverse widths and flues,
+unmeasured garden/south lower openings, stair-tower slit heights, bowed terrace
+radius and coping, pigeon-hole dimensions, carving and joinery profiles remain
+reconstructions. The dossier gives feature-level tolerances and the full opening
+schedule. Open oak passage leaves at 82 degrees are an illustrative operating
+position; no source records the doors in that position on the scene date.
+
+**How to resolve:** Replace dimensions with additional measured elevations,
+sections or dated photographs when available. Preserve the distinction between
+HABS dimensions, inferred unchanged fabric and reconstructed surface details;
+rendering realism does not raise their historical confidence. Modern paving,
+street furniture, strings of lights and replacement garage doors are excluded.
+
+**Covers:** `glessner_house.as_built_1887.form.detail_profile`,
+`glessner_house.as_built_1887.form.v4_detail`
+
+**Applies to:** `data/structures/versions/glessner_house/v4.json`,
+`generators/archetypes/masonry_house_v4_detail.py`,
+`generators/archetypes/masonry_house_v4_materials.py`,
+`assets/textures/glessner-v4/`.
+
+**Related:** L295, L296, L299, L301; T-1730;
+`docs/RESEARCH/glessner_house_v4.md`.
+
+**Recorded:** 2026-09-29.

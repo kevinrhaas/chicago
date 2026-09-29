@@ -59,3 +59,29 @@ candidate quality claim is made at this checkpoint.
 Resume by reading this page and the latest ticket, inspecting the branch diff,
 then completing the parcels above. Never promote this work to main before the
 finished version has been reviewed and the owner requests production promotion.
+
+## Checkpoint 2 — implementation and original maps
+
+The detailed builder, opt-in dispatch, v4 record, evidence dossier, source record,
+materials and fixed-camera render tool are integrated. Original texture sources
+and 21 maps are included (about 12.2 MB); the recipe reproduces them. The material
+export probe under pinned Blender 4.5.3 confirms all maps use metric TEXCOORD_0,
+which survives the existing unwrap and web batching. L305 records reconstructed
+detail; the license inventory covers all texture files. Python compilation passes.
+
+Eleven default reference renders and four first-candidate renders have been
+reviewed. The candidate has visible stone/brick courses, roof tiles and recessed
+sash, but **does not yet meet the owner's photographic-quality goal**. The first
+raw GLB was 165 MB and is deliberately not committed. Invisible geometry is being
+reduced. Remaining visual corrections include blank stair-tower openings, proper
+bow windows/terrace, the open tunnel, chimney face winding/coursing, window-surround
+proportions, and roof junctions. The newest three courtyard photographs are
+accounted for in the data, but their geometry is still being integrated.
+
+No candidate GLBs, web derivatives, sidecars or final gate claim accompany this
+checkpoint. The shared masonry builder hook makes the previous Glessner outputs
+stale until all four variants are rebuilt. Next: finish the detailed builder,
+`blender -b --factory-startup --python generators/build.py -- --only glessner_house`,
+derive the four matching web files, compile the scene, compare all cameras, then
+run preflight and desktop/mobile published smoke. Use the pinned binary specified
+by `generators/blender.pin`; no shared emit.py changes are needed for the UVs.

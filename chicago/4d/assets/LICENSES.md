@@ -433,3 +433,48 @@ failure.
 `authored/` holds hero assets that cannot come from a structure record (Fort Dearborn
 detailing, signboards). They are exempt from regeneration but **not** from provenance:
 each needs a row here and a source record explaining what the form is based on.
+### Glessner v4 original materials — `textures/glessner-v4/`
+
+Seven original procedural PBR materials for the opt-in v4 building: granite,
+limestone, red-brown brick, terracotta, copper, oak and painted wood. Deterministic
+`generate.py` supplies 2K albedo and filtered 1K normal/roughness maps; the building
+geometry owns masonry joints, blocks, window recesses, roof tiles and metal seams.
+All pixel arrangements, exact colours, aging and grain are reconstructed.
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/glessner-v4/**` — original numeric-noise surface studies | **Project-permissive, CC0-equivalent**, the existing PBR libraries' terms; full text in `textures/glessner-v4/LICENSE.txt` | Use, modification and redistribution with this project, including regeneration | Stripping confidence/provenance or presenting procedural maps as photographs or measured historic fabric. No third-party photo or Google pixels are embedded, traced or sampled |
+
+The GLB embeds the maps it uses. Individual map files remain reproducible source
+assets. Existing HABS and supplied modern images were read as visual references,
+not reused as texture pixels.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/glessner-v4/LICENSE.txt
+textures/glessner-v4/README.md
+textures/glessner-v4/brick_basecolor.jpg
+textures/glessner-v4/brick_normal.png
+textures/glessner-v4/brick_roughness.png
+textures/glessner-v4/copper_basecolor.jpg
+textures/glessner-v4/copper_normal.png
+textures/glessner-v4/copper_roughness.png
+textures/glessner-v4/generate.py
+textures/glessner-v4/granite_basecolor.jpg
+textures/glessner-v4/granite_normal.png
+textures/glessner-v4/granite_roughness.png
+textures/glessner-v4/limestone_basecolor.jpg
+textures/glessner-v4/limestone_normal.png
+textures/glessner-v4/limestone_roughness.png
+textures/glessner-v4/material-library.json
+textures/glessner-v4/oak_basecolor.jpg
+textures/glessner-v4/oak_normal.png
+textures/glessner-v4/oak_roughness.png
+textures/glessner-v4/painted_wood_basecolor.jpg
+textures/glessner-v4/painted_wood_normal.png
+textures/glessner-v4/painted_wood_roughness.png
+textures/glessner-v4/terracotta_basecolor.jpg
+textures/glessner-v4/terracotta_normal.png
+textures/glessner-v4/terracotta_roughness.png
+```

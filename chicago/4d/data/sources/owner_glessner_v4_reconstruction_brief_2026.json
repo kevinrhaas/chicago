@@ -1,0 +1,24 @@
+{
+  "id": "owner_glessner_v4_reconstruction_brief_2026",
+  "type": "dataset",
+  "citation": "Project owner, Glessner House version 4 reconstruction brief, 29 September 2026: correct intersecting roofs, courtyard and garden-level openings, continuous copper roof at the inner northeast corner, variable-height ashlar courses, and east-wing chimneys. Transcribed and bounded in docs/RESEARCH/glessner_house_v4.md.",
+  "date": "2026-09-29",
+  "describes_date": "1904-07-01, with modern surviving fabric supplied as qualitative cross-checks",
+  "repository": "Owner instruction in the project conversation; concise scope and reference inventory retained in docs/RESEARCH/glessner_house_v4.md.",
+  "tier": 5,
+  "rights_status": "cleared",
+  "rights_note": "The owner supplied the written reconstruction specification and reference images for this implementation. This clearance covers the owner brief; it does NOT claim a reusable licence for the accompanying third-party photographs or Google Earth screenshots. Visible architectural facts and arrangements inform declared reconstruction; no screenshot pixels, photographic textures or photogrammetric meshes are copied.",
+  "asset_use": "inventory",
+  "verified": true,
+  "access_notes": "Read in the project conversation on 2026-09-29. Fourteen supplied reference images were also viewed as qualitative comparisons; HABS supplies measured coordinates.",
+  "note": "A production brief, not historical testimony. It authorizes a reconstructed treatment of missing details but does not document their 1904 dimensions. The modern reference views explicitly influence reconstructed arrangements and material boundaries where identified in the dossier; this is acknowledged, not disguised as a HABS measurement.",
+  "what_it_supplies": [
+    "The owner-requested visible omissions to correct in version 4.",
+    "Qualitative cross-check that a cross gable, west-wing courtyard windows, garden-level lights and a continuous corner copper roof should not be omitted."
+  ],
+  "what_it_does_not_supply": [
+    "A measured survey or a dated 1904 view.",
+    "Reusable photographic textures or permission to redistribute third-party reference images.",
+    "Exact dimensions, colour, roof patina, plantings, or a pre-1946 date for an otherwise undocumented opening."
+  ]
+}
