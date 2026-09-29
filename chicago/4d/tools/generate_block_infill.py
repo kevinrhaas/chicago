@@ -2118,6 +2118,37 @@ def main() -> int:
     drift = []
     for rec in records:
         path = STRUCTURES / f"{rec['id']}.json"
+        # T-0609, carried to this parcel by T-1747. `land_owner` is the ONE block on
+        # these records the recipe does not own: it says which federal or canal tract
+        # the roof's position falls in, it is derived from the land-sale register by
+        # tools/resolve_land_tracts.py, and that tool's own --check re-derives every one
+        # of them on the same gate. So it is carried through a regeneration rather than
+        # wiped by it — the arrangement generate_north_infill.py has had since T-0609,
+        # and the same one this file already has with `lot_address`: a generated file may
+        # hold a claim a second derivation owns, as long as exactly one gate owns it and
+        # nothing hand-edits it.
+        #
+        # WHY IT ARRIVES ONLY NOW, twenty-four block parcels in. The join reaches a roof
+        # only where the land-sale register resolves the tract under it, and until
+        # Kinzie's Addition was lotted every block this recipe built stood inside the
+        # Original Town, whose ground the register does not resolve to a tract. The first
+        # four roofs on `blk_indiana_north_wolcott` are the first this recipe has raised
+        # on ground it does — so before this, wiping the block would have been wiping
+        # nothing, and the two gates could not disagree. They did, the moment the
+        # addition was built: resolve_land_tracts wrote four blocks and the very next
+        # regeneration took them off again, and one of the two commands was red whichever
+        # ran last.
+        if path.exists():
+            committed = json.loads(path.read_text(encoding="utf-8"))
+            if "land_owner" in committed:
+                rebuilt = {}
+                for key, value in rec.items():
+                    rebuilt[key] = value
+                    if key == "occupants":
+                        rebuilt["land_owner"] = committed["land_owner"]
+                if "land_owner" not in rebuilt:
+                    rebuilt["land_owner"] = committed["land_owner"]
+                rec = rebuilt
         text = json.dumps(rec, indent=2, ensure_ascii=False) + "\n"
         if args.check:
             if not path.exists():

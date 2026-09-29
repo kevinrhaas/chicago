@@ -125,3 +125,52 @@ One more disagreement is reported rather than averaged away: **the two committed
 Streets differ by 18.2 m** at Madison's line — `state` extended gives x = 823.6,
 `state_school_section` starts at x = 841.86. The ordinance's line is the Original Town's
 east boundary as the Canal Commissioners laid it out, so `state` is the one read.
+
+## The west leg's continuation to Ohio — asked of a sheet, and refused (T-1544)
+
+The west leg walks *"north along said last mentioned street and its continuation to Ohio
+street"*. T-1490 put it on two committed readings of Jefferson Street rather than one
+extrapolated across the other, and the last **288.3 m** stayed arithmetic for a stated
+reason: **modern Jefferson does not survive north of Hubbard Street**, so there is no
+third surviving intersection to carry the line on. A node cannot be read there.
+
+A sheet can. The ground the extension crosses is **Wabansia** — surveyed 1831, drawn
+whole on J. S. Wright's 1834 survey, and in this repository since T-0790 (street
+corridors), T-1074 (block columns) and T-1077 (the river-front wedge), seated on the
+committed `kinzie` line by T-1070 and T-1086. So the question can be put to a reading the
+project already holds, and `tools/measure_jefferson_continuation.py` puts it.
+
+**Wright does not draw the continuation.** Over the four tiers the extension crosses, the
+nearest drawn north-south corridor is the street between Wabansia's middle and east block
+columns:
+
+| where | nearest drawn corridor | sheet RMS |
+|---|---|---|
+| south end, on Hubbard's line | 80.3 m west | 16.02 m |
+| north end, on Ohio's line | 73.2 m west | 16.02 m |
+
+Four to five times the registration's own error, so no re-seating of this sheet inside
+that error can put a street where the leg runs. The extension instead runs **down the
+middle of Wabansia's easternmost block column** — 96.3 m wide — crossing Hubbard, Owen
+and Hight Streets, and ends on platted ground 23.7 m south of where that column's east
+side gives out against the North Branch. The corporation's north-west corner stands
+inside an addition the ordinance never names.
+
+**The one drawn line that could be mistaken for the continuation is refused on bearing,
+not on offset.** Wabansia's east rule — the west line of the water-lot wedge — stands
+16.03 m east of the extension at Hubbard's line and 23.09 m east at Ohio's. A 16 m offset
+alone would have been arguable: it is the sheet's own RMS almost exactly, and a reader
+wanting the identification could have had it. But the two **diverge** by 7.07 m over
+288.3 m, a bearing difference of 1.404°, and an identification closes rather than opens.
+
+**Nothing here upgrades the grade.** The leg's last stretch is still arithmetic and the
+leg is still `inferred`. What changed is that the arithmetic is now bounded by a sheet
+instead of standing beside nothing, and the bound is gated: a drawn corridor that comes
+within the sheet's own RMS of this leg, a corner that runs off the north end of the
+platted grid, a tract boundary that starts converging on it, or an extension that grows
+close enough to decide a drawn building's side all fail `--gate`. The nearest drawn
+structure to this leg is `kelsey_boarding_house` at 1,718.2 m, against 20.5 m of drift.
+
+**What would reopen it:** a north-south rule on Jefferson's line on some other sheet, or
+a surviving intersection north of Hubbard. Neither exists in this corpus — Wright is the
+only surveyor here who draws this ground at all.

@@ -21,6 +21,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "trace_prairie_1904_grid.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-28",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_grid/1904.json byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-09-28 — a reader of committed originals after tools/georef_prairie_1904.py, whose GCP files it reads (T-0474); see the manifest step"
+    },
     "trace_ic_edge_1904.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -609,6 +616,13 @@
       "write_mode": null,
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+    },
+    "measure_jefferson_continuation.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-29",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote data/traces/jefferson_continuation.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its three gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-09-29 \u2014 after tools/generate_yard_goods.py and before tools/town_census.py, because it reads the DRAWN structures through plat_occupancy.footprints to price the extrapolation's clearance, so it must run after everything that places one (T-1544); see the manifest step"
     },
     "measure_north_branch_banks.py": {
       "placement": "manifest",
