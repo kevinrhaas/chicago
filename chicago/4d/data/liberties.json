@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 304,
+  "count": 305,
   "liberties": [
     {
       "id": "L1",
@@ -19070,6 +19070,54 @@
         {
           "label": "Related",
           "text": "**L295** (the default this compares against, and the fuller account of what the sources leave open), `docs/RESEARCH/glessner_house_1904.md`, `data/research/glessner_house_1904_spec.json`, **T-1731**, **T-1730**, **T-1732**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-29."
+        }
+      ]
+    },
+    {
+      "id": "L302",
+      "title": "Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_west_007",
+        "recon_1835_west_008",
+        "recon_1835_west_042"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_lake_clinton_*",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_lake_clinton_*",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-09-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`blk_lake_clinton` — the West Division plat block bounded by Lake, Canal, Randolph and Clinton — carries **three anonymous roofs** dealt by `tools/generate_block_infill.py`: a two-room frame cottage (D4) on lot index 7 fronting Canal Street, a one-room frame cottage (D3) on lot index 2 fronting Clinton Street, and a stable (A1) off the block alley in the Canal cottage's yard. The family mix and the ceiling are the 665-roof programme's schedule; **everything below that is invented** — that any building stood on these two lots in July 1835, which buildings they were, that they were dwellings, which face each took, how far back from its street edge it sits and how far to one side of its lot. No coordinate is authored: every metre is read off the committed lot polygon from the recipe entry in `data/reconstruction/1835_platted_block_parcels.json`. **Eleven roofs already stood on this block and none of them is this recipe's,** which is what makes three the interesting number rather than a small one. Seven came from the pre-plat West approaches parcel — `recon_1835_west_007`, `_008`, `_014`, `_015`, `_016`, `_023` and `_024`, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot — and four are the inferred West trade ecology: an artisan's dwelling on the Canal-and-Lake corner, a blacksmith's shop, a teamster's dwelling and the teamster's stable. The generator derives which lots all eleven hold from their own committed footprints and refuses a principal roof on any lot they bar, which leaves three lots free. The schedule counts principal room over the free lots LESS ONE — so a block can never be dealt out of its open lot — and the ceiling here is therefore two principal roofs. The seating pass asked for exactly two. Neither the programme's headroom of eight nor a shortage of households is what stopped this deal at two; the free ground did. **The faces are exchanged against the two requests, by the block's own face rule.** `data/reconstruction/1835_platted_seats.json` asked a D3 on lot 7 fronting Canal and a D4 on lot 2 fronting Clinton. Canal Street is `worn_earth` in `data/streets/1835.json` and reads `ordinary` in the lot ledger; Clinton is `light_worn_earth` and reads `light`. A two-room cottage is the better of the two dwellings, so the better face takes it and the faces are swapped. That rule is `blk_randolph_clinton`'s, written into the parcel file one block south when T-1734 re-argued that block's deal on the transposed cut, and applying it here rather than taking the requested lots as given is the one place this deal departs from the seating pass. Both families are raised and both lots are built on; what moved is which roof each lot carries. **One yard building out of the two the plan holds, and the stable is chosen for the trade already on the face.** The schedule apportions this block an A1 stable and an A2 barn or carriage shed. Canal Street is the graded approach from the forks and this block is already the town's teamster corner — his dwelling, his stable and a blacksmith's shop stand on the same face — so a stable in a Canal-face yard is the ordinary yard building here. The barn stays in the plan: a barn behind a one-room cottage on a `light` street is something that household MIGHT have had, and a claim about how these households lived is not one a parcel makes to use up its headroom. So the Clinton cottage stands with no yard building at all. **The face this deal completes is looser than the memo's own recommendation, and that is measured rather than asserted.** `docs/RESEARCH/west_division_infill_1835.md` puts this ground in Zone B — the Canal/Lake mixed approach — and asks for side gaps \"mainly inside the specification's 10-35 ft band\", with \"larger breaks between yard groups, not a continuous frontage\". After this deal every one of the Canal column's five lots is spoken for, and the nearest approach between the new cottage and any other building is 11.34 m to the blacksmith's shop and 14.38 m to the teamster's dwelling — 37.2 ft and 47.2 ft, both above the top of the band. The Clinton cottage's nearest neighbour is 19.64 m, 64.4 ft. The memo's sentence is about how close buildings stand, not how many lots are spoken for, and by its own measure this face is sparser than Zone B would admit. **Lot 1 stays empty on purpose,** and it is the one free lot the seating asked nothing on, so reserving it refuses no request. It also puts the Clinton column's gap between the standing `recon_1835_west_008` roof on the Lake corner and the cottage this deal stands two lots south of it. **What is read and what is not, kept apart.** This block is one of the few whose lot numerals are read at their own positions off the sheet — 2|1, 3|4, 6|5, 7|8, 10|9, graded `documented` in `data/reconstruction/1835_lot_ledger.json` — and the block faces come from the committed street centrelines. The side lot lines within the numerals and the alley between the two columns are conjectural, and they are what every setback here is measured against. The ground reading under all three roofs is `dry: every sample stands above datum on the modelled field`. **Neither household that asked ended up under these roofs.** The adoption step runs before the slot step, so both new roofs entered the re-run as standing roofs an admitted clause could adopt: `hh_allan_richard_b` took the Canal cottage and `hh_barnard_j_b` the Clinton one. `hh_baxley_j_m` and `hh_beaubien_b`, whose requests the deal was sized against, both end the pass HOUSED rather than asking — Beaubien on `recon_1835_west_008` on lot 0 of this same block, Baxley on `recon_1835_west_042` out at `blk_west_lake_des_plaines` — so the town's slots fall from 48 to 46 and its adoptions rise from 129 to 131. **L270** carries the arithmetic. T-1626 carries the question of whether that precedence should hold for a roof raised in answer to a slot; nothing here answers it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "parcel-level tax, deed, assessment or surveyed building evidence for the West Division block between Lake and Randolph, Clinton and Canal. A named discovery substitutes for a compatible anonymous roof and never increases the total. Evidence that this block was still unbuilt in July 1835 would retire these three rather than re-place them; evidence of a roof on lot 1 would take the block past the ceiling its own free ground sets, and that is the one number here a source could move."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_blk_lake_clinton_*.inferred_1835.position`, `recon_1835_blk_lake_clinton_*.inferred_1835.footprint`"
+        },
+        {
+          "label": "Related",
+          "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L265** (the West Division parcel these three stand beside), **L292**, **L294**, **L298** and **L300** (the same shape of deal on the plat's last tier and in Kinzie's Addition), **L263** (the shingle exposure all three take), **L270** (the platted deal this block answers), **T-1733** (the transposed cut), **T-1734** (the face rule, re-argued one block south), **T-1760** (this deal), **T-1207** (the district it is a piece of), **T-1208** (the freight shed the memo seats on the Clinton work fringe, not here)."
         },
         {
           "label": "Recorded",

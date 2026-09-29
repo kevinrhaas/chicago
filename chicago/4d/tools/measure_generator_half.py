@@ -287,13 +287,21 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # moved. The from-numbers are the ones this branch found on `dev` at its NINTH lap, and the
 # three numbers are read off the committed tree by `--gate` rather than carried over.
 #
+# 475 -> 478 and 471 -> 474 on 2026-09-29 (T-1760): the three roofs of the first deal on
+# `blk_lake_clinton`, the West Division's Canal and Lake approach block, and the first entry
+# in this running comment that is not on the plat's last tier or in Kinzie's Addition. A
+# two-room frame cottage on the Canal face, a one-room cottage on the Clinton face and a
+# stable off the alley behind the first. Three new structure assets on the same terms as
+# every entry above: three more meshes the shared generator modules or emit.py would
+# re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the debt moved.
+#
 STATED = {
-    "assets": 475,
+    "assets": 478,
     "restales": {
-        "generators/common/*.py": 475,
+        "generators/common/*.py": 478,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 471,
+        "generators/emit.py": 474,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

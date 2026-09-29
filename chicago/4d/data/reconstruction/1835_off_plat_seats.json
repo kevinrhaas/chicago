@@ -76,8 +76,8 @@
    "heavy_and_noxious_trades": 1,
    "labourer_dwellings": 100,
    "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 363,
-   "tradesman_dwellings": 507
+   "merchant_and_professional_dwellings": 364,
+   "tradesman_dwellings": 506
   },
   "owed_by_district": {
    "north": 259,
@@ -270,6 +270,33 @@
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_adams_james",
+   "kind": "household",
+   "name": "The Adams household — a name the town's own records carry",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "west",
+   "band": "west/merchant_and_professional_dwellings",
+   "parcel_id": "canal_commissioners_1830",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_west_035",
+   "family": "H2",
+   "stands_on": "tract",
+   "setback_class": "typology",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_adams_james|T-1522|division:ebd3b1fb6fdd|class:6833bb53a1bd",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
    "id": "hh_archer_joseph",
    "kind": "household",
    "name": "The Archer household — a name from the post office's letter lists",
@@ -314,8 +341,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_035",
-   "family": "H2",
+   "structure_id": "recon_1835_west_006",
+   "family": "H1",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "merchant_and_professional_dwellings",
@@ -348,33 +375,6 @@
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": null,
    "seed": "hh_babeue_joseph|T-1522|division:06c0c966dc1a|class:826ef7fa4c92",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_bailey_bennet",
-   "kind": "household",
-   "name": "The Bailey household — a name from the post office's letter lists",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "west",
-   "band": "west/merchant_and_professional_dwellings",
-   "parcel_id": "canal_commissioners_1830",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_west_006",
-   "family": "H1",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "merchant_and_professional_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_bailey_bennet|T-1522|division:ebf8caf8fe13|class:840da5f50711",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -486,33 +486,6 @@
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bloget_josiah_i",
-   "kind": "household",
-   "name": "The Bloget household — a name from the post office's letter lists",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "band": "west/tradesman_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_west_053",
-   "family": "D4",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_bloget_josiah_i|T-1522|division:f12bbb1f21fd|class:e0d229a2bac0",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
    "id": "hh_boardman_elect",
    "kind": "household",
    "name": "The Boardman household — a name from the post office's letter lists",
@@ -530,8 +503,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_052",
-   "family": "D3",
+   "structure_id": "recon_1835_west_053",
+   "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -557,8 +530,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_045",
-   "family": "D5",
+   "structure_id": "recon_1835_west_052",
+   "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -584,8 +557,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_043",
-   "family": "D3",
+   "structure_id": "recon_1835_west_045",
+   "family": "D5",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -600,7 +573,7 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "parcel_id": "canal_commissioners_1830",
+   "parcel_id": "canal_section_9_remainder",
    "parcel_kind": "survey_tract",
    "granularity": "tract",
    "block_id": null,
@@ -611,8 +584,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_032",
-   "family": "D4",
+   "structure_id": "recon_1835_west_043",
+   "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -638,8 +611,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_029",
-   "family": "D3",
+   "structure_id": "recon_1835_west_032",
+   "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -800,8 +773,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_017",
-   "family": "D4",
+   "structure_id": "recon_1835_west_029",
+   "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -827,8 +800,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_010",
-   "family": "D3",
+   "structure_id": "recon_1835_west_017",
+   "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -854,8 +827,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_009",
-   "family": "D5",
+   "structure_id": "recon_1835_west_010",
+   "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -881,8 +854,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_005",
-   "family": "D6",
+   "structure_id": "recon_1835_west_009",
+   "family": "D5",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -908,8 +881,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_004",
-   "family": "D5",
+   "structure_id": "recon_1835_west_005",
+   "family": "D6",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -989,8 +962,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_003",
-   "family": "D4",
+   "structure_id": "recon_1835_west_004",
+   "family": "D5",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -1016,8 +989,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_002",
-   "family": "D3",
+   "structure_id": "recon_1835_west_003",
+   "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -1050,6 +1023,33 @@
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_carroll_patrick|T-1522|division:1baf1ff74361|class:b8229e13a08d",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_catran_o_p",
+   "kind": "household",
+   "name": "The Catran household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "parcel_id": "canal_commissioners_1830",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_west_002",
+   "family": "D3",
+   "stands_on": "tract",
+   "setback_class": "typology",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_catran_o_p|T-1522|division:e3c68e0f0599|class:da70c6dc68dd",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -2195,6 +2195,15 @@
    "clause": "heavy_and_noxious_trades",
    "district": "south",
    "why": "the 1 off-plat roof(s) of a family this clause admits in this division all carry a record that states their own occupancy, which a policy deal does not overturn, and no other stands there, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_bailey_bennet",
+   "kind": "household",
+   "band": "west/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "west",
+   "why": "every one of the 2 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -5462,15 +5471,6 @@
    "clause": "merchant_and_professional_dwellings",
    "district": "south",
    "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
-   "id": "hh_catran_o_p",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "every one of the 13 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
