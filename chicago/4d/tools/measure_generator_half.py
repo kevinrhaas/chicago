@@ -247,19 +247,27 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
-# 444 -> 457 and 440 -> 453 on 2026-09-29 (T-1751): the thirteen roofs of the deal on
+# 444 -> 448 and 440 -> 444 on 2026-09-29 (T-1742): the four roofs of the first deal on
+# `blk_indiana_north_wolcott`, Kinzie's Addition — two one-room frame cottages and the
+# woodshed and privy off the alley behind them. Four new structure assets on the same
+# terms as the four above: four more meshes the shared generator modules or emit.py
+# would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
+# debt itself moved.
+#
+# 448 -> 461 and 444 -> 457 on 2026-09-29 (T-1751): the thirteen roofs of the deal on
 # `blk_washington_franklin`, the plat's last tier built out to its lot ceiling — seven
-# dwellings and the six yard buildings behind them. Thirteen new structure assets, so
-# thirteen more meshes the shared generator modules or emit.py would re-stale; the terrain
-# reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved.
+# dwellings and the six yard buildings behind them. Thirteen new structure assets on the
+# same terms as the two rows above: thirteen more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved.
 #
 STATED = {
-    "assets": 457,
+    "assets": 461,
     "restales": {
-        "generators/common/*.py": 457,
+        "generators/common/*.py": 461,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 453,
+        "generators/emit.py": 457,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

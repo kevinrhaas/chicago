@@ -403,29 +403,28 @@ STRUCTURE_TICKETS = {
     # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
     # has 35 left and is ordered by T-1206, which is split".
     #
-    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
     # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
-    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     #
-    # AND T-1742 WAS ITSELF SPLIT on 2026-09-28 (T-1747, T-1748), so the row moved again,
-    # for the same reason and by the same rule. The cell reads 34 left and T-1742 is in
-    # state `split`, which is a ticket nobody can claim, and every re-derivation on dev
-    # fails on this row until it is swept. The two children divide the district by ground:
-    # T-1747 raises blk_indiana_north_wolcott's first roofs on the addition's Indiana and
-    # Illinois faces only, and is in review; T-1748 is the rest of it in as many words —
-    # blk_indiana_north_cass's cottages, the wolcott lots T-1747 leaves open, the scattered
-    # better houses on the Rush-Pine fringe. It is the live child that owns what the cell
-    # still owes after its sibling's block, so the 34 are T-1748's.
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
     #
-    # AND T-1748 SPLIT IN ITS TURN on 2026-09-29 (T-1753, T-1754), within the hour, so the row
-    # moved a third time on the same rule. T-1753 is blk_indiana_north_cass's first roofs and
-    # nothing else; T-1754 is the remainder in as many words — the further wolcott and cass
-    # lots the north-division memo will carry, and the scattered better houses on the
-    # Rush-Pine fringe. The cell reads 34 left, which is more than either block holds, so it
-    # goes to the child that owns what is left after its sibling's block again: T-1754.
+    # AND T-1748 SPLIT IN ITS TURN on 2026-09-29 (T-1753, T-1754), within the hour of taking
+    # the row, so it moved again on the same rule. T-1753 is blk_indiana_north_cass's first
+    # roofs and nothing else; T-1754 is the remainder in as many words — the further wolcott
+    # and cass lots the north-division memo will carry, and the scattered better houses on the
+    # Rush-Pine fringe. The cell owes more than either block holds, so it goes to the child
+    # that owns what is left after its sibling's block again: T-1754.
     ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -4493,20 +4492,17 @@ def cmd_self_test() -> int:
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
     #
-    # AND T-1751 TAKES IT TO 240, ON THE SAME TIER AND BY THE SAME MECHANISM, AT FIVE TIMES
-    # THE SIZE. `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings
-    # and six yard buildings, the first block south of Washington to carry a street of roofs —
-    # so the platted pass runs 163 -> 168 with 118 adoptions against 111 and 50 slots against
-    # 52, and the off-plat pass is unmoved at 72. None of the seven households that asked for
-    # a Franklin roof took one: the adoption step outbids the slot step for a quiet street
-    # (T-1622, still open on T-1626), so the seven that scored highest moved in and the seven
-    # that asked went back on the owed list with their reasons. The Clark block's slot count
-    # goes the other way, 0 -> 5, because building this block re-apportioned the 665-roof
-    # schedule across the whole South Division and handed principal room back to it. THE
-    # CHAIN TOOK NINE PASSES TO SETTLE and every figure here is read at its fixpoint, not one
-    # pass in: the seating creeps one seat every second pass until it stops.
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 240
+        data["inventory"], data["programme"], occ))["seated"] == 237
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4515,8 +4511,7 @@ def cmd_self_test() -> int:
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
     # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
-    # — 26 of them since T-1751 turned blk_washington_franklin's seven into adoptions and the
-    # same deal handed five back to blk_washington_clark — so claiming ONE of them is as much a
+    # — 28 of them since T-1736 took the Clark block's — so claiming ONE of them is as much a
     # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
