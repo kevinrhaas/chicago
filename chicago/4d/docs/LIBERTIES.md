@@ -14615,10 +14615,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 174 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 174 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,304
+**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14638,13 +14638,13 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 120 of the 170 seats are
+roof of a family its clause admits, on a lot of its own division; 129 of the 177 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **50 of the 170 are that: 26 on the plat's last tier** (T-1707,
+sizing keeps open; **48 of the 177 are that: 26 on the plat's last tier** (T-1707,
 2026-09-28, T-1736, L298 and L299 below), **4 west of the river on ground the plat always drew
-and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on
+and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 18 on
 Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
@@ -15369,14 +15369,14 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-one roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
+### L276 — Twenty roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-seven do not because a ruling refuses them one
 
 **Scope:** `roof_keepers.written[named]` — 20 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 66
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 72
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 21 are on the
-five South Water blocks and were written by T-1638; the other 13 are on the Randolph–
-Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Six of the 20 are on the
+South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
+tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
