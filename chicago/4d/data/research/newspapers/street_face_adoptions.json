@@ -147,37 +147,37 @@
   "re_family_stability": {
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
-    "faces_with_two_or_more_free_roofs": 17,
-    "free_roof_places": 123,
+    "faces_with_two_or_more_free_roofs": 18,
+    "free_roof_places": 133,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2223,
-      "places_changed": 2721,
+      "re_families_tried": 2433,
+      "places_changed": 3036,
       "worst_single_re_family": 8,
-      "changed_nothing": 1260
+      "changed_nothing": 1351
      },
      "deal_order": {
-      "re_families_tried": 2223,
+      "re_families_tried": 2433,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2223
+      "changed_nothing": 2433
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1959,
-      "places_changed": 2589,
+      "re_families_tried": 2089,
+      "places_changed": 2757,
       "worst_single_re_family": 8,
-      "changed_nothing": 1079
+      "changed_nothing": 1143
      },
      "deal_order": {
-      "re_families_tried": 1959,
-      "places_changed": 12388,
+      "re_families_tried": 2089,
+      "places_changed": 13446,
       "worst_single_re_family": 19,
-      "changed_nothing": 144
+      "changed_nothing": 157
      }
     }
    }
@@ -258,13 +258,13 @@
     "businesses_naming_it": 4,
     "adopted": 4,
     "roofs_lot_front": 0,
-    "roofs_corner_side": 12,
-    "roofs_on_the_adopted_face": 12,
-    "roofs_free": 6,
+    "roofs_corner_side": 15,
+    "roofs_on_the_adopted_face": 15,
+    "roofs_free": 8,
     "roofs_home": 4,
     "roofs_home_named": 0,
     "roofs_home_inferred": 4,
-    "roofs_yard": 2,
+    "roofs_yard": 3,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 3,
