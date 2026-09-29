@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+  { v: 1228, ts: '2026-09-29T07:48:18.374Z', date: 'Sep 29, 2026, 2:48 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
     items: [
       'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
       'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
