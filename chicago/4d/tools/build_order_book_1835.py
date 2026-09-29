@@ -4516,8 +4516,23 @@ def cmd_self_test() -> int:
     # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
     # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
     # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1708 TAKES IT TO 242, THE LARGEST MOVE ANY BUILD HAS MADE HERE. Eleven roofs
+    # stand on `blk_washington_wells` — the seven principal ones the seating had requested as
+    # slots, and four yard buildings — so like the Clark block it keeps no slot of its own:
+    # dealt out to its seven buildable lots it has no principal room left to offer, and the
+    # two requests it had held over and above the seven fall back onto the owed list with
+    # their reasons. The platted pass runs 165 -> 170 with 120 adoptions against 113 and 50
+    # slots against 52. What moves the TOTAL is the cascade rather than the seven: standing
+    # eleven roofs on an open block re-scores every South Division lot the adoption step
+    # ranks, and that step runs before the slot step, so seven households that had been
+    # refused the plat entirely find a roof of an admitted family free. Off-plat is unmoved
+    # at 72, so the total is 170 + 72. The tier's slot count is 26 now — seven each still
+    # outstanding on `blk_washington_franklin`, `blk_washington_lasalle` and
+    # `blk_washington_market`, five on `blk_washington_clark`, none here. Read at the chain's
+    # fixpoint, which took five passes of the seating chain to reach, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 237
+        data["inventory"], data["programme"], occ))["seated"] == 242
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4526,7 +4541,7 @@ def cmd_self_test() -> int:
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
     # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
-    # — 28 of them since T-1736 took the Clark block's — so claiming ONE of them is as much a
+    # — 26 of them since T-1708 dealt `blk_washington_wells` out — so claiming ONE of them is as much a
     # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
