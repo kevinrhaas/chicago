@@ -260,24 +260,34 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
-# 449 -> 453 and 445 -> 449 on 2026-09-29 (T-1753): the four roofs of the first deal on
+# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1708): the eleven roofs of the deal on
+# `blk_washington_wells`, the plat's last tier again — seven principal roofs (two D7
+# houses, two H1 houses, two D3 cottages and an H2) with two privies, a woodshed and a
+# stable behind them. Eleven new structure assets, so eleven more meshes the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and
+# pier_crib at 2. Nothing about the debt itself moved.
+#
+# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1753): the four roofs of the first deal on
 # `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
 # cottages and the privy and woodshed off the alley behind them. Four new structure
-# assets on the same terms as the eight block roofs above: four more meshes the shared
+# assets on the same terms as the eleven block roofs above: four more meshes the shared
 # generator modules or emit.py would re-stale, the terrain reach still 4 and pier_crib
-# still 2. Nothing about the debt itself moved. THIS ROW HAS NOW MOVED FOUR TIMES IN TWO
-# DAYS — three block deals of four and the Glessner House of one — which is the
-# measurement working as intended and also the shape of what it measures: the debt is
-# per-ASSET, so every roof this project raises enlarges it, and it will keep being
-# restated a parcel at a time for as long as the town is built a block at a time.
+# still 2. Nothing about the debt itself moved. The from-numbers are the ones this
+# branch found on `dev` at its SIXTH lap, not the 449/445 it was written off: the debt
+# is cumulative, so T-1708's eleven are counted first and these four go on top of them.
+# THIS ROW HAS NOW MOVED FIVE TIMES IN TWO DAYS — four block deals and the Glessner
+# House — which is the measurement working as intended and also the shape of what it
+# measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
+# will keep being restated a parcel at a time for as long as the town is built a block
+# at a time.
 #
 STATED = {
-    "assets": 453,
+    "assets": 464,
     "restales": {
-        "generators/common/*.py": 453,
+        "generators/common/*.py": 464,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 449,
+        "generators/emit.py": 460,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

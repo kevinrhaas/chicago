@@ -45,6 +45,21 @@ export function paceSpeed(pace, settings = {}) {
   return clamp(base, 0.5, p.maxSpeed);
 }
 
+/**
+ * A person on foot. The walker owns the model; these are the numbers it walks by,
+ * and they live here because travel.js WRITES them (the pace sliders compose speed,
+ * sprint and eye height in one place) while a pure estimate only reads them. Both
+ * hold the one object walker.js re-exports, so a write is seen everywhere.
+ */
+export const WALK = {
+  eyeHeight: 1.68,      // m — mid-19th-century adult male mean was near 1.72 m
+  radius: 0.34,         // m — shoulder half-width for the push-out
+  speed: 1.45,          // m/s — an unhurried walk
+  sprintSpeed: 3.3,     // m/s — a jog, not a sprint
+  stepUp: 0.35,         // m — the plank-walk rule
+  pitchLimit: 85 * (Math.PI / 180),
+};
+
 export const FLY = {
   speed: 14,            // m/s — crossing a 640 m scene should take ~45 s, not 7 min
   sprintSpeed: 46,

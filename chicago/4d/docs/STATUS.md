@@ -1,3 +1,39 @@
+## T-1728 — the 1904 Prairie Avenue street surfaces: asphalt, macadam, cement, sandstone and turf (2026-09-29)
+
+`/4d/1904/` is paved. `data/street_surfaces/1904.json` (authored) names a material, a tier, its
+sources and an in-place range bounding 1 July 1904 for every one of T-0474's 14 carriageways, 7
+alleys and 31 × 4 sidewalk bands; `renderers/web/js/street-grid.js` binds the seven procedural
+materials of the new `assets/textures/prairie_1904_pbr/` at their metric tiles.
+`tools/check_street_surfaces.py --check` holds it in `check.sh`, with a 15-case self-test.
+
+- **Found: the city's own records name the district's roadways.** The Council's printed proceedings
+  (Newberry copies, via the Internet Archive's full-text search) carry the Board of Local
+  Improvements' ordinance of 9 Feb 1903 for asphalt on **Prairie 16th–20th**, its condition report of
+  2 Nov 1903 ("Good condition") and of 7 Nov 1906 (asphalt, R. F. Conway Co.) — **attested sheet
+  asphalt** — and the Department of Public Works' survey of 1 Dec 1904 listing **Prairie 20th–22nd,
+  18th, 20th and 21st Streets and part of Calumet as worn macadam** out of guaranty — **attested**.
+  16th Street and 22nd Street (asphalt) and Indiana 16th–18th (brick) are **inferred** from 1899
+  contracts and ordinances.
+- **Found: Prairie Avenue was not a boulevard in 1904.** The South Park Commissioners took Prairie
+  16th–29th and 16th Street on 24 Oct 1906 (city consent 28 May 1904, effective 30 Oct 1905); on the
+  scene date both were city streets. The 1911 sheets' "Prairie Av. Blvd." is a later fact.
+- **Reconstructed** (L296): every walk as Portland cement concrete in the 1905 code's 5 × 6 ft
+  blocks, every curb as sandstone curbstones, every parkway and margin as turf, and the look of every
+  map. (L297): Indiana 18th–22nd drawn as finished asphalt, the rest of Calumet 18th–20th as macadam,
+  every alley as earth and cinders, the avenue drawn over its cross streets, no streetcar tracks.
+- **Bounds only, never attestation**: the 1904 paving report (Prairie library `civic-paving-1904`) and
+  the 1905 code; the checker refuses an attested block that rests on them. The c. 1923 HABS views of
+  both Glessner frontages are the later bound for walk, curb and parkway.
+- New sources: eight volumes of the Council's proceedings (1899–1907), the South Park Commissioners'
+  1897 code and 1908 statutes, Alvord's 1904 report, the HABS IL-1015 photographs; the 1905 code's
+  record extended.
+- Frame at the spawn (published, SwiftShader): **16 → 20 draw calls** desktop, **16 → 19** mobile,
+  ceiling 215; triangles 74,049 → 72,829 / 81,123 → 77,601; 21 more textures, 1.62 MB more fetched.
+
+**Unverified:** the walk, curb and parkway materials (no block-level sidewalk or curb record read);
+completion of the 1899 contracts; which side of 1 July 1904 Indiana 18th–22nd and the 20th–21st alley
+were finished on. `docs/RESEARCH/prairie_1904_street_surfaces.md` § 8 names what would close each.
+
 ## T-1732 — the Glessner House at 1800 Prairie, as it stood in 1904: the default version (2026-09-29)
 
 `/4d/1904/` is no longer an empty lot. `data/structures/glessner_house.json` (archetype
@@ -92,6 +128,21 @@ sheet and is not drawn. `data/street_grid/` is one dated file and carries no `in
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
 
+## T-1257 — optional history beside a jaunt (2026-09-28)
+
+Stop chips open existing structure, person, business, source and Evidence cards.
+Returning restores scroll and choices; reading pauses travel without spending
+resources or awarding events. Canceled asynchronous reads cannot reopen a card
+after End. The compact control row reserves room beneath cards and drawers.
+
+Travel reports its actual planned polyline, including replans and straight hops.
+Structure stand-offs within 25 m are ordered along that line. Generated notes are
+labelled [MAP]; authored notes carry evidence references. Invented connective prose
+is styled separately from historical text. The Green Tree/Wolf Point/bridge unit
+case uses an explicit route fixture, not a claim that every A* route passes there.
+
+The PR records final test results. Browser evidence is generated in
+`docs/performance/jaunt-context/`.
 
 ## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 

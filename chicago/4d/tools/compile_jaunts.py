@@ -124,7 +124,7 @@ class Compiler:
         require(not doc['review_required'] or reasons, 'review_required needs reason')
         graph = {}
         for i, stop in enumerate(doc['stops']):
-            require(25 <= len(stop['text'].split()) <= 60, f'{stop["id"]}: text needs 25–60 words')
+            require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= 60, f'{stop["id"]}: text needs 25–60 words')
             require(set(stop['evidence']) <= set(claims), 'dangling evidence id')
             reason = self.resolve(stop['destination'], True)
             if reason: reasons.append(reason)
@@ -149,6 +149,17 @@ class Compiler:
                         require(eff['op'] != 'inc' or abs(eff['value']) <= v['max'] - v['min'], 'unbounded increment effect')
                     else:
                         require(eff['item'] in inventory['items'], 'undeclared effect item')
+        leg_edges = set()
+        for i, leg in enumerate(doc.get('legs', [])):
+            frm = leg.get('from', doc['stops'][i]['id'] if i < len(doc['stops']) else None)
+            to = leg.get('to', doc['stops'][i + 1]['id'] if i + 1 < len(doc['stops']) else None)
+            require(frm in stops and to in stops, 'leg needs valid stops')
+            require(to in [edge[0] for edge in graph[frm]], 'leg must follow a stop transition')
+            require((frm, to) not in leg_edges, 'duplicate leg')
+            leg_edges.add((frm, to))
+            require(leg.get('note') or leg.get('story'), 'empty leg')
+            require(set(leg['evidence']) <= set(claims), 'dangling leg evidence')
+            require(set(leg.get('story_evidence', [])) <= set(claims), 'dangling story evidence')
         require(sum(bool(e.get('default')) for e in ends.values()) <= 1, 'multiple default endings')
         for end in ends.values():
             if 'when' in end: condition(end['when'])

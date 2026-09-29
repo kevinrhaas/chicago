@@ -69,7 +69,7 @@ await test('replacement and destroy release callbacks, timers and listeners', as
   EventTarget.prototype.removeEventListener = function(...args) { --listeners; return remove.apply(this, args); };
   try {
     const r = rig(); await r.controller.start('walk'); r.controller.next(); const old = r.active;
-    assert.equal(Object.keys(r.active).filter(k => k.startsWith('on')).length, 2);
+    assert.deepEqual(Object.keys(r.active).filter(k => k.startsWith('on')).sort(), ['onArrive', 'onRoute', 'onStop']);
     await r.controller.start('branch'); assert.equal(r.active, null);
     const state = r.controller.state; old.onArrive(old.token); assert.equal(r.controller.state, state);
     r.controller.choose('buy'); r.controller.next(); assert(r.active);

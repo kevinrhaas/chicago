@@ -1180,9 +1180,12 @@ async function boot() {
   // face's margin, walk, parkway and curb, the alleys and the lot lines, read off
   // the Sanborn 1911 sheets (data/street_grid/<scene>.json). Only a scene listing
   // `street_grid` is handed a data base, so the 1835 town draws none of it.
+  // T-1728 paves it: data/street_surfaces/<scene>.json names each surface's
+  // material and tier, and the maps come from the asset base's
+  // textures/prairie_1904_pbr/ (data/textures/ on the published site).
   const streetGrid = await createStreetGrid({
-    dataBase: layerBase('street_grid'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_grid'),
+    dataBase: layerBase('street_grid'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    terrain, confidence, problems: layerProblems('street_grid'),
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
@@ -2503,7 +2506,7 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js')]).then(([preview, runtime, panel, estimates]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js')]).then(([preview, runtime, panel, estimates, context, cards]) => {
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
@@ -2514,10 +2517,21 @@ async function boot() {
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
+        sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
+      actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions });
       jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
         resolve: resolveJaunt, place: spawnAtDestination,
+        contextForRoute(state, route) {
+          const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
+          const places = [...loaded.registry.values()].map(record => ({ id: record.id,
+            label: record.sidecar?.name || record.id,
+            point: travel.destinationOf({ kind: 'structure', id: record.id }) }));
+          return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
+            [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
+        },
         estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(),
           startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
@@ -2531,24 +2545,15 @@ async function boot() {
         },
         render: state => jauntPanel.render(state),
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
-        closeDetail() { popup.close(); hud.setPanel(false); },
-        async openDetail(link) {
-          if (document.pointerLockElement) document.exitPointerLock?.();
-          try {
-            if (link.kind === 'structure') { hud.setPanel(false); pick(link.id); }
-            else if (link.kind === 'person') { hud.setPanel(true); hud.selectTab('people'); await api.people.open(link.id); }
-            else if (link.kind === 'business') openBusiness(link.id);
-            else { hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showTopic(link.kind === 'source' ? 'sources' : link.id);
-              if (link.kind === 'source') { openSources(); const view = await sourcesPromise; await view?.open(link.id); } }
-          } catch { hud.say('This detail could not load. Close it to return to the outing.'); }
-        }, onError: jauntError,
+        closeDetail: jauntCards.close,
+        openDetail: jauntCards.open, onError: jauntError,
       });
       return jauntRuntime;
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },

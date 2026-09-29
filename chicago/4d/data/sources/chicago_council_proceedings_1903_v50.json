@@ -1,0 +1,26 @@
+{
+ "id": "chicago_council_proceedings_1903_v50",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1902-1903 (November 1902 to April 1903). Chicago: the City Council, 1903. Vol. 50.",
+ "author": "City of Chicago, City Council",
+ "date": "1903",
+ "describes_date": "November 1902 - April 1903",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit50chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit50chic/proceedingsofcit50chic_djvu.txt",
+ "locator": "The Council meeting of 9 February 1903, p. 2067.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "On 9 February 1903 the Council passed 'A recommendation, ordinance and estimate for curbing, grading and paving with asphalt Prairie avenue, from 16th street to 20th street' (p. 2067, 67 yeas to 2). Its title names curbing and does not name a 'combined curb and gutter', which in the same months' titles is named whenever it is ordered.",
+ "what_it_supplies": [
+  "the ordinance under which Prairie Avenue from 16th to 20th Street was curbed and paved with asphalt in 1903"
+ ],
+ "what_it_does_not_supply": [
+  "the completion date (see chicago_council_proceedings_1904_v52)",
+  "the curb's material, which the printed title does not state"
+ ]
+}
