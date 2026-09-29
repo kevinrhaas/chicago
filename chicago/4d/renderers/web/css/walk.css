@@ -102,9 +102,9 @@ html, body {
 }
 
 .arrival-instrument {
-  margin: 18px 0 14px;
-  padding: 15px 12px 12px;
-  border-block: 1px solid color-mix(in srgb, var(--brass) 48%, transparent);
+  margin: 12px 0 10px;
+  padding: 12px 8px 0;
+  border-top: 1px solid color-mix(in srgb, var(--brass) 48%, transparent);
 }
 .arrival-label {
   margin: 0 0 7px;
@@ -186,6 +186,7 @@ html, body {
   line-height: 1.45;
   overflow-wrap: anywhere;
 }
+.gate-sub[hidden] { display: none; }
 .gate-sub {
   min-height: 2.9em;
   margin: 0 0 10px;

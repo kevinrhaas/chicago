@@ -319,7 +319,30 @@ STRUCTURE_TICKETS = {
     # exactly as the north cell three entries below has now been swept three times in two
     # days, T-1206 -> T-1742 -> T-1748 -> T-1754. The rule is the same every time: the cell
     # goes to the live ticket that raises the dwellings that are LEFT.
-    ("south", "ordinary_dwellings"): "T-1751",
+    #
+    # AND SWEPT ONTO T-1735 ON 2026-09-29, BY THAT RULE AND ON THE SAME TIER. T-1751 raised
+    # thirteen roofs on `blk_washington_franklin` and closes with this cell still owing 54, so
+    # the row moves to the live ticket that raises the dwellings LEFT. `blk_washington_lasalle`
+    # is the next block of this very tier — the platted deal holds seven slots on it and T-1735
+    # is "the seven cottages and yard buildings the platted deal holds on blk_washington_lasalle"
+    # in as many words — and it is in `review` with its own pull request open, which the
+    # liveness walk counts as live. It will move again when that block closes with the cell
+    # still owing; 54 roofs is far more than one block, and the chain is the point.
+    #
+    # AND SWEPT ONTO T-1758 ON 2026-09-29, ON THE FOURTH LAP OF THIS SAME BRANCH, BECAUSE
+    # T-1735 HAS SINCE MERGED. The sweep above was sound when it was made — T-1735 was in
+    # `review` with PR #181 open, and review is live — but that pull request landed on `dev`
+    # and the ticket went `done`, so the cell was left ordered by a ticket nobody can claim
+    # and every re-derivation on this branch failed on that row: "structures/ordinary_dwellings
+    # /south has 55 left and is ordered by T-1735, which is done". The rule does not change,
+    # only the row it lands on: the cell goes to the live ticket that raises the dwellings
+    # that are LEFT. `blk_washington_market` is the next block of this very tier and T-1758 is
+    # "the seven cottages and yard buildings the platted deal holds on blk_washington_market"
+    # in as many words, `open` and claimable today. THIS IS THE SWEEP BEING A CHAIN RATHER
+    # THAN A FIX: 55 roofs is far more than one block, so the cell will move again when
+    # T-1758 closes with it still owing, exactly as the north cell four entries below has
+    # moved five times in three days.
+    ("south", "ordinary_dwellings"): "T-1758",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -434,10 +457,11 @@ STRUCTURE_TICKETS = {
     #     remaining freight roof goes to the child that reconciles what the others leave. If
     #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
     #     building it out of place.
-    ("west", "stores_mixed_use"): "T-1763",
+    # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
+    ("west", "stores_mixed_use"): "T-1766",
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1763",
+    ("west", "workshops"): "T-1766",
     ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
@@ -4597,6 +4621,26 @@ def cmd_self_test() -> int:
     # files rather than predicted: 1835_platted_seats.json counts seated 177 (129 adopted, 48
     # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
     # handed.
+    #
+    # AND T-1751 TAKES IT TO 249 AND LEAVES IT THERE, WHICH IS THE CLEANEST SUBSTITUTION THIS
+    # ROW HAS RECORDED. `blk_washington_franklin` was dealt out to its lot ceiling — seven
+    # dwellings and six yard buildings — so the platted pass runs 177 -> 177 with 138 adoptions
+    # against 131 and 39 slots against 46, the off-plat pass is unmoved at 72, and the rows
+    # handed on stand at 1,301. Seven requests became seven roofs and the seat total did not
+    # move a place: the gain is in the ADOPTION table and the loss is in the SLOT table, which
+    # is what a block dealt to its ceiling does — it can hold no further request, so its own
+    # seven had to go somewhere and every one of them found an `open` block in its own clause
+    # and division. NOT ONE of the seven the block was sized against is seated on it:
+    # hh_beaubien_monique re-slots onto blk_washington_clark, hh_beddlecome_ash, hh_beech_reuben,
+    # hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto blk_washington_dearborn,
+    # hh_chiney_ralph onto blk_washington_market. The roofs go to hh_bailly_esther,
+    # hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william,
+    # hh_bench_reuben and hh_brookes_samuel, and 59 households change roof behind them — the
+    # largest cascade any deal here has set off. That is the T-1622 precedence a fifth time, and
+    # it is recorded in L304. Read at the chain's fixpoint, not one pass in: this one took SEVEN
+    # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
+    # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
+    # four of those passes before it settled at 177.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249
     fires("a seating pass whose seated and owed miss its own scope",
@@ -4607,7 +4651,10 @@ def cmd_self_test() -> int:
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
     # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
-    # — 26 of them since T-1708 took the Wells block's seven — so claiming ONE of them is as much a
+    # — 19 of them since T-1751 dealt blk_washington_franklin out to its ceiling, which took
+    # that block's own seven off the table and left 7 on blk_washington_dearborn, 7 on
+    # blk_washington_market and 5 on blk_washington_clark, the tier's first FALL in slots — so
+    # claiming ONE of them is as much a
     # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",

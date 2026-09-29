@@ -54,14 +54,14 @@
 <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
     <p class="gate-eyebrow">4D Chicago · Arrival</p>
-    <h1 id="gate-title" tabindex="-1">Entering a digital reconstruction of Chicago</h1>
+    <h1 id="gate-title" tabindex="-1">Preparing your arrival</h1>
     <div class="arrival-instrument">
       <p class="arrival-label">Year</p>
       <div id="arrival-year" class="arrival-year" aria-hidden="true">—</div>
-      <p id="arrival-card" class="arrival-card">Drawing on previously researched sources</p>
+      <p id="arrival-card" class="arrival-card" aria-live="polite">Drawing on previously researched sources</p>
     </div>
-    <p class="gate-sub" id="gate-sub" aria-live="polite">Loading the scene…</p>
-    <div class="gate-bar" id="gate-bar" role="progressbar" aria-labelledby="gate-sub"
+    <p class="gate-sub" id="gate-sub" aria-live="polite" hidden>Loading the scene…</p>
+    <div class="gate-bar" id="gate-bar" role="progressbar" aria-label="Preparing the selected scene"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div id="welcome" hidden>
       <p class="welcome-intro">You are entering a digital reconstruction of the town as it stood on 1 July 1835, built from the sources listed under Evidence.</p>

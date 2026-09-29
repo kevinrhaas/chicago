@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "content_version": 3,
+  "category": "Orientation",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-avenue-orientation",
+  "scene": "1904",
+  "title": "A corner of Prairie Avenue",
+  "premise": "Meet the Glessner House from the street in summer 1904.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "Begin at Prairie and Eighteenth. This short exterior orientation distinguishes the reconstructed 1904 scene from the later sources used to build it. The route and keepsake are modern interpretation, not a reenacted historical visit.",
+    "read_s": 15
+  },
+  "stops": [
+    {
+      "id": "corner",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_house"
+      },
+      "text": "Look across Prairie Avenue toward the Glessner House. The family moved here in December 1887. You are viewing the house in the summer 1904 reconstruction; the street-corner viewpoint is a modern interpretive choice.",
+      "read_s": 18,
+      "evidence": [
+        "move",
+        "outing"
+      ],
+      "next": "house"
+    },
+    {
+      "id": "house",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "From outside, notice the roof and street-facing walls. Glessner’s later account describes unglazed red roof tiles and granite street walls as features of the original construction. That account is evidence about the building, not a record of today’s imagined visit.",
+      "read_s": 20,
+      "evidence": [
+        "fabric",
+        "outing"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "You have found your bearings at Prairie and Eighteenth. Continue exploring the 1904 scene at your own pace.",
+      "read_s": 8,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "prairie-corner-note",
+    "title": "Prairie Avenue bearings",
+    "text": "An interpretive note marking the corner where you began, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "move",
+      "text": "The family moved into the house in December 1887.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 1."
+    },
+    {
+      "id": "fabric",
+      "text": "Glessner describes unglazed red roof tiles and granite street walls as part of the house’s construction.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS transcription, data pages 13–15; construction description, not the 1923 garage conversion."
+    },
+    {
+      "id": "outing",
+      "text": "The orientation route, timing and keepsake are modern interpretive narrative.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-prairie"
+  ]
+}

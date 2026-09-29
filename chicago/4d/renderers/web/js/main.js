@@ -881,6 +881,7 @@ const params = new URLSearchParams(location.search);
  */
 const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1];
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
+document.getElementById('view').setAttribute('aria-label', `Chicago, ${YEAR}`);
 const DEBUG = params.get('debug') === '1';
 /** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
  *  for comparing competing builds side by side. Null when the address asks for none. */
@@ -935,9 +936,11 @@ const bootController = createBoot({
 api.boot = bootController;
 const arrival = createArrival({
   boot: bootController,
+  targetYear: YEAR,
+  titleEl: document.getElementById('gate-title'),
   contentOptions: {
     seed: new URLSearchParams(location.search).get('seed') ?? Math.random(),
-    warm: (() => { try { return sessionStorage.getItem('c4d.loading.build') === VERSION; } catch { return false; } })(),
+    warm: (() => { try { return sessionStorage.getItem(`c4d.loading.build.${YEAR}`) === VERSION; } catch { return false; } })(),
   },
   yearEl: document.getElementById('arrival-year'),
   phaseEl: gateSub,
@@ -948,8 +951,8 @@ const arrival = createArrival({
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
-void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
-bootController.on('ready', () => { try { sessionStorage.setItem('c4d.loading.build', VERSION); } catch { /* optional */ } });
+if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -2514,7 +2517,7 @@ async function boot() {
       const estimateOptions = () => ({ resolve: target => {
         const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
       }, settings: hud.settings, router: travel.router });
-      jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
+      jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
@@ -2522,7 +2525,7 @@ async function boot() {
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions });
-      jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
+      jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         resolve: resolveJaunt, place: spawnAtDestination,
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
@@ -2555,7 +2558,7 @@ async function boot() {
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
-  api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
+  api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');

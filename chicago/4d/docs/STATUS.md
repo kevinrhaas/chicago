@@ -18556,3 +18556,9 @@ The existing 5050-by-6628 Wright sheet is retained. An 1834 shortcut and an all-
 selector now expose it directly; selecting a map sets the timeline to its date.
 Long provenance paths wrap on mobile. Both research viewers are included in the dev
 preview so these changes can be inspected before production promotion.
+
+## T-1767 — Selected-year arrival (2026-09-29)
+
+Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected scene. The 1904 catalog has a two-stop Glessner orientation; the 1835 pilot is unchanged. Loading phase events still drive progress and errors, but their separate decorative line is hidden. Eight arrival titles rotate every three seconds, held still for reduced motion. Broader drawer content remains T-1740. Verification is recorded in the PR; no production promotion is implied.
+
+T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
