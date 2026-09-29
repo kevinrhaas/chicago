@@ -4488,8 +4488,22 @@ def cmd_self_test() -> int:
     # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1735 TAKES IT TO 240, WITH THE SECOND BUILD ON THE LAST TIER AND THE FIRST TIME A
+    # BLOCK'S OWN SLOT ROWS HAVE BEEN ANSWERED IN FULL. `blk_washington_lasalle` was carrying
+    # seven slot rows written against its committed plan by T-1613's platted pass — two D7,
+    # two H1, one H2 and two D3, each naming this block and its family in `order_book_draw`
+    # and carrying no roof to walk to — and all seven are built, with four yard buildings
+    # behind them. So the block has no headroom left to ask against and the pass ADOPTS there
+    # instead: the platted pass runs 163 -> 168, adoptions 118 against 111, and 50 slots
+    # against 52. The gain is five and not seven for the same reason T-1736's was one and not
+    # two: the pass is re-derived whole in the placement policy's clause order, so some of the
+    # households that asked this block were re-slotted onto the tier's remaining empty blocks
+    # rather than housed here, and the roofs the households that DID move here vacated
+    # cascaded down the same ranking. Nothing was retired and no roof moved a metre. Read at
+    # the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 235
+        data["inventory"], data["programme"], occ))["seated"] == 240
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
