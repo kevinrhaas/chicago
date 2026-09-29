@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 360,
-    "keep": 352,
+    "audited": 364,
+    "keep": 356,
     "refamily": 8,
     "retire": 0,
     "kept_occupied": 3,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 462,
-    "standing_after": 462,
-    "short_of_the_programme_before": 206,
-    "short_of_the_programme_after": 206
+    "standing_before": 466,
+    "standing_after": 466,
+    "short_of_the_programme_before": 202,
+    "short_of_the_programme_after": 202
   },
   "ledger": [
     {
@@ -1698,7 +1698,7 @@
       "family": "D3",
       "group": "ordinary_dwellings",
       "programme_phase": "phase3_platted_block_randolph_clinton_second_deal",
-      "occupied": false,
+      "occupied": true,
       "raised_for": null,
       "footprint_ft2": 356.2,
       "street": "canal",
@@ -1734,7 +1734,7 @@
       "family": "D5",
       "group": "ordinary_dwellings",
       "programme_phase": "phase3_platted_block_randolph_clinton",
-      "occupied": true,
+      "occupied": false,
       "raised_for": null,
       "footprint_ft2": 648.7,
       "street": "canal",

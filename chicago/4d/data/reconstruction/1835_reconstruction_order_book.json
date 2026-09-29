@@ -1464,13 +1464,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1478,
-    "seated": 249,
-    "still_owed": 1229,
-    "roofs_adopted": 203,
-    "slots_requested": 46,
+    "seated": 250,
+    "still_owed": 1228,
+    "roofs_adopted": 205,
+    "slots_requested": 45,
     "roofs_standing": 476,
-    "roofs_standing_unseated": 273,
-    "share_of_standing_roofs_seated": 0.4265,
+    "roofs_standing_unseated": 271,
+    "share_of_standing_roofs_seated": 0.4307,
     "passes": [
       {
         "key": "platted",
@@ -1479,22 +1479,22 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1478,
-        "seated": 177,
-        "handed_on": 1301,
-        "roofs_adopted": 131,
-        "slots_requested": 46,
-        "roofs_offered_for_adoption": 134,
+        "seated": 178,
+        "handed_on": 1300,
+        "roofs_adopted": 133,
+        "slots_requested": 45,
+        "roofs_offered_for_adoption": 136,
         "roofs_held_back": 54,
-        "ground_taken": 159,
+        "ground_taken": 160,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 22,
           "south": 134,
-          "west": 21
+          "west": 22
         },
         "by_clause": {
           "labourer_dwellings": 34,
-          "merchant_and_professional_dwellings": 35,
+          "merchant_and_professional_dwellings": 36,
           "tradesman_dwellings": 108
         }
       },
@@ -1504,9 +1504,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1301,
+        "rows_offered": 1300,
         "seated": 72,
-        "handed_on": 1229,
+        "handed_on": 1228,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 73,
@@ -1537,16 +1537,6 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_adams_james",
-        "name": "The Adams household — a name the town's own records carry",
-        "district": "west",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_randolph_clinton",
-        "lot_id": "blk_randolph_clinton#09",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_albee_clark_b",
         "name": "The Albee household — a name from the post office's letter lists",
         "district": "north",
@@ -1563,6 +1553,16 @@
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_indiana_north_wolcott",
         "lot_id": "blk_indiana_north_wolcott#10",
+        "family": "D7",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_arrowsmith_sidney",
+        "name": "The Arrowsmith household — a name from the post office's letter lists",
+        "district": "west",
+        "clause": "merchant_and_professional_dwellings",
+        "block_id": "blk_randolph_clinton",
+        "lot_id": "blk_randolph_clinton#01",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1737,16 +1737,6 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_baxley_j_m",
-        "name": "The Baxley household — a documented army officer, unplaced in the town",
-        "district": "west",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_lake_clinton",
-        "lot_id": "blk_lake_clinton#07",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_beach_william_h",
         "name": "The Beach household — a name from the post office's letter lists",
         "district": "north",
@@ -1762,9 +1752,9 @@
         "district": "west",
         "clause": "tradesman_dwellings",
         "block_id": "blk_lake_clinton",
-        "lot_id": "blk_lake_clinton#02",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_lake_clinton#07",
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beaubien_john_s",
@@ -1791,10 +1781,10 @@
         "name": "The Bennett household — a documented attorney, unplaced in the town",
         "district": "west",
         "clause": "tradesman_dwellings",
-        "block_id": "blk_randolph_clinton",
-        "lot_id": "blk_randolph_clinton#07",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "block_id": "blk_lake_clinton",
+        "lot_id": "blk_lake_clinton#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_bennett_william",
@@ -1997,8 +1987,8 @@
       "blk_washington_franklin",
       "blk_washington_market"
     ],
-    "what_the_slots_wait_on": "46 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,229 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_the_slots_wait_on": "45 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,228 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5173,9 +5163,9 @@
         "roof_target": 668,
         "standing_records": 476,
         "standing_with_an_occupant": 148,
-        "standing_without_an_occupant": 328,
+        "standing_without_an_occupant": 332,
         "to_build_total": 206,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 328 of the 476 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 332 of the 476 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -6128,7 +6118,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "328 of 476 standing records carry no occupants block."
+      "measured_now": "332 of 476 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
@@ -6401,139 +6391,6 @@
       "stage": "institutional_households",
       "records": 1,
       "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 3,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 7,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 20,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 38,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 9,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 3,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 11,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/west/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 1,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 1,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 1,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 29,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 54,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/west/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 23,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 2,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 5,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/west/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 6,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/north/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 24,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/south/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 38,
-      "by": "tools/reconstruct_modelled_families.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/west/family/none",
-      "ticket": "T-1171",
-      "stage": "modelled_families",
-      "records": 20,
-      "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
       "bucket": "households/family_dwelling/north",
@@ -6891,6 +6748,139 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 3,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 7,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 20,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 38,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 9,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 3,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 11,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 1,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 1,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 1,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 29,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 54,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/west/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 23,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 2,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 5,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/west/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 6,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 24,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/south/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 38,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/family/none",
+      "ticket": "T-1171",
+      "stage": "modelled_families",
+      "records": 20,
+      "by": "tools/reconstruct_modelled_families.py --build"
     }
   ],
   "re_family_ledger": {
