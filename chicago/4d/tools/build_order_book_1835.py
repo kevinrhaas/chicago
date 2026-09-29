@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -1941,6 +1942,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1

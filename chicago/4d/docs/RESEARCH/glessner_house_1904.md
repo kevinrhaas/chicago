@@ -300,3 +300,39 @@ way.
 Gaps 1–4 and 9 are what **only Glessner House or the Houghton Library can close**: the museum
 holds the historic photographs, family papers and restoration files (the library's dossier, G15),
 and the Houghton holds the drawings. The owner's contact at Glessner House is the route.
+
+## 13. What the build settled, and what the new sources changed (T-1732, 2026-09-28)
+
+The default version is committed as `data/structures/glessner_house.json` (archetype
+`masonry_house`, phase `as_built_1887`, 1887-12-01 to 1946-08-31), standing on T-0474's parcel
+`prairie_1800`. Two sets of sources landed after this specification was written and were read for
+the build: **the 17 HABS photographs** (PR #169; four new source records here) and **ten Richardson
+drawings from Houghton Library** (PR #171; design intent, cited only as corroboration). Phase
+discipline is kept: a design drawing is intent, and a dated photograph dates what it shows.
+
+**Settled or tightened by them:**
+
+| question | spec (T-1731) | now | tier | source |
+|---|---|---|---|---|
+| stable roof | 45° symmetric, ridge on the centre line (W 143.5), reconstructed | ridge on the carriage doorway's axis, **W 141**, about **38.6 ft**; east eave 23.1, west eave about 26.3 ft (about 41° / 31°) | inferred | HABS photo 1 (1963), scaled on the printed 12′ doorway; 1888 plate for the gable; GLE B9 agrees (intent) |
+| "large pyramid-roofed element" | a square dormer or pavilion, depth reconstructed | a **round granite tower with a conical roof** at the east wing / north range junction (sheet 4's heights and N-S extent kept) | inferred (form); plan reconstructed | HABS photos 1 (1963) and 13 (1965); GLE B9 (intent) |
+| dining-room bay | one storey, roofed below the second floor | a masonry storey, a **glazed band** at the second-floor level and a **tall faceted metal roof** rising into the north range's slope | inferred (form); heights read off the print | HABS photo 5 (c. 1923); sheet 3's light outline agrees |
+| hall bow | height reconstructed at the eave | two storeys to the courtyard eave, three lights to a storey | inferred | sheet 4, HABS photo 5 |
+| chimneys | four | **five**: one more on the north range's street slope near W 70 (the dining room's) | inferred | HABS photos 1 and 5 |
+| east wing's north face | one first-floor window read off the plan | **two** (the second at about W 17.6–19.0) | inferred | HABS photo 13 |
+| stable loft opening and flanking lights | heights reconstructed | 17.4–24.4 ft and 17.8–22.9 ft | inferred | HABS photo 1 |
+| courtyard ground | reconstructed | a lawn with a hard carriage drive along the south side, *in c. 1923*; carried to 1904 as reconstructed | reconstructed | HABS photo 5 |
+
+**Not settled** (recorded as liberties, `docs/LIBERTIES.md` **L294**): every colour; the north
+tower's plan position and drum; the hall bow's roof form; the dormers' depth on the slope; the
+stable turret's dimensions; the chimneys' E-W sizes; the stable's south end and its 1904 carriage
+doors; the north range's courtyard openings; opening heights read off plans; the cornices; the
+gate's heights; the vines (not drawn). The roof plan, the courtyard elevations and the north
+elevation that GAP 3 hoped for are **not** among the ten Houghton drawings supplied (three facade
+studies, two side sketches, a perspective, a court sketch and three interior details), so GAPS 3
+and 5 stay open; GAP 1 (the HABS photographs) is closed for the exterior.
+
+**Placement, reconciled with the parcel.** North face on the parcel's 18th Street line; east face
+14.7 ft behind its Prairie line (this spec's Sanborn reading, kept); the parcel's 177.1-ft depth
+then leaves the west face 0.35 m inside the alley line, inside both readings' tolerances. The
+parcel's 74.7-ft frontage closes GAP 8: the house's 74′-0″ leaves 0.7 ft to the 1808 line.

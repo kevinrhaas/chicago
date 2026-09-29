@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 442,
+    "structures_placed": 443,
     "structures_reached": 75,
     "structures_reached_by_grade": {
       "inferred": 23,
@@ -44,7 +44,8 @@
     "structures_unreached_by_section": {
       "09": 365,
       "10": 1,
-      "16": 1
+      "16": 1,
+      "outside the four sections": 1
     },
     "school_section": {
       "parcels": {
@@ -39914,6 +39915,9 @@
     ],
     "16": [
       "heacock_house_monroe"
+    ],
+    "outside the four sections": [
+      "glessner_house"
     ]
   }
 }
