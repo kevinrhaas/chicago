@@ -270,22 +270,30 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # debt is cumulative, so T-1742's four and T-1732's Glessner House are counted first
 # and the eleven go on top of them.
 #
-# 460 -> 471 and 456 -> 467 on 2026-09-29 (T-1735): the eleven roofs of the deal on
+# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the SECOND deal on
+# `blk_indiana_north_wolcott` — two more one-room frame cottages on lots 4 and 5 with a
+# woodshed and a privy off the alley behind them, which completes the alternation the
+# north-division memo describes on both faces of that block. Four new structure assets on
+# the same terms as every entry above: four more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved.
+#
+# 464 -> 475 and 460 -> 471 on 2026-09-29 (T-1735): the eleven roofs of the deal on
 # `blk_washington_lasalle`, the south-west block of the same last tier, raised on top of the
-# Wells eleven above. Seven principal dwellings (an H2, two H1, two D7 and two D3) with a
-# stable, two privies and a woodshed behind them. Eleven new structure assets, so eleven more
-# meshes a change to the shared generator modules or to emit.py would re-stale; the terrain
-# reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved. The from-numbers
-# are the ones this branch found on `dev` at its SEVENTH lap, and the three numbers are read
-# off the committed tree by `--gate` rather than carried over.
+# Wells eleven and the Wolcott four above. Seven principal dwellings (an H2, two H1, two D7
+# and two D3) with a stable, two privies and a woodshed behind them. Eleven new structure
+# assets, so eleven more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain reach stays at 4 and pier_crib at 2. Nothing about the debt itself
+# moved. The from-numbers are the ones this branch found on `dev` at its NINTH lap, and the
+# three numbers are read off the committed tree by `--gate` rather than carried over.
 #
 STATED = {
-    "assets": 471,
+    "assets": 475,
     "restales": {
-        "generators/common/*.py": 471,
+        "generators/common/*.py": 475,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 467,
+        "generators/emit.py": 471,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

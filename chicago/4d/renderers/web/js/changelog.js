@@ -8,6 +8,14 @@ export const CHANGELOG = [ // newest first
       'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
       'This is the third block of that row to be built \u2014 Clark and Wells came first \u2014 and the ones still open prairie are each written down as their own piece of work.',
     ] },
+  { v: 1228, ts: '2026-09-29T07:38:33.079Z', date: 'Sep 29, 2026, 2:38 AM CT', title: 'Two more houses in Kinzie\u2019s Addition', kind: 'change',
+    items: [
+      'Walk north over the river to Indiana Street between Wolcott and Cass and the block has four houses instead of two. Two more one-room frame cottages stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind one and a privy behind the other.',
+      'Look along either street and every house has open prairie on both sides of it. That is the whole design, and it is also the limit: a fifth house on either side would have to go up next door to one already there, and the north-side research says the 1834 maps show a large platted north side with scattered roofs on it, not a street. Eight of the block\u2019s twelve lots stay empty.',
+      'Two families asked for houses here and neither got one. Households take the best house already standing before they ask for one to be built, so the moment these existed the Andrews and Anderson families \u2014 who had been waiting on the block to the east \u2014 were the better answer. Susan Beaubien and William Bennett, whose requests the pair was built against, end up asking for the two lots next door instead.',
+      'The two cottages sit a little differently from the first pair \u2014 half a metre further back, and offset the other way on their lots \u2014 so no street here reads as a surveyed row.',
+      'None of it is evidence. No source says a building stood on this block in 1835. The ground, the street lines and the lot grid are committed; the houses are the building programme filling a town it can count but cannot name, and every card says so.',
+    ] },
   { v: 1227, ts: '2026-09-29T06:42:08.624Z', date: 'Sep 29, 2026, 1:42 AM CT', title: 'History along your outing', kind: 'change',
     items: [
       'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',

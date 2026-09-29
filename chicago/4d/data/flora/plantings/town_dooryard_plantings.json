@@ -562,6 +562,72 @@
       "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_02: the closest allowed ground to the house, which is where a dooryard bush stands. 0.92 m is inside the species' recorded band."
     },
     {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_05_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        884.65,
+        533.86
+      ],
+      "height_m": 19.9,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_05: the best-scored allowed ground in this house's yard quarter. 19.9 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_05_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        888.52,
+        535.46
+      ],
+      "height_m": 16.3,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_05: the best-scored allowed ground in this house's yard quarter. 16.3 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_05_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        886.89,
+        555.75
+      ],
+      "height_m": 0.93,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_05: the closest allowed ground to the house, which is where a dooryard bush stands. 0.93 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_05_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        874.1,
+        542.96
+      ],
+      "height_m": 1.34,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_05: the closest allowed ground to the house, which is where a dooryard bush stands. 1.34 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_06_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        884.33,
+        516.14
+      ],
+      "height_m": 16.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_06: the best-scored allowed ground in this house's yard quarter. 16.8 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_06_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        886.61,
+        507.02
+      ],
+      "height_m": 1.13,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_blk_indiana_north_wolcott_d3_06: the closest allowed ground to the house, which is where a dooryard bush stands. 1.13 m is inside the species' recorded band."
+    },
+    {
       "id": "recon_1835_blk_randolph_clinton_d1_03_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
@@ -2750,5 +2816,5 @@
     "wright_building_to_let_b: no allowed ground for tree 1",
     "wright_building_to_let_b: no allowed ground for bush 1"
   ],
-  "research_note": "121 DOORYARD TREES AND 111 CURRANT BUSHES ACROSS 106 OF THE TOWN'S 208 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 3 of these 232 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
+  "research_note": "124 DOORYARD TREES AND 114 CURRANT BUSHES ACROSS 108 OF THE TOWN'S 210 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 3 of these 238 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
 }

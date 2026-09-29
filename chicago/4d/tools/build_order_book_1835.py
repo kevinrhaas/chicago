@@ -460,6 +460,13 @@ STRUCTURE_TICKETS = {
     # first roofs land AND the Rush-Pine fringe settled, which is where the order the
     # other child does not take has to land, so the 32 are its.
     # (Moved by T-1257's run, which found this step red on the tree it was merging.)
+    # (T-1756's own run, which made the split, reached the same cell by the same test and
+    # takes dev's wording here rather than restating it. Its one addition is WHY the split
+    # was made, because that is what makes T-1757 the remainder rather than a second slice:
+    # T-1754's cass lots wait on T-1753's first roofs, open in PR #189 and not on dev, and
+    # its Rush-Pine fringe blocks -- blk_indiana_north_rush, blk_illinois_north_rush and
+    # blk_illinois_north_wolcott -- are apportioned `roofs: 0` by the district deal, so the
+    # whole of the north's remaining 55 sit on the wolcott and cass blocks.)
     ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
