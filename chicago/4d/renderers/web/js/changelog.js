@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1233, ts: '2026-09-29T12:18:31.305Z', date: 'Sep 29, 2026, 7:18 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+    items: [
+      'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
+      'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
+      'The better house takes the better street. Canal is a cart road worn down toward the forks and Clinton is barely worn at all, so the two-room cottage faces Canal and the one-room cottage faces Clinton \u2014 the opposite way round from the two requests, by the rule this block\u2019s neighbour already goes by.',
+      'The stable is the only yard building built, and this corner of town is why: a teamster\u2019s house, his stable and a blacksmith\u2019s shop already stand on the same face. The barn the block\u2019s plan also holds is left for a later house that can argue for it.',
+      'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed \u2014 and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
+      'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
+    ] },
   { v: 1232, ts: '2026-09-29T10:06:18.482Z', date: 'Sep 29, 2026, 5:06 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
     items: [
       'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
