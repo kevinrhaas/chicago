@@ -4621,19 +4621,25 @@ def cmd_self_test() -> int:
     # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
     # handed.
     #
-    # AND T-1751 TAKES IT TO __TOTAL__, ON THE SAME TIER AND BY THE SAME MECHANISM, AT MORE THAN
-    # THE SIZE AGAIN. `blk_washington_franklin` was dealt out to its lot ceiling — seven
-    # dwellings and six yard buildings — so the platted pass runs __FROM__ -> __TO__ with __ADOPTED__
-    # adoptions against __ADOPTED0__ and __SLOTS__ slots, and the off-plat pass is unmoved at 72, so
-    # the total is __TO__ + 72. The slot count holds because the cascade is a substitution: the
-    # seven requests standing against this block are raised into adoptions and seven fresh
-    # ones open on blk_washington_dearborn. NOT ONE of the seven households the block was
-    # sized against is seated on it — the seven that asked (hh_barry_john_s, hh_bates_john_jr,
-    # two Beaubien households, hh_carpenter_nathaniel, hh_carter_j and hh_cary_junis_a_or_j_r)
-    # go back on the owed list, and the seven that scored highest under the clause order (the
-    # two Aspams, the two Ballards, hh_beaubien_charles, hh_beeson_william and hh_brink_john)
-    # move in. That is the T-1622 precedence a fifth time, and it is recorded in L303. Read
-    # at the chain's fixpoint, not one pass in.
+    # AND T-1751 TAKES IT TO 249 AND LEAVES IT THERE, WHICH IS THE CLEANEST SUBSTITUTION THIS
+    # ROW HAS RECORDED. `blk_washington_franklin` was dealt out to its lot ceiling — seven
+    # dwellings and six yard buildings — so the platted pass runs 177 -> 177 with 138 adoptions
+    # against 131 and 39 slots against 46, the off-plat pass is unmoved at 72, and the rows
+    # handed on stand at 1,301. Seven requests became seven roofs and the seat total did not
+    # move a place: the gain is in the ADOPTION table and the loss is in the SLOT table, which
+    # is what a block dealt to its ceiling does — it can hold no further request, so its own
+    # seven had to go somewhere and every one of them found an `open` block in its own clause
+    # and division. NOT ONE of the seven the block was sized against is seated on it:
+    # hh_beaubien_monique re-slots onto blk_washington_clark, hh_beddlecome_ash, hh_beech_reuben,
+    # hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto blk_washington_dearborn,
+    # hh_chiney_ralph onto blk_washington_market. The roofs go to hh_bailly_esther,
+    # hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william,
+    # hh_bench_reuben and hh_brookes_samuel, and 59 households change roof behind them — the
+    # largest cascade any deal here has set off. That is the T-1622 precedence a fifth time, and
+    # it is recorded in L303. Read at the chain's fixpoint, not one pass in: this one took SEVEN
+    # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
+    # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
+    # four of those passes before it settled at 177.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249
     fires("a seating pass whose seated and owed miss its own scope",
@@ -4644,9 +4650,10 @@ def cmd_self_test() -> int:
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
     # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
-    # — 26 of them since T-1708 took the Wells block's seven and T-1751 turned
-    # blk_washington_franklin's seven into adoptions, the same deal handing five back to
-    # blk_washington_clark — so claiming ONE of them is as much a
+    # — 19 of them since T-1751 dealt blk_washington_franklin out to its ceiling, which took
+    # that block's own seven off the table and left 7 on blk_washington_dearborn, 7 on
+    # blk_washington_market and 5 on blk_washington_clark, the tier's first FALL in slots — so
+    # claiming ONE of them is as much a
     # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
