@@ -11766,6 +11766,30 @@
       "asset": "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_03.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a4_04",
+      "name": "Reconstructed A4 woodshed or storage shed #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a4_04.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d4_02.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d5_01.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d5_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_a1_008",
       "name": "Reconstructed A1 stable #008",
       "sidecar": "sidecars/1835/recon_1835_north_a1_008.json",
