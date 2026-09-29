@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1227, ts: '2026-09-29T07:47:20.348Z', date: 'Sep 29, 2026, 2:47 AM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
+  { v: null, ts: '', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
       'These houses stand because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
@@ -7,6 +7,11 @@ export const CHANGELOG = [ // newest first
       'One of the eight lots is left empty on purpose, and it is the corner of Madison and La Salle \u2014 the back line meeting the far side. A block with a house on every lot is a claim about 1835 that nothing supports.',
       'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
       'This is the third block of that row to be built \u2014 Clark and Wells came first \u2014 and the ones still open prairie are each written down as their own piece of work.',
+    ] },
+  { v: 1227, ts: '2026-09-29T06:42:08.624Z', date: 'Sep 29, 2026, 1:42 AM CT', title: 'History along your outing', kind: 'change',
+    items: [
+      'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
+      'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
     ] },
   { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [

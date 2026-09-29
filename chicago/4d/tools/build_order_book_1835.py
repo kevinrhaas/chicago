@@ -452,16 +452,14 @@ STRUCTURE_TICKETS = {
     # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
     # (Moved by T-1732's run, which found dev red on this step after the split.)
     #
-    # AND T-1754 WAS SPLIT on 2026-09-29 (T-1756, T-1757) at 06:41Z, seventeen minutes after
-    # dev last built this book, so dev itself went red on this cell before any branch did —
-    # "has 32 left and is ordered by T-1754, which is split". The rule does not change: the
-    # cell goes to the child that raises the dwellings that are LEFT, which is the child that
-    # CLOSES the cell rather than the one that takes a bite out of it. T-1756 is bounded in its
-    # own title — two more tradesman cottages and their yard buildings on
-    # blk_indiana_north_wolcott, "the rest of the block open" — so naming it would leave most
-    # of the 32 owned by nobody the moment it closed. T-1757 is the remainder in as many words:
-    # the further cass lots AND the Rush-Pine fringe the district deal apportions no roofs to,
-    # which is the tail of the cell and the thing that settles it. So the 32 are T-1757's.
+    # AND T-1754 WAS SPLIT on 2026-09-29 (T-1756, T-1757), and the gate fired a fourth
+    # time: "has 32 left and is ordered by T-1754, which is split". Same rule, same test.
+    # T-1756 names its own bound — "two more tradesman cottages and their yard buildings
+    # on blk_indiana_north_wolcott, the alternation kept and the rest of the block open" —
+    # so it is a slice and not the rest. T-1757 is the further cass lots once that block's
+    # first roofs land AND the Rush-Pine fringe settled, which is where the order the
+    # other child does not take has to land, so the 32 are its.
+    # (Moved by T-1257's run, which found this step red on the tree it was merging.)
     ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -4558,15 +4556,19 @@ def cmd_self_test() -> int:
     # `blk_washington_lasalle` answer the seven slot requests T-1708's own cascade re-seated
     # onto this block and blk_washington_market, so the two deals are one argument read in two
     # steps: Wells raised its seven and pushed its seven on, LaSalle raises the seven that
-    # arrived. The gain is FOUR and not eleven, and not seven either, for the third time and
-    # the same reason: the households that move here vacate roofs elsewhere and the pass
-    # cascades those vacancies down its own ranking rather than leaving them open. The platted
-    # pass runs 170 -> 174 with 124 adoptions against 120 and 50 slots unmoved, 1,304 handed on
-    # against 1,308, and off-plat is unmoved at 72, so the total is 174 + 72. That is the T-1622
-    # precedence a fourth time, and it is recorded in L299. Read at the chain's fixpoint, not
-    # one pass in, and read off the committed seats files rather than predicted:
-    # 1835_platted_seats.json counts seated 174 (124 adopted, 50 slots, 1,304 handed on) and
-    # 1835_off_plat_seats.json counts seated 72 of the 1,304 it was handed.
+    # arrived. The gain is FOUR and not seven, for the third time and the same reason: the
+    # households that move here vacate roofs elsewhere and the pass cascades those vacancies
+    # down its own ranking rather than leaving them open. The platted pass runs 170 -> 174 with
+    # 124 adoptions against 120 and 50 slots unmoved, 1,304 handed on against 1,308, and
+    # off-plat is unmoved at 72, so the total is 174 + 72. What the tier's remainder does is
+    # NOT what it did a paragraph above: its slot count is unmoved at 26 and Clark's at 5,
+    # because the seven the block was sized against re-slot onto its neighbours as fast as its
+    # own roofs take them off the table — what moves is the BAND, 14 merchant and professional
+    # against 12 tradesmen's becoming 14 tradesmen's against 12. That is the T-1622 precedence
+    # a fourth time, and it is recorded in L299. Read at the chain's fixpoint, not one pass in,
+    # and read off the committed seats files rather than predicted: 1835_platted_seats.json
+    # counts seated 174 (124 adopted, 50 slots, 1,304 handed on) and 1835_off_plat_seats.json
+    # counts seated 72 of the 1,304 it was handed.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 246
     fires("a seating pass whose seated and owed miss its own scope",

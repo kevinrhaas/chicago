@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "new-in-chicago",
-  "content_version": 2,
+  "content_version": 3,
   "title": "New in Chicago",
   "premise": "Find your bearings, a bed and a practical next step on an imagined first day in town.",
   "category": "Orientation",
@@ -34,13 +34,23 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
+      "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters.",
       "read_s": 22,
       "links": [
         {
           "kind": "structure",
           "id": "sauganash_hotel",
           "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "kinzie_juliette",
+          "label": "Juliette Kinzie"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Read Wau-Bun source"
         }
       ],
       "evidence": [
@@ -48,7 +58,8 @@
         "continuity",
         "outing"
       ],
-      "next": "mail-corner"
+      "next": "mail-corner",
+      "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
     },
     {
       "id": "mail-corner",
@@ -56,7 +67,7 @@
         "kind": "structure",
         "id": "hogan_store"
       },
-      "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
+      "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834.",
       "read_s": 22,
       "links": [
         {
@@ -70,7 +81,8 @@
         "continuity",
         "outing"
       ],
-      "next": "store"
+      "next": "store",
+      "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
     },
     {
       "id": "store",
@@ -78,7 +90,7 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark.",
+      "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today.",
       "read_s": 22,
       "links": [
         {
@@ -92,7 +104,8 @@
         "continuity",
         "outing"
       ],
-      "next": "newspaper"
+      "next": "newspaper",
+      "narrative": "For your imagined outing, simply note this useful landmark."
     },
     {
       "id": "newspaper",
@@ -100,7 +113,7 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
+      "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store.",
       "read_s": 22,
       "links": [
         {
@@ -114,7 +127,8 @@
         "continuity",
         "outing"
       ],
-      "next": "lodging"
+      "next": "lodging",
+      "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
     },
     {
       "id": "lodging",
@@ -122,7 +136,7 @@
         "kind": "structure",
         "id": "brown_boarding_house"
       },
-      "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
+      "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store.",
       "read_s": 22,
       "links": [
         {
@@ -162,7 +176,8 @@
             }
           ]
         }
-      ]
+      ],
+      "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
     }
   ],
   "endings": [
@@ -248,5 +263,19 @@
   "review_required": false,
   "liberties": [
     "L-jaunt-pilot"
+  ],
+  "legs": [
+    {
+      "from": "arrival",
+      "to": "mail-corner",
+      "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
   ]
 }

@@ -228,6 +228,21 @@ sheet and is not drawn. `data/street_grid/` is one dated file and carries no `in
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
 
+## T-1257 — optional history beside a jaunt (2026-09-28)
+
+Stop chips open existing structure, person, business, source and Evidence cards.
+Returning restores scroll and choices; reading pauses travel without spending
+resources or awarding events. Canceled asynchronous reads cannot reopen a card
+after End. The compact control row reserves room beneath cards and drawers.
+
+Travel reports its actual planned polyline, including replans and straight hops.
+Structure stand-offs within 25 m are ordered along that line. Generated notes are
+labelled [MAP]; authored notes carry evidence references. Invented connective prose
+is styled separately from historical text. The Green Tree/Wolf Point/bridge unit
+case uses an explicit route fixture, not a claim that every A* route passes there.
+
+The PR records final test results. Browser evidence is generated in
+`docs/performance/jaunt-context/`.
 
 ## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 
