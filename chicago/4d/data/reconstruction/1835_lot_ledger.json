@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 81,
-   "free": 207,
+   "at_capacity": 83,
+   "free": 205,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 136,
-  "lots_barring_another_roof": 134,
+  "lots_with_a_roof": 138,
+  "lots_barring_another_roof": 136,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 195,
+  "principal_roofs_standing": 197,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8484,14 +8484,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a3_03",
+    "recon_1835_blk_washington_clark_d5_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a3_03": "A3",
+    "recon_1835_blk_washington_clark_d5_01": "D5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#05",
@@ -8513,14 +8519,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a4_04",
+    "recon_1835_blk_washington_clark_d4_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a4_04": "A4",
+    "recon_1835_blk_washington_clark_d4_02": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#06",

@@ -60,9 +60,9 @@ derived from the crossing and the printed widths), 74.7 × 177.1 ft; its street 
 |---|---|---|---|
 | sidewalk space | 0–14 ft | inferred | 1905 code sec. 2072 (66–80 ft streets) |
 | margin | 0–1 ft | inferred | sec. 2062 (walk one foot from the lot line) |
-| walk | 1–7 ft | **reconstructed** | a width sec. 2062 names; L292 |
-| parkway | 7–13.5 ft | **reconstructed** | the remainder; sec. 2077's grass plat; L292 |
-| curb | 13.5–14 ft | **reconstructed** | twice sec. 2072's 3-in minimum; L292 |
+| walk | 1–7 ft | **reconstructed** | a width sec. 2062 names; L293 |
+| parkway | 7–13.5 ft | **reconstructed** | the remainder; sec. 2077's grass plat; L293 |
+| curb | 13.5–14 ft | **reconstructed** | twice sec. 2072's 3-in minimum; L293 |
 | carriageway | the rest (38 ft on a 66-ft street) | inferred | the street width less two spaces |
 
 On 50-ft 16th Street the space is 10 ft (sec. 2072, 50–60 ft streets): margin 1, walk 5, parkway 3.5,
@@ -100,4 +100,4 @@ Several lots carry more than one address (`prairie_1700`: 1700, 1702, 1706; `pra
   buildings. That the street and lot lines did not move between 1904 and 1911 is assumed, and it is
   why every line is inferred and none attested.
 - **The section.** A block-level sidewalk or curbing ordinance, a dated photograph, or Glessner
-  House's records of its frontage would replace the walk and parkway widths (L292).
+  House's records of its frontage would replace the walk and parkway widths (L293).

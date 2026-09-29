@@ -198,9 +198,9 @@
   "adopted_into_a_roof_of_no_trade": 13,
   "roofs_free_and_a_house_of_trade": 28,
   "houses_of_trade_left_free": 2,
-  "roofs_reserved_for_a_slot_request": 2,
+  "roofs_reserved_for_a_slot_request": 4,
   "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 2,
+  "reserved_without_a_committed_occupancy": 4,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -360,6 +360,28 @@
    "requested_by_seat": "hh_bryant_j_r_m",
    "order_book_draw": "blk_south_water_franklin / D4 / south",
    "dealt_by_ticket": "T-1622",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clark_d4_02",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark",
+   "family": "D4",
+   "requested_by_seat": "hh_byram_thomas",
+   "order_book_draw": "blk_washington_clark / D4 / south",
+   "dealt_by_ticket": "T-1736",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clark_d5_01",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark",
+   "family": "D5",
+   "requested_by_seat": "hh_cady_levi",
+   "order_book_draw": "blk_washington_clark / D5 / south",
+   "dealt_by_ticket": "T-1736",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   }

@@ -11,7 +11,7 @@ The scene lists the new `street_grid` layer; 1835 does not and draws none of it.
 - **Block faces**: 31, each laid out from the street line as margin 0–1 ft, walk, parkway, curb, to
   a 14-ft sidewalk space (10 ft on 16th). Space and walk set-back are the Revised Municipal Code of
   1905, secs. 2072 and 2062 (new source `chicago_revised_municipal_code_1905`) — inferred; the walk
-  (6 ft; 5 on 16th), curb (6 in) and parkway (6.5 ft; 3.5) are reconstructed, **L292**. Mitred
+  (6 ft; 5 on 16th), curb (6 in) and parkway (6.5 ft; 3.5) are reconstructed, **L293**. Mitred
   corners, no curb radius, no crossings, no reveal or crown.
 - **Alleys**: 7, at their drawn widths (20, 24 and 18 ft printed), the Prairie–Calumet alley with
   its head at the 1811/1815 line and its jog behind 1827/1901.

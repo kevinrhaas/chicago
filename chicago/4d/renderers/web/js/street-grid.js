@@ -17,7 +17,7 @@
  * nothing here is a reading of any of them. Nor any level: the bands lie on the
  * ground the heightfield already has (a few centimetres above it, so they win the
  * depth test), with no curb reveal and no crown, because no source read so far gives
- * either (docs/LIBERTIES.md L292).
+ * either (docs/LIBERTIES.md L293).
  *
  * WHAT IT SHARES WITH EVERY OTHER DERIVED LAYER. A scene that does not list
  * `street_grid` hands this no data base and it draws nothing (T-1739's layer
