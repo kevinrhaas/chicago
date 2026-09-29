@@ -242,7 +242,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "SMOKE-WEATHERED GRANITE. v2 bounds the 1904 stone between the fresh pink-grey granite of 1887 and the near-black of HABS 1963 (photographs 1, 13-17), and puts it nearer the dark end: by 1904 the walls had stood 17 years 500 ft from the Illinois Central / Michigan Central main line (Sanborn 1911 sheet 28 draws the tracks east of Calumet Avenue) in a coal-burning city. A darkened warm brown-grey, sRGB #6e5c56. No colour source was read. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "SMOKE-WEATHERED GRANITE. v2 bounds the 1904 stone between the fresh pink-grey granite of 1887 and the near-black of HABS 1963 (photographs 1, 13-17), and puts it nearer the dark end: by 1904 the walls had stood 17 years 500 ft from the Illinois Central / Michigan Central main line (Sanborn 1911 sheet 28 draws the tracks east of Calumet Avenue) in a coal-burning city. A darkened warm brown-grey, sRGB #6e5c56. No colour source was read. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "brick_tint": {
      "value": [
@@ -255,7 +255,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "Courtyard brick: 'light pink brick' (HABS data) / 'common brick of slightly pinkish colour' (Glessner, as HABS transcribes him), lightly weathered: sRGB #b27c6a. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "Courtyard brick: 'light pink brick' (HABS data) / 'common brick of slightly pinkish colour' (Glessner, as HABS transcribes him), lightly weathered: sRGB #b27c6a. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "trim_tint": {
      "value": [
@@ -268,7 +268,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "Joliet limestone lintels and sills (HABS data): a buff grey, sRGB #b4ab98, a shade dulled for 17 years' smoke. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "Joliet limestone lintels and sills (HABS data): a buff grey, sRGB #b4ab98, a shade dulled for 17 years' smoke. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "roof_tint": {
      "value": [
@@ -281,7 +281,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "Red unglazed terracotta tile (HABS data), weathered: sRGB #8a4131. The 1963 tar is later and excluded. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "Red unglazed terracotta tile (HABS data), weathered: sRGB #8a4131. The 1963 tar is later and excluded. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "copper_tint": {
      "value": [
@@ -294,7 +294,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "The hall bow's copper sheathing (HABS data) and the dining bay's metal roof after 17 years in coal smoke: urban copper browns and blackens for decades before a green patina forms, so v2 draws a dull brown-green bronze, sRGB #4d4f3e, not a bright or a green copper. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "The hall bow's copper sheathing (HABS data) and the dining bay's metal roof after 17 years in coal smoke: urban copper browns and blackens for decades before a green patina forms, so v2 draws a dull brown-green bronze, sRGB #4d4f3e, not a bright or a green copper. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "wood_tint": {
      "value": [
@@ -307,7 +307,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "Oak doors (HABS data, sheets 5-6), dark with age and finish: sRGB #4a3322. Stored as linear RGB. docs/LIBERTIES.md L298."
+     "note": "Oak doors (HABS data, sheets 5-6), dark with age and finish: sRGB #4a3322. Stored as linear RGB. docs/LIBERTIES.md L299."
     },
     "range_east_wing": {
      "value": {
@@ -532,7 +532,7 @@
      "sources": [
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "The stable's south end faces the courtyard and no source read shows its roof; a plain gable is drawn. docs/LIBERTIES.md L298."
+     "note": "The stable's south end faces the courtyard and no source read shows its roof; a plain gable is drawn. docs/LIBERTIES.md L299."
     },
     "tower_stair": {
      "value": {
@@ -776,7 +776,7 @@
      "sources": [
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "No plan shows the dormers' depth. Their faces are set where v2's steep court slope reaches the dormer's sill course (31.6, sheet 4), W 25.0, and run back 3 ft into the roof. docs/LIBERTIES.md L298."
+     "note": "No plan shows the dormers' depth. Their faces are set where v2's steep court slope reaches the dormer's sill course (31.6, sheet 4), W 25.0, and run back 3 ft into the roof. docs/LIBERTIES.md L299."
     },
     "turret_stable": {
      "value": {
@@ -812,7 +812,7 @@
       "habs_glessner_photo_01_nw_1963",
       "habs_glessner_photo_15_north_stable_1965"
      ],
-     "note": "The small square louvred turret with a pyramid roof on the stable's ridge (photograph 1; the foot of it at the top edge of photograph 15). Form attested by the photographs; its size is reconstructed from photograph 1's perspective (about 6 ft from ridge to apex, a 5-ft plan), and it rides v2's ridge line (W 140.2) a few feet behind the gable. docs/LIBERTIES.md L298."
+     "note": "The small square louvred turret with a pyramid roof on the stable's ridge (photograph 1; the foot of it at the top edge of photograph 15). Form attested by the photographs; its size is reconstructed from photograph 1's perspective (about 6 ft from ridge to apex, a 5-ft plan), and it rides v2's ridge line (W 140.2) a few feet behind the gable. docs/LIBERTIES.md L299."
     },
     "chimneys": {
      "value": {
@@ -1404,7 +1404,7 @@
       "habs_glessner_house_il_1015_data_pages",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "The doorway itself is photograph 15's (12 ft wide on its axis W 140.95, 12.0 ft to the granite lintel). Its 1904 doors are not known - HABS data p. 2 records the stable door replaced in 1946 - so paired oak leaves are drawn. docs/LIBERTIES.md L298."
+     "note": "The doorway itself is photograph 15's (12 ft wide on its axis W 140.95, 12.0 ft to the granite lintel). Its 1904 doors are not known - HABS data p. 2 records the stable door replaced in 1946 - so paired oak leaves are drawn. docs/LIBERTIES.md L299."
     },
     "openings_alley": {
      "value": {
@@ -1637,7 +1637,7 @@
      "sources": [
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "Positions are gaps in the north range's brick court wall on sheets 2 and 3 (37.54 px/ft); no elevation of this face was read, so their heights are reconstructed (opening_heights) and the group is carried at that grade. docs/LIBERTIES.md L298."
+     "note": "Positions are gaps in the north range's brick court wall on sheets 2 and 3 (37.54 px/ft); no elevation of this face was read, so their heights are reconstructed (opening_heights) and the group is carried at that grade. docs/LIBERTIES.md L299."
     },
     "opening_heights": {
      "value": {
@@ -1686,7 +1686,7 @@
       "habs_glessner_photo_01_nw_1963",
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "18th Street: the first-floor slits and the east-wing pairs are photograph 13's (its vertical scale fixed on sheet 6's printed 24.30 head line), the small second-floor corridor windows photograph 1's, read in perspective. The alley and the north range's court face have no elevation: their rows are set by the floor levels of sheet 4. docs/LIBERTIES.md L298."
+     "note": "18th Street: the first-floor slits and the east-wing pairs are photograph 13's (its vertical scale fixed on sheet 6's printed 24.30 head line), the small second-floor corridor windows photograph 1's, read in perspective. The alley and the north range's court face have no elevation: their rows are set by the floor levels of sheet 4. docs/LIBERTIES.md L299."
     },
     "eave_cornice": {
      "value": {
@@ -1750,7 +1750,7 @@
       "habs_glessner_photo_13_north_1965",
       "habs_glessner_photo_15_north_stable_1965"
      ],
-     "note": "The Prairie cornice (24.92-26.66 above the door) and the carved string course under the group of four (18.6-19.5, S 23.3-42.4) are sheet 6's; their projections, and the 18th Street eave moulding under the gutter photographs 13 and 15 show, are reconstructed. docs/LIBERTIES.md L298."
+     "note": "The Prairie cornice (24.92-26.66 above the door) and the carved string course under the group of four (18.6-19.5, S 23.3-42.4) are sheet 6's; their projections, and the 18th Street eave moulding under the gutter photographs 13 and 15 show, are reconstructed. docs/LIBERTIES.md L299."
     },
     "courtyard_gate": {
      "value": {
@@ -1806,7 +1806,7 @@
      "sources": [
       "habs_glessner_house_il_1015_drawings"
      ],
-     "note": "No elevation of the gate was read; wall, gate and pier heights are set to the stable's first floor. docs/LIBERTIES.md L298."
+     "note": "No elevation of the gate was read; wall, gate and pier heights are set to the stable's first floor. docs/LIBERTIES.md L299."
     },
     "courtyard_ground": {
      "value": {
@@ -1880,7 +1880,7 @@
       "habs_glessner_house_il_1015_drawings",
       "habs_glessner_house_il_1015_data_pages"
      ],
-     "note": "HABS data p. 2: the courtyard was 'entirely paved' only in 1946, so in 1904 it was not a paved lot. A carriage way must join the underpass exit (S 62.3-71.3 on the east wing's court face) to the alley gate (S 62.5-71.8): both openings lie along the courtyard's south side, so v2 draws a straight crushed-stone drive between them and lawn elsewhere. Line, surface and planting are reconstructed. docs/LIBERTIES.md L298."
+     "note": "HABS data p. 2: the courtyard was 'entirely paved' only in 1946, so in 1904 it was not a paved lot. A carriage way must join the underpass exit (S 62.3-71.3 on the east wing's court face) to the alley gate (S 62.5-71.8): both openings lie along the courtyard's south side, so v2 draws a straight crushed-stone drive between them and lawn elsewhere. Line, surface and planting are reconstructed. docs/LIBERTIES.md L299."
     },
     "porte_cochere_doors": {
      "value": "two heavily panelled oak leaves with heavy iron straps and latches",
@@ -1931,7 +1931,7 @@
   ],
   "note": "The house of John Jacob and Frances Macbeth Glessner, designed by H. H. Richardson, 1885-87 (HABS data p. 1); the west wing was the family's stable and carriage house."
  },
- "research_note": "VERSION v2 OF THE GLESSNER HOUSE (T-1730): an independent build from the shared source set, for the owner's side-by-side comparison with the default (T-1732). v2 re-read the HABS sheets and photographs itself and read four public-domain HABS photogrammetric plates the default did not (photographs 14-17). Its readings, and where each differs from the default, are docs/RESEARCH/glessner_house_1904.md section 14; its inventions are docs/LIBERTIES.md L298. Geometry is taken from rights-clear sources (HABS, Sanborn) except the dining bay's roof form, which only HABS photograph 5 shows. Interior out of scope; 1808 Prairie's wall, which closed the courtyard, belongs to T-0475.",
+ "research_note": "VERSION v2 OF THE GLESSNER HOUSE (T-1730): an independent build from the shared source set, for the owner's side-by-side comparison with the default (T-1732). v2 re-read the HABS sheets and photographs itself and read four public-domain HABS photogrammetric plates the default did not (photographs 14-17). Its readings, and where each differs from the default, are docs/RESEARCH/glessner_house_1904.md section 14; its inventions are docs/LIBERTIES.md L299. Geometry is taken from rights-clear sources (HABS, Sanborn) except the dining bay's roof form, which only HABS photograph 5 shows. Interior out of scope; 1808 Prairie's wall, which closed the courtyard, belongs to T-0475.",
  "review_required": false,
  "version": {
   "label": "v2",

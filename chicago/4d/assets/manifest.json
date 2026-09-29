@@ -2340,6 +2340,105 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d5_01"
     },
+    "recon_1835_blk_washington_wells_a1_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 99192,
+      "inputs_sha256": "06c9f2bbbe2afdac5a0cdb9d8c1c878ffbb0cd39e87a4c8927d1067d6b5a418c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_a1_11"
+    },
+    "recon_1835_blk_washington_wells_a3_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 30168,
+      "inputs_sha256": "33e159b5ab054455f5375917a817bd283c7a7c35aa67a734c1805f3e44f7a090",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_a3_08"
+    },
+    "recon_1835_blk_washington_wells_a3_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29228,
+      "inputs_sha256": "73d4e5f1f784bb03d5069e1862f7d1249c2393b69d904e5fe7f74e59c250a130",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_a3_09"
+    },
+    "recon_1835_blk_washington_wells_a4_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 48280,
+      "inputs_sha256": "6dc0072a10e28bd6913cd09721c092d4308412f1bf5390e922827afe53282287",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_a4_10"
+    },
+    "recon_1835_blk_washington_wells_d3_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 28960,
+      "inputs_sha256": "154341bcf96f615760058ef682b85f8cbcfe74a890d8244f601903b34ae537b3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_d3_05"
+    },
+    "recon_1835_blk_washington_wells_d3_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25516,
+      "inputs_sha256": "195a2d62f97109b098ca1fec4667dd29336bfc83236bbcd5edfa7080993eb668",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_d3_06"
+    },
+    "recon_1835_blk_washington_wells_d7_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 52028,
+      "inputs_sha256": "3d803b6b626a97420885fd4b704d0e32025bd29e54dec84f51045f4a6b8865f9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_d7_01"
+    },
+    "recon_1835_blk_washington_wells_d7_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 46428,
+      "inputs_sha256": "62e55a135872c4f3a4b0de5d1e4cd91a53e8fac09feeeb6fc8b6c78b01a8dfe6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_d7_04"
+    },
+    "recon_1835_blk_washington_wells_h1_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38072,
+      "inputs_sha256": "d5663de320cdd1afa5fc17e29dc95f6aa1d0738d885d0044f9e466033b3b7aa7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_h1_02"
+    },
+    "recon_1835_blk_washington_wells_h1_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 34320,
+      "inputs_sha256": "2eb3f01b1b71a92d4402fdc55f532c9130171104ba24d06b4db91799da2511da",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_h1_03"
+    },
+    "recon_1835_blk_washington_wells_h2_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 72028,
+      "inputs_sha256": "071698508afc168951a82189955192ba11ce395f8b552933f95e8e8976d4d758",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_wells_h2_07"
+    },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

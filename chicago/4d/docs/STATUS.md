@@ -13,7 +13,7 @@ the dining bay's roof form.
   and 4); a 19.7-ft north tower cone; the 18th Street eave at 23.8 and the stable's ridge and eaves
   from the level plates 13 and 15; the house on the Sanborn alley line (0.35 m west of the default);
   sheet 4's heights read at 97.7 px/ft, calibrated to sheet 6, instead of its scale bar.
-- **Reconstructed** (L298): a smoke-weathered palette, the dormers' depth, the stable turret's size,
+- **Reconstructed** (L299): a smoke-weathered palette, the dormers' depth, the stable turret's size,
   the stable's south end and 1904 carriage doors, opening heights read off plans, cornice projections,
   the gate's heights, the courtyard drive and lawn.
 - Frame at the spawn (published mirror, SwiftShader): default 22 calls / 74,979 tris desktop, 21 /

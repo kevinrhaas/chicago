@@ -260,13 +260,23 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
+# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1708): the eleven roofs of the deal on
+# `blk_washington_wells`, the plat's last tier again — seven principal roofs (two D7
+# houses, two H1 houses, two D3 cottages and an H2) with two privies, a woodshed and a
+# stable behind them. Eleven new structure assets, so eleven more meshes the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and
+# pier_crib at 2. Nothing about the debt itself moved. The from-numbers are the ones
+# this branch found on `dev` at its FIFTH lap, not the 444/440 it was written off: the
+# debt is cumulative, so T-1742's four and T-1732's Glessner House are counted first
+# and the eleven go on top of them.
+#
 STATED = {
-    "assets": 449,
+    "assets": 460,
     "restales": {
-        "generators/common/*.py": 449,
+        "generators/common/*.py": 460,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 445,
+        "generators/emit.py": 456,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

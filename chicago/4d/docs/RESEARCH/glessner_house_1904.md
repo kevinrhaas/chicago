@@ -346,7 +346,7 @@ default's geometry, for the owner's side-by-side comparison
 default did not: **photographs 14–17** (1965, Perry E. Borchers; new source records
 `habs_glessner_photo_14_north_inclined_1965`, `…_15_north_stable_1965`, `…_16_east_level_1965`,
 `…_17_ne_angled_1965`). It takes no geometry from a `check_required` source except the dining
-bay's roof form (only photograph 5 shows it). Its inventions are `docs/LIBERTIES.md` **L298**.
+bay's roof form (only photograph 5 shows it). Its inventions are `docs/LIBERTIES.md` **L299**.
 
 **Method, where it differs from § 1 and § 13.**
 
