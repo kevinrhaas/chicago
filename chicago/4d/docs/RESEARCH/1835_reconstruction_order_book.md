@@ -374,16 +374,16 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,478
-- seated: 249 — 203 by adopting a roof that already stands, 46 by asking for one
+- seated: 249 — 205 by adopting a roof that already stands, 44 by asking for one
 - still on no ground at all: 1,229
-- of the 480 roofs the town already has, 203 now carry a reconstructed household
+- of the 480 roofs the town already has, 205 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,478 | 177 | 131 | 46 | 1,301 |
+| The committed plat | T-1613 | 1,478 | 177 | 133 | 44 | 1,301 |
 | The ground the plat does not draw | T-1614 | 1,301 | 72 | 72 | 0 | 1,229 |
 
-46 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+44 slot(s) on 8 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_randolph_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
@@ -403,15 +403,13 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_bently_wm_t` | `blk_washington_market` | `blk_washington_market#00` | D7 | `merchant_and_professional_dwellings` |
 | `hh_benton_datas_e` | `blk_washington_market` | `blk_washington_market#04` | H1 | `merchant_and_professional_dwellings` |
 | `hh_berger_f_c` | `blk_washington_market` | `blk_washington_market#02` | H2 | `merchant_and_professional_dwellings` |
-| `hh_babcock_chas` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
-| `hh_bailly_joseph` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D3 | `tradesman_dwellings` |
-| `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#05` | D4 | `tradesman_dwellings` |
-| `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#04` | D4 | `tradesman_dwellings` |
+| `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
+| `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D3 | `tradesman_dwellings` |
 | `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D4 | `tradesman_dwellings` |
 | `hh_baxley_j_m` | `blk_lake_clinton` | `blk_lake_clinton#07` | D3 | `tradesman_dwellings` |
-| `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D5 | `tradesman_dwellings` |
+| `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D4 | `tradesman_dwellings` |
 | `hh_beaubien_b` | `blk_lake_clinton` | `blk_lake_clinton#02` | D4 | `tradesman_dwellings` |
-| `hh_beaubien_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D5 | `tradesman_dwellings` |
+| `hh_beaubien_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D4 | `tradesman_dwellings` |
 | `hh_beaubien_susan` | `blk_indiana_north_cass` | `blk_indiana_north_cass#01` | D5 | `tradesman_dwellings` |
 | `hh_bennett_h_c` | `blk_randolph_clinton` | `blk_randolph_clinton#07` | D3 | `tradesman_dwellings` |
 | `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
@@ -667,7 +665,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1209 |
 | `structures/ordinary_dwellings/south` | 176 | 121 | 55 | 0 | T-1751 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
-| `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1757 |
+| `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 32 | 16 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 19 | 1 | 0 | T-1212 |
