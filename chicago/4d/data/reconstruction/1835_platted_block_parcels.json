@@ -2467,6 +2467,189 @@
       "arrangement_note": "THE FIRST DEAL ON THE PLAT'S LAST TIER, and the first roofs this project has raised south of Washington Street on the original town's own grid. The block stood entirely empty — eight free lots, nothing standing, every sample of the modelled ground above datum — and it is dealt two principal roofs and two yard buildings, which leaves six of its eight lots open and 25 of the 27 roofs its schedule apportions unbuilt. That is the point rather than a shortfall: this tier was the edge of the settled town in July 1835, and a block built out to its ceiling here would be a claim about 1835 the evidence does not support. THE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. hh_cady_levi's deep-plan cottage stands on lot 4 facing Washington Street, the through line of the two and graded `light` in the committed street hierarchy; hh_byram_thomas's two-room cottage stands on lot 5 facing Madison, which the same hierarchy grades `none` — a line the plat draws and the traffic model gives no through movement at all. Standing a tradesman's cottage on a street with no traffic is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it applies only to the trade letters, and a household on the quiet side of a block on the town's edge is the ordinary case, not the anomalous one. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN. A privy stands off the alley behind the Washington cottage and a woodshed off the alley behind the Madison one, one apiece, each serving the lot it stands on. Which of the block's apportioned yard buildings to build is this file's choice and the choice is argued down rather than up: of the stable, the barn or carriage shed, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had, and the others are ones it might have had. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
     },
     {
+      "block_id": "blk_washington_lasalle",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_lasalle_first_deal",
+      "claimed": "2026-09-28",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "lasalle",
+        "east": "clark"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 11,
+        "dealt_principal": 7,
+        "dealt_ancillary": 4,
+        "principal": 7,
+        "ancillary": 4
+      },
+      "families": {
+        "A1": 1,
+        "A3": 2,
+        "A4": 1,
+        "D3": 2,
+        "D7": 2,
+        "H1": 2,
+        "H2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1735",
+        "parent": "T-1707",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_ballard_c_a",
+            "family": "D7",
+            "order_book_draw": "blk_washington_lasalle / D7 / south"
+          },
+          {
+            "seat": "hh_baines_robert",
+            "family": "D7",
+            "order_book_draw": "blk_washington_lasalle / D7 / south"
+          },
+          {
+            "seat": "hh_barrest_wilham",
+            "family": "H1",
+            "order_book_draw": "blk_washington_lasalle / H1 / south"
+          },
+          {
+            "seat": "hh_ballard_thomas",
+            "family": "H1",
+            "order_book_draw": "blk_washington_lasalle / H1 / south"
+          },
+          {
+            "seat": "hh_barry_john_s",
+            "family": "H2",
+            "order_book_draw": "blk_washington_lasalle / H2 / south"
+          },
+          {
+            "seat": "hh_carter_j",
+            "family": "D3",
+            "order_book_draw": "blk_washington_lasalle / D3 / south"
+          },
+          {
+            "seat": "hh_carpenter_nathaniel",
+            "family": "D3",
+            "order_book_draw": "blk_washington_lasalle / D3 / south"
+          }
+        ],
+        "why": "THE WHOLE OF THIS BLOCK'S DEAL IS A SET OF REQUESTS, AND IT IS THE FIRST TIME THAT HAS BEEN TRUE OF A BLOCK. T-1613's platted seating offered the plat to every banded household in the placement policy's order, found no standing roof of an admitted family free in the South Division for seven of them, and wrote seven `slot` rows against this block's own committed family plan — two D7, two H1, one H2 and two D3, each with the block and the family named in `order_book_draw` and no roof to walk to. Those are exactly seven of the fourteen families the 665-roof programme's schedule still apportions this block, and the block was empty: eight free lots, no standing roof, 27 of headroom. So this entry deals the seven and nothing else, which is why its family mix is the request's mix rather than a mix this file chose. The LOT IS THIS FILE'S TO AUTHOR and on this block it differs from the seat rows: a seat row carries the lot the lot ledger found headroom on and its rows put the H2 on lot 7, the block's Madison corner, while the face argument below puts the four best dwellings on the Washington tier and the three meanest on the unopened Madison line. The households are unmoved — the seating is re-derived onto the roofs this deal raises, so every one of the seven walks to a roof of the family it asked for on the block it asked for. FOUR YARD BUILDINGS ARE DEALT WITH THEM and they are not requests: the seating seats households, not stables, and the schedule apportions this block six ancillary roofs. Four of the six are built, behind four of the seven dwellings, and the reasons are household reasons rather than evidence — see the arrangement note."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The LaSalle-and-Madison corner, and it is the lot the schedule's own sizing reserves. `reconcile_665.block_rooms` sizes a block's principal room at ROW_UNITS_PER_LOT times its free lots LESS ONE, precisely so a block is never dealt out of its open lot: with eight free lots this deal may stand seven principal roofs and no more, and it stands seven. Which of the four Madison lots is the open one is a choice, and the reason is the same tier reasoning the rest of this entry rests on. Madison Street in July 1835 is platted, unopened and unworn — `data/streets/1835.json` grades its traffic `none` and its track width 0, a survey line over prairie rather than a road — and LaSalle is the block's west boundary, the side away from Clark and the town's built centre. The corner where the block's back line meets its far side is therefore the least attractive residential ground the block has, which is the same reading the Randolph-and-Market and Lake-and-Franklin parcels made of their own back-street corners. The programme's placement rule is explicit that a block at capacity is a claim about 1835 the evidence does not support and that the schedule's capacity is a ceiling rather than a target."
+        }
+      ],
+      "arrangement_note": "THE FIRST DEAL ON blk_washington_lasalle, the south-west block of the plat's last tier, and the first block this project has built whose every dwelling was asked for by a household rather than chosen off a district remainder. The block stood empty until this run: eight lots, no roof, and — until T-1707 carried the Original Town's seven south columns from their terrain clip at N -400 down to Madison Street — no committed street control on its south side either. Seven of its eight lots take one principal roof each and the eighth is left open; the four yard buildings stand off the mid-block alley behind the lots they serve. THE FACE ARGUMENT, and it is a typology of frontage value rather than a reading of this block. Washington Street is opened, worn and graded `light` in the committed street hierarchy; Madison Street is platted, unopened and graded `none` — no wagon track is drawn or attested inside its corridor in July 1835, so a roof on the south tier faces a survey line over prairie. So the four better dwellings take the Washington tier and the three meanest take Madison: the H2 merchant's house on lot 0, the block's best dwelling at the LaSalle corner where a second street the hierarchy grades `ordinary` meets the block; the two H1 one-and-a-half-storey houses on lots 2 and 4; and one of the two small two-storey D7 houses on lot 6, the Clark corner. The other D7 and the two D3 one-room cottages take Madison on lots 3, 5 and 7. THE D7 PAIR STRADDLES THE BREAK and that is the mix's doing rather than a judgement: the request holds two of them and the better face has only four lots, so the fourth-best dwelling is the last one Washington can hold. THE FOUR YARD BUILDINGS ARE REASONS FOR A ROOF AND NOT EVIDENCE FOR ONE. A stable behind the merchant's house on lot 0, because that is the household of the seven with a horse; a privy behind the H1 on lot 2 and another behind the D7 on lot 3, one on each tier; a woodshed behind the D3 on lot 5. The schedule apportions this block six ancillary roofs and this deal builds four, which is inside the ceiling and is not a claim that the other two are refused. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that any building stood on this block in July 1835, which buildings they were, that they were dwellings, which lot each stands on, the setbacks, the lateral offsets, and which lot is open. No coordinate is authored here — every metre comes from the committed lot polygons of data/traces/vectors/thompson_lots.json and every dimension from the family bands of the archetype crosswalk — and no documented position moves. Presence, position, footprint and every form value grade at the bottom tier with a reasoning note, and no lot is numbered.",
+      "slots": [
+        {
+          "family": "H2",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 6.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": -2.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 3.5,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 0,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 2,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": -6.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 3,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 5.0,
+          "lateral_m": -5.0
+        }
+      ]
+    },
+    {
       "block_id": "blk_indiana_north_wolcott",
       "district": "north",
       "programme_phase": "phase3_platted_block_indiana_north_wolcott",

@@ -144,59 +144,10 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
-    },
-    "occupants": {
-      "value": "The Bradley household — a name the town's own records carry",
-      "confidence": "reconstructed",
-      "sources": [
-        "chicago_american_1835",
-        "fergus_chicago_directory_1843",
-        "norris_directory_1844"
-      ],
-      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_south_water_lasalle#07, fronting lake, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
   "residents": [],
   "citations": [
-    {
-      "source_id": "chicago_american_1835",
-      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
-        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
-        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
-        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
-        "the paper's own correction of its first masthead date"
-      ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions",
-        "a reliable reading of a dense body column — this run had no reconciled second pass",
-        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
-        "identification by volume and number: No. 12 is printed on two different issues",
-        "anything at all from an engraving — the cuts are the printer's stock",
-        "a citation without an issue page and column"
-      ]
-    },
-    {
-      "source_id": "fergus_chicago_directory_1843",
-      "citation": "Robert Fergus, Directory of the City of Chicago, Illinois, for 1843, Fergus Historical Series No. 28 (Chicago: Fergus Printing Company, 1896), compiled from the canvass made August-December 1843",
-      "url": "https://genealogytrails.com/ill/cook/1843directory_1.html",
-      "archived_url": "",
-      "tier": 4,
-      "tier_label": "later scholarship"
-    },
-    {
-      "source_id": "norris_directory_1844",
-      "citation": "J. W. Norris, General Directory and Business Advertiser of the City of Chicago, for the Year 1844: together with a Historical Sketch and Statistical Account, to the Present Time (Chicago: Ellis & Fergus, printers, 1844); read in the T. F. Bohan republication of 1903, University of Illinois copy",
-      "url": "https://archive.org/details/generaldirectory19norr",
-      "archived_url": "https://archive.org/details/generaldirectory19norr",
-      "tier": 1,
-      "tier_label": "period/eyewitness"
-    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
