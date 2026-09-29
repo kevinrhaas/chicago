@@ -16423,3 +16423,77 @@ take), **L270** (the platted deal this block answers), **L292** (the same shape 
 plat's last tier), **T-1741** (the lot lines), **T-1747** (this deal, the first piece of
 **T-1742**), **T-1748** (the rest of the addition), **T-1746** (the disagreement).
 **Recorded:** 2026-09-29.
+
+### L295 — The Glessner House, 1904: what the drawings, the 1888 plate and the HABS photographs leave for us to choose
+**Decision:** the default build of 1800 Prairie Avenue (`glessner_house`, T-1732) stands on HABS
+IL-1015's measured plan and heights, the February 1888 *Inland Architect* photograph, Sanborn 1911
+sheet 28 and — new since T-1731's specification — the HABS photographs of PR #169. Where none of
+them gives a number, the build takes one, and **these are ours:**
+
+- **Colours**, all of them: the granite (a pale pinkish grey), the courtyard brick (a warm red lifted
+  toward pink), the limestone trim (a grey), the roof tile (a dull brick red), the copper (a dark
+  weathered brown) and the oak (a dark oiled brown). The *materials* are attested — rock-faced
+  granite, "common brick of slightly pinkish colour", grey Joliet limestone, "red baked terracotta
+  tiles, unglazed", copper sheathing on the hall bow, oak doors (Glessner 1923; HABS 1963) — and
+  nothing read shows any of them in colour. The 1888 plate shows a pale stone; HABS photograph 1
+  (1963) shows the same walls near black with soot, and how far that had gone by 1904 is not drawn.
+- **The north tower's position in plan.** Sheet 4 fixes its heights and N-S extent (S 0–16.7);
+  HABS photographs 1 and 13 show it round. Its centre (W 35) and drum radius (7.35 ft) are ours,
+  tangent to the east wing's west face.
+- **The hall bow's roof form** (a low copper cone sector rising 3.5 ft into the main slopes) — HABS
+  records the copper; no sheet or print shows the shape.
+- **How far forward the three courtyard dormers stand** on their slope (fronts at W 25.2).
+- **Every dimension of the stable's ridge turret** (6 ft square, 5.6-ft pyramid, set at S 8) — its
+  form is attested by the 1888 plate and HABS photograph 1, its numbers are read off photograph 1's
+  proportions.
+- **The E-W size and position of all four chimneys** (4 ft deep; the great chimney at W 38–42) —
+  their N-S extents and tops are measured.
+- **The stable's south end** as a plain brick gable, and **its carriage doors** as two plain oak
+  leaves: the doorway is attested, the 1904 doors are not (replaced 1946).
+- **The north range's courtyard windows** — placed at sheet 2's gaps, stacked two storeys, heights
+  ours — and **the heights of every opening read off a plan**: the 18th Street narrow windows take
+  the one pair sheet 5 draws; the alley wall's stable lights (7.0–10.5 ft) and loft lights
+  (17.8–22.9 ft, from photograph 1) are ours.
+- **The eave cornices'** depth and projection (0.5–0.7 ft), and **the courtyard gate's** heights
+  (9-ft wall stub, 8-ft closed oak leaves, 9.5-ft pier).
+- **The courtyard ground in 1904:** a lawn with a pale carriage drive along its south side from the
+  underpass to the alley gate. HABS photograph 5 shows exactly that — in c. 1923, nineteen years
+  late — and HABS says only that the court was not paved before 1946.
+
+**Also ours, and NOT drawn:** the Boston ivy and Virginia creeper planted in 1887 (Glessner 1923)
+are left off — the walls stand bare, as the 1888 plate shows them; their 1904 extent is unknown.
+The porte-cochère doors and the front door are drawn as flat oak panels (the front door under a
+plain tympanum inside its voussoir fan): their panels, circular mouldings, straps and grille —
+attested by the c. 1888 photograph and HABS — are simplified away.
+
+**What bounds them.** Every invented height sits between measured ones on the same building (the
+dormer fronts between the courtyard eave and the dormer eave; the gate below the underpass's 8.1-ft
+clear height); every invented plan position sits inside a band a drawing or a print fixes (the north
+tower on sheet 4's S 0–16.7 and photograph 1's view past the east gable; the great chimney inside
+the W 30–45 band T-1731 left open). Colours stay within the material each is attested to be.
+
+**What the new photographs settled instead of us** (and so are NOT liberties): the stable's roof —
+T-1731 reconstructed a symmetric 45° gable; HABS photograph 1 puts the ridge on the carriage
+doorway's axis (W 141) at about 38.6 ft, and it is now *inferred*; the dining bay — T-1731 had one
+storey; photograph 5 shows a masonry storey, a glazed band and a tall faceted metal roof, now
+*inferred* (its heights read off the print); the "pyramid-roofed element" is a round tower
+(*inferred*); a fifth chimney on the north range (*inferred*); one more window in the east wing's
+north face (*inferred*, photograph 13). `docs/RESEARCH/glessner_house_1904.md` § 13 is the list.
+
+**Consequence:** a visitor at the /1904/ door sees the Prairie Avenue front measured opening for
+opening, in colours we chose; the courtyard, the stable's details and the roofscape's smaller
+parts are ours within those bounds. The courtyard reads open to the south until 1808 Prairie (the
+O. R. Keith house, T-0475), whose north wall closed it, is built.
+
+**How to resolve:** a colour photograph, a paint or stone sample, or Glessner House's restoration
+files (the museum holds them — the Prairie library's dossier, G15) replace the colours; the Houghton
+drawings not yet seen (the roof plan and courtyard elevations among the 105) replace the tower's
+plan, the dormers' depth, the chimneys' plans and the bow roof; the HABS field notes FN-128 and the
+remaining photogrammetric plates replace the 18th Street and alley heights; any dated photograph
+between 1888 and 1923 settles the vines and the courtyard ground.
+
+**Covers:** `glessner_house.as_built_1887.form.granite_tint`, `glessner_house.as_built_1887.form.brick_tint`, `glessner_house.as_built_1887.form.trim_tint`, `glessner_house.as_built_1887.form.roof_tint`, `glessner_house.as_built_1887.form.copper_tint`, `glessner_house.as_built_1887.form.wood_tint`, `glessner_house.as_built_1887.form.tower_north_plan`, `glessner_house.as_built_1887.form.hall_bow_roof`, `glessner_house.as_built_1887.form.dormer_depth`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_plans`, `glessner_house.as_built_1887.form.gable_west_wing_south`, `glessner_house.as_built_1887.form.openings_stable_doors`, `glessner_house.as_built_1887.form.openings_court_north`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.eave_cornice`, `glessner_house.as_built_1887.form.courtyard_gate_heights`, `glessner_house.as_built_1887.form.courtyard_ground`, `glessner_house.as_built_1887.form.vines`, `glessner_house.as_built_1887.form.porte_cochere_doors`, `glessner_house.as_built_1887.form.front_door`
+**Related:** **L293** (the street section in front of it), **L289**, **L290** (the ground it
+stands on), `docs/RESEARCH/glessner_house_1904.md`, `data/research/glessner_house_1904_spec.json`,
+**T-1731**, **T-1732**, **T-1730** (the alternates compared against this default), **T-0475**.
+**Recorded:** 2026-09-28.

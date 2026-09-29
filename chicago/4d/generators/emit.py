@@ -63,7 +63,7 @@ import bpy  # noqa: E402
 from common.mesh import reset_scene  # noqa: E402
 from archetypes import (  # noqa: E402
     bridge_timber, fort_structure, frame_dwelling, frame_storefront, frame_tavern,
-    log_dwelling, outbuilding, palisade, pier_crib,
+    log_dwelling, masonry_house, outbuilding, palisade, pier_crib,
 )
 from archetypes.bridge_timber_params import from_phase as bridge_timber_params  # noqa: E402
 from archetypes.fort_structure_params import from_phase as fort_structure_params  # noqa: E402
@@ -71,6 +71,7 @@ from archetypes.frame_dwelling_params import from_phase as frame_dwelling_params
 from archetypes.frame_storefront_params import from_phase as frame_storefront_params  # noqa: E402
 from archetypes.frame_tavern_params import from_phase as frame_tavern_params  # noqa: E402
 from archetypes.log_dwelling_params import from_phase as log_dwelling_params  # noqa: E402
+from archetypes.masonry_house_params import from_phase as masonry_house_params  # noqa: E402
 from archetypes.outbuilding_params import from_phase as outbuilding_params  # noqa: E402
 from archetypes.palisade_params import from_phase as palisade_params  # noqa: E402
 from archetypes.pier_crib_params import from_phase as pier_crib_params  # noqa: E402
@@ -85,6 +86,7 @@ ARCHETYPES = {
     "pier_crib": (pier_crib_params, pier_crib.build),
     "palisade": (palisade_params, palisade.build),
     "fort_structure": (fort_structure_params, fort_structure.build),
+    "masonry_house": (masonry_house_params, masonry_house.build),
 }
 
 
