@@ -293,28 +293,40 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # on `dev` at its TENTH lap, not the 449/445 it was written off: the debt is cumulative,
 # so T-1708's eleven, T-1756's four, the Glessner versions and T-1735's eleven are all
 # counted first and these four go on top of them.
+# 479 -> 492 and 475 -> 488 on 2026-09-29 (T-1751): the thirteen roofs of the deal on
+# `blk_washington_franklin`, the plat's last tier dealt out to its lot ceiling — seven
+# dwellings and the six yard buildings behind them. Thirteen new structure assets on the
+# same terms as every entry above: thirteen more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved. The from-numbers are the ones this branch found on `dev` at its
+# FOURTH lap, not the 475/471 it was written off: the debt is cumulative, so T-1753's four
+# are counted first and these thirteen go on top of them. IT IS ALSO THE LARGEST SINGLE
+# MOVE THIS ROW HAS TAKEN, which is the measurement working as intended rather than a
+# surprise — the debt is per-ASSET, so a block dealt out to its ceiling enlarges it by a
+# whole block.
 # THIS ROW HAS NOW MOVED SIX TIMES IN TWO DAYS — five block deals and the Glessner
 # House — which is the measurement working as intended and also the shape of what it
 # measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
 # will keep being restated a parcel at a time for as long as the town is built a block
 # at a time.
 #
-# 479 -> 483 and 475 -> 479 on 2026-09-29 (T-1757): the four roofs of the SECOND deal on
+# 492 -> 496 and 488 -> 492 on 2026-09-29 (T-1757): the four roofs of the SECOND deal on
 # `blk_indiana_north_cass` — two two-room frame cottages four lots west of the first pair,
 # with a woodshed and the Addition's first stable off the alley behind them. Four new
 # structure assets on the same terms as every entry above: four more meshes the shared
 # generator modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still
-# 2. Nothing about the debt itself moved. The from-numbers are the ones this branch found on
-# `dev`, so T-1753's four are counted first and these four go on top of them. SEVENTH move in
-# two days, and the note above already said why: the debt is per-ASSET.
+# 2. Nothing about the debt itself moved. The from-numbers were 479 -> 483 when this branch
+# was written; T-1751's thirteen landed on `dev` first, so its 492/488 are the base these
+# four go on top of. SEVENTH move in two days, and the note above already said why: the
+# debt is per-ASSET.
 #
 STATED = {
-    "assets": 483,
+    "assets": 496,
     "restales": {
-        "generators/common/*.py": 483,
+        "generators/common/*.py": 496,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 479,
+        "generators/emit.py": 492,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
