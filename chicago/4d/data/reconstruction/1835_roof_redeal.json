@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 6,
     "roof_target": 668,
-    "standing_before": 422,
-    "standing_after": 422,
-    "short_of_the_programme_before": 246,
-    "short_of_the_programme_after": 246
+    "standing_before": 424,
+    "standing_after": 424,
+    "short_of_the_programme_before": 244,
+    "short_of_the_programme_after": 244
   },
   "ledger": [
     {
@@ -188,11 +188,11 @@
       "group": "larger_boarding_houses",
       "division": "north",
       "target": 8,
-      "standing": 6,
+      "standing": 7,
       "anonymous": 5,
-      "head_before": 2,
-      "standing_after": 6,
-      "head_after": 2
+      "head_before": 1,
+      "standing_after": 7,
+      "head_after": 1
     },
     {
       "bucket": "structures/ordinary_dwellings/south",
@@ -221,11 +221,11 @@
       "group": "ordinary_dwellings",
       "division": "north",
       "target": 84,
-      "standing": 49,
+      "standing": 50,
       "anonymous": 44,
-      "head_before": 35,
-      "standing_after": 49,
-      "head_after": 35
+      "head_before": 34,
+      "standing_after": 50,
+      "head_after": 34
     },
     {
       "bucket": "structures/small_outbuildings/south",

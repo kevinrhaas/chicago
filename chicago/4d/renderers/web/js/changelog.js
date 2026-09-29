@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1218, ts: '2026-09-28T23:39:45.130Z', date: 'Sep 28, 2026, 6:39 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+    items: [
+      'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
+      'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
+      'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
+      'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
+      'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
+    ] },
   { v: 1217, ts: '2026-09-28T23:02:09.113Z', date: 'Sep 28, 2026, 6:02 PM CT', title: 'Seven houses turn to face the streets the plat gives them', kind: 'change',
     items: [
       'The block between Clinton and Canal, south of Randolph, is now cut into ten lots the way the 1830 plat cuts it \u2014 two columns of five with an alley down the middle, north to south, each lot fronting Clinton or Canal. Its neighbour to the north was re-cut two builds ago; this is the pair to it, and the last of the two.',
