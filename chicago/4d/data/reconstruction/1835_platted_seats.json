@@ -34,8 +34,8 @@
   "seated": 170,
   "owed": 1308,
   "by_how": {
-   "adopted": 120,
-   "slot": 50
+   "adopted": 122,
+   "slot": 48
   },
   "by_clause": {
    "labourer_dwellings": 34,
@@ -51,16 +51,16 @@
    "D1": 21,
    "D2": 13,
    "D3": 44,
-   "D4": 30,
+   "D4": 31,
    "D5": 19,
-   "D6": 10,
+   "D6": 9,
    "D7": 15,
    "H1": 10,
    "H2": 8
   },
   "lots_taken": 152,
-  "roofs_adopted": 120,
-  "slots_requested": 50,
+  "roofs_adopted": 122,
+  "slots_requested": 48,
   "owed_by_band_clause": {
    "division_ground": 52,
    "farms_and_country_seats": 204,
@@ -70,7 +70,7 @@
    "merchant_and_professional_dwellings": 373,
    "tradesman_dwellings": 552
   },
-  "roofs_offered_for_adoption": 123,
+  "roofs_offered_for_adoption": 125,
   "roofs_held_back": 54
  },
  "what_the_plat_could_not_hold": {
@@ -468,10 +468,31 @@
   },
   {
    "block_id": "blk_indiana_north_cass",
-   "family": "D6",
+   "family": "D5",
    "roofs": 1,
    "district": "north",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_cass#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_cass",
+   "family": "D6",
+   "roofs": 2,
+   "district": "north",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_cass#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_cass",
+   "family": "H3",
+   "roofs": 1,
+   "district": "north",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  },
+  {
+   "block_id": "blk_indiana_north_cass",
+   "family": "T1",
+   "roofs": 1,
+   "district": "north",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_indiana_north_wolcott",
@@ -497,14 +518,14 @@
   {
    "block_id": "blk_indiana_north_wolcott",
    "family": "D4",
-   "roofs": 2,
+   "roofs": 1,
    "district": "north",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_indiana_north_wolcott",
    "family": "D5",
-   "roofs": 5,
+   "roofs": 4,
    "district": "north",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -518,20 +539,6 @@
   {
    "block_id": "blk_indiana_north_wolcott",
    "family": "F2",
-   "roofs": 1,
-   "district": "north",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_indiana_north_wolcott",
-   "family": "H3",
-   "roofs": 1,
-   "district": "north",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_indiana_north_wolcott",
-   "family": "T1",
    "roofs": 1,
    "district": "north",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -798,7 +805,7 @@
   {
    "block_id": "blk_washington_market",
    "family": "D4",
-   "roofs": 3,
+   "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -812,7 +819,7 @@
   {
    "block_id": "blk_washington_market",
    "family": "D6",
-   "roofs": 1,
+   "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -2026,26 +2033,22 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#09",
-   "block_id": "blk_indiana_north_cass",
-   "lot_index": 9,
+   "lot_id": "blk_indiana_north_wolcott#05",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 5,
    "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_06",
    "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_indiana_north_cass",
-    "family": "D3",
-    "district": "north"
-   },
+   "order_book_draw": null,
    "seed": "hh_anderson_eli_f|T-1522|division:023d4645e4cd|class:96015b25299e",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
    "id": "hh_andress_stephen",
@@ -2078,26 +2081,22 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#08",
-   "block_id": "blk_indiana_north_cass",
-   "lot_index": 8,
+   "lot_id": "blk_indiana_north_wolcott#04",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 4,
    "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_05",
    "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_indiana_north_cass",
-    "family": "D3",
-    "district": "north"
-   },
+   "order_book_draw": null,
    "seed": "hh_andrews_davi|T-1522|division:2dc3874c58c2|class:d1af2bba6d3c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
    "id": "hh_andrews_julian",
@@ -2250,26 +2249,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#07",
+   "lot_id": "blk_indiana_north_cass#09",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 7,
+   "lot_index": 9,
    "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D4",
+    "family": "D3",
     "district": "north"
    },
    "seed": "hh_arquette_michel|T-1522|division:1007cf044a46|class:e08f8f957b78",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_aspam_josette",
@@ -2326,26 +2325,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#06",
+   "lot_id": "blk_indiana_north_cass#08",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 6,
+   "lot_index": 8,
    "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D4",
+    "family": "D3",
     "district": "north"
    },
    "seed": "hh_avery_charles|T-1522|division:17b5f825d439|class:b846ca355f1e",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_ayres_levi",
@@ -2378,9 +2377,9 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#05",
+   "lot_id": "blk_indiana_north_cass#07",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 5,
+   "lot_index": 7,
    "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
@@ -2406,26 +2405,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#04",
+   "lot_id": "blk_indiana_north_cass#06",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 4,
+   "lot_index": 6,
    "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D5",
+    "family": "D4",
     "district": "north"
    },
    "seed": "hh_bailly_joseph|T-1522|division:11eb873d530c|class:f7cf04f17687",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_baily_john",
@@ -2434,26 +2433,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#03",
+   "lot_id": "blk_indiana_north_cass#05",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 3,
+   "lot_index": 5,
    "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D5",
+    "family": "D4",
     "district": "north"
    },
    "seed": "hh_baily_john|T-1522|division:0d4c0faac38d|class:ac1f848cdb4b",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_baldwin_eimer",
@@ -2606,26 +2605,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#02",
+   "lot_id": "blk_indiana_north_cass#04",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 2,
+   "lot_index": 4,
    "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D5",
+    "family": "D4",
     "district": "north"
    },
    "seed": "hh_barber_beta_l|T-1522|division:056f1e5f61bb|class:ad3ecc03d740",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_barbour_timothy",
@@ -2682,26 +2681,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#01",
+   "lot_id": "blk_indiana_north_cass#03",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 1,
+   "lot_index": 3,
    "fronts": "illinois_north",
    "street_class": "none",
-   "corner": true,
+   "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D6",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_cass",
-    "family": "D6",
+    "family": "D5",
     "district": "north"
    },
    "seed": "hh_barnard_j_h|T-1522|division:139bd7c55c7e|class:cc6c8937f008",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_barney_john",
@@ -2858,26 +2857,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#07",
-   "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 7,
-   "fronts": "illinois_north",
+   "lot_id": "blk_indiana_north_cass#02",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 2,
+   "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_indiana_north_wolcott",
-    "family": "D3",
+    "block_id": "blk_indiana_north_cass",
+    "family": "D5",
     "district": "north"
    },
    "seed": "hh_beach_william_h|T-1522|division:0223cc8459d1|class:a40c83c02389",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_beaubien_alexander",
@@ -2986,26 +2985,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#06",
-   "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 6,
-   "fronts": "indiana_north",
+   "lot_id": "blk_indiana_north_cass#01",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 1,
+   "fronts": "illinois_north",
    "street_class": "none",
-   "corner": false,
+   "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_indiana_north_wolcott",
-    "family": "D3",
+    "block_id": "blk_indiana_north_cass",
+    "family": "D5",
     "district": "north"
    },
    "seed": "hh_beaubien_john_s|T-1522|division:2d447672290b|class:e63b443ebe50",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_beaubien_susan",
@@ -3014,9 +3013,9 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#05",
+   "lot_id": "blk_indiana_north_wolcott#07",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 5,
+   "lot_index": 7,
    "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
@@ -3142,9 +3141,9 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#04",
+   "lot_id": "blk_indiana_north_wolcott#06",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 4,
+   "lot_index": 6,
    "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
@@ -3226,18 +3225,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_wolcott",
-    "family": "D4",
+    "family": "D3",
     "district": "north"
    },
    "seed": "hh_bigelow_david|T-1522|division:305f89fbd633|class:925d5a9f8f1d",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_blaisdell_b",
@@ -4262,18 +4261,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_washington_market",
-    "family": "D3",
+    "family": "D4",
     "district": "south"
    },
    "seed": "hh_chattin_clark|T-1522|division:675b1d6b3f38|class:e48772e1976a",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_chevalier_joseph",
