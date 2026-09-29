@@ -14097,16 +14097,19 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 418 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 429 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second
 garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen
 states a roof type. The root-house is the least of them: a flat earth bank states a roof type and
-carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first
+carries no shingle at all. T-1717's two Lake House neighbours made 418, and they are the first
 frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
-neither pitch stated by a source. No record's `roof_type` or pitch
+neither pitch stated by a source. T-1735's first deal on `blk_washington_lasalle` then made it
+**429** in one step — seven dwellings and four yard buildings, every one of them shingled — which
+is the largest single step this count has taken since it was written down. No record's `roof_type`
+or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -14583,10 +14586,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 162 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 168 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 162 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,316
+**Scope:** `platted_seats.seats[dealt]` — 168 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,310
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14822,7 +14825,23 @@ Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated 
 order book takes off this pass moves with it. Neither deal can see the other's picks, on the
 reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only).
+**The deal reached 168 on 2026-09-28 when the first of its own slot requests was ANSWERED
+(T-1735), and it is the first time a request this file wrote has become a roof.** Every move above
+is a ruling about GROUND that gave this pass more to ask for; this one spends what was asked. Seven
+of the slots named `blk_washington_lasalle` and its families, T-1735 built exactly those seven
+dwellings and four yard buildings, so the block has no headroom left to ask against and the pass
+ADOPTS there instead. Re-derived whole in the placement policy's clause order the deal goes 162
+seats to **168**, adoptions 109 to **116**, slots 53 to **52**, and the rows handed to **T-1614**
+1,316 to **1,310**. **The households that moved in are not the seven that asked**: the pass ranks
+the whole town in one order, so six of the seven original requesters were re-slotted onto the
+tier's remaining empty blocks, and the roofs the households that DID move here vacated cascaded
+down the same ranking. Nothing was retired, no roof moved a metre, and no source places any of the
+168 anywhere — which is the invention this entry has recorded from the start, six seats larger. The
+order book's seated join moves with it, 234 to **240**, restated in `build_order_book_1835.py`
+rather than re-summed.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only),
+2026-09-28 (T-1735, the first slot answered).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -15240,13 +15259,13 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
+### L276 — Twenty-two roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
+**Scope:** `roof_keepers.written[named]` — 22 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 65
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
-five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 22 are on the
+five South Water blocks and were written by T-1638; the other 13 are on the Randolph–
 Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -15318,9 +15337,19 @@ the seating pass's picks there closes the cycle that refusal exists to avoid —
 allocations run blind to one pool. It is filed as **T-1669** rather than patched by a rule
 invented in passing.
 
+**The count fell to 22 on 2026-09-28, and a keeper lost to a re-deal is still a keeper the
+ruling never refused (T-1735).** Answering the first of **L270**'s own slot requests moved that
+deal's adoptions from 109 to 116, and because the pass is re-derived whole in one ranking the
+vacancies the incoming households left cascaded: roofs on South Water and the Randolph tier
+changed keeper, and the named count went 23 to **22** while the refusals went 62 to **65**. Every
+one of the three additional refusals is the letter-list refusal already on the books — 63 of the
+65 are that cohort and 2 are the T-1689 naming disagreement, unchanged in kind — so no ruling
+moved and nothing was reclassified to make the pass look complete. It is reported here because a
+count that FALLS is exactly the kind a liberty is tempted to leave reading well.
+
 **How to resolve:** any source that places one of these households — a lot record, a deed, an
 advertisement giving an address, a directory entry. One would replace a dealt lot with a read
-one, and the nine would stop being a liberty.
+one, and they would stop being a liberty.
 
 **Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
 **L212** (the street-face business adoptions, the same shape for firms rather than keepers),

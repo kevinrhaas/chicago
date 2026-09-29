@@ -4463,8 +4463,19 @@ def cmd_self_test() -> int:
     # move, and is the difference from 28, is the seven roofs themselves — a dealt roof
     # stands where its parcel's slot puts it off its own lot's edge, so re-cutting the block
     # re-derived every position and rotation on it. No mesh changed and nothing was rebaked.
+    # AND T-1735 TAKES IT TO 240, WHICH IS THE FIRST TIME A SLOT HAS BEEN ANSWERED RATHER THAN
+    # ADDED. Every move above is a ruling about GROUND that gave the platted pass more to ask for;
+    # this one spends what was asked. The seven slot rows T-1707's tier carried against
+    # `blk_washington_lasalle` were built — seven dwellings and four yard buildings — so the block
+    # has no headroom left to ask against and the pass ADOPTS there instead: the platted pass goes
+    # 162 -> 168, adoptions 109 -> 116, slots 53 -> 52, and the off-plat pass holds at 72. The gain
+    # is six and not seven because the pass is re-derived whole in the placement policy's clause
+    # order: six of the seven households that asked this block were re-slotted onto the tier's
+    # remaining empty blocks rather than housed here, and the roofs the households that DID move
+    # here vacated cascaded down the same ranking, taking South Water and Randolph keepers with
+    # them (L276, 23 -> 22). Nothing was retired and no roof moved a metre.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 234
+        data["inventory"], data["programme"], occ))["seated"] == 240
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

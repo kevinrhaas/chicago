@@ -36,21 +36,21 @@ reported rather than tidied.** The seating pass is re-derived whole in the place
 policy's clause order, so the seven roofs went to the seven households the policy
 ranks first among those an admitted family on this block will hold; the other six
 original requesters are re-slotted onto the Washington-tier blocks still standing
-empty. Platted seats **160 → 166**, adoptions **109 → 116**, slots **51 → 50**, rows
-handed to T-1614 **1,318 → 1,312**, and the seating join with the off-plat pass
-**232 → 238**. The gain is six and not seven: the households that DID move here
+empty. Platted seats **162 → 168**, adoptions **109 → 116**, slots **53 → 52**, rows
+handed to T-1614 **1,316 → 1,310**, and the seating join with the off-plat pass
+**234 → 240**. The gain is six and not seven: the households that DID move here
 vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
 rather than leaving them open, so four roofs on South Water and the Randolph tier
 changed keeper. The named-keeper count went **23 → 22** with it and the refusals
-**63 → 65**, of which 63 are the letter-list refusal already on the
+**62 → 65**, of which 63 are the letter-list refusal already on the
 books and 2 the T-1689 naming disagreement — no ruling moved (**L276**). The town
 census reads **433 buildings standing of 668**.
 
 **The order book's south ordinary-dwellings row keeps its owner.** The cell reads 176
 target, 115 standing, 61 to build, and it still names **T-1708**, which is open — so
 the row this ticket was filed to protect needs no re-pointing. The seating tripwire
-in `build_order_book_1835.py` is restated from 232 to **238** with the ruling behind
-the six seats, not quietly re-summed, and L263 (roof-type phases 416 → 427), L270
+in `build_order_book_1835.py` is restated from 234 to **240** with the ruling behind
+the six seats, not quietly re-summed, and L263 (roof-type phases 418 → 429), L270
 and L276 are restated against what the rebuild reaches rather than what the branch
 was cut against.
 
