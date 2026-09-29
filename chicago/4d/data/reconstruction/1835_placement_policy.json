@@ -691,8 +691,8 @@
     }
   ],
   "coverage": {
-    "documented_roofs_with_a_family": 92,
-    "conforming": 68,
+    "documented_roofs_with_a_family": 94,
+    "conforming": 70,
     "outliers": 24,
     "by_family": {
       "A1": [
@@ -725,6 +725,10 @@
         "farms_and_country_seats",
         "labourer_dwellings",
         "rear_dwelling_behind_its_own_roof"
+      ],
+      "D6": [
+        "rear_dwelling_behind_its_own_roof",
+        "tradesman_dwellings"
       ],
       "F1": [
         "commercial_front"
