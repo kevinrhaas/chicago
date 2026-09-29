@@ -8,7 +8,7 @@ merchant-or-professional house and an H1 between them, and on the Madison face t
 one-room cottages and a D4 two-room cottage on the corner. Behind them a carriage shed, a
 stable, a small utility building, two woodsheds and a privy, dealt up the household scale;
 the D4 is dealt none, because the plan holds six. Lot 1, the Madison-and-Franklin corner, is
-the block's reserved open lot. The liberty is **L303**.
+the block's reserved open lot. The liberty is **L304** (written as L303; `dev` took that number for T-1762 while this was open).
 
 **This is a re-cut, and what was carried over is exactly one authored input.** The first cut
 (PR #186) was written against a seating three neighbouring builds then moved under it; a

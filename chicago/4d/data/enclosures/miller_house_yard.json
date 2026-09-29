@@ -1,0 +1,123 @@
+{
+  "id": "miller_house_yard",
+  "name": "The Miller house's yard",
+  "aka": [
+    "the yard behind Miller's tavern",
+    "the Miller brothers' ground at the point"
+  ],
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "belongs_to": [
+    "miller_house",
+    "miller_tannery"
+  ],
+  "documented_range": {
+    "from": "1831-04-13",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels",
+      "chicagology_prefire273"
+    ],
+    "note": "THE SAME DAY AND THE SAME DOCUMENT AS data/enclosures/wolf_point_tavern_yard.json, which is the point of this record. 13 April 1831 is the special term of the Cook County Court of County Commissioners that granted the county's FIRST TWO tavern licences — 'Elijah Wentworth, for $7, and Samuel Miller, for $5' — and then set the rates those two houses might charge, horse-keeping among them (Andreas, scan p. 249). This is the second of the two houses, and the one this project had built no ground for. The end is data/sidecars/1835/miller_house.json's own closing date, the last date this record needs to claim rather than a fate. NO SOURCE DATES THIS GROUND. The yard is taken to be contemporary with the licence that priced what happened on it, which is the step data/enclosures/western_hotel_wagon_yard.json and data/enclosures/sauganash_yard.json both take from their own buildings."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "NOTHING SAYS THE MILLER HOUSE HAD A FENCED YARD. What is documented is that this house held a licence under the 13 April 1831 schedule, and that the schedule prices 'For each horse fed 25' and 'Keeping horse one night 50' — the identical sentence data/structures/wolf_point_tavern_stable.json is built on, in the identical court order, naming this house in the same clause as that one. THE ASYMMETRY IS WHAT THIS RECORD ANSWERS: the model gave one of the two licensed houses a stable and its ground and gave the other nothing at all, which is a claim about the two houses that the source does not make. THIS RECORD DOES NOT RAISE A ROOF. It draws the enclosed ground alone, because a yard is what the priced service needs first and a stable is a second inference on top of it; the stable, the wagon yard's furniture and the outbuildings this house and the Green Tree stand without are left to their own ticket rather than invented here to round the set out. BY THE SCENE DATE THE HOUSE IS NOT AN INN — it is in store or residential use and has been past its innkeeping for at least three years (data/structures/miller_house.json) — and the yard is taken to stand on, serving the store, because ground outlasts a trade and because a store on the point took its goods by water and by wagon over the same enclosure. That last step is the weakest link in this record and it is stated here rather than buried."
+  },
+  "runs": [
+    {
+      "id": "east",
+      "path_local_enu_m": [
+        [14.0, 61.0],
+        [14.0, 72.5]
+      ],
+      "note": "ONE STRAIGHT LEG, AND IT IS NOT A CHOSEN LINE. The house and the tannery stand on the SAME east wall line, E 14.00, and this run is that line continued across the gap between them: it leaves the house's north-east corner (data/sidecars/1835/miller_house.json: origin 14.00 / 61.00, facade bearing 180, an L of 9 x 11 m with the north-west quarter cut away, so its north wall is N 61.00 and its east wall E 14.00) and ends at the tannery's south-east corner (data/sidecars/1835/miller_tannery.json: origin 14.00 / 78.00, facade bearing 180, 7 x 5.5 m, so its south face is N 72.50 and its east wall E 14.00). Two committed building corners, and the fence between them stands where both buildings' walls already stand. Nothing here is a free choice."
+    },
+    {
+      "id": "west",
+      "path_local_enu_m": [
+        [8.0, 72.5],
+        [8.0, 61.0]
+      ],
+      "note": "The opposite leg, on the same terms. E 8.00 is the house's OWN west wall line where its north range meets the yard — the L's cut corner means the house is 9 m wide at the river front and 6 m wide at the back, and E 8.00 is that back range's west wall. The run leaves the tannery's south face at that line (8.00 / 72.50; the tannery spans E 7.00 to 14.00, so the point lies on its wall and is not an extension of it) and runs south to the house's north-west corner (8.00 / 61.00). THE FOURTH AND SECOND SIDES ARE BUILDINGS: the house closes the south, the tannery closes the north, which is why this yard is two fences and not a ring, and it is the arrangement every hand-authored yard on this layer records."
+    }
+  ],
+  "openings": [
+    {
+      "id": "point_gate",
+      "on": "yard",
+      "at_local_enu_m": [14.0, 66.75],
+      "width_m": 3.05,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND NOT ATTESTED IN ANY DEGREE. A fence with no opening encloses a yard nobody can enter, so one gateway is drawn rather than none — the argument data/enclosures/sauganash_yard.json makes for its own back gate, where no view shows a gate either. WHERE it stands is argued from the water. The house fronts SOUTH onto the main stem and the North Branch runs north away from the forks on the far side of it, so the only side of this ground a cart reaches overland is the east, where the point widens; the gateway is therefore in the east run, centred in it for want of anything saying where in it stood. 3.05 m is 10 ft, recorded converted per data/datum.json's units rule: enough to lead a horse or run a hand-cart through and no more — narrower than the Sauganash's 12 ft back gate and the Western Hotel's attested 14 ft team gateway, because this yard is 6 m wide between two small log buildings and could not take a turning wagon whatever its gate. NOTHING STATES A WIDTH, A LEAF, A POST OR A FASTENING. THE FERRY IS NOT DRAWN HERE and no opening claims one: the Miller-Clybourn ferry across the North Branch is on the far side of the house and its landing is another ticket's."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "post_and_rail",
+      "confidence": "reconstructed",
+      "note": "INVENTED, and taken from the two yard records already on this layer rather than reasoned out again, because nothing distinguishes this case and a fence kind invented here would read as a finding about this house. Post-and-rail is the standard town-lot enclosure of the period, it is what a log house at the forks would put round its ground out of the same split stuff, and it is open and horizontal, so a visitor sees through it — which is honest about how little of this yard is known."
+    },
+    "height_m": {
+      "value": 1.37,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 1.37 m is 4 ft 6 in, recorded converted — the Western Hotel yard's figure, for the Western Hotel yard's reason: a yard fence turns a led horse away from the line and keeps loose stock off the ground, and it does not have to hold a beast that has decided to leave. Nothing attests a height, and a different number here would claim a distinction this record cannot support."
+    },
+    "rail_courses": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and coupled to height_m rather than chosen separately: three rails is what fills 4 ft 6 in at a spacing a beast will not walk through. Nothing attests a count."
+    },
+    "post_spacing_m": {
+      "value": 2.9,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 2.9 m is about 9 ft 6 in, the span a split rail of the period is cut to carry. Nothing attests it. It is a rhythm, not a measurement."
+    },
+    "post_size_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED. A 0.14 m square post is a 5-1/2 inch stick, the section every record on this layer states, because nothing distinguishes them and a new number would read as evidence."
+    }
+  },
+  "ground": {
+    "value": "trodden earth, kept but not worn to dust",
+    "confidence": "reconstructed",
+    "geometry": "drawn",
+    "treatment": "trodden_earth",
+    "interior_local_enu_m": [
+      [14.0, 61.0],
+      [14.0, 72.5],
+      [8.0, 72.5],
+      [8.0, 61.0]
+    ],
+    "note": "NOTHING STATES THE SURFACE OF THIS GROUND and the treatment is graded reconstructed, disappearing with the rest of that tier. `trodden_earth` rather than the Wolf Point yard's `worn_earth` is read off the use the way docs/LIBERTIES.md L158 sets out, and the difference is the one claim this block makes: no wagon can turn in a yard 6 m across, so there is no wheel rut here to draw, and what wears this ground is feet and led horses between a store and a tanyard. THE INTERIOR IS AUTHORED RATHER THAN DERIVED FROM THE RUNS, because two of the four sides are buildings: the ring walks the house's north wall east to its north-east corner, north up the shared east wall line to the tannery's south-east corner, west along the tannery's south face to the house's back-range west wall line, and south to the house's north-west corner. Every vertex is a committed building corner or a point where two committed wall lines meet; the ring encloses neither building."
+  },
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "A. T. Andreas, History of Chicago, vol. 1, scan p. 249: the special term of the Cook County Court of County Commissioners at Chicago, 13 April 1831 — 'The first two tavern licenses were granted by Cook County to Chicago landlords — Elijah Wentworth, for $7, and Samuel Miller, for $5' — and the schedule of rates that follows it, including 'For each horse fed 25' and 'Keeping horse one night 50'.",
+      "tier": 3,
+      "tier_label": "nineteenth-century compiled history quoting a court record"
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "Dr Loih, the Chicago hotel chronology: the Miller brothers' two-storey house added to the cabin fronting the river, and the house's passage out of innkeeping after 1832.",
+      "tier": 4,
+      "tier_label": "modern compilation of recollection"
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "Chicagology, 'Pre-Fire Chicago' page 273: the Miller house on the point of land between the North Branch and the main channel.",
+      "tier": 4,
+      "tier_label": "modern compilation of recollection"
+    }
+  ],
+  "research_note": "THE SECOND OF THE TWO HOUSES ONE COURT ORDER LICENSED, AND THE ONE THE MODEL HAD LEFT WITH NO GROUND. The 13 April 1831 order names Wentworth and Samuel Miller in a single clause and then prices horse-keeping for both; this project read that sentence once, built the Wolf Point Tavern's stable from it, and never went back for the other name in it. So the asymmetry this record removes was not a judgement about the two houses — it was a source read halfway. WHAT THIS RECORD DOES NOT DO, deliberately: it raises no roof. The stable that the same inference would support here, the taverns' outbuildings, and the yard furniture of the attested roofs at the forks are the remainder of this ticket's ask and are left to their own ticket, because each of them is a second invention standing on this one and because a roof moves the 668-roof programme and this does not. THE GREEN TREE TAVERN IS REFUSED A YARD ON THIS PASS, and the reason is evidence rather than budget: the Green Tree was built in 1833, two years after the court term this record and the Wolf Point stable both rest on, and no licence, tariff or yard description this project holds reaches it. Its corner at Lake and West Water is committed and its rear stands on the bank; a fence drawn round it would be invented from end to end, with nothing of the kind behind the two drawn here. WHAT WOULD UPGRADE THIS RECORD: the Cook County commissioners' proceedings at page-image level for a licensing condition describing premises; any Chicago or Cook County fence ordinance of the 1830s; or the reported 1835 painting showing the Wolf Tavern, Miller's house and Walker's cabin in one view, which would settle at a stroke whether either house stood in a fence at all."
+}

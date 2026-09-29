@@ -1874,6 +1874,170 @@
         ]
       },
       "source": "/tmp/t1279-smoke-mobile12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 155,
+      "failed": 3,
+      "failures": [
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+      ],
+      "wallSeconds": 385,
+      "takenAt": "2026-09-29T13:26:30.741Z",
+      "ref": "steward/t1762-forks-yards",
+      "commit": "ff72c92fac23",
+      "devCommit": "10a1e7107a90",
+      "treeHash": "sha256:73a0a33e270b7f32",
+      "treeDirty": false,
+      "changelogHash": "sha256:2e69ddefea0754b3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.1,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_m12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 364,
+      "takenAt": "2026-09-29T13:26:30.643Z",
+      "ref": "steward/t1762-forks-yards",
+      "commit": "ff72c92fac23",
+      "devCommit": "10a1e7107a90",
+      "treeHash": "sha256:73a0a33e270b7f32",
+      "treeDirty": false,
+      "changelogHash": "sha256:2e69ddefea0754b3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.1,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_mine_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 224,
+      "takenAt": "2026-09-29T13:26:30.542Z",
+      "ref": "steward/t1762-forks-yards",
+      "commit": "ff72c92fac23",
+      "devCommit": "10a1e7107a90",
+      "treeHash": "sha256:73a0a33e270b7f32",
+      "treeDirty": false,
+      "changelogHash": "sha256:2e69ddefea0754b3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.1,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_mine_m1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 85,
+      "failed": 3,
+      "failures": [
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+      ],
+      "wallSeconds": 183,
+      "takenAt": "2026-09-29T13:20:04.525Z",
+      "ref": "HEAD",
+      "commit": "10a1e7107a90",
+      "devCommit": "10a1e7107a90",
+      "treeHash": "sha256:f17b4d8959139cf2",
+      "treeDirty": false,
+      "changelogHash": "sha256:7af296bc0cf1d45d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.3,
+          3.8,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_dev_m2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 213,
+      "takenAt": "2026-09-29T13:20:04.428Z",
+      "ref": "HEAD",
+      "commit": "10a1e7107a90",
+      "devCommit": "10a1e7107a90",
+      "treeHash": "sha256:f17b4d8959139cf2",
+      "treeDirty": false,
+      "changelogHash": "sha256:7af296bc0cf1d45d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.3,
+          3.8,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_dev_m1.log"
     }
   ]
 }

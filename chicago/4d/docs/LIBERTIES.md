@@ -14653,7 +14653,7 @@ that. Only where no such roof is free does it ask for a SLOT, and a slot may be 
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
 sizing keeps open; **39 of the 177 are that: 19 on the plat's last tier** (T-1707,
-2026-09-28, T-1736, L298, L300 and L303 below), **4 west of the river on ground the plat always drew
+2026-09-28, T-1736, L298, L300 and L304 below), **4 west of the river on ground the plat always drew
 and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 16 on
 Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
@@ -14778,7 +14778,7 @@ that requested it, and nobody in the cascade lost a roof they were standing unde
 
 **AND THE FRANKLIN BLOCK DEALT OUT TO ITS LOT CEILING MOVED THE BALANCE AND NOT THE TOTAL
 (T-1751, 2026-09-29).** `blk_washington_franklin` was dealt all seven of the slot requests
-standing against it, plus the six yard buildings its plan holds — see **L303**. The seven new
+standing against it, plus the six yard buildings its plan holds — see **L304**. The seven new
 principal roofs entered the pass as standing roofs an admitted clause could adopt, so the
 adoptions rise from 131 to **138** and the slot table falls from 46 to **39** — 19 of them still
 on this tier, seven on Dearborn, seven on Market and five on Clark. The deal holds at **177
@@ -15426,7 +15426,7 @@ roof is seated on a Washington-tier block this pass has not been run over yet. N
 no name was written to a roof it was not dealt, and no refusal was re-argued.
 
 **And T-1751 gave three back, which is the same mechanism run the other way.** Thirteen roofs
-on `blk_washington_franklin` (**L303**) drew six households off the roofs they had been
+on `blk_washington_franklin` (**L304**) drew six households off the roofs they had been
 adopting — off the Wells, La Salle and Clark blocks of the same tier and off `blk_randolph_wells`
 — and a seventh off a slot, and the cascade behind them re-seated South Water and Randolph roofs onto households this
 pass CAN name. So the written count goes 20 to **23**, all three of the gain on South Water
@@ -17030,7 +17030,77 @@ first piece of **T-1748**), **T-1754** (the rest of the north tier), **T-1746** 
 disagreement), **T-1626** (the precedence).
 **Recorded:** 2026-09-29.
 
-### L303 — The plat's last tier gets a fourth block: thirteen invented roofs on `blk_washington_franklin`, the whole of its lot ceiling, and the yard buildings dealt up the household scale
+### L303 — The ground the forks' two licensed houses stood on: two invented fences, two gateways and the earth inside them
+
+**Decision:** the enclosure layer gains two hand-authored yards at the forks (T-1762).
+`wolf_point_tavern_yard` encloses the ground between the Wolf Point Tavern and the stable
+already committed behind it; `miller_house_yard` encloses the ground between the Miller house
+and the Miller tannery on the point. **Both exist because of one document and not two.** The
+Cook County Court of County Commissioners, at its special term of **13 April 1831**, granted
+the county's first two tavern licences — "Elijah Wentworth, for $7, and Samuel Miller, for $5"
+— and set the rates the licensed houses might charge, including "For each horse fed 25" and
+"Keeping horse one night 50" (Andreas vol. 1, scan p. 249). Those two houses are the Wolf Point
+Tavern and the Miller house, and that sentence is the whole evidential basis of both records.
+
+**Nothing states that either house stood in a fence.** What the source gives is a priced
+service; what these records draw is the enclosed ground that service needs. That step is graded
+`inferred` on each record's `existence`, one rung below the attested sentence and one rung below
+`western_hotel_wagon_yard`, where a source does say "In the rear was the large stable and the
+yard into which the trains were driven." **Everything below the existence is invented and graded
+`reconstructed`:** the fence type (post_and_rail on both, copied from the Western Hotel's yard
+rather than reasoned out twice, because inventing a second kind would read as a finding), its
+height (1.37 m), its three courses, its post rhythm (2.9 m) and section (0.14 m), the single
+gateway on each yard, where in its run that gateway stands, and the ground treatment inside the
+fence — `worn_earth` at the tavern, `trodden_earth` at the Miller house, graded and reasoned the
+way **L158** sets out.
+
+**What is NOT invented is the shape, and that is why these two records were worth making.**
+Every vertex of both perimeters is a committed building corner or the meeting of two committed
+wall lines: the tavern's north gable and south wall, the stable's north face and its east and
+west walls, the house's and the tannery's shared east wall line at E 14.00, and the house's
+back-range west wall at E 8.00. Not one coordinate is authored. The yards therefore INHERIT
+their uncertainty from the buildings rather than adding any of their own — which at Wolf Point
+is considerable, since those buildings are placed on relative descriptions rather than on a
+map, and the stable's own offset from the tavern its record calls invention. Move either
+building and its fence moves with it.
+
+**The asymmetry this removes was a source read halfway.** The 13 April 1831 order names
+Wentworth and Miller in one clause; this project read it once, built `wolf_point_tavern_stable`
+from the horse-keeping tariff, and never went back for the other name in the same sentence. One
+of the two licensed houses had a stable and no ground, and the other had neither. That is a
+claim about the two houses which the source does not make.
+
+**THE GREEN TREE TAVERN IS REFUSED A YARD ON THIS PASS, AND THE REASON IS EVIDENCE.** It is the
+best-documented building in this dataset and the refusal is not about budget: the Green Tree was
+built in 1833, two years after the court term both these records rest on, and no licence,
+tariff, view or yard description this project holds reaches its ground. A fence drawn round it
+would be invented end to end, with none of the documentary floor the two drawn here stand on.
+
+**No roof is raised, deliberately.** A stable for the Miller house, the taverns' outbuildings and
+the yard furniture of the attested roofs at the forks each stand as a SECOND invention on top of
+this one, and a roof moves the 668-roof programme where an enclosure does not. They are left to
+their own ticket rather than invented here to round the set out.
+
+**How to resolve:** the Cook County commissioners' proceedings at page-image level, for a
+licensing condition describing premises; any Chicago or Cook County fence ordinance of the
+1830s, which would settle height and courses at a stroke for every record on this layer;
+Andreas's "Wharfs, Piers and Early Hotels" at scan pp. 626-631 read at page-image level, this
+project's standing highest-value unopened source for the Wolf Point group; or the reported 1835
+painting showing the Wolf Tavern, Miller's house and Walker's cabin in one view, which would
+settle whether either house stood in a fence at all.
+
+This entry discharges no `Covers:` claim, deliberately. An enclosure is not a structure and
+carries no attribute in the structures' grammar; each invention above is graded on its own block
+in its own record, which is where a visitor reads it.
+**Related:** **L10** (the missing enclosure archetype, and the Western Hotel standing in
+nothing — the same fault, named at another building), **L60**, **L104** (the Western Hotel
+yard's invented fence), **L128** (the pound), **L158** (the three ground treatments and why
+fenced ground is not prairie), **L229** (the smallest record on this layer), **T-1207** (the
+Wolf Point and Canal Street approach), **T-1762** (this pass), **T-1763** and **T-1764** (the
+ferry, the bridge heads and the forks' remaining roofs).
+**Recorded:** 2026-09-29.
+
+### L304 — The plat's last tier gets a fourth block: thirteen invented roofs on `blk_washington_franklin`, the whole of its lot ceiling, and the yard buildings dealt up the household scale
 
 **Decision:** `blk_washington_franklin` — bounded by Washington, Wells, Madison and Franklin,
 and standing empty until now — carries **thirteen anonymous roofs**: seven dwellings, one to a

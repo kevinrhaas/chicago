@@ -4619,7 +4619,7 @@ def cmd_self_test() -> int:
     # unmoved at 177 and 1,301 handed on; the cascade moved 69 seats between lots and traded
     # one household at the edge of the band for another, which is why the seated count did
     # not rise with the adoptions. Off-plat is unmoved at 72, so the total is 177 + 72 once
-    # more. That is the T-1622 precedence again, recorded in L303. Read at the chain's
+    # more. That is the T-1622 precedence again, recorded in L304. Read at the chain's
     # fixpoint off the committed seats files, not predicted.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249
