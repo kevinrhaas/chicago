@@ -12,6 +12,68 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
+      "wallSeconds": 126,
+      "takenAt": "2026-09-29T07:37:09.766Z",
+      "ref": "steward/t1756-wolcott-further-lots",
+      "commit": "450a6f35240f",
+      "devCommit": "b4c27fa6fcfc",
+      "treeHash": "sha256:a04796cd9065a0fe",
+      "treeDirty": false,
+      "changelogHash": "sha256:4e8a08cd9ed73ac4",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4,
+          3.4
+        ]
+      },
+      "source": "/tmp/smoke-mobile-1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 216,
+      "takenAt": "2026-09-29T07:37:09.695Z",
+      "ref": "steward/t1756-wolcott-further-lots",
+      "commit": "450a6f35240f",
+      "devCommit": "b4c27fa6fcfc",
+      "treeHash": "sha256:a04796cd9065a0fe",
+      "treeDirty": false,
+      "changelogHash": "sha256:4e8a08cd9ed73ac4",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4,
+          3.4
+        ]
+      },
+      "source": "/tmp/smoke-desktop-1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
       "wallSeconds": 228,
       "takenAt": "2026-09-29T05:29:19.416Z",
       "ref": "steward/t-1708-washington-tier",
@@ -1372,68 +1434,6 @@
         ]
       },
       "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke148_mobile_6.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 343,
-      "takenAt": "2026-09-28T09:58:29.874Z",
-      "ref": "steward/t-1714-agency-log-dwellings",
-      "commit": "c36bb7739858",
-      "devCommit": "4e9e7b702014",
-      "treeHash": "sha256:9978b30763e29cfe",
-      "treeDirty": false,
-      "changelogHash": "sha256:dfc80396be5dd59d",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          4.1,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke-d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 95,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 439,
-      "takenAt": "2026-09-28T09:57:06.326Z",
-      "ref": "steward/t-1713-south-outer-books",
-      "commit": "38bacafe90a4",
-      "devCommit": "67229e3a4605",
-      "treeHash": "sha256:02ea7b8f7b4de9fc",
-      "treeDirty": false,
-      "changelogHash": "sha256:3ceaadaef01acfe1",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          4.1,
-          3.9
-        ]
-      },
-      "source": "/tmp/sd2.log"
     },
     {
       "viewport": "desktop",
