@@ -14112,7 +14112,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 452 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 455 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14137,7 +14137,12 @@ four archetypes T-1747 raised there and shingled by the same exposure. T-1735's 
 `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the
 south-west block of that same tier, every one of them shingled — so the tier has now taken
 this exposure onto three of its blocks in three days and the two elevens are the largest
-additions this entry has had. No record's
+additions this entry has had. T-1760's first deal on `blk_lake_clinton` makes **455**, and it
+is the first time this exposure has reached the West Division's platted tier off a block
+recipe: a two-room frame cottage on the Canal face, a one-room cottage on the Clinton face and
+a stable off the alley behind the first. All three state a roof type and all three are
+shingled, the stable included — a stable's roof is shingled by the same stock as the cottage
+in whose yard it stands, and nothing about this parcel argues it should not be. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 

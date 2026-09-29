@@ -415,11 +415,38 @@ STRUCTURE_TICKETS = {
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
     ("west", "ordinary_dwellings"): "T-1208",
-    ("west", "stores_mixed_use"): "T-1207",
+    # T-1207 WAS SPLIT on 2026-09-29 (T-1760..T-1764) and its four rows moved with it, for
+    # the reason the T-1200 block below states at length: a bucket whose `owning_ticket`
+    # names a ticket in state `split` orders work nobody can claim, and the gate says so —
+    # it went red on three of these four within the minute of the split, reading
+    # "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
+    # split", and the same for workshops (3) and warehouses_freight (1).
+    #
+    # THE SHOPS AND THE STORES WENT TO T-1763, which is T-1207's ask in as many words:
+    # "the grocery and blacksmith the memo seats on the Canal Street approach". The parent's
+    # own acceptance cut these two cells together — "C1 groceries and W1/W3 shops on the
+    # approach" — and T-1763 is the only child that raises either. The other four raise
+    # dwellings and yard buildings (T-1760, T-1761, T-1762) or close the district's books
+    # (T-1764), so naming any of them here would order a store from a run that builds none.
+    ("west", "stores_mixed_use"): "T-1763",
     ("west", "larger_boarding_houses"): "T-1209",
-    ("west", "inns_taverns"): "T-1207",
-    ("west", "workshops"): "T-1207",
-    ("west", "warehouses_freight"): "T-1207",
+    # MOVED THOUGH IT READS ZERO, because the next remainder must not land on a split
+    # parent. This cell is the memo's reserved one — `Inns/taverns 0 | 3 | Reserved for
+    # named West hotels/taverns` — so the gate above never fired on it and would not have
+    # until the reserve was released. T-1764 owns the release: it is the child that
+    # reconciles the pre-plat West roofs and the named taverns, which is the condition
+    # T-1207's acceptance put on ever dealing a generic inn here ("no generic inn until the
+    # named taverns are reconciled").
+    ("west", "inns_taverns"): "T-1764",
+    ("west", "workshops"): "T-1763",
+    # THE FREIGHT SHED IS NOT T-1207'S GROUND AT ALL, and the split is what made that
+    # sayable. The West memo seats this parcel's single anonymous F1 in
+    # `w4_clinton_work_fringe` — "Sparse dwellings and the parcel's single anonymous freight
+    # shed on the westward wagon approach" — and that cluster is one of the three looser
+    # ones T-1208 owns, not one of the two approaches T-1207 was cut from. So this row does
+    # not go to a child of T-1207; it joins ordinary_dwellings and institutional_public on
+    # T-1208, which already owns the ground the shed stands on.
+    ("west", "warehouses_freight"): "T-1208",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
