@@ -30,11 +30,11 @@ The programme wants 668 roofs and 462 stand, so the town is 206 roofs short befo
 | `structures/larger_boarding_houses/west` | 6 | 2 | 2 | 4 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 7 | 5 | 1 | 7 | 1 |
 | `structures/ordinary_dwellings/south` | 176 | 121 | 111 | 55 | 121 | 55 |
-| `structures/ordinary_dwellings/west` | 75 | 53 | 50 | 22 | 55 | 20 |
-| `structures/ordinary_dwellings/north` | 84 | 54 | 48 | 30 | 54 | 30 |
+| `structures/ordinary_dwellings/west` | 75 | 51 | 48 | 24 | 53 | 22 |
+| `structures/ordinary_dwellings/north` | 84 | 56 | 50 | 28 | 56 | 28 |
 | `structures/small_outbuildings/south` | 48 | 32 | 31 | 16 | 32 | 16 |
-| `structures/small_outbuildings/west` | 14 | 6 | 6 | 8 | 5 | 9 |
-| `structures/small_outbuildings/north` | 20 | 16 | 13 | 4 | 16 | 4 |
+| `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |
+| `structures/small_outbuildings/north` | 20 | 18 | 15 | 2 | 18 | 2 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 26 | 0 | 42 | 0 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 3 | 2 | 3 | 3 |
