@@ -144,10 +144,82 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "The Brown household — a name the town's own records carry",
+      "confidence": "reconstructed",
+      "sources": [
+        "blackhawk_war_chicago_enrollments_isa",
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_randolph_franklin#07, fronting washington, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "blackhawk_war_chicago_enrollments_isa",
+      "citation": "\"Black Hawk War Veterans who Enlisted at Chicago\" — the Illinois State Archives database indexing volume 1 of Ellen M. Whitney, ed., *The Black Hawk War 1831-1832* (Springfield: Illinois State Historical Library, 1970), transcribed and donated to the Archives by Fred Delap of Kansas, Illinois, and republished by the Genealogy Trails Transcription Team. 134 rows, each giving name, rank, company, place of enrollment and regiment or brigade.",
+      "url": "https://genealogytrails.com/ill/cook/blackhawkwar.htm",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Ellen M. Whitney, ed., The Black Hawk War 1831-1832, volume 1 (Illinois State Historical Library, 1970)",
+          "date": "1832",
+          "tier": 1,
+          "note": "THE ORIGINAL. It prints, for each veteran, name, rank, unit, place and dates of enrollment, and remarks on his service, with unit history following the rolls. Nobody in this project has seen it: the layer actually read is the State Archives INDEX of it, which carries the name, the rank, the company, the place of enrollment and the regiment and nothing else — no date of enrollment, no remark, no service record."
+        },
+        {
+          "work": "Illinois State Archives Black Hawk War veterans database — the Chicago enrollments",
+          "date": "1832",
+          "tier": 1,
+          "note": "134 rows. Ninety-four of them carry the company 'INDIAN' with the Rank cell left empty; forty stand in G Kercheval's company (one CPT, one 1LT, one 2LT, 37 PVT). One hundred and thirty-three carry the regiment 'ODD', which the page's own footnote expands as 'Unassigned Colonel'; the row for ZARLEY, J W leaves that cell empty."
+        }
+      ],
+      "what_it_supplies": [
+        "134 men who demonstrably stood in Chicago in 1832 to enroll for the Black Hawk War, three years before the scene",
+        "the rank and company each man enrolled in, and the regiment or brigade he was assigned to",
+        "83 names printed WITHOUT a surname comma — the French and Potawatomi forms ('AS KE WITT', 'WAB-ME-MIC', 'BOURBONNOIS, FRANCIS SR' being of the other kind) — which is the part of the town's population this project is least able to recover elsewhere",
+        "Gholson Kercheval's company as the commonest single body of Chicago enrollments, which touches a man who signs the 1833 poll list this project already holds"
+      ],
+      "what_it_does_not_supply": [
+        "any date of enrollment beyond the year of the war — the index drops the dates the book prints",
+        "any residence, address, lot, trade, age or household",
+        "any evidence at all that a man was still in Chicago in 1835: enrolling at a place is presence at that place on that day and nothing more",
+        "any woman, and any man who did not enroll",
+        "the remarks on service that Whitney's volume carries, which are only obtainable from the Archives by post"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
