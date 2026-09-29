@@ -14097,7 +14097,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 422 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 433 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14108,8 +14108,10 @@ carries no shingle at all. T-1717's two Lake House neighbours make 418, and they
 frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
 neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two
 frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of
-them shingled by this exposure like every other frame roof the block recipe raises. No record's
-`roof_type` or pitch
+them shingled by this exposure like every other frame roof the block recipe raises. T-1735's
+first deal on blk_washington_lasalle then makes it **433** in one step — seven dwellings and
+four yard buildings on the same tier, every one of them shingled — which is the largest single
+step this count has taken since it was written down. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -14586,10 +14588,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 163 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 168 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 163 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,315
+**Scope:** `platted_seats.seats[dealt]` — 168 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,310
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14609,26 +14611,35 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 111 of the 163 seats are
+roof of a family its clause admits, on a lot of its own division; 118 of the 168 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **52 of the 163 are that: 28 on the plat's last tier** (T-1707,
-2026-09-28, and T-1736 below), **4 west of the river on ground the plat always drew and this
-project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on Kinzie's
-Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
+sizing keeps open; **50 of the 168 are that: 26 on the plat's last tier** (T-1707,
+2026-09-28, and T-1736 and T-1735 below), **4 west of the river on ground the plat always drew
+and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on
+Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
 between Market and State that Washington bounds on the north, each `open` with 27 roofs of
-headroom, and the deal placed 18 merchant and professional households and 10 tradesmen's
+headroom, and the deal placed 14 merchant and professional households and 12 tradesmen's
 onto them. **The Clark block's own count has been 2, then 1, then 0, and each step was
 measured rather than decided.** It was 2 while the block's plan held two principal roofs and
 neither was built. T-1716's keeper's quarters at the Chicago light took it to 1: that roof is
 a standing roof the programme counts, so the family plan it draws for the Clark block fell
 from two principal roofs to one, and the household that had the second went back on the owed
 list. T-1736 then BUILT the block's principal room out — see **L292** — and a block with no
-principal room left can offer no slot at all, so the last one went too.
+principal room left can offer no slot at all, so the last one went too. **And then T-1735 gave
+it five back, which is the fourth step and the one that shows what the schedule is.** Building
+`blk_washington_lasalle` out (see **L294**) did not add a roof to the town: the programme's
+total is fixed and eleven of its REMAINING roofs became STANDING ones. What it re-apportions is
+the remainder, over the blocks still `open` — so the Clark block's own plan went from five
+roofs, every one of them ancillary, to eighteen with principal dwellings among them, and five
+households took slots on it. A block's slot count is therefore not a ratchet in either
+direction, and no reading of this entry should treat it as one: it is what the schedule
+apportions to that block on the day it is read, and raising a block's roofs re-deals the order
+behind them across the whole tier.
 **Four more arrived the same way and on the same kind of ground — two blocks, one ruling, and
 the second of them took a whole ticket longer to reach.** `blk_lake_clinton` and
 `blk_randolph_clinton` are plat blocks 28 and 45, between Clinton and Canal, and both grids of
@@ -15271,11 +15282,11 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Twenty-one roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-four do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 63
+**Scope:** `roof_keepers.written[named]` — 20 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 66
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 21 are on the
-five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
+five South Water blocks and were written by T-1638; the other 13 are on the Randolph–
 Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -15291,6 +15302,14 @@ and both of those are letter-list names this pass already refuses; so the two ke
 not refused, they are OWED, and the owed count goes 23 to 25 as the written count goes 23 to
 21. Nothing about the naming rule changed and no name moved to a roof it was not dealt: the
 seats moved and the district boundary of this pass did not follow them.
+
+**And T-1735 cost one more, the same way and on the same tier.** Eleven roofs on
+`blk_washington_lasalle` (**L294**) moved the seating again, so the written count goes 21 to
+**20**, the refusals 63 to **66** — 64 of them the letter-list refusal already on the books and
+2 the T-1689 naming disagreement — and the owed count 25 to **32**. Every one of the seven is
+owed rather than refused, for the reason the paragraph above gives: the household that has the
+roof is seated on a Washington-tier block this pass has not been run over yet. No ruling moved,
+no name was written to a roof it was not dealt, and no refusal was re-argued.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -16382,6 +16401,8 @@ increases the total.
 **Covers:** `recon_1835_blk_washington_lasalle_*.inferred_1835.position`, `recon_1835_blk_washington_lasalle_*.inferred_1835.footprint`
 **Related:** **L92** (the first block of platted infill and the face argument this one repeats),
 **L90** and **L91** (the anonymous roofs and their form values), **L270** (the platted deal whose
-seven slots this answers, and the six households it re-slotted onto the tier's other blocks),
-**T-1735** and **T-1707** (the street control that emitted the tier).
+seven slots this answers, the households it re-slotted onto the tier's other blocks, and the
+five slots the re-apportionment gave back to `blk_washington_clark`), **L292** (T-1736's deal on
+that block, one tier along and two days before this one), **T-1735** and **T-1707** (the street
+control that emitted the tier).
 **Recorded:** 2026-09-28.

@@ -247,13 +247,21 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
+# 444 -> 455 and 440 -> 451 on 2026-09-28 (T-1735): the eleven roofs of the first deal on
+# `blk_washington_lasalle`, the south-west block of the plat's last tier. Seven principal
+# dwellings and four yard buildings, every one of them an anonymous count-unit the platted
+# seating asked this block for by name. Eleven new structure assets, so eleven more meshes a
+# change to the shared generator modules or to emit.py would re-stale; the terrain and
+# pier_crib reaches are untouched. Nothing about the debt itself moved — it is the largest
+# single step this reach has taken, and it is eleven roofs and not an argument.
+#
 STATED = {
-    "assets": 444,
+    "assets": 455,
     "restales": {
-        "generators/common/*.py": 444,
+        "generators/common/*.py": 455,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 440,
+        "generators/emit.py": 451,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
