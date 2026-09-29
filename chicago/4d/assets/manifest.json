@@ -2412,6 +2412,105 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d5_01"
     },
+    "recon_1835_blk_washington_lasalle_a1_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 86404,
+      "inputs_sha256": "da92f263746b5963e9b5b7644014c832911281611846b4e3e0aa324392b7224c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_a1_08"
+    },
+    "recon_1835_blk_washington_lasalle_a3_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 30480,
+      "inputs_sha256": "a94cbe91ccd4516cbfff112245f6afef75fdcfa895e6b0c9c532a9721d758a3f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_a3_09"
+    },
+    "recon_1835_blk_washington_lasalle_a3_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 27360,
+      "inputs_sha256": "2191f3190089f4081a822902d22d34a59fc5646a9d28e037eeb3a24c5a31441e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_a3_10"
+    },
+    "recon_1835_blk_washington_lasalle_a4_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 52340,
+      "inputs_sha256": "bde885a8cf13a7ef2a294d9dc478d141b9d87b8d268c4696b24a97194c74463e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_a4_11"
+    },
+    "recon_1835_blk_washington_lasalle_d3_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 28028,
+      "inputs_sha256": "230cccf14670be480935640eec89e6bd6a66a46cd74aa6f5a137154cab4ad47b",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_d3_06"
+    },
+    "recon_1835_blk_washington_lasalle_d3_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 31148,
+      "inputs_sha256": "70368453f9830444735ac9b28cb575edc036dcbcc572482e64abb1409b8c4fb4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_d3_07"
+    },
+    "recon_1835_blk_washington_lasalle_d7_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 49560,
+      "inputs_sha256": "b48dc9b0cc23a429f525d638c491ceefe9d83cf7d8bf8698cafac3a9b4f03c6a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_d7_04"
+    },
+    "recon_1835_blk_washington_lasalle_d7_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 48620,
+      "inputs_sha256": "5e975ce8437feb580f589682fa405377bf3ed13214508afd36316a1f4708631b",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_d7_05"
+    },
+    "recon_1835_blk_washington_lasalle_h1_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38084,
+      "inputs_sha256": "14d54f812f22e990abafe391d8674558794e16b99b87fa8f73188514dd34bdc2",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_h1_02"
+    },
+    "recon_1835_blk_washington_lasalle_h1_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 37452,
+      "inputs_sha256": "efc3ca4e6b5ae415a7059751a1a07415021e084b400a6d45bf025fed7714e2f8",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_h1_03"
+    },
+    "recon_1835_blk_washington_lasalle_h2_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 51436,
+      "inputs_sha256": "431d6379db316c300f80444bfe24f7dfc178649503070ec71fd3c3a1f28442b4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_lasalle_h2_01"
+    },
     "recon_1835_blk_washington_wells_a1_11__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

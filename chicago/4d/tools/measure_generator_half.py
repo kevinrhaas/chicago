@@ -267,27 +267,6 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and
 # pier_crib at 2. Nothing about the debt itself moved.
 #
-# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the second deal on
-# `blk_indiana_north_wolcott` — two more single-room frame cottages on that block's
-# Indiana and Illinois faces with a woodshed and a privy off the alley behind them. Four
-# new structure assets on the same terms as every block deal above; the terrain reach
-# stays at 4 and pier_crib at 2. Nothing about the debt itself moved.
-#
-# 464 -> 468 and 460 -> 464 on 2026-09-29 (T-1753): the four roofs of the first deal on
-# `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
-# cottages and the privy and woodshed off the alley behind them. Four new structure
-# assets on the same terms as the eleven block roofs above: four more meshes the shared
-# generator modules or emit.py would re-stale, the terrain reach still 4 and pier_crib
-# still 2. Nothing about the debt itself moved. The from-numbers are the ones this
-# branch found on `dev` at its SEVENTH lap, not the 449/445 it was written off: the debt
-# is cumulative, so T-1708's eleven and T-1756's four are counted first and these four go
-# on top of them.
-# THIS ROW HAS NOW MOVED FIVE TIMES IN TWO DAYS — four block deals and the Glessner
-# House — which is the measurement working as intended and also the shape of what it
-# measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
-# will keep being restated a parcel at a time for as long as the town is built a block
-# at a time.
-#
 # 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the SECOND deal on
 # `blk_indiana_north_wolcott` — two more one-room frame cottages on lots 4 and 5 with a
 # woodshed and a privy off the alley behind them, which completes the alternation the
@@ -296,13 +275,37 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
 # the debt itself moved.
 #
+# 464 -> 475 and 460 -> 471 on 2026-09-29 (T-1735): the eleven roofs of the deal on
+# `blk_washington_lasalle`, the south-west block of the same last tier, raised on top of the
+# Wells eleven and the Wolcott four above. Seven principal dwellings (an H2, two H1, two D7
+# and two D3) with a stable, two privies and a woodshed behind them. Eleven new structure
+# assets, so eleven more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain reach stays at 4 and pier_crib at 2. Nothing about the debt itself
+# moved. The from-numbers are the ones this branch found on `dev` at its NINTH lap, and the
+# three numbers are read off the committed tree by `--gate` rather than carried over.
+#
+# 475 -> 479 and 471 -> 475 on 2026-09-29 (T-1753): the four roofs of the first deal on
+# `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
+# cottages and the privy and woodshed off the alley behind them. Four new structure
+# assets on the same terms as every entry above: four more meshes the shared generator
+# modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still 2.
+# Nothing about the debt itself moved. The from-numbers are the ones this branch found
+# on `dev` at its TENTH lap, not the 449/445 it was written off: the debt is cumulative,
+# so T-1708's eleven, T-1756's four, the Glessner versions and T-1735's eleven are all
+# counted first and these four go on top of them.
+# THIS ROW HAS NOW MOVED SIX TIMES IN TWO DAYS — five block deals and the Glessner
+# House — which is the measurement working as intended and also the shape of what it
+# measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
+# will keep being restated a parcel at a time for as long as the town is built a block
+# at a time.
+#
 STATED = {
-    "assets": 468,
+    "assets": 479,
     "restales": {
-        "generators/common/*.py": 468,
+        "generators/common/*.py": 479,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 464,
+        "generators/emit.py": 475,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

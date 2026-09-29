@@ -10,6 +10,14 @@
         "phase": "as_built_1887",
         "sidecar": "sidecars/1904/versions/glessner_house/v2.json",
         "asset": "gltf/versions/glessner_house/v2/glessner_house__as_built_1887.glb"
+      },
+      {
+        "label": "v3",
+        "summary": "Independent reading of the same T-1731/HABS-photo/Houghton sources: granite read toward the museum's 'pink' name rather than Glessner's grey; the stable roof kept symmetric on the wing's centreline; the tower, turret, chimney depths, dormers, hall-bow roof, courtyard windows and courtyard ground each independently reconstructed. L301.",
+        "test_fixture": false,
+        "phase": "as_built_1887",
+        "sidecar": "sidecars/1904/versions/glessner_house/v3.json",
+        "asset": "gltf/versions/glessner_house/v3/glessner_house__as_built_1887.glb"
       }
     ]
   }
