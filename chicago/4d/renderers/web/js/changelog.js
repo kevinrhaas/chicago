@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A whole street of houses south of Washington', kind: 'change',
+  { v: 1224, ts: '2026-09-29T04:38:56.323Z', date: 'Sep 28, 2026, 11:38 PM CT', title: 'A whole street of houses south of Washington', kind: 'change',
     items: [
       'Walk south down Franklin Street past Washington and the block between Washington and Madison, Franklin and Wells is built out. Seven houses stand on it, one to a lot, with the eighth lot left open: two small two-storey frame houses on the Washington corners, a merchant\u2019s house and a larger one-and-a-half-storey house between them, and three one-room cottages along the Madison side. It is the first block anywhere on the last row of the plat to carry a street of roofs rather than a pair of them.',
       'Behind them are six yard buildings, dealt by who would have kept them. Two stables and a carriage shed stand behind the three larger houses; woodsheds and a privy stand behind the smaller ones. One cottage, on the Madison and Wells corner, has an empty yard \u2014 the block\u2019s plan holds six yard buildings and seven houses, and that is written down rather than rounded up.',
