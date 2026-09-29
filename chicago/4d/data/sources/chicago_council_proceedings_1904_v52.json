@@ -1,0 +1,26 @@
+{
+ "id": "chicago_council_proceedings_1904_v52",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1903-1904 (October 1903 to April 1904). Chicago: the City Council, 1904. Vol. 52.",
+ "author": "City of Chicago, City Council",
+ "date": "1904",
+ "describes_date": "October 1903 - April 1904",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit52chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit52chic/proceedingsofcit52chic_djvu.txt",
+ "locator": "The Council meeting of 2 November 1903, pp. 1386-1391: the Board of Local Improvements' 'report on the condition of the streets paved under the Board since the passage of the statute in 1901' (John A. May, secretary); the Prairie Avenue entry is on p. 1390.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "THE RECORD THAT DATES THE 1904 AVENUE. The Board's report of 2 November 1903 lists every street it had paved since the 1901 statute with an inspector's note, and it includes 'Prairie avenue from 16th street to 20th street. Good condition.--P. J. O'Donnell.' (p. 1390). So the asphalt the Council ordered on 9 February 1903 was down eight months before the scene date, and the same stretch is reported again, 'asphalt. R. F. Conway Co., contractor. In good condition', on 7 November 1906 (chicago_council_proceedings_1907_v58). Two records either side of 1 July 1904 name the same surface: it is ATTESTED for the scene. The list is also read for what it omits: no street or alley of the grid other than Prairie Avenue 16th-20th is in it, so the macadam of the cross streets and of Prairie Avenue 20th-22nd was not laid by the Board in 1901-03.",
+ "what_it_supplies": [
+  "that Prairie Avenue from 16th to 20th Street had been paved (with the asphalt of the 9 February 1903 ordinance) and was in good condition on 2 November 1903",
+  "that no other street or alley of the 1904 grid was paved by the Board between 1901 and November 1903"
+ ],
+ "what_it_does_not_supply": [
+  "the material in words for this entry (the list gives condition only; the material is the ordinance's and the 1906 report's)"
+ ]
+}

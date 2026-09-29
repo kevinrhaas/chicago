@@ -1,0 +1,45 @@
+{
+  "id": "sheet_asphalt",
+  "directional": false,
+  "group": "roadway",
+  "span_m": 4.0,
+  "kind": "asphalt",
+  "mean_roughness": 0.7,
+  "colors": [
+    [
+      92,
+      90,
+      86
+    ],
+    [
+      60,
+      59,
+      57
+    ]
+  ],
+  "note": "Sheet asphalt (lake asphalt and sand on a concrete base) about one season old: a fine sand grain, a faint mottle, wheel-polished streaks along the street and sparse horse-droppings stains. Colour and wear are reconstructed (L294).",
+  "span_along_m": 4.0,
+  "span_across_m": 4.0,
+  "resolution_px": 512,
+  "px_per_m": 128.0,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "sheet_asphalt_basecolor_web.jpg",
+    "normal_gl": "sheet_asphalt_normal_gl_web.jpg",
+    "orm": "sheet_asphalt_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19040701,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

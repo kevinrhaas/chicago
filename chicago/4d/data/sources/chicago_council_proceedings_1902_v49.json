@@ -1,0 +1,28 @@
+{
+ "id": "chicago_council_proceedings_1902_v49",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1902-1903 (April to November 1902). Chicago: the City Council, 1902. Vol. 49.",
+ "author": "City of Chicago, City Council",
+ "date": "1902",
+ "describes_date": "April - November 1902",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit49chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit49chic/proceedingsofcit49chic_djvu.txt",
+ "locator": "The Council meeting of 28 April 1902, p. 158 (Prairie Avenue, 16th to 22nd Street); the Board of Local Improvements' recommendations printed at the meeting of 21 April 1902, p. 49 (a specimen ordinance 'curbing with sandstone curbstones'); the Council meeting of 22 September 1902, p. 1099 (Indiana Avenue, 18th to 39th Street; the OCR misprints the cross-referenced dates as 1903).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "On 28 April 1902 the Council passed 'A recommendation, ordinance and estimate for curbing, grading and paving with asphalt Prairie avenue, from 16th street to 22d street' (p. 158, 67 yeas). It was not carried out as passed: the Council passed a new one for 16th to 20th Street on 9 February 1903 (chicago_council_proceedings_1903_v50) and the stretch 20th to 22nd Street was macadam in December 1904 (chicago_council_proceedings_1905_v54). The same volume shows how the Board of Local Improvements named curbing in 1902: its full-text recommendations order streets 'curbed with sandstone curbstones' (p. 49 and throughout; 'sandstone curbstones' 28 times in the volume's OCR), while a concrete curb and gutter is named in an ordinance's TITLE ('combined curb and gutter', 57 times). On 22 September 1902 the Council also passed the ordinance 'for curbing, grading and paving with asphalt Indiana avenue, from 18th street to 39th street' (p. 1099); it was still being carried out a year later (chicago_council_proceedings_1903_v51).",
+ "what_it_supplies": [
+  "the 1902 ordinance for asphalt on Prairie Avenue 16th to 22nd Street, which dates the district's move to asphalt",
+  "the Board of Local Improvements' curbing vocabulary in 1902: sandstone curbstones, or a concrete curb and gutter named in the title",
+  "a bound on sidewalk materials: the volume's OCR mentions 'cement sidewalk' 133 times, 'plank sidewalk' 32 times and 'cinder sidewalk' 47 times (counted 2026-09-29 for T-1728; a mention may be an order, a repeal or a contract, so the counts are proportions of the city's business, not of walks laid)"
+ ],
+ "what_it_does_not_supply": [
+  "that the 1902 ordinance was executed (it was superseded)",
+  "the curb material of any Prairie Avenue ordinance, whose full text is not printed"
+ ]
+}

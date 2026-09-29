@@ -1,0 +1,45 @@
+{
+  "id": "macadam_limestone",
+  "directional": false,
+  "group": "roadway",
+  "span_m": 6.0,
+  "kind": "macadam",
+  "mean_roughness": 0.92,
+  "colors": [
+    [
+      160,
+      154,
+      140
+    ],
+    [
+      112,
+      108,
+      99
+    ]
+  ],
+  "note": "Water-bound crushed-limestone macadam, worn: pale dusty binder over angular aggregate, wheel tracks along the street and patched hollows. The city's own 1 Dec 1904 report lists these streets as macadam 'in need of repair'; the look is reconstructed (L294).",
+  "span_along_m": 6.0,
+  "span_across_m": 6.0,
+  "resolution_px": 512,
+  "px_per_m": 85.33,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "macadam_limestone_basecolor_web.jpg",
+    "normal_gl": "macadam_limestone_normal_gl_web.jpg",
+    "orm": "macadam_limestone_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19040802,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

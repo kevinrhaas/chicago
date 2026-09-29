@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1222, ts: '2026-09-29T03:15:51.029Z', date: 'Sep 28, 2026, 10:15 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
+    items: [
+      'At /4d/1904/ the streets are no longer placeholder grey. Prairie Avenue in front of the Glessner corner is dark sheet asphalt, 18th Street beside it pale crushed-stone macadam, and every block has a cement sidewalk, a strip of lawn and a stone curb.',
+      'The roadways come from the city’s own records. The council ordered Prairie paved with asphalt from 16th to 20th Street in February 1903, and inspectors found it down and in good condition that November. A December 1904 street survey lists Prairie south of 20th, and 18th, 20th and 21st Streets, as worn macadam.',
+      'Prairie Avenue was not yet a boulevard. The park board that the 1911 map’s “Prairie Av. Blvd.” refers to took the avenue over in October 1906; in 1904 the city paved and repaired it.',
+      'The sidewalks, curbs and lawns are our reconstruction. No record we found says what they were made of in 1904. They are drawn the way the city’s 1905 code describes and the way photographs of the Glessner frontages show them about 1923: concrete in five-by-six-foot blocks, sandstone curbstones and grass.',
+      'Aim at any roadway, alley or strip of sidewalk and its card now says what it is made of, how sure we are, and which record says so.',
+    ] },
   { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
     items: [
       "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",
