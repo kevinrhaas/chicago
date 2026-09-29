@@ -14602,10 +14602,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 168 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 170 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 168 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,310
+**Scope:** `platted_seats.seats[dealt]` — 170 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,308
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14625,23 +14625,23 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 118 of the 168 seats are
+roof of a family its clause admits, on a lot of its own division; 120 of the 170 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **50 of the 168 are that: 26 on the plat's last tier** (T-1707,
+sizing keeps open; **50 of the 170 are that: 26 on the plat's last tier** (T-1707,
 2026-09-28, and T-1736 below), **4 west of the river on ground the plat always drew and this
 project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on Kinzie's
 Addition** (T-1741, 2026-09-28, the paragraphs below).
 
-**T-1708 MOVED IT FROM 165 TO 168, AND THE THREE ARE NOT THE ELEVEN ROOFS IT RAISED.** The
+**T-1708 MOVED IT FROM 165 TO 170, AND THE FIVE ARE NOT THE ELEVEN ROOFS IT RAISED.** The
 deal on `blk_washington_wells` (**L296**) built the seven principal roofs the seating had
 asked for as slots on that block, so those seven rows change how and not whether: they were
 requests and they are adoptions now, which is the whole point of a slot. What moves the TOTAL
 is the cascade behind them. Standing eleven roofs on an open block re-scores every South
 Division lot the adoption step ranks, and the pass runs before the slot step, so households
 that had been refused the plat entirely now find a roof of an admitted family free: adoptions
-go 113 -> 118 and the written refusals 1,313 -> 1,310. Slots go 52 -> 50 rather than 52 -> 45,
+go 113 -> 120 and the written refusals 1,313 -> 1,308. Slots go 52 -> 50 rather than 52 -> 45,
 because with `blk_washington_wells` built out to its seven buildable lots the block can offer
 no further slot, and the two requests it had held over and above the seven fall back onto the
 owed list with their reasons. The tier's slot count is 26 now — seven each still outstanding
