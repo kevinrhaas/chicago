@@ -410,9 +410,10 @@ STRUCTURE_TICKETS = {
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     # T-1742 was split on 2026-09-29 UTC: T-1747 raises the first Wolcott roofs;
-    # T-1748 owns the remaining addition and north-tier dwellings. Keep the
-    # forward-looking bucket on that live successor; historical fills stay put.
-    ("north", "ordinary_dwellings"): "T-1748",
+    # T-1748 then split into T-1753 (first Cass roofs) and T-1754 (the remaining
+    # north-tier roofs). Keep the forward-looking bucket on that live remainder;
+    # historical fills stay put.
+    ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
