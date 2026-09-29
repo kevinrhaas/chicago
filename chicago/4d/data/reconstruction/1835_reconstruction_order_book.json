@@ -1445,8 +1445,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 476,
-    "roofs_to_build": 206,
+    "roofs_standing": 480,
+    "roofs_to_build": 202,
     "persons_standing": 2381,
     "persons_still_owed": 290,
     "persons_when_the_book_is_filled": 2671,
@@ -1468,9 +1468,9 @@
     "still_owed": 1229,
     "roofs_adopted": 203,
     "slots_requested": 46,
-    "roofs_standing": 476,
-    "roofs_standing_unseated": 273,
-    "share_of_standing_roofs_seated": 0.4265,
+    "roofs_standing": 480,
+    "roofs_standing_unseated": 277,
+    "share_of_standing_roofs_seated": 0.4229,
     "passes": [
       {
         "key": "platted",
@@ -5171,11 +5171,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 476,
+        "standing_records": 480,
         "standing_with_an_occupant": 148,
-        "standing_without_an_occupant": 328,
-        "to_build_total": 206,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 328 of the 476 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 332,
+        "to_build_total": 202,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 332 of the 480 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5217,13 +5217,13 @@
             "division": "north"
           },
           "target": 17,
-          "standing": 8,
-          "to_build": 9,
+          "standing": 9,
+          "to_build": 8,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 17; the 668-roof programme leaves 9 of them to build"
+          "basis": "the inventory's district/group matrix sets 17; the 668-roof programme leaves 8 of them to build"
         },
         {
           "key": "structures/barns_stables/fort",
@@ -5435,13 +5435,13 @@
             "division": "north"
           },
           "target": 84,
-          "standing": 56,
-          "to_build": 28,
+          "standing": 58,
+          "to_build": 26,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1757",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 84; the 668-roof programme leaves 28 of them to build"
+          "basis": "the inventory's district/group matrix sets 84; the 668-roof programme leaves 26 of them to build"
         },
         {
           "key": "structures/small_outbuildings/south",
@@ -5482,13 +5482,13 @@
             "division": "north"
           },
           "target": 20,
-          "standing": 18,
-          "to_build": 2,
+          "standing": 19,
+          "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 2 of them to build"
+          "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 1 of them to build"
         },
         {
           "key": "structures/small_outbuildings/fort",
@@ -5710,9 +5710,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 163,
+        "roofs_on_committed_ground": 159,
         "roofs_gated_on_coverage": 42,
-        "statement": "163 of the 206 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 42 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "159 of the 202 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 42 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -6128,7 +6128,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "328 of 476 standing records carry no occupants block."
+      "measured_now": "332 of 480 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

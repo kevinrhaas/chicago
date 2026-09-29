@@ -198,9 +198,9 @@
   "adopted_into_a_roof_of_no_trade": 13,
   "roofs_free_and_a_house_of_trade": 28,
   "houses_of_trade_left_free": 2,
-  "roofs_reserved_for_a_slot_request": 24,
+  "roofs_reserved_for_a_slot_request": 26,
   "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 24,
+  "reserved_without_a_committed_occupancy": 26,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -360,6 +360,28 @@
    "requested_by_seat": "hh_anderson_eli_f",
    "order_book_draw": "blk_indiana_north_cass / D3 / north",
    "dealt_by_ticket": "T-1753",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_indiana_north_cass_d4_05",
+   "block_id": "blk_indiana_north_cass",
+   "programme_phase": "phase3_platted_block_indiana_north_cass_second_deal",
+   "family": "D4",
+   "requested_by_seat": "hh_baily_john",
+   "order_book_draw": "blk_indiana_north_cass / D4 / north",
+   "dealt_by_ticket": "T-1757",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_indiana_north_cass_d4_06",
+   "block_id": "blk_indiana_north_cass",
+   "programme_phase": "phase3_platted_block_indiana_north_cass_second_deal",
+   "family": "D4",
+   "requested_by_seat": "hh_barber_beta_l",
+   "order_book_draw": "blk_indiana_north_cass / D4 / north",
+   "dealt_by_ticket": "T-1757",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },
