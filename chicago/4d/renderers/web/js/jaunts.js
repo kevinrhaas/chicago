@@ -2,7 +2,7 @@
 export const SESSION_KEY = 'c4d.jaunt.session.v1';
 export const emptyState = () => ({ jaunt: null, session: null, leg: 0, stopIndex: 0,
   visited: [], vars: {}, inventory: [], events: [], eventSeq: 0, phase: 'menu', choice: null,
-  mode: null, estimate: null, notice: null, restored: false });
+  mode: null, estimate: null, notice: null, restored: false, context: null, contextDismissed: false });
 export function matches(test, vars, inventory) {
   if (!test) return true;
   if (test.all) return test.all.every(t => matches(t, vars, inventory));
@@ -80,7 +80,7 @@ export function resourceSummary(s) {
   if (s.jaunt?.inventory) rows.push(`Basket ${s.inventory.length}/${s.jaunt.inventory.capacity}`);
   return rows;
 }
-export const canNext = s => ['atStop', 'detail'].includes(s.phase)
+export const canNext = s => (s.phase === 'atStop' || (s.phase === 'detail' && s.detailPhase === 'atStop'))
   && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
 const append = (s, type, data = {}, eventId = null) => {
   const eventSeq = s.eventSeq + 1;
@@ -119,7 +119,7 @@ function endingFor(s, next) {
   return ending && matches(ending.when, s.vars, s.inventory) ? ending : fallbackEnding();
 }
 function move(s, index) {
-  return append({ ...s, stopIndex: index, leg: s.leg + 1, phase: 'travelling', choice: null, error: null, instant: false },
+  return append({ ...s, fromStopId: index === s.stopIndex ? s.fromStopId : currentStop(s)?.id, context: null, contextDismissed: false, stopIndex: index, leg: s.leg + 1, phase: 'travelling', choice: null, error: null, instant: false },
     'depart', { stop: s.visited[index].id, leg: s.leg + 1 });
 }
 export function reduce(s, e) {
@@ -130,7 +130,9 @@ export function reduce(s, e) {
       ...initialResources(e.jaunt) }, 'start');
   }
   if (!s.jaunt) return s;
-  if (['ARRIVE', 'STOPPED', 'FAILED'].includes(e.type) && (e.session !== s.session || e.leg !== s.leg)) return s;
+  if (['ARRIVE', 'STOPPED', 'FAILED', 'CONTEXT'].includes(e.type) && (e.session !== s.session || e.leg !== s.leg)) return s;
+  if (e.type === 'CONTEXT' && s.phase === 'travelling') return { ...s, context: e.context };
+  if (e.type === 'DISMISS_CONTEXT') return { ...s, contextDismissed: true };
   if (e.type === 'END') return emptyState();
   if (e.type === 'MODE' && s.jaunt.allowed_modes?.includes(e.mode) && e.mode !== s.mode && s.phase !== 'outcome') {
     const changed = append({ ...s, mode: e.mode }, 'mode', { mode: e.mode });
@@ -146,14 +148,16 @@ export function reduce(s, e) {
     return append({ ...s, phase: 'paused', leg: s.leg + 1, error: null }, 'pause', { reason: e.reason });
   if (e.type === 'MENU') {
     if (['menu', 'outcome'].includes(s.phase)) return s;
-    return append({ ...s, phase: 'menu', resumePhase: s.phase === 'detail' ? 'atStop' : s.phase === 'paused' ? 'travelling' : s.phase, leg: s.leg + 1 }, 'pause');
+    return append({ ...s, phase: 'menu', resumePhase: s.phase === 'detail' ? s.detailPhase || 'atStop' : s.phase === 'paused' ? 'travelling' : s.phase, leg: s.leg + 1 }, 'pause');
   }
   if (e.type === 'RESUME' && s.phase === 'menu') {
     const resumed = append({ ...s, phase: s.resumePhase || 'atStop' }, 'resume');
     return resumed.phase === 'travelling' ? move(resumed, s.stopIndex) : resumed;
   }
-  if (e.type === 'DETAIL' && s.phase === 'atStop') return { ...s, phase: 'detail' };
-  if (e.type === 'RETURN' && s.phase === 'detail') return { ...s, phase: 'atStop' };
+  if (e.type === 'DETAIL' && ['atStop', 'travelling', 'paused'].includes(s.phase))
+    return { ...s, phase: 'detail', detailPhase: s.phase, leg: s.leg + (s.phase === 'travelling' ? 1 : 0) };
+  if (e.type === 'RETURN' && s.phase === 'detail')
+    return s.detailPhase === 'travelling' ? move(s, s.stopIndex) : { ...s, phase: s.detailPhase || 'atStop', detailPhase: null };
   if (e.type === 'RETRY' && s.phase === 'travelling' && s.error) return move(s, s.stopIndex);
   if (e.type === 'PREV' && ['travelling', 'paused', 'atStop', 'detail'].includes(s.phase)) return s.stopIndex ? move(s, s.stopIndex - 1) : s;
   if (e.type === 'REVISE' && ['atStop', 'detail'].includes(s.phase) && s.visited[s.stopIndex]?.committed) return revise(s);
@@ -199,8 +203,8 @@ export function replaySession(jaunt, saved, session = 1) {
 
 /** Adapters own UI and travel. Tokens invalidate every obsolete completion. */
 export function createJaunts({ load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
-  estimate = () => null, storage: suppliedStorage }) {
-  let state = emptyState(), serial = 0, request, destroyed = false, previousMode;
+  estimate = () => null, contextForRoute = () => null, storage: suppliedStorage }) {
+  let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
   if (storage === undefined) { try { storage = globalThis.localStorage; } catch { storage = null; } }
   const clearSaved = () => { try { storage?.removeItem(SESSION_KEY); } catch { /* memory-only */ } };
@@ -211,33 +215,41 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
+  const dismissDetail = () => { detailRequest?.abort(); detailRequest = null; closeDetail(); };
   function dispatch(event) {
     const old = state;
     state = reduce(state, event);
     if (state === old) return false;
-    if (state.jaunt && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
+    if (old.phase === 'detail' && state.phase !== 'detail') dismissDetail();
+    if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
       state = { ...state, estimate: estimate(state) };
     render(state);
     if (state.phase === 'travelling' && (old.leg !== state.leg || old.phase !== state.phase)) {
-      cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); closeDetail();
+      cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); dismissDetail();
       if (previousMode === undefined) previousMode = travel.mode;
       const token = { session: state.session, leg: state.leg }, target = resolve(currentStop(state).destination);
       travel.setMode(state.instant ? 'instantly' : state.mode);
       if (!target || !travel.go(target, { token,
         onArrive: tags => dispatch({ type: 'ARRIVE', ...tags }),
-        onStop: tags => dispatch({ type: 'STOPPED', ...tags }) }))
+        onStop: tags => dispatch({ type: 'STOPPED', ...tags }),
+        onRoute: route => {
+          if (state.session !== token.session || state.leg !== token.leg || state.phase !== 'travelling') return;
+          dispatch({ type: 'CONTEXT', ...token, context: contextForRoute(state, route) });
+        } }))
         dispatch({ type: 'FAILED', ...token, message: 'This stop could not be reached. Try again, go back, or end the jaunt.' });
+    } else if (state.phase === 'detail') {
+      cancel('detail');
     } else if (state.phase === 'paused') {
       cancel(); restore();
     } else if (['menu', 'outcome'].includes(state.phase)) {
-      cancel(); closeDetail(); restore(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
+      cancel(); dismissDetail(); restore(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
     }
     persist();
     return true;
   }
   async function start(id, { mode } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); closeDetail(); restore(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -271,7 +283,7 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); closeDetail(); restore(); render(state); };
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,
@@ -284,7 +296,16 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
       if (!state.restored && !enter(null, { resume: true })) return false;
       previousMode = travel.mode; state = { ...state, restored: false }; return dispatch({ type: 'RESUME' }); },
     restart: () => state.jaunt && start(state.jaunt.id, { mode: state.mode }),
-    detail(link) { if (dispatch({ type: 'DETAIL' })) openDetail(link); },
+    detail(link) {
+      if (!dispatch({ type: 'DETAIL' })) return false;
+      detailRequest = new AbortController();
+      const signal = detailRequest.signal;
+      Promise.resolve().then(() => { if (!signal.aborted) return openDetail(link, { signal }); }).catch(() => {
+        if (!signal.aborted) dispatch({ type: 'RETURN' });
+      });
+      return true;
+    },
+    dismissContext: () => dispatch({ type: 'DISMISS_CONTEXT' }),
     returnFromDetail: () => dispatch({ type: 'RETURN' }), explore,
     destroy() { destroyed = true; explore(); },
   };
