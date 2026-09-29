@@ -1,3 +1,34 @@
+## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
+
+The opt-in v4 uses the default envelope with measured ashlar course heights,
+corrected crossing roofs and courtyard openings, physical window/door recesses,
+stone and brick relief, overlapping clay tiles and original metric PBR maps.
+Evidence: `docs/RESEARCH/glessner_house_v4.md`; reconstructed details: L305.
+The working branch is `steward/glessner-v4`; recoverable checkpoints and the
+remaining acceptance work are in `docs/RESEARCH/glessner_v4_work.md`.
+
+Visual review and final validation are in progress. The early renders exposed
+blank tower windows, incorrect bay glazing, a blocked passage and flat chimney
+faces; subsequent candidates correct these and refine stone fracture, joinery,
+carving and glass. No photographic-quality claim is made solely from passing
+checks. T-1730 remains open for the owner's comparison among versions.
+
+## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
+
+The opt-in v4 uses the default envelope with measured ashlar course heights,
+corrected crossing roofs and courtyard openings, physical window/door recesses,
+stone and brick relief, overlapping clay tiles and original metric PBR maps.
+The evidence dossier is `docs/RESEARCH/glessner_house_v4.md`; L305 records the
+reconstructed details and modern comparisons. The working branch is
+`steward/glessner-v4`; recoverable checkpoints are described in
+`docs/RESEARCH/glessner_v4_work.md`.
+
+Visual review and final validation are in progress. The first candidate exposed
+blank tower windows, incorrect bay glazing, a blocked passage and flat chimney
+faces; subsequent candidates correct these and refine stone fracture, joinery,
+carving and glass. No photographic-quality claim is made solely from passing
+checks. T-1730 remains open for the owner's comparison among versions.
+
 ## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
 
 `blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell

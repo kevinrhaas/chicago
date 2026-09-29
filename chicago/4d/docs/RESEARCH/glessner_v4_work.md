@@ -85,3 +85,35 @@ stale until all four variants are rebuilt. Next: finish the detailed builder,
 derive the four matching web files, compile the scene, compare all cameras, then
 run preflight and desktop/mobile published smoke. Use the pinned binary specified
 by `generators/blender.pin`; no shared emit.py changes are needed for the UVs.
+
+## Checkpoint 3 — detailed candidate, still under visual review
+
+The geometry now has real openings and reveals, original textured masonry,
+individual roof tiles and seams, corrected tower glazing and dining clerestory,
+three alternating garden windows under the dining bay, the curved terrace
+parapet with nine reconstructed risers, and the open courtyard passage. There
+are nine original PBR fabrics, 27 source maps, and 25 material slots including
+transmissive glass. The evidence dossier distinguishes historical HABS details
+from present-day replacements. All 14 owner photographs have been inspected.
+
+The candidate has been baked with pinned Blender 4.5.3 and reviewed from every
+face. A v4-only export modifier removes an unused second UV set; a direct
+comparison proved all 100 retained accessor arrays, indices, embedded images,
+materials and scene metadata identical. The resulting master is 50,046,188
+bytes. This checkpoint preserves source and maps; final baked assets follow
+after the remaining service-door landing correction.
+
+Isolated version tests pass 35 checks. Initial desktop/mobile web review loads
+the selected version with zero page/HTTP errors, 37–42 draw calls and roughly
+750–776k rendered triangles including shadow passes, within the existing budget.
+This used software rendering and is not a device frame-rate measurement.
+The full version test identified stale v2/v3 derivative provenance after their
+rebuild; regenerate all four Glessner derivatives. Full smoke is still running;
+1835 frontage census assertions have failed outside the changed model and their
+baseline status is under investigation. Full preflight has not passed.
+
+Remaining work: resolve the raised north-court service-door landing, finish the
+photographic-quality review (current broad views still read as CG), bake/derive
+the final assets, rerun selected-model browser QA, complete the full preflight
+and both published smoke viewports, and record the exact results. T-1730 remains
+open for owner comparison. Do not promote v4 or production merely on a checkpoint.

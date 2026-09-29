@@ -14,7 +14,7 @@
       ],
       "seed": 190400,
       "confidence": "reconstructed",
-      "description": "Original fine mineral grain; physical courses, bevels and rock-faced relief are generated geometry. No mortar lines baked into the stone.",
+      "description": "Original mineral grain over domain-warped angular split-face fracture planes at about 4-14 cm scale, 5.5 mm large-plane variation and 1.5 mm smaller splinters. Physical courses, block silhouettes, bevels and chipped edges are geometry. No mortar lines are baked into the stone.",
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
@@ -115,6 +115,38 @@
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
       "source_pixels": "none"
+    },
+    {
+      "name": "turf",
+      "albedo_size_px": 1024,
+      "detail_size_px": 512,
+      "tile_m": [
+        2.4,
+        2.4
+      ],
+      "seed": 190407,
+      "confidence": "reconstructed",
+      "description": "Original short clipped grass with varied blade directions, restrained brown thatch and subtle patchiness. Reconstructed July 1904 courtyard lawn, not a copied photograph or a claim about turf species.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "gravel",
+      "albedo_size_px": 1024,
+      "detail_size_px": 512,
+      "tile_m": [
+        2.0,
+        2.0
+      ],
+      "seed": 190408,
+      "confidence": "reconstructed",
+      "description": "Original compacted pale gravel and fine mineral aggregate, preserving the structure record's reconstructed 1904 carriage-drive reading. No modern concrete joints or slab dimensions are asserted.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
     }
   ],
   "rights": "Original procedural pixels; project-permissive terms in LICENSE.txt",
@@ -144,16 +176,28 @@
       "bytes": 154454
     },
     "granite_basecolor.jpg": {
-      "sha256": "18162ab55b64514f54ef22b43097953cbd1f2e5dbd4601af9d84a831507bf674",
-      "bytes": 1114524
+      "sha256": "edff2ae0a886300a963b0ff58f48177e2d8579c2ef8c8711bc074b7d4389440e",
+      "bytes": 1114741
     },
     "granite_normal.png": {
-      "sha256": "b2a5df79e62b83bd2ac3a02275ab1bf91fa8fe64f3d57f28257854c73066960d",
-      "bytes": 1683008
+      "sha256": "aea5035bb94420b9059cdcb1fa23b035976ff52e07e2875ecd1c69d7bf96a842",
+      "bytes": 1369679
     },
     "granite_roughness.png": {
-      "sha256": "bc6c18860db95ec71cf92199e83b530189bb89282754992ca1bd42342362bcfa",
-      "bytes": 439385
+      "sha256": "bd171c8b9164481ce3e06fec0ab3bbda59c84981b32a00a6b310889bf0bd1067",
+      "bytes": 362408
+    },
+    "gravel_basecolor.jpg": {
+      "sha256": "2508fcbf8629a9aacbfe4202d827c9da7e6c437da38aec11e2926639af838f2b",
+      "bytes": 279904
+    },
+    "gravel_normal.png": {
+      "sha256": "425c66964c8a5a8e754fe557ee3d9da907a7bb303707e3852444bd6a7868cdfe",
+      "bytes": 401134
+    },
+    "gravel_roughness.png": {
+      "sha256": "422b1be31c72da6512ae3ae281d1a7b6b0bf02c03016d9011f5b32691b76f355",
+      "bytes": 91230
     },
     "limestone_basecolor.jpg": {
       "sha256": "634a3a28906687847a2d3682a1dc7a0420f6eca12a5961e8394975d587a78926",
@@ -202,6 +246,18 @@
     "terracotta_roughness.png": {
       "sha256": "e9f1bb60903f5307b63fb1d18d914eb5c6e60aa5285a5b144fec6432c681242f",
       "bytes": 364656
+    },
+    "turf_basecolor.jpg": {
+      "sha256": "1c9604e6161aed9902111cb7689b81b88d1d18e91590eb1dbb0467154e81b74d",
+      "bytes": 337814
+    },
+    "turf_normal.png": {
+      "sha256": "519fb0d1e7ef78b1dfea49844dc8f2bc596ec507a4b2f45b761f74c99a5a21f3",
+      "bytes": 409960
+    },
+    "turf_roughness.png": {
+      "sha256": "36d1538c5d1463e86542f5cf61e049e59775da21438f1f703d0249ef0a7c5eb1",
+      "bytes": 66382
     }
   }
 }

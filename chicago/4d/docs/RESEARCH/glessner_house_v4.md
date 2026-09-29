@@ -48,7 +48,7 @@ is a comparison of surviving fabric; it is not an instruction to depict 2026.
 | Western roof intersection | The north range's east–west roof continues to the measured alley plane **W 161.25**, through the stable's north–south roof. The default stopped it at W 139, suppressing the west-facing cross gable. Keep BOTH roof directions and the north-facing stable gable. Add the west triangular closure on S 0–26.83, ridge S 14.6 and z 34.1 ng, eaves 23.1/26.5. | Inferred from HABS photo 1's intersecting roof reading and measured range envelope; owner overview is qualitative cross-check. Not a new guessed building mass. |
 | Small alley projection | One west-facing roof dormer centered S 47, width 8 ft, projected front W 161.5, back W 153, base 25/eave 29/apex 35 ft ng. | Reconstructed within the stable roof and upper alley opening at S 43–50.3 on sheet 3. Its outline is not traced from Google imagery. |
 | Copper corner roof | The hall bow keeps its low curved copper sector. A contiguous shallow return covers W 38–55.5, S 20.5–28, lower edge z 26.5 ng, rise 3.5 ft. It meets the bow at its W 38 termination and continues toward the dining bay. | Copper on the bow is HABS data p.21. The precise return width, pitch and seams are reconstructed from the measured wing envelope and owner-noted missing continuation. |
-| Dining roof | Retain the tall faceted metal cap with band top z 23 and apex W 70.6/S 20/z 34 ng. This meets the north range; render its intersection, not an isolated cone. | HABS photo 5 plainly shows a tall sheet-metal cap reaching near the main ridge. A flatter modern roof reading does not replace that closer historical witness. Copper identity of this bay roof remains reconstructed. |
+| Dining roof | Retain the tall faceted metal cap with band top z 20.5 and apex W 70.6/S 20/z 34 ng. This meets the north range; render its intersection, not an isolated cone. | HABS photo 5 plainly shows a tall sheet-metal cap reaching near the main ridge. A flatter modern roof reading does not replace that closer historical witness. Copper identity of this bay roof remains reconstructed. |
 | East-wing chimneys | Preserve sheet 6's N–S positions and heights, including printed north top **48.62 ft door**. Use distinct transverse widths rather than identical cubes: north 5.1, middle 4.0, south 7.5 ft; great chimney 4.4 ft. Add coursed faces, cap geometry, flue mouths and roof flashings. | Tops/S spans measured or attested; W widths and flue arrangements are reconstructed. Do not claim HABS prints those widths. |
 | Curved walls | 64 segments for the stair and north towers, with the same measured radius/height. | Tessellation refinement, no changed historical dimension. |
 | Courtyard windows | Add the explicit stable east/courtyard schedule from sheets 2–3 and the three stable south upper gaps from sheet 3. North-range upper windows follow their own plan instead of duplicating the lower row. | Horizontal plan bounds are measured; unprinted heights reconstructed. Exact schedule below. |
@@ -255,3 +255,25 @@ doors held open. The c.1888 image controls their construction and shows them shu
 Modern views influence reconstructed feature arrangement and material boundaries
 where named above; their use is not concealed under a claim that HABS measured
 every detail. No photographic pixels or photogrammetric surface is copied.
+
+The garden openings were checked again against supplied image(9): the bowed
+terrace grille is reconstructed at z 1–3.8 ft ng below a 6.1-ft platform, and the
+dining-bay garden lights at z 1–5 ft ng. Both are photographic proportion estimates,
+not printed HABS dimensions; the lower lights receive iron grilles.
+
+The bowed terrace includes a parapet 2.2 ft (0.67 m) above its walking platform,
+within a reconstructed 0.55–0.8 m bound from image(10), where the coping obscures
+the bottom of the door. Its coping curves downward beside the stairs. Nine risers
+are reconstructed from the approximately 1.68-m total climb, not counted from
+the partially visible photograph; the door threshold meets the platform.
+
+The dining-bay glazed band is re-read from full-resolution HABS photograph 5:
+about 78 px high against 129 px for the 5.2-ft main sash, giving about 3.1 ft.
+Its top is inferred at 20.5 ft ng above the retained 17.4-ft masonry, with about
+1-ft uncertainty. It receives two pane rows and three columns per front facet.
+The 34-ft roof apex is retained. This replaces the default’s inferred 23-ft band
+top; neither band height is a printed HABS dimension.
+
+The dining-bay garden grilles alternate beneath the principal sash, as seen in
+HABS photo 5 and supplied image(9): three openings on principal facets 0, 2 and 4,
+with solid brick below facets 1 and 3. They are not repeated under every light.

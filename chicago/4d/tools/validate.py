@@ -2386,14 +2386,17 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                              unlanded: list[tuple] | None = None,
                              ground: dict[str, dict[str, dict]] | None = None,
                              ground_consumed: dict[str, frozenset] | None = None,
-                             *, forward_only: bool = False) -> None:
+                             *, forward_only: bool = False,
+                             versions: dict | None = None) -> None:
     """Every inferred value in a record must be CLAIMED in LIBERTIES.md.
 
     `forward_only` (T-1727) asks only the first question — is every value these records
     invent claimed? — for a set that is not the whole town: the structure VERSIONS. The
     reverse pass (does every claim name something real?) and the ground belong to the
     whole-town call and would read every liberty about any other building as an
-    over-claim.
+    over-claim. That whole-town call includes `versions`: an alternate may invent
+    an attribute or phase the canonical record does not have. Its admission must
+    be checked against that alternate, not falsely rejected against the default.
 
     This is the inverse of the check the walkthrough already makes. The panel and
     the provenance card report the liberties that were *recorded* — which is not
@@ -2438,6 +2441,11 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
     `terrain.<epoch>.<claim>`, because the terrain is not a structure and the one
     document whose subject is honesty should not have to call it one.
     """
+    # Keep every record, even when an alternate has the same structure/phase id.
+    # The pathname keys prevent a version from replacing its canonical record;
+    # both directions of coverage still inspect each record's actual values.
+    structures = {**structures, **{f"version:{name}": st
+                                  for name, st in (versions or {}).items()}}
     entries = liberties.get("liberties") if isinstance(liberties, dict) else None
     if not entries:
         rep.error("liberties", "data/liberties.json holds no entries, so the values "
@@ -2621,13 +2629,14 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                                        f"about a class with nothing in it")
             continue
 
-        st = next((s for s in structures.values() if s.get("id") == csid), None)
-        if st is None:
+        matching = [s for s in structures.values() if s.get("id") == csid]
+        if not matching:
             rep.error("liberties", f"{who} claims to cover '{csid}.{aspect}' but no structure "
                                    f"record has id '{csid}' — a liberty admitting to an "
                                    f"invention in a building that does not exist")
             continue
-        if cpid is not None and cpid not in [p.get("id") for p in st.get("phases", [])]:
+        if cpid is not None and not any(
+                p.get("id") == cpid for st in matching for p in st.get("phases", [])):
             rep.error("liberties", f"{who} claims to cover '{csid}.{cpid}.{aspect}' but "
                                    f"'{csid}' has no phase '{cpid}'")
             continue
@@ -6194,12 +6203,17 @@ def main() -> int:
         unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts)
         check_ground_contact(structures, unlanded, rep)
 
-    check_liberties_coverage(structures, liberties, rep, consumed, unlanded, ground_index,
-                             ground_consumed)
-
     # and the structure VERSIONS, each held to the rules above as a structure (T-1727)
     versions = check_versions(structures, scenes, sources, source_ids, liberties, consumed,
                               rep, field=field, origin=datum_origin, contacts=contacts)
+
+    # The reverse coverage pass needs the whole population, including admissions
+    # owed only by an alternate's attributes, phases or ground contact. Checking
+    # the defaults first wrongly called such truthful version claims over-claims.
+    version_unlanded = unlanded_values(versions, scenes, rep, field, datum_origin, contacts)
+    check_liberties_coverage(structures, liberties, rep, consumed,
+                             unlanded + version_unlanded, ground_index, ground_consumed,
+                             versions=versions)
 
     # and how each of those positions was arrived at, which every record stated
     # in prose and nothing recomputed. The corners come back out of the control

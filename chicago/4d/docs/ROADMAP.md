@@ -1,3 +1,13 @@
+## T-1730 — Glessner v4 visual completion (2026-09-29)
+
+Owner-directed v4 now has its own evidence dossier, explicit opening schedule,
+detailed generator, original PBR maps and repeatable actual-GLB review cameras.
+Remaining acceptance work: complete the close-up and all-facade visual review,
+verify compressed materials/openings in both browser viewports, run the project
+gates, and attach the measured results. The owner authorized periodic recovery
+commits on `steward/glessner-v4` and more rendering time/detail where needed.
+Keep T-1730 open after delivery for comparison of the alternative models.
+
 ## T-1280 — travel selection and quick-play duration
 
 Implemented per-session travel selection before and during a jaunt, routed

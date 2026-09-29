@@ -44,6 +44,8 @@ CAMERAS = {
     "courtyard-north": {"position": (26, 0.8, 1.7), "target": (26, 14.2, 5.0), "lens": 18},
     "courtyard-east": {"position": (13, 5, 1.7), "target": (40, 9, 5.2), "lens": 28},
     "courtyard-west": {"position": (37, 5, 1.7), "target": (10.82, 9, 5.0), "lens": 28},
+    "courtyard-bow-detail": {"position": (27, 2, 1.7), "target": (41, 9, 4.5), "lens": 30},
+    "dining-bay-detail": {"position": (27.6, 1, 1.7), "target": (27.6, 12, 4.3), "lens": 32},
     "overhead": {"position": (64, -38, 68), "target": (24.6, 11.3, 3.0), "lens": 48},
     "overhead-west": {"position": (-25, -35, 62), "target": (24.6, 11.3, 3.0), "lens": 48},
 }
@@ -58,11 +60,17 @@ def parse_args():
     parser.add_argument("--size", type=int, default=800, help="Image width; 5:4 ratio.")
     parser.add_argument("--samples", type=int, default=48)
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--sun-elevation", type=float, default=32)
+    parser.add_argument("--sun-azimuth", type=float, default=45,
+                        help="Degrees in the building frame; keep equal for comparisons.")
+    parser.add_argument("--exposure", type=float, default=0,
+                        help="Photographic exposure in EV; keep equal for comparisons.")
+    parser.add_argument("--look", default="AgX - Base Contrast")
     parser.add_argument("--save-blend", action="store_true")
     return parser.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
 
 
-def configure_daylight(scene):
+def configure_daylight(scene, args):
     world = bpy.data.worlds.new("Review daylight — not a site reconstruction")
     world.use_nodes = True
     scene.world = world
@@ -71,8 +79,8 @@ def configure_daylight(scene):
     sky = tree.nodes.new("ShaderNodeTexSky")
     sky.sky_type = "NISHITA"
     sky.sun_disc = True
-    sky.sun_elevation = math.radians(32)
-    sky.sun_rotation = math.radians(45)
+    sky.sun_elevation = math.radians(args.sun_elevation)
+    sky.sun_rotation = math.radians(args.sun_azimuth)
     sky.sun_size = math.radians(0.545)
     sky.sun_intensity = 0.7
     sky.altitude = 0.18
@@ -120,8 +128,8 @@ def scene_settings(scene, args):
     scene.render.image_settings.color_depth = "8"
     scene.render.film_transparent = False
     scene.view_settings.view_transform = "AgX"
-    scene.view_settings.look = "AgX - Medium High Contrast"
-    scene.view_settings.exposure = 0.0
+    scene.view_settings.look = args.look
+    scene.view_settings.exposure = args.exposure
     scene.view_settings.gamma = 1.0
 
 
@@ -157,7 +165,7 @@ def main():
     model = model_description(imported)
     scene = bpy.context.scene
     scene_settings(scene, args)
-    configure_daylight(scene)
+    configure_daylight(scene, args)
     neutral_ground()
     bpy.ops.object.camera_add()
     camera = bpy.context.object
@@ -172,7 +180,10 @@ def main():
         "settings": {"engine": "CYCLES", "device": "CPU", "samples": args.samples,
                      "seed": 1904, "resolution": [args.size, round(args.size * 0.8)],
                      "view_transform": "AgX", "look": scene.view_settings.look,
-                     "sun_elevation_deg": 32, "sun_azimuth_deg": 45,
+                     "exposure_ev": args.exposure,
+                     "neutral_ground_linear_rgb": [0.18, 0.17, 0.15],
+                     "sun_elevation_deg": args.sun_elevation,
+                     "sun_azimuth_deg": args.sun_azimuth,
                      "world_strength": 0.25, "sun_intensity": 0.7},
         "model": model,
         "review_additions": ["Neutral ground plane, z=-0.005 m", "Procedural Nishita sky",

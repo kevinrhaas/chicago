@@ -645,11 +645,50 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "wall_top_z": fr.zval(cr["wall_top"]),
                 "rise_m": float(cr["rise_ft"]) * FT, "conf": cf("v4_detail")}
         p.detail["bow_garden_windows"] = int(raw.get("bow_garden_windows", 2))
+        p.detail["dining_garden_window_facets"] = list(raw.get("dining_garden_window_facets", [0,2,4]))
         if raw.get("dining_garden_window_z"):
             p.detail["dining_garden_window_z"] = [fr.z(v) for v in raw["dining_garden_window_z"]]
         if raw.get("chimney_details"):
             p.detail["chimney_details"] = raw["chimney_details"]
-        if raw.get("bow_garden_window_z"):
+        if raw.get("tower_stair_windows"):
+            tw = raw["tower_stair_windows"]
+            p.detail["tower_stair_windows"] = {"lantern_panes": tw.get("lantern_panes", [2,3]), "openings": [
+                {"angle": math.radians(w["azimuth_deg"]), "width_m": w["width_ft"] * FT,
+                 "z0": fr.z(w["z"][0]), "z1": fr.z(w["z"][1])}
+                for w in tw.get("slits", []) + tw.get("lantern", [])],
+                "bands": [[fr.z(v) for v in tw[key]] for key in
+                          ("lantern_sill_band_z", "lantern_lintel_band_z") if key in tw]}
+        bt = raw.get("bow_terrace")
+        if bt:
+            p.detail["bow_terrace"] = {"cx": fr.x(bt["centre_W"]), "cy": fr.y(bt["centre_S"]),
+                "r": bt["outer_r_ft"] * FT, "z1": fr.zval(bt["top_z"]),
+                "coping_m": bt["coping_ft"] * FT, "thick_m": bt["wall_thickness_ft"] * FT,
+                "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
+                "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
+                "stair_steps": int(bt.get("stair_steps", 9))}
+        p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
+        un = raw.get("underpass")
+        if un:
+            p.detail["underpass"] = {"pts": [fr.xy(v) for v in un["plan_WS"]],
+                "ceiling_prairie_z": fr.zval(un["ceiling_prairie"]),
+                "ceiling_court_z": fr.zval(un["ceiling_court"]), "floor_z": fr.zval(un["floor"])}
+        p.detail["porte_cochere_open_deg"] = raw.get("porte_cochere_open_deg", 82)
+        gd = raw.get("gable_details", {})
+        en = gd.get("east_north")
+        if en:
+            a,b = sorted(fr.x(v) for v in en["date_stone_W"])
+            p.detail["date_stones"] = [{"axis": "y", "sign": 1, "at": fr.y(0),
+                "u0": a, "u1": b, "z0": fr.z(en[key][0]), "z1": fr.z(en[key][1]),
+                "text": en[textkey]} for key,textkey in [("date_stone_z","date_text"),("ad_stone_z","ad_text")]]
+        sn = gd.get("stable_north")
+        if sn:
+            a,b = sorted(fr.x(v) for v in sn["pigeon_ledge_W"])
+            p.detail["pigeon_ledge"] = {"axis": "y", "sign": 1, "at": fr.y(0),
+                "u0": a, "u1": b, "z0": fr.z(sn["pigeon_ledge_z"][0]),
+                "z1": fr.z(sn["pigeon_ledge_z"][1]), "projection_m": sn["projection_ft"] * FT}
+        p.detail["joinery"] = {k: (float(v)*FT if k.endswith("_ft") else v)
+                               for k,v in raw.get("joinery", {}).items()}
+        if raw.get("bow_garden_window_z") and not bt:
             for bow in p.bows:
                 bow["light_rows"].insert(0, [fr.z(v) for v in raw["bow_garden_window_z"]])
     p.validate()

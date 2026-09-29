@@ -30,7 +30,8 @@ TILE_M = {
     "copper": (2.4, 2.4),
     "oak": (0.8, 2.4),
     "painted_wood": (0.8, 2.4),
-    "ground": (2.0, 2.0),
+    "turf": (2.4, 2.4),
+    "gravel": (2.0, 2.0),
 }
 
 # Geometry and material module share these slots. New materials are appended so
@@ -42,14 +43,16 @@ BRICK_VARIANTS = (16, 17, 18)
 ROOF_VARIANTS = (19, 20, 21)
 LINEN = 22
 PAINTED_WOOD = 23
+ROUGH_TRIM = 24
 
 SLOT_FABRIC = {
     0: "granite", 1: "brick", 2: "limestone", 3: "terracotta",
-    4: "copper", 6: "oak", 7: "ground", 8: "ground", 9: "limestone",
+    4: "copper", 6: "oak", 7: "turf", 8: "gravel", 9: "limestone",
     12: "granite", 13: "granite", 14: "granite", 15: "granite",
     16: "brick", 17: "brick", 18: "brick",
     19: "terracotta", 20: "terracotta", 21: "terracotta",
     23: "painted_wood",
+    24: "limestone",
 }
 
 
@@ -75,7 +78,8 @@ def _plain(bpy, name, colour, roughness=0.8, metallic=0.0):
     return material
 
 
-def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0):
+def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
+         normal_fabric=None, albedo_fabric=None):
     material = _plain(bpy, name, (*tint, 1), metallic=metallic)
     nt = material.node_tree
     bsdf = nt.nodes.get("Principled BSDF")
@@ -86,7 +90,12 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0):
                                         ("normal", "Normal", False)):
         tex = nt.nodes.new("ShaderNodeTexImage")
         tex.label = f"Original {fabric} {suffix}"
-        tex.image = _image(bpy, fabric, suffix, colour)
+        source_fabric = fabric
+        if suffix == "normal" and normal_fabric:
+            source_fabric = normal_fabric
+        if suffix == "basecolor" and albedo_fabric:
+            source_fabric = albedo_fabric
+        tex.image = _image(bpy, source_fabric, suffix, colour)
         tex.interpolation = "Linear"
         tex.extension = "REPEAT"
         nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
@@ -115,10 +124,10 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0):
 
 
 def build_materials(colours=None):
-    """Return 24 slots. Colours comes from the structure's resolved data record.
+    """Return 25 slots. Colours comes from the structure's resolved data record.
 
-    The six textured fabrics carry reconstructed absolute albedo in their maps;
-    the record's lawn and drive colours still control those untextured grounds.
+    Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
+    pale compacted gravel preserve the record's courtyard material reading.
     """
     import bpy
     colours = colours or {}
@@ -128,30 +137,43 @@ def build_materials(colours=None):
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
         _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.40, metallic=0.78),
-        _plain(bpy, "glass", (0.025, 0.033, 0.029, 1), roughness=0.11),
+        _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
-        _plain(bpy, "lawn", colours.get("lawn", (0.075, 0.115, 0.038, 1)), 0.97),
-        _plain(bpy, "drive", colours.get("drive", (0.27, 0.245, 0.205, 1)), 0.94),
+        _pbr(bpy, "lawn", "turf", normal_strength=0.55),
+        _pbr(bpy, "drive", "gravel", normal_strength=0.55),
         _pbr(bpy, "mortar", "limestone", tint=(0.52, 0.49, 0.44), normal_strength=0.25),
         _plain(bpy, "iron", (0.013, 0.017, 0.015, 1), roughness=0.40, metallic=0.70),
         _plain(bpy, "glass_dark", (0.005, 0.007, 0.006, 1), roughness=0.92),
     ]
     glass = mats[GLASS].node_tree.nodes.get("Principled BSDF")
     glass.inputs["IOR"].default_value = 1.52
-    # Deliberately opaque exterior glazing: the geometry has a shallow, dark
-    # interior behind it, not furnished rooms. Its dielectric Fresnel reflection
-    # is physical and view-dependent, without unsupported fake transparency.
+    # Actual thin dielectric glazing, with a dark interior backing and separate
+    # linen blinds supplied by the geometry. An opaque painted pane hid those
+    # blinds and made every window an identical blue-grey rectangle in review.
+    glass.inputs["Transmission Weight"].default_value = 0.94
     if "Specular IOR Level" in glass.inputs:
         glass.inputs["Specular IOR Level"].default_value = 0.50
     for i, tint in enumerate(((0.93, 0.94, 0.95), (1.0, 0.992, 0.983),
                               (0.965, 0.955, 0.94), (1.00, 0.98, 0.965))):
         mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=0.85))
-    for i, tint in enumerate(((0.90, 0.86, 0.82), (1.0, 0.985, 0.97), (0.97, 0.94, 0.91))):
-        mats.append(_pbr(bpy, f"brick_{i + 1}", "brick", tint=tint, normal_strength=0.85))
+    # Kiln firing varies individual common bricks. The geometry deals mostly
+    # the main red-brown slot1, then dark red16, buff17 and occasional smoky18.
+    # The neutral limestone grain image supplies the latter colour fields only;
+    # their relief and roughness remain brick. No additional atlas is duplicated.
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.50, 0.53, 0.58), normal_strength=0.85))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.62, 0.45, 0.30), normal_strength=0.85,
+                     albedo_fabric="limestone"))
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.20, 0.19, 0.17), normal_strength=0.85,
+                     albedo_fabric="limestone"))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
     mats.append(_plain(bpy, "linen_blind", (0.54, 0.50, 0.41, 1), roughness=0.98))
     mats.append(_pbr(bpy, "painted_wood", "painted_wood", normal_strength=0.30))
+    # Only rock-faced window heads/sills use this slot. Dressed cornices and
+    # carved mouldings retain the smoother limestone slot2. The fracture map is
+    # original procedural stone relief, not a claim that two stones share grain.
+    mats.append(_pbr(bpy, "rough_limestone", "limestone", normal_strength=0.35,
+                     normal_fabric="granite"))
     return mats
 
 

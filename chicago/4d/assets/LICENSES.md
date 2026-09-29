@@ -435,9 +435,9 @@ detailing, signboards). They are exempt from regeneration but **not** from prove
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner v4 original materials — `textures/glessner-v4/`
 
-Seven original procedural PBR materials for the opt-in v4 building: granite,
-limestone, red-brown brick, terracotta, copper, oak and painted wood. Deterministic
-`generate.py` supplies 2K albedo and filtered 1K normal/roughness maps; the building
+Nine original procedural PBR materials for the opt-in v4 building: granite,
+limestone, red-brown brick, terracotta, copper, oak, painted wood, short turf and pale compacted gravel. Deterministic
+`generate.py` supplies 2K building / 1K ground albedo and filtered 1K / 512px normal/roughness maps; the building
 geometry owns masonry joints, blocks, window recesses, roof tiles and metal seams.
 All pixel arrangements, exact colours, aging and grain are reconstructed.
 
@@ -464,6 +464,9 @@ textures/glessner-v4/generate.py
 textures/glessner-v4/granite_basecolor.jpg
 textures/glessner-v4/granite_normal.png
 textures/glessner-v4/granite_roughness.png
+textures/glessner-v4/gravel_basecolor.jpg
+textures/glessner-v4/gravel_normal.png
+textures/glessner-v4/gravel_roughness.png
 textures/glessner-v4/limestone_basecolor.jpg
 textures/glessner-v4/limestone_normal.png
 textures/glessner-v4/limestone_roughness.png
@@ -477,4 +480,7 @@ textures/glessner-v4/painted_wood_roughness.png
 textures/glessner-v4/terracotta_basecolor.jpg
 textures/glessner-v4/terracotta_normal.png
 textures/glessner-v4/terracotta_roughness.png
+textures/glessner-v4/turf_basecolor.jpg
+textures/glessner-v4/turf_normal.png
+textures/glessner-v4/turf_roughness.png
 ```
