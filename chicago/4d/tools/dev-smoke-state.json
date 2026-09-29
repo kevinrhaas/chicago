@@ -2153,6 +2153,68 @@
         ]
       },
       "source": "/tmp/smoke-desktop-1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 561,
+      "takenAt": "2026-09-29T08:03:14.754Z",
+      "ref": "steward/t1460-pin-swale-figures",
+      "commit": "1b8cec194a1f",
+      "devCommit": "ff9488fecbf8",
+      "treeHash": "sha256:ecd411fbc564cb8e",
+      "treeDirty": false,
+      "changelogHash": "sha256:6252633cee544af3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.3,
+          4.1,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke-desktop-12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 299,
+      "takenAt": "2026-09-29T07:53:45.764Z",
+      "ref": "steward/t1460-pin-swale-figures",
+      "commit": "1b8cec194a1f",
+      "devCommit": "ff9488fecbf8",
+      "treeHash": "sha256:ecd411fbc564cb8e",
+      "treeDirty": false,
+      "changelogHash": "sha256:6252633cee544af3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3,
+          3.9,
+          3.6
+        ]
+      },
+      "source": "/tmp/smoke-mobile-12.log"
     }
   ]
 }

@@ -4574,7 +4574,7 @@ def cmd_self_test() -> int:
     # blk_washington_lasalle had them — as fast as its own roofs take them off the table. What
     # moves is the BAND, 14 merchant and professional against 12 tradesmen's becoming 14
     # tradesmen's against 12. That is the T-1622 precedence a fourth time, and it is recorded
-    # in L299. Read at the chain's fixpoint, not one pass in, and read off the committed seats
+    # in L300. Read at the chain's fixpoint, not one pass in, and read off the committed seats
     # files rather than predicted: 1835_platted_seats.json counts seated 177 (129 adopted, 48
     # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
     # handed.

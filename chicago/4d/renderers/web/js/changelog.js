@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1229, ts: '2026-09-29T08:44:26.281Z', date: 'Sep 29, 2026, 3:44 AM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
+  { v: 1231, ts: '2026-09-29T09:46:26.513Z', date: 'Sep 29, 2026, 4:46 AM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
       'These houses stand because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
@@ -7,6 +7,22 @@ export const CHANGELOG = [ // newest first
       'One of the eight lots is left empty on purpose, and it is the corner of Madison and La Salle \u2014 the back line meeting the far side. A block with a house on every lot is a claim about 1835 that nothing supports.',
       'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
       'This is the third block of that row to be built \u2014 Clark and Wells came first \u2014 and the ones still open prairie are each written down as their own piece of work.',
+    ] },
+  { v: 1230, ts: '2026-09-29T09:09:24.452Z', date: 'Sep 29, 2026, 4:09 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+    items: [
+      'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
+      'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
+      'The round tower at the corner is larger, about twenty feet across under its cone, and the Eighteenth Street eave and the coach-house roof are read off four 1965 survey photographs the first build did not use.',
+      'The house sits on the alley line the 1911 insurance map draws, about a foot west of the first build.',
+      'The colours are v2\u2019s own choice: granite darkened by seventeen years of coal smoke, and copper gone brown rather than green. No record shows the house in colour, so they are marked as reconstruction.',
+    ] },
+  { v: 1229, ts: '2026-09-29T08:15:07.333Z', date: 'Sep 29, 2026, 3:15 AM CT', title: 'Two invented streams on the west prairie go to the owner', kind: 'change',
+    items: [
+      'West of the river, out on the open prairie, the ground carries two shallow drains. Nothing in the record puts them there. The dossier says the West Division\u2019s wet prairie had swales a foot or two deep, so two were drawn \u2014 but where they run is our invention, and the one 1834 survey that could have shown a stream on this prairie was read end to end and draws none.',
+      'They also now begin nowhere. Each was drawn to start at the western edge of the modelled ground as it then was, so that it read as a stream leaving the map. The ground has since been carried 385 metres further west, and each drain now starts abruptly in the middle of open prairie, with no hollow above it and no reason to begin where it does.',
+      'One of the two runs through eight houses. They are anonymous reconstructed cottages on the Canal and Lake approaches, and the closest stands about three metres from the line. The project\u2019s own rule says to move a house rather than flatten a stream \u2014 but that rule assumes the stream is the real thing, and here the houses are reviewed and built and the stream is invented. So the question goes to the owner rather than being settled quietly: take the drains out of the ground and leave them in the dossier, re-draw them, or move the eight houses.',
+      'No house is standing in a hole, and that is why this is a question about evidence rather than a defect. The cut is nine inches spread over thirty metres, so the ground under the deepest-affected cottage falls about twelve centimetres across its whole footprint.',
+      'Nothing in the model moved today. What changed is that the eight distances the question is asked about are now measured and checked on every build, because two of them had already drifted two and a half metres while the question waited \u2014 houses re-seated off platted streets for unrelated reasons, with nothing joining those moves to this. The owner will answer on figures that are current.',
     ] },
   { v: 1228, ts: '2026-09-29T07:38:33.079Z', date: 'Sep 29, 2026, 2:38 AM CT', title: 'Two more houses in Kinzie\u2019s Addition', kind: 'change',
     items: [
