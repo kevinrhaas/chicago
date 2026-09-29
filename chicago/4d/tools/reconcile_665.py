@@ -71,6 +71,7 @@ from plat_occupancy import (block_of_structure, exclusive_lots,  # noqa: E402
 # of street, and `street_traffic` is the committed hierarchy those classes come from.
 from measure_frontage_fabric import (TRADE_LETTERS, street_traffic,  # noqa: E402
                                      trade_share_by_class)
+from town_year import touches_year  # noqa: E402  (T-1732)
 
 # Groups are the inventory's own ten, and a family belongs to its group by its letter.
 # The letters are checked against the target itself: each group's families must sum to
@@ -853,6 +854,10 @@ def standing_roofs(grid, datum, taken):
     for path in sorted((DATA / "structures").glob("*.json")):
         record = load(path)
         rid = record["id"]
+        # T-1732: a record of another year (the 1904 Glessner House) is not a roof of
+        # the 1835 programme; tools/town_year.py says why the test is the year.
+        if not touches_year(record):
+            continue
         # WHICH PROGRAMME RAISED THIS ROOF, not merely whether it discloses a family
         # band. Both answers used to be the same question, because only the anonymous
         # generators wrote a reconstruction block. Since K21 the inferred-household

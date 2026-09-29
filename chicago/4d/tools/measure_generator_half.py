@@ -254,24 +254,30 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
 # debt itself moved.
 #
-# 448 -> 452 and 444 -> 448 on 2026-09-29 (T-1753): the four roofs of the first deal on
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
+# the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
+# new `masonry_house` archetype. One new structure asset, so one more mesh the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
+#
+# 449 -> 453 and 445 -> 449 on 2026-09-29 (T-1753): the four roofs of the first deal on
 # `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
 # cottages and the privy and woodshed off the alley behind them. Four new structure
-# assets on the same terms as the eight above: four more meshes the shared generator
-# modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still 2.
-# Nothing about the debt itself moved. THIS IS THE THIRD BLOCK DEAL IN TWO DAYS TO MOVE
-# THESE TWO NUMBERS BY FOUR, which is the measurement working as intended and also the
-# shape of what it measures: the debt is per-ASSET, so every roof the reconstruction
-# programme raises enlarges it, and it will keep being restated four at a time for as
-# long as the town is built a block at a time.
+# assets on the same terms as the eight block roofs above: four more meshes the shared
+# generator modules or emit.py would re-stale, the terrain reach still 4 and pier_crib
+# still 2. Nothing about the debt itself moved. THIS ROW HAS NOW MOVED FOUR TIMES IN TWO
+# DAYS — three block deals of four and the Glessner House of one — which is the
+# measurement working as intended and also the shape of what it measures: the debt is
+# per-ASSET, so every roof this project raises enlarges it, and it will keep being
+# restated a parcel at a time for as long as the town is built a block at a time.
 #
 STATED = {
-    "assets": 452,
+    "assets": 453,
     "restales": {
-        "generators/common/*.py": 452,
+        "generators/common/*.py": 453,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 448,
+        "generators/emit.py": 449,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -419,21 +420,21 @@ STRUCTURE_TICKETS = {
     # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
     #
-    # AND T-1748 WAS SPLIT IN TURN on 2026-09-29 (T-1753, T-1754), one more roof-raising
-    # run into the cell, which fired this same gate a third time: "has 30 left and is
-    # ordered by T-1748, which is split". The row moves by the same rule and the same
-    # test. T-1753 is one block — blk_indiana_north_cass's first roofs on its Indiana and
-    # Illinois faces — and says in its own title that the rest of that block's lots stay
-    # open. T-1754 is "the north tier's remaining roofs", the further wolcott and cass
-    # lots the north-division memo will carry and the scattered better houses on the
-    # Rush-Pine fringe: it is this cell's remainder in as many words, so the 30 are its.
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
     #
-    # THE ROW HAS NOW MOVED THREE TIMES IN TWO DAYS AND EACH MOVE COST A RED GATE, which
-    # is this table working rather than failing — a cell that keeps pointing at a spent
-    # heading is a work order nobody can claim, and the gate is the only thing that says
-    # so out loud. What it does NOT say is when the splitting should stop: the cell has
-    # 30 dwellings left and the addition's memo will carry a fraction of them, so the
-    # next reader inherits the same question T-1746 already holds.
+    # T-1753's own run reached the same cell from the other side and made the same sweep
+    # independently — it read "has 30 left" where the note above reads 32, because the two
+    # runs measured the remainder minutes apart with a block deal between them. The count
+    # is a running total and is not the decision; the decision is which child raises what
+    # is LEFT, and both runs got T-1754. THE ROW HAS NOW MOVED THREE TIMES IN TWO DAYS AND
+    # EACH MOVE COST A RED GATE, which is this table working rather than failing — a cell
+    # pointing at a spent heading is a work order nobody can claim, and the gate is the
+    # only thing that says so out loud.
     ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -1966,6 +1967,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1

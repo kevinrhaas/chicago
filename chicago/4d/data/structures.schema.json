@@ -40,6 +40,7 @@
         "bridge_timber",
         "pier_crib",
         "palisade",
+        "masonry_house",
         "authored"
       ],
       "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."
