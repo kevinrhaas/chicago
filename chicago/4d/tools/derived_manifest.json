@@ -176,6 +176,19 @@
       ]
     },
     {
+      "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-0474): the 1904 Prairie Avenue street, alley, block and parcel grid, read off three Sanborn sheets through the GCP files tools/georef_prairie_1904.py writes, with picks written in the tool and the Prairie library's committed frontage table as a cross-reference. It reads nothing else another step writes, so it follows the georeference.",
+      "command": [
+        "python3",
+        "tools/trace_prairie_1904_grid.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/trace_prairie_1904_grid.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A READER OF COMMITTED READINGS (T-1251): writes only the derived fields of the e1871_postfire terrain spec, from data/terrain/e1871_grade_readings.json, the committed 1835 heightfield and the shoreline the step above writes, so it follows that step.",
       "command": [
         "python3",

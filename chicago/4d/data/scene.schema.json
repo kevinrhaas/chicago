@@ -124,11 +124,12 @@
           "boats",
           "wells",
           "residents",
-          "exclusions"
+          "exclusions",
+          "street_grid"
         ]
       },
       "minItems": 1,
-      "description": "What the renderer mounts for this scene (T-1739), and nothing it does not list. `terrain` and `water` are the epoch's own ground and water. `structures` is the structure records that resolve at target_date. The rest are the town's derived and authored layers, every one of them written for 1 July 1835 in a directory that carries no date: `flora` (the sward, the timber and the ground's substrate colours), `fauna`, `streets`, `enclosures` (with the ground inside them), `signage`, `yard_goods`, `frontage`, `wharves`, `boats`, `wells`, `residents` (the people directory) and `exclusions` (the research record of buildings left out, and the watch list); tools/compile_scene.py compiles the last two only for a scene that lists them. A scene of another date lists only what is true of it."
+      "description": "What the renderer mounts for this scene (T-1739), and nothing it does not list. `terrain` and `water` are the epoch's own ground and water. `structures` is the structure records that resolve at target_date. The rest are the town's derived and authored layers, every one of them written for 1 July 1835 in a directory that carries no date: `flora` (the sward, the timber and the ground's substrate colours), `fauna`, `streets`, `enclosures` (with the ground inside them), `signage`, `yard_goods`, `frontage`, `wharves`, `boats`, `wells`, `residents` (the people directory) and `exclusions` (the research record of buildings left out, and the watch list); tools/compile_scene.py compiles those two only for a scene that lists them. `street_grid` is a dated layer, data/street_grid/<scene>.json (T-0474, the 1904 Prairie Avenue carriageways, block faces, alleys and parcels). A scene of another date lists only what is true of it."
     },
     "released": {
       "type": "boolean",
