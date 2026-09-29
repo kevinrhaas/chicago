@@ -21,7 +21,7 @@
     "geometry": "canvas texture, drawn at load",
     "tiers": {
       "inferred": 14,
-      "reconstructed": 19
+      "reconstructed": 20
     },
     "note": "DRAWN SINCE 2026-08-21, AND RE-WORDED THE SAME DAY. This block used to read 'NOT DRAWN, AND THAT IS THE WHOLE DISCIPLINE OF THIS LAYER', on L25's reasoning generalised: no source gives the wording of any sign in this town, so every board stayed a blank plank. The owner's instruction of 2026-08-18 overruled it — 'you can and should put the name of the location on the sign board … it is fine if they are reconstructions' — and T-0066 then painted THE RECORD'S OWN `name` on every board. T-0130 CORRECTS THAT, on the owner's word of 2026-08-21: 'philo would not have referred to his own place as log drug store, it would be philo carpenter, drugs and medicines, or druggist or whatever he would have referred to himself as on the sign, that may be different than the name of the building for us, the sign may read differently historically' — and, widening it, 'i guess do a pass on all those signs and make sure they feel right for the era'. A record's `name` is OUR LABEL FOR A BUILDING ('Philo Carpenter's Log Drug Store'); a board carries what a signwriter lettered. The two are now separate fields and are allowed to differ. What they must still agree about is WHO: every sign declares a `sign_identity` that appears in the board AND in the card, the generator refuses to build without it, and tools/smoke_renderer.mjs asserts it at run time over every sign. THE REGISTER is the advertisements' own — proprietor or firm first and largest, the trade beneath, the place last and smallest — carried per line in `sign_lines` and lettered in that hierarchy by renderers/web/js/signage.js. Period spelling is theirs and is kept. THE TIERS: a wording taken off a firm's own advertisement is `inferred`; one built out of the evidenced trade vocabulary for a business that left no advertisement is `reconstructed`. NOT ONE IS `attested` YET, and each note says why and what would change it — the seven 1833-35 newspaper pages behind these wordings were supplied as images in conversation on 2026-08-21 and are not committed to data/sources/assets/, so they are transcriptions and a transcription is not a citation. The owner's ruling of that day is the authority for proceeding anyway: 'I will give you all those data sources later in a more comprehensive form proceed where you can and label reconstruction or inferred with a note as you like.' The LETTERFORM, the colours and the panel remain `style`, a table of the combinations the trade worked in rather than of anything Chicago recorded (docs/LIBERTIES.md L159; L169 for the wording). ONE DEVICE IS NOW PAINTED and it is the one a Chicago tradesman described himself: Carpenter's golden mortar, `sign_device` — see its own note. No other board carries an image, and L25 is untouched: it withholds the Wolf Point wolf because that IMAGE was never described, which is the opposite case to a shop whose own advertisement names its sign."
   },
@@ -29,7 +29,7 @@
     "confidence": "reconstructed",
     "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
-      "awning_board": 5,
+      "awning_board": 6,
       "bracket_board": 9,
       "facade_painted": 10,
       "post_board": 2,
@@ -41,7 +41,7 @@
     "flat_mounted": 17,
     "counts": {
       "moved": 11,
-      "not flat on the wall": 16,
+      "not flat on the wall": 17,
       "reshaped": 2,
       "shrunk to the door": 4
     },
@@ -176,6 +176,13 @@
           "show_window"
         ],
         "done": "moved"
+      },
+      {
+        "structure_id": "kelsey_boarding_house",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
       },
       {
         "structure_id": "kinzie_hunter_warehouse",
@@ -1908,6 +1915,79 @@
           }
         ]
       }
+    },
+    {
+      "structure_id": "kelsey_boarding_house",
+      "name": "Kelsey's boarding-house",
+      "sign_text": "P. KELSEY / Boarding House",
+      "sign_lines": [
+        {
+          "text": "P. KELSEY",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Kelsey",
+      "sign_text_from": "No advertisement for this house is in the pages read, and nothing says it announced itself at all - it stood among the sand-hills off any street, and Bonnell found it by walking to it. \"Boarding House\" is the period's own term and the record's own function; the proprietor is the record's, in the register the pages evidence - proprietor, then trade - exactly as brown_boarding_house's board is built. THE FORENAME IS AN INITIAL ON PURPOSE: this corpus holds the man two ways and so does the one sentence that describes him, \"occupied by Parnick Kelsey\" against \"Eve, Parnick's wife\", while Fergus 1843 prints Patrick and Norris 1844 prints Parnick. An initial is what the board can carry without choosing between two spellings of a name nobody has merged. AND THE TRADE STOOD IN HIS NAME WHILE HIS WIFE RAN IT, which the board cannot say and this note can: Bonnell's own word is that the house was \"ostensibly run by Eve\", and it is Mrs. Kelsey who turns him away for want of a bed. Reconstructed.",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "attested",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard",
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        1309.05,
+        478.9
+      ],
+      "facade_bearing_deg": 180.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.56,
+      "board_h_m": 0.63,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.46,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.02,
+      "wall_height_m": 3.2,
+      "wall_height_from": "the record",
+      "frontage_m": 8.5,
+      "ground_quad_local_enu_m": [
+        [
+          1315.0,
+          485.0
+        ],
+        [
+          1306.5,
+          485.0
+        ],
+        [
+          1306.5,
+          478.9
+        ],
+        [
+          1315.0,
+          478.9
+        ]
+      ]
     },
     {
       "structure_id": "kinzie_hunter_warehouse",

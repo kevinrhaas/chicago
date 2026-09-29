@@ -7,12 +7,12 @@
 
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
-| Persons | 2,543 | 1,402 | 1,542 |
+| Persons | 2,543 | 1,402 | 1,543 |
 | Households | 644 | 82 | 564 |
 | Businesses (enumerated classes) | 109 | 130 | 7 |
-| Roofs | 668 | 440 | 242 |
+| Roofs | 668 | 442 | 240 |
 
-**2,381 people stand in the layer today** and **299** are still owed after the counters, so the town this book converges to is **2,680** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,381 people stand in the layer today** and **290** are still owed after the counters, so the town this book converges to is **2,671** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,381 standing plus 299 still owed is 2,680, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 137 above the model's 2,543 point, and that surplus is the 395 people drawn into 44 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,381 standing plus 290 still owed is 2,671, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 128 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -43,13 +43,13 @@ Of the 1,375 records the layer holds present, 82 carry a reading about a dwellin
 
 *The parish register's 120 documented residents (T-0841) land in buckets the town had already reconstructed strangers into. Where did reading a person the town can name put a bucket's order UNDER what was drawn against it, and by how many people?*
 
-`persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 1 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.
+`persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 2 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.
 
 **Declined:** RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer.
 
 ## Where the re-cut was refused
 
-44 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn. The three tickets this paragraph used to hand the surplus to — T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 (T-1556) hands it to the re-family programme below, where the held heads move into the buckets the re-cut grew instead of being un-written.
+45 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn. The three tickets this paragraph used to hand the surplus to — T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 (T-1556) hands it to the re-family programme below, where the held heads move into the buckets the re-cut grew instead of being un-written.
 
 | bucket | ticket | cause | quota it was drawn against | the re-cut would order | drawn | re-familied out | still held |
 |---|---|---|---:|---:|---:|---:|---:|
@@ -80,6 +80,7 @@ Of the 1,375 records the layer holds present, 82 carry a reading about a dwellin
 | `persons/female/under_10/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 107 | 57 | 100 | 7 | 43 |
 | `persons/female/under_10/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 40 | 23 | 34 | 6 | 11 |
 | `persons/male/10_19/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 30 | 17 | 28 | 2 | 11 |
+| `persons/male/10_19/north/lodging/trade` | T-1532 | a_documented_reading_shrank_the_order | 1 | 0 | 1 | 0 | 1 |
 | `persons/male/10_19/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 71 | 39 | 65 | 6 | 26 |
 | `persons/male/10_19/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 27 | 15 | 23 | 3 | 8 |
 | `persons/male/10_19/west/lodging/trade` | T-1532 | a_documented_reading_shrank_the_order | 1 | 0 | 1 | 0 | 1 |
@@ -106,19 +107,19 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-395 held head(s) stand across 44 refused bucket(s), and 299 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+396 held head(s) stand across 45 refused bucket(s), and 290 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 299 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 290 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
 **The programme is settled**, and its finish line is the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic. owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
 
-395 person(s) remain held in 44 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+396 person(s) remain held in 45 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
 
 | the refusal that holds them | people |
 |---|---:|
-| `a_documented_reading_shrank_the_order` | 1 |
+| `a_documented_reading_shrank_the_order` | 2 |
 | `the_re_cut_reached_work_already_drawn` | 394 |
 
 What would reopen it: a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
@@ -280,14 +281,12 @@ Read from data/residents/households/*.json — every person whose occupation is 
 
 ### What moved
 
-The re-cut wanted **36** trade slots in the bands it reopened. The younger bands held **20** undrawn and the adult cells it would draw from held **9**, so **9** moved and the book's employed total did not change. Every cell below is a `lodging` cell on both sides, because every `family` cell of the reopened band is drawn out: the working youths this book still orders are BOARDERS — an apprentice or a shop hand sleeping where he works — which is a consequence of what is already drawn and not a claim about 1835.
+The re-cut wanted **36** trade slots in the bands it reopened. The younger bands held **13** undrawn and the adult cells it would draw from held **9**, so **9** moved and the book's employed total did not change. Every cell below is a `lodging` cell on both sides, because every `family` cell of the reopened band is drawn out: the working youths this book still orders are BOARDERS — an apprentice or a shop hand sleeping where he works — which is a consequence of what is already drawn and not a claim about 1835.
 
 | into | slots |
 |---|---:|
-| `persons/female/10_19/north/lodging` | 1 |
-| `persons/female/10_19/south/lodging` | 3 |
-| `persons/male/10_19/north/lodging` | 1 |
-| `persons/male/10_19/south/lodging` | 4 |
+| `persons/female/10_19/north/lodging` | 2 |
+| `persons/male/10_19/south/lodging` | 7 |
 
 | out of | slots |
 |---|---:|
@@ -296,15 +295,17 @@ The re-cut wanted **36** trade slots in the bands it reopened. The younger bands
 | `persons/female/40_49/south/lodging` | 1 |
 | `persons/male/20_29/north/lodging` | 4 |
 
-**27 cell(s) could not take or give their share**, because the people who would have filled them are already drawn. Each is named with both numbers; none was clamped in silence, and no person already drawn moved.
+**29 cell(s) could not take or give their share**, because the people who would have filled them are already drawn. Each is named with both numbers; none was clamped in silence, and no person already drawn moved.
 
 | cell | the re-cut wanted | the remainder could pay | already drawn | by |
 |---|---:|---:|---:|---|
 | `persons/female/10_19/north/family` (into) | 3 | 0 | 24 | T-1174 |
 | `persons/female/10_19/south/family` (into) | 7 | 0 | 55 | T-1174 |
+| `persons/female/10_19/south/lodging` (into) | 2 | 0 | 6 | T-1536 |
 | `persons/female/10_19/west/family` (into) | 3 | 0 | 21 | T-1174 |
 | `persons/female/10_19/west/lodging` (into) | 1 | 0 | 5 | T-1536 |
 | `persons/male/10_19/north/family` (into) | 3 | 0 | 28 | T-1174 |
+| `persons/male/10_19/north/lodging` (into) | 1 | 0 | 4 | T-1536 |
 | `persons/male/10_19/south/family` (into) | 8 | 0 | 65 | T-1174 |
 | `persons/male/10_19/west/family` (into) | 3 | 0 | 23 | T-1174 |
 | `persons/male/10_19/west/lodging` (into) | 1 | 0 | 5 | T-1536 |
@@ -337,8 +338,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
-| T-1371 | 85 | 29 |
-| T-1533 | 15 | 3 |
+| T-1371 | 95 | 28 |
+| T-1533 | 16 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
 | T-1418 | 1 | 1 |
@@ -375,7 +376,7 @@ Two committed passes have offered every banded household ground: the plat first,
 - offered ground: 1,478
 - seated: 235 — 183 by adopting a roof that already stands, 52 by asking for one
 - still on no ground at all: 1,243
-- of the 440 roofs the town already has, 183 now carry a reconstructed household
+- of the 442 roofs the town already has, 183 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
@@ -395,22 +396,21 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_aspam_antoine` | `blk_washington_franklin` | `blk_washington_franklin#00` | D7 | `merchant_and_professional_dwellings` |
 | `hh_aspam_jean_baptiste` | `blk_washington_franklin` | `blk_washington_franklin#04` | H1 | `merchant_and_professional_dwellings` |
 | `hh_babeue_joseph` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#00` | D7 | `merchant_and_professional_dwellings` |
-| `hh_bailly_esther` | `blk_washington_franklin` | `blk_washington_franklin#02` | H1 | `merchant_and_professional_dwellings` |
-| `hh_baines_robert` | `blk_washington_franklin` | `blk_washington_franklin#07` | H2 | `merchant_and_professional_dwellings` |
-| `hh_ballard_c_a` | `blk_washington_lasalle` | `blk_washington_lasalle#06` | D7 | `merchant_and_professional_dwellings` |
-| `hh_ballard_thomas` | `blk_washington_lasalle` | `blk_washington_lasalle#00` | D7 | `merchant_and_professional_dwellings` |
-| `hh_barrest_wilham` | `blk_washington_lasalle` | `blk_washington_lasalle#04` | H1 | `merchant_and_professional_dwellings` |
-| `hh_barry_john_s` | `blk_washington_lasalle` | `blk_washington_lasalle#02` | H1 | `merchant_and_professional_dwellings` |
-| `hh_bates_john_jr` | `blk_washington_lasalle` | `blk_washington_lasalle#07` | H2 | `merchant_and_professional_dwellings` |
-| `hh_baxter_daniel` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#09` | H1 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_caroline` | `blk_washington_market` | `blk_washington_market#06` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_charles_h` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_elonore` | `blk_washington_market` | `blk_washington_market#04` | H1 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_george` | `blk_washington_market` | `blk_washington_market#02` | H2 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_monique` | `blk_washington_wells` | `blk_washington_wells#06` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beddlecome_ash` | `blk_washington_wells` | `blk_washington_wells#00` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beech_reuben` | `blk_washington_wells` | `blk_washington_wells#04` | H1 | `merchant_and_professional_dwellings` |
-| `hh_benediet_loma` | `blk_washington_wells` | `blk_washington_wells#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_bailly_esther` | `blk_washington_franklin` | `blk_washington_franklin#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_baines_robert` | `blk_washington_lasalle` | `blk_washington_lasalle#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_ballard_c_a` | `blk_washington_lasalle` | `blk_washington_lasalle#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_ballard_thomas` | `blk_washington_lasalle` | `blk_washington_lasalle#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_barrest_wilham` | `blk_washington_lasalle` | `blk_washington_lasalle#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_barry_john_s` | `blk_washington_market` | `blk_washington_market#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_bates_john_jr` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_caroline` | `blk_washington_market` | `blk_washington_market#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_charles_h` | `blk_washington_market` | `blk_washington_market#02` | H2 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_elonore` | `blk_washington_market` | `blk_washington_market#07` | H2 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_george` | `blk_washington_wells` | `blk_washington_wells#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_monique` | `blk_washington_wells` | `blk_washington_wells#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beddlecome_ash` | `blk_washington_wells` | `blk_washington_wells#04` | H1 | `merchant_and_professional_dwellings` |
+| `hh_beech_reuben` | `blk_washington_wells` | `blk_washington_wells#02` | H1 | `merchant_and_professional_dwellings` |
+| `hh_benediet_loma` | `blk_washington_wells` | `blk_washington_wells#07` | H2 | `merchant_and_professional_dwellings` |
 | `hh_allin_richard` | `blk_indiana_north_cass` | `blk_indiana_north_cass#09` | D3 | `tradesman_dwellings` |
 | `hh_almond_axtell_2` | `blk_indiana_north_cass` | `blk_indiana_north_cass#08` | D3 | `tradesman_dwellings` |
 | `hh_anderson_eli_f` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D4 | `tradesman_dwellings` |
@@ -418,25 +418,26 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_arquette_michel` | `blk_indiana_north_cass` | `blk_indiana_north_cass#05` | D5 | `tradesman_dwellings` |
 | `hh_avery_charles` | `blk_indiana_north_cass` | `blk_indiana_north_cass#04` | D5 | `tradesman_dwellings` |
 | `hh_babcock_chas` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D6 | `tradesman_dwellings` |
-| `hh_bailly_joseph` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#08` | D3 | `tradesman_dwellings` |
-| `hh_baily_john` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
-| `hh_barber_beta_l` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
-| `hh_barnard_j_h` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#05` | D3 | `tradesman_dwellings` |
+| `hh_bailly_joseph` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#09` | D3 | `tradesman_dwellings` |
+| `hh_baily_john` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#08` | D3 | `tradesman_dwellings` |
+| `hh_barber_beta_l` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
+| `hh_barnard_j_h` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
 | `hh_baxley_j_m` | `blk_lake_clinton` | `blk_lake_clinton#07` | D3 | `tradesman_dwellings` |
-| `hh_beach_william_h` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#04` | D3 | `tradesman_dwellings` |
+| `hh_beach_william_h` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#05` | D3 | `tradesman_dwellings` |
 | `hh_beaubien_b` | `blk_lake_clinton` | `blk_lake_clinton#02` | D4 | `tradesman_dwellings` |
-| `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
+| `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#04` | D4 | `tradesman_dwellings` |
+| `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
 | `hh_bennett_h_c` | `blk_randolph_clinton` | `blk_randolph_clinton#07` | D3 | `tradesman_dwellings` |
 | `hh_cady_levi` | `blk_washington_franklin` | `blk_washington_franklin#05` | D3 | `tradesman_dwellings` |
 | `hh_calhoun_alvin` | `blk_washington_franklin` | `blk_washington_franklin#03` | D3 | `tradesman_dwellings` |
-| `hh_campbell_james_b` | `blk_washington_lasalle` | `blk_washington_lasalle#05` | D3 | `tradesman_dwellings` |
-| `hh_carli_paul_j` | `blk_washington_lasalle` | `blk_washington_lasalle#03` | D3 | `tradesman_dwellings` |
-| `hh_carpenter_nathaniel` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
-| `hh_carter_j` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
-| `hh_cary_junis_a_or_j_r` | `blk_washington_market` | `blk_washington_market#07` | D3 | `tradesman_dwellings` |
-| `hh_casy_honora` | `blk_washington_wells` | `blk_washington_wells#05` | D3 | `tradesman_dwellings` |
-| `hh_catton_william` | `blk_washington_wells` | `blk_washington_wells#03` | D3 | `tradesman_dwellings` |
-| `hh_chamberlain_l_c` | `blk_washington_wells` | `blk_washington_wells#07` | D3 | `tradesman_dwellings` |
+| `hh_campbell_james_b` | `blk_washington_franklin` | `blk_washington_franklin#07` | D3 | `tradesman_dwellings` |
+| `hh_carli_paul_j` | `blk_washington_lasalle` | `blk_washington_lasalle#05` | D3 | `tradesman_dwellings` |
+| `hh_carpenter_nathaniel` | `blk_washington_lasalle` | `blk_washington_lasalle#03` | D3 | `tradesman_dwellings` |
+| `hh_carter_j` | `blk_washington_lasalle` | `blk_washington_lasalle#07` | D3 | `tradesman_dwellings` |
+| `hh_cary_junis_a_or_j_r` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
+| `hh_casy_honora` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
+| `hh_catton_william` | `blk_washington_wells` | `blk_washington_wells#05` | D3 | `tradesman_dwellings` |
+| `hh_chamberlain_l_c` | `blk_washington_wells` | `blk_washington_wells#03` | D3 | `tradesman_dwellings` |
 | `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D2 | `labourer_dwellings` |
 
 1,243 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
@@ -456,11 +457,10 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
 | `persons/female/10_19/north/family/none` | 32 | 17 | 24 | 24 | T-1174 |
-| `persons/female/10_19/north/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
-| `persons/female/10_19/north/lodging/none` | 10 | 6 | 4 | 1 | T-1536 |
+| `persons/female/10_19/north/lodging/trade` | 2 | 0 | 2 | 1 | T-1532 |
+| `persons/female/10_19/north/lodging/none` | 9 | 6 | 3 | 2 | T-1536 |
 | `persons/female/10_19/south/family/none` | 76 | 43 | 55 | 55 | T-1174 |
-| `persons/female/10_19/south/lodging/trade` | 3 | 0 | 3 | 0 | T-1532 |
-| `persons/female/10_19/south/lodging/none` | 24 | 15 | 9 | 7 | T-1536 |
+| `persons/female/10_19/south/lodging/none` | 27 | 15 | 12 | 6 | T-1536 |
 | `persons/female/10_19/west/family/none` | 28 | 15 | 21 | 21 | T-1174 |
 | `persons/female/10_19/west/lodging/none` | 10 | 5 | 5 | 5 | T-1536 |
 | `persons/female/20_29/north/family/trade` | 18 | 10 | 15 | 15 | T-1347 |
@@ -512,36 +512,36 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
 | `persons/female/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-1538 |
 | `persons/female/under_10/north/family/none` | 55 | 29 | 41 | 41 | T-1174 |
-| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 7 | T-1536 |
+| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 8 | T-1536 |
 | `persons/female/under_10/south/family/none` | 132 | 75 | 100 | 100 | T-1174 |
 | `persons/female/under_10/south/lodging/none` | 46 | 26 | 20 | 11 | T-1536 |
 | `persons/female/under_10/west/family/none` | 49 | 26 | 34 | 34 | T-1174 |
 | `persons/female/under_10/west/lodging/none` | 17 | 9 | 8 | 4 | T-1536 |
 | `persons/male/10_19/north/family/none` | 37 | 20 | 28 | 28 | T-1174 |
-| `persons/male/10_19/north/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
-| `persons/male/10_19/north/lodging/none` | 12 | 7 | 5 | 5 | T-1536 |
+| `persons/male/10_19/north/lodging/trade` | 0 | 0 | 1 | 1 | T-1532 |
+| `persons/male/10_19/north/lodging/none` | 13 | 7 | 6 | 4 | T-1536 |
 | `persons/male/10_19/south/family/none` | 88 | 49 | 65 | 65 | T-1174 |
-| `persons/male/10_19/south/lodging/trade` | 4 | 0 | 4 | 0 | T-1532 |
-| `persons/male/10_19/south/lodging/none` | 27 | 18 | 9 | 3 | T-1536 |
+| `persons/male/10_19/south/lodging/trade` | 7 | 0 | 7 | 0 | T-1532 |
+| `persons/male/10_19/south/lodging/none` | 24 | 18 | 6 | 3 | T-1536 |
 | `persons/male/10_19/west/family/none` | 33 | 18 | 23 | 23 | T-1174 |
 | `persons/male/10_19/west/lodging/trade` | 0 | 0 | 1 | 1 | T-1532 |
 | `persons/male/10_19/west/lodging/none` | 11 | 6 | 5 | 5 | T-1536 |
 | `persons/male/20_29/north/family/trade` | 31 | 17 | 22 | 22 | T-1347 |
 | `persons/male/20_29/north/family/none` | 58 | 31 | 27 | 0 | T-1171 |
 | `persons/male/20_29/north/lodging/trade` | 7 | 6 | 1 | 1 | T-1532 |
-| `persons/male/20_29/north/lodging/none` | 24 | 11 | 13 | 6 | T-1538 |
+| `persons/male/20_29/north/lodging/none` | 24 | 11 | 13 | 10 | T-1538 |
 | `persons/male/20_29/south/family/trade` | 73 | 41 | 52 | 52 | T-1347 |
 | `persons/male/20_29/south/family/none` | 140 | 79 | 61 | 0 | T-1171 |
 | `persons/male/20_29/south/lodging/trade` | 26 | 15 | 11 | 11 | T-1532 |
-| `persons/male/20_29/south/lodging/none` | 49 | 27 | 22 | 14 | T-1538 |
+| `persons/male/20_29/south/lodging/none` | 49 | 27 | 22 | 15 | T-1538 |
 | `persons/male/20_29/west/family/trade` | 27 | 14 | 20 | 20 | T-1347 |
 | `persons/male/20_29/west/family/none` | 52 | 27 | 25 | 0 | T-1171 |
 | `persons/male/20_29/west/lodging/trade` | 10 | 5 | 5 | 3 | T-1532 |
-| `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 3 | T-1538 |
+| `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 4 | T-1538 |
 | `persons/male/30_39/north/family/trade` | 18 | 10 | 15 | 15 | T-1347 |
 | `persons/male/30_39/north/family/none` | 34 | 18 | 16 | 0 | T-1171 |
 | `persons/male/30_39/north/lodging/trade` | 6 | 3 | 3 | 3 | T-1532 |
-| `persons/male/30_39/north/lodging/none` | 12 | 6 | 6 | 4 | T-1538 |
+| `persons/male/30_39/north/lodging/none` | 12 | 6 | 6 | 6 | T-1538 |
 | `persons/male/30_39/south/family/trade` | 43 | 24 | 32 | 32 | T-1347 |
 | `persons/male/30_39/south/family/none` | 82 | 46 | 36 | 0 | T-1171 |
 | `persons/male/30_39/south/lodging/trade` | 15 | 9 | 6 | 1 | T-1532 |
@@ -549,11 +549,11 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/30_39/west/family/trade` | 16 | 9 | 11 | 11 | T-1347 |
 | `persons/male/30_39/west/family/none` | 30 | 16 | 14 | 0 | T-1171 |
 | `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 1 | T-1532 |
-| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 2 | T-1538 |
+| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 3 | T-1538 |
 | `persons/male/40_49/north/family/trade` | 5 | 3 | 3 | 3 | T-1347 |
 | `persons/male/40_49/north/family/none` | 10 | 5 | 5 | 0 | T-1171 |
 | `persons/male/40_49/north/lodging/trade` | 2 | 1 | 1 | 1 | T-1532 |
-| `persons/male/40_49/north/lodging/none` | 3 | 1 | 2 | 0 | T-1538 |
+| `persons/male/40_49/north/lodging/none` | 3 | 1 | 2 | 1 | T-1538 |
 | `persons/male/40_49/south/family/trade` | 12 | 7 | 9 | 9 | T-1347 |
 | `persons/male/40_49/south/family/none` | 24 | 13 | 11 | 0 | T-1171 |
 | `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 1 | T-1532 |
@@ -597,7 +597,7 @@ The households the model wants, by kind and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `households/boarding_house/north` | 12 | 1 | 11 | 5 | T-1538 |
+| `households/boarding_house/north` | 12 | 1 | 11 | 6 | T-1538 |
 | `households/boarding_house/south` | 41 | 7 | 34 | 1 | T-1538 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-1538 |
 | `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-1171 |
@@ -649,11 +649,11 @@ The December 1835 State census set against the register the town already holds.
 The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
-- `standing_records`: 440
-- `standing_with_an_occupant`: 147
+- `standing_records`: 442
+- `standing_with_an_occupant`: 149
 - `standing_without_an_occupant`: 293
-- `to_build_total`: 242
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 293 of the 440 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `to_build_total`: 240
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 293 of the 442 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -670,10 +670,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
 | `structures/larger_boarding_houses/south` | 28 | 9 | 19 | 0 | T-1209 |
 | `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
-| `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
+| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1209 |
 | `structures/ordinary_dwellings/south` | 176 | 113 | 63 | 0 | T-1708 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
-| `structures/ordinary_dwellings/north` | 84 | 49 | 35 | 0 | T-1742 |
+| `structures/ordinary_dwellings/north` | 84 | 50 | 34 | 0 | T-1742 |
 | `structures/small_outbuildings/south` | 48 | 26 | 22 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 12 | 8 | 0 | T-1212 |
@@ -695,9 +695,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 203
+- `roofs_on_committed_ground`: 201
 - `roofs_gated_on_coverage`: 39
-- `statement`: 203 of the 242 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `statement`: 201 of the 240 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -747,7 +747,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 21 of 1375 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 49 of 1375 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 293 of 440 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 293 of 442 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,543 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.

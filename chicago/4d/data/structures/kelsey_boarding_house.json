@@ -1,0 +1,132 @@
+{
+  "id": "kelsey_boarding_house",
+  "name": "Kelsey's boarding-house",
+  "aka": [
+    "the small yellow house among the sand-hills",
+    "Parnick Kelsey's boarding-house"
+  ],
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "NEITHER END IS DATED BY A SOURCE. THE START IS THE FIRST DAY THE ATTESTED YEAR PERMITS, not a date anybody gives - the convention lake_house_construction's own range opens on, and for the same reason: the one sighting is the morning of 26 August 1835, eight weeks AFTER the scene date, and a range opening there would put this house outside the scene it is attested in. What carries it back is that the house is described FULL - \"Mrs. Kelsey had all the boarders that she could accommodate\" - which is a going concern and not a week-old one, and that a painted frame house is not thrown up in eight weeks beside a boarding trade already at capacity. That is an inference and it is graded as one. THE END IS THE HONEST YEAR BOUND: nothing reached says when this house came down. IT IS NOT THE HOUSE THE DIRECTORIES PRINT, and that is the reason the range is not carried forward: Fergus' 1843 directory has \"Kelsey, Patrick, boarding-house, Wolcott, bet Kinzie and Michigan\" and Norris' 1844 has \"Kelsey, Parnick, boarding house, Wolcott st. b Kinzie and Mich.\" - the same trade on a platted north-side street about 230 m WEST of the sand hills. A boarding-house keeper moving off the beach and onto a street in eight years is the ordinary reading; a range running to 1844 would assert that the sand-hill house and the Wolcott Street house are one building, which no source says. BONNELL'S WALK IS THE ONLY SOURCE THIS PROJECT HAS REACHED THAT PUTS A BUILDING ON THE SAND HILLS NORTH-EAST OF THE LAKE HOUSE, AND IT IS ONE SENTENCE LONG. J. D. Bonnell, writing to the Chicago Times on 15 March 1876 and quoted by Andreas (History of Chicago vol. 1, printed pages 136-137), describes the morning after he arrived: \"In turning the corner of Dr. Kimball's residence, away to the north-east, among the sand-hills, close by the lake shore, stood a small yellow house, occupied by Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife, for Mr. Kelsey was a sub-contractor in removing stumps and grubs, preparatory to the grading of the street on the North Side ... But as Mrs. Kelsey had all the boarders that she could accommodate, I was obliged to seek other quarters.\" THE DATE IS EIGHT WEEKS LATE AND THE CARRY BACK IS THE INFERENCE. The letter dates the arrival to 25 August 1835, so the walk is the morning of the 26th - eight weeks after the scene date. The same letter's \"forty years ago\" implies 1836 and Andreas's lead-in says Bonnell \"came to Chicago in 1837\"; the 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836, and between 1835 and 1836 this project prefers the letter's explicit date, which is the ruling already committed on data/structures/lake_house_construction.json. See docs/RESEARCH/north_bank_east_end_neighbours.md."
+      },
+      "position": {
+        "utm_e": 448387.7,
+        "utm_n": 4637880.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "The sand hills north-east of the Lake House block, on the high ground east of Sand Street and about 62 m west of the 1835 lake shore, north of Michigan Street (today the block east of North St Clair Street, north of East Hubbard Street).",
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "PLACED ON A BEARING AND TWO LANDMARKS, WITH NO DISTANCE IN THE SOURCE AT ALL. Bonnell gives three things and they are all qualitative: \"away to the north-east\" of Dr. Kimberly's corner, \"among the sand-hills\", and \"close by the lake shore\". METHOD: the bearing from kimberly_residence's north-east corner to this footprint's centre is N 58 deg E, which is the north-east quadrant; the east face sits 61.9 m west of the committed shore_1835_harbor_cut lake shore, which is the \"close by\"; and the west face is 19.6 m east of the platted `sand` street corridor, on the ground that street was named for. EVERY NUMBER IS INVENTED - the 238.5 m of \"away to\", the 61.9 m of \"close by\" and the 19.6 m east of Sand Street are this project's and not Bonnell's. THE SAND HILLS ARE THE ONE PART OF THIS THAT IS CORROBORATED BY A COMMITTED READING RATHER THAN CHOSEN. The e1834_harbor_cut heightfield stands at +2.59 m above the summer-1835 water surface under this footprint, against +1.51 m under Dr. Kimberly's house on the Michigan Street frontage and +1.51 m at the Lake House site - a rise of 1.08 m: the ground Bonnell calls sand hills is about a metre higher than the bank strip he walked out from, measured off a heightfield derived years before this sentence was read. That does not fix the house's place, but it does say the described ground is where this project already put it. Traced ground, so the record declares no ground contact of its own. Facade bearing 180, due south toward the town and the river mouth: THIS IS INVENTED AND THERE IS NO STREET HERE TO ORIENT IT. Sand Street was platted, unopened and unworn on the scene date, so this house did not front a street at all, and a house on open sand faced whichever way its builder chose. WORKING UNCERTAINTY at least 150 m: the bearing is a quadrant, \"away to\" is not a distance, and \"close by the lake shore\" is a strip about 80 m wide between Sand Street and the water.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The evidence is a quadrant bearing and two unquantified proximities. The coordinate is chosen inside the ground those three phrases describe; there is no reading to re-derive it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            8.5,
+            0
+          ],
+          [
+            8.5,
+            6.1
+          ],
+          [
+            0,
+            6.1
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED, BUT THE SIZE IS BOUNDED TWICE AND THE TWO BOUNDS PULL AGAINST EACH OTHER. Bonnell calls it \"a small yellow house\" and then says Mrs. Kelsey \"had all the boarders that she could accommodate\" and turned him away. So: small enough to be called small, and full enough to refuse a lodger. 8.5 x 6.1 m is about 28 x 20 ft - a hall-and-parlour front range with chambers in the half storey, which is where boarders slept. Every number is invented; what is not invented is that this is the smallest of the two houses this parcel raises, because one source calls it small and the other calls its neighbour a residence."
+      },
+      "form": {
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. The house is painted, so it is sheathed, so it is framed rather than log - that much follows from \"yellow\". Which frame is not stated, and a braced frame is given rather than a balloon frame because this is a small house on unplatted sand at the edge of the town kept by a sub-contractor grubbing stumps, not a speculator's building on the new frontage. That is an argument about who built it and it is invented; the two systems differ here only in the stud rhythm, the girt line and the corner board."
+        },
+        "stories": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Not attested. The story-and-a-half is the characteristic form of these years and the only way a house Bonnell calls small holds the boarders he says it was full of - the chambers under the roof are where they slept. Invented."
+        },
+        "wall_height_m": {
+          "value": 3.2,
+          "confidence": "reconstructed",
+          "note": "No figure is attested. 3.2 m is near the bottom of this archetype's band for a story-and-a-half and is below the 3.4 m this parcel gives Dr. Kimberly's house, because one source calls this house small and the other calls its neighbour a residence. It is the lowest wall this archetype will build under a story-and-a-half here: at 3.0 m the default 0.95 m knee wall leaves 2.05 m for the room below, which nobody could stand up in. So the floor is the generator's headroom rule and not a source, and the half storey is where the source says this house's boarders slept. Invented."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Not attested. Gable is the near-universal roof form for a frame dwelling of this type, period and region, and the half storey's chambers are lit from its gable ends."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Not attested. One stack for a small house that cooked for boarders at one hearth. The archetype decides where it stands (L26)."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "Raised 2026-09-28 (T-1717). New record; nothing moved."
+    }
+  ],
+  "function": {
+    "value": "boarding_house",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "\"occupied by Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife\" - Bonnell names the trade, the keeper and who actually ran it in one clause, and then evidences the trade by being turned away from it for want of a bed. Fergus 1843 and Norris 1844 both print Kelsey at the same trade eight and nine years later, on a different street."
+  },
+  "occupants": {
+    "value": "Parnick (Patrick) Kelsey, sub-contractor on the North Side street grading, and Eve Kelsey, who kept the house",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE OCCUPANTS ARE ATTESTED AND NO HOUSEHOLD LINK IS WRITTEN, BECAUSE THE IDENTITY LAYER HOLDS THIS MAN TWICE. data/research/residents/identity_master.json carries id_kelsey_patrick (Fergus 1843, \"Kelsey, Patrick, boarding-house, Wolcott\") and id_kelsey_parnick (Norris 1844, \"Kelsey, Parnick, boarding house, Wolcott st.\") as two identities, and neither is merged into a town person or a household. Bonnell's sentence is the best evidence this corpus has that they are one man - it spells him BOTH WAYS in one sentence, \"occupied by Parnick Kelsey\" and \"ostensibly run by Eve, Parnick's wife\", against the same trade the two directories give him - but a merge is the identity layer's ruling under its own M-rules and not a structure record's, so it is filed and not performed. Eve Kelsey is in no directory and in no identity of this corpus: Bonnell is the only source that names her, and naming her here is the whole of what this record can do for her. See docs/RESEARCH/north_bank_east_end_neighbours.md section 5."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 194 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 194.4,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "THE ONE ROOF THIS PROJECT HAS ON THE SAND HILLS, AND THE ONE HOUSE IN THE TOWN A SOURCE GIVES A COLOUR. BONNELL'S WALK IS THE ONLY SOURCE THIS PROJECT HAS REACHED THAT PUTS A BUILDING ON THE SAND HILLS NORTH-EAST OF THE LAKE HOUSE, AND IT IS ONE SENTENCE LONG. J. D. Bonnell, writing to the Chicago Times on 15 March 1876 and quoted by Andreas (History of Chicago vol. 1, printed pages 136-137), describes the morning after he arrived: \"In turning the corner of Dr. Kimball's residence, away to the north-east, among the sand-hills, close by the lake shore, stood a small yellow house, occupied by Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife, for Mr. Kelsey was a sub-contractor in removing stumps and grubs, preparatory to the grading of the street on the North Side ... But as Mrs. Kelsey had all the boarders that she could accommodate, I was obliged to seek other quarters.\" THE DATE IS EIGHT WEEKS LATE AND THE CARRY BACK IS THE INFERENCE. The letter dates the arrival to 25 August 1835, so the walk is the morning of the 26th - eight weeks after the scene date. The same letter's \"forty years ago\" implies 1836 and Andreas's lead-in says Bonnell \"came to Chicago in 1837\"; the 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836, and between 1835 and 1836 this project prefers the letter's explicit date, which is the ruling already committed on data/structures/lake_house_construction.json. See docs/RESEARCH/north_bank_east_end_neighbours.md. THE COLOUR IS ATTESTED AND IT IS NOT BUILT, WHICH IS THIS RECORD'S ONE UNPAID DEBT. \"A small yellow house\" is the only statement any source reached makes about the painted finish of any dwelling in this town, and no archetype in this project has a yellow finish: frame_dwelling accepts unpainted, white, whitewash and red, and generators/common/materials.py holds no yellow. White was REFUSED as a substitute - it is a different claim, and a wrong one, about the one appearance fact this building has - so the record states no paint at all and the house builds in the archetype's unpainted clapboard. The debt is recorded in docs/LIBERTIES.md and filed as its own ticket rather than paid by inventing a colour value here. WHAT ELSE IS INVENTED, PLAINLY: the distance and the exact place inside the sand hills, the frontage and depth, the storey and a half, the wall height, the roof, the chimney, the braced frame and the bearing. WHAT IS ATTESTED: that the building existed, that it was a small painted frame house, that it was yellow, that it stood among the sand hills close by the lake shore north-east of Dr. Kimberly's, that it was a boarding-house at capacity, and who kept it. WHAT WOULD UPGRADE THIS RECORD: the Kinzie's Addition conveyances or any sale of the sand ground east of Sand Street, which would give this house a lot; the 1839 and 1840 North Side grading accounts, which paid Kelsey; or the Chicago American and Chicago Democrat for 1835-36. See docs/RESEARCH/north_bank_east_end_neighbours.md.",
+  "resident_assignment": {
+    "status": "unassigned",
+    "confidence": "reconstructed",
+    "note": "DELIBERATELY UNASSIGNED, AND NOT FOR WANT OF OCCUPANTS. The occupants are attested (see `occupants`); what is missing is a household record to carry. This corpus holds Kelsey as two unmerged directory identities and holds Eve Kelsey not at all, so there is no household card whose lives_at could point here. No household_id is written: that field is the platted deal's own marker, and this seat is a source's sentence rather than the deal's allocation. unassigned here is a refusal to mint a household out of a structure file, not an absence of work."
+  }
+}

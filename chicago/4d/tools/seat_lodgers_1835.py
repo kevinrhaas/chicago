@@ -491,6 +491,36 @@ def book_lodging_room() -> dict:
     return out
 
 
+def book_refamily_arrivals() -> dict:
+    """bucket key -> how many heads the re-family ledger has landed in it.
+
+    T-1717. `book_lodging_room()` above reads a cell's `to_reconstruct` gross, which is
+    the right reading for the room a deal is FROZEN against — the deal must not move when
+    the book is re-cut. It is the wrong reading for a CEILING, because an order can be
+    claimed by something that is not a re-cut and not this stage: the re-family programme
+    (T-1563) lands 129 heads of the town's own model into lodging cells, and
+    `build_order_book_1835.py` refuses the book outright when a bucket's arrivals and its
+    draws together run past what it orders — "a move needs an open order to fill".
+
+    A head the re-family ledger has already put in a bed is a bed this stage may not mint
+    somebody into. So the ceiling the caller builds is the FROZEN room less these
+    arrivals: frozen, so that a re-cut of `to_reconstruct` still moves nobody and
+    T-1503's guarantee is untouched; less the arrivals, because an arrival is not a
+    re-cut — it is a person standing in the order, and this stage may not deal a second
+    one into the same bed.
+    """
+    book = load(BOOK)
+    out = {}
+    for family in book.get("bucket_families", []):
+        if family.get("key") != "persons":
+            continue
+        for bucket in family.get("buckets", []):
+            if (bucket["axes"] or {}).get("household_type") != "lodging":
+                continue
+            out[bucket["key"]] = int(bucket.get("refamilied_in") or 0)
+    return out
+
+
 def book_lodging_house_room() -> dict:
     """(class, division) -> (bucket key, how many lodging HOUSEHOLDS the book orders there).
 
@@ -558,6 +588,56 @@ def committed_basis() -> list:
     return [dict(row) for row in rows]
 
 
+def committed_ceiling() -> dict:
+    """bucket key -> the open-order ceiling THE DEAL WAS CAPPED AT, off this stage's own
+    committed ledger. `{}` before a build has recorded one.
+
+    T-1717, AND IT IS FROZEN FOR T-1503's REASON. The ceiling is the frozen room capped
+    by what the book actually leaves open — its order less the heads the re-family ledger
+    (T-1563) has landed in it — because a bed somebody is already standing in is not a
+    bed this stage may mint a second person into, and `build_order_book_1835.py` refuses
+    the book outright when it happens. But a ceiling read live on every build is a second
+    live reading of the book, and it fails the same demonstration the room's own live
+    reading failed: a re-cut that removes one undrawn slot changes which cells are in the
+    proportional split and moves somebody who was already standing. So the ceiling is
+    computed once, from the book as it stood on the build that recorded it, committed
+    beside the room, and carried. A re-cut or a later arrival is stated in
+    `re_cut_since`, not absorbed by re-dealing people.
+    """
+    if not LEDGER.exists():
+        return {}
+    rows = (load(LEDGER).get("quota_basis") or {}).get("open_orders_the_deal_was_capped_at") or {}
+    return {str(key): int(value) for key, value in rows.items()}
+
+
+def committed_house_order() -> list:
+    """The houses THIS STAGE'S DEAL WAS DEALT TO, read off its own committed ledger.
+    `[]` before the first build has recorded one.
+
+    T-1717, AND IT IS T-1503's ARGUMENT APPLIED TO THE OTHER AXIS. The room is frozen so
+    that a re-cut of the book cannot re-deal a boarder somebody has since adopted — but
+    the loop below spends that room house by house, so the ORDER the houses are dealt in
+    decides who stands where just as surely as the room does. A house inserted ahead of
+    another by nothing more than its own name takes the cells the second one was going to
+    draw, and every card after it in the sort moves. Measured on 2026-09-28: raising
+    `kelsey_boarding_house` — a documented boarding house, and alphabetically fourth of
+    eighteen — re-dealt ten of the seventeen houses already standing, for no reason any
+    reader could give.
+
+    T-1535 had already found this and answered it for the two houses it added, by dealing
+    a house whose division came from the district data after every house that had one
+    before. This carries the same answer for every house, on a record rather than on a
+    property that happens to correlate: the ids the deal was dealt to are committed beside
+    the room it was dealt against, and a house that is not among them is dealt LAST. Like
+    the basis, the list is CARRIED and not re-derived, so a build is a fixed point — the
+    house dealt last on the build that raised it is dealt last on every build after.
+    """
+    if not LEDGER.exists():
+        return []
+    rows = (load(LEDGER).get("quota_basis") or {}).get("houses_the_deal_was_dealt_to") or []
+    return [str(row) for row in rows]
+
+
 def lodging_buckets() -> dict:
     """(division, sex, band, trade axis) -> (bucket key, the room the deal is dealt against).
 
@@ -571,7 +651,7 @@ def lodging_buckets() -> dict:
             (row["bucket"], int(row["to_reconstruct"])) for row in basis}
 
 
-def basis_block(room: dict) -> dict:
+def basis_block(room: dict, house_order: list, ceiling: dict) -> dict:
     """The basis as it will be committed, and every way the book has moved away from it.
 
     `buckets` is the room the deal above was dealt against, which on a first build is the
@@ -601,6 +681,15 @@ def basis_block(room: dict) -> dict:
         "read_from": "the book's `to_reconstruct` on the build that first recorded it; "
                      "this block on every build after",
         "buckets": rows,
+        "houses_the_deal_was_dealt_to": house_order,
+        "open_orders_the_deal_was_capped_at": dict(sorted(ceiling.items())),
+        "$houses_note": "DERIVED and CARRIED (T-1717). The order the loop spends the room "
+                        "in is part of the deal, not a detail of it: a house dealt ahead "
+                        "of another takes the cells the second would have drawn. These "
+                        "are the houses the deal was dealt to, in the order it dealt "
+                        "them; a lodging place that is not among them is dealt after "
+                        "every one that is, so raising a roof moves nobody already "
+                        "standing.",
         "re_cut_since": {
             "statement": "The book has been re-cut in these cells since the deal was "
                          "dealt. Nobody moves: the cards stand on the basis, and the "
@@ -1372,6 +1461,16 @@ def fill() -> tuple:
     # `committed_basis()`.
     room_as_dealt = dict(room)
     live_room = book_lodging_room()
+    live_by_key = {key: n for key, n in live_room.values()}
+    # THE OPEN-ORDER CEILING (T-1717), read live and spent as the loop goes. The frozen
+    # room above is what the deal is dealt AGAINST; this is the point past which a mint
+    # would be a person the town never ordered, because the re-family programme has
+    # already put somebody in the bed. See `book_open_lodging_room()`.
+    arrivals = book_refamily_arrivals()
+    ceiling = committed_ceiling() or {
+        key: max(0, min(n, live_by_key.get(key, n)) - arrivals.get(key, 0))
+        for key, n in room_as_dealt.values()}
+    open_left = dict(ceiling)
     fills = Counter()
     household_fills: Counter = Counter()
     cards: dict[str, dict] = {}
@@ -1384,10 +1483,23 @@ def fill() -> tuple:
     # whole ticket on, where 25 of 56 invented boarders moved and six gate steps went red
     # behind them. Dealt last, every house dealt before T-1535 sees exactly the room it
     # saw before, draws the same cells on the same seeds, and writes the same bytes.
-    def dealt_last(house: dict) -> tuple:
-        new_to_the_deal = str(house.get("division_from") or "").startswith("the district data")
-        return (1 if new_to_the_deal else 0, house["id"])
+    #
+    # T-1717 CARRIES THAT ANSWER FOR EVERY HOUSE, on a record rather than on a property
+    # that happens to correlate: `committed_house_order()` is the list of houses the deal
+    # was dealt to, committed beside the room it was dealt against, and a lodging place
+    # that is not among them is dealt after every one that is. T-1535's own two houses
+    # are in that list and keep their place in it, so this changes nothing they settled.
+    dealt_before = committed_house_order()
+    order_of = {house_id: index for index, house_id in enumerate(dealt_before)}
 
+    def dealt_last(house: dict) -> tuple:
+        if dealt_before:
+            return (0, order_of[house["id"]], "") if house["id"] in order_of \
+                else (1, 0, house["id"])
+        new_to_the_deal = str(house.get("division_from") or "").startswith("the district data")
+        return (1 if new_to_the_deal else 0, 0, house["id"])
+
+    house_order = [house["id"] for house in sorted(houses, key=dealt_last)]
     for house in sorted(houses, key=dealt_last):
         short = house["beds_ordinary"] - house["occupancy"]
         if short <= 0:
@@ -1424,6 +1536,7 @@ def fill() -> tuple:
                 fills[key] += 1
                 room[(house["division"], sex, band, "trade")] = (
                     key, room[(house["division"], sex, band, "trade")][1] - 1)
+                open_left[key] = open_left.get(key, 0) - 1
                 house["minted_keeper"] = persons[0]["id"]
                 needed -= 1
         weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
@@ -1452,7 +1565,19 @@ def fill() -> tuple:
         # asks for a deliberate re-freeze of the basis, instead of being absorbed by
         # silently re-dealing people who were already standing. That is the right way
         # round: moving an invented lodger is a decision, not a rounding step.
-        capacity = {(sex, band): n for (sex, band), n in weights}
+        # THE CEILING IS THE FROZEN ROOM **AND** THE BOOK'S OPEN ORDERS (T-1717). The
+        # frozen room is what keeps a re-cut from re-dealing somebody already standing —
+        # see T-1525 above, and nothing about that changes. What it cannot see is an
+        # order that is not open at all: the re-family ledger lands heads of the town's
+        # own model into these same cells, and a bed already slept in by one of them is
+        # not a bed this stage may mint anybody into. Measured on 2026-09-28, raising
+        # `kelsey_boarding_house` drew four people past four such cells and
+        # `build_order_book_1835.py` refused the book for it. The clamp sheds them onto
+        # cells that do have an open order, and where every cell of the division is
+        # closed it refuses the mint outright and the beds stand empty, said out loud.
+        capacity = {(sex, band): min(n, open_left.get(
+                        room[(house["division"], sex, band, "none")][0], 0))
+                    for (sex, band), n in weights}
         deal, undealt = allocate_within(needed, weights, capacity) if needed > 0 else ({}, 0)
         if undealt:
             refusals.append({
@@ -1478,6 +1603,7 @@ def fill() -> tuple:
                 fills[key] += 1
             room[(house["division"], sex, band, "none")] = (
                 key, room[(house["division"], sex, band, "none")][1] - count)
+            open_left[key] = open_left.get(key, 0) - count
         if not persons:
             continue
         house["minted_lodgers"] = len(persons) - (1 if house["minted_keeper"] else 0)
@@ -1508,7 +1634,7 @@ def fill() -> tuple:
         "not_a_reading": "This file reads no source. It spends a capacity the lodging "
                          "model already apportioned and an order the book already made, "
                          "and it names nobody the sources name.",
-        "quota_basis": basis_block(room_as_dealt),
+        "quota_basis": basis_block(room_as_dealt, house_order, ceiling),
         "inputs": [
             "data/reconstruction/1835_lodging_model.json",
             "data/reconstruction/1835_reconstruction_order_book.json",
