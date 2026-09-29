@@ -11004,10 +11004,22 @@
       "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_indiana_north_wolcott_a3_08",
+      "name": "Reconstructed A3 privy #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a3_08.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a3_08__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
       "name": "Reconstructed A4 woodshed or storage shed #03",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a4_03.json",
       "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_a4_07",
+      "name": "Reconstructed A4 woodshed or storage shed #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a4_07.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a4_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
@@ -11020,6 +11032,18 @@
       "name": "Reconstructed D3 one-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_d3_02.json",
       "asset": "gltf/recon_1835_blk_indiana_north_wolcott_d3_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_d3_05.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_d3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_d3_06",
+      "name": "Reconstructed D3 one-room frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_d3_06.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_d3_06__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_lake_clark_a3_04",

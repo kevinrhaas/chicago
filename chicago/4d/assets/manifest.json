@@ -1125,6 +1125,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_wolcott_a3_04"
     },
+    "recon_1835_blk_indiana_north_wolcott_a3_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29240,
+      "inputs_sha256": "320f005334aba9712be0c0e6a36ecc05f3bbd93f853121d1fd95d2306cb488f6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_a3_08"
+    },
     "recon_1835_blk_indiana_north_wolcott_a4_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -1133,6 +1142,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_wolcott_a4_03"
+    },
+    "recon_1835_blk_indiana_north_wolcott_a4_07__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 41724,
+      "inputs_sha256": "6b113074c64c97e3a07757d3b420d9890a1bfe92833c26bfebb089d105122bc0",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_a4_07"
     },
     "recon_1835_blk_indiana_north_wolcott_d3_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
@@ -1151,6 +1169,24 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_02"
+    },
+    "recon_1835_blk_indiana_north_wolcott_d3_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 26784,
+      "inputs_sha256": "90d6cdff660c53d0acb31868389729f4f55d0e5e4d025e2679b9ac89b3b8b720",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_05"
+    },
+    "recon_1835_blk_indiana_north_wolcott_d3_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 30212,
+      "inputs_sha256": "6276761ee5ee8d45bb8cfd42cfec98eb697482430e25199a64c3c5380b698262",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_06"
     },
     "recon_1835_blk_lake_clark_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
