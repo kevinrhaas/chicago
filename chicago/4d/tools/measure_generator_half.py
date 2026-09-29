@@ -247,19 +247,26 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
-# 444 -> 445 and 440 -> 441 on 2026-09-28 (T-1732): `glessner_house__as_built_1887.glb`,
+# 444 -> 448 and 440 -> 444 on 2026-09-29 (T-1742): the four roofs of the first deal on
+# `blk_indiana_north_wolcott`, Kinzie's Addition — two one-room frame cottages and the
+# woodshed and privy off the alley behind them. Four new structure assets on the same
+# terms as the four above: four more meshes the shared generator modules or emit.py
+# would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
+# debt itself moved.
+#
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
 # the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
 # new `masonry_house` archetype. One new structure asset, so one more mesh the shared
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 445,
+    "assets": 449,
     "restales": {
-        "generators/common/*.py": 445,
+        "generators/common/*.py": 449,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 441,
+        "generators/emit.py": 445,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

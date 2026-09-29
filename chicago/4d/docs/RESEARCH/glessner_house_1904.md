@@ -323,7 +323,7 @@ discipline is kept: a design drawing is intent, and a dated photograph dates wha
 | stable loft opening and flanking lights | heights reconstructed | 17.4–24.4 ft and 17.8–22.9 ft | inferred | HABS photo 1 |
 | courtyard ground | reconstructed | a lawn with a hard carriage drive along the south side, *in c. 1923*; carried to 1904 as reconstructed | reconstructed | HABS photo 5 |
 
-**Not settled** (recorded as liberties, `docs/LIBERTIES.md` **L294**): every colour; the north
+**Not settled** (recorded as liberties, `docs/LIBERTIES.md` **L295**): every colour; the north
 tower's plan position and drum; the hall bow's roof form; the dormers' depth on the slope; the
 stable turret's dimensions; the chimneys' E-W sizes; the stable's south end and its 1904 carriage
 doors; the north range's courtyard openings; opening heights read off plans; the cornices; the
