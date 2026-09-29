@@ -409,7 +409,17 @@ STRUCTURE_TICKETS = {
     # T-1742 is this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    #
+    # AND T-1742 WAS ITSELF SPLIT on 2026-09-28 (T-1747, T-1748), so the row moved again,
+    # for the same reason and by the same rule. The cell reads 34 left and T-1742 is in
+    # state `split`, which is a ticket nobody can claim, and every re-derivation on dev
+    # fails on this row until it is swept. The two children divide the district by ground:
+    # T-1747 raises blk_indiana_north_wolcott's first roofs on the addition's Indiana and
+    # Illinois faces only, and is in review; T-1748 is the rest of it in as many words —
+    # blk_indiana_north_cass's cottages, the wolcott lots T-1747 leaves open, the scattered
+    # better houses on the Rush-Pine fringe. It is the live child that owns what the cell
+    # still owes after its sibling's block, so the 34 are T-1748's.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 442,
+    "structures_placed": 455,
     "structures_reached": 75,
     "structures_reached_by_grade": {
       "inferred": 23,
       "reconstructed": 52
     },
     "structures_unreached_by_section": {
-      "09": 365,
+      "09": 378,
       "10": 1,
       "16": 1
     },
@@ -39766,6 +39766,19 @@
       "recon_1835_blk_washington_clark_a4_04",
       "recon_1835_blk_washington_clark_d4_02",
       "recon_1835_blk_washington_clark_d5_01",
+      "recon_1835_blk_washington_franklin_a1_08",
+      "recon_1835_blk_washington_franklin_a1_10",
+      "recon_1835_blk_washington_franklin_a2_09",
+      "recon_1835_blk_washington_franklin_a3_13",
+      "recon_1835_blk_washington_franklin_a4_11",
+      "recon_1835_blk_washington_franklin_a4_12",
+      "recon_1835_blk_washington_franklin_d3_05",
+      "recon_1835_blk_washington_franklin_d3_06",
+      "recon_1835_blk_washington_franklin_d3_07",
+      "recon_1835_blk_washington_franklin_d7_01",
+      "recon_1835_blk_washington_franklin_d7_04",
+      "recon_1835_blk_washington_franklin_h1_03",
+      "recon_1835_blk_washington_franklin_h2_02",
       "recon_1835_north_a1_008",
       "recon_1835_north_a1_032",
       "recon_1835_north_a2_033",

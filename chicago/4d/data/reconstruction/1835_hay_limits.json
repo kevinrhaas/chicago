@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 313,
-  "outside": 128,
+  "outside": 141,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 24,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 5,
+   "south_of_washington_street": 18,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -459,7 +459,20 @@
     "recon_1835_blk_washington_clark_a3_03",
     "recon_1835_blk_washington_clark_a4_04",
     "recon_1835_blk_washington_clark_d4_02",
-    "recon_1835_blk_washington_clark_d5_01"
+    "recon_1835_blk_washington_clark_d5_01",
+    "recon_1835_blk_washington_franklin_a1_08",
+    "recon_1835_blk_washington_franklin_a1_10",
+    "recon_1835_blk_washington_franklin_a2_09",
+    "recon_1835_blk_washington_franklin_a3_13",
+    "recon_1835_blk_washington_franklin_a4_11",
+    "recon_1835_blk_washington_franklin_a4_12",
+    "recon_1835_blk_washington_franklin_d3_05",
+    "recon_1835_blk_washington_franklin_d3_06",
+    "recon_1835_blk_washington_franklin_d3_07",
+    "recon_1835_blk_washington_franklin_d7_01",
+    "recon_1835_blk_washington_franklin_d7_04",
+    "recon_1835_blk_washington_franklin_h1_03",
+    "recon_1835_blk_washington_franklin_h2_02"
    ],
    "east_of_the_limit_in_the_water": [
     "south_pier"

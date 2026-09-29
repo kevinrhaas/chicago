@@ -14097,7 +14097,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 422 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 435 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14108,7 +14108,12 @@ carries no shingle at all. T-1717's two Lake House neighbours make 418, and they
 frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
 neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two
 frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of
-them shingled by this exposure like every other frame roof the block recipe raises. No record's
+them shingled by this exposure like every other frame roof the block recipe raises. T-1751's
+deal on blk_washington_franklin makes 435, and it is the largest single move this count has
+taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house,
+a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage
+shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and
+thirteen more the exposure reaches. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -16317,3 +16322,61 @@ would replace the walk and parkway widths outright; T-1728 owns the materials.
 **Related:** **L289**, **L290** (the ground these lie on), `docs/RESEARCH/prairie_1904_street_grid.md`,
 **T-0474**, **T-1728**.
 **Recorded:** 2026-09-28.
+
+### L294 — Seven invented dwellings on the plat's last tier, and the six yard buildings dealt up the household scale
+
+**Decision:** `blk_washington_franklin` — bounded by Washington, Wells, Madison and Franklin,
+and standing empty until now — carries **thirteen anonymous roofs**: seven dwellings, one to a
+lot, and six yard buildings behind them. The seven are the two small two-story frame houses
+(D7), the merchant-or-professional house (H2), the larger one-and-a-half-story house (H1) and
+the three one-room cottages (D3) that T-1522's placement pass wrote `slot` requests for against
+this block's own committed plan; the six are two stables, a carriage shed, two woodsheds and a
+privy. The ceiling, the family mix and the lots are the seating's and the schedule's;
+**everything below that is invented** — that any building stood on this block in July 1835,
+which buildings they were, that they were dwellings, how far back from its street edge each
+sits and how far to one side of its lot. No coordinate is authored: every metre is read off the
+committed lot polygon by `tools/generate_block_infill.py` from the recipe entry in
+`data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why seven, which is the whole of the block's lot ceiling.** This is the second block built on
+the plat's last tier, the range between Washington Street and Madison Street that T-1707
+released by carrying the Original Town's seven north-south columns to the line the 1830 plat
+draws them on, and it is the first block anywhere south of Washington to carry a street of roofs
+rather than a pair of them. Its eight lots all read `free` in the lot ledger and all read dry on
+the modelled ground. Seven is not a choice about how full the tier should look: `lot_ceiling_principal`
+is 7 here — one principal roof to a free lot, less the one the schedule's own sizing rule keeps
+open — and the seating asked for exactly seven. The other fourteen principal roofs the 665-roof
+schedule apportions this block would have to stand two to a lot along a named frontage run, and a
+party-wall row on the town's outermost platted tier in July 1835 is a claim nothing supports.
+
+**Why these yard buildings behind these houses.** The block's plan holds six and all six are
+built, which is the difference from `blk_washington_clark` (**L292**), where four of six were
+argued away as claims about how two tradesmen's households lived. They are dealt UP the household
+scale rather than evenly: the carriage shed stands in the merchant's yard, a stable apiece behind
+the one-and-a-half-story house and the D7 on the Washington-and-Franklin corner, woodsheds behind
+the other D7 and behind one cottage, and the privy behind another. **One household is dealt
+nothing at all** — the cottage on the Madison-and-Wells corner stands in an open yard — because
+six were apportioned and seven dwellings are raised. That is the plan binding, not an omission;
+the schedule re-derives with fourteen roofs of headroom still on the block, so the yard building
+that did not fit stays in its plan for the deal that comes after.
+
+**Which face carries which household is the seating's arrangement, not this file's.** Washington
+Street is graded `light` in the committed street hierarchy and Madison `none`; the placement pass
+put the four larger households on Washington and the three one-room cottages on Madison. Standing
+a dwelling on a street the traffic model gives no through movement is not a contradiction — a
+dwelling is not a shop, and the face-value clause that would refuse it reaches the trade letters
+only.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the block
+between Washington and Madison, Franklin and Wells, and a reading of Thompson's lot numbering from
+the sheets themselves. A named discovery substitutes for a compatible anonymous roof and never
+increases the total. Any evidence that the tier south of Washington was still wholly unbuilt in
+July 1835 would retire all thirteen of these rather than re-place them.
+
+**Covers:** `recon_1835_blk_washington_franklin_*.inferred_1835.position`,
+`recon_1835_blk_washington_franklin_*.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L292** (the tier's first block, and the
+yard-building argument this one departs from), **L263** (the shingle exposure the thirteen take),
+**L270** (the platted deal this block answers), **T-1707** (the tier), **T-1751**.
+**Recorded:** 2026-09-29.
