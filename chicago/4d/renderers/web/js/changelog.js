@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
+    items: [
+      "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",
+      'The rule that ends this street where a building blocks it was being applied to the line down the middle of the road rather than to the road. A road has a width, so the line can stop short of a building while the roadway still runs through its corner \u2014 which is exactly what had happened. The street now stops 1.17 m earlier, where the ROADWAY clears the building, and the inn is outside it by 0.05 m at the nearest corner.',
+      'Nothing else about the street moved. It still runs the same course at the same distance from the traced 1834 river bank, so its east kerb still reaches the water and does not cross it.',
+      'The tavern still has no signboard. Its GREEN TREE board hung on a post at a corner, the corner needs walks on two streets, and the inn has one \u2014 so the board stays absent, in writing, rather than being hung somewhere no picture of it shows. Getting the corner back is a separate piece of work and is now its own item.',
+    ] },
   { v: 1220, ts: '2026-09-29T01:18:12.689Z', date: 'Sep 28, 2026, 8:18 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
     items: [
       'At /4d/1904/ the ground now has its streets. Prairie, Indiana and Calumet Avenues and 16th to 22nd Streets are laid out as the 1911 fire-insurance maps draw them: 66 feet wide, with 16th Street 50. Behind the houses run the alleys, at the widths the maps print.',
