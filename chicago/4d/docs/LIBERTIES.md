@@ -15374,12 +15374,12 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-seven do not because a ruling refuses them one
+### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-five do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 20 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 72
+**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 74
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Six of the 20 are on the
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
 South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
@@ -16877,11 +16877,11 @@ sits and how far to one side of its lot. No coordinate is authored: every metre 
 committed lot polygon by `tools/generate_block_infill.py` from the recipe entry in
 `data/reconstruction/1835_platted_block_parcels.json`.
 
-**Why seven, which is the whole of the block's lot ceiling.** This is the second block built on
-the plat's last tier, the range between Washington Street and Madison Street that T-1707
+**Why seven, which is the whole of the block's lot ceiling.** This is the fourth and last block
+built on the plat's last tier, the range between Washington Street and Madison Street that T-1707
 released by carrying the Original Town's seven north-south columns to the line the 1830 plat
-draws them on, and it is the first block anywhere south of Washington to carry a street of roofs
-rather than a pair of them. Its eight lots all read `free` in the lot ledger and all read dry on
+draws them on, and it is the largest single parcel the tier has taken — thirteen
+roofs against the Clark block's four, the Wells block's eleven and the LaSalle block's eleven. Its eight lots all read `free` in the lot ledger and all read dry on
 the modelled ground. Seven is not a choice about how full the tier should look:
 `lot_ceiling_principal` is 7 here — one principal roof to a free lot, less the one the
 schedule's own sizing rule keeps open — and the seating asked for exactly seven. The other
@@ -16918,5 +16918,6 @@ wholly unbuilt in July 1835 would retire all thirteen of these rather than re-pl
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
 **L100** and the other block entries of this row, **L292** (the tier's first block, and the
 yard-building argument this one departs from), **L263** (the shingle exposure the thirteen take),
-**L270** (the platted deal this block answers), **T-1707** (the tier), **T-1751**.
+**L270** (the platted deal this block answers), **L298** (the Wells block) and **L300** (the
+LaSalle block, the two roofs of this tier dealt between them), **T-1707** (the tier), **T-1751**.
 **Recorded:** 2026-09-29.

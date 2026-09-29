@@ -198,9 +198,9 @@
   "adopted_into_a_roof_of_no_trade": 13,
   "roofs_free_and_a_house_of_trade": 28,
   "houses_of_trade_left_free": 2,
-  "roofs_reserved_for_a_slot_request": 22,
+  "roofs_reserved_for_a_slot_request": 29,
   "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 22,
+  "reserved_without_a_committed_occupancy": 29,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -426,6 +426,83 @@
    "requested_by_seat": "hh_cady_levi",
    "order_book_draw": "blk_washington_clark / D5 / south",
    "dealt_by_ticket": "T-1736",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_d3_05",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "D3",
+   "requested_by_seat": "hh_calhoun_alvin",
+   "order_book_draw": "blk_washington_franklin / D3 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_d3_06",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "D3",
+   "requested_by_seat": "hh_cady_levi",
+   "order_book_draw": "blk_washington_franklin / D3 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_d3_07",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "D3",
+   "requested_by_seat": "hh_campbell_james_b",
+   "order_book_draw": "blk_washington_franklin / D3 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_d7_01",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "D7",
+   "requested_by_seat": "hh_aspam_antoine",
+   "order_book_draw": "blk_washington_franklin / D7 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_d7_04",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "D7",
+   "requested_by_seat": "hh_ashbaugh_fre",
+   "order_book_draw": "blk_washington_franklin / D7 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_h1_03",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "H1",
+   "requested_by_seat": "hh_aspam_jean_baptiste",
+   "order_book_draw": "blk_washington_franklin / H1 / south",
+   "dealt_by_ticket": "T-1751",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_franklin_h2_02",
+   "block_id": "blk_washington_franklin",
+   "programme_phase": "phase3_platted_block_washington_franklin",
+   "family": "H2",
+   "requested_by_seat": "hh_bailly_esther",
+   "order_book_draw": "blk_washington_franklin / H2 / south",
+   "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },
