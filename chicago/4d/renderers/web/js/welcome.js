@@ -1,5 +1,6 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
-export function createWelcome({ gate, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
+import { scenePresentation } from './scene-presentation.js';
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -56,8 +57,11 @@ export function createWelcome({ gate, destinations, enter, resume, pause, hasEnt
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
     $('welcome-explore').setAttribute('aria-expanded', 'false');
     $('welcome-jaunts').setAttribute('aria-expanded', 'false');
-    title.textContent = 'Welcome to Chicago, summer 1835.';
-    gate.querySelector('.gate-eyebrow').textContent = 'A town at the water’s edge';
+    const presentation = scenePresentation(scene.id, scene.target_date);
+    title.textContent = presentation.welcomeTitle;
+    gate.querySelector('.gate-eyebrow').textContent = presentation.eyebrow;
+    gate.querySelector('.welcome-intro').textContent = presentation.intro;
+    $('welcome-jaunts').querySelector('span').textContent = `Short outings in Chicago, ${presentation.year}`;
     $('gate-btn').textContent = isTouch ? 'Tap to enter Chicago' : 'Enter Chicago';
     $('gate-btn').disabled = false;
     close.hidden = !hasEntered();
