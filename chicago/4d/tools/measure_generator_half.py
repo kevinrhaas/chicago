@@ -260,23 +260,32 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
-# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1735): the eleven roofs of the first deal on
-# `blk_washington_lasalle`, the south-west block of the plat's last tier. Seven principal
-# dwellings and four yard buildings, every one of them an anonymous count-unit the platted
-# seating asked this block for by name. Eleven new structure assets, so eleven more meshes a
-# change to the shared generator modules or to emit.py would re-stale; the terrain and
-# pier_crib reaches are untouched. Nothing about the debt itself moved — it is the largest
-# single step this reach has taken, and it is eleven roofs and not an argument. The three
-# numbers are read off the committed tree by `--gate`, not carried over from the branch this
-# was cut against.
+# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1708): the eleven roofs of the deal on
+# `blk_washington_wells`, the plat's last tier again — seven principal roofs (two D7
+# houses, two H1 houses, two D3 cottages and an H2) with two privies, a woodshed and a
+# stable behind them. Eleven new structure assets, so eleven more meshes the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and
+# pier_crib at 2. Nothing about the debt itself moved. The from-numbers are the ones
+# this branch found on `dev` at its FIFTH lap, not the 444/440 it was written off: the
+# debt is cumulative, so T-1742's four and T-1732's Glessner House are counted first
+# and the eleven go on top of them.
+#
+# 460 -> 471 and 456 -> 467 on 2026-09-29 (T-1735): the eleven roofs of the deal on
+# `blk_washington_lasalle`, the south-west block of the same last tier, raised on top of the
+# Wells eleven above. Seven principal dwellings (an H2, two H1, two D7 and two D3) with a
+# stable, two privies and a woodshed behind them. Eleven new structure assets, so eleven more
+# meshes a change to the shared generator modules or to emit.py would re-stale; the terrain
+# reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved. The from-numbers
+# are the ones this branch found on `dev` at its SEVENTH lap, and the three numbers are read
+# off the committed tree by `--gate` rather than carried over.
 #
 STATED = {
-    "assets": 460,
+    "assets": 471,
     "restales": {
-        "generators/common/*.py": 460,
+        "generators/common/*.py": 471,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 456,
+        "generators/emit.py": 467,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

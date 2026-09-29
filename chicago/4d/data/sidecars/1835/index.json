@@ -11814,70 +11814,70 @@
       "asset": "gltf/recon_1835_blk_washington_clark_d5_01__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_a1_08",
-      "name": "Reconstructed A1 stable #08",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_a1_08.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_a1_08__inferred_1835.glb"
+      "id": "recon_1835_blk_washington_wells_a1_11",
+      "name": "Reconstructed A1 stable #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_a1_11.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_a1_11__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_a3_09",
+      "id": "recon_1835_blk_washington_wells_a3_08",
+      "name": "Reconstructed A3 privy #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_a3_08.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_a3_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_wells_a3_09",
       "name": "Reconstructed A3 privy #09",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_a3_09.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_a3_09__inferred_1835.glb"
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_a3_09.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_a3_09__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_a3_10",
-      "name": "Reconstructed A3 privy #10",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_a3_10.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_a3_10__inferred_1835.glb"
+      "id": "recon_1835_blk_washington_wells_a4_10",
+      "name": "Reconstructed A4 woodshed or storage shed #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_a4_10.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_a4_10__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_a4_11",
-      "name": "Reconstructed A4 woodshed or storage shed #11",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_a4_11.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_a4_11__inferred_1835.glb"
+      "id": "recon_1835_blk_washington_wells_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_d3_05.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_d3_05__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_d3_06",
+      "id": "recon_1835_blk_washington_wells_d3_06",
       "name": "Reconstructed D3 one-room frame cottage #06",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_d3_06.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_d3_06__inferred_1835.glb"
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_d3_06.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_d3_06__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_d3_07",
-      "name": "Reconstructed D3 one-room frame cottage #07",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_d3_07.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_d3_07__inferred_1835.glb"
+      "id": "recon_1835_blk_washington_wells_d7_01",
+      "name": "Reconstructed D7 small two-story frame house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_d7_01.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_d7_01__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_d7_04",
+      "id": "recon_1835_blk_washington_wells_d7_04",
       "name": "Reconstructed D7 small two-story frame house #04",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_d7_04.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_d7_04__inferred_1835.glb"
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_d7_04.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_d7_04__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_d7_05",
-      "name": "Reconstructed D7 small two-story frame house #05",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_d7_05.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_d7_05__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_washington_lasalle_h1_02",
+      "id": "recon_1835_blk_washington_wells_h1_02",
       "name": "Reconstructed H1 larger one-and-a-half-story house #02",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_h1_02.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_h1_02__inferred_1835.glb"
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_h1_02.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_h1_02__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_h1_03",
+      "id": "recon_1835_blk_washington_wells_h1_03",
       "name": "Reconstructed H1 larger one-and-a-half-story house #03",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_h1_03.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_h1_03__inferred_1835.glb"
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_h1_03.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_h1_03__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_lasalle_h2_01",
-      "name": "Reconstructed H2 merchant or professional house #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_h2_01.json",
-      "asset": "gltf/recon_1835_blk_washington_lasalle_h2_01__inferred_1835.glb"
+      "id": "recon_1835_blk_washington_wells_h2_07",
+      "name": "Reconstructed H2 merchant or professional house #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_h2_07.json",
+      "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_a1_008",

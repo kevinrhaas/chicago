@@ -96,12 +96,12 @@ principal ceiling is seven — three party-line units per free lot less the one 
 sizing reserves, which on a block with no frontage run resolves to one roof per lot.
 The deal takes the ceiling and stops.
 
-**Every dwelling was asked for, and that is the first time.** T-1613's platted
+**Every dwelling was asked for.** T-1613's platted
 seating found no free roof of an admitted family in the South Division for seven
 banded households and wrote seven `slot` rows against this block's own committed
 family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
 A request is not evidence: the roofs grade at the bottom tier with the same
-reasoning notes as every other anonymous count-unit, and the liberty is **L298**.
+reasoning notes as every other anonymous count-unit, and the liberty is **L299**.
 
 **The face argument.** Washington is opened, worn and graded `light`; Madison is
 platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
@@ -122,15 +122,15 @@ reported rather than tidied.** The seating pass is re-derived whole in the place
 policy's clause order, so the seven roofs went to the seven households the policy
 ranks first among those an admitted family on this block will hold; the other
 requesters are re-slotted onto the Washington-tier blocks still standing empty.
-Measured at the chain's fixpoint against dev at `fcd5e7c5`, which carries T-1747's two
-Kinzie cottages and T-1732's Glessner House: platted seats **165 → 170**, adoptions
-**113 → 120**, slots **52 → 50**, rows handed to T-1614 **1,313 → 1,308**, and the
-seating join with the off-plat pass **237 → 242**. The gain is five and not seven because the households that DID move here
+Measured at the chain's fixpoint against dev at `b4c27fa6`, which carries T-1708's own
+eleven roofs on `blk_washington_wells`: platted seats **170 → 174**, adoptions
+**120 → 124**, slots unmoved at **50**, rows handed to T-1614 **1,308 → 1,304**, and the
+seating join with the off-plat pass **242 → 246**. The gain is four and not seven because the households that DID move here
 vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
 rather than leaving them open. The named-keeper count went **21 → 20** with it and the
-refusals **65 → 68**, of which 66 are the letter-list refusal already on the books and 2
+refusals **68 → 70**, of which 68 are the letter-list refusal already on the books and 2
 the T-1689 naming disagreement — no ruling moved (**L276**). The 668-roof programme now
-reads **443 standing, 225 remaining**.
+reads **454 standing, 214 remaining** over **468** structure records.
 
 **AND RAISING A BLOCK RE-APPORTIONS THE TIER, WHICH IS WORTH SAYING PLAINLY.**
 `blk_washington_clark` had gone to 0 slots under T-1736 because its plan's two
@@ -142,9 +142,9 @@ The tier's slot count therefore falls 28 → 26 rather than 28 → 21, and its b
 runs 14 merchant and professional against 12 tradesmen's rather than 19 against 9.
 **L270** is restated with that in it; a block's slot count is not a ratchet.
 
-**The order book's south ordinary-dwellings row keeps its owner** — 176 target, 117
-standing, 59 to build, still **T-1708**, which is open, so the row this ticket was
-filed to protect needs no re-pointing. The NORTH row did have to move, and not for
+**The order book's south ordinary-dwellings row is owned by T-1751 now** — `dev` moved it
+there when T-1708 closed, so the row this ticket was filed to protect needs no
+re-pointing from here. The NORTH row did have to move, three times, and not for
 anything this ticket did: **T-1742 was split into T-1747 and T-1748 at 02:19Z on
 2026-09-29**, and a bucket whose `owning_ticket` names a `split` ticket orders work
 nobody can claim, so `build_order_book_1835.py` refused to build at all until it was
@@ -153,16 +153,24 @@ day — and the cell had to move a second time inside this one run.** It goes to
 **T-1754**, the child holding the remainder (84 target, 52 standing, 32 to build);
 T-1753 is one block, `blk_indiana_north_cass`'s first roofs, and is named beside the
 cell rather than in it, because when T-1753 has built that block the 32 fall to T-1754
-and not to zero. Neither sweep is this ticket's work and neither is claimed as any part
-of it; T-1420 owns the standing rule that keeps making them necessary.
+and not to zero. **And then T-1754 itself was split — into T-1756 and T-1757, at 06:41Z,
+seventeen minutes after `dev` last built this book — so `dev` went red on this cell
+before this branch did, and the cell moved a THIRD time.** It goes to **T-1757**: the
+rule is that the cell belongs to the child that CLOSES it, and T-1756 is bounded in its
+own title (two more wolcott cottages, the rest of that block left open) while T-1757 is
+the remainder in as many words — the further cass lots and the Rush-Pine fringe. Naming
+T-1756 would leave most of the 32 owned by nobody the moment it closed. None of the three
+sweeps is this ticket's work and none is claimed as any part of it; T-1420 owns the
+standing rule that keeps making them necessary.
 
 **Restated, not re-summed.** The seating tripwire in `build_order_book_1835.py` moves
-to **242** with the ruling behind the seats written beside it; **L263** (roof-type
-phases 426 → **437**), **L270** and **L276** are restated against what the rebuild
+to **246** with the ruling behind the seats written beside it; **L263** (roof-type
+phases 437 → **448**), **L270** and **L276** are restated against what the rebuild
 reaches rather than what the branch was cut against; and `measure_generator_half.py`
-states **460** committed assets against 449, emit.py's reach **456** against 445 — all
+states **471** committed assets against 460, emit.py's reach **467** against 456 — all
 three read off the committed tree by its own `--gate`, not carried over from the branch
-this was cut against.
+this was cut against. The liberty is **L299**, not L298: `dev` took that number for the
+Wells block while this branch was open, and the register renumbers rather than argues.
 
 **Verification.** `tools/check.sh` **CHECK PASS**, 702 steps, none red, with jsonschema,
 pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
