@@ -24,11 +24,11 @@
       "randolph",
       "washington"
     ],
-    "faces_laid": 37,
-    "walk_m": 3323.6,
-    "crossing_m": 903.9,
-    "fence_m": 1705.0,
-    "walking_decks": 264,
+    "faces_laid": 36,
+    "walk_m": 3224.7,
+    "crossing_m": 881.9,
+    "fence_m": 1429.9,
+    "walking_decks": 255,
     "hitching_posts": 16
   },
   "card": {
@@ -44,16 +44,16 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3323.6,
+        "value": 3224.7,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "40 run(s) of sidewalk on 37 platted block face(s), plus 903.9 m of board crossing at 38 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "39 run(s) of sidewalk on 36 platted block face(s), plus 881.9 m of board crossing at 37 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1705.0,
+        "value": 1429.9,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "32 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
+        "note": "28 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
       },
       "hitching_posts": {
         "value": 16,
@@ -4745,80 +4745,6 @@
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_lasalle_south_crossing_over_washington",
-      "belongs_to": "town_street_edge",
-      "kind": "board_crossing",
-      "confidence": "reconstructed",
-      "street": "washington",
-      "street_name": "Washington Street",
-      "chunk": "blk_randolph_lasalle_south_1",
-      "centreline_local_enu_m": [
-        [
-          466.4,
-          -380.56
-        ],
-        [
-          466.42,
-          -402.61
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.06,
-      "plank_run": "along",
-      "plank_count": 6,
-      "plank_thickness_m": 0.055,
-      "plank_underside": false,
-      "plank_step_m": 1.8,
-      "run_m": 22.05,
-      "footway_decks": [
-        {
-          "y": 0.955,
-          "pts": [
-            [
-              465.49,
-              -380.48
-            ],
-            [
-              465.49,
-              -391.66
-            ],
-            [
-              467.32,
-              -391.66
-            ],
-            [
-              467.32,
-              -380.48
-            ]
-          ],
-          "ground_roll_m": 0.005
-        },
-        {
-          "y": 0.96,
-          "pts": [
-            [
-              465.49,
-              -391.5
-            ],
-            [
-              465.5,
-              -402.69
-            ],
-            [
-              467.33,
-              -402.69
-            ],
-            [
-              467.32,
-              -391.5
-            ]
-          ],
-          "ground_roll_m": 0.005
-        }
-      ],
-      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
-    },
-    {
       "id": "blk_randolph_lasalle_south_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -8073,191 +7999,6 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_south_water_wells's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 97.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_washington_lasalle_north_walk_1",
-      "belongs_to": "town_street_edge",
-      "kind": "plank_walk",
-      "confidence": "reconstructed",
-      "street": "washington",
-      "street_name": "Washington Street",
-      "chunk": "blk_washington_lasalle_north_1",
-      "centreline_local_enu_m": [
-        [
-          462.28,
-          -402.58
-        ],
-        [
-          561.19,
-          -403.38
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.11,
-      "plank_run": "across",
-      "plank_pitch_m": 0.32,
-      "plank_thickness_m": 0.055,
-      "plank_underside": false,
-      "stringer_pitch_m": 2.08,
-      "lot_line_offset_m": 1.17,
-      "verge_to_track_m": 7.21,
-      "footway_decks": [
-        {
-          "y": 1.012,
-          "pts": [
-            [
-              462.19,
-              -403.49
-            ],
-            [
-              477.97,
-              -403.62
-            ],
-            [
-              477.98,
-              -401.79
-            ],
-            [
-              462.21,
-              -401.66
-            ]
-          ],
-          "ground_roll_m": 0.002
-        },
-        {
-          "y": 1.01,
-          "pts": [
-            [
-              477.81,
-              -403.62
-            ],
-            [
-              493.59,
-              -403.74
-            ],
-            [
-              493.6,
-              -401.91
-            ],
-            [
-              477.82,
-              -401.79
-            ]
-          ],
-          "ground_roll_m": 0.0
-        },
-        {
-          "y": 1.01,
-          "pts": [
-            [
-              493.43,
-              -403.74
-            ],
-            [
-              509.2,
-              -403.87
-            ],
-            [
-              509.22,
-              -402.04
-            ],
-            [
-              493.44,
-              -401.91
-            ]
-          ],
-          "ground_roll_m": 0.005
-        },
-        {
-          "y": 1.005,
-          "pts": [
-            [
-              509.04,
-              -403.87
-            ],
-            [
-              524.82,
-              -404.0
-            ],
-            [
-              524.84,
-              -402.17
-            ],
-            [
-              509.06,
-              -402.04
-            ]
-          ],
-          "ground_roll_m": 0.015
-        },
-        {
-          "y": 0.99,
-          "pts": [
-            [
-              524.66,
-              -403.99
-            ],
-            [
-              540.44,
-              -404.12
-            ],
-            [
-              540.45,
-              -402.29
-            ],
-            [
-              524.68,
-              -402.16
-            ]
-          ],
-          "ground_roll_m": 0.01
-        },
-        {
-          "y": 0.98,
-          "pts": [
-            [
-              540.28,
-              -404.12
-            ],
-            [
-              556.06,
-              -404.25
-            ],
-            [
-              556.07,
-              -402.42
-            ],
-            [
-              540.29,
-              -402.29
-            ]
-          ],
-          "ground_roll_m": 0.005
-        },
-        {
-          "y": 0.975,
-          "pts": [
-            [
-              555.9,
-              -404.25
-            ],
-            [
-              561.26,
-              -404.29
-            ],
-            [
-              561.28,
-              -402.46
-            ],
-            [
-              555.91,
-              -402.42
-            ]
-          ],
-          "ground_roll_m": 0.0
-        }
-      ],
-      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 98.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     }
   ],
   "fences": [
@@ -8577,7 +8318,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_wells's own platted frontage line from 0.0 m to 97.6 m along the south face, covering lot(s) 1, 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_clark_north_fence_21",
+      "id": "blk_randolph_clark_north_fence_20",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8608,7 +8349,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clark's own platted frontage line from 36.3 m to 74.1 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_clark_south_fence_30",
+      "id": "blk_randolph_clark_south_fence_27",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8640,101 +8381,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clark's own platted frontage line from 24.6 m to 98.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_clinton_north_fence_16",
-      "belongs_to": "town_street_edge",
-      "kind": "board_fence",
-      "confidence": "reconstructed",
-      "street": "randolph",
-      "street_name": "Randolph Street",
-      "chunk": "blk_randolph_clinton_north_1",
-      "path_local_enu_m": [
-        [
-          -267.6,
-          -262.5
-        ],
-        [
-          -169.53,
-          -263.27
-        ]
-      ],
-      "height_m": 1.37,
-      "board_width_m": 0.305,
-      "board_gap_m": 0.006,
-      "post_spacing_m": 2.44,
-      "post_square_m": 0.12,
-      "rail_courses": 2,
-      "lots": [
-        0,
-        2,
-        4,
-        6
-      ],
-      "least_setback_m": 4.81,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clinton's own platted frontage line from 0.0 m to 98.1 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.81 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_randolph_clinton_south_fence_23",
-      "belongs_to": "town_street_edge",
-      "kind": "board_fence",
-      "confidence": "reconstructed",
-      "street": "washington",
-      "street_name": "Washington Street",
-      "chunk": "blk_randolph_clinton_south_1",
-      "path_local_enu_m": [
-        [
-          -264.94,
-          -373.45
-        ],
-        [
-          -214.59,
-          -373.86
-        ]
-      ],
-      "height_m": 1.37,
-      "board_width_m": 0.305,
-      "board_gap_m": 0.006,
-      "post_spacing_m": 2.44,
-      "post_square_m": 0.12,
-      "rail_courses": 2,
-      "lots": [
-        1,
-        3
-      ],
-      "least_setback_m": 5.83,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clinton's own platted frontage line from 0.0 m to 50.4 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 5.83 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_randolph_clinton_south_fence_24",
-      "belongs_to": "town_street_edge",
-      "kind": "board_fence",
-      "confidence": "reconstructed",
-      "street": "washington",
-      "street_name": "Washington Street",
-      "chunk": "blk_randolph_clinton_south_1",
-      "path_local_enu_m": [
-        [
-          -192.04,
-          -374.04
-        ],
-        [
-          -164.23,
-          -374.27
-        ]
-      ],
-      "height_m": 1.37,
-      "board_width_m": 0.305,
-      "board_gap_m": 0.006,
-      "post_spacing_m": 2.44,
-      "post_square_m": 0.12,
-      "rail_courses": 2,
-      "lots": [
-        7
-      ],
-      "least_setback_m": 4.44,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clinton's own platted frontage line from 72.9 m to 100.7 m along the south face, covering lot(s) 7 — every one of them improved by a committed building whose nearest wall stands 4.44 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_randolph_dearborn_north_fence_22",
+      "id": "blk_randolph_dearborn_north_fence_21",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8765,7 +8412,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_dearborn's own platted frontage line from 0.0 m to 51.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_dearborn_south_fence_31",
+      "id": "blk_randolph_dearborn_south_fence_28",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8795,7 +8442,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_dearborn's own platted frontage line from 25.8 m to 51.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 4.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_north_fence_18",
+      "id": "blk_randolph_franklin_north_fence_17",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8825,7 +8472,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 0.0 m to 24.5 m along the north face, covering lot(s) 0 — every one of them improved by a committed building whose nearest wall stands 7.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_north_fence_19",
+      "id": "blk_randolph_franklin_north_fence_18",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8856,7 +8503,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 48.8 m to 97.6 m along the north face, covering lot(s) 4, 6 — every one of them improved by a committed building whose nearest wall stands 6.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_south_fence_27",
+      "id": "blk_randolph_franklin_south_fence_24",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8888,7 +8535,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 24.3 m to 97.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_north_fence_17",
+      "id": "blk_randolph_market_north_fence_16",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8919,7 +8566,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 0.0 m to 48.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_south_fence_25",
+      "id": "blk_randolph_market_south_fence_22",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8949,7 +8596,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 24.3 m to 48.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_south_fence_26",
+      "id": "blk_randolph_market_south_fence_23",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -8979,7 +8626,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 73.0 m to 97.5 m along the south face, covering lot(s) 7 — every one of them improved by a committed building whose nearest wall stands 5.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_north_fence_20",
+      "id": "blk_randolph_wells_north_fence_19",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -9012,7 +8659,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_wells's own platted frontage line from 0.0 m to 97.6 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_south_fence_28",
+      "id": "blk_randolph_wells_south_fence_25",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -9043,7 +8690,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_wells's own platted frontage line from 0.0 m to 48.8 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 4.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_south_fence_29",
+      "id": "blk_randolph_wells_south_fence_26",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -9226,39 +8873,6 @@
       ],
       "least_setback_m": 5.5,
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_wells's own platted frontage line from 24.3 m to 97.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_washington_lasalle_north_fence_32",
-      "belongs_to": "town_street_edge",
-      "kind": "board_fence",
-      "confidence": "reconstructed",
-      "street": "washington",
-      "street_name": "Washington Street",
-      "chunk": "blk_washington_lasalle_north_1",
-      "path_local_enu_m": [
-        [
-          462.27,
-          -403.74
-        ],
-        [
-          561.18,
-          -404.54
-        ]
-      ],
-      "height_m": 1.37,
-      "board_width_m": 0.305,
-      "board_gap_m": 0.006,
-      "post_spacing_m": 2.44,
-      "post_square_m": 0.12,
-      "rail_courses": 2,
-      "lots": [
-        0,
-        2,
-        4,
-        6
-      ],
-      "least_setback_m": 4.5,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_lasalle's own platted frontage line from 0.0 m to 98.9 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     }
   ],
   "posts": [
@@ -9800,11 +9414,6 @@
       "why": "recon_1835_blk_randolph_clark_c2_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
-      "structure_id": "blk_randolph_clinton_lot5",
-      "wall": "blk_randolph_clinton south face, lot 5",
-      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
-    },
-    {
       "structure_id": "blk_randolph_clinton_north_crossing_blk_randolph_market_north",
       "wall": "corner crossing",
       "why": "the two walks stop 266.7 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
@@ -10038,6 +9647,11 @@
       "structure_id": "blk_washington_franklin_north",
       "wall": "blk_washington_franklin north face",
       "why": "no committed building stands anywhere on blk_washington_franklin — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+    },
+    {
+      "structure_id": "blk_washington_lasalle_north",
+      "wall": "blk_washington_lasalle north face",
+      "why": "no committed building stands anywhere on blk_washington_lasalle — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
     },
     {
       "structure_id": "blk_washington_market_north",

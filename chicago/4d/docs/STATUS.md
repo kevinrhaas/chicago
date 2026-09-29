@@ -15,7 +15,7 @@ seating found no free roof of an admitted family in the South Division for seven
 banded households and wrote seven `slot` rows against this block's own committed
 family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
 A request is not evidence: the roofs grade at the bottom tier with the same
-reasoning notes as every other anonymous count-unit, and the liberty is **L291**.
+reasoning notes as every other anonymous count-unit, and the liberty is **L292**.
 
 **The face argument.** Washington is opened, worn and graded `light`; Madison is
 platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.

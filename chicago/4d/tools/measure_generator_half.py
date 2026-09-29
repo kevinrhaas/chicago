@@ -223,6 +223,12 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # 1832 tower on the reservation. One more structure asset, so one more mesh a change to the
 # shared generator modules or to build.py would re-stale; the terrain and pier_crib reaches
 # stay at 2 each. Nothing about the debt itself moved.
+# 436 -> 438 and 434 -> 436 on 2026-09-28 (T-1717): `kimberly_residence` and
+# `kelsey_boarding_house`, the two houses Bonnell's walk of an August morning in 1835
+# puts east of the Lake House building site on the north bank. Two new structure assets,
+# so two more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
+# itself moved.
 #
 # 436 -> 438, and the terrain reach 2 -> 4, on 2026-09-28 (T-1738): the 1904 ground and
 # water, `terrain__e1871_postfire.glb` and `water__e1871_postfire.glb`, baked by
@@ -230,21 +236,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # by it. Two more committed assets the shared generator modules reach; emit.py and pier_crib
 # are untouched, and nothing about the debt itself moved.
 #
-# 438 -> 449 and 434 -> 445 on 2026-09-28 (T-1735): the first deal on `blk_washington_lasalle`,
-# the south-west block of the plat's last tier. Seven principal dwellings and four yard buildings,
-# every one of them an anonymous count-unit the platted seating asked this block for by name.
-# Eleven new structure assets, so eleven more meshes a change to the shared generator modules or
-# to emit.py would re-stale; the terrain and pier_crib reaches stay at 4 and 2. Nothing about the
-# debt itself moved — it is the largest single step this reach has taken, and it is eleven roofs
-# and not an argument.
+# 438 -> 440 on 2026-09-28 (T-1738, merged in): the 1904 scene's terrain and water
+# meshes, baked out of the e1871_postfire heightfield. Two more committed assets, and
+# both of them the ground's, so `generators/terrain_gen.py` was already at 4 and
+# `generators/emit.py` does not move. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 449,
+    "assets": 440,
     "restales": {
-        "generators/common/*.py": 449,
+        "generators/common/*.py": 440,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 445,
+        "generators/emit.py": 436,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

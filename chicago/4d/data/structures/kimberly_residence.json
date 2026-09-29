@@ -1,0 +1,132 @@
+{
+  "id": "kimberly_residence",
+  "name": "Dr. Kimberly's residence",
+  "aka": [
+    "the residence of Dr. Kimball",
+    "Dr. Kimberly's house east of the Lake House"
+  ],
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "NEITHER END IS DATED BY A SOURCE. THE START IS THE FIRST DAY THE ATTESTED YEAR PERMITS, not a date anybody gives - the same convention, for the same reason, that lake_house_construction's own range opens on. The one sighting is the morning of 26 August 1835, eight weeks AFTER the scene date, and a range opening there would put this house outside the scene it is attested in. What carries it back is an argument about the household and not about the building: Kimberly's partnership with Pruyne is in the town from 1832-33 by this project's own committed household record, the drug store on South Water Street is a going concern in the 1835 newspapers, and nothing in Bonnell's sentence reads as a house eight weeks old. That is an inference and it is graded as one. THE END IS THE HONEST YEAR BOUND: nothing reached says when this house came down, was sold or was replaced, and the 1843 and 1844 directories that print Kimberly do not print a dwelling for him. BONNELL'S WALK IS THE ONLY SOURCE THIS PROJECT HAS REACHED THAT DESCRIBES THE GROUND EAST OF THE LAKE HOUSE BUILDING SITE, AND IT IS ONE SENTENCE LONG. J. D. Bonnell, writing to the Chicago Times on 15 March 1876 and quoted by Andreas (History of Chicago vol. 1, printed pages 136-137), describes the morning after he arrived: \"Passing east, toward the mouth of the river, was the Lake House in course of construction, east of which was the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street. Mr. Pruyne was State Senator.\" THE MAN IS IDENTIFIED THREE WAYS OVER AND THE SPELLING IS BONNELL'S OR HIS TYPESETTER'S. \"Dr. Kimball\" is Dr Edmund Stoughton Kimberly: a doctor, Peter Pruyne's partner, and a druggist on South Water Street are three attributes and this project already holds all three on one household - data/residents/households/hh_pruyne_kimberly.json, \"The Pruyne and Kimberly partnership household\", headed by Peter Pruyne, recorded trade druggist, whose own arrival note quotes Moses and Kirkland naming \"Dr. E. S. Kimberly ... of Vermont\". Pruyne's senatorship is the fourth check and it is right: he sat for this district. No other Kimball or Kimberly in the identity master is a physician or Pruyne's partner. THE DATE IS EIGHT WEEKS LATE AND THE CARRY BACK IS THE INFERENCE. The letter dates the arrival to 25 August 1835, so the walk is the morning of the 26th - eight weeks after the scene date. The same letter's \"forty years ago\" implies 1836 and Andreas's lead-in says Bonnell \"came to Chicago in 1837\"; the 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836, and between 1835 and 1836 this project prefers the letter's explicit date, which is the ruling already committed on data/structures/lake_house_construction.json. See docs/RESEARCH/north_bank_east_end_neighbours.md."
+      },
+      "position": {
+        "utm_e": 448169.9,
+        "utm_n": 4637744.0,
+        "rotation_deg": 0.0,
+        "symbolic_location": "North side of the river in Kinzie's Addition, on the Michigan Street frontage east of the Lake House building site (today the south side of East Hubbard Street east of North Rush Street), fronting north onto Michigan Street.",
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "PLACED AGAINST ONE BUILDING AND NOT AGAINST THE GROUND, AND THE BUILDING IT IS PLACED AGAINST IS ITSELF RECONSTRUCTED. The evidence is the word \"east\": \"the Lake House in course of construction, east of which was the residence of Dr. Kimball\". No source gives this house a street, a corner, a lot or a distance. METHOD: the west face is set 12.0 m east of lake_house_construction's committed east face, and the north face on the same line as the Lake House's own north face, so the two front the same frontage with a yard between them. THE 12.0 m AND THE SHARED FRONT LINE ARE BOTH INVENTED. This position therefore inherits every uncertainty the Lake House's carries and adds one of its own: the Lake House's own note records that which side of Rush Street its block is on is not documented at all and that if the east side is wrong the building belongs about 110 m west, and that this project's georeference of that corner carries about 20 m of working uncertainty. If the Lake House moves, this house moves with it, which is the honest consequence of a placement whose whole content is \"east of\". WORKING UNCERTAINTY about 110 m, governed by the side of Rush Street and not by the survey. Facade bearing 0, due north onto Michigan Street, follows the Lake House, which is the one building on this frontage a source orients; nothing states this one's. The ground here is the e1834_harbor_cut heightfield at about +1.51 m above the summer-1835 water surface - traced ground - so the record declares no ground contact of its own. ONE DISAGREEMENT THIS POSITION DOES NOT RESOLVE, and it is not this record's to resolve: the committed michigan_north centreline runs at local N 390.0 here, which puts this frontage 21.6 m back from the street corridor's south edge rather than on it. The Lake House stands at the same setback for the same reason - its frontage was fitted to the modern Hubbard/Rush corner and not to the committed street - and moving either building onto the committed line is a question about michigan_north's geometry, filed rather than answered here.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The evidence is the single word \"east\" in one sentence. The coordinate is an offset from this project's own lake_house_construction placement along the same frontage; there is no reading to re-derive it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            11.0,
+            0
+          ],
+          [
+            11.0,
+            8.0
+          ],
+          [
+            0,
+            8.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 11.0 x 8.0 m is about 36 x 26 ft, an eaves-front house of two rooms and a passage on the front range. Every number is invented. The only thing bounding the size is who lived here: Bonnell calls it a \"residence\" rather than a house or a cabin, and its occupant is a physician and half of a South Water Street drug firm, so the house is given the frontage of a professional man's dwelling and not a labourer's cabin. That is an argument about a trade and not a measurement. It is deliberately smaller than the frame houses this project has raised on stated dimensions, because nothing here is stated at all."
+      },
+      "form": {
+        "construction": {
+          "value": "balloon_frame",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED, AND THE ALTERNATIVE WAS LOG. Bonnell says nothing about this building's fabric. Chicago in 1835 is three years into balloon framing - invented here in 1833 at St Mary's church, which this project already records - and the north bank east end is new ground being built on by men with money, so a frame house is the reconstruction and a braced frame or a log house are the refused alternatives. Recorded as reconstructed, not inferred: there is no evidence about THIS building to reason from."
+        },
+        "stories": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Not attested. The story-and-a-half is the characteristic form of these years and this archetype's own default; nothing about this house is stated, so it takes it."
+        },
+        "wall_height_m": {
+          "value": 3.4,
+          "confidence": "reconstructed",
+          "note": "No figure is attested. 3.4 m is the low end of this archetype's band for a story-and-a-half - a full storey of the one attested Chicago ceiling height, the Green Tree's seven and a half feet, plus floor structure and the knee wall the half storey's chambers stand on. Invented for this building, and taken low because nothing here is stated at all."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Not attested. Gable is the near-universal roof form for a frame dwelling of this type, period and region, and it is what the half storey's gable-end chambers require."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "Not attested. Two stacks is the hall-and-parlour arrangement - a hearth to each of the two front rooms - and is invented for this house. The archetype decides where they stand (L26)."
+        },
+        "siding_exposure_m": {
+          "value": 0.114,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "Raised 2026-09-28 (T-1717). New record; nothing moved."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "\"east of which was the residence of Dr. Kimball\" - Bonnell names the use in the same clause as the building. It is the one attribute of this structure a source states outright."
+  },
+  "occupants": {
+    "value": "Dr Edmund Stoughton Kimberly, physician, and a partner in the drug store on South Water Street",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE OCCUPANT IS ATTESTED AND THE HOUSEHOLD LINK IS NOT WRITTEN, AND THE GAP IS DELIBERATE. Bonnell names the man and gives him this building, which is as direct as this corpus gets. But the household record that holds him is hh_pruyne_kimberly, a PARTNERSHIP household whose head is Peter Pruyne and which the address book bands to the SOUTH division on the evidence of the store: \"The record reaches the south division and nothing narrower.\" Bonnell places one partner's RESIDENCE on the north bank. Seating that household here would move Pruyne across the river on a sentence about Kimberly, and splitting a partnership household is the resident layer's work and not a structure record's. So this roof names its occupant and claims no household, and the split is filed rather than performed - see docs/RESEARCH/north_bank_east_end_neighbours.md section 5. AND THE PARTNER IS NAMED IN THIS NOTE AND NOT IN THE VALUE, WHICH IS NOT squeamishness: tools/compile_register.py matches a firm onto a committed roof on its partners' surnames read out of the `occupants` line, so writing Peter Pruyne into the occupants of Kimberly's HOUSE moved P. Pruyne & Co.'s premises off pruyne_kimball_drugstore and onto this roof - the drug store on South Water Street relocated to a dwelling on the north bank by a sentence about somebody else. The occupants line says who occupied the building; the partnership is a fact about the man and is recorded here and in the research note."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 53 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 53.0,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "THE LAKE HOUSE'S NEAREST NEIGHBOUR, RAISED BECAUSE ONE SENTENCE PUTS A NAMED DOCTOR IN A BUILDING THIS PROJECT DID NOT HAVE. BONNELL'S WALK IS THE ONLY SOURCE THIS PROJECT HAS REACHED THAT DESCRIBES THE GROUND EAST OF THE LAKE HOUSE BUILDING SITE, AND IT IS ONE SENTENCE LONG. J. D. Bonnell, writing to the Chicago Times on 15 March 1876 and quoted by Andreas (History of Chicago vol. 1, printed pages 136-137), describes the morning after he arrived: \"Passing east, toward the mouth of the river, was the Lake House in course of construction, east of which was the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street. Mr. Pruyne was State Senator.\" THE MAN IS IDENTIFIED THREE WAYS OVER AND THE SPELLING IS BONNELL'S OR HIS TYPESETTER'S. \"Dr. Kimball\" is Dr Edmund Stoughton Kimberly: a doctor, Peter Pruyne's partner, and a druggist on South Water Street are three attributes and this project already holds all three on one household - data/residents/households/hh_pruyne_kimberly.json, \"The Pruyne and Kimberly partnership household\", headed by Peter Pruyne, recorded trade druggist, whose own arrival note quotes Moses and Kirkland naming \"Dr. E. S. Kimberly ... of Vermont\". Pruyne's senatorship is the fourth check and it is right: he sat for this district. No other Kimball or Kimberly in the identity master is a physician or Pruyne's partner. THE DATE IS EIGHT WEEKS LATE AND THE CARRY BACK IS THE INFERENCE. The letter dates the arrival to 25 August 1835, so the walk is the morning of the 26th - eight weeks after the scene date. The same letter's \"forty years ago\" implies 1836 and Andreas's lead-in says Bonnell \"came to Chicago in 1837\"; the 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836, and between 1835 and 1836 this project prefers the letter's explicit date, which is the ruling already committed on data/structures/lake_house_construction.json. See docs/RESEARCH/north_bank_east_end_neighbours.md. WHAT IS INVENTED, PLAINLY: the distance east of the Lake House, the frontage and depth, the storey and a half, the wall height, the roof, both chimneys, the frame construction and the bearing. WHAT IS ATTESTED: that the building existed, that it was a residence, that it stood east of the Lake House, and who lived in it. WHAT WOULD UPGRADE THIS RECORD: the Kinzie's Addition conveyances, which would give the lot and therefore the maximum plan and would settle which side of Rush Street the Lake House block is on; the Chicago American or the Chicago Democrat for 1835-36, which carried building notices; or anything that gives Kimberly a street or a corner. See docs/RESEARCH/north_bank_east_end_neighbours.md.",
+  "resident_assignment": {
+    "status": "unassigned",
+    "confidence": "reconstructed",
+    "note": "DELIBERATELY UNASSIGNED, AND NOT FOR WANT OF AN OCCUPANT. The occupant is attested (see `occupants`); what is missing is a household this roof may carry. hh_pruyne_kimberly is a partnership household headed by Peter Pruyne and banded to the south division on the store's evidence, and its lives_at is not moved by this record. No household_id is written here: that field is the platted deal's own marker, and this seat is a source's sentence rather than the deal's allocation. unassigned here is a refusal to split a partnership household in a structure file, not an absence of work."
+  }
+}

@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 312,
-  "outside": 134,
+  "inside": 313,
+  "outside": 124,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
-   "north_of_the_limit": 23,
+   "north_of_the_limit": 24,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 12,
+   "south_of_washington_street": 1,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -361,6 +361,7 @@
     "inf_labourer_shanty_north_a",
     "inf_labourer_shanty_north_b",
     "inf_mason_dwelling_north",
+    "kelsey_boarding_house",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
     "recon_1835_north_d1_013",
@@ -454,18 +455,7 @@
     "recon_1835_west_055"
    ],
    "south_of_washington_street": [
-    "heacock_house_monroe",
-    "recon_1835_blk_washington_lasalle_a1_08",
-    "recon_1835_blk_washington_lasalle_a3_09",
-    "recon_1835_blk_washington_lasalle_a3_10",
-    "recon_1835_blk_washington_lasalle_a4_11",
-    "recon_1835_blk_washington_lasalle_d3_06",
-    "recon_1835_blk_washington_lasalle_d3_07",
-    "recon_1835_blk_washington_lasalle_d7_04",
-    "recon_1835_blk_washington_lasalle_d7_05",
-    "recon_1835_blk_washington_lasalle_h1_02",
-    "recon_1835_blk_washington_lasalle_h1_03",
-    "recon_1835_blk_washington_lasalle_h2_01"
+    "heacock_house_monroe"
    ],
    "east_of_the_limit_in_the_water": [
     "south_pier"
@@ -481,7 +471,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 8,
+  "scheduling_roofs_outside_the_limit": 10,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_lake_clinton",
@@ -494,91 +484,9 @@
     "inside_the_limit": false
    },
    {
-    "id": "blk_washington_market",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     144.82,
-     -454.01
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_franklin",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     266.78,
-     -454.51
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_wells",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     388.78,
-     -455.0
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_clark",
-    "state": "open",
-    "roofs_scheduled": 21,
-    "centre_local_enu_m": [
-     634.55,
-     -456.0
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_dearborn",
-    "state": "open",
-    "roofs_scheduled": 6,
-    "centre_local_enu_m": [
-     760.04,
-     -456.51
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_indiana_north_wolcott",
-    "state": "open",
-    "roofs_scheduled": 43,
-    "centre_local_enu_m": [
-     885.64,
-     525.4
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_indiana_north_cass",
-    "state": "open",
-    "roofs_scheduled": 18,
-    "centre_local_enu_m": [
-     997.2,
-     524.49
-    ],
-    "inside_the_limit": false
-   }
-  ],
-  "blocks_outside_the_limit": [
-   {
-    "id": "blk_lake_clinton",
+    "id": "blk_randolph_clinton",
     "state": "open",
     "roofs_scheduled": 8,
-    "centre_local_enu_m": [
-     -219.65,
-     -179.3
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_randolph_clinton",
-    "state": "at_capacity",
-    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      -215.87,
      -318.38
@@ -617,8 +525,8 @@
    },
    {
     "id": "blk_washington_lasalle",
-    "state": "at_capacity",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 27,
     "centre_local_enu_m": [
      511.41,
      -455.5
@@ -628,7 +536,109 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 21,
+    "roofs_scheduled": 7,
+    "centre_local_enu_m": [
+     634.55,
+     -456.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_dearborn",
+    "state": "open",
+    "roofs_scheduled": 6,
+    "centre_local_enu_m": [
+     760.04,
+     -456.51
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_wolcott",
+    "state": "open",
+    "roofs_scheduled": 43,
+    "centre_local_enu_m": [
+     885.64,
+     525.4
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_cass",
+    "state": "open",
+    "roofs_scheduled": 16,
+    "centre_local_enu_m": [
+     997.2,
+     524.49
+    ],
+    "inside_the_limit": false
+   }
+  ],
+  "blocks_outside_the_limit": [
+   {
+    "id": "blk_lake_clinton",
+    "state": "open",
+    "roofs_scheduled": 8,
+    "centre_local_enu_m": [
+     -219.65,
+     -179.3
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_randolph_clinton",
+    "state": "open",
+    "roofs_scheduled": 8,
+    "centre_local_enu_m": [
+     -215.87,
+     -318.38
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_market",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     144.82,
+     -454.01
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_franklin",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     266.78,
+     -454.51
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_wells",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     388.78,
+     -455.0
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_lasalle",
+    "state": "open",
+    "roofs_scheduled": 27,
+    "centre_local_enu_m": [
+     511.41,
+     -455.5
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_clark",
+    "state": "open",
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -848,7 +858,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -1075,7 +1085,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 44
+    "roofs": 36
    },
    {
     "id": "north_division_beyond_modelled_ground",

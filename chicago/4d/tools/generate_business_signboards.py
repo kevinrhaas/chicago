@@ -460,6 +460,25 @@ SIGN_WORDING = {
             "record's. Reconstructed."
         ),
     },
+    "kelsey_boarding_house": {
+        "name": "P. KELSEY", "trade": "Boarding House", "identity": "Kelsey",
+        "grade": "reconstructed",
+        "why": (
+            "No advertisement for this house is in the pages read, and nothing says it "
+            "announced itself at all - it stood among the sand-hills off any street, and "
+            "Bonnell found it by walking to it. \"Boarding House\" is the period's own term "
+            "and the record's own function; the proprietor is the record's, in the register "
+            "the pages evidence - proprietor, then trade - exactly as brown_boarding_house's "
+            "board is built. THE FORENAME IS AN INITIAL ON PURPOSE: this corpus holds the man "
+            "two ways and so does the one sentence that describes him, \"occupied by Parnick "
+            "Kelsey\" against \"Eve, Parnick's wife\", while Fergus 1843 prints Patrick and "
+            "Norris 1844 prints Parnick. An initial is what the board can carry without "
+            "choosing between two spellings of a name nobody has merged. AND THE TRADE STOOD "
+            "IN HIS NAME WHILE HIS WIFE RAN IT, which the board cannot say and this note can: "
+            "Bonnell's own word is that the house was \"ostensibly run by Eve\", and it is "
+            "Mrs. Kelsey who turns him away for want of a bed. Reconstructed."
+        ),
+    },
     "carpenter_south_water_store": {
         "name": "PHILO CARPENTER", "trade": "Wholesale & Retail Druggist",
         "trade_short": "Druggist", "place": "South Water Street",
