@@ -52,39 +52,39 @@ MATERIALS = [
          kind="asphalt", mean_roughness=0.70, colors=((92, 90, 86), (60, 59, 57)),
          note="Sheet asphalt (lake asphalt and sand on a concrete base) about one season old: "
               "a fine sand grain, a faint mottle, wheel-polished streaks along the street and "
-              "sparse horse-droppings stains. Colour and wear are reconstructed (L294)."),
+              "sparse horse-droppings stains. Colour and wear are reconstructed (L295)."),
     dict(id="macadam_limestone", directional=False, group="roadway", span_m=6.0, span_across_m=6.0,
          kind="macadam", mean_roughness=0.92, colors=((160, 154, 140), (112, 108, 99)),
          note="Water-bound crushed-limestone macadam, worn: pale dusty binder over angular "
               "aggregate, wheel tracks along the street and patched hollows. The city's own "
               "1 Dec 1904 report lists these streets as macadam 'in need of repair'; the look "
-              "is reconstructed (L294)."),
+              "is reconstructed (L295)."),
     dict(id="vitrified_paving_brick", directional=True, group="roadway", span_m=2.12, span_across_m=2.12,
          kind="brick", mean_roughness=0.80, colors=((122, 64, 50), (84, 52, 46)),
          note="Vitrified paving brick laid on edge across the street in running bond, sand "
               "joints: 20 courses of 0.106 m along and 10 bricks of 0.212 m across per tile (a "
               "4 x 8.5 in brick with its joint). The brick size and colour are reconstructed "
-              "(L294)."),
+              "(L295)."),
     dict(id="earth_and_cinders", directional=False, group="alley", span_m=4.0, span_across_m=4.0,
          kind="cinder", mean_roughness=0.95, colors=((88, 80, 68), (46, 45, 43)),
          note="An unimproved alley: graded earth dressed with ashes and cinders, rutted along "
-              "its length. Reconstructed (L295)."),
+              "its length. Reconstructed (L296)."),
     dict(id="portland_cement_walk", directional=True, group="walk", span_m=10 * FT, span_across_m="band",
          kind="walk", mean_roughness=0.82, colors=((182, 179, 171), (150, 147, 140)),
          note="Portland cement concrete walk with a trowelled top worn matte, jointed in "
               "blocks: the tile is two blocks along and one across, the 5 x 6 ft blocks of the "
-              "1905 code's sec. 2062. The material is reconstructed (L294)."),
+              "1905 code's sec. 2062. The material is reconstructed (L295)."),
     dict(id="sandstone_curbstone", directional=True, group="curb", span_m=12 * FT, span_across_m="band",
          kind="curb", mean_roughness=0.85, colors=((180, 171, 150), (140, 133, 118)),
          note="Buff sandstone curbstones seen from above, two 6-ft stones per tile with a "
               "tooled top and weathered arrises. Sandstone is what the Board of Local "
               "Improvements' 1902-03 ordinances name when they name a curbstone; the stone "
-              "and its length here are reconstructed (L294)."),
+              "and its length here are reconstructed (L295)."),
     dict(id="grass_plat", directional=False, group="parkway", span_m=3.0, span_across_m=3.0,
          kind="grass", mean_roughness=0.95, colors=((86, 112, 52), (58, 80, 38)),
          note="A mown grass plat in July: mixed greens, clover and a few dry patches. The "
               "1905 code's sec. 2077 names grass plats for this space; the turf is "
-              "reconstructed (L294)."),
+              "reconstructed (L295)."),
 ]
 
 WEB_SUFFIXES = ("basecolor", "normal_gl", "orm")

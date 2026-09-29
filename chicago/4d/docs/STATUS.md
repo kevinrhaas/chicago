@@ -17,9 +17,9 @@ materials of the new `assets/textures/prairie_1904_pbr/` at their metric tiles.
 - **Found: Prairie Avenue was not a boulevard in 1904.** The South Park Commissioners took Prairie
   16th–29th and 16th Street on 24 Oct 1906 (city consent 28 May 1904, effective 30 Oct 1905); on the
   scene date both were city streets. The 1911 sheets' "Prairie Av. Blvd." is a later fact.
-- **Reconstructed** (L294): every walk as Portland cement concrete in the 1905 code's 5 × 6 ft
+- **Reconstructed** (L295): every walk as Portland cement concrete in the 1905 code's 5 × 6 ft
   blocks, every curb as sandstone curbstones, every parkway and margin as turf, and the look of every
-  map. (L295): Indiana 18th–22nd drawn as finished asphalt, the rest of Calumet 18th–20th as macadam,
+  map. (L296): Indiana 18th–22nd drawn as finished asphalt, the rest of Calumet 18th–20th as macadam,
   every alley as earth and cinders, the avenue drawn over its cross streets, no streetcar tracks.
 - **Bounds only, never attestation**: the 1904 paving report (Prairie library `civic-paving-1904`) and
   the 1905 code; the checker refuses an attested block that rests on them. The c. 1923 HABS views of

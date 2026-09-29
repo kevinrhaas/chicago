@@ -623,6 +623,13 @@
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
+    "measure_jefferson_continuation.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-29",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote data/traces/jefferson_continuation.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its three gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-09-29 \u2014 after tools/generate_yard_goods.py and before tools/town_census.py, because it reads the DRAWN structures through plat_occupancy.footprints to price the extrapolation's clearance, so it must run after everything that places one (T-1544); see the manifest step"
+    },
     "measure_north_branch_banks.py": {
       "placement": "manifest",
       "write_mode": "--write",
