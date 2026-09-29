@@ -14097,7 +14097,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 422 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 433 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14108,7 +14108,11 @@ carries no shingle at all. T-1717's two Lake House neighbours make 418, and they
 frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
 neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two
 frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of
-them shingled by this exposure like every other frame roof the block recipe raises. No record's
+them shingled by this exposure like every other frame roof the block recipe raises. T-1708's
+deal on blk_washington_wells makes 433, and it is the largest single addition this entry has
+taken: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with
+two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last
+tier, every one of them shingled by this exposure for the same reason the Clark four are. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
