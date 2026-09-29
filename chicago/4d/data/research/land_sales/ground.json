@@ -35,11 +35,11 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 462,
-    "structures_reached": 83,
+    "structures_placed": 466,
+    "structures_reached": 87,
     "structures_reached_by_grade": {
       "inferred": 23,
-      "reconstructed": 60
+      "reconstructed": 64
     },
     "structures_unreached_by_section": {
       "09": 376,
@@ -2677,8 +2677,16 @@
           "margin_m": 64.8
         },
         {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_08",
+          "margin_m": 28.4
+        },
+        {
           "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
           "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_07",
+          "margin_m": 30.3
         },
         {
           "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
@@ -2687,6 +2695,14 @@
         {
           "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
           "margin_m": 63.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_05",
+          "margin_m": 31.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_06",
+          "margin_m": 36.8
         },
         {
           "id": "recon_1835_north_a1_047",
@@ -2854,8 +2870,16 @@
           "margin_m": 64.8
         },
         {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_08",
+          "margin_m": 28.4
+        },
+        {
           "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
           "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_07",
+          "margin_m": 30.3
         },
         {
           "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
@@ -2864,6 +2888,14 @@
         {
           "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
           "margin_m": 63.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_05",
+          "margin_m": 31.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_06",
+          "margin_m": 36.8
         },
         {
           "id": "recon_1835_north_a1_047",

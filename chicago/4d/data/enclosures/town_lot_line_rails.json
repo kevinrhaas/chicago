@@ -28,9 +28,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 53,
-      "runs_bounding_structures_only": 298,
+      "runs_bounding_structures_only": 304,
       "households_that_gained_a_fence": 25,
-      "lots_named": 140,
+      "lots_named": 142,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -83,6 +83,156 @@
     "note": "NOTHING ATTESTS A FENCE ON ANY OF THESE LOTS, and this record does not claim one. What is attested is a NORM, and it arrives as a picture: image 12 of data/sources/assets/owner_brief_2026_08_18/README.md — Chicago circa 1833, looking east — shows split-rail and board fences lining the roads and enclosing every property in the view, and the Kinzie-view plate shows picket-fenced plots on the north bank. Both are tier-5 pictorial and retrospective: they may drive treatment, materials and setting and they may never drive a coordinate, which is exactly how they are used here. The plates say what an 1830s town lot's fence looked like and that a town lot generally had one; the RULE in tools/generate_lot_line_fences.py says which lots get which, and every metre of every line below is the committed plat's. SOURCES IS DELIBERATELY EMPTY AND THAT IS THE FINDING: this project holds no source record for either plate — the owner brief reaches the repository as an owner-supplied reference set with a README, and holding those plates as sources is filed as its own ticket (T-0075)."
   },
   "runs": [
+    {
+      "id": "side_blk_indiana_north_wolcott_lot4_w",
+      "path_local_enu_m": [
+        [
+          871.49,
+          527.77
+        ],
+        [
+          871.58,
+          539.95
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot4",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a4_07",
+            "recon_1835_blk_indiana_north_wolcott_d3_05"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_indiana_north_wolcott_lot4 — and the fence on it is built ONCE: blk_indiana_north_wolcott_lot4 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_indiana_north_wolcott_lot4_e",
+      "path_local_enu_m": [
+        [
+          886.21,
+          527.65
+        ],
+        [
+          886.29,
+          539.85
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot4",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a4_07",
+            "recon_1835_blk_indiana_north_wolcott_d3_05"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_indiana_north_wolcott_lot4 — and the fence on it is built ONCE: blk_indiana_north_wolcott_lot4 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "rear_blk_indiana_north_wolcott_lot4",
+      "path_local_enu_m": [
+        [
+          886.21,
+          527.65
+        ],
+        [
+          871.49,
+          527.77
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot4",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a4_07",
+            "recon_1835_blk_indiana_north_wolcott_d3_05"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_indiana_north_wolcott_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_indiana_north_wolcott_a4_07, recon_1835_blk_indiana_north_wolcott_d3_05 — and the yard behind those buildings is 12.19 m deep by 14.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_indiana_north_wolcott_lot5",
+      "path_local_enu_m": [
+        [
+          871.46,
+          523.27
+        ],
+        [
+          886.18,
+          523.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot5",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a3_08",
+            "recon_1835_blk_indiana_north_wolcott_d3_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_indiana_north_wolcott_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_indiana_north_wolcott_a3_08, recon_1835_blk_indiana_north_wolcott_d3_06 — and the yard behind those buildings is 12.19 m deep by 14.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_indiana_north_wolcott_lot5_w",
+      "path_local_enu_m": [
+        [
+          871.38,
+          511.07
+        ],
+        [
+          871.46,
+          523.27
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot5",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a3_08",
+            "recon_1835_blk_indiana_north_wolcott_d3_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_indiana_north_wolcott_lot5 — and the fence on it is built ONCE: blk_indiana_north_wolcott_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_indiana_north_wolcott_lot5_e",
+      "path_local_enu_m": [
+        [
+          886.09,
+          510.97
+        ],
+        [
+          886.18,
+          523.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_indiana_north_wolcott_lot5",
+          "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a3_08",
+            "recon_1835_blk_indiana_north_wolcott_d3_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_indiana_north_wolcott_lot5 — and the fence on it is built ONCE: blk_indiana_north_wolcott_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
     {
       "id": "side_blk_indiana_north_wolcott_lot8_w",
       "path_local_enu_m": [
@@ -5308,6 +5458,28 @@
   ],
   "openings": [
     {
+      "id": "rear_blk_indiana_north_wolcott_lot4_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        878.85,
+        527.71
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "rear_blk_indiana_north_wolcott_lot5_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        878.82,
+        523.21
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
       "id": "rear_blk_indiana_north_wolcott_lot8_gate",
       "on": "alley",
       "at_local_enu_m": [
@@ -6168,8 +6340,10 @@
   },
   "coverage": {
     "where": "the edge blocks and the outlying lanes — every block that touches a street the project classes `light`",
-    "lots_fenced": 75,
+    "lots_fenced": 77,
     "lots": [
+      "blk_indiana_north_wolcott_lot4",
+      "blk_indiana_north_wolcott_lot5",
       "blk_indiana_north_wolcott_lot8",
       "blk_indiana_north_wolcott_lot9",
       "blk_lake_clinton_lot0",
@@ -6246,8 +6420,8 @@
       "blk_west_randolph_des_plaines_lot2",
       "blk_west_randolph_des_plaines_lot5"
     ],
-    "runs": 188,
-    "note": "140 of the 147 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 7 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "runs": 194,
+    "note": "142 of the 149 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 7 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",

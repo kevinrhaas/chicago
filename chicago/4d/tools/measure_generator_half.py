@@ -281,6 +281,14 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # will keep being restated a parcel at a time for as long as the town is built a block
 # at a time.
 #
+# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the SECOND deal on
+# `blk_indiana_north_wolcott` — two more one-room frame cottages on lots 4 and 5 with a
+# woodshed and a privy off the alley behind them, which completes the alternation the
+# north-division memo describes on both faces of that block. Four new structure assets on
+# the same terms as every entry above: four more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved.
+#
 STATED = {
     "assets": 464,
     "restales": {
