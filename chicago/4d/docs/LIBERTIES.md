@@ -14581,10 +14581,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 336 lots are enumerated from records this project already held, and then 165 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 336 lots are enumerated from records this project already held, and then 166 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 165 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,313
+**Scope:** `platted_seats.seats[dealt]` — 166 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,312
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 336 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14809,18 +14809,18 @@ Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated 
 order book takes off this pass moves with it. Neither deal can see the other's picks, on the
 reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
 
-**The deal reached 165 on 2026-09-28 when the first of its own slots was answered (T-1735),
+**The deal reached 166 on 2026-09-28 when the first of its own slots was answered (T-1735),
 and it is the first time a request this file wrote has become a roof.** Seven of the slots above
 named `blk_washington_lasalle` and its families; T-1735 built exactly those seven dwellings and
 four yard buildings, so the block has no headroom left to ask against and the pass ADOPTS there
 instead. Re-derived whole in the placement policy's clause order the deal goes 160 seats to
-**165**, adoptions 109 to **115**, slots 51 to **50**, and the rows handed to **T-1614** 1,318 to
-**1,313**. **The gain is five and not seven, and the two households that moved in are not the
+**166**, adoptions 109 to **116**, slots 51 to **50**, and the rows handed to **T-1614** 1,318 to
+**1,312**. **The gain is six and not seven, and the households that moved in are not the
 seven that asked**: the pass ranks the whole town in one order, so six of the seven original
-requesters were re-slotted onto the tier's remaining empty blocks and the roofs the two that DID
-move here vacated cascaded down the same ranking. Nothing was retired, no roof moved a metre, and
-no source places any of the 165 anywhere — which is the invention this entry has recorded from the
-start, five seats larger. The order book's seated join moves with it, 232 to **237**, restated in
+requesters were re-slotted onto the tier's remaining empty blocks and the roofs the households
+that DID move here vacated cascaded down the same ranking. Nothing was retired, no roof moved a
+metre, and no source places any of the 166 anywhere — which is the invention this entry has recorded from the
+start, six seats larger. The order book's seated join moves with it, 232 to **238**, restated in
 `build_order_book_1835.py` rather than re-summed.
 
 **Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only),
@@ -15322,7 +15322,7 @@ invented in passing.
 
 **The count fell to 22 on 2026-09-28, and a keeper lost to a re-deal is still a keeper the
 ruling never refused (T-1735).** Answering the first of **L270**'s own slot requests moved that
-deal's adoptions from 109 to 115, and because the pass is re-derived whole in one ranking the
+deal's adoptions from 109 to 116, and because the pass is re-derived whole in one ranking the
 vacancies the two incoming households left cascaded: four roofs on South Water and the Randolph
 tier changed keeper, and the named count went 23 to **22** while the refusals went 63 to **65**.
 Every one of the two additional refusals is the letter-list refusal already on the books — 63
