@@ -27,9 +27,12 @@ The scene lists the new `street_grid` layer; 1835 does not and draws none of it.
   roadway or alley (width, tier, what it rests on). Surfaces are neutral tones; no material is
   claimed (T-1728).
 
-Measured at the spawn (SwiftShader, published mirror): before, 9 draw calls and about 41k triangles
-(T-1739's reading); after, 16 draw calls and 74k triangles at 1280×800, 81k at 390×780, inside the
-215-call budget; zero problems, zero page errors. The smoke's part 13 now also asserts the grid is
+Measured at the spawn (SwiftShader, published mirror, same probe both times; "before" is the same
+build with `street_grid` taken out of the scene's layers): before, 9 draw calls and 41.3k triangles
+at 390×780, 34.3k at 1280×800; after, 16 draw calls and 81.1k / 74.0k triangles, inside the 215-call
+budget; zero problems, zero page errors. From the air over the Glessner corner: 20–21 calls,
+106–114k triangles. The grid is 39.8k triangles in all (quads tessellated at 2.5 m, the
+heightfield's cell), no shadow casting. The smoke's part 13 now also asserts the grid is
 drawn, the Glessner lot is `prairie_1800` and the door lands on Prairie's east walk.
 
 **Not done here:** Robinson 1886's legal lot numbers for 16th–18th, and the lots on the Indiana and

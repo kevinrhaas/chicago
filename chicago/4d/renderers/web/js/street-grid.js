@@ -133,8 +133,13 @@ function parcelCard(p, grid) {
     sidecar: {
       name: addr ? `${p.addresses_1911[0].split(' ')[0]} Prairie Avenue — the lot` : 'A lot on Prairie Avenue',
       phase: null,
+      // The card's opening line, in the grid's own words (popup.js prints it in
+      // place of the sentence it composes for a building).
+      change_note: `A lot on ${p.where}: ${p.frontage_ft} ft along the avenue and ${p.depth_ft} ft deep, `
+        + `as the 1911 Sanborn sheet draws it${addr ? `, printed ${addr}` : ', with no number printed'}. `
+        + 'No building is drawn on it yet.',
       placement: {
-        symbolic_location: `${p.side === 'west' ? 'West' : 'East'} side of Prairie Avenue, block ${p.block.replace('blk_', '').replace(/_/g, ' ')}`,
+        symbolic_location: p.where ?? 'Prairie Avenue',
         position_confidence: p.geometry_tier,
         position_sources: p.sources,
         position_note: `${p.read}. A 1911 survey carried to 1904: the lot lines are assumed unchanged between the two dates.`,
@@ -160,8 +165,13 @@ function bandCard(face, band, grid) {
     sidecar: {
       name: `${street.name_1904 ?? face.street} — ${words[band] ?? band}`,
       phase: null,
+      change_note: `${(words[band] ?? band).replace(/^the /, 'The ')} along ${face.where}: `
+        + `${Math.round((b.to_ft - b.from_ft) * 10) / 10} ft wide, ${b.from_ft} to ${b.to_ft} ft out from the property line. `
+        + (b.tier === 'reconstructed'
+          ? 'The space it shares is the 1905 street code\u2019s rule; this width is our reconstruction.'
+          : 'This is the 1905 street code\u2019s rule, carried to this block.'),
       placement: {
-        symbolic_location: `Beside block ${face.block.replace('blk_', '').replace(/_/g, ' ')}`,
+        symbolic_location: face.where ?? face.street,
         position_confidence: face.street_line_tier === 'derived' ? 'inferred' : 'inferred',
         position_sources: grid.sources ?? [],
         position_note: `Measured from the street line read off ${face.street_line_from}.`,
@@ -195,7 +205,7 @@ function wayCard(kind, rec, grid) {
   const street = kind === 'carriageway' ? grid.streets?.[rec.street] ?? {} : {};
   const xs = grid.cross_sections?.[street.cross_section] ?? {};
   const attributes = kind === 'carriageway' ? {
-    street_width: { value: ftm(street.row_width_ft), confidence: street.row_width_tier ?? 'inferred', sources: street.row_width_sources ?? [], note: street.width_note ?? '' },
+    street_width: { value: ftm(street.row_width_ft), confidence: street.row_width_tier ?? 'inferred', sources: street.row_width_sources ?? [], note: `Printed "${street.printed ?? ''}" on the 1911 sheets; ${street.width_note ?? ''}` },
     carriageway: {
       value: ftm(street.row_width_ft - 2 * (xs.sidewalk_space_ft?.value ?? 0)), confidence: 'inferred',
       sources: rec.sources ?? [], note: `The street width less a ${xs.sidewalk_space_ft?.value}-ft sidewalk space on each side. ${xs.sidewalk_space_ft?.note ?? ''}`,
@@ -210,8 +220,12 @@ function wayCard(kind, rec, grid) {
     sidecar: {
       name: kind === 'carriageway' ? `${street.name_1904 ?? rec.street} — the roadway` : 'An alley',
       phase: null,
+      change_note: kind === 'carriageway'
+        ? `The roadway of ${rec.where}: ${street.row_width_ft - 2 * (xs.sidewalk_space_ft?.value ?? 0)} ft between the curbs `
+          + `in a ${street.row_width_ft}-ft street, as the 1911 sheets draw the street and the 1905 code divides it.`
+        : `An alley ${rec.where}, ${rec.printed_width_ft} ft wide as the 1911 sheet prints it.`,
       placement: {
-        symbolic_location: kind === 'carriageway' ? (street.printed ? `Printed "${street.printed}" on the 1911 sheets` : '') : `Behind the lots of ${rec.block.replace('blk_', '').replace(/_/g, ' ')}`,
+        symbolic_location: rec.where ?? rec.id,
         position_confidence: rec.geometry_tier ?? 'inferred',
         position_sources: rec.sources ?? [],
         position_note: `Between ${(rec.between ?? rec.drawn_from ?? []).join(' and ')}.`,

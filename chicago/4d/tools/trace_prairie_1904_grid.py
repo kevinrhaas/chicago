@@ -814,6 +814,26 @@ def ref_label(ref) -> str:
     return f"derived line {ref[1]}"
 
 
+PLACE_WORDS = {"indiana": "Indiana", "prairie": "Prairie", "calumet": "Calumet", "ic": "the Illinois Central",
+               "16": "16th", "18": "18th", "20": "20th", "21": "21st", "22": "22nd"}
+
+
+def block_words(block_id: str) -> str:
+    """'blk_indiana_prairie_18_20' -> 'Indiana to Prairie, 18th to 20th Street'."""
+    a, b, n, s_ = block_id.replace("blk_", "").split("_")
+    return f"{PLACE_WORDS[a]} to {PLACE_WORDS[b]}, {PLACE_WORDS[n]} to {PLACE_WORDS[s_]} Street"
+
+
+def segment_words(seg_id: str) -> str:
+    """'prairie_18_20' -> 'Prairie Avenue, 18th to 20th Street';
+    'e18th_indiana_prairie' -> 'East Eighteenth Street, Indiana to Prairie Avenue'."""
+    parts = seg_id.split("_")
+    street = STREETS[parts[0]]["name_1904"]
+    if parts[1].isdigit():
+        return f"{street}, {PLACE_WORDS[parts[1]]} to {PLACE_WORDS[parts[2]]} Street"
+    return f"{street}, {PLACE_WORDS[parts[1]]} to {PLACE_WORDS[parts[2]]} Avenue"
+
+
 def library_rows() -> dict[str, list[dict]]:
     rows: dict[str, list[dict]] = {}
     if not LIBRARY_FRONTAGES.exists():
@@ -962,6 +982,7 @@ def build() -> dict:
         outline = [p for path in paths for p in path[:-1]]
         rec = {
             "id": b["id"],
+            "where": block_words(b["id"]),
             "outline_local_m": [pt(p) for p in outline],
             "area_m2": r2(polygon_area(outline)),
             "edges": [],
@@ -985,6 +1006,7 @@ def build() -> dict:
                 xs_id = STREETS[e["street"]]["cross_section"]
                 path = paths[band["edge"]]
                 face = {"id": fid, "street": e["street"], "block": b["id"], "cross_section": xs_id,
+                        "where": f"{STREETS[e['street']]['name_1904']}, beside the block {block_words(b['id'])}",
                         "street_line_local_m": [pt(p) for p in path],
                         "length_m": r2(sum(dist(path[j], path[j + 1]) for j in range(len(path) - 1))),
                         "street_line_tier": "derived" if e["ref"][0] == "local" else "inferred",
@@ -995,7 +1017,8 @@ def build() -> dict:
 
     for a in ALLEYS:
         poly, quads = strip(geo, a["sides"], a["cuts"], [0.0, 0.0])
-        alleys_out.append({"id": a["id"], "block": a["block"], "printed_width_ft": a["printed_width_ft"],
+        alleys_out.append({"id": a["id"], "block": a["block"], "where": f"behind the lots of {block_words(a['block'])}",
+                           "printed_width_ft": a["printed_width_ft"],
                            "polygon_local_m": poly, "quads_local_m": quads, "area_m2": r2(abs(polygon_area(poly))),
                            "geometry_tier": "inferred", "sources": [SHEET_SOURCE[a["sheet"]]],
                            "drawn_from": [ref_label(s) for s in a["sides"]],
@@ -1006,7 +1029,8 @@ def build() -> dict:
         space = CROSS_SECTIONS[st["cross_section"]]["sidewalk_space_ft"]["value"] * FT
         poly, quads = strip(geo, s["sides"], s["cuts"], [space, space])
         derived = [ref_label(x) for x in s["sides"] if x[0] == "local"]
-        segs_out.append({"id": s["id"], "street": s["street"], "polygon_local_m": poly, "quads_local_m": quads,
+        segs_out.append({"id": s["id"], "street": s["street"], "where": segment_words(s["id"]),
+                         "polygon_local_m": poly, "quads_local_m": quads,
                          "area_m2": r2(abs(polygon_area(poly))),
                          "between": [ref_label(x) for x in s["sides"]],
                          "geometry_tier": "inferred", "sources": sorted({SHEET_SOURCE[s["sheet"]], CODE_1905}),
@@ -1023,6 +1047,7 @@ def build() -> dict:
                 "id": pid,
                 "addresses_1911": p["addresses"],
                 "street": "prairie", "side": f["side"], "block": f["block"], "street_face": face_id,
+                "where": f"the {f['side']} side of Prairie Avenue, in the block {block_words(f['block'])}",
                 "polygon_local_m": [pt(q) for q in p["poly"]],
                 "corners_local_m": ({"NE_street": pt(fa), "SE_street": pt(fb), "SW_rear": pt(rb), "NW_rear": pt(ra)}
                                     if f["side"] == "west" else

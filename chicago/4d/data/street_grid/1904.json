@@ -271,6 +271,7 @@
  "blocks": [
   {
    "id": "blk_indiana_prairie_16_18",
+   "where": "Indiana to Prairie, 16th to 18th Street",
    "outline_local_m": [
     [
      1271.93,
@@ -324,6 +325,7 @@
   },
   {
    "id": "blk_prairie_ic_16_18",
+   "where": "Prairie to the Illinois Central, 16th to 18th Street",
    "outline_local_m": [
     [
      1407.65,
@@ -432,6 +434,7 @@
   },
   {
    "id": "blk_indiana_prairie_18_20",
+   "where": "Indiana to Prairie, 18th to 20th Street",
    "outline_local_m": [
     [
      1274.67,
@@ -486,6 +489,7 @@
   },
   {
    "id": "blk_prairie_calumet_18_20",
+   "where": "Prairie to Calumet, 18th to 20th Street",
    "outline_local_m": [
     [
      1411.86,
@@ -610,6 +614,7 @@
   },
   {
    "id": "blk_indiana_prairie_20_21",
+   "where": "Indiana to Prairie, 20th to 21st Street",
    "outline_local_m": [
     [
      1278.72,
@@ -663,6 +668,7 @@
   },
   {
    "id": "blk_indiana_prairie_21_22",
+   "where": "Indiana to Prairie, 21st to 22nd Street",
    "outline_local_m": [
     [
      1279.9,
@@ -715,6 +721,7 @@
   },
   {
    "id": "blk_prairie_calumet_20_21",
+   "where": "Prairie to Calumet, 20th to 21st Street",
    "outline_local_m": [
     [
      1415.07,
@@ -768,6 +775,7 @@
   },
   {
    "id": "blk_prairie_calumet_21_22",
+   "where": "Prairie to Calumet, 21st to 22nd Street",
    "outline_local_m": [
     [
      1416.11,
@@ -825,6 +833,7 @@
    "street": "indiana",
    "block": "blk_indiana_prairie_16_18",
    "cross_section": "row_66",
+   "where": "Indiana Avenue, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
      1271.93,
@@ -926,6 +935,7 @@
    "street": "e18th",
    "block": "blk_indiana_prairie_16_18",
    "cross_section": "row_66",
+   "where": "East Eighteenth Street, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
      1274.35,
@@ -1027,6 +1037,7 @@
    "street": "prairie",
    "block": "blk_indiana_prairie_16_18",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
      1390.35,
@@ -1128,6 +1139,7 @@
    "street": "e16th",
    "block": "blk_indiana_prairie_16_18",
    "cross_section": "row_50",
+   "where": "East Sixteenth Street, beside the block Indiana to Prairie, 16th to 18th Street",
    "street_line_local_m": [
     [
      1387.63,
@@ -1229,6 +1241,7 @@
    "street": "prairie",
    "block": "blk_prairie_ic_16_18",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Prairie to the Illinois Central, 16th to 18th Street",
    "street_line_local_m": [
     [
      1407.65,
@@ -1330,6 +1343,7 @@
    "street": "e18th",
    "block": "blk_prairie_ic_16_18",
    "cross_section": "row_66",
+   "where": "East Eighteenth Street, beside the block Prairie to the Illinois Central, 16th to 18th Street",
    "street_line_local_m": [
     [
      1410.83,
@@ -1431,6 +1445,7 @@
    "street": "calumet",
    "block": "blk_prairie_ic_16_18",
    "cross_section": "row_66",
+   "where": "Calumet Avenue, beside the block Prairie to the Illinois Central, 16th to 18th Street",
    "street_line_local_m": [
     [
      1474.9,
@@ -2368,6 +2383,7 @@
    "street": "indiana",
    "block": "blk_indiana_prairie_18_20",
    "cross_section": "row_66",
+   "where": "Indiana Avenue, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
      1274.67,
@@ -2469,6 +2485,7 @@
    "street": "e20th",
    "block": "blk_indiana_prairie_18_20",
    "cross_section": "row_66",
+   "where": "East Twentieth Street, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
      1278.38,
@@ -2570,6 +2587,7 @@
    "street": "prairie",
    "block": "blk_indiana_prairie_18_20",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
      1394.51,
@@ -2671,6 +2689,7 @@
    "street": "e18th",
    "block": "blk_indiana_prairie_18_20",
    "cross_section": "row_66",
+   "where": "East Eighteenth Street, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
      1392.05,
@@ -2772,6 +2791,7 @@
    "street": "prairie",
    "block": "blk_prairie_calumet_18_20",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Prairie to Calumet, 18th to 20th Street",
    "street_line_local_m": [
     [
      1411.86,
@@ -2873,6 +2893,7 @@
    "street": "e20th",
    "block": "blk_prairie_calumet_18_20",
    "cross_section": "row_66",
+   "where": "East Twentieth Street, beside the block Prairie to Calumet, 18th to 20th Street",
    "street_line_local_m": [
     [
      1414.34,
@@ -2974,6 +2995,7 @@
    "street": "calumet",
    "block": "blk_prairie_calumet_18_20",
    "cross_section": "row_66",
+   "where": "Calumet Avenue, beside the block Prairie to Calumet, 18th to 20th Street",
    "street_line_local_m": [
     [
      1529.44,
@@ -4443,6 +4465,7 @@
    "street": "e18th",
    "block": "blk_prairie_calumet_18_20",
    "cross_section": "row_66",
+   "where": "East Eighteenth Street, beside the block Prairie to Calumet, 18th to 20th Street",
    "street_line_local_m": [
     [
      1475.32,
@@ -4544,6 +4567,7 @@
    "street": "indiana",
    "block": "blk_indiana_prairie_20_21",
    "cross_section": "row_66",
+   "where": "Indiana Avenue, beside the block Indiana to Prairie, 20th to 21st Street",
    "street_line_local_m": [
     [
      1278.72,
@@ -4645,6 +4669,7 @@
    "street": "e21st",
    "block": "blk_indiana_prairie_20_21",
    "cross_section": "row_66",
+   "where": "East Twenty-first Street, beside the block Indiana to Prairie, 20th to 21st Street",
    "street_line_local_m": [
     [
      1279.73,
@@ -4746,6 +4771,7 @@
    "street": "prairie",
    "block": "blk_indiana_prairie_20_21",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Indiana to Prairie, 20th to 21st Street",
    "street_line_local_m": [
     [
      1395.55,
@@ -4847,6 +4873,7 @@
    "street": "e20th",
    "block": "blk_indiana_prairie_20_21",
    "cross_section": "row_66",
+   "where": "East Twentieth Street, beside the block Indiana to Prairie, 20th to 21st Street",
    "street_line_local_m": [
     [
      1394.5,
@@ -4948,6 +4975,7 @@
    "street": "indiana",
    "block": "blk_indiana_prairie_21_22",
    "cross_section": "row_66",
+   "where": "Indiana Avenue, beside the block Indiana to Prairie, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1279.9,
@@ -5049,6 +5077,7 @@
    "street": "e22nd",
    "block": "blk_indiana_prairie_21_22",
    "cross_section": "row_66",
+   "where": "East Twenty-second Street, beside the block Indiana to Prairie, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1281.06,
@@ -5150,6 +5179,7 @@
    "street": "prairie",
    "block": "blk_indiana_prairie_21_22",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Indiana to Prairie, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1396.93,
@@ -5251,6 +5281,7 @@
    "street": "e21st",
    "block": "blk_indiana_prairie_21_22",
    "cross_section": "row_66",
+   "where": "East Twenty-first Street, beside the block Indiana to Prairie, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1395.73,
@@ -5352,6 +5383,7 @@
    "street": "prairie",
    "block": "blk_prairie_calumet_20_21",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Prairie to Calumet, 20th to 21st Street",
    "street_line_local_m": [
     [
      1415.07,
@@ -5453,6 +5485,7 @@
    "street": "e21st",
    "block": "blk_prairie_calumet_20_21",
    "cross_section": "row_66",
+   "where": "East Twenty-first Street, beside the block Prairie to Calumet, 20th to 21st Street",
    "street_line_local_m": [
     [
      1415.95,
@@ -5554,6 +5587,7 @@
    "street": "calumet",
    "block": "blk_prairie_calumet_20_21",
    "cross_section": "row_66",
+   "where": "Calumet Avenue, beside the block Prairie to Calumet, 20th to 21st Street",
    "street_line_local_m": [
     [
      1530.83,
@@ -5655,6 +5689,7 @@
    "street": "e20th",
    "block": "blk_prairie_calumet_20_21",
    "cross_section": "row_66",
+   "where": "East Twentieth Street, beside the block Prairie to Calumet, 20th to 21st Street",
    "street_line_local_m": [
     [
      1529.93,
@@ -5756,6 +5791,7 @@
    "street": "prairie",
    "block": "blk_prairie_calumet_21_22",
    "cross_section": "row_66",
+   "where": "Prairie Avenue, beside the block Prairie to Calumet, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1416.11,
@@ -5857,6 +5893,7 @@
    "street": "e22nd",
    "block": "blk_prairie_calumet_21_22",
    "cross_section": "row_66",
+   "where": "East Twenty-second Street, beside the block Prairie to Calumet, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1417.11,
@@ -5958,6 +5995,7 @@
    "street": "calumet",
    "block": "blk_prairie_calumet_21_22",
    "cross_section": "row_66",
+   "where": "Calumet Avenue, beside the block Prairie to Calumet, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1532.0,
@@ -6059,6 +6097,7 @@
    "street": "e21st",
    "block": "blk_prairie_calumet_21_22",
    "cross_section": "row_66",
+   "where": "East Twenty-first Street, beside the block Prairie to Calumet, 21st to 22nd Street",
    "street_line_local_m": [
     [
      1530.98,
@@ -6160,6 +6199,7 @@
   {
    "id": "alley_indiana_prairie_16_18",
    "block": "blk_indiana_prairie_16_18",
+   "where": "behind the lots of Indiana to Prairie, 16th to 18th Street",
    "printed_width_ft": 20,
    "polygon_local_m": [
     [
@@ -6212,6 +6252,7 @@
   {
    "id": "alley_indiana_prairie_18_20",
    "block": "blk_indiana_prairie_18_20",
+   "where": "behind the lots of Indiana to Prairie, 18th to 20th Street",
    "printed_width_ft": 24,
    "polygon_local_m": [
     [
@@ -6264,6 +6305,7 @@
   {
    "id": "alley_prairie_calumet_18_20",
    "block": "blk_prairie_calumet_18_20",
+   "where": "behind the lots of Prairie to Calumet, 18th to 20th Street",
    "printed_width_ft": 20,
    "polygon_local_m": [
     [
@@ -7165,6 +7207,7 @@
   {
    "id": "alley_indiana_prairie_20_21",
    "block": "blk_indiana_prairie_20_21",
+   "where": "behind the lots of Indiana to Prairie, 20th to 21st Street",
    "printed_width_ft": 20,
    "polygon_local_m": [
     [
@@ -7217,6 +7260,7 @@
   {
    "id": "alley_indiana_prairie_21_22",
    "block": "blk_indiana_prairie_21_22",
+   "where": "behind the lots of Indiana to Prairie, 21st to 22nd Street",
    "printed_width_ft": 18,
    "polygon_local_m": [
     [
@@ -7269,6 +7313,7 @@
   {
    "id": "alley_prairie_calumet_20_21",
    "block": "blk_prairie_calumet_20_21",
+   "where": "behind the lots of Prairie to Calumet, 20th to 21st Street",
    "printed_width_ft": 20,
    "polygon_local_m": [
     [
@@ -7321,6 +7366,7 @@
   {
    "id": "alley_prairie_calumet_21_22",
    "block": "blk_prairie_calumet_21_22",
+   "where": "behind the lots of Prairie to Calumet, 21st to 22nd Street",
    "printed_width_ft": 18,
    "polygon_local_m": [
     [
@@ -7375,6 +7421,7 @@
   {
    "id": "indiana_16_18",
    "street": "indiana",
+   "where": "Indiana Avenue, 16th to 18th Street",
    "polygon_local_m": [
     [
      1255.43,
@@ -7427,6 +7474,7 @@
   {
    "id": "indiana_18_20",
    "street": "indiana",
+   "where": "Indiana Avenue, 18th to 20th Street",
    "polygon_local_m": [
     [
      1258.51,
@@ -7483,6 +7531,7 @@
   {
    "id": "indiana_20_22",
    "street": "indiana",
+   "where": "Indiana Avenue, 20th to 22nd Street",
    "polygon_local_m": [
     [
      1262.53,
@@ -7538,6 +7587,7 @@
   {
    "id": "prairie_16_18",
    "street": "prairie",
+   "where": "Prairie Avenue, 16th to 18th Street",
    "polygon_local_m": [
     [
      1391.73,
@@ -7590,6 +7640,7 @@
   {
    "id": "prairie_18_20",
    "street": "prairie",
+   "where": "Prairie Avenue, 18th to 20th Street",
    "polygon_local_m": [
     [
      1396.12,
@@ -7642,6 +7693,7 @@
   {
    "id": "prairie_20_22",
    "street": "prairie",
+   "where": "Prairie Avenue, 20th to 22nd Street",
    "polygon_local_m": [
     [
      1398.58,
@@ -7694,6 +7746,7 @@
   {
    "id": "calumet_18_20",
    "street": "calumet",
+   "where": "Calumet Avenue, 18th to 20th Street",
    "polygon_local_m": [
     [
      1475.18,
@@ -8984,6 +9037,7 @@
   {
    "id": "calumet_20_22",
    "street": "calumet",
+   "where": "Calumet Avenue, 20th to 22nd Street",
    "polygon_local_m": [
     [
      1534.04,
@@ -9039,6 +9093,7 @@
   {
    "id": "e16th_indiana_prairie",
    "street": "e16th",
+   "where": "East Sixteenth Street, Indiana to Prairie Avenue",
    "polygon_local_m": [
     [
      1251.29,
@@ -9091,6 +9146,7 @@
   {
    "id": "e18th_indiana_prairie",
    "street": "e18th",
+   "where": "East Eighteenth Street, Indiana to Prairie Avenue",
    "polygon_local_m": [
     [
      1254.49,
@@ -9143,6 +9199,7 @@
   {
    "id": "e18th_prairie_calumet",
    "street": "e18th",
+   "where": "East Eighteenth Street, Prairie to Calumet Avenue",
    "polygon_local_m": [
     [
      1392.01,
@@ -9195,6 +9252,7 @@
   {
    "id": "e20th_indiana_calumet",
    "street": "e20th",
+   "where": "East Twentieth Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
      1258.5,
@@ -9247,6 +9305,7 @@
   {
    "id": "e21st_indiana_calumet",
    "street": "e21st",
+   "where": "East Twenty-first Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
      1260.54,
@@ -9299,6 +9358,7 @@
   {
    "id": "e22nd_indiana_calumet",
    "street": "e22nd",
+   "where": "East Twenty-second Street, Indiana to Calumet Avenue",
    "polygon_local_m": [
     [
      1262.84,
@@ -9359,6 +9419,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.1,
@@ -9417,6 +9478,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.24,
@@ -9475,6 +9537,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.35,
@@ -9533,6 +9596,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.46,
@@ -9591,6 +9655,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.67,
@@ -9647,6 +9712,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.8,
@@ -9704,6 +9770,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1332.9,
@@ -9760,6 +9827,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.01,
@@ -9817,6 +9885,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.1,
@@ -9875,6 +9944,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.21,
@@ -9933,6 +10003,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.3,
@@ -9991,6 +10062,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.41,
@@ -10049,6 +10121,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.5,
@@ -10107,6 +10180,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.6,
@@ -10167,6 +10241,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1333.77,
@@ -10227,6 +10302,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1334.06,
@@ -10285,6 +10361,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1334.15,
@@ -10343,6 +10420,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1334.35,
@@ -10401,6 +10479,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1334.67,
@@ -10459,6 +10538,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1334.91,
@@ -10517,6 +10597,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_16_18",
    "street_face": "prairie__indiana_prairie_16_18",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 16th to 18th Street",
    "polygon_local_m": [
     [
      1335.14,
@@ -10575,6 +10656,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1407.65,
@@ -10633,6 +10715,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1407.83,
@@ -10699,6 +10782,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1407.99,
@@ -10757,6 +10841,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.17,
@@ -10815,6 +10900,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.27,
@@ -10873,6 +10959,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.36,
@@ -10931,6 +11018,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.48,
@@ -10989,6 +11077,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.57,
@@ -11047,6 +11136,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.66,
@@ -11103,6 +11193,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.78,
@@ -11158,6 +11249,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.88,
@@ -11213,6 +11305,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1408.97,
@@ -11270,6 +11363,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1409.04,
@@ -11328,6 +11422,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1409.26,
@@ -11386,6 +11481,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1409.67,
@@ -11444,6 +11540,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1410.04,
@@ -11509,6 +11606,7 @@
    "side": "east",
    "block": "blk_prairie_ic_16_18",
    "street_face": "prairie__prairie_ic_16_18",
+   "where": "the east side of Prairie Avenue, in the block Prairie to the Illinois Central, 16th to 18th Street",
    "polygon_local_m": [
     [
      1410.3,
@@ -11567,6 +11665,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.07,
@@ -11624,6 +11723,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.31,
@@ -11681,6 +11781,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.44,
@@ -11738,6 +11839,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.53,
@@ -11795,6 +11897,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.77,
@@ -11852,6 +11955,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1338.98,
@@ -11909,6 +12013,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1339.12,
@@ -11964,6 +12069,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1339.3,
@@ -12020,6 +12126,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1339.38,
@@ -12078,6 +12185,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1339.54,
@@ -12136,6 +12244,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1339.86,
@@ -12193,6 +12302,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1340.05,
@@ -12257,6 +12367,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_18_20",
    "street_face": "prairie__indiana_prairie_18_20",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 18th to 20th Street",
    "polygon_local_m": [
     [
      1340.58,
@@ -12314,6 +12425,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1411.86,
@@ -12371,6 +12483,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1412.12,
@@ -12432,6 +12545,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1412.26,
@@ -12501,6 +12615,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1412.5,
@@ -12562,6 +12677,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1412.67,
@@ -12643,6 +12759,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1412.92,
@@ -12704,6 +12821,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1413.17,
@@ -12765,6 +12883,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1413.68,
@@ -12826,6 +12945,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1413.87,
@@ -12883,6 +13003,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_18_20",
    "street_face": "prairie__prairie_calumet_18_20",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 18th to 20th Street",
    "polygon_local_m": [
     [
      1414.17,
@@ -12946,6 +13067,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_20_21",
    "street_face": "prairie__indiana_prairie_20_21",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 20th to 21st Street",
    "polygon_local_m": [
     [
      1340.53,
@@ -13005,6 +13127,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_20_21",
    "street_face": "prairie__indiana_prairie_20_21",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 20th to 21st Street",
    "polygon_local_m": [
     [
      1340.85,
@@ -13062,6 +13185,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_20_21",
    "street_face": "prairie__indiana_prairie_20_21",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 20th to 21st Street",
    "polygon_local_m": [
     [
      1341.03,
@@ -13119,6 +13243,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.23,
@@ -13176,6 +13301,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.35,
@@ -13233,6 +13359,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.39,
@@ -13290,6 +13417,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.44,
@@ -13347,6 +13475,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.51,
@@ -13404,6 +13533,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.59,
@@ -13461,6 +13591,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.68,
@@ -13518,6 +13649,7 @@
    "side": "west",
    "block": "blk_indiana_prairie_21_22",
    "street_face": "prairie__indiana_prairie_21_22",
+   "where": "the west side of Prairie Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1341.76,
@@ -13575,6 +13707,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.07,
@@ -13632,6 +13765,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.13,
@@ -13689,6 +13823,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.18,
@@ -13746,6 +13881,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.23,
@@ -13803,6 +13939,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.3,
@@ -13860,6 +13997,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.36,
@@ -13917,6 +14055,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.42,
@@ -13974,6 +14113,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.54,
@@ -14031,6 +14171,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.66,
@@ -14088,6 +14229,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.77,
@@ -14145,6 +14287,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.83,
@@ -14202,6 +14345,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_20_21",
    "street_face": "prairie__prairie_calumet_20_21",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 20th to 21st Street",
    "polygon_local_m": [
     [
      1415.89,
@@ -14259,6 +14403,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.11,
@@ -14316,6 +14461,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.28,
@@ -14373,6 +14519,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.4,
@@ -14430,6 +14577,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.54,
@@ -14487,6 +14635,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.64,
@@ -14545,6 +14694,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.75,
@@ -14601,6 +14751,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.87,
@@ -14657,6 +14808,7 @@
    "side": "east",
    "block": "blk_prairie_calumet_21_22",
    "street_face": "prairie__prairie_calumet_21_22",
+   "where": "the east side of Prairie Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
    "polygon_local_m": [
     [
      1416.99,
