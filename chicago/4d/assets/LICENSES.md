@@ -308,7 +308,7 @@ T-1728. Seven procedural materials for the 1904 scene's roadways, alleys, walks,
 parkways, built by the generator that ships inside it (`tools/generate_prairie_1904_pbr.py`,
 deterministic, seeded per material) in the 1835 library's map-for-map layout at 512 px. Which
 surface wears which material, and on what evidence, is `data/street_surfaces/1904.json`'s to
-say; the look of every map is reconstructed (`docs/LIBERTIES.md` L295).
+say; the look of every map is reconstructed (`docs/LIBERTIES.md` L296).
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|

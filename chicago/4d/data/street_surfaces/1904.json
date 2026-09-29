@@ -179,7 +179,7 @@
     "from_basis": "not in the Board's 1901-03 list (vol. 52)",
     "to_basis": "'18th street, from Indiana avenue to Calumet avenue (macadam) 1,857', 1 Dec 1904 (vol. 54 p. 1699)"
    },
-   "note": "Macadam out of guaranty and in need of repair on 1 December 1904. The Chicago City Railway's double track on 18th Street (horse cars in 1896) is not drawn (L296)."
+   "note": "Macadam out of guaranty and in need of repair on 1 December 1904. The Chicago City Railway's double track on 18th Street (horse cars in 1896) is not drawn (L297)."
   },
   "e18th_prairie_calumet": {
    "priority": 1,
@@ -257,13 +257,13 @@
     "from_basis": "ordinance 'for curbing, grading and paving (brick) Indiana avenue, from 16th street to 18th street' passed 22 May 1899 (vol. 43 p. 473)",
     "to_basis": "not in the December 1904 list of worn pavements (vol. 54), and no other surface read"
    },
-   "note": "The brick ordinance of May 1899 is inferred to have been carried out. The Chicago City Railway's double track on Indiana Avenue is not drawn (L296)."
+   "note": "The brick ordinance of May 1899 is inferred to have been carried out. The Chicago City Railway's double track on Indiana Avenue is not drawn (L297)."
   },
   "indiana_18_20": {
    "priority": 2,
    "material": "sheet_asphalt",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1902_v49",
     "chicago_council_proceedings_1903_v51",
@@ -281,7 +281,7 @@
    "priority": 2,
    "material": "sheet_asphalt",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1902_v49",
     "chicago_council_proceedings_1903_v51",
@@ -299,7 +299,7 @@
    "priority": 2,
    "material": "macadam",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1905_v54"
    ],
@@ -351,7 +351,7 @@
   "alley_indiana_prairie_16_18": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -368,7 +368,7 @@
   "alley_indiana_prairie_18_20": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -385,7 +385,7 @@
   "alley_prairie_calumet_18_20": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -402,7 +402,7 @@
   "alley_indiana_prairie_21_22": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -419,7 +419,7 @@
   "alley_prairie_calumet_20_21": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -436,7 +436,7 @@
   "alley_prairie_calumet_21_22": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1904_v52",
     "chicago_council_proceedings_1907_v58",
@@ -453,7 +453,7 @@
   "alley_indiana_prairie_20_21": {
    "material": "earth_and_cinders",
    "tier": "reconstructed",
-   "liberty": "L296",
+   "liberty": "L297",
    "sources": [
     "chicago_council_proceedings_1903_v51",
     "chicago_council_proceedings_1904_v52",
@@ -472,7 +472,7 @@
   "walk": {
    "material": "portland_cement_walk",
    "tier": "reconstructed",
-   "liberty": "L295",
+   "liberty": "L296",
    "sources": [
     "chicago_revised_municipal_code_1905",
     "chicago_council_proceedings_1899_v43",
@@ -502,7 +502,7 @@
   "curb": {
    "material": "sandstone_curbstone",
    "tier": "reconstructed",
-   "liberty": "L295",
+   "liberty": "L296",
    "sources": [
     "chicago_revised_municipal_code_1905",
     "chicago_council_proceedings_1902_v49",
@@ -520,7 +520,7 @@
   "parkway": {
    "material": "grass_plat",
    "tier": "reconstructed",
-   "liberty": "L295",
+   "liberty": "L296",
    "sources": [
     "chicago_revised_municipal_code_1905",
     "habs_glessner_house_il_1015_photographs"
@@ -536,7 +536,7 @@
   "margin": {
    "material": "grass_plat",
    "tier": "reconstructed",
-   "liberty": "L295",
+   "liberty": "L296",
    "sources": [
     "chicago_revised_municipal_code_1905",
     "habs_glessner_house_il_1015_photographs"

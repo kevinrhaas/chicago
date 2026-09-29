@@ -1,0 +1,25 @@
+{
+ "id": "houghton_glessner_gle_b9_side_elevation",
+ "type": "illustration",
+ "citation": "Office of H. H. Richardson, 'Sketch elevation of side', design drawing for the J. J. Glessner house, Chicago, graphite on tracing paper, 1885-1887. Houghton Library, Harvard University, Henry Hobson Richardson drawings, Glessner house (GLE), drawing GLE B9 (one of catalog entries 8-12; Box 2, Folders 7-8).",
+ "author": "Office of H. H. Richardson",
+ "date": "1885-1887",
+ "describes_date": "1885-1887 (design)",
+ "repository": "Houghton Library, Harvard University (HOLLIS hou00434c00106; Harvard DRS 499504193). A full-size copy supplied by the owner is committed at chicago/prairie_1904_v1/research/public/glessner-houghton-gle-b9.jpg (Prairie library source pa-glessner-houghton-gle-b9, PR #171).",
+ "url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+ "locator": "The whole sheet: the long 18th Street elevation, east wing at left, stable at right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "Houghton Library: images are for teaching or individual research; mounting on other systems or redistribution requires the curator's permission (the owner directed the library copy, 2026-09-28). Cited in text only here; nothing derived from the image as an asset. Credit: Houghton Library, Harvard University.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-28 (T-1732) from the committed full-size file.",
+ "note": "DESIGN INTENT, NOT THE AS-BUILT HOUSE: an undated sketch from the design years. It is cited only where a dated photograph or a measured drawing already carries the value, as corroboration of form - a round tower with a conical roof at the junction of the east wing and the north range, and the stable's gable and ridge turret centred on its carriage doorway. It differs from the house as built elsewhere (the east wing's gable end, the dormers), which is why nothing rests on it alone.",
+ "what_it_supplies": [
+  "the designer's intent for the 18th Street elevation: the north tower and the stable gable's axis"
+ ],
+ "what_it_does_not_supply": [
+  "the as-built form",
+  "dimensions"
+ ]
+}

@@ -17,8 +17,8 @@
  * date range the scene date falls in. Prairie Avenue 16th-20th is the 1903 sheet
  * asphalt two city records either side of the scene date name; 20th-22nd and the
  * cross streets are the worn macadam the city's December 1904 repair survey
- * lists; the walks, curbs and parkways are reconstructed (docs/LIBERTIES.md L295,
- * L296). The materials are the procedural library `assets/textures/prairie_1904_pbr/`
+ * lists; the walks, curbs and parkways are reconstructed (docs/LIBERTIES.md L296,
+ * L297). The materials are the procedural library `assets/textures/prairie_1904_pbr/`
  * — a colour, a normal and a packed ORM map each, read at the metric tile its
  * material.json states, so a walk block is five feet long because the 1905 code
  * says so and not because it looked right. The pictures are evidence of nothing;
@@ -52,7 +52,7 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
  * it overlaps, plus a polygon offset, so a band laid over a carriageway (the
  * carriageways run through their intersections and under the corner bands) always
  * wins. A carriageway also rises by its `priority` (street_surfaces), so where two
- * roadways cross the avenue's surface is drawn over the cross street's (L296).
+ * roadways cross the avenue's surface is drawn over the cross street's (L297).
  * `colour` is the flat tone a surface falls back to when its maps do not arrive.
  */
 const CLASSES = {

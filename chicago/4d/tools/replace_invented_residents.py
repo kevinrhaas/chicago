@@ -193,6 +193,7 @@ from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one ow
 sys.path.insert(0, str(ROOT / "tools"))
 
 import fronting_street  # noqa: E402  (needs the path above)
+from town_year import touches_year  # noqa: E402  (T-1732)
 
 DATA = ROOT / "data"
 HOUSEHOLDS = DATA / "residents" / "households"
@@ -304,7 +305,11 @@ def paper_for(claim_ids) -> list[str]:
 def name_pool_sources() -> dict[str, list[pathlib.Path]]:
     """The files the name pool reads, by record kind."""
     return {
-        "structures": sorted(STRUCTURES.glob("*.json")),
+        # T-1732: the 1835 town's records only. A record of another year (the 1904
+        # Glessner House) names nobody in the 1835 town, so its words guard nothing
+        # here; tools/town_year.py says why the test is the year.
+        "structures": sorted(p for p in STRUCTURES.glob("*.json")
+                             if touches_year(json.loads(p.read_text(encoding="utf-8")))),
         # NOT the reconstructed households. Their names are this layer's own
         # inventions and guard nothing, and once this pass has written a documented
         # name into one of them, reading it back would refuse that man on the next

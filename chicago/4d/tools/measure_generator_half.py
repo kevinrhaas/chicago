@@ -254,13 +254,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
 # debt itself moved.
 #
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
+# the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
+# new `masonry_house` archetype. One new structure asset, so one more mesh the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 448,
+    "assets": 449,
     "restales": {
-        "generators/common/*.py": 448,
+        "generators/common/*.py": 449,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 444,
+        "generators/emit.py": 445,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

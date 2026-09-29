@@ -138,6 +138,7 @@ from measure_corridor_intrusion import is_street_furniture  # noqa: E402
 from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from plat_corridors import corridors, sampled  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -231,6 +232,11 @@ def buildings() -> list[dict]:
     for path in sorted(STRUCTURES.glob("*.json")):
         doc = load(path)
         if is_street_furniture(doc):
+            continue
+        # T-1732: the 1835 town's frontage only. The 1904 Glessner House stands 3.4 km
+        # south of the plat, on no corridor this census measures, and read in it moved the
+        # reach band's outer edge to 2,732 m; tools/town_year.py says why the test is the year.
+        if not touches_year(doc):
             continue
         for phase in doc.get("phases") or []:
             position = phase.get("position") or {}

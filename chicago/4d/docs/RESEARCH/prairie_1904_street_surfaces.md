@@ -16,7 +16,7 @@ So a block's surface here is
 - **attested** only where a city record names it for that block on both sides of the scene date, or
   names it worn and out of its guaranty after it;
 - **inferred** where a record orders it or lets its contract and nothing read confirms it was laid;
-- **reconstructed** otherwise, with a liberty (L295, L296).
+- **reconstructed** otherwise, with a liberty (L296, L297).
 
 The checker makes the library's warning a rule: `bounding_only_sources` (the 1904 paving report and
 the 1905 code) can never attest a block, and cannot carry an inferred one alone.
@@ -70,20 +70,20 @@ It was repaved in asphalt (Barber) before November 1906 — after the scene.
 **E. 18th, 20th and 21st Streets — macadam, ATTESTED** (the same December 1904 survey, the same
 omission from the 1901–03 list). **Calumet Avenue** 20th–21st: macadam, attested; 21st–22nd: the
 asphalt let in 1899, inferred; 18th–20th: macadam carried round the curve from the attested south
-403 ft, reconstructed (L296).
+403 ft, reconstructed (L297).
 
 **E. 16th Street, E. 22nd Street, Indiana 16th–18th — INFERRED** from 1899 contracts and ordinances
 (asphalt, asphalt, brick) whose completion is not read.
 
-**Indiana Avenue 18th–22nd — sheet asphalt, RECONSTRUCTED as finished** (L296): ordered 1902, pressed in
+**Indiana Avenue 18th–22nd — sheet asphalt, RECONSTRUCTED as finished** (L297): ordered 1902, pressed in
 September 1903, finished somewhere between November 1903 and November 1906.
 
-**Alleys — graded earth and cinders, RECONSTRUCTED** (L296). Only one has a record: the alley west of
+**Alleys — graded earth and cinders, RECONSTRUCTED** (L297). Only one has a record: the alley west of
 Prairie between 20th and 21st was ordered paved with rock asphalt in May 1903 and was paved between
 November 1903 and November 1906; it is drawn as it stood before.
 
 **Walks — Portland cement concrete in 5 × 6 ft blocks; curbs — sandstone curbstones; parkways and the
-foot inside the walk — mown turf. All RECONSTRUCTED** (L295), on all 31 block faces, both sides of
+foot inside the walk — mown turf. All RECONSTRUCTED** (L296), on all 31 block faces, both sides of
 Prairie from 16th to 22nd and every cross-street face. The code allows cement, limestone or cinder
 walks and no new wooden one; stone or white-oak curbs (concrete with a concrete walk); grass plats.
 The Council's own sidewalk business turns from plank to cement between 1899 and 1902. The 1903
@@ -105,7 +105,7 @@ drawn: nothing dates it to 1904. No. 1 (1963) shows 18th Street as patched aspha
 ## 6. The look
 
 Every map is procedural (`tools/generate_prairie_1904_pbr.py`, no photograph sampled) and its look is
-reconstructed (L295) — a record that says "asphalt" says nothing of its grey. Tiles are metric: asphalt
+reconstructed (L296) — a record that says "asphalt" says nothing of its grey. Tiles are metric: asphalt
 4 m, macadam 6 m, brick 2.12 m (20 courses of a 4 × 8.5 in brick with its joint), turf 3 m; the walk
 tile is two blocks along and one across its own band, the curb two 6-ft stones along and one across. A
 square tile is laid on the world axis nearest its street, so two segments overlapping through an
@@ -128,6 +128,6 @@ the page fetches 1.62 MB more (21 JPEG maps).
 - **Indiana Avenue 18th–22nd and the 20th–21st alley** — the Board's acceptance records or the
   Department of Public Works' annual reports for 1903–1905 would date their completion.
 - **Calumet Avenue north of 20th** — a Department of Public Works street-improvement register.
-- **Streetcar tracks** on Indiana Avenue and 18th Street are not drawn (L296); a franchise map would
+- **Streetcar tracks** on Indiana Avenue and 18th Street are not drawn (L297); a franchise map would
   place them.
 - **No crown, gutter or curb reveal** (L293 still stands).

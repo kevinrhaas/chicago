@@ -34,7 +34,7 @@ band's full width, so a 6-ft walk is one block across and a 6-in curb one stone 
 **Nothing.** Which surface wears which material, at what tier and on what source, is
 `data/street_surfaces/1904.json`'s to say, and `tools/check_street_surfaces.py` holds it there.
 These files are pictures of those materials, and their colour, grain, joints and wear are ours
-(`docs/LIBERTIES.md` L295). A texture here is not permission to put its material on a street the
+(`docs/LIBERTIES.md` L296). A texture here is not permission to put its material on a street the
 surfaces file does not name.
 
 Regenerate in place with `python3 tools/generate_prairie_1904_pbr.py` (numpy, scipy, Pillow).

@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1224, ts: '2026-09-29T03:31:10.808Z', date: 'Sep 28, 2026, 10:31 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
+  { v: 1225, ts: '2026-09-29T04:58:02.211Z', date: 'Sep 28, 2026, 11:58 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
     items: [
       'At /4d/1904/ the streets are no longer placeholder grey. Prairie Avenue in front of the Glessner corner is dark sheet asphalt, 18th Street beside it pale crushed-stone macadam, and every block has a cement sidewalk, a strip of lawn and a stone curb.',
       'The roadways come from the city’s own records. The council ordered Prairie paved with asphalt from 16th to 20th Street in February 1903, and inspectors found it down and in good condition that November. A December 1904 street survey lists Prairie south of 20th, and 18th, 20th and 21st Streets, as worn macadam.',
       'Prairie Avenue was not yet a boulevard. The park board that the 1911 map’s “Prairie Av. Blvd.” refers to took the avenue over in October 1906; in 1904 the city paved and repaired it.',
       'The sidewalks, curbs and lawns are our reconstruction. No record we found says what they were made of in 1904. They are drawn the way the city’s 1905 code describes and the way photographs of the Glessner frontages show them about 1923: concrete in five-by-six-foot blocks, sandstone curbstones and grass.',
       'Aim at any roadway, alley or strip of sidewalk and its card now says what it is made of, how sure we are, and which record says so.',
+    ] },
+  { v: 1224, ts: '2026-09-29T04:24:42.593Z', date: 'Sep 28, 2026, 11:24 PM CT', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and the corner lot is no longer empty. Across Prairie Avenue stands 1800 Prairie as it was in the summer of 1904: the granite front, the steep red-tiled roof with its three stacks, the fan of stone over the front door and the carriage entrance at the south end.',
+      'The Prairie Avenue front is built opening for opening from the 1965 government survey drawings. An 1888 photograph agrees with every one. Behind it the 18th Street range runs back to the coach house at the alley, with its great arched service entrance, stable doors, loft and small louvred turret.',
+      'Walk round to the courtyard, or fly above it, for the round stair tower, the curved hall bay, the dining-room bay with its glazed band and faceted roof, three little dormers and a lawn crossed by the carriage drive.',
+      'Survey photographs from 1963 and 1965 and a courtyard view of about 1923 settled several shapes the drawings left open: the coach-house roof, the round tower at the north junction and the dining bay. The colours, the chimneys’ depth and the courtyard’s planting in 1904 are ours, and the house’s card says which parts are which.',
+      'The courtyard reads open on the south for now. In 1904 the neighbouring house at 1808 closed it, and that house has not been built yet.',
     ] },
   { v: 1223, ts: '2026-09-29T03:11:54.420Z', date: 'Sep 28, 2026, 10:11 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
     items: [

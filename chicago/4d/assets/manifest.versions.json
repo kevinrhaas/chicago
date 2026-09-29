@@ -2,11 +2,10 @@
   "$note": "T-1727. The build record for STRUCTURE VERSIONS, the alternates under data/structures/versions/<id>/<label>.json. One entry per version mesh, keyed by its path under assets/gltf/: `inputs_sha256` is the same recipe as assets/manifest.json (generators/mesh_inputs.py over the VERSION record), written by generators/build.py or by `tools/structure_versions.py adopt` when the version's inputs hash equals a committed canonical bake; `web_master_sha256` is the master each assets/web/ derivative was made from, written by tools/web_derivatives.sh. DERIVED: `tools/validate.py --stale` recomputes both, and the remedy for a mismatch is a bake, never an edit of this file.",
   "assets": {
     "versions/bates_auction_room/fixture/bates_auction_room__frame_1834.glb": {
-      "adopted_from": "bates_auction_room__frame_1834.glb",
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 34648,
-      "inputs_sha256": "266cf886d7f5ea8732e5182622cf1cdc1eaaf532df3a6a09dbb3cf49bca4a0fc",
+      "inputs_sha256": "1c9942afdbcf60472a5c7faaf3c1f684cb39354d6d938807db672600f2fdca8c",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "bates_auction_room",
