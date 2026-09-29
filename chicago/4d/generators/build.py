@@ -8,7 +8,9 @@
                     answers to is REFUSED (exit 2) before anything is built —
                     see generators/common/selection.py for why, and for the
                     comma list that used to be compared as one long id
-    --scene <id>    scene to resolve phases against (default 1835)
+    --scene <id>    resolve phases against this one scene only. Default: EVERY scene in
+                    data/scenes/ — a record is built for each distinct phase some
+                    scene resolves (T-1732; see main())
     --no-bake       skip UV + AO baking (fast iteration)
     --ao            bake ambient occlusion (opt-in; nothing in the nightly passes it —
                     see emit.bake_ao() for why, and generators/ao_export.py for the guard
@@ -92,7 +94,8 @@ def main() -> int:
     ap.add_argument("--only",
                     help="one structure id, or a comma list of them. An id no "
                          "record answers to is refused, not silently skipped.")
-    ap.add_argument("--scene", default="1835")
+    ap.add_argument("--scene", default=None,
+                    help="one scene id; default every scene in data/scenes/")
     ap.add_argument("--no-bake", action="store_true",
                     help="skip UV unwrap as well as AO")
     ap.add_argument("--ao", action="store_true",
@@ -107,8 +110,29 @@ def main() -> int:
               "See docs/EPOCHS.md and docs/RESEARCH/datum_derivation.md.")
         return 2
 
-    scene = load(ROOT / "data" / "scenes" / f"{args.scene}.json")
-    target = dt.date.fromisoformat(scene["target_date"])
+    # T-1732. WHICH DATES A PHASE IS RESOLVED AGAINST. This defaulted to the 1835 scene
+    # alone, which was every scene there was until T-1739 added 1904 — and then the one
+    # command the staleness gate names as the cure for a generators/ edit (a full rebake,
+    # `tools/bake.sh` with no flags, the nightly) would skip every 1904 structure as 'no
+    # phase covers 1835-07-01', leaving the Glessner House stale in a tree no committed
+    # route could turn green. That is the gap `validate.py`'s bake-reach check refuses on
+    # the asset side ("some scene resolves it"); this closes it on the bake's side. With
+    # no --scene every scene's date is asked, and each distinct phase any scene resolves
+    # is built once. --scene still narrows to one.
+    scene_ids = [args.scene] if args.scene else sorted(
+        p.stem for p in (ROOT / "data" / "scenes").glob("*.json"))
+    targets = [dt.date.fromisoformat(load(ROOT / "data" / "scenes" / f"{sid}.json")
+                                     ["target_date"]) for sid in scene_ids]
+    target = ", ".join(str(t) for t in targets)
+
+    def phases_in_scenes(structure: dict) -> list:
+        seen, out = set(), []
+        for t in targets:
+            ph = resolve_phase(structure, t)
+            if ph is not None and ph.get("id") not in seen:
+                seen.add(ph.get("id"))
+                out.append(ph)
+        return out
     outdir = Path(args.out)
 
     manifest_path = ROOT / "assets" / "manifest.json"
@@ -131,10 +155,9 @@ def main() -> int:
 
     built = 0
     built_ids: list[str] = []
-    for st in records:
-        if not selects(only, st["id"]):
-            continue
-        phase = resolve_phase(st, target)
+    pairs = [(st, ph) for st in records if selects(only, st["id"])
+             for ph in (phases_in_scenes(st) or [None])]
+    for st, phase in pairs:
         if phase is None:
             print(f"skip {st['id']}: no phase covers {target}")
             continue
@@ -205,15 +228,14 @@ def main() -> int:
     vmanifest = read_manifest()
     vmanifest["inputs_scheme"] = mesh_inputs.SCHEME
     vbuilt = 0
-    for v in load_versions():
+    vpairs = [(v, ph) for v in load_versions() if selects(only, v["id"])
+              for ph in (phases_in_scenes(v["record"]) or [None])]
+    for v, phase in vpairs:
         sid, label, st = v["id"], v["label"], v["record"]
-        if not selects(only, sid):
-            continue
         refused = label_problem(label)
         if refused or st.get("id") != sid:
             print(f"skip version {sid}/{label}: {refused or 'record id does not match'}")
             continue
-        phase = resolve_phase(st, target)
         if phase is None:
             print(f"skip version {sid}/{label}: no phase covers {target}")
             continue

@@ -20,7 +20,7 @@ try{for(const width of [390,1280]){
  await page.locator('.src-all input').check();assert.ok((await page.locator('.src-status').textContent()).startsWith(String(stats.rows)));
  await page.locator('.src-filters>summary').click();await page.locator('.src-search').fill('Andreas');await page.locator('[data-filter="type"][data-value="book"]').click();await page.locator('[data-filter="tier"][data-value="3"]').click();
  await page.locator('.src-sort').selectOption('title');assert.ok(await page.locator('[data-source-id="andreas_1884_v1"]').count());
- const index=fs.readFileSync(path.join(root,'data/sidecars/1835/sources/index.json'));assert.ok(index.length<=120000);
+ const index=fs.readFileSync(path.join(root,'data/sidecars/1835/sources/index.json'));assert.ok(index.length<=128000,'raw index inside compile_source_use.py INDEX_BUDGET (T-1728 re-budget)');
  const firstWire=['data/sidecars/1835/sources/index.json','walk/js/sources.js','walk/css/sources.css'].reduce((n,p)=>n+zlib.gzipSync(fs.readFileSync(path.join(root,p))).length,0);assert.ok(firstWire<=120000);
  await page.locator('.src-filters>summary').click();await page.locator('[data-source-id="andreas_1884_v1"]').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,`${width}-catalog.png`)});
  await page.locator('.src-filters>summary').click();

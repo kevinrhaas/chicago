@@ -1,0 +1,45 @@
+{
+  "id": "earth_and_cinders",
+  "directional": false,
+  "group": "alley",
+  "span_m": 4.0,
+  "kind": "cinder",
+  "mean_roughness": 0.95,
+  "colors": [
+    [
+      88,
+      80,
+      68
+    ],
+    [
+      46,
+      45,
+      43
+    ]
+  ],
+  "note": "An unimproved alley: graded earth dressed with ashes and cinders, rutted along its length. Reconstructed (L297).",
+  "span_along_m": 4.0,
+  "span_across_m": 4.0,
+  "resolution_px": 512,
+  "px_per_m": 128.0,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "earth_and_cinders_basecolor_web.jpg",
+    "normal_gl": "earth_and_cinders_normal_gl_web.jpg",
+    "orm": "earth_and_cinders_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041004,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

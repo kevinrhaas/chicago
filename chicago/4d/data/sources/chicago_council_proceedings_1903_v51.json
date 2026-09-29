@@ -1,0 +1,27 @@
+{
+ "id": "chicago_council_proceedings_1903_v51",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1903-1904 (April to October 1903). Chicago: the City Council, 1903. Vol. 51.",
+ "author": "City of Chicago, City Council",
+ "date": "1903",
+ "describes_date": "April - October 1903",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit51chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit51chic/proceedingsofcit51chic_djvu.txt",
+ "locator": "The Council meeting of 11 May 1903, p. 38 (the alley west of Prairie Avenue, 20th to 21st Street); the Council meeting of 28 September 1903, p. 1053 (Indiana Avenue's east side).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "Two orders on the grid's own edges. On 11 May 1903 the Council passed 'A recommendation, ordinance and estimate for curbing, grading and paving, with rock asphalt, the north and south alley first west of Prairie avenue, from 20th street to 21st street' (p. 38). On 28 September 1903 it ordered the Board of Local Improvements 'to proceed immediately with the paving of the east side of Indiana avenue from 18th street to 39th streets' (p. 1053), the asphalt ordinance for that stretch having passed on 22 September 1902 (chicago_council_proceedings_1902_v49).",
+ "what_it_supplies": [
+  "the rock-asphalt ordinance for the alley west of Prairie Avenue between 20th and 21st Street",
+  "that Indiana Avenue's asphalt from 18th Street south was unfinished and being pressed on in the autumn of 1903",
+  "a bound on sidewalk materials: the volume's OCR mentions 'cement sidewalk' 236 times, 'plank sidewalk' 19 times and 'cinder sidewalk' 62 times (counted 2026-09-29 for T-1728; a mention may be an order, a repeal or a contract, so the counts are proportions of the city's business, not of walks laid)"
+ ],
+ "what_it_does_not_supply": [
+  "when either was finished; neither is in the Board's list of 2 November 1903 and both are in its list of 7 November 1906, so each was finished between those dates"
+ ]
+}

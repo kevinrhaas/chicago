@@ -181,6 +181,12 @@
       "measured": "2026-09-18",
       "finding": "Cannot rebuild: run bare it exits 2 (usage) — it is a checker, not a writer."
     },
+    "check_street_surfaces.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-09-29",
+      "finding": "Run bare on the working tree it prints the --check verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: data/street_surfaces/1904.json is authored. A checker (T-1728)."
+    },
     "check_unique_ids.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -616,6 +622,13 @@
       "write_mode": null,
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+    },
+    "measure_jefferson_continuation.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-29",
+      "finding": "Reproduces: ran `--write` on a clean tree, rewrote data/traces/jefferson_continuation.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its three gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-09-29 \u2014 after tools/generate_yard_goods.py and before tools/town_census.py, because it reads the DRAWN structures through plat_occupancy.footprints to price the extrapolation's clearance, so it must run after everything that places one (T-1544); see the manifest step"
     },
     "measure_north_branch_banks.py": {
       "placement": "manifest",

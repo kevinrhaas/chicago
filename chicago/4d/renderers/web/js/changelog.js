@@ -1,8 +1,39 @@
 export const CHANGELOG = [ // newest first
-  { v: 1222, ts: '2026-09-29T03:12:22.646Z', date: 'Sep 28, 2026, 10:12 PM CT', title: 'History along your outing', kind: 'change',
+  { v: null, ts: '', title: 'History along your outing', kind: 'change',
     items: [
       'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
       'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
+    ] },
+  { v: 1225, ts: '2026-09-29T04:58:02.211Z', date: 'Sep 28, 2026, 11:58 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
+    items: [
+      'At /4d/1904/ the streets are no longer placeholder grey. Prairie Avenue in front of the Glessner corner is dark sheet asphalt, 18th Street beside it pale crushed-stone macadam, and every block has a cement sidewalk, a strip of lawn and a stone curb.',
+      'The roadways come from the city’s own records. The council ordered Prairie paved with asphalt from 16th to 20th Street in February 1903, and inspectors found it down and in good condition that November. A December 1904 street survey lists Prairie south of 20th, and 18th, 20th and 21st Streets, as worn macadam.',
+      'Prairie Avenue was not yet a boulevard. The park board that the 1911 map’s “Prairie Av. Blvd.” refers to took the avenue over in October 1906; in 1904 the city paved and repaired it.',
+      'The sidewalks, curbs and lawns are our reconstruction. No record we found says what they were made of in 1904. They are drawn the way the city’s 1905 code describes and the way photographs of the Glessner frontages show them about 1923: concrete in five-by-six-foot blocks, sandstone curbstones and grass.',
+      'Aim at any roadway, alley or strip of sidewalk and its card now says what it is made of, how sure we are, and which record says so.',
+    ] },
+  { v: 1224, ts: '2026-09-29T04:24:42.593Z', date: 'Sep 28, 2026, 11:24 PM CT', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and the corner lot is no longer empty. Across Prairie Avenue stands 1800 Prairie as it was in the summer of 1904: the granite front, the steep red-tiled roof with its three stacks, the fan of stone over the front door and the carriage entrance at the south end.',
+      'The Prairie Avenue front is built opening for opening from the 1965 government survey drawings. An 1888 photograph agrees with every one. Behind it the 18th Street range runs back to the coach house at the alley, with its great arched service entrance, stable doors, loft and small louvred turret.',
+      'Walk round to the courtyard, or fly above it, for the round stair tower, the curved hall bay, the dining-room bay with its glazed band and faceted roof, three little dormers and a lawn crossed by the carriage drive.',
+      'Survey photographs from 1963 and 1965 and a courtyard view of about 1923 settled several shapes the drawings left open: the coach-house roof, the round tower at the north junction and the dining bay. The colours, the chimneys’ depth and the courtyard’s planting in 1904 are ours, and the house’s card says which parts are which.',
+      'The courtyard reads open on the south for now. In 1904 the neighbouring house at 1808 closed it, and that house has not been built yet.',
+    ] },
+  { v: 1223, ts: '2026-09-29T03:11:54.420Z', date: 'Sep 28, 2026, 10:11 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
+    items: [
+      'Cross the river and walk north to Indiana Street between Wolcott and Cass, and there are buildings on the addition for the first time. Two one-room frame cottages stand back to back across the block alley near its east end \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind the first and a privy behind the second. These are the first roofs anywhere above Michigan Street, on lot lines read off the 1834 survey four builds ago.',
+      'Ten of the block\u2019s twelve lots are still open prairie, and that is the whole point. Eleven households have an address on this block and the building programme offers it forty-three roofs, so nothing but a decision stopped at two: the north-side research says the maps show a large platted north side with no buildings on it, and that the addition has to read speculative rather than occupied. Two cottages with open ground on both sides of each is what that looks like.',
+      'The families who moved in are not the ones who asked. Households pick a standing house before they ask for one to be built, so the moment these existed the Allin and Almond families \u2014 both waiting on the block to the east \u2014 were the better answer for them. John Baily and Joseph Bailly, whose requests the pair was built against, end up holding addresses on that eastern block instead. Families with somewhere to be: 163 before, 165 now.',
+      'The two committed files disagree and the disagreement is now written down. The seating pass wants twenty houses on this addition\u2019s two lotted blocks; the north-side research will not carry twenty. Neither side was quietly adjusted \u2014 the surplus stays on the requested side of the ledger with a ticket against it.',
+      'Nothing here is claimed as evidence. No source says a building stood on this block in 1835, which buildings they were, or where on their lots they sat. The block faces, the alley and the ground are committed; the lot lines are a reading of the surveyor\u2019s own rules, and the cottages are the building programme filling a town it can count but cannot name.',
+    ] },
+  { v: 1222, ts: '2026-09-29T02:29:14.931Z', date: 'Sep 28, 2026, 9:29 PM CT', title: 'Nothing you can see: the town\u2019s north-west corner, checked against the map', kind: 'change',
+    items: [
+      'Nothing in the town changed with this build. The Trustees walked Chicago\u2019s corporate boundary in November 1833 and printed it three weeks later, and its west line runs north along Jefferson Street \u201cand its continuation\u201d to Ohio Street. Jefferson stops. The modern street does not survive north of Hubbard, so the last 288 metres of that line had been pure arithmetic, with nothing beside it.',
+      'It has now been asked of a map rather than a street. The 1834 survey draws the tract north of Kinzie Street whole, and this project has already read its streets and blocks off that sheet \u2014 so the question could be put to a reading it already held: does the surveyor draw Jefferson carrying on? He does not. The nearest street he rules there is some 75 metres to the west, four times the map\u2019s own accuracy.',
+      'So the town\u2019s north-west corner stands in the middle of a block of somebody else\u2019s addition, three streets north of where Jefferson gives out. One line on the sheet runs close enough to be mistaken for the continuation \u2014 the tract\u2019s own edge against the river, sixteen metres east \u2014 and it is refused, because over those 288 metres the two lines drift apart rather than together.',
+      'The line is no more certain than it was, and is not claimed to be. What it has now is a boundary on the guesswork: a check that fails the day a drawn street turns up on it, the day the corner runs off the platted ground, or the day the extension comes near enough to a building to decide whether the town\u2019s by-laws reached it.',
     ] },
   { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
     items: [
