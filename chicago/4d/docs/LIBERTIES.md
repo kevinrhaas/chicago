@@ -16778,12 +16778,22 @@ entitled to know the irregularity is ours and not a finding.
 **Both households that asked took the roofs raised for them, which is the other way round from
 next door.** The adoption step runs before the slot step, so both new roofs entered the seating
 pass as standing roofs an admitted clause could adopt; on `blk_indiana_north_wolcott` two
-unrelated households reached them first and the two requests the deal was sized against moved
-one block east. Here `hh_andrews_davi` took the lot 8 cottage and `hh_anderson_eli_f` the lot 9
-one — the two the deal was sized against. **That is the pass's ordering and not a promise**:
-the same precedence produced the opposite result one block west on the same day, and **T-1626**
-carries the question of whether a roof raised in answer to a slot should be reserved for the
-household that asked. Nothing here answers it.
+unrelated households reached them first and the two requests that deal was sized against moved
+one block west onto its new roofs. Here `hh_avery_charles` — whose request stood on lot 8 —
+took the lot 8 cottage, and `hh_arquette_michel`, whose request stood on lot 9, took the lot 9
+one. **That is the pass's ordering and not a promise**: the same precedence produced the
+opposite result one block west on the same day, and **T-1626** carries the question of whether a
+roof raised in answer to a slot should be reserved for the household that asked. Nothing here
+answers it.
+
+**The two names moved once while this deal waited, and that is worth recording rather than
+quietly restating.** When this block's deal was first written, the requests on lots 8 and 9 were
+`hh_andrews_davi`'s and `hh_anderson_eli_f`'s, and the entry said so. **T-1756** then raised two
+more cottages one block west, those two households adopted them — they were the better answer
+under the same precedence — and the lot 8 and lot 9 requests passed to the Avery and Arquette
+households, who are the ones standing here. Nothing about the buildings changed; which invented
+household the seating pass hands each one to is not a finding about 1835 and must not be read
+as one.
 
 **Both faces of this block are unworn prairie, as next door.** Indiana Street and Illinois
 Street are graded `none` in the committed street hierarchy — no through movement is modelled on
