@@ -1445,8 +1445,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 442,
-    "roofs_to_build": 240,
+    "roofs_standing": 455,
+    "roofs_to_build": 227,
     "persons_standing": 2381,
     "persons_still_owed": 290,
     "persons_when_the_book_is_filled": 2671,
@@ -1468,9 +1468,9 @@
     "still_owed": 1243,
     "roofs_adopted": 183,
     "slots_requested": 52,
-    "roofs_standing": 442,
-    "roofs_standing_unseated": 259,
-    "share_of_standing_roofs_seated": 0.414,
+    "roofs_standing": 455,
+    "roofs_standing_unseated": 272,
+    "share_of_standing_roofs_seated": 0.4022,
     "passes": [
       {
         "key": "platted",
@@ -5231,11 +5231,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 442,
+        "standing_records": 455,
         "standing_with_an_occupant": 149,
         "standing_without_an_occupant": 306,
-        "to_build_total": 240,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 306 of the 442 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "to_build_total": 227,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 306 of the 455 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5245,13 +5245,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 17,
-          "to_build": 18,
+          "standing": 20,
+          "to_build": 15,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 18 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 15 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -5416,13 +5416,13 @@
             "division": "south"
           },
           "target": 28,
-          "standing": 9,
-          "to_build": 19,
+          "standing": 11,
+          "to_build": 17,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1209",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 19 of them to build"
+          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 17 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5463,13 +5463,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 113,
-          "to_build": 63,
+          "standing": 118,
+          "to_build": 58,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1708",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 63 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 58 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5510,13 +5510,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 26,
-          "to_build": 22,
+          "standing": 29,
+          "to_build": 19,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 22 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 19 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",
@@ -5770,9 +5770,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 201,
+        "roofs_on_committed_ground": 188,
         "roofs_gated_on_coverage": 39,
-        "statement": "201 of the 240 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "188 of the 227 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -6188,7 +6188,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "306 of 442 standing records carry no occupants block."
+      "measured_now": "306 of 455 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
