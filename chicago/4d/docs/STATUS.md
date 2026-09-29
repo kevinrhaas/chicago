@@ -34,33 +34,51 @@ every dimension a family band. The block's ground reads dry, 420 samples between
 **THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and it is
 reported rather than tidied.** The seating pass is re-derived whole in the placement
 policy's clause order, so the seven roofs went to the seven households the policy
-ranks first among those an admitted family on this block will hold; the other six
-original requesters are re-slotted onto the Washington-tier blocks still standing
-empty. Measured against `dev` at the chain's fixpoint, not against the base this branch
-was cut from: platted seats **168 → 170**, adoptions **118 → 120**, slots hold at
-**50**, rows handed to T-1614 **1,310 → 1,308**, and the seating join with the off-plat
-pass **240 → 242**. The gain is two and not seven: the households that DID move here
+ranks first among those an admitted family on this block will hold; the other
+requesters are re-slotted onto the Washington-tier blocks still standing empty.
+Measured against dev at the chain's fixpoint, with T-1747's two Kinzie cottages now in
+it: platted seats **168 → 170**, adoptions **118 → 120**, slots hold at **50**, rows
+handed to T-1614 **1,310 → 1,308**, and the seating join with the off-plat pass
+**240 → 242**. The gain is two and not seven because the households that DID move here
 vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
-rather than leaving them open, and the tier's own slot rows fell 28 → 26 while
-`blk_washington_clark` — which T-1736 had taken to zero — asks five again, because
-eleven more standing roofs re-apportion the South Division's programme. The
-named-keeper count went **21 → 20** with it and the refusals to **68**, of which 66
-are the letter-list refusal already on the books and 2 the T-1689 naming disagreement
-— no ruling moved (**L276**). The town census reads **443 buildings standing of 668**.
+rather than leaving them open. The named-keeper count went **21 → 20** with it and the
+refusals to **68**, of which 66 are the letter-list refusal already on the books and 2
+the T-1689 naming disagreement — no ruling moved (**L276**). The 668-roof programme now
+reads **443 standing, 225 remaining**.
 
-**The order book's south ordinary-dwellings row keeps its owner.** The cell reads 176
-target, 117 standing, 59 to build, and it still names **T-1708**, which is open — so
-the row this ticket was filed to protect needs no re-pointing. The seating tripwire
-in `build_order_book_1835.py` is restated to **242** with the ruling behind the two
-seats, not quietly re-summed; `measure_generator_half.py` from 448 to **459** committed
-assets and 444 to **455** for emit.py; and L263 (roof-type phases 426 → **437**), L270
-and L276 are restated against what the rebuild reaches rather than what the branch was
-cut against. One edit here is not this ticket's: a sibling split T-1748 while the gate
-was running, so the order book's north ordinary-dwellings row ordered work nobody could
-claim, and it is swept to **T-1754** by the same test the two splits above it used.
+**AND RAISING A BLOCK RE-APPORTIONS THE TIER, WHICH IS WORTH SAYING PLAINLY.**
+`blk_washington_clark` had gone to 0 slots under T-1736 because its plan's two
+principal roofs were both built. Eleven roofs becoming STANDING here does not add a
+roof to the town — the programme's total is fixed — so what it re-apportions is the
+REMAINDER, and the Clark block's plan went from five roofs, all ancillary, to
+eighteen with principal dwellings among them: five households take slots on it again.
+The tier's slot count therefore falls 28 → 26 rather than 28 → 21, and its band split
+runs 14 merchant and professional against 12 tradesmen's rather than 18 against 10.
+**L270** is restated with that in it; a block's slot count is not a ratchet.
 
-**Verification.** `tools/check.sh` green; the eleven meshes baked with `bake.sh
---only` and their web derivatives recorded; the smoke parts `smoke_budget.mjs
+**The order book's south ordinary-dwellings row keeps its owner** — 176 target, 117
+standing, 59 to build, still **T-1708**, which is open, so the row this ticket was
+filed to protect needs no re-pointing. The NORTH row did have to move, and not for
+anything this ticket did: **T-1742 was split into T-1747 and T-1748 at 02:19Z on
+2026-09-29**, and a bucket whose `owning_ticket` names a `split` ticket orders work
+nobody can claim, so `build_order_book_1835.py` refused to build at all until it was
+swept. **Then T-1748 was split again — into T-1753 and T-1754, at 03:31Z the same
+day — and the cell had to move a second time inside this one run.** It goes to
+**T-1754**, the child holding the remainder (84 target, 52 standing, 32 to build);
+T-1753 is one block, `blk_indiana_north_cass`'s first roofs, and is named beside the
+cell rather than in it, because when T-1753 has built that block the 32 fall to T-1754
+and not to zero. Neither sweep is this ticket's work and neither is claimed as any part
+of it; T-1420 owns the standing rule that keeps making them necessary.
+
+**Restated, not re-summed.** The seating tripwire in `build_order_book_1835.py` moves
+to **242** with the ruling behind the seats written beside it; **L263** (roof-type
+phases 426 → **437**), **L270** and **L276** are restated against what the rebuild
+reaches rather than what the branch was cut against; and `measure_generator_half.py`
+states **459** committed assets against 448, emit.py's reach 455 against 444.
+
+**Verification.** `tools/check.sh` green; the eleven meshes were baked on the branch
+and their manifest rows carry the masters the tree still holds (455 of 455 on the K39
+lineage check), so nothing was re-baked here; the smoke parts `smoke_budget.mjs
 --for-diff` named for this diff run in the foreground.
 
 ## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)

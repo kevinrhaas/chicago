@@ -1,5 +1,6 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "e240c6ae892486771b709a4cc7df1a73c43a748e2d54dcd4bfbe074703200ab3",
     "bates_auction_room__frame_1834.glb": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227",
@@ -460,6 +461,5 @@
     "wolf_point_tavern_stable__stable_1831.glb": "5d7a13006ab595c626a706f1bf2bfe5076c7eb6b435b44bc067ef3c33da0c926",
     "wright_building_to_let_a__documented_1835.glb": "77312dd809fcf9bc5e243de2fe95de2227fd8a96a8027cb41b89a60444abf073",
     "wright_building_to_let_b__documented_1835.glb": "ede18f6170198504b62b3f9bbf0b2cf2c423e3dc5ad9c55301679dd5d1ef37cb"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
