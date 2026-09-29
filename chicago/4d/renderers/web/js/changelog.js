@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1227, ts: '2026-09-29T07:13:20.702Z', date: 'Sep 29, 2026, 2:13 AM CT', title: 'Nothing you can see: the building programme\u2019s north-side order finds an owner again', kind: 'fix',
+    items: [
+      'Nothing in the town changed with this build. The list that says which buildings still have to be raised, and who is raising them, had one row pointing at a job that had been broken into two smaller ones the night before \u2014 so the row named nobody who could actually take it.',
+      'Thirty-two houses on the north side of the river are waiting on that row. They now belong to the piece of work that says it will raise them: the further lots on Cass Street and the scattered better houses on the Rush and Pine fringe, rather than the block of Wolcott Street cottages beside it, which says in its own title that the rest of its block stays open.',
+      'It mattered more than a tidy list. The programme refuses to rebuild itself at all while any row names a job nobody can claim, and everything downstream of it is rebuilt from that file \u2014 so one stale name stopped the whole chain, for every piece of work, not just the one that left it behind.',
+    ] },
   { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [
       'Walk west along Washington Street from La Salle and the block between Washington and Madison is built. Seven houses stand on it \u2014 a merchant\u2019s house on each Washington corner, two more between them, and on the quiet Madison side two tradesmen\u2019s cottages and a boarding house \u2014 with two privies, a woodshed and a stable off the alley behind them. It is the fullest block this project has raised on the last row of the plat, and the third of that row to be built at all.',

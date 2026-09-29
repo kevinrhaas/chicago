@@ -451,7 +451,21 @@ STRUCTURE_TICKETS = {
     # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
     # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
     # (Moved by T-1732's run, which found dev red on this step after the split.)
-    ("north", "ordinary_dwellings"): "T-1754",
+    #
+    # AND T-1754 WAS SPLIT IN TURN on 2026-09-29 (T-1756, T-1757), and the gate fired a
+    # fourth time on this one cell: "has 32 left and is ordered by T-1754, which is split".
+    # Same rule, same test — which of the children raises the dwellings that are LEFT.
+    # T-1756 is one block, two more wolcott cottages, and its own title keeps "the rest of
+    # the block open"; T-1757 is the further cass lots AND the Rush-Pine fringe the district
+    # deal apportions no roofs to, which is this cell's remainder in as many words, so the
+    # 32 are its.
+    #
+    # THIS ROW IS WHY `dev` COULD NOT BUILD ITS OWN ORDER BOOK. The split landed while
+    # T-1708 was being lapped, and T-1708's merge (#184, 06:24Z) carried the SOUTH sweep
+    # without this one — so every branch that rebuilds the book met a hard refusal on a cell
+    # that was nobody's diff. A dead row is not a stale comment: `--build` writes nothing at
+    # all while one exists, so the whole derived chain below it stops with it.
+    ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
