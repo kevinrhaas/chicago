@@ -1,3 +1,81 @@
+## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
+
+`blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
+immediately east of the Wolcott block T-1747 and T-1756 built — stood empty and now
+carries **four anonymous roofs**: two one-room frame cottages on lots 8 and 9, back to
+back across the block alley near its east end, with a privy behind the first and a
+woodshed behind the second. `hh_avery_charles` took the lot 8 cottage and
+`hh_arquette_michel` the lot 9 one — the two households whose requests stood on those
+lots, which is the opposite of what happened one block west.
+
+**The two names moved once while the deal waited, and the register records the move rather
+than quietly restating it.** The requests on lots 8 and 9 were `hh_andrews_davi`'s and
+`hh_anderson_eli_f`'s when this block's deal was written. T-1756 then raised two cottages
+one block west, those two households adopted them under the same precedence, and the lot 8
+and lot 9 requests passed to the Avery and Arquette households. Nothing about the buildings
+changed; which invented household the seating pass hands each one to is not a finding about
+1835 and must not be read as one.
+
+**Ten of the block's twelve lots stay open, and that is a decision rather than a
+shortage.** T-1522's placement pass wrote eleven slot requests against this block and
+the 665-roof schedule offers it 43 roofs of headroom, so neither the seating nor the
+programme stopped at two. `docs/RESEARCH/1835_north_division_extent_and_infill.md` did:
+the primary maps show a substantially larger platted north side with no buildings on it,
+so the build leaves most legal frontage empty and keeps the outer addition visibly
+speculative. **T-1746** still carries the disagreement between the twenty roofs the
+seating asks of this addition's two subdivided blocks and the memo that will not carry
+twenty; this deal neither builds the surplus nor withdraws it.
+
+**THE SET-OUT IS THE ONE THING HERE THAT IS NOT A REPEAT OF THE BLOCK NEXT DOOR.** The
+Wolcott cottages stand 6.0 m back from Indiana and 5.0 m from Illinois; these stand 5.5 m
+and 6.5 m, the deeper one on the opposite face. Nothing states any of the four numbers
+and nothing states the difference between them either — it is chosen, because the memo
+reads this frontage as alternating roof and open yard with no continuous street wall, and
+two adjacent blocks set out alike would read across Cass Street as a single row of
+houses. The invention is not that the numbers are invented; every set-out on this row is.
+It is that a VISIBLE regularity was deliberately broken, and a later reader is entitled to
+know the irregularity is ours and not a finding. The liberty is **L302**.
+
+**The liberty renumbered four times, and the register renumbers rather than argues.**
+The entry was written as **L295** and became **L296**, **L299**, **L301** and finally
+**L302**, one place per lap: `dev` took L295 for the Glessner House default, L296 and L297
+for the 1904 Prairie Avenue surfaces, L298 for T-1708's Wells block, L299 for Glessner v2,
+L300 for T-1735's La Salle block and L301 for Glessner v3, all while this branch was open.
+Not one of those moves changed a word of what the entry says.
+
+**Restated, not re-summed.** **L263**'s roof-type phase count reads **456** with these
+four written beside T-1735's eleven; `measure_generator_half.py` states **479** committed
+assets and **475** for emit.py's reach, both read off the committed tree by its own
+`--gate` rather than carried over. The whole seating chain — the address book, the platted
+and off-plat ledgers and their deals, the keepers, the anonymous redeal and the order book
+— was rebuilt in dependency order after each lap, and the Newberry index re-parsed
+over all four volumes so `leads.json` re-derives from the merged layers.
+
+**Five laps onto `dev`, and the laps are what this ticket cost.** The work itself was one
+run; `dev` took T-1708, T-1756, T-1460, T-1730 (twice, v2 and v3) and T-1735 while the
+branch was open, and each one moved the derived layer under it. Two runs overlapped on the
+branch on the fifth lap and both are in it: the correction of the two household names below
+is theirs, kept whole. No mesh moved — `validate.py --stale` is clean — so nothing needed
+rebaking.
+
+**One order-book sweep was forced on this branch and none of it is this ticket's work.**
+`dev` split **T-1207** into T-1760 through T-1764 at 11:14Z, and a bucket whose
+`owning_ticket` names a `split` ticket orders work nobody can claim, so
+`build_order_book_1835.py` refused to build at all until the four West rows —
+stores_mixed_use, inns_taverns, workshops and warehouses_freight — were swept onto
+**T-1764**, the child that closes the parent. T-1420 owns the standing rule that keeps
+making these sweeps necessary.
+
+**Verification.** `tools/check.sh` **CHECK PASS**, 707 steps, none red, with jsonschema,
+pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
+`smoke_renderer.mjs --published` part 1 **PASS 80/0 at desktop 1280x800** (3 m 11 s) and
+**PASS 80/0 at mobile 390x780** (1 m 56 s) on the final tree, filed to
+`tools/dev-smoke-state.json` along with every earlier lap's reading. Parts 2-13 were not
+re-run: the four meshes have not moved since the lap that baked them, and what the later
+laps changed is derived data, docs and the order-book owner table — none of which the
+renderer draws.
+
+
 ## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
 
 `data/structures/versions/glessner_house/v2.json` (T-1727's mechanism, same archetype

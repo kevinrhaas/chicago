@@ -10998,6 +10998,30 @@
       "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb"
     },
     {
+      "id": "recon_1835_blk_indiana_north_cass_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a3_03.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a4_04",
+      "name": "Reconstructed A4 woodshed or storage shed #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a4_04.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d3_01",
+      "name": "Reconstructed D3 one-room frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d3_01.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d3_02",
+      "name": "Reconstructed D3 one-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d3_02.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d3_02__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
       "name": "Reconstructed A3 privy #04",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a3_04.json",
