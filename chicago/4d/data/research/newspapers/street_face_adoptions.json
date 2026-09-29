@@ -198,9 +198,9 @@
   "adopted_into_a_roof_of_no_trade": 13,
   "roofs_free_and_a_house_of_trade": 28,
   "houses_of_trade_left_free": 2,
-  "roofs_reserved_for_a_slot_request": 4,
+  "roofs_reserved_for_a_slot_request": 6,
   "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 4,
+  "reserved_without_a_committed_occupancy": 6,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -341,6 +341,28 @@
   }
  },
  "reserved_for_a_slot_request": [
+  {
+   "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_01",
+   "block_id": "blk_indiana_north_wolcott",
+   "programme_phase": "phase3_platted_block_indiana_north_wolcott",
+   "family": "D3",
+   "requested_by_seat": "hh_baily_john",
+   "order_book_draw": "blk_indiana_north_wolcott / D3 / north",
+   "dealt_by_ticket": "T-1742",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_02",
+   "block_id": "blk_indiana_north_wolcott",
+   "programme_phase": "phase3_platted_block_indiana_north_wolcott",
+   "family": "D3",
+   "requested_by_seat": "hh_bailly_joseph",
+   "order_book_draw": "blk_indiana_north_wolcott / D3 / north",
+   "dealt_by_ticket": "T-1742",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
    "block_id": "blk_south_water_franklin",
