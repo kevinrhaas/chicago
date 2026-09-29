@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Two drains come out of the west prairie', kind: 'change',
+  { v: 1236, ts: '2026-09-29T14:17:54.783Z', date: 'Sep 29, 2026, 9:17 AM CT', title: 'Two drains come out of the west prairie', kind: 'change',
     items: [
       'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',
       'They were never found on a map. The dossier says the West Division prairie carried one- and two-foot slough swales, so swales of some kind belonged there — but where they ran is written down nowhere, and the two lines in the model were drawn by this project to make the wet prairie read as wet prairie. Every stroke of both was ours.',
