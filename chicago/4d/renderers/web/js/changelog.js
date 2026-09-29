@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1227, ts: '2026-09-29T07:12:10.013Z', date: 'Sep 29, 2026, 2:12 AM CT', title: 'Two more houses in Kinzie\u2019s Addition', kind: 'change',
+    items: [
+      'Walk north over the river to Indiana Street between Wolcott and Cass and the block has four houses instead of two. Two more one-room frame cottages stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind one and a privy behind the other.',
+      'Look along either street and every house has open prairie on both sides of it. That is the whole design, and it is also the limit: a fifth house on either side would have to go up next door to one already there, and the north-side research says the 1834 maps show a large platted north side with scattered roofs on it, not a street. Eight of the block\u2019s twelve lots stay empty.',
+      'Two families asked for houses here and neither got one. Households take the best house already standing before they ask for one to be built, so the moment these existed the Andrews and Anderson families \u2014 who had been waiting on the block to the east \u2014 were the better answer. Susan Beaubien and William Bennett, whose requests the pair was built against, end up asking for the two lots next door instead.',
+      'The two cottages sit a little differently from the first pair \u2014 half a metre further back, and offset the other way on their lots \u2014 so no street here reads as a surveyed row.',
+      'None of it is evidence. No source says a building stood on this block in 1835. The ground, the street lines and the lot grid are committed; the houses are the building programme filling a town it can count but cannot name, and every card says so.',
+    ] },
   { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [
       'Walk west along Washington Street from La Salle and the block between Washington and Madison is built. Seven houses stand on it \u2014 a merchant\u2019s house on each Washington corner, two more between them, and on the quiet Madison side two tradesmen\u2019s cottages and a boarding house \u2014 with two privies, a woodshed and a stable off the alley behind them. It is the fullest block this project has raised on the last row of the plat, and the third of that row to be built at all.',
