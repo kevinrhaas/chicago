@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1224, ts: '2026-09-29T04:02:45.392Z', date: 'Sep 28, 2026, 11:02 PM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
       'These houses stand because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
@@ -7,6 +7,14 @@ export const CHANGELOG = [ // newest first
       'One of the eight lots is left empty on purpose, and it is the corner of Madison and La Salle \u2014 the back line meeting the far side. A block with a house on every lot is a claim about 1835 that nothing supports.',
       'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
       'The rest of the row is still open ground, and each of its remaining blocks is written down as its own piece of work.',
+    ] },
+  { v: 1224, ts: '2026-09-29T04:24:42.593Z', date: 'Sep 28, 2026, 11:24 PM CT', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
+    items: [
+      'Open /4d/1904/ and the corner lot is no longer empty. Across Prairie Avenue stands 1800 Prairie as it was in the summer of 1904: the granite front, the steep red-tiled roof with its three stacks, the fan of stone over the front door and the carriage entrance at the south end.',
+      'The Prairie Avenue front is built opening for opening from the 1965 government survey drawings. An 1888 photograph agrees with every one. Behind it the 18th Street range runs back to the coach house at the alley, with its great arched service entrance, stable doors, loft and small louvred turret.',
+      'Walk round to the courtyard, or fly above it, for the round stair tower, the curved hall bay, the dining-room bay with its glazed band and faceted roof, three little dormers and a lawn crossed by the carriage drive.',
+      'Survey photographs from 1963 and 1965 and a courtyard view of about 1923 settled several shapes the drawings left open: the coach-house roof, the round tower at the north junction and the dining bay. The colours, the chimneys’ depth and the courtyard’s planting in 1904 are ours, and the house’s card says which parts are which.',
+      'The courtyard reads open on the south for now. In 1904 the neighbouring house at 1808 closed it, and that house has not been built yet.',
     ] },
   { v: 1223, ts: '2026-09-29T03:11:54.420Z', date: 'Sep 28, 2026, 10:11 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
     items: [

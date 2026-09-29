@@ -254,21 +254,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
 # debt itself moved.
 #
-# 448 -> 459 and 444 -> 455 on 2026-09-28 (T-1735): the eleven roofs of the first deal on
-# `blk_washington_lasalle`, the south-west block of the plat's last tier. Seven principal
-# dwellings and four yard buildings, every one of them an anonymous count-unit the platted
-# seating asked this block for by name. Eleven new structure assets, so eleven more meshes a
-# change to the shared generator modules or to emit.py would re-stale; the terrain and
-# pier_crib reaches are untouched. Nothing about the debt itself moved — it is the largest
-# single step this reach has taken, and it is eleven roofs and not an argument.
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
+# the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
+# new `masonry_house` archetype. One new structure asset, so one more mesh the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
 #
 STATED = {
-    "assets": 459,
+    "assets": 449,
     "restales": {
-        "generators/common/*.py": 459,
+        "generators/common/*.py": 449,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 455,
+        "generators/emit.py": 445,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

@@ -4,7 +4,14 @@
   "intersections": [],
   "street_standard": "No dated street layer is committed for this scene.",
   "streets": [],
-  "structures": [],
+  "structures": [
+    {
+      "id": "glessner_house",
+      "name": "John J. Glessner House",
+      "sidecar": "sidecars/1904/glessner_house.json",
+      "asset": "gltf/glessner_house__as_built_1887.glb"
+    }
+  ],
   "excluded_by_date": [
     "agency_striker_log_house",
     "bates_auction_room",

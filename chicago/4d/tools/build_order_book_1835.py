@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -419,15 +420,12 @@ STRUCTURE_TICKETS = {
     # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
     #
-    # AND T-1748 WAS SPLIT AGAIN on 2026-09-29 (T-1753, T-1754), which fired the same gate a
-    # third time inside the hour — "has 32 left and is ordered by T-1748, which is split" — and
-    # the row moves by the same test, not by a new one. T-1753 is one block,
-    # blk_indiana_north_cass's first roofs on its Indiana and Illinois faces, and says in its own
-    # title that the rest of that block's lots stay open. T-1754 is "the north tier's remaining
-    # roofs", the further wolcott and cass lots and the Rush-Pine fringe: it is this cell's
-    # remainder in as many words, so the 32 are its. This sweep is not T-1735's work and is not
-    # claimed as any part of it; it is the one edit that lets this branch's gate read the book at
-    # all, and T-1420 owns the standing rule that keeps making it necessary.
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
     ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -1960,6 +1958,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1
@@ -4504,25 +4504,8 @@ def cmd_self_test() -> int:
     # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
     # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
     # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
-    #
-    # AND T-1735 TAKES IT TO 242, WITH THE SECOND BUILD ON THE LAST TIER AND THE FIRST TIME A
-    # BLOCK'S OWN SLOT ROWS HAVE BEEN ANSWERED IN FULL. `blk_washington_lasalle` was carrying
-    # seven slot rows written against its committed plan by T-1613's platted pass — two D7,
-    # two H1, one H2 and two D3, each naming this block and its family in `order_book_draw`
-    # and carrying no roof to walk to — and all seven are built, with four yard buildings
-    # behind them. So the block has no headroom left to ask against and the pass ADOPTS there
-    # instead: the platted pass runs 168 -> 170, adoptions 120 against 118, and the slots hold
-    # at 50. The gain is two and not seven for the same reason T-1736's was one and not
-    # two: the pass is re-derived whole in the placement policy's clause order, so some of the
-    # households that asked this block were re-slotted onto the tier's remaining empty blocks
-    # rather than housed here, and the roofs the households that DID move here vacated
-    # cascaded down the same ranking. Nothing was retired and no roof moved a metre. The Clark
-    # block's slot count came back to five with it, which is the chain's answer and not a
-    # revision of the three steps above: eleven more standing roofs re-apportion the South
-    # Division's programme, and the schedule then draws that block more principal room than the
-    # two cottages T-1736 raised fill. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 242
+        data["inventory"], data["programme"], occ))["seated"] == 237
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
