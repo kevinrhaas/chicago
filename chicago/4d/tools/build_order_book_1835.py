@@ -4569,8 +4569,8 @@ def cmd_self_test() -> int:
     # one pass in — this one took eight passes and oscillated for four of them.
     # AND T-1751 TAKES IT TO 249, ON THE SAME TIER AND BY THE SAME MECHANISM, AT MORE THAN
     # THE SIZE AGAIN. `blk_washington_franklin` was dealt out to its lot ceiling — seven
-    # dwellings and six yard buildings — so the platted pass runs 170 -> 177 with 127
-    # adoptions against 120 and the SAME 50 slots, and the off-plat pass is unmoved at 72, so
+    # dwellings and six yard buildings — so the platted pass runs 170 -> 177 with 129
+    # adoptions against 122 and the SAME 48 slots, and the off-plat pass is unmoved at 72, so
     # the total is 177 + 72. The slot count holds because the cascade is a substitution: the
     # seven requests standing against this block are raised into adoptions and seven fresh
     # ones open on blk_washington_dearborn. NOT ONE of the seven households the block was

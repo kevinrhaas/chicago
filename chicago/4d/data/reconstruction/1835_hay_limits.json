@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 313,
-  "outside": 147,
+  "outside": 160,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 32,
    "west_of_canal_street": 71,
-   "south_of_washington_street": 16,
+   "south_of_washington_street": 29,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -468,6 +468,19 @@
     "recon_1835_blk_washington_clark_a4_04",
     "recon_1835_blk_washington_clark_d4_02",
     "recon_1835_blk_washington_clark_d5_01",
+    "recon_1835_blk_washington_franklin_a1_08",
+    "recon_1835_blk_washington_franklin_a1_10",
+    "recon_1835_blk_washington_franklin_a2_09",
+    "recon_1835_blk_washington_franklin_a3_13",
+    "recon_1835_blk_washington_franklin_a4_11",
+    "recon_1835_blk_washington_franklin_a4_12",
+    "recon_1835_blk_washington_franklin_d3_05",
+    "recon_1835_blk_washington_franklin_d3_06",
+    "recon_1835_blk_washington_franklin_d3_07",
+    "recon_1835_blk_washington_franklin_d7_01",
+    "recon_1835_blk_washington_franklin_d7_04",
+    "recon_1835_blk_washington_franklin_h1_03",
+    "recon_1835_blk_washington_franklin_h2_02",
     "recon_1835_blk_washington_wells_a1_11",
     "recon_1835_blk_washington_wells_a3_08",
     "recon_1835_blk_washington_wells_a3_09",
@@ -494,7 +507,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 9,
+  "scheduling_roofs_outside_the_limit": 8,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_lake_clinton",
@@ -527,16 +540,6 @@
     "inside_the_limit": false
    },
    {
-    "id": "blk_washington_franklin",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     266.78,
-     -454.51
-    ],
-    "inside_the_limit": false
-   },
-   {
     "id": "blk_washington_lasalle",
     "state": "open",
     "roofs_scheduled": 27,
@@ -549,7 +552,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 20,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -559,7 +562,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      760.04,
      -456.51
@@ -620,8 +623,8 @@
    },
    {
     "id": "blk_washington_franklin",
-    "state": "open",
-    "roofs_scheduled": 27,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      266.78,
      -454.51
@@ -651,7 +654,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 20,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -661,7 +664,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      760.04,
      -456.51
