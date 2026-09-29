@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1233, ts: '2026-09-29T12:21:27.616Z', date: 'Sep 29, 2026, 7:21 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+    items: [
+      'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a one-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
+      'Two families had asked for exactly these two buildings on exactly these two lots \u2014 the Adams household for the corner house, the Bennett household for the cottage \u2014 and neither of them is the family that moved in. The pass that deals families onto lots offers a new roof to every family it admits before it answers any request, and two families already under other roofs scored higher on these lots. One of the two who asked is seated elsewhere; the other is back to having an address and no house.',
+      'The block is not finished, and it cannot be. Its plan still holds four more houses, but no block here is built out of the last lot its own sizing keeps open \u2014 so one lot stays empty, and it is on Clinton Street, the plainer of the two faces.',
+      'That empty lot used to be on Canal. The earlier deal on this block deliberately left a gap in the Canal row and said the gap mattered more than which lot it fell on. Both families asked for Canal lots and neither asked for a Clinton one, so the gap moved across the block rather than turning a family away. The register says so in as many words.',
+      'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the two set-outs continue the block\u2019s own irregular rhythm and are ours. The ground under them is the committed plat.',
+    ] },
   { v: 1232, ts: '2026-09-29T10:06:18.482Z', date: 'Sep 29, 2026, 5:06 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
     items: [
       'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',

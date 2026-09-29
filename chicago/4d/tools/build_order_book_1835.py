@@ -415,11 +415,37 @@ STRUCTURE_TICKETS = {
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
     ("west", "ordinary_dwellings"): "T-1208",
-    ("west", "stores_mixed_use"): "T-1207",
+    # T-1207 WAS SPLIT on 2026-09-29 (T-1760 through T-1764) and these four rows moved with
+    # it, for the reason the T-1206 block below states at length: a bucket whose
+    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and the
+    # gate says so — it went red on three of these cells within the hour of the split,
+    # reading "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
+    # split", and the same for the workshops' 3 and the freight cell's 1. It is not this
+    # branch's doing and it blocks every branch open on the repo.
+    #
+    # SWEPT BY WHICH CHILD RAISES THE ROOFS THAT ARE LEFT, which is the test the T-1206 and
+    # T-1742 sweeps used:
+    #   * stores_mixed_use and workshops onto T-1763, which names both in as many words —
+    #     "the grocery and blacksmith the memo seats on the Canal Street approach". The
+    #     blacksmith IS the workshop that sentence orders.
+    #   * inns_taverns onto T-1762, the named Wolf Point taverns' and the Miller house's
+    #     yards. That cell has 0 left to build, so nothing was ordered from a split ticket
+    #     there and the gate was silent about it; it is swept anyway, because a row naming a
+    #     split ticket is wrong whether or not a roof happens to be standing behind it.
+    #   * warehouses_freight onto T-1764, and THIS ONE IS A JUDGEMENT CALL, said out loud.
+    #     No child names a west freight roof. T-1764 is the closer — "the pre-plat West roofs
+    #     reconciled, the refusals resolved" — so the one roof no child claims is either
+    #     reconciled there or refused in writing there. What would move this row is a child
+    #     that names the roof: if the ferry landing's shed turns out to be T-1763's, it goes
+    #     to T-1763, and naming the closer is not the same as inventing an owner.
+    # T-1760 and T-1761 raise the two Clinton blocks' DWELLINGS, which is the
+    # ordinary_dwellings cell above and already stands on T-1208 for the district; nothing
+    # here moves onto them.
+    ("west", "stores_mixed_use"): "T-1763",
     ("west", "larger_boarding_houses"): "T-1209",
-    ("west", "inns_taverns"): "T-1207",
-    ("west", "workshops"): "T-1207",
-    ("west", "warehouses_freight"): "T-1207",
+    ("west", "inns_taverns"): "T-1762",
+    ("west", "workshops"): "T-1763",
+    ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
