@@ -4511,7 +4511,7 @@ def cmd_self_test() -> int:
     # against 52. The gain is five and not seven for the same reason it was two and not
     # eleven a paragraph above: the households that DID move here vacated roofs elsewhere
     # and the pass cascaded those vacancies down its own ranking rather than leaving them
-    # open, which is the T-1622 precedence again and is recorded in L296. Off-plat is
+    # open, which is the T-1622 precedence again and is recorded in L298. Off-plat is
     # unmoved at 72, so the total is 170 + 72. Read at the chain's fixpoint, not one pass
     # in, and read off the committed seats files rather than predicted: 1835_platted_seats
     # .json counts seated 170 (120 adopted, 50 slots, 1,308 handed on) and

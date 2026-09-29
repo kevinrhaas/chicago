@@ -337,6 +337,19 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
+# every carriageway, alley and sidewalk band names a material, a tier, its sources and a
+# range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
+# a surface, nothing surfaced that is not drawn), to data/sources/ (rule 1), to
+# LIBERTIES.md (a reconstruction names its liberty), to the texture library the renderer
+# binds, and refuses an ATTESTED block that rests only on the 1904 paving report or the
+# 1905 code, which bound what a block could have been and never say what one was.
+step "the 1904 street surfaces cover the grid, cite real sources and bound the scene date (T-1728)" \
+  python3 tools/check_street_surfaces.py --check
+
+selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
+  python3 tools/check_street_surfaces.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and

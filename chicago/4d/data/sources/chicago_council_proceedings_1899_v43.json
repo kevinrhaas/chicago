@@ -1,0 +1,27 @@
+{
+ "id": "chicago_council_proceedings_1899_v43",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1899-1900. Chicago: the City Council, 1899. Vol. 43.",
+ "author": "City of Chicago, City Council",
+ "date": "1899",
+ "describes_date": "April 1899 - April 1900",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit43chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit43chic/proceedingsofcit43chic_djvu.txt",
+ "locator": "The Board of Local Improvements' minutes of its regular meeting of 3 May 1899, printed in the Council proceedings of 8 May 1899, pp. 255-256 ('Award of contracts'); the Council meeting of 22 May 1899, p. 473; the list of assessment rolls filed in the County Court, printed 18 September 1899, p. 1068.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "Three pavings on the edges of the 1904 grid, each at a stage short of completion: the Board of Local Improvements awarded 'Warrant 23879. Curbing, grading and paving with asphalt 16th street, from Michigan avenue to Prairie avenue' to J. H. Covode and 'Warrant 23854. Curbing, grading and paving with asphalt Calumet avenue, from 21st street to 31st street' to the Standard Paving Co. (3 May 1899, pp. 255-256); the Council passed 'A recommendation, ordinance and estimate for curbing, grading and paving (brick) Indiana avenue, from 16th street to 18th street' (22 May 1899, p. 473); and the assessment roll for '23631. Curbing, grading and paving (asphalt) 22d street, from Indiana avenue to Illinois Central Railroad' was filed in the County Court (p. 1068). An award, an ordinance or a filed roll is not a finished street: every surface taken from this volume is INFERRED for 1904, never attested.",
+ "what_it_supplies": [
+  "the material ordered for E. 16th Street (Michigan to Prairie), Calumet Avenue (21st to 31st), Indiana Avenue (16th to 18th) and E. 22nd Street (Indiana to the Illinois Central) in 1899, and who took two of the contracts",
+  "a bound on sidewalk materials: the volume's OCR mentions 'cement sidewalk' 453 times, 'plank sidewalk' 631 times and 'cinder sidewalk' 0 times (counted 2026-09-29 for T-1728; a mention may be an order, a repeal or a contract, so the counts are proportions of the city's business, not of walks laid)"
+ ],
+ "what_it_does_not_supply": [
+  "proof that any of the four was laid, or when",
+  "any curb, walk or parkway material"
+ ]
+}
