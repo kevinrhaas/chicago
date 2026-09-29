@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Walls for the La Salle block of the last tier', kind: 'change',
+  { v: 1222, ts: '2026-09-29T03:09:02.551Z', date: 'Sep 28, 2026, 10:09 PM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
       'These houses stand because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
