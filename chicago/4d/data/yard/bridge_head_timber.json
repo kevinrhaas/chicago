@@ -1,0 +1,162 @@
+{
+  "_doc": "THE REPAIR TIMBER AT THE FOUR HEADS OF THE TOWN'S TWO BRANCH BRIDGES (T-1763). AUTHORED, not generated, and for the same reason data/yard/town_water_cart.json is: no rule can derive that a pile of bridge stock lay at a head on a July morning. What a rule CAN derive is where such a pile would have to stand, and it did — every coordinate here comes out of the two structure records' committed decks and the committed heightfield, by tools/measure_bridge_head_timber.py, which tools/check.sh runs as a gate. The piles ride on the yard layer because a stack of squared stock on ground this project has already drawn is exactly what that layer is for: renderers/web/js/yard.js draws it from these numbers and the committed terrain, with no baked geometry and no archetype, the same argument that lets data/enclosures/ draw a fence from a perimeter and data/signage/ hang a board off a wall. WHAT IS NOT HERE IS HALF THE RECORD: no ferry landing at the forks, no pile at the Dearborn Street drawbridge, no toll house, no hitching post, no tool. See `refused`.",
+  "id": "bridge_head_timber",
+  "name": "The repair timber at the bridge heads",
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/, data/signage/ and the rest of data/yard/ use. `bearing_deg` is the facing, measured clockwise from local north, as everything else on this layer is; a stick lies along the wall line of that facing, which here is the crossing's own axis.",
+  "counts": {
+    "piles": 4,
+    "bridges": 2,
+    "sticks": 44,
+    "refused": 5
+  },
+  "existence": {
+    "value": true,
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_democrat_1833_11_26",
+      "old_settlers_bridges_1883",
+      "chicagology_kinzie_bridge"
+    ],
+    "note": "THE UPKEEP IS DOCUMENTED AND THESE FOUR PILES ARE INVENTED, and the two halves must not be read as one grade. WHAT IS DOCUMENTED, all of it already cited on the two bridge records' own phases: the village ordinances of 7 November 1833 fine 'every person who shall remove from either of the bridges in said town, any plank or any piece of timber belonging thereto' — so the corporation's first fortnight legislated about loose bridge timber, by name, as a thing that could be carried off; the Board on 4 December 1833 appointed Dole, Beaubien, Kimberly and Miller a committee 'to make a contract with some person, for repairing the Bridges on the North and South branches of the Chicago River in said town', so both these crossings were under contract for repair eighteen months before the scene date; the ordinance of 14 May 1834 forfeits five dollars from anyone who rides or drives over a town bridge 'faster than a walk'; and on 19 August 1835, seven weeks after the scene date, the corporation is still legislating for the bridges' deck. A crossing of split logs, carrying teams, repaired by contract and protected by name from having its timber removed, is a crossing with stock at it. WHAT IS NOT DOCUMENTED, anywhere this project has reached: that a pile stood at any of these four heads on 1835-07-01, how much stock there was, whose it was, or how it was stacked. So the record is graded `reconstructed`, the grade this layer's water cart carries for the same shape of claim (docs/LIBERTIES.md L227), and it is four piles rather than a yard."
+  },
+  "ordinance": {
+    "confidence": "documented",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_democrat_1833_11_26"
+    ],
+    "note": "The ordinance this record stands on is the same one data/yard/town_trade_goods.json stands on — the village corporation's own rules about what may lie about the town — read on its OTHER clause. Ordinance 9 of 7 November 1833 attests timber, stone, brick, boxes and barrels in the streets and attests no location; the bridge clause of the same date attests plank and timber belonging to the bridges and attests no pile. Neither says where. That is the whole reason this record is reconstructed and the whole reason its positions are derived rather than chosen."
+  },
+  "form": {
+    "timber_stick_m": {
+      "value": [
+        3.048,
+        0.2,
+        0.2
+      ],
+      "confidence": "reconstructed",
+      "note": "THE LENGTH IS THE ONE DIMENSION ANY SOURCE GIVES THIS CROSSING, REUSED RATHER THAN RE-INVENTED: 3.048 m is the ten feet Cleaver and the 1883 old-settlers statement both give for the WIDTH of both branch bridges, and a puncheon is cut to the width of the way it floors. So the stock is drawn at the length the deck it repairs would take. The 0.2 m square is this layer's own stick, unchanged from data/yard/lot_building_material.json's — riven puncheon is uneven and a box is not, and drawing it uneven would be inventing a rive. tools/measure_bridge_head_timber.py holds the length against both structure records, so a re-reading of the ten feet cannot leave this number standing."
+    },
+    "timber_pile": {
+      "value": [
+        4,
+        [
+          4,
+          4
+        ],
+        1
+      ],
+      "confidence": "reconstructed",
+      "note": "FOUR STICKS ACROSS, THREE COURSES HIGH AT EVERY HEAD (`courses` on each item), the top course one stick short at the end a pile is worked off. 0.8 m across and 0.6 m high — deliberately small. Nothing measures this and nothing constrains it but the two facts it has to be compatible with: it is stock for repairs and not a yard's inventory, and it stands on a head where the corporation fined men for riding fast, so it cannot be a barricade. A larger pile would be a claim about how much timber the town kept; this one is a claim that it kept some."
+    }
+  },
+  "rule": {
+    "count": 4,
+    "note": "FOUR, ONE AT EACH HEAD, AND FOUR IS NOT A COUNT OF THE TOWN'S BRIDGE STOCK. The repair contract of 4 December 1833 is for 'the Bridges on the North and South branches' together — both crossings, in one instrument — so the two structures are treated alike and each end of each is treated alike. What is drawn is the PLACE, four times over; how much stock the town actually held, and where the rest of it lay, is unknown and undrawn.",
+    "set_out": "Six metres back from the deck end along the crossing's own axis, six metres off its centreline. The back-off puts the pile behind the abutment, on the ground the committed heightfield already grades down from the deck to the plain; the offset leaves 4.48 m of clear ground outside the attested 3.048 m roadway at every head. WHICH SIDE IS DERIVED AND NOT CHOSEN: the side whose committed ground is higher, so no pile stands in a hollow. All four came out on the north side, which is a result of the ground and not a rule — the margins are 0.30, 0.28, 0.65 and 0.56 m.",
+    "pose_note": "THE PILES ARE STACKED AND NOTHING IS BEING DONE TO THEM. There is no figure in this scene and no team, so nothing is in hand, in harness or half-laid. The top course is one stick short at one end because a pile being worked off loses its sticks from the side the barrow is on and a symmetrically shortened top reads as a design; that is this layer's own rule, not a claim about a Chicago carpenter."
+  },
+  "refused": [
+    {
+      "what": "a ferry landing at the forks",
+      "why": "THE HALF OF T-1763 THAT IS REFUSED, AND IT IS REFUSED BY THE SOURCE THAT NAMES THE FERRY. The Miller-Clybourn ferry was licensed 2 June 1829 to cross the North Branch between Samuel Miller's house on the point and the Wolf Point Tavern on the west bank (docs/RESEARCH/miller_house.md § 2). Andreas ends it in the same clause that starts the bridge above: 'In the summer of 1832 Samuel Miller, THE ORIGINAL POSSESSOR OF THE OLD FERRY SCOW, built the first bridge over the North Branch' — the ferryman built the crossing that replaced his own ferry, three years before the scene date, on the alignment this record's first two piles stand at. Mark Beaubien's canoe ferry across the South Branch is the same story one branch over: docs/RESEARCH/sauganash_hotel.md § 7 reads it as 'probably superseded by the log raft bridge near Lake Street' by July 1835, and that bridge is this record's other two piles. NOTHING THIS PROJECT HOLDS PUTS EITHER FERRY IN SERVICE ON 1835-07-01, and a landing drawn for a ferry the bridge beside it had replaced would be a reconstruction of the wrong decade. The two ferries that remain unread are a different question and are left open: the 'Ferry' labelled on the Harrison 1830 plan of the river mouth, which docs/RESEARCH/fort_dearborn.md still lists among the named ground that plate gives 'a symbol and a label and no form', and the free Lake House ferry, which belongs to a hotel that opened in the autumn of 1836."
+    },
+    {
+      "what": "a pile at the Dearborn Street drawbridge",
+      "why": "A THIRD CROSSING, AND NOT THIS TICKET'S. `data/structures/dearborn_street_drawbridge.json` is a draw span of 1834 over the main stem with its own record, its own phases and its own dimensional argument, and the 4 December 1833 repair contract this record stands on names 'the Bridges on the North and South branches' and not it. Extending the pile to it would be extending an instrument past the crossings it names."
+    },
+    {
+      "what": "sawn plank, as a board",
+      "why": "THE ORDINANCE SAYS 'PLANK OR ANY PIECE OF TIMBER' AND THIS LAYER DRAWS A STICK. A board is a different solid from a square-sectioned stick and the yard layer has no primitive for one, so drawing plank here would mean drawing it as something it is not. What the pile is drawn as is the stock both bridge records call attested — heavy logs and puncheon — and the plank half of the ordinance is cited and left undrawn rather than misdrawn."
+    },
+    {
+      "what": "a toll house, a keeper's shelter or a bridge tender's hut",
+      "why": "Nothing in anything this project has reached puts a building at any of these four heads, and the ordinances that do reach them are about conduct on the deck rather than about anybody stationed at it. A shelter would be a structure record, not yard goods, and there is no evidence to open one with."
+    },
+    {
+      "what": "hitching posts, a mounting block, a rail or a notice board at the heads",
+      "why": "All four are plausible at a crossing a corporation legislated traffic over, and all four are pure furniture: no source names one, this layer has no object for any of them, and a notice board would additionally be this project inventing the wording and the letterform of an ordinance's publication. T-1211 is where the town's posts, stoops and walks are dealt as a layer, by a rule, and a bridge head is not the place to deal four of them by hand first."
+    }
+  ],
+  "research_note": "Opened by T-1207's acceptance ('the ferry landing and the North Branch bridge head ... with their furniture') and taken by T-1763, which is piece 4 of that split. The bridges' own readings are docs/RESEARCH/north_branch_bridge.md and docs/RESEARCH/south_branch_raft_bridge.md; the set-out, the ground under each pile and the refusal of the ferry are argued in docs/RESEARCH/bridge_head_timber.md and gated by tools/measure_bridge_head_timber.py.",
+  "lots": [
+    {
+      "structure_id": "north_branch_bridge",
+      "name": "North Branch Bridge",
+      "function": "bridge",
+      "confidence": "reconstructed",
+      "why_building": "the corporation contracted for this crossing's REPAIR eighteen months before the scene date and was still legislating for its deck seven weeks after it, so the stock a repair is made of belonged at its head.",
+      "items": [
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            -123.5,
+            266.5
+          ],
+          "bearing_deg": 0.0,
+          "stands_on": "north",
+          "courses": 3,
+          "end": "west",
+          "ground_m": 1.3,
+          "why_material": "the crossing's own fabric, and the only fabric any source gives it: 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' and 'on these stringers puncheons or split logs were laid for a floor' (old_settlers_bridges_1883). A pile at this head is that stock and nothing else — no sawn board, no iron, no tool.",
+          "why_here": "the west head, on the Canal Street side at the south-east corner of Kinzie and Canal — the landing Andreas names. Six metres back from the deck end along the crossing's own axis and six off its centreline, which leaves 4.48 m clear outside the attested ten-foot roadway; the north side because the committed ground is higher there (1.30 m against 1.00 m), not because anybody preferred it."
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            -39.67,
+            266.5
+          ],
+          "bearing_deg": 0.0,
+          "stands_on": "north",
+          "courses": 3,
+          "end": "east",
+          "ground_m": 1.34,
+          "why_material": "the crossing's own fabric, and the only fabric any source gives it: 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' and 'on these stringers puncheons or split logs were laid for a floor' (old_settlers_bridges_1883). A pile at this head is that stock and nothing else — no sawn board, no iron, no tool.",
+          "why_here": "the east head, on the point between the North Branch and the main stem. Six metres back from the deck end along the crossing's own axis and six off its centreline, which leaves 4.48 m clear outside the attested ten-foot roadway; the north side because the committed ground is higher there (1.34 m against 1.06 m), not because anybody preferred it."
+        }
+      ]
+    },
+    {
+      "structure_id": "south_branch_raft_bridge",
+      "name": "South Branch Bridge",
+      "function": "bridge",
+      "confidence": "reconstructed",
+      "why_building": "the corporation contracted for this crossing's REPAIR eighteen months before the scene date and was still legislating for its deck seven weeks after it, so the stock a repair is made of belonged at its head.",
+      "items": [
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            0.83,
+            -172.1
+          ],
+          "bearing_deg": 359.71,
+          "stands_on": "north",
+          "courses": 3,
+          "end": "west",
+          "ground_m": 1.57,
+          "why_material": "the crossing's own fabric, and the only fabric any source gives it: 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' and 'on these stringers puncheons or split logs were laid for a floor' (old_settlers_bridges_1883). A pile at this head is that stock and nothing else — no sawn board, no iron, no tool.",
+          "why_here": "the west head, on the West Water frontage below the two taverns. Six metres back from the deck end along the crossing's own axis and six off its centreline, which leaves 4.48 m clear outside the attested ten-foot roadway; the north side because the committed ground is higher there (1.57 m against 0.92 m), not because anybody preferred it."
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            68.79,
+            -171.75
+          ],
+          "bearing_deg": 359.71,
+          "stands_on": "north",
+          "courses": 3,
+          "end": "east",
+          "ground_m": 1.19,
+          "why_material": "the crossing's own fabric, and the only fabric any source gives it: 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' and 'on these stringers puncheons or split logs were laid for a floor' (old_settlers_bridges_1883). A pile at this head is that stock and nothing else — no sawn board, no iron, no tool.",
+          "why_here": "the east head, on the South Division side between Lake and Randolph. Six metres back from the deck end along the crossing's own axis and six off its centreline, which leaves 4.48 m clear outside the attested ten-foot roadway; the north side because the committed ground is higher there (1.19 m against 0.63 m), not because anybody preferred it."
+        }
+      ]
+    }
+  ]
+}

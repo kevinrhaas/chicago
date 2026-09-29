@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 307,
+  "count": 308,
   "liberties": [
     {
       "id": "L1",
@@ -19190,6 +19190,49 @@
         {
           "label": "Related",
           "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L99**, **L100** and the other block entries of this row, **L292** (the tier's first block, and the yard-building argument this one departs from), **L263** (the shingle exposure the thirteen take), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1751**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-29."
+        }
+      ]
+    },
+    {
+      "id": "L305",
+      "title": "The repair timber at the four bridge heads: four invented piles on ground nobody chose",
+      "section": "per_subject",
+      "subjects": [
+        "north_branch_bridge",
+        "sauganash_hotel",
+        "south_branch_raft_bridge"
+      ],
+      "covers": [],
+      "recorded": "2026-09-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`data/yard/bridge_head_timber.json` stands **one pile of the crossings' own stock at each of the four heads** of the two branch bridges — the North Branch Bridge at Kinzie and Canal and the South Branch Bridge between Lake and Randolph. Each pile is four sticks across and three courses high, eleven sticks, 0.8 m by 0.6 m by 3.05 m; 44 sticks in all. That a pile stood at any of these heads on 1835-07-01, how much stock the town held, whose it was and how it was stacked are all invented, and the record's `existence` is graded `reconstructed` for exactly that reason."
+        },
+        {
+          "label": "Why",
+          "text": "the UPKEEP is documented, in four instruments this project already holds and which the two bridge records already carry on their phases. The village ordinances of **7 November 1833** fine *\"every person who shall remove from either of the bridges in said town, any plank or any piece of timber belonging thereto\"* — the corporation's first fortnight legislating about loose bridge timber by name. The Board on **4 December 1833** appointed Dole, Beaubien, Kimberly and Miller a committee *\"to make a contract with some person, for repairing the Bridges on the North and South branches of the Chicago River in said town\"* — both these crossings under contract for repair, in one instrument, eighteen months before the scene date. **14 May 1834** forfeits five dollars from anyone riding or driving over a town bridge *\"faster than a walk\"*. **19 August 1835**, seven weeks after the scene date, is still legislating for these decks. And the fabric is attested twice over by the 1883 old-settlers statement both records are built from: *\"stringers of heavy logs stretched from the abutments to the bents\"* and *\"on these stringers puncheons or split logs were laid for a floor.\"* A crossing of split logs, carrying teams, repaired by contract and protected by name from having its timber removed, is a crossing with stock at it. **What no source says is that any of it lay at a head.** That step is the liberty."
+        },
+        {
+          "label": "Consequence",
+          "text": "the town's two crossings stop being decks that arrive out of nothing and gain the one thing a maintained public work leaves on the ground beside it. **The position is derived, not chosen, and that is the part of this entry worth reading.** Each structure record's committed `position` and measured `footprint` give a deck end — 71.83 m and 55.96 m of deck, both measured between the traced 1834 waterlines rather than assumed — and the committed heightfield of `e1834_harbor_cut` agrees, reading **+2.16 to +2.20 m at both ends of both decks and under water everywhere between them**. From each end the set-out is 6 m back along the crossing's own axis and 6 m off its centreline, which leaves **4.48 m clear** outside the attested 3.048 m roadway."
+        },
+        {
+          "label": "The\nside is derived too",
+          "text": "the rule takes whichever side the committed ground grades higher, so no pile stands in a hollow, and all four came out on the north side — a result of the ground, by margins of 0.30, 0.28, 0.65 and 0.56 m, and not a rule. `tools/measure_bridge_head_timber.py --gate` re-derives every number and `tools/check.sh` runs it, so a re-measure of either deck or a re-carve of the bank moves these piles or says why. **The one dimension that is not invented** is the stick's length. 3.048 m is the ten feet Cleaver and the 1883 statement both give for the WIDTH of both branch bridges, and a puncheon is cut to the width of the way it floors, so the stock is drawn at the length the deck it repairs would take. The gate holds that number against both structure records rather than against a constant. **What is NOT claimed, and this is half the entry.** **No ferry landing at the forks** — T-1207's acceptance asked for one and the source that gives this project its bridge refuses it: Andreas has *\"Samuel Miller, the original possessor of the OLD FERRY SCOW,\"* build the first North Branch bridge in the summer of 1832, so the ferryman replaced his own ferry three years before the scene date on this very alignment, and `docs/RESEARCH/sauganash_hotel.md` § 7 reads Mark Beaubien's South Branch canoe ferry as superseded by the raft bridge the same way. A landing for a ferry the bridge beside it had replaced is invention *against* the evidence, which is not what this tier licenses. The Harrison 1830 plate's **Ferry** and the free Lake House ferry are left OPEN rather than closed, in `docs/RESEARCH/bridge_head_timber.md` § 1 — the first is a main-stem crossing still on the fort memo's list of labels with *\"a symbol and a label and no form\"*, the second belongs to a hotel that opened in the autumn of 1836. · **No pile at the Dearborn Street drawbridge**: a third crossing with its own record, and the repair contract names the north and south branches and not it. · **No sawn plank drawn as a board**: the ordinance says *\"plank or any piece of timber\"* and this layer has no board primitive, so the plank half is cited and left undrawn rather than misdrawn. · **No toll house, keeper's shelter or bridge tender's hut**, because nothing puts a building at any head. · **No hitching post, mounting block, rail or notice board** — all four plausible at a crossing a corporation legislated traffic over, none named by any source, and a notice board would additionally invent the wording and the letterform of an ordinance's publication. · **No figure, no team, no tool and nothing half-laid** (**L1**)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the Board's repair contract of December 1833, if the instrument itself survives, or any account, assessment or wharfinger's record naming where the town kept bridge stock. Cook County ferry licences and bonds after 1832 would settle whether either branch ferry was still worked alongside its bridge, and would be what reopens the landing this entry refuses."
+        },
+        {
+          "label": "Related",
+          "text": "**L227** (the water cart, the authored record on this layer this one is built after), **L131** (the yard goods and Ordinance 9), **L173** (the building material this layer's stick comes from), **L132** (the wharf deck's one invented outline), **L1**, **T-1207**, **T-1763**."
         },
         {
           "label": "Recorded",

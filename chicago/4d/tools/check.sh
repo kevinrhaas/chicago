@@ -1822,6 +1822,22 @@ step "the watering place's ruling still matches the committed surfaces" \
 selftest "…and the run classifier that reading rests on still fires" \
   python3 tools/measure_watering_place.py --self-test
 
+# And the timber the town REPAIRED its crossings with, which is the same shape of claim
+# one layer over. `data/yard/bridge_head_timber.json` stands one pile of bridge stock at
+# each of the four heads of the two branch bridges. The PILES are invented and graded
+# `reconstructed`; WHERE THEY STAND is derived — six metres back from the committed deck
+# end along the crossing's own axis, six off its centreline, on whichever side the
+# committed heightfield grades higher — so a re-measure of either deck, a re-trace of the
+# waterline or a re-carve of the bank must move them or say why. The same division the
+# water cart carries: the record is authored because no rule can derive that a pile lay
+# there on a July morning, and the position is gated because where it would have to lie
+# is exactly a rule (T-1763).
+step "the bridge-head timber still stands where the decks and the ground put it" \
+  python3 tools/measure_bridge_head_timber.py --gate --quiet
+
+selftest "…and every assertion that set-out rests on still fires" \
+  python3 tools/measure_bridge_head_timber.py --self-test
+
 # And the feature that crossing's own drain runs OUT of. "How much of the public
 # square was wet" (T-0027) presumes a fraction can be read off the block, and it
 # cannot: the terrain draws the square at the South Division plain's +2.9 ft with
