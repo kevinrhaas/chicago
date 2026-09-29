@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 92,
-   "free": 196,
+   "at_capacity": 94,
+   "free": 194,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 147,
-  "lots_barring_another_roof": 145,
+  "lots_with_a_roof": 149,
+  "lots_barring_another_roof": 147,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 206,
+  "principal_roofs_standing": 208,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -1610,14 +1610,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_wolcott_a4_07",
+    "recon_1835_blk_indiana_north_wolcott_d3_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_wolcott_a4_07": "A4",
+    "recon_1835_blk_indiana_north_wolcott_d3_05": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_wolcott#05",
@@ -1639,14 +1645,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_wolcott_a3_08",
+    "recon_1835_blk_indiana_north_wolcott_d3_06"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_wolcott_a3_08": "A3",
+    "recon_1835_blk_indiana_north_wolcott_d3_06": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_wolcott#06",
