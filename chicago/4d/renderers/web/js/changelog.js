@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1232, ts: '2026-09-29T10:06:18.482Z', date: 'Sep 29, 2026, 5:06 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
+    items: [
+      'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
+      'The granite reads warmer and pinker, toward the museum’s own name for the stone rather than the family memoir’s. The stable’s roofline runs level, centred on the wing, instead of angled toward the carriage doors below it.',
+      'The round tower at the 18th Street corner is a touch smaller, the chimneys a touch slimmer, the dormers a touch deeper, and the courtyard drive runs a straighter line to the alley gate.',
+      'Drop the &version=v3 from the address and the first reading comes back. Both are built from the same drawings, plate and photographs; a card on each says where they part ways.',
+    ] },
   { v: 1231, ts: '2026-09-29T09:46:26.513Z', date: 'Sep 29, 2026, 4:46 AM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',

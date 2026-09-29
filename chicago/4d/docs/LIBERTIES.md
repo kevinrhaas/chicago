@@ -16847,3 +16847,64 @@ that block, one tier along and two days before this one), **L298** (T-1708's ele
 requests this block re-took), **L263** (the shingle exposure all eleven take), **T-1735** and
 **T-1707** (the street control that emitted the tier).
 **Recorded:** 2026-09-29.
+
+### L301 — The Glessner House, version v3: an independent reading of the same drawings, plate and photographs
+**Decision:** `data/structures/versions/glessner_house/v3.json` (T-1730) is a second, independent
+build of 1800 Prairie Avenue, from the same source set the default (**L295**, T-1732) reads —
+HABS IL-1015, the February 1888 *Inland Architect* plate, Sanborn 1911 sheet 28, the HABS
+photographs (PR #169) and the Houghton Richardson drawings (PR #171) — built without copying the
+default's geometry. Every attested figure (the footprint, the main ranges' eaves and ridges, the
+chimneys' measured N-S sizes and tops, the door and window tables, the materials as described) is
+read the same way the default reads it, because those are direct measurements and changing them
+would misrepresent the evidence rather than diverge from it. Where the sources leave a genuine
+choice — everything this record tiers `inferred` or `reconstructed` — v3 makes its own:
+
+- **The granite's colour is read toward the museum's own name.** T-1731 section 9 and L295 both
+  carry the stone-name disagreement UNRESOLVED: "Wellesley granite" (Glessner 1923; HABS 1963,
+  grey) against "Braggville pink granite" (the museum, Prairie library dossier G02). The default
+  leans grey; v3 leans pink, on the same monochrome 1888 plate lifted the other defensible
+  direction. The courtyard brick, trim, roof tile, copper and oak tints are each independently
+  reconstructed alongside it.
+- **The stable's roof is kept symmetric on the wing's own centreline (W 143.5)**, not shifted to
+  the carriage doorway's axis (W 141): v3 reads the same single oblique 1963 photograph (HABS
+  photograph 1) more cautiously — a roofline does not have to track the doorway below it — and
+  keeps T-1731's original centred reading, at the same `inferred` grade the default uses for its
+  own reading of that photograph, bounded the same way (36.6-54.5 degrees). The stable's south
+  gable and ridge turret follow from the same symmetric reading.
+- **The north tower's plan** (a smaller 6.5-ft-radius drum, its base tied to the north range's own
+  attested second-floor level, 17.4 ft, rather than an unremarked 20.0 ft) — its attested heights
+  (eave 32.9, apex 43.9 ft, sheet 4) are unchanged.
+- **The four chimneys' E-W depth** (3.4 ft rather than 4 ft) and **the great chimney's position**,
+  read at the other end of T-1731's own open band (W 30-45): v3 centres it at W 34, the default at
+  W 40. Their attested N-S sizes and tops are unchanged.
+- **The courtyard dormers' depth**, **the hall bow's roof rise**, and **the courtyard gate's
+  heights** — each independently reconstructed within the same bounds the default uses.
+- **The north range's courtyard-face windows** (T-1731 GAP 5, wholly reconstructed either way): v3
+  reads Glessner's own description of the 18th Street corridor windows as "narrow ... just enough
+  to light the narrow corridors" and carries that character to the same range's courtyard face —
+  six narrower openings, thinned at the second floor — rather than the default's seven bays of
+  paired room-sized windows.
+- **The courtyard ground**: the same c. 1923 HABS photograph 5 read toward a fresher lawn and a
+  more direct, paler carriage drive than the default's greyer, more jogged one.
+
+**What bounds them.** The same bounds L295 states for the default: every invented height sits
+between measured ones on the same building, every invented plan position sits inside a band a
+drawing or a print fixes, and colours stay within the material each is attested to be. v3 differs
+in WHERE inside those bounds it lands, not in what the bounds are.
+
+**Consequence:** the compare URL
+`/4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3` shows a house with the
+same measured bones as the default and a visibly different roofscape, tower, chimneys and colour —
+which is the comparison T-1730 exists for.
+
+**How to resolve:** the same evidence that would resolve L295 resolves this: a colour photograph
+or sample for the tints; the Houghton drawings not yet seen (the roof plan and courtyard
+elevations) for the tower's plan, the stable roof, the dormers' depth and the chimneys' plans; the
+HABS field notes FN-128 and the remaining photogrammetric plates for the courtyard-face heights;
+any dated photograph between 1888 and 1923 for the courtyard ground.
+
+**Covers:** `glessner_house.as_built_1887.form.granite_tint`, `glessner_house.as_built_1887.form.brick_tint`, `glessner_house.as_built_1887.form.trim_tint`, `glessner_house.as_built_1887.form.roof_tint`, `glessner_house.as_built_1887.form.copper_tint`, `glessner_house.as_built_1887.form.wood_tint`, `glessner_house.as_built_1887.form.gable_west_wing_south`, `glessner_house.as_built_1887.form.tower_north_plan`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_plans`, `glessner_house.as_built_1887.form.dormer_depth`, `glessner_house.as_built_1887.form.hall_bow_roof`, `glessner_house.as_built_1887.form.openings_court_north`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.eave_cornice`, `glessner_house.as_built_1887.form.courtyard_gate_heights`, `glessner_house.as_built_1887.form.courtyard_ground`
+**Related:** **L295** (the default this compares against, and the fuller account of what the
+sources leave open), `docs/RESEARCH/glessner_house_1904.md`,
+`data/research/glessner_house_1904_spec.json`, **T-1731**, **T-1730**, **T-1732**.
+**Recorded:** 2026-09-29.
