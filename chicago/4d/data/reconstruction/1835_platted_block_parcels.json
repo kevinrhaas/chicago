@@ -2494,8 +2494,8 @@
         "A3": 1
       },
       "dealt_against_a_request": {
-        "ticket": "T-1742",
-        "parent": "T-1206",
+        "ticket": "T-1747",
+        "parent": "T-1742",
         "from": "data/reconstruction/1835_platted_seats.json",
         "requests": [
           {

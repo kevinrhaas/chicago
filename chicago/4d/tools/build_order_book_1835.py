@@ -403,13 +403,23 @@ STRUCTURE_TICKETS = {
     # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
     # has 35 left and is ordered by T-1206, which is split".
     #
-    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
     # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
-    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
-    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    # small cottages. It was the only live descendant that raises a dwelling, so the 35 were its.
+    #
+    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), for the same reason one level
+    # down: the cell is 35 roofs and the district's committed reading will not carry them all in
+    # one deal. `docs/RESEARCH/1835_north_division_extent_and_infill.md` requires the addition to
+    # read speculative rather than occupied — "most legal frontage empty", the outer addition
+    # "visibly speculative" — and the seating pass asks twenty roofs of the two blocks the lot
+    # reading opened. T-1747 raised the first four of them on `blk_indiana_north_wolcott` and
+    # left ten of that block's twelve lots open; T-1748 owns the rest of the addition and the
+    # north tier, which is what remains of this cell, so the cell is T-1748's. T-1746 carries the
+    # disagreement between the two committed files and orders no roof of its own.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

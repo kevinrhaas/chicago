@@ -14108,7 +14108,7 @@ carries no shingle at all. T-1717's two Lake House neighbours make 418, and they
 frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
 neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two
 frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of
-them shingled by this exposure like every other frame roof the block recipe raises. T-1742's
+them shingled by this exposure like every other frame roof the block recipe raises. T-1747's
 first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in
 Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off
 the alley behind them, on lot lines read off Wright's sheet only the day before. No record's
@@ -14697,7 +14697,7 @@ adoptions on the second run and holds there on the third. The counts in this ent
 fixpoint and nothing earlier.
 
 **AND THE ADDITION'S FIRST TWO ROOFS MOVED IT AGAIN, THE SAME WAY THE CLARK BLOCK DID
-(T-1742, 2026-09-29).** `blk_indiana_north_wolcott` was dealt two of the eleven slot requests
+(T-1747, 2026-09-29).** `blk_indiana_north_wolcott` was dealt two of the eleven slot requests
 standing against it — two D3 cottages, on the lots the requests named — see **L293**. Neither
 went to the household that asked for it. The adoption step runs before the slot step, so the
 two new cottages entered the pass as standing roofs an admitted clause could adopt, and
@@ -16343,7 +16343,8 @@ stay unbuilt.
 seating pass asks twenty roofs of this addition's two subdivided blocks, on twenty-four lots.
 The memo will not carry twenty. The surplus is neither built nor quietly withdrawn: it stays on
 the requested side of the ledger where the next reader can see the disagreement, and
-**T-1746** carries it. Nothing in this entry decides which of the two is wrong — the memo is a
+**T-1746** carries it, and **T-1748** owns the rest of the addition's build. Nothing in
+this entry decides which of the two is wrong — the memo is a
 reading of the maps and the seating is a policy, and a policy that asks for more town than the
 maps support is the more likely of the two to move.
 
@@ -16376,5 +16377,6 @@ memo itself comes closest to, and the reason only two principal roofs stand here
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
 **L100** and the other block entries of this row, **L263** (the shingle exposure all four
 take), **L270** (the platted deal this block answers), **L292** (the same shape of deal on the
-plat's last tier), **T-1741** (the lot lines), **T-1742**, **T-1746** (the disagreement).
+plat's last tier), **T-1741** (the lot lines), **T-1747** (this deal, the first piece of
+**T-1742**), **T-1748** (the rest of the addition), **T-1746** (the disagreement).
 **Recorded:** 2026-09-29.
