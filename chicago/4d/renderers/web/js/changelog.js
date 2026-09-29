@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1229, ts: '2026-09-29T08:52:48.802Z', date: 'Sep 29, 2026, 3:52 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
+  { v: null, ts: '', title: 'A second Glessner House to compare against the first', kind: 'feature',
     items: [
       'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
       'The granite reads warmer and pinker, toward the museum’s own name for the stone rather than the family memoir’s. The stable’s roofline runs level, centred on the wing, instead of angled toward the carriage doors below it.',
       'The round tower at the 18th Street corner is a touch smaller, the chimneys a touch slimmer, the dormers a touch deeper, and the courtyard drive runs a straighter line to the alley gate.',
       'Drop the &version=v3 from the address and the first reading comes back. Both are built from the same drawings, plate and photographs; a card on each says where they part ways.',
+    ] },
+  { v: 1229, ts: '2026-09-29T08:15:07.333Z', date: 'Sep 29, 2026, 3:15 AM CT', title: 'Two invented streams on the west prairie go to the owner', kind: 'change',
+    items: [
+      'West of the river, out on the open prairie, the ground carries two shallow drains. Nothing in the record puts them there. The dossier says the West Division\u2019s wet prairie had swales a foot or two deep, so two were drawn \u2014 but where they run is our invention, and the one 1834 survey that could have shown a stream on this prairie was read end to end and draws none.',
+      'They also now begin nowhere. Each was drawn to start at the western edge of the modelled ground as it then was, so that it read as a stream leaving the map. The ground has since been carried 385 metres further west, and each drain now starts abruptly in the middle of open prairie, with no hollow above it and no reason to begin where it does.',
+      'One of the two runs through eight houses. They are anonymous reconstructed cottages on the Canal and Lake approaches, and the closest stands about three metres from the line. The project\u2019s own rule says to move a house rather than flatten a stream \u2014 but that rule assumes the stream is the real thing, and here the houses are reviewed and built and the stream is invented. So the question goes to the owner rather than being settled quietly: take the drains out of the ground and leave them in the dossier, re-draw them, or move the eight houses.',
+      'No house is standing in a hole, and that is why this is a question about evidence rather than a defect. The cut is nine inches spread over thirty metres, so the ground under the deepest-affected cottage falls about twelve centimetres across its whole footprint.',
+      'Nothing in the model moved today. What changed is that the eight distances the question is asked about are now measured and checked on every build, because two of them had already drifted two and a half metres while the question waited \u2014 houses re-seated off platted streets for unrelated reasons, with nothing joining those moves to this. The owner will answer on figures that are current.',
     ] },
   { v: 1228, ts: '2026-09-29T07:38:33.079Z', date: 'Sep 29, 2026, 2:38 AM CT', title: 'Two more houses in Kinzie\u2019s Addition', kind: 'change',
     items: [
