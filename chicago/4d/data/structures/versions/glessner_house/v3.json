@@ -545,7 +545,7 @@
           "sources": [
             "habs_glessner_house_il_1015_drawings"
           ],
-          "note": "Not drawn or photographed in anything read, as the default's note says. v3 gives it a parapet matching the attested north gable's form (parapet_ft 1.0) rather than a plain gable, because v3 reads the whole wing's roof as symmetric about its own centreline (see ridge_west_wing) and a symmetric roof reads more plausibly with matching gable ends than with one parapet and one plain wall. Equally undrawn either way. docs/LIBERTIES.md L296."
+          "note": "Not drawn or photographed in anything read, as the default's note says. v3 gives it a parapet matching the attested north gable's form (parapet_ft 1.0) rather than a plain gable, because v3 reads the whole wing's roof as symmetric about its own centreline (see ridge_west_wing) and a symmetric roof reads more plausibly with matching gable ends than with one parapet and one plain wall. Equally undrawn either way. docs/LIBERTIES.md L298."
         },
         "tower_stair": {
           "value": {
@@ -611,7 +611,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_photo_01_nw_1963"
           ],
-          "note": "Where in plan the tower stands is not drawn by any sheet, as the default's note says. v3's own reading of HABS photograph 1 scales the drum against the narrow corridor windows (about 0.8 ft glazed, Glessner 1923) visible beside it in the same frame, giving a smaller drum (6.5 ft radius) set slightly further from the east wing's face than the default's 7.35-ft reading. Bounded the same way: inside the cone's eave diameter the section fixes (16.7 ft) and tangent to the east wing's west face. docs/LIBERTIES.md L296."
+          "note": "Where in plan the tower stands is not drawn by any sheet, as the default's note says. v3's own reading of HABS photograph 1 scales the drum against the narrow corridor windows (about 0.8 ft glazed, Glessner 1923) visible beside it in the same frame, giving a smaller drum (6.5 ft radius) set slightly further from the east wing's face than the default's 7.35-ft reading. Bounded the same way: inside the cone's eave diameter the section fixes (16.7 ft) and tangent to the east wing's west face. docs/LIBERTIES.md L298."
         },
         "hall_bow": {
           "value": {
@@ -668,7 +668,7 @@
             "habs_glessner_house_il_1015_data_pages",
             "habs_glessner_house_il_1015_drawings"
           ],
-          "note": "Same attested material as the default (HABS data p. 21: copper sheathing). Its form is not drawn; HABS photograph 5 (c. 1923) shows the bow's roof standing up as a distinct element between the two main slopes it joins, which v3 reads as a taller rise (4.5 ft) than the default's flatter 3.5-ft reading of the same oblique print, still well below the eaves it meets. docs/LIBERTIES.md L296."
+          "note": "Same attested material as the default (HABS data p. 21: copper sheathing). Its form is not drawn; HABS photograph 5 (c. 1923) shows the bow's roof standing up as a distinct element between the two main slopes it joins, which v3 reads as a taller rise (4.5 ft) than the default's flatter 3.5-ft reading of the same oblique print, still well below the eaves it meets. docs/LIBERTIES.md L298."
         },
         "bay_dining": {
           "value": {
@@ -792,7 +792,7 @@
           "sources": [
             "habs_glessner_house_il_1015_drawings"
           ],
-          "note": "How far the dormers stand forward on the slope is not drawn, as the default's note says. v3 reads a deeper dormer (5.1 ft front-to-back, nearer square against its 4.4-ft printed width) set a little lower on the slope (bottom 27.0 vs the default's 27.5 ft) than the default's shallower 4.2-ft reading. docs/LIBERTIES.md L296."
+          "note": "How far the dormers stand forward on the slope is not drawn, as the default's note says. v3 reads a deeper dormer (5.1 ft front-to-back, nearer square against its 4.4-ft printed width) set a little lower on the slope (bottom 27.0 vs the default's 27.5 ft) than the default's shallower 4.2-ft reading. docs/LIBERTIES.md L298."
         },
         "turret_stable": {
           "value": {
@@ -822,7 +822,7 @@
             "inland_architect_1888_02_glessner_exterior",
             "habs_glessner_photo_01_nw_1963"
           ],
-          "note": "Form attested by the 1888 photograph and HABS photograph 1 (a small square louvred turret, pyramid roof, finial), as the default reads. v3 sets it on v3's own ridge line (W 143.5, see ridge_west_wing) rather than the default's doorway-axis ridge, and returns to T-1731's original reconstructed proportions (5-ft plan, 4-ft wall above the ridge, 5-ft pyramid, centred nearer the ridge's middle at S 20) instead of the default's photograph-scaled 6-ft turret set close to the gable at S 8 -- the same judgement call as ridge_west_wing, that a small print does not fix a turret's position along a 60-ft ridge to inferred-grade precision. docs/LIBERTIES.md L296."
+          "note": "Form attested by the 1888 photograph and HABS photograph 1 (a small square louvred turret, pyramid roof, finial), as the default reads. v3 sets it on v3's own ridge line (W 143.5, see ridge_west_wing) rather than the default's doorway-axis ridge, and returns to T-1731's original reconstructed proportions (5-ft plan, 4-ft wall above the ridge, 5-ft pyramid, centred nearer the ridge's middle at S 20) instead of the default's photograph-scaled 6-ft turret set close to the gable at S 8 -- the same judgement call as ridge_west_wing, that a small print does not fix a turret's position along a 60-ft ridge to inferred-grade precision. docs/LIBERTIES.md L298."
         },
         "chimneys": {
           "value": {
@@ -922,7 +922,7 @@
             "habs_glessner_house_il_1015_drawings",
             "inland_architect_1888_02_glessner_exterior"
           ],
-          "note": "The E-W size and position of every stack is not drawn, as the default's note says. v3 keeps the same centre positions the default derives from the ridge and the 1888 photograph (north gable and south on the ridge at W 13.25; middle 2 ft east of it) but reads each stack 3.4 ft deep rather than 4 ft, a plausible chimney breadth for a single flue rather than the default's slightly chunkier reading. The great chimney's position is reconstructed at the OTHER end of T-1731's own stated band (W 30-45): centred at W 34, near the band's west edge, against the default's W 40 near its east edge -- both are honest readings of the same open band. docs/LIBERTIES.md L296."
+          "note": "The E-W size and position of every stack is not drawn, as the default's note says. v3 keeps the same centre positions the default derives from the ridge and the 1888 photograph (north gable and south on the ridge at W 13.25; middle 2 ft east of it) but reads each stack 3.4 ft deep rather than 4 ft, a plausible chimney breadth for a single flue rather than the default's slightly chunkier reading. The great chimney's position is reconstructed at the OTHER end of T-1731's own stated band (W 30-45): centred at W 34, near the band's west edge, against the default's W 40 near its east edge -- both are honest readings of the same open band. docs/LIBERTIES.md L298."
         },
         "chimney_dining_room": {
           "value": {
@@ -1601,7 +1601,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_photo_05_court_c1923"
           ],
-          "note": "T-1731 GAP 5: the north range's courtyard-face openings are not transcribed by anything read. The default reconstructs seven bays of paired room-sized windows; v3 reads this wall differently, as Glessner's own words describe it -- 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' (Glessner 1923) -- and carries that same narrow-corridor character across to the courtyard face of the same service range, six narrower openings rather than seven paired ones, thinned further at the second floor. Both readings are wholly reconstructed; neither sheet nor photograph shows this wall's openings. docs/LIBERTIES.md L296."
+          "note": "T-1731 GAP 5: the north range's courtyard-face openings are not transcribed by anything read. The default reconstructs seven bays of paired room-sized windows; v3 reads this wall differently, as Glessner's own words describe it -- 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' (Glessner 1923) -- and carries that same narrow-corridor character across to the courtyard face of the same service range, six narrower openings rather than seven paired ones, thinned further at the second floor. Both readings are wholly reconstructed; neither sheet nor photograph shows this wall's openings. docs/LIBERTIES.md L298."
         },
         "opening_heights": {
           "value": {
@@ -1647,7 +1647,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_photo_01_nw_1963"
           ],
-          "note": "Heights for openings whose positions are read off plans. 18th Street: sheet 5 draws one pair of the narrow corridor windows beside the great arch (first floor 9.3-15.2, second 20.5-23.8 ft above grade), and those heights are applied to every narrow opening on the face — the spec called that step inferred; it is carried here at the grade of the weakest row this attribute also holds. The alley wall's ground-floor lights are set high, as stable lights are (7.0-10.5 ft), and its loft lights take the 17.8-22.9 ft HABS photograph 1 shows on the stable's 18th Street face. The north range's courtyard rows take the house's first- and second-floor window rows. docs/LIBERTIES.md L295. v3 reads the north range's courtyard windows narrower in height (10.0-13.0 ft first floor, 20.0-22.5 ft second) than the default's room-window heights, consistent with v3's narrow-corridor reading of that wall (openings_court_north). docs/LIBERTIES.md L296."
+          "note": "Heights for openings whose positions are read off plans. 18th Street: sheet 5 draws one pair of the narrow corridor windows beside the great arch (first floor 9.3-15.2, second 20.5-23.8 ft above grade), and those heights are applied to every narrow opening on the face — the spec called that step inferred; it is carried here at the grade of the weakest row this attribute also holds. The alley wall's ground-floor lights are set high, as stable lights are (7.0-10.5 ft), and its loft lights take the 17.8-22.9 ft HABS photograph 1 shows on the stable's 18th Street face. The north range's courtyard rows take the house's first- and second-floor window rows. docs/LIBERTIES.md L295. v3 reads the north range's courtyard windows narrower in height (10.0-13.0 ft first floor, 20.0-22.5 ft second) than the default's room-window heights, consistent with v3's narrow-corridor reading of that wall (openings_court_north). docs/LIBERTIES.md L298."
         },
         "eave_cornice": {
           "value": {
@@ -1705,7 +1705,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_photo_01_nw_1963"
           ],
-          "note": "A moulded stone cornice under the Prairie Avenue eave and a plain eave course on 18th Street and the alley are visible in the 1888 photograph and HABS photograph 1; their depth and projection (0.5-0.7 ft) are ours. docs/LIBERTIES.md L295. v3 reads a shallower, plainer cornice projection (0.4-0.6 ft) than the default's 0.5-0.7 ft, equally unmeasured. docs/LIBERTIES.md L296."
+          "note": "A moulded stone cornice under the Prairie Avenue eave and a plain eave course on 18th Street and the alley are visible in the 1888 photograph and HABS photograph 1; their depth and projection (0.5-0.7 ft) are ours. docs/LIBERTIES.md L295. v3 reads a shallower, plainer cornice projection (0.4-0.6 ft) than the default's 0.5-0.7 ft, equally unmeasured. docs/LIBERTIES.md L298."
         },
         "courtyard_gate": {
           "value": {
@@ -1762,7 +1762,7 @@
           "sources": [
             "habs_glessner_house_il_1015_drawings"
           ],
-          "note": "No sheet draws the gate or its pier in elevation, as the default's note says. v3 reads a lower gate (7.5 ft closed leaves) under a taller pier (10.0 ft) than the default's more even reading, still bounded by the underpass's attested 8.1-ft clear height at the other end of the same carriage way. docs/LIBERTIES.md L296."
+          "note": "No sheet draws the gate or its pier in elevation, as the default's note says. v3 reads a lower gate (7.5 ft closed leaves) under a taller pier (10.0 ft) than the default's more even reading, still bounded by the underpass's attested 8.1-ft clear height at the other end of the same carriage way. docs/LIBERTIES.md L298."
         },
         "courtyard_ground": {
           "value": {
@@ -1836,7 +1836,7 @@
             "habs_glessner_photo_05_court_c1923",
             "habs_glessner_house_il_1015_data_pages"
           ],
-          "note": "Same evidence as the default: HABS photograph 5 (c. 1923, nineteen years late) shows a lawn and a hard drive from the underpass exit to the alley gate, and HABS data p. 2 dates the courtyard's paving to 1946, so before that it was not a paved lot. v3 reads a fresher lawn green and a more direct, less jogged drive line than the default's, and a paler gravel tone for the drive surface rather than the default's greyer concrete-like reading of the same 1923 print. Both are reconstructed for 1904 on the same photograph. docs/LIBERTIES.md L296."
+          "note": "Same evidence as the default: HABS photograph 5 (c. 1923, nineteen years late) shows a lawn and a hard drive from the underpass exit to the alley gate, and HABS data p. 2 dates the courtyard's paving to 1946, so before that it was not a paved lot. v3 reads a fresher lawn green and a more direct, less jogged drive line than the default's, and a paler gravel tone for the drive surface rather than the default's greyer concrete-like reading of the same 1923 print. Both are reconstructed for 1904 on the same photograph. docs/LIBERTIES.md L298."
         },
         "porte_cochere_doors": {
           "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",
@@ -1891,10 +1891,10 @@
     ],
     "note": "The house of John Jacob Glessner (1843-1936) and Frances Macbeth Glessner, designed by H. H. Richardson and built by Norcross Brothers, 1886-1887; the family lived here from December 1887 (Glessner 1923; HABS data p. 1). The west wing was the family's stable and carriage house (see range_west_wing)."
   },
-  "research_note": "AN INDEPENDENT VERSION OF THE GLESSNER HOUSE (T-1730), built from the same source set as the default (T-1732): T-1731's specification (docs/RESEARCH/glessner_house_1904.md, data/research/glessner_house_1904_spec.json), the HABS photographs (PR #169) and the Houghton Richardson drawings (PR #171). Every attested figure -- the footprint, the main ranges' eaves and ridges, the chimneys' measured positions and tops, the door and window tables, the materials as described -- is read the same way the default reads it, because those are direct HABS/Sanborn measurements and changing them would misrepresent the evidence rather than diverge from it. This version's independent reading is expressed at every attribute this project tiers inferred or reconstructed: the stable roof is kept symmetric on the wing's own centreline rather than shifted to the carriage doorway's axis (and tiered reconstructed rather than inferred, since a single oblique 1963 photograph is read here as too coarse to fix a 2.5-ft offset); the granite is read toward the museum's own 'pink' name rather than Glessner's 'Wellesley' grey, an explicitly unresolved disagreement in the sources; the north tower, the stable's ridge turret, the chimneys' depths, the dormers, the hall bow's roof, the courtyard-face windows and the courtyard ground are each reconstructed with different, independently bounded numbers. docs/LIBERTIES.md L296 records what v3 invents; L295 (the default's) is unchanged. Alternates for the owner's side-by-side comparison are under data/structures/versions/glessner_house/; the compare URL is /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3. Interior out of scope, as for the default; the courtyard's south side (1808 Prairie's north wall, T-0475) is not drawn here either.",
+  "research_note": "AN INDEPENDENT VERSION OF THE GLESSNER HOUSE (T-1730), built from the same source set as the default (T-1732): T-1731's specification (docs/RESEARCH/glessner_house_1904.md, data/research/glessner_house_1904_spec.json), the HABS photographs (PR #169) and the Houghton Richardson drawings (PR #171). Every attested figure -- the footprint, the main ranges' eaves and ridges, the chimneys' measured positions and tops, the door and window tables, the materials as described -- is read the same way the default reads it, because those are direct HABS/Sanborn measurements and changing them would misrepresent the evidence rather than diverge from it. This version's independent reading is expressed at every attribute this project tiers inferred or reconstructed: the stable roof is kept symmetric on the wing's own centreline rather than shifted to the carriage doorway's axis (and tiered reconstructed rather than inferred, since a single oblique 1963 photograph is read here as too coarse to fix a 2.5-ft offset); the granite is read toward the museum's own 'pink' name rather than Glessner's 'Wellesley' grey, an explicitly unresolved disagreement in the sources; the north tower, the stable's ridge turret, the chimneys' depths, the dormers, the hall bow's roof, the courtyard-face windows and the courtyard ground are each reconstructed with different, independently bounded numbers. docs/LIBERTIES.md L298 records what v3 invents; L295 (the default's) is unchanged. Alternates for the owner's side-by-side comparison are under data/structures/versions/glessner_house/; the compare URL is /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3. Interior out of scope, as for the default; the courtyard's south side (1808 Prairie's north wall, T-0475) is not drawn here either.",
   "review_required": false,
   "version": {
     "label": "v3",
-    "summary": "Independent reading of the same T-1731/HABS-photo/Houghton sources: granite read toward the museum's 'pink' name rather than Glessner's grey; the stable roof kept symmetric on the wing's centreline; the tower, turret, chimney depths, dormers, hall-bow roof, courtyard windows and courtyard ground each independently reconstructed. L296."
+    "summary": "Independent reading of the same T-1731/HABS-photo/Houghton sources: granite read toward the museum's 'pink' name rather than Glessner's grey; the stable roof kept symmetric on the wing's centreline; the tower, turret, chimney depths, dormers, hall-bow roof, courtyard windows and courtyard ground each independently reconstructed. L298."
   }
 }
