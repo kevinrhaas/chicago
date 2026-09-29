@@ -403,13 +403,26 @@ STRUCTURE_TICKETS = {
     # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
     # has 35 left and is ordered by T-1206, which is split".
     #
-    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
     # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
-    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
-    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    # small cottages. It was the only live descendant that raised a dwelling, so the 35 were its.
+    #
+    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), so the cell moves one
+    # generation down and this time BOTH children raise roofs. The sweep rule is unchanged —
+    # the cell names the ticket that is this bucket in as many words — and that is the child
+    # holding the REMAINDER. T-1747 is one block: `blk_indiana_north_wolcott`'s first roofs on
+    # its Indiana and Illinois faces, the rest of its lots left open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier" — blk_indiana_north_cass, the remaining wolcott
+    # lots, the Rush–Pine fringe, and the open ground left honestly open. A bucket's
+    # `owning_ticket` is where a reader goes to find who will build what is LEFT, and when
+    # T-1747 has built its one block the 34 do not fall to zero; they fall to T-1748. So the
+    # cell is T-1748's, and T-1747 is named beside it rather than in it. Neither child is
+    # `split`, so the gate this paragraph exists for is satisfied by either — naming the
+    # remainder-holder is the choice that stays true after the first one lands.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
