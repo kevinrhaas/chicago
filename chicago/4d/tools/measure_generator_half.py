@@ -299,13 +299,22 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # will keep being restated a parcel at a time for as long as the town is built a block
 # at a time.
 #
+# 479 -> 492 and 475 -> 488 on 2026-09-29 (T-1751): the thirteen roofs of the deal on
+# `blk_washington_franklin`, the Franklin end of the same last tier — seven principal
+# dwellings (two D7, an H2, an H1, two D3 and a D4) and all six yard buildings the block's
+# plan holds behind them. Thirteen new structure assets on the same terms as every entry
+# above: thirteen more meshes the shared generator modules or emit.py would re-stale, the
+# terrain reach still 4 and pier_crib still 2. Nothing about the debt itself moved. The
+# from-numbers are the ones this re-cut found on `dev`, not the ones PR #186 was written
+# off, and all three are read off the committed tree by `--gate` rather than carried over.
+#
 STATED = {
-    "assets": 479,
+    "assets": 492,
     "restales": {
-        "generators/common/*.py": 479,
+        "generators/common/*.py": 492,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 475,
+        "generators/emit.py": 488,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

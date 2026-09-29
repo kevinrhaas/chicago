@@ -1,3 +1,47 @@
+## T-1751 — the Franklin block of the plat's last tier dealt out to its lot ceiling, re-cut on current `dev` (2026-09-29)
+
+`blk_washington_franklin` — bounded by Washington, Wells, Madison and Franklin, the fourth
+block of the plat's last tier after Clark, Wells and La Salle — stood empty and now carries
+**thirteen anonymous roofs**: seven dwellings, one to a lot, and the six yard buildings its
+plan holds behind them. Two D7 small two-storey frame houses on the Washington corners, an H2
+merchant-or-professional house and an H1 between them, and on the Madison face two D3
+one-room cottages and a D4 two-room cottage on the corner. Behind them a carriage shed, a
+stable, a small utility building, two woodsheds and a privy, dealt up the household scale;
+the D4 is dealt none, because the plan holds six. Lot 1, the Madison-and-Franklin corner, is
+the block's reserved open lot. The liberty is **L303**.
+
+**This is a re-cut, and what was carried over is exactly one authored input.** The first cut
+(PR #186) was written against a seating three neighbouring builds then moved under it; a
+trial merge with `dev` hit 81 conflicting paths, and every stated figure in it was stale.
+The recipe entry in `data/reconstruction/1835_platted_block_parcels.json` is AUTHORED, not
+derived, so it was ported by hand — and not verbatim: the geometry (lots, set-outs, lateral
+offsets) is that cut's, but the seven households the requests name, the family on lot 7 (a
+D4 where the first cut had a D3) and the yard-building mix (an A5 where it had a second A1)
+are read off the seating and the 665-roof schedule as they stand on `dev` now.
+
+**Not one of the seven households that asked is in one of these roofs.** Seven others
+adopted the seven the moment they stood — hh_baines_robert, hh_bailly_esther,
+hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william, hh_bench_reuben and
+hh_brookes_samuel — and the seven that asked re-seat as slots on the Dearborn, Clark and
+Market blocks, where the tier still holds nineteen requests. The T-1622 precedence, still
+open on T-1626.
+
+**Converged figures, read at the seating chain's fixpoint** (eight passes, the eighth
+clean): platted seats **177** (unchanged), adoptions **131 → 138**, slots **46 → 39**, rows
+handed on **1,301** (unchanged), 69 seats changing lot; off-plat **72**, so the order book's
+seated join holds at **249** (the assertion's number is unchanged; its reasoning is
+restated). Keepers **20 → 23** written, 75 refused (73 letter-list, 2 the T-1689
+disagreement), 40 owed — the three gained are all on South Water, where the cascade re-seated
+roofs onto households the pass can name (**L276** restated). Roof-type phases **456 → 469**
+(**L263** restated). Committed assets **479 → 492**, emit.py's reach **475 → 488**
+(`measure_generator_half.py`, read off the tree by `--gate`). **L270** restated at 138
+adoptions and 39 slots, 19 of them on the tier.
+
+**One order-book sweep, because closing this ticket would otherwise strand the cell.**
+`("south", "ordinary_dwellings")` moves from T-1751 to **T-1759**, the open ticket for the
+tier's remaining dwellings on the Dearborn, Market and Clark blocks.
+`ticket_liveness.py --closing T-1751` now reads "strands nothing".
+
 ## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
 
 `blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell

@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1234, ts: '2026-09-29T13:17:19.399Z', date: 'Sep 29, 2026, 8:17 AM CT', title: 'The Franklin end of the last tier gets a street of houses', kind: 'change',
+    items: [
+      'Walk Washington Street west past Wells to Franklin and the block on your left, open prairie until now, is built. Seven houses stand on it, one to a lot: two small two-storey frame houses on the Washington corners, a merchant’s house and a larger one-and-a-half-storey house between them, and on the quiet Madison side two one-room cottages and a two-room one. Six yard buildings stand behind them.',
+      'The better houses face Washington because Washington carries through traffic in the model and Madison, in July 1835, is a surveyed line across the prairie with no road worn into it.',
+      'The yard buildings go up the household scale rather than one to each yard: a carriage shed behind the merchant’s house, a stable behind the larger house, a small outbuilding and a woodshed behind the two frame houses, then a woodshed and a privy behind two of the cottages. The seventh house, the two-room cottage on the Madison corner, has none, because the block’s plan holds six. One lot, the Madison and Franklin corner, is left open on purpose.',
+      'Seven families asked for these houses, and none of the seven is in one. Households take the best house already standing before they ask for one to be built, so seven other families moved in the moment these stood, and the seven who asked now hold requests on the Dearborn, Clark and Market blocks further east. The count of families with somewhere to be is unchanged at 177; seven more of them now have walls instead of a request.',
+      'Nothing here is claimed as evidence. No source says a building stood on this block in 1835, which buildings they were, or where on their lots they sat. The ground and the lot grid are committed; the rest is on each building’s card.',
+    ] },
   { v: 1233, ts: '2026-09-29T10:56:19.634Z', date: 'Sep 29, 2026, 5:56 AM CT', title: 'The addition\u2019s second block opens, and no street wall', kind: 'change',
     items: [
       'Walk one block east of the addition\u2019s first cottages, to Indiana Street between Cass and Rush, and two more stand on ground that was empty. One-room frame cottages again, back to back across the block alley near its east end \u2014 one facing Indiana, one facing Illinois \u2014 with a privy behind the first and a woodshed behind the second.',

@@ -319,7 +319,18 @@ STRUCTURE_TICKETS = {
     # exactly as the north cell three entries below has now been swept three times in two
     # days, T-1206 -> T-1742 -> T-1748 -> T-1754. The rule is the same every time: the cell
     # goes to the live ticket that raises the dwellings that are LEFT.
-    ("south", "ordinary_dwellings"): "T-1751",
+    #
+    # AND IT DID, ON 2026-09-29: SWEPT ONTO T-1759 IN THE PULL REQUEST THAT CLOSES T-1751.
+    # T-1751 raised seven roofs and six yard buildings on `blk_washington_franklin` and
+    # closes with this cell still owing — `check.sh`'s stranding step says so the moment the
+    # close is attempted: "structures/ordinary_dwellings/south ... is ordered by T-1751,
+    # which is done". T-1759 is the live ticket that raises what is left, and its title is
+    # this cell on this tier in as many words: the South Division's remaining ordinary
+    # dwellings, on the Dearborn, Market and Clark blocks the platted deal still holds slots
+    # against — nineteen of them after this build, seven, seven and five. It is `open`, it
+    # is nobody's split, and it is the next block ticket of the same tier, so the rule is
+    # the same one as every sweep above and the row will move again when it closes owing.
+    ("south", "ordinary_dwellings"): "T-1759",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -4597,6 +4608,19 @@ def cmd_self_test() -> int:
     # files rather than predicted: 1835_platted_seats.json counts seated 177 (129 adopted, 48
     # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
     # handed.
+    #
+    # AND T-1751 HOLDS IT AT 249, which is the first build on this tier that moved the
+    # balance and not the total. All seven slot requests standing against
+    # `blk_washington_franklin` are raised, plus the six yard buildings its plan holds, and
+    # the seven roofs were adopted the moment they stood — by seven households the clause
+    # order scores higher on those lots, not the seven that asked, who re-slot onto
+    # blk_washington_dearborn, blk_washington_clark and blk_washington_market. So the
+    # platted pass runs 131 -> 138 adoptions and 46 -> 39 slots with its seated count
+    # unmoved at 177 and 1,301 handed on; the cascade moved 69 seats between lots and traded
+    # one household at the edge of the band for another, which is why the seated count did
+    # not rise with the adoptions. Off-plat is unmoved at 72, so the total is 177 + 72 once
+    # more. That is the T-1622 precedence again, recorded in L303. Read at the chain's
+    # fixpoint off the committed seats files, not predicted.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249
     fires("a seating pass whose seated and owed miss its own scope",
