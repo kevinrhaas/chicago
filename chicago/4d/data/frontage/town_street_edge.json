@@ -24,11 +24,11 @@
       "randolph",
       "washington"
     ],
-    "faces_laid": 37,
-    "walk_m": 3323.3,
-    "crossing_m": 903.9,
-    "fence_m": 1454.6,
-    "walking_decks": 262,
+    "faces_laid": 38,
+    "walk_m": 3420.9,
+    "crossing_m": 926.0,
+    "fence_m": 1552.2,
+    "walking_decks": 269,
     "hitching_posts": 16
   },
   "card": {
@@ -44,16 +44,16 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3323.3,
+        "value": 3420.9,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "40 run(s) of sidewalk on 37 platted block face(s), plus 903.9 m of board crossing at 38 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "41 run(s) of sidewalk on 38 platted block face(s), plus 926.0 m of board crossing at 39 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1454.6,
+        "value": 1552.2,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "29 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
+        "note": "30 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
       },
       "hitching_posts": {
         "value": 16,
@@ -5723,6 +5723,80 @@
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_randolph_wells_south_crossing_over_washington",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_randolph_wells_south_1",
+      "centreline_local_enu_m": [
+        [
+          344.41,
+          -379.57
+        ],
+        [
+          344.43,
+          -401.62
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.05,
+      "footway_decks": [
+        {
+          "y": 0.955,
+          "pts": [
+            [
+              343.5,
+              -379.49
+            ],
+            [
+              343.5,
+              -390.67
+            ],
+            [
+              345.33,
+              -390.67
+            ],
+            [
+              345.33,
+              -379.49
+            ]
+          ],
+          "ground_roll_m": 0.006
+        },
+        {
+          "y": 0.949,
+          "pts": [
+            [
+              343.5,
+              -390.51
+            ],
+            [
+              343.51,
+              -401.7
+            ],
+            [
+              345.34,
+              -401.7
+            ],
+            [
+              345.33,
+              -390.51
+            ]
+          ],
+          "ground_roll_m": 0.007
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_randolph_wells_south_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -8214,6 +8288,147 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_clark's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 98.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_wells_north_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_wells_north_1",
+      "centreline_local_enu_m": [
+        [
+          340.29,
+          -401.59
+        ],
+        [
+          437.9,
+          -402.38
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 7.21,
+      "footway_decks": [
+        {
+          "y": 0.995,
+          "pts": [
+            [
+              340.2,
+              -402.5
+            ],
+            [
+              360.91,
+              -402.67
+            ],
+            [
+              360.93,
+              -400.84
+            ],
+            [
+              340.22,
+              -400.67
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
+        {
+          "y": 0.998,
+          "pts": [
+            [
+              360.75,
+              -402.67
+            ],
+            [
+              381.46,
+              -402.83
+            ],
+            [
+              381.48,
+              -401.0
+            ],
+            [
+              360.77,
+              -400.84
+            ]
+          ],
+          "ground_roll_m": 0.008
+        },
+        {
+          "y": 1.005,
+          "pts": [
+            [
+              381.3,
+              -402.83
+            ],
+            [
+              402.01,
+              -403.0
+            ],
+            [
+              402.03,
+              -401.17
+            ],
+            [
+              381.32,
+              -401.0
+            ]
+          ],
+          "ground_roll_m": 0.008
+        },
+        {
+          "y": 1.005,
+          "pts": [
+            [
+              401.85,
+              -403.0
+            ],
+            [
+              422.56,
+              -403.17
+            ],
+            [
+              422.57,
+              -401.34
+            ],
+            [
+              401.87,
+              -401.17
+            ]
+          ],
+          "ground_roll_m": 0.0
+        },
+        {
+          "y": 1.01,
+          "pts": [
+            [
+              422.4,
+              -403.16
+            ],
+            [
+              437.97,
+              -403.29
+            ],
+            [
+              437.99,
+              -401.46
+            ],
+            [
+              422.41,
+              -401.33
+            ]
+          ],
+          "ground_roll_m": 0.005
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_wells's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 97.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     }
   ],
   "fences": [
@@ -9090,7 +9305,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_wells's own platted frontage line from 24.3 m to 97.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_clark_north_fence_29",
+      "id": "blk_washington_clark_north_fence_30",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -9118,6 +9333,39 @@
       ],
       "least_setback_m": 5.5,
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_clark's own platted frontage line from 49.3 m to 74.1 m along the north face, covering lot(s) 4 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_wells_north_fence_29",
+      "belongs_to": "town_street_edge",
+      "kind": "board_fence",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_wells_north_1",
+      "path_local_enu_m": [
+        [
+          340.28,
+          -402.75
+        ],
+        [
+          437.89,
+          -403.54
+        ]
+      ],
+      "height_m": 1.37,
+      "board_width_m": 0.305,
+      "board_gap_m": 0.006,
+      "post_spacing_m": 2.44,
+      "post_square_m": 0.12,
+      "rail_courses": 2,
+      "lots": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "least_setback_m": 4.5,
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_wells's own platted frontage line from 0.0 m to 97.6 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     }
   ],
   "posts": [
@@ -9914,9 +10162,9 @@
       "why": "no committed building stands anywhere on blk_washington_market — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
     },
     {
-      "structure_id": "blk_washington_wells_north",
-      "wall": "blk_washington_wells north face",
-      "why": "no committed building stands anywhere on blk_washington_wells — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+      "structure_id": "blk_washington_wells_north_crossing_blk_washington_clark_north",
+      "wall": "corner crossing",
+      "why": "the two walks stop 147.7 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "dole_warehouse_south",

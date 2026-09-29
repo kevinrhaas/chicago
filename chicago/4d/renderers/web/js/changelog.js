@@ -1,10 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1226, ts: '2026-09-29T05:27:08.526Z', date: 'Sep 29, 2026, 12:27 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
+  { v: 1229, ts: '2026-09-29T08:52:48.802Z', date: 'Sep 29, 2026, 3:52 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
     items: [
       'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
       'The granite reads warmer and pinker, toward the museum’s own name for the stone rather than the family memoir’s. The stable’s roofline runs level, centred on the wing, instead of angled toward the carriage doors below it.',
       'The round tower at the 18th Street corner is a touch smaller, the chimneys a touch slimmer, the dormers a touch deeper, and the courtyard drive runs a straighter line to the alley gate.',
       'Drop the &version=v3 from the address and the first reading comes back. Both are built from the same drawings, plate and photographs; a card on each says where they part ways.',
+    ] },
+  { v: 1228, ts: '2026-09-29T07:38:33.079Z', date: 'Sep 29, 2026, 2:38 AM CT', title: 'Two more houses in Kinzie\u2019s Addition', kind: 'change',
+    items: [
+      'Walk north over the river to Indiana Street between Wolcott and Cass and the block has four houses instead of two. Two more one-room frame cottages stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind one and a privy behind the other.',
+      'Look along either street and every house has open prairie on both sides of it. That is the whole design, and it is also the limit: a fifth house on either side would have to go up next door to one already there, and the north-side research says the 1834 maps show a large platted north side with scattered roofs on it, not a street. Eight of the block\u2019s twelve lots stay empty.',
+      'Two families asked for houses here and neither got one. Households take the best house already standing before they ask for one to be built, so the moment these existed the Andrews and Anderson families \u2014 who had been waiting on the block to the east \u2014 were the better answer. Susan Beaubien and William Bennett, whose requests the pair was built against, end up asking for the two lots next door instead.',
+      'The two cottages sit a little differently from the first pair \u2014 half a metre further back, and offset the other way on their lots \u2014 so no street here reads as a surveyed row.',
+      'None of it is evidence. No source says a building stood on this block in 1835. The ground, the street lines and the lot grid are committed; the houses are the building programme filling a town it can count but cannot name, and every card says so.',
+    ] },
+  { v: 1227, ts: '2026-09-29T06:42:08.624Z', date: 'Sep 29, 2026, 1:42 AM CT', title: 'History along your outing', kind: 'change',
+    items: [
+      'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
+      'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
+    ] },
+  { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
+    items: [
+      'Walk west along Washington Street from La Salle and the block between Washington and Madison is built. Seven houses stand on it \u2014 a merchant\u2019s house on each Washington corner, two more between them, and on the quiet Madison side two tradesmen\u2019s cottages and a boarding house \u2014 with two privies, a woodshed and a stable off the alley behind them. It is the fullest block this project has raised on the last row of the plat, and the third of that row to be built at all.',
+      'Seven families asked for these houses by name, every one of the seven is standing tonight, and none of the seven families is in one. Households take the best house already standing before they ask for one to be built, so the moment these existed they were the better answer for seven other families \u2014 and the Beaubiens, Beeches, Beddlecomes, Benediets, Cattons and Chamberlains now hold addresses a block or two east, on La Salle and Market. Reported rather than tidied: a house raised because somebody asked for it is not reserved to them.',
+      'The better street got the better houses, and that is a rule rather than a preference. Washington Street carries through traffic in the model and Madison carries none, so the two merchant and professional houses take the Washington corners and the two larger houses the middle of that face, while the tradesmen\u2019s cottages and the boarding house sit on the quiet side. Nothing stands on the street line here: every house is set back in its own yard, which is what a residential block looked like and not what a shop front did.',
+      'Behind them, the town shuffled up. Standing eleven roofs on an empty block changes which house is the best free one for everybody else in the South Division, so five more families who had nowhere at all found somewhere: households with a place to be went from 165 to 170, and the written list of those still owed one fell from 1,313 to 1,308. One lot on the block \u2014 the Madison and Wells corner \u2014 is deliberately left open, and twenty more roofs the block\u2019s own plan allows for are not built.',
+      'Three of the seven houses have no yard building at all, which is honest rather than unfinished: the block\u2019s plan holds six for seven households, so the privies, woodshed and stable a family of this kind certainly had are built and the barn and smokehouse are not. And none of it is evidence. No source says a building stood on this block in 1835. The ground, the street lines and the lot grid are committed; the houses are the building programme filling a town it can count but cannot name, and every card says so.',
     ] },
   { v: 1225, ts: '2026-09-29T04:58:02.211Z', date: 'Sep 28, 2026, 11:58 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
     items: [

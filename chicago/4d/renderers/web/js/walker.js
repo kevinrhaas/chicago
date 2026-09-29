@@ -26,22 +26,14 @@ import { enuToWorld, bearingToYaw, yawToBearing } from './terrain.js';
 
 const DEG = Math.PI / 180;
 
-export const WALK = {
-  eyeHeight: 1.68,      // m — mid-19th-century adult male mean was near 1.72 m
-  radius: 0.34,         // m — shoulder half-width for the push-out
-  speed: 1.45,          // m/s — an unhurried walk
-  sprintSpeed: 3.3,     // m/s — a jog, not a sprint
-  stepUp: 0.35,         // m — the plank-walk rule
-  pitchLimit: 85 * DEG,
-};
-
 /**
- * Free-fly. A separate object because these numbers are NOT the walk numbers
- * scaled up — flying answers a different question ("what is the shape of this
- * place") and wants different behaviour.
+ * The walk numbers, and the fly numbers, both live in travel-settings.js: they are
+ * the one definition travel.js writes and the pure estimates read, and neither needs
+ * a renderer to be read. Re-exported here because this is the module that walks by
+ * them.
  */
-export { FLY } from './travel-settings.js';
-import { FLY } from './travel-settings.js';
+import { WALK, FLY } from './travel-settings.js';
+export { WALK, FLY };
 
 /** Point-in-polygon, ray casting. `pts` is [[e, n], ...]. */
 function inside(e, n, pts) {
