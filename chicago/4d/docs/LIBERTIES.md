@@ -14707,7 +14707,7 @@ fixpoint and nothing earlier.
 
 **AND THE ADDITION'S FIRST TWO ROOFS MOVED IT AGAIN, THE SAME WAY THE CLARK BLOCK DID
 (T-1747, 2026-09-29).** `blk_indiana_north_wolcott` was dealt two of the eleven slot requests
-standing against it — two D3 cottages, on the lots the requests named — see **L293**. Neither
+standing against it — two D3 cottages, on the lots the requests named — see **L294**. Neither
 went to the household that asked for it. The adoption step runs before the slot step, so the
 two new cottages entered the pass as standing roofs an admitted clause could adopt, and
 `tradesman_dwellings` scored them for hh_allin_richard and hh_almond_axtell_2, who had been
@@ -16311,7 +16311,41 @@ answers), **L276** (the keepers the move took off two South Water roofs), **T-17
 tier), **T-1736**.
 **Recorded:** 2026-09-28.
 
-### L293 — Two invented cottages in Kinzie's Addition, and the ten lots beside them left open on purpose
+### L293 — The 1904 Prairie Avenue street section: a walk, a curb and a parkway inside a width the city fixed
+**Decision:** every block face of the 1904 grid (`data/street_grid/1904.json`, T-0474) is laid out
+as four bands measured from the street line — a 1-ft margin, a walk, a parkway and a curb — and the
+**walk's width (6 ft on the 66-ft streets, 5 ft on 50-ft 16th Street), the curb's width (6 in) and
+therefore the parkway's (6 ft 6 in; 3 ft 6 in on 16th Street) are ours.** Nothing read states them
+for these streets.
+**What bounds them.** The Revised Municipal Code of Chicago of 1905
+(`chicago_revised_municipal_code_1905`) fixes the space they share and where the walk stands in it:
+sec. 2072 gives a street 66 to 80 ft wide a **14-ft** sidewalk space and one 50 to 60 ft wide **10 ft**;
+sec. 2062 lays every walk **one foot from and parallel with the lot line** and names the widths its
+concrete specification is laid out for (5, 6, 10, 12 … ft); sec. 2077 lets the rest be a planted court
+or grass plat; sec. 2072 asks only for curbing "not less than three inches" thick. Those three are
+carried to 1 July 1904 as INFERRED (a city-wide default, eight months after the scene, yielding to any
+block-level order), and the bands are cut inside them: the walk is one of the code's own widths, the
+curb twice its minimum, the parkway what is left. The geometry the bands are measured from is the
+Sanborn 1911 street line (inferred for 1904), not a curb line any source draws.
+**Also ours, and drawn:** block corners are mitred square, with no curb radius and no crossing walk;
+the walk runs straight across alley mouths; the surfaces lie flat on the heightfield with no curb reveal
+and no crown; Indiana Avenue's east line between 18th and 20th is carried straight between sheets 20
+and 35 (sheet 27 was not supplied), and the far lines of Indiana (18th–22nd) and Calumet (20th–22nd)
+are the near line moved the printed 66 ft. Every surface is a neutral tone, not a material.
+**Consequence:** a visitor at the /1904/ door stands on a walk whose position in the street is the
+city's rule and whose width, and the green strip beside it, are a reconstruction. Prairie Avenue was a
+boulevard on the 1911 sheets ("Prairie Av. Blvd.", "E. 16th St. (Boulevard)"), and a boulevard
+ordinance could have fixed a different section.
+**How to resolve:** a special-assessment ordinance for sidewalks or curbing on Prairie Avenue or the
+cross streets 1890–1904, a dated street photograph, or Glessner House's own records of its frontage
+would replace the walk and parkway widths outright; T-1728 owns the materials.
+**Applies to:** `data/street_grid/1904.json` (`cross_sections`, `faces`, `derived_lines`),
+`tools/trace_prairie_1904_grid.py`, `renderers/web/js/street-grid.js`.
+**Related:** **L289**, **L290** (the ground these lie on), `docs/RESEARCH/prairie_1904_street_grid.md`,
+**T-0474**, **T-1728**.
+**Recorded:** 2026-09-28.
+
+### L294 — Two invented cottages in Kinzie's Addition, and the ten lots beside them left open on purpose
 
 **Decision:** `blk_indiana_north_wolcott` — bounded by Indiana, Cass, Illinois and Wolcott,
 and standing empty until now — carries **four anonymous roofs**: two of the single-room frame

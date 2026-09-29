@@ -311,7 +311,7 @@
   "block_frontage_ft": {
    "min": 120.8,
    "median": 312.0,
-   "max": 397.0
+   "max": 399.5
   },
   "lot_frontage_ft": {
    "min": 24.3,
@@ -13540,11 +13540,11 @@
      -120.65
     ],
     [
-     -26.98,
+     -26.01,
      -121.66
     ],
     [
-     -29.24,
+     -28.68,
      -240.03
     ],
     [
@@ -13552,26 +13552,26 @@
      -239.07
     ]
    ],
-   "area_m2": 14323.9,
-   "frontage_m": 121.0,
-   "frontage_ft": 397.0,
+   "area_m2": 14414.5,
+   "frontage_m": 121.77,
+   "frontage_ft": 399.5,
    "depth_m": 118.38,
    "lots_per_column": 5,
    "alley_local_enu_m": [
     [
-     -92.29,
+     -91.81,
      -121.13
     ],
     [
-     -86.63,
-     -121.17
+     -86.14,
+     -121.18
     ],
     [
-     -85.11,
+     -84.83,
      -239.57
     ],
     [
-     -90.41,
+     -90.13,
      -239.53
     ]
    ],
@@ -13581,18 +13581,18 @@
      "column": "west",
      "row": 1,
      "frontage_m": 23.7,
-     "depth_m": 59.27,
+     "depth_m": 59.73,
      "polygon": [
       [
        -151.93,
        -120.65
       ],
       [
-       -92.29,
+       -91.81,
        -121.13
       ],
       [
-       -91.92,
+       -91.47,
        -144.81
       ],
       [
@@ -13609,18 +13609,18 @@
      "column": "west",
      "row": 2,
      "frontage_m": 23.7,
-     "depth_m": 58.51,
+     "depth_m": 58.93,
      "polygon": [
       [
        -150.8,
        -144.33
       ],
       [
-       -91.92,
+       -91.47,
        -144.81
       ],
       [
-       -91.54,
+       -91.14,
        -168.49
       ],
       [
@@ -13637,18 +13637,18 @@
      "column": "west",
      "row": 3,
      "frontage_m": 23.7,
-     "depth_m": 57.76,
+     "depth_m": 58.14,
      "polygon": [
       [
        -149.67,
        -168.02
       ],
       [
-       -91.54,
+       -91.14,
        -168.49
       ],
       [
-       -91.16,
+       -90.8,
        -192.17
       ],
       [
@@ -13665,18 +13665,18 @@
      "column": "west",
      "row": 4,
      "frontage_m": 23.7,
-     "depth_m": 57.0,
+     "depth_m": 57.35,
      "polygon": [
       [
        -148.54,
        -191.7
       ],
       [
-       -91.16,
+       -90.8,
        -192.17
       ],
       [
-       -90.79,
+       -90.46,
        -215.85
       ],
       [
@@ -13693,18 +13693,18 @@
      "column": "west",
      "row": 5,
      "frontage_m": 23.7,
-     "depth_m": 56.25,
+     "depth_m": 56.55,
      "polygon": [
       [
        -147.41,
        -215.39
       ],
       [
-       -90.79,
+       -90.46,
        -215.85
       ],
       [
-       -90.41,
+       -90.13,
        -239.53
       ],
       [
@@ -13721,23 +13721,23 @@
      "column": "east",
      "row": 1,
      "frontage_m": 23.68,
-     "depth_m": 59.27,
+     "depth_m": 59.73,
      "polygon": [
       [
-       -86.63,
-       -121.17
+       -86.14,
+       -121.18
       ],
       [
-       -26.98,
+       -26.01,
        -121.66
       ],
       [
-       -27.43,
-       -145.33
+       -26.55,
+       -145.34
       ],
       [
-       -86.32,
-       -144.85
+       -85.88,
+       -144.86
       ]
      ],
      "plat_lot_number": 1,
@@ -13749,23 +13749,23 @@
      "column": "east",
      "row": 2,
      "frontage_m": 23.68,
-     "depth_m": 58.51,
+     "depth_m": 58.93,
      "polygon": [
       [
-       -86.32,
-       -144.85
+       -85.88,
+       -144.86
       ],
       [
-       -27.43,
-       -145.33
+       -26.55,
+       -145.34
       ],
       [
-       -27.89,
-       -169.0
+       -27.08,
+       -169.01
       ],
       [
-       -86.02,
-       -168.53
+       -85.61,
+       -168.54
       ]
      ],
      "plat_lot_number": 4,
@@ -13777,22 +13777,22 @@
      "column": "east",
      "row": 3,
      "frontage_m": 23.68,
-     "depth_m": 57.76,
+     "depth_m": 58.14,
      "polygon": [
       [
-       -86.02,
-       -168.53
+       -85.61,
+       -168.54
       ],
       [
-       -27.89,
-       -169.0
+       -27.08,
+       -169.01
       ],
       [
-       -28.34,
+       -27.61,
        -192.68
       ],
       [
-       -85.71,
+       -85.35,
        -192.21
       ]
      ],
@@ -13805,22 +13805,22 @@
      "column": "east",
      "row": 4,
      "frontage_m": 23.68,
-     "depth_m": 57.0,
+     "depth_m": 57.35,
      "polygon": [
       [
-       -85.71,
+       -85.35,
        -192.21
       ],
       [
-       -28.34,
+       -27.61,
        -192.68
       ],
       [
-       -28.79,
-       -216.35
+       -28.14,
+       -216.36
       ],
       [
-       -85.41,
+       -85.09,
        -215.89
       ]
      ],
@@ -13833,22 +13833,22 @@
      "column": "east",
      "row": 5,
      "frontage_m": 23.68,
-     "depth_m": 56.25,
+     "depth_m": 56.55,
      "polygon": [
       [
-       -85.41,
+       -85.09,
        -215.89
       ],
       [
-       -28.79,
-       -216.35
+       -28.14,
+       -216.36
       ],
       [
-       -29.24,
+       -28.68,
        -240.03
       ],
       [
-       -85.11,
+       -84.83,
        -239.57
       ]
      ],
@@ -13899,8 +13899,8 @@
     "closure_against_the_committed_lines": {
      "axis": "east to west",
      "the_sheet_asks_ft": 378.0,
-     "the_committed_lines_give_ft": 397.0,
-     "short_by_ft": -19.0,
+     "the_committed_lines_give_ft": 399.5,
+     "short_by_ft": -21.5,
      "so": "the lot lines below divide the block the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size. What is short is this project's West Division street spacing and not the module — T-1540 is the ticket that owns those centrelines, and T-0444 and tools/measure_west_division_module.py report the same gap."
     }
    },
@@ -14426,11 +14426,11 @@
      -263.47
     ],
     [
-     -29.7,
+     -29.23,
      -264.41
     ],
     [
-     -31.82,
+     -31.72,
      -375.35
     ],
     [
@@ -14438,9 +14438,9 @@
      -374.47
     ]
    ],
-   "area_m2": 12394.7,
-   "frontage_m": 111.71,
-   "frontage_ft": 366.5,
+   "area_m2": 12426.4,
+   "frontage_m": 111.99,
+   "frontage_ft": 367.4,
    "depth_m": 110.96,
    "lots_read_on_the_sheet": 10,
    "subdivision_withheld": "this block prints no dimension that resolves, and a tier-mate's figure is not this block's — see `module.lot_subdivision_withheld`",
@@ -14449,7 +14449,7 @@
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
-    "samples": 496,
+    "samples": 500,
     "off_the_modelled_field": 0,
     "below_datum": 0,
     "min_m": 1.0,

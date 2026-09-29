@@ -1,11 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1220, ts: '2026-09-29T01:56:28.633Z', date: 'Sep 28, 2026, 8:56 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
+  { v: 1222, ts: '2026-09-29T02:49:10.526Z', date: 'Sep 28, 2026, 9:49 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
     items: [
       'Cross the river and walk north to Indiana Street between Wolcott and Cass, and there are buildings on the addition for the first time. Two one-room frame cottages stand back to back across the block alley near its east end \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind the first and a privy behind the second. These are the first roofs anywhere above Michigan Street, on lot lines read off the 1834 survey four builds ago.',
       'Ten of the block\u2019s twelve lots are still open prairie, and that is the whole point. Eleven households have an address on this block and the building programme offers it forty-three roofs, so nothing but a decision stopped at two: the north-side research says the maps show a large platted north side with no buildings on it, and that the addition has to read speculative rather than occupied. Two cottages with open ground on both sides of each is what that looks like.',
       'The families who moved in are not the ones who asked. Households pick a standing house before they ask for one to be built, so the moment these existed the Allin and Almond families \u2014 both waiting on the block to the east \u2014 were the better answer for them. John Baily and Joseph Bailly, whose requests the pair was built against, end up holding addresses on that eastern block instead. Families with somewhere to be: 163 before, 165 now.',
       'The two committed files disagree and the disagreement is now written down. The seating pass wants twenty houses on this addition\u2019s two lotted blocks; the north-side research will not carry twenty. Neither side was quietly adjusted \u2014 the surplus stays on the requested side of the ledger with a ticket against it.',
       'Nothing here is claimed as evidence. No source says a building stood on this block in 1835, which buildings they were, or where on their lots they sat. The block faces, the alley and the ground are committed; the lot lines are a reading of the surveyor\u2019s own rules, and the cottages are the building programme filling a town it can count but cannot name.',
+    ] },
+  { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
+    items: [
+      "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",
+      'The rule that ends this street where a building blocks it was being applied to the line down the middle of the road rather than to the road. A road has a width, so the line can stop short of a building while the roadway still runs through its corner \u2014 which is exactly what had happened. The street now stops 1.17 m earlier, where the ROADWAY clears the building, and the inn is outside it by 0.05 m at the nearest corner.',
+      'Nothing else about the street moved. It still runs the same course at the same distance from the traced 1834 river bank, so its east kerb still reaches the water and does not cross it.',
+      'The tavern still has no signboard. Its GREEN TREE board hung on a post at a corner, the corner needs walks on two streets, and the inn has one \u2014 so the board stays absent, in writing, rather than being hung somewhere no picture of it shows. Getting the corner back is a separate piece of work and is now its own item.',
+    ] },
+  { v: 1220, ts: '2026-09-29T01:18:12.689Z', date: 'Sep 28, 2026, 8:18 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
+    items: [
+      'At /4d/1904/ the ground now has its streets. Prairie, Indiana and Calumet Avenues and 16th to 22nd Streets are laid out as the 1911 fire-insurance maps draw them: 66 feet wide, with 16th Street 50. Behind the houses run the alleys, at the widths the maps print.',
+      'Along every block, from the property line out, come a narrow margin, the sidewalk, a planted strip and the curb, then the roadway. The width of the sidewalk strip and where the walk sits in it follow Chicago’s 1905 street code. The walk’s own width and the curb’s are our reconstruction.',
+      'The lot lines are drawn on both sides of Prairie from 16th to 22nd, 92 lots in all. Aim at the ground and a card shows which lot you are on and the address the 1911 map prints there.',
+      'The Glessner corner lot at 1800 Prairie measures 74.7 feet along the avenue. That settles the 74-or-77 question the house research left open.',
+      'The surfaces are plain placeholder tones for now. What the roadway, curbs and walks were made of is the next piece of work.',
     ] },
   { v: 1219, ts: '2026-09-29T00:26:58.951Z', date: 'Sep 28, 2026, 7:26 PM CT', title: 'The first two houses south of Washington Street', kind: 'change',
     items: [

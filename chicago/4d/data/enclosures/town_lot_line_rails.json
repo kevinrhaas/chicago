@@ -912,11 +912,11 @@
       "id": "side_blk_west_lake_canal_lot0_n",
       "path_local_enu_m": [
         [
-          -104.2,
+          -103.74,
           -121.03
         ],
         [
-          -92.29,
+          -91.81,
           -121.13
         ]
       ],
@@ -941,11 +941,11 @@
       "id": "rear_blk_west_lake_canal_lot0",
       "path_local_enu_m": [
         [
-          -92.29,
+          -91.81,
           -121.13
         ],
         [
-          -91.92,
+          -91.47,
           -144.81
         ]
       ],
@@ -970,11 +970,11 @@
       "id": "side_blk_west_lake_canal_lot0_s",
       "path_local_enu_m": [
         [
-          -104.39,
+          -103.93,
           -144.71
         ],
         [
-          -91.92,
+          -91.47,
           -144.81
         ]
       ],
@@ -5580,7 +5580,7 @@
       "id": "rear_blk_west_lake_canal_lot0_gate",
       "on": "alley",
       "at_local_enu_m": [
-        -92.11,
+        -91.64,
         -132.97
       ],
       "width_m": 3.048,
