@@ -1475,9 +1475,12 @@ def test_the_panel_shows_what_the_spec_grades() -> None:
     check("a block that grades itself under another key is not dropped",
           by_id["channel_profile"]["confidence_key"] == "bed_confidence",
           str(by_id.get("channel_profile")))
-    # A swale's `line` is eleven numbers describing the alignment its own entry
-    # admits is invented. Figures are the spec's; geometry is not a figure.
-    swale = by_id["swales.west_prairie_swale_a"]
+    # A swale's `line` is a polyline describing a course, and a course is not a
+    # figure: figures are the spec's, geometry is not one of them. This used to
+    # read `west_prairie_swale_a`, whose own entry admitted its alignment was
+    # invented; T-1460 retired both west-prairie swales to the record, so the
+    # example is a swale the ground still carries and the assertion is the same.
+    swale = by_id["swales.state_slough_course"]
     check("a claim carries the spec's own figures and not its geometry",
           {f["key"] for f in swale["fields"]} == {"half_width_m", "depth_ft", "dossier_zone"},
           str([f["key"] for f in swale["fields"]]))
