@@ -40,11 +40,11 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 131,
+    "adopted_seats": 133,
     "written": 20,
-    "refused": 73,
+    "refused": 75,
     "owed": 38,
-    "refused_letter_list": 71,
+    "refused_letter_list": 73,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
     "refused_on_the_card": 38,
@@ -644,6 +644,28 @@
       "lot_id": "blk_indiana_north_cass#08",
       "clause": "tradesman_dwellings",
       "family": "D3",
+      "district": "north",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_bailly_joseph",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d4_05",
+      "block_id": "blk_indiana_north_cass",
+      "lot_id": "blk_indiana_north_cass#04",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "north",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_babcock_chas",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d4_06",
+      "block_id": "blk_indiana_north_cass",
+      "lot_id": "blk_indiana_north_cass#05",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
       "district": "north",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false
