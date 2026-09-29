@@ -9,14 +9,14 @@
   "counts": {
     "frontages": 28,
     "objects": 161,
-    "wagons": 75,
+    "wagons": 78,
     "wagons_by_kind": {
-      "farm_box": 21,
-      "covered": 26,
+      "farm_box": 22,
+      "covered": 28,
       "cart": 28
     },
     "wagons_at_street_verges": 69,
-    "wagons_in_yards": 3,
+    "wagons_in_yards": 6,
     "wagon_stands_refused": 42,
     "benches": 1,
     "sheds": 1,
@@ -5215,6 +5215,66 @@
       "slew_steps": 9,
       "clearance_m": 5.55,
       "note": "A farm box wagon standing in western_hotel_wagon_yard, whose own record calls the ground inside it worn earth — a WORKING yard (T-0067), which is the only fenced ground on this layer a wagon is allowed on. The stand is searched, not chosen: a 0.50 m lattice over the yard's own interior ring, openest first, keeping only points whose least clearance to every committed wall and every fence line of this yard is at least 1.60 m — 5.55 m here — and whose ground, pole included, is clear of every wagon already standing. The bearing is the yard's own long axis, turned end for end at every second wagon the way a yard full of them stands, and then slewed 3.8 degrees off it — dealt from this wagon's own id inside an envelope of 15 degrees, the widest on this layer because a yard has no road to line a wagon up on (docs/LIBERTIES.md L230). THE TEAM IS NOT DRAWN: the wagon is unhitched, tongue down and yoke laid by on the ground. Invented entirely — docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_wolf_point_tavern_yard_1",
+      "kind": "covered",
+      "in_enclosure": "wolf_point_tavern_yard",
+      "belongs_to": null,
+      "tilt": true,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -90.5,
+        -39.5
+      ],
+      "bearing_deg": 356.2,
+      "drawn_up": "along the yard's long axis",
+      "slew_deg": -3.8,
+      "slew_envelope_deg": 15.0,
+      "slew_steps": 9,
+      "clearance_m": 6.13,
+      "note": "A covered emigrant wagon standing in wolf_point_tavern_yard, whose own record calls the ground inside it worn earth — a WORKING yard (T-0067), which is the only fenced ground on this layer a wagon is allowed on. The stand is searched, not chosen: a 0.50 m lattice over the yard's own interior ring, openest first, keeping only points whose least clearance to every committed wall and every fence line of this yard is at least 1.60 m — 6.13 m here — and whose ground, pole included, is clear of every wagon already standing. The bearing is the yard's own long axis, turned end for end at every second wagon the way a yard full of them stands, and then slewed 3.8 degrees off it — dealt from this wagon's own id inside an envelope of 15 degrees, the widest on this layer because a yard has no road to line a wagon up on (docs/LIBERTIES.md L230). THE TEAM IS NOT DRAWN: the wagon is unhitched, tongue down and yoke laid by on the ground. Invented entirely — docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_wolf_point_tavern_yard_2",
+      "kind": "farm_box",
+      "in_enclosure": "wolf_point_tavern_yard",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -86.5,
+        -39.0
+      ],
+      "bearing_deg": 191.2,
+      "drawn_up": "along the yard's long axis",
+      "slew_deg": 11.2,
+      "slew_envelope_deg": 15.0,
+      "slew_steps": 9,
+      "clearance_m": 5.9,
+      "note": "A farm box wagon standing in wolf_point_tavern_yard, whose own record calls the ground inside it worn earth — a WORKING yard (T-0067), which is the only fenced ground on this layer a wagon is allowed on. The stand is searched, not chosen: a 0.50 m lattice over the yard's own interior ring, openest first, keeping only points whose least clearance to every committed wall and every fence line of this yard is at least 1.60 m — 5.90 m here — and whose ground, pole included, is clear of every wagon already standing. The bearing is the yard's own long axis, turned end for end at every second wagon the way a yard full of them stands, and then slewed 11.2 degrees off it — dealt from this wagon's own id inside an envelope of 15 degrees, the widest on this layer because a yard has no road to line a wagon up on (docs/LIBERTIES.md L230). THE TEAM IS NOT DRAWN: the wagon is unhitched, tongue down and yoke laid by on the ground. Invented entirely — docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_wolf_point_tavern_yard_3",
+      "kind": "covered",
+      "in_enclosure": "wolf_point_tavern_yard",
+      "belongs_to": null,
+      "tilt": true,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -92.5,
+        -49.5
+      ],
+      "bearing_deg": 7.5,
+      "drawn_up": "along the yard's long axis",
+      "slew_deg": 7.5,
+      "slew_envelope_deg": 15.0,
+      "slew_steps": 9,
+      "clearance_m": 4.5,
+      "note": "A covered emigrant wagon standing in wolf_point_tavern_yard, whose own record calls the ground inside it worn earth — a WORKING yard (T-0067), which is the only fenced ground on this layer a wagon is allowed on. The stand is searched, not chosen: a 0.50 m lattice over the yard's own interior ring, openest first, keeping only points whose least clearance to every committed wall and every fence line of this yard is at least 1.60 m — 4.50 m here — and whose ground, pole included, is clear of every wagon already standing. The bearing is the yard's own long axis, turned end for end at every second wagon the way a yard full of them stands, and then slewed 7.5 degrees off it — dealt from this wagon's own id inside an envelope of 15 degrees, the widest on this layer because a yard has no road to line a wagon up on (docs/LIBERTIES.md L230). THE TEAM IS NOT DRAWN: the wagon is unhitched, tongue down and yoke laid by on the ground. Invented entirely — docs/LIBERTIES.md L162."
     }
   ],
   "benches": [

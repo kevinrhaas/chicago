@@ -1,0 +1,120 @@
+{
+  "id": "wolf_point_tavern_yard",
+  "name": "The Wolf Point Tavern's yard",
+  "aka": [
+    "the yard behind the Wolf Tavern",
+    "Walters's stable yard"
+  ],
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "belongs_to": [
+    "wolf_point_tavern",
+    "wolf_point_tavern_stable"
+  ],
+  "documented_range": {
+    "from": "1831-04-13",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_wolf_point"
+    ],
+    "note": "COPIED FROM THE STABLE, WHICH IS THE BUILDING THIS GROUND SERVES, and the start date is the one document the whole record rests on rather than the building's own. 13 April 1831 is the special term of the Cook County Court of County Commissioners at which Elijah Wentworth was granted one of the county's first two tavern licences and the court set the rates a licensed house might charge (Andreas, scan p. 249) — the day on which keeping a horse overnight became a priced service of this house. The end is data/sidecars/1835/wolf_point_tavern_stable.json's own: the last date this record needs to claim, closed at the end of the scene year rather than run on speculatively. NO SOURCE DATES THIS GROUND, and none dates the stable either; the range is the service's, and the yard is taken to be contemporary with the stable it lies in front of, which is the same step data/enclosures/western_hotel_wagon_yard.json and data/enclosures/sauganash_yard.json both take from their own buildings and state in the same words."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "NOTHING SAYS THIS YARD WAS FENCED AND THE FENCE IS NOT WHAT THIS RECORD IS FOR. What is documented is a priced service — the 13 April 1831 schedule reads 'For each horse fed 25' and 'Keeping horse one night 50', against 'Lodging for each man per night 12 1/2' — and data/structures/wolf_point_tavern_stable.json already draws the building that service implies, grading it inferred and saying in as many words what it does not prove: 'a horse can be kept at a picket line, in a fenced lot, or in a lean-to against the tavern itself, and none of those is what this record draws'. THE THREE ALTERNATIVES IT NAMES ALL NEED THE SAME THING, which the model does not have: GROUND. A stable standing in open prairie is a horse loose on the prairie by morning. So this record draws the enclosed ground the priced service needs, between the house and the stable already committed behind it, and grades its existence inferred — one step further from the source than the stable, and no further than that. The fence type, its height, its rhythm and the gateway are each graded below this line and every one of them is invented."
+  },
+  "runs": [
+    {
+      "id": "north_and_west",
+      "path_local_enu_m": [
+        [-84.3, -33.1],
+        [-97.0, -33.1],
+        [-97.0, -54.0]
+      ],
+      "note": "NOT ONE COORDINATE ON THIS RUN IS NEW, which is the whole reason the record is worth making. It leaves the tavern's own north-west corner (data/sidecars/1835/wolf_point_tavern.json: origin -77.30 / -45.10, facade bearing 90, 12 x 7 m, so the landward wall stands at E -84.30 and the north gable at N -33.10), runs west along that gable's line to the stable's west wall line, and turns south down it to the stable's north-west corner (data/sidecars/1835/wolf_point_tavern_stable.json: origin -97.00 / -60.00, no rotation, 9 x 6 m, so its north face is N -54.00 and its west wall E -97.00). Both ends are committed building corners and the two straight legs stand on committed wall lines extended — the north leg on the tavern's north gable, the west leg on the stable's west wall. THE YARD'S SHAPE IS THEREFORE DERIVED FROM TWO BUILDINGS THIS PROJECT HAD ALREADY PLACED, not drawn round them; what it inherits with them is their placement, which docs/LIBERTIES.md records as Wolf Point buildings placed on relative descriptions rather than on a map, and the stable's own note calls its offset from the tavern invention. Move either building and this fence moves with it."
+    },
+    {
+      "id": "south_return",
+      "path_local_enu_m": [
+        [-88.0, -54.0],
+        [-88.0, -45.1],
+        [-84.3, -45.1]
+      ],
+      "note": "The short return that closes the yard between the stable and the tavern, on the same terms as the run above: it leaves the stable's north-east corner (-88.00 / -54.00), runs north on the stable's east wall line to the tavern's south wall line (N -45.10, the tavern's own south end), and turns east 3.7 m to the tavern's south-west corner (-84.30 / -45.10). Two committed corners, two committed wall lines, no new number. THE FOURTH SIDE OF THIS YARD IS BUILDINGS — the tavern closes the east, the stable closes the south-west — which is why the fence is two runs and not a ring, and it is the same arrangement data/enclosures/western_hotel_wagon_yard.json and data/enclosures/sauganash_yard.json both record at their own houses."
+    }
+  ],
+  "openings": [
+    {
+      "id": "gable_gate",
+      "on": "yard",
+      "at_local_enu_m": [-86.5, -33.1],
+      "width_m": 3.66,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND NOT ATTESTED IN ANY DEGREE — unlike the Western Hotel's two gateways, where a source says 'There were entrances to the yard from both streets'. Nothing of the kind is said here. What bounds it is the same thing that bounds the Sauganash's back gate: a fence with no opening encloses a yard nobody can enter, and a house whose stable is inside that fence could not have had one. WHERE it stands is argued from the two buildings rather than chosen freely. The tavern's front door is on the river side, facing east; a horse handed over at the door is led round one gable or the other; and the north gable is the one this yard's fence actually meets. So the gateway is set in the north run, 2.2 m west of the tavern's north-west corner, leaving 0.37 m of fence between the gate post and the building — a horse's width clear of the wall and no more. 3.66 m is 12 ft, recorded converted per data/datum.json's units rule: wide enough to lead a horse or back a cart through, and deliberately narrower than the Western Hotel's attested 14 ft team gateway, because that yard took wagon trains off two streets and this one takes the custom of a tavern reached mainly by water and by the Lake Street crossing. NOTHING STATES A WIDTH, A LEAF, A POST OR A FASTENING, and no second opening is drawn because nothing needs one and a second would be twice the invention."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "post_and_rail",
+      "confidence": "reconstructed",
+      "note": "INVENTED, and taken from data/enclosures/western_hotel_wagon_yard.json rather than reasoned out again, because nothing distinguishes the two cases and a second fence kind invented here would read as a finding about this house. The argument there holds here in full: a worm rail fence is a field enclosure that eats three to four metres of ground either side of its line and there is not room for it between a tavern and its stable; a close-boarded fence makes the yard a room and wants sawn boards by the hundred, which is the wrong material at a log house on the west bank in 1831; post-and-rail is the standard town-lot enclosure of the period and it is open and horizontal, so a visitor sees the yard through it, which is honest about how little of it is known."
+    },
+    "height_m": {
+      "value": 1.37,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 1.37 m is 4 ft 6 in, recorded converted, and it is the Western Hotel's yard figure for the Western Hotel's yard reason: the bound is the use, a yard fence has to turn a hitched team away from the line and keep loose stock off the ground, and it does not have to hold a horse that has decided to leave. Nothing attests a height here, and inventing a different one would claim a distinction this record cannot support."
+    },
+    "rail_courses": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and coupled to height_m rather than chosen separately — three rails is what fills 4 ft 6 in at a spacing a beast will not walk through. Nothing attests a course count."
+    },
+    "post_spacing_m": {
+      "value": 2.9,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 2.9 m is about 9 ft 6 in, the span a split or sawn rail of the period is cut to carry. Nothing attests it. It is a rhythm, not a measurement."
+    },
+    "post_size_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED. A 0.14 m square post is a 5-1/2 inch stick, the section both existing yard records state, because nothing distinguishes them and a third number would read as evidence."
+    }
+  },
+  "ground": {
+    "value": "bare, hoof-worn earth",
+    "confidence": "reconstructed",
+    "geometry": "drawn",
+    "treatment": "worn_earth",
+    "interior_local_enu_m": [
+      [-84.3, -33.1],
+      [-97.0, -33.1],
+      [-97.0, -54.0],
+      [-88.0, -54.0],
+      [-88.0, -45.1],
+      [-84.3, -45.1]
+    ],
+    "note": "NOTHING STATES THE SURFACE OF THIS GROUND — not what it was worn to, not whether any of it was gravelled, planked or plain mud — so the treatment is graded reconstructed and it disappears with the rest of that tier. `worn_earth` is read off the use the way docs/LIBERTIES.md L158 sets out: this is the ground a horse is led across to a stable door every night the house has custom, and the owner's ruling of 2026-08-18 on the Western Hotel's yard ('the wagon yard would probably be dirty dusty ground') is about ground under hooves and wheels, which is what this is. THE INTERIOR IS AUTHORED RATHER THAN DERIVED FROM THE RUNS, and it has to be, because this yard's fourth side is buildings: the ring walks the tavern's north gable west to the stable's west wall line, south to the stable's north-west corner, east along the stable's north face to its north-east corner, north up its east wall line to the tavern's south wall line, and east to the tavern's south-west corner, closing back up the tavern's landward wall. Every vertex is a committed building corner or the meeting of two committed wall lines; the ring encloses neither building."
+  },
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "A. T. Andreas, History of Chicago, vol. 1, scan p. 249: the special term of the Cook County Court of County Commissioners at Chicago, 13 April 1831 — the first two tavern licences, to Elijah Wentworth and Samuel Miller, and the schedule of rates allowed to tavern keepers, including 'For each horse fed 25' and 'Keeping horse one night 50'.",
+      "tier": 3,
+      "tier_label": "nineteenth-century compiled history quoting a court record"
+    },
+    {
+      "source_id": "drloih_wolf_point",
+      "citation": "Dr Loih, Wolf Point: the operator succession of the Wolf Point Tavern — Archibald Caldwell for James Kinzie by 1829, Elijah Wentworth from early 1830, Charles Taylor 1831-1833, William Walters 1833-1836.",
+      "tier": 4,
+      "tier_label": "modern compilation of recollection"
+    }
+  ],
+  "research_note": "THE STABLE HAS STOOD IN NOTHING SINCE IT WAS BUILT, and this record is the ground under it. data/structures/wolf_point_tavern_stable.json is inferred from a priced service and says plainly that the service could have been answered by 'a picket line, a fenced lot, or a lean-to' — three readings that share an enclosure and differ only in what stands inside it. The model chose the building and left the enclosure out, so the one thing all three readings agree on is the one thing that reached no vertex. That is the same fault docs/LIBERTIES.md L10 named at the Western Hotel, in the same words, before data/enclosures/western_hotel_wagon_yard.json existed. WHAT IS CARRIED OVER AND WHAT IS NOT: the Western's yard has an attested sentence about its yard and its entrances and this one has none, so every grade here is one rung lower — existence inferred rather than attested, the gateway reconstructed rather than attested-in-position-only. WHAT WOULD UPGRADE IT: Andreas's 'Wharfs, Piers and Early Hotels' at scan pp. 626-631 read at page-image level, which the stable's own note already calls this project's standing highest-value unopened source for the Wolf Point group; the reported 1835 painting showing the Wolf Tavern, Miller's house and Walker's cabin in one view, if it shows the back of the house; or any Chicago or Cook County fence ordinance of the 1830s, which would settle height and courses at a stroke for every record on this layer."
+}
