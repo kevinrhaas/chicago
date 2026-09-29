@@ -424,11 +424,30 @@ STRUCTURE_TICKETS = {
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
     ("west", "ordinary_dwellings"): "T-1208",
-    ("west", "stores_mixed_use"): "T-1207",
+    # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
+    # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
+    # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
+    # split — "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
+    # split", and the same for workshops (3) and warehouses_freight (1) — and it blocked every
+    # branch open on this repo at the time, not only the one that split the ticket.
+    #   stores_mixed_use and workshops -> T-1763, which names their remainder outright: "the
+    #     grocery and blacksmith the memo seats on the Canal Street approach". Those two are
+    #     the two left in stores and the works trade on that approach.
+    #   inns_taverns -> T-1762, "the named Wolf Point taverns' and the Miller house's yards".
+    #     This row has 0 left and the gate was therefore silent about it; it is swept anyway,
+    #     because a row pointing at a split ticket is wrong whether or not it currently orders
+    #     anything, and the next roof drawn against it would find nobody to claim it.
+    #   warehouses_freight -> T-1764, AND THIS ONE IS THE JUDGEMENT CALL OF THE FOUR. No child
+    #     names freight in its title. T-1763 is the approach's own furniture and T-1764 is the
+    #     closer — "the pre-plat West roofs reconciled, the refusals resolved" — so the single
+    #     remaining freight roof goes to the child that reconciles what the others leave. If
+    #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
+    #     building it out of place.
+    ("west", "stores_mixed_use"): "T-1763",
     ("west", "larger_boarding_houses"): "T-1209",
-    ("west", "inns_taverns"): "T-1207",
-    ("west", "workshops"): "T-1207",
-    ("west", "warehouses_freight"): "T-1207",
+    ("west", "inns_taverns"): "T-1762",
+    ("west", "workshops"): "T-1763",
+    ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
@@ -4599,7 +4618,7 @@ def cmd_self_test() -> int:
     # two Beaubien households, hh_carpenter_nathaniel, hh_carter_j and hh_cary_junis_a_or_j_r)
     # go back on the owed list, and the seven that scored highest under the clause order (the
     # two Aspams, the two Ballards, hh_beaubien_charles, hh_beeson_william and hh_brink_john)
-    # move in. That is the T-1622 precedence a fourth time, and it is recorded in L301. Read
+    # move in. That is the T-1622 precedence a fifth time, and it is recorded in L303. Read
     # at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249

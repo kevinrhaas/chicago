@@ -10830,9 +10830,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 83 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 87 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 83 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 87 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10842,7 +10842,10 @@ records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four ro
 ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie
 on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal
 commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's
-second deal on the same block, which reaches the same tract by the same construction). The construction is
+second deal on the same block, which reaches the same tract by the same construction; and 83
+to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside
+the same north fraction, which reach the register for the same reason and change nothing about
+how). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -10870,16 +10873,18 @@ tract line than that drops to `reconstructed`, and the metres are printed on the
 the 69 stand at the bottom tier**, and mostly not for geometry: 44 of them are roofs a recipe
 dealt to a lot, and nothing on an invented structure may outrank the invention that put it
 there — the tract is real, but the claim that THIS roof stands on it is the recipe's.
-Re-measured 2026-09-29 with T-1747's four and T-1756's four in the file: **60 of the 83 stand
-at the bottom tier, 48 of them roofs a recipe dealt to a lot**, and the eight new ones are all
-eight of both counts. THE TWO DEALS ARE AT THE BOTTOM FOR DIFFERENT REASONS, AND THAT IS WORTH
-SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m, 64.8 m and 67.1 m inside the
-tract boundary, which on a documented building would carry the middle tier, so they are held at
-the bottom for the invention under them and not for their geometry. T-1756's four stand on lots
-four lots further west — 28.4 m, 30.3 m, 31.6 m and 36.8 m — and every one of those is inside
-the 40 m the middle tier asks for, so they would be held at the bottom by the ordinary geometric
-rule even if nothing about them were invented. Both readings are the register's; neither is the
-other's evidence. Three of
+Re-measured 2026-09-29 with T-1747's four, T-1756's four and T-1753's four in the file:
+**64 of the 87 stand at the bottom tier, 52 of them roofs a recipe dealt to a lot**, and the
+twelve new ones are all twelve of both counts. THE THREE DEALS ARE AT THE BOTTOM FOR DIFFERENT
+REASONS, AND THAT IS WORTH SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m,
+64.8 m and 67.1 m inside the tract boundary, which on a documented building would carry the
+middle tier, so they are held at the bottom for the invention under them and not for their
+geometry. T-1756's four stand on lots four lots further west — 28.4 m, 30.3 m, 31.6 m and
+36.8 m — and every one of those is inside the 40 m the middle tier asks for, so they would be
+held at the bottom by the ordinary geometric rule even if nothing about them were invented.
+T-1753's four are the far case: on the next cell east across Cass Street they stand 172 m,
+178 m, 171 m and 168 m inside the boundary — hundreds of metres clear of it — so like T-1747's they are held at the bottom for the invention rather than for
+the geometry. All three readings are the register's; none is another's evidence. Three of
 the remaining seven are the fort's own service buildings, added 2026-09-06 by T-0883, and they
 are at the bottom tier for the ordinary geometric reason rather than for an invention behind
 them: the wash house stands 12.9 m from a tract line and the shop 39.1 m, both inside the 40 m
@@ -14112,7 +14117,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 465 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 469 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14137,12 +14142,14 @@ four archetypes T-1747 raised there and shingled by the same exposure. T-1735's 
 `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the
 south-west block of that same tier, every one of them shingled — so the tier has now taken
 this exposure onto three of its blocks in three days and the two elevens are the largest
-additions this entry has had. T-1751's
-deal on `blk_washington_franklin` makes 465, and it is the largest single move this count has
-taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house,
-a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage
-shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and
-thirteen more the exposure reaches. No record's
+additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**,
+the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across
+Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a
+new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest
+single move this count has taken from one parcel: seven dwellings — two small two-story frame
+houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages —
+with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs
+that each state a roof type and thirteen more the exposure reaches. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -14643,13 +14650,13 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 129 of the 177 seats are
+roof of a family its clause admits, on a lot of its own division; 131 of the 177 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **48 of the 177 are that: 26 on the plat's last tier** (T-1707,
+sizing keeps open; **46 of the 177 are that: 26 on the plat's last tier** (T-1707,
 2026-09-28, T-1736, L298 and L300 below), **4 west of the river on ground the plat always drew
-and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 18 on
+and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 16 on
 Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
@@ -15394,16 +15401,7 @@ which are inside this pass's districts, and onto a Washington-tier block which i
 South Water roofs are still adopted, by the two households the cascade moved up behind them,
 and both of those are letter-list names this pass already refuses; so the two keepers are
 not refused, they are OWED, and the owed count goes 23 to 25 as the written count goes 23 to
-21.
-
-**And it is 22 since T-1751, with 67 refused and 31 owed, by the same mechanism running the
-other way.** That ticket built thirteen roofs on blk_washington_franklin (**L295**) and the
-cascade re-dealt the whole South Division; one more household inside this pass's districts
-ended on a roof whose name the rule admits, so one more keeper is written. Two of the seven
-households that took the new Franklin roofs are the same Beaubiens the paragraph above followed
-off South Water, and they are on the Washington tier still — outside this pass's districts, so
-still owed rather than refused. The naming rule did not move and no name went to a roof it was
-not dealt. Nothing about the naming rule changed and no name moved to a roof it was not dealt: the
+21. Nothing about the naming rule changed and no name moved to a roof it was not dealt: the
 seats moved and the district boundary of this pass did not follow them.
 
 **And T-1735 cost one more, the same way and on the same tier.** Eleven roofs on
@@ -16535,10 +16533,11 @@ memo itself comes closest to, and the reason only four principal roofs stand her
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
 **L100** and the other block entries of this row, **L263** (the shingle exposure all eight
 take), **L219** (the constructed section grid all eight stand on), **L270** (the platted deal
-this block answers), **L292** (the same shape of deal on the plat's last tier), **T-1741** (the
-lot lines), **T-1747** (the first deal, the first piece of **T-1742**), **T-1756** (the second
-deal, the first piece of the split **T-1754**), **T-1757** (the further cass lots and the
-Rush-Pine fringe), **T-1746** (the disagreement).
+this block answers), **L292** (the same shape of deal on the plat's last tier), **L302** (the
+next cell east, dealt the same way), **T-1741** (the lot lines), **T-1747** (the first deal,
+the first piece of **T-1742**), **T-1756** (the second deal, the first piece of the split
+**T-1754**), **T-1757** (the further cass lots and the Rush-Pine fringe), **T-1746** (the
+disagreement).
 **Recorded:** 2026-09-29. **Extended:** 2026-09-29 for T-1756's second deal.
 
 ### L295 — The Glessner House, 1904: what the drawings, the 1888 plate and the HABS photographs leave for us to choose
@@ -16786,7 +16785,9 @@ alley and courtyard heights, a dated photograph between 1888 and 1923 for the co
 **Covers:** `glessner_house.as_built_1887.form.granite_tint`, `glessner_house.as_built_1887.form.brick_tint`, `glessner_house.as_built_1887.form.trim_tint`, `glessner_house.as_built_1887.form.roof_tint`, `glessner_house.as_built_1887.form.copper_tint`, `glessner_house.as_built_1887.form.wood_tint`, `glessner_house.as_built_1887.form.dormer_depth`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.gable_west_wing_south`, `glessner_house.as_built_1887.form.openings_stable_doors`, `glessner_house.as_built_1887.form.openings_court_north`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.eave_cornice`, `glessner_house.as_built_1887.form.courtyard_gate_heights`, `glessner_house.as_built_1887.form.courtyard_ground`, `glessner_house.as_built_1887.form.vines`, `glessner_house.as_built_1887.form.porte_cochere_doors`, `glessner_house.as_built_1887.form.front_door`
 **Related:** **L295** (the default's liberties), `docs/RESEARCH/glessner_house_1904.md` § 14,
 **T-1730**, **T-1732**, **T-1731**, **T-0475**.
+
 **Recorded:** 2026-09-29.
+
 
 ### L300 — The plat's last tier gets a third block: eleven invented roofs on `blk_washington_lasalle`, dealt against seven households that asked for them by name
 **Decision:** `blk_washington_lasalle` — the block bounded by Washington, Clark, Madison and
@@ -16862,7 +16863,151 @@ requests this block re-took), **L263** (the shingle exposure all eleven take), *
 **T-1707** (the street control that emitted the tier).
 **Recorded:** 2026-09-29.
 
-### L301 — Seven invented dwellings on the plat's last tier, and the six yard buildings dealt up the household scale
+### L301 — The Glessner House, version v3: an independent reading of the same drawings, plate and photographs
+**Decision:** `data/structures/versions/glessner_house/v3.json` (T-1730) is a second, independent
+build of 1800 Prairie Avenue, from the same source set the default (**L295**, T-1732) reads —
+HABS IL-1015, the February 1888 *Inland Architect* plate, Sanborn 1911 sheet 28, the HABS
+photographs (PR #169) and the Houghton Richardson drawings (PR #171) — built without copying the
+default's geometry. Every attested figure (the footprint, the main ranges' eaves and ridges, the
+chimneys' measured N-S sizes and tops, the door and window tables, the materials as described) is
+read the same way the default reads it, because those are direct measurements and changing them
+would misrepresent the evidence rather than diverge from it. Where the sources leave a genuine
+choice — everything this record tiers `inferred` or `reconstructed` — v3 makes its own:
+
+- **The granite's colour is read toward the museum's own name.** T-1731 section 9 and L295 both
+  carry the stone-name disagreement UNRESOLVED: "Wellesley granite" (Glessner 1923; HABS 1963,
+  grey) against "Braggville pink granite" (the museum, Prairie library dossier G02). The default
+  leans grey; v3 leans pink, on the same monochrome 1888 plate lifted the other defensible
+  direction. The courtyard brick, trim, roof tile, copper and oak tints are each independently
+  reconstructed alongside it.
+- **The stable's roof is kept symmetric on the wing's own centreline (W 143.5)**, not shifted to
+  the carriage doorway's axis (W 141): v3 reads the same single oblique 1963 photograph (HABS
+  photograph 1) more cautiously — a roofline does not have to track the doorway below it — and
+  keeps T-1731's original centred reading, at the same `inferred` grade the default uses for its
+  own reading of that photograph, bounded the same way (36.6-54.5 degrees). The stable's south
+  gable and ridge turret follow from the same symmetric reading.
+- **The north tower's plan** (a smaller 6.5-ft-radius drum, its base tied to the north range's own
+  attested second-floor level, 17.4 ft, rather than an unremarked 20.0 ft) — its attested heights
+  (eave 32.9, apex 43.9 ft, sheet 4) are unchanged.
+- **The four chimneys' E-W depth** (3.4 ft rather than 4 ft) and **the great chimney's position**,
+  read at the other end of T-1731's own open band (W 30-45): v3 centres it at W 34, the default at
+  W 40. Their attested N-S sizes and tops are unchanged.
+- **The courtyard dormers' depth**, **the hall bow's roof rise**, and **the courtyard gate's
+  heights** — each independently reconstructed within the same bounds the default uses.
+- **The north range's courtyard-face windows** (T-1731 GAP 5, wholly reconstructed either way): v3
+  reads Glessner's own description of the 18th Street corridor windows as "narrow ... just enough
+  to light the narrow corridors" and carries that character to the same range's courtyard face —
+  six narrower openings, thinned at the second floor — rather than the default's seven bays of
+  paired room-sized windows.
+- **The courtyard ground**: the same c. 1923 HABS photograph 5 read toward a fresher lawn and a
+  more direct, paler carriage drive than the default's greyer, more jogged one.
+
+**What bounds them.** The same bounds L295 states for the default: every invented height sits
+between measured ones on the same building, every invented plan position sits inside a band a
+drawing or a print fixes, and colours stay within the material each is attested to be. v3 differs
+in WHERE inside those bounds it lands, not in what the bounds are.
+
+**Consequence:** the compare URL
+`/4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3` shows a house with the
+same measured bones as the default and a visibly different roofscape, tower, chimneys and colour —
+which is the comparison T-1730 exists for.
+
+**How to resolve:** the same evidence that would resolve L295 resolves this: a colour photograph
+or sample for the tints; the Houghton drawings not yet seen (the roof plan and courtyard
+elevations) for the tower's plan, the stable roof, the dormers' depth and the chimneys' plans; the
+HABS field notes FN-128 and the remaining photogrammetric plates for the courtyard-face heights;
+any dated photograph between 1888 and 1923 for the courtyard ground.
+
+**Covers:** `glessner_house.as_built_1887.form.granite_tint`, `glessner_house.as_built_1887.form.brick_tint`, `glessner_house.as_built_1887.form.trim_tint`, `glessner_house.as_built_1887.form.roof_tint`, `glessner_house.as_built_1887.form.copper_tint`, `glessner_house.as_built_1887.form.wood_tint`, `glessner_house.as_built_1887.form.gable_west_wing_south`, `glessner_house.as_built_1887.form.tower_north_plan`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_plans`, `glessner_house.as_built_1887.form.dormer_depth`, `glessner_house.as_built_1887.form.hall_bow_roof`, `glessner_house.as_built_1887.form.openings_court_north`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.eave_cornice`, `glessner_house.as_built_1887.form.courtyard_gate_heights`, `glessner_house.as_built_1887.form.courtyard_ground`
+**Related:** **L295** (the default this compares against, and the fuller account of what the
+sources leave open), `docs/RESEARCH/glessner_house_1904.md`,
+`data/research/glessner_house_1904_spec.json`, **T-1731**, **T-1730**, **T-1732**.
+**Recorded:** 2026-09-29.
+
+
+### L302 — Two more invented cottages in Kinzie's Addition, and a set-out moved so two blocks do not read as one street
+
+**Decision:** `blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
+immediately east of **L294**'s, and standing empty until now — carries **four anonymous
+roofs**: two of the single-room frame cottages the 665-roof programme's schedule apportions
+it, on lots 8 and 9 back to back across the block alley, with a privy and a woodshed off that
+alley behind them, one to a lot. The family mix and the ceiling are the schedule's;
+**everything below that is invented** — that any building stood on this block in July 1835,
+which buildings they were, that they were dwellings, which lot each stands on, how far back
+from its street edge it sits and how far to one side of its lot. No coordinate is authored:
+every metre is read off the committed lot polygon by `tools/generate_block_infill.py` from the
+recipe entry in `data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why two and not eleven is the same answer L294 gave, and it is still the memo.**
+T-1522's placement pass wrote ELEVEN slot requests against this block and the schedule offers
+it 43 roofs of headroom, so neither the seating nor the programme is what stopped at two. The
+binding constraint is `docs/RESEARCH/1835_north_division_extent_and_infill.md`, this project's
+committed reading of what the North Division looked like in July 1835: the primary maps
+establish a substantially larger PLATTED north side and show no buildings on it, so the build
+must leave "most legal frontage empty" and keep "the outer addition visibly speculative rather
+than being mistaken for an occupied city". Eleven roofs on twelve lots is the occupied city
+that memo refuses. Ten of the block's twelve lots are named open with a reason each, and 16 of
+the 20 roofs its schedule apportions stay unbuilt. **T-1746** still carries the disagreement
+between the twenty roofs the seating asks of this addition's two subdivided blocks and the
+memo that will not carry twenty; this deal neither builds the surplus nor withdraws it.
+
+**THE ONE THING HERE THAT IS NOT A REPEAT OF L294 IS THE SET-OUT, AND IT IS A LIBERTY IN ITS
+OWN RIGHT.** The wolcott block's two cottages stand 6.0 m back from Indiana and 5.0 m from
+Illinois; these stand 5.5 m and 6.5 m, the deeper one on the opposite face. **Nothing states
+any of the four numbers**, and nothing states the difference between them either — it is
+chosen, and chosen for a reason the memo gives: frontage on this side of the river "alternates
+between roof and open yard" with no continuous street wall, and two adjacent blocks set out to
+one pattern would read across Cass Street as a single line of houses, which is the one thing
+that reading refuses. So the invention is not that the numbers are invented — every set-out on
+this row is — but that a VISIBLE regularity was deliberately broken. A later reader is
+entitled to know the irregularity is ours and not a finding.
+
+**Both households that asked took the roofs raised for them, which is the other way round from
+next door.** The adoption step runs before the slot step, so both new roofs entered the seating
+pass as standing roofs an admitted clause could adopt; on `blk_indiana_north_wolcott` two
+unrelated households reached them first and the two requests that deal was sized against moved
+one block west onto its new roofs. Here `hh_avery_charles` — whose request stood on lot 8 —
+took the lot 8 cottage, and `hh_arquette_michel`, whose request stood on lot 9, took the lot 9
+one. **That is the pass's ordering and not a promise**: the same precedence produced the
+opposite result one block west on the same day, and **T-1626** carries the question of whether a
+roof raised in answer to a slot should be reserved for the household that asked. Nothing here
+answers it.
+
+**The two names moved once while this deal waited, and that is worth recording rather than
+quietly restating.** When this block's deal was first written, the requests on lots 8 and 9 were
+`hh_andrews_davi`'s and `hh_anderson_eli_f`'s, and the entry said so. **T-1756** then raised two
+more cottages one block west, those two households adopted them — they were the better answer
+under the same precedence — and the lot 8 and lot 9 requests passed to the Avery and Arquette
+households, who are the ones standing here. Nothing about the buildings changed; which invented
+household the seating pass hands each one to is not a finding about 1835 and must not be read
+as one.
+
+**Both faces of this block are unworn prairie, as next door.** Indiana Street and Illinois
+Street are graded `none` in the committed street hierarchy — no through movement is modelled on
+either — so the face rule that ranks dwellings by street class has nothing to separate the two
+requests. A dwelling is not a shop; the face-value clause that would refuse a roof on an unworn
+street reaches only the trade letters.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Indiana and Illinois, Cass and Rush, and a transcription of Wright's lot numerals
+for the Addition. A named discovery substitutes for a compatible anonymous roof and never
+increases the total. Any evidence that Kinzie's Addition was still wholly unbuilt in July 1835
+would retire all four of these rather than re-place them — the reading the memo itself comes
+closest to, and the reason only two principal roofs stand here. A block-level order or any
+source on setbacks in the Addition would replace the four set-out numbers outright.
+
+**Covers:** `recon_1835_blk_indiana_north_cass_*.inferred_1835.position`,
+`recon_1835_blk_indiana_north_cass_*.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L263** (the shingle exposure all four
+take), **L219** (the section grid that tells these four who entered their ground), **L270**
+(the platted deal this block answers), **L294** (the same deal on the next cell west, and the
+set-out this one moves away from), **T-1741** (the lot lines), **T-1753** (this deal, the
+first piece of **T-1748**), **T-1754** (the rest of the north tier), **T-1746** (the
+disagreement), **T-1626** (the precedence).
+**Recorded:** 2026-09-29.
+
+### L303 — Seven invented dwellings on the plat's last tier, and the six yard buildings dealt up the household scale
 
 **Decision:** `blk_washington_franklin` — bounded by Washington, Wells, Madison and Franklin,
 and standing empty until now — carries **thirteen anonymous roofs**: seven dwellings, one to a
