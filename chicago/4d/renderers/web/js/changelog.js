@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
+  { v: 1218, ts: '2026-09-28T23:55:16.150Z', date: 'Sep 28, 2026, 6:55 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
     items: [
       'At /4d/1904/ the ground now has its streets. Prairie, Indiana and Calumet Avenues and 16th to 22nd Streets are laid out as the 1911 fire-insurance maps draw them: 66 feet wide, with 16th Street 50. Behind the houses run the alleys, at the widths the maps print.',
       'Along every block, from the property line out, come a narrow margin, the sidewalk, a planted strip and the curb, then the roadway. The width of the sidewalk strip and where the walk sits in it follow Chicago’s 1905 street code. The walk’s own width and the curb’s are our reconstruction.',
