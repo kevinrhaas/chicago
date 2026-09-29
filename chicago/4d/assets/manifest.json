@@ -1107,6 +1107,42 @@
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
     },
+    "recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29236,
+      "inputs_sha256": "b646231c9c1a87aa44fe36ca07d6fab008e52ff18f4c8127d8fd2aec58140a08",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a3_03"
+    },
+    "recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 56396,
+      "inputs_sha256": "b754f5d51b123f629a779badf491427d45c5d9db656407a4d2ec79f32148955d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a4_04"
+    },
+    "recon_1835_blk_indiana_north_cass_d3_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 28956,
+      "inputs_sha256": "2ffb95a8750b3e6a59ece8db60ad388164181eb58191d57b22b0e7110149db4d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_01"
+    },
+    "recon_1835_blk_indiana_north_cass_d3_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 27720,
+      "inputs_sha256": "d14c45c1ccc66db4910eef613fadd20cd9082604677e42ef7db9c7afe3b75df2",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_02"
+    },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
