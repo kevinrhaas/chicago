@@ -82,7 +82,7 @@ def _sha_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
-def _code_shas(archetype: str) -> dict[str, str]:
+def _code_shas(archetype: str, params=None) -> dict[str, str]:
     """The modules whose bytes turn parameters into vertices.
 
     Not the parameter modules — see the note above. Not `terrain_gen.py`, which
@@ -108,6 +108,15 @@ def _code_shas(archetype: str) -> dict[str, str]:
     gen = ROOT / "generators"
     wanted = [gen / "emit.py", gen / "archetypes" / f"{archetype}.py"]
     wanted += code_inputs.geometry_modules()
+    # T-1730: the high-detail Glessner build delegates to v4-only modules.
+    # Hash every module in that family, including the material/texture recipe;
+    # the legacy path never imports them. New helpers in the family therefore
+    # become inputs automatically instead of silently escaping the stale gate.
+    if archetype == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
+        detail_modules = sorted((gen / "archetypes").glob("masonry_house_v4*.py"))
+        if not detail_modules:
+            raise InputsError("Glessner v4 detail modules are missing")
+        wanted += detail_modules
     out = {}
     for p in wanted:
         if not p.exists():
@@ -166,15 +175,24 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     arch = archetype or structure.get("archetype")
     if not arch:
         raise InputsError(f"structure {structure.get('id')} declares no archetype")
-    return {
+    params = resolve_params(arch, phase, structure)
+    doc = {
         "scheme": SCHEME,
         "structure": structure.get("id"),
         "phase": phase.get("id"),
         "archetype": arch,
-        "params": _params_doc(resolve_params(arch, phase, structure)),
-        "code": _code_shas(arch),
+        "params": _params_doc(params),
+        "code": _code_shas(arch, params),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
+    if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
+        # The map bytes are inputs too: replacing a normal map must demand a
+        # bake just as changing a stone's depth does. Only v4 reads this folder.
+        maps = sorted((ROOT / "assets" / "textures" / "glessner-v4").rglob("*.png"))
+        if not maps:
+            raise InputsError("Glessner v4 texture maps are missing")
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in maps}
+    return doc
 
 
 def structure_inputs_sha(structure: dict, phase: dict, archetype: str | None = None) -> str:
