@@ -418,7 +418,23 @@ STRUCTURE_TICKETS = {
     # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
     # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
-    ("north", "ordinary_dwellings"): "T-1748",
+    #
+    # AND T-1748 WAS SPLIT IN TURN on 2026-09-29 (T-1753, T-1754), one more roof-raising
+    # run into the cell, which fired this same gate a third time: "has 30 left and is
+    # ordered by T-1748, which is split". The row moves by the same rule and the same
+    # test. T-1753 is one block — blk_indiana_north_cass's first roofs on its Indiana and
+    # Illinois faces — and says in its own title that the rest of that block's lots stay
+    # open. T-1754 is "the north tier's remaining roofs", the further wolcott and cass
+    # lots the north-division memo will carry and the scattered better houses on the
+    # Rush-Pine fringe: it is this cell's remainder in as many words, so the 30 are its.
+    #
+    # THE ROW HAS NOW MOVED THREE TIMES IN TWO DAYS AND EACH MOVE COST A RED GATE, which
+    # is this table working rather than failing — a cell that keeps pointing at a spent
+    # heading is a work order nobody can claim, and the gate is the only thing that says
+    # so out loud. What it does NOT say is when the splitting should stop: the cell has
+    # 30 dwellings left and the addition's memo will carry a fraction of them, so the
+    # next reader inherits the same question T-1746 already holds.
+    ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

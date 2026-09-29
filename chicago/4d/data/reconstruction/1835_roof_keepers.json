@@ -40,11 +40,11 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 113,
+    "adopted_seats": 115,
     "written": 21,
-    "refused": 65,
+    "refused": 67,
     "owed": 27,
-    "refused_letter_list": 63,
+    "refused_letter_list": 65,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
     "refused_on_the_card": 37,
@@ -668,6 +668,28 @@
     }
   ],
   "refused": [
+    {
+      "household_id": "hh_andrews_davi",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_01",
+      "block_id": "blk_indiana_north_cass",
+      "lot_id": "blk_indiana_north_cass#08",
+      "clause": "tradesman_dwellings",
+      "family": "D3",
+      "district": "north",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_anderson_eli_f",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_02",
+      "block_id": "blk_indiana_north_cass",
+      "lot_id": "blk_indiana_north_cass#09",
+      "clause": "tradesman_dwellings",
+      "family": "D3",
+      "district": "north",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
     {
       "household_id": "hh_almond_axtell_2",
       "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_01",
