@@ -457,10 +457,11 @@ STRUCTURE_TICKETS = {
     #     remaining freight roof goes to the child that reconciles what the others leave. If
     #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
     #     building it out of place.
-    ("west", "stores_mixed_use"): "T-1763",
+    # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
+    ("west", "stores_mixed_use"): "T-1766",
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1763",
+    ("west", "workshops"): "T-1766",
     ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",

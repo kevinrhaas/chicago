@@ -1,8 +1,8 @@
 /** Lazy catalog, route preview and session handoff. */
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
-export function createJauntPreview({ root, dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null }) {
-  const base = new URL('sidecars/1835/jaunts/', dataBase);
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null }) {
+  const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, serial = 0;
   const contents = new Map();
   const modes = new Map();
@@ -17,12 +17,13 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
   };
   async function json(name, options) {
     const response = await fetcher(new URL(name, base), options);
+    if (name === 'catalog.json' && response.status === 404) return { scene: String(scene), jaunts: [] };
     if (!response.ok) throw new Error(`Jaunt request failed: ${response.status}`);
     return response.json();
   }
   function catalog() {
     if (!catalogPromise) catalogPromise = json('catalog.json').then(data => {
-      if (!Array.isArray(data.jaunts)) throw new Error('Invalid catalog');
+      if (data.scene !== String(scene) || !Array.isArray(data.jaunts)) throw new Error('Invalid catalog');
       api.catalog = data.jaunts; return data.jaunts;
     }).catch(error => { catalogPromise = null; throw error; });
     return catalogPromise;
@@ -54,7 +55,7 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
         const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
         const price = () => { modes.set(row.id, mode.value); duration.textContent = formatEstimate(estimate(row, mode.value)); };
         mode.addEventListener('change', price); price();
-        card.append(mode, duration, node('p', `Recommended: ${PACES[row.default_mode || 'walk'].label}. Fly is a viewing convenience, not 1835 transport.`, 'jaunt-meta'));
+        card.append(mode, duration, node('p', `Recommended: ${PACES[row.default_mode || 'walk'].label}. Fly is a viewing convenience, not historical transport.`, 'jaunt-meta'));
         const preview = button('Preview the route', () => select(row));
         const start = onStart && button('Start Jaunt', async () => {
           start.disabled = true;
@@ -68,7 +69,7 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
         root.append(card);
       }
     }
-    if (!rows.length) root.append(node('p', 'No route previews are available yet.'));
+    if (!rows.length) root.append(node('p', `No jaunts are available for ${scene} yet. You can explore on your own.`));
   }
   async function load(id, options) {
     const rows = await catalog();
@@ -76,7 +77,7 @@ export function createJauntPreview({ root, dataBase, destinations, api, fetcher 
     let content = contents.get(id);
     if (!content) {
       content = await json(`${id}.json`, options);
-      if (content.id !== id || content.review_required || !content.stops?.length) throw new Error('Invalid jaunt');
+      if (content.scene !== String(scene) || content.id !== id || content.review_required || !content.stops?.length) throw new Error('Invalid jaunt');
       contents.set(id, content);
     }
     return content;

@@ -17205,3 +17205,15 @@ wholly unbuilt in July 1835 would retire all thirteen of these rather than re-pl
 yard-building argument this one departs from), **L263** (the shingle exposure the thirteen take),
 **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1751**.
 **Recorded:** 2026-09-29.
+
+### L-jaunt-prairie — Prairie Avenue orientation
+
+**Decision:** The two-stop Glessner orientation, reading times and symbolic wayfinding keepsake are reconstructed interpretive framing for the 1904 scene. No historical visit, conversation or transaction is asserted.
+
+**Bounds:** Stops use the existing scene anchor and structure; factual text cites HABS and the dated Glessner account.
+
+**How to resolve:** Revise as modern interpretation, never promote to a historical visit.
+
+**Applies to:** `data/jaunts/prairie-avenue-orientation.json`.
+
+**Recorded:** 2026-09-29 (T-1767).

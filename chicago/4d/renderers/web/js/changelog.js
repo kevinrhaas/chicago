@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1236, ts: '2026-09-29T14:29:52.450Z', date: 'Sep 29, 2026, 9:29 AM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
+  { v: 1237, ts: '2026-09-29T20:35:02.596Z', date: 'Sep 29, 2026, 3:35 PM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
     items: [
       'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',
       'Every house on the block now has empty ground on both sides of it along its own street, and that is where the block stops. The north-side research reads this frontage as alternating roof and open yard with no continuous street wall, so a fifth house on either face would have to stand next door to one already there. Eight of the twelve lots stay open prairie.',
@@ -7,6 +7,12 @@ export const CHANGELOG = [ // newest first
       'The two families who asked for these lots are not the two who moved in. The Bailly and Babcock households had requests on the lots next door \u2014 the ones deliberately left empty \u2014 and the seating pass walked them into these houses instead, leaving the Baily and Barber households holding the empty lots. Families with somewhere to be is unchanged at 177; two more have walls.',
       'East of Rush Street nothing is scheduled at all. Three more lotted blocks out on the Rush and Pine fringe are apportioned no roofs by the building programme, and the nineteen blocks beyond them are not even divided into lots. So that ground stays open, and the reason is now written into the north-side research rather than left to be guessed at.',
       'No source says a building stood on this block in 1835, which buildings they were, where on their lots they sat, or how far back from the street. The lots, the alley and the ground under them are committed; everything else is on each cottage\u2019s own card.',
+    ] },
+  { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',
+    items: [
+      'The arrival year, welcome and loading facts now follow your selected scene. Prairie Avenue rolls back to 1904 and welcomes you there.',
+      'A smaller arrival panel cycles through destination messages, with one loading-content line and a progress bar tied to scene readiness.',
+      'Jaunts belong to their own year. A short Glessner House orientation introduces the 1904 scene; saved outings stay with the year in which you began them.',
     ] },
   { v: 1235, ts: '2026-09-29T13:47:33.222Z', date: 'Sep 29, 2026, 8:47 AM CT', title: 'A whole street of houses south of Washington', kind: 'change',
     items: [
