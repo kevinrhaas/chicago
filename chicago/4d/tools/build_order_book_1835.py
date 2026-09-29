@@ -4485,8 +4485,18 @@ def cmd_self_test() -> int:
     # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 235
+        data["inventory"], data["programme"], occ))["seated"] == 237
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
