@@ -342,6 +342,28 @@
  },
  "reserved_for_a_slot_request": [
   {
+   "structure_id": "recon_1835_blk_indiana_north_cass_d3_01",
+   "block_id": "blk_indiana_north_cass",
+   "programme_phase": "phase3_platted_block_indiana_north_cass",
+   "family": "D3",
+   "requested_by_seat": "hh_andrews_davi",
+   "order_book_draw": "blk_indiana_north_cass / D3 / north",
+   "dealt_by_ticket": "T-1753",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_indiana_north_cass_d3_02",
+   "block_id": "blk_indiana_north_cass",
+   "programme_phase": "phase3_platted_block_indiana_north_cass",
+   "family": "D3",
+   "requested_by_seat": "hh_anderson_eli_f",
+   "order_book_draw": "blk_indiana_north_cass / D3 / north",
+   "dealt_by_ticket": "T-1753",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
    "structure_id": "recon_1835_blk_indiana_north_wolcott_d3_01",
    "block_id": "blk_indiana_north_wolcott",
    "programme_phase": "phase3_platted_block_indiana_north_wolcott",

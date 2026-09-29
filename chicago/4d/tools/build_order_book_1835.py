@@ -415,32 +415,25 @@ STRUCTURE_TICKETS = {
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
     ("west", "ordinary_dwellings"): "T-1208",
-    # T-1207 WAS SPLIT on 2026-09-29 (T-1760 through T-1764) and these four rows moved with
-    # it, for the reason the T-1206 block below states at length: a bucket whose
-    # `owning_ticket` names a ticket in state `split` orders work nobody can claim, and the
-    # gate says so — it went red on three of these cells within the hour of the split,
-    # reading "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
-    # split", and the same for the workshops' 3 and the freight cell's 1. It is not this
-    # branch's doing and it blocks every branch open on the repo.
-    #
-    # SWEPT BY WHICH CHILD RAISES THE ROOFS THAT ARE LEFT, which is the test the T-1206 and
-    # T-1742 sweeps used:
-    #   * stores_mixed_use and workshops onto T-1763, which names both in as many words —
-    #     "the grocery and blacksmith the memo seats on the Canal Street approach". The
-    #     blacksmith IS the workshop that sentence orders.
-    #   * inns_taverns onto T-1762, the named Wolf Point taverns' and the Miller house's
-    #     yards. That cell has 0 left to build, so nothing was ordered from a split ticket
-    #     there and the gate was silent about it; it is swept anyway, because a row naming a
-    #     split ticket is wrong whether or not a roof happens to be standing behind it.
-    #   * warehouses_freight onto T-1764, and THIS ONE IS A JUDGEMENT CALL, said out loud.
-    #     No child names a west freight roof. T-1764 is the closer — "the pre-plat West roofs
-    #     reconciled, the refusals resolved" — so the one roof no child claims is either
-    #     reconciled there or refused in writing there. What would move this row is a child
-    #     that names the roof: if the ferry landing's shed turns out to be T-1763's, it goes
-    #     to T-1763, and naming the closer is not the same as inventing an owner.
-    # T-1760 and T-1761 raise the two Clinton blocks' DWELLINGS, which is the
-    # ordinary_dwellings cell above and already stands on T-1208 for the district; nothing
-    # here moves onto them.
+    # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
+    # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
+    # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
+    # split — "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
+    # split", and the same for workshops (3) and warehouses_freight (1) — and it blocked every
+    # branch open on this repo at the time, not only the one that split the ticket.
+    #   stores_mixed_use and workshops -> T-1763, which names their remainder outright: "the
+    #     grocery and blacksmith the memo seats on the Canal Street approach". Those two are
+    #     the two left in stores and the works trade on that approach.
+    #   inns_taverns -> T-1762, "the named Wolf Point taverns' and the Miller house's yards".
+    #     This row has 0 left and the gate was therefore silent about it; it is swept anyway,
+    #     because a row pointing at a split ticket is wrong whether or not it currently orders
+    #     anything, and the next roof drawn against it would find nobody to claim it.
+    #   warehouses_freight -> T-1764, AND THIS ONE IS THE JUDGEMENT CALL OF THE FOUR. No child
+    #     names freight in its title. T-1763 is the approach's own furniture and T-1764 is the
+    #     closer — "the pre-plat West roofs reconciled, the refusals resolved" — so the single
+    #     remaining freight roof goes to the child that reconciles what the others leave. If
+    #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
+    #     building it out of place.
     ("west", "stores_mixed_use"): "T-1763",
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
