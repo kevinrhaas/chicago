@@ -14627,10 +14627,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 174 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
+**Scope:** `platted_seats.seats[dealt]` — 174 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,304
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14650,12 +14650,12 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 131 of the 177 seats are
+roof of a family its clause admits, on a lot of its own division; 135 of the 174 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **46 of the 177 are that: 26 on the plat's last tier** (T-1707,
-2026-09-28, T-1736, L298 and L300 below), **4 west of the river on ground the plat always drew
+sizing keeps open; **39 of the 174 are that: 19 on the plat's last tier** (T-1707,
+2026-09-28, T-1736, L298, L300 and L303 below), **4 west of the river on ground the plat always drew
 and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 16 on
 Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
@@ -14963,7 +14963,32 @@ still owes most. **A block's slot count is not a ratchet and the tier's is not a
 and a reading of this entry that assumes either will be wrong about the tier. Read at the
 chain's fixpoint, not one pass in.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment).
+**AND THE FRANKLIN BLOCK TOOK IT DOWN, WHICH NO DEAL ABOVE HAS DONE (T-1751, 2026-09-29).**
+`blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings and six yard
+buildings, see **L303** — and measured against `dev` at `10a1e710`, which is the La Salle block
+(**L300**) and the Addition's second block already landed, the pass runs **177 → 174** seats:
+adoptions **131 → 135**, slots **46 → 39**, rows handed to **T-1614** **1,301 → 1,304**. All
+seven of the new dwellings are occupied — the seats file carries seven `adopted` rows on this
+block and no empty roof — and the cascade behind them moved thirty more households roof for
+roof. **The fall of three is a fall in REQUESTS that could be placed, and it is the honest
+shape of a block being finished rather than a household being lost.** A block that has raised
+its principal room out can hold no further request, so the seven slots standing against this
+one had to find another `open` block inside their own clause and division, and the tier's
+remaining room could take only three of them: hh_chiney_ralph's request on this block and
+hh_clarke_h_b's, hh_cleaveland_wm_p's and hh_clement_dorcinrk's on `blk_washington_market`
+end the pass with no block to stand against and go back on the written owed list with that
+sentence, while hh_blake_levi gains a slot on Market that the re-apportionment opened. Nobody
+in the cascade lost a roof they were standing under: every one of the four was holding a
+REQUEST, which is a lot and no walls, and the refusal is written down rather than carried as
+an unfulfillable claim — the same discipline **T-1623** set for the four South Water refusals
+above. THE OUTCOME IS REPORTED RATHER THAN TIDIED: this entry's seat count is what the chain
+settles at, in whichever direction, and a reading that expects a roof raised to add a seat will
+be wrong about this tier. The tier's own slots fall **26 → 19** — 7 on
+`blk_washington_dearborn`, 7 on `blk_washington_market` and 5 on `blk_washington_clark` — and
+their band runs **10** tradesmen's against **9** merchant and professional. Read at the chain's
+fixpoint, not one pass in.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the seat count, the tier's slots, and the first deal to lower the count).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 

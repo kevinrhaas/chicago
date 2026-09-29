@@ -328,7 +328,21 @@ STRUCTURE_TICKETS = {
     # in as many words — and it is in `review` with its own pull request open, which the
     # liveness walk counts as live. It will move again when that block closes with the cell
     # still owing; 54 roofs is far more than one block, and the chain is the point.
-    ("south", "ordinary_dwellings"): "T-1735",
+    #
+    # AND SWEPT ONTO T-1758 ON 2026-09-29, ON THE FOURTH LAP OF THIS SAME BRANCH, BECAUSE
+    # T-1735 HAS SINCE MERGED. The sweep above was sound when it was made — T-1735 was in
+    # `review` with PR #181 open, and review is live — but that pull request landed on `dev`
+    # and the ticket went `done`, so the cell was left ordered by a ticket nobody can claim
+    # and every re-derivation on this branch failed on that row: "structures/ordinary_dwellings
+    # /south has 55 left and is ordered by T-1735, which is done". The rule does not change,
+    # only the row it lands on: the cell goes to the live ticket that raises the dwellings
+    # that are LEFT. `blk_washington_market` is the next block of this very tier and T-1758 is
+    # "the seven cottages and yard buildings the platted deal holds on blk_washington_market"
+    # in as many words, `open` and claimable today. THIS IS THE SWEEP BEING A CHAIN RATHER
+    # THAN A FIX: 55 roofs is far more than one block, so the cell will move again when
+    # T-1758 closes with it still owing, exactly as the north cell four entries below has
+    # moved five times in three days.
+    ("south", "ordinary_dwellings"): "T-1758",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
