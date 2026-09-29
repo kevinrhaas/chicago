@@ -409,7 +409,16 @@ STRUCTURE_TICKETS = {
     # T-1742 is this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    #
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
