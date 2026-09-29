@@ -4567,18 +4567,39 @@ def cmd_self_test() -> int:
     # these lots, and five households that had no lot at all reach one. That is the T-1622
     # precedence a third time, and it is recorded in L298. Read at the chain's fixpoint, not
     # one pass in — this one took eight passes and oscillated for four of them.
-    # AND T-1751 TAKES IT TO 249, ON THE SAME TIER AND BY THE SAME MECHANISM, AT MORE THAN
+    #
+    # AND T-1735 TAKES IT TO 249, with the tier's south-west block. The eleven roofs on
+    # `blk_washington_lasalle` answer the seven slot requests T-1708's own cascade re-seated
+    # onto this block and blk_washington_market, so the two deals are one argument read in two
+    # steps: Wells raised its seven and pushed its seven on, LaSalle raises the seven that
+    # arrived. The gain is SEVEN this time and not four, and the reason is the lap rather than
+    # the deal: T-1756 landed on `dev` first and its own cascade had already absorbed the
+    # vacancies the earlier laps of this branch were paying for, so there was nothing left to
+    # cascade away. The platted pass runs 170 -> 177 with 129 adoptions against 122 and 48
+    # slots unmoved, 1,301 handed on against 1,308, and off-plat is unmoved at 72, so the total
+    # is 177 + 72. What the tier's remainder does is NOT what it did a paragraph above: its
+    # slot count is unmoved at 26 and Clark's at 5, because the seven this block was sized
+    # against re-slot onto its neighbours — blk_washington_dearborn takes seven where
+    # blk_washington_lasalle had them — as fast as its own roofs take them off the table. What
+    # moves is the BAND, 14 merchant and professional against 12 tradesmen's becoming 14
+    # tradesmen's against 12. That is the T-1622 precedence a fourth time, and it is recorded
+    # in L300. Read at the chain's fixpoint, not one pass in, and read off the committed seats
+    # files rather than predicted: 1835_platted_seats.json counts seated 177 (129 adopted, 48
+    # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
+    # handed.
+    #
+    # AND T-1751 TAKES IT TO __TOTAL__, ON THE SAME TIER AND BY THE SAME MECHANISM, AT MORE THAN
     # THE SIZE AGAIN. `blk_washington_franklin` was dealt out to its lot ceiling — seven
-    # dwellings and six yard buildings — so the platted pass runs 170 -> 177 with 129
-    # adoptions against 122 and the SAME 48 slots, and the off-plat pass is unmoved at 72, so
-    # the total is 177 + 72. The slot count holds because the cascade is a substitution: the
+    # dwellings and six yard buildings — so the platted pass runs __FROM__ -> __TO__ with __ADOPTED__
+    # adoptions against __ADOPTED0__ and __SLOTS__ slots, and the off-plat pass is unmoved at 72, so
+    # the total is __TO__ + 72. The slot count holds because the cascade is a substitution: the
     # seven requests standing against this block are raised into adoptions and seven fresh
     # ones open on blk_washington_dearborn. NOT ONE of the seven households the block was
     # sized against is seated on it — the seven that asked (hh_barry_john_s, hh_bates_john_jr,
     # two Beaubien households, hh_carpenter_nathaniel, hh_carter_j and hh_cary_junis_a_or_j_r)
     # go back on the owed list, and the seven that scored highest under the clause order (the
     # two Aspams, the two Ballards, hh_beaubien_charles, hh_beeson_william and hh_brink_john)
-    # move in. That is the T-1622 precedence a fourth time, and it is recorded in L300. Read
+    # move in. That is the T-1622 precedence a fourth time, and it is recorded in L301. Read
     # at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 249
