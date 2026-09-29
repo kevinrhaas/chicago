@@ -14117,7 +14117,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 456 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 460 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14629,8 +14629,8 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 176 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,302
+**Scope:** `platted_seats.seats[dealt]` — 178 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,300
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -17019,6 +17019,7 @@ take), **L219** (the section grid that tells these four who entered their ground
 set-out this one moves away from), **T-1741** (the lot lines), **T-1753** (this deal, the
 first piece of **T-1748**), **T-1754** (the rest of the north tier), **T-1746** (the
 disagreement), **T-1626** (the precedence).
+**Recorded:** 2026-09-29.
 
 ### L303 — Two invented dwellings close the Canal face of blk_randolph_clinton, and the block's gap changes face
 

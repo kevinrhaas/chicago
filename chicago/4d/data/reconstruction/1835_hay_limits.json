@@ -315,12 +315,12 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 313,
-  "outside": 162,
+  "outside": 166,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 36,
-   "west_of_canal_street": 71,
+   "west_of_canal_street": 75,
    "south_of_washington_street": 27,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -406,10 +406,14 @@
     "recon_1835_blk_randolph_clinton_a1_06",
     "recon_1835_blk_randolph_clinton_a2_05",
     "recon_1835_blk_randolph_clinton_a3_07",
+    "recon_1835_blk_randolph_clinton_a3_10",
+    "recon_1835_blk_randolph_clinton_a4_11",
     "recon_1835_blk_randolph_clinton_d1_03",
     "recon_1835_blk_randolph_clinton_d3_04",
+    "recon_1835_blk_randolph_clinton_d3_09",
     "recon_1835_blk_randolph_clinton_d4_02",
     "recon_1835_blk_randolph_clinton_d5_01",
+    "recon_1835_blk_randolph_clinton_d7_08",
     "recon_1835_west_001",
     "recon_1835_west_002",
     "recon_1835_west_003",
@@ -509,7 +513,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 8,
+  "scheduling_roofs_outside_the_limit": 7,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_lake_clinton",
@@ -518,16 +522,6 @@
     "centre_local_enu_m": [
      -219.65,
      -179.3
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_randolph_clinton",
-    "state": "open",
-    "roofs_scheduled": 8,
-    "centre_local_enu_m": [
-     -215.87,
-     -318.38
     ],
     "inside_the_limit": false
    },
@@ -605,8 +599,8 @@
    },
    {
     "id": "blk_randolph_clinton",
-    "state": "open",
-    "roofs_scheduled": 8,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      -215.87,
      -318.38
@@ -1103,7 +1097,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 36
+    "roofs": 40
    },
    {
     "id": "north_division_beyond_modelled_ground",
