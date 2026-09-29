@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1221, ts: '2026-09-29T02:04:16.167Z', date: 'Sep 28, 2026, 9:04 PM CT', title: 'Nothing you can see: the town\u2019s north-west corner, checked against the map', kind: 'change',
+  { v: 1222, ts: '2026-09-29T02:29:14.931Z', date: 'Sep 28, 2026, 9:29 PM CT', title: 'Nothing you can see: the town\u2019s north-west corner, checked against the map', kind: 'change',
     items: [
       'Nothing in the town changed with this build. The Trustees walked Chicago\u2019s corporate boundary in November 1833 and printed it three weeks later, and its west line runs north along Jefferson Street \u201cand its continuation\u201d to Ohio Street. Jefferson stops. The modern street does not survive north of Hubbard, so the last 288 metres of that line had been pure arithmetic, with nothing beside it.',
       'It has now been asked of a map rather than a street. The 1834 survey draws the tract north of Kinzie Street whole, and this project has already read its streets and blocks off that sheet \u2014 so the question could be put to a reading it already held: does the surveyor draw Jefferson carrying on? He does not. The nearest street he rules there is some 75 metres to the west, four times the map\u2019s own accuracy.',
       'So the town\u2019s north-west corner stands in the middle of a block of somebody else\u2019s addition, three streets north of where Jefferson gives out. One line on the sheet runs close enough to be mistaken for the continuation \u2014 the tract\u2019s own edge against the river, sixteen metres east \u2014 and it is refused, because over those 288 metres the two lines drift apart rather than together.',
       'The line is no more certain than it was, and is not claimed to be. What it has now is a boundary on the guesswork: a check that fails the day a drawn street turns up on it, the day the corner runs off the platted ground, or the day the extension comes near enough to a building to decide whether the town\u2019s by-laws reached it.',
+    ] },
+  { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
+    items: [
+      "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",
+      'The rule that ends this street where a building blocks it was being applied to the line down the middle of the road rather than to the road. A road has a width, so the line can stop short of a building while the roadway still runs through its corner \u2014 which is exactly what had happened. The street now stops 1.17 m earlier, where the ROADWAY clears the building, and the inn is outside it by 0.05 m at the nearest corner.',
+      'Nothing else about the street moved. It still runs the same course at the same distance from the traced 1834 river bank, so its east kerb still reaches the water and does not cross it.',
+      'The tavern still has no signboard. Its GREEN TREE board hung on a post at a corner, the corner needs walks on two streets, and the inn has one \u2014 so the board stays absent, in writing, rather than being hung somewhere no picture of it shows. Getting the corner back is a separate piece of work and is now its own item.',
     ] },
   { v: 1220, ts: '2026-09-29T01:18:12.689Z', date: 'Sep 28, 2026, 8:18 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
     items: [
