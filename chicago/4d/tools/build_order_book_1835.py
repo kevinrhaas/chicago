@@ -419,7 +419,14 @@ STRUCTURE_TICKETS = {
     # blk_indiana_north_cass's cottages, the wolcott lots T-1747 leaves open, the scattered
     # better houses on the Rush-Pine fringe. It is the live child that owns what the cell
     # still owes after its sibling's block, so the 34 are T-1748's.
-    ("north", "ordinary_dwellings"): "T-1748",
+    #
+    # AND T-1748 SPLIT IN ITS TURN on 2026-09-29 (T-1753, T-1754), within the hour, so the row
+    # moved a third time on the same rule. T-1753 is blk_indiana_north_cass's first roofs and
+    # nothing else; T-1754 is the remainder in as many words — the further wolcott and cass
+    # lots the north-division memo will carry, and the scattered better houses on the
+    # Rush-Pine fringe. The cell reads 34 left, which is more than either block holds, so it
+    # goes to the child that owns what is left after its sibling's block again: T-1754.
+    ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
