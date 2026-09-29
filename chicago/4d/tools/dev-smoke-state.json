@@ -3,6 +3,73 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 155,
+      "failed": 3,
+      "failures": [
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
+      ],
+      "wallSeconds": 275,
+      "takenAt": "2026-09-29T13:51:14.367Z",
+      "ref": "claude/t-1751-franklin-recut",
+      "commit": "c30c45c7da74",
+      "devCommit": "a07883c4a2de",
+      "treeHash": "sha256:e718574f422dbe1e",
+      "treeDirty": false,
+      "changelogHash": "sha256:1f82f83bf9dc258d",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          2.8,
+          3.5,
+          3
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke_m12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 264,
+      "takenAt": "2026-09-29T13:51:14.220Z",
+      "ref": "claude/t-1751-franklin-recut",
+      "commit": "c30c45c7da74",
+      "devCommit": "a07883c4a2de",
+      "treeHash": "sha256:e718574f422dbe1e",
+      "treeDirty": false,
+      "changelogHash": "sha256:1f82f83bf9dc258d",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          2.8,
+          3.5,
+          3
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "1",
       "parts": [
         1
@@ -1274,68 +1341,6 @@
         ]
       },
       "source": "/tmp/t1716b_d23.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 360,
-      "takenAt": "2026-09-28T16:59:21.898Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "91447341c296",
-      "devCommit": "18579e872faf",
-      "treeHash": "sha256:18bf471f2a10bcd9",
-      "treeDirty": false,
-      "changelogHash": "sha256:876687a49e83a94b",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          5.5,
-          4.9,
-          4.5
-        ]
-      },
-      "source": "/tmp/smoke_d1b.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 365,
-      "takenAt": "2026-09-28T16:42:57.710Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "55b986836692",
-      "devCommit": "f72041734b0e",
-      "treeHash": "sha256:18bf471f2a10bcd9",
-      "treeDirty": false,
-      "changelogHash": "sha256:876687a49e83a94b",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.5,
-          4.4,
-          4.3
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
     },
     {
       "viewport": "mobile",
