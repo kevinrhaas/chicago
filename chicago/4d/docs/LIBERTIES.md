@@ -10830,14 +10830,18 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 75 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 79 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 75 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 79 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
 `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their
-records states a tract of its own). The construction is
+records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on
+`blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on
+ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie
+on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal
+commissioners and this register does not hold them). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -10864,7 +10868,12 @@ horizontal uncertainty of anything traced off the 1834 sheets, is `inferred`; on
 tract line than that drops to `reconstructed`, and the metres are printed on the row. **51 of
 the 69 stand at the bottom tier**, and mostly not for geometry: 44 of them are roofs a recipe
 dealt to a lot, and nothing on an invented structure may outrank the invention that put it
-there — the tract is real, but the claim that THIS roof stands on it is the recipe's. Three of
+there — the tract is real, but the claim that THIS roof stands on it is the recipe's.
+Re-measured 2026-09-29 with T-1747's four in the file: **56 of the 79 stand at the bottom
+tier, 44 of them roofs a recipe dealt to a lot**, and the four new ones are all four of both
+counts — each stands more than 50 m inside the tract boundary, which on a documented building
+would carry the middle tier, and each is held at the bottom for the invention under it rather
+than for its geometry. Three of
 the remaining seven are the fort's own service buildings, added 2026-09-06 by T-0883, and they
 are at the bottom tier for the ordinary geometric reason rather than for an invention behind
 them: the wash house stands 12.9 m from a tract line and the shop 39.1 m, both inside the 40 m
