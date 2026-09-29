@@ -1,0 +1,9 @@
+Prairie Avenue 1904 street-surface PBR library v1.0.0
+
+Original procedural texture output generated for Kevin Haas's Chicago reconstruction (T-1728)
+by tools/generate_prairie_1904_pbr.py, which ships with it. No third-party photograph or image
+is embedded, sampled or traced in any map.
+
+The maps and generator may be used, modified, and redistributed with the project. Historical
+confidence labels and provenance notes should remain attached so reconstructed surfaces are not
+silently represented as attested evidence.

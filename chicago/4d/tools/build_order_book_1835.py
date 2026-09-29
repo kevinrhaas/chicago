@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -444,17 +445,12 @@ STRUCTURE_TICKETS = {
     # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
     #
-    # AND T-1748 WAS SPLIT IN TURN on 2026-09-29 (T-1753, T-1754), which fired the gate a
-    # THIRD time on this one cell: "has 32 left and is ordered by T-1748, which is split".
-    # The test does not change and neither does its answer — which child raises the
-    # dwellings that are LEFT. T-1753 is one block, blk_indiana_north_cass's first roofs on
-    # its Indiana and Illinois faces, and its own title says the rest of that block's lots
-    # stay open; T-1754 is "the north tier's REMAINING roofs", the further wolcott and cass
-    # lots and the scattered better houses on the Rush-Pine fringe. So the 32 are T-1754's.
-    # Three sweeps of one cell in two days is the shape T-1420 predicted: the row follows
-    # the remainder down a chain of splits, and it will keep doing so until the tier is
-    # built. Nothing here re-ranks the cell or re-argues who owns it — only which live
-    # ticket a reader can now claim it from.
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
     ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
@@ -1987,6 +1983,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1
@@ -4542,7 +4540,7 @@ def cmd_self_test() -> int:
     # against is seated on it. All seven re-seat as slots on blk_washington_lasalle and
     # blk_washington_market, the seven roofs go to the seven the clause order scores higher on
     # these lots, and five households that had no lot at all reach one. That is the T-1622
-    # precedence a third time, and it is recorded in L295. Read at the chain's fixpoint, not
+    # precedence a third time, and it is recorded in L298. Read at the chain's fixpoint, not
     # one pass in — this one took eight passes and oscillated for four of them.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 242

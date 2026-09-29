@@ -1,0 +1,553 @@
+{
+ "_doc": "The 1904 Prairie Avenue street surfaces (T-1728): what each carriageway, alley and sidewalk band of data/street_grid/1904.json (T-0474) was made of on 1 July 1904, with a tier, the sources, and a date range the scene date falls inside. AUTHORED -- edit by hand; tools/check_street_surfaces.py --check holds it to the grid, the sources, the liberties and the texture library. The grid owns the geometry; this file owns only materials. Research: docs/RESEARCH/prairie_1904_street_surfaces.md.",
+ "scene": "1904",
+ "target_date": "1904-07-01",
+ "ticket": "T-1728",
+ "grid": "street_grid/1904.json",
+ "texture_library": "textures/prairie_1904_pbr/",
+ "evidence_rule": "A block's surface is ATTESTED only where a record names it for that block on both sides of the scene date or names it worn and out of guaranty after it; INFERRED where a record orders or lets it and nothing confirms it was laid; RECONSTRUCTED otherwise, with a liberty. The 1904 paving report (alvord_street_paving_report_1904, the Prairie library's civic-paving-1904) and the 1905 code only BOUND the reconstructed choices.",
+ "bounding_only_sources": [
+  "alvord_street_paving_report_1904",
+  "chicago_revised_municipal_code_1905"
+ ],
+ "bounding_only_note": "The 1904 paving report and the 1905 code name what a Chicago street, walk or curb could be made of; neither names a block of this grid. They bound reconstructed surfaces and can never attest one (tools/check_street_surfaces.py holds it).",
+ "authority": {
+  "in_1904": "City of Chicago: the Board of Local Improvements paved by special assessment, the Department of Public Works repaired",
+  "sources": [
+   "chicago_council_proceedings_1904_v53",
+   "south_park_commissioners_statutes_1908",
+   "chicago_council_proceedings_1904_v52",
+   "chicago_council_proceedings_1905_v54"
+  ],
+  "note": "The 1911 Sanborn sheets' 'Prairie Av. Blvd.' and 'E. 16th St. (Boulevard)' are the South Park Commissioners' boulevard, which the city consented to on 28 May 1904 and again on 30 October 1905 and the Commissioners took on 24 October 1906. On the scene date both were city streets."
+ },
+ "materials": {
+  "sheet_asphalt": {
+   "name": "sheet asphalt",
+   "texture": "roadway/sheet_asphalt",
+   "what": "lake asphalt and sand laid hot over a concrete base, rolled smooth",
+   "bounded_by": [
+    "alvord_street_paving_report_1904",
+    "chicago_revised_municipal_code_1905"
+   ],
+   "bound_note": "One of the six permanent pavements the code names (sec. 1944); 132 of Chicago's 1,371 miles at 1 January 1904, and the one Alvord's report recommends for 'high-class residence streets with considerable traffic'."
+  },
+  "macadam": {
+   "name": "macadam (crushed limestone)",
+   "texture": "roadway/macadam_limestone",
+   "what": "broken limestone rolled and bound with its own dust and water",
+   "bounded_by": [
+    "alvord_street_paving_report_1904",
+    "chicago_revised_municipal_code_1905"
+   ],
+   "bound_note": "421 of the city's 1,371 miles at 1 January 1904 (Alvord p. 26); the Board of Local Improvements' specifications of 1902 build it of slag, crushed limestone and crushed granite in courses."
+  },
+  "vitrified_brick": {
+   "name": "vitrified paving brick",
+   "texture": "roadway/vitrified_paving_brick",
+   "what": "hard-burned paving brick laid on edge on a sand bed",
+   "bounded_by": [
+    "alvord_street_paving_report_1904",
+    "chicago_revised_municipal_code_1905"
+   ],
+   "bound_note": "68 miles in 1904 (Alvord p. 26); 'some of it has been laid on high-class residence streets, where its noise has not made it popular'."
+  },
+  "earth_and_cinders": {
+   "name": "graded earth and cinders (unimproved)",
+   "texture": "alley/earth_and_cinders",
+   "what": "the natural ground graded and dressed with ashes and cinders",
+   "bounded_by": [
+    "alvord_street_paving_report_1904",
+    "chicago_revised_municipal_code_1905"
+   ],
+   "bound_note": "An alley no paving record reaches. Alvord counts 1,371 miles of IMPROVED streets and alleys against more than 1,900 miles of water pipe, i.e. a great deal of unimproved way."
+  },
+  "portland_cement_walk": {
+   "name": "Portland cement concrete walk, 5 x 6 ft blocks",
+   "texture": "walk/portland_cement_walk",
+   "what": "cement concrete on a cinder bed with a trowelled top, laid out in blocks",
+   "bounded_by": [
+    "chicago_revised_municipal_code_1905",
+    "chicago_council_proceedings_1899_v43",
+    "chicago_council_proceedings_1902_v49",
+    "chicago_council_proceedings_1903_v51",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "bound_note": "The code's first sidewalk specification (sec. 2062: 'blocks five feet by six feet in size' for 5- and 6-ft walks); the alternatives it allows are limestone (sec. 2068) and cinders between wooden curbs (sec. 2070), and no new wooden walk (sec. 2079). In the Council's proceedings read for this ticket plank walks still outnumber cement ones in 1899 (631 mentions to 453, vol. 43) and cement leads from 1902 (133 to 32 in vol. 49, 236 to 19 in vol. 51), with cinder walks for the outskirts. The c. 1923 views of both Glessner frontages show a pale walk in jointed slabs."
+  },
+  "sandstone_curbstone": {
+   "name": "sandstone curbstone",
+   "texture": "curb/sandstone_curbstone",
+   "what": "dressed sandstone curbstones set on edge at the outer edge of the sidewalk space",
+   "bounded_by": [
+    "chicago_revised_municipal_code_1905",
+    "chicago_council_proceedings_1902_v49",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "bound_note": "Sec. 2072 asks for 'a substantial curbing of stone or white-oak plank, not less than three inches in thickness'; in 1902 the Board of Local Improvements' full-text ordinances name 'sandstone curbstones' and name a concrete curb and gutter in the title when they order one, and Prairie Avenue's 1903 title names neither. The c. 1923 views show a pale curb jointed in straight lengths."
+  },
+  "grass_plat": {
+   "name": "grass plat (mown turf)",
+   "texture": "parkway/grass_plat",
+   "what": "turf between the walk and the curb, and in the foot inside the walk",
+   "bounded_by": [
+    "chicago_revised_municipal_code_1905",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "bound_note": "Sec. 2077's 'courts or open spaces ... for planting trees or for grass plats', which 'shall not be covered with plank or other material'; grass on both Glessner frontages c. 1923."
+  }
+ },
+ "carriageways": {
+  "prairie_16_18": {
+   "priority": 3,
+   "material": "sheet_asphalt",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1903_v50",
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58"
+   ],
+   "exists": {
+    "from": "1903-11-02",
+    "to": "1906-11-07",
+    "from_basis": "ordinance passed 9 Feb 1903 (vol. 50 p. 2067); in the Board's list of streets paved since 1901, 'Good condition', 2 Nov 1903 (vol. 52 p. 1390)",
+    "to_basis": "'asphalt. R. F. Conway Co., contractor. In good condition', 7 Nov 1906 (vol. 58 p. 1929)"
+   },
+   "note": "Curbed, graded and paved with asphalt under the ordinance of 9 February 1903, down and in good condition by 2 November 1903, and the same asphalt reported again in November 1906: two city records either side of 1 July 1904 name it."
+  },
+  "prairie_18_20": {
+   "priority": 3,
+   "material": "sheet_asphalt",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1903_v50",
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58"
+   ],
+   "exists": {
+    "from": "1903-11-02",
+    "to": "1906-11-07",
+    "from_basis": "as prairie_16_18: the 9 Feb 1903 ordinance runs 16th to 20th Street",
+    "to_basis": "as prairie_16_18"
+   },
+   "note": "The same 1903 asphalt as 16th-18th: the ordinance and both condition reports run from 16th to 20th Street. This is the roadway the /1904/ door looks across."
+  },
+  "prairie_20_22": {
+   "priority": 3,
+   "material": "macadam",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1905_v54",
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "chicago_council_proceedings_1902_v49"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "absent from the Board's list of every street it paved 1901 - Nov 1903 (vol. 52), so laid before the 1901 statute",
+    "to_basis": "'Prairie avenue, from 20th street to 22d street (macadam) 1,662' sq yd in need of repair, guaranty expired, 1 Dec 1904 (vol. 54 p. 1699); asphalt (Barber) by 7 Nov 1906 (vol. 58)"
+   },
+   "note": "Worn macadam. The 1902 ordinance for asphalt to 22nd Street was superseded by the 1903 one that stops at 20th, and the city's December 1904 repair survey lists this block as macadam out of its guaranty. It was repaved with asphalt before November 1906, after the scene."
+  },
+  "e16th_indiana_prairie": {
+   "priority": 1,
+   "material": "sheet_asphalt",
+   "tier": "inferred",
+   "sources": [
+    "chicago_council_proceedings_1899_v43"
+   ],
+   "exists": {
+    "from": "1899-05-03",
+    "to": "1906-10-24",
+    "from_basis": "contract for 'curbing, grading and paving with asphalt 16th street, from Michigan avenue to Prairie avenue' awarded to J. H. Covode, 3 May 1899 (vol. 43 pp. 255-256)",
+    "to_basis": "taken by the South Park Commissioners 24 Oct 1906 (south_park_commissioners_statutes_1908); no repaving read before then"
+   },
+   "note": "The Board of Local Improvements let the asphalt contract in May 1899; its completion is not read, so the surface is inferred. The 1911 sheet's '(Boulevard)' dates from the South Park taking of 1906."
+  },
+  "e18th_indiana_prairie": {
+   "priority": 1,
+   "material": "macadam",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1905_v54",
+    "chicago_council_proceedings_1904_v52"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "not in the Board's 1901-03 list (vol. 52)",
+    "to_basis": "'18th street, from Indiana avenue to Calumet avenue (macadam) 1,857', 1 Dec 1904 (vol. 54 p. 1699)"
+   },
+   "note": "Macadam out of guaranty and in need of repair on 1 December 1904. The Chicago City Railway's double track on 18th Street (horse cars in 1896) is not drawn (L297)."
+  },
+  "e18th_prairie_calumet": {
+   "priority": 1,
+   "material": "macadam",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1905_v54",
+    "chicago_council_proceedings_1904_v52"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "not in the Board's 1901-03 list (vol. 52)",
+    "to_basis": "as e18th_indiana_prairie: the December 1904 entry runs Indiana to Calumet"
+   },
+   "note": "The same macadam as west of Prairie: the city's entry runs from Indiana to Calumet Avenue."
+  },
+  "e20th_indiana_calumet": {
+   "priority": 1,
+   "material": "macadam",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1905_v54",
+    "chicago_council_proceedings_1904_v52"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "not in the Board's 1901-03 list (vol. 52)",
+    "to_basis": "'20th street, from Indiana avenue to Calumet avenue (macadam) 1,466', 1 Dec 1904 (vol. 54 p. 1699)"
+   },
+   "note": "Macadam out of guaranty and in need of repair on 1 December 1904."
+  },
+  "e21st_indiana_calumet": {
+   "priority": 1,
+   "material": "macadam",
+   "tier": "attested",
+   "sources": [
+    "chicago_council_proceedings_1905_v54",
+    "chicago_council_proceedings_1904_v52"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "not in the Board's 1901-03 list (vol. 52)",
+    "to_basis": "'21st street, from Michigan avenue to Calumet avenue (macadam) 2,713', 1 Dec 1904 (vol. 54 p. 1699)"
+   },
+   "note": "Macadam out of guaranty and in need of repair on 1 December 1904."
+  },
+  "e22nd_indiana_calumet": {
+   "priority": 1,
+   "material": "sheet_asphalt",
+   "tier": "inferred",
+   "sources": [
+    "chicago_council_proceedings_1899_v43"
+   ],
+   "exists": {
+    "from": "1899-08-26",
+    "to": "1904-12-01",
+    "from_basis": "assessment roll for '23631. Curbing, grading and paving (asphalt) 22d street, from Indiana avenue to Illinois Central Railroad' filed in the County Court 26 Aug 1899 (vol. 43 p. 1068)",
+    "to_basis": "not in the December 1904 list of worn pavements (vol. 54), and no other surface read"
+   },
+   "note": "The asphalt ordered in 1899 is inferred to have been laid; nothing read confirms it."
+  },
+  "indiana_16_18": {
+   "priority": 2,
+   "material": "vitrified_brick",
+   "tier": "inferred",
+   "sources": [
+    "chicago_council_proceedings_1899_v43"
+   ],
+   "exists": {
+    "from": "1899-05-22",
+    "to": "1904-12-01",
+    "from_basis": "ordinance 'for curbing, grading and paving (brick) Indiana avenue, from 16th street to 18th street' passed 22 May 1899 (vol. 43 p. 473)",
+    "to_basis": "not in the December 1904 list of worn pavements (vol. 54), and no other surface read"
+   },
+   "note": "The brick ordinance of May 1899 is inferred to have been carried out. The Chicago City Railway's double track on Indiana Avenue is not drawn (L297)."
+  },
+  "indiana_18_20": {
+   "priority": 2,
+   "material": "sheet_asphalt",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1902_v49",
+    "chicago_council_proceedings_1903_v51",
+    "chicago_council_proceedings_1907_v58"
+   ],
+   "exists": {
+    "from": "1904",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: the asphalt ordinance passed 22 Sep 1902 (vol. 49 p. 1099); the Council pressed for the east side on 28 Sep 1903 (vol. 51 p. 1053); not finished by 2 Nov 1903 (vol. 52)",
+    "to_basis": "'Indiana avenue, from 18th street to 39th street; asphalt. R. F. Conway Co. ... Needs repairs', 7 Nov 1906 (vol. 58 p. 1929)"
+   },
+   "note": "Asphalt ordered in 1902 and finished between November 1903 and November 1906; which side of 1 July 1904 it was finished on is not read, and it is drawn finished."
+  },
+  "indiana_20_22": {
+   "priority": 2,
+   "material": "sheet_asphalt",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1902_v49",
+    "chicago_council_proceedings_1903_v51",
+    "chicago_council_proceedings_1907_v58"
+   ],
+   "exists": {
+    "from": "1904",
+    "to": "1906-11-07",
+    "from_basis": "as indiana_18_20",
+    "to_basis": "as indiana_18_20"
+   },
+   "note": "As 18th-20th: the same 1902 ordinance, finished between November 1903 and November 1906."
+  },
+  "calumet_18_20": {
+   "priority": 2,
+   "material": "macadam",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1905_v54"
+   ],
+   "exists": {
+    "from": "1901",
+    "to": "1904-12-01",
+    "from_basis": "the attested south end (below) was not laid by the Board in 1901-03 (vol. 52)",
+    "to_basis": "'Calumet avenue, from 21st street to 403 feet north of 20th street (macadam)', 1 Dec 1904 (vol. 54 p. 1699)"
+   },
+   "note": "Only the south 403 ft of this segment is in the December 1904 macadam entry; the rest, round the curve out of 18th Street, is carried from it and is reconstructed."
+  },
+  "calumet_20_22": {
+   "priority": 2,
+   "pieces": [
+    {
+     "until": "e21st_indiana_calumet",
+     "material": "macadam",
+     "tier": "attested",
+     "sources": [
+      "chicago_council_proceedings_1905_v54",
+      "chicago_council_proceedings_1904_v52"
+     ],
+     "exists": {
+      "from": "1901",
+      "to": "1904-12-01",
+      "from_basis": "not in the Board's 1901-03 list (vol. 52)",
+      "to_basis": "'Calumet avenue, from 21st street to 403 feet north of 20th street (macadam)', 1 Dec 1904 (vol. 54 p. 1699)"
+     },
+     "note": "20th to 21st Street: macadam out of guaranty on 1 December 1904."
+    },
+    {
+     "material": "sheet_asphalt",
+     "tier": "inferred",
+     "sources": [
+      "chicago_council_proceedings_1899_v43"
+     ],
+     "exists": {
+      "from": "1899-05-03",
+      "to": "1904-12-01",
+      "from_basis": "contract for 'curbing, grading and paving with asphalt Calumet avenue, from 21st street to 31st street' awarded to the Standard Paving Co., 3 May 1899 (vol. 43 pp. 255-256)",
+      "to_basis": "the December 1904 macadam entry stops at 21st Street (vol. 54)"
+     },
+     "note": "21st to 22nd Street: the asphalt let in 1899, inferred laid."
+    }
+   ]
+  }
+ },
+ "alleys": {
+  "alley_indiana_prairie_16_18": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_indiana_prairie_18_20": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_prairie_calumet_18_20": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_indiana_prairie_21_22": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_prairie_calumet_20_21": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_prairie_calumet_21_22": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58",
+    "alvord_street_paving_report_1904"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1906-11-07",
+    "from_basis": "reconstructed: no paving of this alley is in the Board's lists of 2 Nov 1903 or 7 Nov 1906 (vols. 52, 58)",
+    "to_basis": "reconstructed as unimproved to at least the last list read"
+   },
+   "note": "No record read paves this alley before 1907, so it is drawn unimproved: graded earth dressed with cinders."
+  },
+  "alley_indiana_prairie_20_21": {
+   "material": "earth_and_cinders",
+   "tier": "reconstructed",
+   "liberty": "L297",
+   "sources": [
+    "chicago_council_proceedings_1903_v51",
+    "chicago_council_proceedings_1904_v52",
+    "chicago_council_proceedings_1907_v58"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1904-07-01",
+    "from_basis": "reconstructed",
+    "to_basis": "reconstructed: rock asphalt was ordered 11 May 1903 (vol. 51 p. 38), was not down on 2 Nov 1903 (vol. 52) and was down, 'Needs repairs', on 7 Nov 1906 (vol. 58 p. 1932); drawn as it stood before the paving"
+   },
+   "note": "The one alley with a record: 'the north and south alley first west of Prairie avenue, from 20th street to 21st street' was ordered paved with rock asphalt in May 1903 and was paved between November 1903 and November 1906. It is drawn as it stood before, unimproved; it may already have been rock asphalt on 1 July 1904."
+  }
+ },
+ "bands": {
+  "walk": {
+   "material": "portland_cement_walk",
+   "tier": "reconstructed",
+   "liberty": "L296",
+   "sources": [
+    "chicago_revised_municipal_code_1905",
+    "chicago_council_proceedings_1899_v43",
+    "chicago_council_proceedings_1902_v49",
+    "chicago_council_proceedings_1903_v51",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "exists": {
+    "from": "1898",
+    "to": "1923",
+    "from_basis": "reconstructed: cement walks lead the Council's sidewalk orders from 1902 (vols. 49-51) and are the code's first specification (sec. 2062)",
+    "to_basis": "a pale walk in jointed slabs on both Glessner frontages in the c. 1923 views (HABS nos. 2, 3)"
+   },
+   "blocks": {
+    "row_66": {
+     "across_ft": 6,
+     "along_ft": 5
+    },
+    "row_50": {
+     "across_ft": 5,
+     "along_ft": 6
+    }
+   },
+   "blocks_note": "Sec. 2062: 'All work on 5, 6, 10, 12 ... foot walks to be laid out in blocks five feet by six feet in size' -- so a 6-ft walk is one 6-ft block across and 5-ft blocks along, and a 5-ft walk the other way about.",
+   "note": "No record read says what the walks of these blocks were made of in 1904. Cement concrete is what the city was mostly ordering by 1902 and what the c. 1923 photographs show; limestone flagging is the likeliest alternative on an avenue walked since the 1870s, and a plank walk, still common in 1899, the least likely on this one."
+  },
+  "curb": {
+   "material": "sandstone_curbstone",
+   "tier": "reconstructed",
+   "liberty": "L296",
+   "sources": [
+    "chicago_revised_municipal_code_1905",
+    "chicago_council_proceedings_1902_v49",
+    "chicago_council_proceedings_1903_v50",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "exists": {
+    "from": "1899",
+    "to": "1923",
+    "from_basis": "reconstructed: curbing was let with the district's pavings of 1899-1903 (16th Street, Indiana, 22nd Street, Prairie Avenue)",
+    "to_basis": "a pale curb jointed in straight lengths on both Glessner frontages c. 1923 (HABS nos. 2, 3)"
+   },
+   "note": "Prairie Avenue 16th-20th was CURBED under the 1903 ordinance; its printed title names no 'combined curb and gutter', which the Board's titles of that year name whenever they order one, and the Board's full-text ordinances of 1902 name sandstone curbstones. So a stone curb is the likelier reading there, and the stone is reconstructed; the cross streets' older macadam may have had white-oak plank, which sec. 2072 also allowed."
+  },
+  "parkway": {
+   "material": "grass_plat",
+   "tier": "reconstructed",
+   "liberty": "L296",
+   "sources": [
+    "chicago_revised_municipal_code_1905",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1923",
+    "from_basis": "reconstructed: sec. 2077's grass plats; the avenue described as 'tree lined' in the 1880s (HABS data p. 2, quoting Meeker)",
+    "to_basis": "grass parkways on both Glessner frontages c. 1923 (HABS nos. 2, 3)"
+   },
+   "note": "Turf between the walk and the curb. No tree is drawn: trees are not this ticket's."
+  },
+  "margin": {
+   "material": "grass_plat",
+   "tier": "reconstructed",
+   "liberty": "L296",
+   "sources": [
+    "chicago_revised_municipal_code_1905",
+    "habs_glessner_house_il_1015_photographs"
+   ],
+   "exists": {
+    "from": "1886",
+    "to": "1923",
+    "from_basis": "reconstructed: sec. 2062 sets the walk one foot off the lot line and says nothing of the foot",
+    "to_basis": "a grass strip between the walk and the wall on 18th Street c. 1923 (HABS no. 3)"
+   },
+   "note": "The foot between the lot line and the walk, drawn as turf like the parkway."
+  }
+ }
+}

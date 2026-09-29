@@ -1180,9 +1180,12 @@ async function boot() {
   // face's margin, walk, parkway and curb, the alleys and the lot lines, read off
   // the Sanborn 1911 sheets (data/street_grid/<scene>.json). Only a scene listing
   // `street_grid` is handed a data base, so the 1835 town draws none of it.
+  // T-1728 paves it: data/street_surfaces/<scene>.json names each surface's
+  // material and tier, and the maps come from the asset base's
+  // textures/prairie_1904_pbr/ (data/textures/ on the published site).
   const streetGrid = await createStreetGrid({
-    dataBase: layerBase('street_grid'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_grid'),
+    dataBase: layerBase('street_grid'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    terrain, confidence, problems: layerProblems('street_grid'),
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;

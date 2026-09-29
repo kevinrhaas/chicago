@@ -1,0 +1,26 @@
+{
+ "id": "chicago_council_proceedings_1907_v58",
+ "type": "legal",
+ "citation": "Chicago City Council. Proceedings of the City Council of the City of Chicago, for the municipal year 1906-1907. Chicago: the City Council, 1907. Vol. 58.",
+ "author": "City of Chicago, City Council",
+ "date": "1907",
+ "describes_date": "November 1903 - November 1906",
+ "repository": "Internet Archive, digitized from The Newberry Library's copy (sponsor CARLI)",
+ "url": "https://archive.org/details/proceedingsofcit58chic",
+ "archived_url": "https://archive.org/download/proceedingsofcit58chic/proceedingsofcit58chic_djvu.txt",
+ "locator": "The Council meeting of 12 November 1906, pp. 1924-1933: the Board of Local Improvements' report of 7 November 1906 'of the condition of the streets paved within the last three years' (John A. May, secretary); Indiana Avenue p. 1929, Prairie Avenue pp. 1929-1930, the alleys p. 1932.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A publication of the City of Chicago; public domain in the United States (Internet Archive: 'Not in Copyright').",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "The later bracket. The Board lists every street it had paved in the previous three years with its material, contractor and condition: 'Prairie avenue, from 16th street to 20th street; asphalt. R. F. Conway Co., contractor. In good condition'; 'Prairie avenue, from 20th street to 22d street; asphalt. Barber Asphalt Paving Co., contractor. In good condition'; 'Indiana avenue, from 18th street to 39th street; asphalt. R. F. Conway Co., contractor. Needs repairs'; 'Alley, north and south, between 20th street and 21st street; rock asphalt. Pugh, contractor. Needs repairs' (all P. J. O'Donnell). Read with the lists of 2 November 1903 and 1 December 1904 it dates three things: Prairie 16th-20th was asphalt before and after the scene; Prairie 20th-22nd went from macadam (December 1904) to asphalt between then and November 1906; Indiana Avenue's asphalt and the alley's rock asphalt were finished between November 1903 and November 1906, which brackets 1 July 1904 without deciding it.",
+ "what_it_supplies": [
+  "the material and contractor of Prairie Avenue 16th-20th (asphalt, R. F. Conway Co.)",
+  "that Prairie Avenue 20th-22nd, Indiana Avenue 18th-39th and the alley west of Prairie 20th-21st were paved (asphalt, asphalt, rock asphalt) between November 1903 and November 1906"
+ ],
+ "what_it_does_not_supply": [
+  "which side of 1 July 1904 those three were finished on"
+ ]
+}
