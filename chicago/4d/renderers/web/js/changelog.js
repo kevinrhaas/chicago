@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
+  { v: 1220, ts: '2026-09-29T01:19:50.536Z', date: 'Sep 28, 2026, 8:19 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
     items: [
       "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",
       'The rule that ends this street where a building blocks it was being applied to the line down the middle of the road rather than to the road. A road has a width, so the line can stop short of a building while the roadway still runs through its corner \u2014 which is exactly what had happened. The street now stops 1.17 m earlier, where the ROADWAY clears the building, and the inn is outside it by 0.05 m at the nearest corner.',
