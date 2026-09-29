@@ -374,14 +374,14 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,478
-- seated: 248 — 204 by adopting a roof that already stands, 44 by asking for one
-- still on no ground at all: 1,230
-- of the 480 roofs the town already has, 204 now carry a reconstructed household
+- seated: 249 — 205 by adopting a roof that already stands, 44 by asking for one
+- still on no ground at all: 1,229
+- of the 480 roofs the town already has, 205 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,478 | 175 | 131 | 44 | 1,303 |
-| The ground the plat does not draw | T-1614 | 1,303 | 73 | 73 | 0 | 1,230 |
+| The committed plat | T-1613 | 1,478 | 177 | 133 | 44 | 1,301 |
+| The ground the plat does not draw | T-1614 | 1,301 | 72 | 72 | 0 | 1,229 |
 
 44 slot(s) on 7 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_lake_clinton, blk_washington_clark, blk_washington_dearborn, blk_washington_franklin, blk_washington_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -407,11 +407,11 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#05` | D4 | `tradesman_dwellings` |
 | `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#04` | D4 | `tradesman_dwellings` |
 | `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D4 | `tradesman_dwellings` |
-| `hh_barry_william` | `blk_lake_clinton` | `blk_lake_clinton#07` | D3 | `tradesman_dwellings` |
-| `hh_baxley_j_m` | `blk_lake_clinton` | `blk_lake_clinton#02` | D4 | `tradesman_dwellings` |
 | `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D5 | `tradesman_dwellings` |
+| `hh_beaubien_b` | `blk_lake_clinton` | `blk_lake_clinton#07` | D3 | `tradesman_dwellings` |
 | `hh_beaubien_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D5 | `tradesman_dwellings` |
 | `hh_beaubien_susan` | `blk_indiana_north_cass` | `blk_indiana_north_cass#01` | D5 | `tradesman_dwellings` |
+| `hh_bennett_h_c` | `blk_lake_clinton` | `blk_lake_clinton#02` | D4 | `tradesman_dwellings` |
 | `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
 | `hh_bigelow_david` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
 | `hh_blaisdell_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
@@ -432,7 +432,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_cleaveland_wm_p` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
 | `hh_clement_dorcinrk` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 
-1,230 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,229 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -642,10 +642,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
 - `standing_records`: 480
-- `standing_with_an_occupant`: 148
-- `standing_without_an_occupant`: 332
+- `standing_with_an_occupant`: 149
+- `standing_without_an_occupant`: 331
 - `to_build_total`: 202
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 332 of the 480 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 331 of the 480 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -739,7 +739,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 21 of 1375 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 49 of 1375 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 332 of 480 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 331 of 480 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,543 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.

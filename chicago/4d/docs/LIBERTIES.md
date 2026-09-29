@@ -14627,9 +14627,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 178 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 178 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,302
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -14778,20 +14778,22 @@ has been raised out can offer. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on th
 the two paragraphs above: a roof raised in answer to a request is not reserved to the household
 that requested it, and nobody in the cascade lost a roof they were standing under.
 
-**AND THE WEST DIVISION'S FIRST BLOCK DEAL MOVED IT A FOURTH TIME (T-1761, 2026-09-29).**
+**AND THE WEST DIVISION'S FIRST BLOCK DEAL MOVED IT A FOURTH TIME, AND THIS IS THE FIRST OF THE
+FOUR IN WHICH A HOUSEHOLD THAT ASKED GOT WHAT IT ASKED FOR (T-1761, 2026-09-29).**
 `blk_randolph_clinton` was dealt the two slot requests standing against it, plus two yard
-buildings — see **L304**. The cascade is the same one the three paragraphs above describe: the
-two new dwellings entered the pass as standing roofs an admitted clause could adopt and were
-scored for hh_abbot_8_g and hh_abbott_titus_h, who were already standing under something else,
-while **neither household that asked is seated on the roof raised for it** — hh_adams_james
-adopts recon_1835_west_019 on lot 0 of this same block, and hh_bennett_h_c carries its request
-across to blk_lake_clinton. So the deal settles at **178 seats** against 177 before it, the
-adoptions rise from 131 to **133**, the slot table falls from 46 to **45**, and **1,300** rows
-are handed on to **T-1614** against 1,301 before it; the one seat gained is hh_arrowsmith_sidney's,
-a fresh slot request on the Clinton lot this deal leaves open. THE OUTCOME IS REPORTED RATHER
-THAN TIDIED, on the same terms as the three paragraphs above: a roof raised in answer to a
-request is not reserved to the household that requested it, and nobody in the cascade lost a
-roof they were standing under or a seat they held. **T-1626** carries that question to the owner.
+buildings — see **L304**. The cascade still runs: the two new dwellings entered the pass as
+standing roofs an admitted clause could adopt, and only ONE of the two households the block was
+sized against came out under the roof raised for it. **hh_adams_james adopts the D7 house on
+lot 9, which is the family, the lot and the roof its request named.** hh_abbott_titus_h — a
+household already standing under this block's own D5 — scored higher on the lot 7 cottage than
+hh_bennett_h_c, whose request sized it, and hh_bennett_h_c carries its request across the
+approach to blk_lake_clinton. The pass settles at **177 seats**, exactly where it stood before
+the deal, with two slot requests turning into roofs: the adoptions rise from 131 to **133**, the
+slot table falls from 46 to **44**, and **1,301** rows are still handed on to **T-1614**. THE
+OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as the three paragraphs above: a roof
+raised in answer to a request is not reserved to the household that requested it — it happened
+to reach one of these two and not the other — and nobody in the cascade lost a roof they were
+standing under or a seat they held. **T-1626** carries that question to the owner.
 
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
@@ -15398,11 +15400,11 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Twenty roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and thirty-seven do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 20 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 72
+**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 73
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Six of the 20 are on the
-South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Six of the 21 are on the
+South Water blocks and were written by T-1638; the other 15 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -15426,6 +15428,17 @@ seats moved and the district boundary of this pass did not follow them.
 owed rather than refused, for the reason the paragraph above gives: the household that has the
 roof is seated on a Washington-tier block this pass has not been run over yet. No ruling moved,
 no name was written to a roof it was not dealt, and no refusal was re-argued.
+
+**T-1761 gave one back, which is the first time this count has risen since T-1638 wrote it.**
+The second deal on `blk_randolph_clinton` (**L304**) raised two dwellings on a block INSIDE
+this pass's districts, and both were adopted: `hh_adams_james` took the D7 on lot 9 and
+`hh_abbott_titus_h` the D3 on lot 7, so two keepers are written where there were none. One
+came off the other side of the same move — hh_abbott_titus_h vacated
+`recon_1835_blk_randolph_clinton_d5_01` and the household that moved up behind it is a
+letter-list name this pass already refuses — so the written count goes 20 to **21**, the
+refusals 72 to **73** and the owed count 38 to **39**. The rule is the one the two paragraphs
+above describe, running in the other direction for once: a seat that moves INTO this pass's
+districts brings its name with it.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -17101,8 +17114,9 @@ roofs**: a two-storey frame house (D7) on lot 9, the Canal corner, a one-room fr
 lot. The families and the lots are the seating pass's, not this deal's: `hh_adams_james` held a
 D7 request on lot 9 under the merchant-and-professional clause and `hh_bennett_h_c` a D3
 request on lot 7 under the tradesman clause, and both requests carried the sentence this deal
-answers — no standing roof of an admitted family was free in the West Division. **Neither
-household is the one standing there afterwards, and that is reported below rather than tidied.**
+answers — no standing roof of an admitted family was free in the West Division. **One of the
+two is the household standing there afterwards and the other is not, and that is reported below
+rather than tidied.**
 **Everything below that is invented**: that any building stood on these two lots in
 July 1835, which buildings they were, that they were dwellings, how far back from Canal Street
 each sits and how far to one side of its lot. No coordinate is authored; every metre is read
@@ -17147,22 +17161,23 @@ continuing the same irregularity, the deeper one the larger house on the corner.
 states any of the four numbers**, on this block or on any other, and nothing states the
 difference between them either.
 
-**NEITHER HOUSEHOLD THAT ASKED IS SEATED ON THE ROOF RAISED FOR IT, AND BOTH RE-SEAT
-ELSEWHERE.** The adoption step runs before the slot step, so both new dwellings entered the
-seating pass as standing roofs an admitted clause could adopt, and the clause order scored them
-for households that were already standing under something else: `hh_abbot_8_g` took the corner
-house on lot 9 and `hh_abbott_titus_h` the cottage on lot 7. `hh_adams_james`, whose request lot
-9 was sized against, adopts `recon_1835_west_019` on lot 0 of this same block; `hh_bennett_h_c`,
-whose request lot 7 was sized against, carries its request across the approach to
-`blk_lake_clinton` lot 2. The platted deal rises from **177 seats to 178**, with adoptions
-rising from 131 to **133**, the slot table falling from 46 to **45** and the rows handed on to
-**T-1614** falling from 1,301 to **1,300**; the one seat gained is `hh_arrowsmith_sidney`'s, a
-fresh slot request on lot 1 — the Clinton lot this deal leaves open. **Nobody lost a roof they
-were standing under and nobody lost a seat**, so what is recorded here is only the mismatch
-itself: the committed precedence does not reserve a roof for the household that asked
+**ONE OF THE TWO HOUSEHOLDS THAT ASKED IS SEATED ON THE ROOF RAISED FOR IT, AND THE OTHER IS
+NOT.** The adoption step runs before the slot step, so both new dwellings entered the seating
+pass as standing roofs any admitted clause could adopt, and the clause order decided the two
+separately. `hh_adams_james`, whose D7 request lot 9 was sized against, **adopts the corner
+house on lot 9** — the family, the lot and the roof its own request named. The cottage on lot 7
+went the other way: `hh_abbott_titus_h`, already standing under this block's D5 on lot 6,
+scored higher on it than `hh_bennett_h_c`, whose D3 request the lot was sized against, so
+hh_bennett_h_c carries its request across the approach to `blk_lake_clinton` lot 2 and
+hh_allan_richard_b moves up into the D5 behind it. The platted deal holds at **177 seats**,
+exactly where it stood before, with two requests turning into roofs: adoptions rise from 131 to
+**133** and the slot table falls from 46 to **44**, while the 1,301 rows handed on to **T-1614**
+do not move. **Nobody lost a roof they were standing under and nobody lost a seat.** What is
+recorded here is the half of the deal that did not reach the household that asked: the
+committed precedence does not reserve a roof for the household whose request sized it
 (**T-1626** carries that question to the owner). It is recorded because a liberty whose
 population moves under it is restated rather than left reading well, and because a reader
-comparing the two requests against the two names on these cards would otherwise find the
+comparing the two requests against the two names on these cards would otherwise find one
 mismatch and no account of it.
 
 **How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for plat
