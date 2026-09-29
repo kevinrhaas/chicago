@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'History along your outing', kind: 'change',
+  { v: 1226, ts: '2026-09-29T06:02:01.556Z', date: 'Sep 29, 2026, 1:02 AM CT', title: 'History along your outing', kind: 'change',
     items: [
       'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
       'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',

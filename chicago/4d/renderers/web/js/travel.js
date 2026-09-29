@@ -46,8 +46,7 @@
  * frame (see main.js goTo()).
  */
 
-import { WALK, FLY } from './walker.js';
-import { bearingToYaw } from './terrain.js';
+import { bearingToYaw } from './angles.js';
 
 const DEG = Math.PI / 180;
 const TAU = Math.PI * 2;
@@ -59,7 +58,7 @@ const TAU = Math.PI * 2;
  * all, just the mode Go to has always had. Interface choices; see the header.
  */
 export { PACES, paceSpeed } from './travel-settings.js';
-import { PACES, paceSpeed, ARRIVAL_SETTLE_S } from './travel-settings.js';
+import { PACES, paceSpeed, ARRIVAL_SETTLE_S, WALK, FLY } from './travel-settings.js';
 
 /**
  * What a speed is CALLED, per pace — the word a slider shows as it moves. Metres
