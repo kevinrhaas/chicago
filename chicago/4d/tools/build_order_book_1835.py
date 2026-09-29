@@ -4636,7 +4636,7 @@ def cmd_self_test() -> int:
     # hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william,
     # hh_bench_reuben and hh_brookes_samuel, and 59 households change roof behind them — the
     # largest cascade any deal here has set off. That is the T-1622 precedence a fifth time, and
-    # it is recorded in L303. Read at the chain's fixpoint, not one pass in: this one took SEVEN
+    # it is recorded in L304. Read at the chain's fixpoint, not one pass in: this one took SEVEN
     # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
     # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
     # four of those passes before it settled at 177.
