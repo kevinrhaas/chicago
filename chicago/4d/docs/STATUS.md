@@ -1,3 +1,53 @@
+## T-1732 — the Glessner House at 1800 Prairie, as it stood in 1904: the default version (2026-09-29)
+
+`/4d/1904/` is no longer an empty lot. `data/structures/glessner_house.json` (archetype
+`masonry_house`, new in `generators/archetypes/`; phase `as_built_1887`, 1887-12-01 to
+1946-08-31) stands on T-0474's parcel `prairie_1800`, built from T-1731's specification and
+tightened by the HABS photographs (PR #169) and read against the Houghton drawings (PR #171).
+It is the DEFAULT record that T-1730's alternates will be compared against.
+
+- **Placement**: north face on the parcel's 18th Street line, east face 14.7 ft behind the Prairie
+  line (the spec's Sanborn 1911 sheet 28 reading), rotation −0.669° to the sheet's axes; the
+  177.1-ft parcel leaves the west face 0.35 m inside the alley line, and the 74.7-ft frontage
+  leaves 0.7 ft to the 1808 line. Inferred.
+- **Footprint**: the 34-point ground-floor outline, about 7,054 sq ft, from HABS sheet 2's
+  dimension strings, checked against Sanborn 1911 sheet 28. Attested.
+- **Massing and roofs**: the east wing (eave 27.1, ridge 45.7 ft), the 18th Street range
+  (eave 23.1, ridge 34.1 ft, 36.6° with the courtyard kick), the coach house and stable at the
+  alley with its ridge turret, the round stair tower, the north tower, the hall bow, the dining
+  bay, three courtyard dormers, five chimneys, the courtyard gate and a lawn with its carriage
+  drive. 52 form attributes: 23 attested, 11 inferred, 18 reconstructed (with placement inferred, footprint and dates attested).
+- **What the new photographs settled** (docs/RESEARCH/glessner_house_1904.md § 13): the stable's
+  roof (ridge on the carriage doorway's axis at about 38.6 ft, not the spec's symmetric 45°), the
+  "pyramid element" (a round tower), the dining bay (a glazed band and a tall faceted roof), a
+  fifth chimney and a second window in the east wing's north face — all now inferred.
+- **Reconstructed, L295**: every colour, the north tower's plan, the bow roof, the dormers'
+  depth, the turret's dimensions, the chimneys' E-W sizes, the stable's south end and 1904
+  carriage doors, the north range's courtyard openings, heights read off plans, cornices, gate
+  heights, the courtyard ground. Vines not drawn.
+- **Code**: `generators/build.py` now resolves phases against every scene in `data/scenes/` (a
+  full rebake used to skip every 1904 structure); `tools/town_year.py` keeps the 1835 books
+  (the 665 ledger, the redeal, the name pool, the order book, the register, the Newberry
+  index) to the records that touch 1835. The smoke's part 13 now asserts the house draws at the
+  spawn and a pick on its front opens it, and that it is the only structure placed in 1904.
+
+Measured at the spawn (SwiftShader, published mirror): before — dev without the house, T-0474's
+reading — 16 draw calls, 74.0k triangles at 1280×800 and 81.1k at 390×780; after, 18 calls and
+76.2k / 83.3k, inside the 215-call budget, zero problems, zero page errors. The house is one mesh
+of nine material primitives and 1,075 triangles (the web derivative 25.5 KB). The bake: Blender
+4.5.3 `bake.sh --only glessner_house` (96,496-byte master); a full rebake to re-stamp every
+asset after `emit.py` took the new archetype reproduced all other masters byte for byte except
+`miller_tanyard_bark_shed__yard_1831.glb` (same vertex counts, 38,216 → 47,404 bytes), which ships
+as rebuilt.
+
+**Not done here:** the house's interior (out of scope), the porte-cochère and front-door
+panelling (flat oak panels), the vines, and 1808 Prairie — whose north wall closed the
+courtyard — so the court reads open to the south. The rights bank
+(`tools/rights_derivation_baseline.json`) records 34 of the house's attributes citing a
+`check_required` source (the 1888 *Inland Architect* plate, Glessner 1923, the c. 1888 door
+photograph, HABS photograph 5, Houghton GLE B9); three stand on such sources alone (`paint`,
+`granite_tint`, `roof_tint`) — K41's open question.
+
 ## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
 
 `/4d/1904/` now stands on streets. `tools/trace_prairie_1904_grid.py` reads the three Sanborn 1911

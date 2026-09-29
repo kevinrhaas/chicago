@@ -419,7 +419,14 @@ STRUCTURE_TICKETS = {
     # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
     # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
-    ("north", "ordinary_dwellings"): "T-1748",
+    #
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
+    ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

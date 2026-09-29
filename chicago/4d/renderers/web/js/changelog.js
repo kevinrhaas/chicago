@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
+  { v: 1224, ts: '2026-09-29T04:24:42.593Z', date: 'Sep 28, 2026, 11:24 PM CT', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
     items: [
       'Open /4d/1904/ and the corner lot is no longer empty. Across Prairie Avenue stands 1800 Prairie as it was in the summer of 1904: the granite front, the steep red-tiled roof with its three stacks, the fan of stone over the front door and the carriage entrance at the south end.',
       'The Prairie Avenue front is built opening for opening from the 1965 government survey drawings. An 1888 photograph agrees with every one. Behind it the 18th Street range runs back to the coach house at the alley, with its great arched service entrance, stable doors, loft and small louvred turret.',
