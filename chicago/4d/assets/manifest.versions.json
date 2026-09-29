@@ -11,6 +11,17 @@
       "structure_id": "bates_auction_room",
       "version_label": "fixture",
       "web_master_sha256": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227"
+    },
+    "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
+      "archetype": "masonry_house",
+      "baked_ao": false,
+      "bytes": 95728,
+      "inputs_sha256": "06fb0b32a86328e0b52314ce25789a3d96dc425f11de18abd0f33b39dc7c42b3",
+      "kind": "generated",
+      "phase_id": "as_built_1887",
+      "structure_id": "glessner_house",
+      "version_label": "v3",
+      "web_master_sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
     }
   },
   "inputs_scheme": "resolved-params-v4"

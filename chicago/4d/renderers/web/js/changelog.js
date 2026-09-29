@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1225, ts: '2026-09-29T05:13:10.107Z', date: 'Sep 29, 2026, 12:13 AM CT', title: 'A second Glessner House to compare against the first', kind: 'feature',
+    items: [
+      'Open /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v3 and the same corner lot carries a second, independently built reading of 1800 Prairie, standing beside the one already there.',
+      'The granite reads warmer and pinker, toward the museum’s own name for the stone rather than the family memoir’s. The stable’s roofline runs level, centred on the wing, instead of angled toward the carriage doors below it.',
+      'The round tower at the 18th Street corner is a touch smaller, the chimneys a touch slimmer, the dormers a touch deeper, and the courtyard drive runs a straighter line to the alley gate.',
+      'Drop the &version=v3 from the address and the first reading comes back. Both are built from the same drawings, plate and photographs; a card on each says where they part ways.',
+    ] },
   { v: 1224, ts: '2026-09-29T04:24:42.593Z', date: 'Sep 28, 2026, 11:24 PM CT', title: 'The Glessner House stands at Prairie and Eighteenth', kind: 'feature',
     items: [
       'Open /4d/1904/ and the corner lot is no longer empty. Across Prairie Avenue stands 1800 Prairie as it was in the summer of 1904: the granite front, the steep red-tiled roof with its three stacks, the fan of stone over the front door and the carriage entrance at the south end.',
