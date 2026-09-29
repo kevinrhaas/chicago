@@ -36,7 +36,7 @@ street lines (docs/RESEARCH/prairie_1904_street_grid.md). The sidewalk space (14
 are the city's own defaults, from the Revised Municipal Code of 1905, secs. 2072 and
 2062 (data/sources/chicago_revised_municipal_code_1905.json) -- INFERRED, because the
 code yields to any block-level order and is dated 20 March 1905. The walk's width, the
-curb's width and therefore the parkway are RECONSTRUCTED (docs/LIBERTIES.md L291).
+curb's width and therefore the parkway are RECONSTRUCTED (docs/LIBERTIES.md L292).
 No material is claimed for anything: that is T-1728.
 """
 from __future__ import annotations
@@ -232,11 +232,11 @@ CROSS_SECTIONS = {
             {"band": "margin", "from_ft": 0.0, "to_ft": 1.0, "tier": "inferred", "sources": [CODE_1905],
              "note": "sec. 2062: 'All walks to be laid on a line one foot from and parallel with the lot line'. What covered the foot is not stated; it is drawn as the parkway's ground."},
             {"band": "walk", "from_ft": 1.0, "to_ft": 7.0, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "6 ft: one of the walk widths sec. 2062 lays out in 5-by-6-ft blocks (5, 6, 10, 12 ... ft). Bounded by the 14-ft space less the 1-ft margin and a curb. No source states this block's walk. L291."},
+             "note": "6 ft: one of the walk widths sec. 2062 lays out in 5-by-6-ft blocks (5, 6, 10, 12 ... ft). Bounded by the 14-ft space less the 1-ft margin and a curb. No source states this block's walk. L292."},
             {"band": "parkway", "from_ft": 7.0, "to_ft": 13.5, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "The remainder of the sidewalk space: sec. 2077's 'courts or open spaces ... for planting trees or for grass plats'. Its width follows from the walk's and the curb's, so it is reconstructed with them. L291."},
+             "note": "The remainder of the sidewalk space: sec. 2077's 'courts or open spaces ... for planting trees or for grass plats'. Its width follows from the walk's and the curb's, so it is reconstructed with them. L292."},
             {"band": "curb", "from_ft": 13.5, "to_ft": 14.0, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "6 in: sec. 2072 asks only for curbing 'not less than three inches in thickness'. Width only; its reveal above the gutter is not drawn and not claimed. L291."},
+             "note": "6 in: sec. 2072 asks only for curbing 'not less than three inches in thickness'. Width only; its reveal above the gutter is not drawn and not claimed. L292."},
         ],
     },
     "row_50": {
@@ -247,11 +247,11 @@ CROSS_SECTIONS = {
             {"band": "margin", "from_ft": 0.0, "to_ft": 1.0, "tier": "inferred", "sources": [CODE_1905],
              "note": "sec. 2062, as on the 66-ft streets."},
             {"band": "walk", "from_ft": 1.0, "to_ft": 6.0, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "5 ft: the narrowest walk sec. 2062 names, in a space 4 ft narrower than the 66-ft streets'. L291."},
+             "note": "5 ft: the narrowest walk sec. 2062 names, in a space 4 ft narrower than the 66-ft streets'. L292."},
             {"band": "parkway", "from_ft": 6.0, "to_ft": 9.5, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "The remainder of the space. L291."},
+             "note": "The remainder of the space. L292."},
             {"band": "curb", "from_ft": 9.5, "to_ft": 10.0, "tier": "reconstructed", "sources": [CODE_1905],
-             "note": "6 in, as on the 66-ft streets. L291."},
+             "note": "6 in, as on the 66-ft streets. L292."},
         ],
     },
 }
@@ -1075,7 +1075,7 @@ def build() -> dict:
                  "re-run the tool. Local ENU metres of data/datum.json. The renderer's street-grid layer draws "
                  "carriageways, the four sidewalk-space bands of every block face, the alleys and the parcel "
                  "lines in neutral surfaces: no material is claimed for any of them (T-1728 owns the surfaces). "
-                 "docs/RESEARCH/prairie_1904_street_grid.md is the reading; docs/LIBERTIES.md L291 the inventions."),
+                 "docs/RESEARCH/prairie_1904_street_grid.md is the reading; docs/LIBERTIES.md L292 the inventions."),
         "scene": "1904",
         "target_date": "1904-07-01",
         "ticket": "T-0474",

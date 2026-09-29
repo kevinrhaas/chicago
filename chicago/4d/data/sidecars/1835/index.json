@@ -10788,6 +10788,18 @@
       "asset": "gltf/john_holbrook_store__frame_1835.glb"
     },
     {
+      "id": "kelsey_boarding_house",
+      "name": "Kelsey's boarding-house",
+      "sidecar": "sidecars/1835/kelsey_boarding_house.json",
+      "asset": "gltf/kelsey_boarding_house__frame_1835.glb"
+    },
+    {
+      "id": "kimberly_residence",
+      "name": "Dr. Kimberly's residence",
+      "sidecar": "sidecars/1835/kimberly_residence.json",
+      "asset": "gltf/kimberly_residence__frame_1835.glb"
+    },
+    {
       "id": "kinzie_hunter_warehouse",
       "name": "Kinzie & Hunter's Warehouse",
       "sidecar": "sidecars/1835/kinzie_hunter_warehouse.json",

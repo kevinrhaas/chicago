@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1218, ts: '2026-09-28T23:55:16.150Z', date: 'Sep 28, 2026, 6:55 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
+  { v: 1219, ts: '2026-09-29T00:29:47.987Z', date: 'Sep 28, 2026, 7:29 PM CT', title: 'Prairie Avenue gets its 1904 streets, sidewalks and lots', kind: 'feature',
     items: [
       'At /4d/1904/ the ground now has its streets. Prairie, Indiana and Calumet Avenues and 16th to 22nd Streets are laid out as the 1911 fire-insurance maps draw them: 66 feet wide, with 16th Street 50. Behind the houses run the alleys, at the widths the maps print.',
       'Along every block, from the property line out, come a narrow margin, the sidewalk, a planted strip and the curb, then the roadway. The width of the sidewalk strip and where the walk sits in it follow Chicago’s 1905 street code. The walk’s own width and the curb’s are our reconstruction.',
       'The lot lines are drawn on both sides of Prairie from 16th to 22nd, 92 lots in all. Aim at the ground and a card shows which lot you are on and the address the 1911 map prints there.',
       'The Glessner corner lot at 1800 Prairie measures 74.7 feet along the avenue. That settles the 74-or-77 question the house research left open.',
       'The surfaces are plain placeholder tones for now. What the roadway, curbs and walks were made of is the next piece of work.',
+    ] },
+  { v: 1218, ts: '2026-09-28T23:39:45.130Z', date: 'Sep 28, 2026, 6:39 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
+    items: [
+      'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
+      'One sentence each is all there is, and it is a good one. A young man walked this ground looking for a bed on an August morning in 1835 and wrote down what he passed forty years later \u2014 the hotel half built, a doctor\u2019s residence east of it, and a house full of boarders that turned him away.',
+      'A doctor this town already knew now has a home in it. His firm\u2019s drug store on South Water Street has stood in the model for months; the partner who lived across the river did not. Open either new house and it names who was in it.',
+      'The sand hills are not a figure of speech. The ground under the boarding house stands about a metre higher than the riverbank strip the walk set out from \u2014 measured off terrain built years before anyone here read that sentence.',
+      'The one colour any source gives a house in this town is not painted on. The boarding house was yellow and this model has no yellow, so it is built in bare clapboard rather than a substituted white. Everything else you can see of both houses \u2014 size, shape, roof, chimneys, which way they face \u2014 is ours and is written down.',
     ] },
   { v: 1217, ts: '2026-09-28T23:02:09.113Z', date: 'Sep 28, 2026, 6:02 PM CT', title: 'Seven houses turn to face the streets the plat gives them', kind: 'change',
     items: [

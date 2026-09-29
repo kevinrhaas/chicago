@@ -5798,7 +5798,7 @@ for one.
 
 ### L148 — Every named frame building's siding stock is dealt, not found
 
-**Decision:** the exposed face of the clapboard on the 24 named frame buildings is a per-record
+**Decision:** the exposed face of the clapboard on the 26 named frame buildings is a per-record
 value, `siding_exposure_m`, one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather
 — dealt by `tools/deal_siding_stock.py`: keyed to the phase's construction season, then advanced
 so no frame building standing within 60 m shares its neighbour's stock. Derived records — the
@@ -5818,7 +5818,7 @@ documented. The Evidence panel's `reconstructed` grade and the note on every val
 **How to resolve:** any survivor's account, bill of lading, mill advertisement or measured
 photograph stating a board width for a named building replaces that building's dealt value one
 for one; a document on the town's lumber stock would replace the whole set's bounds.
-**Covers:** `bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`.
+**Covers:** `bates_auction_room.form.siding_exposure_m`, `carpenter_south_water_store.form.siding_exposure_m`, `chicago_american_office.form.siding_exposure_m`, `chicago_democrat_office.form.siding_exposure_m`, `dole_warehouse_south.form.siding_exposure_m`, `exchange_coffee_house.form.siding_exposure_m`, `first_presbyterian_church.form.siding_exposure_m`, `frederick_thomas_shop.form.siding_exposure_m`, `goss_cobb_saddlery.form.siding_exposure_m`, `green_tree_tavern.form.siding_exposure_m`, `h_jones_store.form.siding_exposure_m`, `harmon_loomis_store.form.siding_exposure_m`, `jh_kinzie_forwarding_store.form.siding_exposure_m`, `old_bank_building.form.siding_exposure_m`, `peck_store.form.siding_exposure_m`, `pruyne_kimball_drugstore.form.siding_exposure_m`, `sauganash_hotel.form.siding_exposure_m`, `st_marys_church.form.siding_exposure_m`, `steamboat_hotel.form.siding_exposure_m`, `temple_building.form.siding_exposure_m`, `thomas_church_store.form.siding_exposure_m`, `tremont_house_1.form.siding_exposure_m`, `lasalle_lake_house.documented_1834.form.siding_exposure_m`, `watkins_school_house.form.siding_exposure_m`, `western_hotel.form.siding_exposure_m`, `kimberly_residence.frame_1835.form.siding_exposure_m`, `kelsey_boarding_house.frame_1835.form.siding_exposure_m`.
 **Recorded:** 2026-08-20.
 
 ### L152 — The Green Tree's fabric from the plates: bays, end stacks, and the rear ell
@@ -10830,12 +10830,14 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 73 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 75 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 73 structures carry a `land_owner` block that rests on them (71 until two changes
-landed on the same day: T-1715's second garrison root-house on the reservation bank, and T-1716's
+traced, and 75 structures carry a `land_owner` block that rests on them (71 until three changes
+landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
-resolves). The construction is
+resolves, and T-1717's two Lake House neighbours on the north bank east end;
+`resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their
+records states a tract of its own). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -13166,7 +13168,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 84 people in 16 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (54 seats come from the layer; these 81 are the mint on top of them). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
+**Scope:** `residents.persons[lodgers]` — 94 people in 17 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (54 seats come from the layer; these 94 are the invention on top of them — 78 boarders and keepers, and the 16 keepers' children T-1533 draws). **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -14095,14 +14097,16 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 416 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 418 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
 works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second
 garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen
 states a roof type. The root-house is the least of them: a flat earth bank states a roof type and
-carries no shingle at all. No record's `roof_type` or pitch
+carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first
+frame dwellings on the north bank east end to take this exposure — both gable, both shingled,
+neither pitch stated by a source. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -16104,7 +16108,92 @@ grade, the lake bed's exponential approach — and the mesh departs from the hei
 **Related:** **L289**, **L287**, **T-1738** (piece 1 of **T-1252**).
 **Recorded:** 2026-09-28.
 
-### L291 — The 1904 Prairie Avenue street section: a walk, a curb and a parkway inside a width the city fixed
+### L291 — The Lake House’s two neighbours: one sentence each, and everything a visitor sees of them is ours
+
+**Decision:** two `frame_dwelling` records — `kimberly_residence` and `kelsey_boarding_house` — are
+raised on the north bank east end, beside `lake_house_construction`, on one sentence apiece from
+J. D. Bonnell's walk of 26 August 1835. Each is given a footprint, a position, a bearing, a storey
+count, a wall height, a roof, a chimney count and a framing system that no source states.
+
+**What the source says, and it is unusually good about the wrong things again.** Bonnell, writing to
+the *Chicago Times* on 15 March 1876 and quoted by Andreas (vol. 1, printed pages 136–137): *"Passing
+east, toward the mouth of the river, was the Lake House in course of construction, east of which was
+the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street.
+Mr. Pruyne was State Senator."* And: *"In turning the corner of Dr. Kimball's residence, away to the
+north-east, among the sand-hills, close by the lake shore, stood a small yellow house, occupied by
+Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife … But as Mrs. Kelsey had
+all the boarders that she could accommodate, I was obliged to seek other quarters."* Between them
+that is: two buildings, their uses, their occupants, one paint colour, and **not one dimension, lot,
+street, corner or distance.**
+
+**The invention, stated.** Two footprints — 11.0 × 8.0 m and 8.5 × 6.1 m, about 36 × 26 and
+28 × 20 ft — are placeholders in which every number is invented. What bounds them is a pair of
+words: Bonnell calls the first a *residence* and its occupant is a physician and half a drug firm, so
+it is given a professional man's frontage; he calls the second *small* and then says it was full, so
+it is the smaller of the two and takes its boarders in the half storey. **That the two are different
+sizes is invented**, and the ordering is an argument about trade and not a reading. Dr. Kimberly's
+position is an offset of 12.0 m east of this project's own `lake_house_construction` footprint on a
+shared front line, and so **it inherits everything that placement admits** — including that which
+side of Rush Street the Lake House block is on is not documented at all, so if that is wrong both
+houses belong about 110 m west. Kelsey's position is a quadrant bearing (N 58° E of Kimberly's
+corner, 238.5 m) inside a strip about 80 m wide between Sand Street's platted corridor and the water;
+its working uncertainty is at least 150 m. Both facade bearings are invented — Kimberly's follows the
+Lake House, the one building on that frontage a source orients, and **Kelsey's house fronted no
+street at all**, Sand Street being platted, unopened and unworn on the scene date.
+
+**What is NOT invented, and it is the one number here the ground supplied.** The sand hills are real
+and they are where this project already put them: the committed `e1834_harbor_cut` heightfield stands
+at **+2.59 m** above the summer-1835 water surface under Kelsey's footprint against **+1.51 m** under
+Kimberly's house and at the Lake House site — a rise of 1.08 m between the bank strip Bonnell walked
+out from and the ground he calls sand-hills, measured off a heightfield derived years before this
+sentence was read. That does not fix the house's place; it does say the described ground is where the
+model has it.
+
+**The colour is attested and it is NOT built, which is this entry's one unpaid debt.** *"A small
+yellow house"* is the only statement any source reached makes about the painted finish of any
+dwelling in this town. No archetype in this project has a yellow finish — `frame_dwelling` accepts
+`unpainted`, `white`, `whitewash` and `red`, and `generators/common/materials.py` holds no yellow —
+so the house builds in unpainted clapboard. **White was refused as a substitute**: it is a different
+claim, and a wrong one, about the one appearance fact this building has. The record states no paint
+rather than the wrong paint, its `research_note` says so, and the finish is filed as its own ticket.
+This is the same shape as **L60** (the estray pen that had to take a roof it probably never had): an
+archetype's vocabulary short of a source, recorded rather than papered over.
+
+**No household is seated by either record, and both refusals are deliberate.** Bonnell names an
+occupant for each roof and both are graded `attested` on `occupants`; neither gets a
+`resident_assignment`. Dr. Kimberly is held in `hh_pruyne_kimberly`, a **partnership** household
+headed by Peter Pruyne and banded to the *south* division on the evidence of the store — seating that
+household here would carry Pruyne across the river on a sentence about Kimberly, and splitting a
+partnership household is the resident layer's ruling. Kelsey is held as **two unmerged directory
+identities**, `id_kelsey_patrick` (Fergus 1843) and `id_kelsey_parnick` (Norris 1844), and Eve Kelsey
+is in no identity of this corpus at all; Bonnell's sentence is the best evidence here that the two
+Kelseys are one man — it spells him both ways in one sentence — but a merge is the identity layer's
+under its own M-rules. Both are filed, not performed.
+
+**And Kelsey's house is not the house the directories print.** Fergus 1843 and Norris 1844 both put
+Kelsey's boarding house on Wolcott Street between Kinzie and Michigan, about 230 m west of the sand
+hills. A keeper moving off the beach onto a platted street in eight years is the ordinary reading;
+carrying the range to 1844 would assert the two are one building, which no source says, so the range
+stops at the end of the attested year.
+
+**How to resolve:** the Kinzie's Addition conveyances, or any sale of the sand ground east of Sand
+Street, which would give either house a lot and settle which side of Rush Street the Lake House block
+is on; the *Chicago American* (first issue 8 June 1835) or the *Chicago Democrat* for 1835–36, which
+carried building notices; the 1839–40 North Side grading accounts, which paid Kelsey; or anything
+that gives Kimberly a street or a corner.
+
+**Applies to:** `data/structures/kimberly_residence.json` and
+`data/structures/kelsey_boarding_house.json`.
+
+**Covers:** `kimberly_residence.frame_1835.position`, `kimberly_residence.frame_1835.footprint`, `kimberly_residence.frame_1835.form.construction`, `kimberly_residence.frame_1835.form.stories`, `kimberly_residence.frame_1835.form.wall_height_m`, `kimberly_residence.frame_1835.form.roof_type`, `kimberly_residence.frame_1835.form.chimneys`, `kelsey_boarding_house.frame_1835.position`, `kelsey_boarding_house.frame_1835.footprint`, `kelsey_boarding_house.frame_1835.form.construction`, `kelsey_boarding_house.frame_1835.form.stories`, `kelsey_boarding_house.frame_1835.form.wall_height_m`, `kelsey_boarding_house.frame_1835.form.roof_type`, `kelsey_boarding_house.frame_1835.form.chimneys`.
+
+**Related:** the entry covering `lake_house_construction` (the building both of these are placed
+against, and the archetype problem this one repeats), **L60** (an archetype's vocabulary short of a
+source), **L285** (the same class of invention on the same bank, one sentence per house),
+`docs/RESEARCH/north_bank_east_end_neighbours.md`, **T-1717** and its parent **T-1204**.
+**Recorded:** 2026-09-28.
+
+### L292 — The 1904 Prairie Avenue street section: a walk, a curb and a parkway inside a width the city fixed
 **Decision:** every block face of the 1904 grid (`data/street_grid/1904.json`, T-0474) is laid out
 as four bands measured from the street line — a 1-ft margin, a walk, a parkway and a curb — and the
 **walk's width (6 ft on the 66-ft streets, 5 ft on 50-ft 16th Street), the curb's width (6 in) and

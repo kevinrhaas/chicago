@@ -314,12 +314,12 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 312,
-  "outside": 123,
+  "inside": 313,
+  "outside": 124,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
-   "north_of_the_limit": 23,
+   "north_of_the_limit": 24,
    "west_of_canal_street": 71,
    "south_of_washington_street": 1,
    "east_of_the_limit_in_the_water": 1,
@@ -361,6 +361,7 @@
     "inf_labourer_shanty_north_a",
     "inf_labourer_shanty_north_b",
     "inf_mason_dwelling_north",
+    "kelsey_boarding_house",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
     "recon_1835_north_d1_013",
@@ -565,7 +566,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -857,7 +858,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      997.2,
      524.49
