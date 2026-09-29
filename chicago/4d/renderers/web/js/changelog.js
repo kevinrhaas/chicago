@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1230, ts: '2026-09-29T09:09:24.452Z', date: 'Sep 29, 2026, 4:09 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+    items: [
+      'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
+      'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
+      'The round tower at the corner is larger, about twenty feet across under its cone, and the Eighteenth Street eave and the coach-house roof are read off four 1965 survey photographs the first build did not use.',
+      'The house sits on the alley line the 1911 insurance map draws, about a foot west of the first build.',
+      'The colours are v2\u2019s own choice: granite darkened by seventeen years of coal smoke, and copper gone brown rather than green. No record shows the house in colour, so they are marked as reconstruction.',
+    ] },
   { v: 1229, ts: '2026-09-29T08:15:07.333Z', date: 'Sep 29, 2026, 3:15 AM CT', title: 'Two invented streams on the west prairie go to the owner', kind: 'change',
     items: [
       'West of the river, out on the open prairie, the ground carries two shallow drains. Nothing in the record puts them there. The dossier says the West Division\u2019s wet prairie had swales a foot or two deep, so two were drawn \u2014 but where they run is our invention, and the one 1834 survey that could have shown a stream on this prairie was read end to end and draws none.',
