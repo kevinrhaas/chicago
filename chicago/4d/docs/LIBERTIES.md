@@ -14590,10 +14590,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 163 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 166 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 163 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,315
+**Scope:** `platted_seats.seats[dealt]` — 166 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,312
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14613,14 +14613,29 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 111 of the 163 seats are
+roof of a family its clause admits, on a lot of its own division; 116 of the 166 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **52 of the 163 are that: 28 on the plat's last tier** (T-1707,
+sizing keeps open; **50 of the 166 are that: 26 on the plat's last tier** (T-1707,
 2026-09-28, and T-1736 below), **4 west of the river on ground the plat always drew and this
 project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on Kinzie's
-Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
+Addition** (T-1741, 2026-09-28, the paragraphs below).
+
+**T-1708 MOVED IT FROM 163 TO 166, AND THE THREE ARE NOT THE ELEVEN ROOFS IT RAISED.** The
+deal on `blk_washington_wells` (**L293**) built the seven principal roofs the seating had
+asked for as slots on that block, so those seven rows change how and not whether: they were
+requests and they are adoptions now, which is the whole point of a slot. What moves the TOTAL
+is the cascade behind them. Standing eleven roofs on an open block re-scores every South
+Division lot the adoption step ranks, and the pass runs before the slot step, so households
+that had been refused the plat entirely now find a roof of an admitted family free: adoptions
+go 111 -> 116 and the written refusals 1,315 -> 1,312. Slots go 52 -> 50 rather than 52 -> 45,
+because with `blk_washington_wells` built out to its seven buildable lots the block can offer
+no further slot, and the two requests it had held over and above the seven fall back onto the
+owed list with their reasons. The tier's slot count is 26 now — seven each still outstanding
+on `blk_washington_franklin`, `blk_washington_lasalle` and `blk_washington_market` and five on
+`blk_washington_clark` — and `blk_washington_wells` holds none, which is what a block dealt to
+its seats looks like from this file. The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
 north-south columns from their terrain clip at N -400 to Madison Street emitted the six blocks
@@ -16287,3 +16302,58 @@ wholly unbuilt in July 1835 would retire all four of these rather than re-place 
 answers), **L276** (the keepers the move took off two South Water roofs), **T-1707** (the
 tier), **T-1736**.
 **Recorded:** 2026-09-28.
+
+### L293 — Eleven roofs on blk_washington_wells: the largest single deal this project has made on ground no source says was built
+
+**Decision:** eleven anonymous roofs are raised on `blk_washington_wells`, the block of the
+1830 plat's last tier bounded north by Washington Street, south by Madison, west by Wells and
+east by La Salle. Seven are principal — two D7 merchant and professional houses on the
+Washington corners, two H1 houses on the Washington interior, two D3 tradesmen's cottages and
+an H2 on Madison — and four are yard buildings off the alley: two privies, a woodshed and a
+stable. Every position, every footprint and the presence of every one of them is invented.
+
+**What is committed underneath, and it is only the ground.** The lot grid comes from
+`tools/generate_plat_lots.py` over the committed street centrelines; the block faces from
+`tools/block_faces.py`; the street hierarchy from `data/streets/1835.json`, which grades
+Washington `light` and Madison `none`; and the ground reading from the modelled field, on which
+all eight of this block's lots read dry and all eight read `free` in the lot ledger. Nothing
+above the ground is committed. No tax list, deed, assessment, directory or view places a
+building anywhere on this block in July 1835.
+
+**Why eleven, and why not this file's choice.** The 665-roof schedule apportions this block 27
+roofs against a capacity of 31, and its plan holds two D7, two H1, one H2 and three D3 among
+them. T-1522's placement pass then wrote SEVEN `slot` rows against that plan — one household
+each for `hh_beaubien_monique`, `hh_beech_reuben`, `hh_chamberlain_l_c`, `hh_beddlecome_ash`,
+`hh_catton_william`, `hh_beaubien_george` and `hh_benediet_loma`, each naming the lot the
+ledger found headroom on. A slot is a request the 5C build tickets fulfil, so the families, the
+count and the lots are the seating's and this deal builds what was asked for. What this file
+does author is the four yard buildings and where every roof sits on its lot.
+
+**Four yard buildings out of six, argued down.** The block's plan also holds a stable (A1), a
+barn or carriage shed (A2), two privies (A3), a woodshed (A4) and a smokehouse (A5). The two
+privies, the woodshed and the stable are dealt; the barn and the smokehouse are not. A privy
+and a woodshed are things a household of this kind certainly had and a barn behind a two-room
+cottage on the edge of town is a thing it might have had, so the might-haves stay in the plan.
+Three of the seven households therefore stand with no yard building at all, which is what a
+block dealt six outbuildings for seven households has to mean.
+
+**Consequence, stated plainly.** Seven principal roofs on one block is the densest deal this
+tier has taken and the largest single addition any block entry on this row has made. A visitor
+walking Washington Street west of La Salle sees a built block where the evidence supports only
+open platted ground with lots for sale on it. Lot 1 — the Madison-and-Wells corner — is left
+open by the schedule's own sizing rule, and twenty of the twenty-seven roofs the block's plan
+apportions are still unbuilt.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Washington and Madison, Wells and La Salle, and a reading of Thompson's lot
+numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
+roof and never increases the total. Any evidence that the tier south of Washington was still
+wholly unbuilt in July 1835 would retire all eleven of these rather than re-place them.
+
+**Covers:** `recon_1835_blk_washington_wells_*.inferred_1835.position`,
+`recon_1835_blk_washington_wells_*.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L263** (the shingle exposure all eleven
+take), **L270** (the platted deal this block answers), the Clark block entry immediately above
+(the first deal on this tier), **T-1708**, **T-1751** (the Franklin block behind it).
+**Recorded:** 2026-09-29.
