@@ -2465,6 +2465,208 @@
         }
       ],
       "arrangement_note": "THE FIRST DEAL ON THE PLAT'S LAST TIER, and the first roofs this project has raised south of Washington Street on the original town's own grid. The block stood entirely empty — eight free lots, nothing standing, every sample of the modelled ground above datum — and it is dealt two principal roofs and two yard buildings, which leaves six of its eight lots open and 25 of the 27 roofs its schedule apportions unbuilt. That is the point rather than a shortfall: this tier was the edge of the settled town in July 1835, and a block built out to its ceiling here would be a claim about 1835 the evidence does not support. THE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. hh_cady_levi's deep-plan cottage stands on lot 4 facing Washington Street, the through line of the two and graded `light` in the committed street hierarchy; hh_byram_thomas's two-room cottage stands on lot 5 facing Madison, which the same hierarchy grades `none` — a line the plat draws and the traffic model gives no through movement at all. Standing a tradesman's cottage on a street with no traffic is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it applies only to the trade letters, and a household on the quiet side of a block on the town's edge is the ordinary case, not the anomalous one. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN. A privy stands off the alley behind the Washington cottage and a woodshed off the alley behind the Madison one, one apiece, each serving the lot it stands on. Which of the block's apportioned yard buildings to build is this file's choice and the choice is argued down rather than up: of the stable, the barn or carriage shed, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had, and the others are ones it might have had. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
+    },
+    {
+      "block_id": "blk_washington_franklin",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_franklin",
+      "claimed": "2026-09-29",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "franklin",
+        "east": "wells"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 13,
+        "dealt_principal": 7,
+        "dealt_ancillary": 6,
+        "principal": 7,
+        "ancillary": 6
+      },
+      "families": {
+        "D3": 3,
+        "D7": 2,
+        "H1": 1,
+        "H2": 1,
+        "A1": 2,
+        "A2": 1,
+        "A3": 1,
+        "A4": 2
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1751",
+        "parent": null,
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_aspam_antoine",
+            "family": "D7",
+            "order_book_draw": "blk_washington_franklin / D7 / south"
+          },
+          {
+            "seat": "hh_ashbaugh_fre",
+            "family": "D7",
+            "order_book_draw": "blk_washington_franklin / D7 / south"
+          },
+          {
+            "seat": "hh_bailly_esther",
+            "family": "H2",
+            "order_book_draw": "blk_washington_franklin / H2 / south"
+          },
+          {
+            "seat": "hh_aspam_jean_baptiste",
+            "family": "H1",
+            "order_book_draw": "blk_washington_franklin / H1 / south"
+          },
+          {
+            "seat": "hh_calhoun_alvin",
+            "family": "D3",
+            "order_book_draw": "blk_washington_franklin / D3 / south"
+          },
+          {
+            "seat": "hh_cady_levi",
+            "family": "D3",
+            "order_book_draw": "blk_washington_franklin / D3 / south"
+          },
+          {
+            "seat": "hh_campbell_james_b",
+            "family": "D3",
+            "order_book_draw": "blk_washington_franklin / D3 / south"
+          }
+        ],
+        "why": "THE BLOCK STOOD EMPTY AND THE SEATING ASKED FOR EVERY ROOF ON IT. This is the plat's last tier, the range between Washington Street and Madison Street that Thompson draws and July 1835 had barely begun to occupy; the lot ledger reads all eight of this block's lots free, nothing stands on any of them, and the 665-roof schedule apportions the block 21 principal roofs and 6 yard buildings against a capacity of 31. T-1522's placement pass offered the plat to the banded households in the policy's order and found no standing roof of an admitted family free for seven of them, so it wrote a `slot` against this block's own committed plan for each: hh_aspam_antoine and hh_ashbaugh_fre a D7 apiece on the Washington corners, hh_bailly_esther an H2 and hh_aspam_jean_baptiste an H1 on the Washington face, and hh_cady_levi, hh_calhoun_alvin and hh_campbell_james_b a D3 apiece on the Madison face. Every one of the seven is carried in the order book's `slot_blocks` list with blk_washington_franklin named. So neither the count nor the family mix is this file's choice: the seating asks for seven principal roofs and this deal builds seven. THE LOTS ARE THE REQUEST'S TOO, WHICH IS NOT ALWAYS TRUE: which lot a family stands on is ordinarily this file's to author, but on a block where every lot is free there is nothing to argue against, so the seven lots the seating wrote — 0, 2, 3, 4, 5, 6 and 7 — are taken as it wrote them, and lot 1 is the one the schedule's own sizing reserves open. THE SEVEN ARE THE WHOLE OF THE BLOCK'S LOT CEILING AND NOT A METRE MORE: `lot_ceiling_principal` is 7 here, one principal roof to a free lot less the open one, and this deal stands at it exactly. The other fourteen principal roofs the schedule apportions this block would have to stand two to a lot along a named frontage run, and a party-wall row on the town's outermost platted tier in July 1835 is a claim about 1835 that nothing supports. A REQUEST IS NOT EVIDENCE and nothing here grades any higher for having been asked for: all thirteen roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes as every other roof on this row."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Madison-and-Franklin corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves it: principal room is counted over the free lots LESS ONE precisely so a block is never dealt out of its open lot, and with eight free lots this deal may stand on seven and stands on seven. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise; that one is open at all is the programme's assumption of alternating vacancy, and on a tier the town had barely reached in 1835 that assumption is the least of what is being claimed here."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H2",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 6.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 5.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 0,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 2,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 4,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.0,
+          "lateral_m": -5.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.0,
+          "lateral_m": 5.0
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 3,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 5.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        }
+      ],
+      "arrangement_note": "THE PLAT'S LAST TIER GETS ITS FIRST FULL BLOCK. blk_washington_clark opened this tier with two cottages on opposite faces; this block is dealt out to its lot ceiling — seven dwellings, one to a lot, with the eighth lot open — which is the first time any block south of Washington Street carries a street of roofs rather than a pair of them. THE TWO FACES ARE READ DIFFERENTLY, AND THE SEATING IS WHAT READS THEM. Washington Street is graded `light` in the committed street hierarchy and Madison `none`, and the placement pass put its four larger households on the Washington face and its three one-room cottages on the Madison one: the two D7 small two-story frame houses on the Washington corners, hh_bailly_esther's H2 merchant-or-professional house and hh_aspam_jean_baptiste's H1 between them, and the D3 cottages of hh_calhoun_alvin, hh_cady_levi and hh_campbell_james_b along the quiet side. Standing a cottage on a street the traffic model gives no through movement is not a contradiction — a dwelling is not a shop, and the face-value clause that would refuse it applies to the trade letters only. THE YARD BUILDINGS ARE DEALT BY WHO KEPT THEM, WHICH IS THE ONE THING THIS FILE CHOSE. The block's plan holds six: two stables (A1), a barn or carriage shed (A2), a privy (A3) and two woodsheds (A4). They are assigned up the household scale rather than evenly, because a stable behind a merchant's house is ordinary and a stable behind a one-room cottage is a claim about how that household lived: the carriage shed stands in the H2's yard, a stable apiece behind the H1 and the D7 on the Washington-and-Franklin corner, a woodshed behind the other D7 and behind hh_calhoun_alvin's cottage, and the privy behind hh_cady_levi's. ONE HOUSEHOLD IS DEALT NO YARD BUILDING AT ALL, and that is the block's plan binding rather than an omission: six yard buildings were apportioned and seven dwellings are raised, so hh_campbell_james_b's cottage on the Madison-and-Wells corner stands in an open yard. The schedule re-derives after this deal with fourteen roofs of headroom still apportioned to the block, so the yard buildings that did not fit here stay in its plan for the deal that comes after — the same accounting blk_washington_clark used for the stable, barn and smokehouse it did not build. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
     }
   ],
   "redealt": {
