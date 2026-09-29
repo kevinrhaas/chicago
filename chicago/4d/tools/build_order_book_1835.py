@@ -319,7 +319,16 @@ STRUCTURE_TICKETS = {
     # exactly as the north cell three entries below has now been swept three times in two
     # days, T-1206 -> T-1742 -> T-1748 -> T-1754. The rule is the same every time: the cell
     # goes to the live ticket that raises the dwellings that are LEFT.
-    ("south", "ordinary_dwellings"): "T-1751",
+    #
+    # AND SWEPT ONTO T-1735 ON 2026-09-29, BY THAT RULE AND ON THE SAME TIER. T-1751 raised
+    # thirteen roofs on `blk_washington_franklin` and closes with this cell still owing 54, so
+    # the row moves to the live ticket that raises the dwellings LEFT. `blk_washington_lasalle`
+    # is the next block of this very tier — the platted deal holds seven slots on it and T-1735
+    # is "the seven cottages and yard buildings the platted deal holds on blk_washington_lasalle"
+    # in as many words — and it is in `review` with its own pull request open, which the
+    # liveness walk counts as live. It will move again when that block closes with the cell
+    # still owing; 54 roofs is far more than one block, and the chain is the point.
+    ("south", "ordinary_dwellings"): "T-1735",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -4551,19 +4560,21 @@ def cmd_self_test() -> int:
     # these lots, and five households that had no lot at all reach one. That is the T-1622
     # precedence a third time, and it is recorded in L298. Read at the chain's fixpoint, not
     # one pass in — this one took eight passes and oscillated for four of them.
-    # AND T-1751 TAKES IT FURTHER STILL, ON THE SAME TIER AND BY THE SAME MECHANISM, AT FIVE TIMES
-    # THE SIZE. `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings
-    # and six yard buildings, the first block south of Washington to carry a street of roofs —
-    # so the platted pass runs 165 -> 170 with 120 adoptions against 113 and 50 slots against
-    # 52, and the off-plat pass is unmoved at 72. None of the seven households that asked for
-    # a Franklin roof took one: the adoption step outbids the slot step for a quiet street
-    # (T-1622, still open on T-1626), so the seven that scored highest moved in and the seven
-    # that asked went back on the owed list with their reasons. The Clark block's slot count
-    # goes the other way, 0 -> 5, because building this block re-apportioned the 665-roof
-    # schedule across the whole South Division and handed principal room back to it. Read at
-    # the chain's fixpoint, not one pass in.
+    # AND T-1751 TAKES IT TO 249, ON THE SAME TIER AND BY THE SAME MECHANISM, AT MORE THAN
+    # THE SIZE AGAIN. `blk_washington_franklin` was dealt out to its lot ceiling — seven
+    # dwellings and six yard buildings — so the platted pass runs 170 -> 177 with 127
+    # adoptions against 120 and the SAME 50 slots, and the off-plat pass is unmoved at 72, so
+    # the total is 177 + 72. The slot count holds because the cascade is a substitution: the
+    # seven requests standing against this block are raised into adoptions and seven fresh
+    # ones open on blk_washington_dearborn. NOT ONE of the seven households the block was
+    # sized against is seated on it — the seven that asked (hh_barry_john_s, hh_bates_john_jr,
+    # two Beaubien households, hh_carpenter_nathaniel, hh_carter_j and hh_cary_junis_a_or_j_r)
+    # go back on the owed list, and the seven that scored highest under the clause order (the
+    # two Aspams, the two Ballards, hh_beaubien_charles, hh_beeson_william and hh_brink_john)
+    # move in. That is the T-1622 precedence a fourth time, and it is recorded in L299. Read
+    # at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 242
+        data["inventory"], data["programme"], occ))["seated"] == 249
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

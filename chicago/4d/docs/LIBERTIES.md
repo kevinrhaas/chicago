@@ -14610,8 +14610,8 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 170 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 170 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,308
+**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -15350,11 +15350,11 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Twenty-two roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and sixty-seven do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 22 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 67
+**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 70
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 22 are on the
-five South Water blocks and were written by T-1638; the other 15 are on the Randolph–
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Seven of the 21 are on the
+five South Water blocks and were written by T-1638; the other 14 are on the Randolph–
 Washington tier and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -16678,6 +16678,8 @@ wholly unbuilt in July 1835 would retire all eleven of these rather than re-plac
 **L100** and the other block entries of this row, **L263** (the shingle exposure all eleven
 take), **L270** (the platted deal this block answers), **L292** (the Clark block, the first deal on
 this tier), **L294** (the Addition's first cottages, the deal between them), **T-1708**, **T-1751** (the Franklin block behind it).
+**Recorded:** 2026-09-29.
+
 ### L299 — Seven invented dwellings on the plat's last tier, and the six yard buildings dealt up the household scale
 
 **Decision:** `blk_washington_franklin` — bounded by Washington, Wells, Madison and Franklin,
