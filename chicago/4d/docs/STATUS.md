@@ -1,62 +1,47 @@
-## T-1735 — the La Salle block of the plat's last tier built to its seats (2026-09-28)
+## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
 
-`blk_washington_lasalle` — Washington to Madison, LaSalle to Clark, the south-west
-block of the tier T-1707's street control emitted — stood empty and now carries
-**eleven anonymous roofs**: seven principal dwellings, one per lot on seven of its
-eight lots, and four yard buildings off the mid-block alley. Lot 1, the
-LaSalle-and-Madison corner, is left open. The 665-roof programme apportions the
-block 31 roofs of capacity and 27 of headroom over eight free lots, and its
-principal ceiling is seven — three party-line units per free lot less the one the
-sizing reserves, which on a block with no frontage run resolves to one roof per lot.
-The deal takes the ceiling and stops.
+`/4d/1904/` now stands on streets. `tools/trace_prairie_1904_grid.py` reads the three Sanborn 1911
+sheets (vol. 3, sheets 20, 28 and 35) through T-1250's georeference and writes
+`data/street_grid/1904.json`; `renderers/web/js/street-grid.js` drapes it on the e1871 heightfield.
+The scene lists the new `street_grid` layer; 1835 does not and draws none of it.
 
-**Every dwelling was asked for, and that is the first time.** T-1613's platted
-seating found no free roof of an admitted family in the South Division for seven
-banded households and wrote seven `slot` rows against this block's own committed
-family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
-A request is not evidence: the roofs grade at the bottom tier with the same
-reasoning notes as every other anonymous count-unit, and the liberty is **L292**.
+- **Streets**, 16th to 22nd, Indiana to Calumet and the IC: 14 carriageway segments (Prairie,
+  Indiana, Calumet with its curve out of 18th, 16th, 18th, 20th, 21st, 22nd), printed widths 66 ft
+  and 16th Street 50 ft. Each runs through its intersections so no seam opens.
+- **Block faces**: 31, each laid out from the street line as margin 0–1 ft, walk, parkway, curb, to
+  a 14-ft sidewalk space (10 ft on 16th). Space and walk set-back are the Revised Municipal Code of
+  1905, secs. 2072 and 2062 (new source `chicago_revised_municipal_code_1905`) — inferred; the walk
+  (6 ft; 5 on 16th), curb (6 in) and parkway (6.5 ft; 3.5) are reconstructed, **L293**. Mitred
+  corners, no curb radius, no crossings, no reveal or crown.
+- **Alleys**: 7, at their drawn widths (20, 24 and 18 ft printed), the Prairie–Calumet alley with
+  its head at the 1811/1815 line and its jog behind 1827/1901.
+- **Parcels**: 92 lots on both faces of Prairie, each with the 1911 address(es) printed beside it,
+  the Prairie library frontage row(s) it matches, its street face and block. Three labels read
+  differently from the library (1605/1603, 1721/1719, "1918 (1936)"/"1916 (1930)") and carry the
+  difference; seven lots carry no printed address.
+- **The ruling T-1731 left**: the frontage of 1800 Prairie is **74.7 ft (±1.1)**, not 77 and not
+  exactly 74. Parcel **`prairie_1800`**, face **`prairie__indiana_prairie_18_20`**, NE corner
+  E 1392.05 N −3217.24 (0.4 m from T-1739's derived corner), 74.7 × 177.1 ft.
+  `docs/RESEARCH/prairie_1904_street_grid.md` § 3.
+- A pick on the ground opens a card: the lot (frontage, depth, 1911 addresses, sheet), or the band,
+  roadway or alley (width, tier, what it rests on). Surfaces are neutral tones; no material is
+  claimed (T-1728).
 
-**The face argument.** Washington is opened, worn and graded `light`; Madison is
-platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
-So the four better dwellings take the Washington tier (H2 8.71 × 10.26 m on lot 0 at
-the LaSalle corner, H1 7.83 × 10.62 m on lot 2, H1 7.85 × 9.64 m on lot 4, D7
-6.79 × 9.64 m on lot 6) and the three meanest take Madison (D7 6.63 × 9.26 m on lot
-3, D3 5.22 × 6.90 m on lot 5, D3 5.41 × 6.91 m on lot 7). The D7 pair straddles the
-break because the request holds two and the better face has four lots. Yard
-buildings: a stable behind the merchant's house on lot 0, a privy behind the H1 on
-lot 2, a privy behind the D7 on lot 3, a woodshed behind the D3 on lot 5 — four of
-the six the schedule apportions, which is inside the ceiling and is not a refusal of
-the other two. No coordinate is authored; every metre is a committed lot polygon and
-every dimension a family band. The block's ground reads dry, 420 samples between
-0.86 m and 0.91 m above datum.
+Measured at the spawn (SwiftShader, published mirror, same probe both times; "before" is the same
+build with `street_grid` taken out of the scene's layers): before, 9 draw calls and 41.3k triangles
+at 390×780, 34.3k at 1280×800; after, 16 draw calls and 81.1k / 74.0k triangles, inside the 215-call
+budget; zero problems, zero page errors. From the air over the Glessner corner: 20–21 calls,
+106–114k triangles. The grid is 39.8k triangles in all (quads tessellated at 2.5 m, the
+heightfield's cell), no shadow casting. The smoke's part 13 now also asserts the grid is
+drawn, the Glessner lot is `prairie_1800` and the door lands on Prairie's east walk.
 
-**THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and it is
-reported rather than tidied.** The seating pass is re-derived whole in the placement
-policy's clause order, so the seven roofs went to the seven households the policy
-ranks first among those an admitted family on this block will hold; the other six
-original requesters are re-slotted onto the Washington-tier blocks still standing
-empty. Platted seats **162 → 168**, adoptions **109 → 116**, slots **53 → 52**, rows
-handed to T-1614 **1,316 → 1,310**, and the seating join with the off-plat pass
-**234 → 240**. The gain is six and not seven: the households that DID move here
-vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
-rather than leaving them open, so four roofs on South Water and the Randolph tier
-changed keeper. The named-keeper count went **23 → 22** with it and the refusals
-**62 → 65**, of which 63 are the letter-list refusal already on the
-books and 2 the T-1689 naming disagreement — no ruling moved (**L276**). The town
-census reads **433 buildings standing of 668**.
+**Not done here:** Robinson 1886's legal lot numbers for 16th–18th, and the lots on the Indiana and
+Calumet frontages (filed as a follow-up). Indiana between 18th and 20th is on sheet 27, which was not
+supplied, so its line is carried between sheets 20 and 35. Michigan Avenue is west of every supplied
+sheet and is not drawn. `data/street_grid/` is one dated file and carries no `index.json`, so
+`measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
+generator half.
 
-**The order book's south ordinary-dwellings row keeps its owner.** The cell reads 176
-target, 115 standing, 61 to build, and it still names **T-1708**, which is open — so
-the row this ticket was filed to protect needs no re-pointing. The seating tripwire
-in `build_order_book_1835.py` is restated from 234 to **240** with the ruling behind
-the six seats, not quietly re-summed, and L263 (roof-type phases 418 → 429), L270
-and L276 are restated against what the rebuild reaches rather than what the branch
-was cut against.
-
-**Verification.** `tools/check.sh` green; the eleven meshes baked with `bake.sh
---only` and their web derivatives recorded; the smoke parts `smoke_budget.mjs
---for-diff` named for this diff run in the foreground.
 
 ## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
 

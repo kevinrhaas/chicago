@@ -4463,19 +4463,20 @@ def cmd_self_test() -> int:
     # move, and is the difference from 28, is the seven roofs themselves — a dealt roof
     # stands where its parcel's slot puts it off its own lot's edge, so re-cutting the block
     # re-derived every position and rotation on it. No mesh changed and nothing was rebaked.
-    # AND T-1735 TAKES IT TO 240, WHICH IS THE FIRST TIME A SLOT HAS BEEN ANSWERED RATHER THAN
-    # ADDED. Every move above is a ruling about GROUND that gave the platted pass more to ask for;
-    # this one spends what was asked. The seven slot rows T-1707's tier carried against
-    # `blk_washington_lasalle` were built — seven dwellings and four yard buildings — so the block
-    # has no headroom left to ask against and the pass ADOPTS there instead: the platted pass goes
-    # 162 -> 168, adoptions 109 -> 116, slots 53 -> 52, and the off-plat pass holds at 72. The gain
-    # is six and not seven because the pass is re-derived whole in the placement policy's clause
-    # order: six of the seven households that asked this block were re-slotted onto the tier's
-    # remaining empty blocks rather than housed here, and the roofs the households that DID move
-    # here vacated cascaded down the same ranking, taking South Water and Randolph keepers with
-    # them (L276, 23 -> 22). Nothing was retired and no roof moved a metre.
+    #
+    # AND T-1736 TAKES IT TO 235, WITH THE FIRST BUILD ON THE LAST TIER. Every change
+    # above was a ruling about GROUND; this one is a BUILD, and it moves the deal the other
+    # way about. `blk_washington_clark`'s two cottages now stand, so the block has no
+    # principal room left to offer and its last slot goes: the platted pass runs
+    # 162 -> 163 with 111 adoptions against 109, and 52 slots against
+    # 53. 31 adopted seats move roof behind the two Beaubien households that take the
+    # new cottages — the adoption step outbids the slot step for a quiet street, which is the
+    # T-1622 precedence — every one of them in the South Division and none left roofless.
+    # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
+    # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
+    # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 240
+        data["inventory"], data["programme"], occ))["seated"] == 235
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4483,9 +4484,9 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 29 slot rows on the plat's last
-    # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
-    # carried none — which is what this fixture said until that ticket, when T-1623 had
+    # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
+    # — 28 of them since T-1736 took the Clark block's — so claiming ONE of them is as much a
+    # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
           seats_with("platted_seats", slots_requested=1, roofs_adopted=99))

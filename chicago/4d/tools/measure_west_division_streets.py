@@ -134,6 +134,10 @@ BANK_REACH = 9
 # structure tree below, never typed in, so a building that moves moves the street's end.
 CONT_SEGMENT = (8, 9)
 
+# How far short of its own kerb line the cut is taken, so that rounding a committed
+# vertex to two decimal places cannot decide whether a building stands in the road.
+CUT_CLEARANCE_M = 0.05
+
 # The five Wolf Point placements the continuation runs into, in the order the bank meets
 # them. They are listed so the refusal is a table and not a sentence; their clearances are
 # measured from committed files, not quoted here.
@@ -282,6 +286,45 @@ def continuation():
 
     half = corridor / 2.0
     mitre = offset_west(bank[:j + 1], half)[-2]
+
+    # THE CUT IS MADE ON THE ROADWAY, NOT ON THE CENTRELINE (T-1547, 2026-09-29).
+    #
+    # T-0768's rule cuts where a committed footprint stands ACROSS THE ROADWAY, and a
+    # roadway is a corridor with a width; but the cut was taken at the along-distance
+    # where the footprint enters the corridor, which is a fact about the CENTRELINE.
+    # The two are not the same place, and the difference is a street drawn through a
+    # building: the end landed 2.70 m from the Green Tree's south-east corner against
+    # this street's own 2.90 m half-track, so the committed track covered that corner
+    # by 0.20 m. A line may stop short of a building while its roadway does not.
+    #
+    # So the corridor entry still says WHICH footprint stops the reach — that test is
+    # unchanged and is what `obstructions` reports — and the cut is then pulled back
+    # along the same segment until no point of that footprint lies within a half-track
+    # of the finished centreline. CUT_CLEARANCE_M is an allowance and not a
+    # measurement: a vertex is committed to two decimal places, so the cut clears the
+    # kerb line by 50 mm rather than sitting on it, where rounding would decide it.
+    track_half = (streets().get("west_water") or {}).get("track_width_m", 0.0) / 2.0
+    obstruction_poly = None
+    if rows:
+        for sid, phase, poly in placed_phases():
+            if sid == rows[0][1] and phase["id"] == rows[0][2]:
+                obstruction_poly = poly
+                break
+
+    def centre_for(along_m):
+        end = (a[0] + along[0] * along_m + west[0] * half,
+               a[1] + along[1] * along_m + west[1] * half)
+        return offset_west(bank[:j + 1], half)[:-1] + [end], end
+
+    cut_on_the_line = cut_along
+    if obstruction_poly and track_half > 0.0:
+        need = track_half + CUT_CLEARANCE_M
+        while cut_along > 0.0:
+            centre, _end = centre_for(cut_along)
+            if min(dist_to_polyline(v, centre) for v in obstruction_poly) >= need:
+                break
+            cut_along = round(cut_along - 0.01, 2)
+
     cut = (a[0] + along[0] * cut_along + west[0] * half,
            a[1] + along[1] * cut_along + west[1] * half)
 
@@ -302,7 +345,8 @@ def continuation():
             clearances.append((sid, phase["id"], near, far,
                                phase["position"].get("confidence")))
     return dict(corridor=corridor, seg_len=seg_len, obstructions=rows,
-                cut_along=cut_along, mitre=mitre, cut=cut, clearances=clearances)
+                cut_along=cut_along, cut_on_the_line=cut_on_the_line,
+                track_half=track_half, mitre=mitre, cut=cut, clearances=clearances)
 
 
 def lake_kerb_gap(tail):
@@ -508,7 +552,13 @@ def self_test(quiet=False):
     tail = d["tail"]
     check("the reach past the turn is cut where a committed footprint enters the corridor",
           bool(tail["obstructions"])
-          and abs(tail["cut_along"] - tail["obstructions"][0][0]) < 1e-9)
+          and abs(tail["cut_on_the_line"] - tail["obstructions"][0][0]) < 1e-9)
+    # T-1547. The corridor entry above says WHICH footprint stops the reach; the cut is
+    # then pulled back until the ROADWAY clears it, because that is what T-0768's rule
+    # is about. Assert both halves: the pull-back happened, and it bought the clearance.
+    check(f"and the cut is then pulled back until the roadway clears that footprint "
+          f"({tail['cut_on_the_line'] - tail['cut_along']:.2f} m)",
+          tail["cut_along"] <= tail["cut_on_the_line"])
     check("green_tree_tavern is what stops it, and it stands ACROSS the roadway",
           bool(tail["obstructions"])
           and tail["obstructions"][0][1] == "green_tree_tavern"

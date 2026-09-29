@@ -12,22 +12,22 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 356,
-      "takenAt": "2026-09-29T01:00:22.410Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "5a51a0956ee4",
+      "wallSeconds": 365,
+      "takenAt": "2026-09-29T01:05:30.679Z",
+      "ref": "steward/t-1736-washington-clark",
+      "commit": "f7f2bf2e9e55",
       "devCommit": "9aee39d09452",
-      "treeHash": "sha256:28709d49a460ff2f",
+      "treeHash": "sha256:5ac5ddd5db6c72fe",
       "treeDirty": false,
-      "changelogHash": "sha256:0ec850cbdef65f96",
+      "changelogHash": "sha256:7524a3e2d8960b31",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          4,
-          4.3,
-          3.6
+          3.5,
+          4.1,
+          3.4
         ]
       },
       "source": "/tmp/smoke_d1.log"

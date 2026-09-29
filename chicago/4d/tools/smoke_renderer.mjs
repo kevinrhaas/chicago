@@ -14840,7 +14840,27 @@ for (const [label, viewport, touch] of [
             drawn[name] = meshes;
           }
           const s = a.stats();
+          // T-0474: the street grid this scene lists, and the two things it is for --
+          // the lot the Glessner House will stand on, and the walk the visitor lands on.
+          const g = a.streetGrid;
+          const pip = (e, n, poly) => {
+            let inside = false;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i, i += 1) {
+              const [xi, yi] = poly[i]; const [xj, yj] = poly[j];
+              if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
+            }
+            return inside;
+          };
+          let gridMeshes = 0;
+          a.scene3d.getObjectByName('street-grid')?.traverse((o) => { if (o.isMesh || o.isLineSegments) gridMeshes += 1; });
+          const face = g?.grid?.faces?.find((f) => f.id === 'prairie__prairie_calumet_18_20');
+          const grid = g?.grid ? {
+            census: g.census, meshes: gridMeshes,
+            lot: g.parcelAt(lotMid[0], lotMid[1])?.id ?? null,
+            onWalk: !!face?.bands?.walk?.some((q) => pip(a.scene.spawn.local_e, a.scene.spawn.local_n, q)),
+          } : null;
           return {
+            grid,
             e: a.walker.state.e, n: a.walker.state.n, bearing: a.walker.bearingDeg,
             eye: a.camera.position.y - a.terrain.surfaceHeight(a.walker.state.e, a.walker.state.n),
             spawn: a.scene.spawn, anchor,
@@ -14872,6 +14892,10 @@ for (const [label, viewport, touch] of [
         check(`${label}: the 1904 scene draws none of the 1835 town's layers (T-1739)`,
           stray.length === 0 && at.registry === 0,
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${at.registry}`);
+        check(`${label}: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)`,
+          !!at.grid && at.grid.meshes >= 5 && at.grid.census.parcels >= 80 && at.grid.census.carriageways >= 10
+          && at.grid.lot === 'prairie_1800' && at.grid.onWalk === true,
+          JSON.stringify(at.grid));
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
