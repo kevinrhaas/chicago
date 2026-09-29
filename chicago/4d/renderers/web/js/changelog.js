@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A whole block of houses on Washington Street', kind: 'change',
+  { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [
       'Walk west along Washington Street from La Salle and the block between Washington and Madison is built. Seven houses stand on it \u2014 a merchant\u2019s house on each Washington corner, two more between them, and on the quiet Madison side two tradesmen\u2019s cottages and a boarding house \u2014 with two privies, a woodshed and a stable off the alley behind them. It is the fullest block this project has raised on the last row of the plat, and the third of that row to be built at all.',
       'Seven families asked for these houses by name, every one of the seven is standing tonight, and none of the seven families is in one. Households take the best house already standing before they ask for one to be built, so the moment these existed they were the better answer for seven other families \u2014 and the Beaubiens, Beeches, Beddlecomes, Benediets, Cattons and Chamberlains now hold addresses a block or two east, on La Salle and Market. Reported rather than tidied: a house raised because somebody asked for it is not reserved to them.',

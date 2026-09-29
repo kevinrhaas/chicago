@@ -16587,6 +16587,7 @@ of Calumet Avenue; a street-railway franchise map would place the tracks.
 **Applies to:** `data/street_surfaces/1904.json` (`carriageways.indiana_18_20`, `indiana_20_22`,
 `calumet_18_20`, every `alleys` entry, `priority`), `renderers/web/js/street-grid.js`.
 **Related:** **L293**, **L296**, `docs/RESEARCH/prairie_1904_street_surfaces.md`, **T-1728**.
+**Recorded:** 2026-09-29.
 
 ### L298 — Eleven roofs on blk_washington_wells: the largest single deal this project has made on ground no source says was built
 
