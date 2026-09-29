@@ -14106,7 +14106,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 426 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 437 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14120,7 +14120,12 @@ frame cottages on the plat's last tier and the privy and woodshed in their yards
 them shingled by this exposure like every other frame roof the block recipe raises. T-1747's
 first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in
 Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off
-the alley behind them, on lot lines read off Wright's sheet only the day before. No record's
+the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's
+deal on `blk_washington_wells` makes 437, and it is the largest single addition this entry
+has taken: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2
+— with two privies, a woodshed and a stable behind them, eleven roofs on one block of the
+same last tier the Clark four stand on, every one of them shingled by this exposure for the
+same reason they are. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -14598,10 +14603,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 165 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 170 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 165 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,313
+**Scope:** `platted_seats.seats[dealt]` — 170 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,308
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14621,12 +14626,12 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 113 of the 165 seats are
+roof of a family its clause admits, on a lot of its own division; 120 of the 170 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **52 of the 165 are that: 28 on the plat's last tier** (T-1707,
-2026-09-28, and T-1736 below), **4 west of the river on ground the plat always drew and this
+sizing keeps open; **50 of the 170 are that: 26 on the plat's last tier** (T-1707,
+2026-09-28, T-1736 and L295 below), **4 west of the river on ground the plat always drew and this
 project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 20 on Kinzie's
 Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
@@ -14679,7 +14684,7 @@ own; what it did not change is that no source puts any of these households on on
 twenty-two cells the sheet does NOT divide keep their withholding — see
 `data/traces/kinzie_addition_lot_lines.json`, where each cell carries its own sentence.
 
-A slot is a REQUEST and not a roof: all 52 of these households have a lot and no
+A slot is a REQUEST and not a roof: all 50 of these households have a lot and no
 walls until **T-1200** through **T-1214**, T-1742 and the block recipes behind them raise
 them, and each seat says so.
 
@@ -14701,8 +14706,10 @@ carries to the owner, and nobody in the cascade lost a roof they were standing u
 **EVERY COUNT ABOVE WAS MEASURED BY RUNNING THE CHAIN TO ITS FIXPOINT, NOT REASONED FROM THE
 ONE BEFORE IT.** The seating pass, the keeper naming, the block infill, the off-plat deal and the
 668-roof reconciliation each feed the next and the platted deal is downstream of all of them, so a
-single pass reports a deal that the pass after it moves: this one settles at 165 seats and 113
-adoptions on the second run and holds there on the third. The counts in this entry are that
+single pass reports a deal that the pass after it moves: this one settles at 170 seats and 120
+adoptions, and it took eight runs of the chain to reach that — the deal oscillated for four of
+them, fourteen recon_1835_blk_randolph_* and blk_south_water_* records flipping in and out of
+the diff on alternate passes, before holding byte for byte over four consecutive runs. The counts in this entry are that
 fixpoint and nothing earlier.
 
 **AND THE ADDITION'S FIRST TWO ROOFS MOVED IT AGAIN, THE SAME WAY THE CLARK BLOCK DID
@@ -14720,16 +14727,34 @@ terms as the Clark block above: a roof raised in answer to a request is not rese
 household that requested it, which is the precedence T-1622 met on blk_south_water_franklin
 and T-1626 carries to the owner.
 
+**AND ELEVEN ROOFS ON THE LAST TIER MOVED IT A THIRD TIME, AND THIS ONE IS THE LARGEST DEAL
+ANY BLOCK HAS TAKEN (T-1708, 2026-09-29).** `blk_washington_wells` was dealt all seven of the
+slot requests standing against it, plus four yard buildings — see **L295**. The cascade is the
+Clark block's and the Addition's again, at seven times the size: the seven new principal roofs
+entered the pass as standing roofs an admitted clause could adopt, so the adoptions rise from
+113 to **120** and the slot table falls from 52 to **50** — 26 of them still on this tier,
+spread over the Franklin, La Salle, Market and Clark blocks. The deal settles at **170 seats**
+against 165 before it, with **1,308** rows handed on to **T-1614**. And the cascade is total
+here, which the two smaller deals above only hinted at: **not one of the seven households whose
+requests the block was sized against is seated on it.** All seven re-seat as slots on La Salle
+and Market, and the seven roofs go to hh_asa_nc_doel, hh_ashbaugh_fre, hh_aspam_antoine,
+hh_aspam_jean_baptiste, hh_baines_robert, hh_beaubien_alexander and hh_beaubien_archange, who
+the clause order scored higher on these lots than on the roofs they had been standing under.
+The wells block itself now asks for no slot at all, which is all a block whose principal room
+has been raised out can offer. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as
+the two paragraphs above: a roof raised in answer to a request is not reserved to the household
+that requested it, and nobody in the cascade lost a roof they were standing under.
+
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
-places any of these 113 households anywhere; each one's own address-book row says so in its
+places any of these 120 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
-**An adoption raises no roof and spends no order, and 113 of the 165 are adoptions.** That is
-the part that keeps the invention small. Each of those 113 puts a household under a roof that
+**An adoption raises no roof and spends no order, and 120 of the 170 are adoptions.** That is
+the part that keeps the invention small. Each of those 120 puts a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
-order book is not drawn on for them at all and nothing is baked for them. The other 52 ARE
+order book is not drawn on for them at all and nothing is baked for them. The other 50 ARE
 households with an address and no walls, which is what a slot is, and the file marks them
 `slot` rather than `adopted` for exactly that reason: they draw on the order book's South
 Division remainder and they are owed a roof.
@@ -14779,7 +14804,7 @@ barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unocc
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,316 of the 1,478 banded rows get no lot here, and they are not refused — they
+households. 1,308 of the 1,478 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
