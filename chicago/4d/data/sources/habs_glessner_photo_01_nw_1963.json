@@ -1,0 +1,29 @@
+{
+ "id": "habs_glessner_photo_01_nw_1963",
+ "type": "photograph",
+ "citation": "Cervin Robinson for the Historic American Buildings Survey, 'Exterior from northwest', John J. Glessner House, 1800 South Prairie Avenue, Chicago, 23 July 1963. HABS IL-1015, photograph 1 of 17 (call number HABS ILL,16-CHIG,17--1). Library of Congress, Prints and Photographs Division.",
+ "author": "Cervin Robinson (HABS)",
+ "date": "1963-07-23",
+ "describes_date": "1963-07-23",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS/HAER/HALS). Master TIFF 060903pu.tif held in the owner's Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; an 1800 px web copy is committed at chicago/prairie_1904_v1/research/public/glessner-habs-photo-01.jpg (Prairie library source pa-glessner-habs-photo-01, PR #169).",
+ "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+ "locator": "The whole print. Read for: the E. 18th Street front of the north range and the stable from the north-west; the stable's north gable, its ridge turret, loft opening, flanking lights and carriage doorway; the north range's chimney near W 70; the round north tower's cone over the north range roof.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Made for HABS by the U.S. Government; LOC: no known restrictions on images made by the U.S. Government. Only measurements are taken from it here; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-28 (T-1732) from the committed 1800 px web copy; scaled against HABS sheet 2's printed 12'-0\" carriage doorway (about 13.3-13.5 px/ft at the stable face).",
+ "note": "A 1963 photograph: the house after the Glessner years (the 1946 conversion's overhead garage door and a boarded loft opening are visible), so it is used only for fabric the 1946 alteration list (HABS data p. 2) does not touch - the masonry and the roofs - and where the 1888 photograph agrees. It settles the stable's roof (a ridge on the carriage doorway's axis, W 141, not the wing's centre line), shows the round north tower that sheet 4 draws only as a pointed roof, and shows a fifth chimney on the north range.",
+ "what_it_supplies": [
+  "the stable's gable and ridge position and approximate heights",
+  "the round form of the north tower",
+  "a chimney on the north range near W 70",
+  "the heights of the stable's loft opening and flanking lights"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state of the doors (replaced 1946)",
+  "colour (the walls are soot-black in 1963)",
+  "the courtyard"
+ ]
+}

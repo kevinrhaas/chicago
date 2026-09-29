@@ -73,6 +73,9 @@ import sys
 import tempfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from town_year import touches_year  # noqa: E402  (T-1732)
+
 ROOT = Path(__file__).resolve().parent.parent          # chicago/4d
 DOMAIN = ROOT / "data" / "research" / "newberry_index"
 SOURCE_ID = "newberry_genealogical_index"
@@ -1308,7 +1311,9 @@ def layer_names() -> dict:
     st_dir = ROOT / "data" / "structures"
     for path in sorted(st_dir.glob("*.json")) if st_dir.exists() else []:
         doc = load(path)
-        if doc.get("name"):
+        # T-1732: 1835 records only — a 1904 house names nobody on an 1830s card
+        # (tools/town_year.py says why the test is the year)
+        if doc.get("name") and touches_year(doc):
             out["structures"].append({"id": doc.get("id") or path.stem, "name": doc["name"]})
     return out
 

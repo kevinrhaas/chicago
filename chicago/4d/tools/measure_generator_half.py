@@ -247,20 +247,34 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
 # at 2. Nothing about the debt itself moved.
 #
-# 444 -> 455 and 440 -> 451 on 2026-09-29 (T-1708): the eleven roofs of the deal on
+# 444 -> 448 and 440 -> 444 on 2026-09-29 (T-1742): the four roofs of the first deal on
+# `blk_indiana_north_wolcott`, Kinzie's Addition — two one-room frame cottages and the
+# woodshed and privy off the alley behind them. Four new structure assets on the same
+# terms as the four above: four more meshes the shared generator modules or emit.py
+# would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
+# debt itself moved.
+#
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
+# the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
+# new `masonry_house` archetype. One new structure asset, so one more mesh the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
+#
+# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1708): the eleven roofs of the deal on
 # `blk_washington_wells`, the same last tier — seven principal roofs (two D7 houses, two
 # H1 houses, two D3 cottages and an H2) with two privies, a woodshed and a stable behind
 # them. Eleven new structure assets, so eleven more meshes the shared generator modules or
 # emit.py would re-stale; the terrain reach stays at 4 and pier_crib at 2. Nothing about
 # the debt itself moved.
 #
+#
 STATED = {
-    "assets": 455,
+    "assets": 460,
     "restales": {
-        "generators/common/*.py": 455,
+        "generators/common/*.py": 460,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 451,
+        "generators/emit.py": 456,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

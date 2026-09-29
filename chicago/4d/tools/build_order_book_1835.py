@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -415,22 +416,29 @@ STRUCTURE_TICKETS = {
     # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
     # has 35 left and is ordered by T-1206, which is split".
     #
-    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
     # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
-    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     #
-    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), so the row moved once more
-    # on the same rule and for the same red: the gate read "structures/ordinary_dwellings/
-    # north has 34 left and is ordered by T-1742, which is split". Of the two children T-1747
-    # builds blk_indiana_north_wolcott's first roofs only — one block of the addition — and
-    # closes with it; T-1748 carries the rest, blk_indiana_north_cass's cottages, the
-    # remaining Wolcott lots and the scattered better houses on the Rush-Pine fringe. The
-    # cell outlives the first and is the second's in as many words, so it goes to T-1748
-    # rather than to the block in hand.
-    ("north", "ordinary_dwellings"): "T-1748",
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
+    #
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
+    ("north", "ordinary_dwellings"): "T-1754",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
@@ -1962,6 +1970,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1
@@ -4496,8 +4506,18 @@ def cmd_self_test() -> int:
     # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 235
+        data["inventory"], data["programme"], occ))["seated"] == 237
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

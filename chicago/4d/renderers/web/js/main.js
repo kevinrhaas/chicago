@@ -54,6 +54,7 @@ import { createFarMerge } from './far-merge.js';
 import { createWharves } from './wharves.js';
 import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
+import { createStreetGrid } from './street-grid.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
 import { mountOrderBook } from './orderbook.js';
@@ -1175,6 +1176,17 @@ async function boot() {
   });
   scene3d.add(streets.group);
 
+  // T-0474 — the 1904 Prairie Avenue grid: carriageways curb to curb, each block
+  // face's margin, walk, parkway and curb, the alleys and the lot lines, read off
+  // the Sanborn 1911 sheets (data/street_grid/<scene>.json). Only a scene listing
+  // `street_grid` is handed a data base, so the 1835 town draws none of it.
+  const streetGrid = await createStreetGrid({
+    dataBase: layerBase('street_grid'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_grid'),
+  });
+  scene3d.add(streetGrid.group);
+  api.streetGrid = streetGrid;
+
   // WHICH DETAIL LEVEL, resolved here rather than beside the vegetation because
   // the fence layer is the first thing that needs it: a pale is 10 triangles at
   // `full` and 4 at `light` (T-0067), so the level has to be known before the
@@ -2239,6 +2251,16 @@ async function boot() {
     const well = wells.pickAt(ndc, camera);
     if (well && well.record && (!hit || well.distance < hit.distance)) {
       hit = { ...well };
+    }
+    /**
+     * And so can the 1904 street grid (T-0474), whose cards belong to no structure
+     * either: a band of the sidewalk space, a roadway or an alley answers with its
+     * width and tier, and the ground between them with the lot it lies in — its
+     * frontage, the 1911 addresses printed on it and the sheet it was read from.
+     */
+    const gridHit = streetGrid.pickAt(ndc, camera);
+    if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
+      hit = { ...gridHit };
     }
     if (!hit) {
       popup.close();

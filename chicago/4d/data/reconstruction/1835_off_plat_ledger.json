@@ -52,7 +52,7 @@
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
   "principal_roofs_standing": 133,
-  "ground_m2": 7314855.3
+  "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -6622,7 +6622,7 @@
    "district_read_from": "the 665-roof programme's schedule row",
    "in_the_roof_schedule": true,
    "schedule_state": "open",
-   "slot_headroom": 33,
+   "slot_headroom": 27,
    "may_raise_a_slot": true,
    "why_no_slot": null,
    "standing": [],
@@ -6997,7 +6997,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1035933.6,
+   "area_m2": 1035925.8,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",

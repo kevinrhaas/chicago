@@ -319,6 +319,9 @@ const COVERAGE = [
 
   // --- PART 13: the Evidence panel and the air above the town
   ['data/research/', [13], 'researched, and still open — the third category'],
+  // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 13 boots.
+  ['renderers/web/js/street-grid.js', [13], 'the 1904 Prairie Avenue street grid (T-0474)'],
+  ['data/street_grid/', [13], 'the 1904 carriageways, block faces, alleys and parcels'],
 ];
 
 // ---------------------------------------------------------------------------
