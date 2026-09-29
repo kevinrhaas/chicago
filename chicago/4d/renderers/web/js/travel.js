@@ -222,6 +222,8 @@ export function createTravel({
     return ok;
   }
   function goInstantly(target, callbacks) {
+    const to = destinationOf(target);
+    if (to) reportRoute(target, [[to.e, to.n]], callbacks);
     if (target.kind === 'anchor') return arrived(goToAnchor?.(target.id) ?? false, callbacks);
     setFly?.(false);
     if (target.kind === 'structure') {
@@ -237,8 +239,13 @@ export function createTravel({
     return false;
   }
 
+  function reportRoute(target, points, callbacks) {
+    const s = walker.state;
+    callbacks?.onRoute?.({ ...callbacks.token, target, points: [[s.e, s.n], ...points] });
+  }
   function newRide(target, to, points, rideMode, callbacks) {
     const s = walker.state;
+    reportRoute(target, points, callbacks);
     return {
       mode: rideMode,
       kind: target.kind,
@@ -358,6 +365,7 @@ export function createTravel({
       const s = walker.state;
       const route = router?.plan?.({ e: s.e, n: s.n }, r.to) ?? null;
       if (route?.points?.length) {
+        reportRoute(r.target, route.points, r.callbacks);
         r.points = route.points;
         r.index = 0;
         r.from = { e: s.e, n: s.n };
@@ -505,7 +513,7 @@ export function createTravel({
     // Aerial viewpoints are always a jump: a ride to the ground under a bird's-eye
     // view is not the view. So is any anchor Go to did not hand coordinates for.
     if (target.kind === 'anchor' && (isAerial(target) || mode === 'instantly' || !ownPoint(target))) {
-      return arrived(goToAnchor?.(target.id) ?? false, callbacks);
+      return goInstantly(target, callbacks);
     }
     if (mode === 'instantly') return goInstantly(target, callbacks);
     const to = destinationOf(target);

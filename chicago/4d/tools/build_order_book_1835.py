@@ -409,7 +409,10 @@ STRUCTURE_TICKETS = {
     # T-1742 is this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    # T-1742 was split on 2026-09-29 UTC: T-1747 raises the first Wolcott roofs;
+    # T-1748 owns the remaining addition and north-tier dwellings. Keep the
+    # forward-looking bucket on that live successor; historical fills stay put.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

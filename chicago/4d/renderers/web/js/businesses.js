@@ -776,7 +776,8 @@ export async function mountBusinesses({
   let openSeq = 0;
   /** Open a firm's card in place of the list. Resolves true once the record has
    *  been fetched and rendered (or its failure written), so a harness can await it. */
-  async function open(id) {
+  async function open(id, { signal } = {}) {
+    if (signal?.aborted) return false;
     const r = byId.get(id);
     if (!r) return false;
     const seq = ++openSeq;
@@ -806,7 +807,7 @@ export async function mountBusinesses({
     const body = cardEl.querySelector('.people-card-body');
     try {
       const rec = await getJson(`businesses/${r.file}`);
-      if (seq !== openSeq) return false;
+      if (seq !== openSeq || signal?.aborted) return false;
       body.innerHTML = recordHtml(rec, r);
       // T-1493. THE SEAT, AND THE WAY TO IT. The record's own locations reach a
       // roof for 45 of these 179 firms; the address book seats 40 more on a block
@@ -821,12 +822,12 @@ export async function mountBusinesses({
       // which is the honest answer and not a degradation.
       state.seatPending = seatSlot(cardEl, r).catch(() => {});
     } catch (err) {
-      if (seq !== openSeq) return false;
+      if (seq !== openSeq || signal?.aborted) return false;
       problems.push(`businesses: ${err.message} — one business record is missing`);
-      body.innerHTML = `<p class="legend-note">This firm's record could not be loaded. It is committed at
+      body.innerHTML = `No card yet. <p class="legend-note">This firm's record could not be loaded. It is committed at
         <code>data/businesses/${escapeHtml(r.file || '')}</code>.</p>`;
     } finally {
-      if (seq === openSeq) body.removeAttribute('aria-busy');
+      if (seq === openSeq && !signal?.aborted) body.removeAttribute('aria-busy');
     }
     return true;
   }
@@ -856,6 +857,7 @@ export async function mountBusinesses({
   }
 
   function close() {
+    openSeq++;
     state.open = null;
     cardEl.hidden = true;
     cardEl.innerHTML = '';

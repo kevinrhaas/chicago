@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1222, ts: '2026-09-29T03:12:22.646Z', date: 'Sep 28, 2026, 10:12 PM CT', title: 'History along your outing', kind: 'change',
+    items: [
+      'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
+      'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
+    ] },
   { v: 1221, ts: '2026-09-29T01:59:22.397Z', date: 'Sep 28, 2026, 8:59 PM CT', title: 'A street and a tavern stop standing in the same ground', kind: 'fix',
     items: [
       "Nothing you can see changed. West Water Street's roadway and the Green Tree Tavern's south-east corner were sharing 0.20 m of ground on the west bank north of Lake, and they are not any more.",

@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
+step "Jaunt optional context and route notes (T-1257)" \
+  node tools/test_leg_notes.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
