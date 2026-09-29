@@ -4504,8 +4504,20 @@ def cmd_self_test() -> int:
     # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
     # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
     # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1735 TAKES IT TO 242, WITH THE FIRST BLOCK OF THE PLAT'S LAST TIER. The eleven
+    # roofs on `blk_washington_lasalle` answer seven slot requests standing against that
+    # block, and the pass runs 165 -> 170 with 120 adoptions against 113 and 50 slots
+    # against 52. The gain is five and not seven for the same reason it was two and not
+    # eleven a paragraph above: the households that DID move here vacated roofs elsewhere
+    # and the pass cascaded those vacancies down its own ranking rather than leaving them
+    # open, which is the T-1622 precedence again and is recorded in L296. Off-plat is
+    # unmoved at 72, so the total is 170 + 72. Read at the chain's fixpoint, not one pass
+    # in, and read off the committed seats files rather than predicted: 1835_platted_seats
+    # .json counts seated 170 (120 adopted, 50 slots, 1,308 handed on) and
+    # 1835_off_plat_seats.json counts seated 72 of the 1,308 it was handed.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 237
+        data["inventory"], data["programme"], occ))["seated"] == 242
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

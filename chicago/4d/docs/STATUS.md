@@ -48,7 +48,7 @@ courtyard — so the court reads open to the south. The rights bank
 photograph, HABS photograph 5, Houghton GLE B9); three stand on such sources alone (`paint`,
 `granite_tint`, `roof_tint`) — K41's open question.
 
-## T-1735 — the La Salle block of the plat's last tier built to its seats (2026-09-28)
+## T-1735 — the La Salle block of the plat's last tier built to its seats (2026-09-29)
 
 `blk_washington_lasalle` — Washington to Madison, LaSalle to Clark, the south-west
 block of the tier T-1707's street control emitted — stood empty and now carries
@@ -86,13 +86,13 @@ reported rather than tidied.** The seating pass is re-derived whole in the place
 policy's clause order, so the seven roofs went to the seven households the policy
 ranks first among those an admitted family on this block will hold; the other
 requesters are re-slotted onto the Washington-tier blocks still standing empty.
-Measured against dev at the chain's fixpoint, with T-1747's two Kinzie cottages now in
-it: platted seats **168 → 170**, adoptions **118 → 120**, slots hold at **50**, rows
-handed to T-1614 **1,310 → 1,308**, and the seating join with the off-plat pass
-**240 → 242**. The gain is two and not seven because the households that DID move here
+Measured at the chain's fixpoint against dev at `fcd5e7c5`, which carries T-1747's two
+Kinzie cottages and T-1732's Glessner House: platted seats **165 → 170**, adoptions
+**113 → 120**, slots **52 → 50**, rows handed to T-1614 **1,313 → 1,308**, and the
+seating join with the off-plat pass **237 → 242**. The gain is five and not seven because the households that DID move here
 vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
 rather than leaving them open. The named-keeper count went **21 → 20** with it and the
-refusals to **68**, of which 66 are the letter-list refusal already on the books and 2
+refusals **65 → 68**, of which 66 are the letter-list refusal already on the books and 2
 the T-1689 naming disagreement — no ruling moved (**L276**). The 668-roof programme now
 reads **443 standing, 225 remaining**.
 
@@ -103,7 +103,7 @@ roof to the town — the programme's total is fixed — so what it re-apportions
 REMAINDER, and the Clark block's plan went from five roofs, all ancillary, to
 eighteen with principal dwellings among them: five households take slots on it again.
 The tier's slot count therefore falls 28 → 26 rather than 28 → 21, and its band split
-runs 14 merchant and professional against 12 tradesmen's rather than 18 against 10.
+runs 14 merchant and professional against 12 tradesmen's rather than 19 against 9.
 **L270** is restated with that in it; a block's slot count is not a ratchet.
 
 **The order book's south ordinary-dwellings row keeps its owner** — 176 target, 117
@@ -124,12 +124,21 @@ of it; T-1420 owns the standing rule that keeps making them necessary.
 to **242** with the ruling behind the seats written beside it; **L263** (roof-type
 phases 426 → **437**), **L270** and **L276** are restated against what the rebuild
 reaches rather than what the branch was cut against; and `measure_generator_half.py`
-states **459** committed assets against 448, emit.py's reach 455 against 444.
+states **460** committed assets against 449, emit.py's reach **456** against 445 — all
+three read off the committed tree by its own `--gate`, not carried over from the branch
+this was cut against.
 
-**Verification.** `tools/check.sh` green; the eleven meshes were baked on the branch
-and their manifest rows carry the masters the tree still holds (455 of 455 on the K39
-lineage check), so nothing was re-baked here; the smoke parts `smoke_budget.mjs
---for-diff` named for this diff run in the foreground.
+**Verification.** `tools/check.sh` **CHECK PASS**, 702 steps, none red, with jsonschema,
+pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
+
+**The eleven meshes were RE-BAKED on the fifth lap with dev, and that is the point of the
+staleness gate.** Merging dev re-derived the seating chain, which moved the eleven records'
+inputs, which made every one of their committed masters stale — `validate.py --stale`
+named all eleven and the dataset step went red, exactly as it should when data and
+geometry disagree. Blender 4.5.3 from `generators/blender.pin`, `bake.sh --only` over the
+eleven ids in one start-up, then the web derivatives and sidecars the same script owns
+(460 master hashes in `assets/manifest.web.json`). Only two files moved in the whole tree,
+which is the determinism claim holding: every other master reproduced byte for byte.
 
 ## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
 

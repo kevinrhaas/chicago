@@ -14890,7 +14890,28 @@ Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated 
 order book takes off this pass moves with it. Neither deal can see the other's picks, on the
 reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only).
+**The deal reached 170 on 2026-09-29 (T-1735), and every dated paragraph above keeps the
+number it was written against** — that convention is the one this entry set for itself two
+revisions ago, and restating their arithmetic would falsify the accounts they are. What this
+build changed, measured against dev at `fcd5e7c5`: the first block of the plat's last tier
+was raised, so seven of the slot requests standing against `blk_washington_lasalle` became
+roofs and the pass runs **165 → 170** seats, adoptions **113 → 120**, slots **52 → 50**,
+rows handed to **T-1614** **1,313 → 1,308**, and the seated join the order book takes off
+this pass and the off-plat pass together **237 → 242**. The gain is five seats and not seven
+because the households that took these roofs vacated roofs elsewhere and the pass cascaded
+those vacancies down its own ranking — **T-1622**'s precedence again, not a refusal.
+
+**AND RAISING A BLOCK RE-APPORTIONS THE TIER, which is the part of this that is not
+arithmetic.** The programme's roof total is fixed, so what eleven roofs becoming STANDING
+moves is the REMAINDER. `blk_washington_clark` had gone to **0** slots under T-1736 with both
+its principal roofs built; its plan went from **5 roofs, all five ancillary** to **18, of
+which 13 are principal**, and five households take slots on it again. The tier's slot count
+therefore falls **28 → 26** and not 28 → 21, and its band split runs **14** merchant and
+professional against **12** tradesmen's where dev's ran 19 against 9. **A block's slot count
+is not a ratchet**, and a reading of this entry that assumes one will be wrong about the
+tier. Read at the chain's fixpoint, not one pass in.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
