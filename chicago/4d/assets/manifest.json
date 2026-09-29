@@ -2295,6 +2295,123 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d5_01"
     },
+    "recon_1835_blk_washington_franklin_a1_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 89844,
+      "inputs_sha256": "90d007caf10bbd42231966319fd13b523ab06d22a8eec8e45a6ba65262f9ed00",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a1_08"
+    },
+    "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 99204,
+      "inputs_sha256": "2a281b3ca74f6a98eccdf353101f54257a6f1dbd3e4d0629903772ddbff1b026",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a1_10"
+    },
+    "recon_1835_blk_washington_franklin_a2_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 155580,
+      "inputs_sha256": "922b53f973bfd6cad63385bfc40990580b3f6c4ce3a273db5dc85aed167f50ce",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a2_09"
+    },
+    "recon_1835_blk_washington_franklin_a3_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32668,
+      "inputs_sha256": "2977839af5e2aef443116eacd4e7d8e18d90956506acec88391a4e8fdddffa36",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a3_13"
+    },
+    "recon_1835_blk_washington_franklin_a4_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 55772,
+      "inputs_sha256": "c5f2f9d7cd0ac8702d92f97cdd861080fbb7ab9fcfeedb064c79e32124e0e6ce",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a4_11"
+    },
+    "recon_1835_blk_washington_franklin_a4_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 58900,
+      "inputs_sha256": "ee4e6d57e46d754635cacbf9d1c0645815315434d1ce62d8840d284878ec101c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a4_12"
+    },
+    "recon_1835_blk_washington_franklin_d3_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 29588,
+      "inputs_sha256": "7380c58c273bb8fa722354ee1704bd3be68d03fbd916882f7754f40b59e4fbbc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_05"
+    },
+    "recon_1835_blk_washington_franklin_d3_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25516,
+      "inputs_sha256": "c65e04752f6333b90b3c94fb8513a6639541bb5dede9f2289dac91c15b5b6d38",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_06"
+    },
+    "recon_1835_blk_washington_franklin_d3_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25844,
+      "inputs_sha256": "15b8df4eff8939cfbd1a75ffc462f207aaa6441ffa5f38b2fd43d7eb9a28c258",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_07"
+    },
+    "recon_1835_blk_washington_franklin_d7_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 56120,
+      "inputs_sha256": "09008d41a15712fd297178d9dcba4ece002b42193e8c28f867cc6a2b343e0f8d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d7_01"
+    },
+    "recon_1835_blk_washington_franklin_d7_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 58620,
+      "inputs_sha256": "e191a55f6a73008963c88b812aa317e727cbc112784404bc82cae1996be9a0c6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d7_04"
+    },
+    "recon_1835_blk_washington_franklin_h1_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 36836,
+      "inputs_sha256": "b2ddfa9706df54479247446fea00b557a2daeec4db1aae736822ff336fac559d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_h1_03"
+    },
+    "recon_1835_blk_washington_franklin_h2_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 47072,
+      "inputs_sha256": "fbbd185f5bfa116d32c367be38a165755f86c12202b0ade51b1c859d1958002f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_h2_02"
+    },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
