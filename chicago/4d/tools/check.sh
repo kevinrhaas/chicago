@@ -324,6 +324,19 @@ selftest "…and a moved control, a misread bar or a mislaid house still fails i
 step "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)" \
   python3 tools/trace_ic_edge_1904.py --check
 
+# T-0474. ...and the street grid read off the same three Sanborn sheets through that
+# georeference: carriageways, every block face's margin / walk / parkway / curb, the
+# alleys, and the lots on both faces of Prairie from 16th to 22nd, each with its 1911
+# address. data/street_grid/1904.json is generated from picks written in the tool;
+# its contract holds the Glessner lot's frontage inside what sheet 28 allows (T-1731
+# left 74 or 77 ft for this ticket), refuses an address label that falls on no lot,
+# and holds every band of the street section to the 1905 code's sidewalk space.
+step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets (T-0474)" \
+  python3 tools/trace_prairie_1904_grid.py --check
+
+selftest "…and a misread lot line, a stray label or a broken section still fails it" \
+  python3 tools/trace_prairie_1904_grid.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
