@@ -254,13 +254,24 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
 # debt itself moved.
 #
+# 448 -> 452 and 444 -> 448 on 2026-09-29 (T-1753): the four roofs of the first deal on
+# `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
+# cottages and the privy and woodshed off the alley behind them. Four new structure
+# assets on the same terms as the eight above: four more meshes the shared generator
+# modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still 2.
+# Nothing about the debt itself moved. THIS IS THE THIRD BLOCK DEAL IN TWO DAYS TO MOVE
+# THESE TWO NUMBERS BY FOUR, which is the measurement working as intended and also the
+# shape of what it measures: the debt is per-ASSET, so every roof the reconstruction
+# programme raises enlarges it, and it will keep being restated four at a time for as
+# long as the town is built a block at a time.
+#
 STATED = {
-    "assets": 448,
+    "assets": 452,
     "restales": {
-        "generators/common/*.py": 448,
+        "generators/common/*.py": 452,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 444,
+        "generators/emit.py": 448,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
