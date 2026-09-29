@@ -278,13 +278,22 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
 # the debt itself moved.
 #
+# 464 -> 475 and 460 -> 471 on 2026-09-29 (T-1735): the eleven roofs of the deal on
+# `blk_washington_lasalle`, the south-west block of the same last tier, raised on top of the
+# Wells eleven and the Wolcott four above. Seven principal dwellings (an H2, two H1, two D7
+# and two D3) with a stable, two privies and a woodshed behind them. Eleven new structure
+# assets, so eleven more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain reach stays at 4 and pier_crib at 2. Nothing about the debt itself
+# moved. The from-numbers are the ones this branch found on `dev` at its NINTH lap, and the
+# three numbers are read off the committed tree by `--gate` rather than carried over.
+#
 STATED = {
-    "assets": 464,
+    "assets": 475,
     "restales": {
-        "generators/common/*.py": 464,
+        "generators/common/*.py": 475,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 460,
+        "generators/emit.py": 471,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
