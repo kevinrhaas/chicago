@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1219, ts: '2026-09-29T01:16:06.460Z', date: 'Sep 28, 2026, 8:16 PM CT', title: 'Nothing you can see: the town\u2019s north-west corner, checked against the map', kind: 'change',
+    items: [
+      'Nothing in the town changed with this build. The Trustees walked Chicago\u2019s corporate boundary in November 1833 and printed it three weeks later, and its west line runs north along Jefferson Street \u201cand its continuation\u201d to Ohio Street. Jefferson stops. The modern street does not survive north of Hubbard, so the last 288 metres of that line had been pure arithmetic, with nothing beside it.',
+      'It has now been asked of a map rather than a street. The 1834 survey draws the tract north of Kinzie Street whole, and this project has already read its streets and blocks off that sheet \u2014 so the question could be put to a reading it already held: does the surveyor draw Jefferson carrying on? He does not. The nearest street he rules there is some 75 metres to the west, four times the map\u2019s own accuracy.',
+      'So the town\u2019s north-west corner stands in the middle of a block of somebody else\u2019s addition, three streets north of where Jefferson gives out. One line on the sheet runs close enough to be mistaken for the continuation \u2014 the tract\u2019s own edge against the river, sixteen metres east \u2014 and it is refused, because over those 288 metres the two lines drift apart rather than together.',
+      'The line is no more certain than it was, and is not claimed to be. What it has now is a boundary on the guesswork: a check that fails the day a drawn street turns up on it, the day the corner runs off the platted ground, or the day the extension comes near enough to a building to decide whether the town\u2019s by-laws reached it.',
+    ] },
   { v: 1218, ts: '2026-09-28T23:39:45.130Z', date: 'Sep 28, 2026, 6:39 PM CT', title: 'Two houses beside the Lake House building site', kind: 'change',
     items: [
       'Walk east along the north bank past the Lake House going up, and two buildings stand on ground that was empty. Dr Kimberly\u2019s house on the Michigan Street frontage just east of the site, and out among the sand hills near the lake shore, the small house Eve Kelsey kept as a boarding house.',
