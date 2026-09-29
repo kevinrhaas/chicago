@@ -1905,6 +1905,37 @@
         ]
       },
       "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 359,
+      "takenAt": "2026-09-29T03:10:03.056Z",
+      "ref": "steward/t1742-kinzie-addition-first-roofs",
+      "commit": "cb77c855ace3",
+      "devCommit": "682be5f236dc",
+      "treeHash": "sha256:03b25c1089849ca2",
+      "treeDirty": false,
+      "changelogHash": "sha256:4b086a9978ad2170",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.3,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke1.log"
     }
   ]
 }

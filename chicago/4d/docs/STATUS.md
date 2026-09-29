@@ -15,7 +15,7 @@ seating found no free roof of an admitted family in the South Division for seven
 banded households and wrote seven `slot` rows against this block's own committed
 family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
 A request is not evidence: the roofs grade at the bottom tier with the same
-reasoning notes as every other anonymous count-unit, and the liberty is **L294**.
+reasoning notes as every other anonymous count-unit, and the liberty is **L295**.
 
 **The face argument.** Washington is opened, worn and graded `light`; Madison is
 platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
@@ -37,25 +37,27 @@ policy's clause order, so the seven roofs went to the seven households the polic
 ranks first among those an admitted family on this block will hold; the other six
 original requesters are re-slotted onto the Washington-tier blocks still standing
 empty. Measured against `dev` at the chain's fixpoint, not against the base this branch
-was cut from: platted seats **163 → 168**, adoptions **111 → 118**, slots **52 → 50**,
-rows handed to T-1614 **1,315 → 1,310**, and the seating join with the off-plat pass
-**235 → 240**. The gain is five and not seven: the households that DID move here
+was cut from: platted seats **168 → 170**, adoptions **118 → 120**, slots hold at
+**50**, rows handed to T-1614 **1,310 → 1,308**, and the seating join with the off-plat
+pass **240 → 242**. The gain is two and not seven: the households that DID move here
 vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
 rather than leaving them open, and the tier's own slot rows fell 28 → 26 while
 `blk_washington_clark` — which T-1736 had taken to zero — asks five again, because
 eleven more standing roofs re-apportion the South Division's programme. The
-named-keeper count went **21 → 20** with it and the refusals **63 → 66**, of which 64
+named-keeper count went **21 → 20** with it and the refusals to **68**, of which 66
 are the letter-list refusal already on the books and 2 the T-1689 naming disagreement
-— no ruling moved (**L276**). The town census reads **439 buildings standing of 668**.
+— no ruling moved (**L276**). The town census reads **443 buildings standing of 668**.
 
 **The order book's south ordinary-dwellings row keeps its owner.** The cell reads 176
 target, 117 standing, 59 to build, and it still names **T-1708**, which is open — so
 the row this ticket was filed to protect needs no re-pointing. The seating tripwire
-in `build_order_book_1835.py` is restated from 235 to **240** with the ruling behind
-the five seats, not quietly re-summed; `measure_generator_half.py` from 444 to **455**
-committed assets and 440 to **451** for emit.py; and L263 (roof-type phases 422 →
-**433**), L270 and L276 are restated against what the rebuild reaches rather than what
-the branch was cut against.
+in `build_order_book_1835.py` is restated to **242** with the ruling behind the two
+seats, not quietly re-summed; `measure_generator_half.py` from 448 to **459** committed
+assets and 444 to **455** for emit.py; and L263 (roof-type phases 426 → **437**), L270
+and L276 are restated against what the rebuild reaches rather than what the branch was
+cut against. One edit here is not this ticket's: a sibling split T-1748 while the gate
+was running, so the order book's north ordinary-dwellings row ordered work nobody could
+claim, and it is swept to **T-1754** by the same test the two splits above it used.
 
 **Verification.** `tools/check.sh` green; the eleven meshes baked with `bake.sh
 --only` and their web derivatives recorded; the smoke parts `smoke_budget.mjs

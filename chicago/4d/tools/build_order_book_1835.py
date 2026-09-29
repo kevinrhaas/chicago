@@ -403,10 +403,10 @@ STRUCTURE_TICKETS = {
     # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
     # has 35 left and is ordered by T-1206, which is split".
     #
-    # THE CELL GOES TO T-1742, and the two children divide on whether either raises a roof.
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
     # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
-    # T-1742 is this cell in as many words: it builds the addition and the north tier to their
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     #
@@ -420,12 +420,12 @@ STRUCTURE_TICKETS = {
     # fringe: it is this cell's remainder in as many words, so the 34 are its.
     #
     # AND T-1748 WAS SPLIT AGAIN on 2026-09-29 (T-1753, T-1754), which fired the same gate a
-    # third time inside the hour — "has 34 left and is ordered by T-1748, which is split" —
+    # third time inside the hour — "has 32 left and is ordered by T-1748, which is split" —
     # and the row moves by the same test, not by a new one. T-1753 is one block,
     # blk_indiana_north_cass's first roofs on its Indiana and Illinois faces, and says in its
     # own title that the rest of that block's lots stay open. T-1754 is "the north tier's
     # remaining roofs", the further wolcott and cass lots and the Rush-Pine fringe: it is this
-    # cell's remainder in as many words, so the 34 are its. This sweep is not T-1735's work and
+    # cell's remainder in as many words, so the 32 are its. This sweep is not T-1735's work and
     # is not claimed as any part of it; it is the one edit that lets this branch's gate read the
     # book at all, and T-1420 owns the standing rule that keeps making it necessary.
     ("north", "ordinary_dwellings"): "T-1754",
@@ -4495,18 +4495,28 @@ def cmd_self_test() -> int:
     # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
     # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
     #
-    # AND T-1735 TAKES IT TO 240, WITH THE SECOND BUILD ON THE LAST TIER AND THE FIRST WHOLE
-    # BLOCK. `blk_washington_lasalle`'s seven principal dwellings and four yard buildings now
-    # stand, and the seven slot rows T-1707's tier carried against that block were what asked
-    # for them, so the block has no headroom left to ask against and the pass ADOPTS there
-    # instead: the platted pass runs 163 -> 168 with 118 adoptions against 111, and 50 slots
-    # against 52, while the off-plat pass holds at 72. The tier's own slot rows go 28 -> 26,
-    # and the Clark block — which T-1736 had taken to zero — asks five again, because eleven
-    # more standing roofs re-apportion the South Division's programme and the schedule draws
-    # that block more principal room than its two cottages fill. Restated from 235 rather
-    # than re-summed, and every figure read off the committed files at the chain's fixpoint.
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1735 TAKES IT TO 242, WITH THE FIRST WHOLE BLOCK OF THE LAST TIER.
+    # `blk_washington_lasalle`'s seven principal dwellings and four yard buildings now stand,
+    # and the seven slot rows T-1707's tier carried against that block were what asked for
+    # them, so the block has no headroom left to ask against and the pass ADOPTS there instead:
+    # the platted pass runs 168 -> 170 with 120 adoptions against 118, the slots hold at 50,
+    # and the off-plat pass holds at 72. The tier's own slot rows go 28 -> 26, and the Clark
+    # block — which T-1736 had taken to zero — asks five again, because eleven more standing
+    # roofs re-apportion the South Division's programme and the schedule draws that block more
+    # principal room than its two cottages fill. Restated rather than re-summed, and every
+    # figure read off the committed files at the chain's fixpoint.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 240
+        data["inventory"], data["programme"], occ))["seated"] == 242
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

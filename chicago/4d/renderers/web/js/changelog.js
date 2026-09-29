@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1223, ts: '2026-09-29T03:32:50.932Z', date: 'Sep 28, 2026, 10:32 PM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
+  { v: 1224, ts: '2026-09-29T04:02:45.392Z', date: 'Sep 28, 2026, 11:02 PM CT', title: 'Walls for the La Salle block of the last tier', kind: 'change',
     items: [
       'Seven families who had an address and no house on the new row south of Washington Street now have one. Walk Washington west of Clark to La Salle and the block on your left \u2014 open prairie last release \u2014 carries four houses, three cottages, a stable, two privies and a woodshed. Eleven roofs where there were none.',
       'These houses stand because a household asked for one. The pass that deals families onto lots could find no free roof of the right kind in the South Division for seven of them, so it wrote seven requests against this block by name \u2014 two small two-storey houses, two larger one-and-a-half-storey ones, a merchant\u2019s house and two one-room cottages. That is exactly what stands there now.',
@@ -7,6 +7,14 @@ export const CHANGELOG = [ // newest first
       'One of the eight lots is left empty on purpose, and it is the corner of Madison and La Salle \u2014 the back line meeting the far side. A block with a house on every lot is a claim about 1835 that nothing supports.',
       'Everything about these eleven buildings is ours except that the town needed them: which family stands where, which lot stays empty, how far back each house sits. Every metre of the ground under them is the committed plat. The register says so, building by building.',
       'The rest of the row is still open ground, and each of its remaining blocks is written down as its own piece of work.',
+    ] },
+  { v: 1223, ts: '2026-09-29T03:11:54.420Z', date: 'Sep 28, 2026, 10:11 PM CT', title: 'The first two houses in Kinzie\u2019s Addition', kind: 'change',
+    items: [
+      'Cross the river and walk north to Indiana Street between Wolcott and Cass, and there are buildings on the addition for the first time. Two one-room frame cottages stand back to back across the block alley near its east end \u2014 one facing Indiana, one facing Illinois \u2014 with a woodshed behind the first and a privy behind the second. These are the first roofs anywhere above Michigan Street, on lot lines read off the 1834 survey four builds ago.',
+      'Ten of the block\u2019s twelve lots are still open prairie, and that is the whole point. Eleven households have an address on this block and the building programme offers it forty-three roofs, so nothing but a decision stopped at two: the north-side research says the maps show a large platted north side with no buildings on it, and that the addition has to read speculative rather than occupied. Two cottages with open ground on both sides of each is what that looks like.',
+      'The families who moved in are not the ones who asked. Households pick a standing house before they ask for one to be built, so the moment these existed the Allin and Almond families \u2014 both waiting on the block to the east \u2014 were the better answer for them. John Baily and Joseph Bailly, whose requests the pair was built against, end up holding addresses on that eastern block instead. Families with somewhere to be: 163 before, 165 now.',
+      'The two committed files disagree and the disagreement is now written down. The seating pass wants twenty houses on this addition\u2019s two lotted blocks; the north-side research will not carry twenty. Neither side was quietly adjusted \u2014 the surplus stays on the requested side of the ledger with a ticket against it.',
+      'Nothing here is claimed as evidence. No source says a building stood on this block in 1835, which buildings they were, or where on their lots they sat. The block faces, the alley and the ground are committed; the lot lines are a reading of the surveyor\u2019s own rules, and the cottages are the building programme filling a town it can count but cannot name.',
     ] },
   { v: 1222, ts: '2026-09-29T02:29:14.931Z', date: 'Sep 28, 2026, 9:29 PM CT', title: 'Nothing you can see: the town\u2019s north-west corner, checked against the map', kind: 'change',
     items: [
