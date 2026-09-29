@@ -1,0 +1,34 @@
+{
+  "id": "chicago_revised_municipal_code_1905",
+  "type": "legal",
+  "citation": "The Revised Municipal Code of Chicago of 1905. Passed March 20, 1905. Revised and codified by Edgar Bronson Tolman, Corporation Counsel, assisted by William H. Arthur and Roswell B. Mason. Chicago: published by authority of the City Council (book form October 15, 1905); Rochester, N.Y.: The Lawyers' Co-operative Publishing Company, 1905.",
+  "author": "City of Chicago (E. B. Tolman, codifier)",
+  "date": "1905",
+  "describes_date": "the general ordinances in force on 20 March 1905",
+  "repository": "Internet Archive, digitized by Google from a library copy (Chicago School of Civics and Philanthropy stamp on the title page)",
+  "url": "https://archive.org/details/revisedmunicipa00masogoog",
+  "archived_url": "https://archive.org/download/revisedmunicipa00masogoog/revisedmunicipa00masogoog_djvu.txt",
+  "locator": "Chapter LIX, Sidewalks, Article I, Construction of Sidewalks: sec. 2062 (Portland cement concrete walks; printed pp. 548-549), the 'Slope' and 'Curbage' sections of the concrete specification (p. 552; the OCR numbers both 2066), sec. 2068 (stone sidewalks; pp. 552-553), sec. 2072 (sidewalk widths -- curbs; pp. 554-555), sec. 2077 (fixed width -- grass plats; p. 555). Read again for T-1728 (materials): sec. 1944 (the kinds of 'artificial pavement of a permanent character': granite, asphalt, macadam, brick, cedar block, creosoted block; p. 517), sec. 2061 (the sidewalk specifications bind every walk not laid under a special-assessment ordinance; p. 548), sec. 2066 'Curbage' (concrete curbage with concrete walks; p. 552), sec. 2068 (stone sidewalks of limestone; pp. 552-553), sec. 2070 (cinder walks between wooden curbs of split cedar posts faced with hemlock plank; pp. 553-554), secs. 2078-2079 (a wooden sidewalk may be repaired but none may be built; p. 556).",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A 1905 publication of the City of Chicago; public domain in the United States.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-09-28 (T-0474) in the Internet Archive's OCR text of the Google scan (the djvu.txt at archived_url, 2,943,992 bytes); the passages below were read in that text at the printed page numbers it carries, and quoted as the OCR gives them with the scanning errors corrected. The page images were not opened. Re-read 2026-09-29 (T-1728) in the same OCR text for the materials sections added to the locator.",
+  "note": "A codification, not a new enactment: its title page says it contains 'all the general ordinances of the city in force March 20, A.D. 1905', eight and a half months after the 1904 scene date. It is used for three street-section figures, each carried to 1 July 1904 as INFERRED, not attested, because the code does not date its individual sections: sec. 2072 -- 'All sidewalks which may hereafter be ordered by the city council ... shall be of the width herein specified, unless a different width shall be specified in the order, to wit: ... on streets sixty-six feet and under eighty feet in width, fourteen feet; ... on streets fifty feet and under sixty feet in width, ten feet ... When built of full width, a substantial curbing of stone or white-oak plank, not less than three inches in thickness well tied in, shall be laid on the outer edge of the sidewalk'; sec. 2062 -- 'All walks to be laid on a line one foot from and parallel with the lot line unless otherwise ordered by special ordinance', and 'All work on 5, 6, 10, 12, 15, 18, 20, 24 and 25 foot walks to be laid out in blocks five feet by six feet in size'; sec. 2077 -- 'on all streets where courts or open spaces are allowed for planting trees or for grass plats, the same shall not be covered with plank or other material'. The 'Slope' sections of the concrete and stone specifications (pp. 552, 553) give the grade across the sidewalk space: 'a uniform incline from the street line toward the curb line, with a fall of one inch in every three feet'.",
+  "what_it_supplies": [
+    "The city's default width of the sidewalk space (street line to curb line) on a street of a given width: 14 ft on streets 66 to 80 ft wide, 10 ft on streets 50 to 60 ft wide (sec. 2072)",
+    "Where a walk stands inside that space: one foot from and parallel with the lot line, unless a special ordinance says otherwise (sec. 2062)",
+    "The walk widths the city's paving specification anticipates (5, 6, 10, 12, 15, 18, 20, 24 and 25 ft; sec. 2062), which bound a reconstructed walk width",
+    "That the rest of the sidewalk space could be a planted court or grass plat (sec. 2077), i.e. a parkway",
+    "The curb's minimum thickness where one was required (3 in, stone or white oak; sec. 2072) and the cross-fall of the sidewalk space (1 in in 3 ft toward the curb; the 'Slope' sections, pp. 552-553)",
+    "The period's permitted MATERIALS, as bounds (T-1728): walks of Portland cement concrete in 5 x 6 ft blocks, of limestone, or of cinders between wooden curbs, and no new wooden walk (secs. 2062, 2068, 2070, 2079); curbing of stone or white-oak plank (sec. 2072) or concrete with a concrete walk (sec. 2066); roadways of granite, asphalt, macadam, brick, cedar block or creosoted block (sec. 1944)"
+  ],
+  "what_it_does_not_supply": [
+    "The sidewalk actually laid on any particular block, or its date: every width in sec. 2072 yields to 'a different width ... specified in the order', and a block-level special-assessment ordinance or photograph is what would say what Prairie Avenue had",
+    "The width of a walk within the sidewalk space: the code lists permitted walk widths and chooses none",
+    "Any material for a particular block (T-1728 owns the surfaces)",
+    "The curb's reveal (its height above the gutter) or the roadway's crown",
+    "Whether the sections were in force in exactly this form on 1 July 1904; the code is dated 20 March 1905"
+  ]
+}

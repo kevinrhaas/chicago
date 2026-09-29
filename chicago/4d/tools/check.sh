@@ -41,6 +41,10 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
+step "Jaunt optional context and route notes (T-1257)" \
+  node tools/test_leg_notes.mjs
+step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
+  node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
@@ -321,6 +325,50 @@ selftest "…and a moved control, a misread bar or a mislaid house still fails i
 # and says it did not re-read.
 step "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)" \
   python3 tools/trace_ic_edge_1904.py --check
+
+# T-0474. ...and the street grid read off the same three Sanborn sheets through that
+# georeference: carriageways, every block face's margin / walk / parkway / curb, the
+# alleys, and the lots on both faces of Prairie from 16th to 22nd, each with its 1911
+# address. data/street_grid/1904.json is generated from picks written in the tool;
+# its contract holds the Glessner lot's frontage inside what sheet 28 allows (T-1731
+# left 74 or 77 ft for this ticket), refuses an address label that falls on no lot,
+# and holds every band of the street section to the 1905 code's sidewalk space.
+step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets (T-0474)" \
+  python3 tools/trace_prairie_1904_grid.py --check
+
+selftest "…and a misread lot line, a stray label or a broken section still fails it" \
+  python3 tools/trace_prairie_1904_grid.py --self-test
+
+# T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
+# every carriageway, alley and sidewalk band names a material, a tier, its sources and a
+# range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
+# a surface, nothing surfaced that is not drawn), to data/sources/ (rule 1), to
+# LIBERTIES.md (a reconstruction names its liberty), to the texture library the renderer
+# binds, and refuses an ATTESTED block that rests only on the 1904 paving report or the
+# 1905 code, which bound what a block could have been and never say what one was.
+step "the 1904 street surfaces cover the grid, cite real sources and bound the scene date (T-1728)" \
+  python3 tools/check_street_surfaces.py --check
+
+selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
+  python3 tools/check_street_surfaces.py --self-test
+
+# T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
+# (data/terrain/e1871_grade_readings.json) put through the spec's own datum
+# conversion, its fill is the difference to the committed 1835 heightfield and
+# must not come out constant (the ticket's claim that the two epochs are not
+# offsets of one another), and its evidence limit is derived here rather than
+# carried over from 1835. Every elevation cites a zone the research doc has.
+step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
+  python3 tools/check_terrain_e1871.py --check
+
+selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
+  python3 tools/check_terrain_e1871.py --self-test
+
+# T-1738. …and the heightfield that zone table and the scene line generate. The
+# field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
+# and are held by their input hash (validate.py --stale) and the fit gates below.
+step "the 1904 heightfield re-derives from its zone table and scene line (T-1738)" \
+  python3 generators/terrain_gen_graded.py --check
 
 # ...and for the North Branch north of it (T-1072). Two tools write one
 # branches.geojson through tools/branches_file.py, and each of these two steps
@@ -649,6 +697,23 @@ step "North Division initial parcel matches its reviewed recipe" \
 step "West Division approaches parcel matches its recipe" \
   python3 tools/generate_west_infill.py --check
 
+# AND THE FIGURES AN OPEN OWNER QUESTION IS ASKED ABOUT (T-1460). The recipe's fourth
+# terrain rule deferred a reading to "after the west terrain extension"; T-1444 took it
+# and it does not say what the rule assumed, because the rule's remedy — move the roof —
+# assumes the swale is the fixed thing and the swale is the conjectural thing. That fork
+# is the owner's and the step above does not answer it. What the step above also does not
+# do is notice a roof that stays inside the corridor and MOVES: its frozen set holds
+# membership, not distance, and two of the eight had already drifted 2.5 m under the
+# question before anything measured them (T-1545 and T-1570 re-seating off platted street
+# corridors). So the figures are pinned, the same way measure_corridor_strip.py pins
+# T-0419's. A red step here is not a fault in the town — it is the question needing a new
+# reading before the owner answers the old one.
+step "the figures T-1460 asks the owner about have not moved under him" \
+  python3 tools/measure_west_swale_corridors.py --gate
+
+selftest "…and that reading's own assertions still fire when broken" \
+  python3 tools/measure_west_swale_corridors.py --self-test
+
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the
@@ -672,6 +737,17 @@ step "Kinzie's Addition's block numerals re-derive from the reading and the run"
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/read_kinzie_addition_numerals.py --self-test
+
+# AND THE LOT LINES INSIDE THOSE CELLS (T-1741). Same raster, same registration, same
+# cell boxes — what is added is which cells Wright rules into lots and which he leaves
+# whole. The reading is what lifted the Addition's blanket `lot_subdivision_withheld`,
+# so it is gated at the same strength: every cell re-derives from the committed pixels
+# or the cut standing on it is not the cut the sheet draws.
+step "Kinzie's Addition's lot lines re-derive from the committed pixels" \
+  python3 tools/read_kinzie_addition_lots.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/read_kinzie_addition_lots.py --self-test
 
 # THE NORTH DIVISION'S SEVEN BLOCK NUMERALS (T-1088). The reading lives in
 # data/traces/thompson_block_numbering.json; what is gated here is the CITATION — every
@@ -1660,6 +1736,27 @@ step "the corporate boundary of 7 November 1833 still re-derives, and decides no
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_corporation_limits.py --self-test
 
+# T-1544, and it is the west leg's last 288.3 m read rather than only declared. That leg
+# walks "north along said last mentioned street and its continuation to Ohio street", and
+# the continuation is arithmetic: modern Jefferson does not survive north of Hubbard
+# Street, so there is no third node to carry the line on. A NODE is not the only control.
+# The ground the extension crosses is Wabansia, drawn whole on Wright's 1834 survey and
+# already read into this repository, and this asks that reading whether Wright draws the
+# continuation. He does not — the nearest drawn corridor is 73-80 m west, four times the
+# sheet's own 16.02 m RMS — and the one line that could be mistaken for it, the tract's
+# east rule against the North Branch, DIVERGES from the extension by 7.07 m over its
+# length, so the identification is refused on bearing rather than on an offset that the
+# registration's error could have argued away. This never fails because the leg is
+# extrapolated; it fails when that refusal stops holding.
+step "the west leg's continuation to Ohio is still bounded by Wright's sheet and not drawn on it" \
+  python3 tools/measure_jefferson_continuation.py --gate --quiet
+
+step "…and its committed reading re-derives from the committed geometry" \
+  python3 tools/measure_jefferson_continuation.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/measure_jefferson_continuation.py --self-test
+
 # T-0134. The plate the Dearborn reach was built from draws warehouses on BOTH banks and
 # only the north one stands. The south side was refused on a single spot reading taken by
 # hand — "the corridor reaches to within about 1.7 m of the waterline" — and the whole bank
@@ -2525,6 +2622,11 @@ step "the ground averages the colour each flora zone records" \
 step "the ground mesh still meets the heightfield the walker samples" \
   node tools/measure_terrain_fit.mjs --gate
 
+# …and the 1904 ground's (T-1738), which terrain_gen_graded.py bakes through the
+# same mesher and the same 30 mm refusal.
+step "the 1904 ground mesh meets its heightfield too (T-1738)" \
+  node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate
+
 # The OTHER two axes, which conformGroundToField() cannot repair — it reads a
 # height back off the field at a vertex's shipped (E, N), so a vertex the
 # quantiser moved in plan holds the right height for the wrong place, and on the
@@ -2535,6 +2637,9 @@ step "the ground mesh still meets the heightfield the walker samples" \
 # bytes rather than the arithmetic on the generator's side of the bake (T-0152).
 step "the shipped ground stands where the master does, and inside the road lift" \
   node tools/measure_terrain_horizontal.mjs --gate
+
+step "the shipped 1904 ground stands where its master does (T-1738)" \
+  node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate
 
 # T-1067. The two gates above measure the ground against the mesh drawn FROM it,
 # which cannot see the town standing where there is no ground at all. The box

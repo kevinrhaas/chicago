@@ -1,3 +1,404 @@
+## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
+
+`blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
+immediately east of the Wolcott block T-1747 and T-1756 built — stood empty and now
+carries **four anonymous roofs**: two one-room frame cottages on lots 8 and 9, back to
+back across the block alley near its east end, with a privy behind the first and a
+woodshed behind the second. `hh_avery_charles` took the lot 8 cottage and
+`hh_arquette_michel` the lot 9 one — the two households whose requests stood on those
+lots, which is the opposite of what happened one block west.
+
+**The two names moved once while the deal waited, and the register records the move rather
+than quietly restating it.** The requests on lots 8 and 9 were `hh_andrews_davi`'s and
+`hh_anderson_eli_f`'s when this block's deal was written. T-1756 then raised two cottages
+one block west, those two households adopted them under the same precedence, and the lot 8
+and lot 9 requests passed to the Avery and Arquette households. Nothing about the buildings
+changed; which invented household the seating pass hands each one to is not a finding about
+1835 and must not be read as one.
+
+**Ten of the block's twelve lots stay open, and that is a decision rather than a
+shortage.** T-1522's placement pass wrote eleven slot requests against this block and
+the 665-roof schedule offers it 43 roofs of headroom, so neither the seating nor the
+programme stopped at two. `docs/RESEARCH/1835_north_division_extent_and_infill.md` did:
+the primary maps show a substantially larger platted north side with no buildings on it,
+so the build leaves most legal frontage empty and keeps the outer addition visibly
+speculative. **T-1746** still carries the disagreement between the twenty roofs the
+seating asks of this addition's two subdivided blocks and the memo that will not carry
+twenty; this deal neither builds the surplus nor withdraws it.
+
+**THE SET-OUT IS THE ONE THING HERE THAT IS NOT A REPEAT OF THE BLOCK NEXT DOOR.** The
+Wolcott cottages stand 6.0 m back from Indiana and 5.0 m from Illinois; these stand 5.5 m
+and 6.5 m, the deeper one on the opposite face. Nothing states any of the four numbers
+and nothing states the difference between them either — it is chosen, because the memo
+reads this frontage as alternating roof and open yard with no continuous street wall, and
+two adjacent blocks set out alike would read across Cass Street as a single row of
+houses. The invention is not that the numbers are invented; every set-out on this row is.
+It is that a VISIBLE regularity was deliberately broken, and a later reader is entitled to
+know the irregularity is ours and not a finding. The liberty is **L302**.
+
+**The liberty renumbered four times, and the register renumbers rather than argues.**
+The entry was written as **L295** and became **L296**, **L299**, **L301** and finally
+**L302**, one place per lap: `dev` took L295 for the Glessner House default, L296 and L297
+for the 1904 Prairie Avenue surfaces, L298 for T-1708's Wells block, L299 for Glessner v2,
+L300 for T-1735's La Salle block and L301 for Glessner v3, all while this branch was open.
+Not one of those moves changed a word of what the entry says.
+
+**Restated, not re-summed.** **L263**'s roof-type phase count reads **456** with these
+four written beside T-1735's eleven; `measure_generator_half.py` states **479** committed
+assets and **475** for emit.py's reach, both read off the committed tree by its own
+`--gate` rather than carried over. The whole seating chain — the address book, the platted
+and off-plat ledgers and their deals, the keepers, the anonymous redeal and the order book
+— was rebuilt in dependency order after each lap, and the Newberry index re-parsed
+over all four volumes so `leads.json` re-derives from the merged layers.
+
+**Five laps onto `dev`, and the laps are what this ticket cost.** The work itself was one
+run; `dev` took T-1708, T-1756, T-1460, T-1730 (twice, v2 and v3) and T-1735 while the
+branch was open, and each one moved the derived layer under it. Two runs overlapped on the
+branch on the fifth lap and both are in it: the correction of the two household names below
+is theirs, kept whole. No mesh moved — `validate.py --stale` is clean — so nothing needed
+rebaking.
+
+**One order-book sweep was forced on this branch and none of it is this ticket's work.**
+`dev` split **T-1207** into T-1760 through T-1764 at 11:14Z, and a bucket whose
+`owning_ticket` names a `split` ticket orders work nobody can claim, so
+`build_order_book_1835.py` refused to build at all until the four West rows —
+stores_mixed_use, inns_taverns, workshops and warehouses_freight — were swept onto
+**T-1764**, the child that closes the parent. T-1420 owns the standing rule that keeps
+making these sweeps necessary.
+
+**Verification.** `tools/check.sh` **CHECK PASS**, 707 steps, none red, with jsonschema,
+pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
+`smoke_renderer.mjs --published` part 1 **PASS 80/0 at desktop 1280x800** (3 m 11 s) and
+**PASS 80/0 at mobile 390x780** (1 m 56 s) on the final tree, filed to
+`tools/dev-smoke-state.json` along with every earlier lap's reading. Parts 2-13 were not
+re-run: the four meshes have not moved since the lap that baked them, and what the later
+laps changed is derived data, docs and the order-book owner table — none of which the
+renderer draws.
+
+
+## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
+
+`data/structures/versions/glessner_house/v2.json` (T-1727's mechanism, same archetype
+`masonry_house`, same phase `as_built_1887`) is opened with
+`/4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v2`; the default is untouched
+(its master and derivative are byte-identical after the bake). v2 re-read HABS IL-1015 sheets 2–6
+and photographs 1 and 13, and read four public-domain photogrammetric plates the default did not
+(photographs 14–17, new source records). It takes no geometry from a `check_required` source except
+the dining bay's roof form.
+
+- **Different readings** (docs/RESEARCH/glessner_house_1904.md § 14 has the full table): the east
+  wing's ridge at W 17.3, not the centre line (from photograph 14 and the chimneys' faces on sheets 6
+  and 4); a 19.7-ft north tower cone; the 18th Street eave at 23.8 and the stable's ridge and eaves
+  from the level plates 13 and 15; the house on the Sanborn alley line (0.35 m west of the default);
+  sheet 4's heights read at 97.7 px/ft, calibrated to sheet 6, instead of its scale bar.
+- **Reconstructed** (L299): a smoke-weathered palette, the dormers' depth, the stable turret's size,
+  the stable's south end and 1904 carriage doors, opening heights read off plans, cornice projections,
+  the gate's heights, the courtyard drive and lawn.
+- Frame at the spawn (published mirror, SwiftShader): default 22 calls / 74,979 tris desktop, 21 /
+  79,751 mobile; v2 22 / 75,035 and 21 / 79,807 — the same draw calls, +56 triangles.
+
+**Unverified:** the east wing's ridge position (no roof plan read; photograph 14's west rake reads
+shallower than v2's court slope), the north tower's W (± 3 ft), and every colour.
+
+## T-1728 — the 1904 Prairie Avenue street surfaces: asphalt, macadam, cement, sandstone and turf (2026-09-29)
+
+`/4d/1904/` is paved. `data/street_surfaces/1904.json` (authored) names a material, a tier, its
+sources and an in-place range bounding 1 July 1904 for every one of T-0474's 14 carriageways, 7
+alleys and 31 × 4 sidewalk bands; `renderers/web/js/street-grid.js` binds the seven procedural
+materials of the new `assets/textures/prairie_1904_pbr/` at their metric tiles.
+`tools/check_street_surfaces.py --check` holds it in `check.sh`, with a 15-case self-test.
+
+- **Found: the city's own records name the district's roadways.** The Council's printed proceedings
+  (Newberry copies, via the Internet Archive's full-text search) carry the Board of Local
+  Improvements' ordinance of 9 Feb 1903 for asphalt on **Prairie 16th–20th**, its condition report of
+  2 Nov 1903 ("Good condition") and of 7 Nov 1906 (asphalt, R. F. Conway Co.) — **attested sheet
+  asphalt** — and the Department of Public Works' survey of 1 Dec 1904 listing **Prairie 20th–22nd,
+  18th, 20th and 21st Streets and part of Calumet as worn macadam** out of guaranty — **attested**.
+  16th Street and 22nd Street (asphalt) and Indiana 16th–18th (brick) are **inferred** from 1899
+  contracts and ordinances.
+- **Found: Prairie Avenue was not a boulevard in 1904.** The South Park Commissioners took Prairie
+  16th–29th and 16th Street on 24 Oct 1906 (city consent 28 May 1904, effective 30 Oct 1905); on the
+  scene date both were city streets. The 1911 sheets' "Prairie Av. Blvd." is a later fact.
+- **Reconstructed** (L296): every walk as Portland cement concrete in the 1905 code's 5 × 6 ft
+  blocks, every curb as sandstone curbstones, every parkway and margin as turf, and the look of every
+  map. (L297): Indiana 18th–22nd drawn as finished asphalt, the rest of Calumet 18th–20th as macadam,
+  every alley as earth and cinders, the avenue drawn over its cross streets, no streetcar tracks.
+- **Bounds only, never attestation**: the 1904 paving report (Prairie library `civic-paving-1904`) and
+  the 1905 code; the checker refuses an attested block that rests on them. The c. 1923 HABS views of
+  both Glessner frontages are the later bound for walk, curb and parkway.
+- New sources: eight volumes of the Council's proceedings (1899–1907), the South Park Commissioners'
+  1897 code and 1908 statutes, Alvord's 1904 report, the HABS IL-1015 photographs; the 1905 code's
+  record extended.
+- Frame at the spawn (published, SwiftShader): **16 → 20 draw calls** desktop, **16 → 19** mobile,
+  ceiling 215; triangles 74,049 → 72,829 / 81,123 → 77,601; 21 more textures, 1.62 MB more fetched.
+
+**Unverified:** the walk, curb and parkway materials (no block-level sidewalk or curb record read);
+completion of the 1899 contracts; which side of 1 July 1904 Indiana 18th–22nd and the 20th–21st alley
+were finished on. `docs/RESEARCH/prairie_1904_street_surfaces.md` § 8 names what would close each.
+
+## T-1732 — the Glessner House at 1800 Prairie, as it stood in 1904: the default version (2026-09-29)
+
+`/4d/1904/` is no longer an empty lot. `data/structures/glessner_house.json` (archetype
+`masonry_house`, new in `generators/archetypes/`; phase `as_built_1887`, 1887-12-01 to
+1946-08-31) stands on T-0474's parcel `prairie_1800`, built from T-1731's specification and
+tightened by the HABS photographs (PR #169) and read against the Houghton drawings (PR #171).
+It is the DEFAULT record that T-1730's alternates will be compared against.
+
+- **Placement**: north face on the parcel's 18th Street line, east face 14.7 ft behind the Prairie
+  line (the spec's Sanborn 1911 sheet 28 reading), rotation −0.669° to the sheet's axes; the
+  177.1-ft parcel leaves the west face 0.35 m inside the alley line, and the 74.7-ft frontage
+  leaves 0.7 ft to the 1808 line. Inferred.
+- **Footprint**: the 34-point ground-floor outline, about 7,054 sq ft, from HABS sheet 2's
+  dimension strings, checked against Sanborn 1911 sheet 28. Attested.
+- **Massing and roofs**: the east wing (eave 27.1, ridge 45.7 ft), the 18th Street range
+  (eave 23.1, ridge 34.1 ft, 36.6° with the courtyard kick), the coach house and stable at the
+  alley with its ridge turret, the round stair tower, the north tower, the hall bow, the dining
+  bay, three courtyard dormers, five chimneys, the courtyard gate and a lawn with its carriage
+  drive. 52 form attributes: 23 attested, 11 inferred, 18 reconstructed (with placement inferred, footprint and dates attested).
+- **What the new photographs settled** (docs/RESEARCH/glessner_house_1904.md § 13): the stable's
+  roof (ridge on the carriage doorway's axis at about 38.6 ft, not the spec's symmetric 45°), the
+  "pyramid element" (a round tower), the dining bay (a glazed band and a tall faceted roof), a
+  fifth chimney and a second window in the east wing's north face — all now inferred.
+- **Reconstructed, L295**: every colour, the north tower's plan, the bow roof, the dormers'
+  depth, the turret's dimensions, the chimneys' E-W sizes, the stable's south end and 1904
+  carriage doors, the north range's courtyard openings, heights read off plans, cornices, gate
+  heights, the courtyard ground. Vines not drawn.
+- **Code**: `generators/build.py` now resolves phases against every scene in `data/scenes/` (a
+  full rebake used to skip every 1904 structure); `tools/town_year.py` keeps the 1835 books
+  (the 665 ledger, the redeal, the name pool, the order book, the register, the Newberry
+  index) to the records that touch 1835. The smoke's part 13 now asserts the house draws at the
+  spawn and a pick on its front opens it, and that it is the only structure placed in 1904.
+
+Measured at the spawn (SwiftShader, published mirror): before — dev without the house, T-0474's
+reading — 16 draw calls, 74.0k triangles at 1280×800 and 81.1k at 390×780; after, 18 calls and
+76.2k / 83.3k, inside the 215-call budget, zero problems, zero page errors. The house is one mesh
+of nine material primitives and 1,075 triangles (the web derivative 25.5 KB). The bake: Blender
+4.5.3 `bake.sh --only glessner_house` (96,496-byte master); a full rebake to re-stamp every
+asset after `emit.py` took the new archetype reproduced all other masters byte for byte except
+`miller_tanyard_bark_shed__yard_1831.glb` (same vertex counts, 38,216 → 47,404 bytes), which ships
+as rebuilt.
+
+**Not done here:** the house's interior (out of scope), the porte-cochère and front-door
+panelling (flat oak panels), the vines, and 1808 Prairie — whose north wall closed the
+courtyard — so the court reads open to the south. The rights bank
+(`tools/rights_derivation_baseline.json`) records 34 of the house's attributes citing a
+`check_required` source (the 1888 *Inland Architect* plate, Glessner 1923, the c. 1888 door
+photograph, HABS photograph 5, Houghton GLE B9); three stand on such sources alone (`paint`,
+`granite_tint`, `roof_tint`) — K41's open question.
+
+## T-1735 — the La Salle block of the plat's last tier built to its seats (2026-09-29)
+
+`blk_washington_lasalle` — Washington to Madison, LaSalle to Clark, the south-west
+block of the tier T-1707's street control emitted — stood empty and now carries
+**eleven anonymous roofs**: seven principal dwellings, one per lot on seven of its
+eight lots, and four yard buildings off the mid-block alley. Lot 1, the
+LaSalle-and-Madison corner, is left open. The 665-roof programme apportions the
+block 31 roofs of capacity and 27 of headroom over eight free lots, and its
+principal ceiling is seven — three party-line units per free lot less the one the
+sizing reserves, which on a block with no frontage run resolves to one roof per lot.
+The deal takes the ceiling and stops.
+
+**Every dwelling was asked for.** T-1613's platted
+seating found no free roof of an admitted family in the South Division for seven
+banded households and wrote seven `slot` rows against this block's own committed
+family plan — two D7, two H1, one H2, two D3. This deal builds exactly those seven.
+A request is not evidence: the roofs grade at the bottom tier with the same
+reasoning notes as every other anonymous count-unit, and the liberty is **L299**.
+
+**The face argument.** Washington is opened, worn and graded `light`; Madison is
+platted, unopened and graded `none` — `track_width_m` 0, a survey line over prairie.
+So the four better dwellings take the Washington tier (H2 8.71 × 10.26 m on lot 0 at
+the LaSalle corner, H1 7.83 × 10.62 m on lot 2, H1 7.85 × 9.64 m on lot 4, D7
+6.79 × 9.64 m on lot 6) and the three meanest take Madison (D7 6.63 × 9.26 m on lot
+3, D3 5.22 × 6.90 m on lot 5, D3 5.41 × 6.91 m on lot 7). The D7 pair straddles the
+break because the request holds two and the better face has four lots. Yard
+buildings: a stable behind the merchant's house on lot 0, a privy behind the H1 on
+lot 2, a privy behind the D7 on lot 3, a woodshed behind the D3 on lot 5 — four of
+the six the schedule apportions, which is inside the ceiling and is not a refusal of
+the other two. No coordinate is authored; every metre is a committed lot polygon and
+every dimension a family band. The block's ground reads dry, 420 samples between
+0.86 m and 0.91 m above datum.
+
+**THE SEVEN HOUSEHOLDS THAT ASKED ARE NOT THE SEVEN THAT MOVED IN, and it is
+reported rather than tidied.** The seating pass is re-derived whole in the placement
+policy's clause order, so the seven roofs went to the seven households the policy
+ranks first among those an admitted family on this block will hold; the other
+requesters are re-slotted onto the Washington-tier blocks still standing empty.
+Measured at the chain's fixpoint against dev at `b4c27fa6`, which carries T-1708's own
+eleven roofs on `blk_washington_wells`: platted seats **170 → 174**, adoptions
+**120 → 124**, slots unmoved at **50**, rows handed to T-1614 **1,308 → 1,304**, and the
+seating join with the off-plat pass **242 → 246**. The gain is four and not seven because the households that DID move here
+vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking
+rather than leaving them open. The named-keeper count went **21 → 20** with it and the
+refusals **68 → 70**, of which 68 are the letter-list refusal already on the books and 2
+the T-1689 naming disagreement — no ruling moved (**L276**). The 668-roof programme now
+reads **454 standing, 214 remaining** over **468** structure records.
+
+**AND RAISING A BLOCK RE-APPORTIONS THE TIER, WHICH IS WORTH SAYING PLAINLY.**
+`blk_washington_clark` had gone to 0 slots under T-1736 because its plan's two
+principal roofs were both built. Eleven roofs becoming STANDING here does not add a
+roof to the town — the programme's total is fixed — so what it re-apportions is the
+REMAINDER, and the Clark block's plan went from five roofs, all ancillary, to
+eighteen with principal dwellings among them: five households take slots on it again.
+The tier's slot count therefore falls 28 → 26 rather than 28 → 21, and its band split
+runs 14 merchant and professional against 12 tradesmen's rather than 19 against 9.
+**L270** is restated with that in it; a block's slot count is not a ratchet.
+
+**The order book's south ordinary-dwellings row is owned by T-1751 now** — `dev` moved it
+there when T-1708 closed, so the row this ticket was filed to protect needs no
+re-pointing from here. The NORTH row did have to move, three times, and not for
+anything this ticket did: **T-1742 was split into T-1747 and T-1748 at 02:19Z on
+2026-09-29**, and a bucket whose `owning_ticket` names a `split` ticket orders work
+nobody can claim, so `build_order_book_1835.py` refused to build at all until it was
+swept. **Then T-1748 was split again — into T-1753 and T-1754, at 03:31Z the same
+day — and the cell had to move a second time inside this one run.** It goes to
+**T-1754**, the child holding the remainder (84 target, 52 standing, 32 to build);
+T-1753 is one block, `blk_indiana_north_cass`'s first roofs, and is named beside the
+cell rather than in it, because when T-1753 has built that block the 32 fall to T-1754
+and not to zero. **And then T-1754 itself was split — into T-1756 and T-1757, at 06:41Z,
+seventeen minutes after `dev` last built this book — so `dev` went red on this cell
+before this branch did, and the cell moved a THIRD time.** It goes to **T-1757**: the
+rule is that the cell belongs to the child that CLOSES it, and T-1756 is bounded in its
+own title (two more wolcott cottages, the rest of that block left open) while T-1757 is
+the remainder in as many words — the further cass lots and the Rush-Pine fringe. Naming
+T-1756 would leave most of the 32 owned by nobody the moment it closed. None of the three
+sweeps is this ticket's work and none is claimed as any part of it; T-1420 owns the
+standing rule that keeps making them necessary.
+
+**Restated, not re-summed.** The seating tripwire in `build_order_book_1835.py` moves
+to **246** with the ruling behind the seats written beside it; **L263** (roof-type
+phases 437 → **448**), **L270** and **L276** are restated against what the rebuild
+reaches rather than what the branch was cut against; and `measure_generator_half.py`
+states **471** committed assets against 460, emit.py's reach **467** against 456 — all
+three read off the committed tree by its own `--gate`, not carried over from the branch
+this was cut against. The liberty is **L299**, not L298: `dev` took that number for the
+Wells block while this branch was open, and the register renumbers rather than argues.
+
+**Verification.** `tools/check.sh` **CHECK PASS**, 702 steps, none red, with jsonschema,
+pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
+
+**The eleven meshes were RE-BAKED on the fifth lap with dev, and that is the point of the
+staleness gate.** Merging dev re-derived the seating chain, which moved the eleven records'
+inputs, which made every one of their committed masters stale — `validate.py --stale`
+named all eleven and the dataset step went red, exactly as it should when data and
+geometry disagree. Blender 4.5.3 from `generators/blender.pin`, `bake.sh --only` over the
+eleven ids in one start-up, then the web derivatives and sidecars the same script owns
+(460 master hashes in `assets/manifest.web.json`). Only two files moved in the whole tree,
+which is the determinism claim holding: every other master reproduced byte for byte.
+
+## T-0474 — the 1904 Prairie Avenue street, alley, block and parcel grid (2026-09-28)
+
+`/4d/1904/` now stands on streets. `tools/trace_prairie_1904_grid.py` reads the three Sanborn 1911
+sheets (vol. 3, sheets 20, 28 and 35) through T-1250's georeference and writes
+`data/street_grid/1904.json`; `renderers/web/js/street-grid.js` drapes it on the e1871 heightfield.
+The scene lists the new `street_grid` layer; 1835 does not and draws none of it.
+
+- **Streets**, 16th to 22nd, Indiana to Calumet and the IC: 14 carriageway segments (Prairie,
+  Indiana, Calumet with its curve out of 18th, 16th, 18th, 20th, 21st, 22nd), printed widths 66 ft
+  and 16th Street 50 ft. Each runs through its intersections so no seam opens.
+- **Block faces**: 31, each laid out from the street line as margin 0–1 ft, walk, parkway, curb, to
+  a 14-ft sidewalk space (10 ft on 16th). Space and walk set-back are the Revised Municipal Code of
+  1905, secs. 2072 and 2062 (new source `chicago_revised_municipal_code_1905`) — inferred; the walk
+  (6 ft; 5 on 16th), curb (6 in) and parkway (6.5 ft; 3.5) are reconstructed, **L293**. Mitred
+  corners, no curb radius, no crossings, no reveal or crown.
+- **Alleys**: 7, at their drawn widths (20, 24 and 18 ft printed), the Prairie–Calumet alley with
+  its head at the 1811/1815 line and its jog behind 1827/1901.
+- **Parcels**: 92 lots on both faces of Prairie, each with the 1911 address(es) printed beside it,
+  the Prairie library frontage row(s) it matches, its street face and block. Three labels read
+  differently from the library (1605/1603, 1721/1719, "1918 (1936)"/"1916 (1930)") and carry the
+  difference; seven lots carry no printed address.
+- **The ruling T-1731 left**: the frontage of 1800 Prairie is **74.7 ft (±1.1)**, not 77 and not
+  exactly 74. Parcel **`prairie_1800`**, face **`prairie__indiana_prairie_18_20`**, NE corner
+  E 1392.05 N −3217.24 (0.4 m from T-1739's derived corner), 74.7 × 177.1 ft.
+  `docs/RESEARCH/prairie_1904_street_grid.md` § 3.
+- A pick on the ground opens a card: the lot (frontage, depth, 1911 addresses, sheet), or the band,
+  roadway or alley (width, tier, what it rests on). Surfaces are neutral tones; no material is
+  claimed (T-1728).
+
+Measured at the spawn (SwiftShader, published mirror, same probe both times; "before" is the same
+build with `street_grid` taken out of the scene's layers): before, 9 draw calls and 41.3k triangles
+at 390×780, 34.3k at 1280×800; after, 16 draw calls and 81.1k / 74.0k triangles, inside the 215-call
+budget; zero problems, zero page errors. From the air over the Glessner corner: 20–21 calls,
+106–114k triangles. The grid is 39.8k triangles in all (quads tessellated at 2.5 m, the
+heightfield's cell), no shadow casting. The smoke's part 13 now also asserts the grid is
+drawn, the Glessner lot is `prairie_1800` and the door lands on Prairie's east walk.
+
+**Not done here:** Robinson 1886's legal lot numbers for 16th–18th, and the lots on the Indiana and
+Calumet frontages (filed as a follow-up). Indiana between 18th and 20th is on sheet 27, which was not
+supplied, so its line is carried between sheets 20 and 35. Michigan Avenue is west of every supplied
+sheet and is not drawn. `data/street_grid/` is one dated file and carries no `index.json`, so
+`measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
+generator half.
+
+## T-1257 — optional history beside a jaunt (2026-09-28)
+
+Stop chips open existing structure, person, business, source and Evidence cards.
+Returning restores scroll and choices; reading pauses travel without spending
+resources or awarding events. Canceled asynchronous reads cannot reopen a card
+after End. The compact control row reserves room beneath cards and drawers.
+
+Travel reports its actual planned polyline, including replans and straight hops.
+Structure stand-offs within 25 m are ordered along that line. Generated notes are
+labelled [MAP]; authored notes carry evidence references. Invented connective prose
+is styled separately from historical text. The Green Tree/Wolf Point/bridge unit
+case uses an explicit route fixture, not a claim that every A* route passes there.
+
+The PR records final test results. Browser evidence is generated in
+`docs/performance/jaunt-context/`.
+
+## T-1739 — the 1904 scene, and /4d/1904/ lands facing the Glessner lot (2026-09-28)
+
+`data/scenes/1904.json` is the second scene: 1 July 1904 on `e1871_postfire`, lit at 10:30 local
+mean time. `/4d/1904/` and `?year=1904&anchor=glessner_house` open at the same pose, on Prairie
+Avenue's east sidewalk just south of 18th Street at E 1410.12, N −3218.01, bearing 264.94°. The
+pose is derived: the sheet-28 crossing from the T-1250 fit, both streets 66 ft as printed, and
+T-1731's lot rectangle give the lot's street corner (E 1391.98, N −3216.83) and centroid
+(E 1365.37, N −3229.04). The yaw bisects the two bearings, so the centroid sits left of centre
+(NDC x −0.29 at 390×780, −0.19 at 1280×800). The 2.0 m and 1.5 m walk offsets are a camera,
+not a claim.
+
+The scene's `layers` list is now the renderer's contract. A layer the scene does not list gets
+no data base, so each module's own empty answer mounts and nothing is fetched. 1835 lists
+everything it drew; 1904 lists `terrain` and `water` only. No 1835 street, fence, sign, goods,
+walk, dock, boat, well, plant, tree, substrate colour or person reaches 1904, and no structure
+resolves at 1904.
+
+Other changes:
+- `compile_scene.py` compiles the people directory only for a scene listing `residents`, and
+  offers only the junctions on the scene's own ground.
+- `exclusions.json` records the 1835 town's left-out buildings, so it now applies only to a
+  scene listing `exclusions`. Without that, `validate.py` failed 1904 on 13 buildings from 1836 to
+  1860, none of them on Prairie Avenue, and "What is not here" would have listed them.
+- `measure_anchors.mjs` measures every scene against its own heightfield.
+- `check_1880s_scene_date.py` holds the 1904 scene to the shoreline gate's 1904 address.
+
+Measured at the spawn: a 9 s boot, 9 draw calls and about 41k triangles, zero problems and zero
+page errors at both viewports.
+
+**Not done here:** the rest of the drawer's text panels are still the 1835 town's in 1904:
+Residents, Businesses, Wildlife, Plants, Population, the order book, the jaunts and the source
+index, all authored for 1835 (filed as T-1740). The house (T-1729) and the street
+surfaces (T-1728) are their own tickets.
+
+
+## T-1738 — the 1904 ground generated and baked (2026-09-28)
+
+Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904
+scene. `generators/terrain_gen_graded.py` turns T-1251's zone table and T-1250's scene line into
+`data/terrain/epochs/e1871_postfire/heightfield.{json,bin}` (281 × 361 samples at 2.5 m over
+E +1100..+1800, N −3800..−2900; land Z 0 to +15.1 ft, the lake 26 % of the box, bed to −8 ft),
+reusing `terrain_gen.py`'s mesher, skirt and 30 mm refusal. Baked with the pinned Blender 4.5.3:
+`assets/gltf/terrain__e1871_postfire.glb` (98,053 triangles, within 2.5 mm of the field) and
+`water__e1871_postfire.glb`, with their web derivatives (the shipped ground 0.0 mm off the master
+in plan, the drawn surface within 6.0 mm of the field). `terrain_inputs.py` hashes the graded
+epoch's own generator and vector file, leaving the 1835 epoch's hash byte-identical; the spec's
+blocks are on the ground gates (GROUND_GROUPS, CONSUMED checked against the generator, `mesh`
+declarations) and L290 admits every reconstructed claim. The apron is 4,669.84 m, not the
+2,109.92 m terrain_gen.py's 1,500 m floor would give a box this small: that floor predates T-1635,
+and `check_haze_reach.mjs` refused an apron ending inside the haze's 2,644.9 m, so the graded
+generator raises the floor to the 1835 apron the air was solved against. Not verified: nothing
+renders it yet.
+
 ## T-1727 — structure versions by URL (2026-09-28)
 
 `?structure=<id>&version=<label>` swaps one structure for a committed alternate record
@@ -18,6 +419,24 @@ live test. The only committed version is the smoke's TEST FIXTURE
 (`bates_auction_room/fixture`), an unchanged copy of the default record whose inputs hash
 equals the committed bake, so its mesh was adopted rather than baked; the pinned
 derivative command reproduces the adopted derivative byte for byte.
+
+
+## T-1251 — the 1904 ground's zone table (2026-09-28)
+
+Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
+`data/terrain/epochs/e1871_postfire/terrain_spec.json` is an authored zone table serving the
+1904 Prairie Avenue scene: twelve street crowns read off the USGS 3DEP 1 m bare-earth model
+(`data/terrain/e1871_grade_readings.json`), graded lots between them, the Illinois Central
+embankment, the made ground of 1886–1911, the lake shelf and the lake stage, every figure citing
+a numbered zone in `docs/RESEARCH/terrain_e1871_postfire.md` and saying which date it describes.
+Three crowns (Prairie Avenue from 18th Street to 2017 Prairie) are inferred for 1904 because the
+period's houses still stand there at their built grade, their walks within 0.18 ft of the crown;
+the other nine are reconstructed (L289). The datum conversion is tested: City benchmark 289 and
+the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface runs 2.9–5.7 ft,
+so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
+ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
+Not verified: any 1904 level directly — no survey of the period has been found.
+
 
 ## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
 

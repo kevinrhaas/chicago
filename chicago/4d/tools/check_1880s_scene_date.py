@@ -190,15 +190,15 @@ def documents() -> tuple[dict, dict, dict, set[str]]:
             {p.stem for p in SOURCES_DIR.glob("*.json")})
 
 
-def gate_address_date() -> date:
-    """What tools/check_shoreline_states.py itself resolves for the 1880s."""
+def gate_address_date(label: str = "1880s") -> date:
+    """What tools/check_shoreline_states.py itself resolves for the 1880s (or `label`)."""
     import importlib.util
 
     spec = importlib.util.spec_from_file_location(
         "_c4d_shoreline_states", Path(__file__).with_name("check_shoreline_states.py"))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.ADDRESS_DATES["1880s"]
+    return module.ADDRESS_DATES[label]
 
 
 def self_test(docs: tuple[dict, dict, dict, set[str]], gate_date: date) -> int:
@@ -262,12 +262,28 @@ def main() -> int:
     if args.self_test:
         return self_test(docs, gate_date)
     bad = validate(docs[0], docs[1], docs[2], docs[3], gate_date)
+    # T-1739. The scene that renders the epoch is dated by the owner's 1904 ruling, not
+    # by the 1888 derivation above, and the shoreline gate resolves its lake edge at that
+    # same address. A scene on this epoch dated anywhere else would stand on a lake edge
+    # drawn for another day.
+    renders = []
+    scene_date = gate_address_date("1904")
+    for path in sorted((ROOT / "data" / "scenes").glob("*.json")):
+        scene = json.loads(path.read_text())
+        if scene.get("terrain_epoch") == EPOCH_ID:
+            renders.append(scene["id"])
+            if scene.get("target_date") != scene_date.isoformat():
+                bad.append(f"scene {scene['id']} renders {EPOCH_ID} at {scene.get('target_date')}, but "
+                           f"tools/check_shoreline_states.py resolves the epoch's 1904 lake edge at "
+                           f"{scene_date.isoformat()} — the scene and its shore must name one day")
     for problem in bad:
         print("FAIL", problem)
     if not bad:
         adopted = docs[0]["adopted"]["date"]
+        shown = (f"scene {', '.join(renders)} renders the epoch at {scene_date.isoformat()}" if renders
+                 else "no scene renders the epoch yet")
         print(f"OK the 1880s scene date is {adopted}, re-derived from the Glessner House bound; "
-              f"{EPOCH_ID} carries it and {STATE_ID} records superseding it for 1904; no ground yet")
+              f"{EPOCH_ID} carries it and {STATE_ID} records superseding it for 1904; {shown}")
     return 1 if bad else 0
 
 

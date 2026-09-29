@@ -86,6 +86,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ticket_liveness  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -293,7 +294,32 @@ STRUCTURE_TICKETS = {
     # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
     # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
     # cell still owing, the same rule T-1681 was named under one line down.
-    ("south", "ordinary_dwellings"): "T-1708",
+    #
+    # SWEPT ONTO T-1751 ON 2026-09-29, AND NOT ONTO T-1710, BECAUSE T-1710'S SUBTREE IS
+    # EXHAUSTED. T-1708 raised eleven roofs on `blk_washington_wells` and closes with this cell
+    # still owing 59, so the rule above asks for the row to move — but the successor it names
+    # went to `split` while this tier was being dealt, and both of the children it split into
+    # (T-1712, T-1713) are `done`. So there is no live descendant of T-1203 left to hold the
+    # cell, which is what `ticket_liveness.py` says in as many words when this close is
+    # attempted: "T-1203 loses its last live descendant when T-1708 close(s)". A bucket whose
+    # owning ticket cannot be claimed orders work nobody can do, which is the exact red this
+    # comment block was written about, and the gate's own instruction is to repoint it at live
+    # work in the pull request that closes the ticket.
+    #
+    # T-1751 IS THAT WORK, AND IT IS THE NEXT BLOCK OF THIS VERY TIER — `blk_washington_frank-
+    # lin`, which the platted deal holds seven slots on, an ordinary-dwelling build in the
+    # South Division in as many words. It is in `review` with its own pull request open, and
+    # review is LIVE by the liveness walk's own definition (only `done`, `withdrawn` and
+    # `split` are cold), so it can hold the cell today; an earlier draft of this sweep argued
+    # that a ticket in review could not, and that was simply wrong about the relation.
+    #
+    # WHAT IS TRUE IS THAT THE ROW WILL MOVE AGAIN, and that is the chain working rather than
+    # failing. 59 roofs is far more than one block, T-1751 will close with the cell still
+    # owing, and the row will then follow the remainder to whatever block ticket is live —
+    # exactly as the north cell three entries below has now been swept three times in two
+    # days, T-1206 -> T-1742 -> T-1748 -> T-1754. The rule is the same every time: the cell
+    # goes to the live ticket that raises the dwellings that are LEFT.
+    ("south", "ordinary_dwellings"): "T-1751",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -389,15 +415,78 @@ STRUCTURE_TICKETS = {
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
     ("west", "ordinary_dwellings"): "T-1208",
-    ("west", "stores_mixed_use"): "T-1207",
+    # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
+    # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
+    # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
+    # split — "structures/stores_mixed_use/west has 2 left and is ordered by T-1207, which is
+    # split", and the same for workshops (3) and warehouses_freight (1) — and it blocked every
+    # branch open on this repo at the time, not only the one that split the ticket.
+    #   stores_mixed_use and workshops -> T-1763, which names their remainder outright: "the
+    #     grocery and blacksmith the memo seats on the Canal Street approach". Those two are
+    #     the two left in stores and the works trade on that approach.
+    #   inns_taverns -> T-1762, "the named Wolf Point taverns' and the Miller house's yards".
+    #     This row has 0 left and the gate was therefore silent about it; it is swept anyway,
+    #     because a row pointing at a split ticket is wrong whether or not it currently orders
+    #     anything, and the next roof drawn against it would find nobody to claim it.
+    #   warehouses_freight -> T-1764, AND THIS ONE IS THE JUDGEMENT CALL OF THE FOUR. No child
+    #     names freight in its title. T-1763 is the approach's own furniture and T-1764 is the
+    #     closer — "the pre-plat West roofs reconciled, the refusals resolved" — so the single
+    #     remaining freight roof goes to the child that reconciles what the others leave. If
+    #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
+    #     building it out of place.
+    ("west", "stores_mixed_use"): "T-1763",
     ("west", "larger_boarding_houses"): "T-1209",
-    ("west", "inns_taverns"): "T-1207",
-    ("west", "workshops"): "T-1207",
-    ("west", "warehouses_freight"): "T-1207",
+    ("west", "inns_taverns"): "T-1762",
+    ("west", "workshops"): "T-1763",
+    ("west", "warehouses_freight"): "T-1764",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
-    ("north", "ordinary_dwellings"): "T-1206",
+    # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
+    # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
+    # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
+    # on this cell within the hour of the split, reading "structures/ordinary_dwellings/north
+    # has 35 left and is ordered by T-1206, which is split".
+    #
+    # THE CELL WENT TO T-1742, and the two children divided on whether either raises a roof.
+    # T-1741 reads the lot lines Wright draws inside Kinzie's Addition and cuts the cells he
+    # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
+    # T-1742 was this cell in as many words: it builds the addition and the north tier to their
+    # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
+    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
+    #
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
+    #
+    # AND T-1748 WAS SPLIT on 2026-09-29 (T-1753, T-1754), and the gate fired again: "has 32
+    # left and is ordered by T-1748, which is split". Same rule, same test. T-1753 is one
+    # block, blk_indiana_north_cass's first roofs, with the rest of that block's lots left
+    # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
+    # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
+    # (Moved by T-1732's run, which found dev red on this step after the split.)
+    #
+    # AND T-1754 WAS SPLIT on 2026-09-29 (T-1756, T-1757), and the gate fired a fourth
+    # time: "has 32 left and is ordered by T-1754, which is split". Same rule, same test.
+    # T-1756 names its own bound — "two more tradesman cottages and their yard buildings
+    # on blk_indiana_north_wolcott, the alternation kept and the rest of the block open" —
+    # so it is a slice and not the rest. T-1757 is the further cass lots once that block's
+    # first roofs land AND the Rush-Pine fringe settled, which is where the order the
+    # other child does not take has to land, so the 32 are its.
+    # (Moved by T-1257's run, which found this step red on the tree it was merging.)
+    # (T-1756's own run, which made the split, reached the same cell by the same test and
+    # takes dev's wording here rather than restating it. Its one addition is WHY the split
+    # was made, because that is what makes T-1757 the remainder rather than a second slice:
+    # T-1754's cass lots wait on T-1753's first roofs, open in PR #189 and not on dev, and
+    # its Rush-Pine fringe blocks -- blk_indiana_north_rush, blk_illinois_north_rush and
+    # blk_illinois_north_wolcott -- are apportioned `roofs: 0` by the district deal, so the
+    # whole of the north's remaining 55 sit on the wolcott and cass blocks.)
+    ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
@@ -1929,6 +2018,8 @@ def occupancy_of(root: Path = ROOT) -> dict:
         doc = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(doc, dict) or "id" not in doc:
             continue
+        if not touches_year(doc):
+            continue    # T-1732: the 1835 town's roofs only; tools/town_year.py
         ids.append(doc["id"])
         if doc.get("occupants"):
             with_occ += 1
@@ -4407,14 +4498,107 @@ def cmd_self_test() -> int:
     # merchant and professional households and 11 tradesmen's onto them. A slot is a request
     # and not a roof: T-1708 raises them.
     #
-    # T-1716 TAKES IT BACK TO 210, AND TWENTY-NINE OF THE SEATS ARE SLOTS. The keeper's
-    # quarters at the Chicago light is a standing roof the programme counts, so the family
-    # plan it draws for `blk_washington_clark` falls from two principal roofs to one, the
-    # platted pass goes 139 -> 138 and the household that had the second slot goes back on
-    # the owed list. Nothing was raised on the plat and no seat moved: one request the plan
-    # no longer has room for is withdrawn, and it is withdrawn in writing.
+    # T-1733 AND T-1716 TOGETHER TAKE IT TO 212, AND THIRTY-ONE OF THE SEATS ARE SLOTS.
+    # Two rulings about GROUND and one standing roof, composing in opposite directions on
+    # the same platted pass, which went 139 -> 140.
+    #
+    # T-1733 added two. `blk_lake_clinton` is plat block 28, between Clinton and Canal, and
+    # it stands on West Division ground while being emitted by the Original Town's grid; the
+    # owner ruled on 2026-09-23 (T-1479, option a) that the West Division's own arrangement
+    # may cut a block printing no lot figures of its own, at `inferred`, so the cell went
+    # from eight lots four-to-a-face to TEN in two columns fronting Clinton and Canal. Two
+    # more lots on a block the 665-roof programme already marks `open`, and the deal asked
+    # for both: the Adams household on the Canal face and the Baxley household on the
+    # Clinton face. This is the same shape of cause as T-1707's and it is worth saying so:
+    # a ruling about GROUND, not about households. Nothing was adopted that was not adopted
+    # before — 109 both sides of the change — and no roof moved a metre.
+    #
+    # T-1716 took one back. The keeper's quarters at the Chicago light is a standing roof
+    # the programme counts, so the family plan it draws for `blk_washington_clark` falls
+    # from two principal roofs to one, and the household that had the second slot goes back
+    # on the owed list. Nothing was raised on the plat and no seat moved: one request the
+    # plan no longer has room for is withdrawn, and it is withdrawn in writing.
+    #
+    # AND T-1741 TAKES IT TO 232, WITH TWENTY MORE SLOTS, ON THE NORTH SIDE THIS TIME. The
+    # same shape again, and for the same kind of reason: a ruling about GROUND, not about
+    # households. Kinzie's Addition stood with twenty-seven blocks and no lot line in any of
+    # them — no lot rule had been read for that plat — so the whole North Division's headroom
+    # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
+    # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
+    # and the platted pass goes 140 -> 160: eleven labourers' households onto
+    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # A slot is a request and not a roof: T-1742 raises them.
+    #
+    # T-1734 added the other two, from the same ruling and the second of the same pair of
+    # blocks. `blk_randolph_clinton` is plat block 45, between Clinton and Canal one tier
+    # south of 28, and it could not be cut with its twin: a block parcel had already dealt
+    # seven roofs onto it, argued face by face against Randolph and Washington, and the
+    # transpose removes both of those faces. T-1734 re-argued that deal onto Clinton and
+    # Canal — the two better cottages to Canal, which the committed street hierarchy grades
+    # `ordinary` against Clinton's `light`, exactly as the first argument had put them on
+    # Randolph against Washington — and the cell then moved. Its two new lots took two
+    # slots, the Adams and Bennett households, both on the Canal face. Again nothing was
+    # adopted that was not adopted before: 109 across all four of these changes. What DID
+    # move, and is the difference from 28, is the seven roofs themselves — a dealt roof
+    # stands where its parcel's slot puts it off its own lot's edge, so re-cutting the block
+    # re-derived every position and rotation on it. No mesh changed and nothing was rebaked.
+    #
+    # AND T-1736 TAKES IT TO 235, WITH THE FIRST BUILD ON THE LAST TIER. Every change
+    # above was a ruling about GROUND; this one is a BUILD, and it moves the deal the other
+    # way about. `blk_washington_clark`'s two cottages now stand, so the block has no
+    # principal room left to offer and its last slot goes: the platted pass runs
+    # 162 -> 163 with 111 adoptions against 109, and 52 slots against
+    # 53. 31 adopted seats move roof behind the two Beaubien households that take the
+    # new cottages — the adoption step outbids the slot step for a quiet street, which is the
+    # T-1622 precedence — every one of them in the South Division and none left roofless.
+    # The two slot-holders the build displaced end ADOPTED on blk_lake_clark, and
+    # hh_chamberlain_l_c, who had no lot at all, takes the slot the cascade frees on
+    # blk_washington_wells. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1747 TAKES IT TO 237, WITH THE FIRST BUILD IN KINZIE'S ADDITION. Two of the
+    # eleven slot requests standing against `blk_indiana_north_wolcott` are raised, and
+    # unlike the Clark block this one keeps its slots: it is dealt 2 principal roofs out of
+    # a plan holding 33, so it still has room to offer and the pass runs 163 -> 165 with
+    # 113 adoptions against 111 and the SAME 52 slots. Neither cottage went to the
+    # household that asked — hh_allin_richard and hh_almond_axtell_2 adopted them off the
+    # block to the east, and hh_baily_john and hh_bailly_joseph end holding slots there
+    # instead — which is the T-1622 precedence again and is recorded in L293. Off-plat is
+    # unmoved at 72, so the total is 165 + 72. Read at the chain's fixpoint, not one pass in.
+    #
+    # AND T-1708 TAKES IT TO 242, WHICH IS THE BIGGEST STEP THIS JOIN HAS TAKEN. All seven
+    # slot requests standing against `blk_washington_wells` are raised, plus four yard
+    # buildings, and the block behaves like the Clark one rather than the Addition one: its
+    # principal room is dealt out, so it offers no slot afterwards. The platted pass runs
+    # 165 -> 170 with 120 adoptions against 113 and 50 slots against 52 — 26 of the 50 still
+    # on this tier — and off-plat is unmoved at 72, so the total is 170 + 72. The cascade is
+    # total this time and not partial: NOT ONE of the seven households the block was sized
+    # against is seated on it. All seven re-seat as slots on blk_washington_lasalle and
+    # blk_washington_market, the seven roofs go to the seven the clause order scores higher on
+    # these lots, and five households that had no lot at all reach one. That is the T-1622
+    # precedence a third time, and it is recorded in L298. Read at the chain's fixpoint, not
+    # one pass in — this one took eight passes and oscillated for four of them.
+    #
+    # AND T-1735 TAKES IT TO 249, with the tier's south-west block. The eleven roofs on
+    # `blk_washington_lasalle` answer the seven slot requests T-1708's own cascade re-seated
+    # onto this block and blk_washington_market, so the two deals are one argument read in two
+    # steps: Wells raised its seven and pushed its seven on, LaSalle raises the seven that
+    # arrived. The gain is SEVEN this time and not four, and the reason is the lap rather than
+    # the deal: T-1756 landed on `dev` first and its own cascade had already absorbed the
+    # vacancies the earlier laps of this branch were paying for, so there was nothing left to
+    # cascade away. The platted pass runs 170 -> 177 with 129 adoptions against 122 and 48
+    # slots unmoved, 1,301 handed on against 1,308, and off-plat is unmoved at 72, so the total
+    # is 177 + 72. What the tier's remainder does is NOT what it did a paragraph above: its
+    # slot count is unmoved at 26 and Clark's at 5, because the seven this block was sized
+    # against re-slot onto its neighbours — blk_washington_dearborn takes seven where
+    # blk_washington_lasalle had them — as fast as its own roofs take them off the table. What
+    # moves is the BAND, 14 merchant and professional against 12 tradesmen's becoming 14
+    # tradesmen's against 12. That is the T-1622 precedence a fourth time, and it is recorded
+    # in L300. Read at the chain's fixpoint, not one pass in, and read off the committed seats
+    # files rather than predicted: 1835_platted_seats.json counts seated 177 (129 adopted, 48
+    # slots, 1,301 handed on) and 1835_off_plat_seats.json counts seated 72 of the 1,301 it was
+    # handed.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 210
+        data["inventory"], data["programme"], occ))["seated"] == 249
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4422,9 +4606,9 @@ def cmd_self_test() -> int:
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
     # The fixture bends the count AWAY from the rows, in whichever direction the files
-    # currently sit: since T-1707 the platted pass carries 29 slot rows on the plat's last
-    # tier, so claiming ONE of them is as much a disagreement as claiming one where the pass
-    # carried none — which is what this fixture said until that ticket, when T-1623 had
+    # currently sit: since T-1707 the platted pass carries slot rows on the plat's last tier
+    # — 26 of them since T-1708 took the Wells block's seven — so claiming ONE of them is as much a
+    # disagreement as claiming one where the pass carried none — which is what this fixture said until that ticket, when T-1623 had
     # refused the last four and the count stood at zero.
     fires("a slot count that disagrees with the slot rows carried beside it",
           seats_with("platted_seats", slots_requested=1, roofs_adopted=99))

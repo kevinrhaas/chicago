@@ -1,0 +1,23 @@
+{
+  "id": "chicago_elevation_benchmarks",
+  "type": "dataset",
+  "citation": "City of Chicago. Elevation Benchmarks (Chicago City Datum). Chicago Data Portal, dataset zgvr-7yfd.",
+  "author": "City of Chicago",
+  "date": "accessed 2026-09-28",
+  "repository": "City of Chicago Data Portal",
+  "url": "https://data.cityofchicago.org/Buildings/Elevation-Benchmarks/zgvr-7yfd",
+  "archived_url": "https://data.cityofchicago.org/resource/zgvr-7yfd.json",
+  "locator": "benchmark 289: 10.6 ft S. of the N. line of E. 23rd St., 19.3 ft E. of the E. line of S. Michigan Ave.; 13.572 ft CCD, fixed 1966 (13.67 before 1966)",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "City of Chicago Data Portal open data.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "The only benchmark the portal returns between 16th Street and Cermak Road, Michigan Avenue and the lake (queried by bounding box on 2026-09-28). T-1251 uses it for one thing: to test the datum conversion and the elevation model against each other (docs/RESEARCH/terrain_e1871_postfire.md zone 1).",
+  "what_it_supplies": [
+    "A surveyed Chicago City Datum elevation at 23rd Street and Michigan Avenue, fixed 1966"
+  ],
+  "what_it_does_not_supply": [
+    "Any 1904 elevation"
+  ]
+}

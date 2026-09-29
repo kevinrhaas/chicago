@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-09-28",
+  "measured": "2026-09-29",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 683,
   "exempt": {
@@ -2506,6 +2506,12 @@
     "tools/check_shoreline_states.py": {
       "wrote": []
     },
+    "tools/check_street_surfaces.py": {
+      "wrote": []
+    },
+    "tools/check_terrain_e1871.py": {
+      "wrote": []
+    },
     "tools/check_tool_browser.mjs": {
       "wrote": []
     },
@@ -2824,6 +2830,9 @@
     "tools/measure_intown_water.py": {
       "wrote": []
     },
+    "tools/measure_jefferson_continuation.py": {
+      "wrote": []
+    },
     "tools/measure_layer_reads.py": {
       "wrote": []
     },
@@ -2954,6 +2963,9 @@
       "wrote": []
     },
     "tools/measure_west_of_box.mjs": {
+      "wrote": []
+    },
+    "tools/measure_west_swale_corridors.py": {
       "wrote": []
     },
     "tools/measure_wright_lighthouse.py": {
@@ -3122,6 +3134,9 @@
       "wrote": []
     },
     "tools/read_genealogytrails.py": {
+      "wrote": []
+    },
+    "tools/read_kinzie_addition_lots.py": {
       "wrote": []
     },
     "tools/read_kinzie_addition_numerals.py": {
@@ -3535,7 +3550,13 @@
     "tools/test_house_front.py": {
       "wrote": []
     },
+    "tools/test_jaunt_mechanics.mjs": {
+      "wrote": []
+    },
     "tools/test_jaunts_reducer.mjs": {
+      "wrote": []
+    },
+    "tools/test_leg_notes.mjs": {
       "wrote": []
     },
     "tools/test_loading_content.mjs": {
@@ -3656,6 +3677,9 @@
       "wrote": []
     },
     "tools/trace_north_branch.py": {
+      "wrote": []
+    },
+    "tools/trace_prairie_1904_grid.py": {
       "wrote": []
     },
     "tools/trace_river.py": {

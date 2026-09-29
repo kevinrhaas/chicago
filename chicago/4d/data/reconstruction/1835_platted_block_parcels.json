@@ -304,78 +304,87 @@
         "D4": 1,
         "D5": 1
       },
-      "arrangement_note": "The first West Division block this module reaches, bounded by Randolph, Canal, Washington and Clinton, and the first block off the reconciled schedule that was NOT empty when the parcel arrived. Three anonymous roofs from the pre-plat West approaches parcel already stand inside it — recon_1835_west_018, _019 and _021, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot. The generator now derives which lots they hold from their own committed footprints rather than being told, and refuses a principal roof on any of them; the schedule's headroom of seven is the block's headroom and never a licence to stand a second house on an occupied lot. That leaves five free lots for the four principal roofs the schedule deals, and one is left open. What is argued here and not found: the deep-plan and two-room cottages take the Randolph face, because Randolph is the through street of the pair in the module's own street hierarchy and carries the crossing to the west side, which is the same frontage-value typology both Randolph-tier blocks before this one recorded; the log dwelling and the one-room cottage take Washington. The barn or carriage shed takes the western end lot, where the block backs onto ground beyond Clinton that has no committed street control and the town gives out — the same typology of where a town keeps a large animal shelter that the Randolph and Dearborn block applied at its eastern end, and the geography here reverses it, which is the test of whether it was a typology or a habit. The stable and the privy stand behind the cottages on their own lots. None of it is evidence about this block.",
+      "arrangement_note": "The first West Division block this module reaches, bounded by Randolph, Canal, Washington and Clinton, and the first block off the reconciled schedule that was NOT empty when the parcel arrived. Three anonymous roofs from the pre-plat West approaches parcel already stand inside it — recon_1835_west_018, _019 and _021, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot. The generator derives which lots they hold from their own committed footprints rather than being told, and refuses a principal roof on any of them; the schedule's headroom of seven is the block's headroom and never a licence to stand a second house on an occupied lot. RE-ARGUED ON THE TRANSPOSED GRID (T-1734), and `frontage_argued_on` above is the field that says so rather than prose anybody has to find. The owner ruled on 2026-09-23 (T-1479, option a) that the West Division's own module may cut a block printing no lot figure of its own, and this block — plat block 45, whose ten numerals the sheet prints inside it — is now cut that way: two columns of five backing onto a north-south alley, ten lots where there were eight, every one of them fronting Clinton or Canal and not one of them fronting Randolph or Washington. The deal below was argued face by face against Randolph and Washington when it was claimed, and the transpose removes both of those faces, so the argument had to be MADE AGAIN and not relabelled — which is why this block waited while T-1733 transposed its twin `blk_lake_clinton` at once, that one carrying no deal to re-argue. WHAT THE RE-ARGUMENT KEPT, AND WHY IT COULD. The old argument ranked the block's two faces off the committed street hierarchy (data/streets/1835.json) and gave the two better dwellings the better street: Randolph is `ordinary` and Washington is `light`, so the deep-plan and two-room cottages took Randolph and the log dwelling and the one-room cottage took Washington. The same hierarchy ranks the new pair the same way — Canal is `ordinary`, Clinton is `light` — so the RULE survives the transpose and the faces change under it: the deep-plan (D5) and two-room (D4) cottages take Canal, the one-room cottage (D3) and the older log cabin (D1) take Clinton. That the ranking held is a fact about the hierarchy and not a confirmation of the typology. Had Clinton outranked Canal all four roofs would have crossed the alley, and this sentence would have been written the other way about. WHAT CHANGED BECAUSE THE GEOGRAPHY DID. The old note sent the barn or carriage shed to “the western end lot, where the block backs onto ground beyond Clinton that has no committed street control and the town gives out”. On the transposed grid there is no western end lot — the two columns run north and south, and the alley runs down between them — and the lot that answers that description is the Clinton column's southern end, lot index 4, the block's south-west corner. The barn stands there, in the yard of the log cabin, which is the same reasoning applied to the arrangement the sheet gives instead of the one the town scheme gave. The stable keeps the deep-plan cottage's yard and the privy the one-room cottage's, which is the pairing the first deal already had; only the lots they are in moved. WITHIN EACH FACE the order is the end rule's (placement_rule.end_rule): the better roof stands nearer the Dearborn Street drawbridge, and on a north-south face that is the northern end, so D5 stands north of D4 on Canal and D3 north of D1 on Clinton. Three lots are left open rather than one, because the transpose gave this block two lots more than the deal it carries was sized against and a parcel does not raise a roof it was never dealt in order to fill new ground. Which three is arbitrary within what the standing roofs leave, and each entry says so. None of it is evidence about this block. Every metre below comes from the committed lot polygons; the families, the lots, the setbacks and the lateral offsets are inventions bounded by the programme.",
       "open_lots": [
         {
-          "lot": 5,
-          "why": "A south-tier interior lot between an already-built lot and the Washington end lot, left open. Which lot is arbitrary within the tier; that a West Division block a bridge's distance from the business street is not a completed terrace is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target."
+          "lot": 1,
+          "why": "The Clinton column's one remaining free lot, between the standing west_019 roof at the column's north end and the one-room cottage dealt below it, left open. The programme's own assumption of alternating vacancy puts the gap between two occupied lots rather than filling the column, and the schedule's capacity of ten is a ceiling and not a target."
+        },
+        {
+          "lot": 7,
+          "why": "A Canal-column lot standing between the two cottages this parcel deals to that face, left open for the same alternating vacancy. Which of the face's free lots takes the gap is arbitrary once the end rule has ordered the two roofs on it; that there is a gap at all is the assumption, and it is the programme's."
+        },
+        {
+          "lot": 9,
+          "why": "The Canal column's southern end lot, left open because nothing was ever dealt to it. The transpose cut this block into ten lots where the deal it carries was argued against eight, and the two lots that arrived with the new arrangement are not a reason to raise two more roofs: the deal is frozen in drawn_from_schedule and the 665-roof total does not move because a block was re-cut."
         }
       ],
       "slots": [
         {
           "family": "D5",
           "inventory_class": "principal_functional",
-          "lot": 2,
+          "lot": 6,
           "stands_on": "street",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 5.0,
           "lateral_m": -1.5
         },
         {
           "family": "D4",
           "inventory_class": "principal_functional",
-          "lot": 6,
+          "lot": 8,
           "stands_on": "street",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 5.5,
           "lateral_m": 2.0
         },
         {
           "family": "D1",
           "inventory_class": "principal_functional",
-          "lot": 1,
+          "lot": 4,
           "stands_on": "street",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 6.0,
           "lateral_m": -2.0
         },
         {
           "family": "D3",
           "inventory_class": "principal_functional",
-          "lot": 7,
+          "lot": 2,
           "stands_on": "street",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 4.5,
           "lateral_m": 1.5
         },
         {
           "family": "A2",
           "inventory_class": "ancillary",
-          "lot": 1,
+          "lot": 4,
           "stands_on": "alley",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 5.0,
           "lateral_m": 5.0
         },
         {
           "family": "A1",
           "inventory_class": "ancillary",
-          "lot": 2,
+          "lot": 6,
           "stands_on": "alley",
-          "fronts": "randolph",
+          "fronts": "canal",
           "setback_m": 4.5,
           "lateral_m": -5.5
         },
         {
           "family": "A3",
           "inventory_class": "ancillary",
-          "lot": 7,
+          "lot": 2,
           "stands_on": "alley",
-          "fronts": "washington",
+          "fronts": "clinton",
           "setback_m": 5.5,
           "lateral_m": 4.5
         }
-      ]
+      ],
+      "frontage_argued_on": "west_division_thompson_1830"
     },
     {
       "block_id": "blk_randolph_market",
@@ -2344,6 +2353,850 @@
         }
       ],
       "arrangement_note": "The THIRD deal on blk_south_water_franklin, and the first roof this project has raised because a household asked for it. Everything before this file's T-1613 seating chose a family off the schedule's district remainder and then looked for ground; these two are the other way round — the placement policy offered the plat to 1,480 banded households, found no standing roof of an admitted family free for two of this division's tradesmen, and wrote a request against this block's own committed plan. A request is not evidence and nothing here is graded any higher for having been asked for: the roofs stand at the same bottom tier, on invented positions, with the same reasoning notes as every other anonymous count-unit on this row. What changes is only which of the schedule's apportioned families got built next, and the answer came off the town's arithmetic rather than off this file's judgement. WHAT IS STILL INVENTED IS EVERYTHING THAT MATTERS: that any building stood on lot 4, which buildings they were, and that they were dwellings. The block's open lot, its family mix, its setback line and its end rule are all the ones already committed, and no documented position moves."
+    },
+    {
+      "block_id": "blk_washington_clark",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_clark",
+      "claimed": "2026-09-28",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clark",
+        "east": "dearborn"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 4,
+        "dealt_principal": 2,
+        "dealt_ancillary": 2,
+        "principal": 2,
+        "ancillary": 2
+      },
+      "families": {
+        "D4": 1,
+        "D5": 1,
+        "A3": 1,
+        "A4": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1736",
+        "parent": null,
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_cady_levi",
+            "family": "D5",
+            "order_book_draw": "blk_washington_clark / D5 / south"
+          },
+          {
+            "seat": "hh_byram_thomas",
+            "family": "D4",
+            "order_book_draw": "blk_washington_clark / D4 / south"
+          }
+        ],
+        "why": "THE BLOCK STOOD EMPTY AND THE REQUEST IS THE WHOLE OF THE DEAL. This is the last tier of the original town, the range between Washington Street and Madison Street that the plat draws and 1835 had barely begun to occupy: the lot ledger reads all eight of this block's lots `free`, with nothing standing on any of them, and the 665-roof schedule apportions the block two principal roofs — one D4 and one D5 — against a capacity of 31. Those two are exactly the two the platted seating asked for. T-1522's placement pass offered the plat to the banded households in the policy's order, found no standing roof of an admitted family free for two of the South Division's tradesmen, and wrote a `slot` against this block's own committed plan for each: hh_cady_levi a D5 and hh_byram_thomas a D4, both under the `tradesman_dwellings` clause, both carried in the order book's `slot_blocks` list with blk_washington_clark named. So the families here are not this file's choice and neither is the count — the schedule offers two principal roofs, the seating asks for two, and this deal builds two. THE LOTS ARE THE REQUEST'S TOO, WHICH IS NOT ALWAYS TRUE: a seat row carries the lot the lot ledger found headroom on and which lot a family stands on is this file's to author, but on a block where every lot is free there is nothing to argue against, so hh_cady_levi's lot 4 on the Washington face and hh_byram_thomas's lot 5 on the Madison face are taken as the seating wrote them. A REQUEST IS NOT EVIDENCE and nothing here grades any higher for having been asked for: both roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes as every other roof on this row. THE OTHER FIVE ROOFS THE SCHEDULE APPORTIONS THIS BLOCK ARE NOT DEALT HERE. Its plan holds two stables (A1), a barn or carriage shed (A2) and a smokehouse or small utility (A5) beyond the privy and woodshed this deal builds, and every one of them would have to stand in the yard of one of these two tradesmen's cottages, because they are the only two roofs on the block. A stable, a barn AND a smokehouse behind a two-room cottage is a claim about how these two households lived that nothing supports, so the yard buildings are dealt at one a lot and the rest stay in the block's plan for the roofs that come after them."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Madison-and-Clark corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves it: principal room is counted over the free lots LESS ONE precisely so a block is never dealt out of its open lot, and with eight free lots this deal may stand on seven and stands on two. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise; that one is open at all is the programme's assumption of alternating vacancy, and on a tier the town had barely reached in 1835 that assumption is the least of what is being claimed here."
+        },
+        {
+          "lot": 0,
+          "why": "The Washington-and-Clark corner, open because this deal has no roof for it. Two principal roofs were dealt and the seating asked for them on lots 4 and 5; a corner lot on the block's better face is the kind of ground a later deal will want and nothing this run knows argues for spending it on a tradesman's cottage now. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Washington face, west of the cottage this deal stands on lot 4 and open for the same reason: the deal is the size of the request and the request is two roofs. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Madison face, open for the same reason as lot 2 — nothing was dealt to it. It is also what keeps the Madison cottage on lot 5 from reading as one of a pair: the two roofs on this block stand on opposite faces and neither has a neighbour. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
+        },
+        {
+          "lot": 6,
+          "why": "The Washington-and-Dearborn corner, open because this deal has no roof for it and because a corner on the block's east end is the ground the schedule's own trade weighting would reach for first if this block were ever dealt a business — it is apportioned none. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
+        },
+        {
+          "lot": 7,
+          "why": "The Madison-and-Dearborn corner, the last of the block's eight and open on the plainest reason of all: nothing was dealt to it. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 4,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.0,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": -5.0
+        }
+      ],
+      "arrangement_note": "THE FIRST DEAL ON THE PLAT'S LAST TIER, and the first roofs this project has raised south of Washington Street on the original town's own grid. The block stood entirely empty — eight free lots, nothing standing, every sample of the modelled ground above datum — and it is dealt two principal roofs and two yard buildings, which leaves six of its eight lots open and 25 of the 27 roofs its schedule apportions unbuilt. That is the point rather than a shortfall: this tier was the edge of the settled town in July 1835, and a block built out to its ceiling here would be a claim about 1835 the evidence does not support. THE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. hh_cady_levi's deep-plan cottage stands on lot 4 facing Washington Street, the through line of the two and graded `light` in the committed street hierarchy; hh_byram_thomas's two-room cottage stands on lot 5 facing Madison, which the same hierarchy grades `none` — a line the plat draws and the traffic model gives no through movement at all. Standing a tradesman's cottage on a street with no traffic is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it applies only to the trade letters, and a household on the quiet side of a block on the town's edge is the ordinary case, not the anomalous one. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN. A privy stands off the alley behind the Washington cottage and a woodshed off the alley behind the Madison one, one apiece, each serving the lot it stands on. Which of the block's apportioned yard buildings to build is this file's choice and the choice is argued down rather than up: of the stable, the barn or carriage shed, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had, and the others are ones it might have had. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
+    },
+    {
+      "block_id": "blk_washington_lasalle",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_lasalle_first_deal",
+      "claimed": "2026-09-28",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "lasalle",
+        "east": "clark"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 11,
+        "dealt_principal": 7,
+        "dealt_ancillary": 4,
+        "principal": 7,
+        "ancillary": 4
+      },
+      "families": {
+        "A1": 1,
+        "A3": 2,
+        "A4": 1,
+        "D3": 2,
+        "D7": 2,
+        "H1": 2,
+        "H2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1735",
+        "parent": "T-1707",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_ballard_c_a",
+            "family": "D7",
+            "order_book_draw": "blk_washington_lasalle / D7 / south"
+          },
+          {
+            "seat": "hh_baines_robert",
+            "family": "D7",
+            "order_book_draw": "blk_washington_lasalle / D7 / south"
+          },
+          {
+            "seat": "hh_barrest_wilham",
+            "family": "H1",
+            "order_book_draw": "blk_washington_lasalle / H1 / south"
+          },
+          {
+            "seat": "hh_ballard_thomas",
+            "family": "H1",
+            "order_book_draw": "blk_washington_lasalle / H1 / south"
+          },
+          {
+            "seat": "hh_barry_john_s",
+            "family": "H2",
+            "order_book_draw": "blk_washington_lasalle / H2 / south"
+          },
+          {
+            "seat": "hh_carter_j",
+            "family": "D3",
+            "order_book_draw": "blk_washington_lasalle / D3 / south"
+          },
+          {
+            "seat": "hh_carpenter_nathaniel",
+            "family": "D3",
+            "order_book_draw": "blk_washington_lasalle / D3 / south"
+          }
+        ],
+        "why": "THE WHOLE OF THIS BLOCK'S DEAL IS A SET OF REQUESTS, AND IT IS THE FIRST TIME THAT HAS BEEN TRUE OF A BLOCK. T-1613's platted seating offered the plat to every banded household in the placement policy's order, found no standing roof of an admitted family free in the South Division for seven of them, and wrote seven `slot` rows against this block's own committed family plan — two D7, two H1, one H2 and two D3, each with the block and the family named in `order_book_draw` and no roof to walk to. Those are exactly seven of the fourteen families the 665-roof programme's schedule still apportions this block, and the block was empty: eight free lots, no standing roof, 27 of headroom. So this entry deals the seven and nothing else, which is why its family mix is the request's mix rather than a mix this file chose. The LOT IS THIS FILE'S TO AUTHOR and on this block it differs from the seat rows: a seat row carries the lot the lot ledger found headroom on and its rows put the H2 on lot 7, the block's Madison corner, while the face argument below puts the four best dwellings on the Washington tier and the three meanest on the unopened Madison line. The households are unmoved — the seating is re-derived onto the roofs this deal raises, so every one of the seven walks to a roof of the family it asked for on the block it asked for. FOUR YARD BUILDINGS ARE DEALT WITH THEM and they are not requests: the seating seats households, not stables, and the schedule apportions this block six ancillary roofs. Four of the six are built, behind four of the seven dwellings, and the reasons are household reasons rather than evidence — see the arrangement note."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The LaSalle-and-Madison corner, and it is the lot the schedule's own sizing reserves. `reconcile_665.block_rooms` sizes a block's principal room at ROW_UNITS_PER_LOT times its free lots LESS ONE, precisely so a block is never dealt out of its open lot: with eight free lots this deal may stand seven principal roofs and no more, and it stands seven. Which of the four Madison lots is the open one is a choice, and the reason is the same tier reasoning the rest of this entry rests on. Madison Street in July 1835 is platted, unopened and unworn — `data/streets/1835.json` grades its traffic `none` and its track width 0, a survey line over prairie rather than a road — and LaSalle is the block's west boundary, the side away from Clark and the town's built centre. The corner where the block's back line meets its far side is therefore the least attractive residential ground the block has, which is the same reading the Randolph-and-Market and Lake-and-Franklin parcels made of their own back-street corners. The programme's placement rule is explicit that a block at capacity is a claim about 1835 the evidence does not support and that the schedule's capacity is a ceiling rather than a target."
+        }
+      ],
+      "arrangement_note": "THE FIRST DEAL ON blk_washington_lasalle, the south-west block of the plat's last tier, and the first block this project has built whose every dwelling was asked for by a household rather than chosen off a district remainder. The block stood empty until this run: eight lots, no roof, and — until T-1707 carried the Original Town's seven south columns from their terrain clip at N -400 down to Madison Street — no committed street control on its south side either. Seven of its eight lots take one principal roof each and the eighth is left open; the four yard buildings stand off the mid-block alley behind the lots they serve. THE FACE ARGUMENT, and it is a typology of frontage value rather than a reading of this block. Washington Street is opened, worn and graded `light` in the committed street hierarchy; Madison Street is platted, unopened and graded `none` — no wagon track is drawn or attested inside its corridor in July 1835, so a roof on the south tier faces a survey line over prairie. So the four better dwellings take the Washington tier and the three meanest take Madison: the H2 merchant's house on lot 0, the block's best dwelling at the LaSalle corner where a second street the hierarchy grades `ordinary` meets the block; the two H1 one-and-a-half-storey houses on lots 2 and 4; and one of the two small two-storey D7 houses on lot 6, the Clark corner. The other D7 and the two D3 one-room cottages take Madison on lots 3, 5 and 7. THE D7 PAIR STRADDLES THE BREAK and that is the mix's doing rather than a judgement: the request holds two of them and the better face has only four lots, so the fourth-best dwelling is the last one Washington can hold. THE FOUR YARD BUILDINGS ARE REASONS FOR A ROOF AND NOT EVIDENCE FOR ONE. A stable behind the merchant's house on lot 0, because that is the household of the seven with a horse; a privy behind the H1 on lot 2 and another behind the D7 on lot 3, one on each tier; a woodshed behind the D3 on lot 5. The schedule apportions this block six ancillary roofs and this deal builds four, which is inside the ceiling and is not a claim that the other two are refused. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that any building stood on this block in July 1835, which buildings they were, that they were dwellings, which lot each stands on, the setbacks, the lateral offsets, and which lot is open. No coordinate is authored here — every metre comes from the committed lot polygons of data/traces/vectors/thompson_lots.json and every dimension from the family bands of the archetype crosswalk — and no documented position moves. Presence, position, footprint and every form value grade at the bottom tier with a reasoning note, and no lot is numbered.",
+      "slots": [
+        {
+          "family": "H2",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 6.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": -2.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 3.5,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 0,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 2,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": -6.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 3,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 5.0,
+          "lateral_m": -5.0
+        }
+      ]
+    },
+    {
+      "block_id": "blk_indiana_north_wolcott",
+      "district": "north",
+      "programme_phase": "phase3_platted_block_indiana_north_wolcott",
+      "claimed": "2026-09-29",
+      "bounded_by": {
+        "north": "indiana_north",
+        "south": "illinois_north",
+        "west": "wolcott",
+        "east": "cass"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 47,
+        "standing_roofs": 0,
+        "free_lots": 12,
+        "headroom": 43,
+        "dealt_roofs": 4,
+        "dealt_principal": 2,
+        "dealt_ancillary": 2,
+        "principal": 2,
+        "ancillary": 2
+      },
+      "families": {
+        "D3": 2,
+        "A4": 1,
+        "A3": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1747",
+        "parent": "T-1742",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_baily_john",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_wolcott / D3 / north"
+          },
+          {
+            "seat": "hh_bailly_joseph",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_wolcott / D3 / north"
+          }
+        ],
+        "why": "THE ADDITION'S FIRST ROOFS, AND THE REQUEST IS ONLY HALF THE ARGUMENT — THE OTHER HALF IS THE MEMO THAT SAYS HOW FEW OF THEM MAY STAND. Kinzie's Addition had no schedulable ground at all until 2026-09-28: twenty-seven of the North Division's thirty-two platted block rows stood `unsubdivided` because no lot rule had been read for Wright's sheet, so the district's headroom was 0 and nothing could be dealt here however many households wanted a roof. T-1741 read the rules Wright actually draws inside the cells — five clear rules across this block's face, 47.0 ft of lot frontage, `inferred` and recorded as such in `data/traces/kinzie_addition_lot_lines.json` — and cut twelve lots on it. The 665-roof schedule then opened the block with 47 roofs of capacity, 43 of headroom and a committed family mix, and T-1522's placement pass wrote ELEVEN slot requests against it: five D7 houses under `merchant_and_professional_dwellings` on the four corner lots, five D3 cottages and two D4 cottages under `tradesman_dwellings` on the interior. THIS DEAL BUILDS TWO OF THE ELEVEN. The two are the topmost pair of the `tradesman_dwellings` requests on this block in the seating file's own order — hh_baily_john's D3 on lot 8 fronting Indiana Street and hh_bailly_joseph's D3 on lot 9 fronting Illinois Street — and the lots are the request's too, which on a block where every lot is free is not a choice at all: there is nothing to argue a cottage off a free lot onto another free lot. WHY TWO AND NOT ELEVEN, WHICH IS THE ONLY INTERESTING NUMBER HERE. `docs/RESEARCH/1835_north_division_extent_and_infill.md` is the committed reading of what the North Division looked like in July 1835 and it is explicit in both directions: the primary maps establish a substantially larger PLATTED north side and show no buildings on it, so the build must leave 'most legal frontage empty' and 'the outer addition stays visibly speculative rather than being mistaken for an occupied city', with 'at least half the plausible frontage' open on the Kinzie-Michigan interior and scattered roofs beyond it. Eleven roofs on twelve lots is the occupied city that memo refuses. So the binding constraint on this block is not the schedule's headroom and not the seating's demand — it is the memo — and the deal is sized to the memo with the other nine requests left standing as requests. THAT DISAGREEMENT IS REPORTED RATHER THAN TIDIED: the seating pass asks twenty roofs of this addition's two subdivided blocks and the memo will not carry twenty, so the surplus is neither built nor quietly withdrawn — it stays on the owed side of the ledger where the next reader can see the two committed files disagreeing. A REQUEST IS NOT EVIDENCE and neither is a memo's silence: both roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes as every other roof on this row."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Indiana-and-Wolcott corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves one: principal room is counted over the free lots LESS ONE precisely so a block is never dealt out of its open lot, and with twelve free lots this deal may stand on eleven and stands on two. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise; that the addition is mostly open at all is the committed north-division memo's reading rather than this file's preference."
+        },
+        {
+          "lot": 1,
+          "why": "The Illinois-and-Wolcott corner, open because this deal has no roof for it. The seating asks a D7 house here under the merchant-and-professional clause, which is a request and not a roof; a two-storey frame house is the most substantial thing the addition's plan holds and standing one on the speculative edge of town before its ordinary cottages are built would invert what the maps show. The block's schedule still apportions it 39 roofs beyond the four this deal builds and a later deal takes this lot off the list with its own argument."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Indiana face, two lots west of the cottage on lot 8, and open for the plainest reason there is: nothing was dealt to it. Keeping it open is also what stops the Indiana frontage reading as a run — the memo requires at least half the plausible frontage of this interior to stay empty, and on this face two of six lots carrying a roof would already be the denser reading."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Illinois face, open for the same reason as lot 2 — nothing was dealt to it. The seating asks a D3 cottage here and the request stands unbuilt; the block's schedule still apportions this lot part of the 39 roofs beyond the four this deal builds, and a later deal takes it off this list with its own argument."
+        },
+        {
+          "lot": 6,
+          "why": "An interior lot on the Indiana face, immediately west of the cottage this deal stands on lot 8, and deliberately left open: the one thing a pair of roofs on adjoining lots would claim is a street wall, and the memo refuses one here. The block's schedule still apportions this lot part of the 39 roofs beyond the four this deal builds."
+        },
+        {
+          "lot": 7,
+          "why": "An interior lot on the Illinois face, immediately west of the cottage on lot 9, open for the same reason as lot 6 and with the same effect: each of this deal's two cottages has open ground on both sides of it along its own face. The seating asks a D3 cottage here and the request is left standing."
+        },
+        {
+          "lot": 10,
+          "why": "The Indiana-and-Cass corner, open because this deal has no roof for it and because a corner lot at the block's east end is the ground a later deal will want first — the seating already asks a D7 house on it. Nothing this run knows argues for spending the corner on a tradesman's cottage now."
+        },
+        {
+          "lot": 11,
+          "why": "The Illinois-and-Cass corner, the last of the block's twelve and open on the plainest reason of all: nothing was dealt to it. The seating asks a D7 house here too; the block's schedule still apportions it part of the 39 roofs beyond the four this deal builds, and a later deal takes it off this list with its own argument."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "indiana_north",
+          "setback_m": 6.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 9,
+          "stands_on": "street",
+          "fronts": "illinois_north",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 8,
+          "stands_on": "alley",
+          "fronts": "indiana_north",
+          "setback_m": 4.0,
+          "lateral_m": 3.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.0,
+          "lateral_m": -3.5
+        }
+      ],
+      "arrangement_note": "THE FIRST TWO ROOFS IN KINZIE'S ADDITION, AND THE FIRST ANYWHERE NORTH OF MICHIGAN STREET ON WRIGHT'S OWN LOT LINES. The block stood entirely empty — twelve free lots, nothing standing, all 234 terrain samples dry and above datum between 1.60 m and 1.67 m — and it is dealt two single-room frame cottages and two yard buildings, which leaves ten of its twelve lots open and 39 of the 43 roofs its schedule apportions unbuilt. That ratio is the deal's whole argument and not a shortfall: this is speculative subdivision two tiers north of the settled town, and a block built toward its ceiling here would be a claim about July 1835 that the maps refuse. THE TWO COTTAGES TAKE OPPOSITE FACES ACROSS THE ALLEY, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces — Indiana Street on the north and Illinois Street on the south — are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and does not choose between the two requests. A tradesman's cottage on an unworn street is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it reaches only the trade letters, and a household on a prairie street at the edge of a speculative addition is the ordinary case out here rather than the anomalous one. What the pair does do is read as a pair — lot 8 and lot 9 are back to back across the block alley at its east end — and that is deliberate: two households sharing an alley is the cheapest honest way to put a roof in the addition without drawing a street wall on either face. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO THE BLOCK'S PLAN HOLDS. A woodshed stands off the alley behind the Indiana Street cottage and a privy off the alley behind the Illinois Street one, one apiece, each serving the lot it stands on. The block's plan also holds three stables, two barns or carriage sheds and a smokehouse, and every one of them would have had to stand in the yard of one of these two cottages, because they are the only two roofs on the block; a stable AND a barn AND a smokehouse behind a one-room cottage is a claim about how these two households lived that nothing supports, so the yard buildings are dealt at one a lot and the rest stay in the plan for the roofs that come after them. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces, the alley line and the ground reading are committed; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+    },
+    {
+      "block_id": "blk_washington_wells",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_wells",
+      "claimed": "2026-09-29",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "wells",
+        "east": "lasalle"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 11,
+        "dealt_principal": 7,
+        "dealt_ancillary": 4,
+        "principal": 7,
+        "ancillary": 4
+      },
+      "families": {
+        "A1": 1,
+        "A3": 2,
+        "A4": 1,
+        "D3": 2,
+        "D7": 2,
+        "H1": 2,
+        "H2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1708",
+        "parent": "T-1203",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_beaubien_monique",
+            "family": "D7",
+            "order_book_draw": "blk_washington_wells / D7 / south"
+          },
+          {
+            "seat": "hh_beech_reuben",
+            "family": "H1",
+            "order_book_draw": "blk_washington_wells / H1 / south"
+          },
+          {
+            "seat": "hh_chamberlain_l_c",
+            "family": "D3",
+            "order_book_draw": "blk_washington_wells / D3 / south"
+          },
+          {
+            "seat": "hh_beddlecome_ash",
+            "family": "H1",
+            "order_book_draw": "blk_washington_wells / H1 / south"
+          },
+          {
+            "seat": "hh_catton_william",
+            "family": "D3",
+            "order_book_draw": "blk_washington_wells / D3 / south"
+          },
+          {
+            "seat": "hh_beaubien_george",
+            "family": "D7",
+            "order_book_draw": "blk_washington_wells / D7 / south"
+          },
+          {
+            "seat": "hh_benediet_loma",
+            "family": "H2",
+            "order_book_draw": "blk_washington_wells / H2 / south"
+          }
+        ],
+        "why": "THE BLOCK STOOD EMPTY AND THE SEATING ASKED FOR EVERY ONE OF THESE SEVEN ROOFS. blk_washington_wells is the third block of the plat's last tier to be dealt, the range between Washington Street and Madison Street bounded west by Wells and east by La Salle: the lot ledger reads all eight of its lots `free`, nothing stands on any of them, and every sample of the modelled ground is above datum. The 665-roof schedule apportions the block 27 roofs against a capacity of 31, and its plan carries two D7, two H1, one H2 and three D3 among them. T-1522's placement pass offered the plat to the banded households in the policy's order and wrote SEVEN `slot` rows against this block's own committed plan, one per household, each naming the lot the ledger found headroom on: hh_beaubien_monique (D7) on lot 0, hh_beech_reuben (H1) on lot 2, hh_chamberlain_l_c (D3) on lot 3, hh_beddlecome_ash (H1) on lot 4, hh_catton_william (D3) on lot 5, hh_beaubien_george (D7) on lot 6 and hh_benediet_loma (H2) on lot 7. Five come in under the `merchant_and_professional_dwellings` clause and two under `tradesman_dwellings`. SO NEITHER THE FAMILIES NOR THE COUNT NOR THE LOTS ARE THIS FILE'S CHOICE: the schedule offers the letters, the seating asks for seven of them by name, and this deal builds those seven where they were asked for. The one thing this file does author is which yard buildings stand behind them and where, and that choice is argued down rather than up. A REQUEST IS NOT EVIDENCE. Nothing here grades any higher for having been asked for: all eleven roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes as every other roof on this row."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Madison-and-Wells corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves it: principal room is counted over the free lots LESS ONE precisely so a block is never dealt out of its open lot, and with eight free lots this deal may stand on seven and stands on seven. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise; the placement pass wrote no slot against it and this deal adds none. That a lot is open at all is the programme's assumption of alternating vacancy, and on a tier the town had barely reached in 1835 that assumption is the least of what is being claimed here."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 6.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": -2.0
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 3.5,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "H2",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 2.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 2,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": -6.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 3,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 5.0,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": 5.5
+        }
+      ],
+      "arrangement_note": "THE THIRD DEAL ON THE PLAT'S LAST TIER, AND THE FIRST ON IT TO FILL A BLOCK'S SEVEN BUILDABLE LOTS. blk_washington_clark was dealt two cottages because its plan held two principal roofs; this block's plan holds twenty-one and the seating asked for seven, so seven is what stands here — a D7 on each Washington corner, two H1 houses between them on the Washington face, and the D3, D3 and H2 on Madison. Seven principal roofs on eight lots is dense for this tier, and it is dense because the placement pass put it there and not because this file reached for it: the block is one street back from Randolph and two from Lake, it is the nearest of the three undealt Washington blocks to the Dearborn Street drawbridge by the end rule's walk, and it is where the South Division's banded households ran out of standing roofs to adopt. Twenty of the twenty-seven roofs its schedule apportions are still unbuilt and lot 1 stays open. THE BETTER FACE TAKES THE BETTER HOUSES, WHICH IS THE FACE RULE AND NOT A PREFERENCE. Washington Street is graded `light` in the committed street hierarchy and Madison is graded `none` — a line the plat draws and the traffic model gives no through movement at all — so the two D7 merchant and professional houses take the two Washington corners and the two H1 houses the Washington interior, while the two D3 tradesmen's cottages and the H2 take Madison. No trade letter is dealt to this block, so the non-dwelling placement rule reaches nothing here and no roof stands on a street line: every principal roof stands back at a typology setback between 3.5 m and 6.0 m, which is a period typology and not a measurement of any lot. FOUR YARD BUILDINGS, NOT SIX, AND THE ARGUMENT IS THE SAME ONE THE CLARK DEAL MADE. The block's plan apportions six ancillary roofs — a stable (A1), a barn or carriage shed (A2), two privies (A3), a woodshed (A4) and a smokehouse or small utility (A5). Four are dealt. The two privies go behind the H1 on lot 2 and the D3 on lot 3, the woodshed behind the D3 on lot 5, and the stable behind the D7 on lot 6 — the one household of the seven whose clause is `merchant_and_professional` AND whose lot is a corner with alley room for a horse. The barn and the smokehouse stay in the block's plan: a barn or carriage shed behind a two-room cottage on the edge of town, and a smokehouse beside it, are things these households MIGHT have had, and the privies, the woodshed and the one stable are the things a household of this kind certainly had. Three of the seven roofs therefore stand with no yard building at all, which is what a block dealt six outbuildings for seven households has to mean. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that any building stood on this block in July 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
+    },
+    {
+      "block_id": "blk_indiana_north_wolcott",
+      "district": "north",
+      "programme_phase": "phase3_platted_block_indiana_north_wolcott_second_deal",
+      "claimed": "2026-09-29",
+      "seq_start": 5,
+      "bounded_by": {
+        "north": "indiana_north",
+        "south": "illinois_north",
+        "west": "wolcott",
+        "east": "cass"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 47,
+        "standing_roofs": 4,
+        "free_lots": 10,
+        "headroom": 35,
+        "dealt_roofs": 4,
+        "dealt_principal": 2,
+        "dealt_ancillary": 2,
+        "principal": 2,
+        "ancillary": 2
+      },
+      "families": {
+        "D3": 2,
+        "A4": 1,
+        "A3": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1756",
+        "parent": "T-1754",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_beaubien_susan",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_wolcott / D3 / north"
+          },
+          {
+            "seat": "hh_bennett_william",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_wolcott / D3 / north"
+          }
+        ],
+        "why": "THE SECOND DEAL ON KINZIE'S ADDITION'S FIRST BLOCK, AND IT IS THE LAST ONE THAT CAN KEEP THE ALTERNATION THE MEMO DESCRIBES. T-1747 stood two D3 cottages here — lot 8 on the Indiana face, lot 9 on the Illinois face — and left the other ten lots open, with nine of the block's eleven slot requests standing as requests. This deal raises two more, one per face, and after it the Indiana face reads open-open-ROOF-open-ROOF-open across lots 0, 2, 4, 6, 8, 10 and the Illinois face reads the same across lots 1, 3, 5, 7, 9, 11. Every roof on this block now has empty ground on both sides of it along its own face, which is exactly what `docs/RESEARCH/1835_north_division_extent_and_infill.md` reads off the primary maps for the Wolcott-Kinzie core: frontage that `alternates between roof and open yard`, with `no continuous street wall`. It is also the ceiling that reading imposes on this block. A fifth principal roof, on either face, must stand on a lot adjoining one already built — there is no sixth position left that does not — so the memo carries four roofs here and not five, and the remaining seven requests stay requests.\n\nTHE TWO HOUSEHOLDS ARE NOT THE TOPMOST TWO, AND THAT IS THE ARGUMENT RATHER THAN AN OVERSIGHT. In the seating file's own order the next two `tradesman_dwellings` requests on this block after the pair T-1747 built are hh_beach_william_h's D3 on lot 7 and hh_beaubien_john_s's D3 on lot 6. Both lots sit immediately west of a standing cottage — 7 beside the roof on 9, 6 beside the roof on 8 — and the first deal's own entries for those two lots say, in this file, that they are open so that `each of this deal's two cottages has open ground on both sides of it along its own face`. Building them would retract that sentence and raise the street wall the memo refuses. So the deal takes the next pair down, which is the topmost pair the memo will carry: hh_beaubien_susan's D3 on lot 5 fronting Illinois Street and hh_bennett_william's D3 on lot 4 fronting Indiana Street. (The pass re-runs whole behind every deal, so what the seating file says about any one lot is its answer AFTER this deal and not the number frozen here; the requests named above are what it said before it.) The lots are the requests' own — on a block where every candidate lot is free there is nothing to argue a cottage off its requested lot onto another — and the two refused requests are neither built nor withdrawn.\n\nTHE SET-OUT IS DELIBERATELY NOT THE FIRST DEAL'S. These two cottages stand at 6.5 m and 5.5 m from their street lines against the first deal's 6.0 m and 5.0 m, and their lateral offsets are the opposite sign, so neither face carries two roofs on one line. The same memo that forbids a continuous wall forbids a stamped one: two roofs at an identical set-out three lots apart would read as a surveyed row, which is the one thing the 1835 maps do not show on this side of the river. The variation is a typology, not a measurement of these lots.\n\nNEITHER COTTAGE WAS TAKEN BY THE HOUSEHOLD THAT ASKED FOR IT, AND THAT IS REPORTED RATHER THAN TIDIED. The adoption step runs before the slot step, so both roofs entered the re-run as standing roofs an admitted clause could adopt: hh_andrews_davi took lot 4 and hh_anderson_eli_f lot 5 — the two households whose requests stood one block east on blk_indiana_north_cass — and hh_beaubien_susan and hh_bennett_william, whose requests this deal was sized against, end the pass holding slots on lots 7 and 6 of this same block, which are the two lots the deal declined. The block's seat count is unchanged at eleven and the town's at 170; what moved is two of them from asking to housed. L270 carries the arithmetic and T-1626 carries the question of whether that precedence should hold for a roof raised in answer to a slot; nothing here answers it. WHAT THIS DEAL DOES NOT TOUCH. The disagreement T-1746 holds — the seating asks twenty roofs of this addition's two subdivided blocks and the memo will not carry twenty — is narrowed by two and not settled: seven of this block's requests are still owed and stay on the owed side of the ledger. blk_indiana_north_cass is not dealt here at all; its first roofs are T-1753's and this deal neither anticipates nor duplicates them. A REQUEST IS NOT EVIDENCE: both roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes every other roof on this row carries."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Indiana-and-Wolcott corner, and still the lot the block reserves open. The schedule's own sizing reserves one — principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot — and the first deal named this corner as the reservation. Nothing about this deal moves it. It is also the west end of the Indiana face's alternation, which reads open here before the first roof on lot 4."
+        },
+        {
+          "lot": 1,
+          "why": "The Illinois-and-Wolcott corner, open because this deal has no roof for it. The seating asks a D7 house here under the merchant-and-professional clause; a two-storey frame house is the most substantial thing the addition's plan holds, and standing one on the speculative edge of town while the block's ordinary cottages number four would invert what the primary maps show. The request stands."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Indiana face, immediately west of the cottage this deal stands on lot 4, and open for the reason lot 6 was and is: a roof on the adjoining lot is the difference between scattered houses and a built street, and only the first of those is what the 1835 maps carry. The seating asks a D4 cottage here and the request is left standing."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Illinois face, immediately west of the cottage on lot 5, open for the same reason as lot 2 and with the same effect. The seating asks a D4 cottage here. Lot 2 and lot 3 sit back to back across the Addition's ruled alley, so leaving both open keeps the block's west third open through its whole depth rather than only on one face."
+        },
+        {
+          "lot": 6,
+          "why": "An interior lot on the Indiana face, and after this deal it is the gap BETWEEN two roofs — the first deal's cottage on lot 8 to its east and this deal's on lot 4 to its west. That is what it is for. The first deal left it open so the roof on lot 8 would not be one of a row; this deal needs it open for the same sentence read from the other side, and building the D3 the seating asks here would close the alternation on this face in one move. It is the block's most consequential open lot and the request on it is the one this deal most deliberately refuses."
+        },
+        {
+          "lot": 7,
+          "why": "An interior lot on the Illinois face, the gap between the cottage on lot 9 and this deal's on lot 5, and open for exactly the reason lot 6 is. The seating asks hh_beach_william_h's D3 here — the topmost unbuilt tradesman request on the block — and it is refused by position rather than by rank: it is the higher of the two requests this deal declined, and it is declined because its lot adjoins a standing roof and the memo will not carry the wall that would make."
+        },
+        {
+          "lot": 10,
+          "why": "The Indiana-and-Cass corner, open because this deal has no roof for it and because a corner at the block's east end is the ground a later deal will want first — the seating already asks a D7 house on it. It is also the east end of the Indiana face's alternation, which reads open here after the roof on lot 8. Nothing this run knows argues for spending the corner on a cottage now."
+        },
+        {
+          "lot": 11,
+          "why": "The Illinois-and-Cass corner, the last of the block's twelve and open on the plainest reason of all: nothing was dealt to it. The seating asks a D7 house here too, and the block's schedule still apportions it part of the 31 roofs beyond the eight now standing. A later deal takes it off this list with its own argument."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "indiana_north",
+          "setback_m": 6.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "illinois_north",
+          "setback_m": 5.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 4,
+          "stands_on": "alley",
+          "fronts": "indiana_north",
+          "setback_m": 4.0,
+          "lateral_m": -3.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.0,
+          "lateral_m": 3.5
+        }
+      ],
+      "arrangement_note": "FOUR ROOFS ON TWELVE LOTS, AND THE ALTERNATION IS NOW COMPLETE ON BOTH FACES. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 31 of the 35 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces — Indiana Street on the north and Illinois Street on the south — are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE TWO YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL. A woodshed stands off the alley behind the Indiana Street cottage and a privy off the alley behind the Illinois Street one, each serving the lot it stands on. They are the last A4 and one of the two remaining A3 the block's plan holds. The plan also holds three stables, two barns or carriage sheds and a smokehouse; every one of them would have to stand in the yard of one of these four cottages, and a stable AND a barn AND a smokehouse behind a one-room cottage is a claim about how these households lived that nothing supports, so the rest stay in the plan for the roofs that come after them.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces and the alley line are committed; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+    },
+    {
+      "block_id": "blk_indiana_north_cass",
+      "district": "north",
+      "programme_phase": "phase3_platted_block_indiana_north_cass",
+      "claimed": "2026-09-29",
+      "bounded_by": {
+        "north": "indiana_north",
+        "south": "illinois_north",
+        "west": "cass",
+        "east": "rush"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 47,
+        "standing_roofs": 0,
+        "free_lots": 12,
+        "headroom": 43,
+        "dealt_roofs": 4,
+        "dealt_principal": 2,
+        "dealt_ancillary": 2,
+        "principal": 2,
+        "ancillary": 2
+      },
+      "families": {
+        "D3": 2,
+        "A4": 1,
+        "A3": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1753",
+        "parent": "T-1748",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_andrews_davi",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_cass / D3 / north"
+          },
+          {
+            "seat": "hh_anderson_eli_f",
+            "family": "D3",
+            "order_book_draw": "blk_indiana_north_cass / D3 / north"
+          }
+        ],
+        "why": "THE ADDITION'S SECOND BLOCK, DEALT ON THE SAME TWO ARGUMENTS AS ITS FIRST AND SIZED BY THE SAME MEMO. blk_indiana_north_cass is the cell east of blk_indiana_north_wolcott across Cass Street, and T-1741's reading of Wright's 1834 sheet cut it into twelve lots on the same five clear rules -- `lotted`, in `data/traces/kinzie_addition_lot_lines.json`, with the Addition's ruled alley between its Indiana and Illinois faces. The 665-roof schedule opened it with 47 roofs of capacity, 43 of headroom, 33 of principal room and a committed family mix holding three D3 cottages; T-1522's placement pass wrote ELEVEN slot requests against it, the same shape as next door -- merchant-and-professional houses on the Rush-side corner lots and tradesmen's cottages working west along the two interior faces. (The pass re-runs behind every deal, so the family against any one lot is the settled seating's answer after this deal rather than a number frozen here; the eleven, and the two this deal answers, are what it said before it.) THIS DEAL BUILDS TWO OF THE ELEVEN. They are the topmost pair of `tradesman_dwellings` requests on this block in the seating file's own order -- hh_andrews_davi's D3 on lot 8 fronting Indiana Street and hh_anderson_eli_f's D3 on lot 9 fronting Illinois Street -- and the lots are the requests' own, which on a block where all twelve lots are free is not a choice: there is nothing to argue a cottage off a free lot onto another free lot. WHY TWO AND NOT ELEVEN IS THE SAME ANSWER T-1747 GAVE, AND IT IS STILL THE MEMO. `docs/RESEARCH/1835_north_division_extent_and_infill.md` is the committed reading of the July 1835 North Division and it holds that the primary maps show a substantially larger PLATTED north side with no buildings on it, so the build must leave `most legal frontage empty` and keep `the outer addition visibly speculative rather than being mistaken for an occupied city`, with at least half the plausible frontage open on the Kinzie-Michigan interior. Eleven roofs on twelve lots is the occupied city that memo refuses, and two is what it carries. THE DISAGREEMENT IS STILL REPORTED RATHER THAN TIDIED: T-1746 holds the twenty roofs the seating asks of this addition's two subdivided blocks against the memo that will not carry twenty, and this deal neither builds the surplus nor withdraws it -- the nine unbuilt requests on this block stay requests, on the owed side of the ledger, where the next reader can see two committed files disagreeing. WHAT THIS DEAL DOES NOT COPY FROM NEXT DOOR is the set-out. The two cottages stand at 5.5 m and 6.5 m from their street lines against the wolcott block's 6.0 m and 5.0 m, and the deeper of the pair is on the opposite face, because the same memo says frontage on this side of the river `alternates between roof and open yard` with `no continuous street wall` -- two blocks stamped to one set-out would read as a row across Cass Street, which is the one thing the reading refuses. A REQUEST IS NOT EVIDENCE and neither is a memo's silence: both roofs are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes every other roof on this row carries."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Indiana-and-Cass corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves one: principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot, and with twelve free lots this deal may stand on eleven and stands on two. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise. Putting it on the corner facing the wolcott block's own reserved corner across Cass Street is the one thing about the choice that is not arbitrary: it leaves the street the two blocks share open on both sides rather than built on one."
+        },
+        {
+          "lot": 1,
+          "why": "The Illinois-and-Cass corner, open because this deal has no roof for it. The seating asks a D5 cottage here under the tradesman clause and that request stands unbuilt; a corner roof is the most conspicuous thing a block can put up and standing one on the speculative edge of the town before its ordinary interior cottages are built would invert what the primary maps show. The block's schedule still apportions it 16 roofs beyond the four this deal builds, and a later deal takes this lot off the list with its own argument."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Indiana face, three lots west of the cottage on lot 8, and open for the plainest reason there is: nothing was dealt to it. The seating asks a D5 cottage here and the request stands. Keeping it open is also what holds the Indiana frontage to alternating roof and yard rather than a run, which is the density the north-division memo reads off the maps for this whole addition."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Illinois face, open for the same reason as lot 2 -- nothing was dealt to it. The settled seating holds a two-room cottage request here and it stands unbuilt. This lot and lot 2 sit back to back across the Addition's ruled alley, so leaving both open keeps the west half of the block open through its whole depth rather than only on one face."
+        },
+        {
+          "lot": 4,
+          "why": "An interior lot on the Indiana face, open because this deal has no roof for it. The seating asks a D4 two-room cottage here; building it would put a second roof two lots west of the one on lot 8 and begin exactly the continuous street wall the north-division memo says the maps do not show on this side of the river."
+        },
+        {
+          "lot": 5,
+          "why": "An interior lot on the Illinois face, open because nothing was dealt to it. The seating asks a D4 cottage here and the request stands. It is also the lot that keeps the cottage on lot 9 from reading as one of a pair: with lot 5 and lot 7 both open, the Illinois roof has an empty lot on either side of it, which is the alternation the memo describes."
+        },
+        {
+          "lot": 6,
+          "why": "An interior lot on the Indiana face, immediately west of the cottage on lot 8, and open so that cottage stands alone on its face. The settled seating holds a one-room cottage request here -- the nearer of the two the block still carries. A roof on the adjoining lot is the difference between a house on the edge of a speculative addition and the start of a built street, and only the first of those is what the 1835 maps carry."
+        },
+        {
+          "lot": 7,
+          "why": "An interior lot on the Illinois face, two lots west of the cottage on lot 9, open for the same reason lot 6 is: the roof it would stand beside is meant to stand alone. The settled seating holds the second of the block's two remaining one-room cottage requests here, which is the third of the three D3 roofs its schedule apportions and the one this deal leaves on the owed side. T-1746 holds the arithmetic."
+        },
+        {
+          "lot": 10,
+          "why": "The Indiana-and-Rush corner, open because this deal has no roof for it. The settled seating holds a cottage request here and it stands unbuilt. Rush Street is the addition's east fringe, which the north-division memo reads as isolated roofs west of the 1834 shore rather than as an addressed corner, so a corner roof is the last thing this block should raise rather than an early one. A later deal argues it."
+        },
+        {
+          "lot": 11,
+          "why": "The Illinois-and-Rush corner, open for the same reason as lot 10. It carries the block's one remaining merchant-and-professional request -- a two-storey frame house, the most substantial thing this block's plan holds -- and standing that on the speculative edge of town before the addition's ordinary cottages are built would invert what the primary maps show. Leaving it open is what keeps this block reading as the tradesmen's interior its family mix makes it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "indiana_north",
+          "setback_m": 5.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 9,
+          "stands_on": "street",
+          "fronts": "illinois_north",
+          "setback_m": 6.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 8,
+          "stands_on": "alley",
+          "fronts": "indiana_north",
+          "setback_m": 4.0,
+          "lateral_m": -3.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.0,
+          "lateral_m": 3.5
+        }
+      ],
+      "arrangement_note": "THE ADDITION'S SECOND BLOCK, AND THE FIRST TIME TWO OF ITS CELLS STAND BUILT AT ONCE. The block was entirely empty -- twelve free lots, nothing standing -- and it is dealt two principal roofs and two yard buildings, which leaves ten of its twelve lots open and 16 of the 20 roofs its schedule apportions unbuilt. That is the reading rather than a shortfall: Kinzie's Addition was the speculative north edge of the town in July 1835 and a block built out to its ceiling here would be a claim about 1835 that the primary maps refuse. THE TWO COTTAGES TAKE OPPOSITE FACES ACROSS THE RULED ALLEY, which is the seating's arrangement and not this file's: hh_andrews_davi's one-room cottage stands on lot 8 fronting Indiana Street and hh_anderson_eli_f's on lot 9 fronting Illinois Street, back to back, both graded `none` in the committed street hierarchy -- lines the plat draws and the traffic model gives no through movement. A dwelling is not a shop and the face-value clause that would refuse a quiet street applies to the trade letters, so a household on an untrafficked face at the edge of the addition is the ordinary case here, not the anomalous one. THE SET-OUT IS DELIBERATELY NOT THE WOLCOTT BLOCK'S. Its two cottages stand at 6.0 m from Indiana and 5.0 m from Illinois; these stand at 5.5 m and 6.5 m, deeper on the Illinois side where that block is shallower. The north-division memo reads frontage on this side of the river as alternating roof and open yard with no continuous street wall, and two adjacent blocks set out identically would read across Cass Street as one line of houses -- the reading's own refusal, met by moving the number rather than by asserting it is met. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN, and the block's schedule holds exactly one of each: a privy off the alley behind the Indiana cottage and a woodshed off the alley behind the Illinois one, one apiece, each serving the lot it stands on. Of the stable, the barn, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had; the others are ones it might have had, and the choice is argued down rather than up. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the Addition's alley, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines are conjectural, as they are everywhere on this row, and no lot is numbered."
     }
   ],
   "redealt": {

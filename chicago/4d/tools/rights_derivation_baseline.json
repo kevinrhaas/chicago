@@ -49,6 +49,285 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "glessner_house/as_built_1887/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.bay_dining_elevation": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.brick_tint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.chimney_dining_room": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.chimney_plans": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.courtyard_gate": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.courtyard_ground": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.dormers": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.eave_cornice": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.gable_east_wing_north": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.gable_west_wing_north": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.granite_tint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.hall_bow_height": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.openings_18th": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.openings_18th_stable": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.openings_court": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.openings_court_north": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.openings_prairie": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_porte_cochere_doors_c1888",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.paint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.range_east_wing": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.range_north_range": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.range_west_wing": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.ridge_east_wing": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.ridge_north_range": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.ridge_west_wing": {
+      "kind": "structure",
+      "blocked_sources": [
+        "houghton_glessner_gle_b9_side_elevation",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.roof_covering": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923",
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.roof_tint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.tower_north": {
+      "kind": "structure",
+      "blocked_sources": [
+        "houghton_glessner_gle_b9_side_elevation"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "glessner_house/as_built_1887/form.tower_stair": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "glessner_house/as_built_1887/form.trim_tint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.turret_stable": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.wood_tint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_porte_cochere_doors_c1888"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "green_tree_tavern/frame_1833/footprint": {
       "kind": "structure",
       "blocked_sources": [

@@ -2,16 +2,37 @@
   "$note": "T-1727. The build record for STRUCTURE VERSIONS, the alternates under data/structures/versions/<id>/<label>.json. One entry per version mesh, keyed by its path under assets/gltf/: `inputs_sha256` is the same recipe as assets/manifest.json (generators/mesh_inputs.py over the VERSION record), written by generators/build.py or by `tools/structure_versions.py adopt` when the version's inputs hash equals a committed canonical bake; `web_master_sha256` is the master each assets/web/ derivative was made from, written by tools/web_derivatives.sh. DERIVED: `tools/validate.py --stale` recomputes both, and the remedy for a mismatch is a bake, never an edit of this file.",
   "assets": {
     "versions/bates_auction_room/fixture/bates_auction_room__frame_1834.glb": {
-      "adopted_from": "bates_auction_room__frame_1834.glb",
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 34648,
-      "inputs_sha256": "266cf886d7f5ea8732e5182622cf1cdc1eaaf532df3a6a09dbb3cf49bca4a0fc",
+      "inputs_sha256": "1c9942afdbcf60472a5c7faaf3c1f684cb39354d6d938807db672600f2fdca8c",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "bates_auction_room",
       "version_label": "fixture",
       "web_master_sha256": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227"
+    },
+    "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
+      "archetype": "masonry_house",
+      "baked_ao": false,
+      "bytes": 98832,
+      "inputs_sha256": "30d37fd1f335bcdba2164ba64c2839d30d9b5fd93f3be41c3754598e3149a114",
+      "kind": "generated",
+      "phase_id": "as_built_1887",
+      "structure_id": "glessner_house",
+      "version_label": "v2",
+      "web_master_sha256": "98aaea0aa8f7772c23c7c1d634ea72735ff450f984ffd766d9c7655ff0f9a6b0"
+    },
+    "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
+      "archetype": "masonry_house",
+      "baked_ao": false,
+      "bytes": 95728,
+      "inputs_sha256": "06fb0b32a86328e0b52314ce25789a3d96dc425f11de18abd0f33b39dc7c42b3",
+      "kind": "generated",
+      "phase_id": "as_built_1887",
+      "structure_id": "glessner_house",
+      "version_label": "v3",
+      "web_master_sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
     }
   },
   "inputs_scheme": "resolved-params-v4"

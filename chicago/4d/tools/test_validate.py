@@ -146,15 +146,28 @@ def test_an_exclusion_expires_at_its_own_earliest_scene() -> None:
     excl = {"excluded": [{"id": "saloon_building", "name": "Saloon Building",
                           "reason": "built 1836", "earliest_scene": "1837",
                           "sources": ["s1"]}]}
+    # T-1739: the record is the 1835 town's, so it is asked of a scene that LISTS it.
+    def town(date: str) -> dict:
+        sc = scene(date)
+        sc["layers"] = sc["layers"] + ["exclusions"]
+        return sc
+
     rep = V.Report()
-    V.validate_scene(scene(), {}, EPOCHS, excl, rep)
+    V.validate_scene(town("1835-07-01"), {}, EPOCHS, excl, rep)
     check("an 1837 building is legitimately excluded from an 1835 scene", not rep.errors,
           rep.errors)
 
     rep = V.Report()
-    V.validate_scene(scene("1837-07-01"), {}, EPOCHS, excl, rep)
+    V.validate_scene(town("1837-07-01"), {}, EPOCHS, excl, rep)
     check("the same entry excluded from its own earliest scene is an error",
           any("earliest_scene" in e for e in rep.errors), rep.errors)
+
+    # …and a scene that does not list the record (1904, three kilometres south of every
+    # building in it) is not contradicted by it.
+    rep = V.Report()
+    V.validate_scene(scene("1837-07-01"), {}, EPOCHS, excl, rep)
+    check("a scene that does not list `exclusions` is not held to the 1835 town's record",
+          not any("earliest_scene" in e for e in rep.errors), rep.errors)
 
 
 def test_exclusions_carry_a_reason_and_a_citation_that_resolves() -> None:
@@ -1710,7 +1723,10 @@ def test_declared_terrain_reads_are_real_reads() -> None:
     import re  # noqa: PLC0415
     root = Path(__file__).resolve().parent.parent
     T, _ = _terrain_inputs()
-    src = (root / "generators/terrain_gen.py").read_text()
+    # The 1835 generator and the graded one (T-1738) between them read every key
+    # CONSUMED declares; each block is read by the generator of the epoch it serves.
+    src = ((root / "generators/terrain_gen.py").read_text()
+           + (root / "generators/terrain_gen_graded.py").read_text())
 
     def reads(key: str) -> bool:
         return bool(re.search(rf"""\[\s*['"]{re.escape(key)}['"]\s*\]""", src)

@@ -35,16 +35,17 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 436,
-    "structures_reached": 73,
+    "structures_placed": 477,
+    "structures_reached": 87,
     "structures_reached_by_grade": {
-      "inferred": 21,
-      "reconstructed": 52
+      "inferred": 23,
+      "reconstructed": 64
     },
     "structures_unreached_by_section": {
-      "09": 361,
+      "09": 387,
       "10": 1,
-      "16": 1
+      "16": 1,
+      "outside the four sections": 1
     },
     "school_section": {
       "parcels": {
@@ -2640,12 +2641,68 @@
           "margin_m": 39.8
         },
         {
+          "id": "kelsey_boarding_house",
+          "margin_m": 194.4
+        },
+        {
+          "id": "kimberly_residence",
+          "margin_m": 53.0
+        },
+        {
           "id": "lake_house_construction",
           "margin_m": 50.8
         },
         {
           "id": "north_pier",
           "margin_m": 3.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a3_03",
+          "margin_m": 170.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a4_04",
+          "margin_m": 168.2
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_d3_01",
+          "margin_m": 172.2
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_d3_02",
+          "margin_m": 177.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
+          "margin_m": 64.8
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_08",
+          "margin_m": 28.4
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
+          "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_07",
+          "margin_m": 30.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
+          "margin_m": 58.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
+          "margin_m": 63.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_05",
+          "margin_m": 31.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_06",
+          "margin_m": 36.8
         },
         {
           "id": "recon_1835_north_a1_047",
@@ -2777,12 +2834,68 @@
           "margin_m": 39.8
         },
         {
+          "id": "kelsey_boarding_house",
+          "margin_m": 194.4
+        },
+        {
+          "id": "kimberly_residence",
+          "margin_m": 53.0
+        },
+        {
           "id": "lake_house_construction",
           "margin_m": 50.8
         },
         {
           "id": "north_pier",
           "margin_m": 3.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a3_03",
+          "margin_m": 170.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a4_04",
+          "margin_m": 168.2
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_d3_01",
+          "margin_m": 172.2
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_d3_02",
+          "margin_m": 177.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
+          "margin_m": 64.8
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a3_08",
+          "margin_m": 28.4
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_03",
+          "margin_m": 67.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a4_07",
+          "margin_m": 30.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_01",
+          "margin_m": 58.1
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_02",
+          "margin_m": 63.3
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_05",
+          "margin_m": 31.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_d3_06",
+          "margin_m": 36.8
         },
         {
           "id": "recon_1835_north_a1_047",
@@ -39746,6 +39859,32 @@
       "recon_1835_blk_south_water_wells_d2_06",
       "recon_1835_blk_south_water_wells_d3_04",
       "recon_1835_blk_south_water_wells_d4_03",
+      "recon_1835_blk_washington_clark_a3_03",
+      "recon_1835_blk_washington_clark_a4_04",
+      "recon_1835_blk_washington_clark_d4_02",
+      "recon_1835_blk_washington_clark_d5_01",
+      "recon_1835_blk_washington_lasalle_a1_08",
+      "recon_1835_blk_washington_lasalle_a3_09",
+      "recon_1835_blk_washington_lasalle_a3_10",
+      "recon_1835_blk_washington_lasalle_a4_11",
+      "recon_1835_blk_washington_lasalle_d3_06",
+      "recon_1835_blk_washington_lasalle_d3_07",
+      "recon_1835_blk_washington_lasalle_d7_04",
+      "recon_1835_blk_washington_lasalle_d7_05",
+      "recon_1835_blk_washington_lasalle_h1_02",
+      "recon_1835_blk_washington_lasalle_h1_03",
+      "recon_1835_blk_washington_lasalle_h2_01",
+      "recon_1835_blk_washington_wells_a1_11",
+      "recon_1835_blk_washington_wells_a3_08",
+      "recon_1835_blk_washington_wells_a3_09",
+      "recon_1835_blk_washington_wells_a4_10",
+      "recon_1835_blk_washington_wells_d3_05",
+      "recon_1835_blk_washington_wells_d3_06",
+      "recon_1835_blk_washington_wells_d7_01",
+      "recon_1835_blk_washington_wells_d7_04",
+      "recon_1835_blk_washington_wells_h1_02",
+      "recon_1835_blk_washington_wells_h1_03",
+      "recon_1835_blk_washington_wells_h2_07",
       "recon_1835_north_a1_008",
       "recon_1835_north_a1_032",
       "recon_1835_north_a2_033",
@@ -39894,6 +40033,9 @@
     ],
     "16": [
       "heacock_house_monroe"
+    ],
+    "outside the four sections": [
+      "glessner_house"
     ]
   }
 }

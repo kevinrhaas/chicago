@@ -12,10 +12,10 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 446820.816,
-        "utm_n": 4637034.927,
-        "rotation_deg": 178.46,
-        "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Randolph, Canal, Washington and Clinton; standing back from the Washington Street frontage",
+        "utm_e": 446820.153,
+        "utm_n": 4637032.534,
+        "rotation_deg": 270.47,
+        "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Randolph, Canal, Washington and Clinton; standing back from the Clinton Street frontage",
         "confidence": "reconstructed",
         "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 6.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
         "derivation": {
@@ -114,15 +114,6 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D1 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
-  "occupants": {
-    "value": "The Barry household — a name the town's own records carry",
-    "confidence": "reconstructed",
-    "sources": [
-      "chicago_voter_lists_1833_1835_irad",
-      "isa_public_domain_land_tract_sales"
-    ],
-    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_randolph_clinton#01, fronting washington, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "D1",
@@ -131,19 +122,18 @@
     "programme_phase": "phase3_platted_block_randolph_clinton",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_randolph_clinton",
-    "lot_index": 1,
+    "lot_index": 4,
     "stands_on": "street",
-    "fronts": "washington",
+    "fronts": "clinton",
     "sequence": 3,
     "finish_key": "red_oxide",
     "roof_condition": "weathered",
     "age_state": "older_frontier"
   },
   "resident_assignment": {
-    "status": "assigned",
+    "status": "unassigned",
     "confidence": "reconstructed",
-    "note": "T-1685: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_randolph_clinton#01 fronting washington — a standing anonymous roof of family D1 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_barry_j_r"
+    "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_randolph_clinton#04 — a standing anonymous roof of family D1 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 8 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

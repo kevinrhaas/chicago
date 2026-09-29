@@ -812,7 +812,8 @@ export async function mountPeople({
    * record has been fetched and rendered (or its failure written), so a harness
    * can await it.
    */
-  async function open(id) {
+  async function open(id, { signal } = {}) {
+    if (signal?.aborted) return false;
     const r = byId.get(id);
     if (!r) return false;
     const seq = ++openSeq;
@@ -869,7 +870,7 @@ export async function mountPeople({
     };
     try {
       const [hh, citationsById] = await Promise.all([getJson(`residents/${r.file}`), citations()]);
-      if (seq !== openSeq) return false; // a later open won
+      if (seq !== openSeq || signal?.aborted) return false; // a later open won
       render(hh, { citationsById, researchByPerson: new Map(), directoryByPerson: new Map(),
         withheldByPerson: new Map(), ladderRules: [] });
       const why = cardEl.querySelector('.people-noaddr-why');
@@ -878,7 +879,7 @@ export async function mountPeople({
         if (note) { why.textContent = ` — ${note}`; why.closest('.people-noaddr')?.setAttribute('data-reason', 'record'); }
       }
       const joins = await loadResidentJoins(dataBase, sceneId, problems);
-      if (seq !== openSeq) return false;
+      if (seq !== openSeq || signal?.aborted) return false;
       render(hh, joins);
       // T-1491. The seat, in words, under whatever the actions block could offer —
       // replacing the bare "No known address" where there was nothing to go to, and
@@ -918,17 +919,18 @@ export async function mountPeople({
         }));
       }
     } catch (err) {
-      if (seq !== openSeq) return false;
+      if (seq !== openSeq || signal?.aborted) return false;
       problems.push(`people: ${err.message} — one household record is missing`);
-      body.innerHTML = `<p class="legend-note">This household's record could not be loaded. It is committed at
+      body.innerHTML = `No card yet. <p class="legend-note">This household's record could not be loaded. It is committed at
         <code>data/residents/${escapeHtml(r.file || '')}</code>.</p>`;
     } finally {
-      if (seq === openSeq) body.removeAttribute('aria-busy');
+      if (seq === openSeq && !signal?.aborted) body.removeAttribute('aria-busy');
     }
     return true;
   }
 
   function close() {
+    openSeq++;
     state.open = null;
     cardEl.hidden = true;
     cardEl.innerHTML = '';

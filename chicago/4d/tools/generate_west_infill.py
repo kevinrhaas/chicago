@@ -660,6 +660,14 @@ def omitted_street_corridors() -> dict:
 # to the swale centreline against its own half_width_m; see validate() for what it means
 # and why nothing is moved to satisfy it. Closest in is recon_1835_west_002 at 3.2 m of
 # a 30 m half-width; the eighth, recon_1835_west_013, arrives with the release at 14.3 m.
+#
+# THIS SET HOLDS MEMBERSHIP, NOT DISTANCE, and the difference turned out to matter. A
+# roof that stays inside the corridor and MOVES passes this gate, and two of the eight
+# did exactly that — T-1545 and T-1570 re-seated West Division slots off platted street
+# corridors, and west_005 went 22.7 -> 25.5 m and west_011 26.4 -> 24.5 m while T-1460
+# quoted the old pair to the owner. The distances are pinned in
+# `tools/measure_west_swale_corridors.py`, which also re-derives this set and must agree
+# with it; the two are one reading with two readers, and check.sh runs both.
 SWALE_CORRIDOR_OCCUPANTS = {
     (f"{PREFIX}{n}", "west_prairie_swale_a")
     for n in ("001", "002", "003", "005", "009", "011", "012", "013")

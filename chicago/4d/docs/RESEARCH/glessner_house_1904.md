@@ -300,3 +300,99 @@ way.
 Gaps 1–4 and 9 are what **only Glessner House or the Houghton Library can close**: the museum
 holds the historic photographs, family papers and restoration files (the library's dossier, G15),
 and the Houghton holds the drawings. The owner's contact at Glessner House is the route.
+
+## 13. What the build settled, and what the new sources changed (T-1732, 2026-09-28)
+
+The default version is committed as `data/structures/glessner_house.json` (archetype
+`masonry_house`, phase `as_built_1887`, 1887-12-01 to 1946-08-31), standing on T-0474's parcel
+`prairie_1800`. Two sets of sources landed after this specification was written and were read for
+the build: **the 17 HABS photographs** (PR #169; four new source records here) and **ten Richardson
+drawings from Houghton Library** (PR #171; design intent, cited only as corroboration). Phase
+discipline is kept: a design drawing is intent, and a dated photograph dates what it shows.
+
+**Settled or tightened by them:**
+
+| question | spec (T-1731) | now | tier | source |
+|---|---|---|---|---|
+| stable roof | 45° symmetric, ridge on the centre line (W 143.5), reconstructed | ridge on the carriage doorway's axis, **W 141**, about **38.6 ft**; east eave 23.1, west eave about 26.3 ft (about 41° / 31°) | inferred | HABS photo 1 (1963), scaled on the printed 12′ doorway; 1888 plate for the gable; GLE B9 agrees (intent) |
+| "large pyramid-roofed element" | a square dormer or pavilion, depth reconstructed | a **round granite tower with a conical roof** at the east wing / north range junction (sheet 4's heights and N-S extent kept) | inferred (form); plan reconstructed | HABS photos 1 (1963) and 13 (1965); GLE B9 (intent) |
+| dining-room bay | one storey, roofed below the second floor | a masonry storey, a **glazed band** at the second-floor level and a **tall faceted metal roof** rising into the north range's slope | inferred (form); heights read off the print | HABS photo 5 (c. 1923); sheet 3's light outline agrees |
+| hall bow | height reconstructed at the eave | two storeys to the courtyard eave, three lights to a storey | inferred | sheet 4, HABS photo 5 |
+| chimneys | four | **five**: one more on the north range's street slope near W 70 (the dining room's) | inferred | HABS photos 1 and 5 |
+| east wing's north face | one first-floor window read off the plan | **two** (the second at about W 17.6–19.0) | inferred | HABS photo 13 |
+| stable loft opening and flanking lights | heights reconstructed | 17.4–24.4 ft and 17.8–22.9 ft | inferred | HABS photo 1 |
+| courtyard ground | reconstructed | a lawn with a hard carriage drive along the south side, *in c. 1923*; carried to 1904 as reconstructed | reconstructed | HABS photo 5 |
+
+**Not settled** (recorded as liberties, `docs/LIBERTIES.md` **L295**): every colour; the north
+tower's plan position and drum; the hall bow's roof form; the dormers' depth on the slope; the
+stable turret's dimensions; the chimneys' E-W sizes; the stable's south end and its 1904 carriage
+doors; the north range's courtyard openings; opening heights read off plans; the cornices; the
+gate's heights; the vines (not drawn). The roof plan, the courtyard elevations and the north
+elevation that GAP 3 hoped for are **not** among the ten Houghton drawings supplied (three facade
+studies, two side sketches, a perspective, a court sketch and three interior details), so GAPS 3
+and 5 stay open; GAP 1 (the HABS photographs) is closed for the exterior.
+
+**Placement, reconciled with the parcel.** North face on the parcel's 18th Street line; east face
+14.7 ft behind its Prairie line (this spec's Sanborn reading, kept); the parcel's 177.1-ft depth
+then leaves the west face 0.35 m inside the alley line, inside both readings' tolerances. The
+parcel's 74.7-ft frontage closes GAP 8: the house's 74′-0″ leaves 0.7 ft to the 1808 line.
+
+## 14. Version v2: an independent reading of the same sources (T-1730, 2026-09-29)
+
+`data/structures/versions/glessner_house/v2.json` is a second build, made without copying the
+default's geometry, for the owner's side-by-side comparison
+(`/4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v2`). It re-reads sheets
+2–6 and photographs 1 and 13 itself, and reads four public-domain photogrammetric plates the
+default did not: **photographs 14–17** (1965, Perry E. Borchers; new source records
+`habs_glessner_photo_14_north_inclined_1965`, `…_15_north_stable_1965`, `…_16_east_level_1965`,
+`…_17_ne_angled_1965`). It takes no geometry from a `check_required` source except the dining
+bay's roof form (only photograph 5 shows it). Its inventions are `docs/LIBERTIES.md` **L299**.
+
+**Method, where it differs from § 1 and § 13.**
+
+- *Sheet 6* is read by piecewise interpolation between its three printed ticks (0.00, 24.30,
+  48.62), which is exact at every printed value; across the face at 75.4 px/ft (the wall's own
+  74 ft). A single straight-line fit misses the 24.30 tick by 0.4–0.5 ft.
+- *Sheet 4* is read at two scales: S positions at its scale bar (100.6 px/ft, which reproduces the
+  printed 26'-10\" range depth), **heights at 97.7 px/ft**, fixed from grade to the printed north
+  chimney top. At the scale bar, sheet 4 puts every shared feature low by the same ratio (ridge
+  44.8 against sheet 6's 46.0; stack tops 47.9 against 49.4); at 97.7 the ridge agrees to 0.2 ft.
+- *Photographs 13 and 15* are level plates: 13 is scaled vertically on sheet 6's printed 24.30
+  head line on the same wall, 15 on the 12-ft carriage doorway, checked against the NW corner
+  (reads W 161.3 for 161.25).
+
+**Where v2 reads the sources differently from the default** (default = T-1732's record):
+
+| attribute | v2 | default | v2's source | tier (v2) |
+|---|---|---|---|---|
+| east wing ridge, plan position | **W 17.3**, 4 ft toward the court: Prairie slope 46.7°, court slope 62.6° | W 13.25 (centred, assumed), 54.5° both | photo 14 (gable apex and its stack 7.5 ft west of the pair's colonnette); the middle and south stacks' faces on sheets 6 and 4 all straddle W ~17.3 | inferred |
+| east wing ridge / eave heights | ridge 45.24, east eave 26.66 above the door; court eave 28.6 above grade | 45.7 / 27.1 door; court 26.5 | sheet 6 by the printed ticks; sheet 4 at 97.7 | inferred |
+| north tower | **19.7-ft cone** (eave r 9.87, drum 19.1 ft) on axis S 9.7, W 35; eave 34.85, apex 46.0 | 16.7-ft cone (r 8.35), S 8.6, W 35; eave 32.9, apex 43.9 | sheet 4 (cone eave from the north wall to its axis); photo 1 (cone 18.7 ft at the wall's scale); photos 1 and 14 for W | inferred |
+| 18th Street eave (north range) | **23.8** | 23.1 | photos 13 and 15 (23.8, 23.9); sheet 4 draws 24.3–25.0 | inferred |
+| north range ridge | 36.5 at S 14.9; court eave 28.6, kick 26.6° over 4.1 ft | 34.1 at S 14.6; court eave 26.5, kick over 5.7 ft | sheet 4 at 97.7 / 100.6 | inferred |
+| stable roof | ridge **W 140.2, 38.0**; eaves 23.8 east, **23.55 west** (45° / 34°) | ridge W 141, 38.6; eaves 23.1 / 26.3 | photo 15 (level plate), the rakes extended | inferred |
+| stable turret | 5 ft square, apex 44.3 | 6 ft, apex 46.7 | photo 1 (size reconstructed) | reconstructed |
+| placement | **on the alley line**; east face 15.86 ft behind the Prairie line; 0.35 m west of the default | 14.7 ft setback, west face 1.16 ft inside the alley line | Sanborn 1911 sheet 28 draws the west face on the alley line; v2 re-measured the setback at 15.0 ± 0.5 ft | inferred |
+| stacks, E-W | all three wing stacks ~6–7 ft E-W, centred on W ~17.3 (north 14.2–20.4; middle 14.2–20.4; south 13.7–21.0) | 4 ft, W 11.25–15.25 and 9.25–13.25 (reconstructed) | photo 14; sheets 6 and 4 | inferred |
+| great stack | W 35–39, S 16.2–22.1, top 49.3 | W 38–42, S 16.5–20.5, top 46.6 | sheet 4; photos 1, 14, 17 (directly behind the tower) | inferred |
+| dining-room stack | W 67–72, S 5.8–9.4, top 42.5 | W 68–72, S 9.0–12.5, top 39.0 | sheet 2 (the dining room's fireplace); photo 1 | inferred |
+| dining bay, plan | **20.9 ft wide, 11.0 out** (W 58.7–79.6) | 19.4 wide, 9.9 out (W 60.9–80.3) | sheet 2 at 1:1 (the printed 17'-8\" plus two 1.6-ft jambs) | attested |
+| dining bay, elevation | masonry storey to 17.0, glazed band to 25.0, apex 35.0 at S 18 | 17.4 / 23.0, apex 34.0 at S 20 | sheet 3 (the second storey drawn as glazing), sheet 4 floor line; photo 5 for the roof form only | inferred |
+| hall bow roof | **low copper cone, 1.7-ft rise**, from the court eave (28.6) | 3.5-ft rise from 26.5 (reconstructed) | sheet 4 draws it; HABS data (copper) | inferred |
+| stair tower | r 5.55, centre W 26.85 S 56.7; eave 34.57, apex 42.15 | r 5.25, W 27.3 S 55.0; 32.5 / 42.3 | sheet 4 (drum 11.1 ft across); sheet 2 | attested |
+| dormers | eave 34.65, apex 38.46, centres S 32.2 / 45.1 / 67.8 | 32.9 / 37.0, S 32.3 / 45.0 / 66.8 | sheet 4 at 97.7 | attested |
+| alley gate | S 62.5–71.8 | S 61.3–70.8 | sheet 2 | attested |
+| Prairie openings | re-measured; second-floor sills 19.46, large first-floor windows 8.8–14.45 | (T-1731's reading) | sheet 6; photo 16 | attested |
+| 18th Street west end | arch crown 11.0, ring ~20 ft; band of six lights over it at 20.0–22.8; window, service door (sill 2.7, up steps) and loft openings read with heights | crown 10.8, ring 19 ft; 20.0–23.7 | photo 15 | inferred |
+| courtyard openings | the east wing's court face from sheet 4 (stair-hall window and slit, the south room's four windows, the underpass exit 9.0 × 8.5) | its own reading | sheet 4 | attested |
+| palette | **smoke-weathered**: granite sRGB #6e5c56, brick #b27c6a, limestone #b4ab98, tile #8a4131, copper a brown-green bronze #4d4f3e | pale pinkish-grey granite, dark brown copper | none (bounded by HABS 1963 and the Illinois Central's smoke) | reconstructed |
+| courtyard ground | a straight drive from the underpass exit to the alley gate along the south side, lawn elsewhere | lawn with a drive along the south side (from photo 5) | the two openings' positions; HABS data (paved only in 1946) | reconstructed |
+
+**Disagreements v2 keeps rather than resolves.** (1) The 18th Street gable's west rake reads
+shallower than v2's 62.6° court slope on photograph 14 over the short run it shows before the
+tower hides it; the stacks and the gable apex are what put the ridge at W 17.3, and no roof plan
+has been read. (2) Sheet 4 draws the 18th Street eave 0.5–1.2 ft higher than the two level plates;
+v2 takes the plates. (3) The north tower's W is ± 3 ft (two perspective corrections, 33 and 37).
+
+**Not drawn by v2** (as in the default): the vines; the stair tower's slits and attic lights (the
+archetype puts openings on flat faces only); the stable's courtyard faces' openings (not read).

@@ -1,0 +1,27 @@
+{
+ "id": "south_park_commissioners_municipal_code_1897",
+ "type": "legal",
+ "citation": "South Park Commissioners. Municipal Code of the South Park Commissioners, with General Laws and Special Ordinances, as revised and codified by James R. Mann. Printed and published by authority of the South Park Commissioners; approved March 1897. Chicago: E. B. Myers & Company, 1897.",
+ "author": "South Park Commissioners (Chicago); James R. Mann, codifier",
+ "date": "1897",
+ "describes_date": "1869 - March 1897",
+ "repository": "Internet Archive, digitized from the University of Illinois Urbana-Champaign copy",
+ "url": "https://archive.org/details/municipalcodeofs00chic",
+ "archived_url": "https://archive.org/download/municipalcodeofs00chic/municipalcodeofs00chic_djvu.txt",
+ "locator": "The Commissioners' ordinance of 18 November 1896 granting the Chicago City Railway Company the right to change its cars 'crossing Thirty-fifth street boulevard on Indiana avenue, and crossing Michigan avenue boulevard on Eighteenth street, from horse to electric power', printed pp. 241-243; the index of boulevards and street-railway crossings, pp. 12-13 and the index at the end.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "An 1897 publication of a public body; public domain in the United States (Internet Archive: NOT_IN_COPYRIGHT).",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the page images were not opened.",
+ "note": "Read for two things, neither a surface. (1) Prairie Avenue was not a South Park boulevard in 1897: the code's boulevards are Michigan Avenue, 35th Street, Grand, Drexel, Oakwood, Garfield and the Midway, and 'Prairie' appears in it only as a landmark for an elevated railroad's alignment. (2) Streetcars ran on two of the 1904 grid's streets: in 1896 the Chicago City Railway had 'in operation on Indiana avenue ... and on Eighteenth street ... a double track street railway, by horse cars, which it desires to change to electric power ... by means of the overhead trolley' (pp. 241-242). The code shows only where those lines crossed the Commissioners' boulevards; how far along Indiana Avenue and 18th Street the tracks ran, and on what paving, it does not say. The tracks are not drawn in the 1904 scene (docs/LIBERTIES.md L296).",
+ "what_it_supplies": [
+  "that Prairie Avenue was not among the South Park Commissioners' boulevards in 1897",
+  "that the Chicago City Railway ran a double-track line on Indiana Avenue and on 18th Street in 1896, by horse cars, with electric traction being sought"
+ ],
+ "what_it_does_not_supply": [
+  "the extent of either line within the 1904 grid, or its state in 1904",
+  "any roadway surface of the grid"
+ ]
+}

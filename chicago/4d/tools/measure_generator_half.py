@@ -223,16 +223,91 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # 1832 tower on the reservation. One more structure asset, so one more mesh a change to the
 # shared generator modules or to build.py would re-stale; the terrain and pier_crib reaches
 # stay at 2 each. Nothing about the debt itself moved.
+# 436 -> 438 and 434 -> 436 on 2026-09-28 (T-1717): `kimberly_residence` and
+# `kelsey_boarding_house`, the two houses Bonnell's walk of an August morning in 1835
+# puts east of the Lake House building site on the north bank. Two new structure assets,
+# so two more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing about the debt
+# itself moved.
+#
+# 436 -> 438, and the terrain reach 2 -> 4, on 2026-09-28 (T-1738): the 1904 ground and
+# water, `terrain__e1871_postfire.glb` and `water__e1871_postfire.glb`, baked by
+# generators/terrain_gen_graded.py, which reuses terrain_gen.py's mesher and so is re-staled
+# by it. Two more committed assets the shared generator modules reach; emit.py and pier_crib
+# are untouched, and nothing about the debt itself moved.
+#
+# 438 -> 440 on 2026-09-28 (T-1738, merged in): the 1904 scene's terrain and water
+# meshes, baked out of the e1871_postfire heightfield. Two more committed assets, and
+# both of them the ground's, so `generators/terrain_gen.py` was already at 4 and
+# `generators/emit.py` does not move. Nothing about the debt itself moved.
+#
+# 440 -> 444 and 436 -> 440 on 2026-09-28 (T-1736): the four roofs of the first deal on
+# `blk_washington_clark`, the plat's last tier — two frame cottages and the privy and
+# woodshed in their yards. Four new structure assets, so four more meshes the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
+#
+# 444 -> 448 and 440 -> 444 on 2026-09-29 (T-1742): the four roofs of the first deal on
+# `blk_indiana_north_wolcott`, Kinzie's Addition — two one-room frame cottages and the
+# woodshed and privy off the alley behind them. Four new structure assets on the same
+# terms as the four above: four more meshes the shared generator modules or emit.py
+# would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about the
+# debt itself moved.
+#
+# 448 -> 449 and 444 -> 445 on 2026-09-29 (T-1732): `glessner_house__as_built_1887.glb`,
+# the Glessner House at 1800 Prairie, the first 1904 structure and the first record of the
+# new `masonry_house` archetype. One new structure asset, so one more mesh the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and pier_crib
+# at 2. Nothing about the debt itself moved.
+#
+# 449 -> 460 and 445 -> 456 on 2026-09-29 (T-1708): the eleven roofs of the deal on
+# `blk_washington_wells`, the plat's last tier again — seven principal roofs (two D7
+# houses, two H1 houses, two D3 cottages and an H2) with two privies, a woodshed and a
+# stable behind them. Eleven new structure assets, so eleven more meshes the shared
+# generator modules or emit.py would re-stale; the terrain reach stays at 4 and
+# pier_crib at 2. Nothing about the debt itself moved.
+#
+# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the SECOND deal on
+# `blk_indiana_north_wolcott` — two more one-room frame cottages on lots 4 and 5 with a
+# woodshed and a privy off the alley behind them, which completes the alternation the
+# north-division memo describes on both faces of that block. Four new structure assets on
+# the same terms as every entry above: four more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved.
+#
+# 464 -> 475 and 460 -> 471 on 2026-09-29 (T-1735): the eleven roofs of the deal on
+# `blk_washington_lasalle`, the south-west block of the same last tier, raised on top of the
+# Wells eleven and the Wolcott four above. Seven principal dwellings (an H2, two H1, two D7
+# and two D3) with a stable, two privies and a woodshed behind them. Eleven new structure
+# assets, so eleven more meshes a change to the shared generator modules or to emit.py would
+# re-stale; the terrain reach stays at 4 and pier_crib at 2. Nothing about the debt itself
+# moved. The from-numbers are the ones this branch found on `dev` at its NINTH lap, and the
+# three numbers are read off the committed tree by `--gate` rather than carried over.
+#
+# 475 -> 479 and 471 -> 475 on 2026-09-29 (T-1753): the four roofs of the first deal on
+# `blk_indiana_north_cass`, the next cell east in Kinzie's Addition — two one-room frame
+# cottages and the privy and woodshed off the alley behind them. Four new structure
+# assets on the same terms as every entry above: four more meshes the shared generator
+# modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still 2.
+# Nothing about the debt itself moved. The from-numbers are the ones this branch found
+# on `dev` at its TENTH lap, not the 449/445 it was written off: the debt is cumulative,
+# so T-1708's eleven, T-1756's four, the Glessner versions and T-1735's eleven are all
+# counted first and these four go on top of them.
+# THIS ROW HAS NOW MOVED SIX TIMES IN TWO DAYS — five block deals and the Glessner
+# House — which is the measurement working as intended and also the shape of what it
+# measures: the debt is per-ASSET, so every roof this project raises enlarges it, and it
+# will keep being restated a parcel at a time for as long as the town is built a block
+# at a time.
 #
 STATED = {
-    "assets": 436,
+    "assets": 479,
     "restales": {
-        "generators/common/*.py": 436,
+        "generators/common/*.py": 479,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 434,
+        "generators/emit.py": 475,
         "generators/build.py": 0,
-        "generators/terrain_gen.py": 2,
+        "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
     },
     "layers_drawn_at_load": 10,

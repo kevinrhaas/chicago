@@ -1,0 +1,27 @@
+{
+ "id": "habs_glessner_photo_14_north_inclined_1965",
+ "type": "photograph",
+ "citation": "Perry E. Borchers (Ohio State University) for HABS, 'North elevation - inclined: left stereopair', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-202L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 14 of 17 (call number HABS ILL,16-CHIG,17--14). Library of Congress.",
+ "author": "Perry E. Borchers (HABS)",
+ "date": "1965",
+ "describes_date": "1965",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS). Master TIFF 060916pu.tif in the owner's Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos (checksummed in chicago/prairie_1904_v1/research/acquired-files.json); 1800 px web copy committed at chicago/prairie_1904_v1/research/public/glessner-habs-photo-14.jpg (Prairie library, PR #169); the index to photographs (glessner-habs-photo-captions.pdf, same folder) gives the caption and plate number.",
+ "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+ "locator": "The whole plate: the east wing's 18th Street gable from the NE corner to the round tower, tilted upward so the gable apex, its datestone chimney and the tower's cone are in frame.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Made for HABS (U.S. Government); LOC: no known restrictions. Measurements only; nothing derived as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-29 (T-1730, version v2) from the committed web copy. Scaled on the east-wing second-floor pair's colonnettes (W 9.6 and 28.8 on sheet 3; 18.4 px/ft at that level), principal point taken at the top and bottom fiducials (x 905). The plate is inclined, so horizontal positions high on the wall are compressed toward x 905; readings are corrected in the direction only. The caption and plate number are the HABS index to photographs; the handle follows photograph 13's record (060915p), the plates being consecutive in the master TIFF series.",
+ "note": "A 1965 photogrammetric plate of the series sheet 6 was plotted from (photographs 13-17 are the Borchers plates; the index says 1-12 were transmitted earlier). Used only for masonry and roofs, which the 1946 alteration list (HABS data p. 2) does not touch.",
+ "what_it_supplies": [
+  "the position of the 18th Street gable's apex and its chimney (W ~17, the chimney ~6.2 ft wide)",
+  "the round tower's cone beside the gable, and a first estimate of its axis (W ~37 after the depth correction)",
+  "the two first-floor slits and second-floor pairs of the east wing's north face"
+ ],
+ "what_it_does_not_supply": [
+  "reliable heights (the plate is tilted)",
+  "anything south of the gable"
+ ]
+}

@@ -108,6 +108,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from reconstructed_person import is_reconstructed  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 
 from compile_gazetteer import (  # noqa: E402  — the identity policy has one home
     REPO, ROOT, RESEARCH, GAZETTEER,
@@ -565,6 +566,8 @@ def read_town(structures_dir=STRUCTURES, streets_file=STREETS, residents_dir=RES
 
     for path in sorted(Path(structures_dir).glob("*.json")):
         d = load_json(path)
+        if not touches_year(d):
+            continue    # T-1732: the 1835 town only; tools/town_year.py
         names = [d.get("name") or ""] + list(d.get("aka") or [])
         occ_prose = (d.get("occupants") or {}).get("value") or ""
         occ = scene_date_occupants(occ_prose)

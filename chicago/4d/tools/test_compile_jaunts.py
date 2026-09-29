@@ -32,6 +32,18 @@ class JauntTests(unittest.TestCase):
         content = json.loads(a['new-in-chicago.json'])
         self.assertTrue(all(c['citation'] and 'note' not in c for c in content['citations']))
 
+    def test_leg_evidence_and_endpoints(self):
+        self.doc['legs'] = [{'from': self.doc['stops'][0]['id'], 'to': 'missing',
+                             'note': 'A bounded road note.', 'evidence': [self.doc['evidence'][0]['id']]}]
+        self.bad('leg needs valid stops')
+        self.doc['legs'][0]['to'] = self.doc['stops'][1]['id']
+        self.doc['legs'][0]['evidence'] = ['missing']
+        self.bad('dangling leg evidence')
+
+    def test_story_evidence_required(self):
+        self.doc['legs'] = [{'story': 'Invented connective narrative.', 'evidence': [self.doc['evidence'][0]['id']]}]
+        self.bad('schema')
+
     def test_fixtures_add_without_code_and_malformed_isolated(self):
         with tempfile.TemporaryDirectory() as tmp:
             for source in self.fixtures.iterdir():
@@ -40,7 +52,7 @@ class JauntTests(unittest.TestCase):
             files, errors = self.compiler.compile(tmp)
             self.assertEqual(len(errors), 1)
             self.assertIn('malformed.json', errors[0])
-            self.assertEqual(len(json.loads(files['catalog.json'])['jaunts']), 2)
+            self.assertEqual(len(json.loads(files['catalog.json'])['jaunts']), 4)
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
             walk = (self.fixtures / 'fixture-walk.json').read_text()

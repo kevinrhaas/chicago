@@ -147,6 +147,16 @@ CONSUMED = {
     "micro_relief": frozenset({"amplitude_ft", "wavelengths_m", "seed",
                                "south_limit_n_m"}),
     "surface_materials": frozenset(),
+    # The graded ground, read by generators/terrain_gen_graded.py (T-1738).
+    "lake_surface": frozenset(),
+    "street_crowns": frozenset({"e_m", "n_m", "crown_ft"}),
+    "graded_ground": frozenset({"power"}),
+    "fill": frozenset(),
+    "earthworks": frozenset({"face_slope"}),
+    "made_ground": frozenset(),
+    "lake_shelf": frozenset({"bed_ft", "e_fold_m"}),
+    "original_surface": frozenset(),
+    "surface_texture": frozenset({"amplitude_ft", "wavelengths_m", "seed"}),
 }
 
 
@@ -196,6 +206,11 @@ CONSUMED = {
 # why re-declaring a figure `restated_in_code` is free and adding a `restates:`
 # beside it would not have been.
 RESTATES = {
+    "lake_surface": {
+        # The graded generator writes the water plane at a literal zero, as the 1835
+        # one does, and heightfield.json records it.
+        "surface_ft": ("artifact", "heightfield.json:water_surface_m", 0.3048),
+    },
     "water": {
         # Z = 0 is the definition of this project's vertical datum. The generator
         # writes the water plane at a literal zero and `heightfield.json` records
@@ -259,7 +274,19 @@ def _sha_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
-def _code_shas() -> dict[str, str]:
+# THE GRADED GROUND (T-1738). An epoch built from a zone table of street crowns
+# and one traced waterline, by `generators/terrain_gen_graded.py`, rather than out
+# of a natural waterline and three river-defined divisions. It hashes the one
+# vector file its generator loads and the generator's own bytes on top of
+# terrain_gen.py's (whose meshing it reuses). The 1835 epoch's document is built
+# exactly as before, so adding this changes no committed hash.
+GRADED_EPOCHS = {
+    "e1871_postfire": {"generator": "terrain_gen_graded.py", "vectors": ("shoreline.geojson",)},
+}
+VECTORS_1835 = ("river.geojson", "hydrology.geojson", "shoreline.geojson", "branches.geojson")
+
+
+def _code_shas(extra: tuple[str, ...] = ()) -> dict[str, str]:
     """The modules whose bytes turn a spec into a ground mesh.
 
     Not this file, which computes the hash. Not `build.py` or the archetypes,
@@ -271,7 +298,7 @@ def _code_shas() -> dict[str, str]:
     mesh, which the ground does not have and never reads.
     """
     gen = ROOT / "generators"
-    wanted = [gen / "terrain_gen.py"] + code_inputs.geometry_modules()
+    wanted = [gen / "terrain_gen.py"] + [gen / x for x in extra] + code_inputs.geometry_modules()
     return {p.relative_to(gen).as_posix(): _sha_file(p) for p in wanted}
 
 
@@ -284,17 +311,18 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
     these.
     """
     ep_dir = Path(ep_dir)
+    graded = GRADED_EPOCHS.get(ep_dir.name)
+    vectors = graded["vectors"] if graded else VECTORS_1835
     return {
         "scheme": SCHEME,
         "epoch": ep_dir.name,
         "spec": strip_prose(_load(ep_dir / "terrain_spec.json")),
         "vectors": {
             name: strip_prose(_load(ep_dir / name))
-            for name in ("river.geojson", "hydrology.geojson", "shoreline.geojson",
-                         "branches.geojson")
+            for name in vectors
         },
         "datum": strip_prose(_load(ROOT / "data" / "datum.json")),
-        "code": _code_shas(),
+        "code": _code_shas((graded["generator"],) if graded else ()),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
 

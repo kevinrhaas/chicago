@@ -14781,6 +14781,191 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.popup.close());
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
 
+    // --- the 1904 scene's front door (T-1739) --------------------------------
+    // The owner's landing, 2026-09-28: /4d/1904/ opens on Prairie Avenue at E. 18th
+    // Street, on the east sidewalk, FACING THE GLESSNER LOT at 1800 Prairie. This tab
+    // is re-booted at that door, as T-1727's version boot re-boots it, and it is the
+    // LAST thing in the last part, so nothing after it reads the 1835 town it leaves.
+    // The lot is NOT read off the scene file: its street corner and centroid are
+    // re-derived here from the sheet-28 fit (data/traces/gcp/) and T-1731's lot frame,
+    // so a spawn that drifts off the lot fails even when the scene file agrees with
+    // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
+    // through the listeners the tab already carries.
+    {
+      const here4d = path.resolve(HERE, '..');
+      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
+      const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
+      const k = gcp28.fit.coefficients;
+      const [px, py] = gcp28.gcps.find((g) => g.id === 'prairie_18th').pixel;
+      const sc = Math.hypot(k.a, k.d);
+      const east = [k.a / sc, k.d / sc];
+      const south = [k.b / sc, k.e / sc];
+      const along = (o, de, ds) => [o[0] + de * east[0] + ds * south[0], o[1] + de * east[1] + ds * south[1]];
+      // Both streets 66 ft as sheet 28 prints them; the lot frame is x east, y north.
+      const halfStreet = 33 * 0.3048;
+      const neLot = along([k.a * px + k.b * py + k.c, k.d * px + k.e * py + k.f], -halfStreet, halfStreet);
+      const cs = Object.values(lotFrame);
+      const lotMid = along(neLot, cs.reduce((t, v) => t + v[0], 0) / cs.length,
+        -cs.reduce((t, v) => t + v[1], 0) / cs.length);
+
+      // T-1732 — THE HOUSE ITSELF. The middle of its Prairie Avenue front, re-derived
+      // from the committed record (position, rotation, frame_ft) and the datum rather
+      // than read back from the renderer, so a record, a sidecar and a placement that
+      // agree with each other and not with the lot still fail here.
+      const datum = readRepo('data/datum.json');
+      const gh = readRepo('data/structures/glessner_house.json');
+      const ghPos = gh.phases[0].position;
+      const ghFrame = gh.phases[0].form.frame_ft.value;
+      const ghTh = (ghPos.rotation_deg * Math.PI) / 180;
+      const ghO = [ghPos.utm_e - datum.origin_utm_e, ghPos.utm_n - datum.origin_utm_n];
+      const ghLx = ghFrame.length_ft * 0.3048;
+      const ghLy = (ghFrame.depth_ft * 0.3048) / 2;
+      const ghFront = [ghO[0] + ghLx * Math.cos(ghTh) + ghLy * Math.sin(ghTh),
+        ghO[1] - ghLx * Math.sin(ghTh) + ghLy * Math.cos(ghTh)];
+
+      const door = wantPublished ? `http://127.0.0.1:${PORT}/1904/`
+        : `http://127.0.0.1:${PORT}${ENTRY}?year=1904`;
+      await page.goto(door, { waitUntil: 'domcontentloaded' });
+      let doorReady = false;
+      try {
+        await page.waitForFunction(() => window.__chicago4d?.ready === true || !!window.__chicago4d?.error,
+          null, { timeout: 240_000, polling: 1000 });
+        doorReady = await page.evaluate(() => window.__chicago4d?.ready === true);
+      } catch { doorReady = false; }
+      const doorState = doorReady ? null
+        : await page.evaluate(() => window.__chicago4d?.error ?? 'timed out').catch(() => 'no page');
+      check(`${label}: /1904/ boots the 1904 scene on its own ground (T-1739)`, doorReady
+        && await page.evaluate(() => window.__chicago4d.scene.id === '1904'
+          && window.__chicago4d.scene.terrain_epoch === 'e1871_postfire'
+          && window.__chicago4d.terrain.epochId === 'e1871_postfire'),
+        doorState ?? '');
+      if (doorReady) {
+        await enterTown();
+        await page.evaluate(() => new Promise((r) => { requestAnimationFrame(() => requestAnimationFrame(r)); }));
+        const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
+          const a = window.__chicago4d;
+          const lift = (e, n) => a.terrain.surfaceHeight(e, n) + 1.0;
+          // T-1732: where the Glessner House's Prairie front is on screen, and what a
+          // pick there opens — the one structure this scene is meant to place.
+          const front = a.project(ghFront[0], ghFront[1], a.terrain.surfaceHeight(ghFront[0], ghFront[1]) + 5.0);
+          const house = a.registry.get('glessner_house') ?? null;
+          const frontHits = [];
+          if (front.z > -1 && front.z < 1) {
+            for (const dx of [-0.08, 0, 0.08]) {
+              for (const dy of [-0.08, 0, 0.08]) {
+                const hit = a.pick({ x: front.x + dx, y: front.y + dy });
+                frontHits.push(hit?.id ?? null);
+              }
+            }
+          }
+          const anchor = a.scene.anchors.find((x) => x.id === 'glessner_house') ?? null;
+          const drawn = {};
+          for (const name of ['structures', 'streets', 'enclosures', 'yard-ground', 'signage', 'yard',
+            'frontage', 'wharves', 'boats', 'wells', 'flora', 'trees']) {
+            let meshes = 0;
+            a.scene3d.getObjectByName(name)?.traverse((o) => { if (o.isMesh || o.isInstancedMesh) meshes += 1; });
+            drawn[name] = meshes;
+          }
+          const s = a.stats();
+          // T-0474: the street grid this scene lists, and the two things it is for --
+          // the lot the Glessner House will stand on, and the walk the visitor lands on.
+          const g = a.streetGrid;
+          const pip = (e, n, poly) => {
+            let inside = false;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i, i += 1) {
+              const [xi, yi] = poly[i]; const [xj, yj] = poly[j];
+              if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
+            }
+            return inside;
+          };
+          let gridMeshes = 0;
+          a.scene3d.getObjectByName('street-grid')?.traverse((o) => { if (o.isMesh || o.isLineSegments) gridMeshes += 1; });
+          const face = g?.grid?.faces?.find((f) => f.id === 'prairie__prairie_calumet_18_20');
+          // T-1728: what the two roadways at the door are paved with, read off the
+          // cards a visitor opens, and how many surfaces carry their maps.
+          const paving = (id) => {
+            const at2 = g?.cardFor?.(id)?.sidecar?.attributes?.paving;
+            return at2 ? `${at2.value} (${at2.confidence})` : null;
+          };
+          const walkCard = g?.cardFor?.('prairie__prairie_calumet_18_20|walk')?.sidecar?.attributes?.material;
+          const grid = g?.grid ? {
+            census: g.census, meshes: gridMeshes,
+            lot: g.parcelAt(lotMid[0], lotMid[1])?.id ?? null,
+            onWalk: !!face?.bands?.walk?.some((q) => pip(a.scene.spawn.local_e, a.scene.spawn.local_n, q)),
+            prairie: paving('prairie_18_20'), eighteenth: paving('e18th_prairie_calumet'),
+            walk: walkCard ? `${walkCard.value} (${walkCard.confidence})` : null,
+          } : null;
+          return {
+            grid,
+            e: a.walker.state.e, n: a.walker.state.n, bearing: a.walker.bearingDeg,
+            eye: a.camera.position.y - a.terrain.surfaceHeight(a.walker.state.e, a.walker.state.n),
+            spawn: a.scene.spawn, anchor,
+            corner: a.project(neLot[0], neLot[1], lift(neLot[0], neLot[1])),
+            middle: a.project(lotMid[0], lotMid[1], lift(lotMid[0], lotMid[1])),
+            drawn, registry: a.registry.size, placed: [...a.registry.keys()].sort(),
+            house: house ? { loaded: !!house.gltf, archetype: house.sidecar?.archetype ?? null,
+              front, hits: frontHits } : null,
+            problems: a.problems.filter((p) => !/provisional|PLACEHOLDER|placeholder/i.test(p)),
+            budget: { calls: s.drawCalls, triangles: s.triangles, within: s.withinBudget, fps: s.fps,
+              ceiling: s.budget },
+          };
+        }, { neLot, lotMid, ghFront });
+        const off = (x, y) => Math.abs(((x - y + 540) % 360) - 180);
+        check(`${label}: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739)`,
+          Math.hypot(at.e - at.spawn.local_e, at.n - at.spawn.local_n) < 0.5
+          && off(at.bearing, at.spawn.yaw_deg) < 1
+          && at.anchor && at.anchor.local_e === at.spawn.local_e && at.anchor.local_n === at.spawn.local_n
+          && at.anchor.yaw_deg === at.spawn.yaw_deg
+          && at.eye > 1.2 && at.eye < 2.0,
+          `stood at E ${at.e.toFixed(2)} N ${at.n.toFixed(2)} bearing ${at.bearing.toFixed(2)}, eye ${at.eye.toFixed(2)} m; `
+          + `spawn ${JSON.stringify(at.spawn)}; anchor ${JSON.stringify(at.anchor)}`, true);
+        const inFront = (p) => p.z > -1 && p.z < 1;
+        check(`${label}: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739)`,
+          inFront(at.middle) && at.middle.x > -1 && at.middle.x < 0 && Math.abs(at.middle.y) < 1
+          && inFront(at.corner) && at.corner.x > at.middle.x,
+          `lot centroid E ${lotMid[0].toFixed(2)} N ${lotMid[1].toFixed(2)} at NDC `
+          + `(${at.middle.x.toFixed(3)}, ${at.middle.y.toFixed(3)}, z ${at.middle.z.toFixed(4)}); `
+          + `street corner at NDC x ${at.corner.x.toFixed(3)}`, true);
+        // T-1732 moved one clause of this check, and only one: `structures` is the layer
+        // the Glessner House is drawn in, so it is no longer asserted empty. What it held
+        // — that nothing of the 1835 town is placed here — is now held by name: the
+        // scene places exactly one structure, and it is glessner_house.
+        const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)`,
+          stray.length === 0 && at.registry === 1 && at.placed.length === 1
+          && at.placed[0] === 'glessner_house',
+          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
+        const houseHits = at.house?.hits ?? [];
+        check(`${label}: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)`,
+          !!at.house && at.house.loaded && at.house.archetype === 'masonry_house'
+          && at.drawn.structures > 0
+          && inFront(at.house.front) && Math.abs(at.house.front.x) < 1 && Math.abs(at.house.front.y) < 1
+          && houseHits.filter((id) => id === 'glessner_house').length >= 5,
+          `house ${JSON.stringify(at.house)}; structures meshes ${at.drawn.structures}`);
+        check(`${label}: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)`,
+          !!at.grid && at.grid.meshes >= 5 && at.grid.census.parcels >= 80 && at.grid.census.carriageways >= 10
+          && at.grid.lot === 'prairie_1800' && at.grid.onWalk === true,
+          JSON.stringify(at.grid));
+        // T-1728: every carriageway, alley and band is surfaced (the census counts a
+        // record once it has a surface; the grid has 14 + 7 + 31 faces x 4 bands),
+        // the seven materials arrived as maps, and the two roadways at the door read
+        // as the city's records name them: Prairie at 18th the 1903 sheet asphalt,
+        // 18th Street the December 1904 macadam, both attested; the walk is ours.
+        check(`${label}: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)`,
+          !!at.grid && at.grid.census.surfaced >= 14 + 7 + 31 * 4 && at.grid.census.textured >= 7
+          && at.grid.prairie === 'sheet asphalt (attested)'
+          && at.grid.eighteenth === 'macadam (crushed limestone) (attested)'
+          && /cement/.test(at.grid.walk ?? '') && /reconstructed/.test(at.grid.walk ?? ''),
+          JSON.stringify({ census: at.grid?.census, prairie: at.grid?.prairie, eighteenth: at.grid?.eighteenth, walk: at.grid?.walk }));
+        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
+          at.problems.slice(0, 3).join(' | '));
+        check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
+          `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
+          + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
+      }
+    }
+
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
     } catch (e) {

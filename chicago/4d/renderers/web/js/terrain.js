@@ -52,7 +52,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
 
-export const DEG = Math.PI / 180;
+// DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
+// so a caller that needs only those does not load three behind them (T-1257).
+import { DEG, bearingToYaw, yawToBearing } from './angles.js';
+export { DEG, bearingToYaw, yawToBearing };
 
 /** The vertical datum: the summer-1835 lake and river water surface. */
 export const WATER_Y = 0;
@@ -238,15 +241,6 @@ export function worldToEnu(v) {
   return { e: v.x, n: -v.z, y: v.y };
 }
 
-/** dataset compass bearing (deg, 0 = N, clockwise) -> three yaw about +Y. */
-export function bearingToYaw(deg) {
-  return -deg * DEG;
-}
-
-/** three yaw about +Y -> dataset compass bearing, normalised to [0, 360). */
-export function yawToBearing(yaw) {
-  return ((-yaw / DEG) % 360 + 360) % 360;
-}
 
 /**
  * A regular grid of elevations, sampled bilinearly.
@@ -371,11 +365,13 @@ export class Heightfield {
  * @param {URL} o.dataBase        where data/ lives
  * @param {URL} o.assetBase       where the GLBs live
  * @param {string} o.epochId      terrain epoch, from the scene file
+ * @param {URL|null} [o.substrateBase] where the flora manifest the ground's sand and
+ *                                marsh colours come from lives; null paints none
  * @param {object} [o.confidence] the confidence view, to patch the materials into
  * @param {string[]} [o.problems] collector, same list the scene loader writes to
  */
 export async function createTerrain({
-  dataBase, assetBase, epochId, confidence = null, problems = [],
+  dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -398,7 +394,9 @@ export async function createTerrain({
 
   // ---- the ground -------------------------------------------------------- //
 
-  const groundMat = groundMaterial(await substrateZones(dataBase, problems));
+  // `substrateBase` is null for a scene that plants none of the 1835 zones (T-1739):
+  // their extents are what paint the sand belt and the marsh, so it gets none of them.
+  const groundMat = groundMaterial(await substrateZones(substrateBase, problems));
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.

@@ -89,6 +89,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 # that counted a family under a different group than `reconcile_665` does would move
 # roofs between cells nobody else can see.
 from reconcile_665 import group_of  # noqa: E402
+from town_year import touches_year  # noqa: E402  (T-1732)
 # The two measurements this adjudication stands on, both over committed geometry:
 # which street each roof stands nearest and how far off its line, and what traffic
 # class that street carries.
@@ -133,8 +134,10 @@ def load(root: Path = ROOT) -> dict:
 
 
 def structure_records(root: Path = ROOT) -> list[dict]:
-    return [json.loads(p.read_text(encoding="utf-8"))
+    # T-1732: the 1835 town's records only — tools/town_year.py says why by year.
+    recs = [json.loads(p.read_text(encoding="utf-8"))
             for p in sorted((root / "data" / "structures").glob("*.json"))]
+    return [r for r in recs if touches_year(r)]
 
 
 # ------------------------------------------------------------- the standing --
