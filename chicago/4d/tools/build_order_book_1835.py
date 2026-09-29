@@ -451,7 +451,18 @@ STRUCTURE_TICKETS = {
     # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
     # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
     # (Moved by T-1732's run, which found dev red on this step after the split.)
-    ("north", "ordinary_dwellings"): "T-1754",
+    #
+    # AND T-1754 WAS SPLIT on 2026-09-29 (T-1756, T-1757) by the run that took the cell's
+    # next roofs, which fired the gate a fourth time on the same rule: "has 32 left and is
+    # ordered by T-1754, which is split". The split was made because T-1754's three clauses
+    # could not be one demonstration on this tree -- its cass lots wait on T-1753's first
+    # roofs, which are open in PR #189 and not on dev, and its Rush-Pine fringe blocks are
+    # apportioned no roofs at all by the district deal. Same test as every move above: which
+    # child raises the dwellings that are LEFT. T-1756 is one block's further lots,
+    # blk_indiana_north_wolcott dealt two more cottages with the rest of the block open in
+    # its own title; T-1757 is the further cass lots and the Rush-Pine fringe -- the cell's
+    # remainder again, so what is left after T-1756 is its.
+    ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
