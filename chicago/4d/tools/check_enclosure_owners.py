@@ -49,7 +49,8 @@ SIDECARS = DATA / "sidecars" / "1835"
 GENERATED = {"town_lot_line_boards", "town_lot_line_pickets", "town_lot_line_rails",
              "town_dooryard_pickets"}
 # The records written by hand against a building, whose authored owner is evidence.
-AUTHORED = ["sauganash_yard", "western_hotel_wagon_yard", "estray_pen"]
+AUTHORED = ["sauganash_yard", "western_hotel_wagon_yard", "estray_pen",
+            "wolf_point_tavern_yard", "miller_house_yard"]
 
 
 def load(path: Path):
