@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1226, ts: '2026-09-29T05:39:45.826Z', date: 'Sep 29, 2026, 12:39 AM CT', title: 'A second Glessner House to compare: version v2', kind: 'feature',
+    items: [
+      'Add &structure=glessner_house&version=v2 to a /4d/dev/1904/ address and the house at Prairie and Eighteenth is swapped for a second build, made separately from the same drawings and photographs so the two can be compared side by side.',
+      'The biggest difference is the roof. v2 puts the Prairie Avenue ridge four feet back toward the courtyard, where the chimneys and a 1965 survey photograph of the Eighteenth Street gable place it, so the street slope is longer and gentler and the courtyard slope steeper.',
+      'The round tower at the corner is larger, about twenty feet across under its cone, and the Eighteenth Street eave and the coach-house roof are read off four 1965 survey photographs the first build did not use.',
+      'The house sits on the alley line the 1911 insurance map draws, about a foot west of the first build.',
+      'The colours are v2\u2019s own choice: granite darkened by seventeen years of coal smoke, and copper gone brown rather than green. No record shows the house in colour, so they are marked as reconstruction.',
+    ] },
   { v: 1225, ts: '2026-09-29T04:58:02.211Z', date: 'Sep 28, 2026, 11:58 PM CT', title: 'Prairie Avenue paved: 1904 asphalt, macadam, sidewalks and curbs', kind: 'feature',
     items: [
       'At /4d/1904/ the streets are no longer placeholder grey. Prairie Avenue in front of the Glessner corner is dark sheet asphalt, 18th Street beside it pale crushed-stone macadam, and every block has a cement sidewalk, a strip of lawn and a stone curb.',

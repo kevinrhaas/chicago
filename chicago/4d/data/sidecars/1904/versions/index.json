@@ -1,5 +1,16 @@
 {
   "scene": "1904",
   "standard": "T-1727. The committed alternates of single structures, selected by ?structure=<id>&version=<label>. Fetched by the renderer only when the address asks for a version — never at boot — and each row swaps exactly one building of this scene for its alternate record and mesh. version=default names the canonical record.",
-  "structures": {}
+  "structures": {
+    "glessner_house": [
+      {
+        "label": "v2",
+        "summary": "An independent build: the east wing's ridge read 4 ft toward the courtyard (from the chimneys and the 1965 north plate), a larger north tower, 18th Street and stable heights from the HABS photogrammetric plates, the house on the alley line, and a smoke-weathered palette.",
+        "test_fixture": false,
+        "phase": "as_built_1887",
+        "sidecar": "sidecars/1904/versions/glessner_house/v2.json",
+        "asset": "gltf/versions/glessner_house/v2/glessner_house__as_built_1887.glb"
+      }
+    ]
+  }
 }

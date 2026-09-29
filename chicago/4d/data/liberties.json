@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 300,
+  "count": 301,
   "liberties": [
     {
       "id": "L1",
@@ -18680,6 +18680,152 @@
         {
           "label": "Related",
           "text": "**L293**, **L296**, `docs/RESEARCH/prairie_1904_street_surfaces.md`, **T-1728**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-29."
+        }
+      ]
+    },
+    {
+      "id": "L298",
+      "title": "The Glessner House, version v2: an independent build's own choices where the sources give no number",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.brick_tint"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.copper_tint"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.courtyard_gate_heights"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.courtyard_ground"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.dormer_depth"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.eave_cornice"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.front_door"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.gable_west_wing_south"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.granite_tint"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.opening_heights"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.openings_court_north"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.openings_stable_doors"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.porte_cochere_doors"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.roof_tint"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.trim_tint"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.turret_stable"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.vines"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.wood_tint"
+        }
+      ],
+      "recorded": "2026-09-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`data/structures/versions/glessner_house/v2.json` (T-1730) is a second, independent build of 1800 Prairie Avenue for the owner's side-by-side comparison with the default (**L295**). It re-reads HABS IL-1015 (sheets 2–6, photographs 1 and 13) and four photogrammetric plates the default did not read (photographs 14–17), and it takes no geometry from a source whose rights are `check_required` except the dining bay's roof form, which only HABS photograph 5 shows. Where no source gives a number, v2 chose one, and **these are ours:** - **Colours**, all of them, bounded differently from L295: v2 draws the granite **smoke-weathered** (a darkened warm brown-grey, sRGB #6e5c56), reasoning that by 1904 the walls had stood 17 years some 500 ft from the Illinois Central main line in a coal-burning city, between the fresh stone of 1887 and the near-black of HABS 1963; the courtyard brick a light pink (#b27c6a, \"light pink brick\", HABS); the Joliet limestone a buff grey (#b4ab98); the unglazed tile a weathered red (#8a4131); the copper a dull brown-green bronze (#4d4f3e), because urban copper browns for decades before it greens; the oak dark (#4a3322). Nothing read shows any of them in colour. - **The dormers' depth** (faces at W 25.0, 3 ft deep) — set where v2's steep court slope meets the dormer sill course; no plan shows them. - **The stable turret's size** (5 ft square, apex about 6 ft above the ridge, at S 7.5) — its form is photograph 1's, its numbers read from that photograph's perspective. - **The stable's south end** as a plain gable, and **its 1904 carriage doors** as paired oak leaves: the doorway is photograph 15's, the doors were replaced in 1946. - **The heights of every opening read off a plan**: the north range's courtyard windows (first floor 9.5–15.0, second 20.0–25.0), the alley wall's stall lights (6.5–9.0), its wide door (to 9.5) and loft windows (15.0–19.5), and the small second-floor corridor windows on 18th Street (20.5–23.2, read in perspective off photograph 1). - **The projections of the cornices** (the Prairie cornice and string course are sheet 6's in height; how far they stand out, and the 18th Street eave moulding, are ours). - **The alley gate's heights** (wall 10.0, gate 8.5, pier 11.0). - **The courtyard ground**: a straight crushed-stone drive from the underpass exit to the alley gate along the south side — both openings are measured, and HABS says the court was paved only in 1946 — with lawn elsewhere. - **The vines are not drawn**, and the porte-cochère and front doors are flat oak panels, as in L295. **What v2 read instead of choosing** (and so is NOT a liberty): the east wing's ridge 4 ft west of its centre line (W 17.3), from the north plate and the chimneys' faces; the north tower's size (19.7-ft cone) and axis (S 9.7) from sheet 4, its W 35 from photographs 1 and 14; the stable's ridge (W 140.2, 38.0 ft) and both eaves from the level plate 15; the 18th Street eave (23.8) from plates 13 and 15; the hall bow's low copper roof from sheet 4 and HABS; the E-W spans of the four stacks. `docs/RESEARCH/glessner_house_1904.md` § 14 lists each reading beside the default's."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor opening `?structure=glessner_house&version=v2` sees the Prairie front and the 18th Street masses measured, a roofscape read differently from the default, and colours and courtyard details that are v2's own within the bounds above."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the same evidence that resolves L295 — a colour photograph or stone sample for the palette, the Houghton roof plan for the ridge and the dormers, the HABS field notes FN-128 for the alley and courtyard heights, a dated photograph between 1888 and 1923 for the courtyard and vines."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.granite_tint`, `glessner_house.as_built_1887.form.brick_tint`, `glessner_house.as_built_1887.form.trim_tint`, `glessner_house.as_built_1887.form.roof_tint`, `glessner_house.as_built_1887.form.copper_tint`, `glessner_house.as_built_1887.form.wood_tint`, `glessner_house.as_built_1887.form.dormer_depth`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.gable_west_wing_south`, `glessner_house.as_built_1887.form.openings_stable_doors`, `glessner_house.as_built_1887.form.openings_court_north`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.eave_cornice`, `glessner_house.as_built_1887.form.courtyard_gate_heights`, `glessner_house.as_built_1887.form.courtyard_ground`, `glessner_house.as_built_1887.form.vines`, `glessner_house.as_built_1887.form.porte_cochere_doors`, `glessner_house.as_built_1887.form.front_door`"
+        },
+        {
+          "label": "Related",
+          "text": "**L295** (the default's liberties), `docs/RESEARCH/glessner_house_1904.md` § 14, **T-1730**, **T-1732**, **T-1731**, **T-0475**."
         },
         {
           "label": "Recorded",

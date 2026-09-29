@@ -1,0 +1,28 @@
+{
+ "id": "habs_glessner_photo_15_north_stable_1965",
+ "type": "photograph",
+ "citation": "Perry E. Borchers (Ohio State University) for HABS, 'North elevation: right stereopair', copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-203L, John J. Glessner House, 1800 South Prairie Avenue, Chicago, 1965. HABS IL-1015 photograph 15 of 17 (call number HABS ILL,16-CHIG,17--15). Library of Congress.",
+ "author": "Perry E. Borchers (HABS)",
+ "date": "1965",
+ "describes_date": "1965",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS). Master TIFF 060917pu.tif in the owner's Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos (checksummed in chicago/prairie_1904_v1/research/acquired-files.json); 1800 px web copy committed at chicago/prairie_1904_v1/research/public/glessner-habs-photo-15.jpg (Prairie library, PR #169); the index to photographs (glessner-habs-photo-captions.pdf, same folder) gives the caption and plate number.",
+ "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+ "locator": "The whole plate: the west end of the north range and the stable's north gable, from the great arch to the NW corner, camera level.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Made for HABS (U.S. Government); LOC: no known restrictions. Measurements only; nothing derived as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-29 (T-1730, version v2). Scaled on the carriage doorway, 12 ft (17.75 px/ft at the wall plane), and checked against the NW corner, which reads W 161.3 for the printed 161.25. Ground at the doorway's sill (y ~700). The caption and plate number are the HABS index to photographs; the handle follows photograph 13's record (060915p), the plates being consecutive in the master TIFF series.",
+ "note": "A 1965 photogrammetric plate of the series sheet 6 was plotted from (photographs 13-17 are the Borchers plates; the index says 1-12 were transmitted earlier). Used only for masonry and roofs, which the 1946 alteration list (HABS data p. 2) does not touch.",
+ "what_it_supplies": [
+  "the stable's gable: rakes meeting at W 140.2, 38.0 ft above grade; the west eave 23.55",
+  "the 18th Street eave line at the west end of the north range (23.9)",
+  "the loft door, flanking lights, carriage doorway, and the north range's west-end windows and service door, with heights",
+  "the band of lights over the great arch"
+ ],
+ "what_it_does_not_supply": [
+  "the stable's turret above the top edge",
+  "the 1904 doors (the 1946 replacements are shown)"
+ ]
+}
