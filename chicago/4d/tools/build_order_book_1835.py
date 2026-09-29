@@ -408,17 +408,16 @@ STRUCTURE_TICKETS = {
     # divides to lots — ground control, the rule T-1437 withheld, and it raises nothing.
     # T-1742 was this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
-    # small cottages. It was the only live descendant that raises a dwelling, so the 35 were its.
+    # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
     #
-    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), for the same reason one level
-    # down: the cell is 35 roofs and the district's committed reading will not carry them all in
-    # one deal. `docs/RESEARCH/1835_north_division_extent_and_infill.md` requires the addition to
-    # read speculative rather than occupied — "most legal frontage empty", the outer addition
-    # "visibly speculative" — and the seating pass asks twenty roofs of the two blocks the lot
-    # reading opened. T-1747 raised the first four of them on `blk_indiana_north_wolcott` and
-    # left ten of that block's twelve lots open; T-1748 owns the rest of the addition and the
-    # north tier, which is what remains of this cell, so the cell is T-1748's. T-1746 carries the
-    # disagreement between the two committed files and orders no roof of its own.
+    # AND T-1742 WAS SPLIT IN TURN on 2026-09-29 (T-1747, T-1748), one roof-raising run into
+    # the cell, which fired this same gate again inside the hour: "has 34 left and is ordered
+    # by T-1742, which is split". The row moves once more, by the same rule and to the same
+    # test — which of the children raises the dwellings that are LEFT. T-1747 is one block,
+    # blk_indiana_north_wolcott's first roofs on its Indiana and Illinois faces, and says in
+    # its own title that the rest of that block's lots stay open. T-1748 is "the rest of
+    # Kinzie's Addition and the north tier", the remaining wolcott lots and the Rush-Pine
+    # fringe: it is this cell's remainder in as many words, so the 34 are its.
     ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
