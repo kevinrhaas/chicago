@@ -270,13 +270,21 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # debt is cumulative, so T-1742's four and T-1732's Glessner House are counted first
 # and the eleven go on top of them.
 #
+# 460 -> 464 and 456 -> 460 on 2026-09-29 (T-1756): the four roofs of the SECOND deal on
+# `blk_indiana_north_wolcott` — two more one-room frame cottages on lots 4 and 5 with a
+# woodshed and a privy off the alley behind them, which completes the alternation the
+# north-division memo describes on both faces of that block. Four new structure assets on
+# the same terms as every entry above: four more meshes the shared generator modules or
+# emit.py would re-stale, the terrain reach still 4 and pier_crib still 2. Nothing about
+# the debt itself moved.
+#
 STATED = {
-    "assets": 460,
+    "assets": 464,
     "restales": {
-        "generators/common/*.py": 460,
+        "generators/common/*.py": 464,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 456,
+        "generators/emit.py": 460,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
