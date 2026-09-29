@@ -293,7 +293,19 @@ STRUCTURE_TICKETS = {
     # dwellings — the country seats' reconstructed neighbours and the Fort Dearborn Addition —
     # and closes the district's books, so the row moves to T-1710 when T-1708 closes with the
     # cell still owing, the same rule T-1681 was named under one line down.
-    ("south", "ordinary_dwellings"): "T-1708",
+    #
+    # SWEPT ONTO T-1751 ON 2026-09-29, AND NOT ONTO T-1710, BECAUSE T-1710 IS ITSELF `split`.
+    # T-1708 raised eleven roofs on `blk_washington_wells` and closes with the cell still
+    # owing 59, so the rule above asks for the row to move — but the successor it names went
+    # to `split` while this tier was being dealt, and a bucket whose owning ticket is split
+    # orders work nobody can claim, which is the exact red this comment block was written
+    # about. The tier's other two dealt blocks, T-1735 (`blk_washington_lasalle`) and T-1736
+    # (`blk_washington_clark`), are both in `review` and close with their own pull requests,
+    # so neither can hold the cell either. T-1751 is filed for the next block of the same
+    # tier — `blk_washington_franklin`, which the platted deal holds seven slots on — and it
+    # is an ordinary-dwelling build in the South Division in as many words. The row moves to
+    # T-1710 when that ticket is live again and this cell still owes.
+    ("south", "ordinary_dwellings"): "T-1751",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -409,7 +421,16 @@ STRUCTURE_TICKETS = {
     # T-1742 is this cell in as many words: it builds the addition and the north tier to their
     # seats on the lots that reading cuts, the labourers' and mechanics' cabins, shanties and
     # small cottages. It is the only live descendant that raises a dwelling, so the 35 are its.
-    ("north", "ordinary_dwellings"): "T-1742",
+    #
+    # AND T-1742 WAS ITSELF SPLIT on 2026-09-29 (T-1747, T-1748), so the row moved once more
+    # on the same rule and for the same red: the gate read "structures/ordinary_dwellings/
+    # north has 34 left and is ordered by T-1742, which is split". Of the two children T-1747
+    # builds blk_indiana_north_wolcott's first roofs only — one block of the addition — and
+    # closes with it; T-1748 carries the rest, blk_indiana_north_cass's cottages, the
+    # remaining Wolcott lots and the scattered better houses on the Rush-Pine fringe. The
+    # cell outlives the first and is the second's in as many words, so it goes to T-1748
+    # rather than to the block in hand.
+    ("north", "ordinary_dwellings"): "T-1748",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",
