@@ -10830,9 +10830,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 79 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 83 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 79 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 83 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10841,7 +10841,9 @@ records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four ro
 `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on
 ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie
 on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal
-commissioners and this register does not hold them). The construction is
+commissioners and this register does not hold them; and 79 to 83 the same day, T-1753's four
+on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach
+the register for the same reason and change nothing about how). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -10869,11 +10871,14 @@ tract line than that drops to `reconstructed`, and the metres are printed on the
 the 69 stand at the bottom tier**, and mostly not for geometry: 44 of them are roofs a recipe
 dealt to a lot, and nothing on an invented structure may outrank the invention that put it
 there — the tract is real, but the claim that THIS roof stands on it is the recipe's.
-Re-measured 2026-09-29 with T-1747's four in the file: **56 of the 79 stand at the bottom
-tier, 44 of them roofs a recipe dealt to a lot**, and the four new ones are all four of both
-counts — each stands more than 50 m inside the tract boundary, which on a documented building
-would carry the middle tier, and each is held at the bottom for the invention under it rather
-than for its geometry. Three of
+Re-measured 2026-09-29 with T-1747's four and T-1753's four in the file: **60 of the 83
+stand at the bottom tier, 48 of them roofs a recipe dealt to a lot**, and the eight new ones
+are all eight of both counts — each stands far inside the tract boundary (T-1753's four at
+172 m, 178 m, 171 m and 168 m), which on a documented building would carry the middle tier,
+and each is held at the bottom for the invention under it rather than for its geometry. The
+margin is not close and is not the point: this tract is a whole section fraction, so a roof
+anywhere in Kinzie's Addition sits hundreds of metres from its boundary, and what the tier
+records is that the roof itself is invented. Three of
 the remaining seven are the fort's own service buildings, added 2026-09-06 by T-0883, and they
 are at the bottom tier for the ordinary geometric reason rather than for an invention behind
 them: the wash house stands 12.9 m from a tract line and the shop 39.1 m, both inside the 40 m
@@ -14106,7 +14111,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 426 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 430 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14120,7 +14125,10 @@ frame cottages on the plat's last tier and the privy and woodshed in their yards
 them shingled by this exposure like every other frame roof the block recipe raises. T-1747's
 first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in
 Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off
-the alley behind them, on lot lines read off Wright's sheet only the day before. No record's
+the alley behind them, on lot lines read off Wright's sheet only the day before. T-1753's
+first deal on `blk_indiana_north_cass` makes 430, the same four shapes on the next cell east
+across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather
+than a new one. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -16421,5 +16429,78 @@ memo itself comes closest to, and the reason only two principal roofs stand here
 **L100** and the other block entries of this row, **L263** (the shingle exposure all four
 take), **L270** (the platted deal this block answers), **L292** (the same shape of deal on the
 plat's last tier), **T-1741** (the lot lines), **T-1747** (this deal, the first piece of
-**T-1742**), **T-1748** (the rest of the addition), **T-1746** (the disagreement).
+**T-1742**), **T-1748** (the rest of the addition, split the same day into **T-1753** and
+**T-1754**), **L295** (the next cell east, dealt the same way), **T-1746** (the disagreement).
+**Recorded:** 2026-09-29.
+
+### L295 — Two more invented cottages in Kinzie's Addition, and a set-out moved so two blocks do not read as one street
+
+**Decision:** `blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
+immediately east of **L294**'s, and standing empty until now — carries **four anonymous
+roofs**: two of the single-room frame cottages the 665-roof programme's schedule apportions
+it, on lots 8 and 9 back to back across the block alley, with a privy and a woodshed off that
+alley behind them, one to a lot. The family mix and the ceiling are the schedule's;
+**everything below that is invented** — that any building stood on this block in July 1835,
+which buildings they were, that they were dwellings, which lot each stands on, how far back
+from its street edge it sits and how far to one side of its lot. No coordinate is authored:
+every metre is read off the committed lot polygon by `tools/generate_block_infill.py` from the
+recipe entry in `data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why two and not eleven is the same answer L294 gave, and it is still the memo.**
+T-1522's placement pass wrote ELEVEN slot requests against this block and the schedule offers
+it 43 roofs of headroom, so neither the seating nor the programme is what stopped at two. The
+binding constraint is `docs/RESEARCH/1835_north_division_extent_and_infill.md`, this project's
+committed reading of what the North Division looked like in July 1835: the primary maps
+establish a substantially larger PLATTED north side and show no buildings on it, so the build
+must leave "most legal frontage empty" and keep "the outer addition visibly speculative rather
+than being mistaken for an occupied city". Eleven roofs on twelve lots is the occupied city
+that memo refuses. Ten of the block's twelve lots are named open with a reason each, and 16 of
+the 20 roofs its schedule apportions stay unbuilt. **T-1746** still carries the disagreement
+between the twenty roofs the seating asks of this addition's two subdivided blocks and the
+memo that will not carry twenty; this deal neither builds the surplus nor withdraws it.
+
+**THE ONE THING HERE THAT IS NOT A REPEAT OF L294 IS THE SET-OUT, AND IT IS A LIBERTY IN ITS
+OWN RIGHT.** The wolcott block's two cottages stand 6.0 m back from Indiana and 5.0 m from
+Illinois; these stand 5.5 m and 6.5 m, the deeper one on the opposite face. **Nothing states
+any of the four numbers**, and nothing states the difference between them either — it is
+chosen, and chosen for a reason the memo gives: frontage on this side of the river "alternates
+between roof and open yard" with no continuous street wall, and two adjacent blocks set out to
+one pattern would read across Cass Street as a single line of houses, which is the one thing
+that reading refuses. So the invention is not that the numbers are invented — every set-out on
+this row is — but that a VISIBLE regularity was deliberately broken. A later reader is
+entitled to know the irregularity is ours and not a finding.
+
+**Both households that asked took the roofs raised for them, which is the other way round from
+next door.** The adoption step runs before the slot step, so both new roofs entered the seating
+pass as standing roofs an admitted clause could adopt; on `blk_indiana_north_wolcott` two
+unrelated households reached them first and the two requests the deal was sized against moved
+one block east. Here `hh_andrews_davi` took the lot 8 cottage and `hh_anderson_eli_f` the lot 9
+one — the two the deal was sized against. **That is the pass's ordering and not a promise**:
+the same precedence produced the opposite result one block west on the same day, and **T-1626**
+carries the question of whether a roof raised in answer to a slot should be reserved for the
+household that asked. Nothing here answers it.
+
+**Both faces of this block are unworn prairie, as next door.** Indiana Street and Illinois
+Street are graded `none` in the committed street hierarchy — no through movement is modelled on
+either — so the face rule that ranks dwellings by street class has nothing to separate the two
+requests. A dwelling is not a shop; the face-value clause that would refuse a roof on an unworn
+street reaches only the trade letters.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Indiana and Illinois, Cass and Rush, and a transcription of Wright's lot numerals
+for the Addition. A named discovery substitutes for a compatible anonymous roof and never
+increases the total. Any evidence that Kinzie's Addition was still wholly unbuilt in July 1835
+would retire all four of these rather than re-place them — the reading the memo itself comes
+closest to, and the reason only two principal roofs stand here. A block-level order or any
+source on setbacks in the Addition would replace the four set-out numbers outright.
+
+**Covers:** `recon_1835_blk_indiana_north_cass_*.inferred_1835.position`,
+`recon_1835_blk_indiana_north_cass_*.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L263** (the shingle exposure all four
+take), **L219** (the section grid that tells these four who entered their ground), **L270**
+(the platted deal this block answers), **L294** (the same deal on the next cell west, and the
+set-out this one moves away from), **T-1741** (the lot lines), **T-1753** (this deal, the
+first piece of **T-1748**), **T-1754** (the rest of the north tier), **T-1746** (the
+disagreement), **T-1626** (the precedence).
 **Recorded:** 2026-09-29.
