@@ -5017,3 +5017,7 @@ corrections, measured Glessner material, named-building histories and independen
 frontage/directory layers. This entry is a research cross-reference, not a new queue
 or a closure of those scene tickets. The target is 1904; the older terrain-date memo
 remains historical reasoning pending the existing construction work.
+
+## T-1767 - Selected-year arrival
+
+Arrival and jaunts now follow the chosen scene; 1904 has a Glessner orientation. The broader drawer-panel work remains T-1740.

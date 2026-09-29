@@ -202,15 +202,16 @@ export function replaySession(jaunt, saved, session = 1) {
 }
 
 /** Adapters own UI and travel. Tokens invalidate every obsolete completion. */
-export function createJaunts({ load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
+export function createJaunts({ scene = '1835', load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
   estimate = () => null, contextForRoute = () => null, storage: suppliedStorage }) {
+  const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
   if (storage === undefined) { try { storage = globalThis.localStorage; } catch { storage = null; } }
-  const clearSaved = () => { try { storage?.removeItem(SESSION_KEY); } catch { /* memory-only */ } };
+  const clearSaved = () => { try { storage?.removeItem(sessionKey); } catch { /* memory-only */ } };
   const persist = () => {
     if (!state.jaunt) return clearSaved();
-    try { storage?.setItem(SESSION_KEY, JSON.stringify({ content_version: state.jaunt.content_version,
+    try { storage?.setItem(sessionKey, JSON.stringify({ content_version: state.jaunt.content_version,
       jaunt: state.jaunt.id, events: state.events })); } catch { /* memory-only */ }
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
@@ -266,7 +267,7 @@ export function createJaunts({ load, resolve, place, travel, enter, showMenu, re
   async function restoreSession() {
     let saved;
     try {
-      const raw = storage?.getItem(SESSION_KEY);
+      const raw = storage?.getItem(sessionKey);
       if (!raw) return false;
       saved = JSON.parse(raw);
       if (!saved || typeof saved.jaunt !== 'string' || !Array.isArray(saved.events)) throw new Error('corrupt');

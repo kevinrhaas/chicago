@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',
+    items: [
+      'The arrival year, welcome and loading facts now follow your selected scene. Prairie Avenue rolls back to 1904 and welcomes you there.',
+      'A smaller arrival panel cycles through destination messages, with one loading-content line and a progress bar tied to scene readiness.',
+      'Jaunts belong to their own year. A short Glessner House orientation introduces the 1904 scene; saved outings stay with the year in which you began them.',
+    ] },
   { v: 1235, ts: '2026-09-29T13:47:33.222Z', date: 'Sep 29, 2026, 8:47 AM CT', title: 'A whole street of houses south of Washington', kind: 'change',
     items: [
       'Walk south down Franklin Street past Washington and the block between Washington and Madison, Franklin and Wells is built out. Seven houses stand on it, one to a lot, with the eighth lot left open: two small two-storey frame houses on the Washington corners, a merchant\u2019s house and a larger one-and-a-half-storey house between them, and three one-room cottages along the Madison side. It is the first block anywhere on the last row of the plat to carry a street of roofs rather than a pair of them.',

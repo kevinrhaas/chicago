@@ -32,7 +32,8 @@
       "pattern": "^[^<>]*$"
     },
     "scene": {
-      "const": "1835"
+      "type": "string",
+      "pattern": "^[0-9]{4}$"
     },
     "featured": {
       "type": "boolean"
