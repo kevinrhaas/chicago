@@ -451,7 +451,16 @@ STRUCTURE_TICKETS = {
     # open in its own title; T-1754 is "the north tier's remaining roofs", the further wolcott
     # and cass lots and the Rush-Pine fringe — the cell's remainder again, so the 32 are its.
     # (Moved by T-1732's run, which found dev red on this step after the split.)
-    ("north", "ordinary_dwellings"): "T-1754",
+    #
+    # AND T-1754 WAS SPLIT on 2026-09-29 (T-1756, T-1757), and the gate fired a fourth
+    # time: "has 32 left and is ordered by T-1754, which is split". Same rule, same test.
+    # T-1756 names its own bound — "two more tradesman cottages and their yard buildings
+    # on blk_indiana_north_wolcott, the alternation kept and the rest of the block open" —
+    # so it is a slice and not the rest. T-1757 is the further cass lots once that block's
+    # first roofs land AND the Rush-Pine fringe settled, which is where the order the
+    # other child does not take has to land, so the 32 are its.
+    # (Moved by T-1257's run, which found this step red on the tree it was merging.)
+    ("north", "ordinary_dwellings"): "T-1757",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

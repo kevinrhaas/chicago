@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1227, ts: '2026-09-29T06:42:08.624Z', date: 'Sep 29, 2026, 1:42 AM CT', title: 'History along your outing', kind: 'change',
+    items: [
+      'Open a building, person or source from a jaunt, then return to the same stop and choices. Reading pauses the ride without spending your resources.',
+      'Short road notes point out places along your planned route. Dismiss them while travelling and read them again at the next stop. Evidence chips distinguish documented history, inference and invented narrative.',
+    ] },
   { v: 1226, ts: '2026-09-29T05:42:58.607Z', date: 'Sep 29, 2026, 12:42 AM CT', title: 'A whole block of houses on Washington Street', kind: 'change',
     items: [
       'Walk west along Washington Street from La Salle and the block between Washington and Madison is built. Seven houses stand on it \u2014 a merchant\u2019s house on each Washington corner, two more between them, and on the quiet Madison side two tradesmen\u2019s cottages and a boarding house \u2014 with two privies, a woodshed and a stable off the alley behind them. It is the fullest block this project has raised on the last row of the plat, and the third of that row to be built at all.',

@@ -52,7 +52,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
 
-export const DEG = Math.PI / 180;
+// DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
+// so a caller that needs only those does not load three behind them (T-1257).
+import { DEG, bearingToYaw, yawToBearing } from './angles.js';
+export { DEG, bearingToYaw, yawToBearing };
 
 /** The vertical datum: the summer-1835 lake and river water surface. */
 export const WATER_Y = 0;
@@ -238,15 +241,6 @@ export function worldToEnu(v) {
   return { e: v.x, n: -v.z, y: v.y };
 }
 
-/** dataset compass bearing (deg, 0 = N, clockwise) -> three yaw about +Y. */
-export function bearingToYaw(deg) {
-  return -deg * DEG;
-}
-
-/** three yaw about +Y -> dataset compass bearing, normalised to [0, 360). */
-export function yawToBearing(yaw) {
-  return ((-yaw / DEG) % 360 + 360) % 360;
-}
 
 /**
  * A regular grid of elevations, sampled bilinearly.
