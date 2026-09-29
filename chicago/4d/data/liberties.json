@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 298,
+  "count": 300,
   "liberties": [
     {
       "id": "L1",
@@ -18608,6 +18608,82 @@
         {
           "label": "Recorded",
           "text": "2026-09-28."
+        }
+      ]
+    },
+    {
+      "id": "L296",
+      "title": "The 1904 Prairie Avenue walks, curbs and parkways: cement, sandstone and turf, and how every street surface looks",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-09-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every walk of the 1904 grid is drawn as **Portland cement concrete laid in 5 x 6 ft blocks**, every curb as **sandstone curbstones**, and every parkway and every one-foot margin inside the walk as **mown turf** (`data/street_surfaces/1904.json`, `bands`). No record read says what the walks, curbs or parkways of these blocks were made of on 1 July 1904; all three are reconstructed. **And the look of every surface is ours**, attested ones included: the colour, grain, wear, joint lines, stone lengths and brick size of the seven procedural materials in `assets/textures/prairie_1904_pbr/` (sheet asphalt, macadam, paving brick, earth and cinders, cement walk, sandstone curb, turf). A record that says \"asphalt\" says nothing about how grey it was. **What bounds them.** The Revised Municipal Code of 1905 (`chicago_revised_municipal_code_1905`) allows a walk of cement concrete in 5 x 6 ft blocks (sec. 2062), of limestone (sec. 2068) or of cinders between wooden curbs (sec. 2070), and forbids building a new wooden one (sec. 2079); it asks for curbing \"of stone or white-oak plank, not less than three inches in thickness\" (sec. 2072), or concrete with a concrete walk (sec. 2066); it names the space between walk and curb a grass plat (sec. 2077). The Council's proceedings read for T-1728 show plank walks still outnumbering cement in 1899 and cement leading from 1902 (`chicago_council_proceedings_1899_v43`, `_1902_v49`, `_1903_v51`), and the Board of Local Improvements' 1902 full-text ordinances naming \"sandstone curbstones\" while a concrete curb and gutter is named in an ordinance's title whenever one is ordered — and the 1903 title for Prairie Avenue 16th–20th names curbing and no combined curb (`_1903_v50`). The later bound is the c. 1923 photographs of both Glessner frontages (`habs_glessner_house_il_1015_photographs` nos. 2, 3): a pale walk in jointed slabs, a grass parkway, a pale curb jointed in straight lengths. The block along the walk is five feet on the 6-ft walks and six on the 5-ft walk of 16th Street, from sec. 2062's own rule."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor at the /1904/ door stands on a cement walk beside a sandstone curb and a lawn, none of which any source places on this corner in 1904. The likeliest alternatives are limestone flags for the walk (an avenue walked since the 1870s), a concrete or white-oak curb, and, on the cross streets' older macadam, a plank curb."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a special-assessment ordinance for sidewalks or curbing on these streets 1880–1904 read in full (the Council prints only titles), the Board of Local Improvements' own ordinance files, a dated photograph before 1905, or Glessner House's records of its frontage."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/street_surfaces/1904.json` (`bands`, `materials`), `assets/textures/prairie_1904_pbr/`, `renderers/web/js/street-grid.js`."
+        },
+        {
+          "label": "Related",
+          "text": "**L293** (the widths these fill), **L297**, `docs/RESEARCH/prairie_1904_street_surfaces.md`, **T-1728**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-29."
+        }
+      ]
+    },
+    {
+      "id": "L297",
+      "title": "The 1904 Prairie Avenue roadways the records do not settle: two finished early, a curve carried, the alleys unimproved",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-09-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "where the city's own records do not decide a roadway or alley for 1 July 1904 it is drawn as follows (`data/street_surfaces/1904.json`): **Indiana Avenue 18th–22nd as finished sheet asphalt** — the Council passed its asphalt ordinance on 22 September 1902, pressed for the east side on 28 September 1903, and the Board of Local Improvements lists it paved between November 1903 and November 1906, so which side of the scene date it was finished on is not read; **Calumet Avenue 18th–20th as macadam** — the city's December 1904 repair survey names only its south 403 ft as macadam, and the rest, round the curve out of 18th Street, is carried from it; **every alley as graded earth dressed with cinders** — no paving record reaches six of them, and the seventh, the alley west of Prairie between 20th and 21st Street, was ordered paved with rock asphalt in May 1903 and was paved between November 1903 and November 1906, so it is drawn as it stood before and may already have been rock asphalt on the scene date."
+        },
+        {
+          "label": "Also ours, and drawn or left out",
+          "text": "where two roadways cross, the avenue's surface is drawn over the cross street's (Prairie over its cross streets, Indiana and Calumet over theirs); the Board's ordinances usually carried an avenue's paving a sidewalk-space deep into each side street, and those stubs are not drawn. The Chicago City Railway's double track on Indiana Avenue and on 18th Street (horse cars in 1896, `south_park_commissioners_municipal_code_1897`) is not drawn, nor the paving between its rails. No crown, no gutter and no curb reveal (L293)."
+        },
+        {
+          "label": "Consequence",
+          "text": "from the /1904/ door nothing here is in the foreground — Prairie Avenue at 18th is attested asphalt and 18th Street attested macadam — but the Indiana Avenue asphalt, the Calumet curve and every alley a visitor walks to are reconstructions."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the Board of Local Improvements' acceptance records or the Department of Public Works' annual reports for 1903–1905 would date the Indiana Avenue and alley pavings; a Department of Public Works street-improvement register, or the 1904 repair survey's other kinds, would name the rest of Calumet Avenue; a street-railway franchise map would place the tracks."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/street_surfaces/1904.json` (`carriageways.indiana_18_20`, `indiana_20_22`, `calumet_18_20`, every `alleys` entry, `priority`), `renderers/web/js/street-grid.js`."
+        },
+        {
+          "label": "Related",
+          "text": "**L293**, **L296**, `docs/RESEARCH/prairie_1904_street_surfaces.md`, **T-1728**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-29."
         }
       ]
     },

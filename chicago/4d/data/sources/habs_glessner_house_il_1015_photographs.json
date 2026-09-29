@@ -1,0 +1,28 @@
+{
+ "id": "habs_glessner_house_il_1015_photographs",
+ "type": "photograph",
+ "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015, photographs 1-17: no. 1 by Cervin Robinson, 23 July 1963; nos. 2-11 HABS photocopies of photographs in J. J. Glessner, The Story of a House (typescript, March 1923), captioned 'c. 1923'; no. 12 a photocopy of a preliminary design; nos. 13-17 copies of 1965 photogrammetric plates (Perry E. Borchers). Library of Congress, Prints and Photographs Division.",
+ "author": "Historic American Buildings Survey; Cervin Robinson (no. 1); J. J. Glessner's photographers (nos. 2-11, unnamed)",
+ "date": "1963-1965 (HABS); nos. 2-11 c. 1923",
+ "describes_date": "c. 1923 (nos. 2-11); 1963-1965 (nos. 1, 13-17)",
+ "repository": "Library of Congress, item il0118; the owner staged the 17 master TIFFs in the Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos, and 1800-px copies are committed in chicago/prairie_1904_v1/research/public/glessner-habs-photo-NN.jpg (checksums in its acquired-files.json; captions in its glessner-dossier.json, photo_acquisition)",
+ "url": "https://www.loc.gov/item/il0118/",
+ "archived_url": "https://archive.org/details/master-pnp-habshaer-il-il0100-il0118-photos",
+ "locator": "No. 2, 'FRONT ELEVATION', photocopy c. 1923 (the Prairie Avenue frontage and the street in front of it); no. 3, '18th STREET ARCH', photocopy c. 1923 (the 18th Street walk, parkway and curb); no. 1, 'EXTERIOR FROM NORTHWEST', 23 July 1963 (18th Street and the corner).",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.' Nos. 2-11 are copies of photographs in Glessner's typescript, so nothing is derived from them: they are read, not traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-09-29 (T-1728) in the committed 1800-px copies of nos. 1, 2 and 3.",
+ "note": "LATER BOUNDS, NOT 1904 WITNESSES. The two c. 1923 views are the earliest dated photographs of the Glessner frontages in the repository, nineteen years after the scene. No. 2 (Prairie Avenue) shows, from the house outward, a pale walk laid in jointed slabs, a paved crossing from the front door over the grass to the curb, a grass parkway with a young tree, a pale curb jointed in straight lengths, and a smooth pale roadway. No. 3 (18th Street) shows a grass strip at the wall, the same jointed pale walk, a grass parkway and the same curb, with the roadway beyond. Both are consistent with a cement walk and a stone (or concrete) curb and cannot tell the two curbs apart at this resolution; neither can say what was there in 1904. No. 1 (1963) shows 18th Street patched asphalt with no parkway left on the Prairie side.",
+ "what_it_supplies": [
+  "the arrangement of walk, parkway and curb on both Glessner frontages c. 1923, and their appearance: jointed pale slabs, grass, a pale jointed curb",
+  "a later bound (c. 1923) on the reconstructed walk, curb and parkway materials"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 surfaces: the views are c. 1923",
+  "widths: the views are oblique and uncalibrated",
+  "any colour"
+ ]
+}

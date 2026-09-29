@@ -1,0 +1,45 @@
+{
+  "id": "sandstone_curbstone",
+  "directional": true,
+  "group": "curb",
+  "span_m": 3.6576000000000004,
+  "kind": "curb",
+  "mean_roughness": 0.85,
+  "colors": [
+    [
+      180,
+      171,
+      150
+    ],
+    [
+      140,
+      133,
+      118
+    ]
+  ],
+  "note": "Buff sandstone curbstones seen from above, two 6-ft stones per tile with a tooled top and weathered arrises. Sandstone is what the Board of Local Improvements' 1902-03 ordinances name when they name a curbstone; the stone and its length here are reconstructed (L296).",
+  "span_along_m": 3.6576000000000004,
+  "span_across_m": "band",
+  "resolution_px": 512,
+  "px_per_m": 139.98,
+  "confidence": "reconstructed appearance; which surface carries it is data/street_surfaces/1904.json's to say",
+  "orientation": "image x = along the street (renderer u); image y = across it (v); v spans the band's own width",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "sandstone_curbstone_basecolor_web.jpg",
+    "normal_gl": "sandstone_curbstone_normal_gl_web.jpg",
+    "orm": "sandstone_curbstone_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041206,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

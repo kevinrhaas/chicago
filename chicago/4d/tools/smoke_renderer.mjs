@@ -14882,10 +14882,19 @@ for (const [label, viewport, touch] of [
           let gridMeshes = 0;
           a.scene3d.getObjectByName('street-grid')?.traverse((o) => { if (o.isMesh || o.isLineSegments) gridMeshes += 1; });
           const face = g?.grid?.faces?.find((f) => f.id === 'prairie__prairie_calumet_18_20');
+          // T-1728: what the two roadways at the door are paved with, read off the
+          // cards a visitor opens, and how many surfaces carry their maps.
+          const paving = (id) => {
+            const at2 = g?.cardFor?.(id)?.sidecar?.attributes?.paving;
+            return at2 ? `${at2.value} (${at2.confidence})` : null;
+          };
+          const walkCard = g?.cardFor?.('prairie__prairie_calumet_18_20|walk')?.sidecar?.attributes?.material;
           const grid = g?.grid ? {
             census: g.census, meshes: gridMeshes,
             lot: g.parcelAt(lotMid[0], lotMid[1])?.id ?? null,
             onWalk: !!face?.bands?.walk?.some((q) => pip(a.scene.spawn.local_e, a.scene.spawn.local_n, q)),
+            prairie: paving('prairie_18_20'), eighteenth: paving('e18th_prairie_calumet'),
+            walk: walkCard ? `${walkCard.value} (${walkCard.confidence})` : null,
           } : null;
           return {
             grid,
@@ -14938,6 +14947,17 @@ for (const [label, viewport, touch] of [
           !!at.grid && at.grid.meshes >= 5 && at.grid.census.parcels >= 80 && at.grid.census.carriageways >= 10
           && at.grid.lot === 'prairie_1800' && at.grid.onWalk === true,
           JSON.stringify(at.grid));
+        // T-1728: every carriageway, alley and band is surfaced (the census counts a
+        // record once it has a surface; the grid has 14 + 7 + 31 faces x 4 bands),
+        // the seven materials arrived as maps, and the two roadways at the door read
+        // as the city's records name them: Prairie at 18th the 1903 sheet asphalt,
+        // 18th Street the December 1904 macadam, both attested; the walk is ours.
+        check(`${label}: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)`,
+          !!at.grid && at.grid.census.surfaced >= 14 + 7 + 31 * 4 && at.grid.census.textured >= 7
+          && at.grid.prairie === 'sheet asphalt (attested)'
+          && at.grid.eighteenth === 'macadam (crushed limestone) (attested)'
+          && /cement/.test(at.grid.walk ?? '') && /reconstructed/.test(at.grid.walk ?? ''),
+          JSON.stringify({ census: at.grid?.census, prairie: at.grid?.prairie, eighteenth: at.grid?.eighteenth, walk: at.grid?.walk }));
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
