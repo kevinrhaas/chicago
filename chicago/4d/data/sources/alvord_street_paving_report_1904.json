@@ -1,0 +1,26 @@
+{
+ "id": "alvord_street_paving_report_1904",
+ "type": "book",
+ "citation": "Alvord, John W. A Report to the Street Paving Committee of the Commercial Club on the Street Paving Problem of Chicago. Chicago: R. R. Donnelley & Sons, 1904.",
+ "author": "John W. Alvord",
+ "date": "1904",
+ "describes_date": "Chicago's pavements at the first of 1904",
+ "repository": "Internet Archive, digitized by Google from the University of Wisconsin-Madison copy; the Prairie library's civic-dossier.json row civic-paving-1904 names the same work (Google Books s8YNAAAAYAAJ, not downloaded there)",
+ "url": "https://archive.org/details/areporttostreet00commgoog",
+ "archived_url": "https://archive.org/download/areporttostreet00commgoog/areporttostreet00commgoog_djvu.txt",
+ "locator": "Part IV, the available pavements, printed pp. 20-25 (sheet asphalt, granite, brick, round cedar block, macadam; the summary of which pavement suits which street); Part V, 'The Local Problem', p. 26 (Chicago's 1,371 miles of improved streets and alleys classified by pavement).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published 1904 in the United States; public domain. The Google scan's usage note asks for non-commercial use of the file; nothing is derived from the scan.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-09-29 (T-1728) in the Internet Archive's OCR text of the scan (the djvu.txt at archived_url), at the printed pages the locator names; the passages are quoted as the OCR gives them with its scanning errors corrected. The page images were not opened.",
+ "note": "THE BOUND, NOT THE BLOCK. The Prairie library warns that 'a citywide paving report does not identify a particular block's surface', and this one names no block of the 1904 grid. It is used for what it can carry: the set of pavements a Chicago street could have in 1904 and their shares at the first of the year -- 'The City of Chicago had, at the first of this year, 1,371 miles of improved streets and alleys ... 708 miles of cedar block equals 52 per cent of the total. 421 miles of macadam equals 31 per cent ... 132 miles of asphalt equals 10 per cent ... 68 miles of brick equals 5 per cent ... 38 miles of stone block equals 2 per cent' (p. 26) -- and the engineering judgement of the day on which suits what: asphalt for 'high-class residence streets with considerable traffic', brick an 'excellent material for the pavement of alleyways', macadam 'relegated to the least traveled streets and the outlying districts, parks and boulevards' (pp. 24-25). Those bound the reconstructed surfaces; the attested ones come from the city's own records.",
+ "what_it_supplies": [
+  "the pavements available to a Chicago street in 1904 (sheet asphalt, granite and stone block, brick, round cedar block, macadam, creosoted block in trial) and their mileage at 1 January 1904",
+  "period guidance on which pavement suited residence streets, busy streets and alleys"
+ ],
+ "what_it_does_not_supply": [
+  "the surface of any street, alley, curb or walk in the 1904 grid"
+ ]
+}
