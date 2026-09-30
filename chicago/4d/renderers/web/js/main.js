@@ -1065,10 +1065,8 @@ async function boot() {
     version: VERSION_REQUEST,
     detail: detailLevel,
   });
-  const selectedInspection = loaded.versionState?.active?.id === 'glessner_house'
-    && loaded.versionState.active.label === 'v4';
   const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
-  const detailLevels = selectedInspection ? { ...DETAIL,
+  const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
       measured: 'Selected Glessner v4 inspection; see T-1730 at GLESSNER_V4_FULL_TRIANGLES.' },

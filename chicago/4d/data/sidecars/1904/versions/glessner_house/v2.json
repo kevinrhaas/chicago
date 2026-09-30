@@ -1929,10 +1929,27 @@
         "habs_glessner_house_il_1015_data_pages"
       ],
       "note": "The house of John Jacob and Frances Macbeth Glessner, designed by H. H. Richardson, 1885-87 (HABS data p. 1); the west wing was the family's stable and carriage house."
+    },
+    "present_status": {
+      "value": "Still standing — Glessner House museum",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_current_status"
+      ],
+      "geometry": "record_only",
+      "note": "Verified 2026-09-30 on the museum's official history page. The 1946 endpoint belongs to this modeled exterior phase: conversion for the Lithographic Technical Foundation changed the building, not ended its existence. This present-day status does not extend the unchanged 1904 model through the present."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "glessner_house_current_status",
+      "citation": "Glessner House, The House, section Preserving an Architectural Treasure. Read 30 September 2026.",
+      "url": "https://www.glessnerhouse.org/the-house",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
     {
       "source_id": "glessner_story_of_a_house_1923",
       "citation": "Glessner, John J. The Story of a House. Unpublished typescript booklet written for his children George and Frances, signed 'Faithfully your father, John J. Glessner', March 1923. Transcribed in full in HABS No. ILL-1015, Written Historical and Descriptive Data, data pages 7-21 (1963).",

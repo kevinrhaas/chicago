@@ -61,3 +61,20 @@ with tempfile.TemporaryDirectory() as directory:
     (recovery / "assets.zip.part00").write_bytes(archive[:-1] + b"X")
     refuses(lambda: materialize(root, recovery))
 print("PASS: deterministic three-file packing, selective restoration, and stale/corrupt refusal")
+
+# The owner's chosen default uses canonical paths, with the same integrity rules.
+with tempfile.TemporaryDirectory() as directory:
+    root = Path(directory) / "checkout"; recovery = Path(directory) / "package"
+    write_member(root, "data/structures/glessner_house.json", b"{}")
+    canonical = tuple(name.replace("versions/glessner_house/v4/", "") for name in TARGETS)
+    for name in canonical:
+        write_member(root, name, name.encode())
+    pack(root, recovery)
+    assert set(verified_members(recovery)) == set(canonical)
+    for name in canonical:
+        (root / name).unlink()
+    assert materialize(root, recovery) == 3
+    assert materialize(root, recovery, check=True) == 0
+    (root / canonical[0]).write_bytes(b"new canonical bake")
+    refuses(lambda: materialize(root, recovery))
+print("PASS: promoted canonical paths restore exactly and still refuse a divergent bake")

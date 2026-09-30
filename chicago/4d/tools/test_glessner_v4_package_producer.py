@@ -183,3 +183,30 @@ with tempfile.TemporaryDirectory() as directory:
         calls = [json.loads(line) for line in (root/'precision-calls.jsonl').read_text().splitlines()]
         assert calls[-1]['position_bits'] == expected, (rel, calls[-1])
 print("PASS: full/light producer/package lifecycle and exact-v4 precision; other paths retain prior bit depths")
+
+# Promotion changes ownership and paths, not the producer's safety obligations.
+with tempfile.TemporaryDirectory() as directory:
+    root, recovery, _ = fixture(directory)
+    canonical = tuple(name.replace("versions/glessner_house/v4/", "") for name in TARGETS)
+    for old, new in zip(TARGETS, canonical):
+        (root / old).replace(root / new)
+    write_member(root, "data/structures/glessner_house.json", b"{}")
+    key = KEY.replace("versions/glessner_house/v4/", "")
+    manifest = root / "assets/manifest.json"
+    manifest.write_text(json.dumps({"assets": {key: {}}}))
+    pack(root, recovery)
+    run(root, "--only", key)
+    assert set(verified_members(recovery)) == set(canonical)
+    entry = json.loads(manifest.read_text())["assets"][key]
+    assert entry["web_lods"]["light"]["asset"] == key.replace(".glb", ".light.glb")
+    calls = [json.loads(line) for line in (root / "precision-calls.jsonl").read_text().splitlines()]
+    assert calls[-1]["position_bits"] == 16
+    assert materialize(root, recovery, check=True) == 0
+    before, recorded = snapshot(recovery), manifest.read_bytes()
+    run(root, "--only", key, mode="lightfail", success=False)
+    assert snapshot(recovery) == before and manifest.read_bytes() == recorded
+    for name in canonical:
+        (root / name).unlink()
+    run(root, "--only", key)
+    assert materialize(root, recovery, check=True) == 0
+print("PASS: canonical producer preserves precision, receipts, recovery and failure atomicity")

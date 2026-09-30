@@ -126,12 +126,18 @@ def asset_key(sid: str, label: str, phase_id: str) -> str:
 # A rendering derivative of this same version, never a substitute historical build.
 # The opt-in is deliberately exact: default/v2/v3 and the rest of town are unchanged.
 GLESSNER_V4_KEY = "versions/glessner_house/v4/glessner_house__as_built_1887.glb"
+GLESSNER_DEFAULT_KEY = "glessner_house__as_built_1887.glb"
 GLESSNER_LIGHT_RECIPE = {"id": "glessner-v4-light-1", "position_bits": 16,
                        "gltf_transform": "4.5.0", "max_triangles": 200000}
 
 
 def lod_asset_keys(key: str) -> dict[str, str]:
-    return {"light": key[:-4] + ".light.glb"} if key == GLESSNER_V4_KEY else {}
+    return {"light": key[:-4] + ".light.glb"} if key in (GLESSNER_V4_KEY, GLESSNER_DEFAULT_KEY) else {}
+
+
+def glessner_detail_record(root: Path = ROOT) -> Path:
+    alternate = record_path("glessner_house", "v4", root)
+    return alternate if alternate.exists() else root / "data/structures/glessner_house.json"
 
 
 def lod_recipe_sha(root: Path = ROOT) -> str:
@@ -142,7 +148,7 @@ def lod_recipe_sha(root: Path = ROOT) -> str:
         ("tools/structure_versions.py", "tools/_glessner_lod.py")}
     # The current geometry source is part of the light recipe, not merely a
     # manifest claim. build-light also refuses a stale full master before it runs.
-    inputs = [root / "data/structures/versions/glessner_house/v4.json",
+    inputs = [glessner_detail_record(root),
               root / "generators/archetypes/masonry_house.py"]
     inputs.extend(sorted((root / "generators/archetypes").glob("masonry_house_v4*.py")))
     recipe["source_sha256"] = {p.relative_to(root).as_posix(): sha256_file(p)

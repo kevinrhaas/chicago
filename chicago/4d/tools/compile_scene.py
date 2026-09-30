@@ -2442,7 +2442,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "lot_address", "land_owner"):
+        for key in ("function", "occupants", "present_status", "lot_address", "land_owner"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
             cited.add(st["reconstruction"]["source_id"])
@@ -2457,7 +2457,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         for attr, a in (phase.get("form") or {}).items():
             attributes[attr] = {k: v for k, v in a.items() if k in
                                 ("value", "confidence", "sources", "note", "geometry")}
-        for key in ("function", "occupants"):
+        for key in ("function", "occupants", "present_status"):
             if key in st:
                 attributes[key] = {k: v for k, v in st[key].items() if k in
                                    ("value", "confidence", "sources", "note", "geometry")}
@@ -2662,6 +2662,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             skipped.append(st["id"])
             continue
         sidecar = build_sidecar(st, phase)
+        if st["id"] == "glessner_house" and phase.get("form", {}).get("detail_profile", {}).get("value") == "glessner_v4":
+            sidecar["asset_lods"] = {"light": "gltf/glessner_house__as_built_1887.light.glb"}
         emit(outdir / f"{st['id']}.json", sidecar)
         resolved[st["id"]] = phase
         index.append({"id": st["id"], "name": st["name"],

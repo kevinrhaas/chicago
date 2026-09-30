@@ -23,6 +23,12 @@ TARGETS = tuple(f"assets/{kind}/versions/glessner_house/v4/glessner_house__as_bu
 PART_BYTES = 6 * 1024 * 1024
 
 
+def targets(root=ROOT):
+    if (root / "data/structures/versions/glessner_house/v4.json").exists() or not (root / "data/structures/glessner_house.json").exists():
+        return TARGETS
+    return tuple(name.replace("versions/glessner_house/v4/", "") for name in TARGETS)
+
+
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
@@ -71,7 +77,7 @@ def materialize(root=ROOT, recovery=RECOVERY, check=False):
     missing = []
     # Check ALL existing files before writing any missing file. Never mask a
     # new bake by restoring the older packed result over it.
-    for name in TARGETS:
+    for name in targets(root):
         require(name in members, f"archive lacks {name}")
         target = root / name
         require(target.resolve().is_relative_to(root.resolve()), "path escapes checkout")
@@ -88,7 +94,7 @@ def materialize(root=ROOT, recovery=RECOVERY, check=False):
 
 
 def pack(root=ROOT, recovery=RECOVERY):
-    members = {name: (root / name).read_bytes() for name in TARGETS}
+    members = {name: (root / name).read_bytes() for name in targets(root)}
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zipped:
         for name, data in members.items():

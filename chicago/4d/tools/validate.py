@@ -221,7 +221,7 @@ SLUG = re.compile(r"^[a-z0-9_]+$")
 # enumerated from the data rather than listed here. Kept in step with
 # tools/compile_liberties.py's COVER_ASPECTS.
 PHASE_ASPECTS = ("footprint", "position", "documented_range")
-STRUCTURE_ASPECTS = ("function", "occupants")
+STRUCTURE_ASPECTS = ("function", "occupants", "present_status")
 
 
 class Report:
@@ -6032,7 +6032,7 @@ def check_record_provenance(where: str, st: dict, source_ids: set, rep: Report,
         fp_conf = ph.get("footprint", {}).get("confidence")
         tally[fp_conf] = tally.get(fp_conf, 0) + 1
 
-    for key in ("function", "occupants"):
+    for key in ("function", "occupants", "present_status"):
         if key in st:
             check_attested(where, key, st[key], source_ids, rep)
             c = st[key].get("confidence")
@@ -6372,7 +6372,9 @@ def run_license_check(sources: dict, rep: Report) -> None:
                                       f"no recorded bake produced it")
             continue
         if rel.startswith(("gltf/", "web/")):
-            if p.name in manifest:
+            lod_keys = {lod.get("asset") for entry in manifest.values()
+                        for lod in entry.get("web_lods", {}).values()}
+            if p.name in manifest or (rel.startswith("web/") and p.name in lod_keys):
                 generated += 1
             else:
                 rep.error("licenses", f"assets/{rel} is not in assets/manifest.json — "
@@ -6492,6 +6494,10 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 
         if got == recorded:
             fresh += 1
+            if name == "glessner_house__as_built_1887.glb":
+                from common import versions as V
+                for problem in V.lod_problems(name, entry, ROOT):
+                    rep.error("stale", f"{name}: {problem}")
         else:
             stale += 1
             rep.error("stale", f"{name} is STALE — its inputs now hash to {got[:12]}, the "

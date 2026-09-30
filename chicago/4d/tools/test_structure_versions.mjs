@@ -132,6 +132,14 @@ check('a default, v3, unrelated structure or missing LOD retains its ordinary as
   { ...lodRecord, version: null }, { ...lodRecord, version: { label: 'v3' } },
   { ...lodRecord, id: 'other_house' }, { ...lodRecord, sidecar: { asset: 'gltf/house.glb' } },
 ].every(record => loader.detailAssetPath(record, 'light') === record.sidecar.asset));
+const promotedRecord = { id: 'glessner_house', version: null, sidecar: {
+  asset: 'gltf/glessner_house__as_built_1887.glb',
+  asset_lods: { light: 'gltf/glessner_house__as_built_1887.light.glb' },
+} };
+check('the promoted default uses its own light asset in both lower tiers',
+  ['light', 'balanced'].every(tier => loader.detailAssetPath(promotedRecord, tier)
+    === promotedRecord.sidecar.asset_lods.light)
+  && loader.detailAssetPath(promotedRecord, 'full') === promotedRecord.sidecar.asset);
 const publishedBases = { assetBase: new URL('https://example.test/data/'), sourceAssetLayout: false };
 const sourceBases = { assetBase: new URL('https://example.test/assets/'), sourceAssetLayout: true };
 check('LOD uses the published gltf address, the source web address, and respects explicit asset bases',

@@ -127,7 +127,7 @@ DATE = re.compile(r"(\d{4}-\d{2}-\d{2})")
 # character is written and the vocabulary grows with the archetypes; a form claim
 # therefore carries its `form.` prefix, which is also what keeps the last segment
 # from having to be guessed at.
-COVER_ASPECTS = ("footprint", "position", "documented_range", "function", "occupants",
+COVER_ASPECTS = ("footprint", "position", "documented_range", "function", "occupants", "present_status",
                  "ground_contact")
 FORM_ASPECT = r"form(?:\.[a-z0-9_]+)+"
 COVER_TOKEN = re.compile(
