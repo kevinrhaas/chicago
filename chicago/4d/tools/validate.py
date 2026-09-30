@@ -6356,7 +6356,10 @@ def run_license_check(sources: dict, rep: Report) -> None:
         if rel.startswith(("gltf/versions/", "web/versions/")):
             # T-1727: a version mesh is tracked by assets/manifest.versions.json, keyed by
             # its path under gltf/ — never by basename, which it shares with the default's.
-            if rel.split("/", 1)[1] in versions_manifest:
+            version_key = rel.split("/", 1)[1]
+            lod_keys = {lod.get("asset") for entry in versions_manifest.values()
+                        for lod in entry.get("web_lods", {}).values()}
+            if version_key in versions_manifest or (rel.startswith("web/") and version_key in lod_keys):
                 generated += 1
             else:
                 rep.error("licenses", f"assets/{rel} is not in assets/manifest.versions.json — "
@@ -6589,8 +6592,13 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
             rep.error(where, "its web derivative is not recorded as made from the committed "
                              "master — run tools/web_derivatives.sh --only " + key)
             continue
-        fresh += 1
+        problems = V.lod_problems(key, entry, ROOT)
+        for problem in problems:
+            rep.error(where, problem + " — run tools/web_derivatives.sh --only " + key)
+        if not problems:
+            fresh += 1
 
+    light_keys = {light for key in expected for light in V.lod_asset_keys(key).values()}
     for key in sorted(set(assets) - set(expected)):
         rep.error(f"version mesh {key}", "is recorded in assets/manifest.versions.json but no "
                                          "version record resolves that structure, label and "
@@ -6600,7 +6608,7 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
         for f in sorted(vroot.rglob("*")) if vroot.is_dir() else []:
             if f.is_file():
                 key = f.relative_to(base).as_posix()
-                if key not in expected and key not in assets:
+                if key not in expected and key not in assets and not (base == web and key in light_keys):
                     rep.error(f"version mesh {key}",
                               f"is committed under {base.relative_to(ROOT)}/versions/ with no "
                               f"manifest entry and no version record — no recorded bake "

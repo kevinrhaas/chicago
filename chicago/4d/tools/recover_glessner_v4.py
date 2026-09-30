@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Lossless packaging for the two Glessner v4 GLBs larger than the upload limit.
+"""Lossless packaging for the three Glessner v4 GLBs larger than the upload limit.
 
-Publish/check materialize only the two explicit outputs below. All existing bytes
+Publish/check materialize only the three explicit outputs below. All existing bytes
 must match the verified archive: the canonical v4 derivative producer repacks its
-new pair, never rolls back a bake. --pack also supports deliberate manual recovery.
+new set, never rolls back a bake. --pack also supports deliberate manual recovery.
 Other checkpoint members are available only to manual --restore.
 """
 from __future__ import annotations
@@ -18,7 +18,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 RECOVERY = ROOT / "docs/RESEARCH/glessner-v4-recovery"
 TARGETS = tuple(f"assets/{kind}/versions/glessner_house/v4/glessner_house__as_built_1887.glb"
-                for kind in ("gltf", "web"))
+                for kind in ("gltf", "web")) + (
+    "assets/web/versions/glessner_house/v4/glessner_house__as_built_1887.light.glb",)
 PART_BYTES = 6 * 1024 * 1024
 
 
@@ -68,7 +69,7 @@ def write_member(root, name, data):
 def materialize(root=ROOT, recovery=RECOVERY, check=False):
     members = verified_members(recovery)
     missing = []
-    # Check BOTH existing files before writing either missing file. Never mask a
+    # Check ALL existing files before writing any missing file. Never mask a
     # new bake by restoring the older packed result over it.
     for name in TARGETS:
         require(name in members, f"archive lacks {name}")
@@ -96,7 +97,7 @@ def pack(root=ROOT, recovery=RECOVERY):
             info.external_attr = 0o100644 << 16
             zipped.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=6)
     archive = buffer.getvalue()
-    manifest = {"purpose": "Exact two-file Glessner v4 GLB package; materialized before ordinary validation/publish.",
+    manifest = {"purpose": "Exact three-file Glessner v4 GLB package; materialized before ordinary validation/publish.",
                 "files": {name: {"bytes": len(data), "sha256": sha256(data)} for name, data in members.items()},
                 "parts": [], "archive_sha256": sha256(archive), "archive_bytes": len(archive)}
     recovery.mkdir(parents=True, exist_ok=True)
@@ -114,14 +115,14 @@ def pack(root=ROOT, recovery=RECOVERY):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--materialize", action="store_true", help="verify both outputs and restore only missing v4 GLBs")
+    mode.add_argument("--materialize", action="store_true", help="verify all three outputs and restore only missing v4 GLBs")
     mode.add_argument("--check", action="store_true", help="refuse missing/divergent v4 GLBs or a corrupt archive")
-    mode.add_argument("--pack", action="store_true", help="repack exactly the two current v4 GLBs after a bake")
+    mode.add_argument("--pack", action="store_true", help="repack exactly the three current v4 GLBs after a bake")
     mode.add_argument("--restore", action="store_true", help="manual snapshot recovery: overwrite ALL archived generated files")
     args = parser.parse_args()
     try:
         if args.pack:
-            pack(); print("Packed two exact v4 GLBs; commit archive parts and manifest with the bake.")
+            pack(); print("Packed three exact v4 GLBs; commit archive parts and manifest with the bake.")
         elif args.materialize or args.check:
             count = materialize(check=args.check)
             print(f"Glessner v4 package verified; {count} missing GLB(s) materialized.")

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Nine deterministic original PBR studies for Glessner v4; no photographic pixels.
+"""Ten deterministic original PBR studies for Glessner v4; no photographic pixels.
 
 python assets/textures/glessner-v4/generate.py
 Requires numpy, Pillow and scipy. The house's stone courses and moulded details
 are geometry; these maps provide grain, mortar, clay laminations and metal aging.
 The maps are reconstructed, bounded by the material descriptions and the visual
 scale of existing HABS evidence, never measured samples of the historic surfaces.
-The separate granite_photographic_basecolor.png and turf_photographic_basecolor.png
-are original generated bitmaps; this recipe preserves them unchanged and never
-regenerates or overwrites them.
+The separate granite_photographic_basecolor.png, turf_photographic_basecolor.png
+and turf_patch_photographic_basecolor.png are original generated bitmaps; this
+recipe preserves them unchanged and never regenerates or overwrites them.
 """
 from __future__ import annotations
 import hashlib
@@ -24,7 +24,7 @@ OUT = Path(__file__).resolve().parent
 SIZE = 2048
 DETAIL_SIZE = 1024
 TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336),
-          "limestone": (1.2, 1.2), "terracotta": (2.4384, 1.95072),
+          "limestone": (1.2, 1.2), "mortar": (1.2, 1.2), "terracotta": (2.4384, 1.95072),
           "copper": (2.4, 2.4), "oak": (0.8, 2.4), "painted_wood": (0.8, 2.4),
           "turf": (2.4, 2.4), "gravel": (2.0, 2.0)}
 
@@ -146,14 +146,35 @@ def brick():
     soft = field(rng, 7)
     roughclay = field(rng, 2.1)
     shifts = .018 * field(rng, 35)
-    bodycolour = np.array([.460, .385, .295]) + shifts[..., None]
+    bodycolour = np.array([.490, .415, .320]) + shifts[..., None]
     bodycolour += (.012 * grit + .021 * soft + .012 * roughclay)[..., None]
     fired = smoothstep(.8, 2.0, field(rng, 20))
     bodycolour -= fired[..., None] * np.array([.033, .022, .014])
-    height = .00012 * grit + .00030 * roughclay + .0005 * soft
-    rough = .815 + .025 * roughclay
+    # Intrinsic uneven clay fabric, not modern spalling or soot. Coherent
+    # patches alter roughness at centimetre scale rather than each brick being
+    # either perfectly polished or uniformly matte.
+    clay = field(rng, 14)
+    height = .00016 * grit + .00040 * roughclay + .00070 * soft + .00060 * clay
+    rough = np.clip(.825 + .028 * roughclay + .042 * clay, .71, .94)
     return save("brick", bodycolour, height, rough, "Reconstructed grey-tan common-brick clay grain. "
                 "Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.", seed)
+
+
+def mortar():
+    seed = 190409
+    rng = np.random.default_rng(seed)
+    sand, fine = field(rng, .8, 1024), field(rng, .6, 1024)
+    trowel, broad = field(rng, 9, 1024), field(rng, 72.5, 1024)
+    # Match the previous joint's overall beige tone. Change its fabric, not the
+    # joint width or a claim about later repointing, algae, damage or staining.
+    rgb = np.array([.550, .526, .456]) + (.010 * sand + .010 * trowel + .012 * broad)[..., None]
+    pale = smoothstep(.8, 1.8, sand)
+    rgb += pale[..., None] * np.array([.020, .019, .016])
+    height = .00012 * fine + .00024 * sand + .00025 * trowel
+    rough = np.clip(.91 + .025 * sand + .017 * broad, .84, .98)
+    return save("mortar", rgb, height, rough,
+                "Original reconstructed sandy lime-mortar fabric. Fine mineral grains and restrained "
+                "trowelled variation, no later soot or decay; the actual recessed joints are geometry.", seed)
 
 
 def terracotta():
@@ -271,7 +292,7 @@ def main():
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     recipes = {"granite": lambda: stone("granite", 190400),
-               "limestone": lambda: stone("limestone", 190401, True),
+               "limestone": lambda: stone("limestone", 190401, True), "mortar": mortar,
                "brick": brick, "terracotta": terracotta, "copper": copper,
                "oak": oak, "painted_wood": lambda: oak(True), "turf": turf, "gravel": gravel}
     existing = OUT / "material-library.json"
@@ -288,7 +309,7 @@ def main():
     doc = {"title": "Glessner v4 original material studies", "version": 1,
            "generated_by": "generate.py", "confidence": "reconstructed", "materials": mats,
            "rights": "Original procedural pixels; project-permissive terms in LICENSE.txt", "files": assets}
-    generated = sorted(OUT.glob("*_photographic_provenance.json"))
+    generated = sorted(OUT.glob("*_provenance.json"))
     if generated:
         doc["generated_albedos"] = [json.loads(path.read_text()) for path in generated]
         doc["rights"] = "Original procedural and generated pixels; project-permissive terms in LICENSE.txt"

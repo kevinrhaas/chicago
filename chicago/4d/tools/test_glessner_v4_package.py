@@ -24,14 +24,14 @@ def refuses(call):
 
 with tempfile.TemporaryDirectory() as directory:
     root = Path(directory) / "checkout"; recovery = Path(directory) / "package"
-    data = {TARGETS[0]: b"master-glb", TARGETS[1]: b"web-glb"}
+    data = {TARGETS[0]: b"master-glb", TARGETS[1]: b"web-glb", TARGETS[2]: b"light-glb"}
     for name, content in data.items():
         write_member(root, name, content)
     pack(root, recovery)
     first = {p.name: p.read_bytes() for p in recovery.iterdir()}
     pack(root, recovery)
     assert first == {p.name: p.read_bytes() for p in recovery.iterdir()}, "pack must be deterministic"
-    assert set(verified_members(recovery)) == set(TARGETS), "pack must include exactly two GLBs"
+    assert set(verified_members(recovery)) == set(TARGETS), "pack must include exactly three GLBs"
 
     # Model the original recovery archive containing older snapshots as well.
     buffer = io.BytesIO()
@@ -49,15 +49,15 @@ with tempfile.TemporaryDirectory() as directory:
     for name in TARGETS:
         (root / name).unlink()
     refuses(lambda: materialize(root, recovery, check=True))
-    assert materialize(root, recovery) == 2
+    assert materialize(root, recovery) == 3
     assert (root / "assets/manifest.json").read_bytes() == b"current manifest", "never restore snapshot manifests"
     assert materialize(root, recovery, check=True) == 0
 
     (root / TARGETS[0]).write_bytes(b"new bake")
     (root / TARGETS[1]).unlink()
     refuses(lambda: materialize(root, recovery))
-    assert not (root / TARGETS[1]).exists(), "refuse before writing either output"
+    assert not (root / TARGETS[1]).exists(), "refuse before writing any output"
     assert (root / TARGETS[0]).read_bytes() == b"new bake", "never roll back a bake"
     (recovery / "assets.zip.part00").write_bytes(archive[:-1] + b"X")
     refuses(lambda: materialize(root, recovery))
-print("PASS: deterministic two-file packing, selective restoration, and stale/corrupt refusal")
+print("PASS: deterministic three-file packing, selective restoration, and stale/corrupt refusal")

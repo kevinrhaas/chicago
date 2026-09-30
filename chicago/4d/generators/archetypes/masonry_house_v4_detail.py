@@ -126,11 +126,116 @@ def aperture(o):
     return [(a,z0),(b,z0),(b,z1),(a,z1)]
 
 
+def fractured_stone(polygon, depth, rng, spacing=.075):
+    """Reconstructed split-face stone, bounded to the existing block envelope.
+
+    The measured facade owns courses and openings; these 7.5 cm fracture facets
+    describe surface finish only. Correlated relief prevents independent spikes,
+    while smaller angular chips break up the broad, clean planes of a 5x3 grid.
+    The perimeter stays inside the original stone and has irregular relief rather
+    than a ruler-straight bevel. No new joints appear where an aperture cuts it.
+    """
+    x0,y0,x1,y1=bounds(polygon)
+    nx=max(2,math.ceil((x1-x0)/spacing));ny=max(2,math.ceil((y1-y0)/spacing))
+    dx,dy=(x1-x0)/nx,(y1-y0)/ny
+    # Random lattice values at two physical scales. Interpolation correlates
+    # neighbours; the small independent term gives the exposed split planes.
+    fields=[]
+    for scale,amplitude in ((.27,.014),(.115,.020)):
+        values={(ix,iy):rng.uniform(-1,1)
+                for ix in range(-1,math.ceil((x1-x0)/scale)+3)
+                for iy in range(-1,math.ceil((y1-y0)/scale)+3)}
+        fields.append((scale,amplitude,values))
+    def relief(x,y):
+        value=min(.048,max(.031,depth*.64+.011))
+        for scale,amplitude,values in fields:
+            u,v=(x-x0)/scale,(y-y0)/scale
+            i,j=math.floor(u),math.floor(v);a,b=u-i,v-j
+            value+=amplitude*((1-a)*(1-b)*values[i,j]+a*(1-b)*values[i+1,j]+
+                              (1-a)*b*values[i,j+1]+a*b*values[i+1,j+1])
+        return min(.070,max(.006,value+rng.uniform(-.014,.014)))
+    rectangular=(len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and
+                 len({round(q[1],6) for q in polygon})==2)
+    grid={};anchors={}
+    for ix in range(nx+1):
+        for iy in range(ny+1):
+            x=x0+ix*dx;y=y0+iy*dy
+            # Jitter is a fraction of one cell, so refinement never creates
+            # crossed rows/bow-ties or the long sliver wedges of whole-block jitter.
+            if 0<ix<nx:x+=rng.uniform(-.22,.22)*dx
+            if 0<iy<ny:y+=rng.uniform(-.22,.22)*dy
+            anchors[ix,iy]=(x,y,-.009)
+            # Small local chips eat into the face, never expand the course or
+            # narrow its nominal 14 mm joint. Keep corners within the same bounds.
+            if rectangular:
+                if ix==0:x+=rng.uniform(.001,.011)
+                elif ix==nx:x-=rng.uniform(.001,.011)
+                if iy==0:y+=rng.uniform(.001,.009)
+                elif iy==ny:y-=rng.uniform(.001,.009)
+            grid[ix,iy]=(x,y,relief(x,y))
+    for ix in range(nx):
+        for iy in range(ny):
+            a,b,c,d=grid[ix,iy],grid[ix+1,iy],grid[ix+1,iy+1],grid[ix,iy+1]
+            facets=((a,b,d),(b,c,d)) if rng.random()<.5 else ((a,b,c),(a,c,d))
+            for facet in facets:
+                clipped=list(facet)
+                for pa,pb in zip(polygon,polygon[1:]+polygon[:1]):
+                    clipped=clip(clipped,pa,pb)
+                if not clipped:continue
+                yield clipped,True
+                # Only physical stone-boundary edges close to the mortar bed.
+                # Computational grid edges remain one continuous rock surface.
+                for qa,qb in ([] if rectangular else zip(clipped,clipped[1:]+clipped[:1])):
+                    for pa,pb in zip(polygon,polygon[1:]+polygon[:1]):
+                        ex,ey=pb[0]-pa[0],pb[1]-pa[1]
+                        if (abs(ex*(qa[1]-pa[1])-ey*(qa[0]-pa[0]))<1e-8 and
+                            abs(ex*(qb[1]-pa[1])-ey*(qb[0]-pa[0]))<1e-8):
+                            yield [(qa[0],qa[1],-.009),(qb[0],qb[1],-.009),qb,qa],False
+                            break
+    if rectangular:
+        ring=([(ix,0) for ix in range(nx+1)]+[(nx,iy) for iy in range(1,ny+1)]+
+              [(ix,ny) for ix in range(nx-1,-1,-1)]+[(0,iy) for iy in range(ny-1,0,-1)])
+        for a,b in zip(ring,ring[1:]+ring[:1]):
+            yield [anchors[a],anchors[b],grid[b],grid[a]],False
+
+
+def stone_corner_normals(facets, angle_degrees=35):
+    """Area-weighted shallow-fracture normals, confined to one physical stone.
+
+    Side faces never participate. The finished facet positions are untouched;
+    clipping carries these corner normals with depth, so cutting an opening adds
+    neither a shading seam nor a smooth transition into its separate reveal.
+    """
+    facets=list(facets);at_vertex={};face_normals={}
+    for index,(poly,is_front) in enumerate(facets):
+        if not is_front:continue
+        weighted=tuple(sum(cross(sub(poly[j],poly[0]),sub(poly[j+1],poly[0]))[k]
+                           for j in range(1,len(poly)-1)) for k in range(3))
+        face_normals[index]=(norm(weighted),weighted)
+        for p in poly:
+            at_vertex.setdefault(tuple(round(q,9) for q in p),[]).append(index)
+    limit=math.cos(math.radians(angle_degrees))
+    for index,(poly,is_front) in enumerate(facets):
+        if not is_front:
+            yield poly,False
+            continue
+        own,_=face_normals[index];corners=[]
+        for p in poly:
+            neighbours=at_vertex[tuple(round(q,9) for q in p)]
+            eligible=[face_normals[j][1] for j in neighbours
+                      if dot(own,face_normals[j][0])>=limit]
+            averaged=norm(tuple(sum(v[k] for v in eligible) for k in range(3)))
+            corners.append((*p,*averaged))
+        yield corners,True
+
+
 class DetailBuilder(MeshBuilder):
     def __init__(self, name, params):
         super().__init__(name)
         self.params = params
         self.decorate = True
+        self.rock_normals = {}
+        self.smooth_rock_faces = True
         self.openings = list(params.openings)
         # The Prairie upper colonnades are open between the individual lights.
         # Remove the square masonry piers, then draw the round colonnettes below.
@@ -164,6 +269,28 @@ class DetailBuilder(MeshBuilder):
         if want is not None and dot(legacy._normal(pts),want) < 0:
             pts = list(reversed(pts))
         return super().add_poly(pts,confidence,mat)
+
+    def raw_with_normals(self, pts, normals, confidence, mat, want=None):
+        if want is not None and dot(legacy._normal(pts),want)<0:
+            pts=list(reversed(pts));normals=list(reversed(normals))
+        indices=self.raw(pts,confidence,mat)
+        if self.smooth_rock_faces:
+            for index,normal in zip(indices,normals):
+                self.rock_normals[index]=norm(normal)
+        return indices
+
+    def to_object(self, materials=None):
+        ob=super().to_object(materials)
+        if self.rock_normals:
+            # Vertices remain separate at material/UV/confidence seams. Explicit
+            # corner normals survive glTF without welding geometry or attributes.
+            for poly in ob.data.polygons:
+                if any(i in self.rock_normals for i in poly.vertices):
+                    poly.use_smooth=True
+            normals=[self.rock_normals.get(loop.vertex_index,(0,0,0))
+                     for loop in ob.data.loops]
+            ob.data.normals_split_custom_set(normals)
+        return ob
 
     def add_poly(self, points, confidence, mat=0):
         pts = [tuple(p) for p in points]
@@ -264,8 +391,20 @@ class DetailBuilder(MeshBuilder):
                 if not emitted:
                     self.masonry_blocks+=1
                     emitted=True
-                self.raw([point((q[0],q[1]),q[2]) for q in piece],
-                         confidence,variant,facing)
+                pts=[point((q[0],q[1]),q[2]) for q in piece]
+                if len(piece[0])>3:
+                    mapper=getattr(point,'normal',None)
+                    if mapper:
+                        normals=[mapper(q) for q in piece]
+                    else:
+                        origin=point((0,0),0)
+                        basis=(sub(point((1,0),0),origin),sub(point((0,1),0),origin),
+                               sub(point((0,0),1),origin))
+                        normals=[tuple(sum(q[j+3]*basis[j][k] for j in range(3))
+                                       for k in range(3)) for q in piece]
+                    self.raw_with_normals(pts,normals,confidence,variant,facing)
+                else:
+                    self.raw(pts,confidence,variant,facing)
 
         cx,cy = sum(p[0] for p in polygon)/len(polygon),sum(p[1] for p in polygon)/len(polygon)
         bevel = .005 if mat==BRICK else .012
@@ -288,32 +427,18 @@ class DetailBuilder(MeshBuilder):
             # are intentionally omitted from the shipped inspection model.
             surface([(*q,depth) for q in polygon])
             return
-        # Large ashlar faces get several angular split planes, rather than a
-        # single four-triangle pyramid. The envelope remains the measured course.
+        # Physical fracture scale is metric, not a fixed handful of facets per
+        # stone. Work on the complete stone and only then cut finished facets.
         rectangular=len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and len({round(q[1],6) for q in polygon})==2
-        if rectangular and x1-x0>.48 and y1-y0>.16:
-            xa,ya,xc,yc=bounds(inner);nx,ny=5,3;grid={}
-            for ix in range(nx+1):
-                for iy in range(ny+1):
-                    xx=xa+(xc-xa)*ix/nx;yy=ya+(yc-ya)*iy/ny
-                    boundary=ix in (0,nx) or iy in (0,ny)
-                    if 0<ix<nx:xx+=rng.uniform(-.075,.075)*(xc-xa)
-                    if 0<iy<ny:yy+=rng.uniform(-.09,.09)*(yc-ya)
-                    off=min(.070,max(.004,depth+rng.uniform(-.005,.009) if boundary else depth+rng.uniform(-.015,.025)))
-                    grid[ix,iy]=(xx,yy,off)
-            for ix in range(nx):
-                for iy in range(ny):
-                    cell=[grid[ix,iy],grid[ix+1,iy],grid[ix+1,iy+1],grid[ix,iy+1]]
-                    surface(cell)
-            # Chipped/chamfered perimeter pieces, deliberately irregular along
-            # their run while leaving narrow, consistent mortar at the joint.
-            ring=[grid[ix,0] for ix in range(nx+1)]+[grid[nx,iy] for iy in range(1,ny+1)]+[grid[ix,ny] for ix in range(nx-1,-1,-1)]+[grid[0,iy] for iy in range(ny-1,0,-1)]
-            for qa,qc in zip(ring,ring[1:]+ring[:1]):
-                def edge(q):
-                    ex=x0 if abs(q[0]-xa)<1e-7 else (x1 if abs(q[0]-xc)<1e-7 else q[0])
-                    ey=y0 if abs(q[1]-ya)<1e-7 else (y1 if abs(q[1]-yc)<1e-7 else q[1])
-                    return (ex,ey,-.009)
-                surface([edge(qa),edge(qc),qc,qa],None)
+        if x1-x0>.48 and y1-y0>.16 and mat != TRIM:
+            fracture_rng=random.Random()
+            fracture_rng.setstate(rng.getstate())
+            # Preserve the existing coursing RNG: wall() uses it to choose the
+            # next block width. Refining a face must not move any stone joint.
+            consumed=52 if rectangular else len(polygon)+(len(polygon)<=6)
+            for _ in range(consumed):rng.random()
+            for facet,is_front in stone_corner_normals(fractured_stone(polygon,depth,fracture_rng)):
+                surface(facet,normal if is_front else None)
             return
         back=[(*q,-.009) for q in polygon]
         front=[(*q,depth+rng.uniform(-.001,.001)) for q in inner]
@@ -375,6 +500,25 @@ def solid_polygon(b, pl, poly, depth0, depth1, confidence, mat):
     for i in range(len(poly)):
         j=(i+1)%len(poly)
         b.raw([back[i],back[j],front[j],front[i]],confidence,mat)
+
+
+
+def glass_pane(b,front,normal,confidence):
+    """Closed 4 mm dielectric pane; stock thickness is reconstructed.
+
+    Keep the existing outward front and its source confidence. The added rear
+    and four edge faces are reconstructed (1.0), not additional survey facts.
+    Opaque slabs deliberately keep their existing, cheaper surface topology.
+    """
+    n=norm(normal);front=[tuple(p) for p in front]
+    if dot(legacy._normal(front),n)<0:front.reverse()
+    back=[tuple(p[k]-.004*n[k] for k in range(3)) for p in front]
+    b.raw(front,confidence,GLASS,n)
+    b.raw(list(reversed(back)),1.0,GLASS,tuple(-v for v in n))
+    for i in range(len(front)):
+        j=(i+1)%len(front)
+        outward=norm(cross(sub(front[j],front[i]),n))
+        b.raw([front[i],back[i],back[j],front[j]],1.0,GLASS,outward)
 
 
 def slab(b,pl,u0,u1,z0,z1,d0,d1,confidence,mat):
@@ -481,7 +625,12 @@ def opening(b,o,courtyard=False):
     frame=.025 if small else .062
     glazing_mat=DARK_GLASS if small or kind=='dark' else GLASS
     slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.605,-.60,conf,DARK_GLASS)
-    slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.30,-.292,conf,glazing_mat)
+    if glazing_mat==GLASS:
+        glass_pane(b,[legacy._plane_point(o,u,z,-.292) for u,z in
+                      [(a+frame,z0+frame),(c-frame,z0+frame),(c-frame,z1-frame),(a+frame,z1-frame)]],
+                   legacy._plane_dir(o),conf)
+    else:
+        slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.30,-.292,conf,glazing_mat)
     if not small:
         for x0,x1,y0,y1 in [(a,a+frame,z0,z1),(c-frame,c,z0,z1),(a,c,z0,z0+frame),(a,c,z1-frame,z1)]:
             slab(b,o,x0,x1,y0,y1,-.285,-.18,conf,PAINTED_WOOD)
@@ -505,7 +654,13 @@ def opening(b,o,courtyard=False):
 def detailed_door(b,o,style):
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];conf=o['conf']
     if style!='porte_cochere':
-        slab(b,o,a+.025,c-.025,z0+.02,z1-.02,-.305,-.28,conf,WOOD)
+        # The documented upper glazing is an actual leaf cutout. A full-height
+        # wood backing 1mm behind the pane made the original clear glass opaque.
+        height=z1-z0
+        leaf=[(a+.025,z0+.02),(c-.025,z0+.02),(c-.025,z1-.02),(a+.025,z1-.02)]
+        light=[(a+.18,z0+height*.51),(c-.18,z0+height*.51),(c-.18,z1-.16),(a+.18,z1-.16)]
+        for fragment in subtract(leaf,[light]):
+            solid_polygon(b,o,fragment,-.305,-.28,conf,WOOD)
     if style=='porte_cochere':
         original=b
         angle=math.radians(b.params.detail.get('porte_cochere_open_deg',82))
@@ -541,7 +696,8 @@ def detailed_door(b,o,style):
             slab(b,o,left,right,lo,hi,-.28,-.16,conf,WOOD)
         slab(b,o,a+.19,c-.19,z0+.20,z0+height*.39,-.28,-.225,conf,WOOD)
         lo=z0+height*.51;hi=z1-.16
-        slab(b,o,a+.18,c-.18,lo,hi,-.279,-.273,conf,GLASS)
+        glass_pane(b,[legacy._plane_point(o,u,z,-.273) for u,z in
+                      [(a+.18,lo),(c-.18,lo),(c-.18,hi),(a+.18,hi)]],legacy._plane_dir(o),conf)
         for i in range(1,5):
             u=a+.18+(c-a-.36)*i/5
             slab(b,o,u-.012,u+.012,lo,hi,-.265,-.24,conf,IRON)
@@ -562,6 +718,7 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 
 
 def roof_ridges(b,params):
+    from archetypes.masonry_house_v4_roof_crests import add_ridge_crest
     for r in params.ranges:
         a0,a1=(r['y0'],r['y1']) if r['axis']=='y' else (r['x0'],r['x1'])
         for side,v in r['roof_extend'].items():
@@ -576,6 +733,7 @@ def roof_ridges(b,params):
                     across=r['ridge_at']+.14*math.cos(a);z=r['ridge_z']+.055+.14*math.sin(a)
                     return (across,l,z) if r['axis']=='y' else (l,across,z)
                 b.raw([P(p,lo),P(q,lo),P(q,hi),P(p,hi)],r['conf_roof'],19+i%3,(0,0,1))
+            add_ridge_crest(b,r['axis'],r['ridge_at'],r['ridge_z'],lo,hi,1.0,19+i%3)
 
 
 def chimney(b,c):
@@ -665,7 +823,10 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
         b.raw([P(*a,.02),P(*a,-.29),P(*c,-.29),P(*c,.02)],conf,TRIM if stone_jambs else BRICK)
     b.raw([P(u,z,-.60) for u,z in outline],conf,DARK_GLASS,normal)
     if not door:
-        b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS if small else GLASS,normal)
+        if small:
+            b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS,normal)
+        else:
+            glass_pane(b,[P(u,z,-.285) for u,z in outline],normal,conf)
     def box(ua,ub,za,zb,off0,off1,mat):
         front=[P(ua,za,off1),P(ub,za,off1),P(ub,zb,off1),P(ua,zb,off1)]
         back=[P(ua,za,off0),P(ub,za,off0),P(ub,zb,off0),P(ua,zb,off0)]
@@ -689,8 +850,8 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
                            (ga,gb,gz1,z1),(ga,gb,gz0-.13,gz0),
                            (ga,gb,z0,z0+.14)]:
             box(ua,ub,za,zb,-.28,-.20,WOOD)
-        b.raw([P(ga,gz0,-.248),P(gb,gz0,-.248),
-               P(gb,gz1,-.248),P(ga,gz1,-.248)],conf,GLASS,normal)
+        glass_pane(b,[P(ga,gz0,-.248),P(gb,gz0,-.248),
+                      P(gb,gz1,-.248),P(ga,gz1,-.248)],normal,conf)
         um,zm=(ga+gb)/2,(gz0+gz1)/2
         box(um-.012,um+.012,gz0,gz1,-.254,-.208,WOOD)
         box(ga,gb,zm-.015,zm+.015,-.254,-.208,WOOD)
@@ -798,7 +959,7 @@ def bay(b,y,params):
             # transmission must never expose the unrelated north-range wall.
             pa=(p[0]-want[0]*.35,p[1]-want[1]*.35);qa=(q[0]-want[0]*.35,q[1]-want[1]*.35)
             b.raw([(*pa,zt),(*qa,zt),(*qa,zb),(*pa,zb)],conf,DARK_GLASS,want)
-            b.raw([(*p,zt),(*q,zt),(*q,zb),(*p,zb)],conf,GLASS,want)
+            glass_pane(b,[(*p,zt),(*q,zt),(*q,zb),(*p,zb)],want,conf)
             # Smooth, projecting limestone roll below the clerestory, visibly
             # continuous around the documented canted outline.
             for j in range(8):
@@ -826,10 +987,56 @@ def bay(b,y,params):
 
 
 
+
+def louvred_turret(b,t):
+    """Retain the stable turret envelope; its band is timber louvres, not glass."""
+    x0,x1=sorted((t['x0'],t['x1']));y0,y1=sorted((t['y0'],t['y1']))
+    lo,hi=t['louvre'];conf=t['conf'];reconstructed=1.0
+    for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
+                     ({'axis':'x','sign':-1,'at':x0},(y0,y1)),
+                     ({'axis':'y','sign':1,'at':y1},(x0,x1)),
+                     ({'axis':'y','sign':-1,'at':y0},(x0,x1))):
+        ua,uc=a+.12,c-.12;n=legacy._plane_dir(pl)
+        hole=[(ua,lo),(uc,lo),(uc,hi),(ua,hi)]
+        wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
+        for fragment in subtract(wall,[hole]):
+            solid_polygon(b,pl,fragment,-.08,0,conf,WOOD)
+        b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in hole],reconstructed,DARK_GLASS,n)
+        # The louvred form is sourced; roughly145mm spacing,140mm blade depth
+        # and16mm stock are bounded reconstructed joinery, not counted slats.
+        count=max(2,round((hi-lo)/.145));pitch=(hi-lo)/count
+        rise=min(.05,pitch*.34)
+        for i in range(count):
+            mid=lo+(i+.5)*pitch
+            top=[legacy._plane_point(pl,ua,mid-rise,0),
+                 legacy._plane_point(pl,uc,mid-rise,0),
+                 legacy._plane_point(pl,uc,mid+rise,-.14),
+                 legacy._plane_point(pl,ua,mid+rise,-.14)]
+            bottom=[(p[0],p[1],p[2]-.016) for p in top]
+            b.raw(top,reconstructed,WOOD,(0,0,1))
+            b.raw(bottom,reconstructed,WOOD,(0,0,-1))
+            centre=tuple(sum(p[k] for p in top+bottom)/8 for k in range(3))
+            for j in range(4):
+                k=(j+1)%4;face=[top[j],bottom[j],bottom[k],top[k]]
+                midpoint=tuple(sum(p[h] for p in face)/4 for h in range(3))
+                b.raw(face,reconstructed,WOOD,sub(midpoint,centre))
+    b.raw([(x0,y0,t['top_z']),(x1,y0,t['top_z']),
+           (x1,y1,t['top_z']),(x0,y1,t['top_z'])],conf,WOOD,(0,0,1))
+    # Roof, soffit and finial are exactly the inherited recorded envelope.
+    ov=.18;ring=[(x0-ov,y0-ov,t['top_z']),(x1+ov,y0-ov,t['top_z']),
+                 (x1+ov,y1+ov,t['top_z']),(x0-ov,y1+ov,t['top_z'])]
+    cx,cy=(x0+x1)/2,(y0+y1)/2
+    for p,q in zip(ring,ring[1:]+ring[:1]):
+        legacy._up(b,[p,q,(cx,cy,t['apex_z'])],conf,ROOF)
+    legacy._poly_facing(b,ring,conf,ROOF,(0,0,-1))
+    legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],conf,COPPER)
+
+
 def dormer(b,d):
     f,bk=d['front'],d['back'];a,c=sorted((d['u0'],d['u1']));z0,ze,za=d['z0'],d['eave_z'],d['apex_z']
     sign=-1 if bk>f else 1;pl={'axis':'x','sign':sign,'at':f}
     margin=(c-a)*.22;lo,hi=d['light'];conf=d['conf']
+    reconstructed=1.0  # Exact stock/edge dimensions below are reconstructed.
     op={**pl,'face':'west' if sign<0 else 'east','kind':'window','u0':a+margin,'u1':c-margin,'z0':lo,'z1':hi,'conf':conf}
     poly=[(a,z0),(c,z0),(c,ze),(a,ze)]
     for frag in subtract(poly,[aperture(op)]):
@@ -837,11 +1044,62 @@ def dormer(b,d):
     for u in (a,c):
         pts=[(f,u,z0),(bk,u,z0),(bk,u,ze),(f,u,ze)]
         legacy._poly_facing(b,pts,conf,ROOF,(0,-1 if u==a else 1,0))
-    opening(b,op)
-    xa,xb=sorted((f,bk));xa,xb=(xa-.12,xb) if sign<0 else (xa,xb+.12)
-    ring=[(xa,a-.12,ze),(xb,a-.12,ze),(xb,c+.12,ze),(xa,c+.12,ze)]
-    for p,q in zip(ring,ring[1:]+ring[:1]):legacy._up(b,[p,q,((f+bk)/2,(a+c)/2,za)],conf,ROOF)
-    legacy._finial(b,(f+bk)/2,(a+c)/2,za,.35,conf,COPPER)
+    # HABS photo05 shows one undivided light in timber, not the masonry
+    # reveals, granite sill and meeting rail used by a house-wall window.
+    la,lc=op['u0'],op['u1'];outline=aperture(op);normal=legacy._plane_dir(pl)
+    for p,q in zip(outline,outline[1:]+outline[:1]):
+        b.raw([legacy._plane_point(pl,*p,.016),legacy._plane_point(pl,*p,-.20),
+               legacy._plane_point(pl,*q,-.20),legacy._plane_point(pl,*q,.016)],reconstructed,PAINTED_WOOD)
+    slab(b,pl,la+.055,lc-.055,lo+.055,hi-.055,-.61,-.60,reconstructed,DARK_GLASS)
+    glass_pane(b,[legacy._plane_point(pl,u,z,-.20) for u,z in
+                  [(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)]],
+               normal,reconstructed)
+    for u0,u1,z0_,z1_ in [(la,la+.055,lo,hi),(lc-.055,lc,lo,hi),
+                          (la,lc,lo,lo+.055),(la,lc,hi-.055,hi)]:
+        slab(b,pl,u0,u1,z0_,z1_,-.195,-.13,reconstructed,PAINTED_WOOD)
+    slab(b,pl,la-.065,lc+.065,lo-.055,lo+.012,-.07,.09,reconstructed,PAINTED_WOOD)
+    linen_shade(b,la,lc,lo,hi,lambda u,z,off:legacy._plane_point(pl,u,z,off),
+                normal,reconstructed,int((a*17+c*31+f*7+lo)*10003))
+
+    # Both HABS05 and owner image(10) show a flared projecting foot, dark
+    # soffit and raised clay hip edges. These small dimensions are bounded
+    # reconstructions, not sheet measurements; ze/za and the body stay fixed.
+    xa,xb=sorted((f,bk));xa,xb=(xa-.30,xb+.10) if sign<0 else (xa-.10,xb+.30)
+    ring=[(xa,a-.26,ze),(xb,a-.26,ze),(xb,c+.26,ze),(xa,c+.26,ze)]
+    kick=[(xa+.18,a-.08,ze+.13),(xb-.18,a-.08,ze+.13),
+          (xb-.18,c+.08,ze+.13),(xa+.18,c+.08,ze+.13)]
+    apex=((f+bk)/2,(a+c)/2,za)
+    for i in range(4):
+        j=(i+1)%4;p,q=ring[i],ring[j];v,w=kick[i],kick[j]
+        legacy._up(b,[p,q,w,v],reconstructed,ROOF)
+        legacy._up(b,[v,w,apex],conf,ROOF)
+        lowp=(p[0],p[1],ze-.075);lowq=(q[0],q[1],ze-.075)
+        facing=norm((p[0]+q[0]-2*apex[0],p[1]+q[1]-2*apex[1],0))
+        b.raw([lowp,lowq,q,p],reconstructed,PAINTED_WOOD,facing)
+    b.raw([(p[0],p[1],ze-.075) for p in ring],reconstructed,PAINTED_WOOD,(0,0,-1))
+
+    def hip_cap(p,q):
+        # Small overlapping half-round clay covers make each actual hip
+        # readable against the equally pitched red roof behind the dormer.
+        tangent=norm(sub(q,p));across=norm(cross(tangent,(0,0,1)))
+        outward=norm(cross(across,tangent));length=math.dist(p,q)
+        count=max(1,math.ceil(length/.27));radius=.047
+        for k in range(count):
+            t0=k/count+.002/length;t1=min(1,(k+1)/count+.014/length)
+            for j in range(8):
+                angles=(math.pi*j/8,math.pi*(j+1)/8)
+                def P(t,angle):
+                    return tuple(p[h]+(q[h]-p[h])*t+
+                                 radius*(across[h]*math.cos(angle)+outward[h]*math.sin(angle))+
+                                 outward[h]*.009 for h in range(3))
+                aa,cc=angles
+                want=tuple(across[h]*math.cos((aa+cc)/2)+outward[h]*math.sin((aa+cc)/2) for h in range(3))
+                b.raw([P(t0,aa),P(t1,aa),P(t1,cc),P(t0,cc)],reconstructed,19+k%3,want)
+    for p,v in zip(ring,kick):
+        hip_cap(p,v);hip_cap(v,apex)
+    # HABS05 shows the cap/finial form; owner image(10) confirms their clay
+    # material. A green copper vent was not supported by either comparison.
+    legacy._finial(b,apex[0],apex[1],za,.35,reconstructed,ROOF)
 
 def curved_masonry(b,cx,cy,r,z0,z1,conf,mat,windows,a0=0,a1=2*math.pi):
     """Continuous cylindrical face with windows removed in angular coordinates."""
@@ -1085,13 +1343,14 @@ def build(params,name):
     from archetypes.masonry_house_v4_materials import build_materials, assign_metric_uvs
     from archetypes.masonry_house_v4_landscape import add_lawn_blades
     from archetypes.masonry_house_v4_foundation import stair_tower_plinth
+    from archetypes.masonry_house_v4_rainwater import add_courtyard_rainwater
     b=DetailBuilder(name,params)
     for r in params.ranges:legacy._range(b,r)
     for t in params.towers:tower(b,t,params)
     for w in params.bows:bow(b,w)
     for y in params.bays:bay(b,y,params)
     for d in params.dormers:dormer(b,d)
-    for t in params.turrets:legacy._turret(b,t)
+    for t in params.turrets:louvred_turret(b,t)
     for c in params.chimneys:chimney(b,c)
     for o in params.openings:
         courtyard=(o['face']=='south' and o['at']>1) or (o['face']=='west' and o['at']>1) or (o['face']=='east' and o['at']<params.width_m-1)
@@ -1118,6 +1377,7 @@ def build(params,name):
     underpass(b,params)
     date_stones(b,params)
     stair_tower_plinth(b,params)
+    add_courtyard_rainwater(b,params)
     obj=b.to_object(build_materials(params.colours))
     assign_metric_uvs(obj)
     _discard_export_scratch_uv(obj)

@@ -57,6 +57,9 @@ class Recorder(detail.DetailBuilder):
     def raw(self, pts, confidence, mat, want=None):
         self.recorded.append((list(pts),mat))
 
+    def raw_with_normals(self, pts, normals, confidence, mat, want=None):
+        self.raw(pts,confidence,mat,want)
+
 
 def point_depth(faces,x,y):
     """Independent barycentric read of the emitted physical surface."""
@@ -134,3 +137,189 @@ wall.wall([(0,0,0),(0,0,1.2),(2,0,1.2),(2,0,0)],.75,detail.GRANITE)
 assert wall.stones and all(len(poly)==4 and holes for poly,holes in wall.stones), \
     'wall() decorated aperture-decomposition fragments as new stones'
 print(f'PASS wall: {len(wall.stones)} complete stones forwarded with aperture masks')
+
+# Shallow split-face facets share area-weighted normals only within this stone;
+# steep chips and side/reveal faces retain their original hard normals.
+front=[(0,0,0),(1,0,0),(0,1,0)]
+side=[(0,0,0),(0,0,-.03),(1,0,-.03),(1,0,0)]
+for degrees in (20,60):
+    tilted=[(1,0,0),(0,0,0),(0,-2,2*math.tan(math.radians(degrees)))]
+    softened=list(detail.stone_corner_normals([(front,True),(tilted,True),(side,False)]))
+    assert softened[2]==(side,False), 'smoothing altered a stone side/reveal'
+    assert [[p[:3] for p in poly] for poly,_ in softened[:2]]==[front,tilted], \
+        'normal blending moved a physical stone vertex'
+    a,b=softened[0][0][0][3:],softened[1][0][1][3:]
+    if degrees==20:
+        expected=detail.norm((0,2*math.tan(math.radians(20)),3))
+        assert math.dist(a,expected)<1e-10 and math.dist(a,b)<1e-10, \
+            'shallow fracture normals were not area weighted'
+    else:
+        assert math.dist(a,(0,0,1))<1e-10
+        assert detail.dot(a,b)<math.cos(math.radians(35)), \
+            'a steep fracture was rounded across its hard ridge'
+separate=list(detail.stone_corner_normals([(front,True)]))
+assert all(math.dist(p[3:],(0,0,1))<1e-10 for p in separate[0][0]), \
+    'normal sharing crossed between separate physical stones'
+print('PASS rock normals: area-weighted shallow facets; hard steep chips/sides; exact positions; separate stones')
+
+
+# Curved belts wrap horizontal coordinates and compress relief by4/7. Their
+# normals must rotate at each stone and use the inverse scale, including values
+# on the clamped outer envelope. The old planar origin-basis failed this probe.
+from archetypes.masonry_house_v4_rough_bands import add_rough_band
+class CurvedProbe:
+    checked=0
+    def raw(self,*args,**kwargs):pass
+    def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
+        u=sum(p[0] for p in polygon)/len(polygon)
+        for depth in (.006,.035,.070):
+            angle=u/1.96;radial=(math.cos(angle),math.sin(angle),0)
+            q=(u,.2,depth,0,0,1)
+            assert math.dist(point.normal(q),radial)<1e-10, 'belt normal did not rotate around the drum'
+            radius=1.96+depth*(.040/.070)
+            expected=detail.norm(tuple((-math.sin(angle),math.cos(angle),0)[k]/(radius/1.96)+
+                                       radial[k]/(.040/.070) for k in range(3)))
+            assert math.dist(point.normal((u,.2,depth,1,0,1)),expected)<1e-10, \
+                'belt normal did not account for compressed relief'
+            self.checked+=1
+probe=CurvedProbe();add_rough_band(probe,3,4,2,0,.4,.75)
+assert probe.checked>=24
+print(f'PASS curved rock normals: {probe.checked} rotated/compressed/clamped-envelope probes')
+
+
+# Optical surfaces need a closed dielectric volume. Load only the real legacy
+# mesh primitives used below, without importing Blender or its material system.
+# This also lets the louvre fixture compare the exact inherited turret envelope.
+import ast
+from collections import Counter
+legacy_tree=ast.parse((ROOT/'generators/archetypes/masonry_house.py').read_text())
+primitive_names={'_normal','_poly_facing','_up','_finial','_box','_cone','_turret','_panel'}
+legacy.__dict__.update(math=math,MeshBuilder=object,WOOD=detail.WOOD,GLASS=detail.GLASS,
+                       ROOF=detail.ROOF,COPPER=detail.COPPER,PANEL_PROUD=.03)
+exec(compile(ast.Module(body=[node for node in legacy_tree.body
+                              if isinstance(node,ast.FunctionDef) and node.name in primitive_names],
+                        type_ignores=[]),'legacy-physical-primitives','exec'),legacy.__dict__)
+
+
+class PhysicalRecorder:
+    """Record generated faces, including the normal correction of raw()."""
+    def __init__(self):
+        self.faces=[]
+
+    def raw(self,pts,confidence,mat,want=None):
+        if want is not None and detail.dot(legacy._normal(pts),want)<0:
+            pts=list(reversed(pts))
+        self.faces.append((list(pts),confidence,mat))
+
+    add_poly=raw
+    add_box=detail.DetailBuilder.add_box
+
+
+def check_closed_glass():
+    checked=0
+    for normal in ((1,0,0),(-1,0,0),(0,1,0),(0,-1,0),(.6,.8,0)):
+        tangent=(-normal[1],normal[0],0)
+        front=[(tangent[0]*u,tangent[1]*u,z)
+               for u,z in ((0,0),(1.1,0),(1.1,1.8),(0,1.8))]
+        for outline in (front,list(reversed(front))):
+            b=PhysicalRecorder();detail.glass_pane(b,outline,normal,.5)
+            assert len(b.faces)==6, 'pane is missing its rear or an edge face'
+            assert all(mat==detail.GLASS for _,_,mat in b.faces)
+            points={tuple(round(v,7) for v in p) for face,_,_ in b.faces for p in face}
+            assert len(points)==8, 'pane contains duplicated or displaced surfaces'
+            centre=tuple(sum(p[k] for p in points)/8 for k in range(3))
+            edges=Counter();volume=0
+            for face,_,_ in b.faces:
+                midpoint=tuple(sum(p[k] for p in face)/4 for k in range(3))
+                assert detail.dot(legacy._normal(face),detail.sub(midpoint,centre))>0, \
+                    'pane has an inward-facing surface'
+                for p,q in zip(face,face[1:]+face[:1]):
+                    edge=tuple(sorted((tuple(round(v,7) for v in p),
+                                       tuple(round(v,7) for v in q))))
+                    edges[edge]+=1
+                for i in range(1,len(face)-1):
+                    volume+=detail.dot(face[0],detail.cross(face[i],face[i+1]))/6
+            assert len(edges)==12 and set(edges.values())=={2}, \
+                'pane has an open or overlapping boundary'
+            assert math.isclose(volume,1.1*1.8*.004,abs_tol=1e-9), \
+                'pane does not enclose the reconstructed 4 mm stock'
+            assert b.faces[0][1]==.5 and all(conf==1.0 for _,conf,_ in b.faces[1:]), \
+                'new glass stock lost reconstructed confidence or changed the original front'
+            checked+=1
+    print(f'PASS glass: {checked} direction/winding cases; closed 4 mm volume; '
+          'outward normals; source front and reconstructed rear/edges')
+
+
+def physical_ray_hits(face,y,z):
+    """Independent triangle projection along the opening's X normal."""
+    for i in range(1,len(face)-1):
+        a,b,c=face[0],face[i],face[i+1]
+        determinant=(b[2]-c[2])*(a[1]-c[1])+(c[1]-b[1])*(a[2]-c[2])
+        if abs(determinant)<1e-12:
+            continue
+        wa=((b[2]-c[2])*(y-c[1])+(c[1]-b[1])*(z-c[2]))/determinant
+        wb=((c[2]-a[2])*(y-c[1])+(a[1]-c[1])*(z-c[2]))/determinant
+        if min(wa,wb,1-wa-wb)>1e-8:
+            return True
+    return False
+
+
+def check_prairie_door_cutout():
+    opening={'axis':'x','sign':1,'at':0,'u0':0,'u1':1.5,'z0':0,'z1':2.5,'conf':.5}
+    b=PhysicalRecorder();detail.detailed_door(b,opening,'prairie_front_door')
+    for y,z in ((.30,1.45),(.60,1.8),(.90,2.0),(1.2,2.2)):
+        assert not any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.WOOD), \
+            'opaque wood still backs the Prairie upper glazing'
+        assert any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.GLASS), \
+            'the Prairie cutout lost its glass'
+    assert any(physical_ray_hits(face,.7,.6) for face,_,mat in b.faces if mat==detail.WOOD), \
+        'making the upper cutout removed the lower wood panel'
+    print('PASS Prairie door: four upper-pane rays clear of wood; glass and lower wood panel retained')
+
+
+def check_turret_louvres():
+    turret={'x0':0,'x1':1.8288,'y0':0,'y1':1.8288,'z0':10.9728,'top_z':12.5273,
+            'louvre':[11.857,12.436],'apex_z':14.234,'finial_m':.4572,'conf':.5}
+    before,after=PhysicalRecorder(),PhysicalRecorder()
+    legacy._turret(before,turret);detail.louvred_turret(after,turret)
+    assert sum(mat==detail.GLASS for _,_,mat in before.faces)==4, \
+        'the legacy comparison fixture no longer represents four false glass panels'
+    assert not any(mat==detail.GLASS for _,_,mat in after.faces), \
+        'the louvred vent still contains transmitting glass'
+    assert sum(mat==detail.DARK_GLASS for _,_,mat in after.faces)==4, \
+        'one of the four louvred faces lost its recessed backing'
+    def envelope(recorder):
+        points=[p for face,_,_ in recorder.faces for p in face]
+        return (tuple(min(p[k] for p in points) for k in range(3)),
+                tuple(max(p[k] for p in points) for k in range(3)))
+    assert envelope(before)==envelope(after), 'louvres changed the recorded turret envelope'
+    lo,hi=turret['louvre'];pitch=(hi-lo)/round((hi-lo)/.145)
+    near_faces=[face for face,_,mat in after.faces
+                if mat==detail.WOOD and min(p[0] for p in face)>turret['x1']-.15]
+    assert not any(physical_ray_hits(face,.9,lo+pitch) for face in near_faces), \
+        'the gap between louvre blades is filled with wood'
+    assert any(physical_ray_hits(face,.9,lo+pitch/2) for face in near_faces), \
+        'the louvre band is empty of real timber blades'
+    print('PASS turret: four false glass panels removed; real blades/gaps; exact inherited envelope')
+
+
+check_closed_glass()
+check_prairie_door_cutout()
+check_turret_louvres()
+
+
+# The engine-neutral light writer must preserve concave roof/ground/aperture
+# silhouettes, including a reflex corner exactly on a proposed ear diagonal.
+sys.path.insert(0,str(ROOT/'tools'))
+from _glessner_lod import _triangles
+notches=[([(0,0),(4,0),(4,4),(2,2),(0,4)],12),
+         ([(0,0),(3,0),(3,1),(1,1),(1,3),(0,3)],5),
+         ([(0,0),(3,0),(3,3),(2,3),(2,1),(1,1),(1,3),(0,3)],7),
+         ([(0,0),(1,0),(2,0),(2,2),(0,2)],4)]
+for polygon,expected in notches:
+    for poly in (polygon,list(reversed(polygon))):
+        points=[(x,y,0) for x,y in poly]
+        triangles=_triangles(points,(0,0,1))
+        measured=sum(abs(detail.area([points[i] for i in triangle])) for triangle in triangles)
+        assert abs(measured-expected)<1e-10, 'light triangulation filled a concave notch'
+print('PASS light triangulation: diagonal-boundary notch, L/U outlines and collinear edges in both windings')

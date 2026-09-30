@@ -120,12 +120,13 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# T-1730. A fresh checkout has neither ignored v4 GLB. Recover that exact pair
+# T-1730. A fresh checkout has none of the ignored v4 GLBs. Recover that exact set
 # before the canonical producer walks its inputs. Never restore over a new master
 # or a lone/stale derivative, and leave --out measurements and unrelated ids alone.
 GLESSNER_V4="versions/glessner_house/v4/glessner_house__as_built_1887.glb"
 if [ "$OUT" = "assets/web" ] && { [ -z "$ONLY" ] || [ "$ONLY" = "$GLESSNER_V4" ]; } \
-  && [ ! -e "assets/gltf/$GLESSNER_V4" ] && [ ! -e "assets/web/$GLESSNER_V4" ]; then
+  && [ ! -e "assets/gltf/$GLESSNER_V4" ] && [ ! -e "assets/web/$GLESSNER_V4" ] \
+  && [ ! -e "assets/web/${GLESSNER_V4%.glb}.light.glb" ]; then
   python3 tools/recover_glessner_v4.py --materialize
 fi
 
@@ -138,6 +139,36 @@ record_version() {
   if [ "$1" = "$GLESSNER_V4" ]; then
     python3 tools/recover_glessner_v4.py --pack
   fi
+}
+
+# T-1730: only this high-detail alternate has a separate reduced rendering mesh.
+# The source producer uses the same version parameters/openings and copies its
+# current full master's material/texture payload. It is not mesh simplification
+# (separate physical blocks lock that algorithm) and is never a v3/default fallback.
+# Both output files must complete before record-web/pack claims either is fresh.
+produce_light_version() {
+  [ "$1" = "$GLESSNER_V4" ] || return 0
+  local light="${1%.glb}.light.glb" source optimized output
+  source="$(mktemp -t gltflight-source.XXXXXX.glb)"
+  optimized="$(mktemp -t gltflight-opt.XXXXXX.glb)"
+  output="$(mktemp -t gltflight-web.XXXXXX.glb)"
+  if ! python3 tools/structure_versions.py build-light "$1" "$source" \
+    || ! "${GT_NPX[@]}" gltf-transform optimize "$source" "$optimized" --compress false --simplify false --palette false 2>&1 | tail -2 \
+    || ! "${GT_NPX[@]}" gltf-transform meshopt "$optimized" "$output" --quantize-position 16 2>&1 | tail -2; then
+    rm -f "$source" "$optimized" "$output"
+    echo "   FATAL: v4 light derivative failed; no full-copy fallback, record, or repack." >&2
+    return 1
+  fi
+  local stamp
+  stamp="$(strings "$output" 2>/dev/null | grep -o 'glTF-Transform v[0-9][0-9.]*' | head -1 || true)"
+  if [ "$stamp" != "glTF-Transform v$GT_CORE_VERSION" ]; then
+    rm -f "$source" "$optimized" "$output"
+    echo "   FATAL: v4 light derivative has an unpinned transform stamp." >&2
+    return 1
+  fi
+  mv "$output" "$OUT/$light"
+  rm -f "$source" "$optimized"
+  printf '   %s  %s bytes (same-version reduced geometry)\n' "$light" "$(wc -c < "$OUT/$light" | tr -d ' ')"
 }
 
 # WHAT THIS STEP KNOWS AND NOTHING ELSE DOES — ROADMAP K39.
@@ -505,6 +536,8 @@ if [ -n "$resolved_cli" ]; then
       passthrough=$((passthrough + 1))
       note="  (compression grew it; master passed through)"
     fi
+    # Run for --out measurements too, but those never record or repack.
+    produce_light_version "$rel"
     if [ "$rel" = "$(basename "$f")" ]; then
       echo "$rel" >> "$PRODUCED"
     elif [ "$OUT" = "assets/web" ]; then
@@ -537,6 +570,12 @@ else
   # A FOURTH passthrough path, and the widest: no tool means every one of the 334
   # derivatives becomes an uncompressed master copy — a ~4.6x payload against a 25 MB
   # budget. It warned and nothing gated it. Assertion 8 does now.
+  # A full master cannot stand in for the reduced asset: doing so would silently
+  # breach light's ceiling. Refuse this explicitly requested version before writes.
+  if { [ -z "$ONLY" ] && [ -e "assets/gltf/$GLESSNER_V4" ]; } || [ "$ONLY" = "$GLESSNER_V4" ]; then
+    echo "   FATAL: gltf-transform unavailable; v4 full/light production requires the pinned tool." >&2
+    exit 1
+  fi
   echo "   gltf-transform unavailable; copying masters to assets/web unoptimised"
   echo "   WARNING: every derivative is now a master copy. tools/check.sh will fail"
   echo "   assertion 8 (K38) on all of them, which is correct — do not bank it."

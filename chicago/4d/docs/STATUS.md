@@ -23,6 +23,10 @@ Evidence: `docs/RESEARCH/glessner_house_v4.md`; reconstructed details: L305.
 The working branch is `steward/glessner-v4`; recoverable checkpoints and the
 remaining acceptance work are in `docs/RESEARCH/glessner_v4_work.md`.
 
+Refined05 packages full and reduced versions of the same model, retaining all
+172 openings. Full uses detailed relief; Balanced and Light use the reduced
+mesh. Published switching and current full gates remain under validation.
+
 Visual review and final validation are in progress. The early renders exposed
 blank tower windows, incorrect bay glazing, a blocked passage and flat chimney
 faces; subsequent candidates correct these and refine stone fracture, joinery,

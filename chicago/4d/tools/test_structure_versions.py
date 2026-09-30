@@ -197,6 +197,53 @@ def test_detail_dependency_isolation() -> None:
 
 test_detail_dependency_isolation()
 
+# LOD freshness is tested with independent byte fixtures: each link can go red
+# without rewriting any committed bake or calling a heavyweight tool.
+def test_light_derivative_freshness() -> None:
+    with tempfile.TemporaryDirectory(prefix="version-light-") as tmp:
+        root = Path(tmp)
+        key = V.GLESSNER_V4_KEY
+        light = V.lod_asset_keys(key)["light"]
+        for name, content in (("assets/gltf/" + key, b"full master"),
+                              ("assets/web/" + light, b"reduced same version"),
+                              ("tools/structure_versions.py", b"recipe fixture"),
+                              ("tools/_glessner_lod.py", b"geometry recipe fixture"),
+                              ("data/structures/versions/glessner_house/v4.json", b"source record"),
+                              ("generators/archetypes/masonry_house_v4_detail.py", b"detail source")):
+            path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(content)
+        entry = {"web_lods": {"light": {"asset": light,
+            "master_sha256": V.sha256_file(root / "assets/gltf" / key),
+            "recipe_sha256": V.lod_recipe_sha(root),
+            "output_sha256": V.sha256_file(root / "assets/web" / light)}}}
+        check("same-version light master/recipe/output chain is fresh",
+              not V.lod_problems(key, entry, root))
+        for rel, label in (("assets/gltf/" + key, "version master"),
+                           ("assets/web/" + light, "light output"),
+                           ("tools/structure_versions.py", "light producer recipe"),
+                           ("tools/_glessner_lod.py", "light geometry recipe"),
+                           ("data/structures/versions/glessner_house/v4.json", "light source record"),
+                           ("generators/archetypes/masonry_house_v4_detail.py", "light detail geometry")):
+            path = root / rel; original = path.read_bytes(); path.write_bytes(original + b" changed")
+            check(f"changing {label} refuses the stale light derivative",
+                  bool(V.lod_problems(key, entry, root)))
+            path.write_bytes(original)
+        helper = root / "tools/_glessner_lod.py"; content = helper.read_bytes(); helper.unlink()
+        problems = V.lod_problems(key, entry, root)
+        check("a missing light recipe input is a diagnostic failure, not a traceback",
+              any("cannot read its rendering recipe" in problem for problem in problems))
+        helper.write_bytes(content)
+        check("a missing light record cannot be accepted", bool(V.lod_problems(key, {}, root)))
+        path = root / "assets/web" / light; path.unlink()
+        check("a missing light output cannot be accepted", bool(V.lod_problems(key, entry, root)))
+        check("default/v2/v3 and similarly named v40 have no implicit LOD",
+              all(not V.lod_asset_keys(k) for k in (key.replace('/v4/', '/v2/'),
+                  key.replace('/v4/', '/v3/'), key.replace('/v4/', '/v40/'),
+                  "glessner_house__as_built_1887.glb")))
+
+
+test_light_derivative_freshness()
+
 if "--isolated-only" in sys.argv:
     say(f"{len(FAILURES)} failure(s)")
     sys.exit(1 if FAILURES else 0)
@@ -225,6 +272,16 @@ def sandbox() -> Path:
             shutil.copytree(src, root / rel)
     shutil.copyfile(REAL / "assets" / "manifest.versions.json",
                     root / "assets" / "manifest.versions.json")
+    # LOD freshness recomputes its real source/producer recipe inside this
+    # sandbox. A fixture with only assets is intentionally an incomplete checkout,
+    # not a clean control; copy the exact recipe inputs without running any writer.
+    recipe_files = [REAL / "tools/structure_versions.py", REAL / "tools/_glessner_lod.py",
+                    REAL / "generators/archetypes/masonry_house.py"]
+    recipe_files.extend((REAL / "generators/archetypes").glob("masonry_house_v4*.py"))
+    for source in recipe_files:
+        target = root / source.relative_to(REAL)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
     return root
 
 

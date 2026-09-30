@@ -177,14 +177,22 @@ def fan(b, o):
     r=Relief(b,o,conf)
     cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
     # The broad structural arch remains the opening record's measured outline.
+    from archetypes.masonry_house_v4_detail import fractured_stone, stone_corner_normals
+    import random
     count=o.get('voussoirs') or 11
     for i in range(count):
         a=math.pi*i/count+.004;c=math.pi*(i+1)/count-.004
         lo,hi=rad+.04,o['r_out']
-        r.solid([(cx+lo*math.cos(a),cz+lo*math.sin(a)),
-                 (cx+hi*math.cos(a),cz+hi*math.sin(a)),
-                 (cx+hi*math.cos(c),cz+hi*math.sin(c)),
-                 (cx+lo*math.cos(c),cz+lo*math.sin(c))],-.02,.065,12+i%4)
+        poly=[(cx+lo*math.cos(a),cz+lo*math.sin(a)),
+              (cx+hi*math.cos(a),cz+hi*math.sin(a)),
+              (cx+hi*math.cos(c),cz+hi*math.sin(c)),
+              (cx+lo*math.cos(c),cz+lo*math.sin(c))]
+        for facet,is_front in stone_corner_normals(fractured_stone(poly,.05,random.Random(90211+i*173))):
+            if is_front:
+                b.raw_with_normals([r.point(*p[:3]) for p in facet],
+                                   [r.vector(*p[3:]) for p in facet],
+                                   conf,12+i%4,r.vector(0,0,1))
+            else:r.face(facet,12+i%4,None)
     # Bed lies behind all carving, letting the drilled pockets remain dark.
     # The wall builder removes the entire arch; overlap the voussoirs' inner
     # radius by 1 mm so their recessed carving bed cannot reveal the sky.

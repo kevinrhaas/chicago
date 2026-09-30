@@ -268,3 +268,74 @@ operator, condition and floor remains. Its isolated gate passed708steps,
 and published mobile parts1–2 passed158/0 with zero page errors. Final
 integrated browser coverage remains due. The current full preflight also
 checks the repaired new-tool classifications and isolation measurements.
+
+Checkpoint6 is remote commit`1ac8d5439638bfa446c37404e0a250d8c9bc57eb`.
+Source, two exact GLBs and candid rendered evidence are recoverable there.
+Further stone/roof refinement continues; no final quality acceptance.
+
+Refined03 full preflight completed PASS: check.sh, changelog and ticket-ID
+checks are all green. This clears the four prior new-tool integration failures.
+Final geometry refinements still require their own fresh bake and gate.
+
+Draft PR201 tracks the recoverable implementation and the unfinished visual
+acceptance: https://github.com/kevinrhaas/chicago/pull/201 . T-1752 is in review
+against that PR; T-1730 remains claimed for this version and stays open for
+the owner comparison after integration.
+
+
+Refined04 master: 124,135,404 bytes, approximately 1,070,689 triangles,
+SHA256 `5992aed6d90d6c5787ac18568f58a6e65a6952a204bfc160e9b4ead6aba73cdc`.
+Dense split-face stone with selective within-stone normals, rough arch wedges,
+flared dormer caps and timber lights, ridge crests and courtyard gutters are
+now baked. Neutral and directional actual-model renders confirm more natural
+stone relief. This remains an intermediate review; glazing convergence and
+courtyard material variation are being examined before photographic acceptance.
+
+The corrected light-mode browser baseline reads the actual
+`chicago4d.settings.detail` preference and uses touch emulation. Refined03
+submitted 2,164,635 triangles against the unchanged 825,000 light allowance;
+the earlier harness used an unused preference key and its apparent light
+reading was actually full. Both receipts are retained with that distinction.
+The viewer currently uses the same GLB at all tiers. A source-derived reduced
+v4 mesh and transactional tier switching are therefore necessary. Neither
+default nor an older comparison version can substitute for this reduced v4.
+
+A noncanonical derivative price of refined04 (47,037,292 bytes; SHA256
+`a88652ca070ccd9db70c529d24b6579040823c4bf960ce5899bb6cbbef4d9e25`)
+measured five desktop stands with explicit actual rendering frames. Maximum
+was 3,430,985 rendered triangles and 105 calls at 18th Street; Prairie,
+courtyard, stable and aerial were also measured. Zero browser or HTTP errors.
+This price uses the ordinary producer with `--out` and explicitly overrides
+only that GLB when serving the prior published tree; it is not final published
+acceptance. The proposed full-only selected-v4 allowance is 3,800,000 triangles
+(10.8% above that observed maximum), retaining 215 calls and every ordinary
+town/light/balanced ceiling. Final canonical assets and both viewport readings
+remain required. Checkpoint6 CI passed on GitHub.
+
+
+Refined05 combined candidate (2026-09-30 UTC): dense multiscale stone,
+correct analytic curved-stone normals, sealed 4 mm glass, a genuine Prairie
+upper-door-light cutout, stable-turret timber louvres, flared dormers, ridge
+crests and courtyard rainwater goods are baked together. The courtyard uses
+coherent clay variants, sandy mortar and the documented 4 m lawn texture.
+The new turf input's exact prompt and hash are in its provenance JSON.
+
+Full master: 125,170,732 bytes, 1,071,475 triangles, SHA256
+`73724f18a4afefe2f71ec7a608fe5f6f18df3d7ac74bd2dd6caaadd89e0ecec4`.
+Full web: 47,924,540 bytes, SHA256
+`f05f30274ca34e0a83c21495b23cca1a649dda241cfc052651bff0baf22bdf76`.
+Light web: 25,156,180 bytes, 193,233 triangles, SHA256
+`69f36870cda016d11474780c5fcb33a9a27a0340e37c1538c735b751e16b199a`.
+The exact three-file recovery package has 20 parts.
+
+The source-derived reduced mesh preserves all 172 openings. Independent
+float32 position/confidence fingerprints match full geometry exactly for
+glass, painted sash, wood, iron, linen, copper, backing and ground surfaces.
+Another 108 cases confirm the reduced masonry keeps full geometry's random
+sequence and material choices. These proofs cover architectural preservation;
+they do not claim photographic appearance or a passing published frame budget.
+
+The 1440 px actual-model entry render shows substantially better stone and
+clearer glass, but still exposes flat gray glazing/interiors and simplified
+carving. These remain active visual work. Refined05 published detail-switch
+checks and fresh integrated gates are in progress; no final acceptance yet.

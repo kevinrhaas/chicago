@@ -1,0 +1,37 @@
+{
+  "baseline_generator_triangles_excluding_font": 653705,
+  "candidate_generator_triangles_excluding_font": 1029448,
+  "added_triangles": 375743,
+  "eligible_rectangular_blocks": 3129,
+  "eligible_rectangular_area_m2": 853.5940726942895,
+  "ordered_rectangular_block_inventory_unchanged": true,
+  "other_material_triangle_counts_unchanged": true,
+  "facet_spacing_m": 0.075,
+  "relief_bounds_m": [
+    -0.009,
+    0.07
+  ],
+  "rectangular_chip_setback_m": [
+    0.001,
+    0.011
+  ],
+  "nonrectangular_clip_tests": {
+    "unchanged_surface_samples": 1175,
+    "empty_aperture_samples": 196,
+    "seeded_coverage_checks": 12
+  },
+  "existing_fixture": {
+    "stone_and_brick_surface_samples_each": 805,
+    "empty_aperture_samples_each": 616,
+    "whole_wall_stones": 9
+  },
+  "parent_sources_edited": false,
+  "normal_refinement": {
+    "angle_degrees": 35,
+    "method": "area-weighted coincident front corners within one physical stone; side/reveal excluded; interpolated through aperture clipping",
+    "geometry_triangles_unchanged": true,
+    "all_material_triangle_counts_unchanged": true,
+    "export_proof": "../stone-normal-study/export-proof.json",
+    "sharp_and_shallow_normal_fixture_pass": true
+  }
+}

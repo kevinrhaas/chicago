@@ -7,6 +7,7 @@ export const CHANGELOG = [ // newest first
     items: [
       'Explore the fourth Glessner House model at /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v4. Its stone courses, brickwork, roof tiles, copper seams and recessed sash have individual geometry and original surface textures.',
       'The courtyard gains garden-level windows, stable-wing openings, stair-tower lights, the curved terrace and an open passage. The crossing roofs, smaller west dormer and distinct chimneys follow the measured envelope and the reference audit.',
+      'Full detail shows the fine stone and carved trim. Balanced and Light keep the same windows, doors and roof forms with less surface geometry, and the detail setting can change while you explore.',
       'The evidence record distinguishes measured HABS dimensions from reconstructed fabric, window details and features inferred from modern photographs. The version selector keeps the other readings available for comparison.',
     ] },
   { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',

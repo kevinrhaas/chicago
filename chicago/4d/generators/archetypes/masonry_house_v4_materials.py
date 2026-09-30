@@ -2,7 +2,7 @@
 
 This module is deliberately local to the opt-in v4 builder. Nothing here changes
 the shared town palette or a previous Glessner version. The maps are reconstructed
-surface studies: nine numeric fabrics plus original generated granite and turf albedos.
+surface studies: ten numeric fabrics plus original generated granite and turf albedos.
 Photographs were read as visual references, never sampled, traced, projected or embedded. Material names
 retain the legacy roof_plane contract. Copper is a metal; the window surface is
 dielectric glass with real environment reflections, not painted blue rectangles.
@@ -26,6 +26,7 @@ TILE_M = {
     "granite": (1.6, 1.6),
     "brick": (1.7272, 2.1336),
     "limestone": (1.2, 1.2),
+    "mortar": (1.2, 1.2),
     "terracotta": (2.4384, 1.95072),
     "copper": (2.4, 2.4),
     "oak": (0.8, 2.4),
@@ -35,7 +36,7 @@ TILE_M = {
 }
 # The generated albedo depicts a smaller crystal field than the procedural
 # normal/roughness repeat. UV0 stays metric; glTF carries this texture's scale.
-ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (0.4, 0.4)}
+ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (4.0, 4.0)}
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -51,7 +52,7 @@ GRASS_BLADES = (25, 26, 27)
 
 SLOT_FABRIC = {
     0: "granite", 1: "brick", 2: "limestone", 3: "terracotta",
-    4: "copper", 6: "oak", 7: "turf", 8: "gravel", 9: "limestone",
+    4: "copper", 6: "oak", 7: "turf", 8: "gravel", 9: "mortar",
     12: "granite", 13: "granite", 14: "granite", 15: "granite",
     16: "brick", 17: "brick", 18: "brick",
     19: "terracotta", 20: "terracotta", 21: "terracotta",
@@ -65,7 +66,7 @@ def _image(bpy, fabric, suffix, colour=False):
     ext = "jpg" if suffix == "basecolor" else "png"
     path = TEXTURES / f"{fabric}_{suffix}.{ext}"
     if fabric in ALBEDO_TILE_M and suffix == "basecolor":
-        path = TEXTURES / f"{fabric}_photographic_basecolor.png"
+        path = TEXTURES / ("turf_patch_photographic_basecolor.png" if fabric == "turf" else f"{fabric}_photographic_basecolor.png")
     if not path.is_file():
         raise FileNotFoundError(f"Glessner v4 PBR map missing: {path}")
     image = bpy.data.images.load(str(path), check_existing=True)
@@ -137,7 +138,8 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
     material["tile_m"] = list(TILE_M[fabric])
     albedo_source = albedo_fabric or fabric
     if albedo_source in ALBEDO_TILE_M:
-        material["albedo_provenance"] = f"assets/textures/glessner-v4/{albedo_source}_photographic_provenance.json"
+        material["albedo_provenance"] = ("assets/textures/glessner-v4/turf_patch_provenance.json" if albedo_source == "turf"
+                                         else f"assets/textures/glessner-v4/{albedo_source}_photographic_provenance.json")
         material["albedo_tile_m"] = list(ALBEDO_TILE_M[albedo_source])
     return material
 
@@ -152,7 +154,7 @@ def build_materials(colours=None):
     colours = colours or {}
     mats = [
         _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
-        _pbr(bpy, "brick", "brick", normal_strength=0.85),
+        _pbr(bpy, "brick", "brick", tint=(0.88, 0.88, 0.88), normal_strength=0.85),
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
         _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
@@ -160,7 +162,7 @@ def build_materials(colours=None):
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
         _pbr(bpy, "lawn", "turf", normal_strength=0.25),
         _pbr(bpy, "drive", "gravel", normal_strength=0.55),
-        _pbr(bpy, "mortar", "limestone", tint=(0.60, 0.58, 0.53), normal_strength=0.25),
+        _pbr(bpy, "mortar", "mortar", normal_strength=0.65),
         _plain(bpy, "iron", (0.013, 0.017, 0.015, 1), roughness=0.40, metallic=0.70),
         _plain(bpy, "glass_dark", (0.005, 0.007, 0.006, 1), roughness=0.92),
     ]
@@ -177,15 +179,12 @@ def build_materials(colours=None):
     for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
                               (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
         mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.0))
-    # Kiln firing varies individual common bricks. The geometry deals mostly
-    # the main grey-tan slot1, then warm red16, buff17 and occasional smoky18.
-    # The neutral limestone grain image supplies the latter colour fields only;
-    # their relief and roughness remain brick. No additional atlas is duplicated.
-    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(1.0, 0.70, 0.60), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(0.46, 0.41, 0.33), normal_strength=0.85,
-                     albedo_fabric="limestone"))
-    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.15, 0.16, 0.155), normal_strength=0.85,
-                     albedo_fabric="limestone"))
+    # Restrained kiln variation shares the same clay fabric in every slot.
+    # Narrowing hue/value steps removes the random grey/red mosaic while
+    # preserving the existing geometry's60/20/14/6 unit distribution.
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.92, 0.72, 0.64), normal_strength=0.85))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(1.0, 0.985, 0.94), normal_strength=0.85))
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.43, 0.47, 0.48), normal_strength=0.85))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
     mats.append(_plain(bpy, "linen_blind", (0.74, 0.73, 0.68, 1), roughness=0.98))

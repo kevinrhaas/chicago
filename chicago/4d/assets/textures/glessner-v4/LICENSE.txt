@@ -3,7 +3,7 @@ Glessner House v4 original PBR material studies
 Original procedural output generated for Kevin Haas's Chicago reconstruction by
 generate.py, which ships with the maps, plus the separately preserved original
 generated granite and turf albedos documented in granite_photographic_provenance.json
-and turf_photographic_provenance.json.
+turf_photographic_provenance.json and turf_patch_provenance.json.
 No third-party photograph, Google Earth image, aerial texture or historical
 photograph is embedded, sampled, traced or projected in any map. The generated
 granite and turf albedos were created from text prompts without reference image pixels.

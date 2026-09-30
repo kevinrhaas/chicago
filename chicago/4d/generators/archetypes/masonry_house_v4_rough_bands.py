@@ -39,6 +39,23 @@ def add_rough_band(b, cx, cy, outer_radius, z0, z1, confidence):
         radius = face_radius + max(-.009, min(.070, off)) * (.040/.070)
         return (cx+radius*math.cos(angle), cy+radius*math.sin(angle), q[1])
 
+    def map_normal(q):
+        # Positions wrap u onto a cylinder and compress outward relief. Normals
+        # therefore need the local inverse transpose, not the planar basis at
+        # u=0 (and never a depth=1 sample, which point() clamps to70 mm).
+        angle=q[0]/face_radius
+        radial=(math.cos(angle),math.sin(angle),0.0)
+        tangent=(-radial[1],radial[0],0.0)
+        depth_scale=.040/.070
+        radius=face_radius+max(-.009,min(.070,q[2]))*depth_scale
+        tangent_scale=radius/face_radius
+        n=tuple(q[3]*tangent[k]/tangent_scale+q[4]*(k==2)+
+                q[5]*radial[k]/depth_scale for k in range(3))
+        length=math.sqrt(sum(v*v for v in n)) or 1
+        return tuple(v/length for v in n)
+
+    point.normal=map_normal
+
     def circle(radius, angle, z):
         return (cx+radius*math.cos(angle), cy+radius*math.sin(angle), z)
 

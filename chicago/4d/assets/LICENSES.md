@@ -433,64 +433,47 @@ failure.
 `authored/` holds hero assets that cannot come from a structure record (Fort Dearborn
 detailing, signboards). They are exempt from regeneration but **not** from provenance:
 each needs a row here and a source record explaining what the form is based on.
-### Glessner v4 original materials — `textures/glessner-v4/`
+### Glessner House v4 original surface studies
 
-Nine original procedural PBR fabrics plus two separately preserved original
-generated albedos for the opt-in v4 building. Numeric fabrics: granite, limestone,
-grey-tan common brick, terracotta, copper, oak, painted wood, turf and pale gravel.
-`generate.py` reproduces the numeric maps and never overwrites either generated PNG.
-The original generated granite and turf images have exact prompts, SHA256, methods
-and limitations in their corresponding `*_photographic_provenance.json` files.
-No historical, supplied, Google, aerial or other photograph pixels were sampled,
-traced or embedded. Generated images were created from text prompts without
-reference-image input. They are material studies, not photographs of the house.
-All pixel arrangements, exact colours, grain, aging and sampling scales are
-reconstructed visual choices rather than measured historical evidence.
+The following 40 files are original project material assets: ten deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
 
-| item | licence | cleared for | NOT cleared for |
-|---|---|---|---|
-| `textures/glessner-v4/**` — original procedural studies and generated granite/turf albedos | **Project-permissive, CC0-equivalent**, the existing PBR libraries' terms; full text in `textures/glessner-v4/LICENSE.txt` | Use, modification and redistribution with this project; regeneration of the nine numeric fabrics | Stripping confidence/provenance or presenting reconstructed textures as photographs of the house or measured historical fabric |
-
-The GLB embeds the maps it uses. Original numeric albedos remain source assets even
-where the active material uses a generated bitmap. The building geometry owns
-masonry joints, block outlines, openings, roof tiles and standing seams.
-
-Every file, as the checker matches them one by one:
-
-```
-textures/glessner-v4/LICENSE.txt
-textures/glessner-v4/README.md
-textures/glessner-v4/brick_basecolor.jpg
-textures/glessner-v4/brick_normal.png
-textures/glessner-v4/brick_roughness.png
-textures/glessner-v4/copper_basecolor.jpg
-textures/glessner-v4/copper_normal.png
-textures/glessner-v4/copper_roughness.png
-textures/glessner-v4/generate.py
-textures/glessner-v4/granite_basecolor.jpg
-textures/glessner-v4/granite_normal.png
-textures/glessner-v4/granite_photographic_basecolor.png
-textures/glessner-v4/granite_photographic_provenance.json
-textures/glessner-v4/granite_roughness.png
-textures/glessner-v4/gravel_basecolor.jpg
-textures/glessner-v4/gravel_normal.png
-textures/glessner-v4/gravel_roughness.png
-textures/glessner-v4/limestone_basecolor.jpg
-textures/glessner-v4/limestone_normal.png
-textures/glessner-v4/limestone_roughness.png
-textures/glessner-v4/material-library.json
-textures/glessner-v4/oak_basecolor.jpg
-textures/glessner-v4/oak_normal.png
-textures/glessner-v4/oak_roughness.png
-textures/glessner-v4/painted_wood_basecolor.jpg
-textures/glessner-v4/painted_wood_normal.png
-textures/glessner-v4/painted_wood_roughness.png
-textures/glessner-v4/terracotta_basecolor.jpg
-textures/glessner-v4/terracotta_normal.png
-textures/glessner-v4/terracotta_roughness.png
-textures/glessner-v4/turf_basecolor.jpg
-textures/glessner-v4/turf_normal.png
-textures/glessner-v4/turf_photographic_basecolor.png
-textures/glessner-v4/turf_photographic_provenance.json
-textures/glessner-v4/turf_roughness.png
-```
+- `textures/glessner-v4/LICENSE.txt`
+- `textures/glessner-v4/README.md`
+- `textures/glessner-v4/brick_basecolor.jpg`
+- `textures/glessner-v4/brick_normal.png`
+- `textures/glessner-v4/brick_roughness.png`
+- `textures/glessner-v4/copper_basecolor.jpg`
+- `textures/glessner-v4/copper_normal.png`
+- `textures/glessner-v4/copper_roughness.png`
+- `textures/glessner-v4/generate.py`
+- `textures/glessner-v4/granite_basecolor.jpg`
+- `textures/glessner-v4/granite_normal.png`
+- `textures/glessner-v4/granite_photographic_basecolor.png`
+- `textures/glessner-v4/granite_photographic_provenance.json`
+- `textures/glessner-v4/granite_roughness.png`
+- `textures/glessner-v4/gravel_basecolor.jpg`
+- `textures/glessner-v4/gravel_normal.png`
+- `textures/glessner-v4/gravel_roughness.png`
+- `textures/glessner-v4/limestone_basecolor.jpg`
+- `textures/glessner-v4/limestone_normal.png`
+- `textures/glessner-v4/limestone_roughness.png`
+- `textures/glessner-v4/material-library.json`
+- `textures/glessner-v4/mortar_basecolor.jpg`
+- `textures/glessner-v4/mortar_normal.png`
+- `textures/glessner-v4/mortar_roughness.png`
+- `textures/glessner-v4/oak_basecolor.jpg`
+- `textures/glessner-v4/oak_normal.png`
+- `textures/glessner-v4/oak_roughness.png`
+- `textures/glessner-v4/painted_wood_basecolor.jpg`
+- `textures/glessner-v4/painted_wood_normal.png`
+- `textures/glessner-v4/painted_wood_roughness.png`
+- `textures/glessner-v4/terracotta_basecolor.jpg`
+- `textures/glessner-v4/terracotta_normal.png`
+- `textures/glessner-v4/terracotta_roughness.png`
+- `textures/glessner-v4/turf_basecolor.jpg`
+- `textures/glessner-v4/turf_normal.png`
+- `textures/glessner-v4/turf_patch_photographic_basecolor.png`
+- `textures/glessner-v4/turf_patch_provenance.json`
+- `textures/glessner-v4/turf_photographic_basecolor.png`
+- `textures/glessner-v4/turf_photographic_provenance.json`
+- `textures/glessner-v4/turf_roughness.png`

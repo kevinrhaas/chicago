@@ -2360,6 +2360,10 @@ def compile_versions(scene_id: str, target: dt.date, outdir: Path, build_sidecar
         sidecar = build_sidecar(st, phase)
         sidecar["asset"] = (None if phase.get("drawn_by")
                             else f"gltf/{V.asset_key(sid, label, phase['id'])}")
+        if sidecar["asset"]:
+            lods = V.lod_asset_keys(V.asset_key(sid, label, phase['id']))
+            if lods:
+                sidecar["asset_lods"] = {level: f"gltf/{key}" for level, key in lods.items()}
         block = st.get("version") or {}
         sidecar["version"] = {
             "label": label,
