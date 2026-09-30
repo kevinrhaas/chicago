@@ -36,12 +36,94 @@ export function resolveBases(loc = window.location) {
   const dev = /\/renderers\/web\/$/.test(here.pathname);
   return {
     dev,
+    sourceAssetLayout: dev && !params.has('assets'),
     dataBase: new URL(params.get('data') ?? (dev ? '../../data/' : '../data/'), here),
     // Published layout puts the web-derivative GLBs at data/gltf/, and sidecar
     // `asset` paths are relative to the data root (see docs/GLB-CONTRACT.md
     // § Paths). In the source tree the same files sit under assets/web/.
     assetBase: new URL(params.get('assets') ?? (dev ? '../../assets/' : '../data/'), here),
   };
+}
+
+/** T-1730: only this explicitly selected comparison build has a detail derivative.
+ * It remains the same record, version, placement and confidence at every setting. */
+export function hasInspectionLod(record) {
+  return record?.id === 'glessner_house' && (record.version?.label === 'v4'
+    || (!record.version && record.sidecar?.asset === 'gltf/glessner_house__as_built_1887.glb'))
+    && typeof record.sidecar?.asset_lods?.light === 'string'
+    && record.sidecar.asset_lods.light.length > 0;
+}
+
+export function detailAssetPath(record, detail) {
+  return hasInspectionLod(record) && (detail === 'balanced' || detail === 'light')
+    ? record.sidecar.asset_lods.light : record.sidecar.asset;
+}
+
+export function detailAssetUrl(record, detail, bases) {
+  const asset = detailAssetPath(record, detail);
+  // The ordinary source viewer reads masters from assets/gltf. A render-only LOD
+  // has no pretend master: its source-layout address is assets/web instead.
+  const relative = bases.sourceAssetLayout && asset !== record.sidecar.asset
+    ? asset.replace(/^gltf\//, 'web/') : asset;
+  return new URL(relative, bases.assetBase);
+}
+
+/** A serial, latest-request-wins transaction. Preparation never removes the visible
+ * model. Superseded work is disposed; a failed request leaves the committed tier. */
+export function createLatestDetailSwitch({ initial, prepare, commit, discard, onError }) {
+  let current = initial;
+  let requested = initial;
+  let revision = 0;
+  let pending = Promise.resolve(false);
+  return {
+    get current() { return current; },
+    set(level) {
+      if (level === requested) return pending;
+      requested = level;
+      const mine = ++revision;
+      const run = pending.then(async () => {
+        if (mine !== revision || level === current) return false;
+        let candidate;
+        try {
+          candidate = await prepare(level);
+          if (mine !== revision) { discard(candidate); return false; }
+          commit(candidate, level);
+          current = level;
+          return true;
+        } catch (error) {
+          if (candidate) discard(candidate);
+          if (mine === revision) {
+            requested = current;
+            onError(error, level, current);
+          }
+          return false;
+        }
+      });
+      pending = run;
+      return run;
+    },
+  };
+}
+
+/** Source GLTF resources are separate from the normalized batch buffers. Called
+ * only after their last batch is retired, never while the old model is visible. */
+export function disposeLoadedAsset(gltf) {
+  const geometries = new Set();
+  const materials = new Set();
+  const textures = new Set();
+  gltf?.scene?.traverse((node) => {
+    if (node.geometry) geometries.add(node.geometry);
+    for (const material of (Array.isArray(node.material) ? node.material : [node.material])) {
+      if (!material) continue;
+      materials.add(material);
+      for (const value of Object.values(material)) if (value?.isTexture) textures.add(value);
+    }
+  });
+  for (const geometry of geometries) geometry.dispose();
+  for (const material of materials) material.dispose();
+  const images = new Set();
+  for (const texture of textures) { texture.dispose(); if (texture.image) images.add(texture.image); }
+  for (const image of images) image.close?.();
 }
 
 async function getJSON(url) {
@@ -129,7 +211,9 @@ async function fetchAsset(url) {
  *   versionState: object|null
  * }>}
  */
-export async function loadScene(year, bases = resolveBases(), { onProgress = () => {}, version = null } = {}) {
+export async function loadScene(year, bases = resolveBases(), {
+  onProgress = () => {}, version = null, detail = 'full',
+} = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
 
@@ -173,6 +257,36 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
   const loader = new GLTFLoader();
   const registry = new Map();
   let bytes = 0;
+  // Keep compressed bytes, not a parsed scene whose materials batching may modify.
+  // Only opt-in LOD records use this cache; a light boot never fetches the full GLB.
+  const assetBytes = new Map();
+  async function loadDetailAsset(record, level) {
+    const assetUrl = detailAssetUrl(record, level, bases);
+    const key = String(assetUrl);
+    let got = hasInspectionLod(record) ? assetBytes.get(key) : null;
+    if (!got) {
+      got = await fetchAsset(assetUrl);
+      bytes += got.buffer.byteLength;
+    }
+    try {
+      const header = glbHeader(got.buffer);
+      if (header?.extensionsRequired?.includes('EXT_meshopt_compression')) {
+        loader.setMeshoptDecoder(await loadMeshoptDecoder());
+      }
+      const gltf = await new Promise((resolve, reject) => {
+        loader.parse(got.buffer, String(assetUrl), resolve, reject);
+      });
+      // A 200 response can still contain a damaged GLB. Bank only bytes that
+      // decoded, and evict any failed cached parse so retry can fetch repaired data.
+      if (hasInspectionLod(record)) assetBytes.set(key, got);
+      return { gltf, assetUrl: key, assetDetail: level,
+        assetIsPlaceholder: !!header?.asset?.extras?.placeholder,
+        assetRetried: got.retried, loadFailed: null };
+    } catch (error) {
+      assetBytes.delete(key);
+      throw error;
+    }
+  }
 
   let completed = 0;
   onProgress(0, entries.length);
@@ -230,7 +344,8 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
       return;
     }
 
-    const assetUrl = new URL(sidecar.asset, assetBase);
+    const assetRecord = { id, sidecar, version: chosen };
+    const assetUrl = detailAssetUrl(assetRecord, detail, bases);
     let gltf = null;
     /**
      * Is the shape you are looking at a bake from the record, or a stand-in?
@@ -245,20 +360,10 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
     let loadFailed = null;
     let assetRetried = false;
     try {
-      const got = await fetchAsset(assetUrl);
-      const { buffer } = got;
-      assetRetried = got.retried;
-      bytes += buffer.byteLength;
-
-      const header = glbHeader(buffer);
-      const required = header?.extensionsRequired ?? [];
-      if (required.includes('EXT_meshopt_compression')) {
-        loader.setMeshoptDecoder(await loadMeshoptDecoder());
-      }
-      gltf = await new Promise((resolve, reject) => {
-        loader.parse(buffer, String(assetUrl), resolve, reject);
-      });
-      if (header?.asset?.extras?.placeholder) {
+      const got = await loadDetailAsset(assetRecord, detail);
+      gltf = got.gltf;
+      assetRetried = got.assetRetried;
+      if (got.assetIsPlaceholder) {
         assetIsPlaceholder = true;
         problems.push(`${id}: rendering a PLACEHOLDER asset (${sidecar.asset}) — `
           + 'massing only, not a bake');
@@ -289,6 +394,7 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
       loadFailed,
       assetRetried,
       assetUrl: String(assetUrl),
+      assetDetail: detail,
       sidecarUrl: String(sidecarUrl),
       /** T-1727: the versions-index row this entry was loaded from, or null. */
       version: chosen,
@@ -299,5 +405,6 @@ export async function loadScene(year, bases = resolveBases(), { onProgress = () 
   });
 
   await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
-  return { year, scene, datum, registry, problems, bytes, index, versionState };
+  return { year, scene, datum, registry, problems, get bytes() { return bytes; },
+    index, versionState, loadDetailAsset };
 }

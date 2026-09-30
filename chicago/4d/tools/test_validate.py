@@ -1315,6 +1315,39 @@ SIDECAR_SHAPE = {
 }
 
 
+def test_sidecar_shape_includes_only_indexed_structure_versions() -> None:
+    """A selectable alternate supplies the same renderer contract as a default."""
+    original = V.DATA
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            V.DATA = Path(tmp)
+            scene = V.DATA / "sidecars" / "1904"
+            versions = scene / "versions"
+            versions.mkdir(parents=True)
+            (scene / "index.json").write_text(json.dumps({"structures": [
+                {"sidecar": "sidecars/1904/house.json"}]}))
+            (scene / "house.json").write_text(json.dumps({"id": "house", "asset": "base.glb"}))
+            (versions / "index.json").write_text(json.dumps({"structures": {"house": [
+                {"label": "v4", "sidecar": "sidecars/1904/versions/v4.json"}]}}))
+            selected = versions / "v4.json"
+            selected.write_text(json.dumps({"id": "house", "asset_lods": {"light": "light.glb"}}))
+            (versions / "unlisted.json").write_text(json.dumps({"orphan_field": 1}))
+            (scene / "terrain.json").write_text(json.dumps({"terrain_only": 1}))
+            shape = V.sidecar_shape()
+            check("a version-only emitted field joins the structure-sidecar contract",
+                  shape.get("asset_lods") == {"light": None})
+            check("unlisted alternates and other derived documents cannot mask missing fields",
+                  "orphan_field" not in shape and "terrain_only" not in shape)
+            selected.write_text(json.dumps({"id": "house"}))
+            check("removing the alternate's emitted field removes it from the contract",
+                  "asset_lods" not in V.sidecar_shape())
+            (versions / "index.json").unlink()
+            check("scenes without alternate versions retain their ordinary contract",
+                  V.sidecar_shape() == {"id": None, "asset": None})
+    finally:
+        V.DATA = original
+
+
 def test_the_renderer_cannot_read_a_sidecar_field_the_compiler_never_writes() -> None:
     """The § 28 failure class, mechanised.
 

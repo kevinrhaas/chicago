@@ -28,20 +28,21 @@ def unique(rows, label):
     return result
 
 class Compiler:
-    def __init__(self, root=ROOT):
+    def __init__(self, root=ROOT, scene_id="1835"):
         self.root, self.data = Path(root), Path(root) / 'data'
         self.schema = Draft202012Validator(read(self.data / 'jaunts/schema.json'))
-        scene = read(self.data / 'scenes/1835.json')
+        self.scene_id = str(scene_id)
+        scene = read(self.data / f'scenes/{self.scene_id}.json')
         self.date = scene['target_date']
-        index = read(self.data / 'sidecars/1835/index.json')
+        index = read(self.data / f'sidecars/{self.scene_id}/index.json')
         self.refs = {'structure': {r['id']: read(self.data / r['sidecar']) for r in index['structures']},
                      'anchor': unique(scene['anchors'], 'anchor'),
                      'intersection': unique(index['intersections'], 'intersection'),
-                     'person': unique(read(self.data / 'sidecars/1835/people.json', {}).get('people', []), 'person'),
-                     'business': unique(read(self.data / 'businesses/index.json', {}).get('businesses', []), 'business'),
+                     'person': unique(read(self.data / f'sidecars/{self.scene_id}/people.json', {}).get('people', []), 'person'),
+                     'business': unique(read(self.data / 'businesses/index.json', {}).get('businesses', []) if self.scene_id == '1835' else [], 'business'),
                      'source': {p.stem: read(p) for p in (self.data / 'sources').glob('*.json')}}
         self.excluded = set(index.get('excluded_by_date', [])) | {
-            r['id'] for r in read(self.data / 'exclusions.json', {}).get('excluded', [])}
+            r['id'] for r in (read(self.data / 'exclusions.json', {}).get('excluded', []) if self.scene_id == '1835' else [])}
         self.liberties = set(re.findall(r'^### (L[\w-]+) [—-]',
             (self.root / 'docs/LIBERTIES.md').read_text(errors='replace'), re.M))
         html = (self.root / 'renderers/web/index.html').read_text()
@@ -83,6 +84,7 @@ class Compiler:
     def validate(self, doc):
         errors = sorted(self.schema.iter_errors(doc), key=lambda e: str(e.path))
         require(not errors, 'schema: ' + (errors[0].message if errors else ''))
+        require(doc['scene'] == self.scene_id, 'jaunt belongs to another scene')
         require(doc['default_mode'] in doc['allowed_modes'], 'default mode not allowed')
         stops, ends = unique(doc['stops'], 'stop'), unique(doc['endings'], 'ending')
         require(not (set(stops) & set(ends) or {'Previous', '$end'} & (set(stops) | set(ends))), 'duplicate/reserved node id')
@@ -214,6 +216,7 @@ class Compiler:
             if path.name == 'schema.json': continue
             try:
                 doc = read(path)
+                if doc.get('scene') != self.scene_id: continue
                 reasons = self.validate(doc)
                 require(doc['id'] not in ids, 'duplicate jaunt id')
                 require(path.stem == doc['id'], 'filename must match jaunt id')
@@ -227,7 +230,7 @@ class Compiler:
                 files[doc['id'] + '.json'] = packed({**doc, 'citations': citations})
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
-        files['catalog.json'] = packed({'schema_version': 1, 'scene': '1835', 'jaunts': catalog})
+        files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         return files, errors
 
 def main():
@@ -235,9 +238,21 @@ def main():
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--source', type=Path, help='alternate content directory, e.g. isolated fixtures')
     ap.add_argument('--output', type=Path, help='alternate output directory')
+    ap.add_argument('--scene', help='compile one scene; defaults to all published scenes')
     args = ap.parse_args()
-    files, errors = Compiler().compile(args.source)
-    dest = args.output or ROOT / 'data/sidecars/1835/jaunts'
+    scenes = sorted(p.stem for p in (ROOT / 'data/scenes').glob('*.json') if (ROOT / f'data/sidecars/{p.stem}/index.json').exists())
+    if args.scene: require(args.scene in scenes, 'unknown scene')
+    # Preserve the isolated fixture CLI: a custom output is a single catalog.
+    selected = [args.scene or '1835'] if args.scene or args.output else scenes
+    source = args.source or ROOT / 'data/jaunts'
+    for path in source.glob('*.json'):
+        if path.name != 'schema.json': require(read(path).get('scene') in scenes, f'{path.name}: unknown or missing scene')
+    for scene_id in selected:
+        compile_scene_jaunts(args, scene_id)
+
+def compile_scene_jaunts(args, scene_id):
+    files, errors = Compiler(scene_id=scene_id).compile(args.source)
+    dest = args.output or ROOT / f'data/sidecars/{scene_id}/jaunts'
     stale = [name for name, body in files.items() if not (dest / name).exists() or (dest / name).read_text() != body]
     extra = set(p.name for p in dest.glob('*.json')) - set(files)
     if args.check:

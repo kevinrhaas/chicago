@@ -1,0 +1,23 @@
+{
+  "flat": {
+    "bytes": 9103064,
+    "has_custom_normals": true,
+    "corners_different_from_flat_face": 2981,
+    "confidence_attributes": [
+      "_CONFIDENCE"
+    ]
+  },
+  "smooth": {
+    "bytes": 9103072,
+    "has_custom_normals": true,
+    "corners_different_from_flat_face": 9092,
+    "confidence_attributes": [
+      "_CONFIDENCE"
+    ]
+  },
+  "all_retained_triangle_attributes_identical_except_NORMAL": true,
+  "changed_exported_normal_corners": 6144,
+  "exported_confidence_values": [
+    0.75
+  ]
+}

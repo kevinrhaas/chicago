@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1236, ts: '2026-09-29T14:17:54.783Z', date: 'Sep 29, 2026, 9:17 AM CT', title: 'Two drains come out of the west prairie', kind: 'change',
+  { v: 1241, ts: '2026-09-30T19:40:22.931Z', date: 'Sep 30, 2026, 2:40 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
     items: [
       'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',
       'They were never found on a map. The dossier says the West Division prairie carried one- and two-foot slough swales, so swales of some kind belonged there — but where they ran is written down nowhere, and the two lines in the model were drawn by this project to make the wet prairie read as wet prairie. Every stroke of both was ours.',
@@ -7,6 +7,38 @@ export const CHANGELOG = [ // newest first
       'One of them ran through eight houses. Not under them: the cut was about a centimetre of fall for every metre, so no house stood in a hole and every one of the eight met the ground it was built on. But the rule written beside those channels said to move a roof rather than flatten a channel, and that rule assumed the channel was the certain thing. It was the invented thing; the houses had been surveyed, placed and reviewed.',
       'So the channels went and the houses stayed. The ground beneath those eight has risen by a few centimetres and nothing else about them changed — not a position, not a wall, not a card. Nothing invented is left in the ground layer of that prairie.',
       'The reading is kept rather than thrown away. What was measured while the question waited — which eight houses, how far each stood from the centreline, how little relief crossed each footprint — is written into the liberties register beside the two entries this withdraws, so the decision can be read back later.',
+    ] },
+  { v: 1240, ts: '2026-09-30T13:35:39.083Z', date: 'Sep 30, 2026, 8:35 AM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
+    items: [
+      'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',
+      'Every house on the block now has empty ground on both sides of it along its own street, and that is where the block stops. The north-side research reads this frontage as alternating roof and open yard with no continuous street wall, so a fifth house on either face would have to stand next door to one already there. Eight of the twelve lots stay open prairie.',
+      'The stable is our choice and the reason is the ground it stands on. The block\u2019s building plan had two privies in it and the first pair of cottages took both, so this pair gets the last woodshed and the first of two stables. A household two tiers north of the settled town, with the river between it and the stores, either keeps a horse on its own lot or keeps none.',
+      'The two families who asked for these lots are not the two who moved in. The Bailly and Babcock households had requests on the lots next door \u2014 the ones deliberately left empty \u2014 and the seating pass walked them into these houses instead, leaving the Baily and Barber households holding the empty lots. Families with somewhere to be is unchanged at 177; two more have walls.',
+      'East of Rush Street nothing is scheduled at all. Three more lotted blocks out on the Rush and Pine fringe are apportioned no roofs by the building programme, and the nineteen blocks beyond them are not even divided into lots. So that ground stays open, and the reason is now written into the north-side research rather than left to be guessed at.',
+      'No source says a building stood on this block in 1835, which buildings they were, where on their lots they sat, or how far back from the street. The lots, the alley and the ground under them are committed; everything else is on each cottage\u2019s own card.',
+    ] },
+  { v: 1239, ts: '2026-09-30T04:44:39.649Z', date: 'Sep 29, 2026, 11:44 PM CT', title: 'Glessner House v4 becomes the default', kind: 'change',
+    items: [
+      'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',
+      'Balanced and Light retain the same architecture with reduced surface detail. The previous default remains available as pre-v4, alongside v2 and v3.',
+      'The house is still standing. Its card now separates the 1887–1946 modeled phase from its present-day survival as Glessner House museum; 1946 was an alteration, not a demolition.',
+    ] },
+  { v: 1238, ts: '2026-09-29T23:55:18.692Z', date: 'Sep 29, 2026, 6:55 PM CT', title: 'The street checks catch up with Washington', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The street checks now account for four already-built blocks south of Washington and the Clinton block\'s corrected lot direction. Their walks, crossings and fences remain as drawn; the checks stop reporting those documented additions as missing ground.',
+    ] },
+  { v: 1237, ts: '2026-09-29T21:37:29.282Z', date: 'Sep 29, 2026, 4:37 PM CT', title: 'Glessner House v4: masonry, roofs and the courtyard', kind: 'feature',
+    items: [
+      'Explore the fourth Glessner House model at /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v4. Its stone courses, brickwork, roof tiles, copper seams and recessed sash have individual geometry and original surface textures.',
+      'The courtyard gains garden-level windows, stable-wing openings, stair-tower lights, the curved terrace and an open passage. The crossing roofs, smaller west dormer and distinct chimneys follow the measured envelope and the reference audit.',
+      'Full detail shows the fine stone and carved trim. Balanced and Light keep the same windows, doors and roof forms with less surface geometry, and the detail setting can change while you explore.',
+      'The evidence record distinguishes measured HABS dimensions from reconstructed fabric, window details and features inferred from modern photographs. The version selector keeps the other readings available for comparison.',
+    ] },
+  { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',
+    items: [
+      'The arrival year, welcome and loading facts now follow your selected scene. Prairie Avenue rolls back to 1904 and welcomes you there.',
+      'A smaller arrival panel cycles through destination messages, with one loading-content line and a progress bar tied to scene readiness.',
+      'Jaunts belong to their own year. A short Glessner House orientation introduces the 1904 scene; saved outings stay with the year in which you began them.',
     ] },
   { v: 1235, ts: '2026-09-29T13:47:33.222Z', date: 'Sep 29, 2026, 8:47 AM CT', title: 'A whole street of houses south of Washington', kind: 'change',
     items: [

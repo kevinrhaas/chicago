@@ -2,6 +2,274 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 569,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 2652,
+      "takenAt": "2026-09-30T04:08:41.334Z",
+      "ref": "steward/glessner-v4-final-20260930",
+      "commit": "823442ee1bdc",
+      "devCommit": "308dcacf1117",
+      "treeHash": "sha256:da40ab7c053f7196",
+      "treeDirty": false,
+      "changelogHash": "sha256:2f68a649c54134b2",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          2.7,
+          6.4,
+          9.4
+        ]
+      },
+      "source": "docs/RESEARCH/glessner-v4-qa/desktop-refined06.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 572,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1771,
+      "takenAt": "2026-09-30T03:53:35.824Z",
+      "ref": "steward/glessner-v4-final-20260930",
+      "commit": "823442ee1bdc",
+      "devCommit": "308dcacf1117",
+      "treeHash": "sha256:da40ab7c053f7196",
+      "treeDirty": false,
+      "changelogHash": "sha256:2f68a649c54134b2",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          12.7,
+          14.2,
+          13.7
+        ]
+      },
+      "source": "docs/RESEARCH/glessner-v4-qa/mobile-refined06.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 170,
+      "takenAt": "2026-09-29T23:07:59.402Z",
+      "ref": "steward/frontage-census-t1752",
+      "commit": "308dcacf1117",
+      "devCommit": "308dcacf1117",
+      "treeHash": "sha256:001a8c5194069f6e",
+      "treeDirty": true,
+      "changelogHash": "sha256:0d27d104e3ece95b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          2.3,
+          4.8,
+          6.5
+        ]
+      },
+      "source": "/workspace/scratch/2b9723ff55ae/t1752-mobile-1-2.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5-13",
+      "parts": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 311,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1607,
+      "takenAt": "2026-09-29T23:07:36.594Z",
+      "ref": "steward/glessner-v4",
+      "commit": "ba854300291e",
+      "devCommit": "308dcacf1117",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:c73210f522966295",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          3.2,
+          5.1,
+          6.7
+        ]
+      },
+      "source": "docs/RESEARCH/glessner-v4-qa/desktop-checkpoint5-stages5-13.log",
+      "treeHashNote": "Desktop continuation after earlier full run stopped at part5. Published v4 candidate was replaced during this continuation; functional source remained unchanged. This log is not an exact-tree reading of the later v4 model."
+    },
+    {
+      "viewport": "mobile",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 569,
+      "failed": 3,
+      "failures": [
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
+      ],
+      "wallSeconds": 2600,
+      "takenAt": "2026-09-29T22:47:43.709Z",
+      "ref": "steward/glessner-v4",
+      "commit": "6292eb4eac05",
+      "devCommit": "308dcacf1117",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": "sha256:c73210f522966295",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          7.3,
+          8,
+          9.6
+        ]
+      },
+      "source": "docs/RESEARCH/glessner-v4-qa/mobile-checkpoint4.log",
+      "treeHashNote": "Filed after v4 geometry/materials changed. This is the checkpoint4 published full-mobile reading (569 pass, 3 inherited T-1752 failures), not an exact-tree reading of the later v4 model. Keep this hash unavailable rather than stamp the post-run tree as tested."
+    },
+    {
+      "viewport": "mobile",
+      "stage": "6",
+      "parts": [
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 14,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-09-29T20:13:37.365Z",
+      "ref": "steward/selected-year-arrival",
+      "commit": "590ad4c39e0b",
+      "devCommit": "590ad4c39e0b",
+      "treeHash": "sha256:60542e50462864a2",
+      "treeDirty": true,
+      "changelogHash": "sha256:a69fb0dbe750b25c",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          6.4,
+          8.6,
+          5.2
+        ]
+      },
+      "source": "/tmp/t1767-smoke.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "6",
+      "parts": [
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 16,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-09-29T20:13:37.365Z",
+      "ref": "steward/selected-year-arrival",
+      "commit": "590ad4c39e0b",
+      "devCommit": "590ad4c39e0b",
+      "treeHash": "sha256:60542e50462864a2",
+      "treeDirty": true,
+      "changelogHash": "sha256:a69fb0dbe750b25c",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          6.4,
+          8.6,
+          5.2
+        ]
+      },
+      "source": "/tmp/t1767-smoke.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "1-2",
       "parts": [
@@ -1314,37 +1582,6 @@
       "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke-mobile-3.log"
     },
     {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 102,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 272,
-      "takenAt": "2026-09-28T17:41:58.056Z",
-      "ref": "claude/t-1727-structure-versions",
-      "commit": "f72041734b0e",
-      "devCommit": "2265e89fd6c7",
-      "treeHash": "sha256:f23c1d704d2c038e",
-      "treeDirty": true,
-      "changelogHash": "sha256:9e4e90af05ce11e7",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          6.6,
-          4.6,
-          4.1
-        ]
-      },
-      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke-desktop-3.log"
-    },
-    {
       "viewport": "mobile",
       "stage": "13",
       "parts": [
@@ -1374,68 +1611,6 @@
         ]
       },
       "source": "/tmp/smoke_m13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "6",
-      "parts": [
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 16,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 235,
-      "takenAt": "2026-09-28T09:59:58.338Z",
-      "ref": "t1280-local",
-      "commit": "93b6870981d3",
-      "devCommit": "67229e3a4605",
-      "treeHash": "sha256:2b263639bef51f58",
-      "treeDirty": false,
-      "changelogHash": "sha256:b8359100afee009f",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          1.9,
-          3.3,
-          3.1
-        ]
-      },
-      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke148_desktop_6.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "6",
-      "parts": [
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 16,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 134,
-      "takenAt": "2026-09-28T09:59:58.184Z",
-      "ref": "t1280-local",
-      "commit": "93b6870981d3",
-      "devCommit": "67229e3a4605",
-      "treeHash": "sha256:2b263639bef51f58",
-      "treeDirty": false,
-      "changelogHash": "sha256:b8359100afee009f",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          1.9,
-          3.3,
-          3.1
-        ]
-      },
-      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke148_mobile_6.log"
     },
     {
       "viewport": "desktop",
@@ -1720,37 +1895,6 @@
       "source": "/tmp/t1279-smoke-desktop-8.log"
     },
     {
-      "viewport": "desktop",
-      "stage": "5",
-      "parts": [
-        5
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 26,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 513,
-      "takenAt": "2026-09-28T02:39:38.332Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          9.9,
-          12.7,
-          13.2
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-5.log"
-    },
-    {
       "viewport": "mobile",
       "stage": "9-10",
       "parts": [
@@ -1781,101 +1925,6 @@
         ]
       },
       "source": "/tmp/t1279-smoke-mobile-9-10.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "4",
-      "parts": [
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 28,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 128,
-      "takenAt": "2026-09-28T02:26:06.771Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "06129a653548",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          13.4,
-          13.9,
-          13.7
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-4.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 32,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 599,
-      "takenAt": "2026-09-28T02:23:24.039Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "06129a653548",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          13.7,
-          14.1,
-          13.7
-        ]
-      },
-      "source": "/tmp/t1279-smoke-mobile-5-6.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 509,
-      "takenAt": "2026-09-28T02:00:13.649Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "6226e593cc39",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          12.5,
-          12.9,
-          9.7
-        ]
-      },
-      "source": "/tmp/t1279-smoke-mobile12.log"
     }
   ]
 }

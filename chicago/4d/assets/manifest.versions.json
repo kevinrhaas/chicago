@@ -1,5 +1,5 @@
 {
-  "$note": "T-1727. The build record for STRUCTURE VERSIONS, the alternates under data/structures/versions/<id>/<label>.json. One entry per version mesh, keyed by its path under assets/gltf/: `inputs_sha256` is the same recipe as assets/manifest.json (generators/mesh_inputs.py over the VERSION record), written by generators/build.py or by `tools/structure_versions.py adopt` when the version's inputs hash equals a committed canonical bake; `web_master_sha256` is the master each assets/web/ derivative was made from, written by tools/web_derivatives.sh. DERIVED: `tools/validate.py --stale` recomputes both, and the remedy for a mismatch is a bake, never an edit of this file.",
+  "$note": "T-1727. The build record for STRUCTURE VERSIONS, the alternates under data/structures/versions/<id>/<label>.json. One entry per version mesh, keyed by its path under assets/gltf/: `inputs_sha256` is the same recipe as assets/manifest.json (generators/mesh_inputs.py over the VERSION record), written by generators/build.py or by `tools/structure_versions.py adopt` when the version's inputs hash equals a committed canonical bake; `web_master_sha256` is the master each assets/web/ derivative was made from, written by tools/web_derivatives.sh. DERIVED: `tools/validate.py --stale` recomputes both, plus each optional web_lods master/recipe/output hash, and the remedy for a mismatch is a bake, never an edit of this file.",
   "assets": {
     "versions/bates_auction_room/fixture/bates_auction_room__frame_1834.glb": {
       "archetype": "frame_storefront",
@@ -12,11 +12,22 @@
       "version_label": "fixture",
       "web_master_sha256": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227"
     },
+    "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
+      "archetype": "masonry_house",
+      "baked_ao": false,
+      "bytes": 96496,
+      "inputs_sha256": "7ff9b887e5718f039b54d526d653086268fab5c67e7f46a81df43f4407329148",
+      "kind": "generated",
+      "phase_id": "as_built_1887",
+      "structure_id": "glessner_house",
+      "version_label": "pre-v4",
+      "web_master_sha256": "b04ab5c15f8df19158544e2df64e239ed4716eec9f89b2f9b835b65ec85f604c"
+    },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 98832,
-      "inputs_sha256": "30d37fd1f335bcdba2164ba64c2839d30d9b5fd93f3be41c3754598e3149a114",
+      "inputs_sha256": "b84ad2014b2d8516bdc49ec18edc24ffeeb9d83ebb4420470447d412d8cdc6c3",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
@@ -27,7 +38,7 @@
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 95728,
-      "inputs_sha256": "06fb0b32a86328e0b52314ce25789a3d96dc425f11de18abd0f33b39dc7c42b3",
+      "inputs_sha256": "211794f82ae7a9340dbba3cbec2446bb65321791b6706f1781821554e2793da2",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",

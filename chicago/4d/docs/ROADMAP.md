@@ -1,3 +1,25 @@
+## T-1460 — west-prairie swales retired
+
+Owner answer (a) is implemented on the recovery branch. The dossier keeps zone 18’s swales while the terrain no longer invents their alignments; the eight roofs stay fixed. Recovered terrain assets and regenerated ground readings accompany the change. Validation and integration status are recorded in STATUS; ticket settlement follows the dev PR.
+
+## T-1752 — frontage smoke census (2026-09-29)
+
+Seven exact smoke expectations now follow the independently compared frontage
+records through T-1751. The historical deltas, rule clauses and mesh arithmetic
+are in `docs/measurements/T-1752-frontage-census.md`. This repairs the gate
+blocking Glessner v4 (T-1730), with no changed scene data or weakened assertion.
+Validation status is in STATUS; the ticket owns closure.
+
+## T-1730 — Glessner v4 visual completion (2026-09-29)
+
+Owner-directed v4 now has its own evidence dossier, explicit opening schedule,
+detailed generator, original PBR maps and repeatable actual-GLB review cameras.
+Remaining acceptance work: complete the close-up and all-facade visual review,
+verify compressed materials/openings in both browser viewports, run the project
+gates, and attach the measured results. The owner authorized periodic recovery
+commits on `steward/glessner-v4` and more rendering time/detail where needed.
+Keep T-1730 open after delivery for comparison of the alternative models.
+
 ## T-1280 — travel selection and quick-play duration
 
 Implemented per-session travel selection before and during a jaunt, routed
@@ -5017,3 +5039,7 @@ corrections, measured Glessner material, named-building histories and independen
 frontage/directory layers. This entry is a research cross-reference, not a new queue
 or a closure of those scene tickets. The target is 1904; the older terrain-date memo
 remains historical reasoning pending the existing construction work.
+
+## T-1767 - Selected-year arrival
+
+Arrival and jaunts now follow the chosen scene; 1904 has a Glessner orientation. The broader drawer-panel work remains T-1740.

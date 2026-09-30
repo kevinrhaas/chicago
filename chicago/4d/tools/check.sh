@@ -39,6 +39,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "Selected-year arrival and catalog isolation (T-1767)" \
+  node tools/test_selected_year.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
@@ -95,6 +97,15 @@ step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
 # any of it until that publish has finished. `check_flush` is the barrier: it drains
 # what is queued and returns, and it is a no-op on the serial path.
 check_flush
+
+step "Glessner v4 packaged GLBs match both generated outputs (T-1730)" \
+  python3 tools/recover_glessner_v4.py --check
+selftest "…materialization refuses corruption and never overwrites a new bake" \
+  python3 tools/test_glessner_v4_package.py --self-test
+selftest "…only the canonical v4 derivative producer refreshes the package" \
+  python3 tools/test_glessner_v4_package_producer.py --self-test
+selftest "…arched apertures preserve whole-stone relief without false joints" \
+  python3 tools/test_glessner_block_clipping.py --self-test
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines

@@ -1,0 +1,20 @@
+{
+  "trans094_shallow": {
+    "clear_pane_mean_srgb": 0.4544565602240895,
+    "linen_mean_srgb": 0.6689287014705882
+  },
+  "trans100_shallow": {
+    "clear_pane_mean_srgb": 0.22502185973055885,
+    "linen_mean_srgb": 0.6444488510784314
+  },
+  "trans094_deep": {
+    "clear_pane_mean_srgb": 0.44512294699213006,
+    "linen_mean_srgb": 0.6685550721568629
+  },
+  "trans100_deep": {
+    "clear_pane_mean_srgb": 0.201336510390823,
+    "linen_mean_srgb": 0.6440153322549019
+  },
+  "trans094_deeper_clear_pane_rmse": 0.009298669877238232,
+  "trans100_deeper_clear_pane_rmse": 0.02312209509768919
+}

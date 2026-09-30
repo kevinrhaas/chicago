@@ -162,3 +162,36 @@ the project-wide physical-roof reconciliation must decide how many of the 150 th
    their 1834 cadastral controls.
 6. Design the remaining 90 North roofs after the extent is visible, maintaining large open tracts
    and the exact remaining group ceilings above.
+
+## The Rush–Pine fringe: settled at none, and settled by the schedule (T-1757, 2026-09-29)
+
+T-1748 and then T-1754 asked, twice over, for "the scattered better houses on the Rush–Pine
+fringe" — the eastern cells of Kinzie's Addition, beyond Cass Street and out toward Pine. The
+ask is answered here rather than built, because **the 665-roof programme's district deal
+apportions that fringe no roofs at all.**
+
+Read off `data/reconstruction/1835_665_roof_programme.json` § `schedule`, for the north district:
+
+| cell | lots | state | roofs apportioned | families |
+|---|---|---|---|---|
+| `blk_indiana_north_wolcott` | 12 | open | 27 | 14 |
+| `blk_indiana_north_cass` | 12 | open | 20 | 11 |
+| `blk_indiana_north_rush` | 12 | open | **0** | none |
+| `blk_illinois_north_wolcott` | 12 | open | **0** | none |
+| `blk_illinois_north_rush` | 12 | open | **0** | none |
+| every cell east of Rush or north of Indiana | 0 | `unsubdivided` | **0** | none |
+
+So the whole of the district's remaining allocation — 47 roofs — stands on the two cells this
+memo calls the Wolcott–Kinzie core, and the three other lotted cells and the nineteen
+unsubdivided ones get none. **The fringe is not under-built; it is not scheduled.** "The open
+ground left honestly open" is what the schedule already says, and the honest way to settle the
+ask is to say so in the memo that governs the district rather than to invent roofs the
+programme does not hold and this memo would refuse.
+
+**This is the memo agreeing with itself.** § *What the maps do and do not prove* holds that the
+primary maps show a substantially larger *platted* north side with no buildings on it, and
+§ *Density and placement logic* asks that most legal frontage stay empty and the outer addition
+read as visibly speculative. A fringe with zero roofs apportioned to it is that reading carried
+into arithmetic. If a later source puts a house east of Cass Street, the route is a source
+record and a programme re-derivation, not a recipe entry against a cell the schedule leaves at
+zero.

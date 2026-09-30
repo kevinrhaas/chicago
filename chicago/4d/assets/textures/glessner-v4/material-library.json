@@ -1,0 +1,392 @@
+{
+  "title": "Glessner v4 original material studies",
+  "version": 1,
+  "generated_by": "generate.py",
+  "confidence": "reconstructed",
+  "materials": [
+    {
+      "name": "granite",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.6,
+        1.6
+      ],
+      "seed": 190400,
+      "confidence": "reconstructed",
+      "description": "Original mineral grain over domain-warped angular split-face fracture planes at about 4-14 cm scale, 5.5 mm large-plane variation and 1.5 mm smaller splinters. Physical courses, block silhouettes, bevels and chipped edges are geometry. No mortar lines are baked into the stone.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "limestone",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "seed": 190401,
+      "confidence": "reconstructed",
+      "description": "Original fine mineral grain; physical courses, bevels and rock-faced relief are generated geometry. No mortar lines baked into the stone.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "mortar",
+      "albedo_size_px": 1024,
+      "detail_size_px": 512,
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "seed": 190409,
+      "confidence": "reconstructed",
+      "description": "Original reconstructed sandy lime-mortar fabric. Fine mineral grains and restrained trowelled variation, no later soot or decay; the actual recessed joints are geometry.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "brick",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        1.7272,
+        2.1336
+      ],
+      "seed": 190402,
+      "confidence": "reconstructed",
+      "description": "Reconstructed grey-tan common-brick clay grain. Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "terracotta",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4384,
+        1.95072
+      ],
+      "seed": 190403,
+      "confidence": "reconstructed",
+      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry; reconstructed exposure is 0.12192 m (4.8 in), not Spanish barrel tile.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "copper",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4,
+        2.4
+      ],
+      "seed": 190404,
+      "confidence": "reconstructed",
+      "description": "Reconstructed 17-year copper weathering: brown metal with uneven muted green oxidation; standing seams belong to geometry. Modern bright turquoise oxidation is not asserted as the 1904 colour.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "oak",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        0.8,
+        2.4
+      ],
+      "seed": 190405,
+      "confidence": "reconstructed",
+      "description": "Warm brown vertically grained exterior oak with restrained varnish roughness. Reconstructed finish, not a sampled timber.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "painted_wood",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        0.8,
+        2.4
+      ],
+      "seed": 190406,
+      "confidence": "reconstructed",
+      "description": "Reconstructed muted dark green painted sash and carriage joinery; a thin smooth coating with restrained grain telegraphing, not a sampled modern finish.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "turf",
+      "albedo_size_px": 1024,
+      "detail_size_px": 512,
+      "tile_m": [
+        2.4,
+        2.4
+      ],
+      "seed": 190407,
+      "confidence": "reconstructed",
+      "description": "Original short clipped grass with varied blade directions, restrained brown thatch and subtle patchiness. Reconstructed July 1904 courtyard lawn, not a copied photograph or a claim about turf species.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "gravel",
+      "albedo_size_px": 1024,
+      "detail_size_px": 512,
+      "tile_m": [
+        2.0,
+        2.0
+      ],
+      "seed": 190408,
+      "confidence": "reconstructed",
+      "description": "Original compacted pale gravel and fine mineral aggregate, preserving the structure record's reconstructed 1904 carriage-drive reading. No modern concrete joints or slab dimensions are asserted.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    }
+  ],
+  "rights": "Original procedural and generated pixels; project-permissive terms in LICENSE.txt",
+  "files": {
+    "brick_basecolor.jpg": {
+      "sha256": "fcc51c4ff23412a1266923882e46eb6f541ca8c694df6ca520b51587e1c18c99",
+      "bytes": 762409
+    },
+    "brick_normal.png": {
+      "sha256": "b82b42a894a4198d9f449ede1f7adb3fc63af06820620c4d999e1c4039249cdd",
+      "bytes": 1722016
+    },
+    "brick_roughness.png": {
+      "sha256": "0291e3e91c7dc09656b4e0c75fc0b5c7475d587c687af3f9fc0cf4ecb87750f3",
+      "bytes": 346902
+    },
+    "copper_basecolor.jpg": {
+      "sha256": "e021a67d8c2291b08ab69ac140f502a9a3b5ed4fa089515936e5123741578d32",
+      "bytes": 176924
+    },
+    "copper_normal.png": {
+      "sha256": "42e3c199f6e5d0e1ad359545a8a2927121fdf226a955a02e7b16ffae6f110417",
+      "bytes": 430679
+    },
+    "copper_roughness.png": {
+      "sha256": "7d84c8c84af6aae8b112013032d9cce98bdd2b7cf18de23306e13bb7fc37903a",
+      "bytes": 73123
+    },
+    "granite_basecolor.jpg": {
+      "sha256": "602b0acdad4bbcdf75872c9ae6d86b0f218ef1e3ed163040b44bbd9ad3eaf816",
+      "bytes": 1057997
+    },
+    "granite_normal.png": {
+      "sha256": "3c2e98f56a24d2d0cf26f255aab4bc735a39b837c78470c388e852d15d6ce9e8",
+      "bytes": 1299277
+    },
+    "granite_photographic_basecolor.png": {
+      "sha256": "91e89304d28e8313236437f20ee63407fcaebebdbca3816f334662815893dc67",
+      "bytes": 3850146
+    },
+    "granite_roughness.png": {
+      "sha256": "bd171c8b9164481ce3e06fec0ab3bbda59c84981b32a00a6b310889bf0bd1067",
+      "bytes": 362408
+    },
+    "gravel_basecolor.jpg": {
+      "sha256": "2508fcbf8629a9aacbfe4202d827c9da7e6c437da38aec11e2926639af838f2b",
+      "bytes": 279904
+    },
+    "gravel_normal.png": {
+      "sha256": "425c66964c8a5a8e754fe557ee3d9da907a7bb303707e3852444bd6a7868cdfe",
+      "bytes": 401134
+    },
+    "gravel_roughness.png": {
+      "sha256": "422b1be31c72da6512ae3ae281d1a7b6b0bf02c03016d9011f5b32691b76f355",
+      "bytes": 91230
+    },
+    "limestone_basecolor.jpg": {
+      "sha256": "634a3a28906687847a2d3682a1dc7a0420f6eca12a5961e8394975d587a78926",
+      "bytes": 909501
+    },
+    "limestone_normal.png": {
+      "sha256": "829379050563e2e8efbd4dc8eb28cd8fa6442a7eeaa6d50d92dbf7a18783a056",
+      "bytes": 1229176
+    },
+    "limestone_roughness.png": {
+      "sha256": "4ab59500ec419a392c54719eb90bb75438102602b6899fc2a2c8188014788404",
+      "bytes": 422577
+    },
+    "mortar_basecolor.jpg": {
+      "sha256": "6cbc37906f639549cad9bb1fd19f4128be4d160015cec907aa7d6c653afad367",
+      "bytes": 185986
+    },
+    "mortar_normal.png": {
+      "sha256": "ed02c7fc991ca123cf1d85ef2058c3f938e1c4607914b6c42cfd6bc6429f6230",
+      "bytes": 354718
+    },
+    "mortar_roughness.png": {
+      "sha256": "79ac6e824a128e72fc98fc19cc887c846a876f01e9b6c5d91308fb8b0a6b4621",
+      "bytes": 91320
+    },
+    "oak_basecolor.jpg": {
+      "sha256": "a2589825294d8da26ec65f4b7704aa5180a1549165d86f21f5bdd776f92837bf",
+      "bytes": 328945
+    },
+    "oak_normal.png": {
+      "sha256": "97df63f868f2e49470205a555dcd2f16cdea099f768427e421da9959187a4c88",
+      "bytes": 129099
+    },
+    "oak_roughness.png": {
+      "sha256": "3cdde5c161114d3add050f524173a91d8ba952068fe9eb638c44ef8d0d51dcc8",
+      "bytes": 70607
+    },
+    "painted_wood_basecolor.jpg": {
+      "sha256": "90313db7153b3332509472d5f54eb03598c80ef7dbe0327dadb3bba8bf16f11d",
+      "bytes": 200394
+    },
+    "painted_wood_normal.png": {
+      "sha256": "52192d06822c1b2ba6331b69d9b7be3e41f61b81585ea46e2ca10ca0af48a1ab",
+      "bytes": 76702
+    },
+    "painted_wood_roughness.png": {
+      "sha256": "775efdb1e5e4197ab943db1bcc1e265c1c1b0f87bb14c11006a3a143587d74aa",
+      "bytes": 56669
+    },
+    "terracotta_basecolor.jpg": {
+      "sha256": "60fd39a00dfbbfc673c269e01352b1b4e88d32ca94f64ff683f66c1a929cef70",
+      "bytes": 608951
+    },
+    "terracotta_normal.png": {
+      "sha256": "ae2ab44d489eaa7bfd827123059952b3630580a0088a79dd3b26f344687e52ca",
+      "bytes": 617672
+    },
+    "terracotta_roughness.png": {
+      "sha256": "e9f1bb60903f5307b63fb1d18d914eb5c6e60aa5285a5b144fec6432c681242f",
+      "bytes": 364656
+    },
+    "turf_basecolor.jpg": {
+      "sha256": "1c9604e6161aed9902111cb7689b81b88d1d18e91590eb1dbb0467154e81b74d",
+      "bytes": 337814
+    },
+    "turf_normal.png": {
+      "sha256": "519fb0d1e7ef78b1dfea49844dc8f2bc596ec507a4b2f45b761f74c99a5a21f3",
+      "bytes": 409960
+    },
+    "turf_patch_photographic_basecolor.png": {
+      "sha256": "c027861dbd1bd072de213fe787030d8bef6768daa1c84b5f609fd778b836e364",
+      "bytes": 3958556
+    },
+    "turf_photographic_basecolor.png": {
+      "sha256": "bba9a7f4f432c442c86ec4a8bcf1190d5b195f47229f0073c6bebd5296b625b1",
+      "bytes": 3881389
+    },
+    "turf_roughness.png": {
+      "sha256": "36d1538c5d1463e86542f5cf61e049e59775da21438f1f703d0249ef0a7c5eb1",
+      "bytes": 66382
+    }
+  },
+  "generated_albedos": [
+    {
+      "asset": "granite_photographic_basecolor.png",
+      "created_date": "2026-09-29",
+      "method": "Original text-to-image generation from the exact prompt below, without reference images.",
+      "ai_generated": true,
+      "reference_images": [],
+      "reference_pixels": "No historical, user-provided, Google, aerial or other photographic pixels were sampled, traced or embedded.",
+      "output_modified": false,
+      "sha256": "91e89304d28e8313236437f20ee63407fcaebebdbca3816f334662815893dc67",
+      "bytes": 3850146,
+      "size_px": [
+        1254,
+        1254
+      ],
+      "colour_space": "sRGB",
+      "usage": "Granite base colour only, 0.22 m square repeat after close-view mineral-scale review. Original procedural normal/roughness maps remain separate at 1.6 m repeat.",
+      "confidence": "reconstructed",
+      "limitations": "Original generated material study, not a photograph or measured reflectance scan of Glessner House. It cannot establish historic colour, grain or weathering. Seamlessness and diffuse illumination are generation targets, not measurements.",
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless physically based rendering ALBEDO texture for rough split-face pink-gray granite masonry on an 1880s Richardsonian house. Generate one square, edge-to-edge, high-resolution photographic material texture of natural medium-coarse granite, covering about 60 cm by 60 cm of stone. Extremely convincing sharp interlocking quartz crystals, small charcoal mica flakes, pale gray translucent mineral specks and a restrained amount of dusty rose feldspar. Predominantly warm neutral gray, with modest pink-beige variation. Natural mineral-scale irregularity, no repetitive cells, no plaster/foam/crumpled-paper look. The surface is rock-faced quarried granite, unevenly fractured, but this image is a diffuse BASE COLOR map: use perfectly even flat diffuse illumination, no directional highlights, no cast shadows, no ambient occlusion, no vignette. Orthographic front-on macro material capture with no perspective. Must tile seamlessly on all four edges with no obvious repeating landmark. No mortar, no joints, no individual rectangular block boundaries, no brick, no carved ornament, no large cracks crossing the image, no moss, no text, no border, no watermark. Crisp photographic mineral detail rather than painting or 3D-rendered noise. Do not depict a building or a finished render: the entire image is the original granite albedo material only.",
+      "rights": "Use, modification and redistribution with this project under LICENSE.txt; retain provenance and reconstructed confidence.",
+      "render_calibration": "The prompt describes a 0.6 m field, but its generated crystals read too coarse in the model. Sampling at 0.22 m gives smaller apparent mineral grains; this is reconstructed visual calibration, not a measured scale. Cool material multipliers reduce excessive warm feldspar colour. The original generated pixels remain unchanged.",
+      "material_sampling": {
+        "albedo_repeat_m": [
+          0.22,
+          0.22
+        ],
+        "normal_repeat_m": [
+          1.6,
+          1.6
+        ],
+        "ashlar_normal_strength": 1.0,
+        "rough_trim_normal_strength": 0.8,
+        "calibration": "Controlled fixed-geometry studies compared0.4/0.75/1.0/1.25 under neutral and directional daylight. Strength1.0 paired with5x3 angular physical facets was selected;1.25 appeared too busy. This is visual reconstruction, not measured historic relief."
+      }
+    },
+    {
+      "type": "original_generated_generic_material",
+      "method": "built-in image generation",
+      "prompt": "Use case: photorealistic-natural. Asset type: production PBR diffuse/base-color texture for an accurate architectural 3D reconstruction, not a scene rendering. Create one high-resolution square seamless tile, ideally 2048 x 2048 pixels, representing exactly a 4 metre by 4 metre patch of short maintained July cool-season courtyard lawn, viewed perfectly vertically from above, orthographic and filling every pixel. Dense short fine grass with individual 1\u20133 mm wide blades implied at this scale, subtle irregular changes in growth direction, fine natural tan thatch below the blades. Include coherent irregular 0.5\u20132 metre patches of modestly darker/cooler green growth and slightly thinner warm tan thatch, only about 10\u201320 percent broad tonal variation; the surface remains healthy and mostly green, subdued natural grass, not neon or lime. The scale is essential: this is a 4 metre-wide lawn patch, not a close-up of giant grass blades. Diffuse albedo appearance under extremely even overcast illumination, no baked directional shadows, specular highlights, ambient occlusion, vignette, perspective or horizon. Edges must tile seamlessly in both directions. No bare dead zones, no mowing stripes, no paths, no dirt cracks, no leaves, no flowers, no objects, no lettering, no borders. Produce an original generic material texture; it is not documentary imagery of a real historical site.",
+      "usage": "Reconstructed diffuse lawn appearance, representing a 4m square. Not documentary evidence of Glessner House.",
+      "input_images": [],
+      "transparent_background": false,
+      "created_utc": "2026-09-30",
+      "original_file": "exec-209c9f01-8249-4d9b-99f1-f15fd4f78f7e.png",
+      "asset": "turf_patch_photographic_basecolor.png",
+      "sha256": "c027861dbd1bd072de213fe787030d8bef6768daa1c84b5f609fd778b836e364",
+      "bytes": 3958556,
+      "size_px": [
+        1254,
+        1254
+      ],
+      "physical_repeat_m": [
+        4.0,
+        4.0
+      ],
+      "colour_space": "sRGB",
+      "output_modified": false,
+      "confidence": "reconstructed",
+      "rights": "Original generated material; use, modification and redistribution with this project under LICENSE.txt. Retain provenance.",
+      "limitations": "The 4m scale, seamless tiling and diffuse lighting are generation targets, not surveyed or measured qualities. No source photograph pixels were supplied."
+    },
+    {
+      "title": "Original photographic turf albedo for Glessner House v4",
+      "created": "2026-09-29",
+      "method": "Built-in image generation; generic original material created from a text prompt. No reference photograph pixels supplied or sampled.",
+      "prompt": "Use case: photorealistic-natural\nAsset type: original seamless PBR diffuse/albedo texture for the mown courtyard lawn in a historically reconstructed architectural 3D model.\nPrimary request: a straight-down orthographic macro photograph of a 40 cm by 40 cm patch of dense, short, finely bladed cool-season lawn, suitable for seamless tiling on real geometry. Razor-sharp natural individual 1-3 mm wide blades and small flattened cut ends, a little sparse fine tan thatch and dark soil visible between blades. Natural irregular fine growth, no broad cloudy noise.\nComposition: square, entire frame filled edge to edge with grass; consistent detail density everywhere; seamless opposite edges.\nLighting: flat neutral diffuse albedo capture, evenly illuminated, no directional highlights, no large shadows, no vignette, no baked ambient-occlusion halos.\nPalette: restrained natural medium olive and cool dark green, individual yellow-green tips, subtle brown thatch, no saturated neon green.\nConstraints: photographic botanical detail; short maintained lawn, no tall meadow, no flowers, no stones, no leaves, no objects, no text, no border, no watermarks. This is a generic newly created material, not an image of a particular historical garden.",
+      "asset": "turf_photographic_basecolor.png",
+      "physical_repeat_m": [
+        0.4,
+        0.4
+      ],
+      "interpretation": "Reconstructed maintained lawn material, not evidence for particular historic blades or planting.",
+      "reproducibility": "Generated bitmap is preserved unchanged; numeric generator must retain it.",
+      "ai_generated": true,
+      "sha256": "bba9a7f4f432c442c86ec4a8bcf1190d5b195f47229f0073c6bebd5296b625b1",
+      "bytes": 3881389,
+      "size_px": [
+        1254,
+        1254
+      ],
+      "colour_space": "sRGB",
+      "output_modified": false,
+      "confidence": "reconstructed",
+      "reference_images": [],
+      "rights": "Use, modification and redistribution with this project under LICENSE.txt; retain provenance and reconstructed confidence.",
+      "limitations": "Original generated material study, not a photograph of the historic courtyard. Seamlessness and flat albedo illumination are generation targets, not measurements."
+    }
+  ]
+}
