@@ -17217,3 +17217,177 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/prairie-avenue-orientation.json`.
 
 **Recorded:** 2026-09-29 (T-1767).
+
+### L305 — Glessner v4: reconstructed fabric and openings within a measured house
+
+**Decision:** At the owner's request, v4 uses the default's measured envelope and
+adds detailed masonry, joinery and roof fabric. HABS dimensions retain their own
+evidence grades. The added detail is reconstructed, including individual stone
+lengths and rock faces, mortar widths, brick and tile relief, sash depths, carved
+ornament, weathering, glass appearance and original procedural texture pixels.
+The stone-course heights transcribed from sheet 5 are measured at that section;
+carrying that sequence around every granite face and up the chimneys is an
+invention, not a survey of every stone.
+
+**Bounds:** HABS sheets 2–6, the circa-1923 courtyard photograph and other HABS
+exterior photographs bound the placement. Fourteen owner-supplied modern views
+also inform reconstructed opening counts, material boundaries, curved terraces
+and roof connections. They are explicitly modern comparisons, not evidence of
+the 1904 date. No photograph pixels or photogrammetric mesh are incorporated.
+The precise west dormer, copper return, chimney transverse widths and flues,
+unmeasured garden/south lower openings, stair-tower slit heights, bowed terrace
+radius and coping, pigeon-hole dimensions, carving and joinery profiles remain
+reconstructions. The dossier gives feature-level tolerances and the full opening
+schedule. Open oak passage leaves at 82 degrees are an illustrative operating
+position; no source records the doors in that position on the scene date.
+
+**How to resolve:** Replace dimensions with additional measured elevations,
+sections or dated photographs when available. Preserve the distinction between
+HABS dimensions, inferred unchanged fabric and reconstructed surface details;
+rendering realism does not raise their historical confidence. Modern paving,
+street furniture, strings of lights and replacement garage doors are excluded.
+
+**Covers:** `glessner_house.as_built_1887.form.detail_profile`,
+`glessner_house.as_built_1887.form.v4_detail`
+
+**Applies to:** `data/structures/versions/glessner_house/v4.json`,
+`generators/archetypes/masonry_house_v4_detail.py`,
+`generators/archetypes/masonry_house_v4_materials.py`,
+`assets/textures/glessner-v4/`.
+
+**Related:** L295, L296, L299, L301; T-1730;
+`docs/RESEARCH/glessner_house_v4.md`.
+
+**Recorded:** 2026-09-29.
+
+
+L305 detail addendum, 2026-09-29: the north-court service-door landing and
+south-descending flight follow HABS sheet 2 at reconstructed scaled bounds
+(±0.5 ft). Ten risers, the 3-ft rail, stone slab/tread thickness, two brick
+landing supports and the brick stair cheek are reconstructed, bounded by the
+door threshold and the supplied modern tunnel-facing photograph. The later
+stable-south wooden stair is not carried into 1904.
+
+
+L305 surface/ornament addendum, 2026-09-29: the granite color map includes an
+original generated image, preserved unchanged with its exact prompt and hash;
+it is not a measured building surface or a photograph. Its 0.6-m repeat, mineral
+colors and reduced normal amplitude are reconstructed. The Prairie entrance
+uses layered foliate scrolls, leaf bands, distinct capitals and sill carving
+whose organization follows the references; microscopic lobes and tool marks
+remain invented within that organization. The sill terminal envelope extends
+0.435 m beyond each end of its central band. The corresponding wall recesses
+and continuous backing prevent relief from overlapping unrelated ashlar.
+
+
+L305 close-up refinement addendum, 2026-09-29: the final granite crystal field
+uses a 0.22-m repeat, superseding the earlier 0.6-m trial, with reconstructed
+normal strength 0.40 (ashlar) / 0.32 (rough trim). The turf includes another
+unchanged original generated albedo at 0.4-m repeat. Up to 20,000 seeded grass
+triangles, 10–40 mm high and 1–3 mm wide, supplement the existing lawn; all
+vertices stay inside its boundary and outside the drive. Their positions,
+density and colours are conjectural, encoded as `_CONFIDENCE=1.0`, not a
+historic planting inventory. Gray-tan common-brick body colour, varied firing,
+lime-joint tone and warmer oak are visual reconstructions within surviving
+fabric references, without adding modern stains or copied photograph pixels.
+
+
+L305 foundation addendum, 2026-09-29: the stair-tower exposed footing has six
+rough stone blocks on its courtyard arc, about 0.30–0.12 m tall with 15–40 mm
+relief. Modern owner images establish the material boundary; HABS photo5 is
+ivy/shadow-obscured and supplies no clear height. Heights, joints and the
+stepped transition toward the passage are reconstructed, not measured.
+
+
+**Window and door refinement (2026-09-29):** Court roller shades now close
+18–64% of the full opening, mostly32–55%, following the visibly exposed lower
+panes in HABS photo5 and the owner photographs. A subset has narrow gathered
+side linen. These positions/folds carry conjectural confidence; no scene-date
+shade positions are claimed. Prairie colonnade shades retain their earlier
+6–34% profile. The bow terrace door has real four-pane upper glazing, wood
+stiles/rails and one raised lower panel. The c1923 HABS photograph supports
+that construction; its transfer to1904 remains an inference from surviving
+fabric, while exact moulding and latch dimensions are reconstructed. The
+modern fine protective grille is excluded.
+
+
+**Stone relief refinement (2026-09-29):** A controlled panel study selected
+5×3 angular subdivisions for eligible large blocks and normal strength1.0
+(rough trim0.8), superseding the earlier3×2/0.40/0.32 trial. Broad split-face
+offsets are constrained to4–70mm; nominal block extrusion remains8–46mm.
+Exact fracture planes, pits and grain are reconstructed, not mapped historic
+stone surfaces. Study panels are not presented as building renders.
+
+**Curved stone bands (2026-09-29):** Both stair-tower lantern bands now use
+rough stone faces, as read in HABS courtyard photograph 5 and the supplied
+modern courtyard close views. Sixteen blocks per ring, their joints, fractures
+and a 15 mm dressed top seat are reconstructed. Every point remains within
+the former drum radius and measured vertical endpoints; no cornice or extra
+building volume is introduced.
+
+
+**Roof ridge crests (2026-09-29):** The v4 roof retains the ridge axes, pitches and endpoints already resolved from the structure record. HABS courtyard photograph05 (circa1923, `habs_glessner_photo_05_court_c1923`) clearly shows repeating raised ridge crests on both the foreground roofs and the long courtyard roof; photograph14 (`habs_glessner_photo_14_north_inclined_1965`) and the supplied modern roof views agree. Carrying this roof detail to1904 is inferred from the same surviving roof-form continuity used elsewhere in v4; the circa1923 image does not directly attest a1904 state. One raised terracotta collar is added inside each existing0.36m cap interval. Its55mm crown rise above the existing cap and35mm axial thickness are reconstructed visual proportions, not survey dimensions. The collar tapers to the existing cap width at its shoulders. The new collar vertices are tagged reconstructed (`_CONFIDENCE = 1.0`). It reuses the existing clay material and does not change roof pitch, ridge datum or endpoints. No historical or modern image pixels are reused.
+
+
+**Courtyard dormer refinement (2026-09-29):** HABS courtyard photograph5
+shows projecting flared cap edges and simple undivided timber lights. The
+owner's recent courtyard image10 confirms clay cap/finial material and helps
+bound the edge profile; the monochrome HABS image alone does not establish
+red colour. The existing body, opening bounds, 32.9-ft eave and37-ft apex are
+retained. A0.30m front/0.26m side projection,0.18m kick run/0.13m rise,
+75mm timber fascia/soffit and47mm-radius hip covers are reconstructed, not
+measured drawing labels. New stock, glazing recesses and edge details carry
+reconstructed confidence1.0. The generic stone sill/reveals and extra sash
+rail are replaced locally by timber and a single light. No other windows or
+main roof mass are changed.
+
+
+**Courtyard rainwater fittings (2026-09-29):** The courtyard rainwater fittings are inferred for 1904 from HABS courtyard photograph05 (circa1923, `habs_glessner_photo_05_court_c1923`). That view shows the north and east courtyard eave gutters, a curved gutter around the northeast bow, the dining-bay cap gutter, a conspicuous pipe at the photograph-left/west dining-bay junction, and a second slender pipe immediately west of the bow. The later photograph supports surviving form, not a directly photographed1904 condition. The new helper follows the existing generated roof edges, interrupts hidden runs at the projecting bay/bow and stair drum, and places pipes only at those two clearly visible junctions. Its120mm half-round section,3mm sheet thickness,6mm rolled lips,88mm pipes, small flared collectors and plain retaining collars are reconstructed within the photographed silhouette. The gutter outer lip projects98mm past the existing eave; its top is16mm below that eave. Dark oxidised-metal appearance reuses existing metallic slot10 and does not identify a particular alloy or repaint all copper roofs. All added vertices carry reconstructed confidence1.0. Roof pitches, ridge axes, openings and masonry remain unchanged. No source pixels or modern proprietary fittings are reproduced.
+
+
+**Fine rock-face geometry (2026-09-29):** Stone faces now use a7.5cm
+fracture grid with two correlated relief scales and small irregular edge chips,
+superseding the5×3 trial. The6–70mm field is reconstructed within unchanged
+course/block/opening envelopes. Finished facets are clipped at apertures; no
+extra seams are introduced. The outer radial entry stones use the same rough
+finish visible in the owner's close-up image5; carved inner mouldings remain
+dressed. Shading normals blend across shallow fractures below35degrees inside
+each stone, preserving hard sides, reveals and steep chips. This changes no
+vertex positions, UVs or confidence. Export/reimport tests confirm the corner
+normals survive the canonical GLB path. All fracture detail remains invented
+within these bounds, not a surveyed map of individual stone faces.
+
+
+**L305 continued — closed glazing and stable turret joinery.**
+
+The v4 clear panes keep the existing front planes and opening outlines, but now form closed dielectric volumes. Their 4 mm stock thickness is reconstructed, not a HABS measurement: the front retains its source confidence and the added rear/edge faces carry reconstructed confidence (1.0). No glass colour, transmission, roughness or IOR was changed. A controlled export/import comparison at identical 48/128 samples reproduced the dark stipple with the previous open slab and single-quad panes; the closed pane reduced its 48-sample local pixel residual by about 86% in this fixture. That is diagnostic evidence about this rendering defect, not a photorealism score for the building.
+
+The Prairie entrance leaf now has a real cutout within its already-defined upper glazing outline; its lower panel, stiles, rails, grille and outer dimensions remain unchanged. Previously a full-height wooden backing lay 1 mm behind the glass.
+
+The existing turret_stable record, citing the 1888 exterior photograph and HABS photograph 1, describes the stable ridge turret band as louvred. V4 therefore replaces four false transmitting panes with actual timber slats and dark recessed backing, retaining the recorded turret/body/roof/finial envelope and band outlines. Approximately 145 mm slat spacing, 140 mm depth, 16 mm stock and the downward outward slope are bounded reconstructed joinery (1.0), not a photographed slat count or measured detail.
+
+
+The courtyard material refinement retains the same geometry and 28 material slots.
+All common-brick variants now share one clay fabric, with restrained kiln colour
+variation and coherent roughness. The lime mortar receives a dedicated sandy
+surface. The lawn uses a new original generated 4 m albedo with broad natural
+variation; the earlier 0.4 m input is retained unchanged. These appearances are
+reconstructed material studies, not extracted source-photo pixels or measured
+historical reflectance. Exact prompts, hashes and channel conventions remain in
+assets/textures/glessner-v4/. The first controlled material trial over-compressed
+the brick palette; the accepted source restores a modest midpoint variation,
+which still awaits review in the combined canonical bake.
+
+
+**Window depth refinement (2026-09-30):** Clear v4 glass uses full dielectric
+transmission at the existing IOR 1.52, roughness 0.065 and 4 mm thickness.
+The former 6% diffuse component introduced a flat grey veil in the exported
+GLB. A controlled export/import study compared 0.94 and 1.0 transmission
+with shallow and enclosed recesses under identical lighting. Ordinary
+window recesses and the Prairie upper door light now close at 0.90 m behind
+the exterior wall plane, with four dark side faces. Dormers retain a 0.60 m
+backing depth. These unfurnished shadow volumes and their depths are
+reconstructed rendering closures, not surveyed rooms or claimed historic
+interiors; their vertices carry confidence 1.0. Aperture dimensions, glass,
+sash, shades and the building envelope are unchanged. The light and full
+versions use the same closure geometry.

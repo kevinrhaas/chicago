@@ -1,0 +1,352 @@
+serving /workspace/scratch/2b9723ff55ae/glessner-v4/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "5-13" of 13
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: scene detail 'full' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: scene detail 'balanced' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: scene detail 'light' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: draw calls under budget at the town's WORST frame
+  pass  desktop 1280x800: turning scene detail down actually draws less, at every stand
+  pass  desktop 1280x800: the light tier draws inside its 90-call floor at the worst stand
+  pass  desktop 1280x800: the light tier stays materially cheaper than full at the worst stand
+  pass  desktop 1280x800: the level the visitor started on is restored
+  pass  desktop 1280x800: the light tier draws no furniture into the shadow map, and only the ground-hugging timber is exempt above it
+  pass  desktop 1280x800: the furniture reach is a ladder — full holds nothing back, and each rung below reaches less far
+  pass  desktop 1280x800: the far merge gives back draw calls down the axial street and moves no triangle doing it
+  pass  desktop 1280x800: the light tier holds furniture back down the axial street
+  pass  desktop 1280x800: the furniture reach is what makes the light tier cheaper down that street
+  pass  desktop 1280x800: the balanced tier holds furniture back down the axial street
+  pass  desktop 1280x800: the furniture reach is what makes the balanced tier cheaper down that street
+  pass  desktop 1280x800: the light tier's shorter shadow reach costs no texel
+        detail  full 1018887/1460000 (124 calls, ±240 m, 146/199 furniture casting)  ·  balanced 940611/1280000 (124 calls, ±240 m, 146/199 furniture casting)  ·  light 611239/825000 (73 calls, ±120 m, 0/199 furniture casting)
+        full      worst   1,408,943 tris of 1,460,000 at Lake Street at Canal, east down the axis  ·  worst  196 calls at Lake Street at Canal, east down the axis
+        balanced  worst   1,216,391 tris of 1,280,000 at Lake Street at Canal, east down the axis  ·  worst  180 calls at Lake Street at Canal, east down the axis
+        light     worst     802,591 tris of 825,000 at the open aerial  ·  worst   83 calls at Lake and Market, the corner itself
+  pass  desktop 1280x800: tap-to-start reveals the walkthrough
+  pass  desktop 1280x800: first entry shows the navigation guide for the active input mode
+  pass  desktop 1280x800: no horizontal overflow
+  pass  desktop 1280x800: the navigation guide dismisses and remembers the choice
+  pass  desktop 1280x800: a level checkbox takes the click and the menu stays open
+  pass  desktop 1280x800: reset restores every level and the caret shuts the menu
+  pass  desktop 1280x800: compass shows the live heading
+  pass  desktop 1280x800: the overview map is shown, captioned and read in imperial
+  pass  desktop 1280x800: the overview inset is a fixed 248x98 frame, not the field's shape
+  pass  desktop 1280x800: walking speed is presented as a named gait in miles per hour
+  pass  desktop 1280x800: every pace slider names its gait beside an imperial speed
+  pass  desktop 1280x800: overview marker follows position and bearing
+  pass  desktop 1280x800: the overview window travels with the visitor at the scale it had before
+  pass  desktop 1280x800: the overview window clamps to the field instead of running past it
+  pass  desktop 1280x800: every southern viewpoint is reachable and stands on dry modelled ground
+  pass  desktop 1280x800: the run carries the visitor south to the model's own wall, and the map follows
+  pass  desktop 1280x800: the pop-out renders the whole heightfield
+  pass  desktop 1280x800: Escape puts the pop-out away and hands focus back to the map
+  pass  desktop 1280x800: the pop-out cannot be opened while the map is switched off
+  pass  desktop 1280x800: earth streets are populated and draped on the rendered ground
+  pass  desktop 1280x800: no panel of road is deleted because its EDGE reached the water
+  pass  desktop 1280x800: the platted streets reach the picture as attested, not as invention
+  pass  desktop 1280x800: surface and wear ride their own channel and every street carries it
+  pass  desktop 1280x800: the ground never rises through a road panel between its vertices
+  pass  desktop 1280x800: the worn track runs onto each bridge approach and meets the deck
+  pass  desktop 1280x800: no bend in the ribbon opens a wedge on the outside of its turn
+  pass  desktop 1280x800: no elevated flora sheet can masquerade as a second terrain layer
+  pass  desktop 1280x800: the roads reach the screen from the walker’s eye, down an open street
+        south_water: 2-40 m: ΔL* 4.4 of 5.6 opaque, 90 % perceptible of 10 bare, weber 0.1825 (n 10) over ground L* 50.5, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 4.6 of 5.3 opaque, 100 % perceptible of 15 bare, weber 0.1942 (n 15) over ground L* 50.2, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 2.8 of 3.4 opaque, 80 % perceptible of 50 bare, weber 0.1224 (n 48) over ground L* 48.6, seen 48 of 125 projected (50 clear of flora) · 250-600 m: ΔL* 2.8 of 3.8 opaque, 81 % perceptible of 80 bare, weber 0.1232 (n 80) over ground L* 49.4, seen 80 of 727 projected (80 clear of flora) · 600-4000 m: ΔL* 10.7 of 18.6 opaque, 80 % perceptible of 5 bare, weber 0.4050 (n 4) over ground L* 51.6, seen 4 of 346 projected (5 clear of flora) (reported only)
+  pass  desktop 1280x800: the roads reach the screen from the air, at the aerial anchor
+        from_above: 2-40 m: projects 0× (not gated) · 40-100 m: projects 0× (not gated) · 100-250 m: ΔL* 4.0 of 8.8 opaque, 97 % perceptible of 31 bare, weber 0.1800 (n 30) over ground L* 47.1, seen 30 of 31 projected (31 clear of flora) · 250-600 m: ΔL* 3.3 of 7.4 opaque, 86 % perceptible of 677 bare, weber 0.1461 (n 673) over ground L* 48.6, seen 673 of 692 projected (677 clear of flora) · 600-4000 m: ΔL* 3.9 of 8.1 opaque, 76 % perceptible of 420 bare, weber 0.1684 (n 328) over ground L* 49.8, seen 328 of 496 projected (420 clear of flora) (reported only)
+        road bands: 6 moved against the bank —
+          rose      desktop/south_water/40-100  perceptible 80 % → 100 % (+20 points), ΔL* 3.0 → 4.6 (+1.6), weber 0.1289 → 0.1942
+          rose      desktop/south_water/250-600  perceptible 68 % → 81 % (+14 points), ΔL* 4.2 → 2.8 (-1.4), weber 0.1780 → 0.1232, ground L* 53.6 → 49.4 (-4.2, exposure)
+          rose      desktop/from_above/100-250  ΔL* 2.6 → 4.0 (+1.4), weber 0.1160 → 0.1800
+          rose      desktop/from_above/250-600  perceptible 66 % → 86 % (+19 points), ΔL* 2.2 → 3.3 (+1.1), weber 0.0964 → 0.1461
+          rose      desktop/south_water/2-40  perceptible 70 % → 90 % (+20 points), ΔL* 3.4 → 4.5 (+1.0), weber 0.1402 → 0.1825
+          rose      desktop/south_water/100-250  perceptible 51 % → 80 % (+29 points), ΔL* 2.4 → 2.8 (+0.4)
+  pass  desktop 1280x800: the roads reach the screen standing on the crossing itself
+        lake_market: 2-40 m: ΔL* 2.5 of 3.1 opaque, 60 % perceptible of 10 bare, weber 0.1250 (n 10) over ground L* 49.4, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 4.5 of 5.2 opaque, 93 % perceptible of 15 bare, weber 0.1894 (n 15) over ground L* 50.9, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 4.0 of 5.0 opaque, 98 % perceptible of 44 bare, weber 0.1707 (n 44) over ground L* 50.6, seen 44 of 148 projected (44 clear of flora) · 250-600 m: ΔL* 3.5 of 5.3 opaque, 99 % perceptible of 98 bare, weber 0.1476 (n 98) over ground L* 51.8, seen 98 of 735 projected (98 clear of flora) · 600-4000 m: ΔL* 3.5 of 5.3 opaque, 100 % perceptible of 60 bare, weber 0.1476 (n 60) over ground L* 51.8, seen 60 of 1127 projected (60 clear of flora) (reported only)
+        road bands: 3 moved against the bank —
+          fell      desktop/lake_market/250-600  ΔL* 6.5 → 3.5 (-3.0), weber 0.2497 → 0.1476, ground L* 55.0 → 51.8 (-3.2, exposure)
+          rose      desktop/lake_market/40-100  ΔL* 2.4 → 4.5 (+2.1), weber 0.1047 → 0.1894
+          rose      desktop/lake_market/100-250  ΔL* 2.5 → 4.0 (+1.6), weber 0.1057 → 0.1707
+  pass  desktop 1280x800: the road-legibility aid is off unless a visitor moves it
+  pass  desktop 1280x800: raising the road-legibility aid reaches the render
+  pass  desktop 1280x800: dropping the road-legibility aid restores the default frame
+        road aid: full-on delta mean 0.29 / worst 11 at 96², 0.22 / 1 at 12²; restored residual mean 0.00 / worst 0
+  pass  desktop 1280x800: the town is its one untextured batch and its two roof coverings
+  pass  desktop 1280x800: the batch still carries the town's finishes
+  pass  desktop 1280x800: the per-vertex roughness channel reaches the render
+  pass  desktop 1280x800: restoring the roughness channel restores the frame
+        batches: 3 · roughness 15 values 0.25–0.9800000190734863 · flattening moves worst cell 12, mean 0.21; restored worst 0
+  pass  desktop 1280x800: the town wears more than one face
+  pass  desktop 1280x800: no two neighbouring buildings are drawn the same colour
+  pass  desktop 1280x800: a documented paint is never modulated
+  pass  desktop 1280x800: the facade tones reach the render
+  pass  desktop 1280x800: restoring the facade tones restores the frame
+        facades: 487 tones · 0/474 neighbour pairs identical · winding off moves worst cell 10, mean 0.27; restored worst 0
+  pass  desktop 1280x800: the sun's shadow reaches 240 m at the documented texel (scene detail 'full')
+  pass  desktop 1280x800: the shadow reach reaches the render
+  pass  desktop 1280x800: restoring the shadow reach restores the frame
+        shadow reach: ±240 m at 11.7 cm/texel · winding back to ±60 m moves worst cell 7; restored residual worst 0
+  pass  desktop 1280x800: the shadow box holds still under a sub-texel step
+  pass  desktop 1280x800: the snap reaches the box — without it the same step moves it
+  pass  desktop 1280x800: the box moves in texels of its own map, and only in those
+        shadow snap: 1 mm moves the box 0.00 µm snapped, 0.994 mm loose; a 1 m walk moves it 11 time(s), worst 1.000 texels
+  pass  desktop 1280x800: the brightness aid is off unless a visitor moves it
+  pass  desktop 1280x800: raising the brightness aid reaches the render
+  pass  desktop 1280x800: dropping the brightness aid restores the calibrated frame
+        brightness aid: +1 stop delta mean 44.56 / worst 51 at 12²; restored residual mean 0.00 / worst 0
+  pass  desktop 1280x800: detailed flora roots share the terrain and water surfaces
+  pass  desktop 1280x800: emergent flora stays within eight metres of a riverbank
+  pass  desktop 1280x800: woody vegetation never occupies the river mask
+  pass  desktop 1280x800: no tree stands below the waterline
+  pass  desktop 1280x800: every tree drawn stands at its own station
+  pass  desktop 1280x800: no timber is drawn out in the channel
+  pass  desktop 1280x800: every building is drawn around the anchor its record gives it
+  pass  desktop 1280x800: every panel of road is drawn on a street the data records
+  pass  desktop 1280x800: the horizon band refuses to draw timber over water
+  pass  desktop 1280x800: the horizon band and the fogged ground converge on one colour
+  pass  desktop 1280x800: the crown modulation never deletes a resolvable silhouette
+  pass  desktop 1280x800: the band is solved against this viewport, not a default one
+  pass  desktop 1280x800: every species the stand owes a stem to stands in it
+  pass  desktop 1280x800: the American sycamore stands on the riverbank
+  pass  desktop 1280x800: every slot the sward deals is counted against a species
+  note  desktop 1280x800: sward abundance — 6 of 27 lists mix an area with a count (z03_sedge_meadow.matrix 33.4% of slots dealt off counts; z03_sedge_meadow.forb 1.0% of slots dealt off counts; z08_lakeshore.matrix 2.1% of slots dealt off counts; z09_sand_prairie.matrix 0.0% of slots dealt off counts; z06_dense_forest.forb 89.8% of slots dealt off counts; z06_dense_forest.shrub 31.0% of slots dealt off counts)
+  note  desktop 1280x800: 0 record(s) give cover with no width_m, so no count can be derived without inventing a footprint
+  note  desktop 1280x800: sward tail — 0 species owed a whole slot and drawn nowhere, over 347 slots in z10_settled_town.matrix=262 z10_settled_town.forb=85
+  pass  desktop 1280x800: no sward species its own list owes a plant to is drawn nowhere, in ANY community
+  note  desktop 1280x800: sward census by detail — full 11239 slots, 0 drawn nowhere  ·  balanced 6263 slots, 0 drawn nowhere  ·  light 4073 slots, 0 drawn nowhere
+  pass  desktop 1280x800: no floating-leaved aquatic is planted on dry ground
+  pass  desktop 1280x800: the marsh's emergents still stand on both sides of its waterline
+  pass  desktop 1280x800: the marsh community is split by the substrate its records state
+  pass  desktop 1280x800: every flora fade ring is inset inside its own lattice
+  pass  desktop 1280x800: a plant in front of the walker never arrives already visible
+  pass  desktop 1280x800: a plant is drawn at its own height, faint, never short
+  pass  desktop 1280x800: every drawn flower head has a plant under its own stalk
+  pass  desktop 1280x800: an open station exists to measure the sward's boundary from
+  pass  desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 8.2 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 7.7 px, reach 25.41-27.55 m)
+  pass  desktop 1280x800: the boundary's variation is the fringe, not a hole in the field — reach 25.18-27.48 m, mean 26.38 m at 6.25% coverage against a nominal 26.40 +/- 3.00 m (bars: min >= 21.76, mean >= 24.46, both carrying the 0.44 m the 6.25% threshold insets a 7.00 m ramp by); at the old 2%: 25.41-27.55 m, mean 26.70 m
+  pass  desktop 1280x800: the flower layer's boundary is fringed too, not only the grass — forb rings span 23.25-28.00 m about a nominal 25.40 +/- 3.00 m
+  pass  desktop 1280x800: the ragged boundary is anchored to the ground, not to the camera
+  pass  desktop 1280x800: every community's recorded ground cover reaches the renderer
+  pass  desktop 1280x800: the sward is planted at each community's own recorded cover
+  pass  desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface
+  pass  desktop 1280x800: street clearing removes travel-track plants but preserves the block
+  pass  desktop 1280x800: the readout shows both 1835 and current names at an intersection
+  pass  desktop 1280x800: the street readout announces the next cross street ahead
+  pass  desktop 1280x800: Settings can reopen the dismissed navigation guide
+  pass  desktop 1280x800: Settings switches every navigation measurement as one unit system
+  pass  desktop 1280x800: eye height starts at the researched period figure
+  pass  desktop 1280x800: the eye height readout is a stature, not rounded to whole feet
+  pass  desktop 1280x800: moving the eye height slider moves the eye immediately
+  pass  desktop 1280x800: eye height does not yank the camera down mid-flight
+  pass  desktop 1280x800: the eye height range covers short to tall without absurdity
+  pass  desktop 1280x800: typing in the search box does not walk the camera
+  pass  desktop 1280x800: typing an 'f' does not take off
+  pass  desktop 1280x800: the rail lists the eight sections in order, Go to first
+  pass  desktop 1280x800: eight rail items fit the panel unsqueezed — one column on desktop, one row on a phone
+  pass  desktop 1280x800: Settings no longer carries a second list of viewpoints
+  pass  desktop 1280x800: G opens the Go to tab
+  pass  desktop 1280x800: jump menu lists every structure that stood here, and every roof once asked
+  pass  desktop 1280x800: jump menu includes every verified intersection
+  pass  desktop 1280x800: jump menu includes every viewpoint the scene names
+  pass  desktop 1280x800: every structure result carries its record's presence grade as its chip and its position grade as data
+  pass  desktop 1280x800: a viewpoint and a survey junction are not graded like a building
+  pass  desktop 1280x800: the three grades are told apart by colour, not only by their words
+  pass  desktop 1280x800: the tab counts its own list rather than quoting a written total
+  pass  desktop 1280x800: jump search finds an intersection by both street names
+  pass  desktop 1280x800: an intersection result moves the visitor there
+  pass  desktop 1280x800: opening the drawer tucks an open card aside without closing it
+  pass  desktop 1280x800: closing the drawer brings the tucked card back
+  pass  desktop 1280x800: the drawer reaches the bottom of the screen and starts under the year badge
+  pass  desktop 1280x800: the Taverns pill narrows the list to taverns, inns and hotels, the Sauganash among them
+  pass  desktop 1280x800: every row is filed under one of the ten groups, beneath that group's heading
+  pass  desktop 1280x800: visible rows equal the shared destination inventory
+  pass  desktop 1280x800: located rows say how far and which way; unknown addresses invent no metres
+  pass  desktop 1280x800: the distances follow the visitor — 100 m further east reads 100 m further
+  pass  desktop 1280x800: ArrowDown steps the list a row at a time — two reach the second, three the third — and Enter goes there
+  pass  desktop 1280x800: Travel offers instantly, walk, wagon, horse and fly
+  pass  desktop 1280x800: the travel mode chosen is the one the walker rides and the one stored
+  pass  desktop 1280x800: each pace sets the walker to its own slider, its Shift factor and its seat
+  pass  desktop 1280x800: the three pace sliders top out at 20, 30 and 60 mph and name the gait as they move
+  pass  desktop 1280x800: the horse's gait moves the rider's eye a few centimetres, and stops when they do
+  pass  desktop 1280x800: the gait is off with the setting off, and back with it
+  pass  desktop 1280x800: the gait is off under prefers-reduced-motion
+  pass  desktop 1280x800: choosing the Sauganash on foot starts a walk and says so
+  pass  desktop 1280x800: the walk ends at the Sauganash's door with its card open
+  pass  desktop 1280x800: the walk from South Water keeps to the streets
+  pass  desktop 1280x800: the visitor's own step ends a ride and is not swallowed
+  pass  desktop 1280x800: the banner's Stop button ends a ride
+  pass  desktop 1280x800: flying to a far building climbs to a cruise height, lands and opens its card
+  pass  desktop 1280x800: instantly is still instant
+  pass  desktop 1280x800: the People directory lists the town, and its count is the file's and the manifest's
+  pass  desktop 1280x800: the household card says how far the evidence places its people
+  pass  desktop 1280x800: a household no source places says its division was dealt, not read
+  pass  desktop 1280x800: searching "Beaubien" finds Mark Beaubien
+  pass  desktop 1280x800: the Trade row offers the documented trades AND the town's commonest
+  pass  desktop 1280x800: the tavern-keeper pill narrows the list to tavern keepers
+  pass  desktop 1280x800: the Tier row's stage pills name the reconstruction, and partition it
+  pass  desktop 1280x800: opening a person shows their card with a way to their building
+  pass  desktop 1280x800: Go there rides to the person's building and opens its card
+  pass  desktop 1280x800: the Businesses directory lists every firm, and its count is the index's
+  pass  desktop 1280x800: searching a good the papers advertised finds the houses that sold it
+  pass  desktop 1280x800: the unplaceable pill narrows the list to the firms with no place at all
+  pass  desktop 1280x800: a firm the paper reaches to a street is carried to the block face it is housed on
+  pass  desktop 1280x800: a firm the register could not place says how far the record goes, and offers no building
+  pass  desktop 1280x800: a firm with premises opens a card with its locations, its printings and the way there
+  pass  desktop 1280x800: a person's card names every firm the register puts them in
+  pass  desktop 1280x800: tapping one opens that firm's own card in Businesses
+  pass  desktop 1280x800: a building card's Use row names the firms the register puts in that roof
+  pass  desktop 1280x800: a card opened from a signboard leads with the firm the board hangs for
+  pass  desktop 1280x800: the Evidence hub shows eleven topics, with Sources unknown until opened
+  pass  desktop 1280x800: Sources lazily lists scene and registered counts with a forty-row window
+  pass  desktop 1280x800: Sources finds Andreas with date, type, tier and separate claim/entity figures
+  pass  desktop 1280x800: Evidence → City shows the town census
+  pass  desktop 1280x800: Evidence → City's figures are the committed data's
+  pass  desktop 1280x800: both City ladders carry completeness bars and the people ladder's grade key
+  pass  desktop 1280x800: people housed remains a placement note under the people ladder
+  pass  desktop 1280x800: cards held remain stated as cards, not residents
+  pass  desktop 1280x800: the established and ruled-in population measures remain stated
+  pass  desktop 1280x800: City names both denominators and never substitutes November's count
+  pass  desktop 1280x800: City drops the projected count and structures line
+  pass  desktop 1280x800: City identifies its date, derivation and published build
+  pass  desktop 1280x800: City fits a phone-width topic and scrolls inside the sheet
+  pass  desktop 1280x800: a topic opens with the hub gone, and its search narrows the list and says so
+  pass  desktop 1280x800: Back returns to the hub
+  pass  desktop 1280x800: settings toggle all three navigation aids
+  pass  desktop 1280x800: the HUD toggle drives the confidence view
+  pass  desktop 1280x800: a first-time visitor is told there are unread notes
+  pass  desktop 1280x800: the what's-new tab renders every release
+  pass  desktop 1280x800: entries carry a title and a stamped date
+  pass  desktop 1280x800: opening the tab clears the unread marker
+  pass  desktop 1280x800: a first visit flags nothing (no "last time" to differ from)
+  pass  desktop 1280x800: a returning visitor sees only what shipped since last time
+  pass  desktop 1280x800: the liberties list loads
+  pass  desktop 1280x800: every loaded liberty is rendered
+  pass  desktop 1280x800: the list names a scene-wide liberty
+  pass  desktop 1280x800: the Evidence panel does not overflow
+  pass  desktop 1280x800: a man who held an agency says so on his own card
+  pass  desktop 1280x800: the person's card carries the same caveat as the house's
+  pass  desktop 1280x800: every household in the layer is on the card
+  pass  desktop 1280x800: every person entry in the manifest is counted
+  pass  desktop 1280x800: the letter-list cohort is held apart from the evidenced town
+  pass  desktop 1280x800: the group says what that evidence is worth before it is opened
+  pass  desktop 1280x800: the households no building card can reach are marked
+  pass  desktop 1280x800: the researched non-residents are published too
+  pass  desktop 1280x800: opening a household fetches its record
+  pass  desktop 1280x800: a graded claim carries its reasoning, not just its value
+  pass  desktop 1280x800: the household records quote their sources, not their source ids
+  pass  desktop 1280x800: the households start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the people section does not overflow the panel
+  pass  desktop 1280x800: no figure reaches a person's row as [object Object]
+  pass  desktop 1280x800: an evidence-only household's row says what its roof is not
+  pass  desktop 1280x800: a dated person carries an age and a birth year, both graded
+  pass  desktop 1280x800: a letter-list name says on its own row how thin that evidence is
+  pass  desktop 1280x800: the count sentence says how many people are known only that way
+  pass  desktop 1280x800: a letter-list name carries no invented trade
+  pass  desktop 1280x800: every resident research review reaches a resident card
+  pass  desktop 1280x800: candidate identities are visibly unmerged
+  pass  desktop 1280x800: a negative search is published without denying existence
+  pass  desktop 1280x800: the section says plainly that nobody is drawn
+  pass  desktop 1280x800: the wildlife list loads every habitat
+  pass  desktop 1280x800: every animal record in the layer is on the card
+  pass  desktop 1280x800: the card names what the records name
+  pass  desktop 1280x800: the card carries the July presence modes, not a species list
+  pass  desktop 1280x800: the animal records quote their sources, not their source ids
+  pass  desktop 1280x800: the animals start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the wildlife section does not overflow the panel
+  pass  desktop 1280x800: the section says plainly that none of them is in the scene
+  pass  desktop 1280x800: the plant list loads every community
+  pass  desktop 1280x800: every species in the ten communities is on the card
+  pass  desktop 1280x800: the communities the sward lattice cannot draw say so
+  pass  desktop 1280x800: the share a visitor is standing in comes off the declaration
+  pass  desktop 1280x800: the note names the worst case rather than only the total
+  pass  desktop 1280x800: the plant records quote their sources, not their source ids
+  pass  desktop 1280x800: no figure reaches a plant's row as [object Object]
+  pass  desktop 1280x800: the communities start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the plants section wraps inside the panel rather than clipping
+  pass  desktop 1280x800: the plants section does not overflow the panel
+  pass  desktop 1280x800: all eight evidence mounts wrap inside their panel rather than clipping
+  pass  desktop 1280x800: a run longer than the column breaks inside all eight mounts, not past them
+  pass  desktop 1280x800: the liberties list says what it is, in the document's words
+  pass  desktop 1280x800: the panel states it once — the hand-written paraphrase is gone
+  pass  desktop 1280x800: an entry shows the inventions it admits to
+  pass  desktop 1280x800: a claim over several buildings names each of them
+  pass  desktop 1280x800: an entry that invented nothing drawn claims nothing
+  pass  desktop 1280x800: an invented roof and height are admitted like an outline
+  pass  desktop 1280x800: a decision made by default is admitted in two buildings
+  pass  desktop 1280x800: the ground admits to what it invented, and says it is the ground
+  pass  desktop 1280x800: the chip carries the epoch the admission is about
+  pass  desktop 1280x800: the invention the gate found is on the page, not only in the repo
+  pass  desktop 1280x800: expanding a liberty on its topic page reveals its reasoning
+  pass  desktop 1280x800: the researched exclusions load
+  pass  desktop 1280x800: an exclusion gives its reason and the source it rests on
+  pass  desktop 1280x800: a later building says when, and a vanished one says why instead
+  pass  desktop 1280x800: a building standing in the scene is not on the not-here list
+  pass  desktop 1280x800: the not-here list withholds what its sources reprint
+  pass  desktop 1280x800: the list says it is not everything missing
+  pass  desktop 1280x800: the not-here list says what it is, in the compiled document's words
+  pass  desktop 1280x800: the panel states it once — the paraphrase is gone
+  pass  desktop 1280x800: the Evidence panel still does not overflow
+  pass  desktop 1280x800: the open questions load
+  pass  desktop 1280x800: the standing ones say they are standing and the unbuilt one does not
+  pass  desktop 1280x800: the standing one names the claim on its record that carries the doubt
+  pass  desktop 1280x800: an uncited open question says why it is uncited
+  pass  desktop 1280x800: the panel says what the third category is
+  pass  desktop 1280x800: the open questions say what they are, in the compiled document's words
+  pass  desktop 1280x800: the panel states that once too — and counts nothing by hand
+  pass  desktop 1280x800: the Evidence panel still does not overflow with it
+  pass  desktop 1280x800: the open question reaches the building it is about
+  pass  desktop 1280x800: it says what settling it would change
+  pass  desktop 1280x800: the card grades the doubt the same way the claim above it is graded
+  pass  desktop 1280x800: it starts collapsed like every other disclosure on the card
+  pass  desktop 1280x800: only tracked in-scene buildings carry open questions
+  pass  desktop 1280x800: the ground's claims load
+  pass  desktop 1280x800: the ground is graded per claim, not stamped
+  pass  desktop 1280x800: no land elevation claims to be documented
+  pass  desktop 1280x800: the ground says which ground these claims are about
+  pass  desktop 1280x800: the panel quotes the spec's caveat that no survey exists
+  pass  desktop 1280x800: a land claim shows its figures and its citation
+  pass  desktop 1280x800: every claim that calls itself an inference records its reasoning
+  pass  desktop 1280x800: the soil claim that is graded too high says so where it is graded
+  pass  desktop 1280x800: a claim with no reasoning would still say so
+  pass  desktop 1280x800: a soil the ground is not made of says so, and the figures that are do not
+  pass  desktop 1280x800: the mark is the declaration's, not the row's
+  pass  desktop 1280x800: the Evidence panel still does not overflow with the ground on it
+  pass  desktop 1280x800: the aerial anchor arrives in the air, looking down
+  pass  desktop 1280x800: the view from above renders
+  pass  desktop 1280x800: the near plane opens with altitude
+  pass  desktop 1280x800: on foot the near plane is the walking value
+  pass  desktop 1280x800: free-fly cannot sink through the terrain
+  pass  desktop 1280x800: leaving free-fly puts the visitor back on the ground
+  pass  desktop 1280x800: Space inspects on foot instead of lifting off
+  pass  desktop 1280x800: Escape closes the inspection card
+  pass  desktop 1280x800: the inspect key closes the card it opened
+  pass  desktop 1280x800: neither key fires while typing in Go-to
+  pass  desktop 1280x800: a building can be inspected from the air
+  pass  desktop 1280x800: a click under the crosshair inspects
+  pass  desktop 1280x800: /1904/ boots the 1904 scene on its own ground (T-1739)
+  pass  desktop 1280x800: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739) — stood at E 1410.12 N -3218.01 bearing 264.94, eye 1.68 m; spawn {"local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}; anchor {"id":"glessner_house","label":"Prairie at Eighteenth, facing the Glessner lot at 1800 Prairie","local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}
+  pass  desktop 1280x800: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739) — lot centroid E 1365.37 N -3229.04 at NDC (-0.186, -0.029, z 0.9957); street corner at NDC x 0.185
+  pass  desktop 1280x800: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)
+  pass  desktop 1280x800: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)
+  pass  desktop 1280x800: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)
+  pass  desktop 1280x800: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)
+  pass  desktop 1280x800: the 1904 boot raises no loader problem (T-1739)
+  pass  desktop 1280x800: the frame at the 1904 spawn is inside the draw budget (T-1739) — 22 draw calls, 74979 triangles against {"drawCalls":215,"triangles":1460000}, 1 fps
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+311 passed, 0 failed
+301 staged-section check(s) (stage 5-13 of 13), 10 always-on check(s)
+26 m 47 s for stage 5-13 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

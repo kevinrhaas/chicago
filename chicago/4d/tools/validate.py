@@ -2386,14 +2386,17 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                              unlanded: list[tuple] | None = None,
                              ground: dict[str, dict[str, dict]] | None = None,
                              ground_consumed: dict[str, frozenset] | None = None,
-                             *, forward_only: bool = False) -> None:
+                             *, forward_only: bool = False,
+                             versions: dict | None = None) -> None:
     """Every inferred value in a record must be CLAIMED in LIBERTIES.md.
 
     `forward_only` (T-1727) asks only the first question — is every value these records
     invent claimed? — for a set that is not the whole town: the structure VERSIONS. The
     reverse pass (does every claim name something real?) and the ground belong to the
     whole-town call and would read every liberty about any other building as an
-    over-claim.
+    over-claim. That whole-town call includes `versions`: an alternate may invent
+    an attribute or phase the canonical record does not have. Its admission must
+    be checked against that alternate, not falsely rejected against the default.
 
     This is the inverse of the check the walkthrough already makes. The panel and
     the provenance card report the liberties that were *recorded* — which is not
@@ -2438,6 +2441,11 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
     `terrain.<epoch>.<claim>`, because the terrain is not a structure and the one
     document whose subject is honesty should not have to call it one.
     """
+    # Keep every record, even when an alternate has the same structure/phase id.
+    # The pathname keys prevent a version from replacing its canonical record;
+    # both directions of coverage still inspect each record's actual values.
+    structures = {**structures, **{f"version:{name}": st
+                                  for name, st in (versions or {}).items()}}
     entries = liberties.get("liberties") if isinstance(liberties, dict) else None
     if not entries:
         rep.error("liberties", "data/liberties.json holds no entries, so the values "
@@ -2621,13 +2629,14 @@ def check_liberties_coverage(structures: dict, liberties: dict, rep: Report,
                                        f"about a class with nothing in it")
             continue
 
-        st = next((s for s in structures.values() if s.get("id") == csid), None)
-        if st is None:
+        matching = [s for s in structures.values() if s.get("id") == csid]
+        if not matching:
             rep.error("liberties", f"{who} claims to cover '{csid}.{aspect}' but no structure "
                                    f"record has id '{csid}' — a liberty admitting to an "
                                    f"invention in a building that does not exist")
             continue
-        if cpid is not None and cpid not in [p.get("id") for p in st.get("phases", [])]:
+        if cpid is not None and not any(
+                p.get("id") == cpid for st in matching for p in st.get("phases", [])):
             rep.error("liberties", f"{who} claims to cover '{csid}.{cpid}.{aspect}' but "
                                    f"'{csid}' has no phase '{cpid}'")
             continue
@@ -2684,8 +2693,10 @@ def sidecar_shape() -> dict:
     than from every file in the directory, because the other derived documents —
     `exclusions.json`, `terrain.json` — have their own readers and their own
     shapes, and a name-exclusion list stops being right the moment somebody
-    compiles a third one. This gate covers the record the popup, the walker and
-    the placement code all read.
+    compiles a third one. Selectable alternates are also structure records: read
+    their adjacent versions/index.json, exactly as the version loader does.
+    Unlisted files cannot supply a field and accidentally hide a missing emit.
+    This gate covers the record the popup, walker and placement code all read.
 
     Dict values recurse; anything else becomes a leaf. Resolution stops at a
     leaf, which is what keeps `aka.length` and `polygon.map` from being read as
@@ -2702,7 +2713,11 @@ def sidecar_shape() -> dict:
 
     shape: dict = {}
     for index in sorted((DATA / "sidecars").glob("*/index.json")):
-        listed = json.loads(index.read_text()).get("structures", [])
+        listed = list(json.loads(index.read_text()).get("structures", []))
+        versions_index = index.parent / "versions" / "index.json"
+        if versions_index.is_file():
+            versions = json.loads(versions_index.read_text()).get("structures", {})
+            listed.extend(entry for entries in versions.values() for entry in entries)
         for entry in listed:
             p = DATA / entry.get("sidecar", "")
             if not p.is_file():
@@ -6194,12 +6209,17 @@ def main() -> int:
         unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts)
         check_ground_contact(structures, unlanded, rep)
 
-    check_liberties_coverage(structures, liberties, rep, consumed, unlanded, ground_index,
-                             ground_consumed)
-
     # and the structure VERSIONS, each held to the rules above as a structure (T-1727)
     versions = check_versions(structures, scenes, sources, source_ids, liberties, consumed,
                               rep, field=field, origin=datum_origin, contacts=contacts)
+
+    # The reverse coverage pass needs the whole population, including admissions
+    # owed only by an alternate's attributes, phases or ground contact. Checking
+    # the defaults first wrongly called such truthful version claims over-claims.
+    version_unlanded = unlanded_values(versions, scenes, rep, field, datum_origin, contacts)
+    check_liberties_coverage(structures, liberties, rep, consumed,
+                             unlanded + version_unlanded, ground_index, ground_consumed,
+                             versions=versions)
 
     # and how each of those positions was arrived at, which every record stated
     # in prose and nothing recomputed. The corners come back out of the control
@@ -6342,7 +6362,10 @@ def run_license_check(sources: dict, rep: Report) -> None:
         if rel.startswith(("gltf/versions/", "web/versions/")):
             # T-1727: a version mesh is tracked by assets/manifest.versions.json, keyed by
             # its path under gltf/ — never by basename, which it shares with the default's.
-            if rel.split("/", 1)[1] in versions_manifest:
+            version_key = rel.split("/", 1)[1]
+            lod_keys = {lod.get("asset") for entry in versions_manifest.values()
+                        for lod in entry.get("web_lods", {}).values()}
+            if version_key in versions_manifest or (rel.startswith("web/") and version_key in lod_keys):
                 generated += 1
             else:
                 rep.error("licenses", f"assets/{rel} is not in assets/manifest.versions.json — "
@@ -6575,8 +6598,13 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
             rep.error(where, "its web derivative is not recorded as made from the committed "
                              "master — run tools/web_derivatives.sh --only " + key)
             continue
-        fresh += 1
+        problems = V.lod_problems(key, entry, ROOT)
+        for problem in problems:
+            rep.error(where, problem + " — run tools/web_derivatives.sh --only " + key)
+        if not problems:
+            fresh += 1
 
+    light_keys = {light for key in expected for light in V.lod_asset_keys(key).values()}
     for key in sorted(set(assets) - set(expected)):
         rep.error(f"version mesh {key}", "is recorded in assets/manifest.versions.json but no "
                                          "version record resolves that structure, label and "
@@ -6586,7 +6614,7 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
         for f in sorted(vroot.rglob("*")) if vroot.is_dir() else []:
             if f.is_file():
                 key = f.relative_to(base).as_posix()
-                if key not in expected and key not in assets:
+                if key not in expected and key not in assets and not (base == web and key in light_keys):
                     rep.error(f"version mesh {key}",
                               f"is committed under {base.relative_to(ROOT)}/versions/ with no "
                               f"manifest entry and no version record — no recorded bake "

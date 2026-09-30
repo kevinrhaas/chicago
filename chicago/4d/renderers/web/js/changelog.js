@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1237, ts: '2026-09-29T20:35:02.596Z', date: 'Sep 29, 2026, 3:35 PM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
+  { v: 1239, ts: '2026-09-30T04:31:13.296Z', date: 'Sep 29, 2026, 11:31 PM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
     items: [
       'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',
       'Every house on the block now has empty ground on both sides of it along its own street, and that is where the block stops. The north-side research reads this frontage as alternating roof and open yard with no continuous street wall, so a fifth house on either face would have to stand next door to one already there. Eight of the twelve lots stay open prairie.',
@@ -7,6 +7,17 @@ export const CHANGELOG = [ // newest first
       'The two families who asked for these lots are not the two who moved in. The Bailly and Babcock households had requests on the lots next door \u2014 the ones deliberately left empty \u2014 and the seating pass walked them into these houses instead, leaving the Baily and Barber households holding the empty lots. Families with somewhere to be is unchanged at 177; two more have walls.',
       'East of Rush Street nothing is scheduled at all. Three more lotted blocks out on the Rush and Pine fringe are apportioned no roofs by the building programme, and the nineteen blocks beyond them are not even divided into lots. So that ground stays open, and the reason is now written into the north-side research rather than left to be guessed at.',
       'No source says a building stood on this block in 1835, which buildings they were, where on their lots they sat, or how far back from the street. The lots, the alley and the ground under them are committed; everything else is on each cottage\u2019s own card.',
+    ] },
+  { v: 1238, ts: '2026-09-29T23:55:18.692Z', date: 'Sep 29, 2026, 6:55 PM CT', title: 'The street checks catch up with Washington', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The street checks now account for four already-built blocks south of Washington and the Clinton block\'s corrected lot direction. Their walks, crossings and fences remain as drawn; the checks stop reporting those documented additions as missing ground.',
+    ] },
+  { v: 1237, ts: '2026-09-29T21:37:29.282Z', date: 'Sep 29, 2026, 4:37 PM CT', title: 'Glessner House v4: masonry, roofs and the courtyard', kind: 'feature',
+    items: [
+      'Explore the fourth Glessner House model at /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v4. Its stone courses, brickwork, roof tiles, copper seams and recessed sash have individual geometry and original surface textures.',
+      'The courtyard gains garden-level windows, stable-wing openings, stair-tower lights, the curved terrace and an open passage. The crossing roofs, smaller west dormer and distinct chimneys follow the measured envelope and the reference audit.',
+      'Full detail shows the fine stone and carved trim. Balanced and Light keep the same windows, doors and roof forms with less surface geometry, and the detail setting can change while you explore.',
+      'The evidence record distinguishes measured HABS dimensions from reconstructed fabric, window details and features inferred from modern photographs. The version selector keeps the other readings available for comparison.',
     ] },
   { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',
     items: [
