@@ -171,7 +171,11 @@ def build_materials(colours=None):
     # Actual thin dielectric glazing, with a dark interior backing and separate
     # linen blinds supplied by the geometry. An opaque painted pane hid those
     # blinds and made every window an identical blue-grey rectangle in review.
-    glass.inputs["Transmission Weight"].default_value = 0.94
+    # Clear dielectric glass has no diffuse component. The previous 6% diffuse
+    # share lit the whole pane as a grey card and hid the dark recess. The
+    # export/import study retains Fresnel reflections at IOR 1.52 with full
+    # transmission; this is not opacity or removal of the glass surface.
+    glass.inputs["Transmission Weight"].default_value = 1.0
     if "Specular IOR Level" in glass.inputs:
         glass.inputs["Specular IOR Level"].default_value = 0.50
     # Neutralise the generated image's warm feldspar balance while retaining

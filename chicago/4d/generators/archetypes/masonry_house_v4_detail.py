@@ -540,6 +540,24 @@ def cylinder(b,cx,cy,z0,z1,r,conf,mat,segments=16):
         b.raw([(p[0],p[1],z0),(q[0],q[1],z0),(q[0],q[1],z1),(p[0],p[1],z1)],conf,mat,(math.cos((a+c)/2),math.sin((a+c)/2),0))
 
 
+def interior_recess(b,outline,point,normal,front=-.298,back=-.90):
+    """Bounded, unfurnished shadow volume behind the exterior glazing.
+
+    Its depth and dark lining are reconstructed rendering closure, not surveyed
+    rooms. Closing all four sides stops exterior light reaching behind a lone
+    backing card. No glass, sash or aperture dimensions are changed.
+    """
+    near=[point(u,z,front) for u,z in outline]
+    far=[point(u,z,back) for u,z in outline]
+    center=tuple(sum(p[k] for p in near+far)/(2*len(outline)) for k in range(3))
+    b.raw(far,1.0,DARK_GLASS,normal)
+    for i in range(len(outline)):
+        j=(i+1)%len(outline)
+        face=[near[i],far[i],far[j],near[j]]
+        inward=tuple(center[k]-sum(p[k] for p in face)/4 for k in range(3))
+        b.raw(face,1.0,DARK_GLASS,inward)
+
+
 def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed,prairie_colonnade=False):
     """Reconstructed pale roller shades descend from the head, behind glass."""
     rng=random.Random(seed)
@@ -624,12 +642,14 @@ def opening(b,o,courtyard=False):
     small=min(c-a,z1-z0)<.45
     frame=.025 if small else .062
     glazing_mat=DARK_GLASS if small or kind=='dark' else GLASS
-    slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.605,-.60,conf,DARK_GLASS)
     if glazing_mat==GLASS:
+        interior_recess(b,[(a+frame,z0+frame),(c-frame,z0+frame),(c-frame,z1-frame),(a+frame,z1-frame)],
+                        lambda u,z,off:legacy._plane_point(o,u,z,off),legacy._plane_dir(o))
         glass_pane(b,[legacy._plane_point(o,u,z,-.292) for u,z in
                       [(a+frame,z0+frame),(c-frame,z0+frame),(c-frame,z1-frame),(a+frame,z1-frame)]],
                    legacy._plane_dir(o),conf)
     else:
+        slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.605,-.60,conf,DARK_GLASS)
         slab(b,o,a+frame,c-frame,z0+frame,z1-frame,-.30,-.292,conf,glazing_mat)
     if not small:
         for x0,x1,y0,y1 in [(a,a+frame,z0,z1),(c-frame,c,z0,z1),(a,c,z0,z0+frame),(a,c,z1-frame,z1)]:
@@ -696,6 +716,8 @@ def detailed_door(b,o,style):
             slab(b,o,left,right,lo,hi,-.28,-.16,conf,WOOD)
         slab(b,o,a+.19,c-.19,z0+.20,z0+height*.39,-.28,-.225,conf,WOOD)
         lo=z0+height*.51;hi=z1-.16
+        interior_recess(b,[(a+.18,lo),(c-.18,lo),(c-.18,hi),(a+.18,hi)],
+                        lambda u,z,off:legacy._plane_point(o,u,z,off),legacy._plane_dir(o),front=-.279)
         glass_pane(b,[legacy._plane_point(o,u,z,-.273) for u,z in
                       [(a+.18,lo),(c-.18,lo),(c-.18,hi),(a+.18,hi)]],legacy._plane_dir(o),conf)
         for i in range(1,5):
@@ -821,7 +843,10 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
     for i in range(4):
         a,c=outline[i],outline[(i+1)%4]
         b.raw([P(*a,.02),P(*a,-.29),P(*c,-.29),P(*c,.02)],conf,TRIM if stone_jambs else BRICK)
-    b.raw([P(u,z,-.60) for u,z in outline],conf,DARK_GLASS,normal)
+    if small:
+        b.raw([P(u,z,-.60) for u,z in outline],conf,DARK_GLASS,normal)
+    else:
+        interior_recess(b,outline,P,normal,front=-.291)
     if not door:
         if small:
             b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS,normal)
@@ -1050,7 +1075,8 @@ def dormer(b,d):
     for p,q in zip(outline,outline[1:]+outline[:1]):
         b.raw([legacy._plane_point(pl,*p,.016),legacy._plane_point(pl,*p,-.20),
                legacy._plane_point(pl,*q,-.20),legacy._plane_point(pl,*q,.016)],reconstructed,PAINTED_WOOD)
-    slab(b,pl,la+.055,lc-.055,lo+.055,hi-.055,-.61,-.60,reconstructed,DARK_GLASS)
+    interior_recess(b,[(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)],
+                    lambda u,z,off:legacy._plane_point(pl,u,z,off),normal,front=-.206,back=-.60)
     glass_pane(b,[legacy._plane_point(pl,u,z,-.20) for u,z in
                   [(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)]],
                normal,reconstructed)

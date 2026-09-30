@@ -339,3 +339,41 @@ The 1440 px actual-model entry render shows substantially better stone and
 clearer glass, but still exposes flat gray glazing/interiors and simplified
 carving. These remain active visual work. Refined05 published detail-switch
 checks and fresh integrated gates are in progress; no final acceptance yet.
+
+
+## Checkpoint 8 — clear glazing, enclosed recesses and version validation
+
+Checkpoint 7 is remote commit `de6702c90b70cd225c6285f92a0589411ba6f14f`.
+Its exact source tree matches the recovered local checkpoint. Published browser
+results are now preserved in `glessner-v4-qa/browser-refined05.json`: thirty
+view/tier readings, zero unexpected page/HTTP errors, failed-download rollback,
+repeat switches with stable GPU resources, and latest-request-wins all passed.
+These are explicit-frame budget measurements, not native-device FPS readings.
+
+The new refinement removes the glass material's 6% diffuse veil and closes
+ordinary window/door recesses to 0.90 m, dormers to 0.60 m. The export/import
+study and actual-model entry/courtyard renders preserve the comparison evidence.
+No interior room layout or furniture is asserted. Both full and light geometry
+retain all 172 openings, matching protected surface/confidence fingerprints.
+Full master: 1,071,629 triangles; light: 193,387 triangles.
+
+- `assets/gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb`: 125,182,728 bytes; SHA256 `7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4`.
+- `assets/web/versions/glessner_house/v4/glessner_house__as_built_1887.glb`: 47,927,272 bytes; SHA256 `8b3d2f9be2f95e7fae176a165ac70f337566ad4b122613fb2c4948cf46d1a5a1`.
+- `assets/web/versions/glessner_house/v4/glessner_house__as_built_1887.light.glb`: 25,159,628 bytes; SHA256 `1bc9bdf4e3cb1fdef090e1355d7db3bae2542b8213711a786f5339812bc259ee`.
+
+Checkpoint 7 GitHub CI completed 710/712 steps successfully. Its two failing
+steps share one cause: the sidecar contract scanned canonical scene indexes
+but omitted selectable version indexes, rejecting the correctly emitted
+`asset_lods.light`. The validator now reads exactly the alternates indexed by
+the renderer. Regression fixtures also prove unlisted/other documents cannot
+mask missing fields and a removed version field is still rejected. Complete
+validator and version tests now pass locally. Older v2/v3 derivatives were
+re-derived byte-identically after the builder refreshed their manifests.
+
+The local full preflight has no verdict: a test's API request was refused by
+the execution environment. GitHub is the full-gate authority for this run.
+Complete desktop/mobile published smoke is still running on the checkpoint-7
+viewer; it must finish and the final v4 published assets must receive a fresh
+focused review before readiness. The new closeups materially improve glazing;
+carving remains a declared reconstruction and photographic acceptance remains
+the owner's comparison, not a validator conclusion.

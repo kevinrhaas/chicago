@@ -2693,8 +2693,10 @@ def sidecar_shape() -> dict:
     than from every file in the directory, because the other derived documents —
     `exclusions.json`, `terrain.json` — have their own readers and their own
     shapes, and a name-exclusion list stops being right the moment somebody
-    compiles a third one. This gate covers the record the popup, the walker and
-    the placement code all read.
+    compiles a third one. Selectable alternates are also structure records: read
+    their adjacent versions/index.json, exactly as the version loader does.
+    Unlisted files cannot supply a field and accidentally hide a missing emit.
+    This gate covers the record the popup, walker and placement code all read.
 
     Dict values recurse; anything else becomes a leaf. Resolution stops at a
     leaf, which is what keeps `aka.length` and `polygon.map` from being read as
@@ -2711,7 +2713,11 @@ def sidecar_shape() -> dict:
 
     shape: dict = {}
     for index in sorted((DATA / "sidecars").glob("*/index.json")):
-        listed = json.loads(index.read_text()).get("structures", [])
+        listed = list(json.loads(index.read_text()).get("structures", []))
+        versions_index = index.parent / "versions" / "index.json"
+        if versions_index.is_file():
+            versions = json.loads(versions_index.read_text()).get("structures", {})
+            listed.extend(entry for entries in versions.values() for entry in entries)
         for entry in listed:
             p = DATA / entry.get("sidecar", "")
             if not p.is_file():

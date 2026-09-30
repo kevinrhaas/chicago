@@ -18597,3 +18597,13 @@ preview so these changes can be inspected before production promotion.
 Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected scene. The 1904 catalog has a two-stop Glessner orientation; the 1835 pilot is unchanged. Loading phase events still drive progress and errors, but their separate decorative line is hidden. Eight arrival titles rotate every three seconds, held still for reduced motion. Broader drawer content remains T-1740. Verification is recorded in the PR; no production promotion is implied.
 
 T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
+
+
+### T-1730 v4 glazing and version-contract refinement
+
+The v4 comparison now has clear dielectric glazing and enclosed dark recesses,
+removing the flat grey window veil while preserving all openings at both detail
+levels. The sidecar validator includes the alternate-version indexes the viewer
+loads; regression cases preserve the missing-field refusal. Full GitHub gate
+and published desktop/mobile smoke are pending. No final photographic-quality
+claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.

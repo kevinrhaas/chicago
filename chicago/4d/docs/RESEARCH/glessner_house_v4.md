@@ -432,3 +432,17 @@ historical reflectance. Exact prompts, hashes and channel conventions remain in
 assets/textures/glessner-v4/. The first controlled material trial over-compressed
 the brick palette; the accepted source restores a modest midpoint variation,
 which still awaits review in the combined canonical bake.
+
+
+**Window depth refinement (2026-09-30):** Clear v4 glass uses full dielectric
+transmission at the existing IOR 1.52, roughness 0.065 and 4 mm thickness.
+The former 6% diffuse component introduced a flat grey veil in the exported
+GLB. A controlled export/import study compared 0.94 and 1.0 transmission
+with shallow and enclosed recesses under identical lighting. Ordinary
+window recesses and the Prairie upper door light now close at 0.90 m behind
+the exterior wall plane, with four dark side faces. Dormers retain a 0.60 m
+backing depth. These unfurnished shadow volumes and their depths are
+reconstructed rendering closures, not surveyed rooms or claimed historic
+interiors; their vertices carry confidence 1.0. Aperture dimensions, glass,
+sash, shades and the building envelope are unchanged. The light and full
+versions use the same closure geometry.
