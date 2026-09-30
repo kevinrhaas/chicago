@@ -20,6 +20,22 @@ record, not the presence of a version query parameter.
 Verification results will be recorded before release. Production is not implied
 by this document; the promotion workflow and its deployment must both succeed.
 
+## Surviving building, dated exterior phase
+
+The owner reported that the card's “Standing: 1887–1946” looked like a demolition
+date. It is not: August 1946 closes the pre-conversion exterior phase, immediately
+before the alterations documented by HABS. Preserve that phase boundary rather
+than asserting an unchanged 1904 exterior through today.
+
+Canonical, pre-v4, v2 and v3 records now carry a separate sourced `present_status`:
+“Still standing — Glessner House museum”, checked against the operating museum's
+official history on 2026-09-30. The compiler carries that fact and its provenance;
+cards with this separate status label the date range “Modeled phase” and show both.
+The source is text-only with rights unresolved. No geometry was changed. The light
+recipe is refreshed because it hashes the entire canonical record, including prose.
+Part 13 of the published smoke asserts the rendered distinction and the unchanged
+phase endpoint, not merely the existence of a source-code string.
+
 ## Owner-approved rights exception
 
 On September 29, 2026 the owner answered: “Yes, leave them with rights unresolved.”

@@ -59,6 +59,10 @@
     "occupants": {
       "$ref": "#/$defs/attested"
     },
+    "present_status": {
+      "$ref": "#/$defs/attested",
+      "description": "Optional sourced present-day survival/status, separate from historical phase ranges. The note must state when it was checked; never extends a modeled phase."
+    },
     "reconstruction": {
       "type": "object",
       "additionalProperties": false,

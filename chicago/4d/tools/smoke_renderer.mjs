@@ -14961,6 +14961,25 @@ for (const [label, viewport, touch] of [
           && at.placed[0] === 'glessner_house',
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
+        // Owner-reported date ambiguity: 1946 closes an exterior phase, not
+        // the life of the surviving museum. Check the actual card and evidence.
+        const survivalCard = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          a.pick('glessner_house');
+          const facts = [...document.querySelectorAll('#popup .pop-facts .fact')]
+            .map((f) => [f.querySelector('dt')?.textContent.trim(), f.querySelector('dd')?.textContent.trim()]);
+          const sidecar = a.registry.get('glessner_house')?.sidecar;
+          a.popup.close();
+          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status };
+        });
+        check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
+          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          && !survivalCard.facts.some(([k]) => k === 'Standing')
+          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.range?.to === '1946-08-31'
+          && survivalCard.status?.confidence === 'attested'
+          && survivalCard.status?.sources?.includes('glessner_house_current_status')
+          && survivalCard.status?.geometry === 'record_only', JSON.stringify(survivalCard));
         check(`${label}: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)`,
           !!at.house && at.house.loaded && at.house.archetype === 'masonry_house'
           && at.drawn.structures > 0

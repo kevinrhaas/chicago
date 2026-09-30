@@ -221,7 +221,7 @@ SLUG = re.compile(r"^[a-z0-9_]+$")
 # enumerated from the data rather than listed here. Kept in step with
 # tools/compile_liberties.py's COVER_ASPECTS.
 PHASE_ASPECTS = ("footprint", "position", "documented_range")
-STRUCTURE_ASPECTS = ("function", "occupants")
+STRUCTURE_ASPECTS = ("function", "occupants", "present_status")
 
 
 class Report:
@@ -6032,7 +6032,7 @@ def check_record_provenance(where: str, st: dict, source_ids: set, rep: Report,
         fp_conf = ph.get("footprint", {}).get("confidence")
         tally[fp_conf] = tally.get(fp_conf, 0) + 1
 
-    for key in ("function", "occupants"):
+    for key in ("function", "occupants", "present_status"):
         if key in st:
             check_attested(where, key, st[key], source_ids, rep)
             c = st[key].get("confidence")

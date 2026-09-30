@@ -3,6 +3,7 @@ export const CHANGELOG = [ // newest first
     items: [
       'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',
       'Balanced and Light retain the same architecture with reduced surface detail. The previous default remains available as pre-v4, alongside v2 and v3.',
+      'The house is still standing. Its card now separates the 1887–1946 modeled phase from its present-day survival as Glessner House museum; 1946 was an alteration, not a demolition.',
     ] },
   { v: 1238, ts: '2026-09-29T23:55:18.692Z', date: 'Sep 29, 2026, 6:55 PM CT', title: 'The street checks catch up with Washington', kind: 'fix',
     items: [
