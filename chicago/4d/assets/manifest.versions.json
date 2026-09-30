@@ -12,6 +12,17 @@
       "version_label": "fixture",
       "web_master_sha256": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227"
     },
+    "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
+      "archetype": "masonry_house",
+      "baked_ao": false,
+      "bytes": 96496,
+      "inputs_sha256": "7ff9b887e5718f039b54d526d653086268fab5c67e7f46a81df43f4407329148",
+      "kind": "generated",
+      "phase_id": "as_built_1887",
+      "structure_id": "glessner_house",
+      "version_label": "pre-v4",
+      "web_master_sha256": "b04ab5c15f8df19158544e2df64e239ed4716eec9f89b2f9b835b65ec85f604c"
+    },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
@@ -33,26 +44,6 @@
       "structure_id": "glessner_house",
       "version_label": "v3",
       "web_master_sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
-    },
-    "versions/glessner_house/v4/glessner_house__as_built_1887.glb": {
-      "archetype": "masonry_house",
-      "baked_ao": false,
-      "bytes": 125182728,
-      "inputs_sha256": "f0d9499b51aa0cb261344c9e28137a1353cebea3b9e0c4231674675ab3cba654",
-      "kind": "generated",
-      "phase_id": "as_built_1887",
-      "structure_id": "glessner_house",
-      "version_label": "v4",
-      "web_lods": {
-        "light": {
-          "asset": "versions/glessner_house/v4/glessner_house__as_built_1887.light.glb",
-          "master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4",
-          "output_sha256": "1bc9bdf4e3cb1fdef090e1355d7db3bae2542b8213711a786f5339812bc259ee",
-          "recipe_sha256": "95557b2e1268685904ebdf686e5c4abbbb9c14f937dbc9e9e00b5f7d84e3a876",
-          "triangles": 193387
-        }
-      },
-      "web_master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4"
     }
   },
   "inputs_scheme": "resolved-params-v4"

@@ -426,11 +426,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 96496,
-      "inputs_sha256": "7ff9b887e5718f039b54d526d653086268fab5c67e7f46a81df43f4407329148",
+      "bytes": 125182728,
+      "inputs_sha256": "f0d9499b51aa0cb261344c9e28137a1353cebea3b9e0c4231674675ab3cba654",
       "kind": "generated",
       "phase_id": "as_built_1887",
-      "structure_id": "glessner_house"
+      "structure_id": "glessner_house",
+      "web_lods": {
+        "light": {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4",
+          "output_sha256": "e142813311008ef393b8d1a2d25dea8960a1b22e2e7d8d7126a40761bef5edda",
+          "recipe_sha256": "7c955a4af13980d6a9e4ac1db331555d64923e71ecc0bf6ea036eb5ec52bb9c2",
+          "triangles": 193387
+        }
+      },
+      "web_master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",

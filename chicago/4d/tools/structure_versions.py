@@ -198,12 +198,13 @@ def cmd_adopt(args) -> int:
 
 def cmd_build_light(args) -> int:
     """Build reduced geometry from the current v4 record, without touching its master."""
-    if args.key != V.GLESSNER_V4_KEY:
+    if args.key not in (V.GLESSNER_V4_KEY, V.GLESSNER_DEFAULT_KEY):
         print("   build-light: this recipe is only for Glessner v4")
         return 2
     master = ROOT / "assets/gltf" / args.key
-    entry = V.read_manifest()["assets"].get(args.key, {})
-    record = json.loads(V.record_path("glessner_house", "v4", ROOT).read_text())
+    book = ROOT / "assets" / ("manifest.versions.json" if args.key.startswith("versions/") else "manifest.json")
+    entry = json.loads(book.read_text())["assets"].get(args.key, {})
+    record = json.loads(V.glessner_detail_record(ROOT).read_text())
     phase = next(p for p in record["phases"] if p["id"] == "as_built_1887")
     import mesh_inputs  # noqa: PLC0415
     if not master.is_file() or entry.get("inputs_sha256") != mesh_inputs.structure_inputs_sha(
@@ -218,7 +219,8 @@ def cmd_build_light(args) -> int:
 
 
 def cmd_record_web(args) -> int:
-    vman = V.read_manifest()
+    canonical = not args.key.startswith("versions/")
+    vman = json.loads((ROOT / "assets/manifest.json").read_text()) if canonical else V.read_manifest()
     entry = vman["assets"].get(args.key)
     master = ROOT / "assets" / "gltf" / args.key
     if entry is None or not master.exists():
@@ -247,7 +249,10 @@ def cmd_record_web(args) -> int:
     entry["web_master_sha256"] = V.sha256_file(master)
     if lods:
         entry["web_lods"] = lods
-    V.write_manifest(vman)
+    if canonical:
+        (ROOT / "assets/manifest.json").write_text(json.dumps(vman, indent=2, sort_keys=True) + "\n")
+    else:
+        V.write_manifest(vman)
     return 0
 
 
@@ -306,10 +311,10 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
     if version.get("id") != sid or canon.get("id") != sid:
         raise SystemExit("REFUSED: the version and the canonical record must both carry "
                          f"id '{sid}'")
-    if V.asset_key(sid, label, "as_built_1887") == V.GLESSNER_V4_KEY:
-        raise SystemExit("REFUSED: Glessner v4 has a three-file recovery package and a light "
-                         "derivative. Retarget/retire that package and LOD contract explicitly "
-                         "before promoting it; no generated asset may be silently orphaned.")
+    packaged = V.asset_key(sid, label, "as_built_1887") == V.GLESSNER_V4_KEY
+    if packaged:
+        from recover_glessner_v4 import materialize
+        materialize(root=root, recovery=root / "docs/RESEARCH/glessner-v4-recovery", check=True)
     log: list[str] = []
 
     # ---- the meshes and their books --------------------------------------------------
@@ -343,6 +348,11 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
             _move(gltf / key, gltf / name, dry, log, root)
         if (web / key).exists():
             _move(web / key, web / name, dry, log, root)
+        for lod in entry.get("web_lods", {}).values():
+            old_key = lod["asset"]
+            new_key = old_key.removeprefix(prefix)
+            _move(web / old_key, web / new_key, dry, log, root)
+            lod["asset"] = new_key
         web_sha = entry.pop("web_master_sha256", None)
         for k in ("version_label", "adopted_from"):
             entry.pop(k, None)
@@ -372,6 +382,9 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
         webdoc["masters"] = dict(sorted(masters.items()))
         web_p.write_text(json.dumps(webdoc, indent=2) + "\n", encoding="utf-8")
         V.write_manifest(vman, root)
+        if packaged:
+            from recover_glessner_v4 import pack
+            pack(root=root, recovery=root / "docs/RESEARCH/glessner-v4-recovery")
     log.append("update assets/manifest.json, assets/manifest.web.json, "
                "assets/manifest.versions.json")
     return log

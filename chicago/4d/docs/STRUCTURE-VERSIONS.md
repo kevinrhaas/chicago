@@ -120,6 +120,23 @@ fixture. Retire it once real versions exist and the smoke points at one of them.
 
 ## Glessner v4 detail derivatives (T-1730)
 
+### Owner selection, September 29, 2026
+
+The owner selected v4 as the default and authorized dev-to-production promotion.
+The package-aware promotion moves the canonical record, master, full derivative,
+light derivative and their manifests together; the old default is `pre-v4`.
+V2 and v3 remain unchanged. The three-file recovery archive now materializes the
+canonical paths, so a clean checkout and the normal nightly derivative producer
+both retain the same full/light contract. The light recipe is regenerated against
+the promoted record; the full master geometry is unchanged.
+
+The default loader recognizes the explicitly declared canonical light asset and
+uses the same measured Full allowance as the former comparison version. Unknown
+or older versions do not inherit that allowance. A future replacement must handle
+the package explicitly; the promotion front end refuses to strand it.
+
+The remainder of this section records the original alternate-version design.
+
 The selected v4 uses its canonical detailed mesh in Full and a separately
 produced mesh in Balanced and Light. Both consume the same version record and
 architectural opening functions. The reduced profile keeps the envelope, all

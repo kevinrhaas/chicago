@@ -2662,6 +2662,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             skipped.append(st["id"])
             continue
         sidecar = build_sidecar(st, phase)
+        if st["id"] == "glessner_house" and phase.get("form", {}).get("detail_profile", {}).get("value") == "glessner_v4":
+            sidecar["asset_lods"] = {"light": "gltf/glessner_house__as_built_1887.light.glb"}
         emit(outdir / f"{st['id']}.json", sidecar)
         resolved[st["id"]] = phase
         index.append({"id": st["id"], "name": st["name"],

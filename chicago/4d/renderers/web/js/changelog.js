@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1239, ts: '2026-09-30T04:44:39.649Z', date: 'Sep 29, 2026, 11:44 PM CT', title: 'Glessner House v4 becomes the default', kind: 'change',
+    items: [
+      'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',
+      'Balanced and Light retain the same architecture with reduced surface detail. The previous default remains available as pre-v4, alongside v2 and v3.',
+    ] },
   { v: 1238, ts: '2026-09-29T23:55:18.692Z', date: 'Sep 29, 2026, 6:55 PM CT', title: 'The street checks catch up with Washington', kind: 'fix',
     items: [
       'Nothing you can see changes. The street checks now account for four already-built blocks south of Washington and the Clinton block\'s corrected lot direction. Their walks, crossings and fences remain as drawn; the checks stop reporting those documented additions as missing ground.',

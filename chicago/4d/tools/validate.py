@@ -6372,7 +6372,9 @@ def run_license_check(sources: dict, rep: Report) -> None:
                                       f"no recorded bake produced it")
             continue
         if rel.startswith(("gltf/", "web/")):
-            if p.name in manifest:
+            lod_keys = {lod.get("asset") for entry in manifest.values()
+                        for lod in entry.get("web_lods", {}).values()}
+            if p.name in manifest or (rel.startswith("web/") and p.name in lod_keys):
                 generated += 1
             else:
                 rep.error("licenses", f"assets/{rel} is not in assets/manifest.json — "
@@ -6492,6 +6494,10 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 
         if got == recorded:
             fresh += 1
+            if name == "glessner_house__as_built_1887.glb":
+                from common import versions as V
+                for problem in V.lod_problems(name, entry, ROOT):
+                    rep.error("stale", f"{name}: {problem}")
         else:
             stale += 1
             rep.error("stale", f"{name} is STALE — its inputs now hash to {got[:12]}, the "
