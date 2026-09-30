@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1241, ts: '2026-09-30T22:14:16.152Z', date: 'Sep 30, 2026, 5:14 PM CT', title: 'Repair timber at the branch bridges', kind: 'change',
+    items: [
+      'Small stacks of repair timber now stand beside all four ends of the North and South Branch bridges, clear of the crossing approaches.',
+      'The stockpiles and their arrangement are reconstructed. The bridge records document timber construction and maintenance, but no source locates these piles.',
+      'No ferry landing is drawn at the forks: its operation and form in July 1835 remain unestablished. The record keeps that uncertainty open.',
+    ] },
   { v: 1240, ts: '2026-09-30T13:35:39.083Z', date: 'Sep 30, 2026, 8:35 AM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
     items: [
       'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',

@@ -3590,12 +3590,25 @@ for (const [label, viewport, touch] of [
       // as the wagon, the bench and the shed already are: a 0.75 m bar written
       // for a barrel would fail on a 3.66 m stick that is exactly right.
       const lots = y?.lots ?? [];
+      const bridgeIds = ['north_branch_bridge', 'south_branch_raft_bridge'];
+      const bridgeRecord = y?.records?.find((r) => r.id === 'bridge_head_timber');
+      const lakeHouseLots = lots.filter((lot) => lot.structure_id === 'lake_house_construction');
+      const bridgeLots = lots.filter((lot) => bridgeIds.includes(lot.structure_id));
       const piles = [];
       for (const lot of lots) {
         for (const it of lot.items ?? []) {
           piles.push({ kind: it.kind, e: it.at_local_enu_m[0], n: it.at_local_enu_m[1],
             b: ((it.bearing_deg ?? 0) * Math.PI) / 180,
-            quad: lot.ground_quad_local_enu_m ?? [] });
+            quad: lot.ground_quad_local_enu_m ?? [],
+            bridge: bridgeIds.includes(lot.structure_id),
+            structure_id: lot.structure_id, end: it.end,
+            courses: it.courses, confidence: lot.confidence,
+            ground: window.__chicago4d.terrain.surfaceHeight(...it.at_local_enu_m),
+            wet: window.__chicago4d.terrain.isWater(...it.at_local_enu_m),
+            vertices: 0, badConfidence: 0,
+            minAlong: Infinity, maxAlong: -Infinity,
+            minAcross: Infinity, maxAcross: -Infinity,
+            minY: Infinity, maxY: -Infinity });
         }
       }
       let ungraded = 0;
@@ -3724,6 +3737,18 @@ for (const [label, viewport, touch] of [
             pileVerts++;
             pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
             if (inQuad(e, n, pl.quad)) pileInLot++;
+            if (pl.bridge) {
+              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
+              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
+              pl.vertices++;
+              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              pl.minAlong = Math.min(pl.minAlong, along);
+              pl.maxAlong = Math.max(pl.maxAlong, along);
+              pl.minAcross = Math.min(pl.minAcross, across);
+              pl.maxAcross = Math.max(pl.maxAcross, across);
+              pl.minY = Math.min(pl.minY, pos.getY(i));
+              pl.maxY = Math.max(pl.maxY, pos.getY(i));
+            }
             continue;
           }
           // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
@@ -3802,6 +3827,11 @@ for (const [label, viewport, touch] of [
         pileStray,
         pileInLot,
         lots,
+        lakeHouseLots,
+        bridgeLots,
+        bridgeRecord: bridgeRecord ? { counts: bridgeRecord.counts,
+          confidence: bridgeRecord.existence?.confidence } : null,
+        bridgePiles: piles.filter((pl) => pl.bridge),
         piles: piles.length,
         shedVerts,
         shedOut,
@@ -3981,14 +4011,38 @@ for (const [label, viewport, touch] of [
     // what has to hold is that the material is on that lot, in all three
     // materials, and reaches the screen as geometry rather than as a record.
     check(`${label}: the building material stands on the lot that was going up`,
-      goods.census?.lots === 1 && goods.census?.piles >= 6 && goods.pileVerts > 0
-        && goods.lots?.[0]?.structure_id === 'lake_house_construction'
+      goods.lakeHouseLots?.length === 1
+        && goods.lakeHouseLots[0].items.length >= 6 && goods.pileVerts > 0
         && (goods.census?.byMaterial?.brick ?? 0) > 0
         && (goods.census?.byMaterial?.timber ?? 0) > 0
         && (goods.census?.byMaterial?.stone ?? 0) > 0,
       `${goods.census?.piles} pile(s) on ${goods.census?.lots} lot(s) `
       + `(${JSON.stringify(goods.census?.byMaterial ?? {})}), ${goods.pileVerts} `
       + `vertices, lot ${goods.lots?.[0]?.structure_id ?? 'MISSING'}`);
+    // T-1765: the bridge stock uses the existing stack renderer. Check its
+    // rendered boxes, not just the manifest's declared counts.
+    check(`${label}: both branch bridges carry four reconstructed repair piles`,
+      goods.bridgeRecord?.confidence === 'reconstructed'
+        && goods.bridgeRecord?.counts?.piles === 4
+        && goods.bridgeRecord?.counts?.sticks === 44
+        && goods.bridgeLots?.length === 2
+        && ['north_branch_bridge', 'south_branch_raft_bridge'].every((id) =>
+          goods.bridgePiles?.filter((p) => p.structure_id === id).length === 2
+          && ['west', 'east'].every((end) => goods.bridgePiles.some((p) =>
+            p.structure_id === id && p.end === end)))
+        && goods.bridgePiles?.length === 4
+        && goods.bridgePiles.every((p) => p.kind === 'timber' && p.courses === 3
+          && p.confidence === 'reconstructed' && p.vertices === 11 * 36
+          && p.badConfidence === 0),
+      `${goods.bridgeLots?.length} bridge lots; ${JSON.stringify(goods.bridgePiles)}`);
+    check(`${label}: bridge piles have their stated dimensions and stand on dry ground`,
+      goods.bridgePiles?.length === 4 && goods.bridgePiles.every((p) =>
+        Number.isFinite(p.ground) && p.ground > 0 && !p.wet
+        && Math.abs(p.minY - p.ground) < 0.01
+        && Math.abs(p.maxY - p.minY - 0.6) < 0.01
+        && Math.abs(p.maxAlong - p.minAlong - 3.048) < 0.01
+        && Math.abs(p.maxAcross - p.minAcross - 0.8) < 0.01),
+      JSON.stringify(goods.bridgePiles));
     // And it stands where a builder's material stands: round the shell, not
     // inside it. The widest pile is a 3.66 m stick lying across its own pile, so
     // 1.90 m is the furthest any vertex may sit from its anchor and 2.1 m is the
