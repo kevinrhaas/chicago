@@ -18641,5 +18641,5 @@ Full gate and published browser verification receipts are recorded on PR #199.
 Four reconstructed timber piles complete this bridge-approach parcel. Recovery
 corrects the deck-corner/centerline confusion and retains ferry operation as an
 open historical question. New ground and corner checks validate the placement.
-No roof or baked mesh changes. The project gate passed all 714 steps. Published mobile and desktop smoke
-validation is in progress; no full smoke pass is claimed yet.
+No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
+validation record carries the subsequent full mobile and desktop results.

@@ -29,7 +29,7 @@
       "chicago_democrat_1833_1835",
       "chicago_democrat_1833_11_26"
     ],
-    "note": "The ordinance this record stands on is the same one data/yard/town_trade_goods.json stands on — the village corporation's own rules about what may lie about the town — read on its OTHER clause. Ordinance 9 of 7 November 1833 attests timber, stone, brick, boxes and barrels in the streets and attests no location; the bridge clause of the same date attests plank and timber belonging to the bridges and attests no pile. Neither says where. That is the whole reason this record is reconstructed and the whole reason its positions are derived rather than chosen."
+    "note": "The ordinance this record stands on is the same one data/yard/town_trade_goods.json stands on — the village corporation's own rules about what may lie about the town — read on its OTHER clause. Ordinance 9 of 7 November 1833 attests timber, stone, brick, boxes and barrels in the streets and attests no location; the bridge clause of the same date attests plank and timber belonging to the bridges and attests no pile. Neither says where. That is the whole reason this record is reconstructed and the whole reason its positions are evaluated from chosen offsets."
   },
   "form": {
     "timber_stick_m": {
@@ -67,7 +67,7 @@
     },
     {
       "what": "a pile at the Dearborn Street drawbridge",
-      "why": "A THIRD CROSSING, AND NOT THIS TICKET'S. `data/structures/dearborn_street_drawbridge.json` is a draw span of 1834 over the main stem with its own record, its own phases and its own dimensional argument, and the 4 December 1833 repair contract this record stands on names 'the Bridges on the North and South branches' and not it. Extending the pile to it would be extending an instrument past the crossings it names."
+      "why": "A THIRD CROSSING, AND NOT THIS TICKET'S. `data/structures/dearborn_street_drawbridge.json` is a draw span of 1834 over the main stem with its own record, its own phases and its own dimensional argument, and the 4 December 1833 repair-planning instruction this record stands on names 'the Bridges on the North and South branches' and not it. Extending the pile to it would be extending an instrument past the crossings it names."
     },
     {
       "what": "sawn plank, as a board",
