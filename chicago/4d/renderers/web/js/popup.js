@@ -398,7 +398,7 @@ function gradedClaims(s, place) {
   const claims = [];
   const range = s.documented_range;
   if (range && (range.from || range.to)) {
-    claims.push({ label: 'whether it stood here', claim: range });
+    claims.push({ label: s.attributes?.present_status ? 'the modeled phase' : 'whether it stood here', claim: range });
   }
   claims.push({ label: 'where it stood', claim: place });
   if (s.footprint?.confidence) claims.push({ label: 'its outline', claim: s.footprint });
@@ -493,7 +493,7 @@ function presenceSection(s) {
   return `<section class="pop-sec">
     <h3>Was it here?</h3>
     <table class="attrs"><tbody>
-      ${claimRow('recorded standing', span, range)}
+      ${claimRow(s.attributes?.present_status ? 'modeled phase' : 'recorded standing', span, range)}
     </tbody></table>
   </section>`;
 }
@@ -1036,7 +1036,14 @@ function factsHtml(s, firms = [], fromSign = false) {
     rows.push(`<div class="fact${wide}"><dt>${escapeHtml(dt)}</dt><dd>${value}${extra}</dd></div>`);
   };
 
-  row('Standing', standingWords(s.documented_range), s.documented_range?.confidence, 'standing');
+  // A phase's end can be an alteration, not demolition. Where the record carries
+  // a separate survival status, show both rather than presenting a false lifespan.
+  row(attrs.present_status ? 'Modeled phase' : 'Standing', standingWords(s.documented_range),
+    s.documented_range?.confidence, attrs.present_status ? 'modeled phase' : 'standing');
+  if (attrs.present_status?.value) {
+    row('Present status', prettyValue(attrs.present_status.value),
+      attrs.present_status.confidence, 'present status');
+  }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
   row('Built', builtWords(attrs),

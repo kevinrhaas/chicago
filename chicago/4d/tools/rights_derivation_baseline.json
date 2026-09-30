@@ -122,6 +122,14 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "glessner_house/as_built_1887/form.detail_profile": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "glessner_house/as_built_1887/form.dormers": {
       "kind": "structure",
       "blocked_sources": [
@@ -178,7 +186,7 @@
         "inland_architect_1888_02_glessner_exterior"
       ],
       "sole_support": false,
-      "confidence": "attested"
+      "confidence": "inferred"
     },
     "glessner_house/as_built_1887/form.openings_18th_stable": {
       "kind": "structure",
@@ -236,7 +244,7 @@
         "inland_architect_1888_02_glessner_exterior"
       ],
       "sole_support": false,
-      "confidence": "attested"
+      "confidence": "inferred"
     },
     "glessner_house/as_built_1887/form.range_west_wing": {
       "kind": "structure",
@@ -316,6 +324,14 @@
       "kind": "structure",
       "blocked_sources": [
         "inland_architect_1888_02_glessner_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "glessner_house/as_built_1887/form.v4_detail": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
       ],
       "sole_support": false,
       "confidence": "reconstructed"

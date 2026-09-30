@@ -334,6 +334,20 @@ def measure() -> dict:
     master_files = {p.name: p for p in sorted(MASTERS.glob("*.glb"))}
     shipped_files = {p.name: p for p in sorted(SHIPPED.glob("*.glb"))}
 
+    # The promoted v4 light mesh is generated geometry, not a compression of
+    # identical triangles. Validate its master/recipe/output contract separately.
+    import sys
+    sys.path.insert(0, str(ROOT / "generators"))
+    from common import versions as V
+    manifest_path = ROOT / "assets/manifest.json"
+    manifest = json.loads(manifest_path.read_text()).get("assets", {}) if manifest_path.exists() else {}
+    lod_failures = []
+    entry = manifest.get(V.GLESSNER_DEFAULT_KEY, {})
+    if entry.get("web_lods"):
+        lod_failures = V.lod_problems(V.GLESSNER_DEFAULT_KEY, entry, ROOT)
+        for key in V.lod_asset_keys(V.GLESSNER_DEFAULT_KEY).values():
+            shipped_files.pop(key, None)
+
     record = load_record()
 
     rows = []
@@ -373,6 +387,7 @@ def measure() -> dict:
         })
     return {
         "rows": rows,
+        "lod_failures": lod_failures,
         "master_only": sorted(set(master_files) - set(shipped_files)),
         "shipped_only": sorted(set(shipped_files) - set(master_files)),
         "record": record,
@@ -396,7 +411,7 @@ def material_fault(row: dict) -> dict | None:
 # ---------------------------------------------------------------- the assertions
 
 def assertions(result: dict, baseline: dict) -> list[str]:
-    problems = []
+    problems = list(result.get("lod_failures", []))
     for name in result["master_only"]:
         problems.append(f"assets/gltf/{name} has no derivative in assets/web — the site "
                         f"cannot ship a building the bake did not compress")

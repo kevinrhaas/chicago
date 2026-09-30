@@ -1,0 +1,86 @@
+   self-test | ok   label 'v1' is accepted
+   self-test | ok   label 'v2' is accepted
+   self-test | ok   label 'b' is accepted
+   self-test | ok   label 'hall-plan' is accepted
+   self-test | ok   label 'fixture' is accepted
+   self-test | ok   label 'pre-v2' is accepted
+   self-test | ok   label 'a1-b2' is accepted
+   self-test | ok   label '' is refused (empty)
+   self-test | ok   label 'V1' is refused (upper case)
+   self-test | ok   label 'hall_plan' is refused (underscore)
+   self-test | ok   label '-v1' is refused (leading hyphen)
+   self-test | ok   label 'v1-' is refused (trailing hyphen)
+   self-test | ok   label 'aaaaaaaaaaaaaaaaaaaaaaaaa' is refused (too long)
+   self-test | ok   label 'default' is refused (reserved)
+   self-test | ok   the vendor/model-name refusal is armed (18 digests)
+   self-test | ok   a label with a refused name inside it is refused, wherever the name sits
+   self-test | ok   a claimed version-only form attribute is admitted without changing the default
+   self-test | ok   reverse coverage finds a phase belonging only to the version, not the first default
+   self-test | ok   a phase absent from both default and version is still refused
+   self-test | ok   an invented admission with no value in any record is still refused
+   self-test | ok   a version-only invention without an admission is still refused
+   self-test | ok   a version-only attested built value does not excuse an invented-value over-claim
+   self-test | ok   a declared omission belonging only to a version honours its admission
+   self-test | ok   a measured ground-contact gap belonging only to a version honours its admission
+   self-test | ok   the default has no v4 detail or texture dependency
+   self-test | ok   changing the v4 detail module stales v4
+   self-test | ok   changing the v4 detail module leaves the default fresh
+   self-test | ok   changing the v4 material module stales v4
+   self-test | ok   changing the v4 material module leaves the default fresh
+   self-test | ok   changing the v4 PNG map stales v4
+   self-test | ok   changing the v4 PNG map leaves the default fresh
+   self-test | ok   changing the v4 JPEG map stales v4
+   self-test | ok   changing the v4 JPEG map leaves the default fresh
+   self-test | ok   changing the v4 texture recipe stales v4
+   self-test | ok   changing the v4 texture recipe leaves the default fresh
+   self-test | ok   same-version light master/recipe/output chain is fresh
+   self-test | ok   changing version master refuses the stale light derivative
+   self-test | ok   changing light output refuses the stale light derivative
+   self-test | ok   changing light producer recipe refuses the stale light derivative
+   self-test | ok   changing light geometry recipe refuses the stale light derivative
+   self-test | ok   changing light source record refuses the stale light derivative
+   self-test | ok   changing light detail geometry refuses the stale light derivative
+   self-test | ok   a missing light recipe input is a diagnostic failure, not a traceback
+   self-test | ok   a missing light record cannot be accepted
+   self-test | ok   a missing light output cannot be accepted
+   self-test | ok   default/v2/v3 and similarly named v40 have no implicit LOD
+   self-test | ok   the committed versions validate clean (so every red below is its mutation's)
+   self-test | ok   a version with NO MESH is red
+   self-test | ok   a version whose record changed under its mesh is STALE and red
+   self-test | ok   a version whose derivative is not of its master is red
+   self-test | ok   a mesh with no version record behind it is red
+   self-test | ok   a file that is not versions/<id>/<label>.json is red
+   self-test | ok   a label outside the rule is red
+   self-test | ok   a version of a structure that does not exist is red
+   self-test | ok   a version carrying another structure's id is red
+   self-test | ok   a version block naming another label is red
+   self-test | ok   a version with an empty summary is red
+   self-test | ok   a version citing a source that does not exist is red (the provenance pass reaches it)
+   self-test | ok   a version no scene resolves is red
+   self-test | 0 failure(s)
+   self-test | ok   the committed versions index lists the smoke fixture, marked as a test fixture
+   self-test | ok   no ?version= asks for nothing and fetches nothing
+   self-test | ok   ?structure= alone asks for nothing yet (reserved for opening a structure)
+   self-test | ok   a committed label swaps exactly that structure, and names its sidecar
+   self-test | ok   …fetching only the versions index, once
+   self-test | ok   …and the HUD chip names the version and says it is a test fixture
+   self-test | ok   version=default shows the canonical record and the chip says so, with no fetch
+   self-test | ok   ?version=fixture falls back to the default and SAYS so
+   self-test | ok   ?structure=no_such_house&version=v1 falls back to the default and SAYS so
+   self-test | ok   ?structure=Bad-Id!&version=v1 falls back to the default and SAYS so
+   self-test | ok   ?structure=bates_auction_room&version=zzz falls back to the default and SAYS so
+   self-test | ok   ?structure=bates_auction_room&version=Hall_Plan falls back to the default and SAYS so
+   self-test | ok   ?structure=sauganash_hotel&version=v2 falls back to the default and SAYS so
+   self-test | ok   an unreadable versions index falls back to the default and says why
+   self-test | ok   v4 full keeps its high asset and BOTH lower tiers select its declared derivative
+   self-test | ok   a default, v3, unrelated structure or missing LOD retains its ordinary asset
+   self-test | ok   LOD uses the published gltf address, the source web address, and respects explicit asset bases
+   self-test | ok   returning to the displayed tier discards an in-flight replacement without any commit
+   self-test | ok   the newest pending tier wins; its predecessor is disposed before it becomes visible
+   self-test | ok   a failed replacement keeps the visible tier and reports requested and retained detail
+   self-test | ok   the same failed request can be retried successfully
+   self-test | ok   retiring an asset disposes its unique source geometry, material, textures and bitmap exactly once
+   self-test | ok   a light boot fetches only the light GLB while retaining canonical sidecar and version identity
+   self-test | ok   switching caches each fetched byte stream but reparses fresh material owners every time
+   self-test | ok   a 200 response with corrupt GLB bytes is evicted so a later retry fetches repaired data
+   self-test | 0 failure(s)

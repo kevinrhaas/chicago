@@ -4809,8 +4809,15 @@ for (const [label, viewport, touch] of [
       // 47, and the two refusals on this record fall to one (Jones's, at the terminus,
       // which the walk still runs INTO by design). Crossings, posts, fences and
       // refusals elsewhere do not move.
-      frontage.census?.records === 5 && frontage.census?.walks === 47
-        && frontage.census?.crossings === 39
+      // T-1752 — FOUR IMPROVED WASHINGTON BLOCKS EARN THEIR NORTH WALKS.
+      // T-1736 (Clark), T-1708 (Wells), T-1735 (La Salle) and T-1751 (Franklin)
+      // each replace the unimproved-block refusal with one run: 47 -> 51 walks.
+      // Their opposite Randolph faces earn four crossings over Washington;
+      // the three adjoining pairs earn three more along its south side: 39 -> 46.
+      // These are authored ID-set deltas, not a fit to the smoke's output.
+      // docs/measurements/T-1752-frontage-census.md records the commits and clauses.
+      frontage.census?.records === 5 && frontage.census?.walks === 51
+        && frontage.census?.crossings === 46
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -4861,7 +4868,11 @@ for (const [label, viewport, touch] of [
         // refused for it, and a wall 1.50 m back from the frontage line is still inside
         // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
         // corrected from -1.90 m to 1.50 m.
-        && frontage.census?.posts === 18 && frontage.census?.fences === 31
+        // T-1752 — T-1734 transposes blk_randolph_clinton's lots onto Clinton
+        // and Canal, so its three north/south fences cease to have fronting lots.
+        // Four improved Washington faces each earn one fence: 31-3+4=32.
+        // Their reconstructed residential trades earn no new hitching posts.
+        && frontage.census?.posts === 18 && frontage.census?.fences === 32
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -4923,7 +4934,13 @@ for (const [label, viewport, touch] of [
         // refusal sets against dev (d3260907 -> this branch): exactly +6, all
         // six named above, and the walk, crossing, post and fence counts above
         // are unchanged because no walk was laid there to move.
-        && frontage.census?.refused === 121
+        // T-1752 — the same authored refusal-set changes, not a relaxed ceiling:
+        // T-1734 removes Clinton lot 5's obsolete north/south-lot refusal (-1).
+        // Clark replaces one block refusal with three unimproved-lot refusals (+2).
+        // Wells trades its block refusal for the too-wide Wells-Clark gap (0).
+        // La Salle removes its block refusal AND that intervening gap (-2).
+        // Franklin removes its own block refusal (-1): 121-1+2+0-2-1=119.
+        && frontage.census?.refused === 119
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5098,8 +5115,12 @@ for (const [label, viewport, touch] of [
     // the walk is 4.7 m LONGER than the two runs it replaces — they stopped being five
     // separately cullable draw calls and became part of the one that is never culled,
     // which for a 95 m run inside the town is the cheaper of the two.
+    // T-1752 — four new Washington walk runs each name their own chunk;
+    // crossings reuse those chunks and fences reuse existing street chunks.
+    // Independently: 43 named walk chunks + 10 river segments + 4 standing-street
+    // chunks + the shared mesh = 58, plus the same optional lettering.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 55 : 54)
+      frontage.authored === (frontage.census?.lettered === 1 ? 59 : 58)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5676,8 +5697,11 @@ for (const [label, viewport, touch] of [
       // lot its household's cottage is on, so lot 4 stops being improved and its
       // street fence is refused as open prairie. Laid ground does not move —
       // faces, metres and decks are all where they were.
+      // T-1752 — Clark, Wells, La Salle and Franklin each add one improved
+      // Washington north face under the existing T-1707 rule: 36+4=40.
+      // Walk-length, fence and deck floors retain their existing strength.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 36 && edge.walkM >= 3050 && edge.fences >= 31
+        && edge.faces === 40 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -14937,6 +14961,25 @@ for (const [label, viewport, touch] of [
           && at.placed[0] === 'glessner_house',
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
+        // Owner-reported date ambiguity: 1946 closes an exterior phase, not
+        // the life of the surviving museum. Check the actual card and evidence.
+        const survivalCard = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          a.pick('glessner_house');
+          const facts = [...document.querySelectorAll('#popup .pop-facts .fact')]
+            .map((f) => [f.querySelector('dt')?.textContent.trim(), f.querySelector('dd')?.textContent.trim()]);
+          const sidecar = a.registry.get('glessner_house')?.sidecar;
+          a.popup.close();
+          return { facts, range: sidecar?.documented_range, status: sidecar?.attributes?.present_status };
+        });
+        check(`${label}: Glessner's 1946 phase end is not presented as demolition`,
+          survivalCard.facts.some(([k, v]) => k === 'Modeled phase' && v === '1887 – 1946')
+          && !survivalCard.facts.some(([k]) => k === 'Standing')
+          && survivalCard.facts.some(([k, v]) => k === 'Present status' && /Still standing.*Glessner House museum/.test(v))
+          && survivalCard.range?.to === '1946-08-31'
+          && survivalCard.status?.confidence === 'attested'
+          && survivalCard.status?.sources?.includes('glessner_house_current_status')
+          && survivalCard.status?.geometry === 'record_only', JSON.stringify(survivalCard));
         check(`${label}: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)`,
           !!at.house && at.house.loaded && at.house.archetype === 'masonry_house'
           && at.drawn.structures > 0

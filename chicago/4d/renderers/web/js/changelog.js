@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 1239, ts: '2026-09-30T04:44:39.649Z', date: 'Sep 29, 2026, 11:44 PM CT', title: 'Glessner House v4 becomes the default', kind: 'change',
+    items: [
+      'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',
+      'Balanced and Light retain the same architecture with reduced surface detail. The previous default remains available as pre-v4, alongside v2 and v3.',
+      'The house is still standing. Its card now separates the 1887–1946 modeled phase from its present-day survival as Glessner House museum; 1946 was an alteration, not a demolition.',
+    ] },
+  { v: 1238, ts: '2026-09-29T23:55:18.692Z', date: 'Sep 29, 2026, 6:55 PM CT', title: 'The street checks catch up with Washington', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The street checks now account for four already-built blocks south of Washington and the Clinton block\'s corrected lot direction. Their walks, crossings and fences remain as drawn; the checks stop reporting those documented additions as missing ground.',
+    ] },
+  { v: 1237, ts: '2026-09-29T21:37:29.282Z', date: 'Sep 29, 2026, 4:37 PM CT', title: 'Glessner House v4: masonry, roofs and the courtyard', kind: 'feature',
+    items: [
+      'Explore the fourth Glessner House model at /4d/dev/1904/?anchor=glessner_house&structure=glessner_house&version=v4. Its stone courses, brickwork, roof tiles, copper seams and recessed sash have individual geometry and original surface textures.',
+      'The courtyard gains garden-level windows, stable-wing openings, stair-tower lights, the curved terrace and an open passage. The crossing roofs, smaller west dormer and distinct chimneys follow the measured envelope and the reference audit.',
+      'Full detail shows the fine stone and carved trim. Balanced and Light keep the same windows, doors and roof forms with less surface geometry, and the detail setting can change while you explore.',
+      'The evidence record distinguishes measured HABS dimensions from reconstructed fabric, window details and features inferred from modern photographs. The version selector keeps the other readings available for comparison.',
+    ] },
   { v: 1236, ts: '2026-09-29T19:58:02.463Z', date: 'Sep 29, 2026, 2:58 PM CT', title: 'Arrive in the Chicago you chose', kind: 'change',
     items: [
       'The arrival year, welcome and loading facts now follow your selected scene. Prairie Avenue rolls back to 1904 and welcomes you there.',

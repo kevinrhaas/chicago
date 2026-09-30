@@ -1,0 +1,546 @@
+validator tests
+
+test_date_gate_excludes_later_building:
+  pass  1836 building excluded from an 1835 scene
+  pass  date gate produces no error for a legitimate exclusion
+
+test_overlapping_phases_are_an_error:
+  pass  two phases covering one scene date is a hard error
+
+test_epoch_must_cover_scene_date:
+  pass  scene date outside its terrain epoch is an error
+  pass  unresolvable terrain epoch is an error
+
+test_review_required_blocks_release:
+  pass  review_required blocks a scene from being released
+
+test_a_flagged_household_blocks_release:
+  pass  a flagged household blocks a scene from being released
+  pass  a flagged PERSON blocks a scene from being released
+  pass  an unflagged household does not block release
+
+test_exclusions_cannot_contradict_the_dataset:
+  pass  a structure both excluded and resolving into the scene is an error
+
+test_an_exclusion_expires_at_its_own_earliest_scene:
+  pass  an 1837 building is legitimately excluded from an 1835 scene
+  pass  the same entry excluded from its own earliest scene is an error
+  pass  a scene that does not list `exclusions` is not held to the 1835 town's record
+
+test_exclusions_carry_a_reason_and_a_citation_that_resolves:
+  pass  a named, reasoned, cited exclusion passes
+  pass  a citation that resolves in no source record is an error
+  pass  excluding a structure with no citation at all is an error
+  pass  an exclusion with no stated reason is a deletion, and an error
+
+test_the_watch_list_stops_a_promotion_it_only_used_to_ask_for:
+  pass  an open question on an inferred claim passes
+  pass  the same claim promoted to documented is an error
+  pass  an entry in the dataset that does not name the claim carrying the doubt fails
+  pass  carried_by naming a phase the record does not have is an error
+  pass  carried_by naming something that is not a graded claim is an error
+  pass  declaring in_dataset with no such record is an error
+  pass  a committed record the entry still calls unbuilt is an error
+  pass  a citation that resolves in no source record is an error
+  pass  no sources and no stated reason for having none is an error
+  pass  no sources WITH the reason stated passes
+  pass  a dossier file that is not committed is an error
+  pass  a dossier anchor that is not in the file is an error
+  pass  an entry with no question at all is an error
+  pass  an id that is both excluded and an open question is an error
+  pass  carried_by naming a claim the provenance card renders no section for is an error
+  pass  carried_by naming a block that carries no confidence of its own is an error
+  pass  carried_by naming the footprint, which the card does render, passes
+  pass  every claim the map pairs with a card section is one the card reads
+
+test_confidence_contract:
+  pass  documented without a source is an error
+  pass  documented citing an unresolvable source is an error
+  pass  derived without stated reasoning is an error
+  pass  derived with reasoning passes
+  pass  inferred citing the source that bounds it is fine
+  pass  inferred without stated reasoning is still an error
+
+test_wide_range_rule_targets_guesses_not_facts:
+  pass  a documented 20-year span does not warn (the Sauganash stood that long)
+  pass  an undocumented 40-year span warns
+  pass  a reversed range is an error
+
+test_presence_is_held_to_the_confidence_contract:
+  pass  a documented span with no source is an error
+  pass  a documented span citing a resolving source passes
+  pass  an inferred span with reasoning and no source passes
+
+test_the_card_is_fed_the_claims_it_renders:
+  pass  the 1835 scene has sidecars to check
+  pass  the card reads documented_range
+  pass  every 1835 sidecar carries documented_range
+  pass  the card reads change_note
+  pass  every 1835 sidecar carries change_note
+  pass  the card reads placement.position_note
+  pass  every 1835 sidecar carries placement.position_note
+  pass  the card reads placement.position_sources
+  pass  every 1835 sidecar carries placement.position_sources
+  pass  the card reads placement.position_confidence
+  pass  every 1835 sidecar carries placement.position_confidence
+  pass  every 1835 sidecar states a dated span and how sure it is
+
+test_liberties_cover_inferred_inventions:
+  pass  an inferred footprint with no liberty at all is an error
+  pass  an inferred position with no liberty at all is an error
+  pass  claiming the footprint and the placement satisfies the check
+  pass  prose about footprints and placement does not cover them — only a claim does
+  pass  the error says which liberties do name the building
+  pass  the error shows the Covers token that would fix it
+  pass  a phase-scoped claim does not silently cover a sibling phase
+  pass  a structure-scoped claim covers every phase that drew that aspect
+  pass  a claim against a structure that does not exist is an error
+  pass  a claim against a phase that does not exist is an error
+  pass  claiming an invention that the data no longer contains is an error
+  pass  the same claim under Resolved is not an error — evidence is allowed to arrive
+  pass  an empty liberties file is an error, not a silent pass
+
+test_liberties_cover_invented_form:
+  pass  an inferred form attribute with no claim is an error
+  pass  owning up to the geometry does not cover what the record says the building was
+  pass  the error shows the form token that would fix it
+  pass  claiming the form attribute satisfies the check
+  pass  a documented form attribute is never required to be claimed
+  pass  claiming an attribute that is not inferred is an error
+
+test_geometry_declaration_is_required_for_unread_attributes:
+  pass  an attribute the archetype never reads must declare what the mesh does
+  pass  an attribute the archetype does read needs no declaration
+  pass  declaring geometry on an attribute the archetype builds is an error
+  pass  admitting to omitting a value the record says is false is an error
+  pass  a rejected reading declares record_only and passes
+  pass  a geometry state outside the vocabulary is an error
+  pass  an archetype with no declared CONSUMED set is skipped, not indicted
+
+test_liberties_cover_omissions_and_simplifications:
+  pass  an attested feature the mesh omits with no liberty is an error
+  pass  a value a fixed default stands in for is an error too
+  pass  the error says the model does not show what the record states
+  pass  a rejected reading owes no admission
+  pass  an attribute the archetype builds owes no admission
+  pass  claiming both discharges them
+  pass  claiming to have omitted something that is built is an error
+  pass  with no CONSUMED map the omission rule reports nothing rather than guessing
+
+test_liberties_cover_what_the_ground_invents:
+  pass  an inferred bank face with no liberty at all is an error
+  pass  an inferred swale with no liberty at all is an error
+  pass  the error quotes the token that would discharge it
+  pass  a documented ground claim owes no admission
+  pass  claiming both ground inventions satisfies the check
+  pass  a claim against another epoch does not discharge this one's invention
+  pass  and the claim against an epoch that is not committed is itself an error
+  pass  claiming to have invented a documented ground claim is an error
+  pass  a resolved entry may keep a claim the evidence has settled
+  pass  a claim on a block the spec does not grade is an error
+  pass  a ground admission does not cover a building's invented outline
+  pass  and the ground's own claims stay discharged while it fails
+  pass  with no terrain index the ground rule reports nothing rather than guessing
+
+test_the_checked_ground_is_the_ground_on_the_panel:
+  pass  the index is built off the compiler the panel renders from
+  pass  a zone added to the spec is owed an admission the day it appears
+  pass  and the gate demands it by name
+
+test_the_committed_ground_admits_to_everything_it_invents:
+  pass  the committed terrain states inventions a visitor walks on
+  pass  and docs/LIBERTIES.md admits to every one of them
+
+test_archetypes_declare_what_they_consume:
+  pass  every params module declares a CONSUMED set
+  pass  the shipped archetypes are covered
+  pass  the sets name real parameters, not prose
+
+test_consumed_attributes_actually_reach_the_parameters:
+  pass  every consumed attribute the records state changes the parameters
+  pass  the check had real attributes to exercise
+  pass  an attribute the resolver ignores does not move the parameters
+  pass  an attribute the resolver reads does
+
+test_covers_field_parses_to_claims:
+  pass  a two-segment token covers the structure, not one phase
+  pass  a three-segment token names its phase
+  pass  well-formed tokens report no problems
+  pass  a form token keeps its prefix as part of the aspect
+  pass  a form token without a phase covers the structure
+  pass  well-formed form tokens report no problems
+  pass  a terrain token parses into the terrain domain, not into a structure
+  pass  a ground claim keeps the group its id carries
+  pass  well-formed terrain tokens report no problems
+  pass  both domains round-trip to the text the document wrote
+  pass  a terrain token without an epoch is reported, not read as a structure
+  pass  a terrain token naming no claim is reported
+  pass  an aspect outside the vocabulary is reported
+  pass  a bare structure id is reported
+  pass  prose in a Covers field is reported, not silently parsed
+  pass  a Covers field that claims nothing is reported
+
+test_mesh_input_hash_tracks_geometry_not_prose:
+  pass  rewriting a note does not make a mesh stale
+  pass  a geometry declaration does not make a mesh stale
+  pass  adding a source citation does not make a mesh stale
+  pass  the phase's own prose does not make a mesh stale
+  pass  a value the archetype reads makes the mesh stale
+  pass  a confidence change makes the mesh stale, because it is shaded into the geometry
+  pass  a redrawn footprint makes the mesh stale
+  pass  renaming an attribute to the name the archetype reads is a rebuild
+  pass  the derived properties are inside the hash
+
+test_manifest_declares_the_scheme_the_generators_compute:
+  pass  the committed manifest was stamped under the current scheme
+
+test_ground_contact_measures_the_whole_outline:
+  pass  a building on flat ground lands
+  pass  a building whose far corner hangs over a drop does not land
+
+test_ground_contact_tolerance_is_the_step_up_rule:
+  pass  a step a person could take is not a finding
+  pass  a step a person could not take is
+
+test_ground_contact_of_a_crossing_is_its_deck:
+  pass  a deck 2.22 m over banks 1.0 m high does not land
+  pass  the same deck at bank height lands, and the water between is not counted
+
+test_ground_contact_declaration_is_checked_both_ways:
+  pass  a structure standing off the ground and saying nothing is an error
+  pass  declaring it satisfies the check
+  pass  declaring it while sitting on the ground is an error too
+  pass  a state with no reasoning is an error
+
+test_ground_contact_owes_the_liberties_document_an_entry:
+  pass  a structure that reaches no ground and no liberty saying so is an error
+  pass  claiming it satisfies the check
+  pass  claiming a landing that is fine is an over-claim
+
+test_sidecar_shape_includes_only_indexed_structure_versions:
+  pass  a version-only emitted field joins the structure-sidecar contract
+  pass  unlisted alternates and other derived documents cannot mask missing fields
+  pass  removing the alternate's emitted field removes it from the contract
+  pass  scenes without alternate versions retain their ordinary contract
+
+test_the_renderer_cannot_read_a_sidecar_field_the_compiler_never_writes:
+  pass  a field the compiler writes is read without complaint
+  pass  a field no sidecar carries is caught
+  pass  a name bound to a sidecar block is followed into its fields
+  pass  resolution stops at a value rather than reading into it
+  pass  reusing a name bound to a value cannot invent a missing field
+  pass  a chain read straight off record.sidecar needs no binding
+  pass  a field named in a comment is not a read of it
+  pass  the scan still finds the renderer's real reads
+  pass  the popup asks the sidecar whether the building was here
+  pass  and no longer asks it whether the mesh is a placeholder
+
+test_the_ground_is_held_to_the_rules_a_record_answers_to:
+  pass  a cited documented claim passes
+  pass  a citation that resolves in no source record is an error
+  pass  documented with no source is an error, as it is on a record
+  pass  a land elevation claiming to be documented is an error
+  pass  inferred with no reasoning is an error, as it is on a record
+  pass  inferred with reasoning passes
+  pass  a zone nobody has heard of is checked the day it is added
+
+test_the_panel_shows_what_the_spec_grades:
+  pass  the committed spec yields claims
+  pass  the water plane is documented and the bank face is not
+  pass  a block that grades itself under another key is not dropped
+  pass  a claim carries the spec's own figures and not its geometry
+  pass  the compiled ground doc carries the spec's caveat verbatim
+  pass  and the relief a visitor is told about is measured, not asserted
+
+test_writing_a_ground_claims_reasoning_costs_no_bake:
+  pass  the committed spec really does carry prose (else this proves nothing)
+  pass  and none of it survives into the input document
+  pass  the copy hashes the same as the epoch it was copied from
+  pass  rewriting every note, caveat and citation in the spec changes it
+  pass  ...and the ground does not go stale for it
+  pass  nor for a note rewritten on a traced bank line
+  pass  moving the bank face by a metre DOES stale the ground
+  pass  and a zone nobody had heard of is a mesh input the day it is added
+
+test_the_ground_must_say_what_it_does_not_build:
+  pass  a stated figure the generator never reads, undeclared, is an error
+  pass  a figure the generator does read owes no declaration
+  pass  and a declared one is accepted
+  pass  a declaration outside the vocabulary is an error
+  pass  declaring an omission over a figure the ground IS built from is an error
+  pass  a graded block CONSUMED says nothing about is an error, not a pass
+
+test_an_unbuilt_ground_figure_owes_the_document_an_admission:
+  pass  a soil the ground is not made of, unclaimed, is an error
+  pass  a record_only figure owes the document nothing
+  pass  claiming it satisfies the check
+  pass  claiming a block that is neither invented nor unbuilt is still an error
+
+test_declared_terrain_reads_are_real_reads:
+  pass  every key declared consumed is actually read by the generator
+  pass  the scan can tell the difference (it is a regex, so prove it can fail)
+
+test_terrain_prose_is_not_read_by_the_generator:
+  pass  no generator reads a key the terrain hash strips
+  pass  the scan can see a read at all (it is a regex, so prove it fires)
+
+test_a_restatement_is_held_to_the_half_it_restates:
+  pass  a crest that stopped matching the level the ramp is built to is an error
+  pass  and agreeing passes
+  pass  a water surface the committed ground does not have is an error
+  pass  and the committed zero passes
+  pass  declaring the state with no named second half is an error
+  pass  a restatement declared as something that owes nothing is an error
+
+test_a_prose_restatement_is_pinned_to_the_line_it_describes:
+  pass  the ease-out the spec describes is in the generator
+  pass  a line that is not there is an error
+  pass  a phrase that lives only in a comment does not satisfy the scan
+  pass  stripping comments leaves string literals alone
+  pass  and leaves the line structure where it was
+
+test_a_placement_is_recomputed_from_its_control:
+  pass  a corner lot standing on both frontages passes
+  pass  the same building 3 m off its frontage is an error
+  pass  a building rotated onto its lot passes
+  pass  the unrotated origin at the same coordinate is an error
+  pass  coordinates with no derivation at all is an error
+  pass  not_derivable without a reason is an error
+  pass  not_derivable WITH a reason passes
+  pass  a control that does not resolve is an error
+  pass  a kerb on the wrong axis of its street is an error
+  pass  control with no node ids and no stated gap is an error
+  pass  the same control saying so passes
+  pass  node ids with no street names to re-derive the set from is an error
+  pass  node ids with no lat/lon is an error
+  pass  a deck landing on both traced banks passes
+  pass  a deck a metre short of the bank is an error
+  pass  a variance from control that is not the declared one is an error
+  pass  a declared variance with nothing explaining it is an error
+  pass  a front wall on a skew street's corridor line passes
+  pass  the same wall declaring a setback 2 m off what it measures is an error
+  pass  a house at the right distance with its BACK to the street is an error
+  pass  …and the same house declaring the wall that does face it passes
+  pass  a frontage on a street the streets layer does not carry is an error
+  pass  a frontage on a street with no path to stand off is an error
+  pass  a compass direction is not one of the building's four walls
+  pass  a frontage with no setback is an error — the setback is the claim
+  pass  not_derivable carrying a frontage is an error
+
+test_the_module_is_held_to_the_sheets_it_was_measured_off:
+  pass  a measurement whose metres come out of its pixels passes
+  pass  a width edited away from its own pixels is an error
+  pass  a summary that no longer matches its readings is an error
+  pass  a source the measurement cites and the repository does not have is an error
+  pass  a corridor with less open ground in it than a block face is an error
+  pass  a corridor committed without the reading that classified it is an error
+  pass  a corridor whose shorter boundary stops before a block face is an error
+  pass  a file that states no method cannot hold its corridors to one
+  pass  a corridor named after the street its control lands on passes
+  pass  a name whose offset does not come back out of the pixels is an error
+  pass  a name given to a corridor further off than the method allows is an error
+  pass  a corridor named after a street that runs ALONG the traverse is an error
+  pass  a name resting on control the repository does not have is an error
+  pass  a control point moved since it was measured is an error
+  pass  a datum exposure priced against a pixel that has moved is an error
+  pass  a module the sheets exclude is an error even when the file is otherwise clean
+
+test_the_ladder_is_read_from_the_schema_and_covers_every_rung:
+  pass  every rung the schema validates has words for it
+  pass  the rungs read as the schema writes them
+  pass  a ladder missing a rung the schema accepts raises
+
+test_a_documented_value_may_not_rest_on_a_retrospective_alone:
+  pass  documented on a tier-5 reconstruction alone is an error
+  pass  a second retrospective is not corroboration up the ladder
+  pass  a period source with a retrospective cross-check is not an error
+  pass  a retrospective may still carry a value to inferred
+
+test_an_outline_is_not_traced_from_a_picture:
+  pass  an inferred footprint citing a tier-5 picture is an error
+  pass  a position from the same map is not an error
+
+test_a_source_may_not_declare_a_use_its_rung_does_not_support:
+  pass  asset_use geometry on a tier-5 source is an error
+
+test_documented_on_later_scholarship_alone_is_counted_not_failed:
+  pass  documented on tier 4 alone warns rather than fails
+  pass  and it is counted and named
+  pass  a compilation from pioneer testimony clears it
+
+test_the_ground_is_held_to_the_same_ladder:
+  pass  a documented ground claim on a tier-5 source alone is an error
+
+test_the_card_says_what_a_tier_is:
+  pass  a joined citation carries its rung in words
+  pass  the committed sidecar ships the label the card renders
+
+test_a_rung_belongs_to_a_document_not_to_the_page_that_reprints_it:
+  pass  a page claiming a testimony rung and declaring nothing is an error
+  pass  the same page at tier 4 is unread rather than wrong
+  pass  and it is counted rather than ignored
+  pass  declaring the document it carries clears it
+
+test_the_tier_is_derived_from_the_declaration_and_not_typed_beside_it:
+  pass  a rung better than anything it transcribes is an error
+  pass  and so is a rung worse than one, because apparatus does not go here
+  pass  the best rung is what the record claims
+
+test_a_declaration_says_what_the_document_carries:
+  pass  a declaration naming no claim is an error
+  pass  and a document dated by when we fetched it is not placed on the ladder at all
+
+test_a_page_that_was_read_and_reprints_nothing_says_so:
+  pass  a page read and found to carry nothing is not an error
+  pass  and it is counted apart from the unread ones
+  pass  a testimony rung over a page that reprints nothing is an error
+  pass  and a page cannot both reprint a document and reprint none
+  pass  a record that IS its document is describing the wrong page
+
+test_a_record_that_dates_a_document_needs_no_declaration:
+  pass  a record dating its document rather than its fetch is outside the rule
+
+test_a_field_written_for_a_reader_has_to_reach_one:
+  pass  the well-formed case passes
+  pass  a schema field in neither half of the partition fails
+  pass  and a partition naming a field the schema dropped fails too
+  pass  a visitor-facing field no compiled citation carries fails
+  pass  a visitor field no record carries yet is not an error
+  pass  a citation shipping a field declared internal fails
+  pass  a field compiled into the citation and never rendered fails
+  pass  a field named only in a comment is not rendered
+
+test_a_derived_document_is_an_interface_too:
+  pass  the well-formed case passes
+  pass  a field compiled and never read fails
+  pass  a declared root reading a field the document lacks fails
+  pass  a field declared internal that the module does read fails
+  pass  a partition naming a field the compiler dropped fails
+  pass  a field named only in a comment is not rendered
+  pass  a root bound where the document has nothing fails
+  pass  the shape is unioned over every committed copy
+
+test_a_place_relationship_is_plural_dated_and_cannot_drift:
+  pass  a plural dated relationship that agrees with the singular link passes
+  pass  the singular link may not drift from the plural one
+  pass  a street rung on a committed roof is refused
+  pass  a relationship that had not started by the scene date is refused
+  pass  a row dating neither end must say so
+  pass  an undeclared kind is refused on a person as well as a household
+
+test_a_resident_who_arrived_after_the_scene_date_is_not_in_the_scene:
+  pass  an arrival after the scene date is an error
+  pass  a year-precision arrival wholly after the scene date is an error
+  pass  an arrival straddling the scene date warns rather than fails
+  pass  an arrival before the scene date passes
+  pass  either_of_two_days bounds the value and the day after it
+  pass  an either_of_two_days arrival before the scene date passes
+  pass  an either_of_two_days arrival whose later day is the scene date passes
+  pass  an either_of_two_days arrival straddling the scene date warns
+
+test_the_accuracy_grade_is_a_closed_vocabulary_and_recommended_is_gone:
+  pass  a grade of 'recommended' names the rename
+  pass  an unknown grade is an error
+  pass  grade 'attested' is accepted
+  pass  grade 'inferred' is accepted
+  pass  grade 'reconstructed' is accepted
+  pass  a reconstructed person without a name_basis is an error
+  pass  an invented name cannot claim to be attested
+  pass  an attested person may not carry a name_basis
+
+test_a_reconstructed_person_shows_its_working:
+  pass  a reconstructed person without a basis is an error
+  pass  a person drawn from a model with no seed is an error
+  pass  a person argued from a rule may not carry a seed
+  pass  a reconstruction with no replacement rule is an error
+  pass  a reconstructed person no programme stage claims is an error
+  pass  a Metis reconstruction outside its own stage is an error
+  pass  a Native reconstruction without its review is an error
+  pass  ...and passes in its own stage, carrying the review
+  pass  an attested person owes no basis, seed or replacement rule
+
+test_each_grade_owes_what_it_claims:
+  pass  a documented person with no source is an error
+  pass  a person citing an unresolvable source is an error
+  pass  a derived person with no reasoning is an error
+  pass  an inferred person with no reasoning is an error
+  pass  an inferred person citing a source warns
+
+test_a_resident_points_at_a_real_building_or_at_nothing:
+  pass  works_at naming a structure that does not exist is an error
+  pass  a person-level link is held to the same rule
+  pass  a null link with no note is an error
+  pass  a null link with a note passes
+
+test_a_role_is_dated_and_the_1835_field_is_only_their_view:
+  pass  a trade with no roles[] behind it is an error
+  pass  view keys with no roles[] behind them are an error
+  pass  a view that does not say it is derived is an error
+  pass  a role that does not reach the scene date may not fill the scene-date field
+  pass  …and with the field emptied it passes
+  pass  a second role covering the scene date may not be dropped from the view
+  pass  …and naming both of them passes
+  pass  a role with no bound may not claim a precision
+  pass  one end of a bound without the other is an error
+  pass  a role that cites no source is an error
+  pass  a scene-date role moored to nothing the person cites is an error
+  pass  …and a LATER role on a volume the person does not cite is fine
+  pass  a kind outside the vocabulary is an error
+  pass  a role outside the period-correct vocabulary is an error
+  pass  a withdrawal standing beside a live trade is an error
+  pass  a role with an empty place is an error
+  pass  a role with an empty employer_or_body is an error
+  pass  a role filling a view its evidence does not reach is an error
+  pass  …and one that reaches it without standing in it is legal, and empties the field
+  pass  a withdrawal with no verdict is an error
+
+test_a_household_is_a_household:
+  pass  two heads is an error
+  pass  a head who is not in the household is an error
+  pass  the same person id in two households is an error
+  pass  an occupation outside the period-correct vocabulary is an error
+
+test_presence_and_the_removal_flag_are_claims_that_owe_reasoning:
+  pass  an uncertain presence with no note is an error
+  pass  a presence outside the vocabulary is an error
+  pass  a household touching the removal must block release
+
+test_the_residents_manifest_cannot_drift_from_its_records:
+  pass  a manifest head disagreeing with the record is an error
+  pass  a manifest person count disagreeing with the records is an error
+  pass  a manifest grade tally disagreeing with the record is an error
+  pass  a manifest that under-declares the arrival precisions is an error
+  pass  a manifest entry pointing at a missing file is an error
+  pass  a researched-and-excluded person owes a reason, a note and resolving sources
+  pass  a reciprocal half-brother pair passes, so a firing below means something
+  pass  a kinship written on one record and not the other is an error
+  pass  a HALF brother whose mirror row says plain brother is an error
+  pass  a relation outside the declared set - one whose inverse is unknown - is an error
+  pass  a kin row whose person is not in its own household is an error
+  pass  a kin row naming somebody who is not in the far household is an error
+  pass  a kin row pointing at a household that does not resolve is an error
+  pass  a kin row whose household is None is refused as an outside-the-town relative, in the ruling's own terms
+  pass  a kin row whose household is '' is refused as an outside-the-town relative, in the ruling's own terms
+  pass  a kin row whose household is '   ' is refused as an outside-the-town relative, in the ruling's own terms
+  pass  that refusal is the ONLY thing said about the row - it does not also report a household that failed to resolve, which would send a run off to mint one
+  pass  a kin row pointing at its own household is an error
+  pass  a husband whose mirror row says wife passes
+  pass  a husband whose mirror row also says husband is an error
+  pass  a father whose mirror row says son passes
+  pass  a mother whose mirror row says daughter passes
+  pass  a father whose mirror row also says father - a one-way claim - is an error
+  pass  a son whose mirror row says wife is an error
+  pass  a manifest that under-declares the kin relations is an error
+
+test_a_species_says_which_side_of_the_waterline_it_stands_on:
+  pass  the cattail as recorded is legal
+  pass  an emergent that does not say where it roots is an error
+  pass  a substrate outside the published vocabulary is an error
+  pass  a floating-leaved aquatic is legal in a zone that reaches the water
+  pass  the same aquatic in a zone that never reaches water is an error
+  pass  a water buffer that starts on the bank does not count as water either
+
+test_real_dataset_passes:
+  pass  the committed dataset validates clean
+
+PASS — all checks green

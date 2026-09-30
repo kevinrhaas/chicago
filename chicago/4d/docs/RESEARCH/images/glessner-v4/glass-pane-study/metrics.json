@@ -1,0 +1,29 @@
+{
+  "open_slab-48": {
+    "mean_luminance_srgb": 0.3095736098172603,
+    "local_pixel_residual_rms": 0.02679994322538833
+  },
+  "open_slab-128": {
+    "mean_luminance_srgb": 0.30988555454181677,
+    "local_pixel_residual_rms": 0.002105294531892363
+  },
+  "open_slab-48_vs128_rmse": 0.020951131078784855,
+  "single_quad-48": {
+    "mean_luminance_srgb": 0.3096084792316927,
+    "local_pixel_residual_rms": 0.02738248552249316
+  },
+  "single_quad-128": {
+    "mean_luminance_srgb": 0.30985235544884626,
+    "local_pixel_residual_rms": 0.002255657136937168
+  },
+  "single_quad-48_vs128_rmse": 0.02137784115471537,
+  "closed_4mm-48": {
+    "mean_luminance_srgb": 0.3879251190609576,
+    "local_pixel_residual_rms": 0.003754672271826883
+  },
+  "closed_4mm-128": {
+    "mean_luminance_srgb": 0.38828264724556477,
+    "local_pixel_residual_rms": 0.0017409312260362846
+  },
+  "closed_4mm-48_vs128_rmse": 0.0033746915482345133
+}

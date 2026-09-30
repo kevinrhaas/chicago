@@ -46,6 +46,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -78,7 +79,7 @@ MANIFEST_NOTE = (
     "by `tools/structure_versions.py adopt` when the version's inputs hash equals a committed "
     "canonical bake; `web_master_sha256` is the master each assets/web/ derivative was made "
     "from, written by tools/web_derivatives.sh. DERIVED: `tools/validate.py --stale` "
-    "recomputes both, and the remedy for a mismatch is a bake, never an edit of this file."
+    "recomputes both, plus each optional web_lods master/recipe/output hash, and the remedy for a mismatch is a bake, never an edit of this file."
 )
 
 
@@ -119,6 +120,91 @@ def asset_key(sid: str, label: str, phase_id: str) -> str:
     """The version mesh's path under assets/gltf/ (and assets/web/, and the published
     data/gltf/): what a sidecar's `asset` names after `gltf/`."""
     return f"versions/{sid}/{label}/{sid}__{phase_id}.glb"
+
+
+
+# A rendering derivative of this same version, never a substitute historical build.
+# The opt-in is deliberately exact: default/v2/v3 and the rest of town are unchanged.
+GLESSNER_V4_KEY = "versions/glessner_house/v4/glessner_house__as_built_1887.glb"
+GLESSNER_DEFAULT_KEY = "glessner_house__as_built_1887.glb"
+GLESSNER_LIGHT_RECIPE = {"id": "glessner-v4-light-1", "position_bits": 16,
+                       "gltf_transform": "4.5.0", "max_triangles": 200000}
+
+
+def lod_asset_keys(key: str) -> dict[str, str]:
+    return {"light": key[:-4] + ".light.glb"} if key in (GLESSNER_V4_KEY, GLESSNER_DEFAULT_KEY) else {}
+
+
+def glessner_detail_record(root: Path = ROOT) -> Path:
+    alternate = record_path("glessner_house", "v4", root)
+    return alternate if alternate.exists() else root / "data/structures/glessner_house.json"
+
+
+def lod_recipe_sha(root: Path = ROOT) -> str:
+    """Hash the explicit light recipe and its producer implementation, not the town."""
+    recipe = dict(GLESSNER_LIGHT_RECIPE)
+    recipe["producer_sha256"] = {
+        name: sha256_file(root / name) for name in
+        ("tools/structure_versions.py", "tools/_glessner_lod.py")}
+    # The current geometry source is part of the light recipe, not merely a
+    # manifest claim. build-light also refuses a stale full master before it runs.
+    inputs = [glessner_detail_record(root),
+              root / "generators/archetypes/masonry_house.py"]
+    inputs.extend(sorted((root / "generators/archetypes").glob("masonry_house_v4*.py")))
+    recipe["source_sha256"] = {p.relative_to(root).as_posix(): sha256_file(p)
+                                for p in inputs if p.is_file()}
+    return hashlib.sha256(json.dumps(recipe, sort_keys=True).encode()).hexdigest()
+
+
+
+def light_receipt(path: Path) -> tuple[dict, int]:
+    """Read the producer receipt and real primitive count without decoding meshopt."""
+    with path.open("rb") as stream:
+        header = stream.read(20)
+        if len(header) != 20:
+            raise ValueError("light output is not a GLB")
+        magic, version, size, length, kind = struct.unpack("<5I", header)
+        if (magic, version, kind) != (0x46546C67, 2, 0x4E4F534A) or size != path.stat().st_size:
+            raise ValueError("light output has an invalid GLB header")
+        doc = json.loads(stream.read(length))
+    receipt = doc.get("extras", {}).get("glessner_light", {})
+    triangles = 0
+    for mesh in doc.get("meshes", []):
+        for primitive in mesh.get("primitives", []):
+            if primitive.get("mode", 4) != 4:
+                raise ValueError("light output contains a non-triangle primitive")
+            accessor = primitive.get("indices", primitive.get("attributes", {}).get("POSITION"))
+            count = doc["accessors"][accessor]["count"]
+            if count % 3:
+                raise ValueError("light output has an incomplete triangle")
+            triangles += count // 3
+    if not 0 < triangles <= GLESSNER_LIGHT_RECIPE["max_triangles"]:
+        raise ValueError(f"light output has {triangles} triangles, outside its declared budget")
+    return receipt, triangles
+
+
+def lod_problems(key: str, entry: dict, root: Path = ROOT) -> list[str]:
+    """The reduced file must name this master, current recipe, and its actual bytes."""
+    failures = []
+    for level, light_key in lod_asset_keys(key).items():
+        claim = entry.get("web_lods", {}).get(level, {})
+        path = root / "assets/web" / light_key
+        if claim.get("asset") != light_key or not path.is_file():
+            failures.append(f"{level} derivative missing or not recorded at {light_key}")
+            continue
+        master = root / "assets/gltf" / key
+        if not master.is_file() or claim.get("master_sha256") != sha256_file(master):
+            failures.append(f"{level} derivative is stale against its version master")
+        try:
+            current_recipe = lod_recipe_sha(root)
+        except OSError as error:
+            failures.append(f"{level} derivative cannot read its rendering recipe: {error}")
+        else:
+            if claim.get("recipe_sha256") != current_recipe:
+                failures.append(f"{level} derivative is stale against its rendering recipe")
+        if claim.get("output_sha256") != sha256_file(path):
+            failures.append(f"{level} derivative bytes differ from the producer record")
+    return failures
 
 
 def every_file(root: Path = ROOT) -> list[Path]:
