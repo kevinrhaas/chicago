@@ -377,3 +377,35 @@ viewer; it must finish and the final v4 published assets must receive a fresh
 focused review before readiness. The new closeups materially improve glazing;
 carving remains a declared reconstruction and photographic acceptance remains
 the owner's comparison, not a validator conclusion.
+
+
+## Final verification — 2026-09-30 UTC
+
+Checkpoint 8 is pushed as `823442ee1bdc67d3c41b5e3b6610625d1ddc349c`.
+Its tree `e76abc3b976f9815d74074db3fcac6684bdd0104` matches the recovered local
+`b5bd006b` exactly. GitHub gate run `36664653871` passes **712 steps**, none red,
+and the PR changelog check. The alternate-sidecar validator regressions also
+pass independently. Local preflight remains an interrupted invocation, not a
+pass, because the environment blocks a test's API request.
+
+Fresh final-model published review passes all **30** view/tier combinations
+(five stands × three tiers × desktop/touch mobile), zero unexpected page/HTTP
+errors, failed-download rollback, repeated switching without GPU resource
+growth and rapid-request ordering. Light peaks at **799,079/825,000** triangles;
+Full peaks at **3,433,805/3,800,000**, with at most 105 calls. The complete review
+receipt and visual assessment are in `glessner-v4-qa/browser-refined06.json` and
+`glessner-v4-qa/refined-06-final-review.md`.
+
+Both full published viewport runs pass every stage: **mobile 572/0 in 29 m 31 s**
+and **desktop 569/0 in 44 m 12 s**, with zero page errors. Their complete logs
+are `glessner-v4-qa/mobile-refined06.log` and `desktop-refined06.log`, and both
+are filed against `sha256:da40ab7c053f7196` in `tools/dev-smoke-state.json`.
+These runs used the exact final published snapshot, with no asset override.
+The earlier interrupted desktop/mobile runs are superseded by these complete
+runs, not counted as passes. T-1752's repaired frontage assertions pass in both.
+
+The comparison build is ready for dev integration when this final evidence
+commit's check is green. No model inputs, meshes, shaders or runtime behavior
+change in this evidence commit. The architectural accuracy and visual limits
+remain stated in the record; T-1730 stays open for the owner's comparison.
+Do not promote v4 to default or move production as part of this PR.

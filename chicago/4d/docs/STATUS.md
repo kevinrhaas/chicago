@@ -12,7 +12,10 @@ The frontage re-derivation passes. Published mobile smoke parts 1–2 pass
 158/0 in 2 m 50 s, with zero page errors, on `sha256:001a8c5194069f6e`; the
 standing smoke record carries that exact tree. `CHECK_JOBS=2 bash tools/check.sh`
 passes all 708 steps, none red. Other browser parts were not rerun for this
-isolated census repair.
+isolated census repair. The final integrated comparison build also passes all
+712 GitHub gate steps and the complete published smoke: mobile 572/0 and
+desktop 569/0, with zero page errors. The final receipts are in
+`docs/RESEARCH/glessner-v4-qa/` and the standing smoke record.
 
 ## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
 
@@ -23,15 +26,23 @@ Evidence: `docs/RESEARCH/glessner_house_v4.md`; reconstructed details: L305.
 The working branch is `steward/glessner-v4`; recoverable checkpoints and the
 remaining acceptance work are in `docs/RESEARCH/glessner_v4_work.md`.
 
-Refined05 packages full and reduced versions of the same model, retaining all
+Refined06 packages full and reduced versions of the same model, retaining all
 172 openings. Full uses detailed relief; Balanced and Light use the reduced
-mesh. Published switching and current full gates remain under validation.
+mesh. Clear dielectric glazing and enclosed recesses improve the previous grey
+panels. Published desktop/touch-mobile review passes all 30 view/tier readings,
+failed-download recovery and repeated/rapid detail switches.
 
-Visual review and final validation are in progress. The early renders exposed
-blank tower windows, incorrect bay glazing, a blocked passage and flat chimney
-faces; subsequent candidates correct these and refine stone fracture, joinery,
-carving and glass. No photographic-quality claim is made solely from passing
-checks. T-1730 remains open for the owner's comparison among versions.
+The final code checkpoint `823442ee` passes all 712 GitHub gate steps. Complete
+published smoke passes mobile 572/0 and desktop 569/0 with zero page errors.
+`docs/RESEARCH/glessner-v4-qa/refined-06-final-review.md` records exact assets,
+measurements, renders and limitations. The local full preflight was blocked by
+the environment's API policy and is not counted as a pass.
+
+The comparison build corrects the early blank tower windows, bay glazing,
+blocked passage and flat chimney faces, and refines stone fracture, joinery,
+carving and glass. Exact carving and surface appearance remain reconstructed;
+passing checks do not establish photographic likeness. Default, v2 and v3 stay
+available. T-1730 remains open for the owner's comparison among versions.
 
 ## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
 
