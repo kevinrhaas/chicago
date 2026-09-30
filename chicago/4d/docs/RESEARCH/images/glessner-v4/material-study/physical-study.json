@@ -1,0 +1,74 @@
+{
+  "purpose": "Controlled physical-facet study; NOT actual-building acceptance QA. No production source changes.",
+  "source_sha256": "02c0f7ed4ea7cbeb18009cb7c54383838a57fa78e3e8df94c78f154af117fd10",
+  "settings": {
+    "samples": 32,
+    "threads": 2,
+    "resolution_px": [
+      400,
+      400
+    ],
+    "exposure_ev": -1.5,
+    "look": "AgX - Base Contrast"
+  },
+  "panels": [
+    {
+      "grid": [
+        3,
+        2
+      ],
+      "normal_strength": 1.0,
+      "vertices": 280,
+      "triangles": 134,
+      "maximum_face_offset_m": 0.054244399070739746,
+      "minimum_face_offset_m": -0.012000000104308128,
+      "note": "Baseline uses unmodified production block function; denser variants alter grid only, with explicit4\u201370mm cap. Each physical unit has fixed independent seed so material choices remain equal."
+    },
+    {
+      "grid": [
+        5,
+        3
+      ],
+      "normal_strength": 1.0,
+      "vertices": 460,
+      "triangles": 224,
+      "maximum_face_offset_m": 0.056332603096961975,
+      "minimum_face_offset_m": -0.012000000104308128,
+      "note": "Baseline uses unmodified production block function; denser variants alter grid only, with explicit4\u201370mm cap. Each physical unit has fixed independent seed so material choices remain equal."
+    },
+    {
+      "grid": [
+        6,
+        3
+      ],
+      "normal_strength": 1.0,
+      "vertices": 520,
+      "triangles": 254,
+      "maximum_face_offset_m": 0.056332603096961975,
+      "minimum_face_offset_m": -0.012000000104308128,
+      "note": "Baseline uses unmodified production block function; denser variants alter grid only, with explicit4\u201370mm cap. Each physical unit has fixed independent seed so material choices remain equal."
+    },
+    {
+      "grid": [
+        5,
+        3
+      ],
+      "normal_strength": 0.75,
+      "vertices": 460,
+      "triangles": 224,
+      "maximum_face_offset_m": 0.056332603096961975,
+      "minimum_face_offset_m": -0.012000000104308128,
+      "note": "Baseline uses unmodified production block function; denser variants alter grid only, with explicit4\u201370mm cap. Each physical unit has fixed independent seed so material choices remain equal."
+    }
+  ],
+  "renders": [
+    {
+      "regime": "overcast",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-material-study/physical-facets-overcast.png"
+    },
+    {
+      "regime": "directional",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-material-study/physical-facets-directional.png"
+    }
+  ]
+}

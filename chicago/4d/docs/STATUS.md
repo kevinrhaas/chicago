@@ -1,3 +1,19 @@
+## T-1752 — frontage census repaired from its authored history (2026-09-29)
+
+Seven stale smoke counts now follow the existing frontage records: 51 walks,
+46 crossings, 18 unchanged posts, 32 fences, 119 refusals, 58 authored meshes
+(plus optional lettering) and 40 street-edge faces. T-1734 transposed Clinton's
+lots; T-1736, T-1708, T-1735 and T-1751 improved four Washington blocks. The
+evidence is in `docs/measurements/T-1752-frontage-census.md`. No scene data or
+geometry changes; all other assertions and floors remain. This repairs the
+gate blocking the visible Glessner v4 parcel, T-1730.
+
+The frontage re-derivation passes. Published mobile smoke parts 1–2 pass
+158/0 in 2 m 50 s, with zero page errors, on `sha256:001a8c5194069f6e`; the
+standing smoke record carries that exact tree. `CHECK_JOBS=2 bash tools/check.sh`
+passes all 708 steps, none red. Other browser parts were not rerun for this
+isolated census repair.
+
 ## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
 
 The opt-in v4 uses the default envelope with measured ashlar course heights,

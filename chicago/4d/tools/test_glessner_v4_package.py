@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exercise package integrity, a fresh checkout, and refusal of stale/new bakes."""
+import argparse
 import io
 import json
 from pathlib import Path
@@ -7,6 +8,10 @@ import tempfile
 import zipfile
 
 from recover_glessner_v4 import TARGETS, materialize, pack, sha256, verified_members, write_member
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--self-test', action='store_true', help='run the fixture assertions (also the default)')
+parser.parse_args()
 
 
 def refuses(call):

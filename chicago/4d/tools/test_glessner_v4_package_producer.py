@@ -6,6 +6,7 @@ isolated byte fixtures; no town assets or network/tool installation are touched.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 from pathlib import Path
@@ -15,10 +16,14 @@ import tempfile
 
 from recover_glessner_v4 import ROOT, TARGETS, materialize, pack, sha256, verified_members, write_member
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--self-test', action='store_true', help='run the producer fixtures (also the default)')
+parser.parse_args()
+
 KEY = TARGETS[0].removeprefix("assets/gltf/")
 OTHER = KEY.replace("/v4/", "/v3/")
 STUB = '''#!/usr/bin/env python3
-import hashlib,os,sys
+import hashlib,json,os,sys
 from pathlib import Path
 args=sys.argv[1:]; args=args[args.index("gltf-transform")+1:]
 mode=os.environ.get("FIXTURE_TRANSFORM", "optimized")
@@ -28,6 +33,8 @@ command,source,target=args[:3]
 data=Path(source).read_bytes()
 if command=="optimize": Path(target).write_bytes(data)
 elif command=="meshopt":
+    with Path("precision-calls.jsonl").open("a") as log:
+        log.write(json.dumps({"target":target,"position_bits":int(args[args.index("--quantize-position")+1])})+"\\n")
     stamp=b"invalid-generator" if mode=="badstamp" else b"glTF-Transform v4.5.0"
     Path(target).write_bytes(stamp+b" "+hashlib.sha256(data).hexdigest().encode())
 else: raise SystemExit(2)
@@ -56,9 +63,9 @@ def snapshot(path):
     return {p.name: p.read_bytes() for p in path.iterdir() if p.is_file()}
 
 
-def run(root, *args, mode="optimized", success=True):
+def run(root, *args, mode="optimized", success=True, asset_bits=14):
     environment = {**os.environ, "PATH": str(root / "bin") + os.pathsep + os.environ["PATH"],
-                   "FIXTURE_TRANSFORM": mode}
+                   "FIXTURE_TRANSFORM": mode, "ASSET_QUANT_BITS": str(asset_bits), "EPOCH_QUANT_BITS": "16"}
     result = subprocess.run(["bash", "tools/web_derivatives.sh", *args], cwd=root,
                             env=environment, capture_output=True, text=True)
     assert (result.returncode == 0) == success, result.stdout + result.stderr
@@ -115,4 +122,22 @@ with tempfile.TemporaryDirectory() as directory:
     manifest.write_text(json.dumps({"assets": {}}))
     run(root, "--only", KEY, success=False)
     assert snapshot(recovery) == before, "record-web failure must not repack"
-print("PASS: optimized/no-tool producer refresh, fresh restoration, --out/id guards, failure ordering")
+
+# A precision fix for the new opt-in mesh must never change the town's transform
+# or nearby version names. Exercise the actual dispatch, not a duplicated selector.
+with tempfile.TemporaryDirectory() as directory:
+    root, recovery, manifest = fixture(directory)
+    controls = [(KEY,16), (OTHER,14), (KEY.replace('/v4/','/v40/'),14),
+                ('ordinary_house.glb',14), ('terrain__fixture.glb',16), ('water__fixture.glb',16)]
+    for rel, expected in controls:
+        write_member(root, 'assets/gltf/'+rel, b'precision fixture'*200)
+        run(root, '--only', rel, '--out', 'measurement')
+        calls = [json.loads(line) for line in (root/'precision-calls.jsonl').read_text().splitlines()]
+        assert calls[-1]['position_bits'] == expected, (rel, calls[-1])
+    # The existing diagnostic override still applies elsewhere; v4 retains its
+    # required precision even when a lower global setting is being measured.
+    for rel, expected in [(KEY,16), (OTHER,12)]:
+        run(root, '--only', rel, '--out', 'measurement', asset_bits=12)
+        calls = [json.loads(line) for line in (root/'precision-calls.jsonl').read_text().splitlines()]
+        assert calls[-1]['position_bits'] == expected, (rel, calls[-1])
+print("PASS: producer/package lifecycle and exact-v4 precision; other paths retain prior bit depths")

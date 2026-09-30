@@ -151,7 +151,7 @@ def build_materials(colours=None):
     import bpy
     colours = colours or {}
     mats = [
-        _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.40),
+        _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
         _pbr(bpy, "brick", "brick", normal_strength=0.85),
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
         _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
@@ -176,7 +176,7 @@ def build_materials(colours=None):
     # restrained grey, cream and slightly pink variation between quarried units.
     for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
                               (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
-        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=0.40))
+        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.0))
     # Kiln firing varies individual common bricks. The geometry deals mostly
     # the main grey-tan slot1, then warm red16, buff17 and occasional smoky18.
     # The neutral limestone grain image supplies the latter colour fields only;
@@ -193,7 +193,7 @@ def build_materials(colours=None):
     # Rock-faced window heads/sills share the visible grey mineral fabric of the
     # street stone. Dressed cornices and carved mouldings retain smoother slot2.
     # This is reconstructed appearance, not a petrographic identification.
-    mats.append(_pbr(bpy, "rough_stone_trim", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.32))
+    mats.append(_pbr(bpy, "rough_stone_trim", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.80))
     # Thin geometry blades sit over the independently textured lawn. These
     # muted linear colours sit below its average reflectance, avoiding lime tips.
     for name, colour in (("dark", (.045, .080, .017)),

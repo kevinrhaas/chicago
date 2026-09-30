@@ -221,3 +221,50 @@ These actual-model renders and their hashes/settings are preserved under
 in the frontal neutral view; a controlled material study is under way before
 photographic acceptance. Dev was rechecked via native remote and exact GitHub
 branch endpoint and remains `308dcacf`; there is no integration drift.
+
+
+Checkpoint 5 is remote commit `ba854300291e5d30638c7cabd8e1c2bd27feed3a`.
+Desktop continuation completed **311 passed, 0 failed**, stages5–13. The full
+preflight completed 708 passing steps and four integration failures: new tests
+need the gate's self-test classification, the package checker needs written
+writer classification, and the new steps need measured isolation rows. These
+are being corrected; the earlier source-use/ticket-layout failures are gone.
+
+A decoded web-geometry audit found 14-bit quantization collapsed 6,146 of20,000
+blades and 35,176 additional tiny ornament/limestone triangles. An exact-v4
+16-bit trial preserves every blade, cuts maximum measured position error from
+3.31 to0.65mm, and reduces (but does not eliminate) submillimeter ornament
+collapse. Default/v2/v3 controls remain byte-identical. Measured residuals are
+retained, not described as lossless. The normal producer will apply16bits to
+the next v4 derivative and refresh its archive.
+
+The next master refines broad split-face stone relief, roller shades and the
+bow door. The door's former full-height oak backing made its glass opaque;
+HABS photo5 supports four upper panes above a lower raised wood panel. Later
+protective grille details are not carried back from the modern photograph.
+
+
+Refined03 candidate: pinned Blender emitted approximately669,811 triangles,
+28 materials, and20,000 lawn blades. The v4 derivative uses16-bit positions,
+with the existing default/v2/v3 web products re-derived byte-identically.
+Master:78,455,116bytes, SHA256
+`52f214b2d5dc145077bf79eb3783aa5ec9e608163da0b7038f158cf63da87f14`.
+Web:34,021,988bytes, SHA256
+`343971c33615fc2ca015acdb7e6027f19e9630e2a693f47eeaad7c77cff9cd8b`.
+The exact package now has11parts.
+
+The current neutral and directional entry views confirm the false arch seams
+remain absent and the larger stone relief survives export. They also reveal
+broad triangular wedges in place of the reference's finer chipped rock faces.
+Further bounded multiscale relief is in development. HABS photo5 confirms
+raised roof-ridge crests missing from the cap-tile geometry; these and the
+courtyard dormer projections are being reviewed before a final bake. These
+images are candid work-in-progress evidence, not photographic acceptance.
+
+T-1752's isolated frontage-census repair was completed in local commit
+`0ff8eb2af5f9a9d6b442096337405da53045d227` and integrated here. Seven
+independently derived constants replace stale counts; every assertion
+operator, condition and floor remains. Its isolated gate passed708steps,
+and published mobile parts1–2 passed158/0 with zero page errors. Final
+integrated browser coverage remains due. The current full preflight also
+checks the repaired new-tool classifications and isolation measurements.

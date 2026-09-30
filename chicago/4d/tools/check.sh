@@ -101,11 +101,11 @@ check_flush
 step "Glessner v4 packaged GLBs match both generated outputs (T-1730)" \
   python3 tools/recover_glessner_v4.py --check
 selftest "…materialization refuses corruption and never overwrites a new bake" \
-  python3 tools/test_glessner_v4_package.py
+  python3 tools/test_glessner_v4_package.py --self-test
 selftest "…only the canonical v4 derivative producer refreshes the package" \
-  python3 tools/test_glessner_v4_package_producer.py
+  python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
-  python3 tools/test_glessner_block_clipping.py
+  python3 tools/test_glessner_block_clipping.py --self-test
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines

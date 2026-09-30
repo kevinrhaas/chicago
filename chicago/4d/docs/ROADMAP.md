@@ -1,3 +1,11 @@
+## T-1752 — frontage smoke census (2026-09-29)
+
+Seven exact smoke expectations now follow the independently compared frontage
+records through T-1751. The historical deltas, rule clauses and mesh arithmetic
+are in `docs/measurements/T-1752-frontage-census.md`. This repairs the gate
+blocking Glessner v4 (T-1730), with no changed scene data or weakened assertion.
+Validation status is in STATUS; the ticket owns closure.
+
 ## T-1730 — Glessner v4 visual completion (2026-09-29)
 
 Owner-directed v4 now has its own evidence dossier, explicit opening schedule,

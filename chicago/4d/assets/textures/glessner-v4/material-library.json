@@ -289,7 +289,20 @@
       "limitations": "Original generated material study, not a photograph or measured reflectance scan of Glessner House. It cannot establish historic colour, grain or weathering. Seamlessness and diffuse illumination are generation targets, not measurements.",
       "prompt": "Use case: photorealistic-natural. Asset type: seamless physically based rendering ALBEDO texture for rough split-face pink-gray granite masonry on an 1880s Richardsonian house. Generate one square, edge-to-edge, high-resolution photographic material texture of natural medium-coarse granite, covering about 60 cm by 60 cm of stone. Extremely convincing sharp interlocking quartz crystals, small charcoal mica flakes, pale gray translucent mineral specks and a restrained amount of dusty rose feldspar. Predominantly warm neutral gray, with modest pink-beige variation. Natural mineral-scale irregularity, no repetitive cells, no plaster/foam/crumpled-paper look. The surface is rock-faced quarried granite, unevenly fractured, but this image is a diffuse BASE COLOR map: use perfectly even flat diffuse illumination, no directional highlights, no cast shadows, no ambient occlusion, no vignette. Orthographic front-on macro material capture with no perspective. Must tile seamlessly on all four edges with no obvious repeating landmark. No mortar, no joints, no individual rectangular block boundaries, no brick, no carved ornament, no large cracks crossing the image, no moss, no text, no border, no watermark. Crisp photographic mineral detail rather than painting or 3D-rendered noise. Do not depict a building or a finished render: the entire image is the original granite albedo material only.",
       "rights": "Use, modification and redistribution with this project under LICENSE.txt; retain provenance and reconstructed confidence.",
-      "render_calibration": "The prompt describes a 0.6 m field, but its generated crystals read too coarse in the model. Sampling at 0.22 m gives smaller apparent mineral grains; this is reconstructed visual calibration, not a measured scale. Cool material multipliers reduce excessive warm feldspar colour. The original generated pixels remain unchanged."
+      "render_calibration": "The prompt describes a 0.6 m field, but its generated crystals read too coarse in the model. Sampling at 0.22 m gives smaller apparent mineral grains; this is reconstructed visual calibration, not a measured scale. Cool material multipliers reduce excessive warm feldspar colour. The original generated pixels remain unchanged.",
+      "material_sampling": {
+        "albedo_repeat_m": [
+          0.22,
+          0.22
+        ],
+        "normal_repeat_m": [
+          1.6,
+          1.6
+        ],
+        "ashlar_normal_strength": 1.0,
+        "rough_trim_normal_strength": 0.8,
+        "calibration": "Controlled fixed-geometry studies compared0.4/0.75/1.0/1.25 under neutral and directional daylight. Strength1.0 paired with5x3 angular physical facets was selected;1.25 appeared too busy. This is visual reconstruction, not measured historic relief."
+      }
     },
     {
       "title": "Original photographic turf albedo for Glessner House v4",

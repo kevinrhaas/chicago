@@ -35,9 +35,9 @@ deduplicated, and metric SurfaceUV unchanged through the shared smart-unwrap ste
 All texture references use TEXCOORD_0. Granite albedo repeats at 0.22 m through
 KHR_texture_transform (scale 7.2727273); its procedural normal and roughness repeat
 at 1.6 m. Turf albedo repeats at 0.4 m (scale 6), with numeric normal/roughness at
-2.4 m. Granite normal strength is 0.40, rough court trim 0.32 and turf 0.25.
+2.4 m. Granite normal strength is 1.0, rough court trim 0.8 and turf 0.25.
 Three appended double-sided blade materials (slots25–27) use plain muted greens
-and roughness0.92. The full material probe GLB is 20,808,352 bytes. Tint factors, copper metallicity and clear glass with
+and roughness0.92. The full material probe GLB is 20,808,216 bytes. Tint factors, copper metallicity and clear glass with
 transmission 0.94 / IOR 1.52 survive export. This verifies transport, not completed
 photographic likeness of the whole building.
 
@@ -48,8 +48,10 @@ standing seams are geometry. The earlier crumpled procedural stone appearance le
 to replacing active granite albedo with the original generated crystal study.
 The 0.6 m initial repeat made crystals look pebbly; 0.22 m makes them finer. Cool
 material multipliers counter excess pink feldspar. Numeric normal domain warp was
-reduced from0.015 to0.004 to retain more angular fractures, and intermediate normal
-strength restores relief without the earlier crumpled appearance. Numeric maps remain available;
+reduced from0.015 to0.004 to retain more angular fractures, and controlled neutral/directional studies selected normal strength1.0 with
+5x3 physical split facets. Strength1.25 was too busy; the earlier0.4 was too flat.
+The denser facets preserve the course boundary and use a4–70mm peak-offset cap
+around the existing nominal8–46mm extrusion. This is reconstructed microgeometry. Numeric maps remain available;
 none is presented as a measured historic surface. Rough court heads and sills use
 granite grain; smooth carved cornices retain the separate limestone study. These
 are reconstructed visual choices, not petrographic identification.
@@ -70,3 +72,10 @@ The drive retains the structure record's reconstructed pale gravel interpretatio
 for 1904. No later concrete paving is retrojected. The original numeric turf and gravel maps add 1,586,424
 source-map bytes; the separate generated turf albedo is retained unchanged. Whole-building materials, geometry, lighting and historical
 confidence still require review together.
+
+The tower lantern belts use a v4-local curved block helper, supported by HABS
+courtyard photo05 and the supplied courtyard close views. One stone course with
+reconstructed joints replaces each smooth drum. Both rings keep their prior
+outer radius and vertical endpoints; rough faces fit inside that envelope and
+a narrow15mm top seating edge uses the same granite fabric. No new cornice or
+height is added. Exact joints and microrelief are reconstructed, not measured.

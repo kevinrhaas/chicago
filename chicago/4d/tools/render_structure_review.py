@@ -62,6 +62,10 @@ CAMERAS = {
     "overhead": {"position": (64, -38, 68), "target": (24.6, 11.3, 3.0), "lens": 48},
     "overhead-west": {"position": (-25, -35, 62), "target": (24.6, 11.3, 3.0), "lens": 48},
 }
+# Additional presentation angles; the fixed comparison cameras above are unchanged.
+CAMERAS.update({
+    "prairie-entry-oblique": {"position": (62.5, 18, 1.7), "target": (49.15, 12.5, 4.15), "lens": 42},
+})
 OVERCAST_ZENITH_RGB = (5.58, 5.79, 6.0)
 DEFAULT_SKY_FILE = (Path(__file__).resolve().parents[1] / "docs" / "RESEARCH" /
                     "glessner-v4-lighting" / "overcast_soil_puresky_2k.hdr")

@@ -323,8 +323,8 @@ reconstructed varied heights exposing the lower panes as in the reference.
 ### Courtyard close-up material refinement
 
 The active granite albedo repeat is 0.22 m, revised from the earlier 0.6-m
-trial after its crystals read too large. Normal strength is 0.40 on ashlar and
-0.32 on courtyard rock-faced trim, with reduced numeric fracture warp. Common
+trial after its crystals read too large. Normal strength is 1.0 on ashlar and
+0.8 on courtyard rock-faced trim, with reduced numeric fracture warp. Common
 brick uses a gray-tan clay body and occasional warmer/buff/smoky firing; this
 represents the surviving material, not a claim to reproduce modern weathering.
 Oak midtones and restrained varnish roughness make existing joinery readable.
@@ -345,3 +345,37 @@ image10 and the west-facing tunnel photograph establish this material transition
 HABS photo5 is obscured by ivy and shadow, so the precise height, block joints
 and relief are reconstructed rather than measured. The tower's datum and
 openings stay fixed.
+
+
+### Court glazing and bow terrace door
+
+HABS photo5 shows most roller hems around35–55% down the complete opening.
+The earlier mostly closed profile hid the lower glass. The revised seeded
+profile is18–64%, mostly32–55%, with a subset of narrow gathered side drapes.
+These cloth positions are conjectural; existing Prairie colonnade shades keep
+their6–34% profile. Physical glass and darker backing remain separate surfaces.
+
+The c1923 photograph shows four upper door panes and a raised rectangular lower
+wood panel at the terrace. The geometry now removes the full-height oak backing
+from that upper aperture, builds real rails/stiles and2×2 muntins, and adds a
+rounded lower-panel moulding and small latch. The construction is inferred
+back to1904; microscopic moulding/hardware are reconstructed. The fine iron
+protective grid in the modern photo is not substituted for the older door.
+
+
+The controlled material study compares only test panels, not building renders.
+It selected5×3 angular subdivisions for large rock-faced blocks and normal
+strength1.0 (rough trim0.8): the earlier3×2/0.4 treatment read too smooth,
+while6×3 produced distracting isolated pits. Split-face offsets are explicitly
+bounded4–70mm, with nominal extrusion still8–46mm. Surface clipping preserves
+these complete physical stones around openings, without artificial internal
+joints. The labeled studies are retained in `images/glessner-v4/material-study/`.
+
+### Stair-tower lantern bands
+
+The former smooth, bright belts contradicted the rough stone reading in HABS
+courtyard photo 5 and the owner's modern close views. Both bands now have
+angular stone faces and narrow dressed upper seats using the same granite
+fabric. A deterministic 16-block course is reconstructed around each ring.
+The measured band heights and former outer radius remain unchanged; geometry
+checks find no degenerate faces and retain the original circular edge points.

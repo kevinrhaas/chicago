@@ -95,6 +95,10 @@
 #
 #   A CHANGE HERE THAT MOVES ANY DERIVATIVE'S BYTES REGENERATES ALL 334, NOT THE ONES
 #   THAT VISIBLY BROKE.
+# T-1730's NEW opt-in Glessner v4 precision rule is keyed to one exact version path,
+# not a global transform change: 16-bit positions preserve its millimetre blades.
+# The dispatch fixture pins all other paths to the prior defaults, and regenerated
+# default/v2/v3 Glessner controls were byte-identical. Only v4 needs regeneration.
 #
 # K36(b) turned the palette pass off and regenerated the 38 assets whose material
 # identity it had broken; the other 195 kept bytes no step in this tree could produce,
@@ -463,6 +467,12 @@ if [ -n "$resolved_cli" ]; then
       terrain__*|water__*) bits="$EPOCH_QUANT_BITS"; epoch=1 ;;
       *) bits="$ASSET_QUANT_BITS"; epoch=0 ;;
     esac
+    # At the measured 49.7 m span, 14-bit positions collapsed 6,146 of 20,000
+    # v4 grass triangles and 35,176 additional carving triangles. The 16-bit
+    # grid preserves every grass triangle, with <0.651 mm nearest-position error.
+    # Measurement/remaining submillimetre loss: docs/RESEARCH/glessner_v4_web_precision.json.
+    # This exact relative path changes no canonical, older-version or other mesh.
+    [ "$rel" != "$GLESSNER_V4" ] || bits=16
     tmp="$(mktemp -t gltfopt.XXXXXX.glb)"
     if "${GT_NPX[@]}" gltf-transform optimize "$f" "$tmp" "${compress[@]}" 2>&1 | tail -2 \
       && "${GT_NPX[@]}" gltf-transform meshopt "$tmp" "$out" \

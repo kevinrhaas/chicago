@@ -1620,6 +1620,12 @@
       "measured": "2026-09-27",
       "finding": "Reproduces: staged catalog.json and new-in-chicago.json, ran bare compiler, and git diff --exit-code over those outputs reported no changed byte. Fixture expansion and two independent in-memory builds are also tested.",
       "placed": "after compile_scene.py and before compile_source_use.py: destinations first, jaunt claims second, source backlinks last (T-1253)"
+    },
+    "recover_glessner_v4.py": {
+      "placement": "not_derivable",
+      "write_mode": "--pack",
+      "measured": "2026-09-29",
+      "finding": "Producer-owned binary package, not a research-layer re-derivation (T-1730). Measured on a clean isolated git checkout containing the committed packer and archive: --pack exited 1 because both ignored GLBs were absent, and changed 0 committed files. --materialize restored the exact 70,375,492-byte master and 32,115,656-byte derivative; --pack then actually rewrote 11 archive/manifest files (mtime checked) while changing 0 committed bytes, and --check passed. This proves package reproduction only after the binary inputs exist; it cannot rebuild those inputs from data. The canonical exact-v4 web producer owns --pack after record-web. Generic research rederive must not bank whichever ignored GLBs happen to be present or resolve an archive conflict by selecting one side's binaries. The gated --check is read-only; tools/measure_step_isolation.mjs --tool measured its actual declared invocation and recorded no in-tree writes."
     }
   }
 }

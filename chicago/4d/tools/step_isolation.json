@@ -3274,6 +3274,9 @@
     "tools/record_lot_seating.py": {
       "wrote": []
     },
+    "tools/recover_glessner_v4.py": {
+      "wrote": []
+    },
     "tools/redeal_anonymous_roofs.py": {
       "wrote": []
     },
@@ -3545,6 +3548,15 @@
       "wrote": []
     },
     "tools/test_frontage_faces.py": {
+      "wrote": []
+    },
+    "tools/test_glessner_block_clipping.py": {
+      "wrote": []
+    },
+    "tools/test_glessner_v4_package.py": {
+      "wrote": []
+    },
+    "tools/test_glessner_v4_package_producer.py": {
       "wrote": []
     },
     "tools/test_house_front.py": {

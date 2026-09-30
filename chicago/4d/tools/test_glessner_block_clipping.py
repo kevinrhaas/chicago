@@ -11,6 +11,7 @@ false-joint defect exposed by the entry's 80-segment semicircular recess.
 """
 from __future__ import annotations
 
+import argparse
 import importlib.util
 import math
 from pathlib import Path
@@ -18,6 +19,10 @@ import random
 import sys
 from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--self-test', action='store_true', help='run the clipping fixtures (also the default)')
+parser.parse_args()
 
 ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT/'generators'))

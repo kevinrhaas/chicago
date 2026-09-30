@@ -17287,3 +17287,30 @@ rough stone blocks on its courtyard arc, about 0.30–0.12 m tall with 15–40 m
 relief. Modern owner images establish the material boundary; HABS photo5 is
 ivy/shadow-obscured and supplies no clear height. Heights, joints and the
 stepped transition toward the passage are reconstructed, not measured.
+
+
+**Window and door refinement (2026-09-29):** Court roller shades now close
+18–64% of the full opening, mostly32–55%, following the visibly exposed lower
+panes in HABS photo5 and the owner photographs. A subset has narrow gathered
+side linen. These positions/folds carry conjectural confidence; no scene-date
+shade positions are claimed. Prairie colonnade shades retain their earlier
+6–34% profile. The bow terrace door has real four-pane upper glazing, wood
+stiles/rails and one raised lower panel. The c1923 HABS photograph supports
+that construction; its transfer to1904 remains an inference from surviving
+fabric, while exact moulding and latch dimensions are reconstructed. The
+modern fine protective grille is excluded.
+
+
+**Stone relief refinement (2026-09-29):** A controlled panel study selected
+5×3 angular subdivisions for eligible large blocks and normal strength1.0
+(rough trim0.8), superseding the earlier3×2/0.40/0.32 trial. Broad split-face
+offsets are constrained to4–70mm; nominal block extrusion remains8–46mm.
+Exact fracture planes, pits and grain are reconstructed, not mapped historic
+stone surfaces. Study panels are not presented as building renders.
+
+**Curved stone bands (2026-09-29):** Both stair-tower lantern bands now use
+rough stone faces, as read in HABS courtyard photograph 5 and the supplied
+modern courtyard close views. Sixteen blocks per ring, their joints, fractures
+and a 15 mm dressed top seat are reconstructed. Every point remains within
+the former drum radius and measured vertical endpoints; no cornice or extra
+building volume is introduced.

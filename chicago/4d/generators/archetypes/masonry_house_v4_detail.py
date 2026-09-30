@@ -292,14 +292,14 @@ class DetailBuilder(MeshBuilder):
         # single four-triangle pyramid. The envelope remains the measured course.
         rectangular=len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and len({round(q[1],6) for q in polygon})==2
         if rectangular and x1-x0>.48 and y1-y0>.16:
-            xa,ya,xc,yc=bounds(inner);nx,ny=3,2;grid={}
+            xa,ya,xc,yc=bounds(inner);nx,ny=5,3;grid={}
             for ix in range(nx+1):
                 for iy in range(ny+1):
                     xx=xa+(xc-xa)*ix/nx;yy=ya+(yc-ya)*iy/ny
                     boundary=ix in (0,nx) or iy in (0,ny)
                     if 0<ix<nx:xx+=rng.uniform(-.075,.075)*(xc-xa)
                     if 0<iy<ny:yy+=rng.uniform(-.09,.09)*(yc-ya)
-                    off=max(.004,depth+rng.uniform(-.005,.009) if boundary else depth+rng.uniform(-.015,.025))
+                    off=min(.070,max(.004,depth+rng.uniform(-.005,.009) if boundary else depth+rng.uniform(-.015,.025)))
                     grid[ix,iy]=(xx,yy,off)
             for ix in range(nx):
                 for iy in range(ny):
@@ -399,11 +399,13 @@ def cylinder(b,cx,cy,z0,z1,r,conf,mat,segments=16):
 def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed,prairie_colonnade=False):
     """Reconstructed pale roller shades descend from the head, behind glass."""
     rng=random.Random(seed)
-    # The Prairie upper colonnade reference shows lower panes exposed, unlike
-    # the more closed courtyard rooms. Heights remain reconstructed rather than
-    # a claim about the position of an individual shade on the scene date.
-    choices=(.06,.10,.16,.22,.28,.34) if prairie_colonnade else (0,.30,.62,.74,.82,.90,.97,1,1,1)
+    # HABS court photo05 shows most roller hems near or above the meeting rail,
+    # roughly 35–55% of full opening height, with visibly open lower panes.
+    # Owner photos 09/10 bound occasional lower shades and gathered side linen.
+    # These per-opening positions remain reconstructed, not scene-date facts.
+    choices=(.06,.10,.16,.22,.28,.34) if prairie_colonnade else (.18,.32,.36,.40,.43,.46,.49,.52,.55,.64)
     closure=choices[rng.randrange(len(choices))]
+    conf=1.0  # Shade positions and cloth folds are reconstructed, unlike the opening dimensions.
     a,c=u0+.075,u1-.075;top=z1-.07
     if c<=a or top<=z0+.07:return
     if closure:
@@ -411,10 +413,11 @@ def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed,prairie_colonnade=False):
         b.raw([point(a,bottom,-.335),point(c,bottom,-.335),point(c,top,-.335),point(a,top,-.335)],conf,22,normal)
         # Small turned linen hem, not an opaque glazing-height stripe.
         b.raw([point(a,bottom,-.329),point(c,bottom,-.329),point(c,bottom+.018,-.335),point(a,bottom+.018,-.335)],conf,22,normal)
-    if not prairie_colonnade and closure<=.30 and rng.random()<.7:
-        # A minority of open rooms have quiet, narrow side drapes. Their folds
-        # are geometry behind the clear glass, with the room backing farther in.
-        width=(c-a)*.19
+    if not prairie_colonnade and closure<=.55 and rng.random()<.60:
+        # Gathered side linen occupies only 14–19% of the opening on each side.
+        # Its folds sit behind real glass; a broad central lower pane remains
+        # exposed, without painted reflections, furnishings or interior lamps.
+        width=(c-a)*rng.uniform(.14,.19)
         for left in (a,c-width):
             for i in range(6):
                 ua=left+width*i/6;ub=left+width*(i+1)/6
@@ -661,7 +664,8 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
         a,c=outline[i],outline[(i+1)%4]
         b.raw([P(*a,.02),P(*a,-.29),P(*c,-.29),P(*c,.02)],conf,TRIM if stone_jambs else BRICK)
     b.raw([P(u,z,-.60) for u,z in outline],conf,DARK_GLASS,normal)
-    b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS if small else GLASS,normal)
+    if not door:
+        b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS if small else GLASS,normal)
     def box(ua,ub,za,zb,off0,off1,mat):
         front=[P(ua,za,off1),P(ub,za,off1),P(ub,zb,off1),P(ua,zb,off1)]
         back=[P(ua,za,off0),P(ub,za,off0),P(ub,zb,off0),P(ua,zb,off0)]
@@ -671,9 +675,76 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
     if not small and not door:
         linen_shade(b,0,width,z0,z1,P,normal,conf,int((p[0]*17+q[1]*31+z0)*10003))
     if door:
-        box(0,width,z0,z1,-.28,-.20,WOOD)
-        box(.12,width-.12,z0+.12,z0+(z1-z0)*.4,-.2,-.17,WOOD)
-        box(.12,width-.12,z0+(z1-z0)*.5,z1-.12,-.195,-.19,GLASS)
+        # HABS photograph 05 shows four glazed lights above a raised wood
+        # panel. The fine iron grid in modern image(10) is not the historical
+        # joinery evidence. Stock, moulding and hardware dimensions below are
+        # reconstructed within the unchanged doorway and leaf depth.
+        height=z1-z0;stile=min(.12,width*.15)
+        ga,gb=stile,width-stile
+        gz0,gz1=z0+height*.45,z1-.14
+        # Only the lower part is solid wood. A full-height backing here made
+        # the previous clear glazing render as an opaque grey panel.
+        box(0,width,z0,gz0,-.28,-.23,WOOD)
+        for ua,ub,za,zb in [(0,ga,z0,z1),(gb,width,z0,z1),
+                           (ga,gb,gz1,z1),(ga,gb,gz0-.13,gz0),
+                           (ga,gb,z0,z0+.14)]:
+            box(ua,ub,za,zb,-.28,-.20,WOOD)
+        b.raw([P(ga,gz0,-.248),P(gb,gz0,-.248),
+               P(gb,gz1,-.248),P(ga,gz1,-.248)],conf,GLASS,normal)
+        um,zm=(ga+gb)/2,(gz0+gz1)/2
+        box(um-.012,um+.012,gz0,gz1,-.254,-.208,WOOD)
+        box(ga,gb,zm-.015,zm+.015,-.254,-.208,WOOD)
+
+        def moulding(ua,ub,za,zb,depth,radius):
+            # A closed rounded rectangle with an actual round bead profile.
+            # Unlike a flat outline it catches light along its curved shoulder.
+            corner=min(.025,(ub-ua)/6,(zb-za)/6);path=[]
+            for cu,cz,start in [(ub-corner,zb-corner,0),(ua+corner,zb-corner,math.pi/2),
+                                (ua+corner,za+corner,math.pi),(ub-corner,za+corner,3*math.pi/2)]:
+                for k in range(6):
+                    th=start+math.pi*k/10
+                    path.append((cu+corner*math.cos(th),cz+corner*math.sin(th)))
+            rings=[]
+            for j,(u,z) in enumerate(path):
+                a,c=path[j-1],path[(j+1)%len(path)]
+                run=math.hypot(c[0]-a[0],c[1]-a[1]) or 1
+                nu,nz=-(c[1]-a[1])/run,(c[0]-a[0])/run
+                rings.append([P(u+nu*radius*math.cos(2*math.pi*k/10),
+                                z+nz*radius*math.cos(2*math.pi*k/10),
+                                depth+radius*math.sin(2*math.pi*k/10)) for k in range(10)])
+            for j in range(len(rings)):
+                for k in range(10):
+                    nxt=(j+1)%len(rings)
+                    pts=[rings[j][k],rings[nxt][k],rings[nxt][(k+1)%10],rings[j][(k+1)%10]]
+                    centre=P((path[j][0]+path[nxt][0])/2,(path[j][1]+path[nxt][1])/2,depth)
+                    outward=tuple(sum(pt[a] for pt in pts)/4-centre[a] for a in range(3))
+                    b.raw(pts,conf,WOOD,outward)
+
+        moulding(ga,gb,gz0,gz1,-.218,.008)
+        pa,pb=ga+.035,gb-.035;pz0,pz1=z0+.18,gz0-.17
+        box(pa,pb,pz0,pz1,-.237,-.215,WOOD)
+        moulding(pa,pb,pz0,pz1,-.208,.014)
+        # A small round latch is visible in HABS05; its exact metal profile
+        # and placement are bounded reconstruction.
+        ku=width-stile*.53;kz=gz0-.075
+        box(ku-.017,ku+.017,kz-.065,kz+.065,-.201,-.187,IRON)
+        for j in range(8):
+            a,c=2*math.pi*j/8,2*math.pi*(j+1)/8
+            b.raw([P(ku+.009*math.cos(a),kz+.009*math.sin(a),-.191),
+                   P(ku+.009*math.cos(c),kz+.009*math.sin(c),-.191),
+                   P(ku+.009*math.cos(c),kz+.009*math.sin(c),-.157),
+                   P(ku+.009*math.cos(a),kz+.009*math.sin(a),-.157)],conf,IRON,
+                  (tangent[0]*math.cos((a+c)/2),tangent[1]*math.cos((a+c)/2),math.sin((a+c)/2)))
+        for j in range(12):
+            a,c=2*math.pi*j/12,2*math.pi*(j+1)/12
+            for k in range(4):
+                aa,cc=math.pi*k/8,math.pi*(k+1)/8
+                def knob(th,ph):
+                    return P(ku+.022*math.sin(th)*math.cos(ph),
+                             kz+.022*math.sin(th)*math.sin(ph),-.162+.022*math.cos(th))
+                pts=[knob(aa,a),knob(cc,a),knob(cc,c)]
+                if k:pts.append(knob(aa,c))
+                b.raw(pts,conf,IRON,normal)
     if not small and not door:
         frames=[(0,.06,z0,z1),(width-.06,width,z0,z1),(0,width,z0,z0+.06),(0,width,z1-.06,z1)]
         cols,rows=panes or [1,2]
@@ -804,10 +875,9 @@ def tower(b,t,params):
         lantern=w['z0']>=data['bands'][0][0]
         facet_window(b,p,q,w['z0'],w['z1'],(math.cos(w['angle']),math.sin(w['angle']),0),conf,stone_jambs=False,
                      panes=data['lantern_panes'] if lantern else None,surrounds=not lantern)
-    old=b.decorate;b.decorate=False
+    from archetypes.masonry_house_v4_rough_bands import add_rough_band
     for z0,z1 in data['bands']:
-        legacy._drum(b,cx,cy,r+.06,z0,z1,conf,TRIM,64)
-    b.decorate=old
+        add_rough_band(b,cx,cy,r+.06,z0,z1,conf)
     legacy._cone(b,cx,cy,t['eave_r'],t['wall_top_z'],t['apex_z'],t['conf_roof'],ROOF,72,soffit=r)
     legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],t['conf_roof'],COPPER)
 

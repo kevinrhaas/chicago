@@ -3,6 +3,78 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 170,
+      "takenAt": "2026-09-29T23:07:59.402Z",
+      "ref": "steward/frontage-census-t1752",
+      "commit": "308dcacf1117",
+      "devCommit": "308dcacf1117",
+      "treeHash": "sha256:001a8c5194069f6e",
+      "treeDirty": true,
+      "changelogHash": "sha256:0d27d104e3ece95b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          2.3,
+          4.8,
+          6.5
+        ]
+      },
+      "source": "/workspace/scratch/2b9723ff55ae/t1752-mobile-1-2.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5-13",
+      "parts": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 311,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1607,
+      "takenAt": "2026-09-29T23:07:36.594Z",
+      "ref": "steward/glessner-v4",
+      "commit": "ba854300291e",
+      "devCommit": "308dcacf1117",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:c73210f522966295",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          3.2,
+          5.1,
+          6.7
+        ]
+      },
+      "source": "docs/RESEARCH/glessner-v4-qa/desktop-checkpoint5-stages5-13.log",
+      "treeHashNote": "Desktop continuation after earlier full run stopped at part5. Published v4 candidate was replaced during this continuation; functional source remained unchanged. This log is not an exact-tree reading of the later v4 model."
+    },
+    {
+      "viewport": "mobile",
       "stage": "all",
       "parts": [
         1,
@@ -1735,37 +1807,6 @@
         ]
       },
       "source": "/tmp/t1279-smoke-desktop-8.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5",
-      "parts": [
-        5
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 26,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 513,
-      "takenAt": "2026-09-28T02:39:38.332Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          9.9,
-          12.7,
-          13.2
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-5.log"
     },
     {
       "viewport": "mobile",
