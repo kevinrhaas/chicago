@@ -236,10 +236,12 @@ def test_light_derivative_freshness() -> None:
         check("a missing light record cannot be accepted", bool(V.lod_problems(key, {}, root)))
         path = root / "assets/web" / light; path.unlink()
         check("a missing light output cannot be accepted", bool(V.lod_problems(key, entry, root)))
-        check("default/v2/v3 and similarly named v40 have no implicit LOD",
+        check("v2/v3 and similarly named v40 have no implicit LOD",
               all(not V.lod_asset_keys(k) for k in (key.replace('/v4/', '/v2/'),
-                  key.replace('/v4/', '/v3/'), key.replace('/v4/', '/v40/'),
-                  "glessner_house__as_built_1887.glb")))
+                  key.replace('/v4/', '/v3/'), key.replace('/v4/', '/v40/'))))
+        check("promoted v4 keeps its declared light asset",
+              V.lod_asset_keys(V.GLESSNER_DEFAULT_KEY) == {
+                  "light": "glessner_house__as_built_1887.light.glb"})
 
 
 test_light_derivative_freshness()

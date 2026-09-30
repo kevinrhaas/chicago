@@ -48,7 +48,8 @@ export function resolveBases(loc = window.location) {
 /** T-1730: only this explicitly selected comparison build has a detail derivative.
  * It remains the same record, version, placement and confidence at every setting. */
 export function hasInspectionLod(record) {
-  return record?.id === 'glessner_house' && record.version?.label === 'v4'
+  return record?.id === 'glessner_house' && (record.version?.label === 'v4'
+    || (!record.version && record.sidecar?.asset === 'gltf/glessner_house__as_built_1887.glb'))
     && typeof record.sidecar?.asset_lods?.light === 'string'
     && record.sidecar.asset_lods.light.length > 0;
 }

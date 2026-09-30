@@ -70,6 +70,13 @@ function promote(opts) {
     return 2;
   }
   const keep = opts.keepAs ?? `pre-${label}`;
+  // A later replacement must relocate the canonical package as deliberately as
+  // v4's incoming promotion. Never silently strand its reduced derivative.
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/manifest.json'), 'utf8'));
+  if (Object.values(manifest.assets ?? {}).some(e => e.structure_id === id && e.web_lods)) {
+    console.error('REFUSED: the current default has packaged detail assets; retarget its recovery and LOD contract before replacing it.');
+    return 2;
+  }
   const args = [PY, 'promote', id, label, '--keep-as', keep];
   if (opts.dryRun) args.push('--dry-run');
   const moved = run('python3', args);

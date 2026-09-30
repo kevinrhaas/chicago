@@ -53,7 +53,8 @@ def _geometry_modules(root):
 
 def _construct(root):
     d,param_module,materials=_geometry_modules(root)
-    record=json.loads((root/'data/structures/versions/glessner_house/v4.json').read_text())
+    from common.versions import glessner_detail_record
+    record=json.loads(glessner_detail_record(root).read_text())
     phase=next((p for p in record['phases'] if p['id']=='as_built_1887'),None)
     if phase is None:raise ValueError('Glessner v4 lacks the requested as_built_1887 phase')
     params=param_module.from_phase(phase,record)

@@ -124,6 +124,9 @@ done
 # before the canonical producer walks its inputs. Never restore over a new master
 # or a lone/stale derivative, and leave --out measurements and unrelated ids alone.
 GLESSNER_V4="versions/glessner_house/v4/glessner_house__as_built_1887.glb"
+if [ -f data/structures/glessner_house.json ] && [ ! -f data/structures/versions/glessner_house/v4.json ]; then
+  GLESSNER_V4="glessner_house__as_built_1887.glb"
+fi
 if [ "$OUT" = "assets/web" ] && { [ -z "$ONLY" ] || [ "$ONLY" = "$GLESSNER_V4" ]; } \
   && [ ! -e "assets/gltf/$GLESSNER_V4" ] && [ ! -e "assets/web/$GLESSNER_V4" ] \
   && [ ! -e "assets/web/${GLESSNER_V4%.glb}.light.glb" ]; then
@@ -540,6 +543,9 @@ if [ -n "$resolved_cli" ]; then
     produce_light_version "$rel"
     if [ "$rel" = "$(basename "$f")" ]; then
       echo "$rel" >> "$PRODUCED"
+      if [ "$rel" = "$GLESSNER_V4" ] && [ "$OUT" = "assets/web" ]; then
+        record_version "$rel"
+      fi
     elif [ "$OUT" = "assets/web" ]; then
       record_version "$rel"
     fi
