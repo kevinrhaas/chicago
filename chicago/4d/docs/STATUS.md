@@ -18634,3 +18634,12 @@ Commissioners tract area and total ground area were each 7.8 m² stale.
 its re-derivation check passes. Household seats and meshes do not change in
 this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
 Full gate and published browser verification receipts are recorded on PR #199.
+
+
+## T-1765 — recovered bridge-head furniture
+
+Four reconstructed timber piles complete this bridge-approach parcel. Recovery
+corrects the deck-corner/centerline confusion and retains ferry operation as an
+open historical question. New ground and corner checks validate the placement.
+No roof or baked mesh changes. The project gate passed all 714 steps. Published mobile and desktop smoke
+validation is in progress; no full smoke pass is claimed yet.

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 309,
+  "count": 310,
   "liberties": [
     {
       "id": "L1",
@@ -19311,6 +19311,53 @@
         {
           "label": "Window depth refinement (2026-09-30)",
           "text": "Clear v4 glass uses full dielectric transmission at the existing IOR 1.52, roughness 0.065 and 4 mm thickness. The former 6% diffuse component introduced a flat grey veil in the exported GLB. A controlled export/import study compared 0.94 and 1.0 transmission with shallow and enclosed recesses under identical lighting. Ordinary window recesses and the Prairie upper door light now close at 0.90 m behind the exterior wall plane, with four dark side faces. Dormers retain a 0.60 m backing depth. These unfurnished shadow volumes and their depths are reconstructed rendering closures, not surveyed rooms or claimed historic interiors; their vertices carry confidence 1.0. Aperture dimensions, glass, sash, shades and the building envelope are unchanged. The light and full versions use the same closure geometry."
+        }
+      ]
+    },
+    {
+      "id": "L306",
+      "title": "Four reconstructed repair-timber piles at the branch bridges",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-09-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/yard/bridge_head_timber.json`"
+        },
+        {
+          "label": "What we invented",
+          "text": "One pile at each of the four ends of the North and South Branch bridges. Eleven squared sticks per pile, 3.048 m by 0.2 m by 0.2 m, stacked in three courses. Quantity, existence at these points, squared form, stacking, colour and the 6 m longitudinal and lateral offsets are reconstructed. The deck-width reuse bounds a plausible stock length; it does not attest it."
+        },
+        {
+          "label": "Why",
+          "text": "The bridge records document timber construction, maintenance planning and repair specifications. The anti-removal ordinance does not distinguish spare stock from installed timber, and the committee instruction does not prove an executed contract. None of these sources locates a pile on 1835-07-01."
+        },
+        {
+          "label": "Placement",
+          "text": "Evaluate the chosen offsets from the committed deck centerlines, using the footprint midpoint across the width rather than the corner origin. Choose the higher of two sampled terrain points; check all pile corners are dry. The 0.8 m pile width leaves 4.08 m clear of the deck corridor. The renderer uses the terrain at the pile anchor, as for other stock in the yard layer."
+        },
+        {
+          "label": "Omission",
+          "text": "No forks ferry landing is drawn because its operation and form on the scene date remain unestablished. Earlier licences and construction of bridges do not prove the ferries had ceased. This omission can be replaced by dated ferry evidence; it is not a historical closure claim."
+        },
+        {
+          "label": "Sources",
+          "text": "`chicago_democrat_1833_1835`, `chicago_democrat_1833_11_26`, `old_settlers_bridges_1883`, `chicagology_kinzie_bridge`."
+        },
+        {
+          "label": "Would replace",
+          "text": "A dated description, plan or repair inventory locating bridge stock, or evidence locating an operating forks ferry on the scene date."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1765. See `docs/RESEARCH/bridge_head_timber.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-30 (T-1765)."
         }
       ]
     },

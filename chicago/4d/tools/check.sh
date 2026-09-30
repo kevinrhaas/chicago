@@ -1833,6 +1833,14 @@ step "the watering place's ruling still matches the committed surfaces" \
 selftest "…and the run classifier that reading rests on still fires" \
   python3 tools/measure_watering_place.py --self-test
 
+# T-1765: reconstructed stock at the four branch-bridge ends. Validate the
+# chosen offsets against committed deck centerlines and dry terrain corners.
+step "the bridge-head timber still stands where the decks and the ground put it" \
+  python3 tools/measure_bridge_head_timber.py --gate --quiet
+
+selftest "…and every assertion that set-out rests on still fires" \
+  python3 tools/measure_bridge_head_timber.py --self-test
+
 # And the feature that crossing's own drain runs OUT of. "How much of the public
 # square was wet" (T-0027) presumes a fraction can be read off the block, and it
 # cannot: the terrain draws the square at the South Division plain's +2.9 ft with

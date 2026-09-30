@@ -1,0 +1,162 @@
+{
+  "_doc": "T-1765: four reconstructed repair-timber piles at the ends of the North and South Branch bridges. Authored yard furniture, rendered from JSON by yard.js without new baked geometry. Maintenance is documented; the piles, their quantity and their offsets are reconstructed. tools/measure_bridge_head_timber.py checks the chosen placement rule against the committed deck footprints and terrain. Ferry omission is an evidence limitation, not proof of cessation.",
+  "id": "bridge_head_timber",
+  "name": "The repair timber at the bridge heads",
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/, data/signage/ and the rest of data/yard/ use. `bearing_deg` is the facing, measured clockwise from local north, as everything else on this layer is; a stick lies along the wall line of that facing, which here is the crossing's own axis.",
+  "counts": {
+    "piles": 4,
+    "bridges": 2,
+    "sticks": 44,
+    "refused": 5
+  },
+  "existence": {
+    "value": true,
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_democrat_1833_11_26",
+      "old_settlers_bridges_1883",
+      "chicagology_kinzie_bridge"
+    ],
+    "note": "The 7 November 1833 ordinance protects plank and timber belonging to the bridges; it does not distinguish installed fabric from spare stock. On 4 December 1833 the Board appointed a committee to arrange repairs to both branch bridges; this instruction does not establish that a contract was executed. These records and the documented timber deck fabric bound a reconstruction of maintenance stock. No source establishes a pile at any head on 1835-07-01, its quantity, ownership or stacking. All four piles are reconstructed. The 19 August 1835 ordinance is later context only and is not used to establish the July scene."
+  },
+  "ordinance": {
+    "confidence": "documented",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_democrat_1833_11_26"
+    ],
+    "note": "The ordinance this record stands on is the same one data/yard/town_trade_goods.json stands on — the village corporation's own rules about what may lie about the town — read on its OTHER clause. Ordinance 9 of 7 November 1833 attests timber, stone, brick, boxes and barrels in the streets and attests no location; the bridge clause of the same date attests plank and timber belonging to the bridges and attests no pile. Neither says where. That is the whole reason this record is reconstructed and the whole reason its positions are derived rather than chosen."
+  },
+  "form": {
+    "timber_stick_m": {
+      "value": [
+        3.048,
+        0.2,
+        0.2
+      ],
+      "confidence": "reconstructed",
+      "note": "A reconstructed 3.048 m length reuses the documented ten-foot deck width as a plausible repair-stock length; no source measures these sticks. The 0.2 m square section reuses the yard layer timber primitive and simplifies irregular split timber. Dimensions and form remain reconstructed."
+    },
+    "timber_pile": {
+      "value": [
+        4,
+        [
+          4,
+          4
+        ],
+        1
+      ],
+      "confidence": "reconstructed",
+      "note": "Four sticks per course, three courses, with one fewer in the top course: eleven per pile, forty-four total. The quantity, squared form and stacking are reconstructed and do not assert an inventory."
+    }
+  },
+  "rule": {
+    "count": 4,
+    "note": "One pile at each end of each of the two branch bridges is a reconstruction choice, not a documented distribution of stock.",
+    "set_out": "Chosen reconstructed offsets: 6 m beyond each deck end and 6 m to the side of its centerline. The deck centerline is computed from the footprint midpoint across its width, not its south edge. Choose the side with higher sampled ground. The 0.8 m-wide pile leaves 4.08 m between its edge and the 3.048 m-wide deck corridor. The gate checks all pile corners remain on dry modelled ground.",
+    "pose_note": "THE PILES ARE STACKED AND NOTHING IS BEING DONE TO THEM. There is no figure in this scene and no team, so nothing is in hand, in harness or half-laid. The top course is one stick short at one end because a pile being worked off loses its sticks from the side the barrow is on and a symmetrically shortened top reads as a design; that is this layer's own rule, not a claim about a Chicago carpenter."
+  },
+  "refused": [
+    {
+      "what": "a ferry landing at the forks",
+      "why": "No operating forks ferry or landing form has been established for 1835-07-01 by the committed evidence. The Miller-Clybourn ferry licence of 2 June 1829 establishes earlier service. Andreas calls Miller the original possessor of the old ferry scow and credits him with the North Branch bridge of 1832; this supports possible replacement but does not prove when ferry service ceased. The Sauganash memo describes Beaubien’s South Branch ferry as probably superseded, explicitly an inference. Therefore this scene omits these ferry landings pending dated evidence, without declaring either ferry closed. The Harrison 1830 river-mouth ferry and the later Lake House ferry are separate questions."
+    },
+    {
+      "what": "a pile at the Dearborn Street drawbridge",
+      "why": "A THIRD CROSSING, AND NOT THIS TICKET'S. `data/structures/dearborn_street_drawbridge.json` is a draw span of 1834 over the main stem with its own record, its own phases and its own dimensional argument, and the 4 December 1833 repair contract this record stands on names 'the Bridges on the North and South branches' and not it. Extending the pile to it would be extending an instrument past the crossings it names."
+    },
+    {
+      "what": "sawn plank, as a board",
+      "why": "This reconstruction uses the yard layer’s square timber primitive as a simplified stock form. It does not depict sawn boards, and the 0.2 m square section is not an attested puncheon profile."
+    },
+    {
+      "what": "a toll house, a keeper's shelter or a bridge tender's hut",
+      "why": "Nothing in anything this project has reached puts a building at any of these four heads, and the ordinances that do reach them are about conduct on the deck rather than about anybody stationed at it. A shelter would be a structure record, not yard goods, and there is no evidence to open one with."
+    },
+    {
+      "what": "hitching posts, a mounting block, a rail or a notice board at the heads",
+      "why": "All four are plausible at a crossing a corporation legislated traffic over, and all four are pure furniture: no source names one, this layer has no object for any of them, and a notice board would additionally be this project inventing the wording and the letterform of an ordinance's publication. T-1211 is where the town's posts, stoops and walks are dealt as a layer, by a rule, and a bridge head is not the place to deal four of them by hand first."
+    }
+  ],
+  "research_note": "T-1765, split from T-1763 under T-1207. Source readings: docs/RESEARCH/north_branch_bridge.md, south_branch_raft_bridge.md, miller_house.md and sauganash_hotel.md. Placement choices and evidence limits: docs/RESEARCH/bridge_head_timber.md; liberty L306.",
+  "lots": [
+    {
+      "structure_id": "north_branch_bridge",
+      "name": "North Branch Bridge",
+      "function": "bridge",
+      "confidence": "reconstructed",
+      "why_building": "Documented maintenance planning and timber bridge construction bound these reconstructed stock piles; no source locates a pile here.",
+      "items": [
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            -123.5,
+            256.02
+          ],
+          "bearing_deg": 0.0,
+          "stands_on": "south",
+          "courses": 3,
+          "end": "west",
+          "ground_m": 1.18,
+          "why_material": "The bridge records describe heavy logs and split-log flooring. Squared sticks are a simplified reconstructed representation of repair stock, not a measured timber profile.",
+          "why_here": "Reconstructed offset from the committed deck centerline and end, choosing the higher of two terrain samples; no source locates a stockpile here."
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            -39.67,
+            256.02
+          ],
+          "bearing_deg": 0.0,
+          "stands_on": "south",
+          "courses": 3,
+          "end": "east",
+          "ground_m": 1.22,
+          "why_material": "The bridge records describe heavy logs and split-log flooring. Squared sticks are a simplified reconstructed representation of repair stock, not a measured timber profile.",
+          "why_here": "Reconstructed offset from the committed deck centerline and end, choosing the higher of two terrain samples; no source locates a stockpile here."
+        }
+      ]
+    },
+    {
+      "structure_id": "south_branch_raft_bridge",
+      "name": "South Branch Bridge",
+      "function": "bridge",
+      "confidence": "reconstructed",
+      "why_building": "Documented maintenance planning and timber bridge construction bound these reconstructed stock piles; no source locates a pile here.",
+      "items": [
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            0.82,
+            -170.58
+          ],
+          "bearing_deg": 359.71,
+          "stands_on": "north",
+          "courses": 3,
+          "end": "west",
+          "ground_m": 1.14,
+          "why_material": "The bridge records describe heavy logs and split-log flooring. Squared sticks are a simplified reconstructed representation of repair stock, not a measured timber profile.",
+          "why_here": "Reconstructed offset from the committed deck centerline and end, choosing the higher of two terrain samples; no source locates a stockpile here."
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            68.84,
+            -182.23
+          ],
+          "bearing_deg": 359.71,
+          "stands_on": "south",
+          "courses": 3,
+          "end": "east",
+          "ground_m": 0.97,
+          "why_material": "The bridge records describe heavy logs and split-log flooring. Squared sticks are a simplified reconstructed representation of repair stock, not a measured timber profile.",
+          "why_here": "Reconstructed offset from the committed deck centerline and end, choosing the higher of two terrain samples; no source locates a stockpile here."
+        }
+      ]
+    }
+  ]
+}
