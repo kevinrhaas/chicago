@@ -5,6 +5,7 @@
     python3 tools/structure_versions.py check-label <label>
     python3 tools/structure_versions.py seed <id> <label> --summary "…" [--test-fixture]
     python3 tools/structure_versions.py adopt <id> <label>
+    python3 tools/structure_versions.py build-light <key> <out.glb>  # reduced same-version mesh
     python3 tools/structure_versions.py record-web <key>        # tools/web_derivatives.sh
     python3 tools/structure_versions.py status <id>             # what needs a bake
     python3 tools/structure_versions.py promote <id> <label> [--keep-as L] [--dry-run]
@@ -194,6 +195,28 @@ def cmd_adopt(args) -> int:
     return adopt(args.id, args.label)
 
 
+
+def cmd_build_light(args) -> int:
+    """Build reduced geometry from the current v4 record, without touching its master."""
+    if args.key != V.GLESSNER_V4_KEY:
+        print("   build-light: this recipe is only for Glessner v4")
+        return 2
+    master = ROOT / "assets/gltf" / args.key
+    entry = V.read_manifest()["assets"].get(args.key, {})
+    record = json.loads(V.record_path("glessner_house", "v4", ROOT).read_text())
+    phase = next(p for p in record["phases"] if p["id"] == "as_built_1887")
+    import mesh_inputs  # noqa: PLC0415
+    if not master.is_file() or entry.get("inputs_sha256") != mesh_inputs.structure_inputs_sha(
+            record, phase, record.get("archetype")):
+        print("   build-light: the full version master is missing/stale; bake it first")
+        return 2
+    from _glessner_lod import build_light  # noqa: PLC0415
+    result = build_light(master, Path(args.output), root=ROOT,
+                         recipe_sha256=V.lod_recipe_sha(ROOT))
+    print("   built same-version light geometry: " + json.dumps(result, sort_keys=True))
+    return 0
+
+
 def cmd_record_web(args) -> int:
     vman = V.read_manifest()
     entry = vman["assets"].get(args.key)
@@ -201,7 +224,29 @@ def cmd_record_web(args) -> int:
     if entry is None or not master.exists():
         print(f"   record-web: {args.key} has no manifest entry or no master — bake it first")
         return 2
+    # Record only a complete production: a failed/missing light output cannot stamp
+    # either derivative fresh. The producer writes both before invoking this command.
+    lods = {}
+    for level, key in V.lod_asset_keys(args.key).items():
+        output = ROOT / "assets/web" / key
+        if not output.is_file():
+            print(f"   record-web: missing {level} derivative {key}")
+            return 2
+        try:
+            receipt, triangles = V.light_receipt(output)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            print(f"   record-web: invalid {level} derivative: {error}")
+            return 2
+        master_sha, recipe_sha = V.sha256_file(master), V.lod_recipe_sha(ROOT)
+        if receipt.get("master_sha256") != master_sha or receipt.get("recipe_sha256") != recipe_sha:
+            print(f"   record-web: {level} receipt does not match the current master/recipe")
+            return 2
+        lods[level] = {"asset": key, "master_sha256": master_sha,
+                       "recipe_sha256": recipe_sha, "triangles": triangles,
+                       "output_sha256": V.sha256_file(output)}
     entry["web_master_sha256"] = V.sha256_file(master)
+    if lods:
+        entry["web_lods"] = lods
     V.write_manifest(vman)
     return 0
 
@@ -261,6 +306,10 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
     if version.get("id") != sid or canon.get("id") != sid:
         raise SystemExit("REFUSED: the version and the canonical record must both carry "
                          f"id '{sid}'")
+    if V.asset_key(sid, label, "as_built_1887") == V.GLESSNER_V4_KEY:
+        raise SystemExit("REFUSED: Glessner v4 has a three-file recovery package and a light "
+                         "derivative. Retarget/retire that package and LOD contract explicitly "
+                         "before promoting it; no generated asset may be silently orphaned.")
     log: list[str] = []
 
     # ---- the meshes and their books --------------------------------------------------
@@ -356,6 +405,8 @@ def status(sid: str) -> list[str]:
             elif e.get("inputs_sha256") != mesh_inputs.structure_inputs_sha(rec, ph, rec.get(
                     "archetype")):
                 out.append(f"assets/gltf/{key} (stale)")
+            else:
+                out.extend(f"{key}: {problem}" for problem in V.lod_problems(key, e, ROOT))
     return out
 
 
@@ -397,6 +448,10 @@ def main() -> int:
     p.add_argument("id")
     p.add_argument("label")
     p.set_defaults(fn=cmd_adopt)
+    p = sub.add_parser("build-light", help="reduced same-version geometry; no Blender")
+    p.add_argument("key")
+    p.add_argument("output")
+    p.set_defaults(fn=cmd_build_light)
     p = sub.add_parser("record-web")
     p.add_argument("key")
     p.set_defaults(fn=cmd_record_web)

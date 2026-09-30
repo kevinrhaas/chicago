@@ -1,0 +1,6 @@
+{
+  "rng_and_material_cases": 108,
+  "same_full_and_reduced_post_block_rng_state": true,
+  "same_material_variant_per_block": true,
+  "coverage": "large rectangular, clipped pentagonal and small blocks; granite/rough trim/brick;12 seeds each"
+}

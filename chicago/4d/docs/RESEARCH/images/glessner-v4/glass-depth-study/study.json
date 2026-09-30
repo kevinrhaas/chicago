@@ -1,0 +1,75 @@
+{
+  "variants": [
+    {
+      "variant": "trans094_shallow",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-depth-study/trans094_shallow.glb",
+      "triangles": 56,
+      "geometry": "exact generator pane emitter with candidate recess then GLB export/import; no edits to imported model",
+      "transmission": 0.94,
+      "recess_depth_m": 0.308
+    },
+    {
+      "variant": "trans100_shallow",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-depth-study/trans100_shallow.glb",
+      "triangles": 56,
+      "geometry": "exact generator pane emitter with candidate recess then GLB export/import; no edits to imported model",
+      "transmission": 1.0,
+      "recess_depth_m": 0.308
+    },
+    {
+      "variant": "trans094_deep",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-depth-study/trans094_deep.glb",
+      "triangles": 64,
+      "geometry": "exact generator pane emitter with candidate recess then GLB export/import; no edits to imported model",
+      "transmission": 0.94,
+      "recess_depth_m": 0.9
+    },
+    {
+      "variant": "trans100_deep",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-depth-study/trans100_deep.glb",
+      "triangles": 64,
+      "geometry": "exact generator pane emitter with candidate recess then GLB export/import; no edits to imported model",
+      "transmission": 1.0,
+      "recess_depth_m": 0.9
+    }
+  ],
+  "samples": [
+    128
+  ],
+  "size": [
+    384,
+    307
+  ],
+  "camera": {
+    "position": [
+      3.4,
+      1.25,
+      1.0
+    ],
+    "target": [
+      0,
+      0,
+      1.3
+    ],
+    "ortho_scale": 2.75
+  },
+  "glass": {
+    "color_linear": [
+      0.945,
+      0.97,
+      0.953
+    ],
+    "transmission": "per-variant",
+    "ior": 1.52,
+    "roughness": 0.065
+  },
+  "sky": "clear",
+  "sun_elevation": 32,
+  "sun_azimuth": 45,
+  "material_source_sha256": "a546e14fa19484775a7300f7c4dca38b81e6b92e6aeaf9d641e1bfd0fc674105",
+  "seed": 1904,
+  "exposure": -1.5,
+  "denoising": true,
+  "adaptive_threshold": 0.015,
+  "threads": 2
+}

@@ -43,10 +43,11 @@ corner of the building's bounding box, and every point of the house has x, y >= 
 
 ## What it deliberately does not do
 
-Interiors are out of scope everywhere in this project, so an opening is a surface and
-not a hole: a dark panel standing a few centimetres proud of the wall. Neighbouring
-buildings are their own records — the Glessner courtyard's south side is the north
-wall of 1808 Prairie, which belongs to that house (T-0475), not to this one.
+Full interiors remain out of scope. Legacy profiles represent openings as surface
+panels; the explicitly selected glessner_v4 profile clips real wall apertures, adds
+recessed glazing and shallow dark room backing, and preserves the open underpass.
+Neighbouring buildings are their own records — the Glessner courtyard's south side
+is the north wall of 1808 Prairie, which belongs to that house (T-0475).
 """
 
 from __future__ import annotations
@@ -77,7 +78,7 @@ FT = 0.3048
 FAMILIES = ("range_", "ridge_", "gable_", "tower_", "bay_", "turret_", "chimney_",
             "openings_")
 CONSUMED = frozenset({
-    "frame_ft", "grade_datum",
+    "frame_ft", "grade_datum", "detail_profile", "v4_detail",
     "construction", "paint", "roof_covering",
     "granite_tint", "brick_tint", "trim_tint", "roof_tint", "copper_tint", "wood_tint",
     # 1800 Prairie Avenue (glessner_house)
@@ -145,12 +146,16 @@ class MasonryHouseParams:
     walls: list = field(default_factory=list)
     ground: list = field(default_factory=list)
     confidence: dict = field(default_factory=dict)
+    detail_profile: str = ""
+    detail: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
         """The _CONFIDENCE float for one attribute."""
         return CONFIDENCE_VALUE[self.confidence.get(attr, default)]
 
     def validate(self) -> None:
+        if self.detail_profile not in ("", "glessner_v4"):
+            raise ParamError(f"unknown masonry detail profile {self.detail_profile!r}")
         if not 3.0 <= self.width_m <= 120.0 or not 3.0 <= self.depth_m <= 120.0:
             raise ParamError(f"footprint {self.width_m} x {self.depth_m} m is outside "
                              f"3-120 m — not a house")
@@ -311,7 +316,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                          f"there, or tools/validate.py will believe nothing reads them")
 
     p = MasonryHouseParams(width_m=round(width, 3), depth_m=round(depth, 3),
-                           colours=colours)
+                           colours=colours, detail_profile=val("detail_profile", ""))
     p.confidence = {a: (form[a] or {}).get("confidence", "reconstructed") for a in form}
     p.confidence["footprint"] = phase.get("footprint", {}).get("confidence",
                                                                "reconstructed")
@@ -512,8 +517,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
 
     # --------------------------------------------------------------- openings
     heights = val("opening_heights") or {}
-    for attr in family("openings_"):
-        grp = form[attr]["value"]
+    opening_groups = [(a, form[a]["value"]) for a in family("openings_")]
+    if p.detail_profile:
+        opening_groups += [("v4_detail", g) for g in
+                           (val("v4_detail", {}).get("supplemental_openings", []))]
+    for attr, grp in opening_groups:
         face = grp["face"]
         plane = _face(fr, face, grp["at"])
         rows = heights.get(attr, {})
@@ -560,6 +568,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     continue
                 op = {**plane, "kind": kind, "u0": u0, "u1": u1, "z0": z0, "z1": z1,
                       "conf": conf}
+                if it.get("style"):
+                    op["style"] = it["style"]
                 if kind in ("arch", "fan"):
                     op["spring_z"] = fr.z(it["spring"], datum)
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)
@@ -606,5 +616,93 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                              "lift_m": round(float(g.get("lift_ft", 0.05)) * FT, 4),
                              "conf": cf("courtyard_ground")})
 
+    if p.detail_profile:
+        raw = val("v4_detail", {})
+        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
+                                          for h in raw.get("ashlar_courses_in", [])]
+        p.detail["ashlar_relief_m"] = [float(v) * FT for v in
+                                        raw.get("ashlar_relief_ft", [0.025,0.15])]
+        p.detail["conf"] = cf("v4_detail")
+        cg = raw.get("west_cross_gable")
+        if cg:
+            a, b = sorted((fr.y(cg["S"][0]), fr.y(cg["S"][1])))
+            p.detail["west_cross_gable"] = {"axis": "x", "sign": -1,
+                "at": fr.x(cg["W"]), "u0": a, "u1": b,
+                "ridge_at": fr.y(cg["ridge_S"]), "ridge_z": fr.zval(cg["ridge"]),
+                "eave_lo_z": fr.zval(cg["eaves"][1]),
+                "eave_hi_z": fr.zval(cg["eaves"][0]), "conf": cf("v4_detail")}
+        wd = raw.get("west_dormer")
+        if wd:
+            half = float(wd["width_ft"]) / 2
+            p.detail["west_dormer"] = {"front": fr.x(wd["front_W"]),
+                "back": fr.x(wd["back_W"]), "u0": fr.y(wd["centre_S"] + half),
+                "u1": fr.y(wd["centre_S"] - half), "z0": fr.zval(wd["base"]),
+                "eave_z": fr.zval(wd["eave"]), "apex_z": fr.zval(wd["apex"]),
+                "conf": cf("v4_detail")}
+        cr = raw.get("copper_return")
+        if cr:
+            p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),
+                "x1": max(fr.x(w) for w in cr["W"]),
+                "y0": min(fr.y(s) for s in cr["S"]),
+                "y1": max(fr.y(s) for s in cr["S"]),
+                "wall_top_z": fr.zval(cr["wall_top"]),
+                "rise_m": float(cr["rise_ft"]) * FT, "conf": cf("v4_detail")}
+        p.detail["bow_garden_windows"] = int(raw.get("bow_garden_windows", 2))
+        p.detail["dining_garden_window_facets"] = list(raw.get("dining_garden_window_facets", [0,2,4]))
+        if raw.get("dining_garden_window_z"):
+            p.detail["dining_garden_window_z"] = [fr.z(v) for v in raw["dining_garden_window_z"]]
+        if raw.get("chimney_details"):
+            p.detail["chimney_details"] = raw["chimney_details"]
+        if raw.get("tower_stair_windows"):
+            tw = raw["tower_stair_windows"]
+            p.detail["tower_stair_windows"] = {"lantern_panes": tw.get("lantern_panes", [2,3]), "openings": [
+                {"angle": math.radians(w["azimuth_deg"]), "width_m": w["width_ft"] * FT,
+                 "z0": fr.z(w["z"][0]), "z1": fr.z(w["z"][1])}
+                for w in tw.get("slits", []) + tw.get("lantern", [])],
+                "bands": [[fr.z(v) for v in tw[key]] for key in
+                          ("lantern_sill_band_z", "lantern_lintel_band_z") if key in tw]}
+        bt = raw.get("bow_terrace")
+        if bt:
+            p.detail["bow_terrace"] = {"cx": fr.x(bt["centre_W"]), "cy": fr.y(bt["centre_S"]),
+                "r": bt["outer_r_ft"] * FT, "z1": fr.zval(bt["top_z"]),
+                "coping_m": bt["coping_ft"] * FT, "thick_m": bt["wall_thickness_ft"] * FT,
+                "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
+                "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
+                "stair_steps": int(bt.get("stair_steps", 9))}
+        p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
+        service_stair = raw.get("north_court_service_stair")
+        if service_stair:
+            p.detail["north_court_service_stair"] = {
+                "landing_x": sorted(fr.x(v) for v in service_stair["landing_W"]),
+                "landing_y": sorted(fr.y(v) for v in service_stair["landing_S"]),
+                "flight_x": sorted(fr.x(v) for v in service_stair["flight_W"]),
+                "flight_y": sorted(fr.y(v) for v in service_stair["flight_S"]),
+                "landing_z": fr.zval(service_stair["landing_z"]),
+                "steps": int(service_stair["steps"]),
+                "rail_height_m": float(service_stair["rail_height_ft"]) * FT}
+        un = raw.get("underpass")
+        if un:
+            p.detail["underpass"] = {"pts": [fr.xy(v) for v in un["plan_WS"]],
+                "ceiling_prairie_z": fr.zval(un["ceiling_prairie"]),
+                "ceiling_court_z": fr.zval(un["ceiling_court"]), "floor_z": fr.zval(un["floor"])}
+        p.detail["porte_cochere_open_deg"] = raw.get("porte_cochere_open_deg", 82)
+        gd = raw.get("gable_details", {})
+        en = gd.get("east_north")
+        if en:
+            a,b = sorted(fr.x(v) for v in en["date_stone_W"])
+            p.detail["date_stones"] = [{"axis": "y", "sign": 1, "at": fr.y(0),
+                "u0": a, "u1": b, "z0": fr.z(en[key][0]), "z1": fr.z(en[key][1]),
+                "text": en[textkey]} for key,textkey in [("date_stone_z","date_text"),("ad_stone_z","ad_text")]]
+        sn = gd.get("stable_north")
+        if sn:
+            a,b = sorted(fr.x(v) for v in sn["pigeon_ledge_W"])
+            p.detail["pigeon_ledge"] = {"axis": "y", "sign": 1, "at": fr.y(0),
+                "u0": a, "u1": b, "z0": fr.z(sn["pigeon_ledge_z"][0]),
+                "z1": fr.z(sn["pigeon_ledge_z"][1]), "projection_m": sn["projection_ft"] * FT}
+        p.detail["joinery"] = {k: (float(v)*FT if k.endswith("_ft") else v)
+                               for k,v in raw.get("joinery", {}).items()}
+        if raw.get("bow_garden_window_z") and not bt:
+            for bow in p.bows:
+                bow["light_rows"].insert(0, [fr.z(v) for v in raw["bow_garden_window_z"]])
     p.validate()
     return p

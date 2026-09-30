@@ -556,6 +556,9 @@ def _ground(b, g) -> None:
 def build(params: MasonryHouseParams, name: str):
     """Build one masonry house. Returns a Blender object at the local origin."""
     params.validate()
+    if params.detail_profile == "glessner_v4":
+        from archetypes.masonry_house_v4_detail import build as build_detail
+        return build_detail(params, name)
     b = MeshBuilder(name)
     for r in params.ranges:
         _range(b, r)

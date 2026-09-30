@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "variant": "open_slab",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-pane-study/open_slab.glb",
+      "triangles": 54,
+      "geometry": "exact generator emitter then GLB export/import; no edits to imported model"
+    },
+    {
+      "variant": "single_quad",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-pane-study/single_quad.glb",
+      "triangles": 46,
+      "geometry": "exact generator emitter then GLB export/import; no edits to imported model"
+    },
+    {
+      "variant": "closed_4mm",
+      "file": "/workspace/scratch/2b9723ff55ae/glessner-review/glass-pane-study/closed_4mm.glb",
+      "triangles": 56,
+      "geometry": "exact generator emitter then GLB export/import; no edits to imported model"
+    }
+  ],
+  "samples": [
+    48,
+    128
+  ],
+  "size": [
+    384,
+    307
+  ],
+  "camera": {
+    "position": [
+      1.25,
+      -3.4,
+      1.0
+    ],
+    "target": [
+      0,
+      0,
+      1.3
+    ],
+    "ortho_scale": 2.75
+  },
+  "glass": {
+    "color_linear": [
+      0.945,
+      0.97,
+      0.953
+    ],
+    "transmission": 0.94,
+    "ior": 1.52,
+    "roughness": 0.065
+  },
+  "sky": "overcast",
+  "seed": 1904,
+  "exposure": -1.5,
+  "denoising": true,
+  "adaptive_threshold": 0.015,
+  "threads": 2
+}

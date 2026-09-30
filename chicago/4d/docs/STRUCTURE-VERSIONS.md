@@ -116,3 +116,42 @@ so the release smoke can prove the switch on a real 1835 structure until the Gle
 versions land. A visitor never sees it unless the address asks for
 `?structure=bates_auction_room&version=fixture`, and the card then says it is a test
 fixture. Retire it once real versions exist and the smoke points at one of them.
+
+
+## Glessner v4 detail derivatives (T-1730)
+
+The selected v4 uses its canonical detailed mesh in Full and a separately
+produced mesh in Balanced and Light. Both consume the same version record and
+architectural opening functions. The reduced profile keeps the envelope, all
+172 scheduled openings, doors, roof intersections, chimneys and confidence.
+It reduces stone-face sampling, carving, roof-course sampling and grass blades.
+Omitted microrelief changes the measured horizontal bounds by at most 25.7 mm;
+roof crowns, chimney height and ground extrema are retained.
+
+The optional sidecar field `asset_lods.light` names an ordinary glTF asset,
+relative to the same asset base as `asset`. Only this exact comparison version
+opts in. A light boot downloads only the reduced file. A later detail change
+prepares a replacement before swapping the visible building, preserves record
+identity and placement, and keeps the prior model on a failed request.
+
+`tools/web_derivatives.sh` produces both files before recording freshness. The
+standard-library producer `tools/structure_versions.py build-light` copies the
+current full master's materials and images into the reduced geometry; it needs
+no Blender. `assets/manifest.versions.json` records the master, recipe and output
+hashes. The light GLB also carries a receipt checked against those inputs and a
+200,000-triangle ceiling before it can be recorded. Failed production cannot
+stamp a previous light file as fresh.
+
+The recovery archive contains exactly the full master, full web derivative and
+light web derivative. Restore writes only missing files and refuses divergent
+existing bytes. An ordinary producer updates the archive; `--out` measurements
+do not. Promotion to default must explicitly retarget or retire this alternate
+package and its LOD contract; the generic promotion command refuses it until
+that lifecycle is handled.
+
+The selected v4 Full allowance is 3,800,000 rendered triangles, measured from
+a five-stand price whose maximum was 3,430,985. The ordinary town and all Light
+(825,000), Balanced (1,280,000) and draw-call (215) allowances remain unchanged.
+This is a measured allowance for the requested inspection detail, not a claim
+about frame rate on every device. The final published browser receipt is kept
+with the visual review in `docs/RESEARCH/glessner-v4-qa/`.

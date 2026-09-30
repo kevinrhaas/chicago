@@ -2,6 +2,8 @@
 """The structure-version gates fire (T-1727).
 
     python3 tools/test_structure_versions.py [--self-test]   (the flag is accepted; every run is one)
+    python3 tools/test_structure_versions.py --liberties-only (no meshes required)
+    python3 tools/test_structure_versions.py --isolated-only (coverage and hash fixtures)
 
 `tools/validate.py` holds every structure VERSION (data/structures/versions/<id>/<label>.json)
 to the structure rules, and `--stale` holds its mesh. The ticket's acceptance names the reds
@@ -71,6 +73,182 @@ check("a label with a refused name inside it is refused, wherever the name sits"
       "no three-letter digest found" if _name is None else "")
 
 
+# ---- truthful admissions can belong only to a version (T-1730) ------------------------
+# These cases use independent records, not the committed meshes: they exercise the
+# whole-town forward AND reverse pass that used to reject v4-only form attributes.
+def liberties_case(*, phase="existing", confidence="reconstructed", claim=True,
+                   claimed_phase=None, claimed_aspect="form.detail_profile",
+                   omitted=False, ground_gap=False) -> list[str]:
+    canonical = {"house.json": {"id": "house", "archetype": "test",
+                               "phases": [{"id": "existing", "form": {}}]}}
+    attribute = {"value": "detailed", "confidence": confidence}
+    if omitted:
+        attribute["geometry"] = "simplified"
+    alternate = {"house/v4.json": {"id": "house", "archetype": "test",
+                                  "version": {"label": "v4"},
+                                  "phases": [{"id": phase,
+                                              "form": {"detail_profile": attribute}}]}}
+    covers = [{"structure": "house", "phase": claimed_phase or phase,
+               "aspect": claimed_aspect}] if claim else []
+    # An entry with no covers keeps the register nonempty while testing an
+    # unclaimed actual value, rather than the separate empty-register refusal.
+    register = {"liberties": [{"id": "L-test", "subjects": ["house"],
+                                "section": "active", "covers": covers}]}
+    consumed = {"test": frozenset() if omitted else frozenset({"detail_profile"})}
+    unlanded = [("house", phase, "ground_contact", f"version house/v4/{phase}", 0.5)] \
+        if ground_gap else []
+    rep = validate.Report()
+    validate.check_liberties_coverage(canonical, register, rep, consumed, unlanded,
+                                     versions=alternate)
+    return rep.errors
+
+
+errs = liberties_case()
+check("a claimed version-only form attribute is admitted without changing the default",
+      not errs, "; ".join(errs))
+errs = liberties_case(phase="alternate_phase")
+check("reverse coverage finds a phase belonging only to the version, not the first default",
+      not errs, "; ".join(errs))
+errs = liberties_case(phase="alternate_phase", claimed_phase="missing_phase")
+check("a phase absent from both default and version is still refused",
+      any("has no phase 'missing_phase'" in e for e in errs), str(errs))
+errs = liberties_case(claimed_aspect="form.nonexistent")
+check("an invented admission with no value in any record is still refused",
+      any("form.nonexistent" in e and "neither inferred" in e for e in errs), str(errs))
+errs = liberties_case(claim=False)
+check("a version-only invention without an admission is still refused",
+      any("form.detail_profile is inferred but no liberty" in e for e in errs), str(errs))
+errs = liberties_case(confidence="attested")
+check("a version-only attested built value does not excuse an invented-value over-claim",
+      any("neither inferred" in e for e in errs), str(errs))
+errs = liberties_case(phase="alternate_phase", confidence="attested", omitted=True)
+check("a declared omission belonging only to a version honours its admission",
+      not errs, "; ".join(errs))
+errs = liberties_case(phase="alternate_phase", confidence="attested", ground_gap=True,
+                      claimed_aspect="ground_contact")
+check("a measured ground-contact gap belonging only to a version honours its admission",
+      not errs, "; ".join(errs))
+
+if "--liberties-only" in sys.argv:
+    say(f"{len(FAILURES)} failure(s)")
+    sys.exit(1 if FAILURES else 0)
+
+
+# ---- a version's exclusive dependencies cannot stale the default (T-1730) -------------
+def test_detail_dependency_isolation() -> None:
+    from dataclasses import dataclass  # noqa: PLC0415
+    from unittest.mock import patch  # noqa: PLC0415
+    import mesh_inputs  # noqa: PLC0415
+
+    @dataclass
+    class Params:
+        detail_profile: str = ""
+
+    with tempfile.TemporaryDirectory(prefix="version-inputs-") as tmp:
+        root = Path(tmp)
+        files = {
+            "generators/blender.pin": "4.3.2",
+            "generators/emit.py": "# shared export\n",
+            "generators/archetypes/masonry_house.py": "# shared builder\n",
+            "generators/common/mesh.py": "# shared geometry\n",
+            "generators/archetypes/masonry_house_v4.py": "# v4 detail\n",
+            "generators/archetypes/masonry_house_v4_materials.py": "# v4 materials\n",
+            "assets/textures/glessner-v4/stone.png": "png fixture",
+            "assets/textures/glessner-v4/stone_normal.jpg": "jpeg fixture",
+            "assets/textures/glessner-v4/generate.py": "# texture recipe\n",
+        }
+        for rel, content in files.items():
+            p = root / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(content)
+
+        structure = {"id": "glessner_house", "archetype": "masonry_house"}
+        default_phase = {"id": "built", "profile": ""}
+        detail_phase = {"id": "built", "profile": "glessner_v4"}
+        with patch.object(mesh_inputs, "ROOT", root), \
+                patch.object(mesh_inputs.code_inputs, "geometry_modules", return_value=[
+                    root / "generators/common/mesh.py"]), \
+                patch.object(mesh_inputs, "resolve_params", side_effect=
+                             lambda arch, phase, record: Params(phase["profile"])):
+            baseline = mesh_inputs.structure_inputs_sha(structure, default_phase)
+            detailed = mesh_inputs.structure_inputs_sha(structure, detail_phase)
+            default_doc = mesh_inputs.structure_inputs_doc(structure, default_phase)
+            check("the default has no v4 detail or texture dependency",
+                  "textures" not in default_doc and not any(
+                      "masonry_house_v4" in name for name in default_doc["code"]))
+
+            # Change one input at a time and restore it, so each refusal is
+            # independently caused by the named dependency. No real map is touched.
+            for rel, label in (
+                ("generators/archetypes/masonry_house_v4.py", "v4 detail module"),
+                ("generators/archetypes/masonry_house_v4_materials.py", "v4 material module"),
+                ("assets/textures/glessner-v4/stone.png", "v4 PNG map"),
+                ("assets/textures/glessner-v4/stone_normal.jpg", "v4 JPEG map"),
+                ("assets/textures/glessner-v4/generate.py", "v4 texture recipe"),
+            ):
+                p = root / rel
+                p.write_text(files[rel] + " changed")
+                check(f"changing the {label} stales v4",
+                      mesh_inputs.structure_inputs_sha(structure, detail_phase) != detailed)
+                check(f"changing the {label} leaves the default fresh",
+                      mesh_inputs.structure_inputs_sha(structure, default_phase) == baseline)
+                p.write_text(files[rel])
+
+
+test_detail_dependency_isolation()
+
+# LOD freshness is tested with independent byte fixtures: each link can go red
+# without rewriting any committed bake or calling a heavyweight tool.
+def test_light_derivative_freshness() -> None:
+    with tempfile.TemporaryDirectory(prefix="version-light-") as tmp:
+        root = Path(tmp)
+        key = V.GLESSNER_V4_KEY
+        light = V.lod_asset_keys(key)["light"]
+        for name, content in (("assets/gltf/" + key, b"full master"),
+                              ("assets/web/" + light, b"reduced same version"),
+                              ("tools/structure_versions.py", b"recipe fixture"),
+                              ("tools/_glessner_lod.py", b"geometry recipe fixture"),
+                              ("data/structures/versions/glessner_house/v4.json", b"source record"),
+                              ("generators/archetypes/masonry_house_v4_detail.py", b"detail source")):
+            path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(content)
+        entry = {"web_lods": {"light": {"asset": light,
+            "master_sha256": V.sha256_file(root / "assets/gltf" / key),
+            "recipe_sha256": V.lod_recipe_sha(root),
+            "output_sha256": V.sha256_file(root / "assets/web" / light)}}}
+        check("same-version light master/recipe/output chain is fresh",
+              not V.lod_problems(key, entry, root))
+        for rel, label in (("assets/gltf/" + key, "version master"),
+                           ("assets/web/" + light, "light output"),
+                           ("tools/structure_versions.py", "light producer recipe"),
+                           ("tools/_glessner_lod.py", "light geometry recipe"),
+                           ("data/structures/versions/glessner_house/v4.json", "light source record"),
+                           ("generators/archetypes/masonry_house_v4_detail.py", "light detail geometry")):
+            path = root / rel; original = path.read_bytes(); path.write_bytes(original + b" changed")
+            check(f"changing {label} refuses the stale light derivative",
+                  bool(V.lod_problems(key, entry, root)))
+            path.write_bytes(original)
+        helper = root / "tools/_glessner_lod.py"; content = helper.read_bytes(); helper.unlink()
+        problems = V.lod_problems(key, entry, root)
+        check("a missing light recipe input is a diagnostic failure, not a traceback",
+              any("cannot read its rendering recipe" in problem for problem in problems))
+        helper.write_bytes(content)
+        check("a missing light record cannot be accepted", bool(V.lod_problems(key, {}, root)))
+        path = root / "assets/web" / light; path.unlink()
+        check("a missing light output cannot be accepted", bool(V.lod_problems(key, entry, root)))
+        check("default/v2/v3 and similarly named v40 have no implicit LOD",
+              all(not V.lod_asset_keys(k) for k in (key.replace('/v4/', '/v2/'),
+                  key.replace('/v4/', '/v3/'), key.replace('/v4/', '/v40/'),
+                  "glessner_house__as_built_1887.glb")))
+
+
+test_light_derivative_freshness()
+
+if "--isolated-only" in sys.argv:
+    say(f"{len(FAILURES)} failure(s)")
+    sys.exit(1 if FAILURES else 0)
+
+
 # ---- the validator, on a sandbox ------------------------------------------------------
 def load_world():
     rep = validate.Report()
@@ -94,6 +272,16 @@ def sandbox() -> Path:
             shutil.copytree(src, root / rel)
     shutil.copyfile(REAL / "assets" / "manifest.versions.json",
                     root / "assets" / "manifest.versions.json")
+    # LOD freshness recomputes its real source/producer recipe inside this
+    # sandbox. A fixture with only assets is intentionally an incomplete checkout,
+    # not a clean control; copy the exact recipe inputs without running any writer.
+    recipe_files = [REAL / "tools/structure_versions.py", REAL / "tools/_glessner_lod.py",
+                    REAL / "generators/archetypes/masonry_house.py"]
+    recipe_files.extend((REAL / "generators/archetypes").glob("masonry_house_v4*.py"))
+    for source in recipe_files:
+        target = root / source.relative_to(REAL)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
     return root
 
 

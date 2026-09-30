@@ -1,3 +1,49 @@
+## T-1752 — frontage census repaired from its authored history (2026-09-29)
+
+Seven stale smoke counts now follow the existing frontage records: 51 walks,
+46 crossings, 18 unchanged posts, 32 fences, 119 refusals, 58 authored meshes
+(plus optional lettering) and 40 street-edge faces. T-1734 transposed Clinton's
+lots; T-1736, T-1708, T-1735 and T-1751 improved four Washington blocks. The
+evidence is in `docs/measurements/T-1752-frontage-census.md`. No scene data or
+geometry changes; all other assertions and floors remain. This repairs the
+gate blocking the visible Glessner v4 parcel, T-1730.
+
+The frontage re-derivation passes. Published mobile smoke parts 1–2 pass
+158/0 in 2 m 50 s, with zero page errors, on `sha256:001a8c5194069f6e`; the
+standing smoke record carries that exact tree. `CHECK_JOBS=2 bash tools/check.sh`
+passes all 708 steps, none red. Other browser parts were not rerun for this
+isolated census repair. The final integrated comparison build also passes all
+712 GitHub gate steps and the complete published smoke: mobile 572/0 and
+desktop 569/0, with zero page errors. The final receipts are in
+`docs/RESEARCH/glessner-v4-qa/` and the standing smoke record.
+
+## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
+
+The opt-in v4 uses the default envelope with measured ashlar course heights,
+corrected crossing roofs and courtyard openings, physical window/door recesses,
+stone and brick relief, overlapping clay tiles and original metric PBR maps.
+Evidence: `docs/RESEARCH/glessner_house_v4.md`; reconstructed details: L305.
+The working branch is `steward/glessner-v4`; recoverable checkpoints and the
+remaining acceptance work are in `docs/RESEARCH/glessner_v4_work.md`.
+
+Refined06 packages full and reduced versions of the same model, retaining all
+172 openings. Full uses detailed relief; Balanced and Light use the reduced
+mesh. Clear dielectric glazing and enclosed recesses improve the previous grey
+panels. Published desktop/touch-mobile review passes all 30 view/tier readings,
+failed-download recovery and repeated/rapid detail switches.
+
+The final code checkpoint `823442ee` passes all 712 GitHub gate steps. Complete
+published smoke passes mobile 572/0 and desktop 569/0 with zero page errors.
+`docs/RESEARCH/glessner-v4-qa/refined-06-final-review.md` records exact assets,
+measurements, renders and limitations. The local full preflight was blocked by
+the environment's API policy and is not counted as a pass.
+
+The comparison build corrects the early blank tower windows, bay glazing,
+blocked passage and flat chimney faces, and refines stone fracture, joinery,
+carving and glass. Exact carving and surface appearance remain reconstructed;
+passing checks do not establish photographic likeness. Default, v2 and v3 stay
+available. T-1730 remains open for the owner's comparison among versions.
+
 ## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
 
 `blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
@@ -18562,3 +18608,13 @@ preview so these changes can be inspected before production promotion.
 Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected scene. The 1904 catalog has a two-stop Glessner orientation; the 1835 pilot is unchanged. Loading phase events still drive progress and errors, but their separate decorative line is hidden. Eight arrival titles rotate every three seconds, held still for reduced motion. Broader drawer content remains T-1740. Verification is recorded in the PR; no production promotion is implied.
 
 T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
+
+
+### T-1730 v4 glazing and version-contract refinement
+
+The v4 comparison now has clear dielectric glazing and enclosed dark recesses,
+removing the flat grey window veil while preserving all openings at both detail
+levels. The sidecar validator includes the alternate-version indexes the viewer
+loads; regression cases preserve the missing-field refusal. Full GitHub gate
+and published desktop/mobile smoke are pending. No final photographic-quality
+claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.

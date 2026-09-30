@@ -1,0 +1,615 @@
+serving /workspace/scratch/2b9723ff55ae/glessner-v4/site/4d on 4188 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the frame is multisampled — the town's edges are resolved on a phone too
+  pass  mobile 390x780: the declared scene-detail ceilings descend — it is a ladder, not three numbers
+  pass  mobile 390x780: no scene-detail rung is running clamped — the table and the scene agree
+  pass  mobile 390x780: every scene-detail rung says what it protects and what measurement set it
+  pass  mobile 390x780: the loader carries no town census or coverage dashboard
+  pass  mobile 390x780: the bridge declares a water anchor
+  pass  mobile 390x780: the bridge sits on the water plane, not on the terrain
+  pass  mobile 390x780: the enclosure layer draws its records
+  pass  mobile 390x780: the enclosure layer is chunked so the frustum can cull it
+  pass  mobile 390x780: every fence vertex carries a confidence grade
+  pass  mobile 390x780: no fence member stands outside its own authored run
+  pass  mobile 390x780: the yard fence reaches the screen from inside the yard
+  pass  mobile 390x780: the estray pen is drawn as an enclosure and bakes no mesh
+  pass  mobile 390x780: the retired box leaves no invisible wall on the public square
+  pass  mobile 390x780: the pen reaches the screen from inside the pen
+  pass  mobile 390x780: aiming at the pen's fence still opens the pen's card
+  pass  mobile 390x780: the town's house lots carry generated picket gardens
+  pass  mobile 390x780: the picket branch draws pales, not just posts and rails
+  pass  mobile 390x780: the garden fence reaches the screen from the dooryard
+  pass  mobile 390x780: the town's improved lots read as fenced, block after block
+  pass  mobile 390x780: the lot fences are built in the period's three types
+  pass  mobile 390x780: the enclosure is spread over the town, not stacked in one district
+  pass  mobile 390x780: a lot's yard states no ground treatment, so its sward stands
+  pass  mobile 390x780: every lot fence is graded reconstructed, record and vertex
+  pass  mobile 390x780: the lot fences reach the screen from the alley they face
+  pass  mobile 390x780: the Sauganash's rear yard is fenced with boards, not rails
+  pass  mobile 390x780: the yard fence is drawn at the height its record states
+  pass  mobile 390x780: every stem the yard's planting record places stands inside that yard
+  pass  mobile 390x780: the yard fence reaches the screen from Market Street
+  pass  mobile 390x780: the trees behind the fence reach the screen with it
+  pass  mobile 390x780: every fenced interior in the town carries a ground treatment
+  pass  mobile 390x780: the ground inside a 'worn_earth' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'worn_earth' fence
+  pass  mobile 390x780: the ground inside a 'trodden_earth' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'trodden_earth' fence
+  pass  mobile 390x780: the ground inside a 'dooryard_garden' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'dooryard_garden' fence
+  pass  mobile 390x780: the fenced ground is graded reconstructed and casts no shadow
+  pass  mobile 390x780: the sward is suppressed on the ground the records declare and nowhere else
+  pass  mobile 390x780: the ground in the wagon yard reaches the screen from inside it
+  pass  mobile 390x780: the ground in a picketed dooryard reaches the screen from inside it
+  pass  mobile 390x780: the dooryard pass planted stems across the town
+  pass  mobile 390x780: Cobweb Castle's dealt stems are among them
+  pass  mobile 390x780: Cobweb Castle's dooryard trees reach the screen
+  pass  mobile 390x780: the currant clump by its door reaches the screen
+  pass  mobile 390x780: the stockade's pickets are baked at the record's twelve feet
+  pass  mobile 390x780: the stockade tops a walker's eye where wall and anchor meet
+  pass  mobile 390x780: a level gaze there stops at the stockade, and the card says so
+  pass  mobile 390x780: the garden fence holds below the eye of the walker who meets it
+  pass  mobile 390x780: a level gaze sails clean over the garden fence
+  pass  mobile 390x780: a tap on the garden fence names the garden, not a fort wall
+  pass  mobile 390x780: the stockade stands over a walker's eye from the parade side
+  pass  mobile 390x780: a level gaze from the parade side stops at the stockade
+  pass  mobile 390x780: the signage layer puts up the record's signs
+  pass  mobile 390x780: the whole signage layer is one draw call
+  pass  mobile 390x780: no board is fixed over a door or a window
+  pass  mobile 390x780: the signs still cast into the shadow map
+  pass  mobile 390x780: every signboard vertex is graded reconstructed
+  pass  mobile 390x780: no sign strays past the reach its own mounting declares
+  pass  mobile 390x780: every sign stands outside its own facade
+  pass  mobile 390x780: every sign carries its business's name, painted
+  pass  mobile 390x780: no two signs within sight of each other are alike
+  pass  mobile 390x780: the town puts its signs up five different ways
+  pass  mobile 390x780: one street's signs are visibly different from each other
+  pass  mobile 390x780: the hotel's board reaches the screen from the street
+  pass  mobile 390x780: aiming at a signboard opens the business behind it
+  pass  mobile 390x780: the board and the card agree about whose business this is
+  pass  mobile 390x780: every board names its proprietor and its trade, not our label
+  pass  mobile 390x780: the golden mortar is on Carpenter's board and on no other
+  pass  mobile 390x780: part 1 hands the page on with nothing standing over the chrome
+  pass  mobile 390x780: the yard layer stands the record's goods
+  pass  mobile 390x780: the yard layer chunks for culling on a single material
+  pass  mobile 390x780: every cask and case carries the mark its record deals it
+  pass  mobile 390x780: the marks ride on the layer's own material, on the sheet
+  pass  mobile 390x780: every yard-goods vertex is graded reconstructed
+  pass  mobile 390x780: no barrel or case strays from the frontage it stands at
+  pass  mobile 390x780: every object stands outside its own facade
+  pass  mobile 390x780: the attested wagon stands in the yard it is named for
+  pass  mobile 390x780: the Green Tree's yard wagons stand clear, square to its rear wall
+  pass  mobile 390x780: the bench stands against the Green Tree's front wall
+  pass  mobile 390x780: the Green Tree's wagon shed is a lean-to that clears its tilt
+  pass  mobile 390x780: nothing in the shed's bay reaches through its wall or its roof
+  pass  mobile 390x780: the building material stands on the lot that was going up
+  pass  mobile 390x780: no pile of material stands inside the building it is for
+  pass  mobile 390x780: the tilt is drawn in canvas on the layer's one material
+  pass  mobile 390x780: the town's wagons are spread across its streets, not at two doors
+  pass  mobile 390x780: the town's wagons vary in type
+  pass  mobile 390x780: the town's wagons stand at the slew the rule dealt them
+  pass  mobile 390x780: every wagon the town gained cards reconstructed
+  pass  mobile 390x780: no wagon stands on a plank walk, in a garden or in a pen
+  pass  mobile 390x780: no wagon stands in a street's travelled track
+  pass  mobile 390x780: the wagon rule wrote down what it refused
+  pass  mobile 390x780: the goods reach the screen from the footway
+  pass  mobile 390x780: aiming at a barrel opens the business it stands at
+  FAIL  mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]
+  pass  mobile 390x780: no frontage board stands under a wharf deck or its stair
+  pass  mobile 390x780: every frontage vertex is graded reconstructed
+  pass  mobile 390x780: the plank decks tie into the ground they cross
+  pass  mobile 390x780: the street decal cannot paint over the timber laid on it
+  pass  mobile 390x780: a plank walk's side is one made edge for its whole length
+  pass  mobile 390x780: the named board hangs on a post that stands on the ground, or the record refuses it
+  FAIL  mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all
+  pass  mobile 390x780: the board carries the record's own name, painted, or none is drawn and the name is kept
+  pass  mobile 390x780: the walk and its board reach the screen from the street
+  pass  mobile 390x780: aiming at the frontage opens the inn it belongs to
+  pass  mobile 390x780: the eighteen hitching posts stand on their own ground, carrying nothing
+  pass  mobile 390x780: the Sauganash's walks and posts reach the screen from Lake Street
+  pass  mobile 390x780: aiming at the Sauganash's frontage opens the hotel it belongs to
+  pass  mobile 390x780: the river walk publishes its floor and rides no deck at its east end
+  pass  mobile 390x780: the old mouth west of State is filled and the walker stands on it
+  pass  mobile 390x780: exactly one slough mouth at the foot of State, and it is the notch
+  pass  mobile 390x780: the east end reads as planks underfoot, and walks on along the bank
+  pass  mobile 390x780: aiming at the riverside walk answers its own reconstructed card
+  FAIL  mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered
+  pass  mobile 390x780: Lake Street's walk is continuous and walkable end to end
+  pass  mobile 390x780: South Water's reconciled block face is one walk, end to end
+  pass  mobile 390x780: a board crossing carries the walker over the road at the corner
+  pass  mobile 390x780: no plank sidewalk lies in the travelled track
+  pass  mobile 390x780: no street-edge walk admits a rooted plant through its deck
+  pass  mobile 390x780: every stated dock that has traced bank under it is drawn
+  pass  mobile 390x780: the whole wharf layer is one draw call
+  pass  mobile 390x780: every wharf vertex is graded reconstructed
+  pass  mobile 390x780: no wharf vertex strays off its own deck outline
+  pass  mobile 390x780: every deck ties into the bank and reaches over the water
+  pass  mobile 390x780: no deck floats and every crib reaches the bed
+  pass  mobile 390x780: every plank a wharf drew is published to the walker at the height it drew it
+  pass  mobile 390x780: no boarding tread rises past the record's ceiling or the step-up rule
+  pass  mobile 390x780: a visitor walks off the bank, up the stair and out over the water
+  pass  mobile 390x780: the wharf reaches the screen from the bank
+  pass  mobile 390x780: aiming at a wharf opens the warehouse it serves
+  pass  mobile 390x780: the west bank's landing reaches the screen from Wolf Point
+  pass  mobile 390x780: aiming at the west bank's landing opens Robert Kinzie's store
+  pass  mobile 390x780: no plank walk admits a rooted plant through its deck
+  pass  mobile 390x780: no wharf deck admits a rooted plant - wet species included
+  pass  mobile 390x780: every authored boat is on the water
+  pass  mobile 390x780: the whole boat layer is one draw call
+  pass  mobile 390x780: every boat vertex is graded reconstructed
+  pass  mobile 390x780: every afloat hull floats in its own water
+  pass  mobile 390x780: every beached hull sits on the bank, at the water
+  pass  mobile 390x780: the drawbridge's navigation span stays clear
+  pass  mobile 390x780: the schooners reach the screen from the bank
+  pass  mobile 390x780: aiming at a schooner opens the boat's own card
+  pass  mobile 390x780: canvas renders non-black
+  pass  mobile 390x780: drawing buffer matches the viewport
+  pass  mobile 390x780: confidence toggle flips state
+  pass  mobile 390x780: confidence view changes the render
+  pass  mobile 390x780: turning it off restores the render
+  pass  mobile 390x780: the traced river loaded, rather than the flat fallback plane
+  pass  mobile 390x780: no ground tile faces away from the sky
+  pass  mobile 390x780: no ground vertex faces downward
+  pass  mobile 390x780: the terrain and river report no load problems
+  pass  mobile 390x780: the drawn ground matches the heightfield the town anchors to
+  pass  mobile 390x780: the ground was conformed to the field, with nothing left over
+  pass  mobile 390x780: an evidence-only household's head is a person a source names
+  pass  mobile 390x780: nothing was drawn into an evidence-only household
+  pass  mobile 390x780: the manifest's reconstructed count is the layer the records hold
+  pass  mobile 390x780: every reconstructed person carries its stage, basis, seed and replacement
+  pass  mobile 390x780: the household is named for its head and still says which layer it is
+  pass  mobile 390x780: no building's name claims a grade its own record does not
+  pass  mobile 390x780: that check still catches the fault when it is put back
+  pass  mobile 390x780: no building titles itself by its part number
+  pass  mobile 390x780: the naming rule titles a house for its people and an empty one plainly
+  pass  mobile 390x780: the card shows that title and keeps the reference below it
+  pass  mobile 390x780: search still finds a roof by its part number and a house by its household
+  pass  mobile 390x780: hiding a level removes it from the view
+  pass  mobile 390x780: hiding works with the colouring switched off
+  pass  mobile 390x780: a hidden level is marked on the control and remembered
+  pass  mobile 390x780: the control counts each level against the loaded town
+  pass  mobile 390x780: pick('sauganash_hotel') opens the popup
+  pass  mobile 390x780: popup carries a real citation
+  pass  mobile 390x780: popup shows per-attribute confidence
+  pass  mobile 390x780: every citation says what rung it is on
+  pass  mobile 390x780: the rung belongs to its own citation
+  pass  mobile 390x780: a citation says what document it reprints
+  pass  mobile 390x780: a source that IS its document reprints nothing
+  pass  mobile 390x780: a source states what it does not supply
+  pass  mobile 390x780: the card's dossier link leaves the payload it is not in
+  pass  mobile 390x780: a building with no dossier written offers no dossier link
+  pass  mobile 390x780: an attested feature the model omits says so on its row
+  pass  mobile 390x780: the documented wolf sign is built and its row is unmarked
+  pass  mobile 390x780: a value a fixed default stands in for is marked differently
+  pass  mobile 390x780: the recorded chimney count is built, so its row is unmarked
+  pass  mobile 390x780: an attribute the generator builds carries no marker
+  pass  mobile 390x780: a reading recorded but never a build instruction is not marked
+  pass  mobile 390x780: the popup carries the liberties taken with this building
+  pass  mobile 390x780: it shows the reasoning, not just the admission
+  pass  mobile 390x780: another building gets its own liberties, not the whole list
+  pass  mobile 390x780: a scene-wide liberty is not attached to a building
+  pass  mobile 390x780: popup liberties start collapsed on their own pane and open on demand
+  pass  mobile 390x780: the compiled agencies still carry a refused holding on a roof
+  pass  mobile 390x780: the compiled agencies still put Hubbard & Co.'s holding on a roof
+  pass  mobile 390x780: the card names the agency this house held, and its principal
+  pass  mobile 390x780: it dates the holding by its printings and calls them printings
+  pass  mobile 390x780: the holding cites the printings it rests on
+  pass  mobile 390x780: the card says a holding is only a holding
+  pass  mobile 390x780: a refused holding is on the card of the house it was refused for
+  pass  mobile 390x780: a house that held no agency says nothing about one
+  pass  mobile 390x780: the card says whether the building was here on the scene date
+  pass  mobile 390x780: the presence claim is graded per building, not stamped
+  pass  mobile 390x780: the presence claim carries its reasoning, folded away
+  pass  mobile 390x780: the phase's own account of itself leads the card
+  pass  mobile 390x780: a record without an account gets a lead composed from its function and location, marked as composed
+  pass  mobile 390x780: the position's reasoning opens on demand
+  pass  mobile 390x780: the card says how much of the shape is evidence
+  pass  mobile 390x780: the footprint's reasoning is the record's, verbatim
+  pass  mobile 390x780: and prints no dimension it would have had to invent
+  pass  mobile 390x780: every graded claim in a record reaches the card as a chip
+  pass  mobile 390x780: the facts carry grade dots, not chips
+  pass  mobile 390x780: the card's per-level summary is a partition of its own claims
+  pass  mobile 390x780: and it says what is NOT there, per building rather than stamped
+  pass  mobile 390x780: a source on an invention is named as a bound, not as attribution
+  pass  mobile 390x780: and separates what is attested from what is actually built
+  pass  mobile 390x780: the summary defines each level in the Evidence panel's own words
+  pass  mobile 390x780: established assets remain identified as real bakes
+  pass  mobile 390x780: anonymous infill is visibly flagged as a reconstruction
+  pass  mobile 390x780: that flag names the grade the record itself carries
+  pass  mobile 390x780: the placeholder label agrees with the asset it describes
+  pass  mobile 390x780: and a real bake told it is a stand-in is caught saying so
+  pass  mobile 390x780: every held building says so on its card
+  pass  mobile 390x780: and says what it is held for, in the record's own words
+  pass  mobile 390x780: and a building that is not held does not claim to be
+  pass  mobile 390x780: the record's own account reaches the card
+  pass  mobile 390x780: it is the record's words, unabridged
+  pass  mobile 390x780: another building gets its own account, not this one's
+  pass  mobile 390x780: a building names the household the sources put in it
+  pass  mobile 390x780: a person's grade is shown, and it is not a confidence chip
+  pass  mobile 390x780: a building's household says on the card why it is attached there
+  pass  mobile 390x780: a building with no household gets no section at all
+  pass  mobile 390x780: the account starts collapsed on the Record pane and opens on demand
+  pass  mobile 390x780: the card reads head, lead, facts, tabs, pane — in that order
+  pass  mobile 390x780: the card opens on its Evidence pane with the other two folded
+  pass  mobile 390x780: each moved section lives in the pane named for it
+  pass  mobile 390x780: Hogan's facts say it was standing, from the year its record gives
+  pass  mobile 390x780: a plain boot asks for no structure version and shows none (T-1727)
+  pass  mobile 390x780: ?structure=bates_auction_room&version=fixture reaches ready (T-1727)
+  pass  mobile 390x780: the version boot loads the fixture's own sidecar and mesh for that one structure (T-1727)
+  pass  mobile 390x780: …and every other structure is the same record, the same mesh, in the same place (T-1727)
+  pass  mobile 390x780: …the fixture stands exactly where the default did, as its identical record says (T-1727)
+  pass  mobile 390x780: the HUD and the card both name the version, so two screenshots cannot be confused (T-1727)
+  pass  mobile 390x780: the default address boots again after the version (T-1727)
+  pass  mobile 390x780: raycast down the crosshair resolves a structure_id
+  pass  mobile 390x780: walk intent moves the camera
+  pass  mobile 390x780: walking stays exactly on the terrain through rises and falls
+  pass  mobile 390x780: the walker is pushed out of a building footprint
+  pass  mobile 390x780: the North Branch bridge has a walkable deck
+  pass  mobile 390x780: the walker crosses the bridge end to end on its deck
+  pass  mobile 390x780: the deck, not the wading barrier, is what holds the walker up
+  pass  mobile 390x780: and walks off the far end onto the bank
+  pass  mobile 390x780: a walker on the bank climbs the approach onto the deck
+  pass  mobile 390x780: touch activates the touch backend
+  pass  mobile 390x780: thumbstick writes forward intent
+  pass  mobile 390x780: right-half drag turns the view
+  pass  mobile 390x780: the scene's draw-call ceiling is the one this gate was written against
+  pass  mobile 390x780: draw calls under budget at the reference stand
+  pass  mobile 390x780: triangles under budget at the reference stand
+        68 draw calls · 597179 tris · 3 batch(es) · 488 structure(s) · 7255 KB of GLB · 1 fps
+  pass  mobile 390x780: the rendered ground covers the whole heightfield
+  pass  mobile 390x780: no structure is collapsed to the quantisation clamp
+  pass  mobile 390x780: every structure is rendered at a believable size
+  pass  mobile 390x780: the Sauganash is rendered as its two-mass plan
+  pass  mobile 390x780: no building hovers above the ground beneath it
+  pass  mobile 390x780: rendered height matches the documented wall height
+  pass  mobile 390x780: scene detail 'full' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: scene detail 'balanced' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: scene detail 'light' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: draw calls under budget at the town's WORST frame
+  pass  mobile 390x780: turning scene detail down actually draws less, at every stand
+  pass  mobile 390x780: the light tier draws inside its 90-call floor at the worst stand
+  pass  mobile 390x780: the light tier stays materially cheaper than full at the worst stand
+  pass  mobile 390x780: the level the visitor started on is restored
+  pass  mobile 390x780: the light tier draws no furniture into the shadow map, and only the ground-hugging timber is exempt above it
+  pass  mobile 390x780: the furniture reach is a ladder — full holds nothing back, and each rung below reaches less far
+  pass  mobile 390x780: the far merge gives back draw calls down the axial street and moves no triangle doing it
+  pass  mobile 390x780: the light tier holds furniture back down the axial street
+  pass  mobile 390x780: the furniture reach is what makes the light tier cheaper down that street
+  pass  mobile 390x780: the balanced tier holds furniture back down the axial street
+  pass  mobile 390x780: the furniture reach is what makes the balanced tier cheaper down that street
+  pass  mobile 390x780: the light tier's shorter shadow reach costs no texel
+        detail  full 983465/1460000 (113 calls, ±240 m, 146/199 furniture casting)  ·  balanced 889444/1280000 (111 calls, ±240 m, 146/199 furniture casting)  ·  light 566889/825000 (62 calls, ±120 m, 0/199 furniture casting)
+        full      worst   1,277,714 tris of 1,460,000 at Lake Street at Canal, east down the axis  ·  worst  179 calls at Lake Street at Canal, east down the axis
+        balanced  worst   1,109,118 tris of 1,280,000 at Lake Street at Canal, east down the axis  ·  worst  168 calls at Lake Street at Canal, east down the axis
+        light     worst     740,218 tris of 825,000 at the open aerial  ·  worst   76 calls at Lake and Market, the corner itself
+  pass  mobile 390x780: tap-to-start reveals the walkthrough
+  pass  mobile 390x780: first entry shows the navigation guide for the active input mode
+  pass  mobile 390x780: no horizontal overflow
+  pass  mobile 390x780: the navigation guide dismisses and remembers the choice
+  pass  mobile 390x780: a level checkbox takes the click and the menu stays open
+  pass  mobile 390x780: reset restores every level and the caret shuts the menu
+  pass  mobile 390x780: compass shows the live heading
+  pass  mobile 390x780: the overview map is shown, captioned and read in imperial
+  pass  mobile 390x780: the overview inset is a fixed 188x76 frame, not the field's shape
+  pass  mobile 390x780: walking speed is presented as a named gait in miles per hour
+  pass  mobile 390x780: every pace slider names its gait beside an imperial speed
+  pass  mobile 390x780: overview marker follows position and bearing
+  pass  mobile 390x780: the overview window travels with the visitor at the scale it had before
+  pass  mobile 390x780: the overview window clamps to the field instead of running past it
+  pass  mobile 390x780: every southern viewpoint is reachable and stands on dry modelled ground
+  pass  mobile 390x780: the run carries the visitor south to the model's own wall, and the map follows
+  pass  mobile 390x780: the pop-out renders the whole heightfield
+  pass  mobile 390x780: Escape puts the pop-out away and hands focus back to the map
+  pass  mobile 390x780: the pop-out cannot be opened while the map is switched off
+  pass  mobile 390x780: earth streets are populated and draped on the rendered ground
+  pass  mobile 390x780: no panel of road is deleted because its EDGE reached the water
+  pass  mobile 390x780: the platted streets reach the picture as attested, not as invention
+  pass  mobile 390x780: surface and wear ride their own channel and every street carries it
+  pass  mobile 390x780: the ground never rises through a road panel between its vertices
+  pass  mobile 390x780: the worn track runs onto each bridge approach and meets the deck
+  pass  mobile 390x780: no bend in the ribbon opens a wedge on the outside of its turn
+  pass  mobile 390x780: no elevated flora sheet can masquerade as a second terrain layer
+  pass  mobile 390x780: the roads reach the screen from the walker’s eye, down an open street
+        south_water: 2-40 m: ΔL* 3.9 of 4.3 opaque, 90 % perceptible of 10 bare, weber 0.1665 (n 10) over ground L* 50.5, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 4.4 of 4.8 opaque, 93 % perceptible of 15 bare, weber 0.1861 (n 15) over ground L* 50.2, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 4.8 of 3.5 opaque, 100 % perceptible of 42 bare, weber 0.2045 (n 42) over ground L* 48.9, seen 42 of 75 projected (42 clear of flora) · 250-600 m: ΔL* 5.1 of 3.7 opaque, 99 % perceptible of 82 bare, weber 0.2195 (n 82) over ground L* 48.6, seen 82 of 520 projected (82 clear of flora) · 600-4000 m: ΔL* 7.3 of 8.3 opaque, 100 % perceptible of 10 bare, weber 0.3008 (n 10) over ground L* 53.9, seen 10 of 221 projected (10 clear of flora) (reported only)
+  pass  mobile 390x780: the roads reach the screen from the air, at the aerial anchor
+        from_above: 2-40 m: projects 0× (not gated) · 40-100 m: projects 0× (not gated) · 100-250 m: ΔL* 3.9 of 8.1 opaque, 94 % perceptible of 90 bare, weber 0.1750 (n 90) over ground L* 47.0, seen 90 of 93 projected (90 clear of flora) · 250-600 m: ΔL* 3.9 of 7.9 opaque, 85 % perceptible of 432 bare, weber 0.1713 (n 432) over ground L* 48.5, seen 432 of 437 projected (432 clear of flora) · 600-4000 m: ΔL* 3.6 of 7.4 opaque, 93 % perceptible of 224 bare, weber 0.1586 (n 210) over ground L* 49.5, seen 210 of 225 projected (224 clear of flora) (reported only)
+        road bands: 5 moved against the bank —
+          rose      mobile/south_water/100-250  perceptible 33 % → 100 % (+67 points), ΔL* 1.8 → 4.8 (+3.0), weber 0.0795 → 0.2044
+          fell      mobile/south_water/250-600  ΔL* 7.0 → 5.1 (-1.9), ground L* 53.3 → 48.6 (-4.7, exposure)
+          rose      mobile/from_above/250-600  perceptible 54 % → 85 % (+31 points), ΔL* 2.0 → 3.9 (+1.8), weber 0.0922 → 0.1713
+          rose      mobile/from_above/100-250  ΔL* 2.6 → 3.9 (+1.4), weber 0.1161 → 0.1750
+          rose      mobile/south_water/40-100  ΔL* 3.1 → 4.4 (+1.3), weber 0.1325 → 0.1861
+  pass  mobile 390x780: the roads reach the screen standing on the crossing itself
+        lake_market: 2-40 m: ΔL* 2.4 of 2.7 opaque, 80 % perceptible of 10 bare, weber 0.1210 (n 10) over ground L* 48.6, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 4.9 of 5.6 opaque, 100 % perceptible of 15 bare, weber 0.2037 (n 15) over ground L* 50.9, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 3.7 of 5.1 opaque, 100 % perceptible of 43 bare, weber 0.1585 (n 43) over ground L* 50.3, seen 43 of 102 projected (43 clear of flora) · 250-600 m: ΔL* 3.8 of 5.5 opaque, 97 % perceptible of 98 bare, weber 0.1583 (n 98) over ground L* 51.6, seen 98 of 507 projected (98 clear of flora) · 600-4000 m: ΔL* 4.0 of 5.9 opaque, 98 % perceptible of 61 bare, weber 0.1643 (n 61) over ground L* 53.2, seen 61 of 874 projected (61 clear of flora) (reported only)
+        road bands: 4 moved against the bank —
+          rose      mobile/lake_market/40-100  ΔL* 2.9 → 4.9 (+2.0), weber 0.1269 → 0.2037
+          rose      mobile/lake_market/250-600  ΔL* 2.0 → 3.8 (+1.8), weber 0.0826 → 0.1583
+          rose      mobile/lake_market/100-250  ΔL* 2.7 → 3.7 (+1.0), weber 0.1158 → 0.1585
+          rose      mobile/lake_market/2-40  perceptible 60 % → 80 % (+20 points)
+  pass  mobile 390x780: the road-legibility aid is off unless a visitor moves it
+  pass  mobile 390x780: raising the road-legibility aid reaches the render
+  pass  mobile 390x780: dropping the road-legibility aid restores the default frame
+        road aid: full-on delta mean 0.28 / worst 6 at 96², 0.21 / 1 at 12²; restored residual mean 0.00 / worst 0
+  pass  mobile 390x780: the town is its one untextured batch and its two roof coverings
+  pass  mobile 390x780: the batch still carries the town's finishes
+  pass  mobile 390x780: the per-vertex roughness channel reaches the render
+  pass  mobile 390x780: restoring the roughness channel restores the frame
+        batches: 3 · roughness 15 values 0.25–0.9800000190734863 · flattening moves worst cell 12, mean 0.08; restored worst 0
+  pass  mobile 390x780: the town wears more than one face
+  pass  mobile 390x780: no two neighbouring buildings are drawn the same colour
+  pass  mobile 390x780: a documented paint is never modulated
+  pass  mobile 390x780: the facade tones reach the render
+  pass  mobile 390x780: restoring the facade tones restores the frame
+        facades: 487 tones · 0/474 neighbour pairs identical · winding off moves worst cell 10, mean 0.19; restored worst 0
+  pass  mobile 390x780: the sun's shadow reaches 120 m at the documented texel (scene detail 'light')
+  pass  mobile 390x780: the shadow reach reaches the render
+  pass  mobile 390x780: restoring the shadow reach restores the frame
+        shadow reach: ±120 m at 23.4 cm/texel · winding back to ±60 m moves worst cell 7; restored residual worst 0
+  pass  mobile 390x780: the shadow box holds still under a sub-texel step
+  pass  mobile 390x780: the snap reaches the box — without it the same step moves it
+  pass  mobile 390x780: the box moves in texels of its own map, and only in those
+        shadow snap: 1 mm moves the box 0.00 µm snapped, 0.994 mm loose; a 1 m walk moves it 5 time(s), worst 1.000 texels
+  pass  mobile 390x780: the brightness aid is off unless a visitor moves it
+  pass  mobile 390x780: raising the brightness aid reaches the render
+  pass  mobile 390x780: dropping the brightness aid restores the calibrated frame
+        brightness aid: +1 stop delta mean 47.17 / worst 51 at 12²; restored residual mean 0.00 / worst 0
+  pass  mobile 390x780: detailed flora roots share the terrain and water surfaces
+  pass  mobile 390x780: emergent flora stays within eight metres of a riverbank
+  pass  mobile 390x780: woody vegetation never occupies the river mask
+  pass  mobile 390x780: no tree stands below the waterline
+  pass  mobile 390x780: every tree drawn stands at its own station
+  pass  mobile 390x780: no timber is drawn out in the channel
+  pass  mobile 390x780: every building is drawn around the anchor its record gives it
+  pass  mobile 390x780: every panel of road is drawn on a street the data records
+  pass  mobile 390x780: the horizon band refuses to draw timber over water
+  pass  mobile 390x780: the horizon band and the fogged ground converge on one colour
+  pass  mobile 390x780: the crown modulation never deletes a resolvable silhouette
+  pass  mobile 390x780: the band is solved against this viewport, not a default one
+  pass  mobile 390x780: every species the stand owes a stem to stands in it
+  pass  mobile 390x780: the American sycamore stands on the riverbank
+  pass  mobile 390x780: every slot the sward deals is counted against a species
+  note  mobile 390x780: sward abundance — 6 of 27 lists mix an area with a count (z03_sedge_meadow.matrix 33.4% of slots dealt off counts; z03_sedge_meadow.forb 1.0% of slots dealt off counts; z08_lakeshore.matrix 2.1% of slots dealt off counts; z09_sand_prairie.matrix 0.0% of slots dealt off counts; z06_dense_forest.forb 89.8% of slots dealt off counts; z06_dense_forest.shrub 31.0% of slots dealt off counts)
+  note  mobile 390x780: 0 record(s) give cover with no width_m, so no count can be derived without inventing a footprint
+  note  mobile 390x780: sward tail — 0 species owed a whole slot and drawn nowhere, over 84 slots in z10_settled_town.matrix=78 z10_settled_town.forb=6
+  pass  mobile 390x780: no sward species its own list owes a plant to is drawn nowhere, in ANY community
+  note  mobile 390x780: sward census by detail — full 11239 slots, 0 drawn nowhere  ·  balanced 6263 slots, 0 drawn nowhere  ·  light 4073 slots, 0 drawn nowhere
+  pass  mobile 390x780: no floating-leaved aquatic is planted on dry ground
+  pass  mobile 390x780: the marsh's emergents still stand on both sides of its waterline
+  pass  mobile 390x780: the marsh community is split by the substrate its records state
+  pass  mobile 390x780: every flora fade ring is inset inside its own lattice
+  pass  mobile 390x780: a plant in front of the walker never arrives already visible
+  pass  mobile 390x780: a plant is drawn at its own height, faint, never short
+  pass  mobile 390x780: every drawn flower head has a plant under its own stalk
+  pass  mobile 390x780: an open station exists to measure the sward's boundary from
+  pass  mobile 390x780: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N -300, boundary rows spread 19.8 px, reach 10.32-13.22 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 19.8 px, reach 10.32-13.22 m)
+  pass  mobile 390x780: the boundary's variation is the fringe, not a hole in the field — reach 10.32-13.22 m, mean 11.96 m at 6.25% coverage against a nominal 12.40 +/- 1.60 m (bars: min >= 9.50, mean >= 11.50, both carrying the 0.10 m the 6.25% threshold insets a 1.60 m ramp by); at the old 2%: 10.32-13.22 m, mean 11.96 m
+  pass  mobile 390x780: the flower layer's boundary is fringed too, not only the grass — forb rings span 11.06-13.45 m about a nominal 12.40 +/- 1.60 m
+  pass  mobile 390x780: the ragged boundary is anchored to the ground, not to the camera
+  pass  mobile 390x780: every community's recorded ground cover reaches the renderer
+  pass  mobile 390x780: the sward is planted at each community's own recorded cover
+  pass  mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface
+  pass  mobile 390x780: street clearing removes travel-track plants but preserves the block
+  pass  mobile 390x780: the readout shows both 1835 and current names at an intersection
+  pass  mobile 390x780: the street readout announces the next cross street ahead
+  pass  mobile 390x780: Settings can reopen the dismissed navigation guide
+  pass  mobile 390x780: Settings switches every navigation measurement as one unit system
+  pass  mobile 390x780: eye height starts at the researched period figure
+  pass  mobile 390x780: the eye height readout is a stature, not rounded to whole feet
+  pass  mobile 390x780: moving the eye height slider moves the eye immediately
+  pass  mobile 390x780: eye height does not yank the camera down mid-flight
+  pass  mobile 390x780: the eye height range covers short to tall without absurdity
+  pass  mobile 390x780: typing in the search box does not walk the camera
+  pass  mobile 390x780: typing an 'f' does not take off
+  pass  mobile 390x780: the rail lists the eight sections in order, Go to first
+  pass  mobile 390x780: eight rail items fit the panel unsqueezed — one column on desktop, one row on a phone
+  pass  mobile 390x780: Settings no longer carries a second list of viewpoints
+  pass  mobile 390x780: G opens the Go to tab
+  pass  mobile 390x780: jump menu lists every structure that stood here, and every roof once asked
+  pass  mobile 390x780: jump menu includes every verified intersection
+  pass  mobile 390x780: jump menu includes every viewpoint the scene names
+  pass  mobile 390x780: every structure result carries its record's presence grade as its chip and its position grade as data
+  pass  mobile 390x780: a viewpoint and a survey junction are not graded like a building
+  pass  mobile 390x780: the three grades are told apart by colour, not only by their words
+  pass  mobile 390x780: the tab counts its own list rather than quoting a written total
+  pass  mobile 390x780: jump search finds an intersection by both street names
+  pass  mobile 390x780: an intersection result moves the visitor there
+  pass  mobile 390x780: opening the drawer tucks an open card aside without closing it
+  pass  mobile 390x780: closing the drawer brings the tucked card back
+  pass  mobile 390x780: the drawer reaches the bottom of the screen and starts under the year badge
+  pass  mobile 390x780: the Taverns pill narrows the list to taverns, inns and hotels, the Sauganash among them
+  pass  mobile 390x780: every row is filed under one of the ten groups, beneath that group's heading
+  pass  mobile 390x780: visible rows equal the shared destination inventory
+  pass  mobile 390x780: located rows say how far and which way; unknown addresses invent no metres
+  pass  mobile 390x780: the distances follow the visitor — 100 m further east reads 100 m further
+  pass  mobile 390x780: ArrowDown steps the list a row at a time — two reach the second, three the third — and Enter goes there
+  pass  mobile 390x780: Travel offers instantly, walk, wagon, horse and fly
+  pass  mobile 390x780: the travel mode chosen is the one the walker rides and the one stored
+  pass  mobile 390x780: each pace sets the walker to its own slider, its Shift factor and its seat
+  pass  mobile 390x780: the three pace sliders top out at 20, 30 and 60 mph and name the gait as they move
+  pass  mobile 390x780: the horse's gait moves the rider's eye a few centimetres, and stops when they do
+  pass  mobile 390x780: the gait is off with the setting off, and back with it
+  pass  mobile 390x780: the gait is off under prefers-reduced-motion
+  pass  mobile 390x780: choosing the Sauganash on foot starts a walk and says so
+  pass  mobile 390x780: the walk ends at the Sauganash's door with its card open
+  pass  mobile 390x780: the walk from South Water keeps to the streets
+  pass  mobile 390x780: the visitor's own step ends a ride and is not swallowed
+  pass  mobile 390x780: the banner's Stop button ends a ride
+  pass  mobile 390x780: flying to a far building climbs to a cruise height, lands and opens its card
+  pass  mobile 390x780: instantly is still instant
+  pass  mobile 390x780: the People directory lists the town, and its count is the file's and the manifest's
+  pass  mobile 390x780: the household card says how far the evidence places its people
+  pass  mobile 390x780: a household no source places says its division was dealt, not read
+  pass  mobile 390x780: searching "Beaubien" finds Mark Beaubien
+  pass  mobile 390x780: the Trade row offers the documented trades AND the town's commonest
+  pass  mobile 390x780: the tavern-keeper pill narrows the list to tavern keepers
+  pass  mobile 390x780: the Tier row's stage pills name the reconstruction, and partition it
+  pass  mobile 390x780: opening a person shows their card with a way to their building
+  pass  mobile 390x780: Go there rides to the person's building and opens its card
+  pass  mobile 390x780: the Businesses directory lists every firm, and its count is the index's
+  pass  mobile 390x780: searching a good the papers advertised finds the houses that sold it
+  pass  mobile 390x780: the unplaceable pill narrows the list to the firms with no place at all
+  pass  mobile 390x780: a firm the paper reaches to a street is carried to the block face it is housed on
+  pass  mobile 390x780: a firm the register could not place says how far the record goes, and offers no building
+  pass  mobile 390x780: a firm with premises opens a card with its locations, its printings and the way there
+  pass  mobile 390x780: a person's card names every firm the register puts them in
+  pass  mobile 390x780: tapping one opens that firm's own card in Businesses
+  pass  mobile 390x780: a building card's Use row names the firms the register puts in that roof
+  pass  mobile 390x780: a card opened from a signboard leads with the firm the board hangs for
+  pass  mobile 390x780: the Evidence hub shows eleven topics, with Sources unknown until opened
+  pass  mobile 390x780: Sources lazily lists scene and registered counts with a forty-row window
+  pass  mobile 390x780: Sources finds Andreas with date, type, tier and separate claim/entity figures
+  pass  mobile 390x780: Evidence → City shows the town census
+  pass  mobile 390x780: Evidence → City's figures are the committed data's
+  pass  mobile 390x780: both City ladders carry completeness bars and the people ladder's grade key
+  pass  mobile 390x780: people housed remains a placement note under the people ladder
+  pass  mobile 390x780: cards held remain stated as cards, not residents
+  pass  mobile 390x780: the established and ruled-in population measures remain stated
+  pass  mobile 390x780: City names both denominators and never substitutes November's count
+  pass  mobile 390x780: City drops the projected count and structures line
+  pass  mobile 390x780: City identifies its date, derivation and published build
+  pass  mobile 390x780: City fits a phone-width topic and scrolls inside the sheet
+  pass  mobile 390x780: a topic opens with the hub gone, and its search narrows the list and says so
+  pass  mobile 390x780: Back returns to the hub
+  pass  mobile 390x780: settings toggle all three navigation aids
+  pass  mobile 390x780: the HUD toggle drives the confidence view
+  pass  mobile 390x780: a first-time visitor is told there are unread notes
+  pass  mobile 390x780: the what's-new tab renders every release
+  pass  mobile 390x780: entries carry a title and a stamped date
+  pass  mobile 390x780: opening the tab clears the unread marker
+  pass  mobile 390x780: a first visit flags nothing (no "last time" to differ from)
+  pass  mobile 390x780: a returning visitor sees only what shipped since last time
+  pass  mobile 390x780: the liberties list loads
+  pass  mobile 390x780: every loaded liberty is rendered
+  pass  mobile 390x780: the list names a scene-wide liberty
+  pass  mobile 390x780: the Evidence panel does not overflow
+  pass  mobile 390x780: a man who held an agency says so on his own card
+  pass  mobile 390x780: the person's card carries the same caveat as the house's
+  pass  mobile 390x780: every household in the layer is on the card
+  pass  mobile 390x780: every person entry in the manifest is counted
+  pass  mobile 390x780: the letter-list cohort is held apart from the evidenced town
+  pass  mobile 390x780: the group says what that evidence is worth before it is opened
+  pass  mobile 390x780: the households no building card can reach are marked
+  pass  mobile 390x780: the researched non-residents are published too
+  pass  mobile 390x780: opening a household fetches its record
+  pass  mobile 390x780: a graded claim carries its reasoning, not just its value
+  pass  mobile 390x780: the household records quote their sources, not their source ids
+  pass  mobile 390x780: the households start collapsed, like every other disclosure here
+  pass  mobile 390x780: the people section does not overflow the panel
+  pass  mobile 390x780: no figure reaches a person's row as [object Object]
+  pass  mobile 390x780: an evidence-only household's row says what its roof is not
+  pass  mobile 390x780: a dated person carries an age and a birth year, both graded
+  pass  mobile 390x780: a letter-list name says on its own row how thin that evidence is
+  pass  mobile 390x780: the count sentence says how many people are known only that way
+  pass  mobile 390x780: a letter-list name carries no invented trade
+  pass  mobile 390x780: every resident research review reaches a resident card
+  pass  mobile 390x780: candidate identities are visibly unmerged
+  pass  mobile 390x780: a negative search is published without denying existence
+  pass  mobile 390x780: the section says plainly that nobody is drawn
+  pass  mobile 390x780: the wildlife list loads every habitat
+  pass  mobile 390x780: every animal record in the layer is on the card
+  pass  mobile 390x780: the card names what the records name
+  pass  mobile 390x780: the card carries the July presence modes, not a species list
+  pass  mobile 390x780: the animal records quote their sources, not their source ids
+  pass  mobile 390x780: the animals start collapsed, like every other disclosure here
+  pass  mobile 390x780: the wildlife section does not overflow the panel
+  pass  mobile 390x780: the section says plainly that none of them is in the scene
+  pass  mobile 390x780: the plant list loads every community
+  pass  mobile 390x780: every species in the ten communities is on the card
+  pass  mobile 390x780: the communities the sward lattice cannot draw say so
+  pass  mobile 390x780: the share a visitor is standing in comes off the declaration
+  pass  mobile 390x780: the note names the worst case rather than only the total
+  pass  mobile 390x780: the plant records quote their sources, not their source ids
+  pass  mobile 390x780: no figure reaches a plant's row as [object Object]
+  pass  mobile 390x780: the communities start collapsed, like every other disclosure here
+  pass  mobile 390x780: the plants section wraps inside the panel rather than clipping
+  pass  mobile 390x780: the plants section does not overflow the panel
+  pass  mobile 390x780: all eight evidence mounts wrap inside their panel rather than clipping
+  pass  mobile 390x780: a run longer than the column breaks inside all eight mounts, not past them
+  pass  mobile 390x780: the liberties list says what it is, in the document's words
+  pass  mobile 390x780: the panel states it once — the hand-written paraphrase is gone
+  pass  mobile 390x780: an entry shows the inventions it admits to
+  pass  mobile 390x780: a claim over several buildings names each of them
+  pass  mobile 390x780: an entry that invented nothing drawn claims nothing
+  pass  mobile 390x780: an invented roof and height are admitted like an outline
+  pass  mobile 390x780: a decision made by default is admitted in two buildings
+  pass  mobile 390x780: the ground admits to what it invented, and says it is the ground
+  pass  mobile 390x780: the chip carries the epoch the admission is about
+  pass  mobile 390x780: the invention the gate found is on the page, not only in the repo
+  pass  mobile 390x780: expanding a liberty on its topic page reveals its reasoning
+  pass  mobile 390x780: the researched exclusions load
+  pass  mobile 390x780: an exclusion gives its reason and the source it rests on
+  pass  mobile 390x780: a later building says when, and a vanished one says why instead
+  pass  mobile 390x780: a building standing in the scene is not on the not-here list
+  pass  mobile 390x780: the not-here list withholds what its sources reprint
+  pass  mobile 390x780: the list says it is not everything missing
+  pass  mobile 390x780: the not-here list says what it is, in the compiled document's words
+  pass  mobile 390x780: the panel states it once — the paraphrase is gone
+  pass  mobile 390x780: the Evidence panel still does not overflow
+  pass  mobile 390x780: the open questions load
+  pass  mobile 390x780: the standing ones say they are standing and the unbuilt one does not
+  pass  mobile 390x780: the standing one names the claim on its record that carries the doubt
+  pass  mobile 390x780: an uncited open question says why it is uncited
+  pass  mobile 390x780: the panel says what the third category is
+  pass  mobile 390x780: the open questions say what they are, in the compiled document's words
+  pass  mobile 390x780: the panel states that once too — and counts nothing by hand
+  pass  mobile 390x780: the Evidence panel still does not overflow with it
+  pass  mobile 390x780: the open question reaches the building it is about
+  pass  mobile 390x780: it says what settling it would change
+  pass  mobile 390x780: the card grades the doubt the same way the claim above it is graded
+  pass  mobile 390x780: it starts collapsed like every other disclosure on the card
+  pass  mobile 390x780: only tracked in-scene buildings carry open questions
+  pass  mobile 390x780: the ground's claims load
+  pass  mobile 390x780: the ground is graded per claim, not stamped
+  pass  mobile 390x780: no land elevation claims to be documented
+  pass  mobile 390x780: the ground says which ground these claims are about
+  pass  mobile 390x780: the panel quotes the spec's caveat that no survey exists
+  pass  mobile 390x780: a land claim shows its figures and its citation
+  pass  mobile 390x780: every claim that calls itself an inference records its reasoning
+  pass  mobile 390x780: the soil claim that is graded too high says so where it is graded
+  pass  mobile 390x780: a claim with no reasoning would still say so
+  pass  mobile 390x780: a soil the ground is not made of says so, and the figures that are do not
+  pass  mobile 390x780: the mark is the declaration's, not the row's
+  pass  mobile 390x780: the Evidence panel still does not overflow with the ground on it
+  pass  mobile 390x780: the aerial anchor arrives in the air, looking down
+  pass  mobile 390x780: the view from above renders
+  pass  mobile 390x780: the near plane opens with altitude
+  pass  mobile 390x780: on foot the near plane is the walking value
+  pass  mobile 390x780: free-fly cannot sink through the terrain
+  pass  mobile 390x780: leaving free-fly puts the visitor back on the ground
+  pass  mobile 390x780: Space inspects on foot instead of lifting off
+  pass  mobile 390x780: Escape closes the inspection card
+  pass  mobile 390x780: the inspect key closes the card it opened
+  pass  mobile 390x780: neither key fires while typing in Go-to
+  pass  mobile 390x780: a building can be inspected from the air
+  pass  mobile 390x780: a click under the crosshair inspects
+  pass  mobile 390x780: /1904/ boots the 1904 scene on its own ground (T-1739)
+  pass  mobile 390x780: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739) — stood at E 1410.12 N -3218.01 bearing 264.94, eye 1.68 m; spawn {"local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}; anchor {"id":"glessner_house","label":"Prairie at Eighteenth, facing the Glessner lot at 1800 Prairie","local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}
+  pass  mobile 390x780: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739) — lot centroid E 1365.37 N -3229.04 at NDC (-0.288, -0.014, z 0.9957); street corner at NDC x 0.288
+  pass  mobile 390x780: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)
+  pass  mobile 390x780: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)
+  pass  mobile 390x780: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)
+  pass  mobile 390x780: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)
+  pass  mobile 390x780: the 1904 boot raises no loader problem (T-1739)
+  pass  mobile 390x780: the frame at the 1904 spawn is inside the draw budget (T-1739) — 21 draw calls, 79751 triangles against {"drawCalls":215,"triangles":825000}, 2 fps
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+569 passed, 3 failed
+562 staged-section check(s) (all stages), 10 always-on check(s)
+43 m 20 s unfiltered at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+FAILURES:
+ - mobile 390x780: the frontage layer lays all five records' walks and stands their posts
+ - mobile 390x780: the frontage layer draws the meshes it authored
+ - mobile 390x780: the street edge is generated from the plat, not placed on one block
