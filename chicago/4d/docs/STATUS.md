@@ -18618,3 +18618,19 @@ levels. The sidecar validator includes the alternate-version indexes the viewer
 loads; regression cases preserve the missing-field refusal. Full GitHub gate
 and published desktop/mobile smoke are pending. No final photographic-quality
 claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.
+## T-1757 — two more Cass-block cottages and the resumed integration (2026-09-30)
+
+`blk_indiana_north_cass` now carries four cottages and four yard buildings:
+the second deal adds two two-room cottages on lots 4 and 5, a woodshed and a
+stable. Eight of its twelve lots remain open. The Rush–Pine fringe stays
+unbuilt because the programme apportions its three lotted blocks no roofs;
+the north-division research memo records that limit. These are reconstructed
+buildings, with no claim that a source places them on these lots.
+
+PR #199 resumed after the automated lap integrated current `dev`. Its only
+remaining preflight failure was the off-plat ledger: the derived Canal
+Commissioners tract area and total ground area were each 7.8 m² stale.
+`seat_off_plat_ground_1835.py --build` corrects both from committed inputs;
+its re-derivation check passes. Household seats and meshes do not change in
+this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
+Full gate and published browser verification receipts are recorded on PR #199.

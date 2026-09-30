@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1240, ts: '2026-09-30T13:35:39.083Z', date: 'Sep 30, 2026, 8:35 AM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
+    items: [
+      'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',
+      'Every house on the block now has empty ground on both sides of it along its own street, and that is where the block stops. The north-side research reads this frontage as alternating roof and open yard with no continuous street wall, so a fifth house on either face would have to stand next door to one already there. Eight of the twelve lots stay open prairie.',
+      'The stable is our choice and the reason is the ground it stands on. The block\u2019s building plan had two privies in it and the first pair of cottages took both, so this pair gets the last woodshed and the first of two stables. A household two tiers north of the settled town, with the river between it and the stores, either keeps a horse on its own lot or keeps none.',
+      'The two families who asked for these lots are not the two who moved in. The Bailly and Babcock households had requests on the lots next door \u2014 the ones deliberately left empty \u2014 and the seating pass walked them into these houses instead, leaving the Baily and Barber households holding the empty lots. Families with somewhere to be is unchanged at 177; two more have walls.',
+      'East of Rush Street nothing is scheduled at all. Three more lotted blocks out on the Rush and Pine fringe are apportioned no roofs by the building programme, and the nineteen blocks beyond them are not even divided into lots. So that ground stays open, and the reason is now written into the north-side research rather than left to be guessed at.',
+      'No source says a building stood on this block in 1835, which buildings they were, where on their lots they sat, or how far back from the street. The lots, the alley and the ground under them are committed; everything else is on each cottage\u2019s own card.',
+    ] },
   { v: 1239, ts: '2026-09-30T04:44:39.649Z', date: 'Sep 29, 2026, 11:44 PM CT', title: 'Glessner House v4 becomes the default', kind: 'change',
     items: [
       'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',

@@ -10830,9 +10830,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 87 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 91 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 87 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10845,7 +10845,9 @@ commissioners and this register does not hold them; then 79 to 83 on the same da
 second deal on the same block, which reaches the same tract by the same construction; and 83
 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside
 the same north fraction, which reach the register for the same reason and change nothing about
-how). The construction is
+how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose
+two two-room cottages and their woodshed and stable stand four lots west of the first deal's
+pair inside the one tract). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -10873,10 +10875,10 @@ tract line than that drops to `reconstructed`, and the metres are printed on the
 the 69 stand at the bottom tier**, and mostly not for geometry: 44 of them are roofs a recipe
 dealt to a lot, and nothing on an invented structure may outrank the invention that put it
 there — the tract is real, but the claim that THIS roof stands on it is the recipe's.
-Re-measured 2026-09-29 with T-1747's four, T-1756's four and T-1753's four in the file:
-**64 of the 87 stand at the bottom tier, 52 of them roofs a recipe dealt to a lot**, and the
-twelve new ones are all twelve of both counts. THE THREE DEALS ARE AT THE BOTTOM FOR DIFFERENT
-REASONS, AND THAT IS WORTH SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m,
+Re-measured 2026-09-29 with T-1747's four, T-1756's four, T-1753's four and T-1757's four in
+the file: **68 of the 91 stand at the bottom tier, 56 of them roofs a recipe dealt to a lot**,
+and the sixteen new ones are all sixteen of both counts. THE FOUR DEALS ARE AT THE BOTTOM FOR
+DIFFERENT REASONS, AND THAT IS WORTH SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m,
 64.8 m and 67.1 m inside the tract boundary, which on a documented building would carry the
 middle tier, so they are held at the bottom for the invention under them and not for their
 geometry. T-1756's four stand on lots four lots further west — 28.4 m, 30.3 m, 31.6 m and
@@ -10884,7 +10886,11 @@ geometry. T-1756's four stand on lots four lots further west — 28.4 m, 30.3 m,
 held at the bottom by the ordinary geometric rule even if nothing about them were invented.
 T-1753's four are the far case: on the next cell east across Cass Street they stand 172 m,
 178 m, 171 m and 168 m inside the boundary — hundreds of metres clear of it — so like T-1747's they are held at the bottom for the invention rather than for
-the geometry. All three readings are the register's; none is another's evidence. Three of
+the geometry. T-1757's four stand on the same cell four lots west of those, at 139 m, 145 m,
+149 m and 145 m: nearer the tract line than the first deal's by about thirty metres, which is
+the lot grid's own westward step and not a different reading, and still three times the 40 m
+the middle tier asks for — so they too are held at the bottom for the invention under them.
+All four readings are the register's; none is another's evidence. Three of
 the remaining seven are the fort's own service buildings, added 2026-09-06 by T-0883, and they
 are at the bottom tier for the ordinary geometric reason rather than for an invention behind
 them: the wash house stands 12.9 m from a tract line and the shop 39.1 m, both inside the 40 m
@@ -14117,7 +14123,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 469 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 473 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14149,7 +14155,11 @@ new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the
 single move this count has taken from one parcel: seven dwellings — two small two-story frame
 houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages —
 with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs
-that each state a roof type and thirteen more the exposure reaches. No record's
+that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
+the Cass cell makes **473**, and it is the first addition to this entry that is not four of
+the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
+Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
+north of the river, taking the same exposure across more of it. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
