@@ -281,6 +281,11 @@ frame rate.
   spread) up to the sheet's `weathered_board` (L\* 62), in grey, brown, grey-brown and dark
   grey-brown, varied per owner by a vertex colour. That keeps the layer's single draw call.
   The signboard keeps its own tone in `signage.js`; only the walk's borrowing ends.
+  *Done in T-1800 (piece 1 of T-1796), 2026-10-01:* the walks and crossings carry four
+  weathered tones (L\* ≈ 38–52) on a vertex colour, varied per block face and per board inside
+  the L\* 33–62 bound, in the layer's existing material and draw calls (L320). Measured lit at
+  1280×800 on Lake Street: the walk went from L\* 75 to L\* 44. The per-business key is still
+  T-1211's, and the relief (grain, end grain, wear) is T-1801's proof.
 - **T-1770 / T-1771:** `roadTexture`'s paired 0.29/0.71 ruts and 0.28–0.93 alpha body are what
   reads as "two treads on grass". The full-width opaque roadbed is geometry plus the § 4 mask.
   Never tile the 8 m mud as the roadway.
