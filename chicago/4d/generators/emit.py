@@ -62,10 +62,11 @@ import bpy  # noqa: E402
 
 from common.mesh import reset_scene  # noqa: E402
 from archetypes import (  # noqa: E402
-    bridge_timber, fort_structure, frame_dwelling, frame_storefront, frame_tavern,
+    bridge_timber, camp, fort_structure, frame_dwelling, frame_storefront, frame_tavern,
     log_dwelling, masonry_house, outbuilding, palisade, pier_crib,
 )
 from archetypes.bridge_timber_params import from_phase as bridge_timber_params  # noqa: E402
+from archetypes.camp_params import from_phase as camp_params  # noqa: E402
 from archetypes.fort_structure_params import from_phase as fort_structure_params  # noqa: E402
 from archetypes.frame_dwelling_params import from_phase as frame_dwelling_params  # noqa: E402
 from archetypes.frame_storefront_params import from_phase as frame_storefront_params  # noqa: E402
@@ -87,6 +88,7 @@ ARCHETYPES = {
     "palisade": (palisade_params, palisade.build),
     "fort_structure": (fort_structure_params, fort_structure.build),
     "masonry_house": (masonry_house_params, masonry_house.build),
+    "camp": (camp_params, camp.build),
 }
 
 

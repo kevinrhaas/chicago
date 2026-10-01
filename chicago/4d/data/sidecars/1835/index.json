@@ -10818,6 +10818,18 @@
       "asset": "gltf/lake_house_construction__shell_1835.glb"
     },
     {
+      "id": "landing_camp_east",
+      "name": "The emigrants' camp at the landing, east",
+      "sidecar": "sidecars/1835/landing_camp_east.json",
+      "asset": "gltf/landing_camp_east__camp_1835.glb"
+    },
+    {
+      "id": "landing_camp_west",
+      "name": "The emigrants' camp at the landing, west",
+      "sidecar": "sidecars/1835/landing_camp_west.json",
+      "asset": "gltf/landing_camp_west__camp_1835.glb"
+    },
+    {
       "id": "lasalle_lake_house",
       "name": "The house at the corner of LaSalle and Lake",
       "sidecar": "sidecars/1835/lasalle_lake_house.json",
