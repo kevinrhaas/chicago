@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1243, ts: '2026-10-01T03:32:50.451Z', date: 'Sep 30, 2026, 10:32 PM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+  { v: 1244, ts: '2026-10-01T04:05:39.692Z', date: 'Sep 30, 2026, 11:05 PM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [
       'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
       'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
@@ -8,6 +8,11 @@ export const CHANGELOG = [ // newest first
       'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed — and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
       'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
     ] },
+  { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
+    'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
+    'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',
+    'Keyboard navigation, reduced-motion preferences and direct links remain supported. Each year keeps its own address.'
+  ] },
   { v: 1242, ts: '2026-10-01T02:31:45.601Z', date: 'Sep 30, 2026, 9:31 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
     items: [
       'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',

@@ -5050,3 +5050,7 @@ Four bridge heads receive reconstructed repair stock. The forks ferry landing
 remains undrawn pending dated evidence of operation and form. This completes
 only T-1207's crossing-furniture slice; shops remain with T-1766. See the
 bridge_head_timber research memo and liberty L306.
+
+
+### T-1768 - Owner-requested temporal menu
+The front door offers 1835, 1904 and 1812 with acquisition and transfer animation. Interface skins are secondary and shared with the viewer; 1812 is identified as pending reconstruction. Existing year doors and explicit query links remain available.
