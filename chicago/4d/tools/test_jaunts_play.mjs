@@ -157,7 +157,7 @@ try {
     await click(page.getByRole('button', { name: 'Open your daybook', exact: true }));
     await page.locator('.jaunt-daybook [data-keepsake="new-in-chicago:finding-your-feet"]').waitFor();
     assert.equal(await page.locator('.jaunt-daybook').getByText('Narrative keepsakes, not evidence', { exact: false }).count(), 1);
-    assert.equal(await page.locator('.jaunt-daybook-rank').first().getAttribute('data-rank'), 'new_arrival');
+    assert.equal(await page.locator('.jaunt-daybook-rank').first().getAttribute('data-level'), 'new_arrival');
     if (viewport.width === 390) {
       // Every family name fits its tile without breaking inside a word.
       const broken = await page.locator('.jaunt-daybook-families li span').evaluateAll(nodes => nodes.filter(n => {

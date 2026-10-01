@@ -4,7 +4,7 @@
     "height": 780
   },
   "prefix": "/walk/",
-  "endMs": 123.60000000009313,
+  "endMs": 0.6999999999534339,
   "bootJauntRequests": 0,
   "states": [
     {
@@ -106,8 +106,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -190,6 +190,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -218,11 +232,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -242,9 +267,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -264,9 +290,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -286,9 +313,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -334,9 +362,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -373,8 +402,40 @@
           "leg": 1
         }
       ],
+      "eventSeq": 2,
       "phase": "atStop",
       "choice": null,
+      "mode": "horse",
+      "estimate": {
+        "seconds": 236.47480021116718,
+        "approx": false,
+        "legs": [
+          {
+            "seconds": 6.796739009623848,
+            "length_m": 40.92880356255501,
+            "approx": false
+          },
+          {
+            "seconds": 54.32707534812008,
+            "length_m": 349.87598976278053,
+            "approx": false
+          },
+          {
+            "seconds": 24.72899810327801,
+            "length_m": 157.48848767130707,
+            "approx": false
+          },
+          {
+            "seconds": 25.621987750145255,
+            "length_m": 163.29292037594416,
+            "approx": false
+          }
+        ]
+      },
+      "notice": null,
+      "restored": false,
+      "context": null,
+      "contextDismissed": false,
       "error": null
     },
     {
@@ -476,8 +537,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -560,6 +621,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -588,11 +663,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -612,9 +698,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -634,9 +721,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -656,9 +744,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -704,9 +793,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -743,8 +833,40 @@
           "leg": 1
         }
       ],
+      "eventSeq": 2,
       "phase": "atStop",
       "choice": null,
+      "mode": "horse",
+      "estimate": {
+        "seconds": 236.47480021116718,
+        "approx": false,
+        "legs": [
+          {
+            "seconds": 6.796739009623848,
+            "length_m": 40.92880356255501,
+            "approx": false
+          },
+          {
+            "seconds": 54.32707534812008,
+            "length_m": 349.87598976278053,
+            "approx": false
+          },
+          {
+            "seconds": 24.72899810327801,
+            "length_m": 157.48848767130707,
+            "approx": false
+          },
+          {
+            "seconds": 25.621987750145255,
+            "length_m": 163.29292037594416,
+            "approx": false
+          }
+        ]
+      },
+      "notice": null,
+      "restored": false,
+      "context": null,
+      "contextDismissed": false,
       "error": null
     },
     {
@@ -846,8 +968,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -930,6 +1052,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -958,11 +1094,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -982,9 +1129,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -1004,9 +1152,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -1026,9 +1175,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -1074,9 +1224,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -1118,7 +1269,7 @@
           "leg": 1
         },
         {
-          "id": "7:3",
+          "id": "7:decision:arrival:continue",
           "type": "decision",
           "stop": "arrival",
           "choice": null
@@ -1136,9 +1287,66 @@
           "leg": 2
         }
       ],
+      "eventSeq": 5,
       "phase": "atStop",
       "choice": null,
-      "error": null
+      "mode": "horse",
+      "estimate": {
+        "seconds": 192.67806120154333,
+        "approx": false,
+        "legs": [
+          {
+            "seconds": 54.32707534812008,
+            "length_m": 349.87598976278053,
+            "approx": false
+          },
+          {
+            "seconds": 24.72899810327801,
+            "length_m": 157.48848767130707,
+            "approx": false
+          },
+          {
+            "seconds": 25.621987750145255,
+            "length_m": 163.29292037594416,
+            "approx": false
+          }
+        ]
+      },
+      "notice": null,
+      "restored": false,
+      "context": {
+        "from": "arrival",
+        "to": "mail-corner",
+        "lines": [
+          {
+            "text": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "evidence": [
+              "continuity"
+            ]
+          },
+          {
+            "text": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "evidence": [
+              "outing"
+            ]
+          }
+        ],
+        "passed": [
+          {
+            "id": "philo_carpenter_log_shop",
+            "label": "Beaubien's log cabin, beside the Sauganash",
+            "distance": 9.329364451239632,
+            "along": 1.6165903319556916,
+            "side": "on your right"
+          }
+        ],
+        "authored": true,
+        "fromIndex": 0
+      },
+      "contextDismissed": false,
+      "error": null,
+      "fromStopId": "arrival",
+      "instant": false
     },
     {
       "jaunt": {
@@ -1239,8 +1447,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -1323,6 +1531,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -1351,11 +1573,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -1375,9 +1608,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -1397,9 +1631,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -1419,9 +1654,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -1467,9 +1703,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -1516,7 +1753,7 @@
           "leg": 1
         },
         {
-          "id": "7:3",
+          "id": "7:decision:arrival:continue",
           "type": "decision",
           "stop": "arrival",
           "choice": null
@@ -1534,7 +1771,7 @@
           "leg": 2
         },
         {
-          "id": "7:6",
+          "id": "7:decision:mail-corner:continue",
           "type": "decision",
           "stop": "mail-corner",
           "choice": null
@@ -1552,9 +1789,178 @@
           "leg": 3
         }
       ],
+      "eventSeq": 8,
       "phase": "atStop",
       "choice": null,
-      "error": null
+      "mode": "horse",
+      "estimate": {
+        "seconds": 116.35098585342325,
+        "approx": false,
+        "legs": [
+          {
+            "seconds": 24.72899810327801,
+            "length_m": 157.48848767130707,
+            "approx": false
+          },
+          {
+            "seconds": 25.621987750145255,
+            "length_m": 163.29292037594416,
+            "approx": false
+          }
+        ]
+      },
+      "notice": null,
+      "restored": false,
+      "context": {
+        "from": "mail-corner",
+        "to": "store",
+        "lines": [
+          {
+            "text": "Passing Reconstructed sawpit shed (sawyer) on your left.",
+            "generated": true,
+            "place": "inf_sawpit_shed"
+          },
+          {
+            "text": "Passing Reconstructed cooperage (cooper) on your left.",
+            "generated": true,
+            "place": "inf_cooperage_south"
+          }
+        ],
+        "passed": [
+          {
+            "id": "inf_sawpit_shed",
+            "label": "Reconstructed sawpit shed (sawyer)",
+            "distance": 12.919332369648494,
+            "along": 21.216394380578816,
+            "side": "on your left"
+          },
+          {
+            "id": "inf_cooperage_south",
+            "label": "Reconstructed cooperage (cooper)",
+            "distance": 18.502101284874207,
+            "along": 42.51175455386697,
+            "side": "on your left"
+          },
+          {
+            "id": "temple_building",
+            "label": "Temple Building",
+            "distance": 10.640407084116953,
+            "along": 132.8730537578628,
+            "side": "on your left"
+          },
+          {
+            "id": "newberry_dole_warehouse",
+            "label": "Newberry & Dole's Forwarding and Commission Warehouse",
+            "distance": 17.427193280046204,
+            "along": 137.41344339017712,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_c2_09",
+            "label": "Reconstructed C2 store-residence #09",
+            "distance": 0.23913307829324207,
+            "along": 143.6516404102966,
+            "side": "along the route"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_c2_10",
+            "label": "Reconstructed C2 store-residence #10",
+            "distance": 5.786120633926941,
+            "along": 144.96441203457974,
+            "side": "on your left"
+          },
+          {
+            "id": "jh_kinzie_forwarding_store",
+            "label": "J. H. Kinzie's Store",
+            "distance": 13.338881360481594,
+            "along": 147.4865830701509,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_c2_08",
+            "label": "Reconstructed C2 store-residence #08",
+            "distance": 7.242859867826405,
+            "along": 169.0323037884877,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_d3_13",
+            "label": "Reconstructed D3 one-room frame cottage #13",
+            "distance": 0.08957633943151062,
+            "along": 189.9726650320786,
+            "side": "along the route"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_d4_12",
+            "label": "Reconstructed D4 two-room frame cottage #12",
+            "distance": 3.4977074685459404,
+            "along": 196.34933841896654,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_d1_04",
+            "label": "Reconstructed D1 older log dwelling #04",
+            "distance": 0.503023072664076,
+            "along": 203.1307349374003,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_franklin_d4_02",
+            "label": "Reconstructed D4 two-room frame cottage #02",
+            "distance": 3.3599496359190866,
+            "along": 209.23828909146118,
+            "side": "on your left"
+          },
+          {
+            "id": "h_jones_store",
+            "label": "Jones's Grocery and Provision Store",
+            "distance": 12.317353177139113,
+            "along": 260.684056438291,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_wells_d1_05",
+            "label": "Reconstructed D1 older log dwelling #05",
+            "distance": 0.6060138303425466,
+            "along": 287.91304668736666,
+            "side": "on your right"
+          },
+          {
+            "id": "carpenter_south_water_store",
+            "label": "Philo Carpenter's South Water Street Store",
+            "distance": 2.3903121230857574,
+            "along": 298.46979676177284,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_wells_c3_02",
+            "label": "Reconstructed C3 narrow two-story store #02",
+            "distance": 13.178671403663767,
+            "along": 312.80327837210314,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_wells_c2_01",
+            "label": "Reconstructed C2 store-residence #01",
+            "distance": 5.6994018363184145,
+            "along": 318.3056343353578,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_f2_10",
+            "label": "Reconstructed F2 narrow two-story warehouse #10",
+            "distance": 20.394932789114712,
+            "along": 342.955230891167,
+            "side": "on your right"
+          }
+        ],
+        "authored": false,
+        "fromIndex": 1
+      },
+      "contextDismissed": false,
+      "error": null,
+      "fromStopId": "mail-corner",
+      "instant": false
     },
     {
       "jaunt": {
@@ -1655,8 +2061,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -1739,6 +2145,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -1767,11 +2187,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -1791,9 +2222,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -1813,9 +2245,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -1835,9 +2268,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -1883,9 +2317,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -1937,7 +2372,7 @@
           "leg": 1
         },
         {
-          "id": "7:3",
+          "id": "7:decision:arrival:continue",
           "type": "decision",
           "stop": "arrival",
           "choice": null
@@ -1955,7 +2390,7 @@
           "leg": 2
         },
         {
-          "id": "7:6",
+          "id": "7:decision:mail-corner:continue",
           "type": "decision",
           "stop": "mail-corner",
           "choice": null
@@ -1973,7 +2408,7 @@
           "leg": 3
         },
         {
-          "id": "7:9",
+          "id": "7:decision:store:continue",
           "type": "decision",
           "stop": "store",
           "choice": null
@@ -1991,9 +2426,131 @@
           "leg": 4
         }
       ],
+      "eventSeq": 11,
       "phase": "atStop",
       "choice": null,
-      "error": null
+      "mode": "horse",
+      "estimate": {
+        "seconds": 69.62198775014525,
+        "approx": false,
+        "legs": [
+          {
+            "seconds": 25.621987750145255,
+            "length_m": 163.29292037594416,
+            "approx": false
+          }
+        ]
+      },
+      "notice": null,
+      "restored": false,
+      "context": {
+        "from": "store",
+        "to": "newspaper",
+        "lines": [
+          {
+            "text": "Passing Reconstructed C2 store-residence #01 on your right.",
+            "generated": true,
+            "place": "recon_1835_blk_south_water_wells_c2_01"
+          },
+          {
+            "text": "Passing Reconstructed F2 narrow two-story warehouse #10 on your left.",
+            "generated": true,
+            "place": "recon_1835_blk_south_water_lasalle_f2_10"
+          }
+        ],
+        "passed": [
+          {
+            "id": "recon_1835_blk_south_water_wells_c2_01",
+            "label": "Reconstructed C2 store-residence #01",
+            "distance": 22.65521173500088,
+            "along": 0,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_f2_10",
+            "label": "Reconstructed F2 narrow two-story warehouse #10",
+            "distance": 2.6436149809663543,
+            "along": 26.921120104224737,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d2_09",
+            "label": "Reconstructed D2 rough plank dwelling or shanty #09",
+            "distance": 2.7462410080732305,
+            "along": 56.971542099981605,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c2_11",
+            "label": "Reconstructed C2 store-residence #11",
+            "distance": 11.790151167170965,
+            "along": 63.4022016598409,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c1_08",
+            "label": "Reconstructed C1 small shop or office #08",
+            "distance": 4.193376538964392,
+            "along": 66.3189818574963,
+            "side": "on your left"
+          },
+          {
+            "id": "lasalle_slough_crossing",
+            "label": "The La Salle Slough Crossing, South Water Street",
+            "distance": 4.244520710204693,
+            "along": 68.47153623664225,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_12",
+            "label": "Reconstructed C3 narrow two-story store #12",
+            "distance": 18.26903739798305,
+            "along": 79.37182723302175,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d1_04",
+            "label": "Reconstructed D1 older log dwelling #04",
+            "distance": 3.202358633085236,
+            "along": 97.65758477810105,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d4_02",
+            "label": "Reconstructed D4 two-room frame cottage #02",
+            "distance": 5.605902736281397,
+            "along": 104.11910777089213,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_13",
+            "label": "Reconstructed C3 narrow two-story store #13",
+            "distance": 13.022645221826771,
+            "along": 105.90622674464504,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d5_01",
+            "label": "Reconstructed D5 deep-plan frame cottage #01",
+            "distance": 8.101853778131142,
+            "along": 110.08291278148789,
+            "side": "on your left"
+          },
+          {
+            "id": "harmon_loomis_store",
+            "label": "Harmon & Loomis's Store",
+            "distance": 1.7962127604666578,
+            "along": 156.68110244098682,
+            "side": "on your left"
+          }
+        ],
+        "authored": false,
+        "fromIndex": 2
+      },
+      "contextDismissed": false,
+      "error": null,
+      "fromStopId": "store",
+      "instant": false
     },
     {
       "jaunt": {
@@ -2094,8 +2651,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -2178,6 +2735,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -2206,11 +2777,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -2230,9 +2812,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -2252,9 +2835,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -2274,9 +2858,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -2322,9 +2907,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -2381,7 +2967,7 @@
           "leg": 1
         },
         {
-          "id": "7:3",
+          "id": "7:decision:arrival:continue",
           "type": "decision",
           "stop": "arrival",
           "choice": null
@@ -2399,7 +2985,7 @@
           "leg": 2
         },
         {
-          "id": "7:6",
+          "id": "7:decision:mail-corner:continue",
           "type": "decision",
           "stop": "mail-corner",
           "choice": null
@@ -2417,7 +3003,7 @@
           "leg": 3
         },
         {
-          "id": "7:9",
+          "id": "7:decision:store:continue",
           "type": "decision",
           "stop": "store",
           "choice": null
@@ -2435,7 +3021,7 @@
           "leg": 4
         },
         {
-          "id": "7:12",
+          "id": "7:decision:newspaper:continue",
           "type": "decision",
           "stop": "newspaper",
           "choice": null
@@ -2453,9 +3039,132 @@
           "leg": 5
         }
       ],
+      "eventSeq": 14,
       "phase": "atStop",
       "choice": null,
-      "error": null
+      "mode": "horse",
+      "estimate": {
+        "seconds": 22,
+        "approx": false,
+        "legs": []
+      },
+      "notice": null,
+      "restored": false,
+      "context": {
+        "from": "newspaper",
+        "to": "lodging",
+        "lines": [
+          {
+            "text": "Passing Harmon & Loomis's Store on your right.",
+            "generated": true,
+            "place": "harmon_loomis_store"
+          },
+          {
+            "text": "Passing Reconstructed D5 deep-plan frame cottage #01 on your right.",
+            "generated": true,
+            "place": "recon_1835_blk_south_water_lasalle_d5_01"
+          }
+        ],
+        "passed": [
+          {
+            "id": "harmon_loomis_store",
+            "label": "Harmon & Loomis's Store",
+            "distance": 1.822253900176999,
+            "along": 0,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d5_01",
+            "label": "Reconstructed D5 deep-plan frame cottage #01",
+            "distance": 8.513688344378924,
+            "along": 45.90653720508788,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_13",
+            "label": "Reconstructed C3 narrow two-story store #13",
+            "distance": 13.485387682243548,
+            "along": 50.022494004737595,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d4_02",
+            "label": "Reconstructed D4 two-room frame cottage #02",
+            "distance": 6.091145339822075,
+            "along": 51.90053647091954,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d1_04",
+            "label": "Reconstructed D1 older log dwelling #04",
+            "distance": 3.7671129834636656,
+            "along": 58.39108169061998,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_12",
+            "label": "Reconstructed C3 narrow two-story store #12",
+            "distance": 19.05715742132765,
+            "along": 76.49048165554123,
+            "side": "on your right"
+          },
+          {
+            "id": "lasalle_slough_crossing",
+            "label": "The La Salle Slough Crossing, South Water Street",
+            "distance": 3.320876795744966,
+            "along": 87.6663586715085,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c1_08",
+            "label": "Reconstructed C1 small shop or office #08",
+            "distance": 5.142812224243974,
+            "along": 89.71515551737542,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c2_11",
+            "label": "Reconstructed C2 store-residence #11",
+            "distance": 12.885693340773633,
+            "along": 91.6267329829946,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d2_09",
+            "label": "Reconstructed D2 rough plank dwelling or shanty #09",
+            "distance": 4.449508835948345,
+            "along": 98.83620483197122,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_f2_10",
+            "label": "Reconstructed F2 narrow two-story warehouse #10",
+            "distance": 10.903068065427687,
+            "along": 124.86017878385213,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_a1_14",
+            "label": "Reconstructed A1 stable #14",
+            "distance": 9.763574626685159,
+            "along": 162.0997871134558,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_a2_15",
+            "label": "Reconstructed A2 barn or carriage shed #15",
+            "distance": 8.86934457872213,
+            "along": 162.0997871134558,
+            "side": "on your right"
+          }
+        ],
+        "authored": false,
+        "fromIndex": 3
+      },
+      "contextDismissed": false,
+      "error": null,
+      "fromStopId": "newspaper",
+      "instant": false
     },
     {
       "jaunt": {
@@ -2556,8 +3265,8 @@
             "url": "https://www.authorama.com/wau-bun-19.html"
           }
         ],
-        "content_version": 1,
-        "default_mode": "walk",
+        "content_version": 3,
+        "default_mode": "horse",
         "endings": [
           {
             "completion_eligible": true,
@@ -2640,6 +3349,20 @@
           "text": "A fictional route note linking five first-day landmarks.",
           "title": "Finding Your Feet"
         },
+        "legs": [
+          {
+            "evidence": [
+              "continuity"
+            ],
+            "from": "arrival",
+            "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+            "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+            "story_evidence": [
+              "outing"
+            ],
+            "to": "mail-corner"
+          }
+        ],
         "liberties": [
           "L-jaunt-pilot"
         ],
@@ -2668,11 +3391,22 @@
                 "id": "sauganash_hotel",
                 "kind": "structure",
                 "label": "About this place"
+              },
+              {
+                "id": "kinzie_juliette",
+                "kind": "person",
+                "label": "Juliette Kinzie"
+              },
+              {
+                "id": "kinzie_waubun_1856",
+                "kind": "source",
+                "label": "Read Wau-Bun source"
               }
             ],
+            "narrative": "Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door.",
             "next": "mail-corner",
             "read_s": 22,
-            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters. Let that remembered landmark be your starting point. In this imagined first day, you are finding your bearings, not reenacting a documented arrival or meeting anyone at the door."
+            "text": "Begin outside the Sauganash. Recalling 1831, Juliette Kinzie described a white two-storey house with blue shutters."
           },
           {
             "destination": {
@@ -2692,9 +3426,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter.",
             "next": "store",
             "read_s": 22,
-            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834. Keep the old corner as a landmark on your route; do not mistake it for the town’s current mail counter."
+            "text": "This is the former mail corner. Hogan’s store held the post office in 1833, but Andreas says the office moved about July 1834."
           },
           {
             "destination": {
@@ -2714,9 +3449,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "For your imagined outing, simply note this useful landmark.",
             "next": "newspaper",
             "read_s": 22,
-            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today. For your imagined outing, simply note this useful landmark."
+            "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today."
           },
           {
             "destination": {
@@ -2736,9 +3472,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one.",
             "next": "lodging",
             "read_s": 22,
-            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store. Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+            "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store."
           },
           {
             "choices": [
@@ -2784,9 +3521,10 @@
                 "label": "About this place"
               }
             ],
+            "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next.",
             "next": "$end",
             "read_s": 22,
-            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store. Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+            "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store."
           }
         ],
         "title": "New in Chicago",
@@ -2846,7 +3584,7 @@
           "leg": 1
         },
         {
-          "id": "7:3",
+          "id": "7:decision:arrival:continue",
           "type": "decision",
           "stop": "arrival",
           "choice": null
@@ -2864,7 +3602,7 @@
           "leg": 2
         },
         {
-          "id": "7:6",
+          "id": "7:decision:mail-corner:continue",
           "type": "decision",
           "stop": "mail-corner",
           "choice": null
@@ -2882,7 +3620,7 @@
           "leg": 3
         },
         {
-          "id": "7:9",
+          "id": "7:decision:store:continue",
           "type": "decision",
           "stop": "store",
           "choice": null
@@ -2900,7 +3638,7 @@
           "leg": 4
         },
         {
-          "id": "7:12",
+          "id": "7:decision:newspaper:continue",
           "type": "decision",
           "stop": "newspaper",
           "choice": null
@@ -2918,7 +3656,7 @@
           "leg": 5
         },
         {
-          "id": "7:15",
+          "id": "7:decision:lodging:rest",
           "type": "decision",
           "stop": "lodging",
           "choice": "rest"
@@ -2929,9 +3667,132 @@
           "ending": "finding-your-feet"
         }
       ],
+      "eventSeq": 16,
       "phase": "outcome",
       "choice": null,
+      "mode": "horse",
+      "estimate": {
+        "seconds": 22,
+        "approx": false,
+        "legs": []
+      },
+      "notice": null,
+      "restored": false,
+      "context": {
+        "from": "newspaper",
+        "to": "lodging",
+        "lines": [
+          {
+            "text": "Passing Harmon & Loomis's Store on your right.",
+            "generated": true,
+            "place": "harmon_loomis_store"
+          },
+          {
+            "text": "Passing Reconstructed D5 deep-plan frame cottage #01 on your right.",
+            "generated": true,
+            "place": "recon_1835_blk_south_water_lasalle_d5_01"
+          }
+        ],
+        "passed": [
+          {
+            "id": "harmon_loomis_store",
+            "label": "Harmon & Loomis's Store",
+            "distance": 1.822253900176999,
+            "along": 0,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d5_01",
+            "label": "Reconstructed D5 deep-plan frame cottage #01",
+            "distance": 8.513688344378924,
+            "along": 45.90653720508788,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_13",
+            "label": "Reconstructed C3 narrow two-story store #13",
+            "distance": 13.485387682243548,
+            "along": 50.022494004737595,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d4_02",
+            "label": "Reconstructed D4 two-room frame cottage #02",
+            "distance": 6.091145339822075,
+            "along": 51.90053647091954,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d1_04",
+            "label": "Reconstructed D1 older log dwelling #04",
+            "distance": 3.7671129834636656,
+            "along": 58.39108169061998,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c3_12",
+            "label": "Reconstructed C3 narrow two-story store #12",
+            "distance": 19.05715742132765,
+            "along": 76.49048165554123,
+            "side": "on your right"
+          },
+          {
+            "id": "lasalle_slough_crossing",
+            "label": "The La Salle Slough Crossing, South Water Street",
+            "distance": 3.320876795744966,
+            "along": 87.6663586715085,
+            "side": "on your left"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c1_08",
+            "label": "Reconstructed C1 small shop or office #08",
+            "distance": 5.142812224243974,
+            "along": 89.71515551737542,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_c2_11",
+            "label": "Reconstructed C2 store-residence #11",
+            "distance": 12.885693340773633,
+            "along": 91.6267329829946,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_d2_09",
+            "label": "Reconstructed D2 rough plank dwelling or shanty #09",
+            "distance": 4.449508835948345,
+            "along": 98.83620483197122,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_f2_10",
+            "label": "Reconstructed F2 narrow two-story warehouse #10",
+            "distance": 10.903068065427687,
+            "along": 124.86017878385213,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_a1_14",
+            "label": "Reconstructed A1 stable #14",
+            "distance": 9.763574626685159,
+            "along": 162.0997871134558,
+            "side": "on your right"
+          },
+          {
+            "id": "recon_1835_blk_south_water_lasalle_a2_15",
+            "label": "Reconstructed A2 barn or carriage shed #15",
+            "distance": 8.86934457872213,
+            "along": 162.0997871134558,
+            "side": "on your right"
+          }
+        ],
+        "authored": false,
+        "fromIndex": 3
+      },
+      "contextDismissed": false,
       "error": null,
+      "fromStopId": "newspaper",
+      "instant": false,
       "outcome": {
         "completion_eligible": true,
         "default": true,
@@ -2942,13 +3803,23 @@
     }
   ],
   "requests": [
-    "http://127.0.0.1:34981/walk/js/jaunt-preview.js",
-    "http://127.0.0.1:34981/walk/js/jaunts.js",
-    "http://127.0.0.1:34981/walk/js/jaunt-panel.js",
-    "http://127.0.0.1:34981/walk/css/jaunt.css",
-    "http://127.0.0.1:34981/data/sidecars/1835/jaunts/catalog.json",
-    "http://127.0.0.1:34981/data/sidecars/1835/jaunts/new-in-chicago.json",
-    "http://127.0.0.1:34981/data/sidecars/1835/jaunts/fixture-walk.json"
+    "http://127.0.0.1:41027/walk/js/jaunt-preview.js",
+    "http://127.0.0.1:41027/walk/js/jaunts.js",
+    "http://127.0.0.1:41027/walk/js/jaunt-panel.js",
+    "http://127.0.0.1:41027/walk/css/jaunt.css",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/catalog.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/daybook.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/new-in-chicago.json",
+    "http://127.0.0.1:41027/walk/js/jaunt-preview.js",
+    "http://127.0.0.1:41027/walk/js/jaunts.js",
+    "http://127.0.0.1:41027/walk/js/jaunt-panel.js",
+    "http://127.0.0.1:41027/walk/css/jaunt.css",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/catalog.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/new-in-chicago.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/daybook.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/fixture-walk.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/fixture-shopping.json",
+    "http://127.0.0.1:41027/data/sidecars/1835/jaunts/fixture-tavern.json"
   ],
   "pageErrors": []
 }

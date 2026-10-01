@@ -67,11 +67,11 @@ export function createJournal({ book, scene = '1835', storage: suppliedStorage }
     catch { memoryOnly(); }
   }
   load();
-  const snapshot = () => ({ counts: countsFor(book, keepsakes), rank: rankFor(book, keepsakes) });
+  const snapshot = () => ({ counts: countsFor(book, keepsakes), level: rankFor(book, keepsakes) });
   return {
     key, get keepsakes() { return keepsakes.slice(); }, get notice() { return notice; }, get persistent() { return persistent; },
     get lastAward() { return lastAward; }, book,
-    counts: () => countsFor(book, keepsakes), rank: () => rankFor(book, keepsakes), nextRank: () => nextRankFor(book, keepsakes),
+    counts: () => countsFor(book, keepsakes), level: () => rankFor(book, keepsakes), nextRank: () => nextRankFor(book, keepsakes),
     has: (jauntId, keepsakeId) => keepsakes.some(e => e.key === `${jauntId}:${keepsakeId}`),
     /** Award on completion only: a fallback or ineligible ending leaves the book untouched. */
     award(jaunt, outcome = { completion_eligible: true }) {
@@ -86,7 +86,7 @@ export function createJournal({ book, scene = '1835', storage: suppliedStorage }
       }
       const after = snapshot();
       lastAward = { jaunt: jaunt.id, added, entry: keepsakes.find(e => e.key === entryKey), before, after,
-        rankChanged: before.rank.id !== after.rank.id };
+        rankChanged: before.level.id !== after.level.id };
       return lastAward;
     },
     reset() {

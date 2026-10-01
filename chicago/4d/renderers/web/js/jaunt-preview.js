@@ -55,8 +55,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     return row;
   }
   function rankLine() {
-    const rank = journal.rank(), next = journal.nextRank();
-    const line = node('p', `Rank: ${rank.title}`, 'jaunt-daybook-rank'); line.dataset.rank = rank.id;
+    const rank = journal.level(), next = journal.nextRank();
+    const line = node('p', `Rank: ${rank.title}`, 'jaunt-daybook-rank'); line.dataset.level = rank.id;
     if (next) line.append(node('small', ` · ${next.title} at ${next.threshold} in every family`));
     return line;
   }
@@ -86,7 +86,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     box.append(node('p', result.added ? 'Kept in your daybook' : 'Already in your daybook — replays keep one copy', 'jaunt-meta'), keepsakeCard(result.entry));
     const moved = new Set(Object.keys(result.after.counts).filter(id => result.after.counts[id] !== result.before.counts[id]));
     box.append(counters(result.after.counts, moved));
-    if (result.rankChanged) box.append(node('p', `New rank: ${result.after.rank.title}`, 'jaunt-daybook-rank'));
+    if (result.rankChanged) box.append(node('p', `New rank: ${result.after.level.title}`, 'jaunt-daybook-rank'));
     return box;
   }
   function focus(el) {
@@ -95,7 +95,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   function list(rows, returnId, focusStart = false) {
     root.replaceChildren(node('p', 'Choose an outing, or read its route before you start.'));
     if (journal) {
-      const entry = button(`Daybook · ${journal.rank().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
+      const entry = button(`Daybook · ${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
       entry.dataset.action = 'daybook'; root.append(entry);
     }
     const session = getSession();

@@ -67,10 +67,10 @@ await test('ranks are exactly the data thresholds, and every family must meet th
   const journal = createJournal({ book, storage: memory() }), docs = {};
   for (const family of book.families) for (const n of [1, 2, 3]) { const doc = outing(family.name, n); docs[doc.id] = doc; }
   const { play } = rig(journal, docs);
-  assert.equal(journal.rank().id, book.ranks[0].id);
+  assert.equal(journal.level().id, book.ranks[0].id);
   const order = [1, 2, 3].flatMap(n => book.families.map(f => `fixture-${f.id}-${n}`));
   const seen = [];
-  for (const id of order) { await play(id); seen.push(journal.rank().title); }
+  for (const id of order) { await play(id); seen.push(journal.level().title); }
   assert.deepEqual(seen, [...Array(4).fill('New Arrival'), 'Finding Your Feet', ...Array(4).fill('Finding Your Feet'), 'Knows the Town',
     ...Array(4).fill('Knows the Town'), 'Seasoned Chicagoan']);
   assert.equal(journal.lastAward.rankChanged, true);
