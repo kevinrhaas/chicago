@@ -9,9 +9,9 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 606,
+  "images": 608,
   "local": 127,
-  "in_period": 347,
+  "in_period": 349,
   "buildings_with_images": 62,
   "buildings": 62
  },
@@ -657,6 +657,7 @@
    "a19-gh-prairie-1800-1900-elevations",
    "st-randmcnally-1893-p269-east-1800-1900",
    "a19-rebj-1886-ream-purchase",
+   "a19-moore-1921-burnham-works-ream",
    "dw-inland-1887-05-ream-1901-interior-contract",
    "a19-pictorial-1893-ream",
    "a19-pictorial-1896-ream",
@@ -7020,6 +7021,39 @@
      "locator": "REBJ 6 Feb 1886, real-estate news"
     }
    ],
+   "stream": "1900"
+  },
+  {
+   "id": "a19-moore-1921-burnham-works-ream",
+   "kind": "document",
+   "title": "Charles Moore, Daniel H. Burnham, Architect, Planner of Cities (1921), vol. 2, list of works: 'Norman B. Ream — House — 1901 Prairie Avenue' (Burnham & Root, under 1887–1888)",
+   "building_ids": [
+    "pa-1901-15"
+   ],
+   "addresses": [
+    "1901 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "1921 (publication); entry for 1887–88 work",
+   "date_earliest": 1887,
+   "date_latest": 1888,
+   "period": "in-period",
+   "creator": "Charles Moore (author); Houghton Mifflin",
+   "repository": "Internet Archive",
+   "collection": "Daniel H. Burnham, architect, planner of cities, vol. 2 — IA danielhburnhamar02moor",
+   "call_number": "vol. 2, appendix list of works (IA search-inside leaf 338)",
+   "catalog_url": "https://archive.org/details/danielhburnhamar02moor",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published 1921 in the United States (pre-1929)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA full-text search '\"1901 Prairie avenue\" Ream' → search-inside of the item",
+   "notes": "Burnham & Root's chronological list of works includes 'Norman B. Ream, House, 1901 Prairie Avenue' between the 1887 and 1888 entries — the post-fire (Jan. 1887) rebuilding of the Keith/Ream house by Burnham & Root (the AIC monograph index says they rebuilt the top floor). Confirms the 1904 form is the Burnham & Root remodel, not Dixon's 1882 original. The same list has a separate 'Norman B. Ream, House and barn' entry (Groveland Park?) and Ream warehouse (153 S. Water St., 1886) — not this site.",
+   "measurements": [],
    "stream": "1900"
   },
   {
@@ -21865,6 +21899,37 @@
    "verified": "viewed",
    "found_via": "chicagology.com Prairie Avenue house pages",
    "notes": "Incidental (1945 Prairie is not in buildings-index.tsv): brick mansard house with rounded corner bay, stone trim, and a heavy turned-baluster stone/iron railing along the sidewalk; looking north along Prairie's tree-lined east sidewalk with stoops and fences of the 1900-block houses (1923, 1919…) receding. Street-view value for the east side of the 1900 block; house demolished 1931 per page.",
+   "measurements": [],
+   "stream": "1900"
+  },
+  {
+   "id": "a19-commons-1945-prairie-looking-north",
+   "kind": "photograph",
+   "title": "1872-1945-prairie-avenue-looking-north.jpg ('1945 Prairie Avenue … looking north', c. 1872 per Commons)",
+   "building_ids": [],
+   "addresses": [
+    "1945 S. Prairie Avenue (George Armour house) and the east side of the 1900 block"
+   ],
+   "streetscape": true,
+   "view": "street view",
+   "facing": "north",
+   "camera_position": "on the east sidewalk of Prairie Avenue at about 20th Street, looking north",
+   "date": "circa 1872 (Commons; questionable — the Armour house dates from 1872)",
+   "date_earliest": 1872,
+   "date_latest": 1900,
+   "period": "in-period",
+   "creator": "unknown",
+   "repository": "Wikimedia Commons (source cited as Glessner House Museum)",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:1872-1945-prairie-avenue-looking-north.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
+   "rights": "public domain",
+   "rights_basis": "Commons: public domain in the US (faithful reproduction of a public-domain work)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "WebFetch of Commons Category:Prairie_Avenue file list; image itself seen as Chicagology '1945sprairie.jpg' (a19-cgy-1945-armour)",
+   "notes": "Same photograph as a19-cgy-1945-armour: the Armour house at the SE end of the block with its turned-baluster stone railing and corner bay, and the east-side frontage of the 1900 block receding north (stoops, iron fences, parkway trees) — includes the fronts of 1923 Kellogg and 1919 at a distance though not individually legible at Commons resolution (926×1128). Commons date 'circa 1872' is doubtful; the mature trees suggest the 1880s–90s. A companion PNG (File:1872-1945-prairie-avenue-chicago-il.png, 353×438, 'source: Google Books') shows 1945 Prairie as well. Not downloaded (Commons upload server rate-limited this session).",
    "measurements": [],
    "stream": "1900"
   },
