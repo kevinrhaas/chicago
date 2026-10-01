@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
+    items: [
+      'The browser tab, link previews and the Chicago home page now call the app 4D Chicago instead of \u201cwalk 1835\u201d. The year still shows where it names the town you are walking.',
+    ] },
   { v: 1267, ts: '2026-10-01T17:44:52.415Z', date: 'Oct 1, 2026, 12:44 PM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
     items: [
       'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
