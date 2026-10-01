@@ -203,7 +203,7 @@ export function replaySession(jaunt, saved, session = 1) {
 
 /** Adapters own UI and travel. Tokens invalidate every obsolete completion. */
 export function createJaunts({ scene = '1835', load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
-  estimate = () => null, contextForRoute = () => null, storage: suppliedStorage }) {
+  estimate = () => null, contextForRoute = () => null, onComplete = () => {}, storage: suppliedStorage }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -221,6 +221,8 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     const old = state;
     state = reduce(state, event);
     if (state === old) return false;
+    // T-1258: the one moment an outing completes; the daybook's award is idempotent anyway.
+    if (state.phase === 'outcome' && old.phase !== 'outcome') { try { onComplete(state); } catch { /* the outing still ends */ } }
     if (old.phase === 'detail' && state.phase !== 'detail') dismissDetail();
     if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
       state = { ...state, estimate: estimate(state) };

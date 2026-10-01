@@ -626,6 +626,25 @@ sheet and is not drawn. `data/street_grid/` is one dated file and carries no `in
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
 
+## T-1258 — the Chicago daybook (2026-10-01)
+
+Finishing a jaunt now keeps its keepsake in a daybook: five families (Provisions,
+Livelihood, Wayfinding, News & Knowledge, Neighbors), four ranks from New Arrival to
+Seasoned Chicagoan. Families, ranks, thresholds and each family's paper form (receipt,
+work chit, route note, clipping, calling card) are data in `data/jaunts/daybook.json`;
+`compile_jaunts.py` validates it against the keepsake schema's family list and ships it
+beside each scene's catalog. `jaunt-journal.js` awards on a completed, eligible ending
+only, idempotent per jaunt + keepsake, and counts a jaunt's `secondary_family` too.
+Storage is `c4d.daybook.v1` (1835) or `c4d.daybook.v1.<year>`; a damaged save is set
+aside under `.damaged` with a notice, an old schema is set aside, unreadable rows are
+dropped and counted aloud, and blocked storage runs in memory and says so.
+
+Unverified: only one jaunt (Wayfinding) is published for 1835, so a visitor can reach
+no rank above New Arrival yet. The ladder is proven on fifteen generated fixture
+outings in `tools/test_daybook.mjs`, not on authored content. The desktop leg of
+`test_jaunts_play.mjs` did not finish inside one 600 s foreground call on the runner;
+the 390×780 leg (pilot, outcome, daybook, reload) passed.
+
 ## T-1257 — optional history beside a jaunt (2026-09-28)
 
 Stop chips open existing structure, person, business, source and Evidence cards.
