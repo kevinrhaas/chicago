@@ -1184,7 +1184,7 @@ def child_card(slot_id: str, sex: str, bucket_key: str, place: dict, keeper: dic
 
 
 def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
-                    taken_names: set, taken_ids: set) -> tuple:
+                    taken_names: set, taken_ids: set, open_left: dict | None = None) -> tuple:
     """(child fills, the per-house family rows). Mutates `cards` and `room`.
 
     Runs AFTER every bed is dealt, so the room a child is ordered out of is what the
@@ -1239,7 +1239,10 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             sex = "male" if unit(f"{slot_id}:sex_ratio") < boy_rate else "female"
             at = (house["division"], sex, CHILD_BAND, "none")
             key, left = room[at]
-            if left <= 0:
+            # T-1782: the open-order ceiling binds a child exactly as it binds the keeper
+            # and the boarders. A cell the re-family ledger has already landed heads in is
+            # spent at its open order, not at the frozen room's figure.
+            if left <= 0 or (open_left is not None and open_left.get(key, 0) <= 0):
                 refused.append({
                     "child": index,
                     "refusal": "the cell is spent",
@@ -1276,6 +1279,8 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             drawn.append(child["id"])
             fills[key] += 1
             room[at] = (key, left - 1)
+            if open_left is not None:
+                open_left[key] = open_left.get(key, 0) - 1
 
         house["minted_children"] = len(drawn)
         if drawn:
@@ -1527,8 +1532,27 @@ def fill() -> tuple:
         if house["standing"] == RECONSTRUCTED and not house["keeper_household"]:
             weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                        if div == house["division"] and axis == "trade" and band in ADULT_BANDS and n > 0]
+            # THE KEEPER IS HELD TO THE OPEN-ORDER CEILING TOO (T-1782). T-1717 capped the
+            # lodgers below at `open_left` and left this pick on the frozen room alone, so
+            # a house dealt last could mint its keeper into a cell an earlier house had
+            # already filled to what the book orders — measured when recon_1835_west_046
+            # became a boarding house: its keeper drew a second person out of a West cell
+            # the book orders one in, and `refuse()` stopped the build. The seeded pick is
+            # kept, so a keeper whose cell is still open does not move; only a pick that
+            # lands on a closed cell (no open order left, or none the live book still
+            # carries — the two things `refuse()` asserts) is re-drawn over the cells that
+            # are open, and where
+            # none is open no keeper is minted and the house's beds are dealt as lodgers.
             if weights:
                 sex, band = pick(f"{STAGE}:{house['id']}:keeper", weights)
+                def still_open(s, b):
+                    k = room[(house["division"], s, b, "trade")][0]
+                    return open_left.get(k, 0) > 0 and fills[k] < live_by_key.get(k, 0)
+                if not still_open(sex, band):
+                    weights = [((s, b), n) for (s, b), n in weights if still_open(s, b)]
+                    if weights:
+                        sex, band = pick(f"{STAGE}:{house['id']}:keeper:open", weights)
+            if weights:
                 key = room[(house["division"], sex, band, "trade")][0]
                 slot_id = f"{STAGE}:{house['id']}:keeper:001"
                 persons.append(person_card(slot_id, sex, band, key, house, "head", pool,
@@ -1620,7 +1644,7 @@ def fill() -> tuple:
     # THE KEEPERS' OWN CHILDREN, LAST (T-1533) — after every bed is dealt, so a child is
     # ordered out of the room the boarders left rather than out from under one.
     child_fills, families = keeper_children(cards, houses, room, pool,
-                                            taken_names, taken_ids)
+                                            taken_names, taken_ids, open_left)
 
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "

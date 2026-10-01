@@ -7,14 +7,14 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 31,
+  "records": 32,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
       "title": "lodging, the river and transport",
-      "records": 11,
+      "records": 12,
       "by_class": {
-        "other": 11
+        "other": 12
       },
       "by_street": {
         "Canal Street": 1,
@@ -28,12 +28,14 @@
         "recon_1835_north_h2_030": 1,
         "recon_1835_north_h2_045": 1,
         "recon_1835_west_006": 1,
-        "recon_1835_west_035": 1
+        "recon_1835_west_035": 1,
+        "recon_1835_west_046": 1
       },
       "ids": [
         "rcb_bardwell_boarding_house",
         "rcb_barnes_boarding_house",
         "rcb_cavanagh_boarding_house",
+        "rcb_donnelly_boarding_house",
         "rcb_dufresne_livery_stable",
         "rcb_fitzgerald_boarding_house",
         "rcb_gilbert_boarding_house",
@@ -47,6 +49,7 @@
         "rc_bardwell_esther",
         "rc_barnes_ezra",
         "rc_cavanagh_ellen",
+        "rc_donnelly_cornelius",
         "rc_dufresne_joseph",
         "rc_fitzgerald_martin",
         "rc_gilbert_benjamin",
@@ -157,7 +160,7 @@
   },
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
-    "places": 18,
+    "places": 19,
     "reconstructed_roofs_this_programme_owes_a_firm": 0,
     "rows": [
       {
@@ -221,7 +224,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 12,
-        "beds_crowded": 28,
+        "beds_crowded": 27,
         "keeper_person": "rc_cavanagh_ellen",
         "firm": "rcb_cavanagh_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -234,7 +237,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 11,
-        "beds_crowded": 25,
+        "beds_crowded": 24,
         "keeper_person": "rc_newell_lydia",
         "firm": "rcb_newell_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -246,7 +249,7 @@
         "name": "Reconstructed H2 medium boarding house #045",
         "class": "boarding_house",
         "standing": "reconstructed",
-        "beds_ordinary": 12,
+        "beds_ordinary": 11,
         "beds_crowded": 27,
         "keeper_person": "rc_gilbert_benjamin",
         "firm": "rcb_gilbert_boarding_house",
@@ -276,6 +279,19 @@
         "beds_crowded": 28,
         "keeper_person": "rc_pelletier_victoire",
         "firm": "rcb_pelletier_boarding_house",
+        "businesses_in_the_register_at_this_roof": [],
+        "kept_by": "this programme",
+        "why_not": null
+      },
+      {
+        "place": "recon_1835_west_046",
+        "name": "Reconstructed H2 medium boarding house #046",
+        "class": "boarding_house",
+        "standing": "reconstructed",
+        "beds_ordinary": 10,
+        "beds_crowded": 23,
+        "keeper_person": "rc_donnelly_cornelius",
+        "firm": "rcb_donnelly_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
         "why_not": null

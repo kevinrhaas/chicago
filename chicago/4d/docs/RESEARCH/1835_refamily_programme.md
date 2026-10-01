@@ -39,7 +39,7 @@ The remedy reaches 25% of what it was asked to remedy. The other 75% is not owed
 
 396 people stand in 45 of the 45 refused buckets once every move the rule yields has been made. 0 bucket(s) clear completely.
 
-T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 44 if the household kind changed too, 106 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
+T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 43 if the household kind changed too, 106 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
 
 | sex | age band | still held |
 |---|---|---:|
@@ -76,13 +76,13 @@ Read from `data/reconstruction/1835_reconstruction_order_book.json § re_family_
 ## What the town converges to
 
 - standing in the layer: 2,381
-- still owed now: 290
-- still owed when the programme is spent: 290
-- converges to now: 2,671
-- converges to when the programme is spent: 2,671
-- 2,671 is inside the model's 2,362-3,265 and 128 above its 2,543 point, against 128 above it today.
+- still owed now: 281
+- still owed when the programme is spent: 281
+- converges to now: 2,662
+- converges to when the programme is spent: 2,662
+- 2,662 is inside the model's 2,362-3,265 and 119 above its 2,543 point, against 119 above it today.
 
-The rule's own projection of 2,542 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
+The rule's own projection of 2,533 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
 
 ## What would move the remainder
 

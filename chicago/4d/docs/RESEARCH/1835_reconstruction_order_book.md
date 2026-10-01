@@ -12,7 +12,7 @@
 | Businesses (enumerated classes) | 109 | 130 | 7 |
 | Roofs | 668 | 493 | 189 |
 
-**2,381 people stand in the layer today** and **290** are still owed after the counters, so the town this book converges to is **2,671** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,381 people stand in the layer today** and **281** are still owed after the counters, so the town this book converges to is **2,662** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,381 standing plus 290 still owed is 2,671, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 128 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,381 standing plus 281 still owed is 2,662, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 119 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -107,9 +107,9 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-396 held head(s) stand across 45 refused bucket(s), and 290 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+396 held head(s) stand across 45 refused bucket(s), and 281 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 290 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 281 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
@@ -338,7 +338,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
-| T-1371 | 95 | 28 |
+| T-1371 | 105 | 31 |
 | T-1533 | 16 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
@@ -422,7 +422,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_chattin_clark` | `blk_washington_dearborn` | `blk_washington_dearborn#03` | D3 | `tradesman_dwellings` |
 | `hh_chevalier_joseph` | `blk_washington_dearborn` | `blk_washington_dearborn#07` | D4 | `tradesman_dwellings` |
 | `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
-| `hh_clarke_h_b` | `blk_washington_market` | `blk_washington_market#03` | D4 | `tradesman_dwellings` |
+| `hh_clarke_h_b` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
 | `hh_cleaveland_wm_p` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 
 1,228 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
@@ -514,7 +514,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/20_29/north/family/trade` | 31 | 17 | 22 | 22 | T-1347 |
 | `persons/male/20_29/north/family/none` | 58 | 31 | 27 | 0 | T-1171 |
 | `persons/male/20_29/north/lodging/trade` | 7 | 6 | 1 | 1 | T-1532 |
-| `persons/male/20_29/north/lodging/none` | 24 | 11 | 13 | 10 | T-1538 |
+| `persons/male/20_29/north/lodging/none` | 24 | 11 | 13 | 12 | T-1538 |
 | `persons/male/20_29/south/family/trade` | 73 | 41 | 52 | 52 | T-1347 |
 | `persons/male/20_29/south/family/none` | 140 | 79 | 61 | 0 | T-1171 |
 | `persons/male/20_29/south/lodging/trade` | 26 | 15 | 11 | 11 | T-1532 |
@@ -522,7 +522,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/20_29/west/family/trade` | 27 | 14 | 20 | 20 | T-1347 |
 | `persons/male/20_29/west/family/none` | 52 | 27 | 25 | 0 | T-1171 |
 | `persons/male/20_29/west/lodging/trade` | 10 | 5 | 5 | 3 | T-1532 |
-| `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 4 | T-1538 |
+| `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 6 | T-1538 |
 | `persons/male/30_39/north/family/trade` | 18 | 10 | 15 | 15 | T-1347 |
 | `persons/male/30_39/north/family/none` | 34 | 18 | 16 | 0 | T-1171 |
 | `persons/male/30_39/north/lodging/trade` | 6 | 3 | 3 | 3 | T-1532 |
@@ -533,12 +533,12 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/30_39/south/lodging/none` | 29 | 16 | 13 | 7 | T-1538 |
 | `persons/male/30_39/west/family/trade` | 16 | 9 | 11 | 11 | T-1347 |
 | `persons/male/30_39/west/family/none` | 30 | 16 | 14 | 0 | T-1171 |
-| `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 1 | T-1532 |
-| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 3 | T-1538 |
+| `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 2 | T-1532 |
+| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 4 | T-1538 |
 | `persons/male/40_49/north/family/trade` | 5 | 3 | 3 | 3 | T-1347 |
 | `persons/male/40_49/north/family/none` | 10 | 5 | 5 | 0 | T-1171 |
 | `persons/male/40_49/north/lodging/trade` | 2 | 1 | 1 | 1 | T-1532 |
-| `persons/male/40_49/north/lodging/none` | 3 | 1 | 2 | 1 | T-1538 |
+| `persons/male/40_49/north/lodging/none` | 3 | 1 | 2 | 2 | T-1538 |
 | `persons/male/40_49/south/family/trade` | 12 | 7 | 9 | 9 | T-1347 |
 | `persons/male/40_49/south/family/none` | 24 | 13 | 11 | 0 | T-1171 |
 | `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 1 | T-1532 |
@@ -546,11 +546,11 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/40_49/west/family/trade` | 4 | 2 | 3 | 3 | T-1347 |
 | `persons/male/40_49/west/family/none` | 9 | 5 | 4 | 0 | T-1171 |
 | `persons/male/40_49/west/lodging/trade` | 2 | 1 | 1 | 0 | T-1532 |
-| `persons/male/40_49/west/lodging/none` | 3 | 1 | 2 | 0 | T-1538 |
+| `persons/male/40_49/west/lodging/none` | 3 | 1 | 2 | 1 | T-1538 |
 | `persons/male/50_plus/north/family/trade` | 2 | 1 | 1 | 1 | T-1347 |
 | `persons/male/50_plus/north/family/none` | 5 | 3 | 2 | 0 | T-1171 |
 | `persons/male/50_plus/north/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
-| `persons/male/50_plus/north/lodging/none` | 1 | 0 | 1 | 0 | T-1538 |
+| `persons/male/50_plus/north/lodging/none` | 1 | 0 | 1 | 1 | T-1538 |
 | `persons/male/50_plus/south/family/trade` | 6 | 4 | 3 | 3 | T-1347 |
 | `persons/male/50_plus/south/family/none` | 11 | 6 | 5 | 0 | T-1171 |
 | `persons/male/50_plus/south/lodging/trade` | 2 | 1 | 1 | 1 | T-1532 |
@@ -584,7 +584,7 @@ The households the model wants, by kind and division.
 |---|---:|---:|---:|---:|---|
 | `households/boarding_house/north` | 12 | 1 | 11 | 6 | T-1538 |
 | `households/boarding_house/south` | 41 | 7 | 34 | 1 | T-1538 |
-| `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-1538 |
+| `households/boarding_house/west` | 9 | 1 | 8 | 3 | T-1538 |
 | `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-1171 |
 | `households/family_dwelling/south` | 258 | 41 | 217 | 65 | T-1171 |
 | `households/family_dwelling/west` | 110 | 7 | 103 | 33 | T-1171 |
@@ -651,7 +651,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/inns_taverns/west` | 3 | 3 | 0 | 0 | T-1762 |
 | `structures/inns_taverns/north` | 2 | 1 | 1 | 0 | T-1205 |
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1202 |
-| `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1208 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
 | `structures/larger_boarding_houses/south` | 28 | 17 | 11 | 0 | T-1779 |
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1779 |
