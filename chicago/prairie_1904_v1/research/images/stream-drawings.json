@@ -3407,5 +3407,396 @@
   "found_via": "IA item file list; pages rendered (contact sheet) and OCR text read",
   "notes": "Landmark report: built 1870, architect Otis L. Wheelock; cover is a pen drawing of the front steps and ornate covered porch. Mostly historical narrative with period and modern photographs; no measured drawings. Use with the 1999 NRHP plan (dw-nrhp-1999-wheeler-kohn-p22-first-floor-plan).",
   "measurements": []
+ },
+ {
+  "id": "dw-indchi-1891-v1-1867-wadskier-shortall",
+  "kind": "document",
+  "title": "'T. V. Wadskier, architect, designed the following: Two first-class dwellings on Prairie avenue south of Sixteenth street. Pressed-brick fronts with stone trimmings; three stories and basement, for John G. Shortall, Esq.; cost, $25,000.'",
+  "building_ids": [
+   "pa-1638-2"
+  ],
+  "addresses": [
+   "Prairie Avenue south of 16th Street"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1867 building season (Chicago Evening Journal annual review, quoted in Industrial Chicago vol. 1, 1891, p. 433)",
+  "date_earliest": 1867,
+  "date_latest": 1867,
+  "period": "in-period",
+  "creator": "Industrial Chicago (quoting the Chicago Evening Journal's annual review of building operations, 1867)",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, p. 433 (IA OCR page index 516)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of industrialchicag01good scanned for owner names; OCR of p. 433 read",
+  "notes": "An 1867 pair of Shortall houses by Theodore V. Wadskier south of 16th Street. The building index attributes the Shortall/Gregory house at 1638 to John W. Roberts — either a different (later) house or a conflict to adjudicate. Pre-fire 1867 construction (the South Side Prairie blocks were outside the 1871 burn).",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "3 + basement",
+    "locator": "Industrial Chicago v.1 p. 433"
+   },
+   {
+    "what": "cost (pair)",
+    "value": "$25,000",
+    "locator": "same"
+   }
+  ]
+ },
+ {
+  "id": "dw-indchi-1891-v1-1867-van-osdel-jones",
+  "kind": "document",
+  "title": "'J. M. Van Osdel, architect … Dwelling for Fernando Jones, Prairie avenue near Eighteenth street; cost, $20,000.'",
+  "building_ids": [
+   "pa-1834-9"
+  ],
+  "addresses": [
+   "Prairie Avenue near 18th Street"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1867 building season (Evening Journal review quoted in Industrial Chicago vol. 1, p. 434)",
+  "date_earliest": 1867,
+  "date_latest": 1867,
+  "period": "in-period",
+  "creator": "Industrial Chicago (quoting the Chicago Evening Journal, 1867)",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, p. 434 (IA OCR page index 517)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan; OCR read",
+  "notes": "Confirms Van Osdel as architect and gives a c.1867 date and cost for the Fernando Jones house (building index pa-1834-9: Van Osdel).",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$20,000",
+    "locator": "p. 434"
+   }
+  ]
+ },
+ {
+  "id": "dw-indchi-1891-v1-1867-wheelock-cochrane-prairie-list",
+  "kind": "document",
+  "title": "Architects' lists for 1867 (O. L. Wheelock; Cochrane & Garnsey) — Prairie Avenue houses between 16th and 22nd streets",
+  "building_ids": [],
+  "addresses": [
+   "Prairie Ave. & 16th St.",
+   "Prairie Ave. near 20th St.",
+   "Prairie Ave. & 18th St.",
+   "Prairie Ave. & 20th St.",
+   "Prairie Ave. between 21st and 22nd",
+   "Prairie Ave. & 22nd St."
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1867 (Evening Journal review quoted in Industrial Chicago vol. 1, pp. 429–431)",
+  "date_earliest": 1867,
+  "date_latest": 1867,
+  "period": "in-period",
+  "creator": "Industrial Chicago (quoting the Chicago Evening Journal, 1867)",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, pp. 429–431 (IA OCR page indexes 512–514)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan for 'Prairie avenue'; OCR read",
+  "notes": "Early (1867) houses on the study blocks, none yet matched to building ids: Wheelock — frame residence for B. F. Chase, corner 16th & Prairie, 2 storeys + French roof, balconies/porches/piazzas, 23×51 ft, $10,000; frame dwelling for C. W. Day near 20th on Prairie, 23×54 ft; first-class house for George W. Gage, corner 22nd & Prairie, 2 storeys, brick, ashlar basement, mansard, 45×83 ft, $60,000; brick riding gallery for C. M. Clark, corner Prairie & 18th, 200×300 ft, $40,000. Cochrane & Garnsey — block of two marble-front residences, corner Prairie & 20th (G. F. Bissel and W. E. Richardson), 2 storeys + basement, $40,000; marble-front residence near 16th for Horace G. Chase, hip roof, $18,000; residence for Charles H. Wheeler between 21st and 22nd, $6,000. Useful for the 1600/2000-block predecessor and unresolved parcels (e.g. 1609–1620, 2000-block corners).",
+  "measurements": [
+   {
+    "what": "B. F. Chase house, 16th & Prairie",
+    "value": "23 ft × 51 ft",
+    "locator": "p. 429"
+   },
+   {
+    "what": "C. W. Day house near 20th",
+    "value": "23 ft × 54 ft",
+    "locator": "p. 429"
+   },
+   {
+    "what": "G. W. Gage house, 22nd & Prairie",
+    "value": "45 ft × 83 ft",
+    "locator": "p. 430"
+   },
+   {
+    "what": "C. M. Clark riding gallery, Prairie & 18th",
+    "value": "200 ft × 300 ft",
+    "locator": "p. 430"
+   }
+  ]
+ },
+ {
+  "id": "dw-indchi-1891-v1-moulton-treat-foltz",
+  "kind": "document",
+  "title": "'The Moulton dwelling, on Prairie avenue and Twentieth street … point out the prevailing ideas of Treat & Foltz.'",
+  "building_ids": [
+   "pa-1912-10"
+  ],
+  "addresses": [
+   "Prairie Avenue and 20th Street"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1891",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "Industrial Chicago",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, p. 263 (IA OCR page index 314)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan ('Moulton')",
+  "notes": "Second, independent attribution of the B. P. Moulton house (1912 Prairie; later Lowden) to Treat & Foltz (cf. Inland Architect Mar. 1883).",
+  "measurements": []
+ },
+ {
+  "id": "dw-indchi-1891-v1-sherman-burnham-root",
+  "kind": "document",
+  "title": "'Burnham & Root formed their famous partnership in the spring of 1873 … Their first work of any importance was the Sherman residence, at the corner of Twenty-first street and Prairie avenue.'",
+  "building_ids": [
+   "pa-2100-18"
+  ],
+  "addresses": [
+   "2100 S. Prairie Avenue (corner 21st Street)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1891",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "Industrial Chicago",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, p. 615 (IA OCR page index 706)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan ('Sherman')",
+  "notes": "Architect and sequence confirmation for 2100 Prairie.",
+  "measurements": []
+ },
+ {
+  "id": "dw-indchi-1891-v1-edson-keith-stone",
+  "kind": "document",
+  "title": "'Peter Neu & Company … The stone for the following-named structures was cut here prior to 1873: Edson Keith's residence on Prairie avenue …'",
+  "building_ids": [
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1906 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1891 (referring to work before 1873)",
+  "date_earliest": 1866,
+  "date_latest": 1873,
+  "period": "in-period",
+  "creator": "Industrial Chicago",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Industrial Chicago, vol. 1: The Building Interests (Goodspeed Publishing Co., 1891)",
+  "call_number": "Industrial Chicago vol. 1, p. 457 (IA OCR page index 544)",
+  "catalog_url": "https://archive.org/details/industrialchicag01good",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan ('Edson Keith')",
+  "notes": "Dates the Edson Keith house (building index: unresolved) to before 1873 and says it was stone-fronted (cut stone by Peter Neu & Co., 350 Fifth Ave.).",
+  "measurements": []
+ },
+ {
+  "id": "dw-monroe-1896-meyer-2009-exterior",
+  "kind": "publication plate",
+  "title": "House of Mrs. Max Meyer (Monroe, John Wellborn Root, 1896, p. 155)",
+  "building_ids": [
+   "pa-2009-17"
+  ],
+  "addresses": [
+   "2009 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1896 (house completed 1889)",
+  "date_earliest": 1889,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "Harriet Monroe (author); Burnham & Root (architects); engraver unnamed",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston: Houghton, Mifflin, 1896)",
+  "call_number": "p. 155 (IA johnwellbornroot00monr page n206)",
+  "catalog_url": "https://archive.org/details/johnwellbornroot00monr/page/n206/mode/1up",
+  "image_url": "https://archive.org/download/johnwellbornroot00monr/page/n206.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": {
+   "display": "research/images/files/dw-monroe-1896-meyer-2009-exterior.jpg",
+   "display_bytes": 400461,
+   "thumb": "research/images/files/dw-monroe-1896-meyer-2009-exterior-thumb.jpg",
+   "thumb_bytes": 20289,
+   "original_px": [
+    2835,
+    4322
+   ],
+   "original_sha256": "081f42a5b81837ef44459418ac29e5d8cf31e6b4fbe0c7df0aa9ff600cf48af0",
+   "original_bytes": 934493,
+   "fetched_from": "https://archive.org/download/johnwellbornroot00monr/page/n206.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA text of Monroe's Root scanned ('Max Meyer'); list of illustrations; page viewed",
+  "notes": "Pen-and-ink view of the narrow French Gothic front: elliptical-arched doorway, three-light second-storey group, third storey of two windows under a finialed coping, curved gable with two tiny attic windows; neighbouring buildings, trees and fence. Text p. 156: 'red-brown chipped brick, with brown-stone basement, copings, mouldings'.",
+  "measurements": []
+ },
+ {
+  "id": "dw-monroe-1896-meyer-2009-hall",
+  "kind": "publication plate",
+  "title": "Hall, House of Mrs. Max Meyer (Monroe, John Wellborn Root, 1896, p. 158)",
+  "building_ids": [
+   "pa-2009-17"
+  ],
+  "addresses": [
+   "2009 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1896",
+  "date_earliest": 1889,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "Harriet Monroe (author); Burnham & Root (architects)",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston: Houghton, Mifflin, 1896)",
+  "call_number": "p. 158 (IA page n211)",
+  "catalog_url": "https://archive.org/details/johnwellbornroot00monr/page/n211/mode/1up",
+  "image_url": "https://archive.org/download/johnwellbornroot00monr/page/n211.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": {
+   "display": "research/images/files/dw-monroe-1896-meyer-2009-hall.jpg",
+   "display_bytes": 473844,
+   "thumb": "research/images/files/dw-monroe-1896-meyer-2009-hall-thumb.jpg",
+   "thumb_bytes": 27357,
+   "original_px": [
+    2862,
+    4385
+   ],
+   "original_sha256": "eec599dc6914f633045416eac31f7b614baa660e01499081fd1865129d576144",
+   "original_bytes": 1106395,
+   "fetched_from": "https://archive.org/download/johnwellbornroot00monr/page/n211.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "as above",
+  "notes": "Interior view of the stair hall of the Meyer house (carved stair, arches).",
+  "measurements": []
+ },
+ {
+  "id": "dw-monroe-1896-sherman-meyer-text",
+  "kind": "document",
+  "title": "Monroe on the Sherman (2100 Prairie, 1874) and Max Meyer (2009 Prairie) houses, pp. 154–156",
+  "building_ids": [
+   "pa-2100-18",
+   "pa-2009-17"
+  ],
+  "addresses": [
+   "2100 S. Prairie Avenue",
+   "2009 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1896",
+  "date_earliest": 1896,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "Harriet Monroe",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston: Houghton, Mifflin, 1896)",
+  "call_number": "pp. 154–156 (IA pages n205–n207)",
+  "catalog_url": "https://archive.org/details/johnwellbornroot00monr/page/n205/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan; pages viewed",
+  "notes": "'The house built in 1874 for Mr. John Sherman, at 2100 Prairie Avenue … the firm's first important commission. Many features of the design were revolutionary at the time, especially the high-pitched roof.' And the full facade description of 2009 Prairie quoted in the Meyer exterior record.",
+  "measurements": []
+ },
+ {
+  "id": "dw-monroe-1896-appendix-b-dent-sears",
+  "kind": "document",
+  "title": "Monroe, Appendix B: list of buildings by Burnham & Root 1882–1891 — 'Residence, Thomas Dent, Prairie Ave., near 18th St.' (p. 281); 'Residence, Jos. Sears, Prairie Ave., near 18th St.' (p. 282)",
+  "building_ids": [
+   "pa-1823-13",
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1823 S. Prairie Avenue",
+   "1815 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1896 (list covers 1882–1891)",
+  "date_earliest": 1882,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "Harriet Monroe",
+  "repository": "Internet Archive (digitized book)",
+  "collection": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston: Houghton, Mifflin, 1896)",
+  "call_number": "Appendix B, pp. 281–282 (IA pages n352–n353)",
+  "catalog_url": "https://archive.org/details/johnwellbornroot00monr/page/n352/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text scan; page images viewed to pair the columns",
+  "notes": "Confirms Burnham & Root authorship and the 1882–91 date window for the Dent and Sears houses (building index: Burnham & Root). The list also names Arthur I. Caton, Calumet Ave. near 20th St., and N. B. Ream at Groveland Park (not 1901 Prairie). Records before 1882 burned in the Grannis Block fire.",
+  "measurements": []
  }
 ]

@@ -2731,5 +2731,231 @@
   "found_via": "IA full-text search (Clarke/Chrimes query) → item file list",
   "notes": "Landmark brochure-report on the restored house at its present site. Says the Italianate cupola 'was added to the house in the 1850s'; moved in 1872 to 45th Street and Wabash Avenue and in 1977 to its present site; reproduces a HABS 1935 photograph noting 'much of the detailing was gone, including the front portico which had been removed when the house was moved in 1872.' Modern photographs show the 1980 restored portico — not the 1904 state.",
   "measurements": []
+ },
+ {
+  "id": "a19-andreas-1886-prairie-20th",
+  "kind": "engraving",
+  "title": "Prairie Avenue and Twentieth Street",
+  "building_ids": [
+   "pa-1936-11"
+  ],
+  "addresses": [
+   "1936 S. Prairie Avenue (NW corner of Prairie Avenue and 20th/Cullerton Street)"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "from the 20th Street / Prairie Avenue corner, looking north up the west sidewalk",
+  "date": "1886 (publication; drawings c. 1884–85)",
+  "date_earliest": 1884,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "A. T. Andreas (publisher); wood engravings, artist uncredited",
+  "repository": "Internet Archive (University of Toronto copy)",
+  "collection": "A. T. Andreas, History of Chicago, vol. 3 (From the Fire of 1871 until 1885), Chicago: A. T. Andreas, 1886 — IA historyofchicago03andruoft",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/historyofchicago03andruoft/page/n92/mode/1up",
+  "image_url": "https://archive.org/download/historyofchicago03andruoft/page/n92_w2000.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published 1886 in the United States",
+  "local": {
+   "display": "research/images/files/a19-andreas-1886-prairie-20th.jpg",
+   "display_bytes": 492642,
+   "thumb": "research/images/files/a19-andreas-1886-prairie-20th-thumb.jpg",
+   "thumb_bytes": 30775,
+   "original_px": [
+    2404,
+    3354
+   ],
+   "original_sha256": "245b108572d99a6650f75dd043291fa96a267729f990473ab0054a8cf43cbacb",
+   "original_bytes": 1007818,
+   "fetched_from": "https://archive.org/download/historyofchicago03andruoft/page/n92_w2000.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA search-inside (illustration list leaf 74: 'Prairie Av. and Twentieth Street 65', 'Prairie Av., north from Twentieth 382'; 'Second Presbyterian' leaf 845)",
+  "notes": "Circular-vignette wood engraving on p. 65: the Thompson/Allerton villa at the NW corner of Prairie and 20th — Italianate block with elaborate window hoods and the tall entrance tower with belvedere, a long spear-topped iron fence on a stone curb, a woman walking on the sidewalk, tree-lined Prairie Avenue receding north with neighbouring mansard houses. This is the published original of Chicagology's '1936prairieetching' (a19-cgy-1936-thompson-etching). In 1904 the Allertons still owned it (demolished c.1915).",
+  "measurements": []
+ },
+ {
+  "id": "a19-andreas-1886-prairie-north-from-20th",
+  "kind": "engraving",
+  "title": "Prairie Avenue, north from Twentieth Street",
+  "building_ids": [
+   "pa-1923-35",
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "east side of the 1900 block of S. Prairie Avenue (houses north of 20th Street)"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "north",
+  "camera_position": "on the east sidewalk of Prairie Avenue at 20th Street, looking north",
+  "date": "1886 (publication; drawings c. 1884–85)",
+  "date_earliest": 1884,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "A. T. Andreas (publisher); wood engravings, artist uncredited",
+  "repository": "Internet Archive (University of Toronto copy)",
+  "collection": "A. T. Andreas, History of Chicago, vol. 3 (From the Fire of 1871 until 1885), Chicago: A. T. Andreas, 1886 — IA historyofchicago03andruoft",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/historyofchicago03andruoft/page/n415/mode/1up",
+  "image_url": "https://archive.org/download/historyofchicago03andruoft/page/n415_w2000.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published 1886 in the United States",
+  "local": {
+   "display": "research/images/files/a19-andreas-1886-prairie-north-from-20th.jpg",
+   "display_bytes": 511784,
+   "thumb": "research/images/files/a19-andreas-1886-prairie-north-from-20th-thumb.jpg",
+   "thumb_bytes": 33777,
+   "original_px": [
+    2482,
+    3334
+   ],
+   "original_sha256": "272467112f7de1304b03ccf8ee6a5395c3bfa8df446ca281c6aec39f8f6a5c01",
+   "original_bytes": 1012286,
+   "fetched_from": "https://archive.org/download/historyofchicago03andruoft/page/n415_w2000.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA search-inside (illustration list leaf 74: 'Prairie Av. and Twentieth Street 65', 'Prairie Av., north from Twentieth 382'; 'Second Presbyterian' leaf 845)",
+  "notes": "Wood engraving on p. 382: view up the sidewalk from 20th Street with a row of tall mansard/Italianate houses on the right (east side — the first is probably 1945 Armour, then 1923 Kellogg and further north 1919/1905), elaborate cast-iron fences on stone curbs, high stone stoops with heavy newels, parkway trees and a long perspective of the street. Identification of individual houses is inferred from the viewpoint, not captioned. A c.1884–85 streetscape: the 1919 Murray house (1884) may already appear in the distance.",
+  "measurements": []
+ },
+ {
+  "id": "a19-andreas-1886-2ndpres",
+  "kind": "engraving",
+  "title": "Second Presbyterian Church; before completion of steeple",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue (NW corner of Michigan Avenue and 20th Street)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "from the SE, at Michigan Avenue and 20th Street",
+  "date": "1886 (publication; drawings c. 1884–85)",
+  "date_earliest": 1884,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "A. T. Andreas (publisher); wood engravings, artist uncredited",
+  "repository": "Internet Archive (University of Toronto copy)",
+  "collection": "A. T. Andreas, History of Chicago, vol. 3 (From the Fire of 1871 until 1885), Chicago: A. T. Andreas, 1886 — IA historyofchicago03andruoft",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/historyofchicago03andruoft/page/n844/mode/1up",
+  "image_url": "https://archive.org/download/historyofchicago03andruoft/page/n844_w2000.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published 1886 in the United States",
+  "local": {
+   "display": "research/images/files/a19-andreas-1886-2ndpres.jpg",
+   "display_bytes": 571230,
+   "thumb": "research/images/files/a19-andreas-1886-2ndpres-thumb.jpg",
+   "thumb_bytes": 34571,
+   "original_px": [
+    2436,
+    3320
+   ],
+   "original_sha256": "59cf2f49cd87d6378738543eab4ab10250d413082cf1d20fde969bfb07b6376b",
+   "original_bytes": 1149718,
+   "fetched_from": "https://archive.org/download/historyofchicago03andruoft/page/n844_w2000.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA search-inside (illustration list leaf 74: 'Prairie Av. and Twentieth Street 65', 'Prairie Av., north from Twentieth 382'; 'Second Presbyterian' leaf 845)",
+  "notes": "Engraving on p. 797 showing Renwick's church BEFORE the 1900 fire and before the tower's steeple was completed (tower completed 1884 per the 1976 landmark report): steep nave roof, ROSE WINDOW in the east gable, buttressed south flank with tall pointed windows, the SE tower truncated, iron fence, young trees, carriage on Michigan Avenue. Text: 'clere-story Gothic … with nave and side-aisles … built of bituminous limestone, with bands of weatherings and arches of lighter sandstone. A massive tower stands on the southeast corner'; dedicated 7 June 1874; organ cost $10,000. Shows what the 1900–01 rebuild changed (rose window, roof pitch); not the 1904 roofline.",
+  "measurements": []
+ },
+ {
+  "id": "a19-bluebook-1912-gatlin-1919",
+  "kind": "publication plate",
+  "title": "Home of Gatlin Institute, former Mansion of Marshall Field [Jr.] — advertisement, 'Drink Habit Cured in Three Days'",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": null,
+  "date": "1912 (publication); photograph c. 1909–1912",
+  "date_earliest": 1909,
+  "date_latest": 1912,
+  "period": "in-period",
+  "creator": "Gatlin Institute (advertiser); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "The Chicago Blue Book of selected names of Chicago and suburban towns, 1912 — IA chicagobluebooko1912chic",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/chicagobluebooko1912chic/page/n27/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1912chic/page/n27_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1912/1913 (pre-1929)",
+  "local": {
+   "display": "research/images/files/a19-bluebook-1912-gatlin-1919.jpg",
+   "display_bytes": 345049,
+   "thumb": "research/images/files/a19-bluebook-1912-gatlin-1919-thumb.jpg",
+   "thumb_bytes": 35207,
+   "original_px": [
+    2106,
+    3226
+   ],
+   "original_sha256": "456831a483db09da1ce7e283fd8ba976757cd04ca82da9f452eef2ed92b3984e",
+   "original_bytes": 1033416,
+   "fetched_from": "https://archive.org/download/chicagobluebooko1912chic/page/n27_w1600.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA full-text search '\"Gatlin Institute\" \"1919 Prairie\"' → search-inside 'Home of Gatlin Institute, former Mansion of Marshall Field'",
+  "notes": "Halftone of the Field Jr. house photographed for the Gatlin Institute (which bought it in 1909): the enlarged post-1902 house seen obliquely from the street — red brick and stone, multiple steep gables and dormers, tall chimneys, bay windows, a lower wing, low fence and parkway trees, neighbouring houses beyond. Caption says 'former Mansion of Marshall Field' (it was Marshall Field Jr.'s). The best near-1904 exterior of the post-1902 enlargement found: the house had changed hands (1909) but not form.",
+  "measurements": []
+ },
+ {
+  "id": "a19-cdnalmanac-1913-gatlin-1919",
+  "kind": "publication plate",
+  "title": "Former Residence of Marshall Field Jr. — Gatlin Institute advertisement ('Liquor and Drug Habits Quickly Cured')",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": null,
+  "date": "1913 (publication); photograph c. 1909–1912",
+  "date_earliest": 1909,
+  "date_latest": 1913,
+  "period": "in-period",
+  "creator": "Gatlin Institute (advertiser); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "Chicago Daily News Almanac and Year-Book for 1913, p. 619 (advertisement) — IA chicagodailynews1913chic",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/chicagodailynews1913chic/page/n622/mode/1up",
+  "image_url": "https://archive.org/download/chicagodailynews1913chic/page/n622_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1912/1913 (pre-1929)",
+  "local": {
+   "display": "research/images/files/a19-cdnalmanac-1913-gatlin-1919.jpg",
+   "display_bytes": 408879,
+   "thumb": "research/images/files/a19-cdnalmanac-1913-gatlin-1919-thumb.jpg",
+   "thumb_bytes": 40680,
+   "original_px": [
+    2558,
+    3716
+   ],
+   "original_sha256": "b0ad42aa4e414253c1d0b15c378e901c73d5ba90e9b9e6686b71c8b7c7e6a9ab",
+   "original_bytes": 1481624,
+   "fetched_from": "https://archive.org/download/chicagodailynews1913chic/page/n622_w1600.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA full-text search '\"Gatlin Institute\" \"1919 Prairie\"' → search-inside",
+  "notes": "Larger halftone captioned 'Former Residence of Marshall Field Jr.': street view of 1919 Prairie with its tall gabled roofs, chimneys and turret-like bays, the iron fence and parkway trees, and the neighbouring houses to the north and south partly visible — a c.1910 Prairie Avenue streetscape around the Field Jr. house. Same campaign as the 1912 Blue Book ad (a19-bluebook-1912-gatlin-1919); different photograph.",
+  "measurements": []
  }
 ]
