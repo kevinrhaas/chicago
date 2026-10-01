@@ -1,12 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
+  { v: 1278, ts: '2026-10-01T23:43:37.837Z', date: 'Oct 1, 2026, 6:43 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
     items: [
       'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
       'Tradesmen\u2019s cottages have a plank stoop at the door, or step straight onto the ground. Labourers\u2019 houses have neither.',
       'The frame follows the house\u2019s age. Houses built in the 1834\u201335 boom are balloon framed. Houses from 1833 or earlier are braced, with a heavier board at each corner, and a line across the wall at the upper floor.',
       'Open a house\u2019s card. The Built line now names its frame, shutters and porch. These are our reconstruction: no source records them for any of these houses. The rule is on the Liberties page (L338).',
     ] },
-  { v: 1276, ts: '2026-10-01T22:45:32.074Z', date: 'Oct 1, 2026, 5:45 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
   { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
       'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
