@@ -14286,9 +14286,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 6 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 11 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
-`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022`. These are six of the
+`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451), and
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781, see the amendment below).
+The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
 released.
@@ -14339,11 +14341,31 @@ an observed building.
 parent audit **T-1197**, the roof programme **T-1196**, the order book **T-1166**, the
 placement policy **T-1195**; the twenty-six verdicts whose record id carries its family,
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
+
+**Amended 2026-10-01 — five more, on the Des Plaines edge (T-1781).** When T-1444 released
+the thirty-five held slots, the re-derived adjudication returned eight new West verdicts, and
+none had been carried out. T-1781 carries out the five in the `w5_desplaines_open_edge`
+cluster, the open prairie edge 75 to 140 m from any street corridor: `_050` and `_051`
+(two-room D2) and `_052` (deep-plan D3) become D1 log cabins, `_054` (an A1 stable) becomes
+a D1 log cabin, and `_053` (a D4 cottage) becomes an A2 barn beside the A2 already at `_055`.
+The reason is T-1445's, quoted beside each roof in the recipe: none of these fronts a
+street, and the clause that seated a framed cottage measures its setback from one. The
+cabin and the barn are the two families the placement policy's `farms_and_country_seats`
+clause admits off the street. **One footprint moves:** `_050` widens from 14 to 16 ft, the
+narrowest front the D1 band allows; the other four already fit their new bands. Coordinates,
+rotations and inventory classes do not move, and the grade stays `inferred_anonymous`. The
+three other new verdicts (`_013`, `_020`, `_046`) are left standing for T-1764's and
+T-1782's roofs, and `docs/RESEARCH/1835_roof_redeal_execution.md` names them. The household
+seating re-derives over what now stands: four labourer households sleep in the four
+cabins, and the two tradesman households that had held `_052` and `_053` move to framed
+roofs in the Clinton cluster (`_043`, `_045`); the cascade leaves two other tradesman households (Butterfield, Cappy)
+without a roof, handed on to T-1615 with the rest of the owed, and two labourer households
+(Barnes, Doyle) gain one in the re-seating.
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 79 phases: 64 log dwellings and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 83 phases: 68 log dwellings and
 15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
@@ -14358,14 +14380,16 @@ reservation; T-1714 raised the agency's ring at the foot of State Street —
 on the north bank. T-1715 raised `fort_dearborn_root_house_b`, the second of the garrison's
 root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry
 deals reaches it and draws nothing. All six are shingled by the same selector and on the same
-argument as the other 59.
+argument as the other 59. T-1781 then added four on the Des Plaines edge,
+`recon_1835_west_050`, `_051`, `_052` and `_054`, re-dealt into the D1 log cabin by T-1445's
+verdicts (L265), which makes 83.
 The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 
 **Decision:** `generators/common/materials.py`'s `roof_substrate()` deals the `shingle`
 substrate to every roofed building that is not an outbuilding. For the 180 framed roofs
-that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 79
+that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 83
 it is a claim, and this is the claim.
 
 **What §2.2 actually grades, and where it stops.** It grades a shingled covering
@@ -17446,7 +17470,6 @@ stock, or evidence locating an operating forks ferry on the scene date.
 
 **Recorded:** 2026-09-30 (T-1765).
 
-
 ### L307 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 
 **Decision:** `blk_lake_clinton` — the West Division plat block bounded by Lake, Canal,
@@ -17523,3 +17546,39 @@ still unbuilt in July 1835 would retire these three rather than re-place them.
 **Related:** **L90**, **L263**, **L265**, **L270**, **L292**, **L294**, **L298**, **L300**,
 **L302**, **L304**, **T-1733**, **T-1734**, **T-1760**, **T-1207**, **T-1208**.
 **Recorded:** 2026-09-30.
+
+
+### L310 — Three West roofs nobody holds, given a stated use
+
+**Applies to:** `data/reconstruction/1835_stated_uses.json`
+
+**Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
+`recon_1835_west_047.occupants`
+
+**What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
+that no deal seats a household in and no deal ever could, because their families are not ones a
+dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard
+the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the
+stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from
+it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des
+Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
+(sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
+streets back from the South Branch. Nobody is named for any of the three; the card says what the
+building was for, graded `reconstructed`.
+
+**Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
+for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
+seated household's yard carded as an anonymous count-unit forever.
+
+**Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
+outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
+its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
+is T-1774's.
+
+**Would replace:** A keeper seated on any of the three by a deal or a source retires its row
+outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
+Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+
+**Ticket:** T-1782 (piece 2 of T-1208).
+
+**Recorded:** 2026-10-01 (T-1782).

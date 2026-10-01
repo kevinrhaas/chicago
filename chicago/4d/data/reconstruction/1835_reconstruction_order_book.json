@@ -1483,8 +1483,8 @@
         "handed_on": 1301,
         "roofs_adopted": 142,
         "slots_requested": 35,
-        "roofs_offered_for_adoption": 145,
-        "roofs_held_back": 54,
+        "roofs_offered_for_adoption": 144,
+        "roofs_held_back": 55,
         "ground_taken": 159,
         "ground_taken_unit": "lots",
         "by_district": {
@@ -1519,9 +1519,9 @@
         },
         "by_clause": {
           "heavy_and_noxious_trades": 1,
-          "labourer_dwellings": 23,
+          "labourer_dwellings": 25,
           "merchant_and_professional_dwellings": 8,
-          "tradesman_dwellings": 40
+          "tradesman_dwellings": 38
         }
       }
     ],
@@ -1863,8 +1863,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_market",
         "lot_id": "blk_washington_market#03",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_cleaveland_wm_p",
@@ -5060,10 +5060,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 496,
-        "standing_with_an_occupant": 151,
-        "standing_without_an_occupant": 345,
+        "standing_with_an_occupant": 154,
+        "standing_without_an_occupant": 342,
         "to_build_total": 186,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 345 of the 496 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 342 of the 496 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5216,7 +5216,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1208",
+          "owning_ticket": "T-1785",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -6016,7 +6016,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "345 of 496 standing records carry no occupants block."
+      "measured_now": "342 of 496 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
