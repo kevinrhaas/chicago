@@ -92,6 +92,17 @@ M_WALL, M_ROOF, M_TRIM, M_DARK, M_SHUTTER = 0, 1, 2, 3, 4
 # one unconditionally would rewrite every chimneyless master in the archetype for
 # a colour none of them uses.
 M_CHIMNEY = 5
+# The stovepipe's slot follows the chimney's when there is one and takes it when there
+# is not, so a house drawing no pipe keeps exactly the material list it always had
+# (T-1807) — the same rule frame_tavern's slot follows.
+
+# Sheet iron, blacked, and a 6-in pipe drawn square: frame_tavern's values (T-1778),
+# repeated rather than imported, because an asset's input hash reads this module's
+# bytes and not frame_tavern's — an imported colour would be a geometry input the
+# staleness gate cannot see. NOT ON THE MATERIAL SHEET: no source gives the finish of
+# any 1835 Chicago stovepipe.
+PIPE_RGBA = (0.118, 0.112, 0.104, 1.0)
+PIPE_SIDE = 0.16
 
 # The exposed face of a course is `params.siding_exposure_m` — a record's own mill
 # stock since T-0049, defaulting to 0.14 m (~5.5 in), which was this constant.
@@ -173,6 +184,10 @@ def build(params: FrameDwellingParams, name: str):
               params.conf("chimneys", "reconstructed"),
               M_CHIMNEY if params.chimneys > 0 else M_ROOF)
 
+    if params.stovepipes:
+        _stovepipes(b, params, w, y0, d, wall_z,
+                    M_CHIMNEY + (1 if params.chimneys > 0 else 0))
+
     if params.porch:
         _porch(b, params, openings, d, wall_z, params.conf("porch", "reconstructed"))
 
@@ -229,6 +244,8 @@ def build(params: FrameDwellingParams, name: str):
     if params.chimneys > 0:
         stack = materials.chimney_finish("interior")
         mats.append(simple_material("chimney", stack.rgba, roughness=stack.roughness))
+    if params.stovepipes:
+        mats.append(simple_material("stovepipe", PIPE_RGBA, roughness=0.62))
     return b.to_object(mats)
 
 
@@ -761,6 +778,37 @@ def _stack(b: MeshBuilder, cx: float, cy: float, base_z: float, ridge_z: float,
     b.add_box(cx - half - 0.07, cy - half - 0.07, ridge_z + 0.62,
               cx + half + 0.07, cy + half + 0.07, ridge_z + 0.78, conf, mat,
               skip=("bottom",))
+
+
+def _stovepipes(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
+                d: float, wall_z: float, mat: int) -> None:
+    """Sheet-iron pipes up through the main roof — one per stove the record counts.
+
+    A boarding house heated its chambers with box stoves, and a stove's pipe went out
+    through the roof wherever the stove stood rather than into a brick stack, which is
+    why the pipes are scattered where the stacks stand at the gables (T-1807, carrying
+    frame_tavern's T-1778 deal to the half-storey house). The count is the record's.
+    Where each stands — which slope, how far along, how high it rises — is this
+    archetype's deal, made from the index alone so it is stable from bake to bake, and
+    docs/LIBERTIES.md (L325) owns it. They keep to the stretch of ridge between the two
+    gable stacks, so a pipe never stands inside a chimney, and to the front range: a
+    kitchen ell's stove is the kitchen hearth, which `_chimneys` already draws.
+    """
+    c = p.conf("stovepipes", "reconstructed")
+    n = p.stovepipes
+    t = math.tan(math.radians(p.roof_pitch_deg))
+    h = PIPE_SIDE / 2
+    span = d - y0
+    lo, hi = 1.35, w - 1.35           # clear of a gable stack's corbelled head
+    for i in range(n):
+        # spread along the ridge, nudged off the even spacing so the row does not read
+        # as a fence, and alternating slopes a fifth of the span off the ridge
+        x = lo + (hi - lo) * ((i + 0.5) / n + (0.035 if i % 2 else -0.035))
+        s = span * (0.70 if i % 2 == 0 else 0.30)
+        z_roof = wall_z + t * (span / 2 - abs(s - span / 2) + EAVE_M)
+        rise = (0.85, 1.20, 1.00, 1.35, 0.95, 1.10)[i % 6]
+        b.add_box(x - h, y0 + s - h, z_roof - 0.30, x + h, y0 + s + h, z_roof + rise,
+                  c, mat, skip=("bottom",))
 
 
 def _porch(b: MeshBuilder, p: FrameDwellingParams, openings: list, d: float,
