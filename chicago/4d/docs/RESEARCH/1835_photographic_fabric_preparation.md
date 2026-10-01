@@ -370,7 +370,7 @@ T-1801 is regenerating its own wall faces.
   stand in for a cross-section; the strip lies on the heightfield, lifted 3 cm with
   polygon offset. Grading is T-1770's.
 
-### Costs, measured on the published scene (SwiftShader, 1280×800 and 390×780)
+### Costs, measured in the scene (SwiftShader; source tree, confirmed on the published mirror; 1280×800 and 390×780)
 
 | | the strip |
 |---|---|
