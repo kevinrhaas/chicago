@@ -1,0 +1,1310 @@
+[
+ {
+  "id": "a18-glessner-habs-photo-01",
+  "kind": "photograph",
+  "title": "Exterior from northwest",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southeast",
+  "camera_position": "from the northwest corner of 18th Street and Prairie Avenue",
+  "date": "1963-07-23",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Cervin Robinson for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--1",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060903pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-01.jpg",
+   "thumb": "research/public/glessner-habs-photo-01-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-01); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 1 of 17. LOC caption: “1. Historic American Buildings Survey Cervin Robinson, Photographer July 23, 1963 EXTERIOR FROM NORTHWEST - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Cervin Robinson, photographer, for HABS, July 23, 1963. Call number HABS ILL,16-CHIG,17--1. Master TIFF 060903pu.tif (4867×3486 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house in 1963, after the Glessner family years. Use for surviving exterior fabric, not as the 1904 state. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-02",
+  "kind": "photograph",
+  "title": "Front elevation",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "west",
+  "camera_position": "from the east side of Prairie Avenue",
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--2",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060904p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060904pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-02.jpg",
+   "thumb": "research/public/glessner-habs-photo-02-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-02); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 2 of 17. LOC caption: “2. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House FRONT ELEVATION - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--2. Master TIFF 060904pu.tif (5000×3986 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-03",
+  "kind": "photograph",
+  "title": "18th Street arch",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "south",
+  "camera_position": "on 18th Street",
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--3",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060905p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060905pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-03.jpg",
+   "thumb": "research/public/glessner-habs-photo-03-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-03); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 3 of 17. LOC caption: “3. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House 18th STREET ARCH - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--3. Master TIFF 060905pu.tif (5000×4007 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-04",
+  "kind": "photograph",
+  "title": "Detail: gable and chimney 18th Street side",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "south",
+  "camera_position": "on 18th Street",
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--4",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060906p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060906pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-04.jpg",
+   "thumb": "research/public/glessner-habs-photo-04-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-04); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 4 of 17. LOC caption: “4. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House DETAIL: GABLE AND CHIMNEY 18th STREET SIDE - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--4. Master TIFF 060906pu.tif (3937×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-05",
+  "kind": "photograph",
+  "title": "Interior court",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": "north",
+  "camera_position": "inside the south courtyard",
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--5",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060907pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-05.jpg",
+   "thumb": "research/public/glessner-habs-photo-05-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-05); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-06",
+  "kind": "photograph",
+  "title": "First floor staircase: main hall north end",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--6",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060908p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060908pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-06.jpg",
+   "thumb": "research/public/glessner-habs-photo-06-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-06); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 6 of 17. LOC caption: “6. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House FIRST FLOOR STAIRCASE: MAIN HALL NORTH END - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--6. Master TIFF 060908pu.tif (3970×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-07",
+  "kind": "photograph",
+  "title": "First floor stairhall: south",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--7",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060909p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060909pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-07.jpg",
+   "thumb": "research/public/glessner-habs-photo-07-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-07); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 7 of 17. LOC caption: “7. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House FIRST FLOOR STAIRHALL: SOUTH - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--7. Master TIFF 060909pu.tif (3956×5000 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-08",
+  "kind": "photograph",
+  "title": "Library: west and north sides",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--8",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060910p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060910pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-08.jpg",
+   "thumb": "research/public/glessner-habs-photo-08-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-08); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 8 of 17. LOC caption: “8. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House LIBRARY: WEST AND NORTH SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--8. Master TIFF 060910pu.tif (5000×3978 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-09",
+  "kind": "photograph",
+  "title": "School room",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--9",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060911p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060911pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-09.jpg",
+   "thumb": "research/public/glessner-habs-photo-09-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-09); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 9 of 17. LOC caption: “9. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House SCHOOL ROOM - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--9. Master TIFF 060911pu.tif (5000×3987 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-10",
+  "kind": "photograph",
+  "title": "Dining room: west and north sides",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--10",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060912p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060912pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-10.jpg",
+   "thumb": "research/public/glessner-habs-photo-10-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-10); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 10 of 17. LOC caption: “10. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House DINING ROOM: WEST AND NORTH SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--10. Master TIFF 060912pu.tif (5000×3828 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-11",
+  "kind": "photograph",
+  "title": "Upper hall — north and west sides",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1923 (copied for HABS)",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "period": "near-period",
+  "creator": "Unknown photographer for J. J. Glessner, The Story of a House (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--11",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060913p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060913pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "HABS copy of a photograph from J. J. Glessner, The Story of a House (1923). LOC: images copied from other sources may be restricted; review the underlying 1923 work before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-11.jpg",
+   "thumb": "research/public/glessner-habs-photo-11-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-11); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 11 of 17. LOC caption: “11. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner The Story of a House UPPER HALL - NORTH AND WEST SIDES - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--11. Master TIFF 060913pu.tif (5000×3893 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-12",
+  "kind": "architectural drawing",
+  "title": "Photocopy of preliminary design",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated preliminary design (copied for HABS)",
+  "date_earliest": 1885,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "H. H. Richardson office (copied by HABS)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--12",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060914p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060914pr.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Third-party original (Houghton Library, Harvard University). LOC: images copied from other sources may be restricted; review before republication.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-12.jpg",
+   "thumb": "research/public/glessner-habs-photo-12-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-12); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 12 of 17. LOC caption: “12. Historic American Buildings Survey PHOTOCOPY OF PRELIMINARY DESIGN Courtesy Houghton Library, Harvard University - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of H. H. Richardson’s preliminary design, courtesy Houghton Library, Harvard University. Call number HABS ILL,16-CHIG,17--12. Master TIFF 060914pu.tif (5000×3967 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A preliminary design is not the as-built form. Same drawing as Houghton GLE B2 (pa-glessner-houghton-gle-b2), compared visually 2026-09-28.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-13",
+  "kind": "photograph",
+  "title": "North elevation — level: left stereopair",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "south",
+  "camera_position": "from 18th Street (photogrammetric plate)",
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Perry E. Borchers (Ohio State University) for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--13",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060915p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060915pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-13.jpg",
+   "thumb": "research/public/glessner-habs-photo-13-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-13); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 13 of 17. LOC caption: “13. NORTH ELEVATION--LEVEL: LEFT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-201L, - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--13. Master TIFF 060915pu.tif (4933×3476 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-14",
+  "kind": "photograph",
+  "title": "North elevation — inclined: left stereopair",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "south",
+  "camera_position": "from 18th Street (photogrammetric plate)",
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Perry E. Borchers (Ohio State University) for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--14",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060916pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-14.jpg",
+   "thumb": "research/public/glessner-habs-photo-14-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-14); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 14 of 17. LOC caption: “14. NORTH ELEVATION--INCLINED: LEFT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-202L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--14. Master TIFF 060916pu.tif (4953×3491 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-15",
+  "kind": "photograph",
+  "title": "North elevation: right stereopair",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "south",
+  "camera_position": "from 18th Street (photogrammetric plate)",
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Perry E. Borchers (Ohio State University) for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--15",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060917pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-15.jpg",
+   "thumb": "research/public/glessner-habs-photo-15-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-15); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 15 of 17. LOC caption: “15. NORTH ELEVATION: RIGHT STEREOPAIR. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-203L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--15. Master TIFF 060917pu.tif (4983×3531 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-16",
+  "kind": "photograph",
+  "title": "East elevation — level",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "west",
+  "camera_position": "from Prairie Avenue (photogrammetric plate)",
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Perry E. Borchers (Ohio State University) for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--16",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060918p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060918pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-16.jpg",
+   "thumb": "research/public/glessner-habs-photo-16-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-16); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 16 of 17. LOC caption: “16. EAST ELEVATION--LEVEL. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-204L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--16. Master TIFF 060918pu.tif (4901×3531 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-photo-17",
+  "kind": "photograph",
+  "title": "Northeast — angled view",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southwest",
+  "camera_position": "from the northeast (photogrammetric plate)",
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Perry E. Borchers (Ohio State University) for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17--17",
+  "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060919p",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060919pr.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Made for HABS (U.S. Government). LOC: no known restrictions on images made by the U.S. Government.",
+  "local": {
+   "display": "research/public/glessner-habs-photo-17.jpg",
+   "thumb": "research/public/glessner-habs-photo-17-thumb.jpg",
+   "note": "existing repository file (acquired 2026-09-28); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-17); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
+  "notes": "HABS IL-1015 photograph 17 of 17. LOC caption: “17. NE--ANGLED VIEW. Copy photograph of photogrammetric plate LC-HABS-GS05-T-3224-205L. - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. Photographs by Perry E. Borchers, Ohio State University, 1965 (HABS index to photographs, page 1). Call number HABS ILL,16-CHIG,17--17. Master TIFF 060919pu.tif (4935×3507 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: A 1965 photogrammetric stereo plate (the source of the sheet-6 elevation). Street and neighbours are 1965, not 1904. Later evidence: shows the house after the 1940s–50s institutional use (porte-cochère doors replaced by an overhead garage door in the 1950s, per Glessner House Museum); the stone envelope is unchanged from 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-habs-sheet-1",
+  "kind": "measured drawing",
+  "title": "1. Title sheet with neighborhood plan - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "site plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 1 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=1",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00001r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-1.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-1.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D1 / pa-glessner-habs-sheet-1); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 1 of 6 (Title sheet with neighborhood plan), drawn 1965. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). Sheet 1 neighborhood plan shows the block context.",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 1"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-sheet-2",
+  "kind": "measured drawing",
+  "title": "2. First floor plan - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1963",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 2 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=2",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00002r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-2.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-2.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D2 / pa-glessner-habs-sheet-2); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 2 of 6 (First floor plan), drawn 1963. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). ",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 2"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-sheet-3",
+  "kind": "measured drawing",
+  "title": "3. Second floor plan - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1963",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 3 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=3",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00003r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-3.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-3.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D3 / pa-glessner-habs-sheet-3); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 3 of 6 (Second floor plan), drawn 1963. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). ",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 3"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-sheet-4",
+  "kind": "measured drawing",
+  "title": "4. Section A-A - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "section",
+  "facing": null,
+  "camera_position": null,
+  "date": "1963",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 4 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=4",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00004r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-4.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-4.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D4 / pa-glessner-habs-sheet-4); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 4 of 6 (Section A-A), drawn 1963. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). ",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 4"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-sheet-5",
+  "kind": "measured drawing",
+  "title": "5. Masonry details - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "1963",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 5 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=5",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00005r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-5.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-5.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D5 / pa-glessner-habs-sheet-5); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 5 of 6 (Masonry details), drawn 1963. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). ",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 5"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-sheet-6",
+  "kind": "measured drawing",
+  "title": "6. Front (east) elevation - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17- (sheet 6 of 6)",
+  "catalog_url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=6",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/sheet/00006r.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS measured drawing, U.S. Government work; LoC: no known restrictions",
+  "local": {
+   "display": "research/public/glessner-habs-sheet-6.png",
+   "thumb": null,
+   "master": "research/public/glessner-habs-sheet-6.tif",
+   "note": "existing repository file; not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-D6 / pa-glessner-habs-sheet-6); LoC listing re-confirmed 2026-10-01",
+  "notes": "HABS measured drawing sheet 6 of 6 (Front (east) elevation), drawn 1965. Measured after 1960 — dimensions are of the extant 1887 house; check for post-1904 changes (1950s garage door at porte-cochère, 1940s institutional fit-out). ",
+  "measurements": [
+   {
+    "what": "measured drawing dimensions",
+    "value": "see sheet",
+    "locator": "sheet 6"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-data",
+  "kind": "document",
+  "title": "John J. Glessner House, HABS IL-1015, written historical and descriptive data (27 pp.)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "after 1963",
+  "date_earliest": 1963,
+  "date_latest": 1970,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": "HABS ILL,16-CHIG,17-",
+  "catalog_url": "https://www.loc.gov/item/il0118/",
+  "image_url": null,
+  "rights": "no known restrictions",
+  "rights_basis": "HABS federal text",
+  "local": {
+   "display": "research/public/glessner-habs-data.pdf",
+   "thumb": null,
+   "note": "existing repository file"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv G01-T)",
+  "notes": "27-page HABS report with architectural description, dimensions and history; the text source for the measured set. Use with the six sheets.",
+  "measurements": [
+   {
+    "what": "overall dimensions, materials",
+    "value": "see report",
+    "locator": "data pages"
+   }
+  ]
+ },
+ {
+  "id": "a18-glessner-habs-captions",
+  "kind": "document",
+  "title": "John J. Glessner House: HABS index to photographs (addendum)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "after 1965",
+  "date_earliest": 1965,
+  "date_latest": 1975,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1015)",
+  "call_number": null,
+  "catalog_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0100/il0118/data/il0118cap.pdf",
+  "image_url": null,
+  "rights": "no known restrictions",
+  "rights_basis": "HABS federal text",
+  "local": {
+   "display": "research/public/glessner-habs-photo-captions.pdf",
+   "thumb": null,
+   "note": "existing repository file"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-captions)",
+  "notes": "One-page HABS index to photographs, addendum to HABS No. IL-1015. It captions photographs IL-1015-13 to -17 (copies of 1965 photogrammetric plates LC-HABS-GS05-T-3224-201L to -205L, photographs by Perry E. Borchers, Ohio State University, 1965) and states that 1 to 12 were transmitted earlier. Captions 1 to 12 are taken from each photograph’s LOC catalog record.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-f1",
+  "kind": "architectural drawing",
+  "title": "Perspective sketch",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE F1",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504169/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-f1.jpg",
+   "thumb": "research/public/glessner-houghton-gle-f1-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-f1)",
+  "notes": "Houghton drawing GLE F1: “Perspective, design drawing. Graphite on tracing paper / Perspective, preliminary drawing. Graphite on tracing paper” (one of catalog entries 2–4; Box 2, Folder 6). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by number F (site/perspective) and graphite on tracing paper; entries 2 and 4 are the folder’s two perspectives on tracing paper, both Box 2, Folder 6. Harvard DRS 499504169; the image here is the full-size file from Harvard (5000×2274 px). Evidence limit: A design-stage perspective, not the as-built house.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-d15",
+  "kind": "architectural drawing",
+  "title": "Court interior sketch (Glessner?)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE D15",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504173/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-d15.jpg",
+   "thumb": "research/public/glessner-houghton-gle-d15-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-d15)",
+  "notes": "Houghton drawing GLE D15: “Court interior (Glessner?), preliminary drawing. Graphite, ink on writing paper” (catalog entry 3; Box 2, Folder 6). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by the only drawing on writing paper: Richardson’s “Brookline.” letterhead, pencilled “Glessner”. Harvard DRS 499504173; the image here is the full-size file from Harvard (5000×3701 px). Evidence limit: A preliminary sketch; the catalog itself queries the attribution.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-b2",
+  "kind": "architectural drawing",
+  "title": "Facade (watercolor)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE B2",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504177/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-b2.jpg",
+   "thumb": "research/public/glessner-houghton-gle-b2-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-b2)",
+  "notes": "Houghton drawing GLE B2: “Facade, design drawing. Graphite, watercolor, Chinese white on Manila paper” (catalog entry 5; Drawer 16, Folder 8). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by watercolor with Chinese white on Manila paper, inscribed “House for J. J. Glessner”. Harvard DRS 499504177; the image here is the full-size file from Harvard (5000×3811 px). Evidence limit: A design drawing. It is the drawing HABS photo 12 copies (“preliminary design, courtesy Houghton Library”).",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-b1",
+  "kind": "architectural drawing",
+  "title": "Facade elevation (variant)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE B1",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504181/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-b1.jpg",
+   "thumb": "research/public/glessner-houghton-gle-b1-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-b1)",
+  "notes": "Houghton drawing GLE B1: “Facade elevation (variant), design drawing. Graphite, watercolor on Manila paper” (catalog entry 6; Drawer 16, Folder 8). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by watercolor on Manila paper; the facade elevation in plain window openings, a variant of GLE B2. Harvard DRS 499504181; the image here is the full-size file from Harvard (5000×4172 px). Evidence limit: A design variant, not the built facade.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-b6",
+  "kind": "architectural drawing",
+  "title": "Sketch elevation of facade",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE B6",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504185/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-b6.jpg",
+   "thumb": "research/public/glessner-houghton-gle-b6-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-b6)",
+  "notes": "Houghton drawing GLE B6: “Sketch elevation of facade, design drawing. Graphite, ink on tracing paper” (catalog entry 7; Box 2, Folder 7). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by facade elevation in graphite and ink on tracing paper; pencilled “157”. Harvard DRS 499504185; the image here is the full-size file from Harvard (5000×2813 px). Evidence limit: A design sketch.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-b7",
+  "kind": "architectural drawing",
+  "title": "Sketch elevation of side",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE B7",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504189/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-b7.jpg",
+   "thumb": "research/public/glessner-houghton-gle-b7-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-b7)",
+  "notes": "Houghton drawing GLE B7: “Sketch elevation of side, design drawing. Graphite on tracing paper / Sketch of side elevation, design drawing. Graphite on tracing paper” (one of catalog entries 8–12; Box 2, Folder 7, Box 2, Folder 8). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by a long side elevation in graphite on tracing paper; entries 8–12 are the folder’s five side-elevation sketches (Box 2, Folders 7–8). Harvard DRS 499504189; the image here is the full-size file from Harvard (5000×2555 px). Evidence limit: A design sketch of the long side.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-b9",
+  "kind": "architectural drawing",
+  "title": "Sketch elevation of side",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE B9",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504193/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-b9.jpg",
+   "thumb": "research/public/glessner-houghton-gle-b9-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-b9)",
+  "notes": "Houghton drawing GLE B9: “Sketch elevation of side, design drawing. Graphite on tracing paper / Sketch of side elevation, design drawing. Graphite on tracing paper” (one of catalog entries 8–12; Box 2, Folder 7, Box 2, Folder 8). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by a long side elevation in graphite on tracing paper, pencilled “(2)”; entries 8–12 are the folder’s five side-elevation sketches. Harvard DRS 499504193; the image here is the full-size file from Harvard (5000×2114 px). Evidence limit: A design sketch of the long side.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-e5y",
+  "kind": "architectural drawing",
+  "title": "Gas brackets in vestibule (working drawing)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE E5Y",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504233/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-e5y.jpg",
+   "thumb": "research/public/glessner-houghton-gle-e5y-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-e5y)",
+  "notes": "Houghton drawing GLE E5y: “Gas brackets in vestibule, working drawing. Graphite on drawing paper; scale: 1 1/2\":1'” (catalog entry 55; Box 4, Folder 2). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by inscribed “Gas Brackets in Vestibule. House for J. J. Glessner Esq. No. 121. Chicago, Ill. Scale 1½ in = 1 ft”, matching entry 55 word for word. Harvard DRS 499504233; the image here is the full-size file from Harvard (5000×3418 px). Evidence limit: A working drawing for a fitting; whether it was installed as drawn, and still in 1904, needs a photograph or inventory.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-e3",
+  "kind": "architectural drawing",
+  "title": "Library: fireplace wall (working drawing)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE E3",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504237/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-e3.jpg",
+   "thumb": "research/public/glessner-houghton-gle-e3-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-e3)",
+  "notes": "Houghton drawing GLE E3 (final letter illegible): “Library: fireplace wall, working drawing. Graphite, watercolor on tracing paper; scale: 3/4\":1'” (catalog entry 59; Box 4, Folder 4). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by inscribed “Library of Mr. Glessner’s House”; graphite and red watercolor on tracing paper, which is entry 59 (entry 60, the same wall, is on tracing cloth). Harvard DRS 499504237; the image here is the full-size file from Harvard (5001×3312 px). Evidence limit: A working drawing. Compare with HABS photo 8, the library c. 1923.",
+  "measurements": []
+ },
+ {
+  "id": "a18-glessner-houghton-gle-e4d",
+  "kind": "architectural drawing",
+  "title": "Drawing room: fireplace wall (working drawing)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885–1887 (project dates; sheet undated)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Henry Hobson Richardson / Shepley, Rutan & Coolidge office",
+  "repository": "Houghton Library, Harvard University",
+  "collection": "Henry Hobson Richardson drawings, circa 1886–1940 (MS Typ 1096), Glessner series hou00434c00106",
+  "call_number": "GLE E4D",
+  "catalog_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+  "image_url": "https://mps.lib.harvard.edu/assets/images/drs:499504241/full/full/0/default.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Houghton Library: images linked to the finding aid are for teaching or individual research; other use, including mounting on other systems or redistribution, requires the curator’s permission. Hosted here at the owner’s direction (2026-09-28). The drawings date from 1885–1887. Credit: Houghton Library, Harvard University.",
+  "local": {
+   "display": "research/public/glessner-houghton-gle-e4d.jpg",
+   "thumb": "research/public/glessner-houghton-gle-e4d-thumb.jpg",
+   "note": "existing repository file hosted at the owner's direction 2026-09-28 (Houghton permission terms apply); not re-fetched"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-e4d)",
+  "notes": "Houghton drawing GLE E4d: “Drawing Room: fireplace wall, working drawing. Graphite, watercolor on tracing paper; scale: 3/4\":1'” (catalog entry 69; Box 4, Folder 9). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by inscribed “House for J. J. Glessner Esq. Drawing Room.”; a fireplace wall in graphite and watercolor on tracing paper, which is entry 69 (entry 68 is on drawing paper). Harvard DRS 499504241; the image here is the full-size file from Harvard (5000×3288 px). Evidence limit: A working drawing; no HABS photograph shows the drawing room.",
+  "measurements": []
+ }
+]

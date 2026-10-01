@@ -1,0 +1,286 @@
+[
+ {
+  "id": "a16-pullman-det-4a08065",
+  "kind": "photograph",
+  "title": "The Pullman residence, Chicago",
+  "building_ids": [
+   "pa-1729-5",
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1729 S. Prairie Avenue",
+   "1721 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": "from the southwest corner of Prairie Avenue and 18th Street, looking across the intersection; 18th Street recedes to the right toward the Fort Dearborn Massacre monument",
+  "date": "[between 1890 and 1901]",
+  "date_earliest": 1893,
+  "date_latest": 1901,
+  "period": "in-period",
+  "creator": "Detroit Publishing Co.",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Detroit Publishing Company Photograph Collection",
+  "call_number": "LC-D4-12551 [P&P]; LC-DIG-det-4a08065",
+  "catalog_url": "https://www.loc.gov/pictures/item/2016801921/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08000/4a08065v.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC: No known restrictions on publication",
+  "local": {
+   "display": "research/images/files/a16-pullman-det-4a08065.jpg",
+   "display_bytes": 195132,
+   "thumb": "research/images/files/a16-pullman-det-4a08065-thumb.jpg",
+   "thumb_bytes": 39833,
+   "original_px": [
+    1024,
+    804
+   ],
+   "original_sha256": "b01a9d49af1717c1541c604018b95ed3b653b5e74eb81f3de098f21e7076dec5",
+   "original_bytes": 205367,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08000/4a08065v.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'pullman residence'",
+  "notes": "Glass negative ('286' on negative; holder note 'Prarie Avenue'). Date bracket from Detroit Catalogue J (1901); the Fort Dearborn Massacre monument (erected 1893) is visible at the far right end of 18th Street, so the view is 1893 or later. The best in-period full view of the Pullman house's west (Prairie) and south (18th St) fronts: three-storey ashlar Second Empire block with mansard, iron roof cresting, pedimented dormers, ivy-covered walls, columned entrance porch on Prairie, corner/side porch on 18th, low stone-capped wall with piers along both sidewalks, lamp posts, young elms on parkway, unpaved/macadam roadway with stone crosswalk slabs and a carriage at the 18th St kerb. At the left edge, the neighbouring house to the north (1721 Prairie, Wirt Dexter house, identification by position) shows a broad columned front porch, gabled dormers and tall chimneys — useful for the Dexter house's 1889 Arthur Little front. Leafless trees: autumn/spring.",
+  "measurements": []
+ },
+ {
+  "id": "a16-pullman-det-4a08066",
+  "kind": "photograph",
+  "title": "Pullman Residence, Chicago, The",
+  "building_ids": [
+   "pa-1729-5"
+  ],
+  "addresses": [
+   "1729 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "on 18th Street west of Calumet Avenue, beside the Fort Dearborn Massacre monument (right foreground), looking west-northwest along the south (18th Street) side of the Pullman property",
+  "date": "c1900.",
+  "date_earliest": 1899,
+  "date_latest": 1901,
+  "period": "in-period",
+  "creator": "Detroit Publishing Co.",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Detroit Publishing Company Photograph Collection",
+  "call_number": "LC-D4-12552 [P&P]; LC-DIG-det-4a08066",
+  "catalog_url": "https://www.loc.gov/pictures/item/2016794585/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08000/4a08066v.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC: No known restrictions on publication",
+  "local": {
+   "display": "research/images/files/a16-pullman-det-4a08066.jpg",
+   "display_bytes": 210094,
+   "thumb": "research/images/files/a16-pullman-det-4a08066-thumb.jpg",
+   "thumb_bytes": 43998,
+   "original_px": [
+    1024,
+    809
+   ],
+   "original_sha256": "d16d8788bddf1e761641d6387feb0f2dd6862168b68a7233da6bf20cec9e5f40",
+   "original_bytes": 222052,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08000/4a08066v.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'pullman residence'",
+  "notes": "Glass negative ('287' on negative; copyright 1900 blind stamp; holder notes 'Prairie Avenue' and 'Caption on monument: The Fort Dearborn Massacre'). Shows the 18th Street (south) flank of the Pullman house: the main mansarded block with its arched carriage/side entrance and stone balustraded porch, the long lower east wing with hipped roof and ivy (the later Beman additions/conservatory side), low stone wall with piers and shrubbery along 18th St, granite kerbs curving into Calumet Ave, gas/electric lamp standard, elm parkway trees and the monument's granite pedestal at right. Companion negative to LC-D4-12551 (same visit). Essential for the 18th St elevation and the extent of the east wing toward Calumet in c.1900.",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-1637-grosvenor-asbuilt",
+  "kind": "photograph",
+  "title": "South side of the Grosvenor house as built, c. 1870",
+  "building_ids": [
+   "pa-1637-45"
+  ],
+  "addresses": [
+   "1637 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1870",
+  "date_earliest": 1865,
+  "date_latest": 1875,
+  "period": "in-period",
+  "creator": "unknown photographer",
+  "repository": "reproduced by Glessner House Museum (blog 'The Story of a House'); original holder not named",
+  "collection": "The Early History of Prairie Avenue – Part IV (2020-07-07)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4xFKKiKJ-3QdmB3_jcIC8lbOSjwVuscN_aSprKt3-1ifeOKgfKyi8_OMVnVtcOJ_MPdtifICGiawcGgHSAhbIG-U8Mi5pA3zC6piTqwMIhWRnmyDJ9bEF5wzSlWetJZDFGlVx4G3aIh8/s1600/1637+Prairie+as+built.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Blog reproduction with no rights statement; underlying c.1870 photograph likely public domain by age but holder/reproduction terms not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Spalding' / 'Hibbard'",
+  "notes": "Narrow halftone crop (460x900 px) of a larger photograph. Blog says it is the only known photo showing the 1862 Cornelia Grosvenor house as originally built: two-storey brick Italianate, flat brick side wall with heavy bracketed eave cornice, panelled chimney, tall windows with hood mouldings, an ornate stone bay/porch with columns and balustrade at the front corner, and a low cast-iron balustrade fence on a stone curb. Pre-dates Jesse Spalding's severe remodelling, so it is NOT the 1904 appearance (see the remodelled view). Useful for the original masonry shell that survived inside the remodel.",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-1637-spalding-remodel",
+  "kind": "engraving",
+  "title": "The Grosvenor house as remodeled by Jesse Spalding",
+  "building_ids": [
+   "pa-1637-45"
+  ],
+  "addresses": [
+   "1637 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated (after Spalding remodelling; probably 1880s–1890s)",
+  "date_earliest": 1875,
+  "date_latest": 1900,
+  "period": "in-period",
+  "creator": "unknown illustrator (published line engraving)",
+  "repository": "reproduced by Glessner House Museum (blog 'The Story of a House'); source publication not named",
+  "collection": "The Early History of Prairie Avenue – Part IV (2020-07-07)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBhkRJ1wq-I3MJENxaixlZxoQq-YLUU3JMD7c_G6LMUindoJGuHGpTchRncX6Ww5OIigczaxo1RCt-DyKJBJ4k7di-bFdKMCxzzpdcUDP2wGxIfRf-JgUNAPbO3TI4V36eDHsElzPC4pg/s1600/1637+Prairie+after+remodeling.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Blog reproduction; source publication and rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Spalding'",
+  "notes": "Line engraving (newspaper/book style) of the Spalding remodel: a severe three-storey brick block with steep slate hipped/mansard roof, gabled dormers, tall chimneys, a full-height curved (swell) bay on the front, a projecting gabled wing at right with a small balconied entrance, high brick garden wall at left and iron fence at right. Probably the 1904 appearance of 1637 (Spalding owned it for many years). Source publication still to be identified — logged as lead.",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-1721-dexter-c1888",
+  "kind": "photograph",
+  "title": "Wirt Dexter house prior to front addition, c. 1888 (Photo by George Glessner)",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "front elevation",
+  "facing": "east",
+  "camera_position": "from the west side of Prairie Avenue opposite 1721, in winter",
+  "date": "c. 1888",
+  "date_earliest": 1886,
+  "date_latest": 1889,
+  "period": "in-period",
+  "creator": "George Glessner",
+  "repository": "Glessner House Museum (George Glessner photographs; per blog caption)",
+  "collection": "The Early History of Prairie Avenue – Part IV (2020-07-07)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMd6lKkEV6uipmD4nak4Ltr0MOLMYq7OLuX47Po8vbrrNpRl08Tlq6LCzVTI9NYb43Mf-H_L-T9IV5RPZEFfq0rsva9JfUnhGWllQOBv1T6VpxXAOixY87bV1ueof1xAzC4vqlQ6VM1Bs/s1600/1721+Prairie.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum photograph reproduced on blog; no rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Dexter'",
+  "notes": "Winter view by George Glessner (the Glessners' son, an amateur photographer) of the 1863 frame Dexter house BEFORE Arthur Little's 1889 brick front addition: two-storey clapboard house with central front gable (round attic window), shuttered windows, bracketed eaves, a square cupola/belvedere and several tall chimneys, ground-floor bays, a low stone wall along the sidewalk with gate piers, a gas street lamp in the foreground; the neighbouring house at right (south, toward Pullman) shows brick bays. Because the 1889 addition was built nearly to the lot line, the 1904 frontage looked very different; this documents the original block that stood behind the addition until a later owner demolished it.",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-1736-mcbirney-c1890",
+  "kind": "photograph",
+  "title": "Ingraham/McBirney house as it appeared circa 1890",
+  "building_ids": [
+   "pa-1736-49"
+  ],
+  "addresses": [
+   "1736 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "from the east side of Prairie Avenue looking across the street at 1736",
+  "date": "circa 1890",
+  "date_earliest": 1885,
+  "date_latest": 1895,
+  "period": "in-period",
+  "creator": "unknown photographer",
+  "repository": "reproduced by Glessner House Museum (blog); original holder not named",
+  "collection": "The Early History of Prairie Avenue – Part IV (2020-07-07)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk_XdVUdRp0DxwIX8-KHpzC9C6CftZoZNVuiBUWxgY99rlCEV0sNKgZCRnWjyolKtc4jiU6c5IhDc6LnD8IMgLglRy5VT7cV_pNN0ZCc2kR1Ss98FJbMSBYWOg4PqmItlafDd5fZsvbcE/s1600/1736+PA+front.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Blog reproduction; no rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'McBirney'",
+  "notes": "Shows the 1864 Ingraham house (long-time Hugh McBirney residence) as a light-coloured (painted brick or stone-faced) three-storey Second Empire house with mansard third storey and pedimented dormers, bracketed cornice, a full-width front porch with turned posts and balustrade over a raised basement, front steps with iron handrails, and a side wing at left; elms in the parkway; a 'J. P. Smith & Co. Ice' wagon at the kerb. Blog notes the mansard may be a later addition to an Italianate house. Probably close to the 1904 state (McBirney long-time owner).",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-1702-staples",
+  "kind": "photograph",
+  "title": "Staples house – 1702 S. Prairie Avenue",
+  "building_ids": [
+   "pa-1702-43"
+  ],
+  "addresses": [
+   "1702 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "from the Prairie Avenue sidewalk in front of the house",
+  "date": "undated (before the 1880 Harvey remodelling)",
+  "date_earliest": 1855,
+  "date_latest": 1880,
+  "period": "in-period",
+  "creator": "unknown photographer",
+  "repository": "reproduced by Glessner House Museum (blog); original holder not named",
+  "collection": "The Early History of Prairie Avenue – Part II (2020-06-23)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue_23.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghvjgzH2unWtw9NLsvZcjgz74JvwakbWFJFfCHJOV8czjifnEyoLbmk6qeU3eVag8Tjwwss94H5BpQzDqz9ZrJ3pwz5778n8ekxql12DEli35loJiW7k09gR4iNN5mfwcV3zcC4fnpSkw/s1600/Staples.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Blog reproduction; no rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Staples'",
+  "notes": "The 1853 John N. Staples house (first house on Prairie Ave): stuccoed/painted two-storey Italianate with low hipped roof, deep bracketed cornice, square glazed cupola/observatory, a two-storey wrap-around porch (turned columns, open balustraded upper deck), tall windows, a canted bay at right, lattice-skirted porch base and an ornate picket fence with turned balusters. Shows the house before Turlington W. Harvey's 1880 Second Empire remodelling; razed c.1899–1901 for the Glessner children's townhouses (1700/1706), so absent in 1904 — predecessor documentation only.",
+  "measurements": []
+ },
+ {
+  "id": "a16-ghm-blog-massacre-tree-pullman-coachhouse",
+  "kind": "engraving",
+  "title": "[Massacre tree, north side of 18th Street east of Prairie Avenue, with the Pullman coach house at left]",
+  "building_ids": [
+   "pa-1729-5"
+  ],
+  "addresses": [
+   "1729 S. Prairie Avenue (rear, 18th Street side)"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "east",
+  "camera_position": "on 18th Street east of Prairie Avenue, looking east toward the lake",
+  "date": "1880s (per blog)",
+  "date_earliest": 1880,
+  "date_latest": 1889,
+  "period": "in-period",
+  "creator": "unknown engraver",
+  "repository": "reproduced by Glessner House Museum (blog)",
+  "collection": "The Early History of Prairie Avenue – Part I (2020-06-16)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOrA4Gzxa7v1S1SJVhlBGJr2IUtOfLyv0C39yEZOYwacTzNmis0nMSLcVhc1lVi631RuFSSiNZTeUVBkapqsUQwbl5_gyuLxgazxZCb5MAEukvelX5aTOaUMwt6CTeJV2U3546nNJ1bvk/s1600/Massacre+Tree.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Blog reproduction; source publication not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Pullman'",
+  "notes": "Engraving of the Fort Dearborn 'massacre tree' (cottonwood on the north side of 18th St east of Prairie, felled May 1894) with, at left, the Pullman coach house/stable: brick building with arched openings, patterned slate mansard with round-headed dormers, iron roof cresting and a small cupola, enclosed by a fence; open lakeshore with sailboats and a lamp post beyond. Probably a plate from a published history (Andreas, History of Chicago vol. 1, 1884, carries a massacre-tree illustration — not yet matched). Documents the Pullman stable on 18th Street; the tree was gone by 1904 and the monument (1893) stood nearby.",
+  "measurements": []
+ }
+]

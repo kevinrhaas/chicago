@@ -1,0 +1,1423 @@
+[
+ {
+  "id": "dw-field-1905-hunt-principal-floor-plan",
+  "kind": "architectural drawing",
+  "title": "[Residence for Marshall and Nannie S. Field, 1905 South Prairie Avenue, Chicago, Illinois]. [First floor plan].",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "[between 1871 and 1873]",
+  "date_earliest": 1871,
+  "date_latest": 1873,
+  "period": "in-period",
+  "creator": "Hunt, Richard Morris, 1827-1895 (architect); office of R. M. Hunt",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "The Hunt Collection in the AIA/AAF Collection (Library of Congress); gift of American Institute of Architects / American Architectural Foundation, 2010 (DLC/PP-2010:100)",
+  "call_number": "Unprocessed in PR 13 CN 2010:100, 78.7080 [P&P]; LC-DIG-ppmsca-58353",
+  "catalog_url": "https://www.loc.gov/pictures/item/2024635986/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/58300/58353u.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC: No known restrictions on publication.",
+  "local": {
+   "display": "research/images/files/dw-field-1905-hunt-principal-floor-plan.jpg",
+   "display_bytes": 412059,
+   "thumb": "research/images/files/dw-field-1905-hunt-principal-floor-plan-thumb.jpg",
+   "thumb_bytes": 19661,
+   "original_px": [
+    9256,
+    13948
+   ],
+   "original_sha256": "c3419789a9ea6943cc29909a9747556b082632001bb5b86feaa8bd87d6c607e3",
+   "original_bytes": 387312150,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/58300/58353u.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Marshall Field 1905 Prairie' (fo=json); dimensions read from the 9256×13948 master TIFF",
+  "notes": "Original office copy of Hunt's plan of the principal floor, inked and watercolour-washed: sheet headed 'Office Copy', 'No 2', 'M. FIELD', 'House for Marshall Field — Chicago Ill.', 'Plan of Principal Floor', 'Scale 1/4\" = 1 ft', stamped 'This Drawing to be returned to R.M. Hunt Archt.' Rooms named: Drawing Room, Parlor(?), Library, Hall, Dining Room (octagonal), Conservatory (segmental bay), Main Stairs (circular, ~30 risers numbered), Service Stairs, Butler's Pantry, Closet; front entrance stoop and side steps drawn. Pencil annotations on finishes ('oak wainscot', 'black walnut wainscot'). The only located architect's drawing of any Prairie Avenue house found in this pass other than the Glessner set. Design-stage (1871–73) not as-built; Field house was altered (notably for later family use and 1905–06) — check against the 1886 Robinson atlas footprint and 1911 Sanborn before using. LoC dates and titles from Sam Watters (2024); published as fig. 3.16b in Watters, The Gilded Life of Richard Morris Hunt (2024).",
+  "measurements": [
+   {
+    "what": "overall depth, west-side dimension chain (14'4\" + 10'8\" + 14'0\" + 7'4\" + 29'2\")",
+    "value": "c. 75 ft 6 in (sum of chain as read)",
+    "locator": "left margin dimension chain, LC-DIG-ppmsca-58353"
+   },
+   {
+    "what": "overall depth, opposite-side dimension chain (3'9\" + 9'6\" + 14'2\" + 37'4\" + 11'0\")",
+    "value": "c. 75 ft 9 in (sum of chain as read; 9'6\" partly illegible)",
+    "locator": "right margin dimension chain"
+   },
+   {
+    "what": "front (entrance) width chain 11'7\" + 9'3\" + 9'0\" + 13'2\" + 11'0\" with 12-in walls between",
+    "value": "c. 56 ft (sum as read, walls included)",
+    "locator": "bottom dimension chain"
+   },
+   {
+    "what": "rear chain over main stair",
+    "value": "19 ft 8 in + 3 ft 2 in + 9 ft 9 in",
+    "locator": "top dimension chain"
+   },
+   {
+    "what": "Drawing Room",
+    "value": "18 ft 6 in × 29 ft 6 in (15'0\" + 15'0\" bays marked)",
+    "locator": "Drawing Room, interior dimensions"
+   },
+   {
+    "what": "Dining Room (octagonal)",
+    "value": "17 ft 2 in across",
+    "locator": "Dining Room"
+   },
+   {
+    "what": "central Hall bay",
+    "value": "8 ft 0 in × 9 ft 0 in",
+    "locator": "Hall between Dining Room and Library"
+   },
+   {
+    "what": "stair hall width",
+    "value": "21 ft 6 in",
+    "locator": "Main Stairs"
+   },
+   {
+    "what": "Conservatory bay chord",
+    "value": "37 ft 4 in (radius line marked 19'0\")",
+    "locator": "Conservatory"
+   },
+   {
+    "what": "typical window opening",
+    "value": "4 ft 8 in between 12-in piers",
+    "locator": "window openings throughout"
+   },
+   {
+    "what": "drawing scale",
+    "value": "1/4 in = 1 ft",
+    "locator": "lower left"
+   }
+  ]
+ },
+ {
+  "id": "dw-field-1905-artistic-houses-library",
+  "kind": "publication plate",
+  "title": "[Residence of Marshall and Nannie S. Field, 1905 South Prairie Avenue, Chicago, Illinois. Library].",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "[ca. 1880]",
+  "date_earliest": 1878,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "unknown photographer; published by D. Appleton & Co. (George W. Sheldon, Artistic Houses)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Illustrations in Sheldon, Artistic Houses (NA7207.A72)",
+  "call_number": "Illus. in NA7207.A72, v.2, pt. 1 [P&P]; LC-DIG-ppmsca-56275",
+  "catalog_url": "https://www.loc.gov/pictures/item/2024636221/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/56200/56275v.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC: No known restrictions on publication.",
+  "local": {
+   "display": "research/images/files/dw-field-1905-artistic-houses-library.jpg",
+   "display_bytes": 156054,
+   "thumb": "research/images/files/dw-field-1905-artistic-houses-library-thumb.jpg",
+   "thumb_bytes": 33033,
+   "original_px": [
+    1024,
+    789
+   ],
+   "original_sha256": "30cc3345d23d4ffb82d740b411f4c377b75d1ddeaeae4cac5862e08ffd9370b2",
+   "original_bytes": 495266,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/56200/56275v.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Artistic houses Chicago'",
+  "notes": "Plate from George W. Sheldon, Artistic Houses, vol. 2 pt. 1 (1884): Field library with coffered ceiling, built-in bookcases, mantel and over-mantel; decorator L. Marcotte & Co.; house by R. M. Hunt 1871–73. Interior evidence only; pairs with the Hunt plan (dw-field-1905-hunt-principal-floor-plan) for room location. 20 years before 1904 — furnishings will have changed.",
+  "measurements": []
+ },
+ {
+  "id": "dw-field-1905-artistic-houses-entrance-hall",
+  "kind": "publication plate",
+  "title": "[Residence of Marshall and Nannie S. Field, 1905 South Prairie Avenue, Chicago, Illinois. Entrance hall].",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "[ca. 1880]",
+  "date_earliest": 1878,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "unknown photographer; published in George W. Sheldon, Artistic Houses",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Illustrations in Sheldon, Artistic Houses (NA7207.A72)",
+  "call_number": "Illus. in NA7207.A72, v.2, pt. 1 [P&P]; LC-DIG-ppmsca-56274",
+  "catalog_url": "https://www.loc.gov/pictures/item/2024636220/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/56200/56274v.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC: No known restrictions on publication.",
+  "local": {
+   "display": "research/images/files/dw-field-1905-artistic-houses-entrance-hall.jpg",
+   "display_bytes": 140610,
+   "thumb": "research/images/files/dw-field-1905-artistic-houses-entrance-hall-thumb.jpg",
+   "thumb_bytes": 26475,
+   "original_px": [
+    787,
+    1024
+   ],
+   "original_sha256": "e288b50f47adf10e15f28b21124a0627b14691f9f4beeb66ee8bc7a6bd3c0230",
+   "original_bytes": 462822,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/56200/56274v.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Artistic houses Chicago'",
+  "notes": "Plate from Sheldon, Artistic Houses (LoC note: vol. 1 pt. 2, 1883; call number cites v.2 pt.1): long entrance hall looking toward the stair, stencilled ceiling, central gasolier, carved hall furniture; decorator L. Marcotte & Co. Matches the axial Hall/stair sequence on Hunt's principal-floor plan. Published as fig. 3.16a in Watters 2024.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-01",
+  "kind": "measured drawing",
+  "title": "1. Title Sheet - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 1 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00001a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00001a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-01.jpg",
+   "display_bytes": 660609,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-01-thumb.jpg",
+   "thumb_bytes": 37805,
+   "original_px": [
+    14444,
+    9568
+   ],
+   "original_sha256": "775a6d8ce343ef6edbd36fdf35a13ee6ddb302cda10a1281233d2cc754d7936f",
+   "original_bytes": 17284455,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00001a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Title sheet: history text (Renwick 1874; fire 1900; Shaw rebuild), locator map of the blocks around Michigan/Cullerton, triple window drawing; credits SAIC students, plan by Donna Weiss 1998, additional drawings 2010. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-02",
+  "kind": "measured drawing",
+  "title": "2. Floor Plan - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1998 (D. M. Weiss, Inspired Partnerships)",
+  "date_earliest": 1998,
+  "date_latest": 1998,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 2 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00002a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00002a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-02.jpg",
+   "display_bytes": 649730,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-02-thumb.jpg",
+   "thumb_bytes": 34441,
+   "original_px": [
+    14412,
+    9600
+   ],
+   "original_sha256": "ccbf62b024da3c26f2c9eb933797c0ed5341fb72aac3e39e75f613b4e3f9ad1f",
+   "original_bytes": 17303847,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00002a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Floor plan by D. M. Weiss, 1998 (Inspired Partnerships): sanctuary with curved pews, chancel, north vestibule, narthex, south balcony half-plan, and the parish 'Hall' wing at the west with its own entrance block. Sheet note: 'Original church constructed in 1874, reconstructed in 1900 by Howard Van Doren Shaw.' Graphic scales 0–10 ft and 0–250 cm; north arrow. No written dimensions — dimensions must be scaled. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "drawing scale",
+    "value": "graphic bar 0–10 ft (and 0–250 cm)",
+    "locator": "sheet 2, below title"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-03",
+  "kind": "measured drawing",
+  "title": "3.  East Elevation - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 3 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00003a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00003a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-03.jpg",
+   "display_bytes": 611259,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-03-thumb.jpg",
+   "thumb_bytes": 28194,
+   "original_px": [
+    9632,
+    14440
+   ],
+   "original_sha256": "0e1d5d886e1b371d5ac8ab5e9fd95c68a99a8a6ca9c7864c7db085ff9af0b28d",
+   "original_bytes": 2687722,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00003a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "East (Michigan Avenue) elevation, drawn by Sarah Tietje: corner bell tower with belfry and pinnacled buttresses (no spire), main gable with large traceried window, central portal with gabled porch, north transept gable; datums marked. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of tower above grade",
+    "value": "122 ft 8½ in",
+    "locator": "sheet 3, datum 'TOP OF TOWER'"
+   },
+   {
+    "what": "grade datum",
+    "value": "0 ft 0 in",
+    "locator": "sheet 3"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-04",
+  "kind": "measured drawing",
+  "title": "4. South Elevation - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 4 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00004a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00004a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-04.jpg",
+   "display_bytes": 468382,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-04-thumb.jpg",
+   "thumb_bytes": 20613,
+   "original_px": [
+    9600,
+    14421
+   ],
+   "original_sha256": "ceb25e07ae75995109ada19577d029c790265b909c348c35b9c56dfff8fb692b",
+   "original_bytes": 1976650,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00004a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "South Elevation – 1 (south/Cullerton side of the west end?), drawn by Christen Sundquist: gabled block with rose window, pinnacles, entrance with steps, roof of nave beyond. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of gable (higher)",
+    "value": "87 ft 8¼ in",
+    "locator": "sheet 4 datum"
+   },
+   {
+    "what": "top of gable (lower)",
+    "value": "80 ft 1 in",
+    "locator": "sheet 4 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-05",
+  "kind": "measured drawing",
+  "title": "5. South Elevation - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 5 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00005a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00005a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-05.jpg",
+   "display_bytes": 640136,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-05-thumb.jpg",
+   "thumb_bytes": 26191,
+   "original_px": [
+    9632,
+    14431
+   ],
+   "original_sha256": "538ea4346a875f8945d49ed32f7d3013e13e112e08f8de6bfedbbe0d1c586a9b",
+   "original_bytes": 2130966,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00005a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "South Elevation – 2, drawn by Christen Sundquist: nave side with clerestory band, aisle windows, and the tower in elevation. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of tower",
+    "value": "122 ft 8½ in",
+    "locator": "sheet 5 datum"
+   },
+   {
+    "what": "top of gable",
+    "value": "87 ft 8¼ in",
+    "locator": "sheet 5 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-06",
+  "kind": "measured drawing",
+  "title": "6. West Elevation - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "rear",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 6 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00006a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00006a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-06.jpg",
+   "display_bytes": 522812,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-06-thumb.jpg",
+   "thumb_bytes": 23300,
+   "original_px": [
+    9632,
+    14425
+   ],
+   "original_sha256": "a525d0d0b96bbdabf2a0f5b72369df0f2cf94a95cbaa453c4dcd10918cb46fbf",
+   "original_bytes": 3603010,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00006a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "West (rear) elevation, drawn by Emily Wallrath: brick rear wall of the parish hall with four large openings, pointed windows, hipped roof, pinnacles and chimney; tower beyond. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of chimney",
+    "value": "91 ft 0 in",
+    "locator": "sheet 6 datum"
+   },
+   {
+    "what": "top of roof",
+    "value": "81 ft 0 in",
+    "locator": "sheet 6 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-07",
+  "kind": "measured drawing",
+  "title": "7. North Elevation - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 7 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00007a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00007a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-07.jpg",
+   "display_bytes": 767129,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-07-thumb.jpg",
+   "thumb_bytes": 29203,
+   "original_px": [
+    14416,
+    9632
+   ],
+   "original_sha256": "ce9121ceebad251c9c8d7305bd15d335680a36d74766697fccd2d01112898129",
+   "original_bytes": 17361511,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00007a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "North elevation, drawn by Marcia Seimer: largely common-brick party-wall face (formerly abutted by a neighbouring building) with segmental windows, clerestory band, hipped west roof; stone northeast tower/pinnacles. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of gable",
+    "value": "87 ft 8¼ in",
+    "locator": "sheet 7 datum"
+   },
+   {
+    "what": "top of roof",
+    "value": "81 ft 0 in",
+    "locator": "sheet 7 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-08",
+  "kind": "measured drawing",
+  "title": "8. Section - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "section",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 8 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00008a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00008a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-08.jpg",
+   "display_bytes": 411383,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-08-thumb.jpg",
+   "thumb_bytes": 23538,
+   "original_px": [
+    14428,
+    9632
+   ],
+   "original_sha256": "173025b525e030059728e4587c7c2e43f7097a1236372684dc59eeb002cbcc1d",
+   "original_bytes": 17380775,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00008a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Longitudinal section, drawn by Danielle Potts: tower, nave with Shaw's arcades, clerestory and roof trusses, balcony, parish-house floors (second floor, attic floor) at the west. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of gable",
+    "value": "87 ft 8¼ in",
+    "locator": "sheet 8 datum"
+   },
+   {
+    "what": "top of roof (west block)",
+    "value": "81 ft 0 in",
+    "locator": "sheet 8 datum"
+   },
+   {
+    "what": "basement floor",
+    "value": "5 ft 0 in below grade (label reads '5'-0\"')",
+    "locator": "sheet 8 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-09",
+  "kind": "measured drawing",
+  "title": "9. Section - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "section",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 9 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00009a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00009a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-09.jpg",
+   "display_bytes": 478761,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-09-thumb.jpg",
+   "thumb_bytes": 25104,
+   "original_px": [
+    14433,
+    9632
+   ],
+   "original_sha256": "3bb4bd10be55bb1074ffe5b481caa9714bd65eecbb4842e8568a1b05ba5963a0",
+   "original_bytes": 17390407,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00009a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Transverse section looking west, drawn by Kelsey Shipton: Shaw/Bartlett chancel arch with angel mural, organ screen, roof trusses. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": [
+   {
+    "what": "top of gable",
+    "value": "67 ft 8¼ in (as written; other sheets give 87 ft 8¼ in — discrepancy in the set)",
+    "locator": "sheet 9 datum"
+   },
+   {
+    "what": "sanctuary ceiling",
+    "value": "61 ft 10 in",
+    "locator": "sheet 9 datum"
+   },
+   {
+    "what": "sanctuary floor",
+    "value": "4 ft 0 in above grade",
+    "locator": "sheet 9 datum"
+   },
+   {
+    "what": "basement",
+    "value": "−4 ft 4 in",
+    "locator": "sheet 9 datum"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-10",
+  "kind": "measured drawing",
+  "title": "10. Section - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "section",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 10 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00010a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00010a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-10.jpg",
+   "display_bytes": 403866,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-10-thumb.jpg",
+   "thumb_bytes": 24664,
+   "original_px": [
+    9632,
+    14427
+   ],
+   "original_sha256": "f42b0f21d7c2ad8309eec7128041e87a9b8e6475e51510c76ac9b33f98a39ab5",
+   "original_bytes": 1714094,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00010a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Transverse section looking east, drawn by Dan O'Brien: east window, gallery, tower interior with bell in the belfry. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-11",
+  "kind": "measured drawing",
+  "title": "11. Window - Beside Still Waters - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 11 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00011a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00011a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (11. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-12",
+  "kind": "measured drawing",
+  "title": "12. Window - Mount of the Holy Cross - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 12 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00012a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00012a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (12. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-13",
+  "kind": "measured drawing",
+  "title": "13. Window - Peace Window - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 13 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00013a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00013a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (13. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-14",
+  "kind": "measured drawing",
+  "title": "14. Window - The Angel at the Open Tomb - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 14 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00014a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00014a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (14. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-15",
+  "kind": "measured drawing",
+  "title": "15. Window - Jeweled Window - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 15 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00015a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00015a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (15. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-16",
+  "kind": "measured drawing",
+  "title": "16. Window - Pastoral Window - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 16 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00016a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00016a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (16. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-17",
+  "kind": "measured drawing",
+  "title": "17. Window - Angel in the Lilies Window - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 17 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00017a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00017a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (17. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-18",
+  "kind": "measured drawing",
+  "title": "18. North Vestibule Window, Narthex Window Screen, Side Aisle Windows, Plaster Relief Panels - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 18 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00018a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00018a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (18. North Vestibule Window, Narthex Window Screen, Side Aisle Windows, Plaster Relief Panels): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-19",
+  "kind": "measured drawing",
+  "title": "19. Pulpit Details, Angel Detail, Candelabra - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 19 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00019a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00019a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (19. Pulpit Details, Angel Detail, Candelabra): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-20",
+  "kind": "measured drawing",
+  "title": "20. Large Chandelier - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 20 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00020a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00020a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (20. Large Chandelier): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-21",
+  "kind": "measured drawing",
+  "title": "21. Lamp Pendants, Sconces, and Swingrail Uplight - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 21 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00021a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00021a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (21. Lamp Pendants, Sconces, and Swingrail Uplight): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-sheet-22",
+  "kind": "measured drawing",
+  "title": "22. Herald Angels - Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "drawn 2010–2011 (2011 Charles E. Peterson Prize entry; plan sheet drawn 1998)",
+  "date_earliest": 2010,
+  "date_latest": 2011,
+  "period": "later",
+  "creator": "School of the Art Institute of Chicago, M.S. Historic Preservation students (C. Pipal, supervisor) for HABS; plan by Donna M. Weiss",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328 (sheet 22 of 22)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992.sheet.00022a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00022a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
+  "notes": "Detail sheet (22. Herald Angels): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il328-second-presbyterian-data-pages",
+  "kind": "document",
+  "title": "Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL — HABS IL-328 data pages (PDF)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "Documentation compiled after 1933",
+  "date_earliest": null,
+  "date_latest": null,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-328)",
+  "call_number": "HABS IL-328",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0992/",
+  "image_url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0900/il0992/data/il0992data.pdf",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov item il0992 resources list; PDF read (pdftotext)",
+  "notes": "HABS IL-328 written data (c. 2012, coordinates obtained March 2012): exterior 'soft, cream colored, tar stained, rusticated Joliet limestone on the south and east facades and common brick on the north and west'; prominent bell tower at the SOUTHEAST corner; pointed-arched windows along north and south; 'non-traditional two aisle plan'. History: Renwick 1874; 1900 fire destroyed the sanctuary roof; Shaw redesigned the interior. Reduced copies of the 22 drawings follow. Use for materials of the 1904 exterior (east front on Michigan, south flank on Cullerton).",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-0",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 0 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 0 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00000a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00000a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-0.jpg",
+   "display_bytes": 192299,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-0-thumb.jpg",
+   "thumb_bytes": 13913,
+   "original_px": [
+    9362,
+    7584
+   ],
+   "original_sha256": "8178d2c01ca728a0bc2a66bbc61c627845de732ed14bd2a637b7feb621588f28",
+   "original_bytes": 178998,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00000a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Title sheet 'The Widow Clarke House, Chicago, Illinois' — 'originally located on Michigan Avenue near Sixteenth Street, now located at 4526 So. Wabash Ave.'; erected 1836, architect unknown, builder Henry B. Clarke; measured Feb.–Mar. 1935, drawn Mar.–Apr. 1935. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-1",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 1 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 1 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00001a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00001a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-1.jpg",
+   "display_bytes": 451610,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-1-thumb.jpg",
+   "thumb_bytes": 27862,
+   "original_px": [
+    9360,
+    7584
+   ],
+   "original_sha256": "451073527488589c4fb170859c25d2b9739c13179e0d05483caa351b14d4af90",
+   "original_bytes": 534390,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00001a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Sheet 1: first-floor, basement and second-floor plans, section looking north, materials and history notes (house moved to Wabash in 1872; porticos removed front and rear). In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": [
+   {
+    "what": "overall width (second-floor plan)",
+    "value": "47 ft 7 in",
+    "locator": "sheet 1, second floor plan, top dimension"
+   },
+   {
+    "what": "overall depth (second-floor plan)",
+    "value": "42 ft 6 in",
+    "locator": "sheet 1, second floor plan, side dimension"
+   },
+   {
+    "what": "scale",
+    "value": "1/8 in = 1 ft 0 in",
+    "locator": "sheet 1 plan titles"
+   }
+  ]
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-2",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 2 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 2 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00002a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00002a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-2.jpg",
+   "display_bytes": 497657,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-2-thumb.jpg",
+   "thumb_bytes": 23998,
+   "original_px": [
+    9354,
+    7584
+   ],
+   "original_sha256": "e8b4e7e745eff1141300e3569c2b9416061e8393eceb5038b5edae2a7504de1f",
+   "original_bytes": 926412,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00002a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Sheet 2: east, south and north elevations (as of 1935, wood siding, cupola, 'new porch'); note that south-elevation siding is modern. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-3",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 3 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 3 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00003a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00003a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Sheet 3: full-size and 3/4-in details — basement window, main cornice, shutters, entrance doorway, interior trim. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-4",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 4 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 4 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00004a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00004a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Sheet 4: stair detail, newel and balusters, typical interior door, mouldings. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": []
+ },
+ {
+  "id": "dw-habs-il135-clarke-sheet-6",
+  "kind": "measured drawing",
+  "title": "HABS ILL,16-CHIG,4- (sheet 6 of 6) - Henry Clarke House, 4526 South Wabash Avenue (moved from Michigan Avenue), Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (site 1872–1977)",
+   "1827 S. Indiana Avenue (modern location)"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "measured Feb.–Mar. 1935; drawn Mar.–Apr. 1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": "Historic American Buildings Survey (delineators incl. Albert J. De Long, Paul C. Shattuck, Gerhard Kaufmann per sheet credits)",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS ILL,16-CHIG,4- / IL-135)",
+  "call_number": "HABS ILL,16-CHIG,4- (sheet 6 of 6)",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0096.sheet.00006a/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00006a.tif",
+  "rights": "no known restrictions",
+  "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-6.jpg",
+   "display_bytes": 432181,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-6-thumb.jpg",
+   "thumb_bytes": 24646,
+   "original_px": [
+    7584,
+    9340
+   ],
+   "original_sha256": "adc0d69feb65005118099009b49a7c2ed2cc0dbbe66a66fc8c7436e91f478d5e",
+   "original_bytes": 614812,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00006a.tif",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
+  "notes": "Sheet 6: 'Restored east elevation from photograph taken in 1856' (Greek Revival portico with four columns) and restored porch plan. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
+  "measurements": []
+ }
+]
