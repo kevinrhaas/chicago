@@ -107,3 +107,28 @@ Run 36899366739 measured the 3.5 m grass trial just below the four-pixel bar
 Use a 4 m full-detail fringe and print two decimals; the assertion stays at four
 pixels. Repeat the boundary, coverage, cap and rendering-budget checks. The
 mobile 3.5 m run already confirms terrain contact and its unchanged 19.8 px edge.
+
+## Completed validation — 2026-10-01
+
+The final runtime was integrated through dev's H1 boarding houses (#233) and
+street fittings (#236), in b034b066. Source CI 36905203833 passed all 719 checks.
+Published Chromium desktop 5,10–11 (36905832670) passed 62 checks: the grass edge
+spans 4.94 px across all 16 bearings, no structure is misplaced, and the worst
+vertex-transform error is 0.000055 m against the unchanged 0.001 m bar. The
+rendering, coverage and cap checks pass. Mobile 10 on 7f3536de (36904172019)
+passed 33 checks with the same placement error. Both report zero page errors.
+The final runtime changes had already passed desktop 1,5 (96 checks,
+36899248098) and mobile 1,5,11,13 (223 checks, 36899419433); the unchanged
+Glessner assets passed the 1904 scene checks in both viewports. Earlier coverage
+of the other smoke sections remains dated by commit in the PR and smoke record.
+
+Desktop run 36904100807 was cancelled before testing when checkout stalled;
+36905832670 is its completed replacement. The local execution workspace later
+restarted, so the completed logs were recovered from GitHub and filed using
+the existing smoke-record parser. Their actual tested commits are retained;
+unrecoverable tree digests and runner load are explicitly null, never inferred.
+
+Dev's later app-title change (#234, e9d0d4b2) changes page text and release notes,
+not the validated model or renderer geometry. Preserve it, restamp the repair
+entry, and require the final merge's source CI before merging PR #230 into dev.
+Production promotion remains outside this repair.
