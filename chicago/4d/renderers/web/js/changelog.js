@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1271, ts: '2026-10-01T20:26:33.790Z', date: 'Oct 1, 2026, 3:26 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+    items: [
+      'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
+      'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
+      'At the Mason blacksmith shop on Lake Street the walk stops. A shoeing floor faced a trodden yard, not boards, so its tie rail now stands on bare ground.',
+      'This is our reconstruction. No source gives a Chicago walk\u2019s width by trade in 1835. Open the street edge\u2019s card to see which business each stretch serves.',
+    ] },
+  { v: 1271, ts: '2026-10-01T20:11:20.402Z', date: 'Oct 1, 2026, 3:11 PM CT', title: 'The lake\u2019s sand now runs the whole shore', kind: 'change',
+    items: [
+      'Stand by the fort and look north or south along the lake. The beach no longer stops 400 metres either side of the river mouth. It now runs the whole length of the shore, with the sandy ground behind it reaching back to the rise at State Street.',
+      'The sand is a cooler grey-beige, and it no longer ends in a straight line. It thins gradually into sandy prairie and then grass, along an uneven edge. Where more sand shows, the grass and flowers thin out with it.',
+      'Where the beach ends and what colour the sand was are our reconstruction. No survey of 1835 draws either. The register (L329) says so.',
     ] },
   { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [

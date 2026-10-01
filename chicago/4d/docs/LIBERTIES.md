@@ -6369,6 +6369,22 @@ reconstructed firms carry and neither signboard set knows (bakery, barber, butch
 harness maker, shoemaker, tailor) are read as stores, **for the street edge only**. Whether
 they hang a board is T-1213's question.
 **Revised:** 2026-10-01.
+**Amended 2026-10-01 — the walk itself is dealt by business (T-1814, the second piece of
+T-1211).** The same table now deals the walk as well as what stands on it. An **inn** and a
+**store** front the town's 6 ft board walk, unchanged. A **forwarding house or warehouse** fronts
+a **decked walk**: the board walk widened by 1.22 m (4 ft) of 3-inch plank on its street side,
+for the length of the house's own frontage wherever the walk is laid there, making a 10 ft deck
+where goods were landed and loaded. Its post and wagon apron stand out past the deck by the
+same verge. A **works** fronts **bare ground**: every march step whose middle lies in front of
+it is refused, so the walk stops either side, and its tie rail stands on that ground. On
+today's town that is **3 decked walks** (39.8 m, at Kinzie's forwarding store on South Water,
+Dole's warehouse and the old bank building's packing house on Lake) and **1 bare front** (the
+Mason blacksmith shop on Lake, a 5.2 m gap). Three warehouse fronts on South Water have no walk
+laid in front of them and are refused a deck in writing. **All of it is invented.** No source
+in this repository measures a Chicago walk's width by trade or shows a smithy's front unplanked.
+The widths are ordinary carpentry, and that a forwarding house would widen its walk and a works
+would not plank its front is a reconstruction from what each trade did at its door.
+**Revised:** 2026-10-01.
 
 ### L161 — The town encloses its property: a yard fence on 109 platted lots, in three types, every metre of it invented
 
@@ -18494,4 +18510,43 @@ never increases the total.
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
 platted deal whose request this answers), **L318** (the first house and its form), **T-1777** (the
 seats), **T-1809** (this deal, a piece of **T-1779**), **T-1209** (the boarding houses built to their beds).
+
+### L329 — The lake's sand follows the lake: where the beach and the sand prairie end, and their grey
+
+**Applies to:** `data/flora/zones/z08_lakeshore.json` and `z09_sand_prairie.json` (their
+`extent` and `ground`), read by `renderers/web/js/lakeshore.js` for the ground shader
+(`terrain.js`), the sward (`flora.js`) and the dune timber (`trees.js`)
+
+**What we invented:** Three things about the lakefront's sand, none of which any source in this
+project measures. (1) **Its north-south reach.** The beach and the beach-ridge belt behind it were
+drawn only between N −400 and +400, the scene's own bounds and never the belt's; both now run the
+whole 4.9 km of modelled lake shore, N −3800 to +1120. (2) **Where the beach ends inland.** It is a
+band 75 m deep measured west from the lake's edge, which is read off the committed heightfield
+rather than drawn, so the sand bar and the shore north and south of the fort all carry it; the
+sand prairie's west side stays on the State Street break of slope (E +840) its record has always
+reasoned from. (3) **The shape and softness of both edges.** Each is a ramp (40 m either side of
+the beach's line, 90 m of the belt's) that wanders by up to 30 m and 50 m on three scales — about
+310 m, 97 m and 18 m — so neither edge is a line. The plants read the same weight the ground does,
+dithered point by point, so the sward thins into the sand across the ramp. (4) **The tone.** The
+beach is now a cool grey-beige (sRGB 186, 181, 166; wet 146, 142, 131) and the sand prairie's soil
+the colour of a grass mat with sand in it (124, 124, 94; wet 100, 100, 80), about a third of the way
+from the mesic prairie's to the beach's, on the owner's instruction (T-1772) — the sand prairie's own
+record says 18 % of it is bare, and the bare-sand buff it had painted the whole belt as desert once it
+ran the shore. The warm buffs they replace were no measurement either.
+
+**Why:** the owner's report of 2026-09-30 — the fort's sand should continue north and south along
+the historical lake shore, greyer, and blend into prairie with no sharp beach line. Every one of
+those faults was the box's: a box cannot follow a shore, and its sides were ruled lines.
+
+**Omission:** the landform. The beach is still the terrain's flat shelf with its step at the
+water; dune ridges and hollows are T-1820's, with the bake they need. So are the dune's poplars: they
+keep the reach they had (N −400 to +400, fading over 100 m, `woody_stratum.reach_n_m` on z08),
+because their band is an elevation band and the south terrace clears all of it. The 8 m marsh buffer
+(`z04_marsh`) still outranks the beach at the waterline.
+
+**Would replace:** a survey or plat that draws the beach's inland edge or the ridge belt's north
+and south ends; a measured colour of Lake Michigan beach sand at Chicago.
+
+**Ticket:** T-1819 (piece 1 of T-1772).
+**Related:** **L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes).
 **Recorded:** 2026-10-01.

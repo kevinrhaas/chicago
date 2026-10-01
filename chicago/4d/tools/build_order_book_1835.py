@@ -474,11 +474,13 @@ STRUCTURE_TICKETS = {
     #     warehouse at Lake and West Water facing the forks, built and baked." Keep the live
     #     owner on that child while its sibling T-1774 closes the wider books after the other
     #     Wolf Point pieces land.
-    # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
-    ("west", "stores_mixed_use"): "T-1766",
+    # T-1767 gate repair: T-1763 split; T-1766 explicitly owned these two remainders.
+    # T-1766 landed (#206) and both rows still order work, so they move to T-1774,
+    # which closes the West's books and hands T-1208 "the West's exact remainder".
+    ("west", "stores_mixed_use"): "T-1774",
     ("west", "larger_boarding_houses"): "T-1810",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1766",
+    ("west", "workshops"): "T-1774",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind.
