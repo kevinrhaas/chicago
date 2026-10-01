@@ -15489,13 +15489,13 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-four roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
+**Scope:** `roof_keepers.written[named]` — 24 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 77
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
-South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 24 are on the
+South Water blocks and were written by T-1638; the other 15 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -15530,6 +15530,14 @@ count tracks is not how many keepers the project has decided on but how many sea
 happen to sit inside the districts this pass has been run over, and a cascade moves them across
 that boundary in both directions. No ruling moved, no name was written to a roof it was not
 dealt, and every seat outside the districts run so far is still held owed BY NAME.
+
+**AND T-1761 GAVE ONE MORE, ON THE ONE WEST BLOCK THIS PASS RUNS OVER.** The second deal on
+`blk_randolph_clinton` (**L307**) raised a D4 cottage on lot 7, and the household the platted
+deal moved into it, `hh_abbott_titus_h`, is one this pass can name, so the written count goes
+23 to **24**, the refusals stay at **77** and the owed count goes 42 to **43**. The D7 house
+beside it went to `hh_abbot_8_g`, a letter-list household the 2026-08-30 ruling refuses, so
+it adds no name: the refusals stay at 77, and those said on the roof's own card go 35 to **36**.
+No ruling moved and no name was written to a roof it was not dealt.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
