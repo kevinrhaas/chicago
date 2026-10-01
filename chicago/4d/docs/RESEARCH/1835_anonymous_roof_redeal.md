@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **384** anonymous roofs
-- keep: **381** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- audited: **385** anonymous roofs
+- keep: **382** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
 - refamily: **3** (2 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 486 stand, so the town is 182 roofs short before this audit and 182 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 487 stand, so the town is 181 roofs short before this audit and 181 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -41,7 +41,7 @@ The programme wants 668 roofs and 486 stand, so the town is 182 roofs short befo
 | `structures/stores_mixed_use/north` | 4 | 1 | 0 | 3 | 1 | 3 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/warehouses_freight/south` | 11 | 8 | 3 | 3 | 8 | 3 |
-| `structures/warehouses_freight/west` | 2 | 1 | 1 | 1 | 0 | 2 |
+| `structures/warehouses_freight/west` | 2 | 2 | 2 | 0 | 1 | 1 |
 | `structures/warehouses_freight/north` | 7 | 6 | 0 | 1 | 6 | 1 |
 | `structures/workshops/south` | 15 | 11 | 8 | 4 | 11 | 4 |
 | `structures/workshops/west` | 8 | 5 | 3 | 3 | 5 | 3 |

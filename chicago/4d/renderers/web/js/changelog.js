@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1249, ts: '2026-10-01T08:22:58.405Z', date: 'Oct 1, 2026, 3:22 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+  { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
       'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household moves in from outside the town plat, into the corner house one of them left; the Bennett household moves into a cottage across Lake Street instead.',
       'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
       'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
+    ] },
+  { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
+    items: [
+      'Cross the Lake Street bridge to the west bank and the first lot on your left, at the corner of Lake and West Water, now has a building on it: a narrow two-storey warehouse of unpainted vertical boards, 23 by 44 feet, facing the river across West Water Street.',
+      'It has two loading bays, each a wagon door with a cargo door above it, and a hoist beam over them. It is the West Division\u2019s second freight building; the only other one is a small shed far out on Des Plaines Street.',
+      'Nobody is recorded owning a warehouse here in July 1835, so the building, its size and its place are ours. The lot is the 1830 plat\u2019s own lot 1, and the warehouse\u2019s card says what was invented and what would replace it.',
+    ] },
+  { v: 1249, ts: '2026-10-01T08:03:51.291Z', date: 'Oct 1, 2026, 3:03 AM CT', title: 'Two farm families move into the cabins beside the barns', kind: 'change',
+    items: [
+      'Out on the Des Plaines prairie edge, two log cabins stand near a barn. Open the Ayers or the Beegle household card now and it gives each family one of those cabins, with a button that walks you there. Before, both cards said the family had nowhere to live.',
+      'A cabin with a barn beside it is a farm, so farm families now get those cabins ahead of labourers. Until now labourers came first in the order households are housed, and they had taken every cabin out there. The Bruno and Cooley households, the two labouring families who lived in these cabins, are waiting for a house again. Every other family stays where it was.',
+      'There are 44 West Side farm families and the modelled prairie has room for about ten farms, so at least 34 of them farmed beyond the edge of the map. The town’s seating records now give that as the reason the other 42 have no house here, instead of saying only that none was free.',
+      'None of this comes from a source. No record puts these families, cabins and barns together. The pairing is our reconstruction, and the Liberties page says how it was made.',
     ] },
   { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [

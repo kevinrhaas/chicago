@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 501,
+    "structures_placed": 502,
     "structures_reached": 91,
     "structures_reached_by_grade": {
       "inferred": 23,
       "reconstructed": 68
     },
     "structures_unreached_by_section": {
-      "09": 407,
+      "09": 408,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -39937,6 +39937,7 @@
       "recon_1835_blk_washington_wells_h1_02",
       "recon_1835_blk_washington_wells_h1_03",
       "recon_1835_blk_washington_wells_h2_07",
+      "recon_1835_forks_freight_f2_001",
       "recon_1835_north_a1_008",
       "recon_1835_north_a1_032",
       "recon_1835_north_a2_033",

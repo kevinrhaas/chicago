@@ -2836,6 +2836,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_h2_07"
     },
+    "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 90888,
+      "inputs_sha256": "6dfce19840ac4520ede25b38c114be6ff012509473d23a2da0d89b4be9e41421",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_forks_freight_f2_001"
+    },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
