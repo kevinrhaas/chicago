@@ -387,6 +387,8 @@ Two committed passes have offered every banded household ground: the plat first,
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
+| `hh_beaubien_mark` | `blk_washington_clark` | `blk_washington_clark#07` | H3 | `lodging_near_the_landings` |
+| `hh_sweet_alanson` | `blk_washington_dearborn` | `blk_washington_dearborn#07` | H3 | `lodging_near_the_landings` |
 | `hh_adams_elizabeth` | `blk_indiana_north_cass` | `blk_indiana_north_cass#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_monique` | `blk_washington_clark` | `blk_washington_clark#06` | D7 | `merchant_and_professional_dwellings` |
@@ -412,14 +414,12 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_bourassa_noel` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
 | `hh_casy_honora` | `blk_washington_clark` | `blk_washington_clark#03` | D3 | `tradesman_dwellings` |
 | `hh_catton_william` | `blk_washington_clark` | `blk_washington_clark#02` | D3 | `tradesman_dwellings` |
-| `hh_chamberlain_l_c` | `blk_washington_clark` | `blk_washington_clark#07` | D4 | `tradesman_dwellings` |
-| `hh_chandler_catherine` | `blk_washington_clark` | `blk_washington_clark#01` | D4 | `tradesman_dwellings` |
-| `hh_chapman_george` | `blk_washington_dearborn` | `blk_washington_dearborn#05` | D3 | `tradesman_dwellings` |
-| `hh_chattin_clark` | `blk_washington_dearborn` | `blk_washington_dearborn#03` | D3 | `tradesman_dwellings` |
-| `hh_chevalier_joseph` | `blk_washington_dearborn` | `blk_washington_dearborn#07` | D4 | `tradesman_dwellings` |
-| `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
-| `hh_clarke_h_b` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
-| `hh_cleaveland_wm_p` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
+| `hh_chamberlain_l_c` | `blk_washington_clark` | `blk_washington_clark#01` | D4 | `tradesman_dwellings` |
+| `hh_chandler_catherine` | `blk_washington_dearborn` | `blk_washington_dearborn#05` | D3 | `tradesman_dwellings` |
+| `hh_chapman_george` | `blk_washington_dearborn` | `blk_washington_dearborn#03` | D3 | `tradesman_dwellings` |
+| `hh_chattin_clark` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
+| `hh_chevalier_joseph` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
+| `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 
 1,229 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
