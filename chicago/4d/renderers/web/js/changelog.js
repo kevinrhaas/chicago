@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1259, ts: '2026-10-01T13:51:12.569Z', date: 'Oct 1, 2026, 8:51 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+  { v: 1260, ts: '2026-10-01T14:23:30.783Z', date: 'Oct 1, 2026, 9:23 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
     items: [
       'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
       'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
+    ] },
+  { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
+      'It looks like a boarding house and not an inn. Seven chamber windows run across its upper floor, front and back, and four iron stovepipes rise through the roof beside its two brick chimneys. There is no gallery, no sign and no wagon door.',
+      'The window and stovepipe counts come from its beds. The lodging model gives the house 12 sleepers on an ordinary night and 28 when full, and the house is filled to that. Every other boarding house\u2019s share moved by a bed at most.',
+      'Nothing here is claimed as evidence. No source puts a boarding house, its keeper or its lodgers on this lot. The Mark Beaubien household, which asked for this lot, now lives in it. The register says how every number was reached.',
     ] },
   { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [

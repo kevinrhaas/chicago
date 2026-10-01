@@ -15,6 +15,7 @@ does not assume it was overlooked; see docs/RESEARCH/sauganash_hotel.md.
 
 from __future__ import annotations
 
+import math
 import sys
 from pathlib import Path
 
@@ -42,6 +43,14 @@ M_WALL, M_ROOF, M_LOG, M_SHUTTER, M_GLASS = 0, 1, 2, 3, 4
 # Sauganash's — see common/materials.py § the chimney stack. Still appended
 # CONDITIONALLY, so a tavern with no stack keeps its exact five-material list.
 M_BRICK = 5
+# The stovepipe's slot follows the brick's when there is one and takes it when there is
+# not, so a building drawing no pipe keeps exactly the material list it always had.
+
+# Sheet iron, blacked — the stovepipe's (T-1778). The same weathered wrought-iron tone
+# bridge_timber draws its hoist chains in, and like that one NOT ON THE MATERIAL SHEET:
+# no source gives the finish of any 1835 Chicago stovepipe.
+PIPE_RGBA = (0.118, 0.112, 0.104, 1.0)
+PIPE_SIDE = 0.16            # a 6-in pipe, drawn square at this LOD
 
 # Colours the record can select beyond common.mesh's stock set. This block used to
 # say they were local to this archetype ON PURPOSE — `common/` bytes are hashed into
@@ -161,6 +170,10 @@ def build(params: FrameTavernParams, name: str):
     # would degrade every committed stack for a rule rather than for a claim.
     ch_attrs = ["chimneys"] + (["chimney_material"] if params.chimney_material else [])
     m_ch = M_BRICK if params.chimneys > 0 else M_ROOF
+    m_pipe = M_BRICK + (1 if params.chimneys > 0 else 0)
+    if params.stovepipes:
+        _stovepipes(b, params, w, d, wall_z, m_pipe)
+
     if params.chimney_placement == "gable_ends":
         c_ch = params.worst_conf(*ch_attrs, "chimney_placement")
         inset = 0.6
@@ -218,7 +231,40 @@ def build(params: FrameTavernParams, name: str):
     if params.chimneys > 0:
         mats.append(simple_material("brick", BRICK_RGBA,
                                     roughness=BRICK.roughness))
+    if params.stovepipes:
+        mats.append(simple_material("stovepipe", PIPE_RGBA, roughness=0.62))
     return b.to_object(mats)
+
+
+def _stovepipes(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
+                wall_z: float, mat: int) -> None:
+    """Sheet-iron pipes up through the main roof — one per stove the record counts.
+
+    A boarding house heated its chambers with box stoves, and a stove's pipe went out
+    through the roof wherever the stove stood rather than into a brick stack, which is
+    why the pipes are scattered where the stacks are paired (T-1778; the crosswalk asks
+    for "multiple stovepipes" and for the count to vary). The count is the record's.
+    Where each stands — which slope, how far along, how high it rises — is this
+    archetype's deal, made from the index alone so it is stable from bake to bake;
+    docs/LIBERTIES.md owns it. The roof is the main block's own gable, whichever way
+    its ridge runs (`add_gable_roof` puts it along the longer side).
+    """
+    c = params.conf("stovepipes", "reconstructed")
+    n = params.stovepipes
+    t = math.tan(math.radians(params.roof_pitch_deg))
+    h = PIPE_SIDE / 2
+    along_x = w >= d
+    run, span = (w, d) if along_x else (d, w)
+    for i in range(n):
+        # spread along the ridge, nudged off the even spacing so the row does not
+        # read as a fence, and alternating slopes a fifth of the span off the ridge
+        a = run * (0.14 + 0.72 * (i + 0.5) / n + (0.035 if i % 2 else -0.035))
+        s = span * (0.70 if i % 2 == 0 else 0.30)
+        z_roof = wall_z + t * (span / 2 - abs(s - span / 2) + 0.25)
+        rise = (0.85, 1.20, 1.00, 1.35, 0.95, 1.10)[i % 6]
+        cx, cy = (a, s) if along_x else (s, a)
+        b.add_box(cx - h, cy - h, z_roof - 0.30, cx + h, cy + h, z_roof + rise,
+                  c, mat, skip=("bottom",))
 
 
 def _stack_fractions(n: int) -> tuple[float, ...]:
@@ -442,10 +488,13 @@ def _rear_ell(b: MeshBuilder, params: FrameTavernParams, w: float) -> None:
     # The attachment-side triangle lands inside the main block and is unseen.
     b.add_gable_roof(x0e, -ed, x1e, 0, eh, 34.0, c, M_ROOF, ridge_along_x=False)
 
-    # the wide carriage door, centred in the far gable
+    # the wide carriage door, centred in the far gable — or, on a kitchen wing, the
+    # back door the cook and the wood came in by (T-1778)
     yy = -ed - 0.06
-    b.add_poly([(cxe - 1.2, yy, 0), (cxe + 1.2, yy, 0),
-                (cxe + 1.2, yy, 2.2), (cxe - 1.2, yy, 2.2)], c, M_GLASS)
+    half = 1.2 if params.rear_ell_door == "carriage" else 0.45
+    top = 2.2 if params.rear_ell_door == "carriage" else 2.0
+    b.add_poly([(cxe - half, yy, 0), (cxe + half, yy, 0),
+                (cxe + half, yy, top), (cxe - half, yy, top)], c, M_GLASS)
 
     # one small light on each eaves wall
     cy = -ed / 2
@@ -469,7 +518,9 @@ def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
 
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
-        bays = 5
+        # the boarding house's chamber rhythm, upstairs only (T-1778); the ground
+        # floor keeps its five bays and its centred door
+        bays = params.upper_windows if (story > 0 and params.upper_windows) else 5
         for i in range(bays):
             cx = w * (i + 0.5) / bays
             # Ground-floor centre bay is the entrance instead of a window. The

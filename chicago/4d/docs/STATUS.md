@@ -31,9 +31,9 @@ hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3), hh_chandler_cath
   `web_derivatives.sh --only`, and the sidecars were recompiled with `compile_scene.py --all`.
 
 **Converged figures (chain at fixpoint, 2 passes, then `rederive.mjs --run`, then 2 more):**
-platted seats **183** (147 adopted, 36 slots), **1,295** handed on, off-plat **72**, keepers
-**23** (80 refused, 44 owed). None of these moved: the seating files are byte-identical to
-dev's. The programme reads **499 standing, 169 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
+platted seats **183** (148 adopted, 35 slots), **1,295** handed on, off-plat **72**, keepers
+**23** (80 refused, 45 owed). None of these moved: the seating files are byte-identical to
+dev's. The programme reads **500 standing, 168 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
 barns and stables owed there go 8 → 9, small outbuildings 13 → 12. Assets: one GLB swapped,
 so the count is unchanged. **L304** carries the correction; **L263** (prose only, count
 unmoved at 483) and **L270** (a no-seat-moved restatement) are restated.

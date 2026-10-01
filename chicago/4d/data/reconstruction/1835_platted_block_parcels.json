@@ -2424,10 +2424,6 @@
         {
           "lot": 6,
           "why": "The Washington-and-Dearborn corner, open because this deal has no roof for it and because a corner on the block's east end is the ground the schedule's own trade weighting would reach for first if this block were ever dealt a business — it is apportioned none. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
-        },
-        {
-          "lot": 7,
-          "why": "The Madison-and-Dearborn corner, the last of the block's eight and open on the plainest reason of all: nothing was dealt to it. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
         }
       ],
       "slots": [
@@ -2468,7 +2464,88 @@
           "lateral_m": -5.0
         }
       ],
-      "arrangement_note": "THE FIRST DEAL ON THE PLAT'S LAST TIER, and the first roofs this project has raised south of Washington Street on the original town's own grid. The block stood entirely empty — eight free lots, nothing standing, every sample of the modelled ground above datum — and it is dealt two principal roofs and two yard buildings, which leaves six of its eight lots open and 25 of the 27 roofs its schedule apportions unbuilt. That is the point rather than a shortfall: this tier was the edge of the settled town in July 1835, and a block built out to its ceiling here would be a claim about 1835 the evidence does not support. THE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. hh_cady_levi's deep-plan cottage stands on lot 4 facing Washington Street, the through line of the two and graded `light` in the committed street hierarchy; hh_byram_thomas's two-room cottage stands on lot 5 facing Madison, which the same hierarchy grades `none` — a line the plat draws and the traffic model gives no through movement at all. Standing a tradesman's cottage on a street with no traffic is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it applies only to the trade letters, and a household on the quiet side of a block on the town's edge is the ordinary case, not the anomalous one. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN. A privy stands off the alley behind the Washington cottage and a woodshed off the alley behind the Madison one, one apiece, each serving the lot it stands on. Which of the block's apportioned yard buildings to build is this file's choice and the choice is argued down rather than up: of the stable, the barn or carriage shed, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had, and the others are ones it might have had. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered."
+      "arrangement_note": "THE FIRST DEAL ON THE PLAT'S LAST TIER, and the first roofs this project has raised south of Washington Street on the original town's own grid. The block stood entirely empty — eight free lots, nothing standing, every sample of the modelled ground above datum — and it is dealt two principal roofs and two yard buildings, which leaves six of its eight lots open and 25 of the 27 roofs its schedule apportions unbuilt. That is the point rather than a shortfall: this tier was the edge of the settled town in July 1835, and a block built out to its ceiling here would be a claim about 1835 the evidence does not support. THE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. hh_cady_levi's deep-plan cottage stands on lot 4 facing Washington Street, the through line of the two and graded `light` in the committed street hierarchy; hh_byram_thomas's two-room cottage stands on lot 5 facing Madison, which the same hierarchy grades `none` — a line the plat draws and the traffic model gives no through movement at all. Standing a tradesman's cottage on a street with no traffic is not a contradiction: a dwelling is not a shop, the face-value clause that would refuse it applies only to the trade letters, and a household on the quiet side of a block on the town's edge is the ordinary case, not the anomalous one. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN. A privy stands off the alley behind the Washington cottage and a woodshed off the alley behind the Madison one, one apiece, each serving the lot it stands on. Which of the block's apportioned yard buildings to build is this file's choice and the choice is argued down rather than up: of the stable, the barn or carriage shed, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had, and the others are ones it might have had. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines and the alley are conjectural, as they are everywhere on this row, and no lot is numbered.",
+      "open_lots_taken_since": [
+        {
+          "lot": 7,
+          "ticket": "T-1778",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1778 against hh_beaubien_mark's standing H3 request under the lodging clause (T-1777), which is a household asking by name for the H3 roof this block's schedule still carries. Lot 1 stays the block's reserved open lot, so the reason this deal gave for keeping one is untouched."
+        }
+      ]
+    },
+    {
+      "block_id": "blk_washington_clark",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_clark_second_deal",
+      "claimed": "2026-10-01",
+      "seq_start": 5,
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clark",
+        "east": "dearborn"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 4,
+        "free_lots": 6,
+        "headroom": 20,
+        "dealt_roofs": 1,
+        "dealt_principal": 1,
+        "dealt_ancillary": 0,
+        "principal": 1,
+        "ancillary": 0
+      },
+      "families": {
+        "H3": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1778",
+        "parent": "T-1209",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_beaubien_mark",
+            "family": "H3",
+            "order_book_draw": "blk_washington_clark / H3 / south"
+          }
+        ],
+        "why": "THE FIRST BOARDING HOUSE IS RAISED WHERE THE SEATING ASKED FOR IT, AND ONLY THERE. T-1777 moved the lodging clause ahead of the dwelling clauses in the platted deal, and the deal then seated the two banded tavern keepers of the South Division on the two H3 roofs the Washington-tier plans carry: hh_beaubien_mark on this block's lot 7 and hh_sweet_alanson on blk_washington_dearborn's lot 7. Both rows stand in `1835_platted_seats.json` as slots with no structure, under the sentence this file answers — \"this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil\" — so the family and the lot are the seating's and not this deal's. The schedule (data/reconstruction/1835_665_roof_programme.json) still carries one H3 on this block among twenty roofs of headroom, and its lot ceiling of five principal roofs on six free lots is not approached by one. THIS IS ONE OF THE TWO REQUESTS, ON PURPOSE: T-1778 is the ticket that builds the H3 FORM, raised on the first seat as its demonstration; the Dearborn block's twin and the rest of the town's boarding houses are T-1779's, with their stables and privies. A REQUEST IS NOT EVIDENCE and nothing here grades higher for having been asked for: the house is an anonymous count-unit at the bottom tier, on an invented position, and no source puts a boarding house, a tavern keeper or anybody else on this lot."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nineteen more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
+        },
+        {
+          "lot": 1,
+          "why": "The Madison-and-Clark corner, still the block's reserved open lot. The schedule's sizing keeps one free lot open on every block and the first deal named this one; a second deal of one roof has no reason to move it."
+        },
+        {
+          "lot": 2,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nineteen more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
+        },
+        {
+          "lot": 3,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nineteen more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
+        },
+        {
+          "lot": 6,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nineteen more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
+        }
+      ],
+      "slots": [
+        {
+          "family": "H3",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 1.55,
+          "lateral_m": 0.0
+        }
+      ],
+      "arrangement_note": "ONE BOARDING HOUSE ON THE MADISON-AND-DEARBORN CORNER, AND IT STANDS AT THE STREET LINE BECAUSE THE CLAUSE THAT ASKED FOR IT SAYS SO. The block stood at four roofs — a deep-plan cottage on the Washington face, a two-room cottage on the Madison face and a yard building behind each — on two of its eight lots. It stands at five. The new roof is the town's first H3: a two-storey clapboard house with a one-storey kitchen wing behind it, built on the frame_tavern placeholder the crosswalk names with the tavern's cues left off, its upper-storey window count and its stovepipes sized from the beds the lodging model gives a boarding house (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Madison edge — the 1.5 m lot margin every roof of this module keeps, and the five centimetres the lot's own skew asks of it, inside the 2.71 m street line the `lodging_near_the_landings` clause puts an inn on, which is the setback the store slots of this module use too; the dwellings on this block stand 4.5-5.5 m back under the dwelling clauses' typology. MADISON STREET CARRIES NO TRAFFIC CLASS IN 1835, and that is stated rather than argued away: T-1777 found the seat faces Madison because the deal's scorer ties Washington's `light` with Madison's `none` and breaks the tie on lot id, and re-deciding that would re-deal every clause. The house is raised on the seat as dealt. NO STABLE AND NO PRIVY are dealt with it: the block's remaining schedule carries two A1 roofs and no A3, and a boarding house's yard buildings are T-1779's acceptance, beside the other H3 roofs, rather than one ticket's guess here."
     },
     {
       "block_id": "blk_washington_lasalle",
