@@ -19,96 +19,18 @@
     "nothing_is_written_to": "No verdict is rewritten, no recipe slot moves, no record or asset is touched and no confidence changes. These roofs are inferred_anonymous before and after. The six are NOT yet carried out — the recipe still stands them as A-family slots and nothing has been rebaked. That is T-1611."
   },
   "counts": {
-    "outstanding_verdicts": 1,
+    "outstanding_verdicts": 0,
     "refused_by_the_parcel_gate": 0,
     "inventory_class_moves": 0,
-    "families_offered": 6,
-    "ancillary_families_offered": 2,
-    "open_lots_across_the_three_blocks": 4,
+    "families_offered": 0,
+    "ancillary_families_offered": 0,
+    "open_lots_across_the_three_blocks": 0,
     "clause_evidence_records": 4,
     "clause_evidence_breaching_their_own_clause": 1,
     "clause_evidence_fronting_no_street": 2
   },
-  "roofs": [
-    {
-      "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
-      "would_become": "recon_1835_blk_west_randolph_des_plaines_d4_01",
-      "sequence": 1,
-      "block_id": "blk_west_randolph_des_plaines",
-      "programme_phase": "phase3_platted_block_west_randolph_des_plaines",
-      "stands_on": "frontage",
-      "lot": null,
-      "fronts": "randolph",
-      "setback_m": null,
-      "setback_class": "yard",
-      "was_family": "W2",
-      "was_group": "workshops",
-      "was_inventory_class": "principal_functional",
-      "to_family": "D4",
-      "to_group": "ordinary_dwellings",
-      "implied_inventory_class": "principal_functional",
-      "class_moves": false,
-      "lot_already_carries": null,
-      "refused_by_the_parcel_gate": null,
-      "families_offered": [
-        {
-          "family": "D4",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D5",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D6",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D7",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "A1",
-          "group": "barns_stables",
-          "inventory_class": "ancillary"
-        },
-        {
-          "family": "A2",
-          "group": "barns_stables",
-          "inventory_class": "ancillary"
-        }
-      ],
-      "ancillary_families_offered": 2,
-      "why_the_adjudication_refamilied_it": "the west division stands 1 roof(s) over its workshops row, and this is one the order book has no occupant class for where it stands; the position is wanted and the kind is not"
-    }
-  ],
-  "ground": {
-    "blk_west_randolph_des_plaines": {
-      "roofs_needing_ground": 1,
-      "open_lots": [
-        {
-          "lot": 2,
-          "declared_open_because": "The Des Plaines column's middle lot (plat lot 6), left open between the standing west_046 shed on plat lot 3 and the two-room cottage dealt to plat lot 7, so neither roof on the outer face has a neighbour along its own frontage. The West recipe's outer edge is 'separated by large gaps', and this is the gap."
-        },
-        {
-          "lot": 4,
-          "declared_open_because": "The Des Plaines column's southern end lot (plat lot 10), at Washington Street, left open because the outer face of the outermost platted block is where the recipe's w5 edge 'terminates in visibly unbuilt wet prairie rather than filling the legal plat'. The lot line continues through prairie; nothing stands on it."
-        },
-        {
-          "lot": 6,
-          "declared_open_because": "The Jefferson column's second lot (plat lot 4), left open between the standing west_036 roof at the Randolph corner and the cottage dealt to plat lot 5, for the same alternating vacancy every West outer cluster carries: one principal roof every one to three lots, with open ground between."
-        },
-        {
-          "lot": 8,
-          "declared_open_because": "The Jefferson column's fourth lot (plat lot 8), left open between the two cottages this parcel deals to that face, so the face reads roof, open, roof, open, roof from Randolph to Washington and never as a continuous row. Which free lot takes the gap is an invention; that there is one is the recipe's own zone-C density."
-        }
-      ]
-    }
-  },
+  "roofs": [],
+  "ground": {},
   "clause_witness": {
     "clause": "ancillary_behind_its_own_roof",
     "scored_term": "class:principal in `avoids`, against the traffic class of the street each record FRONTS — a record that fronts none has no class and the term cannot speak for it (T-1511); `the_policy_refuses_it` is the clause's whole answer, both terms",
@@ -181,14 +103,14 @@
       "taken": true,
       "what": "Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it.",
       "what_it_changes": "The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.",
-      "costs": "1 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
+      "costs": "0 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
     },
     {
       "id": "move_them_onto_open_ground",
       "taken": false,
       "what": "Deal the six onto free lots as principal roofs.",
-      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 4 open lot(s) against 1 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
-      "costs": "-3 roof(s) with nowhere to stand even after both open lots are spent."
+      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 0 open lot(s) against 0 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
+      "costs": "0 roof(s) with nowhere to stand even after both open lots are spent."
     },
     {
       "id": "leave_them_where_they_are",
