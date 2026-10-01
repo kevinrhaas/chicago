@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
+      'It looks like a boarding house and not an inn. Seven chamber windows run across its upper floor, front and back, and four iron stovepipes rise through the roof beside its two brick chimneys. There is no gallery, no sign and no wagon door.',
+      'The window and stovepipe counts come from its beds. The lodging model gives the house 12 sleepers on an ordinary night and 28 when full, and the house is filled to that. Every other boarding house\u2019s share moved by a bed at most.',
+      'Nothing here is claimed as evidence. No source puts a boarding house, its keeper or its lodgers on this lot. The Mark Beaubien household, which asked for this lot, now lives in it. The register says how every number was reached.',
+    ] },
   { v: 1253, ts: '2026-10-01T10:43:44.207Z', date: 'Oct 1, 2026, 5:43 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This is the plan the next runs build photographic-quality walls, walks and ground from, using the methods that made the 1904 Glessner House look real.',

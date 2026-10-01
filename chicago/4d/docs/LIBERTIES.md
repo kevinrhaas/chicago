@@ -17815,3 +17815,82 @@ cottage re-sized to the D4 the request then asked for, and the seating outcome r
 not re-cut to them, which is said above); 2026-10-01 a third time (numbered **L312**: it was
 written as L308, and T-1773's warehouse took that number on `dev` first — the entry's words did not
 change, only its number, and the four references to it moved with it).
+
+### L317 — The town's first boarding house: an invented H3 on blk_washington_clark's Madison-and-Dearborn corner, its windows and stovepipes sized from modelled beds
+
+**Decision:** `blk_washington_clark` — the block bounded by Washington, Dearborn, Madison and
+Clark on the plat's last tier — carries **one more anonymous roof**: a two-storey clapboard
+boarding house (H3, `recon_1835_blk_washington_clark_h3_05`) on lot 7, the Madison-and-Dearborn
+corner, with a one-storey kitchen wing behind its rear wall. It is the first H3 of the ten the
+665-roof programme schedules. The family and the lot are the seating pass's, not this deal's:
+T-1777 seated `hh_beaubien_mark`, a banded tavern keeper, on an H3 slot on this lot under
+`lodging_near_the_landings`, and the slot carried the sentence this deal answers — this block's
+own plan still holds an H3 roof of headroom. **Everything below that is invented**: that any
+building stood on this lot in July 1835, that it was a boarding house, its size, its form, how
+it stands on the lot, and every count on it. No source puts a boarding house, a tavern keeper or
+anybody else here.
+
+**THE FORM IS THE CROSSWALK'S PLACEHOLDER WITH THE TAVERN TAKEN OFF IT.** The H3 entry names
+`frame_tavern` as the placeholder for a `boarding_house_frame` that is not built, and its own
+evidence note warns that the placeholder "implies tavern features that a boarding house should
+not inherit". So the house is drawn on `frame_tavern` with no gallery, no frontispiece and no
+sign, and its rear service wing — the archetype's one-storey rear ell at the archetype's own
+size, 5.5 × 4.5 m with a 2.6 m wall — opens a **kitchen door** where an inn's ell opens a
+carriage door to its wagon yard (`rear_ell_door: service`, new to the archetype and off by
+default, so no standing tavern moves). The footprint is sampled inside the H3 band exactly as
+every family's is; the band's front (26-34 ft) is narrower than its depth (38-50 ft), so the
+placeholder raises the house **gable-end to Madison Street**. That orientation is the band read
+the way this module reads every band, not a judgement that 1835 boarding houses fronted on a
+gable; turning it eaves-front would put the footprint outside its own band, and that is a
+ruling this deal does not make.
+
+**THE COUNTS ARE SIZED FROM BEDS, AND THE TWO RATIOS THAT DO IT ARE THE LIBERTY.** The crosswalk
+asks for "6-10 upper windows" and "multiple stovepipes" and says the counts "indicate capacity,
+not a recovered interior plan". The beds are the lodging model's (T-1370): on the pass that
+first raised the house, the boarding-house class's per-place figure (9 ordinary, 21 crowded);
+from then on the house's own apportioned row, **12 ordinary and 28 crowded**, which the record
+carries in `reconstruction.capacity` with the arithmetic beside it. Then:
+
+- **upper windows** = one chamber per **three lodgers on a crowded night** (two to a bed and one
+  on the floor), held to the crosswalk's 6-10, and then to the sashes the front can carry with a
+  wall between them (0.85 m sash + 0.30 m pier, the archetype's refusal): 28 asks 10, an 8.47 m
+  front carries **7**, drawn across the upper storey of the front and the rear;
+- **stovepipes** = one box stove per **three sleepers on an ordinary night**, held to 2-6:
+  **4**, set on alternate slopes at stepped heights the archetype deals by index;
+- **chimneys** are not sized by the beds: the two brick stacks are the family's kitchen and
+  common-room hearths, and what the beds add goes out through the roof as iron pipe.
+
+Neither ratio is read off any source. No 1835 Chicago boarding house's chambers, beds or stoves
+are counted anywhere in the evidence this project holds, and a different ratio would draw a
+different house. They are stated so the counts are re-derivable from the record, not because
+they are known.
+
+**WHAT RAISING IT MOVED, MEASURED AT THE CHAIN'S FIXPOINT (two passes).** The lodging model now
+apportions the boarding-house class over ten places instead of nine, so the class's total moves
+from 81-189 beds to 90-210 and every boarding house's share is re-cut by floor area: seven of the
+standing nine lose one crowded bed, three of those one ordinary bed as well, and the lodgers stage
+re-deals the boarders of ten lodging cards across the town. The new house is filled like any other — seven
+people from the layer and eight drawn from the order book's lodging cells, under a keeper the
+lodgers stage draws (**this is the seam T-1779 owns**: the platted deal seats `hh_beaubien_mark`
+on the same roof, and which household keeps the house is not decided here). In the platted deal
+`hh_beaubien_mark` now **adopts** the roof rather than requesting it; six slot requests on the two
+Washington-tier blocks shift a lot (among them `hh_sweet_alanson`'s H3 slot, from
+`blk_washington_dearborn`'s lot 7 to this block's lot 6), no household loses a roof, and the seat
+total holds at 177 (adoptions 144 → 145, slots 33 → 32; **L270**).
+
+**How to resolve:** any source naming a boarding house, its keeper or its lodgers south of
+Washington Street in 1835; any 1830s account counting a Chicago boarding house's rooms, beds or
+stoves (it replaces the ratios outright); parcel evidence for this lot. A named discovery
+substitutes for a compatible anonymous roof and never increases the total.
+
+**Covers:** `recon_1835_blk_washington_clark_h3_05.inferred_1835.position`,
+`recon_1835_blk_washington_clark_h3_05.inferred_1835.footprint`,
+`recon_1835_blk_washington_clark_h3_05.inferred_1835.form.upper_windows`,
+`recon_1835_blk_washington_clark_h3_05.inferred_1835.form.stovepipes`,
+`recon_1835_blk_washington_clark_h3_05.inferred_1835.form.rear_ell`,
+`recon_1835_blk_washington_clark_h3_05.inferred_1835.form.rear_ell_door`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
+platted deal whose request this answers), **L312** (the same shape of deal), **T-1777** (the seat),
+**T-1778** (this deal), **T-1779** (the remaining H3 roofs, their yards, keepers and lodgers),
+**T-1209** (the boarding houses built to their beds).
+**Recorded:** 2026-10-01.

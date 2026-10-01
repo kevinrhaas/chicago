@@ -49,7 +49,14 @@ CONSUMED = frozenset({
     "shutter_type", "entrance_frontispiece", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end",
+    "upper_windows", "stovepipes", "rear_ell_door",
 })
+
+# How narrow a window bay may get before the piers between the sashes are not walls
+# any more: a 0.85 m sash plus a 0.30 m pier. `upper_windows` is refused past it rather
+# than squeezed, so a record asking for more chambers than its front can light is told
+# so instead of drawn as a glazed strip (T-1778).
+UPPER_BAY_MIN_M = 1.15
 
 # The compass names a record may use for a wall-mounted feature, as bearings.
 # Local face bearings follow from the placement's rotation_deg (the facade
@@ -159,6 +166,26 @@ class FrameTavernParams:
     rear_ell_width_m: float = 5.5
     rear_ell_depth_m: float = 4.5
     rear_ell_wall_m: float = 2.6
+    # What opens in the ell's far gable. "carriage" is the Green Tree's wide door to
+    # the wagon yard, and stays the default so that building does not move.
+    # "service" is a man-door — a kitchen wing's back door, which is what the
+    # boarding house's rear service wing has where an inn has its yard (T-1778: the
+    # crosswalk asks the H3 to "remove tavern cues", and a carriage door into the
+    # kitchen is one).
+    rear_ell_door: str = "carriage"
+
+    # THE BOARDING HOUSE'S CHAMBER RHYTHM (T-1778). None keeps the five-bay
+    # elevation every tavern has always had, on every storey. A count draws that
+    # many evenly spaced sashes on each long elevation of the UPPER storeys only —
+    # the ground floor keeps its five bays and its centred door. The count is the
+    # record's, sized there from the house's beds; the spacing is this archetype's.
+    upper_windows: int | None = None
+
+    # Sheet-iron stovepipes through the roof, beside the brick stacks. Positions and
+    # heights are dealt here, deterministically by index, so a house with four reads
+    # as four stoves and not as a row of identical posts; the count is the record's.
+    # 0 draws none and is every committed building's value.
+    stovepipes: int = 0
 
     # the attached log wing — the Sauganash's 1829 cabin surviving as a wing.
     # See docs/RESEARCH/sauganash_hotel.md.
@@ -282,6 +309,35 @@ class FrameTavernParams:
                 raise ParamError(f"rear_ell_wall_m {self.rear_ell_wall_m} must sit in "
                                  f"1.8 m..the main wall height — the ell is the LOW "
                                  f"addition or it is not this ell")
+        if self.rear_ell_door not in ("carriage", "service"):
+            raise ParamError(f"rear_ell_door '{self.rear_ell_door}' not in "
+                             f"('carriage', 'service')")
+        if self.rear_ell_door != "carriage" and not self.rear_ell:
+            raise ParamError("rear_ell_door without rear_ell — a door needs a wing "
+                             "to open out of")
+        if self.upper_windows is not None:
+            if (not isinstance(self.upper_windows, int)
+                    or isinstance(self.upper_windows, bool)):
+                raise ParamError(f"upper_windows {self.upper_windows!r} is not a "
+                                 f"whole number of sashes")
+            if self.stories < 2:
+                raise ParamError("upper_windows on a one-storey block — there is no "
+                                 "upper storey for the rhythm to stand on")
+            if self.elevation_scheme != "frontage":
+                raise ParamError("upper_windows is read by the frontage scheme only")
+            if not 3 <= self.upper_windows <= 12:
+                raise ParamError(f"upper_windows {self.upper_windows} outside 3..12")
+            if self.width_m / self.upper_windows < UPPER_BAY_MIN_M:
+                raise ParamError(
+                    f"upper_windows {self.upper_windows} on a {self.width_m} m front "
+                    f"leaves {self.width_m / self.upper_windows:.2f} m a bay, under "
+                    f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if (not isinstance(self.stovepipes, int) or isinstance(self.stovepipes, bool)
+                or not 0 <= self.stovepipes <= 6):
+            raise ParamError(f"stovepipes {self.stovepipes!r} not a count in 0..6")
+        if self.stovepipes and self.roof_type != "gable":
+            raise ParamError("stovepipes are set on a gable's two slopes; this roof "
+                             f"is '{self.roof_type}'")
         if self.log_wing:
             if self.log_wing_width_m > self.width_m:
                 raise ParamError("log wing is wider than the block it attaches to")
@@ -421,6 +477,10 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         chimney_placement=str(val("chimney_placement", "frontage")),
         side_entrance_face=side_face,
         rear_ell=bool(val("rear_ell", False)),
+        rear_ell_door=str(val("rear_ell_door", "carriage")),
+        upper_windows=(None if val("upper_windows") is None
+                       else int(val("upper_windows"))),
+        stovepipes=int(val("stovepipes", 0)),
         cross_wing=bool(val("cross_wing", False)),
         cross_wing_depth_m=float(val("cross_wing_depth_m", 8.0)),
         cross_wing_end=str(val("cross_wing_end", "x_max")),
