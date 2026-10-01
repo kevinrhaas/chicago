@@ -440,9 +440,13 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 deals the dwellings owed onto
-    # the outer platted West blocks, which is where the 24 left in this cell can stand.
-    ("west", "ordinary_dwellings"): "T-1783",
+    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
+    # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
+    # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
+    # balance beyond committed control — moves to T-1784, the sibling that owns that ground,
+    # and T-1784 was itself split the same hour, so to its live child T-1794, which raises the
+    # West's owed dwellings on the extended ground.
+    ("west", "ordinary_dwellings"): "T-1794",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the

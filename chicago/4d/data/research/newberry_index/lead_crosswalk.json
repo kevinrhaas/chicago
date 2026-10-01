@@ -31898,7 +31898,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01 would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v04_0079"
    ],
@@ -31911,6 +31911,11 @@
     {
      "id": "fort_dearborn_shop",
      "name": "Fort Dearborn — the shop",
+     "rule": "OCR variant (0.89 similarity to 'shop')"
+    },
+    {
+     "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+     "name": "Reconstructed W2 carpenter or joiner shop #01",
      "rule": "OCR variant (0.89 similarity to 'shop')"
     }
    ],
@@ -82765,10 +82770,10 @@
   {
    "record_id": "nbi_v04_0079",
    "a": "Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.",
-   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop",
+   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop.",
+   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01.",
    "layers": [
     "residents",
     "structures"

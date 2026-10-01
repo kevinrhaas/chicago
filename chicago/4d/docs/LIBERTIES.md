@@ -14679,9 +14679,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 184 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 184 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -14731,6 +14731,10 @@ households took slots on it. A block's slot count is therefore not a ratchet in 
 direction, and no reading of this entry should treat it as one: it is what the schedule
 apportions to that block on the day it is read, and raising a block's roofs re-deals the order
 behind them across the whole tier.
+**T-1783 took the count from 177 to 184 by opening the West Division's three lot-ruled outer
+blocks** (see **L310**): three households adopt the three cottages built on
+`blk_west_randolph_des_plaines`, and four ask for slots on `blk_west_lake_canal`, whose four
+dwellings the schedule now deals and nobody has built yet.
 **Four more arrived the same way and on the same kind of ground — two blocks, one ruling, and
 the second of them took a whole ticket longer to reach.** `blk_lake_clinton` and
 `blk_randolph_clinton` are plat blocks 28 and 45, between Clinton and Canal, and both grids of
@@ -17493,7 +17497,7 @@ not the mean: a lower figure would call the reviewed parcel over-dense on the bl
 measured on, and a higher one is a density nobody reviewed on this ground. Only the recipe's
 own placements count, so the ceiling cannot climb on roofs this schedule deals.
 
-**What is invented:** all of the four roofs — their presence, families, lots, set-outs (4.5 to
+**What is invented:** all of the four roofs — their presence, families, lots, set-outs (1.5 to
 7.0 m) and lateral offsets — and the ceiling itself, which is one reviewed parcel's density
 carried to two neighbouring blocks. The lot lines and the block number are the sheet's
 (`data/traces/thompson_west_division_lots.json`). No source places any building on block 47 in
@@ -17501,9 +17505,9 @@ July 1835.
 
 **Consequence:** the town gains its first roofs on the West Division's outer platted ground
 beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its
-target. `blk_west_lake_canal`'s four (a cottage, a shanty, a warehouse and a boarding house) are
-scheduled and not built: its warehouse is T-1773's, in flight on the same block, and where a
-boarding house may stand is T-1777's question.
+target. `blk_west_lake_canal`'s four (frame cottages, D3 to D6) are
+scheduled and not built here: T-1773's warehouse is in flight on lot 1 of that block, and the
+order book hands the cottages to T-1794 to raise beside it.
 
 **How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
 blocks, or a period view west along Randolph; either replaces the ceiling and these placements

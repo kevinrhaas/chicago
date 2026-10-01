@@ -320,13 +320,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # four go on top of. SEVENTH move in two days, and the note above already said why: the
 # debt is per-ASSET.
 #
+# 496 -> 500 and 492 -> 496 on 2026-10-01 (T-1783): the four roofs on
+# `blk_west_randolph_des_plaines`, the first deal on the West Division's outer platted
+# blocks — three frame cottages and a carpenter's shop. Four new structure assets on the
+# same terms; the terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 496,
+    "assets": 500,
     "restales": {
-        "generators/common/*.py": 496,
+        "generators/common/*.py": 500,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 492,
+        "generators/emit.py": 496,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
