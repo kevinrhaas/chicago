@@ -16,12 +16,12 @@ ceiling cannot climb on what the schedule itself deals.
   non-dwelling to the better face, and every West lot fronts a north-south street), D6 on plat
   lot 5 and D5 on plat lot 9 of the Jefferson face. Four lots open. Baked with `bake.sh --only`.
 - Not built: `blk_west_lake_canal`'s deal (four frame cottages, D3–D6, with four households
-  already asking for slots on it). T-1773's warehouse is in flight on lot 1 of that block; the
+  already asking for slots on it). T-1773's warehouse now stands on lot 1 of that block; the
   order book's `structures/ordinary_dwellings/west` row (21 left) moves from T-1783 to T-1794,
   the live child of the split T-1784, with the finding written on that ticket.
 - Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 23 → 24 keepers). The
   workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
-- L312 records the ceiling and the four roofs; L263 restated (480 phases).
+- L312 records the ceiling and the four roofs; L263 restated (481 phases).
 - The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the
   Clinton blocks' unclaimed deals changed family (T-1760/T-1761 claim from the schedule they
   read; a claimed parcel's `drawn_from_schedule` is frozen, so nothing built moves).
@@ -29,6 +29,29 @@ ceiling cannot climb on what the schedule itself deals.
 **Not done here, and owned:** the shop has no keeper seated (the business layer owns that). The Jefferson and Fulton faces have
 no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
 so the deal carries frame cottages.
+
+## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
+
+**T-1764 was split** (T-1773, T-1774). Its first clause — the cabins and boarding houses
+of the forks — sits in two rows the order book gives to other tickets (`ordinary_dwellings/west`,
+24 left, now T-1783; `larger_boarding_houses/west`, 4 left, now T-1779), and both parents were
+claimed by sibling runs at 04:09Z. Its closing clauses (the pre-plat roofs reconciled, the
+refusals resolved, the frame budget read, T-1208 handed on) cannot close honestly before those
+land, so they are T-1774. The one West row T-1764 owned outright was `warehouses_freight/west`,
+2 set and 1 standing, and that is this unit.
+
+**What stands now.** `recon_1835_forks_freight_f2_001`, an F2 narrow two-storey warehouse
+(hoist, two cargo bays, vertical boards), on the corner of plat lot 1 of `blk_west_lake_canal`
+— Lake and West Water, facing the South Branch at the forks — 1.5 m inside both street lines.
+Its own generator (`tools/generate_west_freight.py`, `--check` and `--self-test` in the gate)
+because the West grid is unscheduled (T-1455) and the block parcels cannot deal onto it. The
+first placement, centred on the lot, stood 8.15 m off Lake Street and the anonymous-roof audit
+refamilied it to H2 (`commercial_front` puts a freight roof on the line); moved to the corner,
+the audit keeps it. L308 records the invention; L263 (477) and L280 (three F2 roofs) are
+restated. The order book now reads the West freight row 2 of 2.
+
+**Verification.** See the PR: `check.sh` and the `--for-diff` smoke parts at both viewports.
+
 ## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
 
 T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on

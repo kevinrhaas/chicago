@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **384** anonymous roofs
-- keep: **381** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- audited: **381** anonymous roofs
+- keep: **378** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
 - refamily: **3** (2 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 486 stand, so the town is 182 roofs short before this audit and 182 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 483 stand, so the town is 185 roofs short before this audit and 185 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -30,7 +30,7 @@ The programme wants 668 roofs and 486 stand, so the town is 182 roofs short befo
 | `structures/larger_boarding_houses/west` | 6 | 2 | 2 | 4 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 7 | 5 | 1 | 7 | 1 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 116 | 50 | 126 | 50 |
-| `structures/ordinary_dwellings/west` | 75 | 56 | 53 | 19 | 58 | 17 |
+| `structures/ordinary_dwellings/west` | 75 | 53 | 50 | 22 | 55 | 20 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 52 | 26 | 58 | 26 |
 | `structures/small_outbuildings/south` | 48 | 35 | 34 | 13 | 35 | 13 |
 | `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |
@@ -41,10 +41,10 @@ The programme wants 668 roofs and 486 stand, so the town is 182 roofs short befo
 | `structures/stores_mixed_use/north` | 4 | 1 | 0 | 3 | 1 | 3 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/warehouses_freight/south` | 11 | 8 | 3 | 3 | 8 | 3 |
-| `structures/warehouses_freight/west` | 2 | 1 | 1 | 1 | 0 | 2 |
+| `structures/warehouses_freight/west` | 2 | 2 | 2 | 0 | 1 | 1 |
 | `structures/warehouses_freight/north` | 7 | 6 | 0 | 1 | 6 | 1 |
 | `structures/workshops/south` | 15 | 11 | 8 | 4 | 11 | 4 |
-| `structures/workshops/west` | 8 | 6 | 4 | 2 | 6 | 2 |
+| `structures/workshops/west` | 8 | 5 | 3 | 3 | 5 | 3 |
 | `structures/workshops/north` | 7 | 5 | 1 | 2 | 5 | 2 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
