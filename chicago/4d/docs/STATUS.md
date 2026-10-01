@@ -1,3 +1,66 @@
+## T-1799 — Wabansia's books closed, and the West's outer build with them (2026-10-01)
+
+Piece 2 of 2 of T-1785, which is piece 5 of 5 of T-1208. T-1798 raised the doctor's house in
+Wabansia; this piece answers the three clauses it left open, on the published tree, and
+**changes nothing in the town**. The reading is `data/render/west_close_out.json`.
+
+**Visible-progress rule, stated rather than dodged.** This run is invisible and no exemption
+covers it: two of the last four entries (v1252, v1253) were invisible already. It was taken
+because it is the owner-requested closer of a build whose visible half landed in v1254, and it
+was the topmost free workable ticket for this slot; the four sibling runs in flight (T-1766,
+T-1776, T-1778, T-1783) are all visible parcels.
+
+**The frame budget, with the doctor's house standing: PASS at every tier, both viewports.**
+Read with `tools/smoke_renderer.mjs` part 5, the ceiling sweep `measure_detail_ceilings.mjs`
+copies. That tool itself ran past the 600 s foreground cap on desktop and printed nothing, so it
+was stopped; the smoke part reports each tier's worst stand rather than the five-stand spread.
+
+| tier | ceiling | worst desktop | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,427,944 (Lake Street at Canal, east down the axis) | 32,056 (2.2 %) | 205 |
+| `balanced` | 1,280,000 | 1,230,704 (Lake Street at Canal, east down the axis) | 49,296 (3.85 %) | 189 |
+| `light` | 825,000 | 799,370 (the open aerial) | 25,630 (3.11 %) | 83 |
+
+| tier | ceiling | worst mobile | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,298,810 (Lake Street at Canal, east down the axis) | 161,190 (11.04 %) | 188 |
+| `balanced` | 1,280,000 | 1,123,230 (Lake Street at Canal, east down the axis) | 156,770 (12.25 %) | 177 |
+| `light` | 825,000 | 734,903 (the open aerial) | 90,097 (10.92 %) | 76 |
+
+**The binding stand moved west.** T-1688 read desktop `balanced` worst at the forks (margin
+23,456, 1.83 %). It is now Lake Street at Canal for `full` and `balanced` at both viewports, and
+desktop `full` is the tightest tier, at 2.20 %. Lake and Canal's frame is also the town's worst
+for draw calls, at 205 of 215. The next West parcel inside that frustum should price itself first
+(`measure_detail_ceilings.mjs --price`). No re-budget is proposed.
+
+**The Canal-approach screenshot, looking west**: `docs/evidence/t-1799-canal-approach-west-desktop.png`
+and `-mobile.png`. This is the `lake_at_canal` anchor turned to yaw 270, on the published mirror
+with the clock held. The pose and hashes are in the reading.
+
+**T-1209 handed on with the West's remainder**, written into the ticket with each row's live owner.
+Read from the order book:
+
+| row | target | standing | to build | owner |
+| --- | --- | --- | --- | --- |
+| `structures/barns_stables/west` | 20 | 14 | 6 | T-1212 |
+| `structures/inns_taverns/west` | 3 | 3 | 0 | T-1762 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | T-1785 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | T-1779 |
+| `structures/ordinary_dwellings/west` | 75 | 56 | 19 | T-1783 |
+| `structures/small_outbuildings/west` | 14 | 6 | 8 | T-1212 |
+| `structures/stores_mixed_use/west` | 6 | 4 | 2 | T-1766 |
+| `structures/warehouses_freight/west` | 2 | 2 | 0 | T-1773 |
+| `structures/workshops/west` | 8 | 5 | 3 | T-1766 |
+
+42 roofs are still owed on modelled ground. Another 42 are gated in
+`ground/west_division_beyond_committed_control`, because there is no committed street control
+west of Clinton and Canal. `institutional_public/west` is full and names T-1785, which this
+closes. The owner gate skips a row with nothing left, and `ticket_liveness.py --closing T-1799`
+strands nothing.
+
+**Not closed:** T-1208's stop condition (every outer West slot built and seated). T-1774 closes
+Wolf Point's own books separately.
+
 ## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
 
 **What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
