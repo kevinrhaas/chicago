@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+  { v: 1262, ts: '2026-10-01T14:45:37.134Z', date: 'Oct 1, 2026, 9:45 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
     items: [
       'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
       'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
