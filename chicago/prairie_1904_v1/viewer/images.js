@@ -9,9 +9,11 @@ window.PrairieImages = (() => {
   const array = v => Array.isArray(v) ? v : [];
   const SVG = 'http://www.w3.org/2000/svg';
   const svg = (tag, attrs = {}) => { const el = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
+  // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
+  const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
   function localURL(path) {
     if (!path || typeof path !== 'string' || /^[a-z]+:/i.test(path) || path.startsWith('/') || path.split('/').includes('..')) return null;
-    try { return new URL('../' + path, location.href).href; } catch { return null; }
+    try { return new URL(packagePath(path), location.href).href; } catch { return null; }
   }
   function remoteURL(value) { try { const u = new URL(value); return /^https?:$/.test(u.protocol) ? u.href : null; } catch { return null; } }
   function extLink(text, url) { const href = remoteURL(url); if (!href) return null; const a = node('a', text); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }

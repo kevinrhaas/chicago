@@ -337,7 +337,8 @@ def stated_use_occupancy(doc: dict | None = None) -> dict[str, dict]:
                      "%s; liberty %s). No household holds this roof and nobody is named for it: "
                      "what is stated is what the building was for. %s The roof's own existence, "
                      "position and footprint remain the invention they were."
-                     % (doc.get("ticket", "T-1782"), doc.get("liberty", "L310"), bound)),
+                     % (row.get("ticket") or doc.get("ticket", "T-1782"),
+                        doc.get("liberty", "L310"), bound)),
         }
     return out
 

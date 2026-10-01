@@ -1514,8 +1514,8 @@
         "handed_on": 1223,
         "roofs_adopted": 72,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 73,
-        "roofs_held_back": 18,
+        "roofs_offered_for_adoption": 72,
+        "roofs_held_back": 19,
         "ground_taken": 14,
         "ground_taken_unit": "parcels",
         "by_district": {
@@ -5066,10 +5066,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 520,
-        "standing_with_an_occupant": 168,
-        "standing_without_an_occupant": 352,
+        "standing_with_an_occupant": 169,
+        "standing_without_an_occupant": 351,
         "to_build_total": 164,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 352 of the 520 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 351 of the 520 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5316,7 +5316,7 @@
           "to_build": 16,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1829",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5425,7 +5425,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1829",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5514,7 +5514,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1827",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5561,7 +5561,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1829",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5986,7 +5986,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "352 of 520 standing records carry no occupants block."
+      "measured_now": "351 of 520 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

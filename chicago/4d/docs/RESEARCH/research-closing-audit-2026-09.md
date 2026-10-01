@@ -99,7 +99,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | Measure | Count |
 | --- | ---: |
 | Structure records | 521 |
-| Carrying occupants | 168 |
+| Carrying occupants | 169 |
 | Flagged `review_required` | 14 |
 
 | Graded phase attribute | Values |

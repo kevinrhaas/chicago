@@ -17786,12 +17786,12 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).
-### L310 — Three West roofs nobody holds, given a stated use
+### L310 — Four West roofs nobody holds, given a stated use
 
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
-`recon_1835_west_047.occupants`
+`recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
@@ -17802,7 +17802,14 @@ it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between 
 Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
 (sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
 streets back from the South Branch. Nobody is named for any of the three; the card says what the
-building was for, graded `reconstructed`.
+building was for, graded `reconstructed`. A fourth row was added by T-1826:
+`recon_1835_west_020`, the C2 store-residence the recipe places on the Canal and Randolph teamster
+approach (cluster `w2_canal_randolph_teamster`, south and west of the documented Western Hotel's
+yard), is stated as a store with attic rooms kept for the wagon trade, its keeper unnamed. The
+placement policy admits C2 under `commercial_front` alone, no band handed to the off-plat deal
+names that clause, and the deal had carried the roof as `roofs_offered_and_unspent`. The row
+names no trade, goods or signboard, which the signage and trade-goods layers refuse for an
+anonymous slot.
 
 **Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
 for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
@@ -17811,15 +17818,19 @@ seated household's yard carded as an anonymous count-unit forever.
 **Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
 outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
 its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
-is T-1774's.
+is T-1827's (split from T-1774 on 2026-10-01 for exactly that).
 
 **Would replace:** A keeper seated on any of the three by a deal or a source retires its row
 outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
 Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+A storekeeper seated on the Canal Street approach by a deal or a source retires the row for
+`recon_1835_west_020`.
 
-**Ticket:** T-1782 (piece 2 of T-1208).
+**Ticket:** T-1782 (piece 2 of T-1208); the fourth row T-1826.
 
 **Recorded:** 2026-10-01 (T-1782).
+
+**Revised:** 2026-10-01 (T-1826) — `recon_1835_west_020` added.
 
 ### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 

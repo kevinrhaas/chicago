@@ -2907,6 +2907,11 @@ step "publish.sh produces a mirror that matches its source" \
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
 
+# The reference browsers' asset directories leave the mirror only when the site root
+# already ships every byte of them (T-1828) — never a directory with new work in it.
+selftest "reference browsers: only what the root already ships is served from it" \
+  python3 tools/serve_from_root.py --self-test
+
 # …and the one layer in it publish.sh transforms rather than copies. The residents
 # records ship minified for the size budget, so the byte comparison above cannot see
 # them; this asserts the stronger-reading claim on the SHIPPED form — same value, same
