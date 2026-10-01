@@ -1640,6 +1640,13 @@
       "write_mode": "--pack",
       "measured": "2026-09-29",
       "finding": "Producer-owned binary package, not a research-layer re-derivation (T-1730). Measured on a clean isolated git checkout containing the committed packer and archive: --pack exited 1 because both ignored GLBs were absent, and changed 0 committed files. --materialize restored the exact 70,375,492-byte master and 32,115,656-byte derivative; --pack then actually rewrote 11 archive/manifest files (mtime checked) while changing 0 committed bytes, and --check passed. This proves package reproduction only after the binary inputs exist; it cannot rebuild those inputs from data. The canonical exact-v4 web producer owns --pack after record-web. Generic research rederive must not bank whichever ignored GLBs happen to be present or resolve an archive conflict by selecting one side's binaries. The gated --check is read-only; tools/measure_step_isolation.mjs --tool measured its actual declared invocation and recorded no in-tree writes."
+    },
+    "place_landing_camps_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
+      "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
     }
   }
 }

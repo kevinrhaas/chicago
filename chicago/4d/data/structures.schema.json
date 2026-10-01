@@ -41,6 +41,7 @@
         "pier_crib",
         "palisade",
         "masonry_house",
+        "camp",
         "authored"
       ],
       "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."
@@ -729,6 +730,7 @@
             "dwelling_farmstead",
             "dwelling_former_school_use_unattested",
             "dwelling_to_let",
+            "emigrant_camp",
             "enlisted_mens_barracks",
             "forwarding_and_commission_store",
             "forwarding_commission_warehouse",
