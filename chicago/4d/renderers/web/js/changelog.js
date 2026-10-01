@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1252, ts: '2026-10-01T10:24:13.056Z', date: 'Oct 1, 2026, 5:24 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: 1253, ts: '2026-10-01T10:46:35.181Z', date: 'Oct 1, 2026, 5:46 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
       'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
       'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
       'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
+    ] },
+  { v: 1252, ts: '2026-10-01T10:16:23.229Z', date: 'Oct 1, 2026, 5:16 AM CT', title: 'Two tavern keepers are given lots for their boarding houses', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This decides where the first boarding houses will stand, so they can be built next.',
+      'The town plans seven boarding houses, and until now none of them had anywhere to go. Innkeepers were placed last, after every house and cottage, so the free lots were all taken before they were reached.',
+      'Innkeepers are now placed with the other trades, before the houses fill in behind them. The Mark Beaubien and Sweet households each get a corner lot south of Washington Street, on blocks already planned for a boarding house.',
+      'Two tradesmen\u2019s families who had asked for lots on those blocks are now waiting for a place elsewhere. The lots are our reconstruction. No source places either keeper there.',
     ] },
   { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
