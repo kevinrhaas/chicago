@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Two small boarding houses get their stovepipes', kind: 'change',
+    items: [
+      'Two one-and-a-half-storey boarding houses, one on the North Side and one on the West Side approaches, now have three iron stovepipes rising through each roof beside the two brick chimneys.',
+      'The number comes from the beds each house already holds, by the same rule as the town\u2019s other boarding houses: one stove for every three people sleeping there on an ordinary night. Nobody moved, and the fronts are unchanged.',
+      'These houses and their stoves are our reconstruction. No source counts the stoves of a Chicago boarding house in 1835; the register says how the number was reached.',
+    ] },
   { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [
       'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
