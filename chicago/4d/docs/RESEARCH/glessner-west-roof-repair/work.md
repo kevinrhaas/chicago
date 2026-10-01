@@ -88,3 +88,22 @@ reruns must demonstrate the existing four-pixel spread, intact ground coverage,
 unclamped detail tiers and rendering budgets. The wider prairie work remains
 T-1772, where the independent baseline finding is recorded. Final receipts belong
 in PR #230; these integration fixes are not a claim that T-1772 is complete.
+
+Part 10 then exposed a second sparse-compound assumption in the drawn-placement
+census. The east camp's record explicitly anchors the north-east corner of its
+42 x 7 m ground; its nearest drawn tent or baggage is 3.87 m inside that corner.
+The building-corner assertion therefore rejects correctly placed camp geometry.
+Keep that one-metre assertion for buildings and add an independent comparison of
+every GPU-transformed vertex to the sidecar's origin and bearing, with a 0.001 m
+float32 tolerance, for all structures including camps. Camps owe that exact
+transform instead of occupying their plot corner. The mirror check remains.
+Source fixtures demonstrate that a 2 cm displacement, wrong rotation, mirrored
+northing and missing placement all fail. This is an accounting correction to the
+shared gate, not a relocation or an invented addition to the camps. Both viewports
+must rerun part 10 on this instrument before merge.
+
+Run 36899366739 measured the 3.5 m grass trial just below the four-pixel bar
+(the old one-decimal diagnostic misleadingly rounded the failing value to 4.0).
+Use a 4 m full-detail fringe and print two decimals; the assertion stays at four
+pixels. Repeat the boundary, coverage, cap and rendering-budget checks. The
+mobile 3.5 m run already confirms terrain contact and its unchanged 19.8 px edge.

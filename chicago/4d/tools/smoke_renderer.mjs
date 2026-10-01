@@ -10343,6 +10343,11 @@ for (const [label, viewport, touch] of [
      * building 200 m north of the datum is drawn 400 m from its anchor, which
      * no footprint in this town spans.
      *
+     * Camps name their plot corner, which need not be occupied. T-1805 adds
+     * a stricter independent origin-and-bearing transform check for every
+     * vertex of every structure; camps owe that check instead of a building's
+     * occupied-corner invariant. Other buildings owe both.
+     *
      * TWO THINGS THIS GATE MEASURED ABOUT ITSELF BEFORE IT MEASURED THE TOWN,
      * and both are in `drawn_placement_census.mjs` where the code is:
      *
@@ -10362,7 +10367,8 @@ for (const [label, viewport, touch] of [
     const drawnTown = await page.evaluate(`(${CENSUS.toString()})()`);
     check(`${label}: every building is drawn around the anchor its record gives it`,
       drawnTown.buildings.compared > 200 && drawnTown.buildings.unrecorded === 0
-      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0,
+      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0
+      && drawnTown.buildings.misplaced === 0,
       `${drawnTown.buildings.outside} of ${drawnTown.buildings.compared} structures whose own `
       + `anchor falls outside their drawn footprint — unioned from `
       + `${drawnTown.buildings.instances} instances in ${drawnTown.buildings.batches} batches, `
@@ -10372,7 +10378,10 @@ for (const [label, viewport, touch] of [
         + `${drawnTown.buildings.worstSpan} m)` : '')
       + `; ${drawnTown.buildings.mirrorCloser} nearer to the MIRROR of their anchor`
       + (drawnTown.buildings.worstMirrorId ? ` (${drawnTown.buildings.worstMirrorId})` : '')
-      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`);
+      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`
+      + `; ${drawnTown.buildings.misplaced} wrong vertex transforms (worst `
+      + `${drawnTown.buildings.worstTransform.toFixed(6)} m, 0.001 m bar), `
+      + `${drawnTown.buildings.compounds} sparse camp plots`, true);
     check(`${label}: every panel of road is drawn on a street the data records`,
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
@@ -11375,7 +11384,7 @@ for (const [label, viewport, touch] of [
       check(`${label}: the sward's outer boundary is not a constant screen row`,
         s.bins >= 12 && s.spreadPx >= 4,
         `${s.bins}/16 bearing bins from E ${seam.station.e} N ${seam.station.n}, boundary rows `
-        + `spread ${s.spreadPx.toFixed(1)} px (${seam.heightPx}px buffer, `
+        + `spread ${s.spreadPx.toFixed(2)} px (${seam.heightPx}px buffer, `
         + `${seam.fovDeg.toFixed(1)}deg field, ${seam.eyeHeightM.toFixed(2)}m eye), `
         + `reach ${s.minReach.toFixed(2)}`
         + `-${s.maxReach.toFixed(2)} m at ${(s.seen * 100).toFixed(2)}% coverage `
