@@ -684,6 +684,98 @@
       "note": "The fort 'stood upon a flattened mound, formed by the curve of the river at its base on its three sides', and was 'as high as any other point'. Dossier zone 6 puts it at +10 to +12 ft, apex +12, about 300 x 300 ft and flat-topped. Built here as a 90 m flat top with a 60 m skirt, rising 3.8 ft over the reservation's 8.2 ft — an apex at +12.0, which is the apex the zone itself states. The first pass took the mid-range +11.0; T-0004 (the owner's K8: the banks read too low against the fort views) re-read the evidence and moved to the zone's own apex, because 'as high as any other point' is a superlative and +11.0 left the mound under two feet over the sand ridge's +9.4-9.5 while zone 5 puts the dune hummocks at +10 to +14. The tier-5 fort views read higher still, 10-20 ft to the eye; they are RECORDED, NOT AVERAGED IN — docs/RESEARCH/fort_reach_bank_heights.md holds that disagreement, and Swearingen's and Hubbard's eight feet stay where they were measured, on the BANK (zone 12, the divisions crest, unchanged, as are the forks banks). The CENTRE is the Wright 1834 FORT DEARBORN banner, read at local E +1152.4 / N +220.9 and cross-checked against the modern Michigan Avenue bridge at E +1127 / N +195 — 35 m apart from methods sharing no input. Wright LABELS the reservation and draws no plan, so this locates a landform and says nothing whatever about the fort's footprint, which must come from elsewhere. The mound's skirt reaches the river bank on its north side, which is what the source describes; the bank ramp still carries it to Z=0 at the waterline, so the north face carries the full +12 ft over about a 25 m run — 1:6.8, inside the 1:6 to 1:10 band the bank block holds every shore to. CORRECTED 2026-08-21 (T-0125): the sentence above about the north face carrying the full +12 ft over about a 25 m run at 1:6.8 described ground this spec did not build. The traced waterline runs 4.5 m north of the stockade's north-west corner, so there is no 25 m run there to carry anything; the reach's 20 m bank face instead ramped the ground DOWN inside the fort's own footprint, to 1.26 m against the parade's 3.65 m, and the rigid stockade mesh - which anchors at the lowest ground beneath it - sank until four feet of a twelve-foot wall showed. On the owner's ruling the ground gave: the south division's face_profile is narrowed to 8 m across E 1103-1180 (see face_profile_note), which holds the mound's level out to the wall line and puts the fall outside the stockade at about 1:1.5. The mound's own numbers - centre, flat and outer radii, and the +3.8 ft rise to the zone's stated +12 apex - are UNCHANGED; what moved is the width of the face at the fort, not the height of the mound."
     }
   ],
+  "dunes": [
+    {
+      "id": "north_lake_dunes",
+      "label": "The sand hills north of the harbour, between Sand Street and the lake",
+      "n_range": [
+        440.0,
+        920.0
+      ],
+      "end_fade_m": 60.0,
+      "west_limit_e_m": 1293.0,
+      "west_fade_m": 14.0,
+      "ridges": [
+        [
+          34.0,
+          3.6,
+          13.0
+        ],
+        [
+          58.0,
+          1.8,
+          11.0
+        ]
+      ],
+      "hollow": [
+        46.0,
+        0.8,
+        9.0
+      ],
+      "wander_m": 7.0,
+      "wander_wavelength_m": 160.0,
+      "hummock_wavelength_m": 42.0,
+      "seed": 18350821,
+      "keep_clear": [
+        {
+          "e": 1315.0,
+          "n": 485.0,
+          "flat_m": 22.0,
+          "outer_m": 42.0,
+          "for": "kelsey_boarding_house, its yard goods and its signboard: a reconstructed hummock may not stand under a building that is placed"
+        }
+      ],
+      "dossier_zone": 5,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "mesh": {
+        "dossier_zone": "record_only"
+      },
+      "note": "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches about +13.5 ft, inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+    },
+    {
+      "id": "south_lake_dunes",
+      "label": "The sand hills south of the fort, along the lake beyond the old channel",
+      "n_range": [
+        -2120.0,
+        -700.0
+      ],
+      "end_fade_m": 90.0,
+      "ridges": [
+        [
+          45.0,
+          3.6,
+          16.0
+        ],
+        [
+          98.0,
+          2.2,
+          22.0
+        ]
+      ],
+      "hollow": [
+        72.0,
+        1.2,
+        14.0
+      ],
+      "wander_m": 9.0,
+      "wander_wavelength_m": 190.0,
+      "hummock_wavelength_m": 46.0,
+      "seed": 18350822,
+      "keep_clear": [],
+      "dossier_zone": 5,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "mesh": {
+        "dossier_zone": "record_only"
+      },
+      "note": "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches about +13.5 ft, inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+    }
+  ],
   "marsh_strips": [
     {
       "id": "south_division_marsh",
@@ -1385,7 +1477,7 @@
   "not_modelled_in_this_box": [
     {
       "dossier_zone": 5,
-      "why": "the 'white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. Inventing hummocks in the quadrant where Fort Dearborn and the Beaubien houses stand would put relief under buildings on no evidence at all."
+      "why": "MODELLED SINCE T-1824, on the owner's request (T-1772/T-1820), and kept here so the old reason stays readable: 'the white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. That is still true, which is why `dunes` is graded reconstructed and every vertex it touches is conjectural. What the old reason guarded is kept: the quadrant where Fort Dearborn and the Beaubien houses stand carries no hummock — the reaches stop at N +440 and N -700 — and the one building inside a reach (kelsey_boarding_house) is held clear of them."
     },
     {
       "dossier_zone": 15,
