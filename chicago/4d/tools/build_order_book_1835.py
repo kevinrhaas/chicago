@@ -394,7 +394,9 @@ STRUCTURE_TICKETS = {
     # T-1209 WAS SPLIT on 2026-10-01 (T-1775..T-1780) and the boarding houses' three cells
     # moved to T-1779, the child that RAISES the houses still owed; T-1777 rules where they
     # may stand first and T-1778 their form, and neither raises a roof the book counts.
-    ("south", "larger_boarding_houses"): "T-1779",
+    # T-1779 WAS SPLIT in turn (T-1809/T-1810): T-1809 raised the second Washington-tier
+    # seat and both houses' yards, and the cells move to T-1810, which raises the rest.
+    ("south", "larger_boarding_houses"): "T-1810",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -472,7 +474,7 @@ STRUCTURE_TICKETS = {
     #     Wolf Point pieces land.
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
     ("west", "stores_mixed_use"): "T-1766",
-    ("west", "larger_boarding_houses"): "T-1779",
+    ("west", "larger_boarding_houses"): "T-1810",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
@@ -546,7 +548,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1779",
+    ("north", "larger_boarding_houses"): "T-1810",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",

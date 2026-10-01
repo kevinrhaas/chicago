@@ -1527,7 +1527,7 @@ def fill() -> tuple:
         if house["standing"] == RECONSTRUCTED and not house["keeper_household"]:
             weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                        if div == house["division"] and axis == "trade" and band in ADULT_BANDS and n > 0]
-            # T-1779. A KEEPER PICKED INTO A CELL THE BOOK NO LONGER LEAVES OPEN IS SHED,
+            # T-1809 (of T-1779). A KEEPER PICKED INTO A CELL THE BOOK NO LONGER LEAVES OPEN IS SHED,
             # and only then. The frozen room is what keeps a re-cut from moving a keeper
             # already standing, and it can carry a cell the book has since re-cut away:
             # raising the second boarding house on blk_washington_clark picked its keeper

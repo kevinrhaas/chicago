@@ -2469,8 +2469,8 @@
         },
         {
           "lot": 6,
-          "ticket": "T-1779",
-          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1779 against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
+          "ticket": "T-1809",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1809 (of T-1779) against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
         }
       ]
     },
@@ -2546,8 +2546,8 @@
       "open_lots_taken_since": [
         {
           "lot": 6,
-          "ticket": "T-1779",
-          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1779 against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
+          "ticket": "T-1809",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1809 (of T-1779) against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
         }
       ]
     },
@@ -2580,7 +2580,7 @@
         "A3": 2
       },
       "dealt_against_a_request": {
-        "ticket": "T-1779",
+        "ticket": "T-1809",
         "parent": "T-1209",
         "from": "data/reconstruction/1835_platted_seats.json",
         "requests": [

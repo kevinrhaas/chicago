@@ -1891,7 +1891,7 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         raise SystemExit(f"{block['block_id']}: the yard building on lot {index} "
                          f"stands behind {holder}, which this parcel did not build. A "
                          f"yard building is a claim about the household on its own lot")
-    # T-1779. AN EARLIER DEAL'S HOUSE IS THIS PARCEL'S HOUSE TOO. A yard building
+    # T-1809 (of T-1779). AN EARLIER DEAL'S HOUSE IS THIS PARCEL'S HOUSE TOO. A yard building
     # serves the lot it stands in the yard of, and until a block was dealt a house in
     # one entry and its outbuildings in the next, "the lot carries a principal roof"
     # and "this entry built a principal roof on it" were the same question. T-1778
