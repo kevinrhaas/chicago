@@ -189,9 +189,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 4,
-    "finish_key": "whitewash",
-    "roof_condition": "fresh",
-    "age_state": "new",
+    "finish_key": "weathered_timber",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "keeper",
+      "household": "hh_davison_john_s",
+      "words": "hewn logs under a patched roof — The Davison household's, in Chicago since 1833 (rule F-L)"
+    },
     "frontage": {
       "block": "blk_south_water_clark",
       "face": "north",

@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the A2 family's key geometry parameters do not speak to a board gap, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "whitewash",
+          "value": "unpainted",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -138,9 +138,16 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 47,
-    "finish_key": "whitewash",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn boards under a new roof — a barn or carriage shed, new-built (rule F-Y: a yard building's by its type)"
+    },
     "yard_group": "block_interior_service_yards"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",

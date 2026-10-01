@@ -190,7 +190,14 @@
     "sequence": 1,
     "finish_key": "whitewash",
     "roof_condition": "darkened",
-    "age_state": "recent"
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a weather-darkened roof — a store-residence, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

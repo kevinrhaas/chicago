@@ -484,11 +484,11 @@ STRUCTURE_TICKETS = {
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind.
+    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827) and its four rows move to T-1826,
+    # which kept the book-closing ask outright: "Wolf Point's books closed … T-1208 handed
+    # on with the West's exact remainder". T-1827 is 046's lodging verdict alone. The gate
+    # went red on ordinary_dwellings (16 left) within the hour, found by T-1828's run.
     ("west", "warehouses_freight"): "T-1826",
-    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827) and its four rows above move to T-1826,
-    # the child that keeps its book-closing acceptance: "the West recipe restated as
-    # instantiated ... T-1208 handed on with the West's exact remainder". T-1827 is one
-    # roof's H2 verdict and raises nothing these rows still order.
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",

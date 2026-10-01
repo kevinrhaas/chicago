@@ -1,11 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1273, ts: '2026-10-01T21:18:25.406Z', date: 'Oct 1, 2026, 4:18 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
+    items: [
+      'The Prairie Avenue and pre-fire atlases inside the walkthrough now open their map sheets, drawings and photographs from the atlases\u2019 own pages on this site. Before, they carried a second copy of every file.',
+      'That saves about 91 MB. The new Prairie Avenue image collection had pushed the site over its size limit, and that had stopped every other change from going out. It fits again.',
+      'Nothing you see changes. The new Prairie Avenue images are not in the main atlas yet, so the walkthrough\u2019s copy still carries those itself.',
+    ] },
+  { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+    items: [
+      'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
+      'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
+      'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
+      'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
+      'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
     ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [

@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "unpainted",
+          "value": "whitewash",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -147,9 +147,16 @@
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 3,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "finish_key": "whitewash",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a one-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

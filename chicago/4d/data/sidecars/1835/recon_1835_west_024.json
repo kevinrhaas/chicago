@@ -167,7 +167,14 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 20,
     "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "recent"
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn boards under a new roof — a barn or carriage shed, new-built (rule F-Y: a yard building's by its type)"
+    }
   }
 }
