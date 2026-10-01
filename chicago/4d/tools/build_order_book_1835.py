@@ -4669,8 +4669,12 @@ def cmd_self_test() -> int:
     # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
     # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
     # four of those passes before it settled at 177.
+    # 249 -> 256 on 2026-10-01 (T-1783): opening the three lot-ruled outer West blocks gave
+    # the platted pass seven more seats, 177 -> 184 — three adoptions of the three cottages
+    # built on blk_west_randolph_des_plaines and four slots asked of blk_west_lake_canal's
+    # dealt ones — and the off-plat pass stands at 72, so the rows handed on fall to 1,294.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 249
+        data["inventory"], data["programme"], occ))["seated"] == 256
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
