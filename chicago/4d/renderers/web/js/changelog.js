@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1244, ts: '2026-10-01T04:34:47.567Z', date: 'Sep 30, 2026, 11:34 PM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+    items: [
+      'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
+      'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household still ends up on this block, in the corner house one of them left; the Bennett household is offered a lot across Lake Street instead.',
+      'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
+      'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
+    ] },
   { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
     'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
     'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',
