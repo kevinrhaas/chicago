@@ -92,6 +92,9 @@ from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
+# T-1806. The H2 house here is a boarding house in the lodging model, so its upper
+# windows and stovepipes are sized from its beds by the H3's rule (L318, L324).
+from boarding_house_beds import CAPACITY_WHY, size_from_beds  # noqa: E402
 # T-0112. The clapboard stock is dealt at the end of the parcel, because it is the one
 # form value that depends on where a building's neighbours stand — and the recipe is
 # the only thing that knows the parcel whole. See tools/siding_stock.py.
@@ -225,7 +228,8 @@ def band_note(family: str) -> str:
             "specification; it is not evidence for this anonymous West Division instance.")
 
 
-def form_for(family: str, seq: int, paint: str, width: float, depth: float) -> dict:
+def form_for(family: str, seq: int, paint: str, width: float, depth: float,
+             sid: str | None = None) -> dict:
     """The family's form values, with the band citation restricted to what it can cite.
 
     `_form_body` authors every value exactly as it always has, with the citation
@@ -237,7 +241,7 @@ def form_for(family: str, seq: int, paint: str, width: float, depth: float) -> d
     Python tuple is a refusal no visitor can read.
     """
     return note_refusal(
-        split_notes(_form_body(family, seq, paint, width, depth), family,
+        split_notes(_form_body(family, seq, paint, width, depth, sid), family,
                     band_note(family)),
         family, width, depth)
 
@@ -324,7 +328,8 @@ def _pitch_default(family: str) -> float:
     return 18.0 if roof_kind(family)[0] == "shed" else 32.0
 
 
-def _form_body(family: str, seq: int, paint: str, width: float, depth: float) -> dict:
+def _form_body(family: str, seq: int, paint: str, width: float, depth: float,
+               sid: str | None = None) -> dict:
     why = band_note(family)
     frame = "balloon_frame" if seq % 2 else "braced_frame"
     spec = spec_for(family)
@@ -402,12 +407,17 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float) ->
         }
 
     if family in ("H2",):
-        return {
+        body = {
             "stories": inferred(2, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why), "roof_pitch_deg": inferred(pitch(), why),
             "construction": inferred("braced_frame", why), "paint": inferred(paint, why),
             "gallery": inferred(False, why), "chimneys": inferred(2, why),
         }
+        if sid is not None:
+            _, windows, pipes = size_from_beds(sid, width)
+            body["upper_windows"] = inferred(windows, CAPACITY_WHY)
+            body["stovepipes"] = inferred(pipes, CAPACITY_WHY)
+        return body
 
     door = door_kind(family)
     bays = door_bays_for(family)
@@ -708,6 +718,8 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
         "roof_condition": ("weathered", "fresh", "patched", "darkened")[seq % 4],
         "age_state": ("recent", "new", "older_frontier", "established")[seq % 4],
     }
+    if family == "H2":
+        reconstruction["capacity"] = size_from_beds(sid, width)[0]
     mapping_note = (" H2 boarding-house massing currently uses a generic rectangular "
                     "frame block because no boarding-house generator is implemented."
                     if family == "H2" else "")
@@ -738,7 +750,7 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
                          if held else
                          f"A {width_ft:g} × {depth_ft:g} ft rectangle assigned by the reconstruction recipe within the {family} family band; no individual dimensions are documented.")
             },
-            "form": form_for(family, seq, paint, width, depth),
+            "form": form_for(family, seq, paint, width, depth, sid),
             "change_note": "Reconstructed anonymous July 1835 West Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": inferred(function, f"Assigned from the {family} family to satisfy the aggregate West Division mix; no occupant or individual use is known."),
