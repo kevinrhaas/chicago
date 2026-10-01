@@ -160,6 +160,12 @@
       ],
       "note": "THE 1834 OCCUPANT IS ATTESTED AND THE 1835 ONE IS NOT. The name is cut at the right edge of the column and stays bracketed. Dr Edmund Stoughton Kimberly stands in this dataset at data/structures/kimberly_residence.json, in Kinzie's Addition, on Bonnell's evidence; a doctor leaving a let house in Wabansia in 1834 and a Dr Kimberly living in Kinzie's Addition in 1835 would agree, but no source says they are the same man and no merge is declared (the same restraint data/traces/wabansia_seating.json takes). No household is seated under this roof."
     },
+    "stands_on_lot": {
+      "value": "an unnumbered lot, wabansia",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on the unnumbered lot of blk_wabansia_c_t7 in the wabansia grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (none — unnumbered), read from data/traces/vectors/thompson_lots.json."
+    },
     "land_owner": {
       "value": "The ground was entered by Edmond Roberts, 5 October 1830",
       "confidence": "reconstructed",

@@ -16,8 +16,8 @@ The order is read out of `tools/derived_manifest.json`, which holds the whole de
 |---|---|---|---|---|
 | 1 | `data/residents/index.json` and its `merged` redirect table | `tools/rebuild_resident_index.py` | 79 | 1 |
 | 2 | the 1835 sidecars, `data/sidecars/1835/` | `tools/compile_scene.py` | 128 | 1 |
-| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 151 | 1 |
-| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 153 | 3 |
+| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 152 | 1 |
+| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 154 | 3 |
 | 5 | the published residents, `site/4d/data/residents/` | `tools/publish.sh` | **none** — see §2 | 0 |
 
 ## 2. What the manifest does not own
@@ -33,11 +33,11 @@ That one is a property of the mirror rather than an oversight — it is the one 
 | member | tracked files written | claimed by the manifest | unowned |
 |---|---:|---:|---:|
 | `data/residents/index.json` and its `merged` redirect table | 1 | 1 | 0 |
-| the 1835 sidecars, `data/sidecars/1835/` | 505 | 1 | 504 |
+| the 1835 sidecars, `data/sidecars/1835/` | 506 | 1 | 505 |
 | the town census, `data/town_census.json` | 1 | 1 | 0 |
 | the final resident audit, `chicago/reference/resident-research/final/audit/` | 3 | 3 | 0 |
 
-504 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
+505 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
 
 ## 3. The deltas
 
@@ -53,9 +53,9 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 992 | +117 |
 | persons graded `reconstructed` | 3 | 979 | +976 |
-| 1835 sidecar files | 391 | 505 | +114 |
+| 1835 sidecar files | 391 | 506 | +115 |
 | people in the 1835 people sidecar | 1288 | 3318 | +2030 |
-| buildings standing in the town census | 371 | 484 | +113 |
+| buildings standing in the town census | 371 | 485 | +114 |
 | people housed in the town census | 34 | 183 | +149 |
 | households housed in the town census | 20 | 33 | +13 |
 | rows in the final resident audit | 1288 | 2383 | +1095 |

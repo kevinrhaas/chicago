@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: null, ts: '', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
       'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
       'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
       'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
+    ] },
+  { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
+    items: [
+      'Cross the Lake Street bridge to the west bank and the first lot on your left, at the corner of Lake and West Water, now has a building on it: a narrow two-storey warehouse of unpainted vertical boards, 23 by 44 feet, facing the river across West Water Street.',
+      'It has two loading bays, each a wagon door with a cargo door above it, and a hoist beam over them. It is the West Division\u2019s second freight building; the only other one is a small shed far out on Des Plaines Street.',
+      'Nobody is recorded owning a warehouse here in July 1835, so the building, its size and its place are ours. The lot is the 1830 plat\u2019s own lot 1, and the warehouse\u2019s card says what was invented and what would replace it.',
     ] },
   { v: 1249, ts: '2026-10-01T08:03:51.291Z', date: 'Oct 1, 2026, 3:03 AM CT', title: 'Two farm families move into the cabins beside the barns', kind: 'change',
     items: [
