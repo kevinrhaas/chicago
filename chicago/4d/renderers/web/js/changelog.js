@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1243, ts: '2026-10-01T03:20:28.164Z', date: 'Sep 30, 2026, 10:20 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1244, ts: '2026-10-01T04:09:04.060Z', date: 'Sep 30, 2026, 11:09 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
     ] },
+  { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
+    'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
+    'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',
+    'Keyboard navigation, reduced-motion preferences and direct links remain supported. Each year keeps its own address.'
+  ] },
   { v: 1242, ts: '2026-10-01T02:31:45.601Z', date: 'Sep 30, 2026, 9:31 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
     items: [
       'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',

@@ -2,6 +2,70 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 466,
+      "takenAt": "2026-10-01T03:44:20.276Z",
+      "ref": "steward/t1768-temporal-arrival-menu",
+      "commit": "b067036ba59b",
+      "devCommit": "b4b4bf28eff3",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": "sha256:944c498b7e584859",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          4.6,
+          9.9,
+          10.7
+        ]
+      },
+      "source": "/tmp/t1768-smoke-mobile.log",
+      "note": "T-1768 part 1 passed against the published menu branch. Skin tone synchronization was finalized during the smoke sequence; this result is not an exact final-tree certificate. Separate menu browser checks cover final skins and navigation."
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T03:44:04.117Z",
+      "ref": "steward/t1768-temporal-arrival-menu",
+      "commit": "b067036ba59b",
+      "devCommit": "b4b4bf28eff3",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": "sha256:944c498b7e584859",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          5.7,
+          10.3,
+          10.9
+        ]
+      },
+      "source": "/tmp/t1768-smoke-mobile.log /tmp/t1768-smoke-desktop-alone.log",
+      "note": "T-1768 part 1 passed against the published menu branch. Skin tone synchronization was finalized during the smoke sequence; this result is not an exact final-tree certificate. Separate menu browser checks cover final skins and navigation."
+    },
+    {
       "viewport": "desktop",
       "stage": "all",
       "parts": [
@@ -1886,68 +1950,6 @@
         ]
       },
       "source": "/tmp/s2-m34.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "11",
-      "parts": [
-        11
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 23,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 314,
-      "takenAt": "2026-09-28T03:37:36.576Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8e48e488c571",
-      "treeHash": "sha256:1e960b8a87226e05",
-      "treeDirty": true,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          6.5,
-          7.4,
-          9
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-11-quiet.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10",
-      "parts": [
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 418,
-      "takenAt": "2026-09-28T03:15:12.550Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:1e960b8a87226e05",
-      "treeDirty": true,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          12.2,
-          11.4,
-          11.2
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-10.log"
     }
   ]
 }
