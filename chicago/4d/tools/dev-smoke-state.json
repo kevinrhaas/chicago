@@ -1,35 +1,180 @@
 {
-  "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
+  "note": "T-0216 \u2014 dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log \u2014 local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree \u2014 but read the stage number as dated rather than current.",
   "readings": [
     {
-      "viewport": "mobile",
-      "stage": "7-9",
+      "viewport": "desktop",
+      "stage": "5,10-11",
       "parts": [
-        7,
-        8,
-        9
+        5,
+        10,
+        11
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 55,
+      "passed": 62,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 296,
-      "takenAt": "2026-10-01T08:36:07Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": 1228,
+      "takenAt": "2026-10-01T18:18:27.1980615Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "b034b066cfe9fd25e0a389a7c8ba0f8ed0621905",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837319030/job/110287773574 (run https://github.com/kevinrhaas/chicago/actions/runs/36837319030; downloaded job log)"
+      "source": "gh-run:36905832670 https://github.com/kevinrhaas/chicago/actions/runs/36905832670"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 328,
+      "takenAt": "2026-10-01T18:05:06.8865204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "7f3536de664a70920be57105accfe18a03e6b724",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
+      },
+      "source": "gh-run:36904172019 https://github.com/kevinrhaas/chicago/actions/runs/36904172019"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1,5,11,13",
+      "parts": [
+        1,
+        5,
+        11,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 223,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1079,
+      "takenAt": "2026-10-01T17:26:50.0855158Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "e0c9d3e1cbf3ed3fb59b2494b519f11ed079e459",
+      "devCommit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36899419433 https://github.com/kevinrhaas/chicago/actions/runs/36899419433"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1,5",
+      "parts": [
+        1,
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 96,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 844,
+      "takenAt": "2026-10-01T17:25:23.8177391Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "e0c9d3e1cbf3ed3fb59b2494b519f11ed079e459",
+      "devCommit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36899248098 https://github.com/kevinrhaas/chicago/actions/runs/36899248098"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11,13",
+      "parts": [
+        11,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 135,
+      "failed": 2,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px (800px buffer, 55.0deg field, 1.68m eye), reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:02:08.1250819Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896083944 https://github.com/kevinrhaas/chicago/actions/runs/36896083944"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "11,13",
+      "parts": [
+        11,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 134,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:02:08.1250819Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896083944 https://github.com/kevinrhaas/chicago/actions/runs/36896083944"
     },
     {
       "viewport": "mobile",
@@ -40,25 +185,24 @@
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 160,
+      "passed": 158,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 183,
-      "takenAt": "2026-10-01T08:35:07Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:00:50.0462918Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837216011/job/110287434150 (run https://github.com/kevinrhaas/chicago/actions/runs/36837216011; downloaded job log)"
+      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
     },
     {
       "viewport": "desktop",
@@ -72,52 +216,105 @@
       "passed": 160,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 657,
-      "takenAt": "2026-10-01T08:34:33Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:00:50.0462918Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837158319/job/110287238787 (run https://github.com/kevinrhaas/chicago/actions/runs/36837158319; downloaded job log)"
+      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
     },
     {
-      "viewport": "desktop",
-      "stage": "7-9",
+      "viewport": "mobile",
+      "stage": "5",
       "parts": [
-        7,
-        8,
-        9
+        5
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 55,
+      "passed": 24,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 411,
-      "takenAt": "2026-10-01T08:33:44Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:59:17.1350684Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837070736/job/110286950311 (run https://github.com/kevinrhaas/chicago/actions/runs/36837070736; downloaded job log)"
+      "source": "gh-run:36896021816 https://github.com/kevinrhaas/chicago/actions/runs/36896021816"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 26,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:59:17.1350684Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896021816 https://github.com/kevinrhaas/chicago/actions/runs/36896021816"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 21,
+      "failed": 2,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": 323,
+      "takenAt": "2026-10-01T16:56:18.7420918Z",
+      "ref": "dev",
+      "commit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36895681173 https://github.com/kevinrhaas/chicago/actions/runs/36895681173"
     },
     {
       "viewport": "mobile",
@@ -133,80 +330,79 @@
       "passed": 245,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 1197,
-      "takenAt": "2026-10-01T08:31:58Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": 848,
+      "takenAt": "2026-10-01T16:18:51.5129745Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836885781/job/110286335282 (run https://github.com/kevinrhaas/chicago/actions/runs/36836885781; downloaded job log)"
+      "source": "gh-run:36889183566 https://github.com/kevinrhaas/chicago/actions/runs/36889183566"
     },
     {
-      "viewport": "desktop",
-      "stage": "5-6",
+      "viewport": "mobile",
+      "stage": "7-9",
       "parts": [
-        5,
-        6
+        7,
+        8,
+        9
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 32,
+      "passed": 53,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 677,
-      "takenAt": "2026-10-01T08:31:26Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:48.6652200Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836830583/job/110286149527 (run https://github.com/kevinrhaas/chicago/actions/runs/36836830583; downloaded job log)"
+      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
     },
     {
       "viewport": "desktop",
-      "stage": "12-13",
+      "stage": "7-9",
       "parts": [
-        12,
-        13
+        7,
+        8,
+        9
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 209,
+      "passed": 55,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 1026,
-      "takenAt": "2026-10-01T08:30:08Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:48.6652200Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836683208/job/110285697097 (run https://github.com/kevinrhaas/chicago/actions/runs/36836683208; downloaded job log)"
+      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
     },
     {
       "viewport": "mobile",
@@ -219,114 +415,24 @@
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 145,
+      "passed": 143,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 741,
-      "takenAt": "2026-10-01T08:29:25Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:14.9620204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836609879/job/110285446167 (run https://github.com/kevinrhaas/chicago/actions/runs/36836609879; downloaded job log)"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 120,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 203,
-      "takenAt": "2026-10-01T08:27:41Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836433037/job/110284857877 (run https://github.com/kevinrhaas/chicago/actions/runs/36836433037; downloaded job log)"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10-11",
-      "parts": [
-        10,
-        11
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 46,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 766,
-      "takenAt": "2026-10-01T08:26:15Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836282995/job/110284365646 (run https://github.com/kevinrhaas/chicago/actions/runs/36836282995; downloaded job log)"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 145,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 731,
-      "takenAt": "2026-10-01T07:06:05Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828389290/job/110259143007 (run https://github.com/kevinrhaas/chicago/actions/runs/36828389290; downloaded job log)"
+      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
     },
     {
       "viewport": "desktop",
@@ -342,84 +448,21 @@
       "passed": 142,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 1488,
-      "takenAt": "2026-10-01T07:05:15Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:14.9620204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828312090/job/110258902293 (run https://github.com/kevinrhaas/chicago/actions/runs/36828312090; downloaded job log)"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 245,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 569,
-      "takenAt": "2026-10-01T07:04:17Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828219115/job/110258610728 (run https://github.com/kevinrhaas/chicago/actions/runs/36828219115; downloaded job log)"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 245,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1696,
-      "takenAt": "2026-10-01T07:03:21Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828132674/job/110258340571 (run https://github.com/kevinrhaas/chicago/actions/runs/36828132674; downloaded job log)"
+      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
     },
     {
       "viewport": "mobile",
@@ -430,25 +473,24 @@
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 160,
+      "passed": 158,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 287,
-      "takenAt": "2026-10-01T06:55:42Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:02:49.3371224Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827407322/job/110256086665 (run https://github.com/kevinrhaas/chicago/actions/runs/36827407322; downloaded job log)"
+      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
     },
     {
       "viewport": "desktop",
@@ -457,87 +499,60 @@
         1,
         2
       ],
-      "verdict": "pass",
+      "verdict": "fail",
       "target": "published",
-      "passed": 160,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 604,
-      "takenAt": "2026-10-01T06:54:39Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": null,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "memGB": null,
-        "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
-      },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827314390/job/110255796116 (run https://github.com/kevinrhaas/chicago/actions/runs/36827314390; downloaded job log)"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-9",
-      "parts": [
-        7,
-        8,
-        9
+      "passed": 159,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the yard layer chunks for culling on a single material \u2014 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
       ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 55,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 301,
-      "takenAt": "2026-10-01T06:53:21Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:02:49.3371224Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827199844/job/110255432653 (run https://github.com/kevinrhaas/chicago/actions/runs/36827199844; downloaded job log)"
+      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
     },
     {
       "viewport": "desktop",
-      "stage": "7-9",
+      "stage": "10-13",
       "parts": [
-        7,
-        8,
-        9
+        10,
+        11,
+        12,
+        13
       ],
-      "verdict": "pass",
+      "verdict": "fail",
       "target": "published",
-      "passed": 55,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 827,
-      "takenAt": "2026-10-01T06:52:29Z",
-      "ref": "steward/t1766-canal-grocery-workshops",
-      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "passed": 244,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)"
+      ],
+      "wallSeconds": 2276,
+      "takenAt": "2026-10-01T16:00:51.9605964Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
       "devCommit": null,
       "treeHash": null,
-      "treeDirty": null,
+      "treeDirty": false,
       "changelogHash": null,
       "host": {
         "kind": "ci",
         "cpus": null,
-        "memGB": null,
         "loadavg": null,
-        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
-      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827122760/job/110255188296 (run https://github.com/kevinrhaas/chicago/actions/runs/36827122760; downloaded job log)"
+      "source": "gh-run:36888731661 https://github.com/kevinrhaas/chicago/actions/runs/36888731661"
     },
     {
       "viewport": "mobile",
@@ -699,8 +714,8 @@
       "passed": 423,
       "failed": 2,
       "failures": [
-        "mobile 390x780: no unexpected loader problems — recon_1835_blk_randolph_market_d3_04: its asset gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d5_11: its asset gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d4_03: its asset gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file",
-        "mobile 390x780: zero page errors — HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb"
+        "mobile 390x780: no unexpected loader problems \u2014 recon_1835_blk_randolph_market_d3_04: its asset gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file | recon_1835_blk_randolph_market_d5_11: its asset gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file | recon_1835_blk_randolph_market_d4_03: its asset gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file",
+        "mobile 390x780: zero page errors \u2014 HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb"
       ],
       "wallSeconds": 1667,
       "takenAt": "2026-09-30T22:52:40.708Z",
@@ -965,9 +980,9 @@
       "passed": 569,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
       ],
       "wallSeconds": 2600,
       "takenAt": "2026-09-29T22:47:43.709Z",
@@ -1064,9 +1079,9 @@
       "passed": 155,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
       ],
       "wallSeconds": 385,
       "takenAt": "2026-09-29T13:26:30.741Z",
@@ -1161,9 +1176,9 @@
       "passed": 85,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
       ],
       "wallSeconds": 183,
       "takenAt": "2026-09-29T13:20:04.525Z",
@@ -1897,37 +1912,6 @@
         ]
       },
       "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 366,
-      "takenAt": "2026-09-29T03:50:34.767Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "30f60b1cfc68",
-      "devCommit": "682be5f236dc",
-      "treeHash": "sha256:c9ad04a6f820d03a",
-      "treeDirty": false,
-      "changelogHash": "sha256:af7a77ec67109038",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.8,
-          3.1,
-          3.3
-        ]
-      },
-      "source": "/tmp/smoke-desktop-1.log"
     }
   ]
 }

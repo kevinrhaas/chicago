@@ -493,7 +493,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     const th = bearingToYaw(rotationDeg);
     const cos = Math.cos(th);
     const sin = Math.sin(th);
-    let lowest = Infinity;
+    // Include the declared origin even when sparse geometry (such as a row of
+    // tents) starts inside its footprint. Otherwise all mesh-bound samples can
+    // be uphill of that reference and lift the anchor above its own ground.
+    let lowest = terrain.surfaceHeight(e, n);
     const STEPS = 4;
     for (let i = 0; i <= STEPS; i += 1) {
       const lx = box.minX + ((box.maxX - box.minX) * i) / STEPS;

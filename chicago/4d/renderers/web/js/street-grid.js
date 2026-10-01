@@ -538,7 +538,12 @@ export async function createStreetGrid({
     const lib = buf.material ? library.get(buf.material) : null;
     const mat = new THREE.MeshStandardMaterial({
       color: lib ? 0xffffff : new THREE.Color(c.colour), roughness: 1.0, metalness: 0.0,
-      polygonOffset: true, polygonOffsetFactor: buf.offset, polygonOffsetUnits: buf.offset * 4,
+      // T-1805: these surfaces already stand 30–60 mm above the sampled
+      // terrain, with priority expressed in their actual lift. A large negative
+      // slope bias (-11 for walks) pulls a grazing sidewalk THROUGH nearby walls,
+      // producing the apparent projecting slab at Glessner's corner. Retain only
+      // a one-unit numerical tie-break; do not displace depth by screen-space slope.
+      polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: -1,
     });
     if (lib) {
       mat.map = lib.map;

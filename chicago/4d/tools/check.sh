@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
+  node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
