@@ -2926,6 +2926,42 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01"
     },
+    "recon_1835_canal_trade_c3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 57832,
+      "inputs_sha256": "bfbc0f322363162e0ac1f2321f1e842f1c83638634cf341ebf87259671e1c587",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c3_001"
+    },
+    "recon_1835_canal_trade_c4_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 76968,
+      "inputs_sha256": "6a5f57c14b201a868cf2b1c07cddcdd9421a468af4c7052648a720c871ba8f42",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c4_002"
+    },
+    "recon_1835_canal_trade_w1_003__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 118468,
+      "inputs_sha256": "7161912d31a5334da6146a005ba065538f84251248aca0d83b8b1721266afceb",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w1_003"
+    },
+    "recon_1835_canal_trade_w2_004__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 128840,
+      "inputs_sha256": "78ef1f5ce14e2147981adc3190f843650e8659fb8afb04e532daa52eff43276e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w2_004"
+    },
     "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

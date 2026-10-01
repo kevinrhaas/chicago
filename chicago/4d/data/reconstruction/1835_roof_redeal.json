@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 390,
-    "keep": 387,
+    "audited": 394,
+    "keep": 391,
     "refamily": 3,
     "retire": 0,
     "kept_occupied": 3,
     "breach_owed_out": 0,
-    "seated": 96,
+    "seated": 100,
     "raised_for_a_trade": 31,
     "band_already_fits": 2,
     "roof_target": 668,
-    "standing_before": 500,
-    "standing_after": 500,
-    "short_of_the_programme_before": 168,
-    "short_of_the_programme_after": 168
+    "standing_before": 504,
+    "standing_after": 504,
+    "short_of_the_programme_before": 164,
+    "short_of_the_programme_after": 164
   },
   "ledger": [
     {
@@ -287,11 +287,11 @@
       "group": "stores_mixed_use",
       "division": "west",
       "target": 6,
-      "standing": 4,
-      "anonymous": 3,
-      "head_before": 2,
-      "standing_after": 3,
-      "head_after": 3
+      "standing": 6,
+      "anonymous": 5,
+      "head_before": 0,
+      "standing_after": 5,
+      "head_after": 1
     },
     {
       "bucket": "structures/stores_mixed_use/north",
@@ -364,11 +364,11 @@
       "group": "workshops",
       "division": "west",
       "target": 8,
-      "standing": 6,
-      "anonymous": 4,
-      "head_before": 2,
-      "standing_after": 6,
-      "head_after": 2
+      "standing": 8,
+      "anonymous": 6,
+      "head_before": 0,
+      "standing_after": 8,
+      "head_after": 0
     },
     {
       "bucket": "structures/workshops/north",
@@ -4465,6 +4465,78 @@
       "reason": "the order book has an occupant class for a W2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_canal_trade_c3_001",
+      "division": "west",
+      "family": "C3",
+      "group": "stores_mixed_use",
+      "programme_phase": "canal_approach_trade_1835",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 949.1,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 1.0,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/stores_mixed_use/west",
+      "reason": "the order book has an occupant class for a C3 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_canal_trade_c4_002",
+      "division": "west",
+      "family": "C4",
+      "group": "stores_mixed_use",
+      "programme_phase": "canal_approach_trade_1835",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 1777.6,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 1.0,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/stores_mixed_use/west",
+      "reason": "the order book has an occupant class for a C4 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_canal_trade_w1_003",
+      "division": "west",
+      "family": "W1",
+      "group": "workshops",
+      "programme_phase": "canal_approach_trade_1835",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 564.9,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 1.0,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/workshops/west",
+      "reason": "the order book has an occupant class for a W1 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_canal_trade_w2_004",
+      "division": "west",
+      "family": "W2",
+      "group": "workshops",
+      "programme_phase": "canal_approach_trade_1835",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 653.6,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 1.0,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/workshops/west",
+      "reason": "the order book has an occupant class for a W2 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_forks_freight_f2_001",
       "division": "west",
       "family": "F2",
@@ -7307,9 +7379,9 @@
         "H2",
         "H1",
         "A2",
-        "W5",
         "D6",
-        "D7"
+        "D7",
+        "D5"
       ]
     },
     {

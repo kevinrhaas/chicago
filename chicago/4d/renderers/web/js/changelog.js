@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1270, ts: '2026-10-01T19:54:49.388Z', date: 'Oct 1, 2026, 2:54 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+  { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
       'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
       'At the Mason blacksmith shop on Lake Street the walk stops. A shoeing floor faced a trodden yard, not boards, so its tie rail now stands on bare ground.',
       'This is our reconstruction. No source gives a Chicago walk\u2019s width by trade in 1835. Open the street edge\u2019s card to see which business each stretch serves.',
+    ] },
+  { v: 1271, ts: '2026-10-01T20:11:20.402Z', date: 'Oct 1, 2026, 3:11 PM CT', title: 'The lake\u2019s sand now runs the whole shore', kind: 'change',
+    items: [
+      'Stand by the fort and look north or south along the lake. The beach no longer stops 400 metres either side of the river mouth. It now runs the whole length of the shore, with the sandy ground behind it reaching back to the rise at State Street.',
+      'The sand is a cooler grey-beige, and it no longer ends in a straight line. It thins gradually into sandy prairie and then grass, along an uneven edge. Where more sand shows, the grass and flowers thin out with it.',
+      'Where the beach ends and what colour the sand was are our reconstruction. No survey of 1835 draws either. The register (L329) says so.',
+    ] },
+  { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+    items: [
+      'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
+      'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
     ] },
   { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [

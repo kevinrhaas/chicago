@@ -51,6 +51,7 @@ import * as THREE from 'three';
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
 import { SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
+import { softExtentWeight, ditherHash } from './lakeshore.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
 const LEVEL = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -452,7 +453,12 @@ function lobeNoise(e, n) {
  */
 function fringeOf(e, n, amp) {
   if (!amp) return 0;
-  const lobe = lobeNoise(e, n);
+  // T-1766: the retired swale had supplied screen-row variation that this
+  // field should carry itself. Give the world-anchored lobes 1.5x contrast
+  // about their midpoint, bounded to the same range. This keeps the lattice,
+  // fringe amplitude and primitive geometry unchanged; the symmetric mapping
+  // sharpens both inward and outward lobes rather than shrinking the ring.
+  const lobe = Math.max(0, Math.min(1, 0.5 + 1.5 * (lobeNoise(e, n) - 0.5)));
   const dither = unitHash(Math.round(e * 64), Math.round(n * 64), 0x2f1b3c59);
   return amp * (2 * (0.7 * lobe + 0.3 * dither) - 1);
 }
@@ -2958,14 +2964,23 @@ function zoneFinder(zones, terrain, water) {
  */
 function matches(x, e, n, terrain, water) {
   if (!x) return false;
-  if (x.box) {
+  // A box whose sides carry `edge` is soft (T-1819): its ramp reaches past the
+  // stated line, so the hard clip would cut the ramp's outer half off.
+  if (x.box && !x.edge) {
     const be = x.box.e;
     const bn = x.box.n;
     if (be && (e < be[0] || e > be[1])) return false;
     if (bn && (n < bn[0] || n > bn[1])) return false;
   }
   let ok = false;
-  switch (x.kind) {
+  // THE LAKE'S SAND (T-1819): a band from the lake's edge, or a box with
+  // wandering, ramped sides. lakeshore.js gives the weight the ground shader
+  // blends the zone's colour by; it is dithered here against a positional draw,
+  // so across a ramp a point belongs to the zone exactly as often as the ground
+  // there shows its sand — the sward thins into the beach rather than stopping.
+  const soft = softExtentWeight(x, e, n, terrain?.lakeShore ?? null);
+  if (soft !== null) ok = soft > ditherHash(e, n);
+  else switch (x.kind) {
     case 'everywhere':
       ok = true;
       break;
