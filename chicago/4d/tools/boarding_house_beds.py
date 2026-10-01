@@ -23,6 +23,12 @@ What differs from the H3 is only the window band, because the H2 crosswalk entry
 Neither ratio is read off any source; docs/LIBERTIES.md (L324) owns them, beside L318
 which owns them for the H3. Both generators call `size_from_beds` and nothing else, so
 `--check` re-derives the counts from the committed lodging model.
+
+T-1807 carries the stove half of the rule to the two SMALL boarding houses (H1), which
+stand on `frame_dwelling`. `stovepipes_from_beds` is that half alone: the H1 crosswalk
+entry states its front outright ("5 bays; center hall"), and a half-storey house lights
+its chambers from the gable ends rather than from a row of upper sashes, so the beds
+size no window there. docs/LIBERTIES.md (L325) owns the carry.
 """
 
 from __future__ import annotations
@@ -50,6 +56,15 @@ CAPACITY_WHY = (
     "carried to the medium house the lodging model also counts as a boarding house; "
     "the count indicates capacity and is not a recovered interior plan, and "
     "docs/LIBERTIES.md (L324) owns the ratios.")
+
+CAPACITY_WHY_H1 = (
+    "SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading "
+    "of any source about this house: the count is re-derivable from this record's "
+    "`reconstruction.capacity` block, which names the lodging-model row it read and the "
+    "rule that turned beds into this number. It is the H3 boarding house's stove ratio "
+    "(L318) carried to the small house the lodging model also counts as a boarding "
+    "house; the count indicates capacity and is not a recovered interior plan, and "
+    "docs/LIBERTIES.md (L325) owns the carry.")
 
 _MODEL: dict | None = None
 
@@ -104,3 +119,23 @@ def size_from_beds(sid: str, width: float) -> tuple[dict, int, int]:
                      "out through the roof as stovepipes"),
     }
     return cap, windows, pipes
+
+
+def stovepipes_from_beds(sid: str) -> tuple[dict, int]:
+    """(capacity block, stovepipes) for one H1 small boarding house (T-1807)."""
+    cap = lodging_capacity(sid)
+    plo, phi = STOVEPIPES
+    stoves = -(-cap["beds_ordinary"] // SLEEPERS_PER_STOVE)
+    pipes = max(plo, min(phi, stoves))
+    cap["sizes"] = {
+        "stovepipes": (
+            f"ceil({cap['beds_ordinary']} ordinary beds / {SLEEPERS_PER_STOVE} to a "
+            f"stove) = {stoves}, held to {plo}-{phi}: {pipes}"),
+        "upper_windows": ("not sized by the beds: the H1 crosswalk states the front "
+                          "(5 bays, centre hall), and the half storey's chambers are lit "
+                          "from its gable ends rather than by a row of upper sashes"),
+        "chimneys": ("not sized by the beds: the two brick stacks are the household's "
+                     "kitchen and common-room hearths, and the stoves the beds add go "
+                     "out through the roof as stovepipes"),
+    }
+    return cap, pipes

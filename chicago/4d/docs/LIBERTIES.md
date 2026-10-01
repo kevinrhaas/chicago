@@ -18260,3 +18260,48 @@ which substitutes for the anonymous roof.
 reconstruction programme raises), **L271** (`recon_1835_west_035`'s release), **T-1209** (the
 boarding houses built to their beds), **T-1806** (this sizing), **T-1807** (the two H1 houses).
 **Recorded:** 2026-10-01.
+
+### L325 — The two small boarding houses sized from their beds: stovepipes by the H3's rule, and where `frame_dwelling` puts them
+
+**Decision:** the two H1 houses the North and West parcels raised and the lodging model counts as
+boarding houses — `recon_1835_north_h1_007` and `recon_1835_west_006`, both
+`small_boarding_house` on the `frame_dwelling` placeholder — carry a **stovepipe count sized from
+their modelled beds** (T-1807), the count L324 could not give them because `frame_dwelling` drew
+no pipe. **The ratio is L318's, carried unchanged:** one box stove per **three sleepers on an
+ordinary night**, held to 2–6 as at L324. Seven ordinary beds each (T-1370's apportionment of
+their 119 and 123 m² of enclosed floor) give **3** pipes each. Each record carries the beds it
+read and the arithmetic in `reconstruction.capacity`, and `tools/boarding_house_beds.py`
+(`stovepipes_from_beds`) is the one place the carry lives, so both generators' `--check`
+re-derive the count from the committed lodging model.
+
+**WHAT IS THIS ENTRY'S OWN, beyond L318 and L324:**
+- **No window count.** L318's other ratio (a chamber per three lodgers on a crowded night) is
+  NOT carried: the H1 crosswalk entry states the front outright ("5 bays; center hall"), and a
+  one-and-a-half-storey house lights its chambers from its gable ends, which `frame_dwelling`
+  already draws, rather than from a row of upper sashes. The front is not resized.
+- **Where the pipes stand.** `frame_dwelling` gains an off-by-default `stovepipes` count. The
+  pipes rise through the front range's main gable, spread along the stretch of ridge between
+  the two gable stacks (1.35 m in from each gable, clear of a stack's corbelled head), nudged
+  off even spacing and alternating slopes a fifth of the span off the ridge, at
+  frame_tavern's six dealt heights and its blacked sheet-iron colour (T-1778). None of that is
+  attested for any building here; it is dealt from the index so it is stable from bake to bake.
+  A kitchen ell takes no pipe: its stove is the kitchen hearth `_chimneys` already draws.
+
+Neither the ratio nor the placement is read off any source. No 1835 Chicago boarding house's
+beds or stoves are counted anywhere in the evidence this project holds; the count indicates
+capacity and is not a recovered interior plan. **What does NOT move:** the footprints, storeys,
+walls, roofs, fronts and chimneys (the two brick stacks are the household's hearths); the lodging
+model, so not one bed or lodger moves; and every other house on `frame_dwelling`, which states
+no pipe and rebuilt **byte-identical** when the new parameter restaled it.
+
+**How to resolve:** any 1830s account counting a Chicago boarding house's beds or stoves (it
+replaces the ratio outright, here and at L318 and L324); any source naming one of these houses,
+which substitutes for the anonymous roof.
+
+**Covers:** `recon_1835_north_h1_007.inferred_1835.form.stovepipes`,
+`recon_1835_west_006.inferred_1835.form.stovepipes`
+**Related:** **L318** (the H3's rule, whose ratio this is), **L324** (the same carry to the
+medium houses), **L90** (the anonymous roofs the reconstruction programme raises), **L26** (every
+chimney stands where its archetype puts it), **T-1209** (the boarding houses built to their
+beds), **T-1807** (this sizing).
+**Recorded:** 2026-10-01.
