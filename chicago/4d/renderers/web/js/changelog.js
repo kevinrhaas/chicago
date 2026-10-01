@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+  { v: 1276, ts: '2026-10-01T22:53:59.808Z', date: 'Oct 1, 2026, 5:53 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
       'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',

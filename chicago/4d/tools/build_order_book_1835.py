@@ -490,8 +490,10 @@ STRUCTURE_TICKETS = {
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
     # it moved to T-1827: recon_1835_west_046 is one of this row's two F1 roofs, and its H2
-    # verdict, which T-1827 carries out, takes a roof out of this row.
-    ("west", "warehouses_freight"): "T-1827",
+    # verdict, which T-1827 carries out, takes a roof out of this row. T-1827 did (046 is
+    # an H2 house now), so the row reads 1 of 2 and the freight roof it orders goes with the
+    # rest of the West's remainder to T-1829, which already holds stores and workshops.
+    ("west", "warehouses_freight"): "T-1829",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
