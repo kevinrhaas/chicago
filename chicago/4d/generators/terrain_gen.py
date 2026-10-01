@@ -998,6 +998,68 @@ def build_field(spec, feats, origin):
     ramp = 1.0 - (1.0 - t_bank) ** 2
     h_ft = np.where(water, depth_ft, (level_ft + micro) * ramp)
 
+    # ---- the lakefront dunes (T-1824) -------------------------------------
+    # Dossier zone 5: "the white sand hills both to the north and south" of the
+    # fort, scattered hummocks 50-150 ft across with +10 to +14 ft local peaks.
+    # Their existence is the source's; no source places one, so every ridge,
+    # hollow and hummock below is RECONSTRUCTED and marked conjectural. They are
+    # measured inland from the LAKE's edge, read per row off the water mask
+    # (the easternmost land in the row, then a running median and mean so the
+    # crest line follows the shore and not each cell of it) — not from d_land,
+    # which also counts the river's banks. Each reach states its own northing
+    # range, so the fort, the mouth, the bar and the harbour works between them
+    # keep the ground they had, and a reach may stop short of a platted street
+    # on its west side and keep clear of a building that stands inside it.
+    dune_ft = np.zeros(E.shape)
+    row_n = N[:, 0]
+    for du in spec.get("dunes", []):
+        n_lo, n_hi = [float(v) for v in du["n_range"]]
+        fade = float(du["end_fade_m"])
+        rws = np.where((row_n >= n_lo) & (row_n <= n_hi))[0]
+        if not rws.size:
+            continue
+        edge = np.full(rows, np.nan)
+        for r in rws:
+            land_cols = np.where(~water[r])[0]
+            if land_cols.size:
+                edge[r] = E[r, land_cols.max()]
+        span = 20
+        med = np.array([np.nanmedian(edge[max(0, r - span):r + span + 1]) for r in rws])
+        k = 8
+        pad = np.pad(med, k, mode="edge")
+        sm = np.convolve(pad, np.ones(2 * k + 1) / (2 * k + 1), mode="valid")
+        seed = int(du["seed"])
+        sub_E, sub_N = E[rws], N[rws]
+        s = sm[:, None] - sub_E
+        wander = float(du["wander_m"]) * value_noise(
+            np.zeros(sub_N.shape), sub_N, float(du["wander_wavelength_m"]), seed + 11)
+        hl = float(du["hummock_wavelength_m"])
+        field = np.zeros(sub_E.shape)
+        for i, (c_m, ht_ft, hw_m) in enumerate(du["ridges"]):
+            t = np.clip((s - float(c_m) - wander) / float(hw_m), -1.0, 1.0)
+            bump = 0.5 + 0.5 * np.cos(np.pi * t)
+            hum = smoothstep(0.75 * value_noise(sub_E, sub_N, hl, seed + 101 * i) + 0.6)
+            field += float(ht_ft) * bump * hum
+        c_m, dp_ft, hw_m = du["hollow"]
+        t = np.clip((s - float(c_m) - wander) / float(hw_m), -1.0, 1.0)
+        blow = smoothstep(0.9 * value_noise(sub_E, sub_N, 1.4 * hl, seed + 307) + 0.3)
+        field -= float(dp_ft) * (0.5 + 0.5 * np.cos(np.pi * t)) * blow
+        w = smoothstep((sub_N - n_lo) / fade) * smoothstep((n_hi - sub_N) / fade)
+        if du.get("west_limit_e_m") is not None:
+            w = w * smoothstep((sub_E - float(du["west_limit_e_m"]))
+                               / float(du["west_fade_m"]))
+        # Off the beach: the bank face is the beach, and it stays the beach.
+        w = w * smoothstep((d_land[rws] - face[rws]) / 8.0)
+        for kc in du.get("keep_clear", []):
+            rr = np.hypot(sub_E - float(kc["e"]), sub_N - float(kc["n"]))
+            w = w * smoothstep((rr - float(kc["flat_m"]))
+                               / max(1e-9, float(kc["outer_m"]) - float(kc["flat_m"])))
+        dune_ft[rws] += np.where(water[rws], 0.0, field * w)
+    h_ft = h_ft + dune_ft
+    if np.any(dune_ft):
+        band["dunes"] = (np.abs(dune_ft) > 0.02) & ~water
+        conj_land |= band["dunes"]
+
     # ---- bridge approach earthworks (T-0046) ------------------------------
     # Every bridge deck ends on the traced waterline, where the bank ramp above
     # puts the ground at exactly zero — so without these, no deck can be entered
