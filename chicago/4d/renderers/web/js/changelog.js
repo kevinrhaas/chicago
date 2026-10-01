@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1266, ts: '2026-10-01T17:19:35.946Z', date: 'Oct 1, 2026, 12:19 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
+    items: [
+      'The browser tab, link previews and the Chicago home page now call the app 4D Chicago instead of \u201cwalk 1835\u201d. The year still shows where it names the town you are walking.',
+    ] },
   { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [
       'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
