@@ -74,10 +74,7 @@ fi
 
 SITE="../../site/4d"
 # Owner-requested Prairie research browser also travels with the dev preview.
-# Without its image derivatives (~35 MB against the 256 MB budget): the viewer shows each
-# from its holder's URL when the local copy is absent (T-1821). Production /prairie-1904/
-# is published by deploy.yml with them.
-python3 ../prairie_1904_v1/tools/publish.py "../../site/4d/prairie-1904" --no-image-files
+python3 ../prairie_1904_v1/tools/publish.py "../../site/4d/prairie-1904"
 # Keep the pre-fire reference UI available for review before production promotion.
 bash ../pre_fire_v1/tools/publish.sh
 mkdir -p "$SITE/pre-fire"
