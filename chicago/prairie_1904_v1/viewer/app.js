@@ -7,10 +7,12 @@
   const plain = value => value == null ? '' : typeof value === 'object' ? JSON.stringify(value) : String(value);
   const array = value => Array.isArray(value) ? value : [];
   const yearNumber = value => value !== null && value !== undefined && /^\d{4}$/.test(String(value)) ? Number(value) : null;
+  // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
+  const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
   function safeURL(value, local = false) {
     if (!value || typeof value !== 'string') return null;
     if (local && (/^[a-z]+:/i.test(value) || value.startsWith('/') || value.split('/').includes('..'))) return null;
-    try { const url = new URL(local ? '../' + value : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
+    try { const url = new URL(local ? packagePath(value) : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
   }
   // Where a record's full-resolution original lives, named for the place it links to.
   const originalLabel = url => /archive\.org/.test(url) ? 'Master TIFF · Internet Archive ↗' : /harvard\.edu/.test(url) ? 'Full-resolution original · Harvard ↗' : 'Full-resolution original ↗';
