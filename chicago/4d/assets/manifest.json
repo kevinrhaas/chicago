@@ -1522,6 +1522,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_a3_07"
     },
+    "recon_1835_blk_randolph_clinton_a3_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32040,
+      "inputs_sha256": "b58dccf67aaba85a1a09c75de225baf7d4f1f42a0ababefbdd7098893e8ede26",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_a3_10"
+    },
+    "recon_1835_blk_randolph_clinton_a4_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 44532,
+      "inputs_sha256": "8357b50b67919e829d685bbf1c114f528f6a1b4fef81c9fb8180b4b669153d86",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_a4_11"
+    },
     "recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -1549,6 +1567,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d4_02"
     },
+    "recon_1835_blk_randolph_clinton_d4_09__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32384,
+      "inputs_sha256": "2443b8dd58cf859ad79c5a38de29d5cd610a2084bcd2e191e1ad86bd1847ffbf",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_d4_09"
+    },
     "recon_1835_blk_randolph_clinton_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -1557,6 +1584,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d5_01"
+    },
+    "recon_1835_blk_randolph_clinton_d7_08__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 48620,
+      "inputs_sha256": "b5e4af34c9f86fabc94aedd6aa0b7e679a477f65c1fb492260a0a2f2cbbc450f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_d7_08"
     },
     "recon_1835_blk_randolph_dearborn_a1_07__inferred_1835.glb": {
       "archetype": "outbuilding",

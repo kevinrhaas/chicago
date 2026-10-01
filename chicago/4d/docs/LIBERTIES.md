@@ -14137,7 +14137,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 477 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 481 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14177,7 +14177,11 @@ north of the river, taking the same exposure across more of it. T-1760's first d
 `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room
 cottage on Clinton Street, and a stable off the alley behind the first. All three state a
 roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes
-**477** — one F2 roof, the West Division's second freight roof (L308). No record's
+**477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on
+`blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey
+frame house and a two-room cottage on the same Canal teamster approach with a privy and a
+woodshed behind them, all four shingled by this exposure for the same reason every frame roof
+the block recipe raises is. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -14702,13 +14706,14 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 138 of the 177 seats are
+roof of a family its clause admits, on a lot of its own division; 144 of the 177 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; **39 of the 177 are that: 19 on the plat's last tier** (T-1707,
-2026-09-28, T-1736, L298, L300 and L304 below), **4 west of the river on ground the plat always drew
-and this project had cut the other way about** (T-1733 and T-1734, 2026-09-28) **and 16 on
+sizing keeps open; **33 of the 177 are that: 19 on the plat's last tier** (T-1707,
+2026-09-28, T-1736, L298, L300 and L304 below), **none west of the river**, where T-1733 and
+T-1734 opened ground the plat always drew and this project had cut the other way about
+(2026-09-28) and T-1761 raised the last two roofs asked for there (L312), **and 14 on
 Kinzie's Addition** (T-1741, 2026-09-28, the paragraphs below). The count was 0 until T-1707, and the reason was ground
 rather than restraint: the only South Division blocks the programme marked `open` were two
 South Water blocks whose free lots the rule above reserves. Carrying the Original Town's seven
@@ -15049,7 +15054,37 @@ professional. Read at the chain's fixpoint, not one pass in — and this deal's 
 block infill, the roof re-audit and the order book each feeding the next, with the seat count
 reading 174 for four of those passes before it settled at 177.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots).
+**AND THE WEST DIVISION'S FIRST BLOCK DEAL EMPTIES THE WEST'S SLOT TABLE (T-1761,
+2026-10-01).** `blk_randolph_clinton` was dealt two dwellings and two yard buildings against the
+two slot requests standing on it when the deal was cut — see **L312**. Measured at the fixpoint
+of the chain AND the derived layer together against `dev` at `19c45643`, which carries T-1760's
+first deal on `blk_lake_clinton` across Lake Street and T-1794's farm cabins and T-1773's
+warehouse after it, the pass runs **177 → 177** seats:
+adoptions **142 → 144**, slots **35 → 33**, and rows handed to **T-1614** unmoved at **1,301**.
+The block's schedule row closes to `at_capacity` behind the deal, and **no slot is requested
+west of the river any more.** As on every block above, **neither new roof goes to a household
+whose request it was sized against**, and on this `dev` those requests had themselves moved:
+T-1760's cascade had left the block asking a D4 for hh_bloget_josiah_i on lot 9 and a D3 for
+hh_bennett_h_c on lot 7, not the D7 and D4 the deal was cut against. **The deal is not re-cut
+to chase them**: a request is the cascade's reading on the day, each deal beside it moves it
+again, and this one has been re-cut once already (D3 to D4); `dealt_against_a_request` keeps
+the two it answered. The corner house on lot 9 goes to hh_abbot_8_g and the cottage on lot 7
+to hh_abbott_titus_h. **hh_adams_james, whom this `dev` seats off the plat at
+`recon_1835_west_035` (**L271**), moves onto it** — adopting `recon_1835_west_019` on lot 0, the
+corner house hh_abbot_8_g vacated — and hh_bennett_h_c adopts the D4 at `recon_1835_west_008` on
+`blk_lake_clinton`. **hh_bloget_josiah_i loses its slot**: the block has no lot left that a
+slot may name, and it is seated off the plat instead. At the far margin, on
+`blk_indiana_north_wolcott`, hh_bourassa_noel comes onto the plat with a slot and
+hh_allen_william leaves it for a seat off it. **17 households change roof** behind them. The
+off-plat deal holds at **72** across it while four households trade places there
+(hh_bailey_bennet and hh_forbes_stephen in, hh_bennett_c_h and hh_butterfield_ben out), so the
+town houses as many households after the deal as before; it moves who is housed where. (Cut against
+`a45a86aa`, before T-1794 and T-1773, it measured exactly this; against `b18a0346` it moved the
+same 17 and gained nobody; against `c2dccdcd` it moved 26.
+The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS
+REPORTED RATHER THAN TIDIED, and **T-1626** is still the question.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -15484,13 +15519,13 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-four roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 24 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
-South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 24 are on the
+South Water blocks and were written by T-1638; the other 15 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
@@ -15592,6 +15627,14 @@ the seating pass's picks there closes the cycle that refusal exists to avoid —
 allocations run blind to one pool. It is filed as **T-1669** rather than patched by a rule
 invented in passing.
 
+**AND T-1761 TAKES IT TO 24, ON THE WEST BLOCK, BY THE SAME MECHANISM.** The second deal on
+`blk_randolph_clinton` (**L312**) moved the seating on this pass's own Randolph district, and
+the 17 households changing roof behind it brought one more nameable household inside it:
+hh_ballingale_p now stands under the D3 cottage `recon_1835_blk_randolph_clinton_d3_04` on lot
+2. hh_abbott_titus_h's name moves with its household from the D5 on lot 6 to the new D4 cottage
+on lot 7. Written **23 → 24**, refused unmoved at **77**, owed **42 → 43**. No ruling moved, and
+no name was written to a roof it was not dealt.
+
 **How to resolve:** any source that places one of these households — a lot record, a deed, an
 advertisement giving an address, a directory entry. One would replace a dealt lot with a read
 one, and the nine would stop being a liberty.
@@ -15601,7 +15644,7 @@ one, and the nine would stop being a liberty.
 T-1638 and its parent **T-1200**, T-1685 and its parent **T-1202**, T-1689 (the stale
 letter-list naming), the ruling **T-0379**, and
 `data/reconstruction/1835_roof_keepers.json`.
-**Recorded:** 2026-09-26.
+**Recorded:** 2026-09-26. **Revised:** 2026-10-01 (T-1761, the written and owed counts).
 
 ### L277 — The store-residence's attic is lit by an invented sash in each gable, and that is the only outside sign the half storey has
 **Decision:** the eight anonymous C2 store-residences on the platted blocks are built at the
@@ -17639,3 +17682,111 @@ still unbuilt in July 1835 would retire these three rather than re-place them.
 **Related:** **L90**, **L263**, **L265**, **L270**, **L292**, **L294**, **L298**, **L300**,
 **L302**, **L304**, **T-1733**, **T-1734**, **T-1760**, **T-1207**, **T-1208**.
 **Recorded:** 2026-09-30.
+
+### L312 — Two invented dwellings close the Canal face of blk_randolph_clinton, and the block's gap changes face
+
+**Decision:** `blk_randolph_clinton` — plat block 45, bounded by Randolph, Canal, Washington
+and Clinton, the West Division block this module reached first — carries **four more anonymous
+roofs**: a two-storey frame house (D7) on lot 9, the Canal corner, a two-room frame cottage
+(D4) on lot 7 beside it, and a privy and a woodshed off the block alley behind them, one to a
+lot. The families and the lots are the seating pass's, not this deal's: `hh_adams_james` held a
+D7 request on lot 9 under the merchant-and-professional clause and `hh_bennett_h_c` a D4
+request on lot 7 under the tradesman clause, and both requests carried the sentence this deal
+answers — no standing roof of an admitted family was free in the West Division. Those were the
+requests standing when the deal was cut (against `dev` at `b18a0346`); by the time it lands the
+cascade behind T-1760's deal next door has moved them, and that is reported below too. **Neither
+household is the one standing there afterwards, and that is reported below rather than tidied.**
+**Everything below that is invented**: that any building stood on these two lots in
+July 1835, which buildings they were, that they were dwellings, how far back from Canal Street
+each sits and how far to one side of its lot. No coordinate is authored; every metre is read
+off the committed lot polygon by `tools/generate_block_infill.py` from the recipe entry in
+`data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why two and not six is the schedule's arithmetic and not a judgement.** The block's committed
+plan still holds six principal roofs — a D3, a D4, a D5, a D6, a D7 and an H3 — and two yard
+buildings. **The cottage is a D4 because the request is**: when this deal was first cut
+(2026-09-29) the lot 7 request asked for a D3, and the seating pass has since re-sized that
+household to a two-room cottage, so the deal was re-cut to the request standing then. It is
+not re-cut a second time: after T-1760 landed, the same cascade read lot 7 as a D3 again (for
+the same household) and lot 9 as a D4 for a different one, and a deal that chased each reading
+would never land, because every deal beside it moves the reading again. `lot_ceiling_principal` reads **2** on it, because that field is `free_lots - 1` and
+the block has three free lots: no block is dealt out of the one lot its own sizing keeps open.
+So two is the whole of what could be dealt here however much plan remains, the two requests
+standing against the block are exactly two, and the four roofs beyond them stay in the schedule
+for a later reading of this ground with no household asking for them today.
+
+**THE ONE THING HERE THAT OVERRULES A SENTENCE ALREADY COMMITTED IS THE GAP, AND IT IS THE
+LIBERTY.** This block's first deal (2026-08-14) named lot 7 open for the 665-roof programme's
+assumption of **alternating vacancy** on a face, in these words: *"which of the face's free
+lots takes the gap is arbitrary once the end rule has ordered the two roofs on it; that there is
+a gap at all is the assumption."* This deal builds on lot 7, so the Canal face now carries a
+principal roof on all five of its lots and has no gap left. **The assumption is not abandoned
+and the block still keeps one** — on lot 1 of the Clinton face, where the first deal also put
+one. What moved is which face keeps it, and two things decided that: the seating pass asks for
+both Canal lots by name and asks nothing at all on Clinton, so filling Canal is the only
+arrangement that answers every request made here; and the ceiling of 2 means the block could not
+have taken a third roof to keep a gap on both faces even had a household asked. The first deal's
+own words are why this is a move rather than a contradiction — the gap's POSITION was arbitrary
+and its EXISTENCE was the claim, and the claim still stands. A later reader is entitled to know
+the Canal face's unbroken frontage is ours and not a finding.
+
+**What the continuous frontage rests on, such as it is.** Canal Street is the teamster approach:
+`data/streets/1835.json` grades it `ordinary` against Clinton's `light`, and
+`docs/RESEARCH/west_division_infill_1835.md` reads the Canal and Lake approach as the division's
+built edge rather than its speculative fringe. The three roofs this block inherited from the
+pre-plat West approaches parcel — `recon_1835_west_018`, `_019` and `_021` — are themselves on
+this side of it. That is a reading and not a count: **no source states how many buildings stood
+on this block, and none states that any did.** The memo's refusal of an occupied city west of
+the river is what keeps the Clinton face broken, and it is the reason this deal stops here.
+
+**The set-out is the block's own and is not redecided.** Its two standing Canal dwellings sit
+5.0 m and 5.5 m back from the street line; these sit 6.0 m and 4.5 m, inside the same band and
+continuing the same irregularity, the deeper one the larger house on the corner. **Nothing
+states any of the four numbers**, on this block or on any other, and nothing states the
+difference between them either.
+
+**NEITHER HOUSEHOLD THAT ASKED IS SEATED ON THE ROOF RAISED FOR IT, AND ONE OF THEM IS NOT
+SEATED ON THIS BLOCK AT ALL.** The adoption step runs before the slot step, so both new dwellings
+entered the seating pass as standing roofs an admitted clause could adopt, and the clause order
+scored them for households that were already standing under something else: `hh_abbot_8_g` took
+the corner house on lot 9 and `hh_abbott_titus_h` the cottage on lot 7. `hh_adams_james`, whose
+request lot 9 was sized against and whom `dev` at `19c45643` seated off the plat, is seated on
+this block after all — on the corner house of lot 0 that `hh_abbot_8_g` vacated. `hh_bennett_h_c`,
+whose request lot 7 was sized against, adopts a D4 on `blk_lake_clinton` across Lake Street.
+`hh_bloget_josiah_i`, whom that `dev` had asking for lot 9, loses its slot: behind this deal the
+block's schedule row reads `at_capacity`, and the one lot left is the one its sizing keeps open,
+which no slot may name (T-1623); it is seated off the plat instead. Measured at the fixpoint of the chain and the derived layer
+together, the seat total holds at **177**, adoptions rise from 142 to **144** and slots fall
+from 35 to **33**, none of them now west of the river (**L270**, with the two households that
+trade places at its far margin). That is the committed precedence, which
+does not reserve a roof for the household that asked (**T-1626** carries the question to the
+owner), and it is recorded here because a reader comparing the two requests against the two
+names on these cards would otherwise find the mismatch and no account of it.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for plat
+block 45 between Clinton and Canal, and any source on setbacks in the West Division. A named
+discovery substitutes for a compatible anonymous roof and never increases the total. Any
+evidence that the Canal frontage between Randolph and Washington was still broken in July 1835
+retires one of these two rather than re-placing it, and would restore the gap to the face the
+first deal put it on.
+
+**Covers:** `recon_1835_blk_randolph_clinton_d7_08.inferred_1835.position`,
+`recon_1835_blk_randolph_clinton_d7_08.inferred_1835.footprint`,
+`recon_1835_blk_randolph_clinton_d4_09.inferred_1835.position`,
+`recon_1835_blk_randolph_clinton_d4_09.inferred_1835.footprint`,
+`recon_1835_blk_randolph_clinton_a3_10.inferred_1835.position`,
+`recon_1835_blk_randolph_clinton_a3_10.inferred_1835.footprint`,
+`recon_1835_blk_randolph_clinton_a4_11.inferred_1835.position`,
+`recon_1835_blk_randolph_clinton_a4_11.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L99**,
+**L100** and the other block entries of this row, **L263** (the shingle exposure all four take),
+**L270** (the platted deal whose two requests this answers), **L292**, **L298** and **L300**
+(the same shape of deal on the plat's last tier), **T-1761** (this deal, the second piece of
+**T-1207**), **T-1734** (the transpose that cut this block to ten lots), **T-1760** (the twin
+block on the same approach), **T-1764** (the ticket that closes the West Division's books).
+**Recorded:** 2026-09-29. **Revised:** 2026-10-01 (T-1761, re-cut on current `dev`: the lot 7
+cottage re-sized to the D4 the request then asked for, and the seating outcome re-measured);
+2026-10-01 again (re-measured on `dev` after T-1760: the requests had moved and the deal was
+not re-cut to them, which is said above); 2026-10-01 a third time (numbered **L312**: it was
+written as L308, and T-1773's warehouse took that number on `dev` first — the entry's words did not
+change, only its number, and the four references to it moved with it).
