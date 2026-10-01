@@ -18007,3 +18007,34 @@ lot level for blocks 20, 17, 16 and 31 of the Original Town.
 (the Western's stable re-sized from its guests), **T-1209** (the boarding houses built to their
 beds, whose second piece this is).
 **Recorded:** 2026-10-01.
+### L320 — The plank walks' weathered tones, and which stretch of walk wears which
+
+**Applies to:** `renderers/web/js/frontage.js` (`WALK_TONES`, `walkTone`, `boardTone`) — every
+walk and board crossing the street-edge layer lays, from `data/frontage/*.json`
+
+**What we invented:** The colour of every plank walk and crossing in the town. They were drawn in
+the signboard's tone (`TIMBER`, L\* 78.7), which read as white boards; they are now drawn in four
+weathered tones — dark grey-brown, brown, grey-brown and silvered grey, L\* ≈ 38 to 52 — one per
+stretch of walk, chosen by a hash of its block face (or of its owner where a record has its own,
+as the Sauganash and the river walk do), lighter or darker by up to 12 % per stretch and by up to
+14 % from board to board. Every board stays inside L\* 33–62. That bound is the T-1795 measurement
+(`docs/RESEARCH/1835_photographic_fabric_preparation.md` § 6): the library's
+`plank_walk_weathered` (L\* 33–40) up to the material sheet's `weathered_board` (L\* 62). Which
+stretch is which tone is the hash's, not anyone's account of the street.
+
+**Why:** No source gives the colour of any walk in 1835. Unpainted softwood laid in the street
+darkens and silvers within a season, and the owner ruled on 2026-09-30 (T-1770, T-1211) that the
+walks must read as worn grey, brown, grey-brown and dark grey-brown, varied by owner and age, and
+not white unless a source says painted. None does.
+
+**Omission:** The fences and hitching posts on the same layer keep the signboard tone, which the
+yard and the signboards share; no plank carries a texture yet (grain, end grain, wear and damp are
+T-1801's proof and T-1211's), and the variation is by block face rather than by business, because
+the town street edge names one record as the owner of all 87 of its walks.
+
+**Would replace:** A description, view or account naming a particular walk's finish or age
+replaces that walk's tone; T-1211's per-business `belongs_to` replaces the block face as the key.
+
+**Ticket:** T-1800 (piece 1 of T-1796).
+
+**Recorded:** 2026-10-01 (T-1800).

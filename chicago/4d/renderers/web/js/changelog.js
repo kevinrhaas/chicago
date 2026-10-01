@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1256, ts: '2026-10-01T12:27:56.485Z', date: 'Oct 1, 2026, 7:27 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: null, ts: '', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
+    items: [
+      'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
+      'Each stretch of walk has its own weathering, so a street of separately laid walks no longer looks like one strip of paint. Board to board, the planks differ a little too.',
+      'The boards had been drawn in the signboards’ pale tone. No source records the colour of any walk in 1835, so the tones are our reconstruction, kept within the range of real weathered planks. The Liberties page (L320) says how they were chosen.',
+      'The fences and hitching posts keep their old colour for now. Grain, worn edges and damp patches come in later work.',
     ] },
   { v: 1255, ts: '2026-10-01T11:16:22.660Z', date: 'Oct 1, 2026, 6:16 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
     items: [
