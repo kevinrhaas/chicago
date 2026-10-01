@@ -6347,6 +6347,29 @@ what exposed it; it is not what caused it.
 **Recorded:** 2026-09-03.
 **Revised:** 2026-09-03.
 
+**Amended 2026-10-01 — the street edge is dealt by business (T-1813, the first piece of
+T-1211).** The owner, of the plank walks: *"include their correct plank sidewalks for each
+business that varies because business vary and fill it in so it is complete."* So each
+business front on a covered street now takes the fittings its trade implies, read off one
+table in `tools/generate_frontage_works.py` (`FRONTAGE_BY_BUSINESS`): an **inn** stands two
+hitching posts at the thirds of its front (the Sauganash's own arrangement), a **stoop** at
+the door and a **mounting block** in the verge between the posts; a **store** stands one post
+and a stoop; a **forwarding house or warehouse** gets a **wagon apron** of 3-inch plank laid
+from the walk's outer edge across the verge; a **works** gets a **tie rail** in the verge.
+On today's town that is 46 street-edge posts (was 16), 37 stoops, 5 mounting blocks, 3 wagon
+aprons and 1 tie rail, and 18 fronts the rule could not fit are refused in writing, each with
+its clause. **All of it is invented.** No source in this repository puts a stoop, a block, a
+rail or an apron at any Chicago door in 1835. No record places a door either, so the middle of
+each front stands in for one. Every dimension is ordinary carpentry, not a measurement. **The
+trade's grade no longer refuses a post**: T-1052's clause 3 refused every trade the roof
+schedule dealt, and T-1211 asks for "every business face … attested, inferred,
+reconstructed". So a reconstructed trade takes its fittings at its own tier, and each record
+carries `trade_confidence` beside its own `confidence: reconstructed`. Seven shop trades the
+reconstructed firms carry and neither signboard set knows (bakery, barber, butcher, gunsmith,
+harness maker, shoemaker, tailor) are read as stores, **for the street edge only**. Whether
+they hang a board is T-1213's question.
+**Revised:** 2026-10-01.
+
 ### L161 — The town encloses its property: a yard fence on 109 platted lots, in three types, every metre of it invented
 
 **Decision:** the YARD of every improved platted lot in this town is enclosed (T-0068,
