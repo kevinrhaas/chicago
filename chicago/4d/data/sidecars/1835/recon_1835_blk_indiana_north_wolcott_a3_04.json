@@ -186,8 +186,15 @@
     "stands_on": "alley",
     "fronts": "illinois_north",
     "sequence": 4,
-    "finish_key": "weathered_timber",
+    "finish_key": "fresh_timber",
     "roof_condition": "fresh",
-    "age_state": "new"
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn boards under a new roof — a privy, new-built (rule F-Y: a yard building's by its type)"
+    }
   }
 }

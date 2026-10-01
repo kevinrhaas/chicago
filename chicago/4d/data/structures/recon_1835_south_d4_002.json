@@ -144,8 +144,15 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 2,
     "finish_key": "whitewash",
-    "roof_condition": "patched",
-    "age_state": "established"
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a two-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
   "review_required": false

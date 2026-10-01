@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1269, ts: '2026-10-01T19:04:10.610Z', date: 'Oct 1, 2026, 2:04 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+    items: [
+      'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
+      'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
+      'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
+      'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
+      'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
+    ] },
   { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
     items: [
       'The browser tab, link previews and the Chicago home page now call the app 4D Chicago instead of \u201cwalk 1835\u201d. The year still shows where it names the town you are walking.',

@@ -155,9 +155,16 @@
     "stands_on": "street",
     "fronts": "randolph",
     "sequence": 3,
-    "finish_key": "fresh_timber",
+    "finish_key": "ochre",
     "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a weathered roof — a deep-plan frame cottage, a year old (rule F-T: a tradesman's by its type)"
+    }
   },
   "resident_assignment": {
     "status": "unassigned",

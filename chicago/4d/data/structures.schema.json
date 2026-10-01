@@ -269,6 +269,19 @@
             "older_frontier"
           ]
         },
+        "fabric_basis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rule", "class", "by", "household", "words"],
+          "description": "T-1816: why this roof wears the finish it does. Dealt by tools/fabric_rule_1835.py from the household its family houses or, where 1835_roof_keepers.json wrote a keeper onto the roof, that household's own trade and arrival year. `words` is the sentence the building card's Built line prints. The grade of every value it explains stays `reconstructed`.",
+          "properties": {
+            "rule": {"type": "string", "pattern": "^F-[A-Z]$"},
+            "class": {"enum": ["merchant", "keeper", "tradesman", "labourer", "works", "freight", "yard"]},
+            "by": {"enum": ["type", "keeper", "keeper_trade"]},
+            "household": {"type": ["string", "null"]},
+            "words": {"type": "string", "minLength": 1}
+          }
+        },
         "capacity": {
           "type": "object",
           "additionalProperties": false,

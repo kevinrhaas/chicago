@@ -719,6 +719,15 @@ step "West freight roof at the forks matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
 
+# T-1816: the five generators above deal every anonymous roof's finish, paint, roof
+# condition and age through ONE rule — whose house it is — and each record says so in
+# `reconstruction.fabric_basis`. The rule re-reads every record against itself, and its
+# self-test proves no class can deal the Sauganash's white paint or a finish off the sheet.
+step "every anonymous roof's finish is the fabric-by-household rule's" \
+  python3 tools/fabric_rule_1835.py --check
+selftest "…and the rule refuses white paint, off-sheet finishes and drift" \
+  python3 tools/fabric_rule_1835.py --self-test
+
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the
