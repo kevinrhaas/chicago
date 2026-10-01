@@ -1,3 +1,11 @@
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+The owner’s option (a) is implemented: both conjectural west-prairie swales are record-only, with their dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator now refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
 ## T-1752 — frontage census repaired from its authored history (2026-09-29)
 
 Seven stale smoke counts now follow the existing frontage records: 51 walks,

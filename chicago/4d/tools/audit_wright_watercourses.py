@@ -74,9 +74,14 @@ WRIGHT_CLAIMS = {
                              "lasalle_slough_upper, which used to inherit this mouth)",
     "state_slough_course": "nothing — chicagology and Conley/Stelzer",
     "state_slough_mouth": "the traced re-entrant only",
-    "west_prairie_swale_a": "nothing — no source at all",
-    "west_prairie_swale_b": "nothing — no source at all",
 }
+
+# west_prairie_swale_a and _b used to be here, each claiming Wright for "nothing — no
+# source at all". T-1460 retired both (owner, 2026-09-29): this audit's finding that the
+# sheet draws NO watercourse on the West Division prairie was the evidence that the two
+# alignments were invented, and the ground no longer grades them. The finding is not
+# withdrawn — it is below, and it is now a statement about a prairie the model leaves
+# flat rather than about two records it graded.
 
 TOL_M = 20.0  # the ticket's tolerance: the georeference's own +/- 20 m
 
@@ -281,12 +286,14 @@ def findings(rec: dict) -> list[str]:
         f"+{rec['bank_reentrant_picks']['state_mouth_reentrant']['local_enu_m'][0]}, "
         f"against E +850..+856. Both are inside the {TOL_M:.0f} m the georeference allows, "
         f"so neither scan is disbelieved and no course moves.",
-        f"WRIGHT DRAWS NO WATERCOURSE ON THE WEST DIVISION'S PRAIRIE. "
-        f"west_prairie_swale_a and _b stay reconstructed with no source, and the sheet's "
-        f"silence is now recorded on them: the tiles covering their ground carry platted "
-        f"blocks and lot lines and nothing else. The dossier's '1-2 ft slough swales' "
-        f"remain the only evidence that they existed at all, and it says nothing about "
-        f"where.",
+        f"WRIGHT DRAWS NO WATERCOURSE ON THE WEST DIVISION'S PRAIRIE, AND SINCE T-1460 "
+        f"NEITHER DOES THIS PROJECT. The tiles covering that ground carry platted blocks "
+        f"and lot lines and nothing else. Two reconstructed swales used to stand on it "
+        f"with no source at all; the owner retired both to the record on 2026-09-29 and "
+        f"zone 18's '1-2 ft slough swales' are now recorded in the spec's "
+        f"not_modelled_in_this_box rather than graded into the field. The dossier remains "
+        f"the only evidence that such swales existed at all, and it says nothing about "
+        f"where, which is why nothing is drawn there now.",
         f"NEITHER MAIN-BRANCH SLOUGH HAS AN INLAND COURSE ON THIS SHEET, which is exactly "
         f"what their records say. lasalle_slough_lower claims Wright for its EXISTENCE AND "
         f"MOUTH and Conley/Stelzer for the course; state_slough_course claims Wright for "

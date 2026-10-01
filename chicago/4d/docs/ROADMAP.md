@@ -1,3 +1,7 @@
+## T-1460 — west-prairie swales retired
+
+Owner answer (a) is implemented on the recovery branch. The dossier keeps zone 18’s swales while the terrain no longer invents their alignments; the eight roofs stay fixed. Recovered terrain assets and regenerated ground readings accompany the change. Validation and integration status are recorded in STATUS; ticket settlement follows the dev PR.
+
 ## T-1752 — frontage smoke census (2026-09-29)
 
 Seven exact smoke expectations now follow the independently compared frontage
