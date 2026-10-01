@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A test patch of photographic ground, south of the town', kind: 'change',
+  { v: null, ts: '', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [
       'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
       'It is a sample, not a place. No source puts ground like this at that spot. It is there to show how the town\u2019s streets, river banks and lakeshore will be surfaced, and what that costs, before any of them are.',
       'The dirt is worn in wandering lanes rather than two clean wheel tracks, with grit, clods and hoof marks underfoot and grass holding on at the shoulders. Every edge fades into the prairie instead of stopping at a line.',
       'Building it turned up a fault in the project\u2019s own texture library: its soil, muck and sand surfaces are almost perfectly smooth. The strip makes its own grit instead, and the street work that follows can use it.',
+    ] },
+  { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+    items: [
+      'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
+      'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
+      'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
+      'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
     ] },
   { v: 1257, ts: '2026-10-01T12:40:59.752Z', date: 'Oct 1, 2026, 7:40 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
     items: [
