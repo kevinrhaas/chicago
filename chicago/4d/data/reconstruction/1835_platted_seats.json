@@ -70,8 +70,8 @@
    "merchant_and_professional_dwellings": 371,
    "tradesman_dwellings": 547
   },
-  "roofs_offered_for_adoption": 143,
-  "roofs_held_back": 54
+  "roofs_offered_for_adoption": 142,
+  "roofs_held_back": 55
  },
  "what_the_plat_could_not_hold": {
   "rows": 1301,
@@ -456,6 +456,13 @@
    "family": "C1",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "Pierce & French — blacksmithing and edge tool making"
+  },
+  {
+   "structure_id": "recon_1835_west_036",
+   "lot_id": "blk_west_randolph_des_plaines#05",
+   "family": "W5",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "No household of its own — a heavy timber work shed on the Randolph road, where frames were cut for the West Division's new houses"
   }
  ],
  "plan_left_unclaimed": [

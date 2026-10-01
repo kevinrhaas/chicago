@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1246, ts: '2026-10-01T06:23:11.629Z', date: 'Oct 1, 2026, 1:23 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1247, ts: '2026-10-01T06:54:05.009Z', date: 'Oct 1, 2026, 1:54 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
+    items: [
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
     ] },
   { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
     items: [
