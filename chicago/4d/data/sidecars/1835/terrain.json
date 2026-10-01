@@ -19,7 +19,7 @@
     },
     {
       "label": "Measured relief",
-      "text": "Land in the modelled box runs -3.556 to 13.084 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
+      "text": "Land in the modelled box runs -3.556 to 13.884 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
     },
     {
       "label": "Where the ground stops on the south",
@@ -1481,8 +1481,8 @@
           "key": "hollow",
           "value": [
             46.0,
-            0.8,
-            9.0
+            1.1,
+            8.0
           ]
         },
         {
@@ -1541,7 +1541,7 @@
         }
       ],
       "notes": [
-        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches about +13.5 ft, inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
       ]
     },
     {
@@ -1565,9 +1565,9 @@
         {
           "key": "hollow",
           "value": [
-            72.0,
-            1.2,
-            14.0
+            70.0,
+            1.6,
+            12.0
           ]
         },
         {
@@ -1630,7 +1630,7 @@
         }
       ],
       "notes": [
-        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches about +13.5 ft, inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
       ]
     },
     {

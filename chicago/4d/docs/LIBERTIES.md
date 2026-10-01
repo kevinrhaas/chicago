@@ -18488,9 +18488,9 @@ terrain dossier sizes them as scattered hummocks 50–150 ft across with +10 to 
 no source places, measures or draws a single one. So: (1) **where** — two reaches, N +440 to +920
 between the unopened Sand Street corridor and the lake, and N −700 to −2120 along the lake south
 of the old channel's end, each fading in and out over 60–90 m; (2) **the form** — a foredune ridge
-34–45 m inland of the lake's edge (3.6 ft at most), a lower back ridge 58–98 m inland (1.8–2.2 ft),
-and a blowout hollow between (0.8–1.2 ft deep), all broken into hummocks 20–45 m across by noise
-and wandering 7–9 m along the shore; (3) **the bounds** — the tallest hummock stands about +13.1 ft,
+34–44 m inland of the lake's edge (4.4–4.5 ft at most), a lower back ridge 58–96 m inland (2.2–2.6 ft),
+and a blowout hollow between (1.1–1.6 ft deep), all broken into hummocks 20–45 m across by noise
+and wandering 7–9 m along the shore; (3) **the bounds** — the tallest hummock stands +13.9 ft,
 inside the dossier's +10 to +14 ft, and the reaches stop short of the fort, the mouth, the bar,
 the harbour works and Kinzie's platted streets. The beach (the bank face) is left as it was.
 

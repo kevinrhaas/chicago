@@ -2,7 +2,7 @@ export const CHANGELOG = [ // newest first
   { v: 1273, ts: '2026-10-01T21:06:50.269Z', date: 'Oct 1, 2026, 4:06 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
     items: [
       'Walk the lake shore south of the old river channel, or north of the harbour, and the ground behind the beach is no longer flat. A low ridge of sand rises a few steps back from the water, with a second, lower one behind it and a hollow between.',
-      'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre above the ground around it, and you walk up and over them.',
+      'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre and a half above the ground around it, and you walk up and over them.',
       'The fort, the river mouth, the sand bar and the platted streets of the North Side keep the ground they had.',
       'A visitor at the fort wrote of \u201cthe white sand hills both to the north and south\u201d, but no source places or measures one. Where they stand and how high they are is our reconstruction, recorded in the register (L334).',
     ] },
