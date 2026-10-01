@@ -1,8 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1260, ts: '2026-10-01T14:23:30.783Z', date: 'Oct 1, 2026, 9:23 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+  { v: null, ts: '', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
     items: [
       'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
       'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
+    ] },
+  { v: 1261, ts: '2026-10-01T14:18:41.044Z', date: 'Oct 1, 2026, 9:18 AM CT', title: 'Finish a jaunt and keep its keepsake in your daybook', kind: 'feature',
+    items: [
+      'Finish a jaunt and its keepsake is kept in your Chicago daybook. The ending shows the memento you earned and which family moved.',
+      'Open the Daybook from the Jaunts menu or the ending. It shows five families of keepsakes: receipts, work chits, route notes, clippings and calling cards. Each one looks like what it is.',
+      'Your rank goes from New Arrival to Seasoned Chicagoan as every family fills. Replaying a jaunt keeps one copy, so the only way up is a new outing.',
+      'Keepsakes are narrative mementos, not evidence, and the daybook says so at the top. It stays in this browser between visits, and Reset daybook clears it.',
+    ] },
+  { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
+      'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
+      'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
+      'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
     ] },
   { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
