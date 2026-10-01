@@ -277,6 +277,8 @@ const MID_GAIN = 1.7;
 // earth at the crown); this takes that one surface to opaque at full aid.
 // T-1811 kept the gain: it still lifts every partly-covered shoulder pixel.
 const AID_GAIN = 1 / 0.24;
+// T-1811. How far the aid lifts the opaque dirt's lightness at full strength.
+const AID_LIFT = 0.25;
 
 /**
  * T-1811 — THE WORKED ROADWAY, and why it is wider than the track.
@@ -305,24 +307,38 @@ const AID_GAIN = 1 / 0.24;
  * shoulders never outgrow the road they belong to.
  */
 const WORKED_SHARE = { principal: 0.80, ordinary: 0.64, light: 0.44 };
-const WEAR_INTENSITY = { principal: 1.0, ordinary: 0.88, light: 0.55 };
+// The shoulders past the recorded track stop where the ground falls away from
+// the crown by more than this. A bridge approach fill is a causeway one track
+// wide, and a worked shoulder draped down its flanks put the fill's crest
+// through the ribbon by 0.58 m between vertices (Kinzie's approaches, Dearborn's
+// drawbridge fill). Read in 0.5 m steps outward from the track's edge.
+const SHOULDER_DROP_M = 0.35;
+const SHOULDER_STEP_M = 0.5;
+const WEAR_INTENSITY = { principal: 1.0, ordinary: 0.9, light: 0.68 };
 const CORE_SHARE_FLOOR = 0.5;
 /**
- * The dirt's tones, sRGB. Worn lanes and the ground between them are T-1797's
- * proof values (`ground-strip.js` TONES, bounded by the § 4 packed-dirt row of
- * docs/RESEARCH/1835_photographic_fabric_preparation.md); `graded_earth` is the
- * same pair a shade dustier because it was thrown up and drained, and the light
- * streets a shade darker for the organic soil left in them. Mud sits inside
- * `wet_prairie_muck`'s measured basecolor (L 47 of 255) and the shoulder sod is
+ * The dirt's tones, sRGB: dry July dust over packed earth, bounded by two
+ * committed readings — T-1797's proof pair (lane 126,112,91 / between 96,86,69)
+ * below, and the grey sand the same strip drew (136,128,106) above, since a
+ * street's dust is the finer, drier and lighter fraction of what it is made of.
+ * The smoke chose WHERE inside that bound, and it is worth recording how. The
+ * road-legibility gate reads luminance, not hue: T-1797's pair as it stood drew
+ * the road 7 L* LIGHTER than the grass at the walker's eye but only 2 L* apart
+ * from the air, where the prairie reads brighter; a step darker made the air
+ * pass and took the walker's eye to 2 L*. So the road sits at the bound's top,
+ * lighter than the grass from both — which is also what the owner's peer views
+ * show of a summer street. `graded_earth` is the dustiest (thrown up and
+ * drained), the light streets a shade darker. Mud sits inside
+ * `wet_prairie_muck`'s measured basecolor (L 47 of 255); the shoulder sod is
  * dirt carrying root and leaf. Reconstructed, all of it (L324).
  */
 const DIRT_TONES = {
-  graded_earth: { lane: [130, 115, 92], rest: [101, 90, 72] },
-  worn_earth: { lane: [126, 112, 91], rest: [96, 86, 69] },
-  light_worn_earth: { lane: [121, 107, 86], rest: [92, 83, 66] },
+  graded_earth: { lane: [146, 131, 107], rest: [117, 105, 84] },
+  worn_earth: { lane: [142, 128, 104], rest: [113, 101, 81] },
+  light_worn_earth: { lane: [137, 123, 100], rest: [108, 97, 78] },
 };
 const MUD_TONE = [64, 56, 44];
-const SOD_TONE = [86, 82, 60];
+const SOD_TONE = [98, 92, 68];
 
 function trafficOf(raw) {
   return WORKED_SHARE[raw.traffic] ? raw.traffic : 'light';
@@ -736,12 +752,26 @@ function addRecord(buffers, record, terrain, stats) {
     }
     return lo;
   };
-  const joins = mitreJoins(pts, half, dryReach, stats);
-  // A joint's fan may only be drawn between two panels that were both drawn and
-  // whose outer corners were not trimmed back by the waterline — otherwise it
-  // would bridge to an edge that is not there.
+  // T-1811. Past the recorded track a shoulder also stops where the ground
+  // falls away from the crown (SHOULDER_DROP_M) — never inside the track, so the
+  // waterline is still the only thing that can narrow the core.
+  const trackHalf = record.track_width_m * 0.5;
+  const groundReach = (e0, n0, se, sn, max) => {
+    const dry = dryReach(e0, n0, se, sn, max);
+    if (dry <= trackHalf) return dry;
+    const h0 = terrain.surfaceHeight(e0, n0);
+    const falls = (d) => Math.abs(terrain.surfaceHeight(e0 + se * d, n0 + sn * d) - h0)
+      > SHOULDER_DROP_M;
+    for (let d = trackHalf + SHOULDER_STEP_M; d < dry; d += SHOULDER_STEP_M) {
+      if (falls(d)) return Math.max(trackHalf, d - SHOULDER_STEP_M);
+    }
+    return falls(dry) ? Math.max(trackHalf, dry - SHOULDER_STEP_M) : dry;
+  };
+  const joins = mitreJoins(pts, half, groundReach, stats);
+  // A joint's fan may only be drawn between two panels that were both drawn —
+  // otherwise it would bridge to an edge that is not there. A rim the waterline
+  // trimmed is clipped with it rather than dropped (T-1811, below).
   const panelDrawn = pts.map(() => false);
-  const fanBlocked = pts.map(() => false);
 
   for (let i = 1; i < pts.length; i++) {
     const a = pts[i - 1];
@@ -766,7 +796,7 @@ function addRecord(buffers, record, terrain, stats) {
       if (owned) return owned;
       const se = side === 'L' ? ue : -ue;
       const sn = side === 'L' ? un : -un;
-      const reach = dryReach(P[0], P[1], se, sn, half);
+      const reach = groundReach(P[0], P[1], se, sn, half);
       return { e: P[0] + se * reach, n: P[1] + sn * reach, perp: reach,
         trimmed: reach < half - 1e-9 };
     };
@@ -780,12 +810,6 @@ function addRecord(buffers, record, terrain, stats) {
     // the PERPENDICULAR half-widths, which is what the bar has always meant.
     if (aLeft.perp + aRight.perp < MIN_PANEL_W_M
       || bLeft.perp + bRight.perp < MIN_PANEL_W_M) continue;
-    for (const [p, join, ends] of [[i - 1, joins[i - 1], [aLeft, aRight]],
-      [i, joins[i], [bLeft, bRight]]]) {
-      if (!join?.fan) continue;
-      const outerEnd = join.fan.apexSide === 'L' ? ends[1] : ends[0];
-      if (outerEnd.trimmed) fanBlocked[p] = true;
-    }
     // T-0110: a grid of (level+1)² draped vertices — one quad at level 0,
     // which is this function's historical output exactly.
     const grid = refinedPanel(terrain, a, b, ue, un, half, {
@@ -793,7 +817,7 @@ function addRecord(buffers, record, terrain, stats) {
       aRight: [aRight.e, aRight.n],
       bLeft: [bLeft.e, bLeft.n],
       bRight: [bRight.e, bRight.n],
-    }, dryReach);
+    }, groundReach);
     const rows = grid.length - 1;
     const cols = grid[0].length - 1;
     const base = buf.pos.length / 3;
@@ -828,8 +852,23 @@ function addRecord(buffers, record, terrain, stats) {
   // a thing this module may paint.
   for (let p = 1; p < pts.length - 1; p++) {
     const join = joins[p];
-    if (!join?.fan || fanBlocked[p] || !panelDrawn[p] || !panelDrawn[p + 1]) continue;
-    const { apex, outer, apexSide } = join.fan;
+    if (!join?.fan || !panelDrawn[p] || !panelDrawn[p + 1]) continue;
+    const { apex, apexSide } = join.fan;
+    // T-1811. A fan whose rim reached the waterline used to be dropped whole
+    // (`fanBlocked`), which at the core's old 5.25 m never happened on South
+    // Water's west bend and at the worked 9.75 m always did — reopening the very
+    // wedge T-0184 closed. Each rim vertex is now pulled back along its own ray
+    // by the reach the panels use, so the fan's two end vertices are exactly the
+    // trimmed panel corners and the rim between them stays on dry ground.
+    const P = pts[p];
+    const outer = join.fan.outer.map(([e, n]) => {
+      const r = Math.hypot(e - P[0], n - P[1]);
+      if (r < 1e-9) return [e, n];
+      const se = (e - P[0]) / r;
+      const sn = (n - P[1]) / r;
+      const reach = groundReach(P[0], P[1], se, sn, r);
+      return [P[0] + se * reach, P[1] + sn * reach];
+    });
     if (terrain.isWater(apex.e, apex.n)) continue;
     if (outer.some(([e, n]) => terrain.isWater(e, n))) continue;
     const base = buf.pos.length / 3;
@@ -937,7 +976,7 @@ const ROAD_FRAGMENT = /* glsl */`
   // A light street keeps sod wherever its lanes have not reached: grass
   // islands strung along the street between the worn ways.
   float chiSodIsle = chiNoise(vec2(chiAlong / 7.0 + chiSeed * 4.9, chiAcross / 0.9));
-  float chiBetween = (1.0 - chiInt) * 2.2
+  float chiBetween = (1.0 - chiInt) * 1.8
                    * smoothstep(0.42, 0.62, chiSodIsle * 0.75 + chiClump * 0.25 - chiLanes * 0.35 + 0.15);
   float chiCover = (1.0 - chiGrass) * (1.0 - min(chiBetween, 1.0));
   // Ruts: narrow wheel-cut lines that run WITH the street and wander, many of
@@ -1122,6 +1161,14 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
         diffuseColor.a = min(
           diffuseColor.a * mix(1.0, ${AID_GAIN.toFixed(4)}, uRoadAid),
           mix(${MAX_ALPHA.toFixed(2)}, 1.0, uRoadAid));
+        // T-1811. The worked road is opaque, so scaling alpha alone left the
+        // aid moving almost nothing (the smoke read a 0.02 mean cell change at
+        // the crossing, against 0.15). It now does what it is for on an opaque
+        // road: fills the core's sod islands and lifts the dirt's lightness away
+        // from the grass by up to ${AID_LIFT * 100}%. Both are x uRoadAid, so the
+        // default frame is untouched.
+        diffuseColor.a = max(diffuseColor.a, uRoadAid * (1.0 - chiShoulder));
+        diffuseColor.rgb = min(diffuseColor.rgb * (1.0 + ${AID_LIFT.toFixed(2)} * uRoadAid), vec3(1.0));
       }`,
     );
   };

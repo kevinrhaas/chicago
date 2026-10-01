@@ -1966,7 +1966,11 @@ for (const [label, viewport, touch] of [
         let jointStations = 0;
         for (const rec of a.streets.records) {
           const line = rec.drawn ?? rec.path;
-          const half = (rec.drawn_width_m ?? rec.track_width_m ?? 6) * 0.5;
+          // T-1811. The joint stations stay on the RECORDED track — the core the
+          // module never narrows but at the waterline. Past it the worked
+          // shoulders stop where a fill's flank falls away, so a station there
+          // asks a question about ground the road does not claim.
+          const half = (rec.track_width_m ?? 6) * 0.5;
           for (let i = 1; i < line.length - 1; i++) {
             const [A, P, B] = [line[i - 1], line[i], line[i + 1]];
             let turn = Math.atan2(B[1] - P[1], B[0] - P[0])

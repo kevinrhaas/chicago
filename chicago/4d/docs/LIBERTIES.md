@@ -18133,10 +18133,14 @@ opened street is drawn as packed earth across a **worked width** set by its traf
 0.44 for `light` (10.7 m). It is never narrower than the recorded `track_width_m`, which stays
 the opaque core. Past the core, the shoulders give way to grass in clumps. A light street also
 keeps sod islands between its lanes. The wear is many overlapping lanes that wander along the
-street, with narrow ruts and muddy patches where the wear is heaviest. The tones are T-1797's
-proof values for worn lanes and the ground between them (sRGB 126,112,91 / 96,86,69). Graded
-streets are a shade dustier and light streets a shade darker, the mud sits inside
-`wet_prairie_muck`'s measured basecolor, and the fine grit is T-1797's generated tile. Where a
+street, with narrow ruts and muddy patches where the wear is heaviest. The tones are dry
+dust over packed earth (worn lanes sRGB 142,128,104, between them 113,101,81). They sit inside
+a bound set by two committed readings: T-1797's proof dirt pair (126,112,91 / 96,86,69) below
+and the grey sand the same strip drew (136,128,106) above. They sit at the top of that bound
+because the road-legibility gate reads luminance and the pair as it stood was only 2 L\* apart
+from the prairie from the air. Graded streets are a shade dustier and light streets a shade
+darker, the mud sits inside `wet_prairie_muck`'s measured basecolor, and the fine grit is
+T-1797's generated tile. Where a
 particular lane, rut or puddle falls is a seeded hash per street, not anyone's account of it.
 
 **Why:** The owner asked on 2026-09-30 (T-1770) for "a full dirt roadway" in place of the two
