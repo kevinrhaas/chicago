@@ -20023,8 +20023,26 @@
         {
           "domain": "structure",
           "structure": "landing_camp_east",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_east",
+          "phase": "camp_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_east",
           "phase": "camp_1835",
           "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_east",
+          "phase": "camp_1835",
+          "aspect": "form.arrangement"
         },
         {
           "domain": "structure",
@@ -20083,8 +20101,26 @@
         {
           "domain": "structure",
           "structure": "landing_camp_west",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_west",
+          "phase": "camp_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_west",
           "phase": "camp_1835",
           "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "landing_camp_west",
+          "phase": "camp_1835",
+          "aspect": "form.arrangement"
         },
         {
           "domain": "structure",
@@ -20162,7 +20198,7 @@
         },
         {
           "label": "Covers",
-          "text": "`landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`, `landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`, `landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`, `landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`, `landing_camp_west.camp_1835.form.baggage_heaps`, `landing_camp_west.camp_1835.form.canvas_condition`, `landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`, `landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`, `landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`, `landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`, `landing_camp_east.camp_1835.form.baggage_heaps`, `landing_camp_east.camp_1835.form.canvas_condition`"
+          "text": "`landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`, `landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`, `landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`, `landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`, `landing_camp_west.camp_1835.form.baggage_heaps`, `landing_camp_west.camp_1835.form.canvas_condition`, `landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`, `landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`, `landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`, `landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`, `landing_camp_east.camp_1835.form.baggage_heaps`, `landing_camp_east.camp_1835.form.canvas_condition`, `landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`, `landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`, `landing_camp_west.occupants`, `landing_camp_east.occupants`"
         },
         {
           "label": "Related",

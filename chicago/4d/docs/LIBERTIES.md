@@ -18086,7 +18086,10 @@ emigrants at the landing; any account of what an emigrant family's outfit at Chi
 `landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`,
 `landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`,
 `landing_camp_east.camp_1835.form.baggage_heaps`,
-`landing_camp_east.camp_1835.form.canvas_condition`
+`landing_camp_east.camp_1835.form.canvas_condition`,
+`landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`,
+`landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`,
+`landing_camp_west.occupants`, `landing_camp_east.occupants`
 **Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the
 camp households), **T-1804** (the other grounds and the Native and Métis camps).
 **Recorded:** 2026-10-01.
