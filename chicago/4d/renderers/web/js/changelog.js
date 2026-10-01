@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+  { v: 1255, ts: '2026-10-01T11:59:52.778Z', date: 'Oct 1, 2026, 6:59 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
       'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
