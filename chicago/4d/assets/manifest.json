@@ -4240,6 +4240,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_055"
     },
+    "recon_1835_west_freight_f2_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 102112,
+      "inputs_sha256": "1a8f6f4bcde3d1da7feeac4b3f0aacf6fbe104be24732bd03c4f707a93c2ca2e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_freight_f2_001"
+    },
     "robert_kinzie_store__store_1830.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

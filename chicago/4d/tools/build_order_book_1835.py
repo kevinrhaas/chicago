@@ -462,7 +462,9 @@ STRUCTURE_TICKETS = {
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1764",
+    # T-1764 WAS SPLIT on 2026-10-01 (T-1773, T-1774) and its one row goes to T-1773,
+    # which names the roof: the West's second freight roof, at Lake and West Water.
+    ("west", "warehouses_freight"): "T-1773",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
