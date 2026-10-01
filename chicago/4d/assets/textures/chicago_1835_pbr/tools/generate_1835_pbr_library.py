@@ -150,7 +150,7 @@ def boardface(size, seed):
     fine=streaks(size,seed+1,40,1.2)        # raised grain, a few mm across
     mid=streaks(size,seed+2,110,4)          # early/late wood bands
     broad=fbm(size,seed+3,(160,60),(.7,.3)) # 0.5-2 m weathering, Glessner's lawn lesson
-    ck=checks(size,seed+4,45,200,(0.5,1.4))
+    ck=checks(size,seed+4,28,170,(0.5,1.2))   # sparse: a weathered board, not a split one
     h=.50+.10*(fine-.5)+.08*(mid-.5)+.05*(broad-.5)-.22*ck
     tone=clamp01(.5+1.3*(mid-.5)+.7*(fine-.5)+.9*(broad-.5))
     return clamp01(h),clamp01(ck),tone
@@ -282,7 +282,7 @@ def surface(spec, seed):
     if k in ("boardface","logface"):
         # Colour follows the grain, the weather and the checks the normal map lights,
         # so the albedo modulation a renderer reads from it lands on the same wood.
-        color=palette(.20*n+.80*tone,*spec["colors"]); color*=1-.35*m[...,None]
+        color=palette(.20*n+.80*tone,*spec["colors"]); color*=1-(.20 if k=="boardface" else .35)*m[...,None]
     elif k in ("clapboard","batten","vertical","planks","roofboards","walk","tarwood","shingle","log"):
         g=grain(SIZE,seed+12,vertical=k in ("clapboard","shingle","log","roofboards","walk"))
         color=palette(.25*n+.75*g,*spec["colors"])
