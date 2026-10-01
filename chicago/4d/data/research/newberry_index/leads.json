@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "9804746ef11adc387694f642ed3ca544a86c614d26bbf712e06308116caef499",
+    "fingerprint": "bbbe6557e6b6c5e868c07e4faec0d78f8a6d628203e49432c9725f888a426c28",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 501,
+      "structures": 503,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1022,
+    "leads": 1023,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 473,
-      "structures": 43,
+      "structures": 44,
       "voters": 151
     }
   },
@@ -10055,6 +10055,33 @@
         "nbi_v01_1960"
       ],
       "works_cited": [],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v01_doctor_structures",
+      "surname_key": "doctor",
+      "spellings_as_printed": [
+        "Doctor"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "wabansia_doctors_barn",
+          "name": "The doctor's barn in Wabansia",
+          "rule": "exact surname"
+        },
+        {
+          "id": "wabansia_doctors_house",
+          "name": "The doctor's house in Wabansia",
+          "rule": "exact surname"
+        }
+      ],
+      "entries": [
+        "nbi_v01_1966"
+      ],
+      "works_cited": [
+        "county_histories_kett_and_co"
+      ],
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {

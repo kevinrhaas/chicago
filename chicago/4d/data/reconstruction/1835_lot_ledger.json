@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 117,
-   "free": 171,
+   "at_capacity": 118,
+   "free": 170,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 172,
-  "lots_barring_another_roof": 170,
+  "lots_with_a_roof": 173,
+  "lots_barring_another_roof": 171,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 231,
+  "principal_roofs_standing": 232,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8409,14 +8409,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "wabansia_doctors_barn",
+    "wabansia_doctors_house"
+   ],
+   "standing_families": {
+    "wabansia_doctors_barn": "A2",
+    "wabansia_doctors_house": "D6"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#00",

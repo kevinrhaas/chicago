@@ -13206,6 +13206,18 @@
       "asset": "gltf/tremont_house_1__frame_1833.glb"
     },
     {
+      "id": "wabansia_doctors_barn",
+      "name": "The doctor's barn in Wabansia",
+      "sidecar": "sidecars/1835/wabansia_doctors_barn.json",
+      "asset": "gltf/wabansia_doctors_barn__documented_1834.glb"
+    },
+    {
+      "id": "wabansia_doctors_house",
+      "name": "The doctor's house in Wabansia",
+      "sidecar": "sidecars/1835/wabansia_doctors_house.json",
+      "asset": "gltf/wabansia_doctors_house__documented_1834.glb"
+    },
+    {
       "id": "walker_meeting_house",
       "name": "Walker Meeting House",
       "sidecar": "sidecars/1835/walker_meeting_house.json",

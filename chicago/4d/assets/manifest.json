@@ -4470,6 +4470,24 @@
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"
     },
+    "wabansia_doctors_barn__documented_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 116632,
+      "inputs_sha256": "6777b54b014d1103bd7fea38e7419f3d0fe21543c0b5638d89b315d9747d4876",
+      "kind": "generated",
+      "phase_id": "documented_1834",
+      "structure_id": "wabansia_doctors_barn"
+    },
+    "wabansia_doctors_house__documented_1834.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 50212,
+      "inputs_sha256": "c6f94179a92edf7f79034e5ec4ade66995d5526636e53a9131d8c826d77a2fc5",
+      "kind": "generated",
+      "phase_id": "documented_1834",
+      "structure_id": "wabansia_doctors_house"
+    },
     "walker_meeting_house__log_1831.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

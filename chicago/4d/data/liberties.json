@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 314,
+  "count": 315,
   "liberties": [
     {
       "id": "L1",
@@ -14291,18 +14291,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 91
+        "count": 93
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 91 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 93 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 93 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia, the first named records on that survey, which the construction puts in the tract entered by Edmond Roberts on 5 October 1830, 2 m inside its line). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -16139,14 +16139,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 481
+        "count": 483
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 481 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 483 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make **483**: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -19576,6 +19576,174 @@
         {
           "label": "Revised",
           "text": "2026-10-01 (T-1761, re-cut on current `dev`: the lot 7 cottage re-sized to the D4 the request then asked for, and the seating outcome re-measured); 2026-10-01 again (re-measured on `dev` after T-1760: the requests had moved and the deal was not re-cut to them, which is said above); 2026-10-01 a third time (numbered **L312**: it was written as L308, and T-1773's warehouse took that number on `dev` first — the entry's words did not change, only its number, and the four references to it moved with it)."
+        }
+      ]
+    },
+    {
+      "id": "L316",
+      "title": "The doctor's house in Wabansia: an attested house, barn and garden on ground the advertisement names only as Wabansia",
+      "section": "per_subject",
+      "subjects": [
+        "kimberly_residence",
+        "wabansia_doctors_barn",
+        "wabansia_doctors_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.loft"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/structures/wabansia_doctors_house.json`, `data/structures/wabansia_doctors_barn.json`, `data/enclosures/wabansia_doctors_garden.json`"
+        },
+        {
+          "label": "Covers",
+          "text": "`wabansia_doctors_house.documented_1834.position`, `wabansia_doctors_house.documented_1834.footprint`, `wabansia_doctors_barn.documented_1834.position`, `wabansia_doctors_barn.documented_1834.footprint`, `wabansia_doctors_house.documented_1834.form.roof_type`, `wabansia_doctors_house.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_house.documented_1834.form.construction`, `wabansia_doctors_house.documented_1834.form.plan`, `wabansia_doctors_house.documented_1834.form.bays`, `wabansia_doctors_house.documented_1834.form.chimneys`, `wabansia_doctors_house.documented_1834.form.paint`, `wabansia_doctors_house.documented_1834.form.siding_exposure_m`, `wabansia_doctors_barn.documented_1834.form.construction`, `wabansia_doctors_barn.documented_1834.form.wall_height_m`, `wabansia_doctors_barn.documented_1834.form.roof_type`, `wabansia_doctors_barn.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_barn.documented_1834.form.door`, `wabansia_doctors_barn.documented_1834.form.door_side`, `wabansia_doctors_barn.documented_1834.form.loft`, `wabansia_doctors_barn.documented_1834.form.paint`"
+        },
+        {
+          "label": "What we invented",
+          "text": "Where the house stands, and its size. The Chicago Democrat of 16 July 1834 offers to rent or lease \"[a] convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.\" That line attests the house, its four rooms, its kitchen, its barn and its garden, and the survey they stood in; it gives no block, lot, street or dimension. The house is placed on Wright's block 59 (`blk_wabansia_c_t7`), the survey's south-east block on Kinzie Street beside the North Branch, on its eastern lot, 6 m back from the Kinzie line — the block nearest the town and its road, chosen for that and for nothing a source says. The four rooms are read as a 24 × 18 ft story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule. The house's clapboard exposure is the one `tools/deal_siding_stock.py` deals every named frame building (L148), and is no more evidence than theirs."
+        },
+        {
+          "label": "Why",
+          "text": "It is the only household the corpus puts in Wabansia before the scene date, and the only house in the Democrat's 1834 run described room by room. Leaving it out because the advertisement names no lot would leave the survey empty when the evidence says one house stood in it."
+        },
+        {
+          "label": "Omission",
+          "text": "No household is seated under the roof. The 1834 occupant is a physician whose name is cut at the column edge; that he is the Dr Kimberly of `kimberly_residence` (Kinzie's Addition, 1835) would fit a house offered for let, but no source says so and no merge is declared. Who lived there on 1 July 1835 is not known."
+        },
+        {
+          "label": "Would replace",
+          "text": "A deed, tax list or reminiscence naming the lot replaces the whole of the position; a later advertisement or a description of the house replaces its dimensions and plan."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1785 (piece 5 of T-1208)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01 (T-1785)."
         }
       ]
     },

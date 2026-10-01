@@ -44,16 +44,16 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1022,
-  "cards_ruled": 1423,
+  "leads_ruled": 1023,
+  "cards_ruled": 1424,
   "by_outcome": {
-   "refused": 759,
+   "refused": 760,
    "candidate": 263
   },
   "by_class": {
    "ocr_variant_only": 367,
    "testable_in_a_held_work": 263,
-   "locality_absent": 292,
+   "locality_absent": 293,
    "surname_only_chicago": 100
   },
   "matched": 0,
@@ -12632,6 +12632,38 @@
     "doane_seth_b"
    ],
    "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
+   "lead_id": "lead_v01_doctor_structures",
+   "surname_key": "doctor",
+   "spellings_as_printed": [
+    "Doctor"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "reason": "Refused. All 1 card(s) heading 'Doctor' name Illinois and neither Chicago nor Cook County, so the lead against The doctor's barn in Wabansia; The doctor's house in Wabansia stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "record_ids": [
+    "nbi_v01_1966"
+   ],
+   "candidates": [
+    {
+     "id": "wabansia_doctors_barn",
+     "name": "The doctor's barn in Wabansia",
+     "rule": "exact surname"
+    },
+    {
+     "id": "wabansia_doctors_house",
+     "name": "The doctor's house in Wabansia",
+     "rule": "exact surname"
+    }
+   ],
+   "person_ids": [],
+   "works_cited": [
+    "county_histories_kett_and_co"
+   ],
    "held_works": [],
    "discriminators": []
   },
@@ -67760,6 +67792,37 @@
     ],
     "index_page": 759,
     "column": 3
+   },
+   "ticket": "T-0590"
+  },
+  {
+   "record_id": "nbi_v01_1966",
+   "a": "Doctor | 193.31 _ _ Ogle Co., III. (Kelt, H. F., l i Ce.) \\ i m f M",
+   "b": "The doctor's barn in Wabansia; The doctor's house in Wabansia",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "rule": "Refused. All 1 card(s) heading 'Doctor' name Illinois and neither Chicago nor Cook County, so the lead against The doctor's barn in Wabansia; The doctor's house in Wabansia stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Doctor | 193.31 _ _ Ogle Co., III. (Kelt, H. F., l i Ce.) \\\\ i m f M' against The doctor's barn in Wabansia; The doctor's house in Wabansia.",
+   "layers": [
+    "structures"
+   ],
+   "leads": [
+    "lead_v01_doctor_structures"
+   ],
+   "person_ids": [],
+   "person_id": null,
+   "evidence": [
+    "nbi_v01_1966",
+    "data/research/newberry_index/leads.json"
+   ],
+   "locator": {
+    "list": "vol_01",
+    "text_file": "vol_01_locality_cards.txt",
+    "lines": [
+     3937,
+     3938
+    ],
+    "index_page": 762,
+    "column": 1
    },
    "ticket": "T-0590"
   },
