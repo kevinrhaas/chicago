@@ -663,11 +663,20 @@ FORWARDING_TRADES = ("forwarding_and_commission_store", "forwarding_commission_w
                      "warehouse_and_slaughter_yard", "slaughterhouse_packing",
                      "packing_house", "freight_or_storage_shed", "freight_shed",
                      "narrow_two_story_warehouse")
+# THE WALK ITSELF IS DEALT BY BUSINESS TOO (T-1814), and `walk` is that column. An
+# inn's and a store's customers come on foot to a door, so they front the town's
+# 6 ft BOARD walk the layer already lays. A forwarding house or warehouse loads and
+# lands goods across its own front, so the board walk there is widened by a DECK of
+# 3-inch plank on its street side — a 10 ft decked walk the width of the house, the
+# same heavy stock the wagon apron is laid in, which a barrow and a hand truck cross
+# without dropping off the boards. A works — the smith — fronts BARE GROUND: the
+# walk stops either side of its front, because a shoeing floor's front is trodden
+# yard, and its tie rail stands on that ground at the line the verge would have.
 FRONTAGE_BY_BUSINESS = {
-    "inn": {"posts": HITCH_ALONG, "stoop": True, "mounting_block": True},
-    "store": {"posts": (HITCH_ALONG[0],), "stoop": True},
-    "forwarding": {"posts": (HITCH_ALONG[0],), "wagon_apron": True},
-    "works": {"posts": (), "tie_rail": True},
+    "inn": {"walk": "board", "posts": HITCH_ALONG, "stoop": True, "mounting_block": True},
+    "store": {"walk": "board", "posts": (HITCH_ALONG[0],), "stoop": True},
+    "forwarding": {"walk": "decked", "posts": (HITCH_ALONG[0],), "wagon_apron": True},
+    "works": {"walk": "bare", "posts": (), "tie_rail": True},
 }
 
 
@@ -713,6 +722,8 @@ APRON_MAX_M = 3.0
 APRON_MIN_M = 0.9
 APRON_PLANK_M = 0.30
 APRON_T_M = 0.075             # 3 in plank, heavier than the walk's
+DECKED_EXTRA_M = 1.22         # 4 ft of deck on the walk's street side: a 10 ft walk
+DECKED_MIN_M = 2.0            # less of a front than this beside a laid run is no front
 
 # THE SOUTH WATER PLACEMENTS (T-0127), NAMED HERE BECAUSE THE RECORD IS WHERE A
 # READER MEETS THEM. Eleven documented buildings on South Water Street's south
@@ -2936,7 +2947,7 @@ def _fence_runs(entry, laid, buildings, hf, refused):
 EDGE_OWN_POSTS = {b["structure_id"] for b in BUILDINGS if b.get("hitching")}
 
 
-def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused):
+def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused, decked=()):
     """The hitching posts on one face: one per trading frontage the rule accepts.
 
     Every clause is stated beside EDGE_HITCH_ALONG above and every refusal below
@@ -3037,7 +3048,10 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused):
                     f"{b['id']}'s own frontage would stand — a post stands in the verge "
                     "OUTSIDE a walk, and there is no walk here to stand outside of.")})
                 continue
-            at = _point_on(frame, at_t, EDGE_HITCH_OFFSET_M)
+            # Past a forwarding house's decked walk the post stands out beyond the
+            # deck by the same verge (T-1814), not in the middle of its planks.
+            post_o = EDGE_HITCH_OFFSET_M + _decked_at(decked, at_t)
+            at = _point_on(frame, at_t, post_o)
             half = HITCH_SQ_M / 2.0
             blocked = _wall_on(at, half, frame["outward"], buildings)
             if blocked:
@@ -3105,7 +3119,7 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused):
                        "reconstructed as the trade it serves (T-1813). ")
                     + "WHERE is derived: the footprint is projected onto its "
                     f"own platted face, the post stands at {frac:.2f} of "
-                    f"that frontage and {EDGE_HITCH_OFFSET_M:.2f} m out from the lot "
+                    f"that frontage and {post_o:.2f} m out from the lot "
                     f"line — {HITCH_VERGE_M:.2f} m clear of the walk's outer edge, the "
                     "same verge the Sauganash's own posts stand in — on committed "
                     f"ground at {ground:+.2f} m with {clear:.2f} m still between it and "
@@ -3132,6 +3146,193 @@ def _face_meets(entry, buildings) -> list:
                         key=lambda x: x["id"]):
             met.setdefault(b["id"], (b, f"{block['id']} {face} face, lot {index}"))
     return list(met.values())
+
+
+def _business_fronts(entry, buildings, walk_kind) -> list:
+    """The business fronts on this face whose FRONTAGE_BY_BUSINESS row deals the
+    walk `walk_kind`, each as (building, where, class, f0, f1) — f0..f1 being the
+    building's own frontage projected onto the face. A front whose door looks onto
+    another street is skipped here exactly as `_edge_hitching` refuses its post,
+    because the walk it would vary is not the walk in front of its door."""
+    frame = entry["frame"]
+    face_out = math.degrees(math.atan2(frame["outward"][0], frame["outward"][1])) % 360.0
+    out = []
+    for b, where in _face_meets(entry, buildings):
+        cls = business_class(b["trade"])
+        if cls is None or b["id"] in EDGE_OWN_POSTS:
+            continue
+        if FRONTAGE_BY_BUSINESS[cls]["walk"] != walk_kind:
+            continue
+        off_face = abs((b["bearing"] - face_out + 180.0) % 360.0 - 180.0)
+        if off_face > EDGE_HITCH_FACE_TOL_DEG:
+            continue
+        spans = [project(frame, tuple(p))[0] for p in b["pts"]]
+        out.append((b, where, cls, min(spans), max(spans)))
+    return out
+
+
+def _bare_cut(entry, spans, buildings, refused) -> list:
+    """T-1814 — A WORKS FRONTS BARE GROUND. Every march step whose middle lies in
+    front of a works is refused for that reason before the steps become runs, so
+    the walk stops either side of the works and `_runs_from` decides, by the same
+    10.4 m rule as everywhere else, whether what is left either side is still a
+    sidewalk. A works narrower than one step takes the step its middle falls in.
+    Returns the fronts cut, as (building, where, f0, f1), for the tie rail."""
+    block = entry["block"]
+    face = entry["face"]
+    cut_fronts = []
+    for b, where, _cls, f0, f1 in _business_fronts(entry, buildings, "bare"):
+        hit = [sp for sp in spans if f0 <= (sp["lo"] + sp["hi"]) / 2.0 <= f1]
+        if not hit:
+            mid = (f0 + f1) / 2.0
+            hit = [sp for sp in spans if sp["lo"] <= mid <= sp["hi"]][:1]
+        hit = [sp for sp in hit if sp["why"] is None]
+        if not hit:
+            continue
+        for sp in hit:
+            sp["why"] = (f"bare ground in front of {b['id']}, a {b['trade']} — "
+                         "FRONTAGE_BY_BUSINESS lays a works no walk")
+        lo = min(sp["lo"] for sp in hit)
+        hi = max(sp["hi"] for sp in hit)
+        cut_fronts.append((b, where, f0, f1))
+        refused.append({"structure_id": f"{b['id']}_walk", "wall": where, "why": (
+            f"no plank walk in front of {b['id']}, a {b['trade']} (held "
+            f"`{b['trade_grade']}`): FRONTAGE_BY_BUSINESS reads it as a works, and a "
+            "works fronts bare ground — its customers bring a horse to be shod or a "
+            "wheel to be mended, and the trodden yard in front of a shoeing floor is "
+            f"its working ground. The walk on {block['id']}'s {face} face stops either "
+            f"side of it, from {lo:.1f} m to {hi:.1f} m along the face "
+            f"({hi - lo:.1f} m, the march steps whose middle lies in front of its "
+            f"{f1 - f0:.1f} m frontage).")})
+    return cut_fronts
+
+
+def _decked_walks(entry, laid, chunks, buildings, hf, streets, refused) -> tuple[list, list]:
+    """T-1814 — A FORWARDING HOUSE'S WIDE DECKED WALK. In front of each forwarding
+    house or warehouse, wherever the board walk is laid, a deck of 3-inch plank
+    DECKED_EXTRA_M wide is laid against the walk's street side the length of the
+    house's own frontage, so the house fronts a 10 ft decked walk where its
+    neighbours front a 6 ft board one. Each strip is its own walk record in the
+    run's own chunk (no draw call), publishes its own walking deck, and answers the
+    walk's own questions: dry committed ground, flat enough for one deck, nothing
+    standing on it, and the track still kept clear. Returns (walks, intervals) —
+    the intervals so the posts and the apron stand out past the wider walk."""
+    frame = entry["frame"]
+    block = entry["block"]
+    face = entry["face"]
+    street = entry["street"]
+    name = streets[street]["name"]
+    key = f"{block['id']}_{face}"
+    walk_out = EDGE_OFFSET_M + WALK_W_M / 2.0
+    centre_o = walk_out + DECKED_EXTRA_M / 2.0
+    half = DECKED_EXTRA_M / 2.0
+    walks, intervals = [], []
+    for b, where, cls, f0, f1 in _business_fronts(entry, buildings, "decked"):
+        laid_any = False
+        for k, (lo, hi) in enumerate(laid, start=1):
+            a0, a1 = max(lo, f0), min(hi, f1)
+            if a1 - a0 < DECKED_MIN_M:
+                continue
+            laid_any = True
+
+            def refuse(why):
+                refused.append({"structure_id": f"{b['id']}_decked_walk", "wall": where,
+                                "why": f"no decked walk in front of {b['id']}: {why}"})
+
+            steps = max(2, int(round((a1 - a0) / PLANK_PITCH_M)))
+            heights, blocked, clear = [], None, float("inf")
+            for j in range(steps + 1):
+                t = a0 + (a1 - a0) * j / steps
+                for o in (centre_o - half + 0.09, centre_o, centre_o + half - 0.09):
+                    pt = _point_on(frame, t, o)
+                    heights.append(hf.height(pt[0], pt[1]))
+                pt = _point_on(frame, t, centre_o)
+                blocked = blocked or _wall_on(
+                    pt, half, frame["outward"], [x for x in buildings if x["id"] != b["id"]])
+                d, _ = _nearest_on_path(_point_on(frame, t, walk_out + DECKED_EXTRA_M),
+                                        streets[street]["path"])
+                clear = min(clear, d - streets[street]["track_w"] / 2.0)
+            if any(h is None for h in heights):
+                refuse("part of the deck would stand off the committed heightfield.")
+                continue
+            low, high = min(heights), max(heights)
+            if blocked:
+                refuse(f"{blocked} stands on the ground it would occupy.")
+                continue
+            if low < EDGE_DRY_M:
+                refuse(f"the ground under it is {low:+.2f} m — at or under the water.")
+                continue
+            if high - low > EDGE_FLAT_M:
+                refuse(f"the ground under it rolls {high - low:.2f} m, past the "
+                       f"{EDGE_FLAT_M} m one walking deck may carry.")
+                continue
+            if clear < EDGE_TRACK_MARGIN_M:
+                refuse(f"it would leave {clear:.2f} m to the {name} track, under the "
+                       f"{EDGE_TRACK_MARGIN_M} m this layer keeps out of the travelled way.")
+                continue
+            start = _point_on(frame, a0, centre_o)
+            end = _point_on(frame, a1, centre_o)
+            pts = []
+            for t, s_ in ((a0 - EDGE_DECK_LAP_M, -1), (a1 + EDGE_DECK_LAP_M, -1),
+                          (a1 + EDGE_DECK_LAP_M, 1), (a0 - EDGE_DECK_LAP_M, 1)):
+                q = _point_on(frame, t, centre_o + s_ * half)
+                pts.append([_round(q[0]), _round(q[1])])
+            intervals.append((a0, a1))
+            walks.append({
+                "id": f"{key}_decked_walk_{b['id']}" + ("" if k == 1 else f"_{k}"),
+                "belongs_to": STREET_EDGE_ID,
+                "kind": "decked_walk",
+                "confidence": "reconstructed",
+                "street": street,
+                "street_name": name,
+                "chunk": chunks[k - 1],
+                "serves": b["id"],
+                "serves_name": b["name"] or None,
+                "trade": b["trade"],
+                "trade_confidence": b["trade_grade"],
+                "business_class": cls,
+                "centreline_local_enu_m": [[_round(start[0]), _round(start[1])],
+                                           [_round(end[0]), _round(end[1])]],
+                "width_m": DECKED_EXTRA_M,
+                "rise_m": WALK_RISE_M,
+                "plank_run": "across",
+                "plank_pitch_m": EDGE_PLANK_PITCH_M,
+                "plank_thickness_m": APRON_T_M,
+                "plank_underside": EDGE_PLANK_UNDERSIDE,
+                "stringer_pitch_m": EDGE_STRINGER_PITCH_M,
+                "lot_line_offset_m": _round(centre_o),
+                "verge_to_track_m": _round(clear),
+                "footway_decks": [{"y": _round(high + WALK_RISE_M, 3), "pts": pts,
+                                   "ground_roll_m": _round(high - low, 3)}],
+                "note": (
+                    f"THE DECKED WALK IN FRONT OF {(b['name'] or b['id']).upper()}, a "
+                    f"`{b['trade']}` (held `{b['trade_grade']}`), which "
+                    "FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's "
+                    f"{WALK_W_M} m board walk widened by {DECKED_EXTRA_M} m of "
+                    f"{APRON_T_M * 1000:.0f} mm plank on its street side, a "
+                    f"{WALK_W_M + DECKED_EXTRA_M:.2f} m deck where goods were landed "
+                    "and loaded across the front. WHERE is derived: the house's own "
+                    f"frontage projected onto {block['id']}'s {face} face, "
+                    f"{a0:.1f} m to {a1:.1f} m along it, clipped to the walk run laid "
+                    f"there, on dry committed ground rolling {high - low:.2f} m and "
+                    f"leaving {clear:.2f} m to the {name} track. WHAT IS INVENTED: that "
+                    "the deck stood here on 1 July 1835, its width and its stock — no "
+                    "source in this repository measures a Chicago forwarding house's "
+                    "walk. docs/LIBERTIES.md "
+                    f"{STREET_EDGE_LIBERTY} (amended by T-1814)."
+                ),
+            })
+        if not laid_any:
+            refused.append({"structure_id": f"{b['id']}_decked_walk", "wall": where, "why": (
+                f"no decked walk in front of {b['id']}: no board walk is laid along "
+                f"{DECKED_MIN_M} m or more of its {f1 - f0:.1f} m frontage, and the deck "
+                "is laid against that walk's street side.")})
+    return walks, intervals
+
+
+def _decked_at(intervals, t) -> float:
+    """How much wider than the board walk the walk is at `t` along the face."""
+    return DECKED_EXTRA_M if any(a - 1e-6 <= t <= b + 1e-6 for a, b in intervals) else 0.0
 
 
 def _wall_at(frame, pts, t) -> float | None:
@@ -3171,7 +3372,8 @@ FITTING_WORDS = {
 }
 
 
-def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused) -> list:
+def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=(),
+                   bare_fronts=()) -> list:
     """The fittings a business's front takes beyond the walk and the posts (T-1813):
     the stoop, the mounting block, the tie rail and the wagon apron that
     FRONTAGE_BY_BUSINESS deals by class. Every clause that can refuse one is the
@@ -3185,8 +3387,7 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused) -> list
     name = streets[street]["name"]
     out = []
     face_out = math.degrees(math.atan2(frame["outward"][0], frame["outward"][1])) % 360.0
-    walk_out = EDGE_OFFSET_M + WALK_W_M / 2.0     # the walk's outer edge
-    verge_o = EDGE_HITCH_OFFSET_M                  # the post line in the verge
+    bare_ids = {b["id"] for b, *_ in bare_fronts}
 
     def run_at(t):
         hit = None
@@ -3225,8 +3426,18 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused) -> list
                 refused.append({"structure_id": b["id"], "wall": where, "why": (
                     f"no {kind.replace('_', ' ')} at {b['id']}: {why}")})
 
+            # The walk's outer edge and the post line in the verge, both out past a
+            # forwarding house's decked walk where one is laid (T-1814).
+            walk_out = EDGE_OFFSET_M + WALK_W_M / 2.0 + _decked_at(decked, t)
+            verge_o = EDGE_HITCH_OFFSET_M + _decked_at(decked, t)
             run = run_at(t)
-            if run is None:
+            if run is None and b["id"] in bare_ids and laid:
+                # A works fronts bare ground (T-1814), so its tie rail stands on
+                # that ground with no walk in front of it, and rides the nearest
+                # run's chunk so it costs no draw call.
+                run = min(range(1, len(laid) + 1), key=lambda k: min(
+                    abs(t - laid[k - 1][0]), abs(t - laid[k - 1][1])))
+            elif run is None:
                 refuse(f"no walk is laid at {t:.1f} m along this face, in front of the "
                        "door it would serve, and every fitting here is laid against the "
                        "walk.")
@@ -3278,7 +3489,7 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused) -> list
                           f"{MOUNT_LOW_M} and {MOUNT_HIGH_M} m high")
             elif kind == "tie_rail":
                 ends = (t - RAIL_SPAN_M / 2.0, t + RAIL_SPAN_M / 2.0)
-                if any(run_at(e) is None for e in ends):
+                if b["id"] not in bare_ids and any(run_at(e) is None for e in ends):
                     refuse("the walk does not run the whole length of the rail.")
                     continue
                 for k, e in enumerate(ends):
@@ -3384,7 +3595,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     refused: list = []
     laid_by_face: dict = {}
     census = {"faces": 0, "runs": 0, "walk_m": 0.0, "crossings": 0, "cross_m": 0.0,
-              "fences": 0, "fence_m": 0.0, "decks": 0, "hitching": 0, "fittings": {}}
+              "fences": 0, "fence_m": 0.0, "decks": 0, "hitching": 0, "fittings": {},
+              "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0}
     fittings: list = []
 
     for entry in faces:
@@ -3433,6 +3645,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                 "street fence and the hitching post are already refused under.")})
             continue
         spans = _march(frame, EDGE_OFFSET_M, half_w, hf, buildings)
+        bare_fronts = _bare_cut(entry, spans, buildings, refused)
+        census["bare_fronts"] += len(bare_fronts)
         runs = _runs_from(spans)
         if not runs:
             worst = spans[0]["why"] if spans else "the face has no length"
@@ -3514,17 +3728,26 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                 "any lot owns. The walk is laid; the fence line behind it belongs to "
                 "the lots either side, which carry their own on their own frontages.")})
             continue
+        # T-1814 — the forwarding houses' decked walks, laid against the walk's
+        # street side before anything that stands in the verge beyond it.
+        decked_walks, decked = _decked_walks(entry, laid, face_chunks, buildings, hf,
+                                             streets, refused)
+        for w in decked_walks:
+            census["decked_walks"] += 1
+            census["decked_m"] += (math.dist(*w["centreline_local_enu_m"]))
+            census["decks"] += len(w["footway_decks"])
+            walks.append(w)
         # The hitching posts at this face's trading frontages (T-0194), which
         # stand in the verge OUTSIDE the walk just laid and are therefore asked
         # for after it rather than beside it.
         for post in _edge_hitching(entry, laid, face_chunks, buildings, hf,
-                                   streets, refused):
+                                   streets, refused, decked):
             census["hitching"] += 1
             posts.append(post)
         # T-1813 — and the rest of what this front's business takes: the stoop, the
         # mounting block, the tie rail and the wagon apron FRONTAGE_BY_BUSINESS deals.
         for fit in _edge_fittings(entry, laid, face_chunks, buildings, hf, streets,
-                                  refused):
+                                  refused, decked, bare_fronts):
             census["fittings"][fit["kind"]] = census["fittings"].get(fit["kind"], 0) + 1
             fittings.append(fit)
         for run in _fence_runs(entry, laid, buildings, hf, refused):
@@ -3979,7 +4202,16 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
                 "A stoop needs the front wall at the door to stand at least "
                 f"{STOOP_MIN_GAP_M} m and under {EDGE_FENCE_SETBACK_M} m back of the "
                 "walk; an apron needs "
-                f"{APRON_MIN_M} m of verge inside the track margin. A RECONSTRUCTED "
+                f"{APRON_MIN_M} m of verge inside the track margin. THE WALK ITSELF "
+                "IS DEALT BY THE SAME TABLE (T-1814): an inn and a store front the "
+                f"{WALK_W_M} m board walk; a forwarding house fronts a DECKED walk, "
+                f"the board walk widened by {DECKED_EXTRA_M} m of "
+                f"{APRON_T_M * 1000:.0f} mm plank on its street side for the length "
+                "of its own frontage wherever the walk is laid there, with its posts "
+                "and apron standing out past the deck; a works fronts BARE GROUND, "
+                "every march step whose middle lies in front of it refused, so the "
+                "walk stops either side and its tie rail stands on the ground. A "
+                "RECONSTRUCTED "
                 "TRADE TAKES ITS FITTINGS AT ITS OWN TIER: the trade's grade no longer "
                 "refuses a post (T-1052's clause 3, overruled by T-1211's 'every "
                 "business face … attested, inferred, reconstructed'), and every post "
@@ -3996,6 +4228,9 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
             "walking_decks": census["decks"],
             "hitching_posts": census["hitching"],
             "fittings": census["fittings"],
+            "decked_walks": census["decked_walks"],
+            "decked_walk_m": _round(census["decked_m"], 1),
+            "bare_fronts": census["bare_fronts"],
         },
         "card": {
             "id": STREET_EDGE_ID,

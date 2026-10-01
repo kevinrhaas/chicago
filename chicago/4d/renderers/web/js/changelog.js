@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+    items: [
+      'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
+      'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
+      'At the Mason blacksmith shop on Lake Street the walk stops. A shoeing floor faced a trodden yard, not boards, so its tie rail now stands on bare ground.',
+      'This is our reconstruction. No source gives a Chicago walk\u2019s width by trade in 1835. Open the street edge\u2019s card to see which business each stretch serves.',
+    ] },
   { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
     items: [
       'The browser tab, link previews and the Chicago home page now call the app 4D Chicago instead of \u201cwalk 1835\u201d. The year still shows where it names the town you are walking.',
