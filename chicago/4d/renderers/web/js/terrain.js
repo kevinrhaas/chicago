@@ -55,6 +55,9 @@ import { loadMeshoptDecoder } from './scene-loader.js';
 // DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
 // so a caller that needs only those does not load three behind them (T-1257).
 import { DEG, bearingToYaw, yawToBearing } from './angles.js';
+import {
+  lakeShoreLine, shoreUniform, shoreGlslHead, softExtentGlsl,
+} from './lakeshore.js';
 export { DEG, bearingToYaw, yawToBearing };
 
 /** The vertical datum: the summer-1835 lake and river water surface. */
@@ -396,7 +399,11 @@ export async function createTerrain({
 
   // `substrateBase` is null for a scene that plants none of the 1835 zones (T-1739):
   // their extents are what paint the sand belt and the marsh, so it gets none of them.
-  const groundMat = groundMaterial(await substrateZones(substrateBase, problems));
+  // The lake's edge, read off the field this epoch just adopted (T-1819): the
+  // beach is a band measured from it, so the sand follows the modelled shore
+  // rather than a box. lakeshore.js; null without a heightfield.
+  const lakeShore = lakeShoreLine(heightfield);
+  const groundMat = groundMaterial(await substrateZones(substrateBase, problems), lakeShore);
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
@@ -597,6 +604,12 @@ export async function createTerrain({
      * and it is a number worth watching rather than asserting, because it
      * belongs to the compressor and not to this renderer. */
     groundFit,
+
+    /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
+     * (lakeshore.js) — the line the beach is measured from, by the ground
+     * shader and, through flora.js's extent matcher, by the sward and the
+     * trees. Null without a heightfield. T-1819. */
+    lakeShore,
 
     /**
      * THE GROUND'S REACH (T-1154) — the setter, the reading and the per-frame
@@ -1206,8 +1219,12 @@ async function substrateZones(dataBase, problems) {
   }
   const out = [];
   for (const z of index.zones || []) {
-    const box = z.extent?.kind === 'everywhere' ? z.extent.box : null;
-    if (!box) continue;
+    // A box, or since T-1819 a band measured from the lake's edge
+    // (`kind: "lake_shore"`, lakeshore.js) — the two extents a fragment can
+    // evaluate in a handful of instructions.
+    const shore = z.extent?.kind === 'lake_shore';
+    const box = z.extent?.kind === 'everywhere' || shore ? z.extent.box : null;
+    if (!box && !shore) continue;
     // A community the scene does not plant does not paint the ground it does not
     // stand on either. z07_bur_oak_savanna is the one, 5.6 km SSW of the forks.
     if (z.plantable_in_scene === false) continue;
@@ -1219,7 +1236,8 @@ async function substrateZones(dataBase, problems) {
     out.push({
       id: z.id,
       priority: z.extent?.priority ?? z.priority ?? 0,
-      e0: box.e[0], e1: box.e[1], n0: box.n[0], n1: box.n[1],
+      e0: box?.e?.[0], e1: box?.e?.[1], n0: box?.n?.[0], n1: box?.n?.[1],
+      extent: z.extent,
       // The records state sRGB 0-255; the shader works in the renderer's linear
       // space and `chiTex` arrives there already (the tile is SRGBColorSpace).
       // Converted explicitly rather than by a string parse, so the colour space
@@ -1284,12 +1302,23 @@ const ZONE_EDGE_RAMP_M = 50;
  * pixels and holds every zone's mean to within one sRGB unit of its record;
  * it currently reports 0.00 on all four triples.
  */
-function zoneGlsl(zones) {
+function zoneGlsl(zones, lakeShore = null) {
+  // A shore band with no shore read holds nothing — the same answer
+  // lakeshore.js softExtentWeight gives the sward, so neither draws a beach.
+  zones = zones.filter((z) => z.extent?.kind !== 'lake_shore' || lakeShore);
   if (!zones.length) return '';
   const F = ZONE_EDGE_RAMP_M.toFixed(1);
   const f = (v) => (Number.isInteger(v) ? v.toFixed(1) : String(v));
   const v3 = (c) => `vec3(${c.r.toFixed(6)}, ${c.g.toFixed(6)}, ${c.b.toFixed(6)})`;
-  const blocks = zones.map((z) => `
+  const blocks = zones.map((z) => (softExtentGlsl(z.extent) ? `
+  // ${z.id} — priority ${z.priority}, ${z.extent.kind === 'lake_shore'
+    ? `within ${z.extent.distance_m?.[1]} m of the lake's edge` : 'a box with wandering, ramped sides'}
+  // (T-1819, lakeshore.js — the rule the sward and the trees also read)
+  {
+    ${softExtentGlsl(z.extent)}
+    vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
+  }` : `
   // ${z.id} — priority ${z.priority}, e ${z.e0}..${z.e1}, n ${z.n0}..${z.n1}
   {
     float w = smoothstep(${f(z.e0 - ZONE_EDGE_RAMP_M)}, ${f(z.e0 + ZONE_EDGE_RAMP_M)}, chiE)
@@ -1298,7 +1327,7 @@ function zoneGlsl(zones) {
             * (1.0 - smoothstep(${f(z.n1 - ZONE_EDGE_RAMP_M)}, ${f(z.n1 + ZONE_EDGE_RAMP_M)}, chiN));
     vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
     chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
-  }`).join('\n');
+  }`)).join('\n');
   return `
   // ---- the substrate zones (${zones.map((z) => z.id).join(', ')}) ---------- //
   // Scene coordinates off world position: the ground is built at x = e and
@@ -1405,7 +1434,7 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
  * prairie would be filling a gap silently. When those records land, the zone a
  * point falls in belongs here — and the ground stops being one green.
  */
-function groundMaterial(zones = []) {
+function groundMaterial(zones = [], lakeShore = null) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -1419,6 +1448,7 @@ function groundMaterial(zones = []) {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.uGround = { value: tex };
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
+    if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
@@ -1426,8 +1456,9 @@ function groundMaterial(zones = []) {
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
+${zones.length ? shoreGlslHead(lakeShore) : ''}
 ` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
-${zoneGlsl(zones)}
+${zoneGlsl(zones, lakeShore)}
   diffuseColor.rgb = chiPrairie;
 `);
   };

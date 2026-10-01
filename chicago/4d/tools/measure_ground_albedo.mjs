@@ -67,7 +67,9 @@ function meanAlbedo(rgb255) {
 }
 
 const zones = (index.zones || []).filter(
-  (z) => z.extent?.kind === 'everywhere' && z.extent.box && z.plantable_in_scene !== false);
+  // The zones terrain.js paints: a box, or since T-1819 a band from the lake's edge.
+  (z) => ((z.extent?.kind === 'everywhere' && z.extent.box) || z.extent?.kind === 'lake_shore')
+    && z.plantable_in_scene !== false);
 
 console.log(`tile mean linear luminance ${meanLuma.toFixed(6)}  `
   + `(sRGB ${linearToSrgb255(meanLuma).toFixed(1)} as a grey)`);
