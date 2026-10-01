@@ -191,11 +191,8 @@ def _columns(b,params,d):
 def _ridges(b,params,d):
     # Same per-tile raised crest envelopes. Four angular intervals include the
     # exact crown and both shoulders while removing invisible sub-centimetre arcs.
-    for r in params.ranges:
-        a0,a1=(r['y0'],r['y1']) if r['axis']=='y' else (r['x0'],r['x1'])
-        for side,v in r['roof_extend'].items():
-            if side in ('south','west'):a0=min(a0,v)
-            else:a1=max(a1,v)
+    from archetypes.masonry_house_west_roof import ridge_ranges
+    for r,a0,a1 in (segment for source in params.ranges for segment in ridge_ranges(source)):
         for i in range(math.ceil((a1-a0)/.36)):
             lo=a0+i*.36+.006;hi=min(a1,lo+.348)
             def P(a,along,radius):

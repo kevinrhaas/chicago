@@ -1,3 +1,7 @@
+# T-1830 work in progress — 2026-10-01
+
+Glessner west-wing roof and north porch rebuilding from the owner's views and HABS plans. Source implemented; bake, model review and browser validation pending. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+
 ## T-1822 — the walk itself dealt by business: decked walks at the forwarding houses, bare ground at the smithy (2026-10-01)
 
 The first piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their

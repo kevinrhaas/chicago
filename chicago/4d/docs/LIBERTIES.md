@@ -18474,3 +18474,25 @@ and south ends; a measured colour of Lake Michigan beach sand at Chicago.
 **Ticket:** T-1819 (piece 1 of T-1772).
 **Related:** **L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes).
 **Recorded:** 2026-10-01.
+
+### L330 — Glessner west roof and recessed north porch
+
+**Applies to:** `glessner_house.as_built_1887.form.v4_detail`, alley eave and openings.
+**Ticket:** T-1830. **Recorded:** 2026-10-01.
+
+The owner's northwest/west views and HABS sheets 2–3 bound a full northern
+west-facing gable, a lower southern roof and a projecting dormer. The sheets have
+no roof plan. Rear ridge 31 ft ng, west eave 15.5 ft, east/south eaves 23.1 ft,
+south hip at S50 ft and gable foot at S32 ft are reconstructed (about ±1.5 ft).
+The planar connector to the measured north-range section is a hidden-join
+reconstruction. These supersede L305's interpolated stable roof and retained
+high rear profile; its measured footprint and north opening axis remain.
+The nine-foot timber dormer and hipped hood at S46 have reconstructed heights,
+flare, tile cheeks, brackets and joinery. No modern source is asserted as a dated
+1904 measurement and no photograph supplies texture pixels.
+
+The north porch's 12-ft opening and left-turn stair arrangement follow HABS
+sheet 2. Six-foot recess depth, 1.5-ft landing, 6-ft raised side-door threshold,
+three approach risers, eight internal risers, cheek/coping dimensions and back
+window height are bounded reconstructions from that plan and supplied surviving
+fabric. A measured porch section and roof plan would replace these dimensions.

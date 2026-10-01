@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1273, ts: '2026-10-01T21:45:46.498Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'Glessner’s west roof and north entrance take shape', kind: 'change',
+    items: [
+      'The stable wing has a full northern gable, lower rear roof, and hooded alley dormer. The roof sections meet at clean valleys.',
+      'The north entrance is an open stone alcove with approach steps, a left-turn stair, a recessed door, and a back-wall window.',
+      'HABS plans control the footprint. Unmeasured roof and porch details remain labeled reconstructions.'
+    ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
