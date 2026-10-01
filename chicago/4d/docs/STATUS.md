@@ -15,8 +15,8 @@ Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
 - **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
   pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
   labourers.
-- **The programme carries 0 new farmsteads**: the West has 0 D1 and 4 A2 left to build. The 24
-  remaining dwellings are T-1783's and the 8 barns T-1212's.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 3 A2 left to build. The 22
+  remaining dwellings are T-1783's and the 7 barns T-1212's.
 
 **Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
 the build. Nothing in the scene changed.
