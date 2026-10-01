@@ -5,7 +5,7 @@
   "parent_ticket": "T-1785",
   "grandparent_ticket": "T-1208",
   "read_on": "2026-10-01",
-  "read_at_commit": "08e0163c",
+  "read_at_commit": "2dd6610b",
   "not_a_reading": "This file adjudicates no source and reads no page. It is a reading of the project's own renderer, order book and programme, so it is not counted by measure_research_spend.py.",
   "raises_no_roof": true,
   "writes_no_card": true,
@@ -15,7 +15,7 @@
     "instrument": "tools/smoke_renderer.mjs part 5 (SMOKE_STAGE=5) on the PUBLISHED mirror, each viewport in its own foreground command. Part 5 is the ceiling sweep tools/measure_detail_ceilings.mjs copies — T-0135's five stands, the three scene-detail levels, the same __chicago4d.stats() — and its assertion is that each tier's worst stand is inside its ceiling.",
     "why_not_measure_detail_ceilings": "tools/measure_detail_ceilings.mjs --only desktop --price ran past the 600 s a steward run's single foreground command gets and printed nothing (it reports only at the end), so it was stopped. The smoke part prints each tier's worst stand and worst draw-call frame inside the cap (desktop 8 m 30 s, mobile 5 m 41 s). It does NOT print the full five-stand spread on a pass, so this reading carries the worst stand per tier and not every stand.",
     "generated_by": "./tools/publish.sh  then  SMOKE_VIEWPORT=desktop SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published  and  SMOKE_VIEWPORT=mobile SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published",
-    "with_the_doctors_house_standing": "wabansia_doctors_house and wabansia_doctors_barn (T-1798, #218) are on the published tree this was read on (dev @ 08e0163c).",
+    "with_the_doctors_house_standing": "wabansia_doctors_house and wabansia_doctors_barn (T-1798, #218) are on the published tree this was read on (dev @ 2dd6610b).",
     "verdict": "PASS — every tier inside its ceiling at both viewports",
     "desktop": {
       "viewport": "desktop 1280x800",
@@ -25,9 +25,9 @@
         "tier": "full",
         "ceiling": 1460000,
         "worst_stand": "Lake Street at Canal, east down the axis",
-        "triangles": 1427944,
-        "margin": 32056,
-        "margin_pct_of_ceiling": 2.2,
+        "triangles": 1436965,
+        "margin": 23035,
+        "margin_pct_of_ceiling": 1.58,
         "worst_calls": 205,
         "worst_calls_stand": "Lake Street at Canal, east down the axis",
         "verdict": "PASS"
@@ -37,9 +37,9 @@
           "tier": "full",
           "ceiling": 1460000,
           "worst_stand": "Lake Street at Canal, east down the axis",
-          "triangles": 1427944,
-          "margin": 32056,
-          "margin_pct_of_ceiling": 2.2,
+          "triangles": 1436965,
+          "margin": 23035,
+          "margin_pct_of_ceiling": 1.58,
           "worst_calls": 205,
           "worst_calls_stand": "Lake Street at Canal, east down the axis",
           "verdict": "PASS"
@@ -48,9 +48,9 @@
           "tier": "balanced",
           "ceiling": 1280000,
           "worst_stand": "Lake Street at Canal, east down the axis",
-          "triangles": 1230704,
-          "margin": 49296,
-          "margin_pct_of_ceiling": 3.85,
+          "triangles": 1239725,
+          "margin": 40275,
+          "margin_pct_of_ceiling": 3.15,
           "worst_calls": 189,
           "worst_calls_stand": "Lake Street at Canal, east down the axis",
           "verdict": "PASS"
@@ -59,9 +59,9 @@
           "tier": "light",
           "ceiling": 825000,
           "worst_stand": "the open aerial",
-          "triangles": 799370,
-          "margin": 25630,
-          "margin_pct_of_ceiling": 3.11,
+          "triangles": 803666,
+          "margin": 21334,
+          "margin_pct_of_ceiling": 2.59,
           "worst_calls": 83,
           "worst_calls_stand": "Lake and Market, the corner itself",
           "verdict": "PASS"
@@ -73,14 +73,14 @@
       "smoke_summary": "26 passed, 0 failed",
       "verdict": "PASS",
       "tightest": {
-        "tier": "light",
-        "ceiling": 825000,
-        "worst_stand": "the open aerial",
-        "triangles": 734903,
-        "margin": 90097,
-        "margin_pct_of_ceiling": 10.92,
-        "worst_calls": 76,
-        "worst_calls_stand": "Lake and Market, the corner itself",
+        "tier": "full",
+        "ceiling": 1460000,
+        "worst_stand": "Lake Street at Canal, east down the axis",
+        "triangles": 1307831,
+        "margin": 152169,
+        "margin_pct_of_ceiling": 10.42,
+        "worst_calls": 188,
+        "worst_calls_stand": "Lake Street at Canal, east down the axis",
         "verdict": "PASS"
       },
       "tiers": [
@@ -88,9 +88,9 @@
           "tier": "full",
           "ceiling": 1460000,
           "worst_stand": "Lake Street at Canal, east down the axis",
-          "triangles": 1298810,
-          "margin": 161190,
-          "margin_pct_of_ceiling": 11.04,
+          "triangles": 1307831,
+          "margin": 152169,
+          "margin_pct_of_ceiling": 10.42,
           "worst_calls": 188,
           "worst_calls_stand": "Lake Street at Canal, east down the axis",
           "verdict": "PASS"
@@ -99,9 +99,9 @@
           "tier": "balanced",
           "ceiling": 1280000,
           "worst_stand": "Lake Street at Canal, east down the axis",
-          "triangles": 1123230,
-          "margin": 156770,
-          "margin_pct_of_ceiling": 12.25,
+          "triangles": 1132251,
+          "margin": 147749,
+          "margin_pct_of_ceiling": 11.54,
           "worst_calls": 177,
           "worst_calls_stand": "Lake Street at Canal, east down the axis",
           "verdict": "PASS"
@@ -110,9 +110,9 @@
           "tier": "light",
           "ceiling": 825000,
           "worst_stand": "the open aerial",
-          "triangles": 734903,
-          "margin": 90097,
-          "margin_pct_of_ceiling": 10.92,
+          "triangles": 736228,
+          "margin": 88772,
+          "margin_pct_of_ceiling": 10.76,
           "worst_calls": 76,
           "worst_calls_stand": "Lake and Market, the corner itself",
           "verdict": "PASS"
@@ -121,7 +121,8 @@
     },
     "what_moved": "The worst stand for full and balanced is now Lake Street at Canal, east down the axis — on the West approach — at both viewports. T-1688's reading (data/render/randolph_close_out.json) had desktop balanced worst at the forks from Wolf Point, 1,256,544 (margin 23,456, 1.83 %). Desktop balanced now clears by more, and the binding tier on desktop is FULL, at Lake and Canal. This reading does not apportion the change between the West pieces that landed since (T-1773, T-1781, T-1782, T-1794, T-1798 and others); it states where the town now stands.",
     "draw_calls": "The scene's draw-call budget is 215 (the published scene's own budget block, read by tools/shoot.mjs). Desktop full's worst frame is 205 calls at Lake Street at Canal, east down the axis: 10 calls of room at the stand the West approach is now worst at. The next West parcel dealt inside that stand's frustum should take the number before it deals (tools/measure_detail_ceilings.mjs --price; AGENTS.md § the frame budget).",
-    "re_budget": "None proposed. Every tier passes and light stays the floor."
+    "re_budget": "None proposed. Every tier passes and light stays the floor.",
+    "read_twice": "First read on dev @ 08e0163c, with the doctor's house standing and before T-1776 (#221) landed six hotel stables: desktop full worst 1,427,944 at Lake and Canal (margin 32,056, 2.20 %), mobile full 1,298,810. Dev moved while this branch was open, so the sweep was re-run on the merged tree and the figures above are THAT reading: the stables cost about 9,000 triangles at the Lake and Canal stand at both viewports (desktop full +9,021, mobile full +9,021), and no tier crossed its ceiling."
   },
   "the_canal_approach_screenshot": {
     "pose": {
@@ -131,7 +132,7 @@
       "pitch_deg": 0,
       "why": "the lake_at_canal anchor of data/scenes/1835.json turned from east to west: Lake Street at Canal, looking out along the West approach toward the Des Plaines edge"
     },
-    "tree": "the published mirror, /walk/?year=1835, animation clock held, interface hidden, default scene detail",
+    "tree": "the published mirror at dev @ 08e0163c (before T-1776's stables, which stand behind the hotels east of the river and outside this west-looking frame), /walk/?year=1835, animation clock held, interface hidden, default scene detail",
     "frames": {
       "desktop": {
         "file": "docs/evidence/t-1799-canal-approach-west-desktop.png",

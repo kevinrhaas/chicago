@@ -7,29 +7,32 @@ Wabansia; this piece answers the three clauses it left open, on the published tr
 **Visible-progress rule, stated rather than dodged.** This run is invisible and no exemption
 covers it: two of the last four entries (v1252, v1253) were invisible already. It was taken
 because it is the owner-requested closer of a build whose visible half landed in v1254, and it
-was the topmost free workable ticket for this slot; the four sibling runs in flight (T-1766,
-T-1776, T-1778, T-1783) are all visible parcels.
+was the topmost free workable ticket for this slot; the sibling runs in flight beside it (T-1766,
+T-1776, T-1778, T-1783) were all visible parcels, and T-1776 landed while this was open.
 
 **The frame budget, with the doctor's house standing: PASS at every tier, both viewports.**
 Read with `tools/smoke_renderer.mjs` part 5, the ceiling sweep `measure_detail_ceilings.mjs`
 copies. That tool itself ran past the 600 s foreground cap on desktop and printed nothing, so it
 was stopped; the smoke part reports each tier's worst stand rather than the five-stand spread.
+**Read twice.** Dev moved while this was open (T-1776's six hotel stables, #221), so the sweep
+was re-run on the merged tree; the tables are that reading. The stables cost 9,021 triangles at
+Lake and Canal at both viewports. The first read, at `08e0163c`, is kept in the reading.
 
 | tier | ceiling | worst desktop | margin | worst calls |
 | --- | --- | --- | --- | --- |
-| `full` | 1,460,000 | 1,427,944 (Lake Street at Canal, east down the axis) | 32,056 (2.2 %) | 205 |
-| `balanced` | 1,280,000 | 1,230,704 (Lake Street at Canal, east down the axis) | 49,296 (3.85 %) | 189 |
-| `light` | 825,000 | 799,370 (the open aerial) | 25,630 (3.11 %) | 83 |
+| `full` | 1,460,000 | 1,436,965 (Lake Street at Canal, east down the axis) | 23,035 (1.58 %) | 205 |
+| `balanced` | 1,280,000 | 1,239,725 (Lake Street at Canal, east down the axis) | 40,275 (3.15 %) | 189 |
+| `light` | 825,000 | 803,666 (the open aerial) | 21,334 (2.59 %) | 83 |
 
 | tier | ceiling | worst mobile | margin | worst calls |
 | --- | --- | --- | --- | --- |
-| `full` | 1,460,000 | 1,298,810 (Lake Street at Canal, east down the axis) | 161,190 (11.04 %) | 188 |
-| `balanced` | 1,280,000 | 1,123,230 (Lake Street at Canal, east down the axis) | 156,770 (12.25 %) | 177 |
-| `light` | 825,000 | 734,903 (the open aerial) | 90,097 (10.92 %) | 76 |
+| `full` | 1,460,000 | 1,307,831 (Lake Street at Canal, east down the axis) | 152,169 (10.42 %) | 188 |
+| `balanced` | 1,280,000 | 1,132,251 (Lake Street at Canal, east down the axis) | 147,749 (11.54 %) | 177 |
+| `light` | 825,000 | 736,228 (the open aerial) | 88,772 (10.76 %) | 76 |
 
 **The binding stand moved west.** T-1688 read desktop `balanced` worst at the forks (margin
 23,456, 1.83 %). It is now Lake Street at Canal for `full` and `balanced` at both viewports, and
-desktop `full` is the tightest tier, at 2.20 %. Lake and Canal's frame is also the town's worst
+desktop `full` is the tightest tier, at 1.58 %. Lake and Canal's frame is also the town's worst
 for draw calls, at 205 of 215. The next West parcel inside that frustum should price itself first
 (`measure_detail_ceilings.mjs --price`). No re-budget is proposed.
 
