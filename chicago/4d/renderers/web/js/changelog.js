@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1242, ts: '2026-10-01T02:21:29.238Z', date: 'Sep 30, 2026, 9:21 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+    items: [
+      'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
+    ] },
   { v: 1241, ts: '2026-09-30T22:14:16.152Z', date: 'Sep 30, 2026, 5:14 PM CT', title: 'Repair timber at the branch bridges', kind: 'change',
     items: [
       'Small stacks of repair timber now stand beside all four ends of the North and South Branch bridges, clear of the crossing approaches.',

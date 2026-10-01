@@ -708,6 +708,15 @@ step "North Division initial parcel matches its reviewed recipe" \
 step "West Division approaches parcel matches its recipe" \
   python3 tools/generate_west_infill.py --check
 
+step "Canal approach trade roofs match their bounded recipe" \
+  python3 tools/generate_canal_approach_trade.py --check
+selftest "Canal trade placement refuses collisions and missing ground" \
+  python3 tools/generate_canal_approach_trade.py --self-test
+step "Canal trade roofs have existing keepers without invented homes" \
+  python3 tools/canal_approach_occupancy.py --check
+selftest "Canal trade occupancy preserves identities and lodging constraints" \
+  python3 tools/canal_approach_occupancy.py --self-test
+
 # AND THE FIGURES AN OPEN OWNER QUESTION IS ASKED ABOUT (T-1460). The recipe's fourth
 # terrain rule deferred a reading to "after the west terrain extension"; T-1444 took it
 # and it does not say what the rule assumed, because the rule's remedy — move the roof —

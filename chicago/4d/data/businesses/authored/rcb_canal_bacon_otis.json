@@ -1,0 +1,100 @@
+{
+  "id": "rcb_canal_bacon_otis",
+  "register_id": null,
+  "name": "Otis Bacon, wagon woodwork shop",
+  "provenance": "reconstructed",
+  "type": [
+    "other"
+  ],
+  "trade": "wagon woodwork shop",
+  "occupation": "carpenter",
+  "goods": [
+    "wagon woodwork shop"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Otis Bacon",
+      "person_id": "rc_bacon_otis",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address. The wagon woodwork specialty is invented within a carpenter's woodworking trade; the person remains a carpenter, not a documented wheelwright or cooper.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "recon_1835_canal_trade_w3_005",
+      "street_id": "canal",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address. The wagon woodwork specialty is invented within a carpenter's woodworking trade; the person remains a carpenter, not a documented wheelwright or cooper.",
+      "limit_reason": "The whole placement is invented within the Canal approach programme."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "Reconstructed as trading on 1835-07-01; no opening or closing date is claimed."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Otis Bacon (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_bacon_otis",
+        "name": "Otis Bacon",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "Evidence naming the real keeper or premises; retirement of this reconstructed roof or keeper.",
+  "reconstruction": {
+    "programme": "canal_approach_trade_roofs",
+    "group": "canal_approach",
+    "ticket": "T-1766",
+    "seed": "T-1766:W3:rc_bacon_otis",
+    "trade_roof": {
+      "structure_id": "recon_1835_canal_trade_w3_005",
+      "family": "W3",
+      "keeper_person_id": "rc_bacon_otis",
+      "keeper_household_id": "hh_rc_bacon_otis",
+      "occupation": "carpenter",
+      "note": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address. The wagon woodwork specialty is invented within a carpenter's woodworking trade; the person remains a carpenter, not a documented wheelwright or cooper."
+    },
+    "basis": {
+      "kind": "rule",
+      "id": "1835_canal_approach_occupancy",
+      "note": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address. The wagon woodwork specialty is invented within a carpenter's woodworking trade; the person remains a carpenter, not a documented wheelwright or cooper."
+    },
+    "withdrawn_if": "The roof or its existing keeper is retired, or evidence replaces this reconstructed firm."
+  }
+}

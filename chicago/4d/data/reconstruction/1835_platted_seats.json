@@ -545,15 +545,8 @@
   },
   {
    "block_id": "blk_indiana_north_wolcott",
-   "family": "W1",
-   "roofs": 1,
-   "district": "north",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_indiana_north_wolcott",
    "family": "W2",
-   "roofs": 1,
+   "roofs": 2,
    "district": "north",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
@@ -567,7 +560,7 @@
   {
    "block_id": "blk_lake_clinton",
    "family": "D5",
-   "roofs": 1,
+   "roofs": 2,
    "district": "west",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_lake_clinton#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -579,16 +572,16 @@
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_lake_clinton#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
-   "block_id": "blk_lake_clinton",
-   "family": "W2",
+   "block_id": "blk_randolph_clinton",
+   "family": "D4",
    "roofs": 1,
    "district": "west",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_randolph_clinton#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_randolph_clinton",
    "family": "D5",
-   "roofs": 2,
+   "roofs": 1,
    "district": "west",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_randolph_clinton#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -734,7 +727,7 @@
   },
   {
    "block_id": "blk_washington_dearborn",
-   "family": "W3",
+   "family": "W2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"

@@ -385,6 +385,50 @@
               "description": "The lodging household that keeper heads, where the stage wrote one."},
             "note": {"type": "string", "minLength": 1,
               "description": "The argument that carries a standing roof to a firm."}}},
+        "trade_roof": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "structure_id",
+            "family",
+            "keeper_person_id",
+            "keeper_household_id",
+            "occupation",
+            "note"
+          ],
+          "description": "T-1766: a reconstructed shop roof adopts an existing trade head. Separate from the lodging roof form: no beds, no claim of residence, no person minted.",
+          "properties": {
+            "structure_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "keeper_person_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "keeper_household_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "occupation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            },
+            "family": {
+              "enum": [
+                "C3",
+                "C4",
+                "W1",
+                "W2",
+                "W3"
+              ]
+            }
+          }
+        },
         "trade_head": {"type": "object",
           "description": "A TRADE HEAD, in place of a quota row: a reconstructed PERSON this project has ALREADY committed, drawn by the resident band's `trade_households` stage at a trade whose own word names the establishment he keeps — a `livery_stable_keeper` keeps a livery stable, a `lumber_merchant` keeps a yard. Nothing upstream counted a house of the class, because the December 1835 State census's eighteen lines never reach it; and unlike a standing roof there is no committed building either, since data/structures/ holds no livery stable and no lumber yard. The head is what was committed and the head is what buys the firm. The house takes a street-only face off a stated placement rule — there is nothing to seat it on — and it is withdrawn with him (T-1424).",
           "required": ["person_id", "household_id", "trade", "head_slot", "note"],

@@ -18643,3 +18643,12 @@ corrects the deck-corner/centerline confusion and retains ferry operation as an
 open historical question. New ground and corner checks validate the placement.
 No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
 validation record carries the subsequent full mobile and desktop results.
+
+
+## T-1766: Canal approach trade roofs
+
+The parcel adds two stores and three workshops against the West Division
+remainder, with exact presence, placement and business assignments reconstructed.
+The existing roofs and prior workshop-to-dwelling rulings are retained.
+Validation and bake are pending; this entry does not claim the roofs are shipped.
+See `docs/RESEARCH/canal_approach_trade.md` and liberty L307.

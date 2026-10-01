@@ -4351,6 +4351,10 @@
           "layer": "employment",
           "seat": "on_their_own_account",
           "houses": []
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/40_49/west/family/trade:carpenter:001",
@@ -14467,6 +14471,10 @@
           "layer": "employment",
           "seat": "on_their_own_account",
           "houses": []
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/west/family/trade:grocer:014",
@@ -17347,6 +17355,10 @@
           "layer": "employment",
           "seat": "on_their_own_account",
           "houses": []
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/west/family/trade:grocer:008",
@@ -19211,6 +19223,10 @@
           "layer": "employment",
           "seat": "on_their_own_account",
           "houses": []
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/west/family/trade:carpenter:007",

@@ -1,0 +1,155 @@
+{
+  "id": "recon_1835_canal_trade_w3_005",
+  "name": "Reconstructed Canal Street cooper, wagon, or wheelwright shop",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "An invented count-unit for July 1835, not evidence that this particular building existed."
+      },
+      "position": {
+        "utm_e": 446934.253,
+        "utm_n": 4637304.782,
+        "rotation_deg": 266.704005,
+        "symbolic_location": "Reconstructed east frontage of Canal Street between Lake and Randolph",
+        "confidence": "reconstructed",
+        "note": "The street exists in the cadastral evidence; this roof does not. Its front is set one metre outside the drawn east corridor edge. The layout follows the West memo and current trade placement policy, with open gaps and rear work ground; the station is invented and claims no recovered lot or address.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The cadastral sheets map streets and lots, not these anonymous buildings."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.598,
+            0
+          ],
+          [
+            6.598,
+            8.994
+          ],
+          [
+            0,
+            8.994
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "Deterministically sampled 6.598 by 8.994 metre rectangle inside the W3 typology band; neither dimension is attested for this invented roof."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 3.622,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 38.2,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "plank",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "door": {
+          "value": "wagon",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "board_gap_m": {
+          "value": 0.012,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W3 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        }
+      },
+      "change_note": "T-1766 adds this reconstructed trade roof without moving an existing building."
+    }
+  ],
+  "function": {
+    "value": "cooper_wagon_or_wheelwright_shop",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The W3 type fills the remaining West trade programme. No historical proprietor or exact activity is recovered from its footprint."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "W3",
+    "district": "west",
+    "inventory_class": "principal_functional",
+    "programme_phase": "canal_approach_trade_1835",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "sequence": 5,
+    "finish_key": "fresh_timber",
+    "roof_condition": "darkened",
+    "age_state": "recent"
+  },
+  "occupants": {
+    "value": "Otis Bacon, wagon woodwork shop",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address. The wagon woodwork specialty is invented within a carpenter's woodworking trade; the person remains a carpenter, not a documented wheelwright or cooper."
+  },
+  "research_note": "RECONSTRUCTED, NOT A RECOVERED ADDRESS. The West memo bounds mixed trade on the Canal approach; the current programme orders two stores and three workshops. C3 and C4 use remaining store-family capacity because C1 and C2 are already full. Exact existence, location, dimensions, finish and form remain inventions. Any reconstructed occupants are separately graded by their own records.",
+  "review_required": false
+}

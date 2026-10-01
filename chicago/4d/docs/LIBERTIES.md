@@ -13337,7 +13337,9 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, one is **L259**'s professions, four are **L260**'s liveries and lumber yards fifteen are **L262**'s services, and five are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13609,12 +13611,14 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which SEVEN are this
-entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which SEVEN are this
+entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
-yards and **L262**'s services; the
+yards, **L262**'s services and **L307**'s five Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
-narrowed, and each entry says which of the thirty-two are its own.
+narrowed, and each entry says which of the thirty-eight are its own.
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1408) writes a reconstructed
 business record for each of the six standing reconstructed boarding houses —
@@ -13692,12 +13696,14 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, the
-mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six
-**L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
-lumber yards and fifteen **L262**'s services. The
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade. TWO are this entry's, the
+mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, seven
+**L257**'s boarding houses, one **L259**'s professions, four **L260**'s liveries and
+lumber yards, fifteen **L262**'s services and five **L307**'s Canal approach firms. The
 selector reads the whole layer, so the count is restated here rather than narrowed, and the
 register keeps saying how many reconstructed houses of trade the town carries in total
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group mechanics_shops` (T-1185) writes
 **two** houses, the second group of the business reconstruction: *M. Quinn, brewery* on the
@@ -13757,13 +13763,15 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which ONE is this
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which ONE is this
 entry's: a single law office. The physician's room went the same way as the second law
-office, and the block below says how. The other thirty-two are **L254**'s
+office, and the block below says how. The other thirty-seven are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
-jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of
-this entry's own group, and the half no census line reaches; the selector reads the whole
+jeweller's, **L260**'s liveries and lumber yards, **L262**'s services — the other half of
+this entry's own group, and the half no census line reaches — and **L307**'s five Canal approach firms; the selector reads the whole
 reconstructed layer, so the count is restated here rather than narrowed.
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1418, of T-1186) writes **two** reconstructed records: *B. Robillard, attorney and counsellor at
@@ -13877,12 +13885,15 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FOUR are this
-entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which FOUR are this
+entry's. The other thirty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
-**L262**'s services, which take this entry's own fourth form into four more trades; the
+**L262**'s services, which take this entry's own fourth form into four more trades, and
+**L307**'s five Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
-narrowed, and each entry says which of the thirty-two are its own.
+narrowed, and each entry says which of the thirty-eight are its own.
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1424, of T-1409 and T-1187) writes a
 reconstructed business record for each of the four reconstructed trade heads the resident
@@ -14035,13 +14046,15 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
-shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms,
+shop. The other twenty-three are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
-**L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so
-the count is restated here rather than narrowed, and each entry says which of the thirty-three
+**L260**'s liveries and lumber yards and **L307**'s five Canal approach firms; the selector reads the whole reconstructed layer, so
+the count is restated here rather than narrowed, and each entry says which of the thirty-eight
 are its own.
+
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 33 to 38 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1419, of T-1186) writes fifteen reconstructed business records on **L260**'s fourth form,
@@ -14123,7 +14136,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 473 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 478 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14162,6 +14175,11 @@ Addition's first stable — a wider and deeper roof plane than anything the reci
 north of the river, taking the same exposure across more of it. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
+
+**Scope revision, 2026-10-01 (T-1766):** Five Canal approach trade roofs — C3, C4,
+W1, W2 and W3 — each state a roof type and take this exposure, raising the live count
+from 473 to 478. Their placement and occupancy are **L307**'s reconstruction; the
+historical sequence above remains the record of the earlier additions.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
 tile (32 exposures to the tile, holding 228.6 px per m at 1024²). Taken on the owner's
@@ -15828,12 +15846,17 @@ re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_
 
 ### L282 — The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it
 
-**Scope:** `structures.phases[chimneys]` — 3 phases built with a forge stack:
-`pierce_blacksmith_shop`, `mason_blacksmith_shop` and `inf_blacksmith_shop_west`, the town's
-three `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now
+**Scope:** `structures.phases[chimneys]` — 4 phases built with a forge stack:
+`pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west` and
+`recon_1835_canal_trade_w1_003`, the town's four `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now
 deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants
 above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it
 stands against are in `generators/archetypes/outbuilding_params.py`.
+
+**Scope revision, 2026-10-01 (T-1766):** The Canal approach W1 shop adds one forge
+stack, taking the live count from three to four. It uses the existing reconstructed
+forge geometry and bounds below; no new historical chimney evidence is claimed.
+The original three smithies and the argument that gave them their stacks remain recorded.
 
 **What was there before, and why it was wrong for the family.** W1's required variant in
 `data/reconstruction/1835_family_archetype_crosswalk.json` is `blacksmith_forge` — *"wide
@@ -17428,3 +17451,57 @@ stock, or evidence locating an operating forks ferry on the scene date.
 **Ticket:** T-1765. See `docs/RESEARCH/bridge_head_timber.md`.
 
 **Recorded:** 2026-09-30 (T-1765).
+
+### L307 — Five reconstructed trade roofs on the Canal approach
+
+**Applies to:** `data/reconstruction/1835_canal_approach_trade.json` and
+`recon_1835_canal_trade_c3_001`, `recon_1835_canal_trade_c4_002`,
+`recon_1835_canal_trade_w1_003`, `recon_1835_canal_trade_w2_004`,
+and `recon_1835_canal_trade_w3_005`.
+
+**Covers:** `recon_1835_canal_trade_c3_001.inferred_1835.footprint`, `recon_1835_canal_trade_c3_001.inferred_1835.position`,
+`recon_1835_canal_trade_c4_002.inferred_1835.footprint`, `recon_1835_canal_trade_c4_002.inferred_1835.position`,
+`recon_1835_canal_trade_w1_003.inferred_1835.footprint`, `recon_1835_canal_trade_w1_003.inferred_1835.position`,
+`recon_1835_canal_trade_w2_004.inferred_1835.footprint`, `recon_1835_canal_trade_w2_004.inferred_1835.position`,
+`recon_1835_canal_trade_w3_005.inferred_1835.footprint`, `recon_1835_canal_trade_w3_005.inferred_1835.position`.
+
+**What we invented:** Two stores and three workshops on the east side of Canal
+Street between Lake and Randolph. Their existence, individual uses, exact frontage stations,
+setbacks, gaps, dimensions, finishes and construction dates are reconstructed.
+The site plan leaves the yards to the east and does not assert recovered lots or
+addresses. The five firms are reconstructed workplaces for existing trade heads;
+they are not newly discovered historical firms.
+
+**Why:** The live district inventory owes two store roofs and three workshops.
+The older West memo's C1/C2 first-parcel allocation has already been spent. The
+remaining town-wide family budget permits C3/C4 and W1/W2/W3, whose geometry is
+sampled by the same deterministic family helpers as the standing town. The owner
+reconstruction specification bounds the forms; it does not document these sites.
+
+**Placement:** A chosen one-metre setback outside the drawn east edge of Canal,
+with discontinuous gaps and rear yards. The generator checks the complete
+footprints against dry terrain, existing roofs, road corridors, an eight-metre
+river setback, no-build ground and the still-active west-prairie swale exclusions.
+Clearance checks make the invention physically consistent; they do not make it
+historical evidence.
+
+**Occupants:** Assigning existing grocers and mechanics to these particular
+premises is reconstructed. A carpenter's wagon-woodwork specialization is also
+reconstructed, while their recorded occupation remains carpenter. No bed count
+is invented to make a workshop pass a lodging schema, and no new person is minted.
+
+**Sources:** `owner_chicago_1835_reconstruction_spec_2026`. The committed West
+Division memo supplies district context; Wright and Hathaway bound streets and
+lots and are not treated as evidence for individual buildings.
+
+**Would replace:** Dated site-specific business notices, addresses, plans or
+archaeology; better evidence about any proposed proprietor or workshop use.
+
+**Ticket:** T-1766. See `docs/RESEARCH/canal_approach_trade.md`.
+
+**Recorded:** 2026-10-01 (T-1766).
+
+**L307 implementation note, 2026-10-01:** The authored workplace allocation reserves
+these five roofs from a second street-face business. This is a workplace reservation,
+not a residential seat. Ordinal public IDs preserve the original documented geometry
+seed keys, so the naming correction changes no measured shape or placement.

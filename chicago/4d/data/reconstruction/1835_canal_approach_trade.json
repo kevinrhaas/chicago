@@ -1,0 +1,76 @@
+{
+  "id": "canal_approach_trade_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-1766",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/RESEARCH/west_division_infill_1835.md",
+  "tier": "reconstructed",
+  "basis": "The current West programme orders two stores and three workshops; the district memo places mixed trade on the Canal/Lake approach. The cadastral sources wright_1834 and hathaway_1834 support the street envelope, not these buildings. The five new roofs stand on the east side of Canal between Lake and Randolph, west of the river, with open side gaps and rear work ground. No existing roof is moved or refamilied.",
+  "seed": "Geometry retains the original stable keys recon_1835_canal_trade_c3, recon_1835_canal_trade_c4, recon_1835_canal_trade_w1, recon_1835_canal_trade_w2 and recon_1835_canal_trade_w3. Public ids append unique pool ordinals 001 through 005 to satisfy street-face adoption; dimensions, form, finish and siding continue to use the pre-rename key. The generator temporarily restores those keys only during the siding deal, then restores public ids. Stations are explicitly argued layout choices, not random draws or recovered addresses.",
+  "replaceable_by": "A source locating a compatible July 1835 store or workshop on this approach, with evidence for its footprint or proprietor, supersedes the relevant invented slot. A correction to the drawn street or authoritative terrain requires this recipe to revalidate; it does not license moving a documented building.",
+  "family_choice": "One C3 narrow two-storey store and one C4 wider two-storey store fill current C-family capacity. C1 and C2 are already at or above their town-wide targets, so the older memo's small-store family suggestion is not repeated as a new oversubscription. W1, W2 and W3 provide smith, joiner and wagon-work typologies. The memo licenses the mixed approach, not the precise height or width of an anonymous store.",
+  "rejected_layout": "West Canal frontage north of Lake was considered and rejected: its southern candidate entered the still-frozen west_prairie_swale_a exclusion. The selected east frontage between Lake and Randolph passes the same exclusion without modifying the swale.",
+  "geometry_contract": {
+    "corridor_line": "drawn",
+    "front_setback_m": 1.0,
+    "minimum_structure_separation_m": 3.0,
+    "minimum_traced_bank_separation_m": 8.0,
+    "maximum_footprint_relief_m": 0.35,
+    "confidence": "reconstructed",
+    "note": "Setback, separation and terrain limits are modelling bounds, not recovered historical measurements. Every footprint corner must be on covered dry ground. No roof may intersect any committed street corridor, no-build region or West prairie swale corridor. Three of the four inter-roof gaps are within the memo's 10\u201335 ft band; the fourth is a larger break between the stores and shops."
+  },
+  "family_totals": {
+    "C3": 1,
+    "C4": 1,
+    "W1": 1,
+    "W2": 1,
+    "W3": 1
+  },
+  "placements": [
+    {
+      "family": "C3",
+      "side": "east",
+      "front_station_n_m": -20.0,
+      "setback_m": 1.0,
+      "why": "The narrower store takes the Lake end of the frontage, without occupying the street corner itself.",
+      "structure_id": "recon_1835_canal_trade_c3_001",
+      "geometry_seed": "recon_1835_canal_trade_c3"
+    },
+    {
+      "family": "C4",
+      "side": "east",
+      "front_station_n_m": -38.0,
+      "setback_m": 1.0,
+      "why": "The wider store follows behind a visible side gap, keeping the larger mass near the mixed Lake approach.",
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "geometry_seed": "recon_1835_canal_trade_c4"
+    },
+    {
+      "family": "W1",
+      "side": "east",
+      "front_station_n_m": -58.0,
+      "setback_m": 1.0,
+      "why": "The detached smith's shop follows a larger open break from the store pair; the reconstructed stack is the family generator's forge cue.",
+      "structure_id": "recon_1835_canal_trade_w1_003",
+      "geometry_seed": "recon_1835_canal_trade_w1"
+    },
+    {
+      "family": "W2",
+      "side": "east",
+      "front_station_n_m": -74.0,
+      "setback_m": 1.0,
+      "why": "The joiner's shop faces Canal with its work ground behind, separated from the smith's shell.",
+      "structure_id": "recon_1835_canal_trade_w2_004",
+      "geometry_seed": "recon_1835_canal_trade_w2"
+    },
+    {
+      "family": "W3",
+      "side": "east",
+      "front_station_n_m": -89.0,
+      "setback_m": 1.0,
+      "why": "The wagon-work shop takes the Randolph end while clearing its corridor; its individual specialty and yard stock remain reconstructed.",
+      "structure_id": "recon_1835_canal_trade_w3_005",
+      "geometry_seed": "recon_1835_canal_trade_w3"
+    }
+  ]
+}

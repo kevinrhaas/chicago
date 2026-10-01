@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "6d292dfcd12689fbbf4b92518901978a9900899af2f50359adf1f79a499129bb",
+    "fingerprint": "8694d01a2bc1ac3516e137f81f6c3e880779a8648473bb47748df567fb0282d6",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 493,
+      "structures": 498,
       "voters": 345
     }
   },
@@ -2893,6 +2893,11 @@
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
           "rule": "exact surname"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
+          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -3140,6 +3145,11 @@
         {
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
+          "rule": "OCR variant (0.89 similarity to 'block')"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
           "rule": "OCR variant (0.89 similarity to 'block')"
         }
       ],
@@ -25313,6 +25323,21 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w1_003",
+          "name": "Reconstructed Canal Street blacksmith shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w2_004",
+          "name": "Reconstructed Canal Street carpenter or joiner shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w3_005",
+          "name": "Reconstructed Canal Street cooper, wagon, or wheelwright shop",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],
