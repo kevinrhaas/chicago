@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1277, ts: '2026-10-01T23:14:42.853Z', date: 'Oct 1, 2026, 6:14 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+    items: [
+      'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
+      'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
+      'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets keep patches of grass along their edges and between their lanes, and every edge gives way to the prairie in ragged clumps.',
+      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L327.',
+      'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
     ] },
   { v: 1276, ts: '2026-10-01T22:45:32.074Z', date: 'Oct 1, 2026, 5:45 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
     items: [

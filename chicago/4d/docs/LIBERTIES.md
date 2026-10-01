@@ -18657,3 +18657,46 @@ draws the shore behind the beach.
 **Related:** **L329** (the beach and sand prairie's reach and tone), **L3** (vertical exaggeration
 stays 1.0).
 **Recorded:** 2026-10-01.
+
+### L327 — The worked roadway: every opened street drawn as full-width packed earth, its width, wear, ruts and mud ours
+
+**Applies to:** `renderers/web/js/streets.js` (`WORKED_SHARE`, `WEAR_INTENSITY`, `DIRT_TONES`,
+the roadway fragment). That is all 28 opened streets in `data/streets/1835.json`. The 51 platted
+but unopened lines draw nothing, as before.
+
+**What we invented:** How much of each street was worn bare and what that wear looked like. Each
+opened street is drawn as packed earth across a **worked width** set by its traffic class:
+0.80 of the 80 ft corridor for `principal` streets (19.5 m), 0.64 for `ordinary` (15.6 m) and
+0.44 for `light` (10.7 m). It is never narrower than the recorded `track_width_m`, which stays
+the opaque core. Past the core, the shoulders give way to grass in clumps. A light street also
+keeps sod islands between its lanes. The wear is many overlapping lanes that wander along the
+street, with narrow ruts and muddy patches where the wear is heaviest. The tones are dry
+dust over packed earth (worn lanes sRGB 142,128,104, between them 113,101,81). They sit inside
+a bound set by two committed readings: T-1797's proof dirt pair (126,112,91 / 96,86,69) below
+and the grey sand the same strip drew (136,128,106) above. They sit at the top of that bound
+because the road-legibility gate reads luminance and the pair as it stood was only 2 L\* apart
+from the prairie from the air. Graded streets are a shade dustier and light streets a shade
+darker, the mud sits inside `wet_prairie_muck`'s measured basecolor, and the fine grit is
+T-1797's generated tile. Where a
+particular lane, rut or puddle falls is a seeded hash per street, not anyone's account of it.
+
+**Why:** The owner asked on 2026-09-30 (T-1770) for "a full dirt roadway" in place of the two
+clean wheel treads on grass the town had drawn. His four peer-city views all show one broad
+worked street plane with no grassy median: St Louis 1840, Detroit 1837 (a print of 1883) and
+Cincinnati 1835 east and west. They are analogies and give no Chicago width, so the width is
+bounded rather than measured. It is never less than the recorded track, and it never reaches the
+plank walks: the corridor less a 1.83 m walk and its 0.2 m clearance each side leaves 20.3 m.
+
+**Omission:** The roadway still lies on the heightfield. It is not graded below an
+entrance-level walk shelf, and the walker, doorsteps and crossings stand where they stood. That
+is T-1812. The flora's clearance of the travelled way (`blocksGrowth`) still reads the recorded
+track, so grass blades can stand on the shoulders' dirt, and the generators that keep fences,
+trees and goods out of the street read the track too. Nothing they placed moved.
+
+**Would replace:** A Chicago view, survey or account of a street's worked width or condition in
+1835. That replaces the class share for that street. A sidewalk or street-grading ordinance with
+dimensions replaces the walk-side bound.
+
+**Ticket:** T-1811 (piece 1 of T-1770).
+
+**Recorded:** 2026-10-01 (T-1811).
