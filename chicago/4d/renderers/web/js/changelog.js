@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1257, ts: '2026-10-01T13:27:28.148Z', date: 'Oct 1, 2026, 8:27 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+  { v: 1259, ts: '2026-10-01T13:36:47.836Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
       'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
       'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
       'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
+    ] },
+  { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+    items: [
+      'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
+      'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
+      'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
+      'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1257, ts: '2026-10-01T12:40:59.752Z', date: 'Oct 1, 2026, 7:40 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
+      'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
+      'The West Side still owes 42 buildings, mostly cottages, barns and sheds, and each has a job already waiting to build it. Another 42 are held back because the map does not yet reach the ground they would stand on.',
     ] },
   { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
     items: [
