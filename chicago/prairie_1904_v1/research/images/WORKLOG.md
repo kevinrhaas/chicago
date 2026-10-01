@@ -37,6 +37,35 @@ Ticket: T-1821 (filed --anyway on the owner's instruction; claimed). PR #237.
 - **Sanborn between 1886 and 1911 for 16th–22nd Prairie (LoC):** none. LoC's 1894–97 Chicago volumes are vols 9–16 and A–F (outlying districts). Its 1906 Vol. 1 South Division is the "congested district" north of 12th Street. The central South Division volumes of the 1890s/1905 are not at LoC; try the Chicago History Museum, the Newberry, or UIC Special Collections.
 - **Dedup:** different plates, crops or pages of one catalogue record are kept as separate records. `build_images.py` merges only identical items found by two streams (page, image, local copy and kind all equal).
 
+## Second pass — chicagology, all 82 Prairie Avenue house pages (2026-10-01)
+
+`stream-chicagology-north.json` and `stream-chicagology-south.json` add the per-house pages the
+first pass had not opened (37 of 82), and every uncollected image on the rest. They also add the
+Robinson 1886 address crops, Tribune and Inter Ocean notices, and page-text facts. Every item is
+link-only; the viewer shows them as remote thumbnails. Records for addresses with no building
+record in the library are placed on the site plan by lot.
+
+**The best of it:**
+- **Chicago Tribune, 9 Jan 1898:** a strip of entrance drawings for 1905, 1906, 1923, 2035 and
+  2108. It holds the first images of 1923 and of 2108, and shows 2035 as a detached house with a
+  wide veranda.
+- **2027:** the only image is the Robinson crop, showing a brick house on a 60-ft lot.
+- **1919:** a third near-period photograph of the enlarged house.
+
+**Chicagology's address arrows are not always right.** Read the printed numbers on the plate
+instead:
+- **2108 "Empty lot":** the arrow is on the future 2110; 2108 stood.
+- **2125 "Empty lot":** a frame building is shown on that lot.
+- **2109:** the arrow lands on the printed 2107.
+- **2021:** the arrow is on 2017.
+- **Shared crops:** 1919/1923, 2001/2003, 2009/2011 and 2031/2035 share crops or arrows.
+
+**Other conflicts and notes:**
+- **1906 vs 1900:** the 1898 drawing of 1906 has a side bay and porch, so the mansard photo
+  labelled 1906 (`a19-cgy-1906-keith-photo`) likely shows 1900.
+- **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
+- **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
+
 ## Findings that bear on the 1904 model
 
 Each needs a building-research.json update or a ruling. None has been applied to library.json yet.
@@ -89,6 +118,8 @@ Each needs a building-research.json update or a ruling. None has been applied to
 - **New architect lead:** Charles A. Alexander for work on the Dexter (1721) and Harvey (1702) houses (Inland Architect obituary, June 1888).
 
 ## Best leads for the next pass
+
+0. **Chronicling America OCR for the north half's thin buildings.** The second pass was cut short by a restart; see `worklog-chicagology-north.md`.
 
 These are mostly blocked from a sandbox, so they need a browser or a reference request:
 
