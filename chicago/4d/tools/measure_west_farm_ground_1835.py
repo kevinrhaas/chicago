@@ -152,6 +152,10 @@ def derive() -> dict:
     seats = load(SEATS)
     book = {r["id"]: r for r in load(ADDRESS_BOOK)["rows"]}
     owed = [o for o in seats["owed"] if o.get("band") == BAND]
+    # T-1794: the farmstead rule seats farm households under a standing cabin-and-barn pair
+    # ahead of the labourers, so the band is now the seated AND the owed.
+    farmed = [x for x in seats["seats"] if x.get("band") == BAND]
+    band_size = len(owed) + len(farmed)
     rungs = Counter(book[o["id"]].get("rung", "absent") for o in owed if o["id"] in book)
     missing = [o["id"] for o in owed if o["id"] not in book]
     handed = Counter(o.get("handed_to") for o in owed)
@@ -316,6 +320,9 @@ def derive() -> dict:
         "the_households": {
             "band": BAND,
             "owed": len(owed),
+            "seated_in_farmsteads": [
+                {"id": x["id"], "cabin": x["structure_id"], "barn": x.get("farmstead_barn")}
+                for x in farmed],
             "by_rung": dict(sorted(rungs.items())),
             "missing_from_the_address_book": missing,
             "placed_by_a_source": sum(n for r, n in rungs.items() if r != "policy_only"),
@@ -375,29 +382,34 @@ def derive() -> dict:
             "ordinary_dwellings": {"to_build": od["to_build"], "owning_ticket": od["owning_ticket"]},
             "barns_stables": {"to_build": bs["to_build"], "owning_ticket": bs["owning_ticket"]},
             "roofs_a_farmstead_per_owed_household_needs": 2 * len(owed),
+            "farmsteads_the_ground_admits_beyond_those_standing": max(0, ground_ceiling - pairs),
             "remaining_by_group": west_group,
         },
         "the_ceiling": {
             "farmsteads_the_ground_holds_at_one_per_forty": ground_ceiling,
             "farmsteads_the_programme_carries_as_it_stands": programme_ceiling,
-            "owed_households_left_beyond_the_ground_at_best": max(0, len(owed) - ground_ceiling),
+            "owed_households_left_beyond_the_ground_at_best": max(0, band_size - ground_ceiling),
             "cabin_and_barn_pairs_already_standing_on_it": pairs,
+            "farm_households_seated_in_them": len(farmed),
             "pairs_note": "a D1 cabin and an A2 barn that already stand on the farm ground ARE a "
                           "farmstead's two roofs, and seating a farm household under one draws on "
-                          "no programme headroom at all. Today the seating order gives them to "
-                          "labourers (labourer_dwellings ranks above farms_and_country_seats), "
-                          "which is why the band is owed.",
+                          "no programme headroom at all. Since T-1794 the off-plat deal's "
+                          "farmstead rule (tools/seat_off_plat_ground_1835.py) gives them to farm "
+                          "households ahead of the labourers, who ranked above the farms clause "
+                          "and had taken every one.",
         },
     }
     doc["verdict"] = (
-        f"{len(owed)} West farm households are owed and no source places one of them. The West "
+        f"{band_size} West farm households are dealt and no source places one of them: "
+        f"{len(farmed)} are seated in a standing farmstead and {len(owed)} are owed. The West "
         f"ground outside the 1833 corporation limits and off every subdivided tract is "
         f"{farm_m2 / 10000:.1f} ha — {farm_forties:.2f} forties — so at one farm to the smallest "
         f"holding either source names, the modelled ground holds at most {ground_ceiling} "
-        f"farmstead(s), and {max(0, len(owed) - ground_ceiling)} of the {len(owed)} must be stated "
+        f"farmstead(s), and {max(0, band_size - ground_ceiling)} of the {band_size} must be stated "
         f"as farming beyond it. {len(standing)} roof(s) already stand on that ground, "
         f"{standing_fams.get('D1', 0)} of them D1 cabins and {standing_fams.get('A2', 0)} A2 barns — "
-        f"{pairs} cabin-and-barn pair(s) a farm household could take with no new roof. The programme "
+        f"{pairs} cabin-and-barn pair(s), {len(farmed)} of them seated by a farm household under "
+        f"the farmstead rule. The programme "
         f"carries {programme_ceiling} D1+A2 farmstead(s) as it stands: the West has "
         f"{west_family.get('D1', 0)} D1 and {west_family.get('A2', 0)} A2 left to build, its "
         f"{od['to_build']} remaining dwellings are {od['owning_ticket']}'s and its "
@@ -431,6 +443,10 @@ def problems(doc: dict) -> list[str]:
     if abs(admitted - f["m2"]) > 1e-6:
         out.append("the farm ground is not the unsubdivided ground outside the limits")
     c = doc["the_ceiling"]
+    if c["farm_households_seated_in_them"] > c["cabin_and_barn_pairs_already_standing_on_it"]:
+        out.append("more farm households are seated in farmsteads than cabin-and-barn pairs stand")
+    if any(not x["barn"] for x in h["seated_in_farmsteads"]):
+        out.append("a farm household is seated in a cabin with no barn named beside it")
     if c["farmsteads_the_ground_holds_at_one_per_forty"] != math.floor(f["forties"] + 1e-9):
         out.append("the ground ceiling is not the whole forties of the farm ground")
     if c["farmsteads_the_programme_carries_as_it_stands"] > min(doc["the_programme"]["remaining_by_family"].values()):
