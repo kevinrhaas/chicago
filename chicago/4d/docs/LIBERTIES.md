@@ -15471,9 +15471,9 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-four roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 24 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -15482,6 +15482,12 @@ tier and the Randolph block west of the river, and were written by **T-1685**, p
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**T-1783 made it 24.** Opening the outer West blocks re-dealt the West Division's households
+across the ground the schedule now names, and the Ballingale household — a name the town's own
+records carry — now takes the one-room cottage on `blk_randolph_clinton`
+(`recon_1835_blk_randolph_clinton_d3_04`), so that roof names its keeper where it had stated a
+refusal.
 
 **It was 23 until T-1736, and the two it lost show what "one district at a time" costs.**
 That ticket dealt the first two roofs on blk_washington_clark, on the plat's last tier, and
