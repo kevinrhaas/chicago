@@ -3,7 +3,8 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const {chromium}=await import(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'playwright/index.mjs'));
+import { execSync } from 'node:child_process';
+const {chromium}=await import(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES || process.env.NODE_PATH?.split(path.delimiter)[0] || execSync('npm root -g',{encoding:'utf8'}).trim(),'playwright/index.mjs'));
 const root=path.resolve('../../site/4d');
 const out=process.env.MENU_SCREENSHOTS || '/tmp/t1768-browser';fs.mkdirSync(out,{recursive:true});
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'};
@@ -27,6 +28,10 @@ try {
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow');
    await page.screenshot({path:`${out}/${skin}-${width}.png`,fullPage:true});
   }
+  const light = await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--panel-solid'));
+  await page.evaluate(()=>{document.documentElement.dataset.theme='dark';});
+  assert.notEqual(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--panel-solid')),light,'Space Age honors light/dark');
+  await page.evaluate(()=>{document.documentElement.dataset.theme='light';});
   // Persist, then navigate without waiting for the entire town's heavy data.
   await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'spaceage');
   await page.locator('[data-year="1835"]').click();await page.waitForURL('**/4d/1835/');

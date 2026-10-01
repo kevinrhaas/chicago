@@ -4,10 +4,14 @@
   let skin = 'scifi';
   try { const saved = localStorage.getItem('chicago4d.skin'); if (keys.includes(saved)) skin = saved; } catch {}
   document.documentElement.dataset.skin = skin;
+  try { document.documentElement.dataset.theme = localStorage.getItem('chicago4d.theme') || (skin === 'spaceage' ? 'light' : 'dark'); } catch {}
   try { if (Number(sessionStorage.getItem('chicago4d.transfer')) > Date.now() - 15000) document.documentElement.dataset.transfer = 'true'; } catch {}
   function apply(value) {
     if (!keys.includes(value)) return;
     document.documentElement.dataset.skin = value;
+    const tone = value === 'spaceage' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = tone;
+    try { localStorage.setItem('chicago4d.theme', tone); } catch {}
     document.querySelectorAll('[data-skin-choice]').forEach(select => { select.value = value; });
     try { localStorage.setItem('chicago4d.skin', value); } catch {}
   }

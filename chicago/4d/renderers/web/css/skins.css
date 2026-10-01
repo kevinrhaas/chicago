@@ -15,3 +15,5 @@ html[data-transfer] .gate-card {animation:skin-arrival .7s ease-out both;}
 html[data-skin] { --r:var(--skin-radius); }
 html[data-skin] body,html[data-skin] .hud-panel,html[data-skin] .popup { font-family:var(--skin-font); }
 html[data-skin] .panel-title,html[data-skin] .pop-title-row h2 { font-family:var(--skin-display); }
+
+html[data-skin="spaceage"][data-theme="dark"] {--page:#11282c;--panel:rgba(24,51,55,.96);--panel-solid:#183337;--ink:#f4ebd8;--ink-dim:#c3c8b9;--edge:#5b7778;--accent:#ed9b72;--brass:#ed9b72;color-scheme:dark;}
