@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
+      'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
+      'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
+      'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
+    ] },
   { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
