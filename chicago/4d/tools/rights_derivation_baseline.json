@@ -616,6 +616,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "terrain/e1834_harbor_cut/dunes.north_lake_dunes": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire274"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1834_harbor_cut/dunes.south_lake_dunes": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire274"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
     "terrain/e1834_harbor_cut/marsh_strips.south_division_marsh": {
       "kind": "ground",
       "blocked_sources": [

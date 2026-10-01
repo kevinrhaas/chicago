@@ -1,9 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1276, ts: '2026-10-01T22:53:59.808Z', date: 'Oct 1, 2026, 5:53 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+  { v: 1278, ts: '2026-10-01T23:33:50.561Z', date: 'Oct 1, 2026, 6:33 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
       'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
       'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
+    ] },
+  { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+    items: [
+      'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
+      'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
+      'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets keep patches of grass along their edges and between their lanes, and every edge gives way to the prairie in ragged clumps.',
+      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L327.',
+      'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
+    ] },
+  { v: 1276, ts: '2026-10-01T22:45:32.074Z', date: 'Oct 1, 2026, 5:45 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
+    items: [
+      'Walk the lake shore south of the old river channel, or north of the harbour, and the ground behind the beach is no longer flat. A low ridge of sand rises a few steps back from the water, with a second, lower one behind it and a hollow between.',
+      'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre and a half above the ground around it, and you walk up and over them.',
+      'The fort, the river mouth, the sand bar and the platted streets of the North Side keep the ground they had.',
+      'A visitor at the fort wrote of \u201cthe white sand hills both to the north and south\u201d, but no source places or measures one. Where they stand and how high they are is our reconstruction, recorded in the register (L334).',
     ] },
   { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
     items: [

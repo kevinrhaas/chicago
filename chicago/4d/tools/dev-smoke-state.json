@@ -1,6 +1,37 @@
 {
-  "note": "T-0216 \u2014 dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log \u2014 local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree \u2014 but read the stage number as dated rather than current.",
+  "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 500,
+      "takenAt": "2026-10-01T21:23:18.665Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "4f0416f294ec",
+      "devCommit": "1376b55eb952",
+      "treeHash": "sha256:646fb735706b618b",
+      "treeDirty": false,
+      "changelogHash": "sha256:f31c56477dc79b4e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke-d7b.log"
+    },
     {
       "viewport": "desktop",
       "stage": "5,10-11",
@@ -56,6 +87,37 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
       },
       "source": "gh-run:36904172019 https://github.com/kevinrhaas/chicago/actions/runs/36904172019"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 455,
+      "takenAt": "2026-10-01T17:36:52.799Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "86eabdcdcda7",
+      "devCommit": "21acac92f184",
+      "treeHash": "sha256:d40ad49c21dc8116",
+      "treeDirty": false,
+      "changelogHash": "sha256:23aa70e2efbb60f3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.4,
+          4.4
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d7b.log"
     },
     {
       "viewport": "mobile",
@@ -116,6 +178,37 @@
       "source": "gh-run:36899248098 https://github.com/kevinrhaas/chicago/actions/runs/36899248098"
     },
     {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 218,
+      "takenAt": "2026-10-01T17:03:35.705Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/t1811/smoke-m8.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "11,13",
       "parts": [
@@ -127,8 +220,8 @@
       "passed": 135,
       "failed": 2,
       "failures": [
-        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px (800px buffer, 55.0deg field, 1.68m eye), reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
-        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px (800px buffer, 55.0deg field, 1.68m eye), reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
       ],
       "wallSeconds": null,
       "takenAt": "2026-10-01T17:02:08.1250819Z",
@@ -158,7 +251,7 @@
       "passed": 134,
       "failed": 1,
       "failures": [
-        "mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+        "mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
       ],
       "wallSeconds": null,
       "takenAt": "2026-10-01T17:02:08.1250819Z",
@@ -234,6 +327,37 @@
     },
     {
       "viewport": "mobile",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 291,
+      "takenAt": "2026-10-01T16:59:56.852Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.3,
+          4.2
+        ]
+      },
+      "source": "/tmp/t1811/smoke-m7.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "5",
       "parts": [
         5
@@ -297,8 +421,8 @@
       "passed": 21,
       "failed": 2,
       "failures": [
-        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
-        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface \u2014 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
       ],
       "wallSeconds": 323,
       "takenAt": "2026-10-01T16:56:18.7420918Z",
@@ -315,6 +439,68 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36895681173 https://github.com/kevinrhaas/chicago/actions/runs/36895681173"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 352,
+      "takenAt": "2026-10-01T16:55:01.900Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d8.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 454,
+      "takenAt": "2026-10-01T16:42:50.945Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.4,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d7.log"
     },
     {
       "viewport": "mobile",
@@ -504,7 +690,7 @@
       "passed": 159,
       "failed": 1,
       "failures": [
-        "desktop 1280x800: the yard layer chunks for culling on a single material \u2014 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
+        "desktop 1280x800: the yard layer chunks for culling on a single material — 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
       ],
       "wallSeconds": null,
       "takenAt": "2026-10-01T16:02:49.3371224Z",
@@ -536,7 +722,7 @@
       "passed": 244,
       "failed": 1,
       "failures": [
-        "desktop 1280x800: the sward's outer boundary is not a constant screen row \u2014 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)"
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)"
       ],
       "wallSeconds": 2276,
       "takenAt": "2026-10-01T16:00:51.9605964Z",
@@ -714,8 +900,8 @@
       "passed": 423,
       "failed": 2,
       "failures": [
-        "mobile 390x780: no unexpected loader problems \u2014 recon_1835_blk_randolph_market_d3_04: its asset gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file | recon_1835_blk_randolph_market_d5_11: its asset gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file | recon_1835_blk_randolph_market_d4_03: its asset gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb failed on the first ask and loaded on the second \u2014 a dropped request, not a bad file",
-        "mobile 390x780: zero page errors \u2014 HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb"
+        "mobile 390x780: no unexpected loader problems — recon_1835_blk_randolph_market_d3_04: its asset gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d5_11: its asset gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d4_03: its asset gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file",
+        "mobile 390x780: zero page errors — HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb"
       ],
       "wallSeconds": 1667,
       "takenAt": "2026-09-30T22:52:40.708Z",
@@ -980,9 +1166,9 @@
       "passed": 569,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
       ],
       "wallSeconds": 2600,
       "takenAt": "2026-09-29T22:47:43.709Z",
@@ -1079,9 +1265,9 @@
       "passed": 155,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
       ],
       "wallSeconds": 385,
       "takenAt": "2026-09-29T13:26:30.741Z",
@@ -1176,9 +1362,9 @@
       "passed": 85,
       "failed": 3,
       "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts \u2014 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored \u2014 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block \u2014 record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
+        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 50 walk(s), 44 crossing(s), 18 post(s), 31 fence run(s), 910800 vertices, 120 wall(s) refused, problems [none]",
+        "mobile 390x780: the frontage layer draws the meshes it authored — 57 authored mesh(es) (frontage, frontage-chunk x56), 0 far-merge artefact(s) [none], 57 drawn in all",
+        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 39 block face(s), 3519.8 m of walk, 31 fence run(s), 282 walking deck(s) registered"
       ],
       "wallSeconds": 183,
       "takenAt": "2026-09-29T13:20:04.525Z",
@@ -1726,192 +1912,6 @@
         ]
       },
       "source": "/tmp/smoke-desktop-1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 208,
-      "takenAt": "2026-09-29T06:20:51.495Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "1027beef9471",
-      "devCommit": "fcd5e7c5fad2",
-      "treeHash": "sha256:b9c253ba08f85e16",
-      "treeDirty": false,
-      "changelogHash": "sha256:3e6391fa4175cfaa",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.9,
-          4.1,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 340,
-      "takenAt": "2026-09-29T06:20:51.394Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "1027beef9471",
-      "devCommit": "fcd5e7c5fad2",
-      "treeHash": "sha256:b9c253ba08f85e16",
-      "treeDirty": false,
-      "changelogHash": "sha256:3e6391fa4175cfaa",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.9,
-          4.1,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 228,
-      "takenAt": "2026-09-29T05:29:19.416Z",
-      "ref": "steward/t-1708-washington-tier",
-      "commit": "711a0106b718",
-      "devCommit": "5fedf9f8948d",
-      "treeHash": "sha256:0d758d8a1d8bdaa2",
-      "treeDirty": false,
-      "changelogHash": "sha256:a4a9f7b0b35c0572",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.4,
-          3.8
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 358,
-      "takenAt": "2026-09-29T05:29:19.323Z",
-      "ref": "steward/t-1708-washington-tier",
-      "commit": "711a0106b718",
-      "devCommit": "5fedf9f8948d",
-      "treeHash": "sha256:0d758d8a1d8bdaa2",
-      "treeDirty": false,
-      "changelogHash": "sha256:a4a9f7b0b35c0572",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.4,
-          3.8
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 222,
-      "takenAt": "2026-09-29T05:17:30.864Z",
-      "ref": "steward/t1753-cass-first-roofs",
-      "commit": "63cee0d6c50d",
-      "devCommit": "5fedf9f8948d",
-      "treeHash": "sha256:11760db089ca650f",
-      "treeDirty": false,
-      "changelogHash": "sha256:2144575f15bf81e5",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.5,
-          4.5,
-          3.7
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 361,
-      "takenAt": "2026-09-29T05:17:30.769Z",
-      "ref": "steward/t1753-cass-first-roofs",
-      "commit": "63cee0d6c50d",
-      "devCommit": "5fedf9f8948d",
-      "treeHash": "sha256:11760db089ca650f",
-      "treeDirty": false,
-      "changelogHash": "sha256:2144575f15bf81e5",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.5,
-          4.5,
-          3.7
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
     }
   ]
 }
