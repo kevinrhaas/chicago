@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1275, ts: '2026-10-01T22:30:55.691Z', date: 'Oct 1, 2026, 5:30 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
+    items: [
+      'Open the card of the store-residence south-west of the Western Hotel\u2019s wagon yard. It used to read as an anonymous count of the town\u2019s roofs. It now says what the building was for: a store with attic rooms, kept for the wagon trade.',
+      'Nobody is named for it. No household the town can seat there keeps a store, so the card says so instead of leaving it blank. No trade, goods or signboard is invented for it.',
+      'This is our reconstruction, recorded in the register (L310). Nothing in the 3-D scene moved.',
     ] },
   { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
     items: [
