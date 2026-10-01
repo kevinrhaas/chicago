@@ -41,6 +41,7 @@ window.PrairieImages = (() => {
     else if (!/\.(jpe?g|png|gif|webp)(\?|#|$)/i.test(u)) return null;
     return u;
   }
+  const fallbackURL = (r, size) => remoteURL2(r.image_url || r.local?.fetched_from, size);
   const remoteThumbOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 480) : null;
   const remoteFullOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 1600) : null;
   function remoteImg(src, r) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; return img; }
@@ -87,7 +88,13 @@ window.PrairieImages = (() => {
 
   function thumbBox(r, cls = 'img-thumb') {
     const box = node('div', null, cls), src = thumbOf(r);
-    if (src) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.addEventListener('error', () => { img.replaceWith(node('span', r.kind, 'img-ph')); }); box.append(img); }
+    if (src) {
+      const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async';
+      // The /4d/ dev-preview mirror ships without the local derivatives: fall back to the holder.
+      const fallback = fallbackURL(r, 480);
+      img.addEventListener('error', () => { if (fallback && img.src !== fallback) { img.referrerPolicy = 'no-referrer'; img.src = fallback; } else img.replaceWith(node('span', r.kind, 'img-ph')); });
+      box.append(img);
+    }
     else {
       const placeholder = () => { box.classList.add('link-only'); box.replaceChildren(node('span', r.kind, 'img-ph'), node('span', 'View at ' + (r.repository || 'holder') + ' ↗', 'img-ph-sub')); };
       const remote = remoteThumbOf(r);
@@ -252,7 +259,7 @@ window.PrairieImages = (() => {
     const d = $('imageDialog'), body = $('imageDialogBody'); body.replaceChildren();
     const fig = node('figure', null, 'img-figure'), full = fullOf(r);
     const remote = !full && remoteFullOf(r);
-    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; a.append(img); fig.append(a); }
+    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; const fb = fallbackURL(r, 1600); img.addEventListener('error', () => { if (fb && img.src !== fb) { img.referrerPolicy = 'no-referrer'; img.src = fb; a.href = fb; } }); a.append(img); fig.append(a); }
     else if (remote) {
       const a = node('a'); a.href = remoteURL(r.image_url) || remote; a.target = '_blank'; a.rel = 'noopener noreferrer'; const img = remoteImg(remote, r); img.loading = 'eager';
       img.addEventListener('error', () => a.replaceWith(thumbBox(Object.assign({}, r, { image_url: null }), 'img-thumb big')));
