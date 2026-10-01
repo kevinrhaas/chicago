@@ -4673,10 +4673,33 @@ for (const [label, viewport, touch] of [
           timberOrder: timber[0].order,
         };
       })();
+      // T-1813 — each business-front fitting against its own stand: how many
+      // vertices of the layer's timber lie within 0.5 m of its centre, and the
+      // highest of them over the ground there. A fitting the record carries and
+      // the layer never drew reads zero; one that fell through to a post's
+      // branch would stand far taller than any stoop or block.
+      const fittings = (f?.fittings ?? []).map((q) => {
+        const [e0, n0] = q.at_local_enu_m;
+        const stand = terrain.surfaceHeight(e0, n0);
+        let found = 0;
+        let top = -Infinity;
+        for (const t of timber) {
+          const pos = t.geometry?.getAttribute('position');
+          if (!pos) continue;
+          for (let i = 0; i < pos.count; i++) {
+            if (Math.abs(pos.getX(i) - e0) > 0.5) continue;
+            if (Math.abs(-pos.getZ(i) - n0) > 0.5) continue;
+            found += 1;
+            top = Math.max(top, pos.getY(i) - stand);
+          }
+        }
+        return { id: q.id, kind: q.kind, found, top };
+      });
       return {
         edge,
         decal,
         hitching,
+        fittings,
         recordIds: (f?.records ?? []).map((r) => r.id),
         noBoardHere: (f?.records ?? []).find((r) => r.id === 'sauganash_frontage')
           ?.board_on_a_post?.value ?? null,
@@ -4926,7 +4949,9 @@ for (const [label, viewport, touch] of [
         // and Canal, so its three north/south fences cease to have fronting lots.
         // Four improved Washington faces each earn one fence: 31-3+4=32.
         // Their reconstructed residential trades earn no new hitching posts.
-        && frontage.census?.posts === 18 && frontage.census?.fences === 32
+        // T-1813 — the street edge is dealt by business: a reconstructed trade
+        // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
+        && frontage.census?.posts === 48 && frontage.census?.fences === 32
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -4994,7 +5019,10 @@ for (const [label, viewport, touch] of [
         // Wells trades its block refusal for the too-wide Wells-Clark gap (0).
         // La Salle removes its block refusal AND that intervening gap (-2).
         // Franklin removes its own block refusal (-1): 121-1+2+0-2-1=119.
-        && frontage.census?.refused === 119
+        // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
+        // post) and states 18 new ones — fittings and posts the rule could not lay,
+        // each naming its clause: 119-24+18=113.
+        && frontage.census?.refused === 113
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5349,11 +5377,17 @@ for (const [label, viewport, touch] of [
     // school and no source reached says what it was. The hitching rule accepts a
     // frontage by its TRADE, so the post retires with it. The street-edge
     // population is sixteen; the two on a record's own ground do not move.
-    check(`${label}: the eighteen hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 18
-        && frontage.census?.hitching === 18
+    // T-1813 makes it FORTY-EIGHT, and none is a building arriving: the street
+    // edge is dealt by business. A reconstructed trade takes its post at its own
+    // tier (+25 — clause 3 of the old rule refused them), and an inn stands two
+    // posts at the thirds of its front, as the Sauganash does (+5). The
+    // street-edge population is forty-six; the two on a record's own ground do
+    // not move.
+    check(`${label}: the forty-eight hitching posts stand on their own ground, carrying nothing`,
+      frontage.hitching.length === 48
+        && frontage.census?.hitching === 48
         && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 16
+        && frontage.hitching.filter((h) => h.street).length === 46
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -5372,6 +5406,24 @@ for (const [label, viewport, touch] of [
       + ` — ${frontage.census?.lettered} board(s) lettered in the layer on `
       + `${frontage.signPosts} sign post(s), `
       + `record says a board on a post here: ${frontage.noBoardHere}`);
+    // THE STREET EDGE BY BUSINESS (T-1813). Every fitting the record deals — a
+    // stoop at a store's or an inn's door, a mounting block at an inn, a tie rail
+    // at a works, a wagon apron at a forwarding house — is drawn, at its own
+    // stand, no taller than a tie rail's 1.07 m. The counts are exact for the
+    // same reason the posts' are: a fitting appearing or vanishing is worth
+    // failing over, and a run that moves one updates them here.
+    const fitKinds = frontage.census?.fittingKinds ?? {};
+    const fitBad = (frontage.fittings ?? []).filter((q) => !(q.found > 0
+      && q.top > 0.04 && q.top < 1.6));
+    check(`${label}: the forty-six business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 46 && (frontage.fittings ?? []).length === 46
+        && fitKinds.stoop === 37 && fitKinds.mounting_block === 5
+        && fitKinds.wagon_apron === 3 && fitKinds.tie_rail === 1
+        && fitBad.length === 0,
+      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
+      + `${fitBad.length} bad: `
+      + fitBad.slice(0, 6).map((q) => `${q.id} ${q.found} vert, top ${q.top?.toFixed(2)} m`)
+        .join(' | '));
 
     // AND IT READS FROM THE STREET, the same bar the Green Tree's frontage is
     // held to: stand on Lake Street where a traveller coming up to the hotel

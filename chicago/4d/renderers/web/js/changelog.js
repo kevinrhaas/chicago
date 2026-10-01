@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1265, ts: '2026-10-01T16:42:53.296Z', date: 'Oct 1, 2026, 11:42 AM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
+    items: [
+      'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
+      'Inns have two hitching posts and a mounting block for riders getting down. Forwarding houses and warehouses have a broad plank apron across the verge, so a loaded dray can come off the road to the door. The smith has a tie rail.',
+      'Twenty-five more shops now have a hitching post, including the reconstructed bakery, butcher, tailor and their neighbours.',
+      'All of this is our reconstruction. No source places a stoop, a post or a block at any Chicago door in 1835, and no record says where each door was, so each stoop stands at the middle of its front. Open the street edge\u2019s card to see which shop each one serves.',
+    ] },
   { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [
       'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
