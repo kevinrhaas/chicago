@@ -428,6 +428,7 @@ GROUND_GROUPS = [
     ("swales", "the prairie swales"),
     ("watercourses", "the watercourses"),
     ("approaches", "the bridge approaches"),
+    ("dunes", "the lakefront sand hills"),
     ("micro_relief", "the surface texture"),
     ("surface_materials", "what the ground is made of"),
     # The graded ground (e1871_postfire, T-1738): a zone table of street crowns and a
