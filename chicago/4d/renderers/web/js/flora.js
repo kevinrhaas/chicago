@@ -3737,6 +3737,25 @@ function patchOf(e, n) {
     * (0.72 + 0.42 * vnoise(e * 0.74 - 1.1, n * 0.74 + 6.2));
 }
 
+/** THE GROWTH FIELD (T-1825): coherent 1.4-2.8 m stands of vigorous and thin
+ *  growth, the scale the ground tile's own growth octaves work at (see
+ *  `prairie-tile.js`). A July sward is not a crop. Where the ground is a little
+ *  richer or wetter a stand closes up taller and darker, and beside it a thinner
+ *  one shows its litter. Drawing every tuft's height independently made the
+ *  near field read as a seedling row. Mean 0.5, so the averages it steers
+ *  (height within the record's range, the thatch minority, the tone) stay where
+ *  they were. It moves them around the field; it does not move their means. */
+function vigourOf(e, n) {
+  return 0.62 * vnoise(e * 0.36 + 3.1, n * 0.36 - 7.7)
+       + 0.38 * vnoise(e * 0.72 - 2.4, n * 0.72 + 1.9);
+}
+
+/** The tone a stand's vigour gives its plants: darker where the canopy closes,
+ *  lighter where it is thin. Mean 1.0 over the field. */
+function vigourTone(vig) {
+  return 0.86 + 0.28 * (1 - vig);
+}
+
 function tint(sp, u, v) {
   // Two greens per species, plus a small tonal jitter: the bar photographs show
   // several distinct greens within a metre, and one flat green reads as carpet.
@@ -3750,7 +3769,12 @@ function tint(sp, u, v) {
 }
 
 function placeGraminoid(set, sp, e, y, n, rng) {
-  const u = rng();
+  // Where in the record's own range this tuft stands is about a third its own
+  // draw and two thirds its stand's vigour (T-1825). The range is the
+  // record's, untouched: the field only decides which tufts sit high in it and
+  // which sit low.
+  const vig = vigourOf(e, n);
+  const u = rng() * 0.35 + vig * 0.65;
   // The record's own height, at full size. The ring fade that used to be baked
   // in here is applied per frame in the vertex shader instead: baked, it could
   // only change when the lattice was rebuilt, which made it a step rather than
@@ -3760,10 +3784,13 @@ function placeGraminoid(set, sp, e, y, n, rng) {
   // proportion of the height when it does not. The proportion had cordgrass
   // splaying 1.1 m against a recorded 0.5-0.9.
   const spread = (sp.width ? mid(sp.width) : h * sp.shape.spread) * (0.78 + rng() * 0.5);
-  const c = tint(sp, rng(), rng()).map((x) => x * patchOf(e, n));
+  const tone = patchOf(e, n) * vigourTone(vig);
+  const c = tint(sp, rng(), rng()).map((x) => x * tone);
   // A minority of dead thatch from last year's growth, at the base of the
-  // clump. Kept a minority on purpose: a straw-coloured sward is October.
-  const dry = rng() < 0.07;
+  // clump. Kept a minority on purpose: a straw-coloured sward is October. Still
+  // 7 % over the field, but gathered into the thin stands (0 % at full vigour,
+  // 14 % at none), which is where litter shows through a July canopy.
+  const dry = rng() < 0.14 * (1 - vig);
   const col = dry
     ? [c[0] * 0.6 + sp.dry[0] * 0.5, c[1] * 0.6 + sp.dry[1] * 0.45, c[2] * 0.6 + sp.dry[2] * 0.5]
     : c;
@@ -3780,7 +3807,11 @@ function placeCard(set, sp, zone, e, y, n, rng) {
   // A clump, not a hoarding. Width 1.25-2.15 x height made 2.5 m billboards
   // that tiled the mid-ground into flat-topped dark blocks.
   const w = h * (0.42 + rng() * 0.44);
-  const c = tint(sp, rng(), rng()).map((x) => x * patchOf(e, n));
+  // The stand's tone, not its height (T-1825): the mid ring's OUTER edge is the
+  // boundary the sward's reach is read off (part 11), so the cards' heights
+  // stay exactly as drawn and only the near tufts stand taller or lower.
+  const tone = patchOf(e, n) * vigourTone(vigourOf(e, n));
+  const c = tint(sp, rng(), rng()).map((x) => x * tone);
   // Mid-distance clumps carry a little of the zone's own mean, so the sea reads
   // as one community rather than as a spray of unrelated colours.
   const m = zone.matColor;

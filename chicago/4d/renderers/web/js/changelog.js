@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1278, ts: '2026-10-01T23:37:25.182Z', date: 'Oct 1, 2026, 6:37 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
+    items: [
+      'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
+      'The grass near you rises and falls with those stands. Clumps in a lush patch grow taller and darker together, and in a thin one they stay lower and lighter, with more dead blades. Before, every clump was drawn the same.',
+      'The prairie\u2019s overall colour is unchanged, and so are each grass\u2019s recorded heights. Only where the tall and short plants stand has changed. The frame rate is unchanged too.',
+      'Where the thick and thin stands fall is our reconstruction. No survey of 1835 maps them. The Liberties page says so (L337).',
     ] },
   { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
