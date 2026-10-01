@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 389,
-    "keep": 386,
+    "audited": 390,
+    "keep": 387,
     "refamily": 3,
     "retire": 0,
     "kept_occupied": 3,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 2,
     "roof_target": 668,
-    "standing_before": 499,
-    "standing_after": 499,
-    "short_of_the_programme_before": 169,
-    "short_of_the_programme_after": 169
+    "standing_before": 500,
+    "standing_after": 500,
+    "short_of_the_programme_before": 168,
+    "short_of_the_programme_after": 168
   },
   "ledger": [
     {
@@ -166,11 +166,11 @@
       "group": "larger_boarding_houses",
       "division": "south",
       "target": 28,
-      "standing": 17,
-      "anonymous": 16,
-      "head_before": 11,
-      "standing_after": 17,
-      "head_after": 11
+      "standing": 18,
+      "anonymous": 17,
+      "head_before": 10,
+      "standing_after": 18,
+      "head_after": 10
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -3743,6 +3743,24 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
       "reason": "the order book has an occupant class for a D5 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_h3_05",
+      "division": "south",
+      "family": "H3",
+      "group": "larger_boarding_houses",
+      "programme_phase": "phase3_platted_block_washington_clark_second_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1126.9,
+      "street": "madison",
+      "street_class": "none",
+      "setback_m": 1.52,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/larger_boarding_houses/south",
+      "reason": "the order book has an occupant class for a H3 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_washington_franklin_a1_08",
