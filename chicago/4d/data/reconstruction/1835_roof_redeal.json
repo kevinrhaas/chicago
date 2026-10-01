@@ -45,11 +45,11 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 27,
-      "anonymous": 20,
-      "head_before": 8,
-      "standing_after": 27,
-      "head_after": 8
+      "standing": 26,
+      "anonymous": 19,
+      "head_before": 9,
+      "standing_after": 26,
+      "head_after": 9
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -232,11 +232,11 @@
       "group": "small_outbuildings",
       "division": "south",
       "target": 48,
-      "standing": 35,
-      "anonymous": 34,
-      "head_before": 13,
-      "standing_after": 35,
-      "head_after": 13
+      "standing": 36,
+      "anonymous": 35,
+      "head_before": 12,
+      "standing_after": 36,
+      "head_after": 12
     },
     {
       "bucket": "structures/small_outbuildings/west",
@@ -3763,24 +3763,6 @@
       "reason": "the order book has an occupant class for a H3 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
-      "id": "recon_1835_blk_washington_franklin_a1_08",
-      "division": "south",
-      "family": "A1",
-      "group": "barns_stables",
-      "programme_phase": "phase3_platted_block_washington_franklin",
-      "occupied": false,
-      "raised_for": null,
-      "footprint_ft2": 425.5,
-      "street": "franklin",
-      "street_class": "ordinary",
-      "setback_m": 4.79,
-      "on_the_street_line": false,
-      "conforms": true,
-      "verdict": "keep",
-      "bucket": "structures/barns_stables/south",
-      "reason": "the order book has an occupant class for a A1 roof in the south division and the placement policy accepts the family where it stands"
-    },
-    {
       "id": "recon_1835_blk_washington_franklin_a1_10",
       "division": "south",
       "family": "A1",
@@ -3869,6 +3851,24 @@
       "verdict": "keep",
       "bucket": "structures/small_outbuildings/south",
       "reason": "the order book has an occupant class for a A4 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a5_08",
+      "division": "south",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_franklin",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 102.3,
+      "street": "franklin",
+      "street_class": "ordinary",
+      "setback_m": 5.59,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/south",
+      "reason": "the order book has an occupant class for a A5 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_washington_franklin_d3_05",

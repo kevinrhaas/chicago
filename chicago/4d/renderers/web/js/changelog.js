@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+    items: [
+      'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
+      'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
+    ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [
       'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
