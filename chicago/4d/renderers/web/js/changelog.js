@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1276, ts: '2026-10-01T22:53:14.171Z', date: 'Oct 1, 2026, 5:53 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
+    items: [
+      'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
+      'The grass near you rises and falls with those stands. Clumps in a lush patch grow taller and darker together, and in a thin one they stay lower and lighter, with more dead blades. Before, every clump was drawn the same.',
+      'The prairie\u2019s overall colour is unchanged, and so are each grass\u2019s recorded heights. Only where the tall and short plants stand has changed. The frame rate is unchanged too.',
+      'Where the thick and thin stands fall is our reconstruction. No survey of 1835 maps them. The Liberties page says so (L337).',
+    ] },
   { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
     items: [
       'Open the card of the store-residence south-west of the Western Hotel\u2019s wagon yard. It used to read as an anonymous count of the town\u2019s roofs. It now says what the building was for: a store with attic rooms, kept for the wagon trade.',
