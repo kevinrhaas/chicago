@@ -15084,7 +15084,32 @@ same 17 and gained nobody; against `c2dccdcd` it moved 26.
 The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS
 REPORTED RATHER THAN TIDIED, and **T-1626** is still the question.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged).
+**AND THE INNS DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777, 2026-10-01).** The order
+this entry deals in was T-1199's: the commercial front, the better houses, the tradesmen, the
+labourers, and the lodging houses last. On the committed plat, last meant never. Every block
+whose plan carries an H3 boarding house had been dealt down to the one lot its sizing keeps
+open (T-1623) before a tavern keeper was reached, so both households the address book bands
+`south/lodging_near_the_landings`, hh_beaubien_mark and hh_sweet_alanson, were owed, and all
+seven planned H3 roofs stood unclaimed. **The clause now deals fourth, after the three business
+clauses and before the three dwelling clauses**, for two reasons. An inn is a house of trade,
+and its keeper is banded by his trade as a storekeeper is. And `lodging_near_the_landings` is a
+DOCUMENTED clause (nine standing lodging roofs, every one on a corner, an approach or the
+water), where all three dwelling clauses are inferred: where the two contest a lot,
+the placement the record fixes takes it. Measured at the chain's fixpoint against `dev` at
+`ee5da30e`, the pass runs **177 → 177** seats, adoptions **144** and slots **33** unmoved.
+**Both keepers are seated on an H3 slot**: hh_beaubien_mark on `blk_washington_clark#07` and
+hh_sweet_alanson on `blk_washington_dearborn#07`, each a corner lot. **Six tradesmen's slots
+shift one lot along** behind them on the three Washington blocks, and **two leave the plat**:
+hh_clarke_h_b and hh_cleaveland_wm_p are owed to **T-1614** in writing (1,301 owed, unmoved). The
+off-plat deal holds at 72. **Which corner is the scorer's tie and not a finding**: both lots front
+Madison Street, which carries no traffic class in 1835, because the clause's `class:principal`
+reads Washington's `light` and Madison's `none` the same and the lot id breaks the tie. **T-1778**
+raises the first house on the seat as dealt, or argues the face first. Five of the seven
+planned H3 roofs are still unclaimed: the north's one on `blk_indiana_north_cass` (no banded row
+of the north is a lodging keeper), the south's one on `blk_south_water_dearborn` (its last lot is
+the open one), and three on the Washington blocks with no third keeper to take them.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 

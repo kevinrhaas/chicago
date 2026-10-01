@@ -128,16 +128,30 @@ SUCCESSOR = "T-1614"
 FACES = ("north", "south", "east", "west")
 
 # The placement policy's own order, as T-1199 states it: the commercial front first, then
-# the better houses, then the tradesmen, then the labourers, then the lodging houses. The
-# clauses the plat cannot hold are not in it — they are handed on by name, below.
+# the better houses, then the tradesmen, then the labourers. The clauses the plat cannot
+# hold are not in it — they are handed on by name, below.
+#
+# THE LODGING HOUSES DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777). T-1199 put
+# them last, and on the committed plat last meant never: every block whose plan carries
+# an H3 had been dealt down to the one lot its sizing keeps open (T-1623) by the dwelling
+# clauses before a tavern keeper was reached, so both of the south's banded keepers were
+# owed and all seven planned H3 roofs stood unclaimed. Two things put the clause beside
+# the business clauses instead. An inn is a house of trade — its keeper is banded by his
+# trade (`tavern_keeper`), as a storekeeper is — and the trade front is dealt before the
+# houses fill in behind it. And `lodging_near_the_landings` is the policy's DOCUMENTED
+# clause (nine standing lodging roofs, every one on a corner, an approach or the water),
+# where the three dwelling clauses are inferred: where the two contest a lot, the
+# placement the record fixes takes it, and the house the record leaves free goes on to
+# the next. The dwelling clauses keep their own order among themselves; the households
+# this displaces are owed in writing like any other. docs/LIBERTIES.md L270 carries it.
 DEAL_ORDER = (
     "commercial_front",
     "professional_row",
     "mechanics_streets",
+    "lodging_near_the_landings",
     "merchant_and_professional_dwellings",
     "tradesman_dwellings",
     "labourer_dwellings",
-    "lodging_near_the_landings",
 )
 
 # The bands whose ground is not inside the plat. Each carries the reason it is handed on

@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1252, ts: '2026-10-01T10:25:21.030Z', date: 'Oct 1, 2026, 5:25 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
+  { v: 1253, ts: '2026-10-01T10:43:44.207Z', date: 'Oct 1, 2026, 5:43 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This is the plan the next runs build photographic-quality walls, walks and ground from, using the methods that made the 1904 Glessner House look real.',
       'It finds why the plank sidewalks look white: they are drawn in the signboards\u2019 pale tone, not a weathered board\u2019s. The fix belongs to the sidewalk work, which now has the palette to use.',
       'It also finds that the clapboard and log textures would draw a second set of courses over the ones already built as geometry, so those textures are remade before they go on a wall.',
+    ] },
+  { v: 1252, ts: '2026-10-01T10:16:23.229Z', date: 'Oct 1, 2026, 5:16 AM CT', title: 'Two tavern keepers are given lots for their boarding houses', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This decides where the first boarding houses will stand, so they can be built next.',
+      'The town plans seven boarding houses, and until now none of them had anywhere to go. Innkeepers were placed last, after every house and cottage, so the free lots were all taken before they were reached.',
+      'Innkeepers are now placed with the other trades, before the houses fill in behind them. The Mark Beaubien and Sweet households each get a corner lot south of Washington Street, on blocks already planned for a boarding house.',
+      'Two tradesmen\u2019s families who had asked for lots on those blocks are now waiting for a place elsewhere. The lots are our reconstruction. No source places either keeper there.',
     ] },
   { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
