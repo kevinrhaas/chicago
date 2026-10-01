@@ -1,0 +1,98 @@
+{
+  "testedCommit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+  "source": "Actual completed published CI smoke part5 worst-stand summaries, extracted unchanged from downloaded job logs. Triangle and draw-call maxima may occur at different stands.",
+  "ceilingsUnchanged": true,
+  "viewports": [
+    {
+      "viewport": "desktop",
+      "stage": "5-6",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36836830583",
+      "jobUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36836830583/job/110286149527",
+      "logPath": "combined-desktop-5-6.log",
+      "tiers": [
+        {
+          "level": "full",
+          "triangles": 1427069,
+          "triangleCeiling": 1460000,
+          "triangleHeadroom": 32931,
+          "triangleStand": "Lake Street at Canal, east down the axis",
+          "drawCalls": 202,
+          "drawCallStand": "Lake Street at Canal, east down the axis",
+          "originalLogLine": "2026-10-01T08:40:22.6283874Z         full      worst   1,427,069 tris of 1,460,000 at Lake Street at Canal, east down the axis  \u00b7  worst  202 calls at Lake Street at Canal, east down the axis",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 13
+        },
+        {
+          "level": "balanced",
+          "triangles": 1229668,
+          "triangleCeiling": 1280000,
+          "triangleHeadroom": 50332,
+          "triangleStand": "Lake Street at Canal, east down the axis",
+          "drawCalls": 187,
+          "drawCallStand": "Lake Street at Canal, east down the axis",
+          "originalLogLine": "2026-10-01T08:40:22.6285592Z         balanced  worst   1,229,668 tris of 1,280,000 at Lake Street at Canal, east down the axis  \u00b7  worst  187 calls at Lake Street at Canal, east down the axis",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 28
+        },
+        {
+          "level": "light",
+          "triangles": 807664,
+          "triangleCeiling": 825000,
+          "triangleHeadroom": 17336,
+          "triangleStand": "the open aerial",
+          "drawCalls": 84,
+          "drawCallStand": "Lake and Market, the corner itself",
+          "originalLogLine": "2026-10-01T08:40:22.6287391Z         light     worst     807,664 tris of 825,000 at the open aerial  \u00b7  worst   84 calls at Lake and Market, the corner itself",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 131
+        }
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-6",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36836609879",
+      "jobUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36836609879/job/110285446167",
+      "logPath": "combined-mobile-3-6.log",
+      "tiers": [
+        {
+          "level": "full",
+          "triangles": 1294427,
+          "triangleCeiling": 1460000,
+          "triangleHeadroom": 165573,
+          "triangleStand": "Lake Street at Canal, east down the axis",
+          "drawCalls": 186,
+          "drawCallStand": "Lake Street at Canal, east down the axis",
+          "originalLogLine": "2026-10-01T08:40:23.2180417Z         full      worst   1,294,427 tris of 1,460,000 at Lake Street at Canal, east down the axis  \u00b7  worst  186 calls at Lake Street at Canal, east down the axis",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 29
+        },
+        {
+          "level": "balanced",
+          "triangles": 1120982,
+          "triangleCeiling": 1280000,
+          "triangleHeadroom": 159018,
+          "triangleStand": "Lake Street at Canal, east down the axis",
+          "drawCalls": 176,
+          "drawCallStand": "Lake Street at Canal, east down the axis",
+          "originalLogLine": "2026-10-01T08:40:23.2185038Z         balanced  worst   1,120,982 tris of 1,280,000 at Lake Street at Canal, east down the axis  \u00b7  worst  176 calls at Lake Street at Canal, east down the axis",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 39
+        },
+        {
+          "level": "light",
+          "triangles": 739143,
+          "triangleCeiling": 825000,
+          "triangleHeadroom": 85857,
+          "triangleStand": "the open aerial",
+          "drawCalls": 77,
+          "drawCallStand": "Lake and Market, the corner itself",
+          "originalLogLine": "2026-10-01T08:40:23.2188309Z         light     worst     739,143 tris of 825,000 at the open aerial  \u00b7  worst   77 calls at Lake and Market, the corner itself",
+          "drawCallCeiling": 215,
+          "drawCallHeadroom": 138
+        }
+      ]
+    }
+  ],
+  "drawCallCeilingSource": "renderers/web/js/main.js BUDGET at tested commit; CI asserts ceiling and every tier at worst stand."
+}

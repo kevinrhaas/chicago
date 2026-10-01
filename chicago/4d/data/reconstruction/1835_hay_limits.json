@@ -314,7 +314,7 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 322,
+  "inside": 326,
   "outside": 193,
   "no_committed_position": 0,
   "outside_by_where": {
@@ -1104,7 +1104,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 35
+    "roofs": 31
    },
    {
     "id": "north_division_beyond_modelled_ground",

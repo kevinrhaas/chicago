@@ -1,0 +1,149 @@
+[
+  {
+    "tree": "this tree",
+    "root": "/workspace/scratch/ed171cd36970/chicago/site/4d",
+    "passes": [
+      {
+        "viewport": "desktop 1280x800",
+        "seen": [
+          {
+            "level": "full",
+            "ceiling": 1460000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 1417245,
+                "calls": 198,
+                "structures": {
+                  "drawn": 302658,
+                  "shadow": 46090,
+                  "residual": 0
+                }
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 1412277,
+                "calls": 170,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 1311519,
+                "calls": 128,
+                "structures": null
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 1179832,
+                "calls": 172,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 1019415,
+                "calls": 126,
+                "structures": null
+              }
+            ]
+          },
+          {
+            "level": "balanced",
+            "ceiling": 1280000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 1220005,
+                "calls": 182,
+                "structures": {
+                  "drawn": 302658,
+                  "shadow": 46090,
+                  "residual": 0
+                }
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 1211503,
+                "calls": 156,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 1175284,
+                "calls": 127,
+                "structures": null
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 1053397,
+                "calls": 170,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 941139,
+                "calls": 126,
+                "structures": null
+              }
+            ]
+          },
+          {
+            "level": "light",
+            "ceiling": 825000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 790575,
+                "calls": 70,
+                "structures": null
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 799645,
+                "calls": 67,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 802855,
+                "calls": 72,
+                "structures": {
+                  "drawn": 71722,
+                  "shadow": 17508,
+                  "residual": 0
+                }
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 647411,
+                "calls": 83,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 611503,
+                "calls": 74,
+                "structures": null
+              }
+            ]
+          }
+        ],
+        "errors": []
+      }
+    ]
+  }
+]

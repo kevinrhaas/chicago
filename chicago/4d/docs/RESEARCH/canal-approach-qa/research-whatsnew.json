@@ -1,0 +1,347 @@
+{
+  "scope": "Published1904 HTML/CSS with actual createHud and whatsnew modules at both viewports. Main3D startup intercepted; empty GoTo inventory fixture. Component semantics only, not a scene smoke. Prior actual1904 first-visit semantics passed; supplemental width failure preserved separately.",
+  "startedAt": "2026-10-01T07:50:15.697Z",
+  "head": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+  "uncommittedTree": true,
+  "publishedRoot": "/workspace/scratch/834d2e70e9c9/chicago/site/4d",
+  "publishedChangelogSha256": "4e0f5254c7b1cbf5f93217b0ede1b4e7d76362b0b44078cc5ed62830351b0482",
+  "publishedChangelogReexportSha256": "2b276143a734ed7c952f38e4256034073daf1565b6f81f6ebb412c679cf0b341",
+  "sourceChangelogSha256": "4e0f5254c7b1cbf5f93217b0ede1b4e7d76362b0b44078cc5ed62830351b0482",
+  "viewports": [
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 780,
+      "deviceScaleFactor": 2,
+      "scene": {
+        "component": "actual createHud",
+        "sceneStartup": "blocked",
+        "fixture": "empty unused GoTo inventory"
+      },
+      "unread": {
+        "chip": true,
+        "tab": true
+      },
+      "first": {
+        "entries": 1248,
+        "items": 6764,
+        "newest": "Stores and workshops on the Canal approach",
+        "newestMeta": "change · Oct 1, 2026, 2:31 AM CT",
+        "research": {
+          "title": "How many farms the West Side prairie could hold",
+          "items": [
+            "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+            "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+            "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+          ],
+          "date": "change · Oct 1, 2026, 1:56 AM CT"
+        },
+        "flagged": [],
+        "chipCleared": true,
+        "tabCleared": true,
+        "seen": "1248",
+        "fits": false
+      },
+      "layoutComparison": {
+        "before": {
+          "host": {
+            "width": 362,
+            "left": 14,
+            "right": 376,
+            "clientWidth": 362,
+            "scrollWidth": 408,
+            "overflowX": "visible"
+          },
+          "panel": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "overflowX": "hidden"
+          },
+          "scroll": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 422,
+            "overflowX": "hidden"
+          },
+          "document": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "overflowX": "hidden"
+          }
+        },
+        "withoutResearch": {
+          "host": {
+            "width": 362,
+            "left": 14,
+            "right": 376,
+            "clientWidth": 362,
+            "scrollWidth": 408,
+            "overflowX": "visible"
+          },
+          "panel": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "overflowX": "hidden"
+          },
+          "scroll": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 422,
+            "overflowX": "hidden"
+          },
+          "document": {
+            "width": 390,
+            "left": 0,
+            "right": 390,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "overflowX": "hidden"
+          }
+        },
+        "research": {
+          "width": 408.171875,
+          "left": 14,
+          "right": 422.171875,
+          "clientWidth": 408,
+          "scrollWidth": 408,
+          "overflowX": "visible"
+        },
+        "inheritedWideItems": [],
+        "intrinsicRows": [
+          {
+            "title": "Glessner House v4: masonry, roofs and the courtyard",
+            "minContentWidth": 408.171875
+          },
+          {
+            "title": "A second Glessner House to compare against the first",
+            "minContentWidth": 404.34375
+          },
+          {
+            "title": "Compare two builds of one building by address",
+            "minContentWidth": 302.796875
+          },
+          {
+            "title": "A second Glessner House to compare: version v2",
+            "minContentWidth": 259.921875
+          },
+          {
+            "title": "Ten stores are not standing in South Water Street by mistake",
+            "minContentWidth": 230.421875
+          }
+        ],
+        "extraWidthAssertionPassed": false
+      },
+      "returningUnread": {
+        "chip": true,
+        "tab": true
+      },
+      "returning": {
+        "entries": 1248,
+        "items": 6764,
+        "newest": "Stores and workshops on the Canal approach",
+        "newestMeta": "change · Oct 1, 2026, 2:31 AM CT",
+        "research": {
+          "title": "How many farms the West Side prairie could hold",
+          "items": [
+            "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+            "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+            "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+          ],
+          "date": "change · Oct 1, 2026, 1:56 AM CT"
+        },
+        "flagged": [
+          "Stores and workshops on the Canal approach",
+          "How many farms the West Side prairie could hold"
+        ],
+        "chipCleared": true,
+        "tabCleared": true,
+        "seen": "1248",
+        "fits": false
+      },
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "deviceScaleFactor": 1,
+      "scene": {
+        "component": "actual createHud",
+        "sceneStartup": "blocked",
+        "fixture": "empty unused GoTo inventory"
+      },
+      "unread": {
+        "chip": true,
+        "tab": true
+      },
+      "first": {
+        "entries": 1248,
+        "items": 6764,
+        "newest": "Stores and workshops on the Canal approach",
+        "newestMeta": "change · Oct 1, 2026, 2:31 AM CT",
+        "research": {
+          "title": "How many farms the West Side prairie could hold",
+          "items": [
+            "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+            "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+            "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+          ],
+          "date": "change · Oct 1, 2026, 1:56 AM CT"
+        },
+        "flagged": [],
+        "chipCleared": true,
+        "tabCleared": true,
+        "seen": "1248",
+        "fits": false
+      },
+      "layoutComparison": {
+        "before": {
+          "host": {
+            "width": 337,
+            "left": 925,
+            "right": 1262,
+            "clientWidth": 337,
+            "scrollWidth": 408,
+            "overflowX": "visible"
+          },
+          "panel": {
+            "width": 440,
+            "left": 840,
+            "right": 1280,
+            "clientWidth": 439,
+            "scrollWidth": 439,
+            "overflowX": "hidden"
+          },
+          "scroll": {
+            "width": 373,
+            "left": 907,
+            "right": 1280,
+            "clientWidth": 373,
+            "scrollWidth": 426,
+            "overflowX": "hidden"
+          },
+          "document": {
+            "width": 1280,
+            "left": 0,
+            "right": 1280,
+            "clientWidth": 1280,
+            "scrollWidth": 1280,
+            "overflowX": "hidden"
+          }
+        },
+        "withoutResearch": {
+          "host": {
+            "width": 337,
+            "left": 925,
+            "right": 1262,
+            "clientWidth": 337,
+            "scrollWidth": 408,
+            "overflowX": "visible"
+          },
+          "panel": {
+            "width": 440,
+            "left": 840,
+            "right": 1280,
+            "clientWidth": 439,
+            "scrollWidth": 439,
+            "overflowX": "hidden"
+          },
+          "scroll": {
+            "width": 373,
+            "left": 907,
+            "right": 1280,
+            "clientWidth": 373,
+            "scrollWidth": 426,
+            "overflowX": "hidden"
+          },
+          "document": {
+            "width": 1280,
+            "left": 0,
+            "right": 1280,
+            "clientWidth": 1280,
+            "scrollWidth": 1280,
+            "overflowX": "hidden"
+          }
+        },
+        "research": {
+          "width": 408.171875,
+          "left": 925,
+          "right": 1333.171875,
+          "clientWidth": 408,
+          "scrollWidth": 408,
+          "overflowX": "visible"
+        },
+        "inheritedWideItems": [],
+        "intrinsicRows": [
+          {
+            "title": "Glessner House v4: masonry, roofs and the courtyard",
+            "minContentWidth": 408.171875
+          },
+          {
+            "title": "A second Glessner House to compare against the first",
+            "minContentWidth": 404.34375
+          },
+          {
+            "title": "Compare two builds of one building by address",
+            "minContentWidth": 302.796875
+          },
+          {
+            "title": "A second Glessner House to compare: version v2",
+            "minContentWidth": 259.921875
+          },
+          {
+            "title": "Ten stores are not standing in South Water Street by mistake",
+            "minContentWidth": 230.421875
+          }
+        ],
+        "extraWidthAssertionPassed": false
+      },
+      "returningUnread": {
+        "chip": true,
+        "tab": true
+      },
+      "returning": {
+        "entries": 1248,
+        "items": 6764,
+        "newest": "Stores and workshops on the Canal approach",
+        "newestMeta": "change · Oct 1, 2026, 2:31 AM CT",
+        "research": {
+          "title": "How many farms the West Side prairie could hold",
+          "items": [
+            "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+            "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+            "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+          ],
+          "date": "change · Oct 1, 2026, 1:56 AM CT"
+        },
+        "flagged": [
+          "Stores and workshops on the Canal approach",
+          "How many farms the West Side prairie could hold"
+        ],
+        "chipCleared": true,
+        "tabCleared": true,
+        "seen": "1248",
+        "fits": false
+      },
+      "pageErrors": [],
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "pass": true,
+  "finishedAt": "2026-10-01T07:50:37.239Z"
+}

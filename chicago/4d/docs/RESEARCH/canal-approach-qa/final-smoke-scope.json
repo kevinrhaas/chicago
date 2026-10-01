@@ -1,0 +1,170 @@
+{
+  "base": "b18a0346edfbf5f74497136b78826157bc238a57",
+  "incoming": "0d78fc1efa79638d32e0216b635c16431656b409",
+  "assessment": "Read-only semantic delta review; conditional reuse rather than a passing test result.",
+  "affected_parts": [
+    3,
+    12,
+    13
+  ],
+  "viewports": [
+    "mobile",
+    "desktop"
+  ],
+  "reusable_parts_if_conditions_hold": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "evidence": {
+    "structure_ids": [
+      "recon_1835_west_036",
+      "recon_1835_west_037",
+      "recon_1835_west_047"
+    ],
+    "structure_changes": [
+      "/occupants"
+    ],
+    "sidecar_changes": [
+      "/attributes/occupants"
+    ],
+    "mesh_inputs_sha256": "Recomputed equal across both revisions for all three records using current mesh_inputs recipe.",
+    "platted_seats_changes": [
+      "/roofs_held_back",
+      "/counts/roofs_held_back",
+      "/counts/roofs_offered_for_adoption"
+    ],
+    "source_directory": "Only source-use edges/counts change; no citation/source identity changes.",
+    "renderer_and_glb_changes": "None; changelog.js adds new visitor text.",
+    "dooryard_guard": "generate_dooryard_pickets.py:206-207 requires hh_ in occupants; stated_use_occupancy explicitly rejects hh_.",
+    "test_dependencies": {
+      "3": "smoke_renderer.mjs:6399-8162 structure claim/source/confidence cards",
+      "12": "smoke_renderer.mjs:11570-13276 Go-to, directories, Sources edge counts, What-is-new",
+      "13": "smoke_renderer.mjs:13295 onward Evidence and Liberties presentation"
+    },
+    "renderer_occupants_consumers": "Source search finds only popup.js keepers row and display-name.js Canal-specific trade naming; the edited West roofs do not enter the Canal branch. No geometry, night-light or draw-layer consumer reads this prose."
+  },
+  "conditions": [
+    "Reuse only successful readings on the merged b18 plus bounded fringe fix baseline, with their actual SHAs retained.",
+    "After integration and deterministic regeneration, verify GLBs, geometry manifests, scene/sidecar placements and forms, residents/businesses, generated enclosures/yard/signs/plantings/street/terrain inputs remain identical.",
+    "If any draw input or renderer code changes transitively, re-evaluate affected parts; do not silently reuse this scope.",
+    "Publish final tree and run parts3,12,13 at both viewports; existing 3-6 and10-13 legs are valid supersets.",
+    "Run normal source/freshness/preflight checks.",
+    "Record that smoke_budget filename mapping conservatively says ALL for structures; this reduced scope is justified by exact content dependencies, not by that mapping."
+  ],
+  "verified_integration": {
+    "verified_at_utc": "2026-10-01T06:57:23.161139+00:00",
+    "baseline_commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+    "incoming_commit": "0d78fc1efa79638d32e0216b635c16431656b409",
+    "working_tree_uncommitted": true,
+    "changed_paths": [
+      "data/liberties.json",
+      "data/reconstruction/1835_platted_seats.json",
+      "data/reconstruction/1835_reconstruction_order_book.json",
+      "data/reconstruction/1835_roof_redeal.json",
+      "data/reconstruction/1835_stated_uses.json",
+      "data/sidecars/1835/recon_1835_west_036.json",
+      "data/sidecars/1835/recon_1835_west_037.json",
+      "data/sidecars/1835/recon_1835_west_047.json",
+      "data/sidecars/1835/sources/index.json",
+      "data/sidecars/1835/sources/owner_chicago_1835_reconstruction_spec_2026.json",
+      "data/structures/recon_1835_west_036.json",
+      "data/structures/recon_1835_west_037.json",
+      "data/structures/recon_1835_west_047.json",
+      "docs/LIBERTIES.md",
+      "docs/RESEARCH/1835_reconstruction_order_book.md",
+      "docs/RESEARCH/research-closing-audit-2026-09.md",
+      "docs/measurements/source_use_coverage.md",
+      "renderers/web/js/changelog.js",
+      "tools/inferred_occupancy.py"
+    ],
+    "protected_prefixes_unchanged": [
+      "assets/",
+      "data/residents/",
+      "data/businesses/",
+      "data/flora/",
+      "data/yard/",
+      "data/enclosures/",
+      "data/signage/",
+      "data/streets/",
+      "data/terrain/",
+      "data/scenes/",
+      "data/trees/",
+      "data/wharves/",
+      "data/boats/",
+      "data/wells/",
+      "data/frontage/"
+    ],
+    "renderer_change_only": "changelog.js",
+    "structure_and_sidecar_deltas_verified": [
+      {
+        "id": "recon_1835_west_036",
+        "unchanged_mesh_inputs_sha256": "3985dc5a6dd13d8b9a2fd8fedbd7124b11db1873e286bc95f208caa1a32f2344"
+      },
+      {
+        "id": "recon_1835_west_037",
+        "unchanged_mesh_inputs_sha256": "67e95e3b1311134a8b9f41a49f7e1117bd1d223cf9e345f706718c6f30e5f7a8"
+      },
+      {
+        "id": "recon_1835_west_047",
+        "unchanged_mesh_inputs_sha256": "5cc845a819fc728fd33674c1cac885818da14fa668d3a3b439b4b23e991aef57"
+      }
+    ],
+    "platted_seat_deltas": [
+      "/counts/roofs_held_back",
+      "/counts/roofs_offered_for_adoption",
+      "/roofs_held_back"
+    ],
+    "source_sidecar_deltas": {
+      "data/sidecars/1835/sources/index.json": [
+        "/sources"
+      ],
+      "data/sidecars/1835/sources/owner_chicago_1835_reconstruction_spec_2026.json": [
+        "/edges"
+      ]
+    },
+    "resident_business_identities_unchanged": true,
+    "generated_draw_inputs_unchanged": true,
+    "conditions_status": "Drawing-input equivalence and 716-step preflight verified; affected CI smoke jobs running separately.",
+    "committed_as": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5"
+  },
+  "budget_geometry_equivalence": {
+    "measurement_file": "/tmp/t1766-post-b18-budget.json",
+    "measurement_sha256": "9ea7ad2d30244b471f2ef26ef2d024d7179612404164a93f7960f0a45eede9ac",
+    "tiers": [
+      {
+        "level": "full",
+        "ceiling": 1460000,
+        "worst": 1424307
+      },
+      {
+        "level": "balanced",
+        "ceiling": 1280000,
+        "worst": 1226906
+      },
+      {
+        "level": "light",
+        "ceiling": 825000,
+        "worst": 807664
+      }
+    ],
+    "displayed_build_label": "12ef981",
+    "label_explanation": "Budget ran after b18 integration but before its commit15fb79d; the displayed label was the premerge HEAD, not a claim that pristine12ef981 contained the measured scene.",
+    "equivalent_current_draw_inputs_to_commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+    "proof": "Every tracked asset/manifest and renderer module except changelog unchanged from15fb79d; generated scene/geometry/layer records unchanged; three changed structures/sidecars add only occupant prose and retain identical mesh input hashes.",
+    "limitation": "Budget JSON itself contains no tested-commit/tree fingerprint. The attribution to integrated b18 rests on contemporaneous integration verification and root run provenance, not a retrospectively invented recorded SHA."
+  },
+  "baselineCommit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+  "finalCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+  "verified": true,
+  "drawingInputsUnchanged": true,
+  "preflightPassed": true,
+  "verifiedTree": "1e65fc53cfa382b26023764439b968f401dd7e7e"
+}

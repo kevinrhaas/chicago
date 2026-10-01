@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+    items: [
+      'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
+      'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
   { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',

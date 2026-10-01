@@ -1,0 +1,108 @@
+{
+  "source_commit": "7db681b8773d53fa0b5da827cad473a8d2e14a5f",
+  "bake_commit": "7f60f9d2e648bc3ad8462598949d4eb8bd249ccf",
+  "workflow_run_id": 36816632611,
+  "workflow_run_url": "https://github.com/kevinrhaas/chicago/actions/runs/36816632611",
+  "verified_at_utc": "2026-10-01T05:15:38.207847+00:00",
+  "verification": {
+    "bake_parent_matches_source": true,
+    "exactly_twelve_expected_changed_files": true,
+    "current_source_input_hashes_match_manifest": true,
+    "master_sizes_match_manifest": true,
+    "master_sha256_matches_derivative_manifest": true,
+    "existing_manifest_entries_and_metadata_unchanged": true,
+    "master_and_web_triangle_counts_equal": true
+  },
+  "assets": [
+    {
+      "structure_id": "recon_1835_canal_trade_c3_001",
+      "phase_id": "inferred_1835",
+      "filename": "recon_1835_canal_trade_c3_001__inferred_1835.glb",
+      "source_inputs_sha256": "1e15f8cb975b0401186368bd50724ecdeda30bc9575ea3468c983a2987a59284",
+      "master": {
+        "sha256": "6cf82b305b88e4f6cb9a45be9341e3e0ffe462c591edb31f29c66aedf3e03e6c",
+        "bytes": 57832,
+        "triangles": 670
+      },
+      "web": {
+        "sha256": "66142ec6f8a8c91985146d5112e9e6ff6ee5b4b301cd9f9637426bceaae40a6b",
+        "bytes": 15332,
+        "triangles": 670
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "phase_id": "inferred_1835",
+      "filename": "recon_1835_canal_trade_c4_002__inferred_1835.glb",
+      "source_inputs_sha256": "2e91eb397b1654f2cb691b4dd154ce6e9fe74f00235bbf575a54a0b409cc59f9",
+      "master": {
+        "sha256": "ee43850ccb7398fad233d4779ee1a824e3364e77c55bd0dd36422cc647a08967",
+        "bytes": 76968,
+        "triangles": 912
+      },
+      "web": {
+        "sha256": "6e650146c168a17b9304aa2e893791ffaf01aa056042fe585d33bc242a6c1971",
+        "bytes": 18076,
+        "triangles": 912
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_w1_003",
+      "phase_id": "inferred_1835",
+      "filename": "recon_1835_canal_trade_w1_003__inferred_1835.glb",
+      "source_inputs_sha256": "4acc67e3e6a6bafa3184b1ad9a198f304d7f8c0911561c3c9f9ba9b071809afd",
+      "master": {
+        "sha256": "8d1e7de7a56ed5992355d8b6c87b331cb2a4c94a1ae991341c70f0fff0591d24",
+        "bytes": 118468,
+        "triangles": 1446
+      },
+      "web": {
+        "sha256": "3f69efe648fcefd357b50a2b5ecf149f5442272ba6cd89c8e9e9f0db3ca94271",
+        "bytes": 24456,
+        "triangles": 1446
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_w2_004",
+      "phase_id": "inferred_1835",
+      "filename": "recon_1835_canal_trade_w2_004__inferred_1835.glb",
+      "source_inputs_sha256": "445f02d27713f9c23eeb2f1e43f0a897b3a5a34c96c8e7bef1b68a00d7851024",
+      "master": {
+        "sha256": "b060558e75026ded43ff2584ef16cbd5656813272f0c4f8d42f9ab76f896285b",
+        "bytes": 128840,
+        "triangles": 1592
+      },
+      "web": {
+        "sha256": "d3e9c1c0e4bf490bafbe2f699d8f4133d5423d627dd1e0636ffa3bad15bc18c1",
+        "bytes": 24236,
+        "triangles": 1592
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_w3_005",
+      "phase_id": "inferred_1835",
+      "filename": "recon_1835_canal_trade_w3_005__inferred_1835.glb",
+      "source_inputs_sha256": "6fecf8fb6fda49732e891eee5b67edf2fd279147ddc91259216adc863a2b217c",
+      "master": {
+        "sha256": "e0e66809135603aed091a0a5ed33eafea442a6a5bc2cec620be5346bc37bd374",
+        "bytes": 122220,
+        "triangles": 1508
+      },
+      "web": {
+        "sha256": "3ecbc8477583d26cbf4fa25f484dbbfa0664fee425fb8c2b1d5afb15db7e3223",
+        "bytes": 23592,
+        "triangles": 1508
+      }
+    }
+  ],
+  "totals": {
+    "master": {
+      "bytes": 504328,
+      "triangles": 6128
+    },
+    "web": {
+      "bytes": 105692,
+      "triangles": 6128
+    }
+  }
+}

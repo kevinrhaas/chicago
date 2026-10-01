@@ -1390,11 +1390,12 @@ def semantic_problems(records, town_ids=None):
             floor = bool(block.get("floor"))
             roof = bool(block.get("roof"))
             head = bool(block.get("trade_head"))
-            if sum((quota, floor, roof, head)) > 1:
+            trade_roof = bool(block.get("trade_roof"))
+            if sum((quota, floor, roof, head, trade_roof)) > 1:
                 bad.append("%s: the reconstruction block names more than one of an "
                            "order-book row, a documented floor, a standing roof and a trade "
                            "head; a house is bought once" % rid)
-            elif not (quota or floor or roof or head):
+            elif not (quota or floor or roof or head or trade_roof):
                 bad.append("%s: the reconstruction block names neither an order-book row "
                            "(bucket + slot) nor a documented floor nor a standing roof nor a "
                            "trade head" % rid)
@@ -1419,6 +1420,11 @@ def semantic_problems(records, town_ids=None):
                         bad.append("%s: bought by the standing roof %r and its primary "
                                    "location is %r; a roof buys the firm of THAT building"
                                    % (rid, r.get("structure_id"), seat))
+            elif trade_roof:
+                # T-1766: a non-lodging trade roof, separate from lodging capacity.
+                # No bed count is fabricated and the existing lodging form is unchanged.
+                for reason in trade_roof_faults(record):
+                    bad.append("%s: %s" % (rid, reason))
             elif head:
                 # A TRADE HEAD IS ONLY A TRADE HEAD IF HE KEEPS THE HOUSE. The whole argument
                 # is that this firm is the establishment a man this project already drew was
@@ -1592,6 +1598,29 @@ def check():
 
 
 # ---------------------------------------------------------------- self-test
+
+def trade_roof_faults(record):
+    """Pure invariants for the new non-lodging form; dataset join is its writer's gate."""
+    block = record.get("reconstruction", {}).get("trade_roof")
+    if not isinstance(block, dict):
+        return ["trade roof is not a block"]
+    bad = []
+    primary = next((loc for loc in record["locations"] if loc.get("primary")), {})
+    if primary.get("kind") != "premises" or primary.get("structure_id") != block.get("structure_id"):
+        bad.append("trade roof does not match its primary premises")
+    if [p.get("person_id") for p in record["proprietors"]] != [block.get("keeper_person_id")]:
+        bad.append("trade roof keeper differs from the sole proprietor")
+    if not block.get("keeper_household_id") or not block.get("keeper_person_id"):
+        bad.append("trade roof names no existing keeper household")
+    if record.get("occupation") != block.get("occupation"):
+        bad.append("trade roof changes its keeper's occupation")
+    expected = {"C3": "grocer", "C4": "grocer", "W1": "blacksmith", "W2": "carpenter", "W3": "carpenter"}
+    if expected.get(block.get("family")) != block.get("occupation"):
+        bad.append("trade roof family does not fit its keeper's occupation")
+    if "beds_ordinary" in block:
+        bad.append("trade roof invents lodging beds")
+    return bad
+
 
 def self_test():
     """Break each assertion and require it to fire. A gate nobody has broken is a hope."""

@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "6c031cc63c40f930f0744258186d90719acbf3a077316071ce7e8e4937a6c133",
+    "fingerprint": "cd168c7d75760ec32d939785f22161095a8c19ab37e92eb6c96d8b7860e467d5",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 516,
+      "structures": 520,
       "voters": 345
     }
   },
@@ -2893,6 +2893,11 @@
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
           "rule": "exact surname"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
+          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -3140,6 +3145,11 @@
         {
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
+          "rule": "OCR variant (0.89 similarity to 'block')"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
           "rule": "OCR variant (0.89 similarity to 'block')"
         }
       ],
@@ -25345,6 +25355,16 @@
         {
           "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
           "name": "Reconstructed W2 carpenter or joiner shop #01",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w1_003",
+          "name": "Reconstructed Canal Street blacksmith shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w2_004",
+          "name": "Reconstructed Canal Street carpenter or joiner shop",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],

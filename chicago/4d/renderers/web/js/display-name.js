@@ -127,8 +127,12 @@ export function displayName(sidecar, id = '') {
   const spec = String(sidecar?.name ?? '');
   const parts = SPEC.exec(spec);
   const raised = parts ? null : RAISED.exec(spec);
+  // T-1766's trade parcel keeps a geographic production name, without a part
+  // number. It is still anonymous stock and owes the same reference line.
+  const canal = sidecar?.reconstruction?.programme_phase === 'canal_approach_trade_1835'
+    ? /^Reconstructed Canal Street (.+)$/.exec(spec) : null;
   // Anything with a real name keeps it: this layer is the anonymous programme's alone.
-  if (sidecar?.reconstruction?.status !== 'inferred_anonymous' || !(parts || raised)) {
+  if (sidecar?.reconstruction?.status !== 'inferred_anonymous' || !(parts || raised || canal)) {
     return { title: spec || id, spec: null, vacant: false };
   }
 
@@ -138,7 +142,7 @@ export function displayName(sidecar, id = '') {
   // the roof was raised for a blacksmith the town's arithmetic argued for and the owner
   // retired, so titling it a blacksmith's anything would put back the occupant T-0516
   // took out. It stays on the card in `function` and on the reference line.
-  const description = parts ? parts[2] : raised[1];
+  const description = parts ? parts[2] : raised ? raised[1] : canal[1];
   const noun = nounFor(description);
   const households = Array.isArray(sidecar.residents) ? sidecar.residents : [];
   const lives = households.find((h) => /lived/.test(String(h.relation)));
@@ -154,6 +158,14 @@ export function displayName(sidecar, id = '') {
   const worker = works && surnameOf(works);
   if (worker) {
     return { title: `${possessive(worker)} ${noun ?? 'premises'}`, spec, vacant: false };
+  }
+
+  // These five records explicitly name a reconstructed workplace, not a home.
+  // Read that graded allocation rather than advertising an occupied shop to let
+  // or inventing a residential household to make the title composer find it.
+  const tradeOccupant = canal && sidecar?.attributes?.occupants?.value;
+  if (typeof tradeOccupant === 'string' && tradeOccupant.trim()) {
+    return { title: tradeOccupant.trim(), spec, vacant: false };
   }
 
   // A DOCUMENTED ADDRESS OUTRANKS A COMPOSED VACANCY, and it has to, because the

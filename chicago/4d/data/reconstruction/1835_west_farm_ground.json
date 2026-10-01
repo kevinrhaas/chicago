@@ -190,7 +190,7 @@
  },
  "the_programme": {
   "west_target": 135,
-  "west_remaining": 38,
+  "west_remaining": 34,
   "remaining_by_family": {
    "D1": 0,
    "A2": 4
@@ -209,9 +209,7 @@
    "barns_stables": 6,
    "larger_boarding_houses": 4,
    "ordinary_dwellings": 16,
-   "small_outbuildings": 8,
-   "stores_mixed_use": 2,
-   "workshops": 2
+   "small_outbuildings": 8
   }
  },
  "the_ceiling": {
