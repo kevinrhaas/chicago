@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
+    items: [
+      'Behind the Western Hotel at Randolph and Canal, the stable across the wagon yard is much bigger now: 72 by 28 feet instead of 43 by 23. It runs further east along the yard, past the fence line, and a little deeper away from it.',
+      'The old stable held about eight horses, which is four teams. The one thing written about this yard is that “the teams were as numerous as were the guests”, and the house sleeps about fifteen people on an ordinary night. So the stable now has sixteen double stalls, one pair of horses to each, for fifteen teams with one spare.',
+      'The size is our arithmetic, not a measurement. No source gives the stable a dimension, so the stall widths, the passage and the count of horses to a team are all ours, and the stable’s card says so. The wagon yard keeps its fence, its two gates and its ground; only its east fence now meets the longer stable wall.',
+    ] },
   { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
     'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
     'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',

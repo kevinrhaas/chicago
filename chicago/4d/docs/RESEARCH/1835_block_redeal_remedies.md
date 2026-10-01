@@ -35,7 +35,7 @@ And each of those open lots is declared open in the recipe with a stated reason 
 
 | evidence record | family | street it fronts | class | setback m | scored term | the clause refuses it |
 | --- | --- | --- | --- | ---: | --- | --- |
-| `western_hotel_stable` | A1 | canal | ordinary | 0.59 | no | no |
+| `western_hotel_stable` | A1 | canal | ordinary | 0.55 | no | no |
 | `wolf_point_tavern_stable` | A1 | lake | principal | 36.70 | yes | yes |
 | `fort_dearborn_big_barn` | A2 | (none) | — | 270.75 | cannot speak — it fronts none | yes |
 | `fort_dearborn_wash_house` | A5 | (none) | — | 420.22 | cannot speak — it fronts none | yes |
