@@ -428,6 +428,7 @@ GROUND_GROUPS = [
     ("swales", "the prairie swales"),
     ("watercourses", "the watercourses"),
     ("approaches", "the bridge approaches"),
+    ("street_sections", "the street sections"),
     ("dunes", "the lakefront sand hills"),
     ("micro_relief", "the surface texture"),
     ("surface_materials", "what the ground is made of"),

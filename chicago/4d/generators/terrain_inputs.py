@@ -143,6 +143,9 @@ CONSUMED = {
     "swales": frozenset({"line", "half_width_m", "depth_ft", "depth_profile"}),
     "approaches": frozenset({"line", "mode", "deck_ft", "grade", "half_width_m",
                              "side_slope", "end_overhang_m"}),
+    "street_sections": frozenset({"streets_file", "water_floor_ft", "classes", "traffic",
+                                  "worked_share", "crown_depth_ft", "gutter_depth_ft",
+                                  "gutter_inset_m"}),
     "watercourses": frozenset({"bed_ft", "e_fold_m"}),
     "micro_relief": frozenset({"amplitude_ft", "wavelengths_m", "seed",
                                "south_limit_n_m"}),
@@ -306,6 +309,27 @@ def _code_shas(extra: tuple[str, ...] = ()) -> dict[str, str]:
     return {p.relative_to(gen).as_posix(): _sha_file(p) for p in wanted}
 
 
+# T-1812. The fields of a street record the graded street section reads. A street
+# file is mostly prose and people (names, sources, notes on who ran the ferry),
+# and renaming a street must not cost a Blender bake, so only these reach the
+# hash — the same reason the spec's prose is stripped. A field the section starts
+# reading joins this tuple in the same commit, or the ground reads fresh over a
+# street it no longer matches.
+STREET_SECTION_FIELDS = ("id", "opened", "traffic", "corridor_width_m", "track_width_m",
+                         "path_local_enu_m", "drawn_track_local_enu_m")
+
+
+def street_section_inputs(ep_dir: Path):
+    """The street lines and widths the spec's `street_sections` grades, or None."""
+    spec = _load(Path(ep_dir) / "terrain_spec.json")
+    ss = spec.get("street_sections")
+    if not ss:
+        return None
+    doc = _load(ROOT / ss["streets_file"])
+    return [{k: s[k] for k in STREET_SECTION_FIELDS if k in s}
+            for s in doc.get("streets", [])]
+
+
 def terrain_inputs_doc(ep_dir: Path) -> dict:
     """Everything the hash is taken over, as a readable document.
 
@@ -326,6 +350,7 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
             for name in vectors
         },
         "datum": strip_prose(_load(ROOT / "data" / "datum.json")),
+        "streets": street_section_inputs(ep_dir),
         "code": _code_shas((graded["generator"],) if graded else ()),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
