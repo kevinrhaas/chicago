@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: 1249, ts: '2026-10-01T08:58:25.037Z', date: 'Oct 1, 2026, 3:58 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
