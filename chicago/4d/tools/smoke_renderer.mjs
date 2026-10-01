@@ -3572,7 +3572,15 @@ for (const [label, viewport, touch] of [
       // kilometre would otherwise have drawn in every frame, behind the camera
       // included (T-0115 item 2). So everything below reads the chunks together:
       // the geometry is still one buffer's worth of contract, in several pieces.
-      const meshes = (y?.group?.children ?? []).filter((m) => m.isMesh);
+      // T-1805 integration gate: earlier stands can leave lazy T-0146 far
+      // batches beside their source chunks (64 chunks + 4 cached batches on
+      // desktop). As in the frontage census below, measure the source geometry
+      // once; the far-merge gate separately proves identical triangles and
+      // fewer calls. The 64-chunk ceiling still applies to every real chunk.
+      const meshes = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && !m.userData?.farMerged);
+      const merged = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && m.userData?.farMerged);
       const geos = meshes.map((m) => m.geometry).filter(Boolean);
       const frontages = y?.frontages ?? [];
       const wagons = y?.wagons ?? [];
@@ -3786,12 +3794,13 @@ for (const [label, viewport, touch] of [
       return {
         census: y?.census ?? null,
         meshes: meshes.length,
+        mergedNames: merged.map((m) => m.name),
         // One material across every chunk, which is what makes the chunking a
         // CULLING decision rather than a second layer.
-        materials: new Set(meshes.map((m) => m.material?.uuid)).size,
+        materials: new Set([...meshes, ...merged].map((m) => m.material?.uuid)).size,
         // And every chunk has to carry its own bounding sphere, or the frustum
         // has nothing to test and the split bought nothing at all.
-        bounded: geos.every((geo) => !!geo.boundingSphere),
+        bounded: [...meshes, ...merged].every((m) => !!m.geometry?.boundingSphere),
         // T-0065. The marks ride on the ONE material as a canvas atlas, so what
         // has to hold is that the material carries a map at all, that every
         // chunk carries the uv to read it with, and that no uv leaves the sheet
@@ -3902,9 +3911,11 @@ for (const [label, viewport, touch] of [
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.materials === 1
-        && goods.bounded,
-      `${goods.meshes} chunk mesh(es), ${goods.materials} material(s), `
+      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+        && goods.materials === 1 && goods.bounded
+        && goods.mergedNames.every((name) => name === 'yard-far-merge'),
+      `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
+      + `${goods.mergedNames.length} cached far batch(es), ${goods.materials} material(s), `
       + `bounding spheres ${goods.bounded ? 'on every chunk' : 'MISSING on one'}`);
     // T-0065. Every cask and every case carries a mark the record dealt it — a
     // stencilled commodity, the house's brand, or a shipping mark — and the
@@ -10475,6 +10486,11 @@ for (const [label, viewport, touch] of [
      * building 200 m north of the datum is drawn 400 m from its anchor, which
      * no footprint in this town spans.
      *
+     * Camps name their plot corner, which need not be occupied. T-1805 adds
+     * a stricter independent origin-and-bearing transform check for every
+     * vertex of every structure; camps owe that check instead of a building's
+     * occupied-corner invariant. Other buildings owe both.
+     *
      * TWO THINGS THIS GATE MEASURED ABOUT ITSELF BEFORE IT MEASURED THE TOWN,
      * and both are in `drawn_placement_census.mjs` where the code is:
      *
@@ -10494,7 +10510,8 @@ for (const [label, viewport, touch] of [
     const drawnTown = await page.evaluate(`(${CENSUS.toString()})()`);
     check(`${label}: every building is drawn around the anchor its record gives it`,
       drawnTown.buildings.compared > 200 && drawnTown.buildings.unrecorded === 0
-      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0,
+      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0
+      && drawnTown.buildings.misplaced === 0,
       `${drawnTown.buildings.outside} of ${drawnTown.buildings.compared} structures whose own `
       + `anchor falls outside their drawn footprint — unioned from `
       + `${drawnTown.buildings.instances} instances in ${drawnTown.buildings.batches} batches, `
@@ -10504,7 +10521,10 @@ for (const [label, viewport, touch] of [
         + `${drawnTown.buildings.worstSpan} m)` : '')
       + `; ${drawnTown.buildings.mirrorCloser} nearer to the MIRROR of their anchor`
       + (drawnTown.buildings.worstMirrorId ? ` (${drawnTown.buildings.worstMirrorId})` : '')
-      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`);
+      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`
+      + `; ${drawnTown.buildings.misplaced} wrong vertex transforms (worst `
+      + `${drawnTown.buildings.worstTransform.toFixed(6)} m, 0.001 m bar), `
+      + `${drawnTown.buildings.compounds} sparse camp plots`, true);
     check(`${label}: every panel of road is drawn on a street the data records`,
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
@@ -11477,7 +11497,8 @@ for (const [label, viewport, touch] of [
           spread: Math.max(...before) - Math.min(...before),
         };
       })();
-      return { ...out, station, anchored };
+      return { ...out, station, anchored, heightPx: H, fovDeg: a.camera.fov,
+        eyeHeightM: a.walkBudget.eyeHeight };
     });
     check(`${label}: an open station exists to measure the sward's boundary from`,
       !!seam.station,
@@ -11506,7 +11527,9 @@ for (const [label, viewport, touch] of [
       check(`${label}: the sward's outer boundary is not a constant screen row`,
         s.bins >= 12 && s.spreadPx >= 4,
         `${s.bins}/16 bearing bins from E ${seam.station.e} N ${seam.station.n}, boundary rows `
-        + `spread ${s.spreadPx.toFixed(1)} px, reach ${s.minReach.toFixed(2)}`
+        + `spread ${s.spreadPx.toFixed(2)} px (${seam.heightPx}px buffer, `
+        + `${seam.fovDeg.toFixed(1)}deg field, ${seam.eyeHeightM.toFixed(2)}m eye), `
+        + `reach ${s.minReach.toFixed(2)}`
         + `-${s.maxReach.toFixed(2)} m at ${(s.seen * 100).toFixed(2)}% coverage `
         + `(at the old ${(s.faintAt * 100).toFixed(0)}%: ${s.faint.bins}/16 bins, `
         + `spread ${s.faint.spreadPx.toFixed(1)} px, reach ${s.faint.minReach.toFixed(2)}`

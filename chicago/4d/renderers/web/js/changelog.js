@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1269, ts: '2026-10-01T18:58:26.957Z', date: 'Oct 1, 2026, 1:58 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+  { v: 1270, ts: '2026-10-01T19:54:49.388Z', date: 'Oct 1, 2026, 2:54 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
       'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
       'At the Mason blacksmith shop on Lake Street the walk stops. A shoeing floor faced a trodden yard, not boards, so its tie rail now stands on bare ground.',
       'This is our reconstruction. No source gives a Chicago walk\u2019s width by trade in 1835. Open the street edge\u2019s card to see which business each stretch serves.',
+    ] },
+  { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+    items: [
+      'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
+      'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
+      'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+      'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
     ] },
   { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
     items: [

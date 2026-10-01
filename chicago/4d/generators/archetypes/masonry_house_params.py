@@ -631,6 +631,22 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "ridge_at": fr.y(cg["ridge_S"]), "ridge_z": fr.zval(cg["ridge"]),
                 "eave_lo_z": fr.zval(cg["eaves"][1]),
                 "eave_hi_z": fr.zval(cg["eaves"][0]), "conf": cf("v4_detail")}
+        ng = raw.get("stable_north_gable")
+        if ng:
+            west = next(r for r in p.ranges if r["name"] == "west_wing")
+            north = next(r for r in p.ranges if r["name"] == "north_range")
+            west["north_cross_gable"] = {
+                "x0": min(fr.x(w) for w in ng["W"]),
+                "x1": max(fr.x(w) for w in ng["W"]),
+                "eave_z": fr.zval(ng["eave"]),
+                "cross_y0": north["y0"], "cross_y1": north["y1"],
+                "cross_ridge_at": north["ridge_at"], "cross_ridge_z": north["ridge_z"],
+                "cross_eave_lo_z": north["eave_lo_z"],
+                "cross_eave_hi_z": north["eave_hi_z"], "cross_kick": north["kick"],
+            }
+            # The west wing emits the joined roof here, once. In particular the
+            # north roof must never continue through the north gable's openings.
+            north["roof_min"] = west["x1"]
         wd = raw.get("west_dormer")
         if wd:
             half = float(wd["width_ft"]) / 2
