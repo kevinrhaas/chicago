@@ -336,13 +336,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # the same terms as every entry above, on top of T-1760's three and T-1773's one; terrain reach still 4 and
 # pier_crib still 2.
 #
+# 504 -> 505 and 500 -> 501 on 2026-10-01 (T-1778): one roof, the town's first H3
+# boarding house on `blk_washington_clark` — one more mesh on the same terms as every
+# entry above; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 504,
+    "assets": 505,
     "restales": {
-        "generators/common/*.py": 504,
+        "generators/common/*.py": 505,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 500,
+        "generators/emit.py": 501,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
+  { v: 1254, ts: '2026-10-01T11:57:36.389Z', date: 'Oct 1, 2026, 6:57 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
       'It looks like a boarding house and not an inn. Seven chamber windows run across its upper floor, front and back, and four iron stovepipes rise through the roof beside its two brick chimneys. There is no gallery, no sign and no wagon door.',
