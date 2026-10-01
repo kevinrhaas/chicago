@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1257, ts: '2026-10-01T13:27:28.148Z', date: 'Oct 1, 2026, 8:27 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
+      'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
+      'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
+      'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
+    ] },
   { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
     items: [
       'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
