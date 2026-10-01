@@ -15052,7 +15052,7 @@ reading 174 for four of those passes before it settled at 177.
 **AND THE WEST DIVISION'S FIRST BLOCK DEAL ANSWERS ONE REQUEST WITH ITS OWN BLOCK AND SENDS THE
 OTHER ACROSS THE STREET (T-1761, 2026-10-01).** `blk_randolph_clinton` was dealt the two slot
 requests standing against it, plus two yard buildings — see **L308**. Measured at the chain's
-fixpoint against `dev` at `c2dccdcd` (four passes, the third and fourth identical), the pass runs
+fixpoint against `dev` at `b18a0346` (four passes, the third and fourth identical), the pass runs
 **177 → 177** seats: adoptions **140 → 142**, slots **37 → 35**, and rows handed to **T-1614**
 unmoved at **1,301**. Both new dwellings are occupied, and as on every block above **neither goes
 to the household whose request it was sized against**: the corner house on lot 9 goes to
@@ -15060,16 +15060,15 @@ hh_abbot_8_g and the cottage on lot 7 to hh_abbott_titus_h, who the clause order
 there than under the roofs they had stood under. This time the cascade comes back to one of the
 two who asked: **hh_adams_james is seated on this block after all**, adopting `recon_1835_west_019`
 on lot 0, the corner house hh_abbot_8_g vacated. **hh_bennett_h_c is not** — it re-slots as a D4
-on `blk_lake_clinton`, the twin block across Lake Street on the same approach. **26 households
-change roof behind them**, each taking the one the household above it vacated. And two rows
-change hands at the margin, named rather than netted out: hh_allen_william loses its D7 slot on
-`blk_indiana_north_wolcott` and hh_blake_levi its H2 slot on `blk_washington_market`, while
-hh_bourassa_noel gains a D4 slot on the first and hh_clement_dorcinrk a D4 slot on the second —
-the second pair is the Franklin block's swap above, run backward, which is the margin of this
-pass moving and not a ruling. THE OUTCOME IS REPORTED RATHER THAN TIDIED: the two who lose a slot
-are owed again with their reasons written on their rows, and **T-1626** is still the question.
+on `blk_lake_clinton`, the twin block across Lake Street on the same approach. **17 households
+change roof behind them**, each taking the one the household above it vacated, and the set of
+households seated is the same before and after: nobody gains a seat and nobody loses one. (Cut a
+lap earlier, against `c2dccdcd`, the same deal moved 26 and swapped two pairs of slots at the
+margin; T-1781's farmsteads landed between, and the margin is the part of this pass that moves
+with whatever lands beside it.) THE OUTCOME IS REPORTED RATHER THAN TIDIED, and **T-1626** is
+still the question.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, and the margin's two swaps).
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -17558,8 +17557,8 @@ the corner house on lot 9 and `hh_abbott_titus_h` the cottage on lot 7. `hh_adam
 request lot 9 was sized against, is seated on this block anyway — on the corner house of lot 0
 that `hh_abbot_8_g` vacated. `hh_bennett_h_c`, whose request lot 7 was sized against, re-slots
 as a D4 on `blk_lake_clinton` across Lake Street. The seat total holds at **177**, adoptions rise
-from 140 to **142** and slots fall from 37 to **35**, and **L270** names the two households at
-the margin who lose a slot and the two who gain one. That is the committed precedence, which
+from 140 to **142** and slots fall from 37 to **35**; nobody in the town gains or loses a seat
+by it (**L270**). That is the committed precedence, which
 does not reserve a roof for the household that asked (**T-1626** carries the question to the
 owner), and it is recorded here because a reader comparing the two requests against the two
 names on these cards would otherwise find the mismatch and no account of it.
