@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: 1260, ts: '2026-10-01T14:54:36.960Z', date: 'Oct 1, 2026, 9:54 AM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
