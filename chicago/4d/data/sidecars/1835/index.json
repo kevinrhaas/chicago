@@ -10404,6 +10404,12 @@
       "asset": "gltf/exchange_coffee_house__frame_1834.glb"
     },
     {
+      "id": "exchange_coffee_house_stable",
+      "name": "The Exchange Coffee House's Stable",
+      "sidecar": "sidecars/1835/exchange_coffee_house_stable.json",
+      "asset": "gltf/exchange_coffee_house_stable__stable_1834.glb"
+    },
+    {
       "id": "first_presbyterian_church",
       "name": "First Presbyterian Church",
       "sidecar": "sidecars/1835/first_presbyterian_church.json",
@@ -10842,6 +10848,12 @@
       "asset": "gltf/mansion_house__log_frame_1833.glb"
     },
     {
+      "id": "mansion_house_stable",
+      "name": "The Mansion House's Stable",
+      "sidecar": "sidecars/1835/mansion_house_stable.json",
+      "asset": "gltf/mansion_house_stable__stable_1833.glb"
+    },
+    {
       "id": "mason_blacksmith_shop",
       "name": "Matthias Mason & Co.'s Blacksmith Shop",
       "sidecar": "sidecars/1835/mason_blacksmith_shop.json",
@@ -10882,6 +10894,12 @@
       "name": "New York House",
       "sidecar": "sidecars/1835/new_york_house.json",
       "asset": "gltf/new_york_house__frame_1834.glb"
+    },
+    {
+      "id": "new_york_house_stable",
+      "name": "The New York House's Stable",
+      "sidecar": "sidecars/1835/new_york_house_stable.json",
+      "asset": "gltf/new_york_house_stable__stable_1834.glb"
     },
     {
       "id": "newberry_dole_packing_house_south_branch",
@@ -13140,6 +13158,12 @@
       "asset": "gltf/sauganash_hotel__frame_1831.glb"
     },
     {
+      "id": "sauganash_hotel_stable",
+      "name": "The Sauganash Hotel's Stable",
+      "sidecar": "sidecars/1835/sauganash_hotel_stable.json",
+      "asset": "gltf/sauganash_hotel_stable__stable_1831.glb"
+    },
+    {
       "id": "slough_log_bridge",
       "name": "The Slough Log Bridge, State Street",
       "sidecar": "sidecars/1835/slough_log_bridge.json",
@@ -13182,6 +13206,12 @@
       "asset": "gltf/steamboat_hotel__frame_1835.glb"
     },
     {
+      "id": "steamboat_hotel_stable",
+      "name": "The Steamboat Hotel's Stable",
+      "sidecar": "sidecars/1835/steamboat_hotel_stable.json",
+      "asset": "gltf/steamboat_hotel_stable__stable_1835.glb"
+    },
+    {
       "id": "temple_building",
       "name": "Temple Building",
       "sidecar": "sidecars/1835/temple_building.json",
@@ -13204,6 +13234,12 @@
       "name": "Tremont House (the first)",
       "sidecar": "sidecars/1835/tremont_house_1.json",
       "asset": "gltf/tremont_house_1__frame_1833.glb"
+    },
+    {
+      "id": "tremont_house_1_stable",
+      "name": "The Tremont House's Stable",
+      "sidecar": "sidecars/1835/tremont_house_1_stable.json",
+      "asset": "gltf/tremont_house_1_stable__stable_1833.glb"
     },
     {
       "id": "wabansia_doctors_barn",

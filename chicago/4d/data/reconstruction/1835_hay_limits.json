@@ -314,7 +314,7 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 314,
+  "inside": 320,
   "outside": 188,
   "no_committed_position": 0,
   "outside_by_where": {
@@ -580,7 +580,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 16,
+    "roofs_scheduled": 15,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -872,7 +872,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 16,
+    "roofs_scheduled": 15,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -1093,7 +1093,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 1
+    "roofs": 0
    },
    {
     "id": "west_division_beyond_committed_control",

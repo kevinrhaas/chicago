@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 315,
+  "count": 316,
   "liberties": [
     {
       "id": "L1",
@@ -14291,18 +14291,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 93
+        "count": 94
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 93 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 94 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 93 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia, the first named records on that survey, which the construction puts in the tract entered by Edmond Roberts on 5 October 1830, 2 m inside its line). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia, the first named records on that survey, which the construction puts in the tract entered by Edmond Roberts on 5 October 1830, 2 m inside its line); and 93 to 94 the same day, T-1776's stable behind the Steamboat Hotel, which stands in the north fraction of section 10 with the house it serves). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -19744,6 +19744,170 @@
         {
           "label": "Recorded",
           "text": "2026-10-01 (T-1785)."
+        }
+      ]
+    },
+    {
+      "id": "L317",
+      "title": "Six public houses get a stable behind them, sized from their beds",
+      "section": "per_subject",
+      "subjects": [
+        "exchange_coffee_house",
+        "exchange_coffee_house_stable",
+        "green_tree_tavern",
+        "mansion_house",
+        "mansion_house_stable",
+        "new_york_house",
+        "new_york_house_stable",
+        "sauganash_hotel",
+        "sauganash_hotel_stable",
+        "steamboat_hotel",
+        "steamboat_hotel_stable",
+        "tremont_house_1",
+        "tremont_house_1_stable",
+        "western_hotel",
+        "wolf_point_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "exchange_coffee_house_stable",
+          "phase": "stable_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "exchange_coffee_house_stable",
+          "phase": "stable_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "exchange_coffee_house_stable",
+          "phase": "stable_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "mansion_house_stable",
+          "phase": "stable_1833",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "mansion_house_stable",
+          "phase": "stable_1833",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "mansion_house_stable",
+          "phase": "stable_1833",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "new_york_house_stable",
+          "phase": "stable_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "new_york_house_stable",
+          "phase": "stable_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "new_york_house_stable",
+          "phase": "stable_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel_stable",
+          "phase": "stable_1831",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel_stable",
+          "phase": "stable_1831",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel_stable",
+          "phase": "stable_1831",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "steamboat_hotel_stable",
+          "phase": "stable_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "steamboat_hotel_stable",
+          "phase": "stable_1835",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "steamboat_hotel_stable",
+          "phase": "stable_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1_stable",
+          "phase": "stable_1833",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1_stable",
+          "phase": "stable_1833",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1_stable",
+          "phase": "stable_1833",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "six of the licensed houses the lodging model sizes get a reconstructed stable behind them (T-1776): `exchange_coffee_house_stable`, `new_york_house_stable`, `tremont_house_1_stable`, `mansion_house_stable`, `sauganash_hotel_stable` and `steamboat_hotel_stable`. **Every one is invented in its existence, its size, its place and the side its door is on.** The four on the Lake Street lots and the Sauganash's stand at the alley end of the house's own lot, 1.5 m inside the alley line, as the placement policy's ancillary clause puts every stable; the Steamboat Hotel's stands behind the house on the landward side, off the plat."
+        },
+        {
+          "label": "Why",
+          "text": "a county order of 13 April 1831 set the rates \"allowed to tavern keepers\", among them \"Keeping horse one night 50\" (Andreas, scan p. 249). Keeping a traveller's horse was a priced service of a Chicago public house, and the town drew a stable at only two of the nine named houses. No source mentions a stable at any of these six. The size answers each house's beds in `data/reconstruction/1835_lodging_model.json` on an ordinary night: **one single stall per two guests, never fewer than four**, five feet a stall, a 20 ft deep range and a 6 ft harness bay. Half a horse a guest because the summer crowd of 1835 came mostly by lake; the Western Hotel's \"teams as numerous as were the guests\" is that teamsters' house's own sentence and is not carried to Lake Street. **The Tremont is the exception, at one stall a guest**: it was a stage stop, and the 1874 letter on `chicagology_prefire021` has the stage driven to its corner. Its twelve stalls stand in two ranges of six on the Western stable's 28 ft section. The resulting sizes run from 26 x 20 ft (7.92 x 6.10 m: the New York House, the Mansion House and the Sauganash) through 36 x 20 ft (10.97 x 6.10 m: the Exchange and the Steamboat) to 36 x 28 ft (10.97 x 8.53 m: the Tremont)."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor sees a plank stable at the back of six hotel lots. That a house kept horses is argued from a price list; that it kept them in a building of this size, at this end of this lot, with its door to the alley, is ours. A house that sent its guests' horses to a livery or a neighbour's barn had no stable here at all, and this entry would then be wrong. **The two houses not given one, and why.** The **Wolf Point Tavern**'s stable already stands (9 x 6 m, L72) and has room for four or five horses against the two its four beds imply, so it is left as it is. The **Green Tree Tavern** gets no stable: a four-stall range was tried behind the house and stood 2.64 m inside Lake Street's corridor, and the ground between the house's back wall and the modelled South Branch bank is about 12 m. That absence is a fact about the model's ground, not about 1835, and it is written into `docs/RESEARCH/1835_tavern_horse_keeping.md` as the house's reading."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any of the houses' own cards in the Chicago American or the Democrat of 1834-35 naming their stabling; the 1839 fire-loss lists; Wright 1834 or Hathaway 1834 read at lot level for blocks 20, 17, 16 and 31 of the Original Town."
+        },
+        {
+          "label": "Covers",
+          "text": "`exchange_coffee_house_stable.stable_1834.position`, `exchange_coffee_house_stable.stable_1834.footprint`, `exchange_coffee_house_stable.stable_1834.form.door_side`, `new_york_house_stable.stable_1834.position`, `new_york_house_stable.stable_1834.footprint`, `new_york_house_stable.stable_1834.form.door_side`, `tremont_house_1_stable.stable_1833.position`, `tremont_house_1_stable.stable_1833.footprint`, `tremont_house_1_stable.stable_1833.form.door_side`, `mansion_house_stable.stable_1833.position`, `mansion_house_stable.stable_1833.footprint`, `mansion_house_stable.stable_1833.form.door_side`, `sauganash_hotel_stable.stable_1831.position`, `sauganash_hotel_stable.stable_1831.footprint`, `sauganash_hotel_stable.stable_1831.form.door_side`, `steamboat_hotel_stable.stable_1835.position`, `steamboat_hotel_stable.stable_1835.footprint`, `steamboat_hotel_stable.stable_1835.form.door_side`"
+        },
+        {
+          "label": "Related",
+          "text": "**L72** (the Western and Wolf Point stables, sized by the same trade), **T-1775** (the Western's stable re-sized from its guests), **T-1209** (the boarding houses built to their beds, whose second piece this is)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
         }
       ]
     },

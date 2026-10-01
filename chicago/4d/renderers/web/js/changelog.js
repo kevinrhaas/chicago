@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1255, ts: '2026-10-01T11:59:52.778Z', date: 'Oct 1, 2026, 6:59 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
       'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
       'The West Side still owes 42 buildings, mostly cottages, barns and sheds, and each has a job already waiting to build it. Another 42 are held back because the map does not yet reach the ground they would stand on.',
+    ] },
+  { v: null, ts: '', date: '', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
+      'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
+      'The West Side still owes 42 buildings, mostly cottages, barns and sheds, and each has a job already waiting to build it. Another 42 are held back because the map does not yet reach the ground they would stand on.',
+    ] },
+  { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: 1255, ts: '2026-10-01T11:16:22.660Z', date: 'Oct 1, 2026, 6:16 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
+    items: [
+      'Walk the alley behind Lake Street and there is now a plank stable at the back of the Tremont, the Exchange Coffee House, the New York House and the Mansion House. There is another at the alley end of the Sauganash\u2019s lot, and one behind the Steamboat Hotel on the north bank.',
+      'Each is sized from the house\u2019s own beds: a stall for every two guests on an ordinary night, and never fewer than four. The Tremont, a stage stop, gets one per guest, in two ranges of six.',
+      'A county order of 1831 priced keeping a traveller\u2019s horse overnight at a licensed house. No source mentions any of these six stables, so each one, its size and its place are reconstructions, and their cards say so.',
+      'The Green Tree gets none. There is no room for one between its back wall, Lake Street and the river bank as the town is modelled.',
     ] },
   { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [

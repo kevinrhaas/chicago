@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 504,
-    "structures_reached": 93,
+    "structures_placed": 510,
+    "structures_reached": 94,
     "structures_reached_by_grade": {
-      "inferred": 23,
+      "inferred": 24,
       "reconstructed": 70
     },
     "structures_unreached_by_section": {
-      "09": 408,
+      "09": 413,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -2822,6 +2822,10 @@
           "margin_m": 41.7
         },
         {
+          "id": "steamboat_hotel_stable",
+          "margin_m": 63.3
+        },
+        {
           "id": "watkins_school_house",
           "margin_m": 130.3
         }
@@ -3029,6 +3033,10 @@
         {
           "id": "steamboat_hotel",
           "margin_m": 41.7
+        },
+        {
+          "id": "steamboat_hotel_stable",
+          "margin_m": 63.3
         },
         {
           "id": "watkins_school_house",
@@ -39700,6 +39708,7 @@
       "elston_soap_candle_manufactory",
       "estray_pen",
       "exchange_coffee_house",
+      "exchange_coffee_house_stable",
       "first_presbyterian_church",
       "frederick_thomas_shop",
       "goss_cobb_saddlery",
@@ -39747,6 +39756,7 @@
       "log_jail",
       "madore_beaubien_house",
       "mansion_house",
+      "mansion_house_stable",
       "mason_blacksmith_shop",
       "mckee_log_house",
       "miller_house",
@@ -39754,6 +39764,7 @@
       "miller_tanyard_bark_shed",
       "miller_tanyard_drying_shed",
       "new_york_house",
+      "new_york_house_stable",
       "newberry_dole_packing_house_south_branch",
       "newberry_dole_salt_house_south_branch",
       "newberry_dole_slaughterhouse_south_branch",
@@ -40073,6 +40084,7 @@
       "robert_kinzie_store",
       "robinson_caldwell_cabins",
       "sauganash_hotel",
+      "sauganash_hotel_stable",
       "slough_log_bridge",
       "south_bank_shed_dearborn_e1",
       "south_bank_shed_dearborn_e2",
@@ -40082,6 +40094,7 @@
       "temple_lake_st_building",
       "thomas_church_store",
       "tremont_house_1",
+      "tremont_house_1_stable",
       "walker_meeting_house",
       "western_hotel",
       "western_hotel_stable",
