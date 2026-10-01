@@ -337,6 +337,9 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # own datum the right outcome is this gate failing, not a silent conversion.
     "woody_stratum.establishes_m": ("mesh", "const band = w.establishes_m;"),
     "woody_stratum.applies_to_roles": ("mesh", "new Set(w.applies_to_roles ?? [])"),
+    # T-1819: the dune poplars' held reach — trees.js's `const reach = w?.reach_n_m;`.
+    "woody_stratum.reach_n_m": ("mesh", "const reach = w?.reach_n_m;"),
+    "woody_stratum.reach_fade_m": ("mesh", "w.reach_fade_m ?? 0"),
     # The extent decides WHERE a community stands, which is a position and
     # therefore a vertex. `x` is the extent object inside `matchZone`.
     "extent.kind": ("mesh", "switch (x.kind)"),
@@ -346,6 +349,13 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     "extent.box.n": ("mesh", "const bn = x.box.n;"),
     "extent.of": ("mesh", "if (x.of !== 'water') return false;"),
     "extent.distance_m": ("mesh", "x.distance_m ?? [0, 0]"),
+    # T-1819: the lake's sand. A `lake_shore` band's ramp and wander, and a soft
+    # box's, shape where the beach and the sand prairie stand — read by
+    # lakeshore.js for the ground shader, the sward and the dune timber alike.
+    "extent.ramp_m": ("mesh", "x.ramp_m ?? 0"),
+    "extent.wander_m": ("mesh", "x.wander_m ?? 0"),
+    "extent.edge.ramp_m": ("mesh", "x.edge.ramp_m ?? 0"),
+    "extent.edge.wander_m": ("mesh", "x.edge.wander_m ?? 0"),
     "extent.exclude_polygons": ("mesh", "x.exclude_polygons ?? []"),
     # Ground a community holds that its own extent rule cannot reach — the mirror
     # of the exclusions above. z03's evidence names the public square and its rule
@@ -398,6 +408,10 @@ FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
     "zones[].extent.box.n": ("mesh", "rec.extent ?? entry.extent"),
     "zones[].extent.of": ("mesh", "rec.extent ?? entry.extent"),
     "zones[].extent.distance_m": ("mesh", "rec.extent ?? entry.extent"),
+    "zones[].extent.ramp_m": ("mesh", "rec.extent ?? entry.extent"),
+    "zones[].extent.wander_m": ("mesh", "rec.extent ?? entry.extent"),
+    "zones[].extent.edge.ramp_m": ("mesh", "rec.extent ?? entry.extent"),
+    "zones[].extent.edge.wander_m": ("mesh", "rec.extent ?? entry.extent"),
     "zones[].extent.exclude_polygons": ("mesh", "rec.extent ?? entry.extent"),
     "zones[].extent.include_polygons": ("mesh", "rec.extent ?? entry.extent"),
     "zones[].extent.priority": ("mesh", "entry.priority ?? 0"),

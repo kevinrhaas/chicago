@@ -4938,7 +4938,11 @@ for (const [label, viewport, touch] of [
       // the three adjoining pairs earn three more along its south side: 39 -> 46.
       // These are authored ID-set deltas, not a fit to the smoke's output.
       // docs/measurements/T-1752-frontage-census.md records the commits and clauses.
-      frontage.census?.records === 5 && frontage.census?.walks === 51
+      // T-1814 — the walk dealt by business: the smith's bare front cuts Lake's
+      // blk_lake_dearborn north run in two (+1 walk) and three forwarding houses
+      // front a decked walk (+3), 51 to 55; refusals 113 to 117, the bare front
+      // stated and the three warehouse fronts with no walk to widen.
+      frontage.census?.records === 5 && frontage.census?.walks === 55
         && frontage.census?.crossings === 46
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -5067,7 +5071,7 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 113
+        && frontage.census?.refused === 117
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5246,8 +5250,10 @@ for (const [label, viewport, touch] of [
     // crossings reuse those chunks and fences reuse existing street chunks.
     // Independently: 43 named walk chunks + 10 river segments + 4 standing-street
     // chunks + the shared mesh = 58, plus the same optional lettering.
+    // T-1814 — the smith's bare front splits one Lake run in two: 44 named walk
+    // chunks, 59. The decked walks ride their run's own chunk and add none.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 59 : 58)
+      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5819,7 +5825,9 @@ for (const [label, viewport, touch] of [
       // answers rather than a field the generator wrote about itself.
       const track = { checked: 0, inTrack: 0, worstVerge: Infinity, worst: null };
       for (const w of walks) {
-        if (w.kind !== 'plank_walk') continue;   // a crossing crosses, by design
+        // A crossing crosses, by design; a forwarding house's decked walk (T-1814)
+        // is a walk and is held to the same verge.
+        if (w.kind !== 'plank_walk' && w.kind !== 'decked_walk') continue;
         const street = (a.streets?.records ?? []).find((r) => r.id === w.street);
         if (!street) continue;
         const line = w.centreline_local_enu_m;
@@ -5874,9 +5882,41 @@ for (const [label, viewport, touch] of [
           if (a.flora.stationOf(e, n, sp) !== null) floor.speciesHits += 1;
         }
       }
+      // ---- THE WALK DEALT BY BUSINESS (T-1814). Stand on the middle of each
+      // forwarding house's decked walk — the strip laid on the board walk's
+      // street side — and the boot must be on planks; stand in the gap the walk
+      // leaves at the smith's front on Lake Street and it must be on the ground.
+      const deckedRecs = (rec?.walks ?? []).filter((w) => w.kind === 'decked_walk');
+      const deckedDrawn = walks.filter((w) => w.kind === 'decked_walk');
+      const onDeck = deckedDrawn.filter((w) => {
+        const [[ae, an], [be, bn]] = w.centreline_local_enu_m;
+        const e = (ae + be) / 2;
+        const n = (an + bn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        return a.walker.state.groundY - a.terrain.walkHeight(e, n) > 0.04;
+      }).length;
+      const w1 = walks.find((w) => w.id === 'blk_lake_dearborn_north_walk_1');
+      const w2 = walks.find((w) => w.id === 'blk_lake_dearborn_north_walk_2');
+      let bareLift = null;
+      let bareGap = null;
+      if (w1 && w2) {
+        const [ge, gn] = w1.centreline_local_enu_m.at(-1);
+        const [he, hn] = w2.centreline_local_enu_m[0];
+        const e = (ge + he) / 2;
+        const n = (gn + hn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        bareLift = a.walker.state.groundY - a.terrain.walkHeight(e, n);
+        bareGap = Math.hypot(he - ge, hn - gn);
+      }
+      // …and nothing is planted on the bare front: the layer hands the planting
+      // its patch, as it does each walk's deck.
+      const bareKept = (f?.keepOut ?? []).filter((k) => k.id === 'town_street_edge__bare').length;
+      const byBusiness = { records: deckedRecs.length, drawn: deckedDrawn.length, onDeck,
+        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length };
       return {
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
+        byBusiness,
         fences: (rec?.fences ?? []).length,
         faces: rec?.rule?.faces_laid ?? null,
         walkM: rec?.rule?.walk_m ?? null,
@@ -5920,6 +5960,21 @@ for (const [label, viewport, touch] of [
     // THE ACCEPTANCE CLAUSE, and it is a walking one: stand anywhere along
     // 220 m of Lake Street's north frontage and the boards are under the boot.
     // One sample in the mud is a hole in the sidewalk, so the bar is every one.
+    // T-1814 — THE WALK ITSELF IS DEALT BY BUSINESS. Three forwarding houses front
+    // a decked walk and every one is drawn and stood on; the smith fronts bare
+    // ground, a gap of one march step in the Lake Street walk with the boot on
+    // the mud in the middle of it.
+    check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
+      edge.byBusiness.records === 3 && edge.byBusiness.drawn === 3
+        && edge.byBusiness.onDeck === 3
+        && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
+        && edge.byBusiness.bareLift <= 0.04
+        && edge.byBusiness.bareRecs === 1 && edge.byBusiness.bareKept === 1,
+      `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
+      + `${edge.byBusiness.onDeck} stood on; the smith's gap `
+      + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
+      + `${edge.byBusiness.bareLift?.toFixed(3)} m, ${edge.byBusiness.bareKept} of `
+      + `${edge.byBusiness.bareRecs} bare front(s) kept clear of planting`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
       edge.march.missing === 0 && edge.march.samples > 100
         && edge.march.onPlanks === edge.march.samples

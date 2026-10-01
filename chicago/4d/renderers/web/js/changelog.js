@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1271, ts: '2026-10-01T20:51:36.215Z', date: 'Oct 1, 2026, 3:51 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+  { v: 1273, ts: '2026-10-01T21:03:56.483Z', date: 'Oct 1, 2026, 4:03 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
       'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
       'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
       'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets keep patches of grass along their edges and between their lanes, and every edge gives way to the prairie in ragged clumps.',
       'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L327.',
       'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
+    ] },
+  { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+    items: [
+      'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
+      'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
+      'At the Mason blacksmith shop on Lake Street the walk stops. A shoeing floor faced a trodden yard, not boards, so its tie rail now stands on bare ground.',
+      'This is our reconstruction. No source gives a Chicago walk\u2019s width by trade in 1835. Open the street edge\u2019s card to see which business each stretch serves.',
+    ] },
+  { v: 1271, ts: '2026-10-01T20:11:20.402Z', date: 'Oct 1, 2026, 3:11 PM CT', title: 'The lake\u2019s sand now runs the whole shore', kind: 'change',
+    items: [
+      'Stand by the fort and look north or south along the lake. The beach no longer stops 400 metres either side of the river mouth. It now runs the whole length of the shore, with the sandy ground behind it reaching back to the rise at State Street.',
+      'The sand is a cooler grey-beige, and it no longer ends in a straight line. It thins gradually into sandy prairie and then grass, along an uneven edge. Where more sand shows, the grass and flowers thin out with it.',
+      'Where the beach ends and what colour the sand was are our reconstruction. No survey of 1835 draws either. The register (L329) says so.',
     ] },
   { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [

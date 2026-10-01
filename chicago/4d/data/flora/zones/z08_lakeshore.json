@@ -31,36 +31,48 @@
       "mnfi_open_dunes",
       "wright_1834"
     ],
-    "note": "WHAT SEPARATES THE SANDY HILLS FROM THE ACTIVE SAND, recorded here because it was prose in this zone's own extent note and a renderer cannot read prose (T-1056). Andreas excepts \"the sandy hills near the lake\" from the North Division timber, and the exception is to the HILLS: chicagology_prefire274 describes \"the white sand hills both to the north and south\" and, separately, the long low sandy barrier ridge that deflected the river — two landforms, not one. z09_sand_prairie's extent note puts the relict-ridge belt at +7.6 to +9.5 ft above the water, so 7.6 ft (2.32 m) is the recorded floor of the ground the sources call a hill. The bar across the mouth is the other end: data/terrain/epochs/e1834_harbor_cut/terrain_spec.json islands[0] argues its crest to +4 ft (1.22 m) from a feature Fort Dearborn work parties trenched with hand tools between 1816 and 1828 and a February 1834 storm breached outright. Cowles 1901 reads this shore landform by landform: woody growth belongs to the STABILISED dune, and the active strand carries none. Ground the lake still reworks does not hold a sand cherry, a red-osier or a black-oak grub, so the woody stratum establishes across the interval between the two recorded elevations and not below it. THE TWO ENDS ARE RECORDED; THE SHAPE BETWEEN THEM IS NOT — no source states a step or a ramp, and the smooth ramp the renderers apply over this band is this project's own choice, admitted at docs/LIBERTIES.md L233. This is a bound on the WOODY stratum alone: the matrix, ground and forb records are what the dossier gives for the beach and the foredune and they are unchanged. IN THIS ZONE THE BOUND IS THE WHOLE PLANTED AREA. Measured on the committed e1834_harbor_cut heightfield at 5 m spacing, this zone WINS 1,653 land samples and 1,650 of them stand inside the traced sand bar, none higher than 1.58 m. The stabilised back-dune this record's 8c species were written for — sand cherry, S. cordata, red-osier, juniper and the three poplars — is west of E +1400 and belongs to z09_sand_prairie's box, so it is not modelled ground this zone reaches. The four shrub_low records and the three tree records therefore stand only where the bar rises toward the band, which is what \"low scrub in pockets\" means on a surface a storm overtops. The records are NOT withdrawn and no species is deleted: the community is right and the ground under it is a bar."
+    "note": "WHAT SEPARATES THE SANDY HILLS FROM THE ACTIVE SAND, recorded here because it was prose in this zone's own extent note and a renderer cannot read prose (T-1056). Andreas excepts \"the sandy hills near the lake\" from the North Division timber, and the exception is to the HILLS: chicagology_prefire274 describes \"the white sand hills both to the north and south\" and, separately, the long low sandy barrier ridge that deflected the river — two landforms, not one. z09_sand_prairie's extent note puts the relict-ridge belt at +7.6 to +9.5 ft above the water, so 7.6 ft (2.32 m) is the recorded floor of the ground the sources call a hill. The bar across the mouth is the other end: data/terrain/epochs/e1834_harbor_cut/terrain_spec.json islands[0] argues its crest to +4 ft (1.22 m) from a feature Fort Dearborn work parties trenched with hand tools between 1816 and 1828 and a February 1834 storm breached outright. Cowles 1901 reads this shore landform by landform: woody growth belongs to the STABILISED dune, and the active strand carries none. Ground the lake still reworks does not hold a sand cherry, a red-osier or a black-oak grub, so the woody stratum establishes across the interval between the two recorded elevations and not below it. THE TWO ENDS ARE RECORDED; THE SHAPE BETWEEN THEM IS NOT — no source states a step or a ramp, and the smooth ramp the renderers apply over this band is this project's own choice, admitted at docs/LIBERTIES.md L233. This is a bound on the WOODY stratum alone: the matrix, ground and forb records are what the dossier gives for the beach and the foredune and they are unchanged. IN THIS ZONE THE BOUND IS THE WHOLE PLANTED AREA. Measured on the committed e1834_harbor_cut heightfield at 5 m spacing, this zone WINS 1,653 land samples and 1,650 of them stand inside the traced sand bar, none higher than 1.58 m. The stabilised back-dune this record's 8c species were written for — sand cherry, S. cordata, red-osier, juniper and the three poplars — is west of E +1400 and belongs to z09_sand_prairie's box, so it is not modelled ground this zone reaches. The four shrub_low records and the three tree records therefore stand only where the bar rises toward the band, which is what \"low scrub in pockets\" means on a surface a storm overtops. The records are NOT withdrawn and no species is deleted: the community is right and the ground under it is a bar. REACH (reach_n_m, reach_fade_m) — T-1819, 2026-10-01: the dune's TIMBER (trees.js's poplars, the 'tree' and 'thicket' roles) keeps the reach the dune had before the beach was carried the length of the shore, N -400..+400, fading over 100 m. That reach was the box's and was never the belt's; it is held, not argued for, because the woody band above is an ELEVATION band and the beach's new length is mostly the flat 2.87 m south terrace, which clears the whole band and would take ZONE 8c's stand density everywhere. Where the back-dune stood trees is a question about the dune landform, which T-1820 shapes; it lifts this. The shrubs (sand cherry, 'shrub_low') are flora.js's and are not held.",
+    "reach_n_m": [
+      -400,
+      400
+    ],
+    "reach_fade_m": 100
   },
   "ground": {
     "rgb": [
-      198,
-      190,
+      186,
+      181,
       166
     ],
     "wet_rgb": [
-      156,
-      148,
-      130
-    ]
+      146,
+      142,
+      131
+    ],
+    "note": "GREYED, T-1819, 2026-10-01, on the owner's instruction (T-1772: 'cooler grey/beige sand'). The previous triple was a warm buff no source measured either; the new one is a reconstruction of tone, not a measurement, and LIBERTIES L329 says so."
   },
   "extent": {
-    "kind": "everywhere",
+    "kind": "lake_shore",
+    "distance_m": [
+      0,
+      75
+    ],
+    "ramp_m": 40,
+    "wander_m": 30,
     "box": {
       "e": [
-        1400,
-        1700
+        900,
+        1800
       ],
       "n": [
-        -400,
-        400
+        -3900,
+        1220
       ]
     },
     "priority": 45,
     "confidence": "inferred",
     "sources": [],
-    "note": "PRIORITY RAISED 12 -> 45, 2026-08-11. Planting this zone did nothing until now: at 12 it lost everywhere to z02_mesic_prairie (22) and z01_wet_prairie (20), which are ELEVATION BANDS matching the general plain, so the beach and the foredune were being rendered as mesic prairie. A zone defined by a specific geography and a specific SUBSTRATE has to outrank a band defined by height alone — the same reasoning that already puts the settled town (60) and the marsh (70) above both prairies. 45 keeps it below the marsh, the town and the sedge meadow, which is right: where the river mouth is marsh it is marsh, and where the fort stands it is settled ground, beach or no beach. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 7,353 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700: the lake shore, the beach face and the sand bar are modelled ground now, so this community has something to stand on. The box is the belt east of the sand-ridge crest, bounded north and south by the scene's own span; the beach continues well beyond it. NOT FIXED HERE, for the flora parcel: at priority 12 this zone loses everywhere to z02_mesic_prairie (priority 22), whose 1.18-3.0 m elevation band now covers the whole sand belt, so the beach and the bar are currently planted as mesic prairie. The priorities were set when nothing east of E +320 had ground under it and the question could not arise."
+    "note": "FOLLOWS THE LAKE SINCE T-1819, 2026-10-01 (the owner's T-1772: the fort's sand carried north and south along the lake, greyer, with no sharp beach boundary). The extent was a box, E +1400..+1700 by N -400..+400, so the beach stopped along two ruled east-west lines 400 m either side of the mouth and the lakeshore beyond them was planted as riverbank timber. It is now a band measured from the LAKE'S EDGE, which nobody draws: renderers/web/js/lakeshore.js reads it off the committed heightfield at load (per grid row the easternmost land, a median over +/-50 m, a running max over +/-120 m to bridge the mouth, a mean per 40 m), so the beach is wherever the modelled shore is, the sand bar included, the whole 4.9 km of the field. distance_m [0, 75] keeps the old box's reach at the fort (the bar's lake face to E +1400 is 95 m at N 0, and 75 m plus the ramp spans it). ramp_m and wander_m make the inner edge a 40 m ramp that wanders +/-30 m on three incommensurate scales (~310, ~97, ~18 m), because no survey drew this line and a hard edge would draw that admission as one; the shape of that edge is the project's (LIBERTIES L329), not evidence. The box only bounds the search. The ground shader blends this zone's colour by the band's weight and flora.js dithers the same weight for the sward and the trees, so plants thin into the sand across the ramp rather than stopping at a line. WHAT THE PREVIOUS NOTE SAID: PRIORITY RAISED 12 -> 45, 2026-08-11. Planting this zone did nothing until now: at 12 it lost everywhere to z02_mesic_prairie (22) and z01_wet_prairie (20), which are ELEVATION BANDS matching the general plain, so the beach and the foredune were being rendered as mesic prairie. A zone defined by a specific geography and a specific SUBSTRATE has to outrank a band defined by height alone — the same reasoning that already puts the settled town (60) and the marsh (70) above both prairies. 45 keeps it below the marsh, the town and the sedge meadow, which is right: where the river mouth is marsh it is marsh, and where the fort stands it is settled ground, beach or no beach. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 7,353 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700: the lake shore, the beach face and the sand bar are modelled ground now, so this community has something to stand on. The box is the belt east of the sand-ridge crest, bounded north and south by the scene's own span; the beach continues well beyond it. NOT FIXED HERE, for the flora parcel: at priority 12 this zone loses everywhere to z02_mesic_prairie (priority 22), whose 1.18-3.0 m elevation band now covers the whole sand belt, so the beach and the bar are currently planted as mesic prairie. The priorities were set when nothing east of E +320 had ground under it and the question could not arise."
   },
   "species": [
     {

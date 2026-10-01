@@ -662,7 +662,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/small_outbuildings/north` | 20 | 19 | 1 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 0 | 0 | T-1694 |
-| `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-1766 |
+| `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-1774 |
 | `structures/stores_mixed_use/north` | 4 | 1 | 3 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/warehouses_freight/south/street_line` | 9 | 6 | 3 | 0 | T-1673 |
@@ -670,7 +670,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/warehouses_freight/west` | 2 | 2 | 0 | 0 | T-1774 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-1205 |
 | `structures/workshops/south` | 15 | 11 | 4 | 0 | T-1684 |
-| `structures/workshops/west` | 8 | 8 | 0 | 0 | T-1766 |
+| `structures/workshops/west` | 8 | 8 | 0 | 0 | T-1774 |
 | `structures/workshops/north` | 7 | 5 | 2 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |
 
