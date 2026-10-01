@@ -4,8 +4,8 @@ DERIVED — regenerate with `tools/execute_roof_redeal.py --apply`. T-1451.
 
 T-1445 adjudicated 285 anonymous roofs and moved none of them. This is the execution: the verdicts carried back into the authored recipes so the generators re-derive the records. It adjudicates nothing — every family below is the `to_family` T-1445 reached.
 
-- refamily verdicts standing: **14**
-- carried out here: **14** (the West Division parcel)
+- refamily verdicts standing: **7**
+- carried out here: **7** (the West Division parcel)
 - outstanding, and why: **0** — the record id carries the family, so executing them renames a roof other files name (T-1481/T-1482/T-1484, over the surface `tools/measure_roof_id_migration.py` measures)
 - retired: **0** — the guard stands empty and that is a measurement, not an omission
 
@@ -17,16 +17,9 @@ T-1445 adjudicated 285 anonymous roofs and moved none of them. This is the execu
 | `recon_1835_west_009` | W2 | D5 | workshops → ordinary_dwellings | 20x30 | the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands |
 | `recon_1835_west_010` | A1 | D3 | barns_stables → ordinary_dwellings | 16x24 | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_west_011` | A3 | D2 | small_outbuildings → ordinary_dwellings | 12x16 | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
-| `recon_1835_west_013` | A5 | D2 | small_outbuildings → ordinary_dwellings | 12x16 | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
-| `recon_1835_west_020` | C2 | D6 | stores_mixed_use → ordinary_dwellings | 20x30 | the placement policy refuses this family here — stands 8.82 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_west_021` | W3 | D6 | workshops → ordinary_dwellings | 22x33 | the placement policy refuses this family here — stands 30.47 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_west_022` | W4 | A1 | workshops → barns_stables | 18x26 | the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands |
-| `recon_1835_west_046` | F1 | H2 | warehouses_freight → larger_boarding_houses | 24x36 | the placement policy refuses this family here — stands 36.63 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
-| `recon_1835_west_050` | D2 | D1 | ordinary_dwellings → ordinary_dwellings | 16x20 | the placement policy refuses this family here — fronts no street (its nearest corridor is 86.23 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_west_051` | D2 | D1 | ordinary_dwellings → ordinary_dwellings | 16x22 | the placement policy refuses this family here — fronts no street (its nearest corridor is 131.25 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_west_052` | D3 | D1 | ordinary_dwellings → ordinary_dwellings | 18x24 | the placement policy refuses this family here — fronts no street (its nearest corridor is 74.65 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_west_053` | D4 | A2 | ordinary_dwellings → barns_stables | 20x28 | the placement policy refuses this family here — fronts no street (its nearest corridor is 137.45 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_west_054` | A1 | D1 | barns_stables → ordinary_dwellings | 16x24 | the placement policy refuses this family here — fronts no street (its nearest corridor is 97.06 m away, beyond the frontage reach), and ancillary_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
+| `recon_1835_west_046` | F1 | H2 | warehouses_freight → larger_boarding_houses | 24x36 (was 24x44) | the placement policy refuses this family here — stands 36.63 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
 
 ## Outstanding — the id migration T-1481, T-1482 and T-1484 own
 

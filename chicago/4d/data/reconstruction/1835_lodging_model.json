@@ -30,14 +30,14 @@
         "H3"
       ],
       "scheduled_roofs": 42,
-      "built_places": 9,
-      "unbuilt_slots": 33,
+      "built_places": 10,
+      "unbuilt_slots": 32,
       "ordinary_per_place": 9,
       "crowded_per_place": 21,
-      "built_beds_ordinary": 81,
-      "built_beds_crowded": 189,
-      "unbuilt_beds_ordinary": 297,
-      "unbuilt_beds_crowded": 693,
+      "built_beds_ordinary": 90,
+      "built_beds_crowded": 210,
+      "unbuilt_beds_ordinary": 288,
+      "unbuilt_beds_crowded": 672,
       "crowded_end_is_the_ceiling": false
     },
     {
@@ -146,7 +146,7 @@
       "enclosed_floor_m2": 195.48,
       "capacity_grade": "reconstructed",
       "beds_ordinary": 12,
-      "beds_crowded": 28,
+      "beds_crowded": 27,
       "clamped_at_1840_maximum": false,
       "basis": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 195 m² of enclosed floor (98 m² × 2 storeys) is of the class's floor area.",
       "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
@@ -164,7 +164,7 @@
       "enclosed_floor_m2": 173.34,
       "capacity_grade": "reconstructed",
       "beds_ordinary": 11,
-      "beds_crowded": 25,
+      "beds_crowded": 24,
       "clamped_at_1840_maximum": false,
       "basis": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 173 m² of enclosed floor (87 m² × 2 storeys) is of the class's floor area.",
       "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
@@ -181,7 +181,7 @@
       "storeys": 2.0,
       "enclosed_floor_m2": 189.65,
       "capacity_grade": "reconstructed",
-      "beds_ordinary": 12,
+      "beds_ordinary": 11,
       "beds_crowded": 27,
       "clamped_at_1840_maximum": false,
       "basis": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 190 m² of enclosed floor (95 m² × 2 storeys) is of the class's floor area.",
@@ -221,6 +221,24 @@
       "beds_crowded": 28,
       "clamped_at_1840_maximum": false,
       "basis": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 198 m² of enclosed floor (99 m² × 2 storeys) is of the class's floor area.",
+      "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
+    },
+    {
+      "id": "recon_1835_west_046",
+      "name": "Reconstructed H2 medium boarding house #046",
+      "function": "medium_boarding_house",
+      "class": "boarding_house",
+      "family": "H2",
+      "division": "west",
+      "standing": "reconstructed",
+      "footprint_m2": 80.27,
+      "storeys": 2.0,
+      "enclosed_floor_m2": 160.53,
+      "capacity_grade": "reconstructed",
+      "beds_ordinary": 10,
+      "beds_crowded": 23,
+      "clamped_at_1840_maximum": false,
+      "basis": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 161 m² of enclosed floor (80 m² × 2 storeys) is of the class's floor area.",
       "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
     },
     {

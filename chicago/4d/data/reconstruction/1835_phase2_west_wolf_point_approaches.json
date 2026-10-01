@@ -29,11 +29,11 @@
   },
   "inventory_group_totals": {
     "ordinary_dwellings": 39,
-    "larger_boarding_houses": 2,
+    "larger_boarding_houses": 3,
     "stores_mixed_use": 2,
     "inns_taverns": 0,
     "workshops": 1,
-    "warehouses_freight": 1,
+    "warehouses_freight": 0,
     "institutional_public": 0,
     "barns_stables": 7,
     "small_outbuildings": 3
@@ -47,11 +47,10 @@
     "D6": 3,
     "D7": 1,
     "H1": 1,
-    "H2": 1,
+    "H2": 2,
     "C1": 1,
     "C2": 1,
     "W5": 1,
-    "F1": 1,
     "A1": 5,
     "A2": 2,
     "A3": 1,
@@ -172,6 +171,24 @@
         ],
         "footprint_moved": false,
         "why": "the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_046",
+        "slot": "west_rec_046",
+        "was": "F1",
+        "now": "H2",
+        "was_group": "warehouses_freight",
+        "now_group": "larger_boarding_houses",
+        "was_footprint_ft": [
+          24,
+          44
+        ],
+        "footprint_ft": [
+          24,
+          36
+        ],
+        "footprint_moved": true,
+        "why": "the placement policy refuses this family here — stands 36.63 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
       }
     ]
   },
@@ -265,7 +282,7 @@
       "id": "w4_clinton_work_fringe",
       "density_zone": "C",
       "roofs": 10,
-      "description": "Sparse dwellings and the parcel's single anonymous freight shed on the westward wagon approach; open work ground is more important than a continuous frontage."
+      "description": "Sparse dwellings and a larger H2 house with its stable on the westward wagon approach (the house stands where the recipe first drew the parcel's single anonymous freight shed, re-dealt by T-1782 under T-1445's verdict); open work ground is more important than a continuous frontage."
     },
     {
       "id": "w5_desplaines_open_edge",
@@ -323,7 +340,7 @@
     {"id":"west_rec_043","cluster":"w4_clinton_work_fringe","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-548,-134],"footprint_ft":[16,24],"rotation_deg":92,"density_zone":"C"},
     {"id":"west_rec_044","cluster":"w4_clinton_work_fringe","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-494,-214],"footprint_ft":[20,30],"rotation_deg":0,"density_zone":"C"},
     {"id":"west_rec_045","cluster":"w4_clinton_work_fringe","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-552,-220],"footprint_ft":[22,32],"rotation_deg":-2,"density_zone":"C"},
-    {"id":"west_rec_046","cluster":"w4_clinton_work_fringe","family":"F1","inventory_class":"principal_functional","center_local_enu_m":[-514,-304],"footprint_ft":[24,44],"rotation_deg":1,"density_zone":"C"},
+    {"id":"west_rec_046","cluster":"w4_clinton_work_fringe","family":"H2","inventory_class":"principal_functional","center_local_enu_m":[-514,-304],"footprint_ft":[24,36],"rotation_deg":1,"density_zone":"C"},
     {"id":"west_rec_047","cluster":"w4_clinton_work_fringe","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-560,-302],"footprint_ft":[18,28],"rotation_deg":-1,"density_zone":"C","yard_group":"west_rec_046"},
 
     {"id":"west_rec_048","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-588,74],"footprint_ft":[18,22],"rotation_deg":2,"density_zone":"D_edge"},

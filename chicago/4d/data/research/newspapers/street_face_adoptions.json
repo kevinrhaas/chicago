@@ -154,30 +154,30 @@
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2223,
+      "re_families_tried": 2232,
       "places_changed": 2721,
       "worst_single_re_family": 8,
-      "changed_nothing": 1260
+      "changed_nothing": 1269
      },
      "deal_order": {
-      "re_families_tried": 2223,
+      "re_families_tried": 2232,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2223
+      "changed_nothing": 2232
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1959,
+      "re_families_tried": 1950,
       "places_changed": 2589,
       "worst_single_re_family": 8,
-      "changed_nothing": 1079
+      "changed_nothing": 1070
      },
      "deal_order": {
-      "re_families_tried": 1959,
-      "places_changed": 12388,
+      "re_families_tried": 1950,
+      "places_changed": 12322,
       "worst_single_re_family": 19,
-      "changed_nothing": 144
+      "changed_nothing": 157
      }
     }
    }
@@ -196,8 +196,8 @@
   "unplaceable_present_at_scene_date": 62,
   "adopted_into_a_house_of_trade": 26,
   "adopted_into_a_roof_of_no_trade": 13,
-  "roofs_free_and_a_house_of_trade": 28,
-  "houses_of_trade_left_free": 2,
+  "roofs_free_and_a_house_of_trade": 27,
+  "houses_of_trade_left_free": 1,
   "roofs_reserved_for_a_slot_request": 33,
   "reserved_and_held_by_a_committed_occupancy": 0,
   "reserved_without_a_committed_occupancy": 33,

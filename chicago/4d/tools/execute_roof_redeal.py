@@ -1528,6 +1528,10 @@ def main() -> int:
     ap.add_argument("--check-blocks", action="store_true")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--only", action="append", metavar="RECORD_ID",
+                    help="with --apply, carry out only these West verdicts (T-1782): "
+                         "the West's open verdicts belong to different tickets, and a "
+                         "run that executes all of them takes its siblings' roofs")
     args = ap.parse_args()
 
     if args.self_test:
@@ -1600,6 +1604,12 @@ def main() -> int:
         return 0
 
     if args.apply:
+        if args.only:
+            unknown = sorted(set(args.only) - {v["id"] for v in here})
+            if unknown:
+                raise SystemExit("--only names no executable West verdict: "
+                                 + ", ".join(unknown))
+            here = [v for v in here if v["id"] in set(args.only)]
         plan = merge_recorded_west(recipe, plan_west(recipe, here))
         text = WEST_RECIPE.read_text(encoding="utf-8")
         WEST_RECIPE.write_text(apply_west(text, recipe, plan), encoding="utf-8")
