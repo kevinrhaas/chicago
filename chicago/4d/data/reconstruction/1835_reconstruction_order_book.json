@@ -1518,8 +1518,9 @@
           "west": 28
         },
         "by_clause": {
+          "farms_and_country_seats": 2,
           "heavy_and_noxious_trades": 1,
-          "labourer_dwellings": 25,
+          "labourer_dwellings": 23,
           "merchant_and_professional_dwellings": 8,
           "tradesman_dwellings": 38
         }

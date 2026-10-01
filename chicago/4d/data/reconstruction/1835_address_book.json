@@ -3289,7 +3289,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_ayers_david|T-1522|division:f608012d4f28|class:192c3e3767be",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_west_054",
+    "how": "adopted",
+    "dealt_by": "T-1614",
+    "ground": "off_plat_parcel",
+    "on": "canal_section_9_remainder",
+    "block_id": null,
+    "fronts": null,
+    "family": "D1",
+    "clause": "farms_and_country_seats",
+    "district": "west",
+    "stands_on": "tract",
+    "deal_seed": "hh_ayers_david|T-1522|division:f608012d4f28|class:192c3e3767be",
+    "why": "a farmstead: this D1 cabin and the A2 barn recon_1835_west_053 46.9 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_054, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's farms_and_country_seats clause, and any other free roof the clause admits would have done as well. Why this one: a farmstead: this D1 cabin and the A2 barn recon_1835_west_053 46.9 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_ayres_levi",
@@ -6707,7 +6724,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_beegle_a|T-1522|division:fbc3bd4e1ed2|class:1f219a7208ba",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_west_052",
+    "how": "adopted",
+    "dealt_by": "T-1614",
+    "ground": "off_plat_parcel",
+    "on": "canal_section_9_remainder",
+    "block_id": null,
+    "fronts": null,
+    "family": "D1",
+    "clause": "farms_and_country_seats",
+    "district": "west",
+    "stands_on": "tract",
+    "deal_seed": "hh_beegle_a|T-1522|division:fbc3bd4e1ed2|class:1f219a7208ba",
+    "why": "a farmstead: this D1 cabin and the A2 barn recon_1835_west_055 126.5 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_052, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's farms_and_country_seats clause, and any other free roof the clause admits would have done as well. Why this one: a farmstead: this D1 cabin and the A2 barn recon_1835_west_055 126.5 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_beeson_william",
@@ -11752,24 +11786,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_bruno_anne_franoise_apolline|T-1522|division:d32ed91e844b|class:3beedd3522c4",
-   "dealt_roof": {
-    "structure_id": "recon_1835_west_054",
-    "how": "adopted",
-    "dealt_by": "T-1614",
-    "ground": "off_plat_parcel",
-    "on": "canal_section_9_remainder",
-    "block_id": null,
-    "fronts": null,
-    "family": "D1",
-    "clause": "labourer_dwellings",
-    "district": "west",
-    "stands_on": "tract",
-    "deal_seed": "hh_bruno_anne_franoise_apolline|T-1522|division:d32ed91e844b|class:3beedd3522c4",
-    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
-    "owed_to": null,
-    "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_054, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_bruno_jean_baptiste",
@@ -17479,24 +17496,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_cooley_edward_v|T-1522|division:dd9787dd9fa3|class:2eae6c444aae",
-   "dealt_roof": {
-    "structure_id": "recon_1835_west_052",
-    "how": "adopted",
-    "dealt_by": "T-1614",
-    "ground": "off_plat_parcel",
-    "on": "canal_section_9_remainder",
-    "block_id": null,
-    "fronts": null,
-    "family": "D1",
-    "clause": "labourer_dwellings",
-    "district": "west",
-    "stands_on": "tract",
-    "deal_seed": "hh_cooley_edward_v|T-1522|division:dd9787dd9fa3|class:2eae6c444aae",
-    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
-    "owed_to": null,
-    "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_052, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_coslet_elisabeth",
