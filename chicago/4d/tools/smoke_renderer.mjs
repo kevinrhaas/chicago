@@ -4922,7 +4922,11 @@ for (const [label, viewport, touch] of [
       // the three adjoining pairs earn three more along its south side: 39 -> 46.
       // These are authored ID-set deltas, not a fit to the smoke's output.
       // docs/measurements/T-1752-frontage-census.md records the commits and clauses.
-      frontage.census?.records === 5 && frontage.census?.walks === 51
+      // T-1814 — the walk dealt by business: the smith's bare front cuts Lake's
+      // blk_lake_dearborn north run in two (+1 walk) and three forwarding houses
+      // front a decked walk (+3), 51 to 55; refusals 113 to 117, the bare front
+      // stated and the three warehouse fronts with no walk to widen.
+      frontage.census?.records === 5 && frontage.census?.walks === 55
         && frontage.census?.crossings === 46
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -5051,7 +5055,7 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 113
+        && frontage.census?.refused === 117
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5230,8 +5234,10 @@ for (const [label, viewport, touch] of [
     // crossings reuse those chunks and fences reuse existing street chunks.
     // Independently: 43 named walk chunks + 10 river segments + 4 standing-street
     // chunks + the shared mesh = 58, plus the same optional lettering.
+    // T-1814 — the smith's bare front splits one Lake run in two: 44 named walk
+    // chunks, 59. The decked walks ride their run's own chunk and add none.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 59 : 58)
+      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
