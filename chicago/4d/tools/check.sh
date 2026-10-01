@@ -708,6 +708,15 @@ step "North Division initial parcel matches its reviewed recipe" \
 step "West Division approaches parcel matches its recipe" \
   python3 tools/generate_west_infill.py --check
 
+# T-1773: the West Division's second freight roof, at Lake and West Water. Its own
+# generator because the West grid is unscheduled (reconcile_665.py, T-1455) and the
+# block parcels cannot deal onto it; the record re-derives from its recipe and the
+# validator is proved by breaking it.
+step "West freight roof at the forks matches its recipe" \
+  python3 tools/generate_west_freight.py --check
+step "West freight roof validator refuses bad ground" \
+  python3 tools/generate_west_freight.py --self-test
+
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the

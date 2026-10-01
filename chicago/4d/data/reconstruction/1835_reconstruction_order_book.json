@@ -1445,8 +1445,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 493,
-    "roofs_to_build": 189,
+    "roofs_standing": 494,
+    "roofs_to_build": 188,
     "persons_standing": 2381,
     "persons_still_owed": 290,
     "persons_when_the_book_is_filled": 2671,
@@ -1468,9 +1468,9 @@
     "still_owed": 1229,
     "roofs_adopted": 212,
     "slots_requested": 37,
-    "roofs_standing": 493,
-    "roofs_standing_unseated": 281,
-    "share_of_standing_roofs_seated": 0.43,
+    "roofs_standing": 494,
+    "roofs_standing_unseated": 282,
+    "share_of_standing_roofs_seated": 0.4291,
     "passes": [
       {
         "key": "platted",
@@ -5080,11 +5080,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 493,
+        "standing_records": 494,
         "standing_with_an_occupant": 151,
-        "standing_without_an_occupant": 342,
-        "to_build_total": 189,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 342 of the 493 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 343,
+        "to_build_total": 188,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 343 of the 494 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5525,15 +5525,15 @@
             "division": "west"
           },
           "target": 2,
-          "standing": 1,
-          "to_build": 1,
+          "standing": 2,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1764",
+          "owning_ticket": "T-1773",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 1 of them to build"
+          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/warehouses_freight/north",
@@ -5620,8 +5620,8 @@
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
         "roofs_on_committed_ground": 141,
-        "roofs_gated_on_coverage": 47,
-        "statement": "141 of the 189 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 47 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_gated_on_coverage": 46,
+        "statement": "141 of the 188 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 46 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5943,7 +5943,7 @@
           "axes": {
             "division": "west"
           },
-          "roofs_gated": 36,
+          "roofs_gated": 35,
           "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
           "owning_tickets": [
             "T-1414"
@@ -6037,7 +6037,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "342 of 493 standing records carry no occupants block."
+      "measured_now": "343 of 494 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

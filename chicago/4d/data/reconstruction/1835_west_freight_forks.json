@@ -9,7 +9,7 @@
   "basis": "The order book's structures/warehouses_freight/west row sets 2 and found 1 standing (recon_1835_west_046, an F1 shed far out on Des Plaines Street), so it ordered one more freight roof for the West Division. The West memo seats freight on the approaches and keeps the named landings for named records; nothing names a West Division warehouse in July 1835. The one ground in the West that is both platted and faces the river at the forks is the east column of blk_west_lake_canal, fronting West Water Street with the South Branch beyond it, and plat lot 1 is its Lake Street corner -- the first lot a cart off the Lake Street bridge passes. So the roof is an F2 narrow two-storey warehouse (hoist door, vertical boards: the crosswalk's variants for the family) on that lot, its gable front on West Water and its rear toward the block's alley.",
   "replaceable_by": "Any reading that seats a named forwarder or warehouse in the West Division in 1835 substitutes for this roof rather than adding beside it; the order book's freight row is the count it fills.",
   "placement": {
-    "structure_id": "recon_1835_west_freight_f2_001",
+    "structure_id": "recon_1835_forks_freight_f2_001",
     "family": "F2",
     "block_id": "blk_west_lake_canal",
     "lot_row": 1,
@@ -17,6 +17,6 @@
     "plat_lot_number": 1,
     "fronts": "west_water",
     "front_setback_m": 1.5,
-    "geometry_seed": "recon_1835_west_freight_f2"
+    "geometry_seed": "recon_1835_forks_freight_f2"
   }
 }

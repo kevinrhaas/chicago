@@ -12096,6 +12096,12 @@
       "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_forks_freight_f2_001",
+      "name": "Reconstructed West Water Street narrow two-story warehouse",
+      "sidecar": "sidecars/1835/recon_1835_forks_freight_f2_001.json",
+      "asset": "gltf/recon_1835_forks_freight_f2_001__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_a1_008",
       "name": "Reconstructed A1 stable #008",
       "sidecar": "sidecars/1835/recon_1835_north_a1_008.json",

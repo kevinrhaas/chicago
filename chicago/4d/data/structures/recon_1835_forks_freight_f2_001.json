@@ -1,5 +1,5 @@
 {
-  "id": "recon_1835_west_freight_f2_001",
+  "id": "recon_1835_forks_freight_f2_001",
   "name": "Reconstructed West Water Street narrow two-story warehouse",
   "archetype": "frame_storefront",
   "phases": [
@@ -12,8 +12,8 @@
         "note": "An invented count-unit for July 1835, not evidence that this particular building existed."
       },
       "position": {
-        "utm_e": 447028.41,
-        "utm_n": 4637266.251,
+        "utm_e": 447031.648,
+        "utm_n": 4637266.103,
         "rotation_deg": 91.30635,
         "symbolic_location": "Reconstructed warehouse at Lake and West Water Streets, facing the forks of the river",
         "confidence": "reconstructed",
@@ -30,20 +30,20 @@
             0
           ],
           [
-            7.079,
+            6.931,
             0
           ],
           [
-            7.079,
-            16.595
+            6.931,
+            13.355
           ],
           [
             0,
-            16.595
+            13.355
           ]
         ],
         "confidence": "reconstructed",
-        "note": "Deterministically sampled 7.079 by 16.595 metre rectangle inside the F2 typology band; neither dimension is attested for this invented roof."
+        "note": "Deterministically sampled 6.931 by 13.355 metre rectangle inside the F2 typology band; neither dimension is attested for this invented roof."
       },
       "form": {
         "stories": {
@@ -55,7 +55,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "wall_height_m": {
-          "value": 6.607,
+          "value": 6.403,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -71,7 +71,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "roof_pitch_deg": {
-          "value": 26.7,
+          "value": 32.3,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -103,7 +103,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "whitewash",
+          "value": "unpainted",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -186,7 +186,7 @@
     "programme_phase": "west_freight_forks_1835",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 1,
-    "finish_key": "whitewash",
+    "finish_key": "mixed_patch",
     "roof_condition": "weathered",
     "age_state": "recent"
   },
