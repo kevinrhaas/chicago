@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
+  { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
     items: [
       'Cross the Lake Street bridge to the west bank and the first lot on your left, at the corner of Lake and West Water, now has a building on it: a narrow two-storey warehouse of unpainted vertical boards, 23 by 44 feet, facing the river across West Water Street.',
       'It has two loading bays, each a wagon door with a cargo door above it, and a hoist beam over them. It is the West Division\u2019s second freight building; the only other one is a small shed far out on Des Plaines Street.',
