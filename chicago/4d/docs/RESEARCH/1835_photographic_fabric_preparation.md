@@ -199,10 +199,10 @@ row says otherwise, so colour remains the household's, on the vertex stream (§ 
 | Wrought iron (props, hitching rails) | **Reuse**; the only metallic substrate, so its `orm` B channel stays metallic | Seed 18352835, 1.00 m | — | T-1211, T-1212 |
 | Signboard and paint | **Reuse `signboard_weathered` relief** under the existing lettering atlas. Lettering stays in `signage.js` | Seed 18352932, 2.00 m | Whether a given sign is painted is T-1213's ruling. The 0.60 linear board tone is the archetype's | T-1213 |
 | Glass and recessed sash | **New geometry, no map:** Glessner's enclosed recess + dielectric, scaled to 1835 sash | — | Priced per opening in § 5. 63 `glass` and 426 `dark` materials today | T-1796 |
-| Packed street dirt | **New wear mask + reuse fine detail.** A seeded world-space low-frequency mask (20–60 m) for traffic lanes, hoof paths and wet patches. The fine detail comes from `packed_black_loam` relief, not the mud tile's ruts | Loam seed 18352156, 6 m | The 8 m mud tile's ruts repeat. `roadTexture` is translucent. Cross-sections are geometry (T-1770) | T-1797, T-1770 |
+| Packed street dirt | **New wear mask + reuse fine detail.** A seeded world-space low-frequency mask (20–60 m) for traffic lanes, hoof paths and wet patches. The fine detail comes from `packed_black_loam` relief, not the mud tile's ruts. *T-1797 measured that relief flat; the fine detail is a generated grit tile instead (§ 8)* | Loam seed 18352156, 6 m | The 8 m mud tile's ruts repeat. `roadTexture` is translucent. Cross-sections are geometry (T-1770) | T-1797, T-1770 |
 | Mud, wet ground | **Reuse `muddy_rutted_street` for local mud only**, under the mask, never as the whole roadway | Seed 18352253, 8 m, AI-derived | 4.63 MB wire. Downsample its relief to 512² before publishing | T-1797, T-1770, T-1771 |
-| Bank soil | **Reuse loam + muck**, blended by a wetness mask | Seeds 18352156, 18352350 | — | T-1797, T-1771 |
-| Lake sand | **Reuse colour and relief**; add the low-frequency variation by mask. Dune ridges are terrain, not map | Seed 18352447, 6 m | Flat spread 54–62 | T-1797, T-1772 |
+| Bank soil | **Reuse loam + muck**, blended by a wetness mask. *T-1797: muck colour reused; the loam's place taken by the grit tile (§ 8)* | Seeds 18352156, 18352350 | — | T-1797, T-1771 |
+| Lake sand | **Reuse colour and relief**; add the low-frequency variation by mask. Dune ridges are terrain, not map. *T-1797: colour reused at a quarter of its grain; its relief is flat (§ 8)* | Seed 18352447, 6 m | Flat spread 54–62 | T-1797, T-1772 |
 | Prairie and grass | **New:** a July tall-grass ground study, adapting the method of Glessner's 4 m lawn (coherent 0.5–2 m variation), not its material | The runtime prairie tile is `prairie-tile.js` (256 px, 11 m) | A mown lawn is not a prairie; plants stay the flora layer | T-1797, T-1772 |
 
 Fresh-sawn framing (seed 18351477) has no consumer today and is left as vendored.
@@ -281,7 +281,7 @@ frame rate.
   +162 triangles, not 40–80. Transmission glass was rejected. A finish now needs a grain
   strength as well as a colour and a roughness.
 - **T-1797 (ground strip):** the wear mask, the loam/mud/muck/sand reuse and the new prairie
-  study of § 4, through the terrain/runtime-canvas path.
+  study of § 4, through the terrain/runtime-canvas path. *Done 2026-10-01 — § 8.*
 - **T-1211 (plank works):** the white walk is `frontage.js`'s `TIMBER`, the signboard's linear
   (0.60, 0.54, 0.44) at L\* 78.7. The palette bound is the library walk (L\* 33–40 across its
   spread) up to the sheet's `weathered_board` (L\* 62), in grey, brown, grey-brown and dark
@@ -310,3 +310,112 @@ frame rate.
   `generators/common/materials.py`.
 - GPU bytes are arithmetic (w × h × 4 × 4/3), not a browser reading. T-1796 replaces them
   with a measured one.
+
+## 8. The ground strip — T-1797, measured
+
+The third piece of T-1769. A 48 × 12 m strip on open prairie south of the town (centre
+E 145, N −455: 85 m from the nearest building, 56 m from the nearest opened street, the
+heightfield between 0.77 and 0.81 m, dry of the wet band), drawn only under
+**`?proof=ground`** (`/4d/dev/?proof=ground`; `&anchor=ground_strip_above` and
+`&anchor=ground_strip_close` for the other two views). West to east: packed street dirt,
+worn bank soil, grey sand, sand thinning into sparse prairie, every side feathered into
+the terrain's own prairie. It is a sample, not a place: nothing records these grounds at
+that spot, and the strip claims nothing about where in 1835 any of them lay.
+
+**Code.** `renderers/web/js/ground-strip-mask.js` (layout, mask and grit pixels, the
+weight function; imports nothing, so a tool can read it from Node) and
+`renderers/web/js/ground-strip.js` (the material and mesh). `terrain.js` now exports its
+prairie fragment as `PRAIRIE_FRAGMENT`, unchanged, so the feather lands on the terrain's
+own prairie rather than a copy of it; the compiled ground shader is byte for byte what it
+was. `main.js` imports the strip only under the flag.
+
+### The finding: the library's ground relief is flat
+
+§ 4 gave the dirt's fine detail to `packed_black_loam`'s relief. Bound at full strength it
+drew a smooth brown at standing distance (`ground-strip-proof/close-1280-library-loam.jpg`),
+and the maps say why — read at 256², sRGB units of 255:
+
+| material | basecolor L mean | basecolor SD | `normal_gl` SD (R / G) |
+|---|---|---|---|
+| packed_black_loam | 54.8 | 2.19 | 0.93 / 0.94 |
+| wet_prairie_muck | 47.2 | 2.89 | 1.18 / 1.19 |
+| lake_michigan_dune_sand | 137.8 | 6.21 | 1.04 / 0.68 |
+| muddy_rutted_street (AI-derived) | 70.7 | 17.07 | 8.91 / 8.95 |
+
+The three procedural ground materials carry almost no relief at any scale; only the
+AI-derived mud has any, and § 4 already refuses it as a roadway (its 8 m ruts repeat).
+**So the ground rows move from "reuse relief" to "regenerate relief".** The proof's
+regeneration is a **grit tile**: `gritTilePixels()`, a seeded runtime canvas, 256 px over
+1.6 m (6 mm a texel), clods at ~3 cm, grit at ~1 cm, dust at a texel and 420 pebbles and
+hoof pocks as round bumps; R is height (read as luminance grain over its own mean,
+SD 25 of 255), G/B the OpenGL normal. One fetch gives grain and relief together
+(`ground-strip-proof/close-1280.jpg`). The other library rows were not measured here;
+T-1801 is regenerating its own wall faces.
+
+### The method, as built
+
+- **Coarse: one runtime-canvas mask**, 416 × 128 px at 8 px/m, four channels — traffic
+  wear (anisotropic value noise, 12 × 1.4 m then 4 × 0.5 m cells, long along the
+  direction of travel, falling off over the outer 3 m of the 12 m roadway), wetness
+  (7–18 m), clumping (0.6–2 m) and broad tone (20–60 m). One fetch.
+- **Fine: the grit tile** for every ground, at a strength per ground: full on the dirt,
+  0.4–1.0 on the bank as it wets, 0.2 on mud (water levels it), 0.35 on sand.
+- **Colour: recorded tones × grain** for the dirt (worn lanes sRGB 126,112,91; between
+  them 96,86,69) and the dry bank (98,86,66); the muck's own basecolor for wet bank and
+  mud (mud at 0.9 of it, roughness 0.42); the sand at tone 136,128,106 × a quarter of the
+  library's grain × a fifth of the grit's. These are reconstructed proof values bounded
+  by § 4's rows, not a source's; whichever ticket puts one into the town records the
+  liberty there.
+- **Edges:** every band boundary jitters by up to ~2 m on the clumping and broad scales;
+  the prairie arrives in the sand as islands (a clump turns once the ramp passes its own
+  clump value); untrafficked shoulders keep grass; all four sides fade to the terrain's
+  prairie over 2 m on a jittered line. The sward is told the same weights
+  (`stripWeights`, the JS twin of the shader's) through `growthBlocked`, so plants
+  stand where the shader draws prairie and thin where it draws it arriving.
+- **Relief is normal-mapped in a world tangent frame** (east, north, up). It does not
+  stand in for a cross-section; the strip lies on the heightfield, lifted 3 cm with
+  polygon offset. Grading is T-1770's.
+
+### Costs, measured in the scene (SwiftShader; source tree, confirmed on the published mirror; 1280×800 and 390×780)
+
+| | the strip |
+|---|---|
+| triangles | 6,656 (a 0.5 m grid over the strip and its feather), one draw call |
+| textures | 5: mask 416×128, prairie 256², grit 256² (runtime canvases), muck and sand basecolor 1024² |
+| GPU bytes (arithmetic, full mips) | **12.17 MB**, of which 11.18 MB is the two 1024² basecolors. At 512² they are 2.80 MB and the strip 3.79 MB. With the library's flat normals and the loam bound, as § 4 proposed, it was 34.19 MB |
+| wire | 669,610 B of PNG (muck 267,075 + sand 402,535) + two material.json; the canvases cost nothing on the wire |
+| fetches per fragment | 5, against the terrain's 1 (8 with the library normals bound) |
+| build | 84–121 ms on the runner, mask and grit generated and both PNGs decoded |
+| frame | 0.24–0.26 fps with the strip shown or hidden at the arrival view, full detail; the software rasteriser's frame is the whole town's and the strip does not move it. Not a GPU reading |
+
+Captures: `docs/RESEARCH/ground-strip-proof/` — arrival (looking east along the dirt),
+close (the grit at ~3 m), above (14 m, the whole strip) at 1280×800, above at 390×780,
+and the library-loam close for comparison.
+
+**Residual limits.** The 6 m sand tile's ripple still shows faintly from 14 m at a
+quarter strength; the bank's wet half reads as one dark patch from above, which is the
+wetness mask's 7–18 m scale being large for an 8 m band; the strip's own prairie
+texture is a second copy of the terrain's 256 px canvas (0.35 MB) rather than a shared
+one. None of these blocks the hand-off.
+
+### Hand-offs
+
+- **T-1770 (streets):** replace `streets.js::roadTexture`'s two ruts and translucent body
+  with this dirt: two tones × grit grain, the anisotropic wear mask laid in each street's
+  OWN frame (u along the centreline — the proof's mask is axis-aligned because the strip
+  is), shoulders that thin to grass, mud as muck where wetness and wear coincide. One
+  shared grit tile serves the whole town; the per-street mask is the new work. At five
+  fetches the street material belongs on the street ribbons, not on the terrain shader,
+  which keeps its one-fetch rule.
+- **T-1771 (bank, docks):** the bank's dry-to-wet blend (dirt grain → muck at 0.75 by
+  wetness 0.5–0.8, roughness 0.95 → 0.62), with a finer wetness scale than the strip's.
+- **T-1772 (lakeshore):** the sand recipe above and the clumped prairie arrival with the
+  sward told the same weights; the library sand's relief is flat, so dune ridges are
+  terrain and the fine sand grain is the grit tile at low strength.
+- **T-1210–T-1213:** nothing in this strip binds a building material to the ground. The
+  library-flatness check (`basecolor`/`normal_gl` SD) is worth running on any library row
+  before a ticket builds on its relief.
+- **The library:** `packed_black_loam`, `wet_prairie_muck` and `lake_michigan_dune_sand`
+  are flat; regenerating their relief in `tools/generate_1835_pbr_library.py` (or
+  retiring their normals for the grit tile) belongs to whichever of T-1770–T-1772 first
+  ships ground to the town.
