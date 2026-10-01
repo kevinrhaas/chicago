@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1263, ts: '2026-10-01T15:47:00.808Z', date: 'Oct 1, 2026, 10:47 AM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L321) says how each was placed and sized.',
+    ] },
+  { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+    items: [
+      'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
+      'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
     ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [

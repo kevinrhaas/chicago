@@ -5437,7 +5437,7 @@
         {
           "lot": "blk_washington_franklin_lot0",
           "structures": [
-            "recon_1835_blk_washington_franklin_a1_08",
+            "recon_1835_blk_washington_franklin_a5_08",
             "recon_1835_blk_washington_franklin_d7_01"
           ],
           "households": [],
@@ -5462,7 +5462,7 @@
         {
           "lot": "blk_washington_franklin_lot0",
           "structures": [
-            "recon_1835_blk_washington_franklin_a1_08",
+            "recon_1835_blk_washington_franklin_a5_08",
             "recon_1835_blk_washington_franklin_d7_01"
           ],
           "households": [],
@@ -5991,14 +5991,14 @@
         {
           "lot": "blk_washington_franklin_lot0",
           "structures": [
-            "recon_1835_blk_washington_franklin_a1_08",
+            "recon_1835_blk_washington_franklin_a5_08",
             "recon_1835_blk_washington_franklin_d7_01"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_franklin_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_franklin_a1_08, recon_1835_blk_washington_franklin_d7_01 — and the yard behind those buildings is 12.19 m deep by 24.40 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_franklin_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_franklin_a5_08, recon_1835_blk_washington_franklin_d7_01 — and the yard behind those buildings is 12.19 m deep by 24.40 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_washington_franklin_lot2",
