@@ -11922,10 +11922,34 @@
       "asset": "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a1_07",
+      "name": "Reconstructed A1 stable #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a1_07.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a1_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a1_09",
+      "name": "Reconstructed A1 stable #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a1_09.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a1_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clark_a3_03",
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_03.json",
       "asset": "gltf/recon_1835_blk_washington_clark_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a3_08",
+      "name": "Reconstructed A3 privy #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_08.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a3_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a3_10",
+      "name": "Reconstructed A3 privy #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_10.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a3_10__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_clark_a4_04",
@@ -11950,6 +11974,12 @@
       "name": "Reconstructed H3 boarding house #05",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_h3_05.json",
       "asset": "gltf/recon_1835_blk_washington_clark_h3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_h3_06",
+      "name": "Reconstructed H3 boarding house #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_h3_06.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_h3_06__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_franklin_a1_10",
