@@ -20605,7 +20605,7 @@
       "section": "per_subject",
       "subjects": [],
       "covers": [],
-      "recorded": null,
+      "recorded": "2026-10-01",
       "revised": null,
       "fields": [
         {
@@ -20635,6 +20635,10 @@
         {
           "label": "Related",
           "text": "**L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
         }
       ]
     },

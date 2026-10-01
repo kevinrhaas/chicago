@@ -18457,6 +18457,7 @@ and south ends; a measured colour of Lake Michigan beach sand at Chicago.
 
 **Ticket:** T-1819 (piece 1 of T-1772).
 **Related:** **L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes).
+**Recorded:** 2026-10-01.
 
 ### L330 — The anonymous roofs' finish is dealt by whose house it is: a class rule for paint, weathering, roof and age
 
