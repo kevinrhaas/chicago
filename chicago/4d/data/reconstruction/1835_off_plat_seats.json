@@ -84,10 +84,10 @@
    "south": 720,
    "west": 243
   },
-  "roofs_offered_for_adoption": 73,
-  "roofs_held_back": 18,
+  "roofs_offered_for_adoption": 72,
+  "roofs_held_back": 19,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 1
+  "roofs_offered_and_unspent": 0
  },
  "what_this_ground_could_not_hold": {
   "rows": 1222,
@@ -97,7 +97,7 @@
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
    "north": 44,
-   "west": 29
+   "west": 28
   },
   "rows_owed_by_district": {
    "north": 259,
@@ -255,6 +255,13 @@
    "family": "W2",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "Horace Stebbins, carpenter shop"
+  },
+  {
+   "structure_id": "recon_1835_west_020",
+   "parcel_id": "canal_commissioners_1830",
+   "family": "C2",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "No household seated — a store with rooms in its attic on the teamster approach south and west of the Western Hotel yard, kept for the wagon trade; its keeper is not named"
   }
  ],
  "roofs_on_no_committed_parcel": [
@@ -283,15 +290,7 @@
    "why": "this roof stands off the plat and inside no parcel of this ledger — the survey chips, the tiers and the addition do not reach it"
   }
  ],
- "roofs_offered_and_unspent": [
-  {
-   "structure_id": "recon_1835_west_020",
-   "family": "C2",
-   "district": "west",
-   "parcel_id": "canal_commissioners_1830",
-   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
-  }
- ],
+ "roofs_offered_and_unspent": [],
  "seats": [
   {
    "id": "hh_miller_john",

@@ -455,7 +455,10 @@ STRUCTURE_TICKETS = {
     # closed, the one live ticket whose acceptance hands T-1208 on "with the West's exact
     # remainder" is T-1774, the West book-closer, and the 19 left here move to it, with the
     # finding written on that ticket (the queue is over its ceiling for a new line).
-    ("west", "ordinary_dwellings"): "T-1826",
+    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827). T-1826 closed the books and handed
+    # T-1208 on: every ticket in T-1208's chain was split or done, so the 16 left here went
+    # to T-1829, filed for exactly this remainder, blk_west_lake_canal's three cottages first.
+    ("west", "ordinary_dwellings"): "T-1829",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -477,18 +480,18 @@ STRUCTURE_TICKETS = {
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owned these two remainders.
     # T-1766 landed (#206) and both rows still order work, so they move to T-1774,
     # which closes the West's books and hands T-1208 "the West's exact remainder".
-    ("west", "stores_mixed_use"): "T-1826",
+    # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
+    # T-1829 so the row names a live ticket.
+    ("west", "stores_mixed_use"): "T-1829",
     ("west", "larger_boarding_houses"): "T-1810",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1826",
+    ("west", "workshops"): "T-1829",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
-    # names T-1773 in the builds it closes the Wolf Point books behind.
-    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827) and its four rows move to T-1826,
-    # which kept the book-closing ask outright: "Wolf Point's books closed … T-1208 handed
-    # on with the West's exact remainder". T-1827 is 046's lodging verdict alone. The gate
-    # went red on ordinary_dwellings (16 left) within the hour, found by T-1828's run.
-    ("west", "warehouses_freight"): "T-1826",
+    # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
+    # it moved to T-1827: recon_1835_west_046 is one of this row's two F1 roofs, and its H2
+    # verdict, which T-1827 carries out, takes a roof out of this row.
+    ("west", "warehouses_freight"): "T-1827",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",

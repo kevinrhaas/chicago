@@ -1,6 +1,12 @@
 {
   "id": "phase2_west_wolf_point_approaches",
-  "status": "research_recipe_not_instantiated",
+  "status": "instantiated",
+  "status_restated": {
+    "on": "2026-10-01",
+    "ticket": "T-1826",
+    "was": "research_recipe_not_instantiated",
+    "why": "Every one of the 55 placements stands as a record (recon_1835_west_001 to 055): T-1416 carried the modelled ground to E -705 m and T-1444 released the 35 slots the terrain gate was holding, and tools/reconcile_665.py reads the west_wolf_point_outer unit as complete. The status line was never moved when that happened. Instantiated is not finished: recon_1835_west_046 still stands F1 under the H2 verdict T-1445 returned, which is T-1827's, and nothing about any roof's confidence changes with this line."
+  },
   "target_date": "1835-07-01",
   "district": "west",
   "description": "An initial anonymous 55-roof West Division parcel. It fills the platted approaches west of Wolf Point without duplicating the named taverns, houses, meeting house, bridge, stores, yards, or workshops already represented by structure records.",

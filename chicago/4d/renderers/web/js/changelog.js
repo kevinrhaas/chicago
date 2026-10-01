@@ -5,6 +5,12 @@ export const CHANGELOG = [ // newest first
       'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
       'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
     ] },
+  { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
+    items: [
+      'Open the card of the store-residence south-west of the Western Hotel\u2019s wagon yard. It used to read as an anonymous count of the town\u2019s roofs. It now says what the building was for: a store with attic rooms, kept for the wagon trade.',
+      'Nobody is named for it. No household the town can seat there keeps a store, so the card says so instead of leaving it blank. No trade, goods or signboard is invented for it.',
+      'This is our reconstruction, recorded in the register (L310). Nothing in the 3-D scene moved.',
+    ] },
   { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
     items: [
       'The Prairie Avenue and pre-fire atlases inside the walkthrough now open their map sheets, drawings and photographs from the atlases\u2019 own pages on this site. Before, they carried a second copy of every file.',
