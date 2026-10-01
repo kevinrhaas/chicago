@@ -3194,7 +3194,32 @@ def _bare_cut(entry, spans, buildings, refused) -> list:
                          "FRONTAGE_BY_BUSINESS lays a works no walk")
         lo = min(sp["lo"] for sp in hit)
         hi = max(sp["hi"] for sp in hit)
-        cut_fronts.append((b, where, f0, f1))
+        # The trodden ground itself, from the lot line out to just past the tie
+        # rail's line, over the stretch the walk was cut from: the renderer plants
+        # nothing on it, so the front reads as worked yard and not as prairie.
+        o1 = EDGE_HITCH_OFFSET_M + 0.3
+        pts = [[_round(q[0]), _round(q[1])] for q in (
+            _point_on(entry["frame"], lo, 0.0), _point_on(entry["frame"], hi, 0.0),
+            _point_on(entry["frame"], hi, o1), _point_on(entry["frame"], lo, o1))]
+        cut_fronts.append((b, where, f0, f1, {
+            "id": f"{block['id']}_{face}_bare_ground_{b['id']}",
+            "belongs_to": STREET_EDGE_ID,
+            "kind": "bare_ground",
+            "confidence": "reconstructed",
+            "serves": b["id"],
+            "serves_name": b["name"] or None,
+            "trade": b["trade"],
+            "trade_confidence": b["trade_grade"],
+            "business_class": "works",
+            "pts_local_enu_m": pts,
+            "note": (
+                f"THE BARE FRONT OF {(b['name'] or b['id']).upper()}: no plank walk, and "
+                "nothing planted, from the lot line out past the tie rail's line over "
+                f"{lo:.1f} m to {hi:.1f} m along {block['id']}'s {face} face. A works "
+                "fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS "
+                "INVENTED: that this front was unplanked and worn bare on 1 July 1835. "
+                f"docs/LIBERTIES.md {STREET_EDGE_LIBERTY} (amended by T-1814)."),
+        }))
         refused.append({"structure_id": f"{b['id']}_walk", "wall": where, "why": (
             f"no plank walk in front of {b['id']}, a {b['trade']} (held "
             f"`{b['trade_grade']}`): FRONTAGE_BY_BUSINESS reads it as a works, and a "
@@ -3387,7 +3412,7 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=
     name = streets[street]["name"]
     out = []
     face_out = math.degrees(math.atan2(frame["outward"][0], frame["outward"][1])) % 360.0
-    bare_ids = {b["id"] for b, *_ in bare_fronts}
+    bare_ids = {q[0]["id"] for q in bare_fronts}
 
     def run_at(t):
         hit = None
@@ -3596,7 +3621,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     laid_by_face: dict = {}
     census = {"faces": 0, "runs": 0, "walk_m": 0.0, "crossings": 0, "cross_m": 0.0,
               "fences": 0, "fence_m": 0.0, "decks": 0, "hitching": 0, "fittings": {},
-              "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0}
+              "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0, "bare": []}
     fittings: list = []
 
     for entry in faces:
@@ -3647,6 +3672,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
         spans = _march(frame, EDGE_OFFSET_M, half_w, hf, buildings)
         bare_fronts = _bare_cut(entry, spans, buildings, refused)
         census["bare_fronts"] += len(bare_fronts)
+        census["bare"].extend(q[4] for q in bare_fronts)
         runs = _runs_from(spans)
         if not runs:
             worst = spans[0]["why"] if spans else "the face has no length"
@@ -4333,6 +4359,7 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
         "fences": fences,
         "posts": posts,
         "fittings": fittings,
+        "bare_fronts": census["bare"],
         "refused": refused,
         "research_note": (
             "WHAT WOULD MOVE ANY OF THIS OFF RECONSTRUCTION: a Chicago town order on "

@@ -14039,6 +14039,38 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #02. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     }
   ],
+  "bare_fronts": [
+    {
+      "id": "blk_lake_dearborn_north_bare_ground_mason_blacksmith_shop",
+      "belongs_to": "town_street_edge",
+      "kind": "bare_ground",
+      "confidence": "reconstructed",
+      "serves": "mason_blacksmith_shop",
+      "serves_name": "Matthias Mason & Co.'s Blacksmith Shop",
+      "trade": "blacksmith_shop",
+      "trade_confidence": "attested",
+      "business_class": "works",
+      "pts_local_enu_m": [
+        [
+          731.02,
+          -127.82
+        ],
+        [
+          736.2,
+          -127.86
+        ],
+        [
+          736.23,
+          -124.58
+        ],
+        [
+          731.05,
+          -124.54
+        ]
+      ],
+      "note": "THE BARE FRONT OF MATTHIAS MASON & CO.'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 20.7 m to 25.9 m along blk_lake_dearborn's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+    }
+  ],
   "refused": [
     {
       "structure_id": "bates_auction_room",

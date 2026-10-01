@@ -5892,8 +5892,11 @@ for (const [label, viewport, touch] of [
         bareLift = a.walker.state.groundY - a.terrain.walkHeight(e, n);
         bareGap = Math.hypot(he - ge, hn - gn);
       }
+      // …and nothing is planted on the bare front: the layer hands the planting
+      // its patch, as it does each walk's deck.
+      const bareKept = (f?.keepOut ?? []).filter((k) => k.id === 'town_street_edge__bare').length;
       const byBusiness = { records: deckedRecs.length, drawn: deckedDrawn.length, onDeck,
-        bareLift, bareGap };
+        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length };
       return {
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
@@ -5949,11 +5952,13 @@ for (const [label, viewport, touch] of [
       edge.byBusiness.records === 3 && edge.byBusiness.drawn === 3
         && edge.byBusiness.onDeck === 3
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
-        && edge.byBusiness.bareLift <= 0.04,
+        && edge.byBusiness.bareLift <= 0.04
+        && edge.byBusiness.bareRecs === 1 && edge.byBusiness.bareKept === 1,
       `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
       + `${edge.byBusiness.onDeck} stood on; the smith's gap `
       + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
-      + `${edge.byBusiness.bareLift?.toFixed(3)} m`);
+      + `${edge.byBusiness.bareLift?.toFixed(3)} m, ${edge.byBusiness.bareKept} of `
+      + `${edge.byBusiness.bareRecs} bare front(s) kept clear of planting`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
       edge.march.missing === 0 && edge.march.samples > 100
         && edge.march.onPlanks === edge.march.samples
