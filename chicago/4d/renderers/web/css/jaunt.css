@@ -76,3 +76,27 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
   .jaunt-resources { display: grid; grid-template-columns: 1fr 1fr; }
   .jaunt-resources li { white-space: normal; }
 }
+/* T-1258: the Chicago daybook. Each family's template names one of five paper forms;
+   the forms are drawn with borders and type alone, in currentColor, so both themes hold. */
+[data-action="daybook"] { display: block; margin: 0 0 10px; }
+.jaunt-daybook-rank { font-weight: 600; margin: 8px 0; }
+.jaunt-daybook-rank small { font-weight: 400; opacity: .8; }
+.jaunt-daybook-families { display: grid; grid-template-columns: repeat(auto-fit, minmax(5.6rem, 1fr)); gap: 6px; list-style: none; padding: 0; margin: 8px 0 12px; }
+.jaunt-daybook-families li { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 2px; border: 1px solid var(--edge, currentColor); border-radius: 8px; text-align: center; font-size: .8rem; line-height: 1.2; min-width: 0; overflow-wrap: normal; word-break: normal; hyphens: manual; }
+.jaunt-daybook-families strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.jaunt-daybook-moved { border-color: currentColor; border-width: 2px; }
+@media (prefers-reduced-motion: no-preference) { .jaunt-daybook-moved strong { animation: jaunt-count 700ms ease-out; } }
+@keyframes jaunt-count { from { transform: scale(1.6); } to { transform: scale(1); } }
+.jaunt-keepsakes { display: grid; gap: 10px; }
+.jaunt-keepsake { position: relative; padding: 10px 12px; margin: 8px 0; text-align: left; }
+.jaunt-keepsake h4 { margin: 2px 0 4px; }
+.jaunt-keepsake p { margin: 2px 0; line-height: 1.45; }
+.jaunt-keepsake-form, .jaunt-keepsake-family { font-size: .78rem; opacity: .8; letter-spacing: .02em; }
+.jaunt-keepsake-receipt { border-top: 2px dashed currentColor; border-bottom: 2px dashed currentColor; font-variant-numeric: tabular-nums; }
+.jaunt-keepsake-chit { border: 1px solid currentColor; border-radius: 3px; box-shadow: 3px 3px 0 color-mix(in srgb, currentColor 18%, transparent); }
+.jaunt-keepsake-note { border-left: 3px solid currentColor; font-style: italic; }
+.jaunt-keepsake-note .jaunt-keepsake-form, .jaunt-keepsake-note .jaunt-keepsake-family { font-style: normal; }
+.jaunt-keepsake-clipping { border: 3px double currentColor; font-family: Georgia, 'Times New Roman', serif; }
+.jaunt-keepsake-card { border: 1px solid currentColor; border-radius: 10px; text-align: center; }
+.jaunt-award { margin: 8px 0; }
+[data-action="daybook-reset"] { margin-top: 12px; }

@@ -1,10 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1260, ts: '2026-10-01T14:54:36.960Z', date: 'Oct 1, 2026, 9:54 AM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: 1263, ts: '2026-10-01T15:47:00.808Z', date: 'Oct 1, 2026, 10:47 AM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L321) says how each was placed and sized.',
+    ] },
+  { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
+    items: [
+      'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
+      'It is a sample, not a place. No source puts ground like this at that spot. It is there to show how the town\u2019s streets, river banks and lakeshore will be surfaced, and what that costs, before any of them are.',
+      'The dirt is worn in wandering lanes rather than two clean wheel tracks, with grit, clods and hoof marks underfoot and grass holding on at the shoulders. Every edge fades into the prairie instead of stopping at a line.',
+      'Building it turned up a fault in the project\u2019s own texture library: its soil, muck and sand surfaces are almost perfectly smooth. The strip makes its own grit instead, and the street work that follows can use it.',
+    ] },
+  { v: 1261, ts: '2026-10-01T14:18:41.044Z', date: 'Oct 1, 2026, 9:18 AM CT', title: 'Finish a jaunt and keep its keepsake in your daybook', kind: 'feature',
+    items: [
+      'Finish a jaunt and its keepsake is kept in your Chicago daybook. The ending shows the memento you earned and which family moved.',
+      'Open the Daybook from the Jaunts menu or the ending. It shows five families of keepsakes: receipts, work chits, route notes, clippings and calling cards. Each one looks like what it is.',
+      'Your rank goes from New Arrival to Seasoned Chicagoan as every family fills. Replaying a jaunt keeps one copy, so the only way up is a new outing.',
+      'Keepsakes are narrative mementos, not evidence, and the daybook says so at the top. It stays in this browser between visits, and Reset daybook clears it.',
+    ] },
+  { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
+      'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
+      'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
+      'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
     ] },
   { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
