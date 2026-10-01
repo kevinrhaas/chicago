@@ -18510,6 +18510,7 @@ never increases the total.
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
 platted deal whose request this answers), **L318** (the first house and its form), **T-1777** (the
 seats), **T-1809** (this deal, a piece of **T-1779**), **T-1209** (the boarding houses built to their beds).
+**Recorded:** 2026-10-01.
 
 ### L329 — The lake's sand follows the lake: where the beach and the sand prairie end, and their grey
 
