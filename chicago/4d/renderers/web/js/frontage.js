@@ -88,6 +88,113 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
 const TIMBER = 0xcbc2b1;        // sawn board, weathered — the signboard's own tone
 const PAINT = '#2f2013';        // the letterform's paint: L135 claims the colour
 
+/**
+ * THE WALK'S OWN TIMBER (T-1800). Until this ticket every walk and crossing was
+ * drawn in `TIMBER` above — the signboard's tone, L* 78.7, brighter than the
+ * library's whitewashed clapboard — and that constant, not the light, is the
+ * "white boards" the owner reported twice (T-1795 § 2; T-1770's and T-1211's
+ * plank-colour correction, 2026-09-30). The fences and posts keep `TIMBER`: they
+ * share it with the yard and the signboards, and are not this ticket's.
+ *
+ * Four LINEAR tones — the vertex stream is linear, so no sRGB decode applies —
+ * one per weathering the owner named: dark grey-brown, brown, grey-brown and
+ * silvered grey. The bound is T-1795 § 6's: from the library's
+ * `plank_walk_weathered` (L* 33–40 across its spread, mean 36.6) up to the sheet's
+ * `weathered_board` (L* 62). The tones sit at L* ≈ 38, 45, 51 and 52, and the
+ * stretch scale and the board jitter below keep every board inside 33–62. They
+ * lean warm on purpose: measured in the browser at 1280×800, the sky and grass
+ * light cast the first, cooler set (2026-10-01) to a green-grey, and the owner
+ * asked for brown as well as grey.
+ * RECONSTRUCTED (L320): no source gives the tone of any one walk in 1835.
+ */
+const WALK_TONES = [
+  [0.120, 0.095, 0.070],        // dark grey-brown — old, damp, trodden
+  [0.200, 0.140, 0.085],        // brown — the newer boards, not yet silvered
+  [0.225, 0.185, 0.135],        // grey-brown — a season or two of weather
+  [0.215, 0.205, 0.185],        // silvered grey — sun-bleached softwood
+];
+/** How far one stretch of walk is lighter or darker than its tone, at most. */
+const WALK_OWNER_SPAN = 0.12;
+/** How far one board differs from the next, at most, in luminance and in hue. */
+const WALK_BOARD_SPAN = 0.14;
+const WALK_BOARD_HUE = 0.03;
+/** The L* bound above, as linear luminance: L* 33 and L* 62. */
+const WALK_Y_MIN = 0.0754;
+const WALK_Y_MAX = 0.3040;
+
+/** FNV-1a over a string: the same owner draws the same walk on every load. */
+function hash32(s) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h >>> 0;
+}
+
+/** A float in [-1, 1) from a 32-bit integer, for the bounded jitters. */
+const signed = (h) => ((h >>> 0) / 0x80000000) - 1;
+
+/** Linear luminance, the Y the L* bound is stated in. */
+const lum = (c) => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+
+/** Scale a tone so its luminance lands inside the walk's bound. */
+function clampTone(c) {
+  const y = lum(c);
+  const k = y < WALK_Y_MIN ? WALK_Y_MIN / y : (y > WALK_Y_MAX ? WALK_Y_MAX / y : 1);
+  return [c[0] * k, c[1] * k, c[2] * k];
+}
+
+/**
+ * The tone of one stretch of walk: one weathering along a whole stretch, and a
+ * neighbouring stretch may differ, which is how a street of separately laid
+ * walks reads. Keyed on the block face first (`chunk` — the town street edge
+ * lays one per face, and its 87 walks all name one record as `belongs_to`), then
+ * on the owner (the Sauganash's walks and crossing, the river walk), then on the
+ * walk's own id. When T-1211 names the business each walk serves, that owner is
+ * the better key and this order is where it goes.
+ */
+function walkTone(walk) {
+  const h = hash32(String(walk.chunk ?? walk.belongs_to ?? walk.id ?? ''));
+  const base = WALK_TONES[h % WALK_TONES.length];
+  const k = 1 + WALK_OWNER_SPAN * signed(Math.imul(h, 0x9e3779b1));
+  return clampTone([base[0] * k, base[1] * k, base[2] * k]);
+}
+
+/**
+ * One board's colour: its owner's tone, nudged by a hash of where the board
+ * lies, so neighbouring boards differ by a little and never by a lot. Keyed on
+ * position (to the centimetre) rather than on order, so a walk cut into pieces
+ * differently by a later generator keeps its boards' colours.
+ */
+function boardTone(tone, cx, cz) {
+  const h = hash32(`${Math.round(cx * 100)},${Math.round(cz * 100)}`);
+  const k = 1 + WALK_BOARD_SPAN * signed(h);
+  const warm = WALK_BOARD_HUE * signed(Math.imul(h, 0x85ebca6b));
+  return clampTone([tone[0] * k * (1 + warm), tone[1] * k, tone[2] * k * (1 - warm)]);
+}
+
+/** `TIMBER` as the linear triple the vertex stream carries for fences and posts. */
+const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
+
+/** An empty timber buffer: positions, normals, confidence and colour. */
+const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], tone: TIMBER_LINEAR, vary: false });
+
+/**
+ * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
+ * back in the fences' and posts' `TIMBER` afterwards.
+ */
+function inWalkTone(buf, walk, build) {
+  buf.tone = walkTone(walk);
+  buf.vary = true;
+  try {
+    return build();
+  } finally {
+    buf.tone = TIMBER_LINEAR;
+    buf.vary = false;
+  }
+}
+
 /** How far a plank's box reaches below the deck: enough to meet the ground. */
 const SKIRT_M = 0.02;
 /** Daylight between two boards — a plank walk is not a slab. */
@@ -158,12 +265,16 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // board standing in the ground — the same two triangles `enclosures.js`
   // drops off a pale, for the same reason: at a town's worth of boards it is
   // thousands of triangles nobody can ever see.
+  // A walk's boards vary one from the next (T-1800); everything else is laid in
+  // the buffer's one tone.
+  const c = buf.vary ? boardTone(buf.tone, cx, cz) : (buf.tone ?? TIMBER_LINEAR);
   for (const [t1, t2, n] of (skipUnderside ? faces.slice(0, 5) : faces)) {
     for (const tri of [t1, t2]) {
       for (const i of tri) {
         buf.pos.push(p[i][0], p[i][1], p[i][2]);
         buf.nrm.push(n[0], n[1], n[2]);
         buf.conf.push(level);
+        buf.col?.push(c[0], c[1], c[2]);
       }
     }
   }
@@ -748,7 +859,7 @@ export async function createFrontage({
     } catch (err) { return [f.id, null, err.message]; }
   }));
 
-  const buf = { pos: [], nrm: [], conf: [] };
+  const buf = timberBuf();
   const spans = [];
   const boards = [];
   /** What the string pieces down the walks' edges came to (T-0460). */
@@ -777,7 +888,7 @@ export async function createFrontage({
     const key = standing ? `${chunk}__standing` : chunk;
     let hit = named.get(key);
     if (!hit) {
-      hit = { buf: { pos: [], nrm: [], conf: [] }, pickId, standing };
+      hit = { buf: timberBuf(), pickId, standing };
       named.set(key, hit);
     }
     return hit;
@@ -846,16 +957,17 @@ export async function createFrontage({
       let ok;
       if (named0) {
         // A named chunk: lay straight into the face's own buffer (T-0069).
-        ok = crossing
+        ok = inWalkTone(named0.buf, walk, () => (crossing
           ? buildCrossing(named0.buf, walk, terrain, level, problems)
-          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats);
+          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats)));
       } else if (chunked) {
         // One chunk per segment; the walk is laid iff any segment laid boards.
         let laid = 0;
         for (let i = 0; i + 1 < line.length; i += 1) {
-          const cbuf = { pos: [], nrm: [], conf: [] };
-          const boardsLaid = laySegment(cbuf, walk, line[i][0], line[i][1],
-            line[i + 1][0], line[i + 1][1], terrain, level, edgeStats);
+          const cbuf = timberBuf();
+          const boardsLaid = inWalkTone(cbuf, walk, () => laySegment(cbuf, walk,
+            line[i][0], line[i][1], line[i + 1][0], line[i + 1][1], terrain, level,
+            edgeStats));
           if (!boardsLaid) continue;
           chunks.push({ buf: cbuf, pickId: walk.belongs_to });
           laid += boardsLaid;
@@ -867,9 +979,9 @@ export async function createFrontage({
         }
       } else {
         const from = buf.pos.length / 9;
-        ok = crossing
+        ok = inWalkTone(buf, walk, () => (crossing
           ? buildCrossing(buf, walk, terrain, level, problems)
-          : buildWalk(buf, walk, terrain, level, problems, edgeStats);
+          : buildWalk(buf, walk, terrain, level, problems, edgeStats)));
         if (ok) spans.push({ id: walk.belongs_to, from, to: buf.pos.length / 9 });
       }
       if (!ok) continue;
@@ -996,10 +1108,13 @@ export async function createFrontage({
   geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
   geo.computeBoundingSphere();
 
   const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(TIMBER), roughness: 0.9, metalness: 0.0,
+    // The colour is on the vertex since T-1800: the walks carry their owners'
+    // weathered tones and the fences and posts carry `TIMBER`, in one material.
+    color: 0xffffff, vertexColors: true, roughness: 0.9, metalness: 0.0,
     /**
      * IN THE TRANSPARENT PASS ON PURPOSE, AND NOT BECAUSE ANY OF IT IS
      * TRANSPARENT (T-0625). This timber is opaque and is drawn opaque: alpha is
@@ -1083,6 +1198,7 @@ export async function createFrontage({
     cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
     cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
     cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
+    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
     cgeo.computeBoundingSphere();
     const cmesh = new THREE.Mesh(cgeo, mat);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above

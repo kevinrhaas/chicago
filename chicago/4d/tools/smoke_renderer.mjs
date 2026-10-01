@@ -5386,9 +5386,62 @@ for (const [label, viewport, touch] of [
     const saugWithout = await page.evaluate(() => window.__chicago4d.capture());
     await page.evaluate(() => { window.__chicago4d.frontage.group.visible = true; });
     const dSaug = signatureDistance(saugWith, saugWithout);
+    // T-1800 — AND IT IS READ IN COLOUR, because the walks stopped being white.
+    // `capture()` signs a frame by LUMINANCE per cell, and the walks used to be
+    // drawn in the signboard's tone (L* 78.7), so on prairie grass they were a
+    // bright band and luminance alone saw them. They are weathered grey-brown
+    // timber now (L320), about as light as the lit grass beside them, and differ
+    // from it in HUE — which is what a visitor sees and what this reading could
+    // not: the same frame read 0.19 mean / 6 worst by luminance. So the same
+    // 12 x 12 cells are taken from a screenshot with the chrome hidden, and a
+    // cell's difference is its largest per-channel change. The bar is NOT
+    // moved — worst >= 6 and mean >= 0.3, as before — and the luminance reading
+    // is still printed beside it.
+    const colourCells = async () => {
+      const png = decodePng(await page.screenshot({ type: 'png' }));
+      const G = 12;
+      const sums = new Float64Array(G * G * 3);
+      const counts = new Uint32Array(G * G);
+      for (let y = 0; y < png.height; y += 2) {
+        const row = Math.min(G - 1, (y * G / png.height) | 0);
+        for (let x = 0; x < png.width; x += 2) {
+          const c = row * G + Math.min(G - 1, (x * G / png.width) | 0);
+          const i = (y * png.width + x) * 4;
+          sums[c * 3] += png.data[i];
+          sums[c * 3 + 1] += png.data[i + 1];
+          sums[c * 3 + 2] += png.data[i + 2];
+          counts[c] += 1;
+        }
+      }
+      return Array.from(counts, (k, c) => [0, 1, 2].map((ch) => sums[c * 3 + ch] / (k || 1)));
+    };
+    const hideChrome = await page.evaluate(() => {
+      const st = document.createElement('style');
+      st.id = 'smoke-t1800-chrome';
+      st.textContent = 'body > *:not(#view) { visibility: hidden !important; }';
+      document.head.appendChild(st);
+      return st.id;
+    });
+    await page.waitForTimeout(300);
+    const saugRgbWith = await colourCells();
+    await page.evaluate(() => { window.__chicago4d.frontage.group.visible = false; });
+    await page.waitForTimeout(300);
+    const saugRgbWithout = await colourCells();
+    await page.evaluate((id) => {
+      window.__chicago4d.frontage.group.visible = true;
+      document.getElementById(id)?.remove();
+    }, hideChrome);
+    const rgbDiffs = saugRgbWith.map((a, c) => Math.round(Math.max(
+      ...a.map((v, ch) => Math.abs(v - saugRgbWithout[c][ch])))));
+    const dSaugRgb = {
+      mean: rgbDiffs.reduce((x, y) => x + y, 0) / (rgbDiffs.length || 1),
+      worst: Math.max(0, ...rgbDiffs),
+    };
     check(`${label}: the Sauganash's walks and posts reach the screen from Lake Street`,
-      dSaug.worst >= 6 && dSaug.mean >= 0.3,
-      `cell delta mean ${dSaug.mean?.toFixed(2)}, worst ${dSaug.worst} (need worst>=6)`);
+      dSaugRgb.worst >= 6 && dSaugRgb.mean >= 0.3,
+      `colour cell delta mean ${dSaugRgb.mean.toFixed(2)}, worst ${dSaugRgb.worst} `
+      + `(need worst>=6, mean>=0.3); luminance alone ${dSaug.mean?.toFixed(2)}, `
+      + `worst ${dSaug.worst}`);
 
     // A walk is the thing a visitor is standing ON when they reach this corner,
     // so aiming at it has to open the hotel. Asked of the LAYER for the same

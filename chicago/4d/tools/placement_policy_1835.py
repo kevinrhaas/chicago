@@ -514,6 +514,16 @@ MULTI_BUILDING_LOT = {
 #                             not an outlier, so it carries no reason.
 #
 OUTLIER_REASONS = {
+    "wabansia_doctors_house":
+        "a house the Chicago Democrat of 16 July 1834 puts 'in Wabansia' and nowhere more "
+        "exactly, and the only roof in that survey. It does front a street: its facade "
+        "stands 6.1 m behind the corridor edge of `kinzie_west`, Wright's line of Kinzie "
+        "Street across Wabansia in data/streets/1835.json, which is inside the frontage "
+        "reach. The census cannot see that, because tools/plat_corridors.py carries no "
+        "corridor for any Wabansia street — the nearest it holds is Kinzie's Thompson "
+        "reach, which ends at local east -320, 98.86 m away — so the policy reads the "
+        "house as fronting nothing. Its position is invented under docs/LIBERTIES.md L316; "
+        "the reason goes when Wabansia's streets enter the corridor layer.",
     "beaubien_trading_post":
         "a private trade room on the unplatted military reservation, 359.59 m from the "
         "nearest corridor edge: the commercial clauses seat a C roof by a `street_line` "
@@ -612,6 +622,12 @@ OUTLIER_REASONS = {
     "wolf_point_tavern":
         "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two "
         "branches, which is precisely why it stands there.",
+    "sauganash_hotel_stable":
+        "the Sauganash's own stable (T-1776), at the alley end of the hotel's own lot. "
+        "That lot is the Lake and Market corner, and both are principal streets, so every "
+        "point of it is nearest a principal street; the stable stands as far from both "
+        "as the lot allows while staying behind the house, against the block alley the "
+        "ancillary clause names.",
     "wolf_point_tavern_stable":
         "the tavern's own stable, at the forks with it.",
 }

@@ -1,0 +1,198 @@
+{
+  "id": "wabansia_doctors_house",
+  "name": "The doctor's house in Wabansia",
+  "aka": [
+    "Convenient dwelling house in Wabansia, to rent or lease (Chicago Democrat, 16 July 1834)"
+  ],
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "documented_1834",
+      "documented_range": {
+        "from": "1834-07-16",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicago_democrat_1833_1835"
+        ],
+        "note": "THE ADVERTISEMENT ATTESTS THE HOUSE STANDING ON 16 JULY 1834, ELEVEN AND A HALF MONTHS BEFORE THE SCENE DATE; THAT IT STILL STOOD ON 1 JULY 1835 IS INFERRED. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.' A house offered to rent or lease is a house its owner meant to keep, and nothing in the corpus records its removal, so it is carried to the end of 1835 as the last date this record needs, not as an attested end. The from date is the advertisement's own date and not a build date: no source says when it was raised."
+      },
+      "position": {
+        "utm_e": 446654.165,
+        "utm_n": 4637687.853,
+        "rotation_deg": 179.86,
+        "symbolic_location": "Wabansia, north of Kinzie Street on the west side of the North Branch: Wright's block 59 (blk_wabansia_c_t7), its eastern lot, fronting south onto Kinzie Street, local ENU E -418.5 N 292.1",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "wright_1834"
+        ],
+        "note": "RECONSTRUCTED: THE ADVERTISEMENT SAYS 'IN WABANSIA' AND NOTHING ELSE - no block, no lot, no street, no distance (data/traces/wabansia_seating.json § occupancy_before_1835_07_01 records it as ONE household, unplaced). So the survey is attested and everything inside it is this record's choice, bounded as follows. THE BLOCK: blk_wabansia_c_t7, Wright's 1834 block 59 (data/traces/wabansia_block_numbering.json), the south-east block of the survey's dry ground, on Kinzie Street beside the North Branch. It is chosen because it is the block nearest the town and the Kinzie Street road into it - the ground a physician practising in Chicago would most plausibly take - and because the boustrophedon numbering begins there; neither is evidence that the house stood on it. THE LOT: the block's eastern lot (lot index 1, order 2), the one nearer the river. THE COORDINATE IS COMPUTED, NOT TYPED: the committed lot polygon's Kinzie Street edge and inward axis (tools/generate_block_infill.py lot_frame and place, with the block's Hubbard Street edge standing where an alley would, because Wabansia's sheet rules no alley), a 6.0 m setback from the Kinzie line and 6.0 m west of the lot's centre line, facade to Kinzie Street. The setback and the offset are a period typology and not a measurement. Covered by docs/LIBERTIES.md L316.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The survey is attested and the position inside it is not: no source places the house on a block, a lot or a street. The coordinate is computed from the committed lot polygon of blk_wabansia_c_t7 (data/traces/vectors/thompson_lots.json) by the stated setback and offset, but the choice of block and lot is the record's, so there is nothing for tools/validate.py to recompute it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            3.658,
+            0
+          ],
+          [
+            3.658,
+            4.267
+          ],
+          [
+            7.315,
+            4.267
+          ],
+          [
+            7.315,
+            9.754
+          ],
+          [
+            0,
+            9.754
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "FOUR ROOMS AND A KITCHEN ARE ATTESTED; NO DIMENSION IS. Read as the commonest way four rooms were got under one roof in a frame house of 1834: a 24 x 18 ft story-and-a-half front range, two rooms on the ground floor and two chambers in the half-storey, with the kitchen as a 12 x 14 ft rear ell. 'With a kitchen ... attached to it' is read as an ell rather than a detached cook-house because the advertisement lists the barn and the garden in the same breath and they were plainly separate; a detached kitchen is the other honest reading and would change the plan, not the count. The whole is 24 x 32 ft, inside the D6 band (20x26-24x34 ft). Every number is invented."
+      },
+      "form": {
+        "stories": {
+          "value": 1.5,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "FOUR ROOMS IS THE EVIDENCE: two below and two in the half-storey is the reading that keeps the house inside the town's commonest dwelling form; a one-storey four-room plan (the D5 deep plan) is the alternative, and it would be a larger footprint for the same count."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 40.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "balloon_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "A 'convenient dwelling house' let through a land agent's office in 1834 is a frame house in this town's usage; the papers call log houses log houses. Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "plan": {
+          "value": "hall_parlour",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "bays": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the D6 one-and-a-half-storey band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "ell": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "'With a kitchen ... attached to it': the kitchen is attested and its form is read as a rear ell. See the footprint note."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "No finish is stated. Left as weathered clapboard: a rented house on the survey's edge, not a merchant's painted front."
+        },
+        "siding_exposure_m": {
+          "value": 0.114,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The house as the advertisement describes it - four rooms, a kitchen, a barn and a garden - on ground the advertisement names only as Wabansia."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+  },
+  "occupants": {
+    "value": "Not known on the scene date. In July 1834 it was occupied by a physician printed as 'Doctor Kimberl[y]' and was offered to rent or lease.",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "THE 1834 OCCUPANT IS ATTESTED AND THE 1835 ONE IS NOT. The name is cut at the right edge of the column and stays bracketed. Dr Edmund Stoughton Kimberly stands in this dataset at data/structures/kimberly_residence.json, in Kinzie's Addition, on Bonnell's evidence; a doctor leaving a let house in Wabansia in 1834 and a Dr Kimberly living in Kinzie's Addition in 1835 would agree, but no source says they are the same man and no merge is declared (the same restraint data/traces/wabansia_seating.json takes). No household is seated under this roof."
+  },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "wabansia",
+    "plat": "wabansia",
+    "layer": "data/traces/vectors/thompson_lots.json",
+    "block_id": "blk_wabansia_c_t7",
+    "lot_index": 1,
+    "lot_number": null,
+    "lot_number_withheld": "wabansia's lots carry no numeral: the grid orders them along the face and the sheet this file reads prints no lot number for them, so the seat names the block and the position in the block's own lot list and stops there.",
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": null,
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on the unnumbered lot of blk_wabansia_c_t7 in the wabansia grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (none — unnumbered), read from data/traces/vectors/thompson_lots.json."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Edmond Roberts, 5 October 1830",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE MARGIN IS ONLY 2 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "W2NW of section 09, T39N R14E",
+    "entries": [
+      "ls0054"
+    ],
+    "date_purchased": "1830-10-05",
+    "type_of_sale": "canal land sale",
+    "margin_m": 2.4,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "THE ONLY HOUSE IN THE DEMOCRAT'S 1834 RUN DESCRIBED ROOM BY ROOM, and the only household the corpus puts in Wabansia before the scene date. WHAT WOULD UPGRADE THIS RECORD: a deed or a tax entry naming the lot, which would replace the whole of the position note; a later advertisement or reminiscence naming the tenant of 1835. Its barn is data/structures/wabansia_doctors_barn.json; its garden is drawn as the enclosure data/enclosures/wabansia_doctors_garden.json.",
+  "review_required": false
+}

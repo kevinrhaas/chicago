@@ -94,3 +94,10 @@ Unreal is a stated future target. The DirectX normals, the packed ORM and the 16
 displacement are exactly what that engine consumes and are not what the web renderer needs —
 they cost nothing to carry now and would be expensive to reacquire. The maps the web
 renderer cannot use today are not dead weight; they are the other engine's half of the set.
+
+## What the photographic-quality preparation decided
+
+`docs/RESEARCH/1835_photographic_fabric_preparation.md` (T-1795, 2026-10-01) measures every map
+here (luminance, spread, bytes) and gives a reuse / regenerate / new decision per substrate.
+Its finding for walls: clapboard laps and log courses are already geometry, so this library's
+course-carrying wall relief must be regenerated without the course module before it is bound.

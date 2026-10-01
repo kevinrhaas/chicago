@@ -1,3 +1,144 @@
+## T-1799 — Wabansia's books closed, and the West's outer build with them (2026-10-01)
+
+Piece 2 of 2 of T-1785, which is piece 5 of 5 of T-1208. T-1798 raised the doctor's house in
+Wabansia; this piece answers the three clauses it left open, on the published tree, and
+**changes nothing in the town**. The reading is `data/render/west_close_out.json`.
+
+**Visible-progress rule, stated rather than dodged.** This run is invisible and no exemption
+covers it: two of the last four entries (v1252, v1253) were invisible already. It was taken
+because it is the owner-requested closer of a build whose visible half landed in v1254, and it
+was the topmost free workable ticket for this slot; the sibling runs in flight beside it (T-1766,
+T-1776, T-1778, T-1783) were all visible parcels, and T-1776 landed while this was open.
+
+**The frame budget, with the doctor's house standing: PASS at every tier, both viewports.**
+Read with `tools/smoke_renderer.mjs` part 5, the ceiling sweep `measure_detail_ceilings.mjs`
+copies. That tool itself ran past the 600 s foreground cap on desktop and printed nothing, so it
+was stopped; the smoke part reports each tier's worst stand rather than the five-stand spread.
+**Read twice.** Dev moved while this was open (T-1776's six hotel stables, #221), so the sweep
+was re-run on the merged tree; the tables are that reading. The stables cost 9,021 triangles at
+Lake and Canal at both viewports. The first read, at `08e0163c`, is kept in the reading.
+
+| tier | ceiling | worst desktop | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,436,965 (Lake Street at Canal, east down the axis) | 23,035 (1.58 %) | 205 |
+| `balanced` | 1,280,000 | 1,239,725 (Lake Street at Canal, east down the axis) | 40,275 (3.15 %) | 189 |
+| `light` | 825,000 | 803,666 (the open aerial) | 21,334 (2.59 %) | 83 |
+
+| tier | ceiling | worst mobile | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,307,831 (Lake Street at Canal, east down the axis) | 152,169 (10.42 %) | 188 |
+| `balanced` | 1,280,000 | 1,132,251 (Lake Street at Canal, east down the axis) | 147,749 (11.54 %) | 177 |
+| `light` | 825,000 | 736,228 (the open aerial) | 88,772 (10.76 %) | 76 |
+
+**The binding stand moved west.** T-1688 read desktop `balanced` worst at the forks (margin
+23,456, 1.83 %). It is now Lake Street at Canal for `full` and `balanced` at both viewports, and
+desktop `full` is the tightest tier, at 1.58 %. Lake and Canal's frame is also the town's worst
+for draw calls, at 205 of 215. The next West parcel inside that frustum should price itself first
+(`measure_detail_ceilings.mjs --price`). No re-budget is proposed.
+
+**The Canal-approach screenshot, looking west**: `docs/evidence/t-1799-canal-approach-west-desktop.png`
+and `-mobile.png`. This is the `lake_at_canal` anchor turned to yaw 270, on the published mirror
+with the clock held. The pose and hashes are in the reading.
+
+**T-1209 handed on with the West's remainder**, written into the ticket with each row's live owner.
+Read from the order book:
+
+| row | target | standing | to build | owner |
+| --- | --- | --- | --- | --- |
+| `structures/barns_stables/west` | 20 | 14 | 6 | T-1212 |
+| `structures/inns_taverns/west` | 3 | 3 | 0 | T-1762 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | T-1785 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | T-1779 |
+| `structures/ordinary_dwellings/west` | 75 | 56 | 19 | T-1783 |
+| `structures/small_outbuildings/west` | 14 | 6 | 8 | T-1212 |
+| `structures/stores_mixed_use/west` | 6 | 4 | 2 | T-1766 |
+| `structures/warehouses_freight/west` | 2 | 2 | 0 | T-1773 |
+| `structures/workshops/west` | 8 | 5 | 3 | T-1766 |
+
+42 roofs are still owed on modelled ground. Another 42 are gated in
+`ground/west_division_beyond_committed_control`, because there is no committed street control
+west of Clinton and Canal. `institutional_public/west` is full and names T-1785, which this
+closes. The owner gate skips a row with nothing left, and `ticket_liveness.py --closing T-1799`
+strands nothing.
+
+**Not closed:** T-1208's stop condition (every outer West slot built and seated). T-1774 closes
+Wolf Point's own books separately.
+
+## T-1776 — six public houses get a stable, sized from their beds (2026-10-01)
+
+Second piece of T-1209. Each licensed house the lodging model sizes is read for its
+horse-keeping against its beds. The ledger is `docs/RESEARCH/1835_tavern_horse_keeping.md`.
+Six houses get a new stable: the Tremont, the Exchange Coffee House, the New York House, the
+Mansion House, the Sauganash and the Steamboat Hotel. The Western's (T-1775) and the Wolf
+Point's already stood. The Green Tree's is a **stated absence**: a four-stall range behind it
+stood 2.64 m inside Lake Street's corridor, and the house's back wall is about 12 m from the
+bank. Every new stable is reconstructed under **L317**:
+
+- **Stalls:** one per two ordinary guests, never fewer than four. The Tremont gets one per
+  guest, because it was a stage stop.
+- **Size:** 5 ft a stall, 20 ft ranges (28 ft for the Tremont's two), plus a 6 ft harness bay.
+- **Place:** the alley end of the house's own lot, 1.5 m inside the alley line, or behind the
+  house off the plat.
+
+The service is the 1831 county tariff ("Keeping horse one night 50"). No source mentions a
+stable at any of these six houses. Baked with `bake.sh --only`.
+
+The six are A1 roofs in the existing-roof reconciliation. Like the other two stables, each
+substitutes for an anonymous A1 slot. The programme now reads **495 standing, 173 remaining**
+(dev before this PR: 489/179), and barns-and-stables left is 8 south and 7 north (was 13/8). The chain re-run
+to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
+The Sauganash's corner lot is nearest Market from every point, so its stable carries an
+`OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
+## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
+
+**What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
+was empty prairie. Its south-east block (Wright's block 59, `blk_wabansia_c_t7`) now carries a
+story-and-a-half frame house with a rear kitchen ell, fronting Kinzie Street; a plank barn with
+a loft behind it; and a picket-fenced kitchen garden on the house's river side. They are named
+records — `wabansia_doctors_house`, `wabansia_doctors_barn`, `data/enclosures/wabansia_doctors_garden.json`
+— not recipe roofs, because a source attests them: the Chicago Democrat of 16 July 1834
+(claim c017) offers to let "[a] convenient dwelling house, in W[a]bansia, now occupied by Doctor
+Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it."
+
+**What is attested and what is not.** The house, its four rooms, its kitchen, barn and garden,
+and the survey are attested; the house standing on 1 July 1835 is inferred (it was let, not
+removed). Block, lot, setbacks and every dimension are reconstructed under **L316**. No household
+is seated: the 1834 doctor is not merged with `kimberly_residence`'s Dr E. S. Kimberly, and
+spend_rulings' "reaches no seat" ruling on c017 is withdrawn because the claim now has a building.
+
+**Defects found on the way.** `tools/fronting_street.py` assumed every lot is a tier of its block;
+Wabansia's lots run tier line to tier line with no alley, and the first building on one raised a
+KeyError — it now fronts both tier streets, nearest first. `tools/plat_corridors.py` carries no
+corridor for any Wabansia street, so the frontage census and the placement policy read the house
+as fronting nothing although it stands 6.1 m behind `kinzie_west`'s corridor edge; stated as an
+outlier reason and in the census count, not fixed here.
+
+**Not done (T-1785's remaining clauses).** The district's frame budget was not read on the
+published tree and the Canal-approach screenshot west was not taken; T-1209 is not handed on.
+The Wabansia blocks' remaining slots stay `gated` on a placement policy for the survey.
+
+## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
+
+**T-1764 was split** (T-1773, T-1774). Its first clause — the cabins and boarding houses
+of the forks — sits in two rows the order book gives to other tickets (`ordinary_dwellings/west`,
+24 left, now T-1783; `larger_boarding_houses/west`, 4 left, now T-1779), and both parents were
+claimed by sibling runs at 04:09Z. Its closing clauses (the pre-plat roofs reconciled, the
+refusals resolved, the frame budget read, T-1208 handed on) cannot close honestly before those
+land, so they are T-1774. The one West row T-1764 owned outright was `warehouses_freight/west`,
+2 set and 1 standing, and that is this unit.
+
+**What stands now.** `recon_1835_forks_freight_f2_001`, an F2 narrow two-storey warehouse
+(hoist, two cargo bays, vertical boards), on the corner of plat lot 1 of `blk_west_lake_canal`
+— Lake and West Water, facing the South Branch at the forks — 1.5 m inside both street lines.
+Its own generator (`tools/generate_west_freight.py`, `--check` and `--self-test` in the gate)
+because the West grid is unscheduled (T-1455) and the block parcels cannot deal onto it. The
+first placement, centred on the lot, stood 8.15 m off Lake Street and the anonymous-roof audit
+refamilied it to H2 (`commercial_front` puts a freight roof on the line); moved to the corner,
+the audit keeps it. L308 records the invention; L263 (477) and L280 (three F2 roofs) are
+restated. The order book now reads the West freight row 2 of 2.
+
+**Verification.** See the PR: `check.sh` and the `--for-diff` smoke parts at both viewports.
+
 ## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
 
 T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on

@@ -216,6 +216,15 @@
       "phase_id": "frame_1834",
       "structure_id": "exchange_coffee_house"
     },
+    "exchange_coffee_house_stable__stable_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 132996,
+      "inputs_sha256": "6dc773a8f03ec9ebfff52d4d4443dfcf0ba39243536918cfc8a78ad09e61c88a",
+      "kind": "generated",
+      "phase_id": "stable_1834",
+      "structure_id": "exchange_coffee_house_stable"
+    },
     "first_presbyterian_church__frame_1834.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -892,6 +901,15 @@
       "phase_id": "log_frame_1833",
       "structure_id": "mansion_house"
     },
+    "mansion_house_stable__stable_1833.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 107944,
+      "inputs_sha256": "ba1145aca93e2232c054612b75e12717ae53f18ac0814c60bf5d0c3c90bd0eca",
+      "kind": "generated",
+      "phase_id": "stable_1833",
+      "structure_id": "mansion_house_stable"
+    },
     "mason_blacksmith_shop__documented_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -954,6 +972,15 @@
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "new_york_house"
+    },
+    "new_york_house_stable__stable_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 107944,
+      "inputs_sha256": "241affdca34237f7bc9a3711e45eddffa0a9b598a702195a2f12ef2841da52a8",
+      "kind": "generated",
+      "phase_id": "stable_1834",
+      "structure_id": "new_york_house_stable"
     },
     "newberry_dole_packing_house_south_branch__works_1834.glb": {
       "archetype": "outbuilding",
@@ -1522,6 +1549,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_a3_07"
     },
+    "recon_1835_blk_randolph_clinton_a3_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32040,
+      "inputs_sha256": "b58dccf67aaba85a1a09c75de225baf7d4f1f42a0ababefbdd7098893e8ede26",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_a3_10"
+    },
+    "recon_1835_blk_randolph_clinton_a4_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 44532,
+      "inputs_sha256": "8357b50b67919e829d685bbf1c114f528f6a1b4fef81c9fb8180b4b669153d86",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_a4_11"
+    },
     "recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -1549,6 +1594,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d4_02"
     },
+    "recon_1835_blk_randolph_clinton_d4_09__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32384,
+      "inputs_sha256": "2443b8dd58cf859ad79c5a38de29d5cd610a2084bcd2e191e1ad86bd1847ffbf",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_d4_09"
+    },
     "recon_1835_blk_randolph_clinton_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -1557,6 +1611,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d5_01"
+    },
+    "recon_1835_blk_randolph_clinton_d7_08__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 48620,
+      "inputs_sha256": "b5e4af34c9f86fabc94aedd6aa0b7e679a477f65c1fb492260a0a2f2cbbc450f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_randolph_clinton_d7_08"
     },
     "recon_1835_blk_randolph_dearborn_a1_07__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2844,6 +2907,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_canal_trade_w3_005"
+    },
+    "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 90888,
+      "inputs_sha256": "6dfce19840ac4520ede25b38c114be6ff012509473d23a2da0d89b4be9e41421",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_forks_freight_f2_001"
     },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -4339,6 +4411,15 @@
       "phase_id": "frame_1831",
       "structure_id": "sauganash_hotel"
     },
+    "sauganash_hotel_stable__stable_1831.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 107948,
+      "inputs_sha256": "76a34730cfbe84a71b1f36a815c1c4673e50776e857607d6cd7ce49e65c3ff10",
+      "kind": "generated",
+      "phase_id": "stable_1831",
+      "structure_id": "sauganash_hotel_stable"
+    },
     "slough_log_bridge__log_1833.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
@@ -4401,6 +4482,15 @@
       "kind": "generated",
       "phase_id": "frame_1835",
       "structure_id": "steamboat_hotel"
+    },
+    "steamboat_hotel_stable__stable_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 132976,
+      "inputs_sha256": "92e91a826a753c486527a9b376271cc12f0853a8dcf1569b4a5b60d87c666269",
+      "kind": "generated",
+      "phase_id": "stable_1835",
+      "structure_id": "steamboat_hotel_stable"
     },
     "temple_building__frame_1833.glb": {
       "archetype": "frame_dwelling",
@@ -4469,6 +4559,33 @@
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"
+    },
+    "tremont_house_1_stable__stable_1833.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 141400,
+      "inputs_sha256": "91bc6eb57f85ba3ac7fb23872ed0d1b67258bf172cf0f5f150979c2d71697cef",
+      "kind": "generated",
+      "phase_id": "stable_1833",
+      "structure_id": "tremont_house_1_stable"
+    },
+    "wabansia_doctors_barn__documented_1834.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 116632,
+      "inputs_sha256": "6777b54b014d1103bd7fea38e7419f3d0fe21543c0b5638d89b315d9747d4876",
+      "kind": "generated",
+      "phase_id": "documented_1834",
+      "structure_id": "wabansia_doctors_barn"
+    },
+    "wabansia_doctors_house__documented_1834.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 50212,
+      "inputs_sha256": "c6f94179a92edf7f79034e5ec4ade66995d5526636e53a9131d8c826d77a2fc5",
+      "kind": "generated",
+      "phase_id": "documented_1834",
+      "structure_id": "wabansia_doctors_house"
     },
     "walker_meeting_house__log_1831.glb": {
       "archetype": "log_dwelling",

@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "_doc": "WABANSIA'S BOOKS, CLOSED, AND WITH THEM THE WEST DIVISION'S OUTER BUILD (T-1799, piece 2 of 2 of T-1785, which is piece 5 of 5 of T-1208). T-1798 raised the doctor's house, barn and garden in Wabansia; this piece answers the three clauses T-1785 left open — the district's frame budget on the published tree with that house standing, the Canal-approach screenshot looking west, and T-1209 handed the West's remainder — and CHANGES NOTHING IN THE TOWN. Every number is read off the smoke's own ceiling sweep or off the committed order book; none is typed.",
+  "ticket": "T-1799",
+  "parent_ticket": "T-1785",
+  "grandparent_ticket": "T-1208",
+  "read_on": "2026-10-01",
+  "read_at_commit": "2dd6610b",
+  "not_a_reading": "This file adjudicates no source and reads no page. It is a reading of the project's own renderer, order book and programme, so it is not counted by measure_research_spend.py.",
+  "raises_no_roof": true,
+  "writes_no_card": true,
+  "needs_no_bake": "No record's geometry moves and no record is added, so validate.py --stale has nothing to catch and no GLB is regenerated.",
+  "district": "The West Division: the Wolf Point approaches and the platted West blocks (the Canal, Clinton, Jefferson and Des Plaines faces of Lake, Randolph and Fulton), the Des Plaines prairie edge, and Wabansia north of Kinzie Street across the North Branch.",
+  "the_frame_budget": {
+    "instrument": "tools/smoke_renderer.mjs part 5 (SMOKE_STAGE=5) on the PUBLISHED mirror, each viewport in its own foreground command. Part 5 is the ceiling sweep tools/measure_detail_ceilings.mjs copies — T-0135's five stands, the three scene-detail levels, the same __chicago4d.stats() — and its assertion is that each tier's worst stand is inside its ceiling.",
+    "why_not_measure_detail_ceilings": "tools/measure_detail_ceilings.mjs --only desktop --price ran past the 600 s a steward run's single foreground command gets and printed nothing (it reports only at the end), so it was stopped. The smoke part prints each tier's worst stand and worst draw-call frame inside the cap (desktop 8 m 30 s, mobile 5 m 41 s). It does NOT print the full five-stand spread on a pass, so this reading carries the worst stand per tier and not every stand.",
+    "generated_by": "./tools/publish.sh  then  SMOKE_VIEWPORT=desktop SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published  and  SMOKE_VIEWPORT=mobile SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published",
+    "with_the_doctors_house_standing": "wabansia_doctors_house and wabansia_doctors_barn (T-1798, #218) are on the published tree this was read on (dev @ 2dd6610b).",
+    "verdict": "PASS — every tier inside its ceiling at both viewports",
+    "desktop": {
+      "viewport": "desktop 1280x800",
+      "smoke_summary": "26 passed, 0 failed",
+      "verdict": "PASS",
+      "tightest": {
+        "tier": "full",
+        "ceiling": 1460000,
+        "worst_stand": "Lake Street at Canal, east down the axis",
+        "triangles": 1436965,
+        "margin": 23035,
+        "margin_pct_of_ceiling": 1.58,
+        "worst_calls": 205,
+        "worst_calls_stand": "Lake Street at Canal, east down the axis",
+        "verdict": "PASS"
+      },
+      "tiers": [
+        {
+          "tier": "full",
+          "ceiling": 1460000,
+          "worst_stand": "Lake Street at Canal, east down the axis",
+          "triangles": 1436965,
+          "margin": 23035,
+          "margin_pct_of_ceiling": 1.58,
+          "worst_calls": 205,
+          "worst_calls_stand": "Lake Street at Canal, east down the axis",
+          "verdict": "PASS"
+        },
+        {
+          "tier": "balanced",
+          "ceiling": 1280000,
+          "worst_stand": "Lake Street at Canal, east down the axis",
+          "triangles": 1239725,
+          "margin": 40275,
+          "margin_pct_of_ceiling": 3.15,
+          "worst_calls": 189,
+          "worst_calls_stand": "Lake Street at Canal, east down the axis",
+          "verdict": "PASS"
+        },
+        {
+          "tier": "light",
+          "ceiling": 825000,
+          "worst_stand": "the open aerial",
+          "triangles": 803666,
+          "margin": 21334,
+          "margin_pct_of_ceiling": 2.59,
+          "worst_calls": 83,
+          "worst_calls_stand": "Lake and Market, the corner itself",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    "mobile": {
+      "viewport": "mobile 390x780",
+      "smoke_summary": "26 passed, 0 failed",
+      "verdict": "PASS",
+      "tightest": {
+        "tier": "full",
+        "ceiling": 1460000,
+        "worst_stand": "Lake Street at Canal, east down the axis",
+        "triangles": 1307831,
+        "margin": 152169,
+        "margin_pct_of_ceiling": 10.42,
+        "worst_calls": 188,
+        "worst_calls_stand": "Lake Street at Canal, east down the axis",
+        "verdict": "PASS"
+      },
+      "tiers": [
+        {
+          "tier": "full",
+          "ceiling": 1460000,
+          "worst_stand": "Lake Street at Canal, east down the axis",
+          "triangles": 1307831,
+          "margin": 152169,
+          "margin_pct_of_ceiling": 10.42,
+          "worst_calls": 188,
+          "worst_calls_stand": "Lake Street at Canal, east down the axis",
+          "verdict": "PASS"
+        },
+        {
+          "tier": "balanced",
+          "ceiling": 1280000,
+          "worst_stand": "Lake Street at Canal, east down the axis",
+          "triangles": 1132251,
+          "margin": 147749,
+          "margin_pct_of_ceiling": 11.54,
+          "worst_calls": 177,
+          "worst_calls_stand": "Lake Street at Canal, east down the axis",
+          "verdict": "PASS"
+        },
+        {
+          "tier": "light",
+          "ceiling": 825000,
+          "worst_stand": "the open aerial",
+          "triangles": 736228,
+          "margin": 88772,
+          "margin_pct_of_ceiling": 10.76,
+          "worst_calls": 76,
+          "worst_calls_stand": "Lake and Market, the corner itself",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    "what_moved": "The worst stand for full and balanced is now Lake Street at Canal, east down the axis — on the West approach — at both viewports. T-1688's reading (data/render/randolph_close_out.json) had desktop balanced worst at the forks from Wolf Point, 1,256,544 (margin 23,456, 1.83 %). Desktop balanced now clears by more, and the binding tier on desktop is FULL, at Lake and Canal. This reading does not apportion the change between the West pieces that landed since (T-1773, T-1781, T-1782, T-1794, T-1798 and others); it states where the town now stands.",
+    "draw_calls": "The scene's draw-call budget is 215 (the published scene's own budget block, read by tools/shoot.mjs). Desktop full's worst frame is 205 calls at Lake Street at Canal, east down the axis: 10 calls of room at the stand the West approach is now worst at. The next West parcel dealt inside that stand's frustum should take the number before it deals (tools/measure_detail_ceilings.mjs --price; AGENTS.md § the frame budget).",
+    "re_budget": "None proposed. Every tier passes and light stays the floor.",
+    "read_twice": "First read on dev @ 08e0163c, with the doctor's house standing and before T-1776 (#221) landed six hotel stables: desktop full worst 1,427,944 at Lake and Canal (margin 32,056, 2.20 %), mobile full 1,298,810. Dev moved while this branch was open, so the sweep was re-run on the merged tree and the figures above are THAT reading: the stables cost about 9,000 triangles at the Lake and Canal stand at both viewports (desktop full +9,021, mobile full +9,021), and no tier crossed its ceiling."
+  },
+  "the_canal_approach_screenshot": {
+    "pose": {
+      "local_e": -159.7,
+      "local_n": -108.4,
+      "yaw_deg": 270,
+      "pitch_deg": 0,
+      "why": "the lake_at_canal anchor of data/scenes/1835.json turned from east to west: Lake Street at Canal, looking out along the West approach toward the Des Plaines edge"
+    },
+    "tree": "the published mirror at dev @ 08e0163c (before T-1776's stables, which stand behind the hotels east of the river and outside this west-looking frame), /walk/?year=1835, animation clock held, interface hidden, default scene detail",
+    "frames": {
+      "desktop": {
+        "file": "docs/evidence/t-1799-canal-approach-west-desktop.png",
+        "sha256": "203e0a2a28f8a3aa78f25abd9aa1826ba11a6cb9208164ffc44c10148b283ec3",
+        "triangles": 508802,
+        "draw_calls": 117,
+        "page_errors": 0
+      },
+      "mobile": {
+        "file": "docs/evidence/t-1799-canal-approach-west-mobile.png",
+        "sha256": "724e5bae9345a7596c5270f9659644e3cfab4073dd2b8a6ff9fab33e87a6869f",
+        "triangles": 487880,
+        "draw_calls": 108,
+        "page_errors": 0
+      }
+    },
+    "what_it_shows": "Lake Street as packed earth running west from Canal, the approach's cottages and outbuildings on both sides behind their fences, prairie grass and the West's scattered roofs beyond. Wabansia's doctor's house is north of Kinzie Street and is not in this frame."
+  },
+  "the_west_remainder_handed_on": {
+    "to": "T-1209",
+    "why_t_1209": "T-1208's acceptance names T-1209 as its successor (the T-1200 contract: one run, one demonstration, one successor). T-1209 is split, so the remainder is written onto it with each row's LIVE owner beside it, and nothing is re-assigned: the order book already orders every row from a ticket somebody can claim.",
+    "read_from": "data/reconstruction/1835_reconstruction_order_book.json, bucket family 'structures', rows ending /west, and ground/west_division_beyond_committed_control",
+    "structure_rows": [
+      {
+        "row": "structures/barns_stables/west",
+        "target": 20,
+        "standing": 14,
+        "to_build": 6,
+        "owning_ticket": "T-1212"
+      },
+      {
+        "row": "structures/inns_taverns/west",
+        "target": 3,
+        "standing": 3,
+        "to_build": 0,
+        "owning_ticket": "T-1762"
+      },
+      {
+        "row": "structures/institutional_public/west",
+        "target": 1,
+        "standing": 1,
+        "to_build": 0,
+        "owning_ticket": "T-1785"
+      },
+      {
+        "row": "structures/larger_boarding_houses/west",
+        "target": 6,
+        "standing": 2,
+        "to_build": 4,
+        "owning_ticket": "T-1779"
+      },
+      {
+        "row": "structures/ordinary_dwellings/west",
+        "target": 75,
+        "standing": 56,
+        "to_build": 19,
+        "owning_ticket": "T-1783"
+      },
+      {
+        "row": "structures/small_outbuildings/west",
+        "target": 14,
+        "standing": 6,
+        "to_build": 8,
+        "owning_ticket": "T-1212"
+      },
+      {
+        "row": "structures/stores_mixed_use/west",
+        "target": 6,
+        "standing": 4,
+        "to_build": 2,
+        "owning_ticket": "T-1766"
+      },
+      {
+        "row": "structures/warehouses_freight/west",
+        "target": 2,
+        "standing": 2,
+        "to_build": 0,
+        "owning_ticket": "T-1773"
+      },
+      {
+        "row": "structures/workshops/west",
+        "target": 8,
+        "standing": 5,
+        "to_build": 3,
+        "owning_ticket": "T-1766"
+      }
+    ],
+    "west_roofs_to_build": 42,
+    "roofs_gated_beyond_committed_control": 42,
+    "gated_waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
+    "institutional_public_west": "0 left; owned by T-1785, which this piece closes. The order book's owner gate skips a row with nothing left, so the close strands nothing (tools/ticket_liveness.py --closing T-1799: strands nothing).",
+    "wabansia": "The doctor's house is the survey's one evidenced household (data/traces/wabansia_seating.json). Its other blocks carry no gated roof and wait on a placement policy for the survey, which no ticket is asked to invent from another ground's density."
+  },
+  "what_this_does_not_close": "T-1208's stop condition is every outer West slot built and seated. It is not: the rows above still owe their roofs to their live owners, and 42 West roofs have no committed ground to stand on. T-1774 closes Wolf Point's own books (the pre-plat roofs) separately."
+}
