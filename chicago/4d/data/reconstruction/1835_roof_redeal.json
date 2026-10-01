@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 377,
-    "keep": 374,
+    "audited": 380,
+    "keep": 377,
     "refamily": 3,
     "retire": 0,
     "kept_occupied": 3,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 2,
     "roof_target": 668,
-    "standing_before": 479,
-    "standing_after": 479,
-    "short_of_the_programme_before": 189,
-    "short_of_the_programme_after": 189
+    "standing_before": 482,
+    "standing_after": 482,
+    "short_of_the_programme_before": 186,
+    "short_of_the_programme_after": 186
   },
   "ledger": [
     {
@@ -56,11 +56,11 @@
       "group": "barns_stables",
       "division": "west",
       "target": 20,
-      "standing": 12,
-      "anonymous": 10,
-      "head_before": 8,
-      "standing_after": 12,
-      "head_after": 8
+      "standing": 13,
+      "anonymous": 11,
+      "head_before": 7,
+      "standing_after": 13,
+      "head_after": 7
     },
     {
       "bucket": "structures/barns_stables/north",
@@ -210,11 +210,11 @@
       "group": "ordinary_dwellings",
       "division": "west",
       "target": 75,
-      "standing": 51,
-      "anonymous": 48,
-      "head_before": 24,
-      "standing_after": 53,
-      "head_after": 22
+      "standing": 53,
+      "anonymous": 50,
+      "head_before": 22,
+      "standing_after": 55,
+      "head_after": 20
     },
     {
       "bucket": "structures/ordinary_dwellings/north",
@@ -1313,6 +1313,60 @@
       "verdict": "keep",
       "bucket": "structures/stores_mixed_use/south",
       "reason": "the order book has an occupant class for a C3 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_lake_clinton_a1_03",
+      "division": "west",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_lake_clinton",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 357.2,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 37.6,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/west",
+      "reason": "the order book has an occupant class for a A1 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_lake_clinton_d3_02",
+      "division": "west",
+      "family": "D3",
+      "group": "ordinary_dwellings",
+      "programme_phase": "phase3_platted_block_lake_clinton",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 346.1,
+      "street": "clinton",
+      "street_class": "light",
+      "setback_m": 5.24,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/ordinary_dwellings/west",
+      "reason": "the order book has an occupant class for a D3 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_lake_clinton_d4_01",
+      "division": "west",
+      "family": "D4",
+      "group": "ordinary_dwellings",
+      "programme_phase": "phase3_platted_block_lake_clinton",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 562.0,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 10.16,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/ordinary_dwellings/west",
+      "reason": "the order book has an occupant class for a D4 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_lake_franklin_a1_03",
