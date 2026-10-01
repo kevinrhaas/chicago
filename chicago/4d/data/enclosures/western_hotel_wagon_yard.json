@@ -42,12 +42,11 @@
     {
       "id": "randolph_frontage_and_east_side",
       "path_local_enu_m": [
-        [-127.90, -298.00],
         [-124.50, -298.00],
         [-124.50, -263.38],
         [-130.86, -263.38]
       ],
-      "note": "The east side, and the neck that reaches Randolph Street past the hotel's east gable. It leaves the stable's north-east corner (-127.90 / -298.00), steps 3.4 m east to the yard's own east line, runs north 34.6 m to the hotel's front wall line (N -263.38, the hotel's own north face) and turns west 6.36 m to the hotel's north-east corner (-130.86 / -263.38). THE EAST LINE AT E -124.50 IS THE ONE INVENTED COORDINATE ON THIS RECORD and it is set by the gateway rather than chosen: see openings, and the note on width_m."
+      "note": "The east side, and the neck that reaches Randolph Street past the hotel's east gable. It leaves the stable's north wall where the yard's own east line meets it (-124.50 / -298.00), runs north 34.6 m to the hotel's front wall line (N -263.38, the hotel's own north face) and turns west 6.36 m to the hotel's north-east corner (-130.86 / -263.38). UNTIL T-1775 (2026-10-01) the run left the stable's north-east corner at E -127.90 and stepped 3.4 m east to this line; the stable was lengthened to 22.0 m to stall the teams the house's beds imply, so its north wall now runs to E -118.90, past the yard's east line, and the fence meets the wall instead of turning a corner short of it. The yard's ground, gate and every other vertex are unchanged, and the stable's last 5.6 m stand outside the yard to the east. THE EAST LINE AT E -124.50 IS THE ONE INVENTED COORDINATE ON THIS RECORD and it is set by the gateway rather than chosen: see openings, and the note on width_m."
     }
   ],
   "openings": [
