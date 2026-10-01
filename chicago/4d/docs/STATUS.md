@@ -1,3 +1,41 @@
+## T-1822 — the walk itself dealt by business: decked walks at the forwarding houses, bare ground at the smithy (2026-10-01)
+
+The first piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their
+correct plank sidewalks for each business that varies because business vary"*). T-1814 was split
+in two. **T-1822** (this one) varies the walk on the four covered streets. **T-1823** carries the
+walk by business to the new fronts town-wide as the frame budget allows, with the cost measured.
+
+**What changed in the scene.** `FRONTAGE_BY_BUSINESS` in `tools/generate_frontage_works.py`
+gained a `walk` column. Inns and stores keep the 1.83 m board walk. A **forwarding house or
+warehouse** now fronts a **decked walk**. That is a 1.22 m strip of 75 mm plank laid on the board
+walk's street side for the length of the house's own frontage, making a 3.05 m (10 ft) deck. Each
+strip is a `decked_walk` record in its run's own chunk, so it adds no draw call. Each one
+publishes its own walking deck. Its post and wagon apron stand out past it by the same verge.
+Kinzie's post moved 1.22 m north. A **works** fronts **bare ground**. Every march step whose
+middle lies in front of it is refused. The walk stops either side, its tie rail stands on the
+ground, and a `bare_fronts` patch keeps the planting off it.
+
+**On today's town:** 3 decked walks, 39.8 m in all: J. H. Kinzie's forwarding store on South
+Water, and Dole's warehouse and the old bank building's packing house on Lake. There is 1 bare
+front, the Mason blacksmith shop on Lake, where a 5.2 m gap now splits `blk_lake_dearborn`'s north
+run in two. Walk 3,617.4 → 3,612.2 m, runs 43 → 44, walking decks 291 → 294, refusals 113 → 117.
+The four new refusals are the bare front, stated, and three South Water warehouse fronts that have
+no walk laid to widen. The yard rule now refuses one emigrant wagon (`south_water 10`) because it
+would have stood on Kinzie's deck: 84 → 83 wagons.
+
+**Verified.** `generate_frontage_works.py --check`, `generate_yard_goods.py --check`,
+`test_frontage_faces.py`, `compile_liberties.py --check` and `check-changelog.mjs` all pass. The
+smoke ran desktop part 2 and mobile parts 1-2, both green after the last change. A new walked
+check stands on the middle of each decked walk (3 of 3 on planks). It stands in the smith's gap
+(on the ground) and finds its planting patch. The track-verge check now holds decked walks too.
+
+**Honest gaps.** The bare front is bare of planting, but its ground is still the terrain's
+colour. A worn-earth surface is T-1811's (the worked roadway, in its own frame). The frame cost
+was **not measured** on this run. By the layer's own 43 triangles a metre the decks are roughly
++1,700 triangles where they are in view, and the smithy's cut gives back about 220. T-1815 owns
+the measured before/after, and T-1823 has to measure before it lays anything new. All widths are
+invented: docs/LIBERTIES.md L160, amended.
+
 ## T-1813 — the street edge dealt by business: stoops, posts, mounting blocks, aprons and a tie rail (2026-10-01)
 
 The first piece of T-1211 (owner: *"include their correct plank sidewalks for each business
