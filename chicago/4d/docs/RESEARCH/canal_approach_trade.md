@@ -35,7 +35,8 @@ to one of these sites would replace the relevant reconstruction.
 This work does not complete the deferred West street ticket T-1414. Its proposed
 sites are on existing modelled Canal frontage, and its former terrain-limit
 statement is not treated as evidence that the entire street programme is complete.
-T-1764 retains the forks close-out; T-1208 retains the outer West clusters.
+The T-1764 programme continues through T-1773 (freight) and T-1774 (close-out);
+the T-1208 successors retain the outer West clusters.
 
 ## Validation record
 
@@ -74,3 +75,22 @@ so a second firm cannot adopt the same roof. Its five rejection cases pass; it
 does not reserve or invent a home. Public IDs end in unique ordinals as required
 by the existing allocation system. Separate, explicit geometry seed keys preserve
 the original measured dimensions, form, finish and siding through this naming fix.
+
+### Canonical assets and smoke repairs
+
+Canonical bake [36816632611](https://github.com/kevinrhaas/chicago/actions/runs/36816632611)
+passed all 716 checks and committed five masters, five web derivatives and their
+manifest entries at `7f60f9d2e648bc3ad8462598949d4eb8bd249ccf`. The five meshes
+contain 6,128 triangles in total. The asset audit and three desktop views are in
+`canal-approach-qa/`. The actual Wolf Point east doorway cannot see the Canal
+frontage through the tavern; the separate ground and overview views show it.
+
+The first published suite found two renderer faults: technical reconstruction
+names appeared as card titles, and yard goods could grow to 65 meshes after lazy
+far merges. Cards now use the assigned keeper and trade, retaining the original
+specification in the reference and search. A 110 m yard grid bounds the measured
+chunks plus all eligible far merges at 57; differential signatures preserve all
+66,344 triangles and per-owner pick geometry. No smoke assertion or ceiling changed.
+The bake smoke's partial checkout also omitted four source JSON files required by
+stage 13; the standalone smoke uses a full checkout. Final integrated desktop and
+mobile smoke results remain pending.

@@ -5057,7 +5057,8 @@ bridge_head_timber research memo and liberty L306.
 Two West store slots and three workshop slots are implemented as a bounded
 five-roof Canal frontage parcel. The live family budget, rather than the old
 first-parcel table, controls C3/C4 and W1/W2/W3. Exact sites, forms and firms remain
-reconstructed. T-1764 retains the forks close-out and T-1208 the outer clusters.
+reconstructed. The T-1764 successors retain freight and forks close-out; the T-1208 successors
+retain the outer clusters.
 See `docs/RESEARCH/canal_approach_trade.md` for evidence limits and validation.
 
 ### T-1768 - Owner-requested temporal menu

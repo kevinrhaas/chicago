@@ -1,0 +1,65 @@
+{
+  "note": "Actual yard geometry on deterministic synthetic terrain; all camera/tier histories bounded by original chunks plus every eligible far cluster. Sorted full-attribute triangle and per-owner pick-span geometry signatures prove unchanged geometry.",
+  "results": [
+    {
+      "size": 100,
+      "originalChunks": 61,
+      "eligibleFarClusters": 4,
+      "maxMeshes": 65,
+      "signature": "976984c417ab69a4aadf46967672a8371f48e675343aa3e4e5981fcf61cac44f",
+      "pickSignature": "e696a798d4a281e798f3d85ac08580e6f19f55d2f2e1109a3739f351bfe7a4e4",
+      "triangles": 66344,
+      "objects": 257,
+      "frontages": 28,
+      "wagons": 81
+    },
+    {
+      "size": 105,
+      "originalChunks": 57,
+      "eligibleFarClusters": 3,
+      "maxMeshes": 60,
+      "signature": "976984c417ab69a4aadf46967672a8371f48e675343aa3e4e5981fcf61cac44f",
+      "pickSignature": "e696a798d4a281e798f3d85ac08580e6f19f55d2f2e1109a3739f351bfe7a4e4",
+      "triangles": 66344,
+      "objects": 257,
+      "frontages": 28,
+      "wagons": 81
+    },
+    {
+      "size": 110,
+      "originalChunks": 55,
+      "eligibleFarClusters": 2,
+      "maxMeshes": 57,
+      "signature": "976984c417ab69a4aadf46967672a8371f48e675343aa3e4e5981fcf61cac44f",
+      "pickSignature": "e696a798d4a281e798f3d85ac08580e6f19f55d2f2e1109a3739f351bfe7a4e4",
+      "triangles": 66344,
+      "objects": 257,
+      "frontages": 28,
+      "wagons": 81
+    },
+    {
+      "size": 115,
+      "originalChunks": 54,
+      "eligibleFarClusters": 1,
+      "maxMeshes": 55,
+      "signature": "976984c417ab69a4aadf46967672a8371f48e675343aa3e4e5981fcf61cac44f",
+      "pickSignature": "e696a798d4a281e798f3d85ac08580e6f19f55d2f2e1109a3739f351bfe7a4e4",
+      "triangles": 66344,
+      "objects": 257,
+      "frontages": 28,
+      "wagons": 81
+    },
+    {
+      "size": 120,
+      "originalChunks": 53,
+      "eligibleFarClusters": 1,
+      "maxMeshes": 54,
+      "signature": "976984c417ab69a4aadf46967672a8371f48e675343aa3e4e5981fcf61cac44f",
+      "pickSignature": "e696a798d4a281e798f3d85ac08580e6f19f55d2f2e1109a3739f351bfe7a4e4",
+      "triangles": 66344,
+      "objects": 257,
+      "frontages": 28,
+      "wagons": 81
+    }
+  ]
+}
