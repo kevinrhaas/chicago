@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1258, ts: '2026-10-01T13:44:35.968Z', date: 'Oct 1, 2026, 8:44 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+  { v: 1259, ts: '2026-10-01T13:51:12.569Z', date: 'Oct 1, 2026, 8:51 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
     items: [
       'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
       'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
+    ] },
+  { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+    items: [
+      'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
+      'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
+      'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
+      'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
     ] },
   { v: 1257, ts: '2026-10-01T12:40:59.752Z', date: 'Oct 1, 2026, 7:40 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
     items: [

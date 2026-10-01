@@ -3693,6 +3693,103 @@
       ],
       "arrangement_note": "THE FIRST DEAL ON THE ORIGINAL TOWN'S WEST TIER SINCE THE TRANSPOSE, AND THE FRONTAGE ARGUMENT IS MADE HERE FOR THE FIRST TIME RATHER THAN RE-MADE. `blk_randolph_clinton`, one block south, carried a deal argued face by face against Randolph and Washington and had to re-argue it when T-1734 turned the cut; this block carried no deal at all, so T-1733 transposed it at once and the argument below is the only one it has ever had. `frontage_argued_on` says so in the field rather than in prose anybody has to find. The cut is two columns of five backing onto a north-south alley, every lot fronting Clinton or Canal and none fronting Lake or Randolph, and this block is one of the few where the sheet's own numerals are read at their own positions — 2|1, 3|4, 6|5, 7|8, 10|9, graded `documented` in the lot ledger. The side lot lines within them and the alley between the columns are still conjectural, and they are what every setback below is measured against.\n\nELEVEN ROOFS ALREADY STOOD HERE AND NOT ONE OF THEM IS THIS RECIPE'S. Seven came from the pre-plat West approaches parcel — recon_1835_west_007, _008, _014, _015, _016, _023 and _024, placed from typed coordinates months before the plat module existed, so no record of theirs names a lot — and four are the West trade ecology the inferred pass seated: inf_artisan_dwelling_west_a on the Canal-and-Lake corner, inf_blacksmith_shop_west on lot 4 of the sheet, inf_teamster_dwelling_west on lot 8 and inf_teamster_stable_west on the Canal-and-Randolph corner. The generator derives which lots all eleven hold from their own committed footprints rather than being told, and refuses a principal roof on any lot they bar. Three lots are free — indices 1, 2 and 7 — and the schedule's own sizing counts principal room over the free lots LESS ONE, so this block's ceiling is two principal roofs and two is what stands here. The headroom of eight is the block's and never a licence to stand a second house on an occupied lot.\n\nTHE TWO HOUSEHOLDS ARE THE BLOCK'S WHOLE REQUEST, AND THE FACES ARE EXCHANGED BY THE FACE RULE. `1835_platted_seats.json` holds exactly two slot requests on this block: hh_baxley_j_m's D3 on lot index 7, fronting Canal, and hh_beaubien_b's D4 on lot index 2, fronting Clinton — both under the `tradesman_dwellings` clause, both on free lots, and together they are the two the ceiling admits. The deal builds both families on both lots and exchanges which face each stands on, because the committed street hierarchy ranks the two faces and the two houses the opposite way round from the request. Canal Street is `worn_earth` in `data/streets/1835.json` and reads `ordinary` in the lot ledger; Clinton is `light_worn_earth` and reads `light`. A two-room frame cottage (D4) is the better of the two dwellings and a one-room cottage (D3) the plainer, so the D4 takes the Canal lot and the D3 the Clinton lot. That is the same rule `blk_randolph_clinton`'s re-argument turned on one block south — the better face takes the better house, off the hierarchy and not off a preference — and applying it here rather than taking the requested lots as given is the one place this deal departs from the seating pass. Neither household is refused: both families are raised, both lots are built on, and what moved is which of the two roofs each lot carries. The seating pass re-runs whole behind every deal and its adoption step runs before its slot step, so which household ends up under which of these two roofs is the pass's answer after the deal and not a number this file can freeze; `dealt_against_a_request` below names what it asked for before it.\n\nONE YARD BUILDING, AND IT IS THE ONE THE BLOCK'S OWN PLAN AND ITS OWN TRADE BOTH ASK FOR. The schedule apportions this block two ancillary roofs and names them: an A1 stable and an A2 barn or carriage shed. The stable is dealt, off the alley behind the Canal-face cottage. Canal Street is the graded approach from the forks and this block is already the town's teamster corner — a teamster's dwelling on lot 8, his stable on the Canal-and-Randolph corner and a blacksmith's shop between them — so a stable in a Canal-face yard is the ordinary yard building on this face and not a flourish. The barn or carriage shed stays in the plan. A barn behind a one-room cottage on a `light` street is a thing that household MIGHT have had, and this deal builds what a household of this kind certainly had; the plan still apportions it, and a later deal takes it with its own argument. So one of the two cottages stands with no yard building at all, which is what a block dealt two outbuildings for two households on different faces has to mean.\n\nTHE SET-OUT IS DELIBERATELY NOT THE TWIN BLOCK'S. `blk_randolph_clinton` stands its Canal roofs 5.0 m and 5.5 m back and its Clinton roofs 6.0 m and 4.5 m back; these stand at 6.5 m on Canal and 5.25 m on Clinton, with laterals of the opposite sign to their nearest counterpart across Randolph Street. The two blocks share both of their long faces with each other across one street, and two roofs at an identical set-out on the same face of adjoining blocks would read as a surveyed building line — which is the one thing the 1834 survey geometry does not show on this side of the river. The variation is a typology, not a measurement of these lots.\n\nWHAT THE DENSITY READING SAYS ABOUT FILLING THE CANAL COLUMN. `docs/RESEARCH/west_division_infill_1835.md` puts this ground in Zone B — the Canal/Lake mixed approach — and asks for side gaps `mainly inside the specification's 10-35 ft band`, with `larger breaks between yard groups, not a continuous frontage`. After this deal every one of the Canal column's five lots carries a roof, and that is NOT the continuous frontage the memo refuses: the lots are 23.7 m of frontage each and these cottages are a fifth of that, and the gaps are MEASURED off the committed footprints rather than asserted. The Canal cottage's nearest neighbour of any kind is the blacksmith's shop at 11.34 m — 37.2 ft — and the teamster's dwelling at 14.38 m, 47.2 ft; the Clinton cottage's is recon_1835_west_016 at 19.64 m, 64.4 ft. Every one of those is ABOVE the top of the 10-35 ft band, so the face this deal completes is looser than Zone B's own recommendation and not tighter, and the memo's sentence is about how close buildings stand rather than how many lots are spoken for. The Clinton column keeps its open lot.\n\nWHAT IS INVENTED IS EVERYTHING THAT MATTERS: that any building stood on these two lots in July 1835, which buildings they were, that they were dwellings, which face each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines, the ten lot numerals are read off the sheet, and the ground reading under all three roofs is `dry: every sample stands above datum on the modelled field`. None of that is evidence about these buildings.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_west_randolph_des_plaines",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_randolph_des_plaines",
+      "claimed": "2026-10-01",
+      "bounded_by": {
+        "north": "randolph",
+        "south": "washington",
+        "west": "des_plaines",
+        "east": "jefferson"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 2,
+        "free_lots": 8,
+        "headroom": 4,
+        "dealt_roofs": 4,
+        "dealt_principal": 4,
+        "dealt_ancillary": 0,
+        "principal": 4,
+        "ancillary": 0
+      },
+      "families": {
+        "D4": 1,
+        "D5": 1,
+        "D6": 1,
+        "W2": 1
+      },
+      "frontage": {
+        "face": "north",
+        "fronts": "randolph",
+        "setback_m": 1.5,
+        "lots": [
+          0
+        ],
+        "why": "T-0024 sends a workshop to its block's better face, and this block's better face is Randolph Street, the ordinary road west out of the town, while every West Division lot fronts the north-south street on the outer side of its column. So the carpenter's or joiner's shop does not stand on a lot frame at all: it stands in a one-lot frontage run on the Randolph face of plat lot 2, against the Des Plaines corner and on the street line, at the 1.5 m margin the plat module allows, because the placement policy's mechanics_streets clause stands a workshop at its street, where a wagon bringing timber or a customer coming out along Randolph meets it first. The run is one lot long and holds one roof; nothing is built shoulder to shoulder here, and the rest of the face stays as open as the recipe's outer edge requires."
+      },
+      "open_lots": [
+        {
+          "lot": 2,
+          "why": "The Des Plaines column's middle lot (plat lot 6), left open between the standing west_046 shed on plat lot 3 and the two-room cottage dealt to plat lot 7, so neither roof on the outer face has a neighbour along its own frontage. The West recipe's outer edge is 'separated by large gaps', and this is the gap."
+        },
+        {
+          "lot": 4,
+          "why": "The Des Plaines column's southern end lot (plat lot 10), at Washington Street, left open because the outer face of the outermost platted block is where the recipe's w5 edge 'terminates in visibly unbuilt wet prairie rather than filling the legal plat'. The lot line continues through prairie; nothing stands on it."
+        },
+        {
+          "lot": 6,
+          "why": "The Jefferson column's second lot (plat lot 4), left open between the standing west_036 roof at the Randolph corner and the cottage dealt to plat lot 5, for the same alternating vacancy every West outer cluster carries: one principal roof every one to three lots, with open ground between."
+        },
+        {
+          "lot": 8,
+          "why": "The Jefferson column's fourth lot (plat lot 8), left open between the two cottages this parcel deals to that face, so the face reads roof, open, roof, open, roof from Randolph to Washington and never as a continuous row. Which free lot takes the gap is an invention; that there is one is the recipe's own zone-C density."
+        }
+      ],
+      "slots": [
+        {
+          "family": "W2",
+          "inventory_class": "principal_functional",
+          "stands_on": "frontage",
+          "fronts": "randolph",
+          "anchor": {
+            "corner": "west",
+            "clear_m": 1.5
+          }
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "des_plaines",
+          "setback_m": 7.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D6",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "jefferson",
+          "setback_m": 5.5,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 9,
+          "stands_on": "street",
+          "fronts": "jefferson",
+          "setback_m": 6.5,
+          "lateral_m": -2.0
+        }
+      ],
+      "frontage_argued_on": "west_division_thompson_1830",
+      "arrangement_note": "THE FIRST PARCEL ON THE WEST DIVISION'S OUTER PLATTED BLOCKS, AND THE DENSITY IT IS DEALT AT IS READ OFF WEST LOTS (T-1783). Until this deal the West grid was withheld from the schedule whole (T-1455), because the only density the schedule had was the Original Town's party-line figure and these are loose outer blocks of 75 3/5 ft lots in two columns on a north-south alley. `tools/reconcile_665.py` now sizes a lot-ruled West block at the density the reviewed West recipe already stands at on its densest lot-ruled block -- six roofs on blk_west_lake_des_plaines's ten lots -- so this ten-lot block has a ceiling of six, two standing (the recipe's west_036 and west_046) and four dealt. The four are what the schedule dealt, in its order: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's or joiner's shop. The carpenter stands in a one-lot frontage run on Randolph Street at the Des Plaines corner, the block's better face and the road toward the town, as every non-dwelling takes its block's better face (T-0024); the two-room cottage two lots south of the standing shed on the same face; and the other two cottages on the Jefferson face at plat lots 5 and 9, so each face alternates roof and open ground and the Washington end of the outer face is left as prairie. The set-outs (1.5 m for the shop, 5.5 to 7.0 m for the cottages) and lateral offsets are inventions bounded by the platted block's own lot lines and differ lot to lot so no two read as a surveyed row. Which family stands where, which lots are open, and the setbacks are all reconstructed; the lot lines and the block are the sheet's (plat block 47)."
     }
   ],
   "redealt": {

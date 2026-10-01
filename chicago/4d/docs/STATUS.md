@@ -31,12 +31,45 @@ hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3), hh_chandler_cath
   `web_derivatives.sh --only`, and the sidecars were recompiled with `compile_scene.py --all`.
 
 **Converged figures (chain at fixpoint, 2 passes, then `rederive.mjs --run`, then 2 more):**
-platted seats **177** (144 adopted, 33 slots), **1,301** handed on, off-plat **72**, keepers
-**24** (77 refused, 43 owed). None of these moved. The programme reads **495 standing, 173
-remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
+platted seats **183** (147 adopted, 36 slots), **1,295** handed on, off-plat **72**, keepers
+**23** (80 refused, 44 owed). None of these moved: the seating files are byte-identical to
+dev's. The programme reads **499 standing, 169 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
 barns and stables owed there go 8 → 9, small outbuildings 13 → 12. Assets: one GLB swapped,
 so the count is unchanged. **L304** carries the correction; **L263** (prose only, count
 unmoved at 483) and **L270** (a no-seat-moved restatement) are restated.
+
+## T-1783 — the outer West blocks opened at a West density; four roofs on plat block 47 (2026-10-01)
+
+Third piece of T-1208. The West Division's platted grid was withheld from the 665-roof schedule
+whole (T-1455) because its only density was the Original Town's party-line figure, measured on
+other frontage. `tools/reconcile_665.py` now gives the West grid a figure of its own:
+`west_lot_ceiling` reads the reviewed West recipe's densest lot-ruled block — six roofs on
+`blk_west_lake_des_plaines`'s ten lots — and sizes every lot-ruled West block at that ceiling
+(`density` on each unit says where it came from). Only the recipe's own placements count, so the
+ceiling cannot climb on what the schedule itself deals.
+
+- Opened: `blk_west_lake_des_plaines` (6 of 6, at its ceiling), `blk_west_lake_canal` (3 room)
+  and `blk_west_randolph_des_plaines` (4 room). The six West cells with no lot figures stay
+  gated with `waiting_on` naming T-1414. The district balance falls 36 → 28.
+- Built: `blk_west_randolph_des_plaines` (plat block 47) takes its four — D4 on plat lot 7 and a
+  W2 shop in a one-lot Randolph frontage run at the Des Plaines corner (T-0024 sends a
+  non-dwelling to the better face, and every West lot fronts a north-south street), D6 on plat
+  lot 5 and D5 on plat lot 9 of the Jefferson face. Four lots open. Baked with `bake.sh --only`.
+- Not built: `blk_west_lake_canal`'s deal (three frame cottages, with three households already
+  asking for slots on it). T-1773's warehouse now stands on lot 1 of that block and spends one
+  of its six. The order book's `structures/ordinary_dwellings/west` row (19 left) and its
+  `warehouses_freight/west` row (2 of 2) move from the done T-1794 and T-1773 to T-1774, the open
+  ticket that hands T-1208 on with the West's exact remainder. The finding is written on T-1774.
+- Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 24 → 23 keepers: the re-deal moves T-1761's Ballingale off `d3_04`). The
+  workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
+- L313 records the ceiling and the four roofs; L263 restated (485 phases).
+- The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the
+  Clinton blocks' unclaimed deals changed family (T-1760/T-1761 claim from the schedule they
+  read; a claimed parcel's `drawn_from_schedule` is frozen, so nothing built moves).
+
+**Not done here, and owned:** the shop has no keeper seated (the business layer owns that). The Jefferson and Fulton faces have
+no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
+so the deal carries frame cottages.
 
 ## T-1799 — Wabansia's books closed, and the West's outer build with them (2026-10-01)
 

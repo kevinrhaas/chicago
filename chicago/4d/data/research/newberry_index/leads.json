@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "52d38b043c522a2d0650443adb955362a49de1f94ae0f7f317df565565e23f3e",
+    "fingerprint": "ab2ee1f17276936ca161cfdde69617dc28a45eee54548eba79c3a3add3dd9db7",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 509,
+      "structures": 513,
       "voters": 345
     }
   },
@@ -25340,6 +25340,11 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+          "name": "Reconstructed W2 carpenter or joiner shop #01",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],

@@ -12156,6 +12156,30 @@
       "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "name": "Reconstructed D5 deep-plan frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d5_04.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d5_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d6_03.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d6_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "name": "Reconstructed W2 carpenter or joiner shop #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_w2_01.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_w2_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_forks_freight_f2_001",
       "name": "Reconstructed F2 narrow two-story warehouse #001",
       "sidecar": "sidecars/1835/recon_1835_forks_freight_f2_001.json",
