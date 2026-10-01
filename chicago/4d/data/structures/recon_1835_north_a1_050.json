@@ -138,9 +138,16 @@
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 50,
-    "finish_key": "fresh_timber",
-    "roof_condition": "patched",
+    "finish_key": "weathered_timber",
+    "roof_condition": "darkened",
     "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "silvered boards under a weather-darkened roof — a stable, from the 1832–33 town (rule F-Y: a yard building's by its type)"
+    },
     "yard_group": "re_d5_041_yard"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",

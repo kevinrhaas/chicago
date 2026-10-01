@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D6 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous North Division instance."
         },
         "paint": {
-          "value": "unpainted",
+          "value": "whitewash",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -143,9 +143,16 @@
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 27,
-    "finish_key": "mixed_patch",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "finish_key": "whitewash",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a one-and-a-half-story cottage, new-built (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false,

@@ -180,7 +180,14 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 23,
     "finish_key": "weathered_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "roof_condition": "darkened",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "silvered clapboard under a weather-darkened roof — a deep-plan frame cottage, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+    }
   }
 }

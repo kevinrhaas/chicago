@@ -154,9 +154,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 12,
-    "finish_key": "fresh_timber",
+    "finish_key": "ochre",
     "roof_condition": "fresh",
     "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a two-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
+    },
     "frontage": {
       "block": "blk_south_water_franklin",
       "face": "north",

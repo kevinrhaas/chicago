@@ -200,7 +200,14 @@
     "fronts": "indiana_north",
     "sequence": 1,
     "finish_key": "whitewash",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a one-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
+    }
   }
 }

@@ -273,8 +273,15 @@
     "stands_on": "street",
     "fronts": "randolph",
     "sequence": 1,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "keeper",
+      "household": "hh_abell_sidney",
+      "words": "ochre-washed clapboard under a new roof — The Abell household's, in Chicago since 1834 (rule F-M)"
+    }
   }
 }

@@ -93,6 +93,11 @@ const TRANSFORMED = [
     gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the <base> is the first child of '
         + '<head>, exact root-template copying, working year doors and the honest 1812 status; the deploy URL smoke '
         + '(.github/chicago-4d-url-check.json) requests /4d/, /4d/1835/ and /4d/dev/1835/ live.' },
+  { re: /^(?:prairie-1904|pre-fire)\/viewer\/root-served\.js$/,
+    what: 'tools/serve_from_root.py (T-1828) names the asset directories it removed from the mirror because '
+        + 'the site root ships them byte for byte, and the viewer reads those from /<app>/ instead',
+    gate: 'serve_from_root.py --self-test (check.sh) proves a directory leaves only when every file in it is '
+        + 'identical at the root; tools/check_published.mjs still compares every file that does ship' },
   { re: /^build\.json$/,
     what: 'publish.sh writes it each run from the same BUILD_VERSION and BUILD_CT as the visible stamp',
     gate: 'tools/test_dev_preview.mjs reads it. Until 2026-08-15 it was written ONCE by hand and never '

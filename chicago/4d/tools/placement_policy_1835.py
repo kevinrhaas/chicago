@@ -77,6 +77,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fabric_rule_1835  # noqa: E402  (T-1816)
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 TOOLS = ROOT / "tools"
@@ -914,6 +917,11 @@ def build() -> dict:
         },
         "constants": CONSTANTS,
         "multi_building_lot": MULTI_BUILDING_LOT,
+        # T-1816 (T-1210's first piece): what a roof is MADE TO LOOK LIKE by whose house
+        # it is. Authored in tools/fabric_rule_1835.py, which the anonymous-roof
+        # generators deal through; printed here because this is the file the build
+        # tickets build by.
+        "fabric": fabric_rule_1835.policy_table(),
         "clauses": [{**c, "witness": witness(c, result)} for c in CLAUSES],
         "coverage": {
             "documented_roofs_with_a_family": len(result["rows"]),
