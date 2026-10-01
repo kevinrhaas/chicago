@@ -32,7 +32,16 @@
       "cluster": "w4_clinton_work_fringe",
       "serves": "recon_1835_west_046",
       "value": "No household of its own — the stable beside the freight shed, for the teams that haul from it",
-      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046, the cluster's one F1 freight shed on the westward wagon approach. Goods leave a freight shed by wagon, and the teams that draw them stand in a stable between loads; nobody sleeps in it. The shed itself carries an outstanding H2 verdict from T-1445 that this file does not touch: a stated use on recon_1835_west_046 would be an occupancy, and the redeal keeps an occupied roof whatever its verdict, so the shed is left without one until that verdict is carried out (T-1774, which owns the 55 phase-two roofs' redeal)."
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046, the cluster's one F1 freight shed on the westward wagon approach. Goods leave a freight shed by wagon, and the teams that draw them stand in a stable between loads; nobody sleeps in it. The shed itself carries an outstanding H2 verdict from T-1445 that this file does not touch: a stated use on recon_1835_west_046 would be an occupancy, and the redeal keeps an occupied roof whatever its verdict, so the shed is left without one until that verdict is carried out (T-1827, split from T-1774 to carry it out)."
+    },
+    {
+      "structure_id": "recon_1835_west_020",
+      "family": "C2",
+      "cluster": "w2_canal_randolph_teamster",
+      "serves": null,
+      "ticket": "T-1826",
+      "value": "No household seated — a store with rooms in its attic on the teamster approach south and west of the Western Hotel yard, kept for the wagon trade; its keeper is not named",
+      "bounded_by": "The C2 line of the family crosswalk (store-residence: shop below, attic rooms, a front gable to the road) and the West recipe's own cluster, w2_canal_randolph_teamster: loose mixed lots south and west of the documented Western Hotel's teamster yard, where the recipe placed this roof as placement west_rec_020. No household is seated because none can be where it stands: the placement policy admits C2 under one clause only, commercial_front, and no band the off-plat deal was handed names that clause, so data/reconstruction/1835_off_plat_seats.json carried this roof as `roofs_offered_and_unspent` — offered, and nobody in scope could take it. The use stated names no trade, goods or signboard: town_business_signboards.json and town_trade_goods.json refuse all three for an anonymous slot, and this row keeps that refusal. It retires the moment a deal or a source seats a storekeeper here."
     }
   ]
 }
