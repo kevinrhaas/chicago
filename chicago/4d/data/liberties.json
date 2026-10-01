@@ -20813,6 +20813,66 @@
       ]
     },
     {
+      "id": "L334",
+      "title": "The sand hills north and south of the fort: where they stand, how high, and in what form",
+      "section": "per_subject",
+      "subjects": [
+        "kelsey_boarding_house"
+      ],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1834_harbor_cut",
+          "claim": "dunes.north_lake_dunes"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1834_harbor_cut",
+          "claim": "dunes.south_lake_dunes"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/terrain/epochs/e1834_harbor_cut/terrain_spec.json` § `dunes` (`north_lake_dunes`, `south_lake_dunes`), read by `generators/terrain_gen.py` into the committed heightfield and the ground mesh, and so into the walker's footing (`renderers/web/js/terrain.js` samples the same heightfield)"
+        },
+        {
+          "label": "What we invented",
+          "text": "the form of the lakefront dunes. The source says only that the fort looked out on \"the white sand hills both to the north and south\" (chicagology_prefire274), and the terrain dossier sizes them as scattered hummocks 50–150 ft across with +10 to +14 ft local peaks; no source places, measures or draws a single one. So: (1) **where** — two reaches, N +440 to +920 between the unopened Sand Street corridor and the lake, and N −700 to −2120 along the lake south of the old channel's end, each fading in and out over 60–90 m; (2) **the form** — a foredune ridge 34–44 m inland of the lake's edge (4.4–4.5 ft at most), a lower back ridge 58–96 m inland (2.2–2.6 ft), and a blowout hollow between (1.1–1.6 ft deep), all broken into hummocks 20–45 m across by noise and wandering 7–9 m along the shore; (3) **the bounds** — the tallest hummock stands +13.9 ft, inside the dossier's +10 to +14 ft, and the reaches stop short of the fort, the mouth, the bar, the harbour works and Kinzie's platted streets. The beach (the bank face) is left as it was."
+        },
+        {
+          "label": "Why",
+          "text": "the owner's request of 2026-09-30 (T-1772): \"gentle dune-like ridges\" blended into the prairie, shaped in the actual terrain rather than painted. A dossier zone that documents the hills' existence and gives their scale is enough to build them at the reconstructed tier."
+        },
+        {
+          "label": "Omission",
+          "text": "none of the hummocks is a particular hill a witness saw. The reservation strip beside the fort keeps no dune (the 1839 Fort Dearborn Addition plat makes it \"at best a low sandbar\"), and kelsey_boarding_house is held clear by a 22 m flat circle with a 20 m fade. The dune's poplars keep L329's reach; the inland prairie's material is T-1825's."
+        },
+        {
+          "label": "Would replace",
+          "text": "a survey, plat or sketch that places or measures any of the sand hills north or south of the fort before the 1850s grade-raising; the 1830s US Engineer harbour surveys, if one draws the shore behind the beach."
+        },
+        {
+          "label": "Covers",
+          "text": "`terrain.e1834_harbor_cut.dunes.north_lake_dunes`, `terrain.e1834_harbor_cut.dunes.south_lake_dunes`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1824 (piece 1 of T-1820, under T-1772)."
+        },
+        {
+          "label": "Related",
+          "text": "**L329** (the beach and sand prairie's reach and tone), **L3** (vertical exaggeration stays 1.0)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

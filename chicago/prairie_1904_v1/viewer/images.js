@@ -26,8 +26,27 @@ window.PrairieImages = (() => {
   // Street order: the library's building order, then the street and district views.
   const buildingName = id => { const b = buildingsById.get(id); return b ? (b.address || '').replace(/\s*S\.\s*Prairie Avenue/, ' Prairie') + ' · ' + (b.name || id) : id; };
   const shortAddr = id => { const b = buildingsById.get(id); return b ? (b.address || id).replace(/\s*S\.\s*Prairie Avenue/, ' Prairie').replace(/ Avenue| Street/, '') : id; };
+  // A lot (a traced 1911 parcel) by its printed number: 'prairie_1730' → '1730 Prairie'.
+  const lotsById = () => new Map(array(plan?.parcels).map(p => [p.id, p]));
+  const lotLabel = id => { const p = lotsById().get(id); const n = (p?.addresses?.[0] || '').replace(/\s.*$/, ''); return n ? n + ' Prairie' : 'Unnumbered lot'; };
+  const lotName = id => { const p = lotsById().get(id); const names = array(p?.building_ids).map(b => buildingsById.get(b)?.name).filter(Boolean); return lotLabel(id) + (names.length ? ' · ' + names.join('; ') : ' · no building record yet'); };
   const thumbOf = r => r.local && (localURL(r.local.thumb) || localURL(r.local.display));
   const fullOf = r => r.local && (localURL(r.local.display) || localURL(r.local.thumb));
+  // Link-only items are SHOWN from their holder, never copied here (owner, 2026-10-01): the
+  // record's own image_url, asked for at a small size where the host has a size parameter.
+  function remoteURL2(value, size) {
+    const href = remoteURL(value); if (!href) return null;
+    let u = href;
+    if (/googleusercontent\.com|bp\.blogspot\.com/.test(u)) u = u.replace(/\/s\d+(-[a-z0-9-]+)?\//, '/s' + size + '/').replace(/=s\d+(-[a-z0-9-]+)?$/, '=s' + size);
+    else if (/\/iiif\//.test(u) && /\/full\/[^/]+\/0\/default\.(jpg|png)/.test(u)) u = u.replace(/\/full\/[^/]+\/0\//, '/full/!' + size + ',' + size + '/0/');
+    else if (/tile\.loc\.gov\/storage-services\/service\//.test(u)) { if (/\.tiff?$/i.test(u)) return null; if (size <= 640) u = u.replace(/[uv]\.jpg$/i, 'r.jpg'); }
+    else if (!/\.(jpe?g|png|gif|webp)(\?|#|$)/i.test(u)) return null;
+    return u;
+  }
+  const fallbackURL = (r, size) => remoteURL2(r.image_url || r.local?.fetched_from, size);
+  const remoteThumbOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 480) : null;
+  const remoteFullOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 1600) : null;
+  function remoteImg(src, r) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; return img; }
   const dateText = r => r.date || (r.date_earliest && r.date_latest && r.date_earliest !== r.date_latest ? r.date_earliest + '–' + r.date_latest : r.date_earliest || r.date_latest) || 'Undated';
   const sortYear = r => r.date_earliest || r.date_latest || 9999;
 
@@ -40,8 +59,8 @@ window.PrairieImages = (() => {
   function forBuilding(id) { return array(imgs?.by_building?.[id]).map(i => byId.get(i)).filter(Boolean); }
   // The card's lead picture: an in-period front view held here, else anything held here.
   function leadImage(id) {
-    const list = forBuilding(id).filter(thumbOf);
-    const score = r => (r.period === 'in-period' ? 0 : r.period === 'near-period' ? 2 : 4) + (/front|elevation|oblique/i.test(r.view || '') && !/plan|section/i.test(r.view || '') ? 0 : 1) + (/plan|section|map/i.test(r.view || '') ? 2 : 0);
+    const list = forBuilding(id).filter(r => thumbOf(r) || remoteThumbOf(r));
+    const score = r => (r.period === 'in-period' ? 0 : r.period === 'near-period' ? 2 : 4) + (/front|elevation|oblique/i.test(r.view || '') && !/plan|section/i.test(r.view || '') ? 0 : 1) + (/plan|section|map/i.test(r.view || '') ? 2 : 0) + (thumbOf(r) ? 0 : 0.5);
     return list.sort((x, y) => score(x) - score(y))[0] || null;
   }
 
@@ -49,7 +68,8 @@ window.PrairieImages = (() => {
     return { term: $('imageSearch').value.trim().toLowerCase(), building: $('imageBuilding').value, kind: $('imageKind').value, period: $('imagePeriod').value, rights: $('imageRights').value, sort: $('imageSort').value };
   }
   function matches(r, f) {
-    if (f.building === '_street' ? !r.streetscape : f.building !== 'all' && !r.building_ids.includes(f.building)) return false;
+    if (f.building.startsWith('lot:')) { if (!array(r.parcel_ids).includes(f.building.slice(4))) return false; }
+    else if (f.building === '_street' ? !r.streetscape : f.building !== 'all' && !r.building_ids.includes(f.building)) return false;
     if (f.kind === '_drawn' ? !/drawing|plan|map|plate|atlas|bird/.test(r.kind) : f.kind !== 'all' && r.kind !== f.kind) return false;
     if (f.period === 'by-year') { const y = Number($('year').value); if (!(sortYear(r) <= y)) return false; }
     else if (f.period !== 'all' && r.period !== f.period) return false;
@@ -70,8 +90,19 @@ window.PrairieImages = (() => {
 
   function thumbBox(r, cls = 'img-thumb') {
     const box = node('div', null, cls), src = thumbOf(r);
-    if (src) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.addEventListener('error', () => { img.replaceWith(node('span', r.kind, 'img-ph')); }); box.append(img); }
-    else { box.classList.add('link-only'); box.append(node('span', r.kind, 'img-ph'), node('span', 'View at ' + (r.repository || 'holder') + ' ↗', 'img-ph-sub')); }
+    if (src) {
+      const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async';
+      // The /4d/ dev-preview mirror ships without the local derivatives: fall back to the holder.
+      const fallback = fallbackURL(r, 480);
+      img.addEventListener('error', () => { if (fallback && img.src !== fallback) { img.referrerPolicy = 'no-referrer'; img.src = fallback; } else img.replaceWith(node('span', r.kind, 'img-ph')); });
+      box.append(img);
+    }
+    else {
+      const placeholder = () => { box.classList.add('link-only'); box.replaceChildren(node('span', r.kind, 'img-ph'), node('span', 'View at ' + (r.repository || 'holder') + ' ↗', 'img-ph-sub')); };
+      const remote = remoteThumbOf(r);
+      if (remote) { const img = remoteImg(remote, r); img.addEventListener('error', placeholder); box.classList.add('remote'); box.title = 'Shown from ' + (r.repository || 'its holder') + ' — not copied here'; box.append(img, node('span', '↗', 'remote-mark')); }
+      else placeholder();
+    }
     return box;
   }
   function badges(r) {
@@ -84,7 +115,8 @@ window.PrairieImages = (() => {
     const wrap = node('div', null, 'img-chips');
     r.building_ids.slice(0, 6).forEach(id => { const c = node('button', shortAddr(id), 'chip'); c.type = 'button'; c.title = buildingName(id); c.addEventListener('click', e => { e.stopPropagation(); onPick(id); }); wrap.append(c); });
     if (r.building_ids.length > 6) wrap.append(node('span', '+' + (r.building_ids.length - 6), 'meta'));
-    if (r.streetscape && !r.building_ids.length) wrap.append(node('span', 'Streetscape', 'chip chip-static'));
+    if (!r.building_ids.length) array(r.parcel_ids).slice(0, 4).forEach(pid => { const c = node('button', lotLabel(pid), 'chip'); c.type = 'button'; c.title = lotName(pid); c.addEventListener('click', e => { e.stopPropagation(); pickLot(pid); }); wrap.append(c); });
+    if (r.streetscape && !r.building_ids.length && !array(r.parcel_ids).length) wrap.append(node('span', 'Streetscape', 'chip chip-static'));
     return wrap;
   }
 
@@ -134,23 +166,23 @@ window.PrairieImages = (() => {
     const box = bounds(), wide = opts.mini ? true : (wrap.isConnected ? wrap.clientWidth : $('imageViews').clientWidth || innerWidth) >= 700;
     const W = wide ? box.maxY - box.minY : box.maxX - box.minX, H = wide ? box.maxX - box.minX : box.maxY - box.minY;
     const s = svg('svg', { viewBox: `0 0 ${W.toFixed(0)} ${H.toFixed(0)}`, role: 'img', 'aria-label': 'Site plan of Prairie Avenue, 16th to 22nd Street, after the Sanborn 1911 sheets' });
-    const counts = new Map(); list.forEach(r => r.building_ids.forEach(b => counts.set(b, (counts.get(b) || 0) + 1)));
+    const counts = new Map(); list.forEach(r => array(r.parcel_ids).forEach(pid => counts.set(pid, (counts.get(pid) || 0) + 1)));
     const max = Math.max(1, ...counts.values());
     plan.blocks.forEach(b => s.append(svg('polygon', { points: pts(project(b.outline, wide, box)), class: 'sp-block' })));
     plan.alleys.forEach(a => s.append(svg('polygon', { points: pts(project(a.polygon, wide, box)), class: 'sp-alley' })));
     plan.carriageways.forEach(c => s.append(svg('polygon', { points: pts(project(c.polygon, wide, box)), class: 'sp-road' + (c.street === 'prairie' ? ' prairie' : '') })));
     const focus = new Set(opts.focus || []);
     plan.parcels.forEach(p => {
-      const ids = p.building_ids, n = ids.reduce((s2, b) => s2 + (counts.get(b) || 0), 0);
-      const poly = svg('polygon', { points: pts(project(p.polygon, wide, box)), class: 'sp-parcel' + (ids.length ? ' has-building' : '') + (n ? ' has-images' : '') + (ids.some(b => focus.has(b)) ? ' focus' : '') + (selectedParcel === p.id ? ' selected' : '') });
+      const ids = p.building_ids, n = counts.get(p.id) || 0;
+      const poly = svg('polygon', { points: pts(project(p.polygon, wide, box)), class: 'sp-parcel' + (ids.length ? ' has-building' : '') + (n ? ' has-images' : '') + (ids.some(b => focus.has(b)) || focus.has(p.id) ? ' focus' : '') + (selectedParcel === p.id ? ' selected' : '') });
       // Log-scaled: Glessner alone has ~150 records and would wash every other lot out.
       if (n) poly.style.setProperty('--heat', (0.22 + 0.78 * Math.log1p(n) / Math.log1p(max)).toFixed(2));
       const label = (p.addresses[0] || '').replace(/\s.*$/, '');
       const title = svg('title'); title.textContent = (label ? label + ' Prairie' : 'Unnumbered lot') + (ids.length ? ' — ' + ids.map(b => buildingsById.get(b)?.name || b).join('; ') : '') + (n ? ' · ' + n + ' image' + (n === 1 ? '' : 's') : '');
       poly.append(title);
-      if (!opts.mini && ids.length) {
+      if (!opts.mini && (ids.length || array(imgs.by_parcel?.[p.id]).length)) {
         poly.setAttribute('tabindex', '0'); poly.setAttribute('role', 'button');
-        const act = () => { selectedParcel = p.id; $('imageBuilding').value = ids[0]; render(); };
+        const act = () => pickLot(p.id);
         poly.addEventListener('click', act); poly.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
       }
       s.append(poly);
@@ -192,7 +224,7 @@ window.PrairieImages = (() => {
     const f = filters();
     if (f.building !== 'all') {
       const strip = node('div', null, 'map-strip');
-      strip.append(node('h3', f.building === '_street' ? 'Street & district views' : buildingName(f.building)), renderGrid(list));
+      strip.append(node('h3', f.building === '_street' ? 'Street & district views' : f.building.startsWith('lot:') ? lotName(f.building.slice(4)) : buildingName(f.building)), renderGrid(list));
       if (!list.length) strip.append(node('p', 'No images match the other filters for this selection.', 'empty'));
       wrap.append(strip);
     }
@@ -206,7 +238,7 @@ window.PrairieImages = (() => {
     $('imageCount').textContent = parts.join(' · ');
     const chips = $('imageActive'); chips.replaceChildren();
     const clear = (label, fn) => { const c = node('button', label + ' ✕', 'chip'); c.type = 'button'; c.addEventListener('click', () => { fn(); render(); }); chips.append(c); };
-    if (f.building !== 'all') clear(f.building === '_street' ? 'Street views' : shortAddr(f.building), () => { $('imageBuilding').value = 'all'; selectedParcel = null; });
+    if (f.building !== 'all') clear(f.building === '_street' ? 'Street views' : f.building.startsWith('lot:') ? 'Lot ' + lotLabel(f.building.slice(4)) : shortAddr(f.building), () => { $('imageBuilding').value = 'all'; selectedParcel = null; });
     if (f.kind !== 'all') clear($('imageKind').selectedOptions[0].textContent, () => { $('imageKind').value = 'all'; });
     if (f.period !== 'all') clear($('imagePeriod').selectedOptions[0].textContent, () => { $('imagePeriod').value = 'all'; });
     if (f.rights !== 'all') clear($('imageRights').selectedOptions[0].textContent, () => { $('imageRights').value = 'all'; });
@@ -228,7 +260,13 @@ window.PrairieImages = (() => {
     openIndex = i; const r = current[i]; if (!r) return;
     const d = $('imageDialog'), body = $('imageDialogBody'); body.replaceChildren();
     const fig = node('figure', null, 'img-figure'), full = fullOf(r);
-    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; a.append(img); fig.append(a); }
+    const remote = !full && remoteFullOf(r);
+    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; const fb = fallbackURL(r, 1600); img.addEventListener('error', () => { if (fb && img.src !== fb) { img.referrerPolicy = 'no-referrer'; img.src = fb; a.href = fb; } }); a.append(img); fig.append(a); }
+    else if (remote) {
+      const a = node('a'); a.href = remoteURL(r.image_url) || remote; a.target = '_blank'; a.rel = 'noopener noreferrer'; const img = remoteImg(remote, r); img.loading = 'eager';
+      img.addEventListener('error', () => a.replaceWith(thumbBox(Object.assign({}, r, { image_url: null }), 'img-thumb big')));
+      a.append(img); fig.append(a, node('p', 'Shown from ' + (r.repository || 'its holder') + ' — not copied here. ' + (RIGHTS_LABEL[r.rights] || r.rights) + '.', 'meta remote-note'));
+    }
     else { const ph = thumbBox(r, 'img-thumb big'); fig.append(ph); }
     const cap = node('figcaption'); cap.append(node('p', [r.kind, dateText(r), r.creator].filter(Boolean).join(' · '), 'kicker'), node('h2', r.title || r.id)); fig.append(cap);
     const info = node('div', null, 'img-info');
@@ -263,13 +301,25 @@ window.PrairieImages = (() => {
         related.forEach(x => { const b = node('button', null, 'img-open small'); b.type = 'button'; b.title = x.title; b.append(thumbBox(x, 'img-thumb small')); b.addEventListener('click', () => { let j = current.findIndex(c => c.id === x.id); if (j < 0) { current = [x, ...current]; j = 0; } openDetail(j); }); strip.append(b); });
         info.append(strip);
       }
-      if (r.building_ids.some(id => plan.placed?.[id])) { info.append(node('h3', 'Where on the street')); info.append(siteMap([], { mini: true, focus: r.building_ids })); }
+    }
+    if (array(r.parcel_ids).length) {
+      if (!r.building_ids.length) {
+        info.append(node('h3', 'Lot'));
+        const wrap = node('div', null, 'img-chips');
+        r.parcel_ids.forEach(pid => { const c = node('button', lotName(pid) + ' · ' + array(imgs.by_parcel?.[pid]).length, 'chip'); c.type = 'button'; c.addEventListener('click', () => { d.close(); pickLot(pid, true); }); wrap.append(c); });
+        info.append(wrap);
+      }
+      info.append(node('h3', 'Where on the street'), siteMap([], { mini: true, focus: [...r.building_ids, ...r.parcel_ids] }));
     }
     body.append(fig, info);
     $('imagePrev').disabled = i <= 0; $('imageNext').disabled = i >= current.length - 1;
     $('imagePos').textContent = (i + 1) + ' of ' + current.length;
     if (!d.open) d.showModal();
     writeState(r.id);
+  }
+  function pickLot(pid, scroll) {
+    $('imageBuilding').value = 'lot:' + pid; selectedParcel = pid; render();
+    if (scroll) $('images').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function pickBuilding(id, scroll) {
     $('imageBuilding').value = id; selectedParcel = plan.placed?.[id]?.parcels?.[0] || null; render();
@@ -323,12 +373,16 @@ window.PrairieImages = (() => {
     const withImages = array(lib.buildings).filter(b => forBuilding(b.id).length);
     const bsel = $('imageBuilding');
     const gStreet = node('option', 'Street & district views'); gStreet.value = '_street'; bsel.append(gStreet);
-    options(bsel, withImages.map(b => b.id), id => buildingName(id) + ' (' + forBuilding(id).length + ')');
+    const gB = node('optgroup'); gB.label = 'Buildings'; options(gB, withImages.map(b => b.id), id => buildingName(id) + ' (' + forBuilding(id).length + ')'); bsel.append(gB);
+    // Every traced lot with a record, along the street — including lots the library has no
+    // building record for yet, whose pictures were placed by address.
+    const gL = node('optgroup'); gL.label = 'Lots along the street (1911 numbers)';
+    options(gL, array(plan.parcels).filter(p => array(imgs.by_parcel?.[p.id]).length).map(p => 'lot:' + p.id), v => lotName(v.slice(4)) + ' (' + imgs.by_parcel[v.slice(4)].length + ')'); bsel.append(gL);
     const kinds = [...new Set(array(imgs.images).map(r => r.kind))].sort();
     const drawn = node('option', 'All drawings, plans & maps'); drawn.value = '_drawn'; $('imageKind').append(drawn);
     options($('imageKind'), kinds, k => k[0].toUpperCase() + k.slice(1));
     ['imageSearch'].forEach(id => $(id).addEventListener('input', () => { selectedParcel = null; render(); }));
-    ['imageBuilding', 'imageKind', 'imagePeriod', 'imageRights', 'imageSort'].forEach(id => $(id).addEventListener('change', () => { if (id === 'imageBuilding') selectedParcel = plan.placed?.[$(id).value]?.parcels?.[0] || null; render(); }));
+    ['imageBuilding', 'imageKind', 'imagePeriod', 'imageRights', 'imageSort'].forEach(id => $(id).addEventListener('change', () => { if (id === 'imageBuilding') { const v = $(id).value; selectedParcel = v.startsWith('lot:') ? v.slice(4) : plan.placed?.[v]?.parcels?.[0] || null; } render(); }));
     document.querySelectorAll('[data-image-view]').forEach(b => b.addEventListener('click', () => { view = b.dataset.imageView; render(); }));
     $('year').addEventListener('input', () => { if ($('imagePeriod').value === 'by-year') render(); });
     const d = $('imageDialog');
@@ -352,7 +406,7 @@ window.PrairieImages = (() => {
     if (!ready) return;
     const list = forBuilding(id); if (!list.length) return;
     const lead = leadImage(id);
-    if (lead && summaryEl) { const t = node('img', null, 'card-lead'); t.src = thumbOf(lead); t.alt = ''; t.loading = 'lazy'; t.addEventListener('error', () => t.remove()); summaryEl.prepend(t); }
+    if (lead && summaryEl) { const t = node('img', null, 'card-lead'); t.src = thumbOf(lead) || remoteThumbOf(lead); t.referrerPolicy = 'no-referrer'; t.alt = ''; t.loading = 'lazy'; t.addEventListener('error', () => t.remove()); summaryEl.prepend(t); }
     if (summaryEl) summaryEl.append(node('span', list.length + ' image' + (list.length === 1 ? '' : 's'), 'badge img-count'));
     const strip = node('div', null, 'card-strip');
     list.slice(0, 8).forEach(r => { const b = node('button', null, 'img-open small'); b.type = 'button'; b.title = r.title; b.append(thumbBox(r, 'img-thumb small')); b.addEventListener('click', () => { pickBuilding(id); const j = current.findIndex(c => c.id === r.id); openDetail(j); }); strip.append(b); });

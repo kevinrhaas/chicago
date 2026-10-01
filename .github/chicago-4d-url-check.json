@@ -32,6 +32,10 @@
     {
       "path": "/4d/dev/walk/",
       "must_contain": "id=\"gate-build\">DEV PREVIEW \u00b7 dev@"
+    },
+    {
+      "path": "/prairie-1904/viewer/",
+      "must_contain": "<script src=\"images.js\"></script>"
     }
   ]
 }
