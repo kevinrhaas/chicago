@@ -430,9 +430,9 @@
   "view": "oblique front",
   "facing": null,
   "camera_position": null,
-  "date": "undated (early 20th century in appearance)",
-  "date_earliest": null,
-  "date_latest": null,
+  "date": "c. 1905 (per Wikimedia Commons record of the same Chicago Daily News negative, DN-0003324)",
+  "date_earliest": 1902,
+  "date_latest": 1908,
   "period": "in-period",
   "creator": "unknown (original photographer/publisher not named on the hosting page)",
   "repository": "Chicagology (chicagology.com) — secondary web reproduction; original holder not stated",
@@ -445,7 +445,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Snowy oblique view across an unpaved/snow-covered Prairie Avenue: the Field house with its mansard, dormers and glazed bay, set back behind a long, tall vertical-bar iron fence on a stone curb with young street trees; neighbouring houses at left and right (the 1919 Murray/Field Jr. house appears at right). Undated — likely 1900s–1910s (glass-negative look; possibly a Chicago Daily News negative). The tall fence matches the 1935 Tribune's 'high fence of iron grill work'. Period provisional.",
+  "notes": "Snowy oblique view across an unpaved/snow-covered Prairie Avenue: the Field house with its mansard, dormers and glazed bay, set back behind a long, tall vertical-bar iron fence on a stone curb with young street trees; neighbouring houses at left and right (the 1919 Murray/Field Jr. house appears at right). Identified: this is the Chicago Daily News negative DN-0003324 (Commons 'Marshall Field Residence retouched.jpg' is the identical 625×440 crop; see a19-field-cdn-dn0003324), dated c. 1905 — i.e. essentially the 1904 appearance. The tall fence matches the 1935 Tribune's 'high fence of iron grill work'. Period provisional.",
   "measurements": []
  },
  {
@@ -611,9 +611,10 @@
  {
   "id": "a19-cgy-1906-keith-photo",
   "kind": "photograph",
-  "title": "1906 S. Prairie (Edson Keith residence) — exterior photograph",
+  "title": "1906 S. Prairie (Edson Keith residence) — exterior photograph [identification disputed: same photograph captioned '1900 PA' by Glessner House]",
   "building_ids": [
-   "pa-1906-34"
+   "pa-1906-34",
+   "pa-1900-25"
   ],
   "addresses": [
    "1906 S. Prairie Avenue"
@@ -637,7 +638,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Photograph shown on the Edson Keith page: three-storey stone/brick house with mansard and dormers, arched windows with hoods, a projecting bay, Corinthian-columned entrance porch with balcony over, stoop; neighbour (probably 1900 Elbridge Keith) at left and another mansard house at right. Undated; period provisional. If correctly identified, this is the only photograph of 1906 Prairie found this session. Demolished 1942 per hosting page.",
+  "notes": "Photograph shown on Chicagology's Edson Keith (1906) page. The SAME photograph appears on the Glessner House blog 'Elbridge Keith House' (2014) as '1900 PA' — see a19-gh-keith-1900-historic. The house shown (mansard with dormers, segmental-arched windows with hoods, side bay, Corinthian entrance porch with balcony, high stoop) matches the surviving 1900 Prairie facade, so the Chicagology attribution to 1906 is probably wrong. If the camera faces west at 1900, the stone house at left (pedimented window) is the south neighbour — 1906 Edson Keith — partly visible. Undated; period provisional. Demolition of 1906 in 1942 per hosting page.",
   "measurements": []
  },
  {
@@ -953,7 +954,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Line view of the EAST side of the 1800–1900 blocks of Prairie looking northeast, with house numbers lettered under the houses (legible: 1901, 1905, 1919, 1923, 1945 and others to the north), carriages in the street, regular street trees. 1923 (Kellogg) is marked with an arrow by the hosting site. A schematic but complete row elevation for 1893 — massing, roof types and setbacks of every east-side house between 18th and 20th. Original: Rand McNally & Co.'s Bird's-eye Views and Guide to Chicago (1893); a public-domain scan should be sought on archive.org/HathiTrust for a primary record.",
+  "notes": "Line view of the EAST side of the 1800–1900 blocks of Prairie looking northeast, with house numbers lettered under the houses (legible: 1901, 1905, 1919, 1923, 1945 and others to the north), carriages in the street, regular street trees. 1923 (Kellogg) is marked with an arrow by the hosting site. A schematic but complete row elevation for 1893 — massing, roof types and setbacks of every east-side house between 18th and 20th. Original: Rand McNally & Co.'s Bird's-eye Views and Guide to Chicago (1893); a public-domain scan should be sought on archive.org/HathiTrust for a primary record. PRIMARY: this is a crop of the left strip on printed p.269 of IA randmcnallycosbi00lawr (leaf n280), recorded in stream-streetscape as st-randmcnally-1893-p269-east-1800-1900 (with the west-side strip st-randmcnally-1893-p269-west-1800-1900) — use those; this record only documents the Chicagology derivative.",
   "measurements": []
  },
  {
@@ -1080,6 +1081,1655 @@
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "Published plate of the library (bound sideways), Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56275 (stream-drawings dw-field-1905-artistic-houses-library). Text (p.46) places the library behind the drawing-room with its fireplace and a stained-glass Muse window at the east end.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-keith-1900-historic",
+  "kind": "photograph",
+  "title": "1900 PA (historic photograph of the Elbridge G. Keith house)",
+  "building_ids": [
+   "pa-1900-25",
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": null,
+  "date": "undated (sepia print; after the 1880s mansard addition)",
+  "date_earliest": 1885,
+  "date_latest": 1930,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog, 'The Story of a House')",
+  "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAjwRtF0mj3nux5AE07UgcaR6OZmsSnPmceR3jgqyyVzHaxTCiT4AOvljdNZ2sHhdcMmZko_wR_s-c18Me-YgfXuoWeuPXTLNQO3yZChtMKQWQ4gJCtN9ekeeq70nUYUrOzWjxpCUDJfY/s1600/1900+PA.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; source/rights of historic images not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
+  "notes": "Sepia photograph of the Keith house front: limestone-faced three storeys with slate mansard and dormers (the third-floor mansard was ADDED in the 1880s per the same post), segmental-arched windows with hoods, corner bay, Corinthian porch with balcony, broad stoop, low hedge and stone curb; a stone house at left (probably 1906 Edson Keith, south neighbour) and another mansard house at right. Post-1880s state, so likely close to 1904. Also posted by Chicagology as '1906 Prairie' (a19-cgy-1906-keith-photo) — same image, conflicting attribution.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-keith-1900-exterior-modern",
+  "kind": "photograph",
+  "title": "Keith House exterior (detail of upper facade, c. 2014)",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 2014",
+  "date_earliest": 2010,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum (presumed)",
+  "repository": "Glessner House Museum (blog, 'The Story of a House')",
+  "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhp3syotPacVcZPgb3KA5Odbuh6VHVHaJN4n7yOogSJJSmRN6Um0CAwt85N7DHzajUYHU-5KdmfAz04Ymt-LTAuu3xCtvfyG-inKojpM-2n7br_5IOz5a493-dwg8tKJJ1VsWQhBwza1nE/s1600/Keith+House+exterior.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; source/rights of historic images not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
+  "notes": "Colour detail of the second floor, bracketed cornice (reconstructed c. 1978+ by the Pratts for $60,000 per the post), mansard and dormers, window hoods and porch balcony. Good for ornament detail; cornice is a modern reconstruction of the original.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-keith-dining-room",
+  "kind": "photograph",
+  "title": "Dining room (Elbridge Keith house)",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated (late 19th century, Keith family period)",
+  "date_earliest": 1880,
+  "date_latest": 1905,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog, 'The Story of a House')",
+  "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0X0qvm4EDMV9DX4Q803zsOTieyLqAS1awXdfWWpUNbAIE75SQ73pdlhEvdQAQgJKeYGZ0OAloZ6Zr0R3ikpG8MbTTjt19XJurkgeztmlWhu-2m0YATnX7WPF-5KnAcRx6j6qGA64ygXk/s1600/1900+PA+dining+room.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; source/rights of historic images not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
+  "notes": "Keith-era dining room: built-in sideboard/china cabinet, fireplace with fire screen, oriental rugs, lacquered screen, electric/gas fixtures. Same image as data/sources.csv pa-keith-dining-room (squarespace copy). Interior only.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-keith-publishing-office",
+  "kind": "photograph",
+  "title": "Publishing company offices in the Keith house (1934–1974 era)",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "between 1934 and 1974",
+  "date_earliest": 1934,
+  "date_latest": 1974,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog, 'The Story of a House')",
+  "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHs2fqFm54A6sjl3gINGk4PNBP0rfgZt61FknRgwuscgjps_gZuN8cWKaDXVoRJJ6_7ont-hkJqSxx0Gbbp9CLqWocrYrKdWm1q6JfohYGTKUT8Nxsyy8W3Cg1kI1r-wFIeCA42rcNsAw/s1600/Publishing+company.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; source/rights of historic images not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
+  "notes": "Former principal room used as an office (Domestic Engineering publishing, from 1934): coffered ceiling with ornamental panels, arched door surrounds and built-in cabinetry survive under fluorescent fixtures. Shows original 1870s/1880s interior fabric (ceiling, joinery) through later use.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-keith-post-text",
+  "kind": "document",
+  "title": "Elbridge Keith House (Glessner House blog, 3 Nov 2014) — building history",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "2014",
+  "date_earliest": 2014,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog, 'The Story of a House')",
+  "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; source/rights of historic images not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
+  "notes": "Building history: double lot bought 1868 for $10,750; architect John W. Roberts; built 1870–71; 'in the 1880s the house was significantly enlarged with the addition of the third floor mansard roof, and an addition to the rear' (so in 1904 it had the mansard and rear addition); limestone-clad, slate mansard; Keith died in the house 17 May 1905, widow there until sale 1920; coach house exists (renovated 1999); publishing company from 1934; Hasbrouck 1974; Pratt/Darrow 1978 with $60,000 cornice reconstruction. Cites Carl Keith's manuscript reminiscence 'The Home' — a lead for 1900s descriptions.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-clarke-before-1872",
+  "kind": "photograph",
+  "title": "Clarke House at its original location on the east side of Michigan Avenue in the 1860s (Courtesy of Clarke House Museum)",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "original site, east side of Michigan Avenue south of 16th Street (pre-1872)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1860s (caption)",
+  "date_earliest": 1860,
+  "date_latest": 1869,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog 'House Moving Part II: Clarke House, 1872' (11 Aug 2014)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-ii-clarke-house-1872.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5tFGNPqn2C6ipSJA8HTxQ0M7KB-OC4LrWlsEqU6m4C6a5e92va5H_-Q02xNuud0ORCwMLNlhMs8DESQwAXAWdhfBGa21PKp8LKrRbZyQfD-S3usnf9UHjzgGB1wwamlGKFKRABP87wcA/s1600/House+before+1872+move.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "High-contrast reproduction of the same view as HABS photo 1 (a19-clarke-habs-photo-061183, captioned there as an 1856 photograph): columned portico, cupola, picket fence, at the ORIGINAL site. Not the 1904 state or site (moved 1872, porticos removed).",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-clarke-wabash-chrimes",
+  "kind": "photograph",
+  "title": "The house after its move to 4526 S. Wabash Avenue with members of the Chrimes family in the foreground (Courtesy of Clarke House Museum)",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "west",
+  "camera_position": "from Wabash Avenue in front of the house",
+  "date": "undated (after June 1872; carriages and dress suggest c. 1880s–1900s)",
+  "date_earliest": 1872,
+  "date_latest": 1910,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog 'House Moving Part II: Clarke House, 1872' (11 Aug 2014)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-ii-clarke-house-1872.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-QdY4LkVlM6BpBthZruI_GKqe8Em0ejheCFG8n56ODL6TdDDMkGp0d8fESolFLqEhMYDE8xBhbWayY57D7nNtZ2_u8Wr7ZTaA-nSe_1C5HGNAImBPXFSnRS0XAIwrWvFkB3Z9RnKb-HU/s1600/House+after+1872+move.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "THE KEY IN-PERIOD VIEW OF THE CLARKE HOUSE AT ITS 1904 SITE (4526 S. Wabash): front (east) elevation with pedimented central gable and oculus, cupola base, frieze windows, six-over-six sash with shutters removed, a small open porch/balcony at the central door replacing the lost portico, iron fence and street trees; two horse-drawn carriages with Chrimes family members. The Chrimes family owned it 1872–1941, so the image is likely within their tenure; exact date not given. Use for the house's 1904 appearance: no portico, small entry porch, painted (brown per the post), on a taller foundation (11 steps).",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-clarke-1872-move-text",
+  "kind": "document",
+  "title": "House Moving Part II: Clarke House, 1872 (Glessner House blog, 11 Aug 2014) — alterations made at the 1872 move",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "2014 (quotes Chicago Tribune 26 May 1872)",
+  "date_earliest": 2014,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-ii-clarke-house-1872.html",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "Documents the Wabash-site form that stood in 1904: placed on new foundation June 1872; foundation taller than original — front entrance reached by eleven steps instead of eight; the two porticoes were not rebuilt, replaced by open porches, with small entry vestibules at both ends of the main hall; house painted brown; on the west side of Wabash, so the original east facade remained the front. Chrimes family owners until 1941. Quotes Tribune 26 May 1872 'The Clarke House. Another Old Landmark About to Pass Away' (original lead). Original site: three acres east of Michigan south of 16th St., sold to St. Paul's Universalist Church.",
+  "measurements": [
+   {
+    "what": "front entrance steps after 1872 move",
+    "value": "11 steps (8 originally)",
+    "locator": "blog text, para. after second image"
+   }
+  ]
+ },
+ {
+  "id": "a19-gh-clarke-restored-modern",
+  "kind": "photograph",
+  "title": "Clarke House exterior (restored, at 1827 S. Indiana Avenue)",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "1827 S. Indiana Avenue (1977– site)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "after 1982 restoration (undated modern photograph)",
+  "date_earliest": 1982,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog 'House Moving Part III: Clarke House, 1977' (18 Aug 2014)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-iii-clarke-house-1977.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHH8NkVJoEwBtIQwV-Wk_rZoJnHLJcXJ4SPvE1bArfhN7K3E974ieylvgzXPAa4QlWqwmM_35TuJbZ3gZqa-W1uXP3EGPsj6cqN2BQ41zznCyvjPMcqSKX7ui7yr8FVdfkUVy5C6zbHI8/s1600/Clarke+House+exterior.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "The house as restored (portico reconstructed, white paint) at its modern Prairie District site. ANACHRONISM GUARD: this site was not occupied by the Clarke house in 1904, and the portico did not exist then.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-clarke-1977-cupola",
+  "kind": "photograph",
+  "title": "November 18 [1977]: Removal of the cupola",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "November 18, 1977",
+  "date_earliest": 1977,
+  "date_latest": 1977,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog 'House Moving Part III: Clarke House, 1977'",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-iii-clarke-house-1977.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2cIom_sS24qXc-Dtwcd_HVT1GdJEy0VxDqePQR7h2EPimVtXmO1X9arZxw9n-JM8wNLtS0X9FODdx4PXQpIO8jZF7yAL-ZcuOL3ZgxEBbW5itwhBKg3AhiYfGXiKmSAwFf016oUKoazM/s1600/1977-11-18+Cupola+removal.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "Crane lifting the cupola off the house at 4526 Wabash before the 1977 move; shows the cupola's form and the clapboard house with boarded windows and its post-1872 front door/porch arrangement.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-clarke-1977-tracks",
+  "kind": "photograph",
+  "title": "December 4 [1977]: The move over the Green Line tracks",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "44th Street at the el tracks (in transit)"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 4, 1977",
+  "date_earliest": 1977,
+  "date_latest": 1977,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog); images courtesy Clarke House Museum where stated",
+  "collection": "Glessner House blog 'House Moving Part III: Clarke House, 1977'",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/house-moving-part-iii-clarke-house-1977.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBKz-IOmWz5UWskIc9_90iM1PNlQh9bdqX75Nh3WtWSUC_5fGahTyY1pskzzCmdeN1GYM9MunGv3nk4WjZA7vCd3SEgYvaQ2iaUDNfBQ0k1b3LWuKst0FCpFjbTg_Qu_yDCxNehPe3U8M/s1600/1977-12-04+Move+over+tracks.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'clarke house'",
+  "notes": "Night view of the cupola-less house raised on cribbing over the el tracks at 44th Street. Shows the full front elevation without porches; the post records the house weighed 120 tons and was raised 25 ft. Context for why the house is at 1827 S. Indiana today.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-field-g85-1-15-38",
+  "kind": "photograph",
+  "title": "[Marshall Field residence, 1905 Prairie Avenue] (image file G85.1.15.38, illustrating the Field 'Mikado' ball of 1886)",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated (c. 1880s)",
+  "date_earliest": 1873,
+  "date_latest": 1900,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'The Mikado' (14 Mar 2016)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/03/the-mikado.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirKFytBVha_wWAwsfcWJXW7Tg4RdxZsbM3YVFQVPeGN8iN8cXNd95nWjOp9G7N-c2i9KNqdZIogoDM3V28PvYzCuIB3PwJpgxMPJHSMWs1fO4xg56Ji0urfEBgkUJScyuFZo3MFOiv8ak/s1600/G85.1.15.38.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'marshall field prairie'",
+  "notes": "Sepia print of the Field house from the southwest corner: brick with stone quoins and belt courses, mansard with dormers and iron cresting, curved glass conservatory on the south side, scroll-pattern cast-iron fence on stone curb, gas street lamp, bare trees. Same view as Chicagology's '923prairiefieldhome' (a19-cgy-1905-field-923). The file name 'G85.1.15.38' looks like a museum accession number — probably Glessner House Museum's own collection, which would make this the traceable original. Shows the south lawn side described in Artistic Houses.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-prairie-1800-1900-elevations",
+  "kind": "architectural drawing",
+  "title": "[Row elevations of the 1800 and 1900 blocks of Prairie Avenue] 'East Side of Prairie Ave' / 'West Side of Prairie Ave'",
+  "building_ids": [
+   "pa-1936-11",
+   "pa-1912-10",
+   "pa-1906-34",
+   "pa-1900-25",
+   "pa-1901-15",
+   "pa-1905-16",
+   "pa-1919-26",
+   "pa-1923-35"
+  ],
+  "addresses": [
+   "1800–1936 S. Prairie Avenue (both sides)"
+  ],
+  "streetscape": true,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated drawing; depicts the street c. 1914 per the blog",
+  "date_earliest": null,
+  "date_latest": null,
+  "period": "later",
+  "creator": "unknown (lettering suggests a modern reconstruction drawing)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Business Encroachment on Prairie Avenue' (18 Apr 2011)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2011/04/business-encroachment-on-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd4qFixHH-7D9dvcue3gb4XhIhUEvKWaCyYdc24MQcoRfQIJjxgWmdM64B2JHyWzwn4ku_yuyL-OErHlGIEDiEM7wVXWvDYjggGP1AUOwTeml-SM3qZf9pjUizYDfNOTPRsL9AuZAxRQA/s1600/11-04-18+Prairie+Avenue.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'allerton'",
+  "notes": "Two rows of measured-looking front elevations, one per house, labelled 'East Side of Prairie Ave' and 'West Side of Prairie Ave'; the blog says it shows 'the 1800 and 1900 blocks of Prairie Avenue as they appeared at the time' (1914) with Allerton's house (1936, with its tower) at far left of the bottom row. Recognisable on the west row: 1936 Thompson/Allerton (tower, Italianate), 1912 (chateauesque gable), and Second Empire mansards incl. 1900 Keith. The east row includes a low building with two large doorways between houses. Creator, date and scale unknown; the typeface suggests a 20th-century reconstruction, so treat as an interpretive drawing, not a primary record — but as a consistent row of facades it is directly useful for relative heights and roof forms. 1600-px blog copy only; original holder unknown (Glessner House archives?). Possible source: William Tyre's Chicago's Historic Prairie Avenue (Arcadia, 2008) pp. 44–45 reproduces 'Bird's-Eye Views and Guide to Chicago', Rand McNally 1898, with renderings in two rows that include 1936, 1912, 1906, 1900 and 1901, 1905, 1919, 1923, 1945 (per the AIC Ryerson & Burnham 'Building Index of Selected Chicago Architectural Monographs', 2014) — if this blog image is that plate it dates from 1898 (in-period). Not the same as the 1893 perspective strips (IA randmcnallycosbi00lawr p.269). Unconfirmed; the 1898 edition was not found online this session.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-2ndpres-sanctuary",
+  "kind": "photograph",
+  "title": "Second Presbyterian Church sanctuary (Shaw interior, 1900–01)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated modern colour photograph",
+  "date_earliest": 2000,
+  "date_latest": 2019,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Happy 150th birthday Howard Van Doren Shaw!' (7 May 2019)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2019/05/happy-150th-birthday-howard-van-doren.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIJnWaISilyHq68mw-4EcM9JXRxOCyAZEX9pTSGxXPiJ-JgaOcMiwKYUlqIr6q1x7CRkb70R7AuNBJaCkkZEKpTipv5jh0YjX2jNTsYaHEPWVzqykgHrvr51mHyqI63f5jV22adhKf75Y/s1600/2nd+Pres+sanctuary.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'second presbyterian'",
+  "notes": "Wide modern view down the nave to the chancel: Shaw's dark timber roof with decorated ceiling panels, pointed clerestory arches, side galleries, pendant light fixtures, Bartlett's tree-of-life mural above the choir and organ screen. Post says the March 1900 fire destroyed the sanctuary but left the outer walls; Shaw's designs were approved after a summer 1900 trip to England — so this interior existed by 1904 (later restorations aside).",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-2ndpres-tree-of-life",
+  "kind": "photograph",
+  "title": "[Second Presbyterian Church] Tree of Life mural and chancel arch",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 2013",
+  "date_earliest": 2013,
+  "date_latest": 2013,
+  "period": "later",
+  "creator": "Glessner House Museum (presumed)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Second Presbyterian Church Designated a National Historic Landmark' (25 Mar 2013)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/03/second-presbyterian-church-designated.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijRSKoaMk5jYqkZQh0Ww1SuJkUs8jZ2uq46_3qYpXvSDL_V6ZAilAa5dxrWkiMnTizmAYxadksDyQysYtUnJ-6cX6bv8PFt7DFaws3Rn7pojtj6CnvFO3XNCi18xxc2PHlFKYalKdY1a8/s1600/13-03-25+Tree+of+Life.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'second presbyterian'",
+  "notes": "Frederic Clay Bartlett's tree-of-life mural over the chancel/organ, carved arch and gilded angels; part of the 1900–01 post-fire interior (NHL 2013). Same post shows ceiling plaster, balcony panels, original ingrain carpet bought through Marshall Field & Co., Shaw pulpit chair and candelabra, Burne-Jones St Cecilia window, Tiffany Pastoral window and the Ascension window (William Fair Kline / Calvert & Kimberly) — window dates not given; check against 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a19-aic-2ndpres-renwick-east-elevation",
+  "kind": "architectural drawing",
+  "title": "Second Presbyterian Church, Chicago, Illinois, East Elevation",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "Renwick & Sands (James Renwick Jr. and Joseph Sands), architects",
+  "repository": "Art Institute of Chicago, Department of Architecture and Design",
+  "collection": "Gift of Earl Reed and George Eich",
+  "call_number": "AIC 2000.4.2",
+  "catalog_url": "https://www.artic.edu/artworks/178879",
+  "image_url": "https://www.artic.edu/iiif/2/424c5faf-3a05-9de7-81fa-f38664162f92/full/1686,/0/default.jpg",
+  "rights": "public domain",
+  "rights_basis": "AIC API is_public_domain: true (CC0 metadata); 1874 drawing",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "api.artic.edu search 'Second Presbyterian Church' (artist_id 87697 'Renwick & Sands' returns exactly these 3 works)",
+  "notes": "Ink on linen, 85.2 × 75.4 cm (33 9/16 × 29 11/16 in.); one of three Renwick & Sands drawings of the church at AIC (2000.4.2 east elevation, 2000.4.4 north elevation, 2000.4.11 transverse section — numbering implies at least 11 sheets once existed in the gift; the others are not catalogued online). East (Michigan Avenue) front — the gable with its great window, entrance and the SE bell tower as designed. The exterior walls survived the March 1900 fire, so this elevation is the best design evidence for the church's Michigan Avenue face in 1904 (check spire/pinnacle details against photographs, as built ≠ drawn). Full catalogue record read via api.artic.edu; image download refused (artic.edu IIIF returns 403 to this environment) — link only for now, though public domain.",
+  "measurements": []
+ },
+ {
+  "id": "a19-aic-2ndpres-renwick-north-elev",
+  "kind": "architectural drawing",
+  "title": "Second Presbyterian Church, Chicago, Illinois, North Elevation",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "Renwick & Sands (James Renwick Jr. and Joseph Sands), architects",
+  "repository": "Art Institute of Chicago, Department of Architecture and Design",
+  "collection": "Gift of Earl Reed and George Eich",
+  "call_number": "AIC 2000.4.4",
+  "catalog_url": "https://www.artic.edu/artworks/178877",
+  "image_url": "https://www.artic.edu/iiif/2/bea1d622-7443-1955-bde3-07978ca8354f/full/1686,/0/default.jpg",
+  "rights": "public domain",
+  "rights_basis": "AIC API is_public_domain: true (CC0 metadata); 1874 drawing",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "api.artic.edu search 'Second Presbyterian Church' (artist_id 87697 'Renwick & Sands' returns exactly these 3 works)",
+  "notes": "Ink on linen, 51.6 × 78.4 cm (20 5/16 × 30 7/8 in.); one of three Renwick & Sands drawings of the church at AIC (2000.4.2 east elevation, 2000.4.4 north elevation, 2000.4.11 transverse section — numbering implies at least 11 sheets once existed in the gift; the others are not catalogued online). North flank (brick per HABS) with the nave windows — the side facing up Michigan Avenue toward 18th Street. Full catalogue record read via api.artic.edu; image download refused (artic.edu IIIF returns 403 to this environment) — link only for now, though public domain.",
+  "measurements": []
+ },
+ {
+  "id": "a19-aic-2ndpres-renwick-transverse",
+  "kind": "architectural drawing",
+  "title": "Second Presbyterian Church, Chicago, Illinois, Transverse Section",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "section",
+  "facing": null,
+  "camera_position": null,
+  "date": "1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "Renwick & Sands (James Renwick Jr. and Joseph Sands), architects",
+  "repository": "Art Institute of Chicago, Department of Architecture and Design",
+  "collection": "Gift of Earl Reed and George Eich",
+  "call_number": "AIC 2000.4.11",
+  "catalog_url": "https://www.artic.edu/artworks/178875",
+  "image_url": "https://www.artic.edu/iiif/2/7d9bb1d0-2b6f-b113-b4d9-967ccda662dc/full/1686,/0/default.jpg",
+  "rights": "public domain",
+  "rights_basis": "AIC API is_public_domain: true (CC0 metadata); 1874 drawing",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "api.artic.edu search 'Second Presbyterian Church' (artist_id 87697 'Renwick & Sands' returns exactly these 3 works)",
+  "notes": "Ink on linen, 59.1 × 60.5 cm (23 1/4 × 23 13/16 in.); one of three Renwick & Sands drawings of the church at AIC (2000.4.2 east elevation, 2000.4.4 north elevation, 2000.4.11 transverse section — numbering implies at least 11 sheets once existed in the gift; the others are not catalogued online). Transverse section of Renwick's ORIGINAL 1874 nave, roof and galleries — this roof and interior were destroyed in the 1900 fire and replaced by Shaw's design, so for 1904 it records the shell's wall heights and roof pitch only as originally built (Shaw rebuilt the roof; compare HABS 2010 sections). Full catalogue record read via api.artic.edu; image download refused (artic.edu IIIF returns 403 to this environment) — link only for now, though public domain.",
+  "measurements": []
+ },
+ {
+  "id": "a19-field-cdn-dn0003324",
+  "kind": "photograph",
+  "title": "Marshall Field Residence (Marshall Field, Sr., residence at 1905 South Prairie Avenue) — Chicago Daily News negative DN-0003324",
+  "building_ids": [
+   "pa-1905-16",
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": "from the west side of Prairie Avenue (snow-covered roadway in foreground)",
+  "date": "c. 1905",
+  "date_earliest": 1902,
+  "date_latest": 1908,
+  "period": "in-period",
+  "creator": "Chicago Daily News (staff photographer)",
+  "repository": "Chicago History Museum (Chicago Daily News negatives collection); copy on Wikimedia Commons",
+  "collection": "Photographs from the Chicago Daily News, 1902–1933 (LoC American Memory ichicdn, now retired; digital ID ichicdn.n003324)",
+  "call_number": "DN-0003324",
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Marshall_Field_Residence.jpg",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Marshall_Field_Residence.jpg",
+  "rights": "public domain",
+  "rights_basis": "Commons: public domain in the US (published before 1931); Chicago Daily News 1902–33 negatives were offered by LoC/CHM without known restrictions",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Wikimedia Commons MediaSearch 'Marshall Field house Prairie Avenue' (file page read); same image seen as Chicagology 1905prairieC.jpg",
+  "notes": "The best dated near-1904 exterior of the Field house: winter, c. 1905 (Field died Jan 1906). Mansard with dormers and the square-headed upper windows, brick walls with light stone trim, the curved glazed conservatory on the south side, iron balconettes; the house is set far back behind a tall vertical-bar iron fence on a stone curb running along the whole frontage, with a row of young street trees; neighbouring 1919 (Field Jr., post-1902) at right and houses north at left. Original handle hdl.loc.gov/loc.ndlpcoop/ichicdn.n003324 now redirects only to the collection record (LCCN 2002565163); the CHM original is the citable holder. 640×457 px on Commons; local copy not yet made (Commons upload server returned HTTP 429 to repeated attempts).",
+  "measurements": []
+ },
+ {
+  "id": "a19-commons-fieldjr-2004",
+  "kind": "photograph",
+  "title": "Chicago 20041009 83 Marshall Field Mansion, Prairie Ave. (8635285351).jpg",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": "41°51′22.1″N 87°37′14.37″W (camera GPS per file page), west side of Prairie Avenue",
+  "date": "October 9, 2004",
+  "date_earliest": 2004,
+  "date_latest": 2004,
+  "period": "later",
+  "creator": "David Wilson (Flickr davidwilson1949)",
+  "repository": "Wikimedia Commons (from Flickr)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago_20041009_83_Marshall_Field_Mansion,_Prairie_Ave._(8635285351).jpg",
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Chicago_20041009_83_Marshall_Field_Mansion%2C_Prairie_Ave._%288635285351%29.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "CC BY 2.0 (attribution licence; not public domain)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Wikimedia Commons MediaSearch 'Marshall Field house Prairie Avenue'",
+  "notes": "The Field Jr. house (1919) during its 2004–06 condominium conversion ('Marshall Field Mansion' sign, lift and dumpster): red brick and red sandstone, multiple gables, tall chimney, bay windows — the post-1902 enlarged form that stood in 1904 — with a new pale-stone townhouse building immediately north (on part of the former Field Sr. grounds). Iron fence modern. Good current reference for the surviving 1904 massing.",
+  "measurements": []
+ },
+ {
+  "id": "a19-commons-2ndpres-2022",
+  "kind": "photograph",
+  "title": "Second Presbyterian Church, Chicago.jpg ('At the intersection of Michigan Avenue and East Cullerton Street')",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": "at Michigan Avenue and E. Cullerton Street",
+  "date": "March 15, 2022",
+  "date_earliest": 2022,
+  "date_latest": 2022,
+  "period": "later",
+  "creator": "Chris Rycroft (Flickr)",
+  "repository": "Wikimedia Commons (from Flickr 52034815708)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Second_Presbyterian_Church,_Chicago.jpg",
+  "image_url": null,
+  "rights": "copyright — link only",
+  "rights_basis": "CC BY 2.0",
+  "local": null,
+  "verified": "catalog-only",
+  "found_via": "Wikimedia Commons API search 'Cullerton Street Chicago' (file page read; image not viewed — upload server rate-limited)",
+  "notes": "Modern 5753×3236 exterior of the church from the Michigan/Cullerton corner — i.e. the SE corner with the bell tower. Exterior walls are the 1874 Renwick shell that stood in 1904; compare with Renwick's 1874 east elevation (a19-aic-2ndpres-renwick-east-elevation) for losses. Not viewed this session.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nrhp-2ndpres-1974-text",
+  "kind": "document",
+  "title": "National Register of Historic Places Inventory–Nomination Form: 2nd Presbyterian Church, 1936 S. Michigan Av. (NRIS 74000754)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "August–October 1974 (entered 27 Dec 1974)",
+  "date_earliest": 1974,
+  "date_latest": 1974,
+  "period": "later",
+  "creator": "Thomas G. Yanul and Paul E. Sprague, Illinois Historic Structures Survey",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 74000754",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/74000754.pdf#page=1",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs/drawings by state survey staff and photographers — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NRIS number in HABS IL-328 record; NARA S3 PDF read in full (26 pp.)",
+  "notes": "Key text for the 1904 church. Lot 109'×171' at NW corner of Cullerton (20th) and Michigan; east & south facades of mottled bituminous ('fairy') limestone, north & west of Chicago common brick; gable roof; nave runs E–W with the parish house at right angles (abbreviated T); main entry on the east; balconies on E, N, S. Nave 95 ft long, 60 ft high, 75 ft wide incl. aisles. History: Renwick & Sands, completed 1874; spring 1900 fire gutted the nave; Shaw's rebuild completed 1901. EXTERIOR CHANGES MADE IN THE 1900–01 REBUILD (i.e. the 1904 state differs from Renwick's drawings): clerestory windows changed from pointed arches to a rectilinear grouping; the traditional rose window replaced by an ogee-shaped window; roof ridge LOWERED. Only later change: removal of the tower's hipped roof after storm damage in 1959 — so in 1904 the SE tower carried a hipped roof. Large Tiffany window over the main Michigan Avenue entry (4½ tons). Bibliography cites House Beautiful v.17 no.1 (Dec. 1904) — a contemporary illustrated article (lead).",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "109 × 171 ft",
+    "locator": "NRHP form item 7, p.1"
+   },
+   {
+    "what": "nave",
+    "value": "95 ft long, 60 ft high, 75 ft wide including side aisles",
+    "locator": "NRHP form item 7, p.1"
+   },
+   {
+    "what": "tower roof",
+    "value": "hipped roof removed after 1959 storm (present in 1904)",
+    "locator": "continuation sheet p.2"
+   }
+  ]
+ },
+ {
+  "id": "a19-nrhp-2ndpres-1974-photo-se",
+  "kind": "photograph",
+  "title": "2nd Presbyterian Church — Exterior: looking west, northwest, showing church main facade (east) and south side",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "SE of the church, at Michigan Avenue and Cullerton Street",
+  "date": "August 1974",
+  "date_earliest": 1974,
+  "date_latest": 1974,
+  "period": "later",
+  "creator": "Thomas G. Yanul (negative filed at Glessner House, Structures Survey Office)",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 74000754, photograph 1 (PDF p.8; caption p.9)",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/74000754.pdf#page=8",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs/drawings by state survey staff and photographers — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NARA nomination PDF, pages rendered and read",
+  "notes": "1974 exterior of the Michigan Avenue (east) front and Cullerton (south) side, viewed: the tall square SE bell tower with arched belfry openings, now FLAT-TOPPED (its hipped roof was removed after 1959 storm damage — in 1904 the tower had that hipped roof); gabled east front with the large traceried window (post-1900 shape), pinnacles, gabled entrance porch; south flank and parish house beyond; rough-faced mottled limestone. Walls are the 1874 shell that stood in 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nrhp-2ndpres-1974-photo-south",
+  "kind": "photograph",
+  "title": "2nd Presbyterian Church — Looking east, northeast, showing south facade of church",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "northeast",
+  "camera_position": "on Cullerton Street west of the church",
+  "date": "August 1974",
+  "date_earliest": 1974,
+  "date_latest": 1974,
+  "period": "later",
+  "creator": "Thomas G. Yanul",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 74000754 (PDF p.12; caption p.13)",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/74000754.pdf#page=12",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs/drawings by state survey staff and photographers — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NARA nomination PDF",
+  "notes": "South (Cullerton Street) flank: buttressed limestone nave wall with large arched balcony-level windows, tower beyond at the east end. Useful for the Cullerton streetscape adjacent to the 213–217 E. Cullerton rowhouses.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nrhp-2ndpres-1974-interiors",
+  "kind": "photograph",
+  "title": "2nd Presbyterian Church — interior photographs (nave toward chancel, nave toward east gallery, side aisles, balcony window, chancel arcade)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "August 1974",
+  "date_earliest": 1974,
+  "date_latest": 1974,
+  "period": "later",
+  "creator": "Thomas G. Yanul",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 74000754 (PDF pp.10, 14, 16, 18, 20, 22)",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/74000754.pdf#page=10",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs/drawings by state survey staff and photographers — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NARA nomination PDF",
+  "notes": "Six interior photographs of Shaw's 1900–01 interior: barrel-vaulted ribbed ceiling over rectangular clerestory, organ lattice and sanctuary, balconies on three sides, side-aisle arcades with art-glass windows. The interior as rebuilt by 1901 and essentially unchanged to 1974 per the form.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nrhp-keith-1972-drawing",
+  "kind": "architectural drawing",
+  "title": "Keith House, 1900 South Prairie Avenue — first-floor plan and east elevation (drawings not to scale)",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1972 (nomination continuation sheet)",
+  "date_earliest": 1971,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "Prairie Avenue District nomination preparers (Commission on Chicago Historical and Architectural Landmarks)",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 72000452 Prairie Avenue District, item 7 p.10 (PDF p.13)",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=13",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs/drawings by state survey staff and photographers — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NARA district nomination PDF (cited in data/sources.csv pa-district-nrhp-1972), pages rendered and read",
+  "notes": "Sketch first-floor plan (dining room, library with polygonal bay, hall, two parlors, front steps) and a pen sketch of the east (front) elevation: three storeys plus mansard with three dormers, polygonal bay at left, porch with balcony, rusticated base. Not to scale. Text pp.10–12: 'exterior unaltered on front facade'; three-storey brick with limestone front; stone balcony on brackets across the front; entrance 11 steps up; composite-order porch; three-storey polygonal bay left of entrance; slate mansard with dormers and brick chimneys; dentilled cornice on all four walls, brackets on the front; 'a large, separate coach house in harmonizing architectural style stands at the rear'. (Note: Glessner House says the mansard was added in the 1880s, so present in 1904.)",
+  "measurements": [
+   {
+    "what": "front entrance",
+    "value": "eleven steps up from ground level",
+    "locator": "item 7 p.11"
+   }
+  ]
+ },
+ {
+  "id": "a19-nrhp-keith-1972-photo",
+  "kind": "photograph",
+  "title": "Facade of Keith House (Prairie Avenue District nomination photograph)",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": null,
+  "date": "1972",
+  "date_earliest": 1972,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "Richard Nickel (photo credit on the photograph form)",
+  "repository": "U.S. National Archives (NARA), RG 79 National Park Service — National Register nomination files (digitized)",
+  "collection": "NPS_IL 72000452, photograph (PDF p.26; form p.29 — forms partly mismatched: p.29 form reads 'Facade of Keith House, 1906 [sic] South Prairie Avenue', Richard Nickel, 1972, negative at Commission on Chicago Historical and Architectural Landmarks #1972.166)",
+  "call_number": null,
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=26",
+  "image_url": null,
+  "rights": "copyright — link only",
+  "rights_basis": "Richard Nickel photograph (estate/Richard Nickel Committee); hosted in a government nomination",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NARA district nomination PDF",
+  "notes": "1972 oblique view of the Keith house from the southeast: mansard with dormers and chimneys, limestone front with segmental window heads, polygonal bay, Corinthian porch and stoop with block newels; bare lots and a water tower (industrial neighbours) around it. The verso forms in the PDF are shuffled (the form behind it says Kimball; the next says Keith) — identification by the image itself, which matches 1900 Prairie.",
+  "measurements": []
+ },
+ {
+  "id": "a19-hb-1904-2ndpres-interior",
+  "kind": "publication plate",
+  "title": "The Second Presbyterian Church, Chicago. Howard Shaw, Architect. Frederic C. Bartlett, Decorator (frontispiece)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": "west",
+  "camera_position": null,
+  "date": "December 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "period": "in-period",
+  "creator": "unknown photographer; article by Virginia Robie",
+  "repository": "Internet Archive (periodicals microfilm scan)",
+  "collection": "The House Beautiful, vol. 17 no. 1, December 1904 (IA sim_house-beautiful_1904-12_17_1)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_house-beautiful_1904-12_17_1/page/n6/mode/1up",
+  "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n6_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-interior.jpg",
+   "display_bytes": 196574,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-interior-thumb.jpg",
+   "thumb_bytes": 28974,
+   "original_px": [
+    1724,
+    2270
+   ],
+   "original_sha256": "4faa6cb9a3babea4fcba019a3e4601fa6c9fcdea97739161fcf68bf491302c21",
+   "original_bytes": 300569,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n6_w1600.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
+  "notes": "A photograph of the church interior PUBLISHED IN DECEMBER 1904 — the target year: nave toward the chancel with Shaw's coffered/ribbed timber roof over rectangular clerestory windows, the arch with Bartlett's 'Heavenly Choir' fresco and the four bronze trumpeting angels, organ screen, gallery fronts, pendant lamps and seven-branch candlesticks, pews. Microfilm-scan quality; full-page derivative saved (caption included).",
+  "measurements": []
+ },
+ {
+  "id": "a19-hb-1904-2ndpres-article",
+  "kind": "document",
+  "title": "Church Decorations by Frederic C. Bartlett (Virginia Robie), The House Beautiful, Dec. 1904, pp. 7–10",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "period": "in-period",
+  "creator": "unknown photographer; article by Virginia Robie",
+  "repository": "Internet Archive (periodicals microfilm scan)",
+  "collection": "The House Beautiful, vol. 17 no. 1, December 1904 (IA sim_house-beautiful_1904-12_17_1)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_house-beautiful_1904-12_17_1/page/n7/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
+  "notes": "Contemporary account (read in OCR text): 'the present interior rose phoenix-like from the ashes, replacing the old auditorium that was destroyed by fire in the spring of 1900. The outer walls were left intact, and Mr. Shaw followed the general plan of the old building … designed about 1870 by Renwick and Addison [sic] of New York'; nave wider than a cathedral's, no chancel; galleries; recessed Gothic windows 'twelve in number, six on either side' framing Bartlett's murals; Shaw designed the carvings, hanging lamps, chandeliers and organ screen; Bartlett the decorations above the organ; four bronze 'holy trumpeters'; windows incl. Burne-Jones/Morris St Cecilia and St Margaret, John Crerar memorial by Sperry, Cobb memorial by Shaw. Five illustrations (frontispiece n6; 'Instrumental and vocal music' n7; St Cecilia and St Margaret windows n8; candelabra by Shaw and Bartlett executed by Will H. Lau n9).",
+  "measurements": [
+   {
+    "what": "recessed (balcony-level) windows",
+    "value": "12 — six on each side",
+    "locator": "House Beautiful Dec 1904 p.7"
+   }
+  ]
+ },
+ {
+  "id": "a19-hb-1904-2ndpres-mural",
+  "kind": "publication plate",
+  "title": "Instrumental and Vocal Music [Bartlett mural detail, Second Presbyterian Church]",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "period": "in-period",
+  "creator": "unknown photographer; article by Virginia Robie",
+  "repository": "Internet Archive (periodicals microfilm scan)",
+  "collection": "The House Beautiful, vol. 17 no. 1, December 1904 (IA sim_house-beautiful_1904-12_17_1)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_house-beautiful_1904-12_17_1/page/n7/mode/1up",
+  "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
+  "notes": "Halftone of two of Bartlett's angel figures from the arch frescoes, as published Dec 1904. Interior decoration only.",
+  "measurements": []
+ },
+ {
+  "id": "a19-hb-1904-2ndpres-windows",
+  "kind": "publication plate",
+  "title": "St. Cecilia / St. Margaret — Burne-Jones and William Morris [windows, Second Presbyterian Church]",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "period": "in-period",
+  "creator": "unknown photographer; article by Virginia Robie",
+  "repository": "Internet Archive (periodicals microfilm scan)",
+  "collection": "The House Beautiful, vol. 17 no. 1, December 1904 (IA sim_house-beautiful_1904-12_17_1)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_house-beautiful_1904-12_17_1/page/n8/mode/1up",
+  "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
+  "notes": "Two Morris & Co. windows designed by Burne-Jones, installed by Dec 1904 (vestibule/narthex per the article). Confirms these windows were in place in 1904 (HABS 2010 records window sheets — use this to date them).",
+  "measurements": []
+ },
+ {
+  "id": "a19-hb-1904-2ndpres-candelabra",
+  "kind": "publication plate",
+  "title": "Candelabra designed by Howard Shaw and Frederic C. Bartlett, executed by Will H. Lau",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "period": "in-period",
+  "creator": "unknown photographer; article by Virginia Robie",
+  "repository": "Internet Archive (periodicals microfilm scan)",
+  "collection": "The House Beautiful, vol. 17 no. 1, December 1904 (IA sim_house-beautiful_1904-12_17_1)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_house-beautiful_1904-12_17_1/page/n9/mode/1up",
+  "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
+  "notes": "Seven-branch candlestick for the 1900–01 interior, as published Dec 1904 (same object as HABS IL-328 sheet 19).",
+  "measurements": []
+ },
+ {
+  "id": "a19-pictorial-1893-field",
+  "kind": "publication plate",
+  "title": "Residence of Mr. Marshall Field, 1905 Prairie Avenue",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": null,
+  "date": "1893 (publication)",
+  "date_earliest": 1890,
+  "date_latest": 1893,
+  "period": "in-period",
+  "creator": "Rand, McNally & Co. (publisher); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "Rand, McNally & Co.'s Pictorial Chicago and Illustrated World's Columbian Exposition (1893) — IA randmcnallycospi00rand_0 (State Library of Pennsylvania copy)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/randmcnallycospi00rand_0/page/n84/mode/1up",
+  "image_url": "https://archive.org/download/randmcnallycospi00rand_0/page/n84_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1893/1896",
+  "local": {
+   "display": "research/images/files/a19-pictorial-1893-field.jpg",
+   "display_bytes": 385831,
+   "thumb": "research/images/files/a19-pictorial-1893-field-thumb.jpg",
+   "thumb_bytes": 38984,
+   "original_px": [
+    1770,
+    1364
+   ],
+   "original_sha256": "15770091582eb3f68e76e2716e02fb9db7f700f83ac8290e684803f502f82d39",
+   "original_bytes": 475058,
+   "fetched_from": "https://archive.org/download/randmcnallycospi00rand_0/page/n84_w1600.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "archive.org djvu.xml caption search 'RESIDENCE OF MR. MARSHALL FIELD'",
+  "notes": "Full-page halftone, the clearest exterior of the Field house found: three storeys of red pressed brick with light stone quoins, belt courses, window hoods and iron balconettes; slate mansard with dormers and continuous ornamental iron roof cresting; segmental 'fan' panels at the third storey; the curved glazed conservatory on the south (right); entrance with stoop at left; ornate scroll-pattern cast-iron fence on a stone curb; bare trees. Taken from the southwest (Prairie Avenue / south lawn side). Pre-1904 by ~11 years — the later CDN view (a19-field-cdn-dn0003324, c.1905) shows a different, taller vertical-bar fence, so the fence changed between c.1893 and c.1905; the building itself appears unchanged.",
+  "measurements": []
+ },
+ {
+  "id": "a19-pictorial-1893-ream",
+  "kind": "publication plate",
+  "title": "Residence of Mr. N. B. Ream, 1901 Prairie Avenue (with Residence of Dr. H. S. Brown, 4917 Drexel Boulevard)",
+  "building_ids": [
+   "pa-1901-15"
+  ],
+  "addresses": [
+   "1901 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": null,
+  "date": "1893 (publication)",
+  "date_earliest": 1888,
+  "date_latest": 1893,
+  "period": "in-period",
+  "creator": "Rand, McNally & Co. (publisher); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "Rand, McNally & Co.'s Pictorial Chicago (1893) — IA randmcnallycospi00rand_0",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/randmcnallycospi00rand_0/page/n96/mode/1up",
+  "image_url": "https://archive.org/download/randmcnallycospi00rand_0/page/n96_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1893/1896",
+  "local": {
+   "display": "research/images/files/a19-pictorial-1893-ream.jpg",
+   "display_bytes": 324700,
+   "thumb": "research/images/files/a19-pictorial-1893-ream-thumb.jpg",
+   "thumb_bytes": 34991,
+   "original_px": [
+    1770,
+    1364
+   ],
+   "original_sha256": "186b4e8d788fb757e583105fd1e211b0311d32a2015098cf6bf3b46080cd5682",
+   "original_bytes": 385593,
+   "fetched_from": "https://archive.org/download/randmcnallycospi00rand_0/page/n96_w1600.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "archive.org djvu.xml caption search",
+  "notes": "Page with two halftones printed sideways; the right-hand one is the Ream house: stone-faced Second Empire block with mansard and dormers, heavy bracketed cornice, Corinthian portico with balustrade at the entrance, side bays, low iron fence. Post-1887 (Burnham & Root rebuilt the top floor after the January 1887 fire per the AIC index), so this is the form that stood in 1904. Same photograph as Chicagology's undated '1901prairie.jpg' (a19-cgy-1901-exterior).",
+  "measurements": []
+ },
+ {
+  "id": "a19-pictorial-1896-field",
+  "kind": "publication plate",
+  "title": "Residence of Mr. Marshall Field, 1905 Prairie Avenue",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": null,
+  "date": "1896 (IA metadata; identifier says 1892)",
+  "date_earliest": 1892,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "Rand, McNally & Co. (publisher); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "Rand, McNally & Co.'s Pictorial Chicago (1896 ed.) — IA randmcnallycospi1892chic (Harold B. Lee Library copy)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/randmcnallycospi1892chic/page/n88/mode/1up",
+  "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1893/1896",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "archive.org djvu.xml caption search",
+  "notes": "Same photograph as the 1893 edition plate (a19-pictorial-1893-field), reprinted in the later edition — confirms the view was still current for the publisher in the mid-1890s. Not downloaded (duplicate image).",
+  "measurements": []
+ },
+ {
+  "id": "a19-pictorial-1896-ream",
+  "kind": "publication plate",
+  "title": "Residence of Mr. N. B. Ream, 1901 Prairie Avenue (with Residence of Dr. H. S. Brown, 4917 Drexel Boulevard)",
+  "building_ids": [
+   "pa-1901-15"
+  ],
+  "addresses": [
+   "1901 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": null,
+  "date": "1896 (IA metadata)",
+  "date_earliest": 1892,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "Rand, McNally & Co. (publisher); photographer uncredited",
+  "repository": "Internet Archive",
+  "collection": "Rand, McNally & Co.'s Pictorial Chicago (1896 ed.) — IA randmcnallycospi1892chic",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/randmcnallycospi1892chic/page/n98/mode/1up",
+  "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States 1893/1896",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "archive.org page browse near the Field plate (caption OCR missed it)",
+  "notes": "Reprint of the Ream plate in the later edition (page viewed; printed sideways, left-hand image this time). Not downloaded (duplicate image).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-106",
+  "kind": "photograph",
+  "title": "Corner rowhouse with copper oriel and turret gable [217 E. Cullerton]",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuaz6WzhrJHLgiejqdpPYY7p0-C9-OwG7y966vgTSNB6nB7jtvVG5NNBXR0u9TFYg9p6qgvTBhTeu0HMAfy96_TURzWWB2xgFQSh5WWos18lF_pNATtQpCLPSmbQXnXQyoyx3rRE6PCAo/s400/LI-archi-PA-106b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "Three-storey red pressed-brick and sandstone rowhouse with a full-height copper-clad rounded oriel, decorative copper cornice/balcony, steep gabled dormer with finial — the 1892 Thomas & Rapp building (217, the John M. Clark apartments per the AIC monograph index). Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-220",
+  "kind": "photograph",
+  "title": "Row houses on East Cullerton, looking along the street",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZIpAbS5Oi7ucEs788wUDTMpV9QJOUI4aZYOm4_9RiPHsbYWUz9S7ivzFbSBuCMIYTdOqiPh2yo35hlIQ1PHdGiXFrGu3G3-zFyB3vDFa7WHM3I48nmbAYrBBIqI9s8BAPhP4OkIVzAyY/s400/LI-archi-PA-220b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "Street view along Cullerton with the brick rowhouses, copper oriel at left, trees and modern towers beyond — context for the Cullerton frontage south of the Second Presbyterian Church block. Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-222",
+  "kind": "photograph",
+  "title": "213 E Cullerton Street (entrance detail)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8jU25CuH2v3xvD8NFyMbRuOOrcUkQqZyjGlg-2hudFm-f6ZSBfOv9HRr8JvL9B72S4_FxtT7oIbef6iGKyMrEBcRD7LZshMK5YkihDwNbK8eXJTIT3GKG8KzvKXP-Df_FBpQmr3qa01A/s400/LI-archi-PA-222b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "Entrance detail of 213 (1891, Thomas & Rapp): red brick and red sandstone, pedimented door surround with carved bosses, barred windows. Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-224",
+  "kind": "photograph",
+  "title": "215 E Cullerton Street",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3epN0bYAJfYsl0UVNaKPBYxuPo91_sqWe3gL9hr2kHCl2Q87C1MVQBNa12YPYslbSXKEe05LFE6yLqw4INa1zDr2Trc6fYa0yh0vjACOrROqLtD1qs74XBnowx-VKAYCA_Gy_mmTXHDw/s400/LI-archi-PA-224b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "215 (c.1870, Italianate): brick front with round-arched ground-floor windows and door, stone sills, behind an iron fence and garden — the oldest of the three; c.1870 fabric present in 1904. Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-223",
+  "kind": "photograph",
+  "title": "217 E Cullerton Street (ground floor)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0PGqoExrb5zTfMu0gB9X9VrHfD7Q9syz173jrbR499lBgRQ982nCIAbU2v6_qxTb12fjeq-noYChgWlvq4_zcpLnnzp0XQ2fANo9Tpl5lWDfn2JVKLCuf6C7sR53Fxjon0l_HV2YIbfw/s400/LI-archi-PA-223b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "Ground floor of 217: twin round-arched windows with iron grilles, red sandstone base, entrance with transom, copper oriel above. Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-jyoti-cullerton-225",
+  "kind": "photograph",
+  "title": "Three row houses at East Cullerton (overall view)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "213–217 E. Cullerton Street"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": null,
+  "camera_position": null,
+  "date": "2009 (post date; photographs c. 2009)",
+  "date_earliest": 2008,
+  "date_latest": 2009,
+  "period": "later",
+  "creator": "Jyoti Srivastava (blog photographer; '© 2009' watermark on some)",
+  "repository": "Chicago - Architecture & Cityscape (blog)",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhht3_yDTmynvgA8uit0tx76XrcDCn_ms8c8nEvJBb917jQ_1ajVFMYkvxaZMvRrQu7kT2aTgvXxq5zdn7qQZ04x2sJvlNtp3Mzps19C4mHFIIWSGuWfR7KWrtDofvO-4QnpHY7DpI6BV4/s400/LI-archi-PA-225b.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Blog photographs with photographer's © watermark",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "WebSearch 'Cullerton rowhouses Prairie Avenue District 213 215 217'",
+  "notes": "Overall view of the group between a modern apartment tower and a loft building (the 1922 Atwell Printing building at 221 E. Cullerton replaced residences per the AIC index). Blog dates: 213 completed 1891 (Thomas & Rapp), 215 1870 (architect unknown), 217 1892 (Thomas & Rapp) — all three standing in 1904. Modern state (copper patinated, later windows/fences).",
+  "measurements": []
+ },
+ {
+  "id": "a19-rebj-1884-murray-permit",
+  "kind": "permit record",
+  "title": "Building permits: 'Mrs W H Murray, 2-story dwelling, 32x58, No 1919 Prairie av. $30,000.' (The Real Estate and Building Journal, 14 June 1884)",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "June 14, 1884 (issue)",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "The Real Estate and Building Journal (Chicago, R. C. Smyers)",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Real Estate and Building Journal v.25:35–v.26 (1883–1884) — IA realestatebuildi2535unse",
+  "call_number": "issue of Saturday, June 14, 1884, 'The Record — Building Permits', printed p. 282, third column (IA leaf n585)",
+  "catalog_url": "https://archive.org/details/realestatebuildi2535unse/page/n585/mode/1up",
+  "image_url": "https://archive.org/download/realestatebuildi2535unse/page/n585_w2400.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in Chicago 1884/1886",
+  "local": {
+   "display": "research/images/files/a19-rebj-1884-murray-permit.jpg",
+   "display_bytes": 1051004,
+   "thumb": "research/images/files/a19-rebj-1884-murray-permit-thumb.jpg",
+   "thumb_bytes": 44498,
+   "original_px": [
+    3595,
+    4827
+   ],
+   "original_sha256": "2df2d479ffbc74554575e23bff1ed6938b40d4260e0940d346a4844fa9153ac9",
+   "original_bytes": 2677082,
+   "fetched_from": "https://archive.org/download/realestatebuildi2535unse/page/n585_w2400.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "IA full-text search '\"1919 Prairie avenue\" remodeled' → item text grep; page images viewed",
+  "notes": "The original building permit for the William Murray house that became Marshall Field Jr.'s: 'Mrs. W. H. Murray, two-story dwelling, 32x58, No. 1919 Prairie Avenue, to cost' $30,000 (editorial column) / permit list entry 'Mrs W H Murray, 2-story dwelling, 32x58, No 1919 Prairie av. $30,000'. Fixes the Beman house's 1884 footprint at 32 × 58 ft (two storeys plus attic/gables per photographs) — the 1902 D. H. Burnham & Co. enlargement (20-ft strip from Field Sr.) made it much larger by 1904. Dates construction to 1884 (building-research.json has '1867 (marker); 1883 Beman commission').",
+  "measurements": [
+   {
+    "what": "dwelling (permit)",
+    "value": "32 × 58 ft, two storeys, $30,000",
+    "locator": "REBJ 14 June 1884, Building Permits"
+   }
+  ]
+ },
+ {
+  "id": "a19-rebj-1886-ream-purchase",
+  "kind": "document",
+  "title": "'Mary W. and O. R. Keith sold to N. B. Ream 83x177½ feet on Prairie ave. between 18th and 20th streets, at No. 1901, for $140,000' (The Real Estate and Building Journal, 6 Feb 1886)",
+  "building_ids": [
+   "pa-1901-15"
+  ],
+  "addresses": [
+   "1901 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "February 6, 1886 (issue); deed dated January 1886",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "The Real Estate and Building Journal (Chicago, R. C. Smyers)",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Real Estate and Building Journal v.28 (1886) — IA realestatebuildi2818unse",
+  "call_number": "issue of Saturday, Feb. 6, 1886, real-estate news column (IA search-inside leaf 120; recorded transfer, 'Jany 8', at leaf 102)",
+  "catalog_url": "https://archive.org/details/realestatebuildi2818unse",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in Chicago 1884/1886",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA full-text search '\"1901 Prairie avenue\" Ream' → item text grep and search-inside",
+  "notes": "Gives the 1901 Prairie lot as 83 × 177½ ft and the price ($140,000, house and lot) when O. R. Keith sold to Norman B. Ream in January 1886 — a year before the January 1887 fire after which Burnham & Root rebuilt the top floor. The same volume's permit tables include an 1886 entry for 'O R Keith … 1901 Prairie av … 3 … Dwelling' whose details could not be read from the OCR (lead). Page image for the exact leaf not pinned down (IA leaf/page offsets inconsistent); text read in the item's OCR.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "83 × 177½ ft",
+    "locator": "REBJ 6 Feb 1886, real-estate news"
+   }
+  ]
+ },
+ {
+  "id": "a19-nrhp-clarke-nomination-and-2000-amendment",
+  "kind": "document",
+  "title": "National Register nomination, Henry B. Clarke House, 4526 South Wabash Avenue (before 1872, 16th and Michigan), with 'Henry B. Clarke House Amendment: Relocation' (2000)",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)",
+   "1827 S. Indiana Avenue (1977– site)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "original nomination c.1970–71 (Commission on Chicago Historical and Architectural Landmarks); amendment prepared August 23, 2000",
+  "date_earliest": 1970,
+  "date_latest": 2000,
+  "period": "later",
+  "creator": "Susan Benjamin, Commission on Chicago Historical and Architectural Landmarks (1970s form); City of Chicago Dept. of Cultural Affairs (2000 amendment)",
+  "repository": "Internet Archive (item NationalRegisterNominationsForChicago, file HenryClarkeHouseNrNom.pdf)",
+  "collection": "National Register Nominations for Chicago (compilation)",
+  "call_number": "HenryClarkeHouseNrNom (24 pp.)",
+  "catalog_url": "https://archive.org/details/NationalRegisterNominationsForChicago",
+  "image_url": "https://archive.org/download/NationalRegisterNominationsForChicago/HenryClarkeHouseNrNom.pdf",
+  "rights": "unknown — link only",
+  "rights_basis": "Government nomination forms; compilation uploader's rights not stated; includes photographs/plans of unknown authorship",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA full-text search '\"Chrimes\" \"Wabash avenue\" oldest house' → item file list",
+  "notes": "Original form (read in OCR): 13-room two-storey frame house of rough-hewn oak, raised basement, 'Italian Victorian cupola, added after construction'; tall narrow main-floor windows, small 'eyebrow' windows upstairs; low-pitched front gable; 'originally … a typical Greek Revival columned portico'; moved 1872 by John Chrimes to 4526 S. Wabash; owner since 1941 St Paul Church of God in Christ. Bibliography lists Tribune 'The Clarke House: Henry B. Clarke's Ten Thousand Dollar House' (26 May 1872) and 'Discovery of Interesting Papers' (9 June 1872), plus 1939–1969 'oldest house' articles. 2000 amendment: footprint 42.44 × 47.37 ft, east facade, raised portico 31 × 9.5 ft (restored 1980 from a c.1855 daguerreotype in the Chicago Historical Society); HABS 1935 found most window mouldings, pilasters, shutters and the portico modified/removed; four corner pilasters, two roofline pediments and the cupola remained; neither the 1836 nor the 1872 foundation survives. Includes a site plan and floor plans of the house at 1827 S. Indiana (pp. 16–18) and a mid-20th-century photograph (p. 24). For 1904: the house stood at 4526 Wabash with cupola, no portico.",
+  "measurements": [
+   {
+    "what": "house footprint",
+    "value": "42.44 × 47.37 ft",
+    "locator": "2000 amendment, Section 7 p.2"
+   },
+   {
+    "what": "portico (restored 1980)",
+    "value": "31 × 9.5 ft",
+    "locator": "2000 amendment, Section 7 p.2"
+   }
+  ]
+ },
+ {
+  "id": "a19-landmark-2ndpres-1976",
+  "kind": "document",
+  "title": "Second Presbyterian Church, 1936 South Michigan Avenue — Preliminary Summary of Information (Commission on Chicago Historical and Architectural Landmarks, March 1, 1976)",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "March 1, 1976",
+  "date_earliest": 1976,
+  "date_latest": 1976,
+  "period": "later",
+  "creator": "Commission on Chicago Historical and Architectural Landmarks",
+  "repository": "Internet Archive (item CityOfChicagoLandmarkDesignationReports)",
+  "collection": "City of Chicago Landmark Designation Reports (compilation)",
+  "call_number": "SecondPresbyterianChurch.pdf (11 pp.)",
+  "catalog_url": "https://archive.org/details/CityOfChicagoLandmarkDesignationReports",
+  "image_url": "https://archive.org/download/CityOfChicagoLandmarkDesignationReports/SecondPresbyterianChurch.pdf",
+  "rights": "unknown — link only",
+  "rights_basis": "City of Chicago reports; photographs by named photographers (e.g. Bob Thall, Hedrich-Blessing) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA full-text search (Clarke/Chrimes query) → item file list",
+  "notes": "Most detailed account found of the church's EXTERIOR as it stood in 1904 (read in OCR). Cornerstone 21 Sept 1872; first services Jan 1873 (Sunday-school room) and 30 Nov 1873 (sanctuary); BELL TOWER COMPLETED 1884. 'The tower was originally topped by a graceful spire with a tall, slender finial, but these were lost due to wind damage in 1929' (the 1974 NRHP form instead says the tower's hipped roof was removed after a 1959 storm — conflict to resolve with dated photographs; either way the 1904 tower had a tall roof/spire). Church ~60 ft high; exterior 110 × 168 ft; nave about 72 × 116 ft; seats ~1,200. Fire of 9 March 1900 destroyed the roof and much of the nave interior; Shaw's rebuild LOWERED and flattened the nave roof (original 'more sharply pitched and its peak considerably higher'), and the east-wall rose window (La Farge round mosaic, destroyed 1900) was replaced. Exterior description: four-storey square tower with corner buttresses, open belfry with paired pointed arches and angel figures, corner gargoyles; central Gothic portal with head of Christ; five lancets and a large window under the gable with symbols of the Evangelists; north buttress pinnacle 'once topped by a tall finial'; north and south walls with three rows of windows (copper-framed opalescent clerestory, six large pointed windows, small windows below); north side brick; west transverse section with wheel window and copper oriel; mottled bituminous limestone laid in banded stringcourses. Original interior: tall Gothic arches on slender cast-iron columns, light and airy.",
+  "measurements": [
+   {
+    "what": "church exterior",
+    "value": "110 × 168 ft",
+    "locator": "report p.4"
+   },
+   {
+    "what": "height",
+    "value": "about 60 ft ('six-story building')",
+    "locator": "report p.4"
+   },
+   {
+    "what": "nave",
+    "value": "about 72 × 116 ft",
+    "locator": "report p.4–5"
+   },
+   {
+    "what": "bell tower completed",
+    "value": "1884",
+    "locator": "report p.4"
+   },
+   {
+    "what": "spire and finial lost",
+    "value": "1929 (wind damage)",
+    "locator": "report p.5"
+   }
+  ]
+ },
+ {
+  "id": "a19-landmark-clarke-report",
+  "kind": "document",
+  "title": "Henry B. Clarke House (City of Chicago landmark designation report)",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "1827 S. Indiana Avenue (1977– site; report gives 1855 S. Indiana)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "after 1982 (describes the restored house; photographs by Bob Thall and Hedrich-Blessing)",
+  "date_earliest": 1982,
+  "date_latest": 2000,
+  "period": "later",
+  "creator": "Commission on Chicago Landmarks (eds. Joan Pomaranc and Roy Forrey)",
+  "repository": "Internet Archive (item CityOfChicagoLandmarkDesignationReports)",
+  "collection": "City of Chicago Landmark Designation Reports (compilation)",
+  "call_number": "ClarkeHouse.pdf (8 pp.)",
+  "catalog_url": "https://archive.org/details/CityOfChicagoLandmarkDesignationReports",
+  "image_url": "https://archive.org/download/CityOfChicagoLandmarkDesignationReports/ClarkeHouse.pdf",
+  "rights": "unknown — link only",
+  "rights_basis": "City of Chicago reports; photographs by named photographers (e.g. Bob Thall, Hedrich-Blessing) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA full-text search (Clarke/Chrimes query) → item file list",
+  "notes": "Landmark brochure-report on the restored house at its present site. Says the Italianate cupola 'was added to the house in the 1850s'; moved in 1872 to 45th Street and Wabash Avenue and in 1977 to its present site; reproduces a HABS 1935 photograph noting 'much of the detailing was gone, including the front portico which had been removed when the house was moved in 1872.' Modern photographs show the 1980 restored portico — not the 1904 state.",
   "measurements": []
  }
 ]
