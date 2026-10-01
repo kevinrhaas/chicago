@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
+    items: [
+      'Cross the Lake Street bridge to the west bank and the first lot on your left, at the corner of Lake and West Water, now has a building on it: a narrow two-storey warehouse of unpainted vertical boards, 23 by 44 feet, facing the river across West Water Street.',
+      'It has two loading bays, each a wagon door with a cargo door above it, and a hoist beam over them. It is the West Division\u2019s second freight building; the only other one is a small shed far out on Des Plaines Street.',
+      'Nobody is recorded owning a warehouse here in July 1835, so the building, its size and its place are ours. The lot is the 1830 plat\u2019s own lot 1, and the warehouse\u2019s card says what was invented and what would replace it.',
+    ] },
   { v: 1249, ts: '2026-10-01T08:03:51.291Z', date: 'Oct 1, 2026, 3:03 AM CT', title: 'Two farm families move into the cabins beside the barns', kind: 'change',
     items: [
       'Out on the Des Plaines prairie edge, two log cabins stand near a barn. Open the Ayers or the Beegle household card now and it gives each family one of those cabins, with a button that walks you there. Before, both cards said the family had nowhere to live.',

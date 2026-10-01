@@ -1,3 +1,25 @@
+## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
+
+**T-1764 was split** (T-1773, T-1774). Its first clause — the cabins and boarding houses
+of the forks — sits in two rows the order book gives to other tickets (`ordinary_dwellings/west`,
+24 left, now T-1783; `larger_boarding_houses/west`, 4 left, now T-1779), and both parents were
+claimed by sibling runs at 04:09Z. Its closing clauses (the pre-plat roofs reconciled, the
+refusals resolved, the frame budget read, T-1208 handed on) cannot close honestly before those
+land, so they are T-1774. The one West row T-1764 owned outright was `warehouses_freight/west`,
+2 set and 1 standing, and that is this unit.
+
+**What stands now.** `recon_1835_forks_freight_f2_001`, an F2 narrow two-storey warehouse
+(hoist, two cargo bays, vertical boards), on the corner of plat lot 1 of `blk_west_lake_canal`
+— Lake and West Water, facing the South Branch at the forks — 1.5 m inside both street lines.
+Its own generator (`tools/generate_west_freight.py`, `--check` and `--self-test` in the gate)
+because the West grid is unscheduled (T-1455) and the block parcels cannot deal onto it. The
+first placement, centred on the lot, stood 8.15 m off Lake Street and the anonymous-roof audit
+refamilied it to H2 (`commercial_front` puts a freight roof on the line); moved to the corner,
+the audit keeps it. L308 records the invention; L263 (477) and L280 (three F2 roofs) are
+restated. The order book now reads the West freight row 2 of 2.
+
+**Verification.** See the PR: `check.sh` and the `--for-diff` smoke parts at both viewports.
+
 ## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
 
 T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on

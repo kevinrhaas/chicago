@@ -70,7 +70,7 @@
    "merchant_and_professional_dwellings": 371,
    "tradesman_dwellings": 547
   },
-  "roofs_offered_for_adoption": 144,
+  "roofs_offered_for_adoption": 145,
   "roofs_held_back": 55
  },
  "what_the_plat_could_not_hold": {
@@ -538,7 +538,7 @@
   },
   {
    "block_id": "blk_indiana_north_wolcott",
-   "family": "F2",
+   "family": "F3",
    "roofs": 1,
    "district": "north",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -587,17 +587,17 @@
   },
   {
    "block_id": "blk_south_water_dearborn",
+   "family": "F3",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  },
+  {
+   "block_id": "blk_south_water_dearborn",
    "family": "H3",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_dearborn#07, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_south_water_dearborn",
-   "family": "W2",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_south_water_wells",
@@ -650,17 +650,17 @@
   },
   {
    "block_id": "blk_washington_clark",
-   "family": "F4",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_washington_clark",
    "family": "H3",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_clark#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_washington_clark",
+   "family": "W1",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_dearborn",
@@ -692,17 +692,17 @@
   },
   {
    "block_id": "blk_washington_dearborn",
+   "family": "F3",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  },
+  {
+   "block_id": "blk_washington_dearborn",
    "family": "H3",
    "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_dearborn#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_washington_dearborn",
-   "family": "W1",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_dearborn",
@@ -748,17 +748,17 @@
   },
   {
    "block_id": "blk_washington_market",
-   "family": "F3",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_washington_market",
    "family": "H3",
    "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_washington_market",
+   "family": "W2",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   }
  ],
  "seats": [

@@ -14137,7 +14137,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 476 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 477 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14176,7 +14176,8 @@ Addition's first stable — a wider and deeper roof plane than anything the reci
 north of the river, taking the same exposure across more of it. T-1760's first deal on
 `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room
 cottage on Clinton Street, and a stable off the alley behind the first. All three state a
-roof type and are shingled by this exposure. No record's
+roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes
+**477** — one F2 roof, the West Division's second freight roof (L308). No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -15728,9 +15729,10 @@ and **L277** on the store-residences.
 
 ### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
 
-**Scope:** `structures.phases[cargo_rhythm]` — 2 phases built with a cargo-door
-rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01` and
-`recon_1835_blk_south_water_lasalle_f2_10`, the town's only two **F2** roofs. The rhythm itself is `goods_door_bays` and
+**Scope:** `structures.phases[cargo_rhythm]` — 3 phases built with a cargo-door
+rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`,
+`recon_1835_blk_south_water_lasalle_f2_10` and, since T-1773,
+`recon_1835_forks_freight_f2_001` at Lake and West Water — the town's three **F2** roofs. The rhythm itself is `goods_door_bays` and
 `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
 `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
 families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No
@@ -15776,7 +15778,7 @@ set-out therefore serves both storeys, which is also what keeps the frames at th
 and the openings above from drifting apart.
 
 **The over-claim, taken deliberately and not hidden.** F2's assumption note reads *"Hoist
-beam presence varies"*, and giving both of the town's F2 roofs a hoist claims a uniformity
+beam presence varies"*, and giving every F2 roof in the town a hoist (two, and since T-1773 three) claims a uniformity
 that note warns against. It is taken because the same entry's EVIDENCE note names
 "warehouse framing/hoist support" as what this archetype must add before the family is
 satisfied, and because a two-storey warehouse whose only opening is a ground door cannot
@@ -17487,6 +17489,45 @@ stock, or evidence locating an operating forks ferry on the scene date.
 
 **Recorded:** 2026-09-30 (T-1765).
 
+### L308 — The West Division's second freight roof: a warehouse at Lake and West Water that no source seats
+
+**Applies to:** `recon_1835_forks_freight_f2_001` (`data/structures/`), written by
+`tools/generate_west_freight.py` from `data/reconstruction/1835_west_freight_forks.json`.
+
+**What we invented:** The whole building. The order book's `structures/warehouses_freight/west`
+row sets two freight roofs for the West Division and found one standing (`recon_1835_west_046`,
+an F1 shed far out on Des Plaines Street), so it ordered one more. This is that roof: an **F2**
+narrow two-storey warehouse with a hoist door and vertical boards — the family's own crosswalk
+variants — on plat lot 1 of `blk_west_lake_canal`, the Lake Street corner of the block's West
+Water column. It stands on the corner, 1.5 m inside the lot's West Water line and 1.5 m inside its
+Lake Street line — both street lines, where the placement policy's `commercial_front`
+clause puts a freight roof (set back 8 m on the lot's centre, the anonymous-roof audit
+refamilied it to H2) — facing the South Branch at the forks; its rear runs toward the block's alley. Footprint,
+storeys, eave, pitch, finish, the cargo-door count (L280) and the shingle exposure (L263) are
+all type-level values from the reconstruction specification, sampled deterministically from
+the F2 band. No owner, forwarder, cargo or occupant is claimed.
+
+**Why here:** The West memo keeps the named landings for named records and seats anonymous
+freight on the approaches. The one platted West Division ground that faces the river at the
+forks is the east column of this block, and lot 1 is the first lot a cart reaches off the
+Lake Street bridge. The lot is the plat's (Thompson 1830, numeral read); the building on it
+is nobody's reading.
+
+**Bounds held by the generator:** wholly on its lot; out of every drawn street corridor and
+refused ground; 36.9 m from traced water (the memo's anonymous setback is 8 m); 26.9 m from
+the nearest footprint (the Green Tree Tavern); dry modelled ground at every corner with
+0.02 m of relief; facade toward West Water. `--self-test` refuses a roof moved into the
+street, one straddling the next lot, one turned to face the alley and a family the recipe
+did not order.
+
+**Would replace:** Any reading that seats a named forwarder or warehouse in the West
+Division in July 1835 substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_forks_freight_f2_001.inferred_1835.position`, `recon_1835_forks_freight_f2_001.inferred_1835.footprint`.
+
+**Ticket:** T-1773 (piece of T-1764, under T-1207).
+
+**Recorded:** 2026-10-01 (T-1773).
 ### L310 — Three West roofs nobody holds, given a stated use
 
 **Applies to:** `data/reconstruction/1835_stated_uses.json`

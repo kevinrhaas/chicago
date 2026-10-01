@@ -326,13 +326,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # mean three more meshes a shared generator or emit.py change would re-stale; the terrain
 # reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved.
 #
+# 499 -> 500 and 495 -> 496 on 2026-10-01 (T-1773): one roof, the West Division's second
+# freight roof — an F2 warehouse at Lake and West Water. One more mesh the shared generator
+# modules or emit.py would re-stale, on the same terms as every entry above.
+#
 STATED = {
-    "assets": 499,
+    "assets": 500,
     "restales": {
-        "generators/common/*.py": 499,
+        "generators/common/*.py": 500,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 495,
+        "generators/emit.py": 496,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
