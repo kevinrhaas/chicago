@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1263, ts: '2026-10-01T15:49:50.845Z', date: 'Oct 1, 2026, 10:49 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+  { v: 1264, ts: '2026-10-01T15:58:46.681Z', date: 'Oct 1, 2026, 10:58 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
       'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
       'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+    ] },
+  { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+    items: [
+      'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
+      'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
     ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [

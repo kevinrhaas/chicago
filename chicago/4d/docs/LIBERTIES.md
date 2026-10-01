@@ -14170,8 +14170,9 @@ Cass Street, and by then the exposure on an Addition roof is the ordinary case r
 new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest
 single move this count has taken from one parcel: seven dwellings — two small two-story frame
 houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages —
-with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs
-that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
+with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their
+yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count),
+thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
 the Cass cell makes **473**, and it is the first addition to this entry that is not four of
 the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
 Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
@@ -15060,6 +15061,13 @@ re-apportionment opened and hh_clement_dorcinrk loses one there, so the total ho
 gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on
 the same terms as every paragraph above: a roof raised in answer to a request is not reserved to
 the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner.
+**Restated 2026-10-01 (T-1802), and no seat moved.** The block's recipe now records the seven
+households that ask for it on `dev` of that date, re-derived by taking the deal off and walking
+the chain to its fixpoint (**L304**): hh_chapman_george and hh_chandler_catherine stand where
+hh_chevalier_joseph and hh_chiney_ralph stood, and hh_chattin_clark asks for lot 7 rather than
+lot 5. With the deal standing, the chain reads **183** seated (**148** adopted, **35** slots) and
+**1,295** handed on, the same as before the correction, and the same seven households hold the
+seven roofs.
 
 **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its
 principal room out can offer no slot, so this block's seven come off the table and the tier is
@@ -17295,8 +17303,8 @@ and standing empty until now — carries **thirteen anonymous roofs**: seven dwe
 lot, and six yard buildings behind them. The seven are the two small two-story frame houses
 (D7), the merchant-or-professional house (H2), the larger one-and-a-half-story house (H1) and
 the three one-room cottages (D3) that T-1522's placement pass wrote `slot` requests for against
-this block's own committed plan; the six are two stables, a carriage shed, two woodsheds and a
-privy. The ceiling, the family mix and the lots are the seating's and the schedule's;
+this block's own committed plan; the six are a stable, a carriage shed, two woodsheds, a privy
+and a small utility building. The ceiling, the family mix and the lots are the seating's and the schedule's;
 **everything below that is invented** — that any building stood on this block in July 1835,
 which buildings they were, that they were dwellings, how far back from its street edge each
 sits and how far to one side of its lot. No coordinate is authored: every metre is read off the
@@ -17321,9 +17329,10 @@ July 1835 is a claim nothing supports.
 **Why these yard buildings behind these houses.** The block's plan holds six and all six are
 built, which is the difference from `blk_washington_clark` (**L292**), where four of six were
 argued away as claims about how two tradesmen's households lived. They are dealt UP the
-household scale rather than evenly: the carriage shed stands in the merchant's yard, a stable
-apiece behind the one-and-a-half-story house and the D7 on the Washington-and-Franklin corner,
-woodsheds behind the other D7 and behind one cottage, and the privy behind another. **One
+household scale rather than evenly: the carriage shed stands in the merchant's yard, the stable
+behind the one-and-a-half-story house, the small utility building behind the D7 on the
+Washington-and-Franklin corner, woodsheds behind the other D7 and behind one cottage, and the
+privy behind another. **One
 household is dealt nothing at all** — the cottage on the Madison-and-Wells corner stands in an
 open yard — because six were apportioned and seven dwellings are raised. That is the plan
 binding, not an omission; the schedule re-derives with fourteen roofs of headroom still on the
@@ -17353,6 +17362,30 @@ block between Washington and Madison, Franklin and Wells, and a reading of Thomp
 numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
 roof and never increases the total. Any evidence that the tier south of Washington was still
 wholly unbuilt in July 1835 would retire all thirteen of these rather than re-place them.
+
+**CORRECTED 2026-10-01 (T-1802): THE RECIPE HAD BEEN CUT ON AN OLDER SEATING THAN THE ONE IT
+LANDED ON.** The recipe entry #186 merged was written when its branch was first cut. Its seven
+`dealt_against_a_request` seats (hh_aspam_antoine, hh_ashbaugh_fre, hh_bailly_esther,
+hh_aspam_jean_baptiste, hh_calhoun_alvin, hh_cady_levi, hh_campbell_james_b) no longer asked for
+this block by the day it merged, and its yard plan carried two stables where the block's
+665-schedule plan holds one stable and one small utility building (A1 + A5). The requests are what
+`adopt_street_faces.py` reads to hold a roof back for the household that asked (refusal 7), so the
+derived adoptions file was naming the wrong households and no gate could see it. **Both are now
+re-derived against `dev` of 2026-10-01**, by taking this block's deal off (its recipe entry and its
+thirteen records) and walking the seating chain to its fixpoint. The placement pass then writes a
+`slot` against this block for hh_beddlecome_ash (lot 0, D7), hh_benediet_loma (lot 2, H2),
+hh_beech_reuben (lot 4, H1), hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3),
+hh_chandler_catherine (lot 5, D3) and hh_chattin_clark (lot 7, D3), and the recipe now records
+those seven. They ask for exactly the families the deal raised, so lot 7 stays a D3: the D4 that
+the 2026-09-29 seating asked of it no longer stands, and the roofs refusal 7 holds back are the
+same seven roofs. The same counterfactual reads the block's yard plan as A1 + A2 + A3 + 2 A4 + A5,
+so the stable on lot 0 is now a small utility building (`recon_1835_blk_washington_franklin_a5_08`,
+re-baked, replacing `…_a1_08`). Nothing else moved. The seating reads 183 seated (148 adopted,
+35 slots) and 1,295 handed on, before and after, and the other twelve roofs keep their ids,
+positions and footprints. The stable that is no longer built here goes back into the South
+Division's remaining plan (barns and stables owed there 8 → 9; small outbuildings 13 → 12). Which
+household asked is still not who lives there: all seven roofs stay adopted by the households
+named above, and the seven who asked hold slots on the Dearborn, Clark and Market blocks.
 
 **Covers:** `recon_1835_blk_washington_franklin_*.inferred_1835.position`,
 `recon_1835_blk_washington_franklin_*.inferred_1835.footprint`
