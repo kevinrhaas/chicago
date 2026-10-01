@@ -1,0 +1,141 @@
+{
+  "id": "tremont_house_1_stable",
+  "phase": "stable_1833",
+  "name": "The Tremont House's Stable",
+  "aka": [
+    "the Tremont House (the first) stable"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/tremont_house_1_stable__stable_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1839-10-27",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "COPIED FROM THE HOUSE IT SERVES (data/structures/tremont_house_1.json, phase frame_1833, 1833-01-01 to 1839-10-27). No source dates this building, because no source mentions it. The stable is taken to stand while the house kept travellers, because keeping a traveller's horse overnight was a priced service of a Chicago tavern from the county's first licences on (the 1831 order below). If the house kept its horses at a livery or a neighbour's barn instead, this range is wrong in the only way that matters: the building was not there. T-1776."
+  },
+  "change_note": "A stable behind the Tremont House (the first), sized from the beds the lodging model gives the house and placed on its own ground. T-1776.",
+  "placement": {
+    "local_e": 673.7,
+    "local_n": -66.6,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_clark lot #07, the Tremont's own corner lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) and 1.5 m inside the lot's Dearborn line, under the house's east half. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L313.",
+    "symbolic_location": "Rear of the first Tremont House's lot at the north-west corner of Lake and Dearborn, against the block's east-west alley.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        10.97,
+        0
+      ],
+      [
+        10.97,
+        8.53
+      ],
+      [
+        0,
+        8.53
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, AND SIZED FROM THE HOUSE'S BEDS. The lodging model (data/reconstruction/1835_lodging_model.json, T-1164) puts 12 in the Tremont House (the first) on an ordinary night (35 crowded), itself graded reconstructed. ONE STALL PER ORDINARY GUEST, not one per two, because this house was a stage stop: the 1874 letter on chicagology_prefire021 has 'the stage' driven to this corner and passengers walking two blocks when 'the horses could not navigate' the mud. A stage's teams are changed and stood at the house it stops at, so this house kept more horses per bed than a house that only served riders. 12 beds x 1 = 12 stalls; two ranges of 6 single standing stalls 5 ft wide either side of an 8 ft passage (10 + 8 + 10 = 28 ft deep, the Western Hotel stable's own section from T-1775), plus a 6 ft bay for harness and feed: 6 x 5 + 6 = 36 ft long by 28 ft deep = 10.97 x 8.53 m. The ordinary night, not the crowded one, as the beds are sized. Every factor is ours and stated so it can be replaced: an advertisement or a sale notice naming this house's stabling, a fire-loss list, or a lot-level view of the block. L313."
+  },
+  "attributes": {
+    "construction": {
+      "value": "plank",
+      "confidence": "inferred",
+      "note": "NOT STATED BY ANY SOURCE. Plank, the same reading as the Western Hotel's stable of 1834 and for the same reason: by the time this house kept travellers the town's sawmills of 1832-33 were cutting boards, and a stable is the building a keeper put up quickest and cheapest. The log reading of the Wolf Point stable is the earlier date's answer and is not carried here."
+    },
+    "wall_height_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.0 m is about 10 ft: a horse led in under a header with a loft for hay above the stalls, and the archetype's own size-aware default for a footprint of this size. What is inferred is the range, not the number."
+    },
+    "door": {
+      "value": "stable",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "note": "THE PRICED SERVICE IS THE ARGUMENT, as at the Wolf Point stable: a horse kept overnight is a horse led in and out, and the archetype's 'stable' door (1.35 m clear) is the opening that allows it."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. The front, at bearing 0, chosen so the door faces the block alley the placement policy puts a stable's traffic on. L313."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "No source describes a finish. An unpainted plank stable behind a painted house is the ordinary reading; nothing states it either way."
+    },
+    "function": {
+      "value": "hotel_stable",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "note": "A PRICE DOCUMENTS A SERVICE; THE BUILDING IS THE INFERENCE. The Cook County Court of County Commissioners, sitting at Chicago on 13 April 1831, 'Ordered that the following rates be allowed to tavern keepers', among them 'For each horse fed 25' and 'Keeping horse one night 50' (Andreas, scan p. 249). That order set what a licensed Chicago house might charge to keep a traveller's horse; it is read here as standing for every public house the lodging model sizes, which is an inference, because no licence for this house in particular has been read. WHAT IT DOES NOT PROVE: a dedicated building. A horse can be kept at a picket line, in a fenced lot or at a livery up the street; this record draws the building because a house of this size on a Lake Street lot with an alley behind it is the ordinary case, and says so. At the Tremont the case is stronger: it was a stage stop (chicagology_prefire021)."
+    },
+    "occupants": {
+      "value": "the house's keeper — Ira Couch, proprietor",
+      "confidence": "inferred",
+      "note": "Taken to have passed with the house (data/structures/tremont_house_1.json's occupants). No hostler is named and no source attaches any person to this building."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire021",
+      "citation": "\"Tremont House.\" Chicagology. Compiling city-directory entries 1846-1870, an uncredited building summary, Chicago Illustrated (January 1866) by James W. Sheahan, and a reader's letter headed \"THE FOUR TREMONTS\", Chicago Tribune, 2 February 1874.",
+      "url": "https://chicagology.com/prefire/prefire021/",
+      "archived_url": "https://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "built 1833 at the north-west corner of Lake and Dearborn streets",
+        "frame / wooden construction, twice attested in period texts on the page",
+        "\"a mere shell, without any sidewalk around it\", poorly furnished, rooms not entirely carpeted, beds often without a pillow",
+        "Ira Couch became proprietor the year after it was built, i.e. 1834",
+        "the corner impassable to the stage in early spring, passengers walking some two blocks",
+        "destroyed by fire in the fall of 1839",
+        "kept by the Couch brothers (Chicago Illustrated, 1866)"
+      ],
+      "what_it_does_not_supply": [
+        "an independent storey count - the only one on the page is an uncredited modern summary sentence",
+        "any dimension, plan or roof form",
+        "the builder's name (Alanson Sweet is not on this page)",
+        "the first proprietor Starr Foot, or the 1835 sale to Mallory & Able",
+        "anything reliable in its header metadata block, which describes the later Tremonts"
+      ]
+    }
+  ],
+  "research_note": "T-1776, the second piece of T-1209: every licensed house the lodging model sizes read for its horse-keeping against its beds. This is the Tremont House (the first)'s reading — 12 ordinary beds, 12 stalls. WHAT WOULD REPLACE IT: any advertisement of the house naming its stabling (the Chicago American and the Democrat of 1834-35 carry the hotels' cards), the 1839 fire-loss lists, or a lot-level reading of Wright 1834 / Hathaway 1834 for this block. docs/RESEARCH/1835_tavern_horse_keeping.md carries the ledger for all nine houses.",
+  "research_doc": "",
+  "review_required": false
+}

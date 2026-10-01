@@ -97,6 +97,23 @@
     "confidence": "inferred",
     "note": "Taken to have passed with the house (data/structures/steamboat_hotel.json's occupants). No hostler is named and no source attaches any person to this building."
   },
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 63 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 63.3,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
   "research_note": "T-1776, the second piece of T-1209: every licensed house the lodging model sizes read for its horse-keeping against its beds. This is the Steamboat Hotel's reading — 11 ordinary beds, 6 stalls. WHAT WOULD REPLACE IT: any advertisement of the house naming its stabling (the Chicago American and the Democrat of 1834-35 carry the hotels' cards), the 1839 fire-loss lists, or a lot-level reading of Wright 1834 / Hathaway 1834 for this block. docs/RESEARCH/1835_tavern_horse_keeping.md carries the ledger for all nine houses.",
   "review_required": false
 }

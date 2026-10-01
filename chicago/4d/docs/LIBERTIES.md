@@ -10844,9 +10844,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 91 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 92 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 92 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10861,7 +10861,8 @@ to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next ce
 the same north fraction, which reach the register for the same reason and change nothing about
 how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose
 two two-room cottages and their woodshed and stable stand four lots west of the first deal's
-pair inside the one tract). The construction is
+pair inside the one tract; and 91 to 92 on 2026-10-01, T-1776's stable behind the Steamboat
+Hotel, which stands in the same north fraction as the house it serves). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,

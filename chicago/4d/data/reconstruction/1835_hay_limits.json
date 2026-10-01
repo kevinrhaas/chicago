@@ -578,7 +578,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 16,
+    "roofs_scheduled": 15,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -870,7 +870,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 16,
+    "roofs_scheduled": 15,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -1091,7 +1091,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 1
+    "roofs": 0
    },
    {
     "id": "west_division_beyond_committed_control",
