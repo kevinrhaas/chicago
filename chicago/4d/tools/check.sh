@@ -721,6 +721,15 @@ step "West freight roof at the forks matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
 
+step "Canal approach trade roofs match their bounded recipe" \
+  python3 tools/generate_canal_approach_trade.py --check
+selftest "Canal trade placement refuses collisions and missing ground" \
+  python3 tools/generate_canal_approach_trade.py --self-test
+step "Canal trade roofs have existing keepers without invented homes" \
+  python3 tools/canal_approach_occupancy.py --check
+selftest "Canal trade occupancy preserves identities and lodging constraints" \
+  python3 tools/canal_approach_occupancy.py --self-test
+
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the

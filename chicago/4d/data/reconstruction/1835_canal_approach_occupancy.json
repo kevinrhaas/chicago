@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "ticket": "T-1766",
+  "rule": "Four newly reconstructed Canal approach trade roofs adopt four existing west trade heads, in the explicit stable family-to-head allocation below. Names and occupations come from their existing cards, never from a second mint. The placement and firm are reconstructed, not recovered addresses or documented firms. No residence is asserted. A fifth row (W3, a wagon woodwork shop for hh_rc_bacon_otis) was withdrawn with its roof when T-1783's carpenter's shop took a West workshop slot first; that keeper keeps his card and holds no firm here.",
+  "rows": [
+    {
+      "family": "C3",
+      "structure_id": "recon_1835_canal_trade_c3_001",
+      "household_id": "hh_rc_mahoney_martin",
+      "person_id": "rc_mahoney_martin",
+      "occupation": "grocer",
+      "business_id": "rcb_canal_mahoney_martin",
+      "trade": "grocery and provision store"
+    },
+    {
+      "family": "C4",
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "household_id": "hh_rc_pratt_seth",
+      "person_id": "rc_pratt_seth",
+      "occupation": "grocer",
+      "business_id": "rcb_canal_pratt_seth",
+      "trade": "grocery and provision store"
+    },
+    {
+      "family": "W1",
+      "structure_id": "recon_1835_canal_trade_w1_003",
+      "household_id": "hh_rc_lyman_lemuel",
+      "person_id": "rc_lyman_lemuel",
+      "occupation": "blacksmith",
+      "business_id": "rcb_canal_lyman_lemuel",
+      "trade": "blacksmith shop"
+    },
+    {
+      "family": "W2",
+      "structure_id": "recon_1835_canal_trade_w2_004",
+      "household_id": "hh_rc_stebbins_horace",
+      "person_id": "rc_stebbins_horace",
+      "occupation": "carpenter",
+      "business_id": "rcb_canal_stebbins_horace",
+      "trade": "carpenter shop"
+    }
+  ]
+}

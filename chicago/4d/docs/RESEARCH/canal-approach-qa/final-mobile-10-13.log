@@ -1,0 +1,701 @@
+﻿2026-10-01T07:04:18.1405120Z Current runner version: '2.337.0'
+2026-10-01T07:04:18.1422950Z ##[group]Runner Image Provisioner
+2026-10-01T07:04:18.1423471Z Hosted Compute Agent
+2026-10-01T07:04:18.1423878Z Version: 20260901.588
+2026-10-01T07:04:18.1424246Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-01T07:04:18.1424720Z Build Date: 2026-09-01T19:56:44Z
+2026-10-01T07:04:18.1425170Z Worker ID: {c7229b8f-99be-4d23-8f4a-d6886364fa9c}
+2026-10-01T07:04:18.1425574Z Azure Region: westus2
+2026-10-01T07:04:18.1425938Z ##[endgroup]
+2026-10-01T07:04:18.1426752Z ##[group]Operating System
+2026-10-01T07:04:18.1427094Z Ubuntu
+2026-10-01T07:04:18.1427480Z 24.04.5
+2026-10-01T07:04:18.1427783Z LTS
+2026-10-01T07:04:18.1428107Z ##[endgroup]
+2026-10-01T07:04:18.1428440Z ##[group]Runner Image
+2026-10-01T07:04:18.1428796Z Image: ubuntu-24.04
+2026-10-01T07:04:18.1429197Z Version: 20260927.320.1
+2026-10-01T07:04:18.1429969Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-01T07:04:18.1430827Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-01T07:04:18.1431621Z ##[endgroup]
+2026-10-01T07:04:18.1432364Z ##[group]GITHUB_TOKEN Permissions
+2026-10-01T07:04:18.1433729Z Contents: read
+2026-10-01T07:04:18.1434123Z Metadata: read
+2026-10-01T07:04:18.1434665Z Packages: read
+2026-10-01T07:04:18.1435038Z ##[endgroup]
+2026-10-01T07:04:18.1436377Z Secret source: Actions
+2026-10-01T07:04:18.1436948Z Cache mode: write
+2026-10-01T07:04:18.1437401Z Prepare workflow directory
+2026-10-01T07:04:18.1634285Z Prepare all required actions
+2026-10-01T07:04:18.1664584Z Getting action download info
+2026-10-01T07:04:18.5050457Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-01T07:04:18.5986805Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-01T07:04:18.7727619Z Complete job name: smoke
+2026-10-01T07:04:18.8171367Z ##[group]Run actions/checkout@v4
+2026-10-01T07:04:18.8171802Z with:
+2026-10-01T07:04:18.8172037Z   repository: kevinrhaas/chicago
+2026-10-01T07:04:18.8174007Z   token: ***
+2026-10-01T07:04:18.8174234Z   ssh-strict: true
+2026-10-01T07:04:18.8174466Z   ssh-user: git
+2026-10-01T07:04:18.8174705Z   persist-credentials: true
+2026-10-01T07:04:18.8174962Z   clean: true
+2026-10-01T07:04:18.8175200Z   sparse-checkout-cone-mode: true
+2026-10-01T07:04:18.8175471Z   fetch-depth: 1
+2026-10-01T07:04:18.8175702Z   fetch-tags: false
+2026-10-01T07:04:18.8175936Z   show-progress: true
+2026-10-01T07:04:18.8176170Z   lfs: false
+2026-10-01T07:04:18.8176385Z   submodules: false
+2026-10-01T07:04:18.8176625Z   set-safe-directory: true
+2026-10-01T07:04:18.8176893Z   allow-unsafe-pr-checkout: false
+2026-10-01T07:04:18.8177228Z ##[endgroup]
+2026-10-01T07:04:18.8788133Z Syncing repository: kevinrhaas/chicago
+2026-10-01T07:04:18.8789319Z ##[group]Getting Git version info
+2026-10-01T07:04:18.8789749Z Working directory is '/home/runner/work/chicago/chicago'
+2026-10-01T07:04:18.8790268Z [command]/usr/bin/git version
+2026-10-01T07:04:18.8982311Z git version 2.55.0
+2026-10-01T07:04:18.8993603Z ##[endgroup]
+2026-10-01T07:04:18.9002545Z Temporarily overriding HOME='/home/runner/work/_temp/e276cfb9-9e8d-45e4-af77-f3bbb6dbe3a0' before making global git config changes
+2026-10-01T07:04:18.9003314Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T07:04:18.9005903Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T07:04:18.9044735Z Deleting the contents of '/home/runner/work/chicago/chicago'
+2026-10-01T07:04:18.9047546Z ##[group]Initializing the repository
+2026-10-01T07:04:18.9049752Z [command]/usr/bin/git init /home/runner/work/chicago/chicago
+2026-10-01T07:04:18.9128458Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-01T07:04:18.9129246Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-01T07:04:18.9129993Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-01T07:04:18.9130766Z hint: call:
+2026-10-01T07:04:18.9131070Z hint:
+2026-10-01T07:04:18.9131350Z hint: 	git config --global init.defaultBranch <name>
+2026-10-01T07:04:18.9131702Z hint:
+2026-10-01T07:04:18.9132181Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-01T07:04:18.9132961Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-01T07:04:18.9133578Z hint:
+2026-10-01T07:04:18.9133919Z hint: 	git branch -m <name>
+2026-10-01T07:04:18.9134304Z hint:
+2026-10-01T07:04:18.9134808Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-01T07:04:18.9135785Z Initialized empty Git repository in /home/runner/work/chicago/chicago/.git/
+2026-10-01T07:04:18.9138236Z [command]/usr/bin/git remote add origin https://github.com/kevinrhaas/chicago
+2026-10-01T07:04:18.9179249Z ##[endgroup]
+2026-10-01T07:04:18.9179878Z ##[group]Disabling automatic garbage collection
+2026-10-01T07:04:18.9181931Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-01T07:04:18.9203738Z ##[endgroup]
+2026-10-01T07:04:18.9204122Z ##[group]Setting up auth
+2026-10-01T07:04:18.9207767Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T07:04:18.9230080Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T07:04:18.9570210Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T07:04:18.9592784Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T07:04:18.9753925Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T07:04:18.9775918Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T07:04:18.9936364Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-01T07:04:18.9963821Z ##[endgroup]
+2026-10-01T07:04:18.9964248Z ##[group]Fetching the repository
+2026-10-01T07:04:18.9969518Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ef515fab75dd9d989faa7ce6ee0fc09546aff7f5:refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:02.4094504Z From https://github.com/kevinrhaas/chicago
+2026-10-01T07:05:02.4095859Z  * [new ref]         ef515fab75dd9d989faa7ce6ee0fc09546aff7f5 -> origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:02.4097477Z ##[endgroup]
+2026-10-01T07:05:02.4097911Z ##[group]Determining the checkout info
+2026-10-01T07:05:02.4099289Z ##[endgroup]
+2026-10-01T07:05:02.4103453Z [command]/usr/bin/git sparse-checkout disable
+2026-10-01T07:05:02.5487984Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-01T07:05:02.5514004Z ##[group]Checking out the ref
+2026-10-01T07:05:02.5517213Z [command]/usr/bin/git checkout --progress --force -B steward/t1766-canal-grocery-workshops refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:03.5812172Z Updating files:  74% (6752/9085)
+2026-10-01T07:05:03.5963604Z Updating files:  75% (6814/9085)
+2026-10-01T07:05:03.6236124Z Updating files:  76% (6905/9085)
+2026-10-01T07:05:03.6732795Z Updating files:  77% (6996/9085)
+2026-10-01T07:05:03.7105249Z Updating files:  78% (7087/9085)
+2026-10-01T07:05:03.7285401Z Updating files:  79% (7178/9085)
+2026-10-01T07:05:03.7429128Z Updating files:  80% (7268/9085)
+2026-10-01T07:05:03.7544391Z Updating files:  81% (7359/9085)
+2026-10-01T07:05:03.7648938Z Updating files:  82% (7450/9085)
+2026-10-01T07:05:03.7735078Z Updating files:  83% (7541/9085)
+2026-10-01T07:05:03.7840918Z Updating files:  84% (7632/9085)
+2026-10-01T07:05:03.7948474Z Updating files:  85% (7723/9085)
+2026-10-01T07:05:03.8052969Z Updating files:  86% (7814/9085)
+2026-10-01T07:05:03.8707250Z Updating files:  87% (7904/9085)
+2026-10-01T07:05:03.9051259Z Updating files:  88% (7995/9085)
+2026-10-01T07:05:04.0737473Z Updating files:  89% (8086/9085)
+2026-10-01T07:05:04.3226795Z Updating files:  90% (8177/9085)
+2026-10-01T07:05:04.4955442Z Updating files:  91% (8268/9085)
+2026-10-01T07:05:04.5597880Z Updating files:  92% (8359/9085)
+2026-10-01T07:05:04.5809649Z Updating files:  92% (8418/9085)
+2026-10-01T07:05:04.6187032Z Updating files:  93% (8450/9085)
+2026-10-01T07:05:04.6468121Z Updating files:  94% (8540/9085)
+2026-10-01T07:05:04.7403811Z Updating files:  95% (8631/9085)
+2026-10-01T07:05:04.8304814Z Updating files:  96% (8722/9085)
+2026-10-01T07:05:04.8829919Z Updating files:  97% (8813/9085)
+2026-10-01T07:05:05.1043979Z Updating files:  98% (8904/9085)
+2026-10-01T07:05:05.3032476Z Updating files:  99% (8995/9085)
+2026-10-01T07:05:05.3032740Z Updating files: 100% (9085/9085)
+2026-10-01T07:05:05.3032886Z Updating files: 100% (9085/9085), done.
+2026-10-01T07:05:05.3626022Z Switched to a new branch 'steward/t1766-canal-grocery-workshops'
+2026-10-01T07:05:05.3718254Z branch 'steward/t1766-canal-grocery-workshops' set up to track 'origin/steward/t1766-canal-grocery-workshops'.
+2026-10-01T07:05:05.3915743Z ##[endgroup]
+2026-10-01T07:05:05.3951225Z [command]/usr/bin/git log -1 --format=%H
+2026-10-01T07:05:05.3973358Z ef515fab75dd9d989faa7ce6ee0fc09546aff7f5
+2026-10-01T07:05:05.4522326Z ##[group]Run actions/setup-node@v4
+2026-10-01T07:05:05.4522478Z with:
+2026-10-01T07:05:05.4522596Z   node-version: 22
+2026-10-01T07:05:05.4522711Z   always-auth: false
+2026-10-01T07:05:05.4522827Z   check-latest: false
+2026-10-01T07:05:05.4524037Z   token: ***
+2026-10-01T07:05:05.4524151Z ##[endgroup]
+2026-10-01T07:05:05.5459221Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-01T07:05:05.5461554Z (node:2090) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T07:05:05.5462012Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T07:05:05.5463597Z ##[group]Environment details
+2026-10-01T07:05:07.0310950Z node: v22.23.3
+2026-10-01T07:05:07.0311401Z npm: 10.9.9
+2026-10-01T07:05:07.0311527Z yarn: 1.22.22
+2026-10-01T07:05:07.0312629Z ##[endgroup]
+2026-10-01T07:05:07.0446076Z ##[group]Run set -e
+2026-10-01T07:05:07.0446301Z [36;1mset -e[0m
+2026-10-01T07:05:07.0446478Z [36;1mnpm install -g playwright@1.56.1[0m
+2026-10-01T07:05:07.0446728Z [36;1mnode "$(npm root -g)/playwright/cli.js" install --with-deps chromium[0m
+2026-10-01T07:05:07.0964495Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:05:07.0964683Z ##[endgroup]
+2026-10-01T07:05:09.7148437Z 
+2026-10-01T07:05:09.7155691Z added 2 packages in 3s
+2026-10-01T07:05:10.1500933Z Installing dependencies...
+2026-10-01T07:05:10.1545732Z Switching to root user to install dependencies...
+2026-10-01T07:05:10.2232971Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T07:05:10.3415542Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-01T07:05:10.3445050Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-01T07:05:10.3803962Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-01T07:05:10.4075719Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-01T07:05:10.4440629Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-01T07:05:10.5111820Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [509 kB]
+2026-10-01T07:05:10.5773670Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1342 kB]
+2026-10-01T07:05:10.5791939Z Get:17 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [456 kB]
+2026-10-01T07:05:10.5912464Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [302 kB]
+2026-10-01T07:05:10.6174765Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+2026-10-01T07:05:10.6272613Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1699 kB]
+2026-10-01T07:05:10.6483308Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [341 kB]
+2026-10-01T07:05:10.6504700Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+2026-10-01T07:05:10.6806365Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1697 kB]
+2026-10-01T07:05:10.7143192Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [388 kB]
+2026-10-01T07:05:10.7222048Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-10-01T07:05:10.7313994Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+2026-10-01T07:05:10.7902809Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+2026-10-01T07:05:10.8022701Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1066 kB]
+2026-10-01T07:05:10.8663373Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [220 kB]
+2026-10-01T07:05:10.8680744Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [46.4 kB]
+2026-10-01T07:05:10.8800374Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1216 kB]
+2026-10-01T07:05:10.8868119Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [244 kB]
+2026-10-01T07:05:10.9705571Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+2026-10-01T07:05:10.9742077Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1566 kB]
+2026-10-01T07:05:10.9816047Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [361 kB]
+2026-10-01T07:05:19.9512838Z Fetched 12.5 MB in 1s (10.5 MB/s)
+2026-10-01T07:05:20.4284408Z Reading package lists...
+2026-10-01T07:05:20.4464968Z Reading package lists...
+2026-10-01T07:05:20.5851402Z Building dependency tree...
+2026-10-01T07:05:20.5856233Z Reading state information...
+2026-10-01T07:05:20.6924057Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-01T07:05:20.6924479Z libasound2t64 set to manually installed.
+2026-10-01T07:05:20.6924892Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:05:20.6925136Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-01T07:05:20.6925363Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:05:20.6925595Z libatk1.0-0t64 set to manually installed.
+2026-10-01T07:05:20.6925965Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:05:20.6926291Z libatspi2.0-0t64 set to manually installed.
+2026-10-01T07:05:20.6926637Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-01T07:05:20.6926949Z libcairo2 set to manually installed.
+2026-10-01T07:05:20.6927290Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-01T07:05:20.6927628Z libcups2t64 set to manually installed.
+2026-10-01T07:05:20.6927975Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-01T07:05:20.6928300Z libdbus-1-3 set to manually installed.
+2026-10-01T07:05:20.6928654Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-01T07:05:20.6928984Z libdrm2 set to manually installed.
+2026-10-01T07:05:20.6929322Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-01T07:05:20.6929661Z libglib2.0-0t64 set to manually installed.
+2026-10-01T07:05:20.6929931Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-01T07:05:20.6930129Z libnspr4 set to manually installed.
+2026-10-01T07:05:20.6930328Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-01T07:05:20.6930870Z libnss3 set to manually installed.
+2026-10-01T07:05:20.6931337Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-01T07:05:20.6931672Z libpango-1.0-0 set to manually installed.
+2026-10-01T07:05:20.6932002Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-01T07:05:20.6932383Z libx11-6 set to manually installed.
+2026-10-01T07:05:20.6932678Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-01T07:05:20.6932976Z libxcb1 set to manually installed.
+2026-10-01T07:05:20.6933319Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-01T07:05:20.6933665Z libxcomposite1 set to manually installed.
+2026-10-01T07:05:20.6934003Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-01T07:05:20.6934331Z libxdamage1 set to manually installed.
+2026-10-01T07:05:20.6934655Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-01T07:05:20.6934962Z libxext6 set to manually installed.
+2026-10-01T07:05:20.6935294Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-01T07:05:20.6935617Z libxfixes3 set to manually installed.
+2026-10-01T07:05:20.6935956Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-01T07:05:20.6936283Z libxkbcommon0 set to manually installed.
+2026-10-01T07:05:20.6936630Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-01T07:05:20.6936949Z libxrandr2 set to manually installed.
+2026-10-01T07:05:20.6937278Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-01T07:05:20.6937737Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-01T07:05:20.6938203Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-01T07:05:20.6938564Z libfontconfig1 set to manually installed.
+2026-10-01T07:05:20.6938943Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.1).
+2026-10-01T07:05:20.6939299Z libfreetype6 set to manually installed.
+2026-10-01T07:05:20.6939658Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-01T07:05:20.6940005Z fonts-liberation set to manually installed.
+2026-10-01T07:05:20.6940345Z The following additional packages will be installed:
+2026-10-01T07:05:20.6940720Z   libgl1-mesa-dri libglx-mesa0 libwayland-server0 mesa-libgallium
+2026-10-01T07:05:20.6941202Z   xfonts-encodings xfonts-utils
+2026-10-01T07:05:20.6941794Z Recommended packages:
+2026-10-01T07:05:20.6942114Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-01T07:05:20.8679448Z The following NEW packages will be installed:
+2026-10-01T07:05:20.8679771Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-01T07:05:20.8686393Z   fonts-wqy-zenhei libwayland-server0 xfonts-cyrillic xfonts-encodings
+2026-10-01T07:05:20.8686728Z   xfonts-scalable xfonts-utils
+2026-10-01T07:05:20.8689959Z The following packages will be upgraded:
+2026-10-01T07:05:20.8692298Z   libgbm1 libgl1-mesa-dri libglx-mesa0 mesa-libgallium
+2026-10-01T07:05:20.8829648Z 4 upgraded, 10 newly installed, 0 to remove and 19 not upgraded.
+2026-10-01T07:05:20.8830005Z Need to get 32.1 MB of archives.
+2026-10-01T07:05:20.8830348Z After this operation, 79.7 MB of additional disk space will be used.
+2026-10-01T07:05:20.8830740Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T07:05:20.9795503Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-01T07:05:21.2069971Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-01T07:05:21.4173940Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-01T07:05:21.4894897Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-01T07:05:21.5868461Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-01T07:05:21.8213363Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgl1-mesa-dri amd64 25.2.8-0ubuntu0.24.04.3 [37.9 kB]
+2026-10-01T07:05:21.8992019Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libwayland-server0 amd64 1.22.0-2.1build1 [33.9 kB]
+2026-10-01T07:05:21.9799256Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglx-mesa0 amd64 25.2.8-0ubuntu0.24.04.3 [110 kB]
+2026-10-01T07:05:22.0612694Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgbm1 amd64 25.2.8-0ubuntu0.24.04.3 [34.3 kB]
+2026-10-01T07:05:22.1396844Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 mesa-libgallium amd64 25.2.8-0ubuntu0.24.04.3 [10.8 MB]
+2026-10-01T07:05:22.4829413Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-01T07:05:22.5737331Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-01T07:05:22.6531283Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-01T07:05:22.7377195Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-01T07:05:23.0795512Z Fetched 32.1 MB in 2s (17.2 MB/s)
+2026-10-01T07:05:23.0971670Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-01T07:05:23.1220937Z (Reading database ... 
+2026-10-01T07:05:23.1221334Z (Reading database ... 5%
+2026-10-01T07:05:23.1221543Z (Reading database ... 10%
+2026-10-01T07:05:23.1221750Z (Reading database ... 15%
+2026-10-01T07:05:23.1221914Z (Reading database ... 20%
+2026-10-01T07:05:23.1222041Z (Reading database ... 25%
+2026-10-01T07:05:23.1222166Z (Reading database ... 30%
+2026-10-01T07:05:23.1222300Z (Reading database ... 35%
+2026-10-01T07:05:23.1222427Z (Reading database ... 40%
+2026-10-01T07:05:23.1222553Z (Reading database ... 45%
+2026-10-01T07:05:23.1222693Z (Reading database ... 50%
+2026-10-01T07:05:23.1258096Z (Reading database ... 55%
+2026-10-01T07:05:23.2796831Z (Reading database ... 60%
+2026-10-01T07:05:23.5773629Z (Reading database ... 65%
+2026-10-01T07:05:24.0094332Z (Reading database ... 70%
+2026-10-01T07:05:24.2646827Z (Reading database ... 75%
+2026-10-01T07:05:24.6224068Z (Reading database ... 80%
+2026-10-01T07:05:24.8584316Z (Reading database ... 85%
+2026-10-01T07:05:25.1418726Z (Reading database ... 90%
+2026-10-01T07:05:25.3185653Z (Reading database ... 95%
+2026-10-01T07:05:25.3185914Z (Reading database ... 100%
+2026-10-01T07:05:25.3186279Z (Reading database ... 202296 files and directories currently installed.)
+2026-10-01T07:05:25.3220290Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-01T07:05:25.3374485Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T07:05:25.5522231Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-01T07:05:25.5613468Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-01T07:05:25.6485103Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T07:05:25.7356268Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-01T07:05:25.7451552Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-01T07:05:25.7457531Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T07:05:25.7615910Z Selecting previously unselected package fonts-unifont.
+2026-10-01T07:05:25.7705484Z Preparing to unpack .../03-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-01T07:05:25.7711904Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T07:05:26.0400086Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-01T07:05:26.0490932Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-01T07:05:26.0566506Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T07:05:26.4677402Z Preparing to unpack .../05-libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:05:26.5761927Z Unpacking libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:05:26.6205029Z Selecting previously unselected package libwayland-server0:amd64.
+2026-10-01T07:05:26.6296452Z Preparing to unpack .../06-libwayland-server0_1.22.0-2.1build1_amd64.deb ...
+2026-10-01T07:05:26.6380936Z Unpacking libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T07:05:26.6701705Z Preparing to unpack .../07-libglx-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:05:26.6724995Z Unpacking libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:05:26.7047277Z Preparing to unpack .../08-libgbm1_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:05:26.7065747Z Unpacking libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:05:26.7409472Z Preparing to unpack .../09-mesa-libgallium_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:05:26.7610071Z Unpacking mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:05:27.1029166Z Selecting previously unselected package xfonts-encodings.
+2026-10-01T07:05:27.1121810Z Preparing to unpack .../10-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-01T07:05:27.1128939Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T07:05:27.1425392Z Selecting previously unselected package xfonts-utils.
+2026-10-01T07:05:27.1516487Z Preparing to unpack .../11-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-01T07:05:27.1521944Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-01T07:05:27.2112259Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-01T07:05:27.2204828Z Preparing to unpack .../12-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-01T07:05:27.2209852Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T07:05:27.2444484Z Selecting previously unselected package xfonts-scalable.
+2026-10-01T07:05:27.2536463Z Preparing to unpack .../13-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-01T07:05:27.2542001Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T07:05:27.2885817Z Setting up libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T07:05:27.2905710Z Setting up mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:05:27.2919000Z Setting up libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:05:27.2932639Z Setting up libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:05:27.3963002Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T07:05:27.4047578Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T07:05:27.4230838Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T07:05:27.4244536Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T07:05:27.4258572Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T07:05:27.4303820Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-01T07:05:27.4315119Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T07:05:27.4329581Z Setting up libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:05:27.4346461Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-01T07:05:27.4377734Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T07:05:27.4727660Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T07:05:27.4924968Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-01T07:05:27.7543945Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-01T07:05:27.7561614Z Not building database; man-db/auto-update is not 'true'.
+2026-10-01T07:05:27.7568768Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-01T07:05:28.5876083Z 
+2026-10-01T07:05:28.5876643Z Running kernel seems to be up-to-date.
+2026-10-01T07:05:28.5876869Z 
+2026-10-01T07:05:28.5877000Z No services need to be restarted.
+2026-10-01T07:05:28.5877154Z 
+2026-10-01T07:05:28.5877287Z No containers need to be restarted.
+2026-10-01T07:05:28.5877858Z 
+2026-10-01T07:05:28.5878009Z No user sessions are running outdated binaries.
+2026-10-01T07:05:28.5878182Z 
+2026-10-01T07:05:28.5878424Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-01T07:05:29.2694815Z Downloading Chromium 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-linux.zip
+2026-10-01T07:05:29.4310684Z |                                                                                |   0% of 173.9 MiB
+2026-10-01T07:05:29.5336879Z |■■■■■■■■                                                                        |  10% of 173.9 MiB
+2026-10-01T07:05:29.7187697Z |■■■■■■■■■■■■■■■■                                                                |  20% of 173.9 MiB
+2026-10-01T07:05:29.8553246Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 173.9 MiB
+2026-10-01T07:05:29.9696834Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 173.9 MiB
+2026-10-01T07:05:30.1192080Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 173.9 MiB
+2026-10-01T07:05:30.1958193Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 173.9 MiB
+2026-10-01T07:05:30.2957377Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 173.9 MiB
+2026-10-01T07:05:30.3983100Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 173.9 MiB
+2026-10-01T07:05:30.4772818Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 173.9 MiB
+2026-10-01T07:05:30.6225056Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 173.9 MiB
+2026-10-01T07:05:32.7001434Z Chromium 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium-1194
+2026-10-01T07:05:32.7003582Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-01T07:05:32.8239793Z |                                                                                |   0% of 2.3 MiB
+2026-10-01T07:05:32.8375484Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-01T07:05:32.8424313Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-01T07:05:32.8473183Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-01T07:05:32.8505542Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-01T07:05:32.8525158Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-01T07:05:32.8553041Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-01T07:05:32.8578916Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-01T07:05:32.8587653Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-01T07:05:32.8603972Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-01T07:05:32.8610253Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-01T07:05:32.8939155Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-01T07:05:32.8942058Z Downloading Chromium Headless Shell 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux.zip
+2026-10-01T07:05:32.9927674Z |                                                                                |   0% of 104.3 MiB
+2026-10-01T07:05:33.0742646Z |■■■■■■■■                                                                        |  10% of 104.3 MiB
+2026-10-01T07:05:33.1116067Z |■■■■■■■■■■■■■■■■                                                                |  20% of 104.3 MiB
+2026-10-01T07:05:33.1602570Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 104.3 MiB
+2026-10-01T07:05:33.2304799Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 104.3 MiB
+2026-10-01T07:05:33.2758195Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 104.3 MiB
+2026-10-01T07:05:33.3251576Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 104.3 MiB
+2026-10-01T07:05:33.3663305Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 104.3 MiB
+2026-10-01T07:05:33.4267577Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 104.3 MiB
+2026-10-01T07:05:33.4650071Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 104.3 MiB
+2026-10-01T07:05:33.5069861Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 104.3 MiB
+2026-10-01T07:05:34.6250413Z Chromium Headless Shell 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1194
+2026-10-01T07:05:34.6761577Z ##[group]Run bash tools/publish.sh
+2026-10-01T07:05:34.6761769Z [36;1mbash tools/publish.sh[0m
+2026-10-01T07:05:34.6814117Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:05:34.6814257Z ##[endgroup]
+2026-10-01T07:05:35.3392784Z Glessner v4 package verified; 3 missing GLB(s) materialized.
+2026-10-01T07:05:35.7502668Z shipped derivatives: 501 pair(s) carry the master's triangles, node identity and contract attributes; worst bounding-box disagreement 2.68 of 4 rungs; 0 asset(s) lose their material identity to the publish path (banked, K36(b)); 4 master passthrough(s), all of them decided (K38); and every one of them records the master it was made from, which is still the master in the tree (K39)
+2026-10-01T07:05:35.7895775Z Prairie Avenue browser published: /home/runner/work/chicago/chicago/site/4d/prairie-1904
+2026-10-01T07:05:36.0417819Z published 15 map images + viewer + media to site/pre-fire
+2026-10-01T07:05:36.1254137Z    changelog.js published to site/4d/js/changelog.js (T-0722)
+2026-10-01T07:05:36.1258615Z    changelog.js published to site/4d/walk/js/changelog.js (T-0722)
+2026-10-01T07:05:37.0555400Z tickets: cloned https://github.com/kevinrhaas/chicago-tickets.git → tickets/ (1661 tickets)
+2026-10-01T07:05:38.8488453Z entry pages: index.html, 1812/index.html, 1835/index.html, 1880/index.html, 1904/index.html
+2026-10-01T07:05:38.8544352Z    build ef515fa  Oct 1, 2026, 2:05 AM CT
+2026-10-01T07:05:38.8978914Z published ../../site/4d  (57.03 MB)
+2026-10-01T07:05:38.9014664Z ##[group]Run node tools/smoke_renderer.mjs --published
+2026-10-01T07:05:38.9014893Z [36;1mnode tools/smoke_renderer.mjs --published[0m
+2026-10-01T07:05:38.9065437Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:05:38.9065567Z env:
+2026-10-01T07:05:38.9065674Z   SMOKE_VIEWPORT: mobile
+2026-10-01T07:05:38.9065795Z   SMOKE_STAGE: 10-13
+2026-10-01T07:05:38.9065910Z ##[endgroup]
+2026-10-01T07:05:39.2848798Z serving /home/runner/work/chicago/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+2026-10-01T07:05:39.2849122Z 
+2026-10-01T07:05:39.2849348Z NOT THE FULL GATE — viewports filtered to "mobile"
+2026-10-01T07:05:39.2849531Z 
+2026-10-01T07:05:39.2850204Z NOT THE FULL GATE — stages filtered to "10-13" of 13
+2026-10-01T07:05:39.2850380Z 
+2026-10-01T07:05:39.2851773Z mobile 390x780:
+2026-10-01T07:05:39.7832011Z   pass  mobile 390x780: page serves
+2026-10-01T07:05:51.2615816Z   pass  mobile 390x780: scene reaches ready
+2026-10-01T07:05:52.9086326Z   pass  mobile 390x780: the scene declares its exact consultation blockers
+2026-10-01T07:05:52.9087511Z   pass  mobile 390x780: no unexpected loader problems
+2026-10-01T07:05:53.6909390Z   pass  mobile 390x780: scene has structures
+2026-10-01T07:05:54.4685711Z   pass  mobile 390x780: every structure that should draw, drew
+2026-10-01T07:06:03.8213580Z   pass  mobile 390x780: detailed flora roots share the terrain and water surfaces
+2026-10-01T07:06:03.8214148Z   pass  mobile 390x780: emergent flora stays within eight metres of a riverbank
+2026-10-01T07:06:03.8214576Z   pass  mobile 390x780: woody vegetation never occupies the river mask
+2026-10-01T07:06:03.8214939Z   pass  mobile 390x780: no tree stands below the waterline
+2026-10-01T07:06:07.0352649Z   pass  mobile 390x780: every tree drawn stands at its own station
+2026-10-01T07:06:07.0354927Z   pass  mobile 390x780: no timber is drawn out in the channel
+2026-10-01T07:06:07.8409484Z   pass  mobile 390x780: every building is drawn around the anchor its record gives it
+2026-10-01T07:06:07.8410052Z   pass  mobile 390x780: every panel of road is drawn on a street the data records
+2026-10-01T07:06:07.8412044Z   pass  mobile 390x780: the horizon band refuses to draw timber over water
+2026-10-01T07:06:08.6238850Z   pass  mobile 390x780: the horizon band and the fogged ground converge on one colour
+2026-10-01T07:06:08.6243541Z   pass  mobile 390x780: the crown modulation never deletes a resolvable silhouette
+2026-10-01T07:06:08.6244064Z   pass  mobile 390x780: the band is solved against this viewport, not a default one
+2026-10-01T07:06:09.4096693Z   pass  mobile 390x780: every species the stand owes a stem to stands in it
+2026-10-01T07:06:09.4104930Z   pass  mobile 390x780: the American sycamore stands on the riverbank
+2026-10-01T07:06:10.1984107Z   pass  mobile 390x780: every slot the sward deals is counted against a species
+2026-10-01T07:06:10.1986796Z   note  mobile 390x780: sward abundance — 6 of 27 lists mix an area with a count (z03_sedge_meadow.matrix 33.4% of slots dealt off counts; z03_sedge_meadow.forb 1.0% of slots dealt off counts; z08_lakeshore.matrix 2.1% of slots dealt off counts; z09_sand_prairie.matrix 0.0% of slots dealt off counts; z06_dense_forest.forb 89.8% of slots dealt off counts; z06_dense_forest.shrub 31.0% of slots dealt off counts)
+2026-10-01T07:06:10.1990188Z   note  mobile 390x780: 0 record(s) give cover with no width_m, so no count can be derived without inventing a footprint
+2026-10-01T07:06:10.1991951Z   note  mobile 390x780: sward tail — 0 species owed a whole slot and drawn nowhere, over 84 slots in z10_settled_town.matrix=78 z10_settled_town.forb=6
+2026-10-01T07:07:35.9603063Z   pass  mobile 390x780: no sward species its own list owes a plant to is drawn nowhere, in ANY community
+2026-10-01T07:07:35.9607105Z   note  mobile 390x780: sward census by detail — full 11187 slots, 0 drawn nowhere  ·  balanced 6252 slots, 0 drawn nowhere  ·  light 4055 slots, 1 drawn nowhere (z10_settled_town.forb.xanthium_strumarium owed 1.30 at z10_settled_town)
+2026-10-01T07:07:36.8636137Z   pass  mobile 390x780: no floating-leaved aquatic is planted on dry ground
+2026-10-01T07:07:36.8636687Z   pass  mobile 390x780: the marsh's emergents still stand on both sides of its waterline
+2026-10-01T07:07:36.8637148Z   pass  mobile 390x780: the marsh community is split by the substrate its records state
+2026-10-01T07:07:37.6864366Z   pass  mobile 390x780: every flora fade ring is inset inside its own lattice
+2026-10-01T07:07:37.6882446Z   pass  mobile 390x780: a plant in front of the walker never arrives already visible
+2026-10-01T07:07:37.6883140Z   pass  mobile 390x780: a plant is drawn at its own height, faint, never short
+2026-10-01T07:08:15.1695791Z   pass  mobile 390x780: every drawn flower head has a plant under its own stalk
+2026-10-01T07:08:41.7108760Z   pass  mobile 390x780: an open station exists to measure the sward's boundary from
+2026-10-01T07:08:41.7112103Z   pass  mobile 390x780: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N -300, boundary rows spread 20.1 px, reach 10.32-13.27 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 20.1 px, reach 10.32-13.27 m)
+2026-10-01T07:08:41.7135488Z   pass  mobile 390x780: the boundary's variation is the fringe, not a hole in the field — reach 10.32-13.27 m, mean 12.02 m at 6.25% coverage against a nominal 12.40 +/- 1.60 m (bars: min >= 9.50, mean >= 11.50, both carrying the 0.10 m the 6.25% threshold insets a 1.60 m ramp by); at the old 2%: 10.32-13.27 m, mean 12.03 m
+2026-10-01T07:08:41.7136818Z   pass  mobile 390x780: the flower layer's boundary is fringed too, not only the grass — forb rings span 10.82-13.74 m about a nominal 12.40 +/- 1.60 m
+2026-10-01T07:08:41.7137583Z   pass  mobile 390x780: the ragged boundary is anchored to the ground, not to the camera
+2026-10-01T07:09:06.7760858Z   pass  mobile 390x780: every community's recorded ground cover reaches the renderer
+2026-10-01T07:09:06.7784002Z   pass  mobile 390x780: the sward is planted at each community's own recorded cover
+2026-10-01T07:09:06.7825072Z   pass  mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface
+2026-10-01T07:09:06.7829842Z   pass  mobile 390x780: street clearing removes travel-track plants but preserves the block
+2026-10-01T07:09:06.7830511Z   pass  mobile 390x780: the readout shows both 1835 and current names at an intersection
+2026-10-01T07:09:06.7831848Z   pass  mobile 390x780: the street readout announces the next cross street ahead
+2026-10-01T07:09:34.7869775Z   pass  mobile 390x780: Settings can reopen the dismissed navigation guide
+2026-10-01T07:09:54.6717064Z   pass  mobile 390x780: Settings switches every navigation measurement as one unit system
+2026-10-01T07:10:06.6291497Z   pass  mobile 390x780: eye height starts at the researched period figure
+2026-10-01T07:10:06.6292394Z   pass  mobile 390x780: the eye height readout is a stature, not rounded to whole feet
+2026-10-01T07:10:06.6293186Z   pass  mobile 390x780: moving the eye height slider moves the eye immediately
+2026-10-01T07:10:06.6293865Z   pass  mobile 390x780: eye height does not yank the camera down mid-flight
+2026-10-01T07:10:06.6294511Z   pass  mobile 390x780: the eye height range covers short to tall without absurdity
+2026-10-01T07:10:12.1312305Z   pass  mobile 390x780: typing in the search box does not walk the camera
+2026-10-01T07:10:12.1352215Z   pass  mobile 390x780: typing an 'f' does not take off
+2026-10-01T07:10:13.6952365Z   pass  mobile 390x780: the rail lists the eight sections in order, Go to first
+2026-10-01T07:10:13.6953315Z   pass  mobile 390x780: eight rail items fit the panel unsqueezed — one column on desktop, one row on a phone
+2026-10-01T07:10:13.6953826Z   pass  mobile 390x780: Settings no longer carries a second list of viewpoints
+2026-10-01T07:10:16.2110057Z   pass  mobile 390x780: G opens the Go to tab
+2026-10-01T07:10:17.4228972Z   pass  mobile 390x780: jump menu lists every structure that stood here, and every roof once asked
+2026-10-01T07:10:17.4230158Z   pass  mobile 390x780: jump menu includes every verified intersection
+2026-10-01T07:10:17.4230623Z   pass  mobile 390x780: jump menu includes every viewpoint the scene names
+2026-10-01T07:10:17.4231379Z   pass  mobile 390x780: every structure result carries its record's presence grade as its chip and its position grade as data
+2026-10-01T07:10:17.4231991Z   pass  mobile 390x780: a viewpoint and a survey junction are not graded like a building
+2026-10-01T07:10:17.4232499Z   pass  mobile 390x780: the three grades are told apart by colour, not only by their words
+2026-10-01T07:10:17.4233000Z   pass  mobile 390x780: the tab counts its own list rather than quoting a written total
+2026-10-01T07:10:17.4233841Z   pass  mobile 390x780: jump search finds an intersection by both street names
+2026-10-01T07:10:18.9453802Z   pass  mobile 390x780: an intersection result moves the visitor there
+2026-10-01T07:10:25.7627493Z   pass  mobile 390x780: opening the drawer tucks an open card aside without closing it
+2026-10-01T07:10:25.7629603Z   pass  mobile 390x780: closing the drawer brings the tucked card back
+2026-10-01T07:10:25.7630368Z   pass  mobile 390x780: the drawer reaches the bottom of the screen and starts under the year badge
+2026-10-01T07:10:31.6433510Z   pass  mobile 390x780: the Taverns pill narrows the list to taverns, inns and hotels, the Sauganash among them
+2026-10-01T07:10:31.6434294Z   pass  mobile 390x780: every row is filed under one of the ten groups, beneath that group's heading
+2026-10-01T07:10:31.6434715Z   pass  mobile 390x780: visible rows equal the shared destination inventory
+2026-10-01T07:10:31.6435145Z   pass  mobile 390x780: located rows say how far and which way; unknown addresses invent no metres
+2026-10-01T07:10:31.6435877Z   pass  mobile 390x780: the distances follow the visitor — 100 m further east reads 100 m further
+2026-10-01T07:10:31.6436467Z   pass  mobile 390x780: ArrowDown steps the list a row at a time — two reach the second, three the third — and Enter goes there
+2026-10-01T07:10:37.4954049Z   pass  mobile 390x780: Travel offers instantly, walk, wagon, horse and fly
+2026-10-01T07:10:37.4955088Z   pass  mobile 390x780: the travel mode chosen is the one the walker rides and the one stored
+2026-10-01T07:10:37.4955581Z   pass  mobile 390x780: each pace sets the walker to its own slider, its Shift factor and its seat
+2026-10-01T07:10:37.4956027Z   pass  mobile 390x780: the three pace sliders top out at 20, 30 and 60 mph and name the gait as they move
+2026-10-01T07:10:37.4956452Z   pass  mobile 390x780: the horse's gait moves the rider's eye a few centimetres, and stops when they do
+2026-10-01T07:10:37.4958753Z   pass  mobile 390x780: the gait is off with the setting off, and back with it
+2026-10-01T07:10:37.4959279Z   pass  mobile 390x780: the gait is off under prefers-reduced-motion
+2026-10-01T07:10:39.4506959Z   pass  mobile 390x780: choosing the Sauganash on foot starts a walk and says so
+2026-10-01T07:10:39.4507590Z   pass  mobile 390x780: the walk ends at the Sauganash's door with its card open
+2026-10-01T07:10:39.4508093Z   pass  mobile 390x780: the walk from South Water keeps to the streets
+2026-10-01T07:10:39.4508543Z   pass  mobile 390x780: the visitor's own step ends a ride and is not swallowed
+2026-10-01T07:10:40.7287938Z   pass  mobile 390x780: the banner's Stop button ends a ride
+2026-10-01T07:10:41.4529867Z   pass  mobile 390x780: flying to a far building climbs to a cruise height, lands and opens its card
+2026-10-01T07:10:41.4530443Z   pass  mobile 390x780: instantly is still instant
+2026-10-01T07:10:55.9816171Z   pass  mobile 390x780: the People directory lists the town, and its count is the file's and the manifest's
+2026-10-01T07:10:55.9816793Z   pass  mobile 390x780: the household card says how far the evidence places its people
+2026-10-01T07:10:55.9817280Z   pass  mobile 390x780: a household no source places says its division was dealt, not read
+2026-10-01T07:10:55.9817715Z   pass  mobile 390x780: searching "Beaubien" finds Mark Beaubien
+2026-10-01T07:10:55.9818603Z   pass  mobile 390x780: the Trade row offers the documented trades AND the town's commonest
+2026-10-01T07:10:55.9819114Z   pass  mobile 390x780: the tavern-keeper pill narrows the list to tavern keepers
+2026-10-01T07:10:55.9842693Z   pass  mobile 390x780: the Tier row's stage pills name the reconstruction, and partition it
+2026-10-01T07:10:55.9843624Z   pass  mobile 390x780: opening a person shows their card with a way to their building
+2026-10-01T07:10:58.1482312Z   pass  mobile 390x780: Go there rides to the person's building and opens its card
+2026-10-01T07:11:11.1415115Z   pass  mobile 390x780: the Businesses directory lists every firm, and its count is the index's
+2026-10-01T07:11:11.1421595Z   pass  mobile 390x780: searching a good the papers advertised finds the houses that sold it
+2026-10-01T07:11:11.1422130Z   pass  mobile 390x780: the unplaceable pill narrows the list to the firms with no place at all
+2026-10-01T07:11:11.1422728Z   pass  mobile 390x780: a firm the paper reaches to a street is carried to the block face it is housed on
+2026-10-01T07:11:11.1423410Z   pass  mobile 390x780: a firm the register could not place says how far the record goes, and offers no building
+2026-10-01T07:11:11.1424004Z   pass  mobile 390x780: a firm with premises opens a card with its locations, its printings and the way there
+2026-10-01T07:11:22.0856489Z   pass  mobile 390x780: a person's card names every firm the register puts them in
+2026-10-01T07:11:22.0857230Z   pass  mobile 390x780: tapping one opens that firm's own card in Businesses
+2026-10-01T07:11:22.7771444Z   pass  mobile 390x780: a building card's Use row names the firms the register puts in that roof
+2026-10-01T07:11:22.7772083Z   pass  mobile 390x780: a card opened from a signboard leads with the firm the board hangs for
+2026-10-01T07:11:26.3233474Z   pass  mobile 390x780: the Evidence hub shows eleven topics, with Sources unknown until opened
+2026-10-01T07:11:31.7509078Z   pass  mobile 390x780: Sources lazily lists scene and registered counts with a forty-row window
+2026-10-01T07:11:31.7509847Z   pass  mobile 390x780: Sources finds Andreas with date, type, tier and separate claim/entity figures
+2026-10-01T07:11:31.7510658Z   pass  mobile 390x780: Evidence → City shows the town census
+2026-10-01T07:11:31.7511293Z   pass  mobile 390x780: Evidence → City's figures are the committed data's
+2026-10-01T07:11:31.7511890Z   pass  mobile 390x780: both City ladders carry completeness bars and the people ladder's grade key
+2026-10-01T07:11:31.7512538Z   pass  mobile 390x780: people housed remains a placement note under the people ladder
+2026-10-01T07:11:31.7549010Z   pass  mobile 390x780: cards held remain stated as cards, not residents
+2026-10-01T07:11:31.7551397Z   pass  mobile 390x780: the established and ruled-in population measures remain stated
+2026-10-01T07:11:31.7552112Z   pass  mobile 390x780: City names both denominators and never substitutes November's count
+2026-10-01T07:11:31.7552762Z   pass  mobile 390x780: City drops the projected count and structures line
+2026-10-01T07:11:31.7553396Z   pass  mobile 390x780: City identifies its date, derivation and published build
+2026-10-01T07:11:31.7554036Z   pass  mobile 390x780: City fits a phone-width topic and scrolls inside the sheet
+2026-10-01T07:11:31.7555145Z   pass  mobile 390x780: a topic opens with the hub gone, and its search narrows the list and says so
+2026-10-01T07:11:31.7555715Z   pass  mobile 390x780: Back returns to the hub
+2026-10-01T07:11:34.4355897Z   pass  mobile 390x780: settings toggle all three navigation aids
+2026-10-01T07:11:36.4499567Z   pass  mobile 390x780: the HUD toggle drives the confidence view
+2026-10-01T07:11:51.8570252Z   pass  mobile 390x780: a first-time visitor is told there are unread notes
+2026-10-01T07:11:57.1495669Z   pass  mobile 390x780: the what's-new tab renders every release
+2026-10-01T07:11:57.1496164Z   pass  mobile 390x780: entries carry a title and a stamped date
+2026-10-01T07:11:57.1496564Z   pass  mobile 390x780: opening the tab clears the unread marker
+2026-10-01T07:11:57.9257276Z   pass  mobile 390x780: a first visit flags nothing (no "last time" to differ from)
+2026-10-01T07:12:16.9931897Z   pass  mobile 390x780: a returning visitor sees only what shipped since last time
+2026-10-01T07:12:18.5809355Z   pass  mobile 390x780: the liberties list loads
+2026-10-01T07:12:18.5810200Z   pass  mobile 390x780: every loaded liberty is rendered
+2026-10-01T07:12:18.5810713Z   pass  mobile 390x780: the list names a scene-wide liberty
+2026-10-01T07:12:18.5811263Z   pass  mobile 390x780: the Evidence panel does not overflow
+2026-10-01T07:12:52.5399810Z   pass  mobile 390x780: a man who held an agency says so on his own card
+2026-10-01T07:12:52.5400185Z   pass  mobile 390x780: the person's card carries the same caveat as the house's
+2026-10-01T07:12:58.0610110Z   pass  mobile 390x780: every household in the layer is on the card
+2026-10-01T07:12:58.0610785Z   pass  mobile 390x780: every person entry in the manifest is counted
+2026-10-01T07:12:58.0611553Z   pass  mobile 390x780: the letter-list cohort is held apart from the evidenced town
+2026-10-01T07:12:58.0612132Z   pass  mobile 390x780: the group says what that evidence is worth before it is opened
+2026-10-01T07:12:58.0612641Z   pass  mobile 390x780: the households no building card can reach are marked
+2026-10-01T07:12:58.0615453Z   pass  mobile 390x780: the researched non-residents are published too
+2026-10-01T07:12:58.0616348Z   pass  mobile 390x780: opening a household fetches its record
+2026-10-01T07:12:58.0616830Z   pass  mobile 390x780: a graded claim carries its reasoning, not just its value
+2026-10-01T07:12:58.0617314Z   pass  mobile 390x780: the household records quote their sources, not their source ids
+2026-10-01T07:12:58.0617813Z   pass  mobile 390x780: the households start collapsed, like every other disclosure here
+2026-10-01T07:12:58.0618302Z   pass  mobile 390x780: the people section does not overflow the panel
+2026-10-01T07:12:58.0618745Z   pass  mobile 390x780: no figure reaches a person's row as [object Object]
+2026-10-01T07:12:58.0619223Z   pass  mobile 390x780: an evidence-only household's row says what its roof is not
+2026-10-01T07:12:58.0619684Z   pass  mobile 390x780: a dated person carries an age and a birth year, both graded
+2026-10-01T07:12:58.0620172Z   pass  mobile 390x780: a letter-list name says on its own row how thin that evidence is
+2026-10-01T07:12:58.0620701Z   pass  mobile 390x780: the count sentence says how many people are known only that way
+2026-10-01T07:12:58.0621445Z   pass  mobile 390x780: a letter-list name carries no invented trade
+2026-10-01T07:12:58.0621862Z   pass  mobile 390x780: every resident research review reaches a resident card
+2026-10-01T07:12:58.0622279Z   pass  mobile 390x780: candidate identities are visibly unmerged
+2026-10-01T07:12:58.0622685Z   pass  mobile 390x780: a negative search is published without denying existence
+2026-10-01T07:12:58.0623100Z   pass  mobile 390x780: the section says plainly that nobody is drawn
+2026-10-01T07:12:58.8526189Z   pass  mobile 390x780: the wildlife list loads every habitat
+2026-10-01T07:12:58.8526765Z   pass  mobile 390x780: every animal record in the layer is on the card
+2026-10-01T07:12:58.8527188Z   pass  mobile 390x780: the card names what the records name
+2026-10-01T07:12:58.8527938Z   pass  mobile 390x780: the card carries the July presence modes, not a species list
+2026-10-01T07:12:58.8528473Z   pass  mobile 390x780: the animal records quote their sources, not their source ids
+2026-10-01T07:12:58.8528978Z   pass  mobile 390x780: the animals start collapsed, like every other disclosure here
+2026-10-01T07:12:58.8529443Z   pass  mobile 390x780: the wildlife section does not overflow the panel
+2026-10-01T07:12:58.8529897Z   pass  mobile 390x780: the section says plainly that none of them is in the scene
+2026-10-01T07:13:01.1962329Z   pass  mobile 390x780: the plant list loads every community
+2026-10-01T07:13:01.1963068Z   pass  mobile 390x780: every species in the ten communities is on the card
+2026-10-01T07:13:01.1964013Z   pass  mobile 390x780: the communities the sward lattice cannot draw say so
+2026-10-01T07:13:01.1964643Z   pass  mobile 390x780: the share a visitor is standing in comes off the declaration
+2026-10-01T07:13:01.1965299Z   pass  mobile 390x780: the note names the worst case rather than only the total
+2026-10-01T07:13:01.1966039Z   pass  mobile 390x780: the plant records quote their sources, not their source ids
+2026-10-01T07:13:01.1966524Z   pass  mobile 390x780: no figure reaches a plant's row as [object Object]
+2026-10-01T07:13:01.1967007Z   pass  mobile 390x780: the communities start collapsed, like every other disclosure here
+2026-10-01T07:13:01.1967489Z   pass  mobile 390x780: the plants section wraps inside the panel rather than clipping
+2026-10-01T07:13:01.1967926Z   pass  mobile 390x780: the plants section does not overflow the panel
+2026-10-01T07:13:15.1103228Z   pass  mobile 390x780: all eight evidence mounts wrap inside their panel rather than clipping
+2026-10-01T07:13:30.6056753Z   pass  mobile 390x780: a run longer than the column breaks inside all eight mounts, not past them
+2026-10-01T07:13:31.4703509Z   pass  mobile 390x780: the liberties list says what it is, in the document's words
+2026-10-01T07:13:31.4704541Z   pass  mobile 390x780: the panel states it once — the hand-written paraphrase is gone
+2026-10-01T07:13:32.2798441Z   pass  mobile 390x780: an entry shows the inventions it admits to
+2026-10-01T07:13:32.2798935Z   pass  mobile 390x780: a claim over several buildings names each of them
+2026-10-01T07:13:32.2799349Z   pass  mobile 390x780: an entry that invented nothing drawn claims nothing
+2026-10-01T07:13:32.2799944Z   pass  mobile 390x780: an invented roof and height are admitted like an outline
+2026-10-01T07:13:32.2800417Z   pass  mobile 390x780: a decision made by default is admitted in two buildings
+2026-10-01T07:13:32.2800917Z   pass  mobile 390x780: the ground admits to what it invented, and says it is the ground
+2026-10-01T07:13:32.2801543Z   pass  mobile 390x780: the chip carries the epoch the admission is about
+2026-10-01T07:13:32.2802089Z   pass  mobile 390x780: the invention the gate found is on the page, not only in the repo
+2026-10-01T07:13:33.1171152Z   pass  mobile 390x780: expanding a liberty on its topic page reveals its reasoning
+2026-10-01T07:13:34.0022303Z   pass  mobile 390x780: the researched exclusions load
+2026-10-01T07:13:34.0082943Z   pass  mobile 390x780: an exclusion gives its reason and the source it rests on
+2026-10-01T07:13:34.0083881Z   pass  mobile 390x780: a later building says when, and a vanished one says why instead
+2026-10-01T07:13:34.0084415Z   pass  mobile 390x780: a building standing in the scene is not on the not-here list
+2026-10-01T07:13:34.0084887Z   pass  mobile 390x780: the not-here list withholds what its sources reprint
+2026-10-01T07:13:34.0085286Z   pass  mobile 390x780: the list says it is not everything missing
+2026-10-01T07:13:34.0085729Z   pass  mobile 390x780: the not-here list says what it is, in the compiled document's words
+2026-10-01T07:13:34.0086553Z   pass  mobile 390x780: the panel states it once — the paraphrase is gone
+2026-10-01T07:13:34.0086953Z   pass  mobile 390x780: the Evidence panel still does not overflow
+2026-10-01T07:13:34.8965314Z   pass  mobile 390x780: the open questions load
+2026-10-01T07:13:34.8991326Z   pass  mobile 390x780: the standing ones say they are standing and the unbuilt one does not
+2026-10-01T07:13:34.8994180Z   pass  mobile 390x780: the standing one names the claim on its record that carries the doubt
+2026-10-01T07:13:34.9006440Z   pass  mobile 390x780: an uncited open question says why it is uncited
+2026-10-01T07:13:34.9006888Z   pass  mobile 390x780: the panel says what the third category is
+2026-10-01T07:13:34.9007378Z   pass  mobile 390x780: the open questions say what they are, in the compiled document's words
+2026-10-01T07:13:34.9008216Z   pass  mobile 390x780: the panel states that once too — and counts nothing by hand
+2026-10-01T07:13:34.9008712Z   pass  mobile 390x780: the Evidence panel still does not overflow with it
+2026-10-01T07:13:39.9051399Z   pass  mobile 390x780: the open question reaches the building it is about
+2026-10-01T07:13:39.9052841Z   pass  mobile 390x780: it says what settling it would change
+2026-10-01T07:13:39.9053273Z   pass  mobile 390x780: the card grades the doubt the same way the claim above it is graded
+2026-10-01T07:13:39.9053872Z   pass  mobile 390x780: it starts collapsed like every other disclosure on the card
+2026-10-01T07:13:39.9054415Z   pass  mobile 390x780: only tracked in-scene buildings carry open questions
+2026-10-01T07:13:41.7608041Z   pass  mobile 390x780: the ground's claims load
+2026-10-01T07:13:41.7608616Z   pass  mobile 390x780: the ground is graded per claim, not stamped
+2026-10-01T07:13:41.7652241Z   pass  mobile 390x780: no land elevation claims to be documented
+2026-10-01T07:13:41.7667884Z   pass  mobile 390x780: the ground says which ground these claims are about
+2026-10-01T07:13:41.7668564Z   pass  mobile 390x780: the panel quotes the spec's caveat that no survey exists
+2026-10-01T07:13:41.7669218Z   pass  mobile 390x780: a land claim shows its figures and its citation
+2026-10-01T07:13:41.7669809Z   pass  mobile 390x780: every claim that calls itself an inference records its reasoning
+2026-10-01T07:13:41.7670476Z   pass  mobile 390x780: the soil claim that is graded too high says so where it is graded
+2026-10-01T07:13:44.2240932Z   pass  mobile 390x780: a claim with no reasoning would still say so
+2026-10-01T07:13:44.2241636Z   pass  mobile 390x780: a soil the ground is not made of says so, and the figures that are do not
+2026-10-01T07:13:46.6447455Z   pass  mobile 390x780: the mark is the declaration's, not the row's
+2026-10-01T07:13:46.6447894Z   pass  mobile 390x780: the Evidence panel still does not overflow with the ground on it
+2026-10-01T07:13:50.6252275Z   pass  mobile 390x780: the aerial anchor arrives in the air, looking down
+2026-10-01T07:13:52.6173451Z   pass  mobile 390x780: the view from above renders
+2026-10-01T07:13:59.0636763Z   pass  mobile 390x780: the near plane opens with altitude
+2026-10-01T07:13:59.0637309Z   pass  mobile 390x780: on foot the near plane is the walking value
+2026-10-01T07:13:59.0736982Z   pass  mobile 390x780: free-fly cannot sink through the terrain
+2026-10-01T07:14:00.0320729Z   pass  mobile 390x780: leaving free-fly puts the visitor back on the ground
+2026-10-01T07:14:04.9633754Z   pass  mobile 390x780: Space inspects on foot instead of lifting off
+2026-10-01T07:14:06.7653087Z   pass  mobile 390x780: Escape closes the inspection card
+2026-10-01T07:14:12.1670616Z   pass  mobile 390x780: the inspect key closes the card it opened
+2026-10-01T07:14:19.9677937Z   pass  mobile 390x780: neither key fires while typing in Go-to
+2026-10-01T07:14:26.2700317Z   pass  mobile 390x780: a building can be inspected from the air
+2026-10-01T07:14:34.2300610Z   pass  mobile 390x780: a click under the crosshair inspects
+2026-10-01T07:14:51.1496182Z   pass  mobile 390x780: /1904/ boots the 1904 scene on its own ground (T-1739)
+2026-10-01T07:15:05.2244812Z   pass  mobile 390x780: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739) — stood at E 1410.12 N -3218.01 bearing 264.94, eye 1.68 m; spawn {"local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}; anchor {"id":"glessner_house","label":"Prairie at Eighteenth, facing the Glessner lot at 1800 Prairie","local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}
+2026-10-01T07:15:05.2247206Z   pass  mobile 390x780: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739) — lot centroid E 1365.37 N -3229.04 at NDC (-0.288, -0.014, z 0.9957); street corner at NDC x 0.288
+2026-10-01T07:15:05.2275711Z   pass  mobile 390x780: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)
+2026-10-01T07:15:07.5600389Z   pass  mobile 390x780: Glessner's 1946 phase end is not presented as demolition
+2026-10-01T07:15:07.5627715Z   pass  mobile 390x780: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)
+2026-10-01T07:15:07.5628834Z   pass  mobile 390x780: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)
+2026-10-01T07:15:07.5629954Z   pass  mobile 390x780: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)
+2026-10-01T07:15:07.5630664Z   pass  mobile 390x780: the 1904 boot raises no loader problem (T-1739)
+2026-10-01T07:15:07.5631623Z   pass  mobile 390x780: the frame at the 1904 spawn is inside the draw budget (T-1739) — 91 draw calls, 735363 triangles against {"drawCalls":215,"triangles":825000}, 0 fps
+2026-10-01T07:15:07.5632224Z   pass  mobile 390x780: the suite body ran to completion
+2026-10-01T07:15:07.5632512Z   pass  mobile 390x780: zero page errors
+2026-10-01T07:15:07.6637233Z 
+2026-10-01T07:15:07.8902578Z   pass  vendor: meshopt decoder loads and reports supported
+2026-10-01T07:15:07.8905385Z   pass  vendor: meshopt import raises no page error
+2026-10-01T07:15:07.9175602Z 
+2026-10-01T07:15:07.9176128Z 245 passed, 0 failed
+2026-10-01T07:15:07.9176583Z 235 staged-section check(s) (stage 10-13 of 13), 10 always-on check(s)
+2026-10-01T07:15:07.9177533Z 9 m 29 s for stage 10-13 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+2026-10-01T07:15:07.9177930Z SMOKE PASS
+2026-10-01T07:15:07.9409784Z Post job cleanup.
+2026-10-01T07:15:08.0167189Z (node:3520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T07:15:08.0167718Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T07:15:08.0292584Z Post job cleanup.
+2026-10-01T07:15:08.0797637Z [command]/usr/bin/git version
+2026-10-01T07:15:08.0823089Z git version 2.55.0
+2026-10-01T07:15:08.0843533Z Temporarily overriding HOME='/home/runner/work/_temp/d749fd89-1329-4cf4-936a-e27252842818' before making global git config changes
+2026-10-01T07:15:08.0844514Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T07:15:08.0846787Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T07:15:08.0873668Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T07:15:08.0898435Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T07:15:08.1069348Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T07:15:08.1089090Z http.https://github.com/.extraheader
+2026-10-01T07:15:08.1096072Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-01T07:15:08.1119788Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T07:15:08.1315750Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T07:15:08.1337187Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T07:15:08.1636027Z Cleaning up orphan processes
+2026-10-01T07:15:08.1836803Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

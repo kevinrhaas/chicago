@@ -1,0 +1,109 @@
+{
+  "verified_at_utc": "2026-10-01T07:33:45.710403+00:00",
+  "comparison": {
+    "previous_dev": "0d78fc1efa79638d32e0216b635c16431656b409",
+    "incoming_dev": "773e9560a6de79d7c72269f340cda155df2a8455",
+    "integration_baseline_HEAD": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+    "current_working_tree_uncommitted": true
+  },
+  "current_changed_paths": [
+    "data/reconstruction/1835_west_farm_ground.json",
+    "docs/RESEARCH/west_farm_ground_1835.md",
+    "docs/STATUS.md",
+    "renderers/web/js/changelog.js",
+    "tools/check.sh",
+    "tools/derived_manifest.json",
+    "tools/measure_west_farm_ground_1835.py",
+    "tools/step_isolation.json",
+    "tools/writer_inventory.json"
+  ],
+  "research_reader": {
+    "output": "data/reconstruction/1835_west_farm_ground.json",
+    "writes_only_its_output": true,
+    "runtime_references": [],
+    "published": false,
+    "publish_evidence": "tools/publish.sh:203-232 individually copies five named reconstruction reports; new farm-ground report is not listed.",
+    "known_references": [
+      "773e956:chicago/4d/docs/RESEARCH/west_farm_ground_1835.md:3:DERIVED figures: `data/reconstruction/1835_west_farm_ground.json`, rebuilt by",
+      "773e956:chicago/4d/docs/RESEARCH/west_farm_ground_1835.md:4:`tools/measure_west_farm_ground_1835.py --build` and gated by `--check` in `tools/check.sh`.",
+      "773e956:chicago/4d/docs/STATUS.md:5:T-1794 builds. `tools/measure_west_farm_ground_1835.py` writes",
+      "773e956:chicago/4d/docs/STATUS.md:6:`data/reconstruction/1835_west_farm_ground.json`, and `check.sh` re-derives it. It is listed in",
+      "773e956:chicago/4d/tools/check.sh:2157:  python3 tools/measure_west_farm_ground_1835.py --check",
+      "773e956:chicago/4d/tools/check.sh:2160:  python3 tools/measure_west_farm_ground_1835.py --self-test",
+      "773e956:chicago/4d/tools/derived_manifest.json:2678:        \"tools/measure_west_farm_ground_1835.py\",",
+      "773e956:chicago/4d/tools/derived_manifest.json:2682:        \"chicago/4d/data/reconstruction/1835_west_farm_ground.json\"",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:23:    tools/measure_west_farm_ground_1835.py --build      write the record",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:24:    tools/measure_west_farm_ground_1835.py --check      the gate: re-derive and compare",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:25:    tools/measure_west_farm_ground_1835.py --self-test  its assertions still fire",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:42:RECORD = ROOT / \"data/reconstruction/1835_west_farm_ground.json\"",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:296:        \"$schema_note\": \"DERIVED \u2014 regenerate with tools/measure_west_farm_ground_1835.py --build; \"",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:298:        \"id\": \"chicago_july_1835_west_farm_ground\",",
+      "773e956:chicago/4d/tools/measure_west_farm_ground_1835.py:303:        \"generated_by\": \"tools/measure_west_farm_ground_1835.py --build\",",
+      "773e956:chicago/4d/tools/step_isolation.json:2965:    \"tools/measure_west_farm_ground_1835.py\": {",
+      "773e956:chicago/4d/tools/writer_inventory.json:659:    \"measure_west_farm_ground_1835.py\": {",
+      "773e956:chicago/4d/tools/writer_inventory.json:663:      \"finding\": \"Reproduces: ran `--build` on a clean tree in about 2s, rewrote data/reconstruction/1835_west_farm_ground.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its two gated commands write nothing in-tree.\","
+    ],
+    "new_check_steps": 2
+  },
+  "scene_equivalence": {
+    "assets_manifests_identical": true,
+    "renderer_code_identical_except_changelog": true,
+    "all_existing_data_files_identical": true,
+    "geometry_seats_identities_draw_inputs_identical": true,
+    "new_research_file_offline_only": true
+  },
+  "changelog": {
+    "beforeEntries": 1247,
+    "afterEntries": 1248,
+    "latestSemanticEntryUnchanged": true,
+    "allPriorSemanticEntriesUnchanged": true,
+    "latestTitle": "Stores and workshops on the Canal approach",
+    "beforeV": 1247,
+    "afterV": 1248,
+    "addedPosition": 1,
+    "newEntry": {
+      "v": 1247,
+      "ts": "2026-10-01T06:56:28.896Z",
+      "date": "Oct 1, 2026, 1:56 AM CT",
+      "title": "How many farms the West Side prairie could hold",
+      "kind": "change",
+      "items": [
+        "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+        "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+        "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+      ]
+    },
+    "new_entry_length": {
+      "titleWords": 9,
+      "items": 3,
+      "itemWords": 101
+    },
+    "rendering": "whatsnew.js:57-93 renders every row uniformly with textContent; no new HTML or per-entry logic.",
+    "source_contract": "check-changelog.mjs checks syntax, decreasing contiguous version numbers, requiredfields, timestamps and itemarrays; publish mirror checks cover both changelog copies."
+  },
+  "smoke_carryforward": {
+    "full_geometry_smoke_rerun_needed": false,
+    "reuse_previous_successful_full_1835_readings_with_actual_tested_SHAs": true,
+    "only_changed_UI": "Part12 What-is-new content/version handling",
+    "recommended_focused_check": {
+      "scene": "published1904 (same scene-independent module, styles and changelog)",
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "assertions": [
+        "1248entries rendered; latest title is Stores and workshops on the Canal approach",
+        "New researchrow renders title/date and3items",
+        "Firstvisit unread indicators appear, openingclears them and stores latestv1248",
+        "Returningseen1246 flags newCanal1248 and research1247 rows"
+      ],
+      "scope_caveat": "Focused component/UI validation only; not a newly run full1835 smoke. No need to repeat unrelatedpart12 controls or rendered1835 geometry.",
+      "status": "recommended, not run bythisreview"
+    }
+  },
+  "remaining_requirements": [
+    "Regenerate/checknewreader on integratedorderbook (rootreportscompleted).",
+    "Finish718-step sourcegate andchangelog/publishedmirrorcontracts.",
+    "Carryforward scope void ifadditional runtime/geometry changes enter merge."
+  ]
+}

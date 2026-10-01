@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 322,
-  "outside": 198,
+  "inside": 326,
+  "outside": 193,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 42,
    "west_of_canal_street": 82,
-   "south_of_washington_street": 46,
+   "south_of_washington_street": 41,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -485,16 +485,11 @@
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",
-    "recon_1835_blk_washington_clark_a1_07",
-    "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a3_03",
-    "recon_1835_blk_washington_clark_a3_08",
-    "recon_1835_blk_washington_clark_a3_10",
     "recon_1835_blk_washington_clark_a4_04",
     "recon_1835_blk_washington_clark_d4_02",
     "recon_1835_blk_washington_clark_d5_01",
     "recon_1835_blk_washington_clark_h3_05",
-    "recon_1835_blk_washington_clark_h3_06",
     "recon_1835_blk_washington_franklin_a1_10",
     "recon_1835_blk_washington_franklin_a2_09",
     "recon_1835_blk_washington_franklin_a3_13",
@@ -560,7 +555,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -662,7 +657,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 16,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -1109,7 +1104,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 35
+    "roofs": 31
    },
    {
     "id": "north_division_beyond_modelled_ground",

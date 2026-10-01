@@ -117,6 +117,7 @@ LIBERTY_OF_TICKET = {
     "T-1418": "L259",   # two law offices and a physician's room
     "T-1424": "L260",   # two livery stables and two lumber yards
     "T-1419": "L262",   # the fifteen service houses
+    "T-1766": "L307",   # four Canal approach firms on non-lodging trade roofs
 }
 
 # The number-words the liberty prose states a share in. A closed list on purpose: a parser
@@ -330,6 +331,27 @@ def plan(candidate: dict, match: dict, buckets: dict, shares: dict) -> dict:
                 "reading": "the row closes by being answered: the census count is met by "
                            "a house somebody wrote down instead of one this project dealt",
             }
+        elif recon.get("trade_roof"):
+            # T-1766's firm fills no census quota and provides no lodging beds.
+            # Substitution carries the physical workplace while retaining its keeper;
+            # retiring a firm never implies demolition or retirement of a person.
+            trade_roof = recon["trade_roof"]
+            out["performed_by"] = (
+                "replace the allocation in data/reconstruction/1835_canal_approach_occupancy.json "
+                "and its authored firm; tools/canal_approach_occupancy.py --build "
+                "must be updated to preserve that documented replacement")
+            out["order_book"] = {
+                "bucket": None,
+                "reading": "no firm quota row to free: this house was bought by an "
+                           "already standing trade roof. Keep the physical roof and "
+                           "its roof-programme accounting; no lodging beds were invented.",
+            }
+            out["head"] = "%s (%s), household %s, keeps standing on their own person " \
+                          "bucket. Replacing this firm does not retire the keeper or " \
+                          "assert that the keeper lived at the workplace." % (
+                              trade_roof.get("keeper_person_id"),
+                              trade_roof.get("occupation"),
+                              trade_roof.get("keeper_household_id"))
         else:
             head = firm_head(record)
             out["order_book"] = {
@@ -668,6 +690,26 @@ def self_test() -> int:
         print("  ok    the retired id is redirected, never deleted")
     finally:
         reconstructed_firms = keep
+
+    print()
+    # T-1766: the four actual non-lodging firms preserve roof and keeper, and never
+    # make up a business quota or reuse a lodging capacity on substitution.
+    trade_roofs = [f for f in reconstructed_firms()
+                   if (f.get("reconstruction") or {}).get("trade_roof")]
+    assert len(trade_roofs) == 4, "the four Canal trade roofs must remain covered"
+    for firm in trade_roofs:
+        tr = firm["reconstruction"]["trade_roof"]
+        retirement = plan(good, {"kind": "business", "record": firm, "place": "fixture"},
+                          {}, {"L307": 4})
+        assert tr["structure_id"] in retirement["roof"]
+        assert "not demolished" in retirement["roof"]
+        assert tr["keeper_person_id"] in retirement["head"]
+        assert "does not retire" in retirement["head"]
+        assert retirement["order_book"]["bucket"] is None
+        assert "no lodging beds" in retirement["order_book"]["reading"]
+        assert "canal_approach_occupancy.py" in retirement["performed_by"]
+        assert retirement["liberty"].startswith("L307: its share falls from 4 to 3")
+    print("  ok    all four trade-roof substitutions retain roof and keeper, free no quota and name L307")
 
     print()
     # THE LIBERTY RE-COUNT, broken in memory against the committed entries.
