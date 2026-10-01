@@ -141,7 +141,8 @@ window.PrairieImages = (() => {
     plan.parcels.forEach(p => {
       const ids = p.building_ids, n = ids.reduce((s2, b) => s2 + (counts.get(b) || 0), 0);
       const poly = svg('polygon', { points: pts(project(p.polygon, wide, box)), class: 'sp-parcel' + (ids.length ? ' has-building' : '') + (n ? ' has-images' : '') + (ids.some(b => focus.has(b)) ? ' focus' : '') + (selectedParcel === p.id ? ' selected' : '') });
-      if (n) poly.style.setProperty('--heat', (0.25 + 0.75 * n / max).toFixed(2));
+      // Log-scaled: Glessner alone has ~150 records and would wash every other lot out.
+      if (n) poly.style.setProperty('--heat', (0.22 + 0.78 * Math.log1p(n) / Math.log1p(max)).toFixed(2));
       const label = (p.addresses[0] || '').replace(/\s.*$/, '');
       const title = svg('title'); title.textContent = (label ? label + ' Prairie' : 'Unnumbered lot') + (ids.length ? ' — ' + ids.map(b => buildingsById.get(b)?.name || b).join('; ') : '') + (n ? ' · ' + n + ' image' + (n === 1 ? '' : 's') : '');
       poly.append(title);
@@ -176,7 +177,7 @@ window.PrairieImages = (() => {
   }
   function renderMap(list) {
     const wrap = node('div', null, 'map-view');
-    const legend = node('p', 'Shaded lots have images in the current filter — darker means more. Pick a lot to see its pictures. Lots are the Sanborn 1911 parcels, matched to buildings by house number; a lot is a locator, not a 1904 footprint.', 'meta');
+    const legend = node('p', 'Shaded lots have images in the current filter — darker means more (log scale). Pick a lot to see its pictures. Lots are the Sanborn 1911 parcels, matched to buildings by house number; a lot is a locator, not a 1904 footprint.', 'meta');
     wrap.append(legend, siteMap(list));
     const placed = new Set(Object.keys(plan.placed || {}));
     const off = array(lib.buildings).filter(b => !placed.has(b.id));
