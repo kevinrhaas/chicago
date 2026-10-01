@@ -390,7 +390,6 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_adams_elizabeth` | `blk_indiana_north_cass` | `blk_indiana_north_cass#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_adams_james` | `blk_randolph_clinton` | `blk_randolph_clinton#09` | D7 | `merchant_and_professional_dwellings` |
 | `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
-| `hh_allen_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_monique` | `blk_washington_clark` | `blk_washington_clark#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beddlecome_ash` | `blk_washington_dearborn` | `blk_washington_dearborn#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beech_reuben` | `blk_washington_dearborn` | `blk_washington_dearborn#00` | D7 | `merchant_and_professional_dwellings` |
@@ -413,7 +412,8 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_bigelow_david` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
 | `hh_blaisdell_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
 | `hh_blodgett_tyler_k` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
-| `hh_bourassa_lon` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
+| `hh_bourassa_lon` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D4 | `tradesman_dwellings` |
+| `hh_bourassa_noel` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
 | `hh_casy_honora` | `blk_washington_clark` | `blk_washington_clark#03` | D3 | `tradesman_dwellings` |
 | `hh_catton_william` | `blk_washington_clark` | `blk_washington_clark#02` | D3 | `tradesman_dwellings` |
 | `hh_chamberlain_l_c` | `blk_washington_clark` | `blk_washington_clark#07` | D4 | `tradesman_dwellings` |
@@ -422,7 +422,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_chattin_clark` | `blk_washington_dearborn` | `blk_washington_dearborn#03` | D3 | `tradesman_dwellings` |
 | `hh_chevalier_joseph` | `blk_washington_dearborn` | `blk_washington_dearborn#07` | D4 | `tradesman_dwellings` |
 | `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#05` | D3 | `tradesman_dwellings` |
-| `hh_clarke_h_b` | `blk_washington_market` | `blk_washington_market#03` | D4 | `tradesman_dwellings` |
+| `hh_clarke_h_b` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
 | `hh_cleaveland_wm_p` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 
 1,229 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
@@ -651,13 +651,13 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/inns_taverns/west` | 3 | 3 | 0 | 0 | T-1762 |
 | `structures/inns_taverns/north` | 2 | 1 | 1 | 0 | T-1205 |
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1202 |
-| `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1208 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 28 | 17 | 11 | 0 | T-1209 |
-| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
-| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1209 |
+| `structures/larger_boarding_houses/south` | 28 | 17 | 11 | 0 | T-1779 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1779 |
+| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1779 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1758 |
-| `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
+| `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1783 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 35 | 13 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
@@ -669,7 +669,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/warehouses_freight/south/street_line` | 9 | 6 | 3 | 0 | T-1673 |
 | `structures/warehouses_freight/south/river_bank` | 2 | 2 | 0 | 0 | T-1640 |
-| `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-1764 |
+| `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-1774 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-1205 |
 | `structures/workshops/south` | 15 | 11 | 4 | 0 | T-1684 |
 | `structures/workshops/west` | 8 | 5 | 3 | 0 | T-1766 |

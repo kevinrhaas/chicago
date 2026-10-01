@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1244, ts: '2026-10-01T05:24:12.388Z', date: 'Oct 1, 2026, 12:24 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
+    items: [
+      'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
+      'None of these five fronts a street; the nearest is 75 to 140 metres away. A framed cottage set back from a road it does not have made no sense, so out here the town now builds what the prairie edge would have held: log cabins and barns.',
+      'Four labouring households live in the four cabins. Two tradesman families who had lived out here now live in framed houses nearer Clinton Street, and two others lose their house in the re-seating and wait for the next houses to be built.',
+      'Every one of these buildings is our reconstruction. No source places a house or a barn on this ground in July 1835; the positions, sizes and kinds are reasoned from how the town was laid out, and each card says so.',
+    ] },
   { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
     'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
     'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',

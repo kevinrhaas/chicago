@@ -1,3 +1,31 @@
+## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
+
+T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
+was split into T-1781 … T-1785; this is the first piece. When T-1444 released the thirty-five
+held West slots, the re-derived roof adjudication (T-1445) returned eight new West refamily
+verdicts and nobody carried them out. This carries out the five in `w5_desplaines_open_edge`:
+`recon_1835_west_050`, `_051`, `_052` and `_054` become D1 log cabins and `_053` an A2 barn beside
+`_055`. Same coordinates, rotations and inventory classes; `_050` widens 14 → 16 ft to the D1
+band's floor. Baked with `bake.sh --only` (five GLBs and their web derivatives).
+
+- `tools/execute_roof_redeal.py --apply` gained `--only/--ticket/--on`: a PARTIAL execution
+  that refuses a name with no standing verdict, stamps the later ticket on each roof's own
+  `redealt` entry, and lists the verdicts it left standing in
+  `docs/RESEARCH/1835_roof_redeal_execution.md`. The other three (`_013`, `_020`, `_046`) stay
+  for T-1764/T-1774 and T-1782.
+- The adjudication re-audits all five as `keep` (377 roofs: 374 keep, 3 refamily).
+- Seating re-derived: four labourer households in the four cabins; the two tradesman households
+  that held `_052`/`_053` move to `_043`/`_045` (Clinton cluster); Butterfield and Cappy lose
+  their roofs in the cascade and are owed to T-1615; Barnes and Doyle gain one.
+- The order book's owner table was swept off three tickets split this hour (T-1208, T-1209,
+  T-1764) onto their live children (T-1783, T-1785, T-1779, T-1774) — the gate refuses a book
+  ordering work from a split ticket.
+- L265 and L266 restated (11 re-dealt roofs; 83 log or fort phases).
+
+**Not done here, and owned:** no new ground is opened (T-1783 needs a measured West lot
+density, and the ground waits on T-1414); no farm household is seated on these cabins — the
+re-seating put labourers there, and the farms-and-country-seats band stays owed to T-1784.
+
 ## T-1460 — retire the invented west-prairie drains (2026-09-30)
 
 Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
