@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Two small boarding houses get their stovepipes', kind: 'change',
+  { v: 1265, ts: '2026-10-01T16:49:57.701Z', date: 'Oct 1, 2026, 11:49 AM CT', title: 'Two small boarding houses get their stovepipes', kind: 'change',
     items: [
       'Two one-and-a-half-storey boarding houses, one on the North Side and one on the West Side approaches, now have three iron stovepipes rising through each roof beside the two brick chimneys.',
       'The number comes from the beds each house already holds, by the same rule as the town\u2019s other boarding houses: one stove for every three people sleeping there on an ordinary night. Nobody moved, and the fronts are unchanged.',

@@ -124,6 +124,14 @@
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
     },
+    "stovepipes": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's stove ratio (L318) carried to the small house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L325) owns the carry."
+    },
     "siding_exposure_m": {
       "value": 0.152,
       "confidence": "reconstructed",
@@ -280,7 +288,18 @@
     "sequence": 7,
     "finish_key": "whitewash",
     "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "age_state": "older_frontier",
+    "capacity": {
+      "beds_ordinary": 7,
+      "beds_crowded": 16,
+      "from": "data/reconstruction/1835_lodging_model.json",
+      "row": "places[id=recon_1835_north_h1_007]",
+      "sizes": {
+        "stovepipes": "ceil(7 ordinary beds / 3 to a stove) = 3, held to 2-6: 3",
+        "upper_windows": "not sized by the beds: the H1 crosswalk states the front (5 bays, centre hall), and the half storey's chambers are lit from its gable ends rather than by a row of upper sashes",
+        "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
+      }
+    }
   },
   "lodging": {
     "class": "boarding_house",
