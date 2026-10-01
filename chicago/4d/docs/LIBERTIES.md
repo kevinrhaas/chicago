@@ -6369,6 +6369,22 @@ reconstructed firms carry and neither signboard set knows (bakery, barber, butch
 harness maker, shoemaker, tailor) are read as stores, **for the street edge only**. Whether
 they hang a board is T-1213's question.
 **Revised:** 2026-10-01.
+**Amended 2026-10-01 — the walk itself is dealt by business (T-1814, the second piece of
+T-1211).** The same table now deals the walk as well as what stands on it. An **inn** and a
+**store** front the town's 6 ft board walk, unchanged. A **forwarding house or warehouse** fronts
+a **decked walk**: the board walk widened by 1.22 m (4 ft) of 3-inch plank on its street side,
+for the length of the house's own frontage wherever the walk is laid there, making a 10 ft deck
+where goods were landed and loaded. Its post and wagon apron stand out past the deck by the
+same verge. A **works** fronts **bare ground**: every march step whose middle lies in front of
+it is refused, so the walk stops either side, and its tie rail stands on that ground. On
+today's town that is **3 decked walks** (39.8 m, at Kinzie's forwarding store on South Water,
+Dole's warehouse and the old bank building's packing house on Lake) and **1 bare front** (the
+Mason blacksmith shop on Lake, a 5.2 m gap). Three warehouse fronts on South Water have no walk
+laid in front of them and are refused a deck in writing. **All of it is invented.** No source
+in this repository measures a Chicago walk's width by trade or shows a smithy's front unplanked.
+The widths are ordinary carpentry, and that a forwarding house would widen its walk and a works
+would not plank its front is a reconstruction from what each trade did at its door.
+**Revised:** 2026-10-01.
 
 ### L161 — The town encloses its property: a yard fence on 109 platted lots, in three types, every metre of it invented
 

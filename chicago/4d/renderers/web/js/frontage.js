@@ -1167,6 +1167,16 @@ export async function createFrontage({
       out.census.fittingKinds[fit.kind] = (out.census.fittingKinds[fit.kind] ?? 0) + 1;
     }
   }
+  // A works' bare front (T-1814): no walk is laid there, and nothing is planted
+  // either, so the smith's front reads as trodden yard rather than prairie.
+  for (const [, record] of loaded) {
+    if (!record) continue;
+    for (const bare of record.bare_fronts ?? []) {
+      if (Array.isArray(bare.pts_local_enu_m) && bare.pts_local_enu_m.length >= 3) {
+        out.keepOut.push({ id: `${bare.belongs_to}__bare`, pts: bare.pts_local_enu_m });
+      }
+    }
+  }
   // The named chunks join the polyline ones: same material, same render order,
   // one bounding sphere each (T-0069).
   for (const [id, hit] of named) {
