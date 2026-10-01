@@ -68,3 +68,23 @@ reading against the unchanged 4 px floor in part 11; the prior unfiltered receip
 has the identical ground reaches but an 8.2 px spread. An isolated dev comparison
 and explicit buffer/FOV/eye-height diagnostics are checking the measurement state.
 No grass parameter or assertion threshold has been changed.
+
+### Development gate repairs
+
+The isolated dev run 36895681173 reproduced the same grass failure and found a
+second failure from the newly merged camps: their placement anchor was 0.005 m
+above the terrain at the declared origin. Include that origin in `groundUnder`'s
+minimum alongside the mesh-bound samples. A sparse model's bounds need not reach
+its declared origin; all existing samples remain in the minimum. The original
+no-floating-anchor assertion is unchanged.
+
+For the grass, increase only the full-detail mid-ring's world-anchored fringe
+from 3 m to 3.5 m. This addresses the actual near-circular edge at the desktop
+release view: run 36896083944 confirms an 800 px buffer, 55-degree vertical field
+and 1.68 m eye, so this is a real shortfall at the normal release settings.
+Light and balanced retain their explicit fringe overrides; density,
+fade bands, nominal reach and all performance ceilings are unchanged. The browser
+reruns must demonstrate the existing four-pixel spread, intact ground coverage,
+unclamped detail tiers and rendering budgets. The wider prairie work remains
+T-1772, where the independent baseline finding is recorded. Final receipts belong
+in PR #230; these integration fixes are not a claim that T-1772 is complete.

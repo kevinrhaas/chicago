@@ -231,7 +231,10 @@ const TUNE = {
    */
   near: { radius: 7.6, cell: 0.74, perCell: 4, tuftsPerM2: 7.30, band: 2.2,
     spreadOuter: true },
-  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 3.0,
+  // The full-detail edge needs another half metre of world-anchored
+  // variation: the published 1280x800, DPR-1 view measured only a 3.9 px
+  // boundary spread at 3 m. Light and balanced keep their explicit overrides.
+  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 3.5,
     spreadInner: true },
   forb: { radius: 26.0, cell: 3.4, perCell: 4, band: 5.0, fringe: 3.0 },
   /**
