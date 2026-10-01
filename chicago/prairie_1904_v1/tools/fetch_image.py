@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Fetch one rights-cleared image into the Prairie 1904 image collection.
 
-    python3 tools/fetch_image.py <record-id> <direct-image-url> [--max 1600]
+    python3 tools/fetch_image.py <record-id> <direct-image-url> [--max 1600] [--thumb-only]
 
 Writes research/images/files/<id>.jpg (long side <= --max, JPEG q80) and
 <id>-thumb.jpg (long side <= 480) and prints a JSON `local` block to paste into
 the record. Only use it for items whose rights are public domain or "no known
 restrictions" — everything else stays link-only (rights rule, AGENTS.md rule 6).
 The original is never kept: its URL is the record of where it lives.
+
+--thumb-only writes just the 480 px thumbnail: for public-domain items whose holder serves
+no small size (chicagology's ~3,800 px Robinson 1886 crops), so the grid does not pull the
+full file, while the detail view still shows the holder's own image (owner, 2026-10-01).
 """
 import hashlib, io, json, re, sys, time, urllib.request
 from pathlib import Path
@@ -38,7 +42,8 @@ def main():
     if im.mode not in ('RGB', 'L'): im = im.convert('RGB')
     w, h = im.size
     out = {}
-    for name, size, q in ((f'{rid}.jpg', mx, 80), (f'{rid}-thumb.jpg', 480, 78)):
+    sizes = [(f'{rid}-thumb.jpg', 480, 78)] if '--thumb-only' in a else [(f'{rid}.jpg', mx, 80), (f'{rid}-thumb.jpg', 480, 78)]
+    for name, size, q in sizes:
         c = im.copy(); c.thumbnail((size, size), Image.LANCZOS)
         p = OUT / name; c.save(p, 'JPEG', quality=q, optimize=True, progressive=True)
         out['display' if not name.endswith('-thumb.jpg') else 'thumb'] = str(p.relative_to(P))

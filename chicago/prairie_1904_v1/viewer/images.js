@@ -31,7 +31,8 @@ window.PrairieImages = (() => {
   const lotLabel = id => { const p = lotsById().get(id); const n = (p?.addresses?.[0] || '').replace(/\s.*$/, ''); return n ? n + ' Prairie' : 'Unnumbered lot'; };
   const lotName = id => { const p = lotsById().get(id); const names = array(p?.building_ids).map(b => buildingsById.get(b)?.name).filter(Boolean); return lotLabel(id) + (names.length ? ' · ' + names.join('; ') : ' · no building record yet'); };
   const thumbOf = r => r.local && (localURL(r.local.thumb) || localURL(r.local.display));
-  const fullOf = r => r.local && (localURL(r.local.display) || localURL(r.local.thumb));
+  // A thumb-only local copy (fetch_image.py --thumb-only) is not a full view: the holder's image is.
+  const fullOf = r => r.local && (localURL(r.local.display) || (!r.image_url && localURL(r.local.thumb)));
   // Link-only items are SHOWN from their holder, never copied here (owner, 2026-10-01): the
   // record's own image_url, asked for at a small size where the host has a size parameter.
   function remoteURL2(value, size) {
@@ -45,7 +46,7 @@ window.PrairieImages = (() => {
   }
   const fallbackURL = (r, size) => remoteURL2(r.image_url || r.local?.fetched_from, size);
   const remoteThumbOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 480) : null;
-  const remoteFullOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 1600) : null;
+  const remoteFullOf = r => !r.local?.display && r.image_url ? remoteURL2(r.image_url, 1600) : null;
   function remoteImg(src, r) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; return img; }
   const dateText = r => r.date || (r.date_earliest && r.date_latest && r.date_earliest !== r.date_latest ? r.date_earliest + '–' + r.date_latest : r.date_earliest || r.date_latest) || 'Undated';
   const sortYear = r => r.date_earliest || r.date_latest || 9999;
@@ -108,7 +109,7 @@ window.PrairieImages = (() => {
   function badges(r) {
     const b = node('div', null, 'img-badges');
     b.append(node('span', PERIOD_LABEL[r.period] || r.period, 'badge period-' + r.period));
-    if (!r.local) b.append(node('span', 'Link only', 'badge link-badge'));
+    if (!r.local) b.append(node('span', 'Link only', 'badge link-badge')); else if (!r.local.display) b.append(node('span', 'Thumbnail here', 'badge link-badge'));
     return b;
   }
   function chipsFor(r, onPick) {
@@ -142,7 +143,7 @@ window.PrairieImages = (() => {
       const t0 = node('td'); const btn = node('button', null, 'img-open small'); btn.type = 'button'; btn.setAttribute('aria-label', 'Open ' + (r.title || r.id)); btn.append(thumbBox(r, 'img-thumb small')); btn.addEventListener('click', () => openDetail(i)); t0.append(btn);
       const t1 = node('td'); const tl = node('button', r.title || r.id, 'text-button title-link'); tl.type = 'button'; tl.addEventListener('click', () => openDetail(i)); t1.append(tl);
       const t4 = node('td'); t4.append(chipsFor(r, pickBuilding));
-      tr.append(t0, t1, node('td', dateText(r)), node('td', [r.kind, r.view].filter(Boolean).join(' · ')), t4, node('td', r.repository || '—'), node('td', r.local ? 'Held here' : 'Link only'));
+      tr.append(t0, t1, node('td', dateText(r)), node('td', [r.kind, r.view].filter(Boolean).join(' · ')), t4, node('td', r.repository || '—'), node('td', r.local?.display ? 'Held here' : r.local ? 'Thumbnail here' : 'Link only'));
       body.append(tr);
     });
     table.append(body); wrap.append(table); return wrap;

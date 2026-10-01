@@ -1,6 +1,6 @@
 # T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
-Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through 6f53477. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through e565dcea. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
 
 ## T-1826 — Wolf Point's books closed: the store on the teamster road states its use, T-1208 handed on (2026-10-01)
 
