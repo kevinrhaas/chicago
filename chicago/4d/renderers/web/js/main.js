@@ -2665,6 +2665,7 @@ async function boot() {
           } finally { jauntEntering = false; }
         },
         render: state => jauntPanel.render(state),
+        onComplete: state => jauntPreview.award(state),
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -2673,6 +2674,7 @@ async function boot() {
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };

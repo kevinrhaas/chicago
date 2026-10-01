@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "title": "Your Chicago daybook",
+  "disclaimer": "Narrative keepsakes, not evidence. Each one is a memento of an outing you took here; none is a historical record or a source.",
+  "families": [
+    {
+      "id": "provisions",
+      "name": "Provisions",
+      "description": "Receipts and supply lists from the stores and landings.",
+      "icon": "basket",
+      "template": { "form": "Receipt", "style": "receipt", "lead": "Received with thanks" }
+    },
+    {
+      "id": "livelihood",
+      "name": "Livelihood",
+      "description": "Work chits from the yards, shops and wharves.",
+      "icon": "hammer",
+      "template": { "form": "Work chit", "style": "chit", "lead": "Good for one day's work" }
+    },
+    {
+      "id": "wayfinding",
+      "name": "Wayfinding",
+      "description": "Route notes for finding your way between corners.",
+      "icon": "compass",
+      "template": { "form": "Route note", "style": "note", "lead": "Directions, in pencil" }
+    },
+    {
+      "id": "news",
+      "name": "News & Knowledge",
+      "description": "Clippings and notices from the papers and the post.",
+      "icon": "paper",
+      "template": { "form": "Clipping", "style": "clipping", "lead": "Cut from the paper" }
+    },
+    {
+      "id": "neighbors",
+      "name": "Neighbors",
+      "description": "Calling cards and notes of introduction.",
+      "icon": "card",
+      "template": { "form": "Calling card", "style": "card", "lead": "With compliments" }
+    }
+  ],
+  "ranks": [
+    { "id": "new_arrival", "title": "New Arrival", "threshold": 0 },
+    { "id": "finding_your_feet", "title": "Finding Your Feet", "threshold": 1 },
+    { "id": "knows_the_town", "title": "Knows the Town", "threshold": 2 },
+    { "id": "seasoned_chicagoan", "title": "Seasoned Chicagoan", "threshold": 3 }
+  ]
+}
