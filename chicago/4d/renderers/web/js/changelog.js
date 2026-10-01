@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1245, ts: '2026-10-01T05:44:56.495Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'A house where the freight shed stood, and three sheds explained', kind: 'change',
+  { v: 1246, ts: '2026-10-01T06:39:54.172Z', date: 'Oct 1, 2026, 1:39 AM CT', title: 'A boarding house where the freight shed stood, and three sheds explained', kind: 'change',
     items: [
       'On the block between Jefferson and Des Plaines Streets, off Randolph, the long freight shed is gone and a two-storey frame house stands in its place, a little shorter than the shed was. A freight shed belongs on the street line; this one stood well back from it, which suits a house.',
-      'The house has a household now. The seating pass gives it to the Adams household, a name the town’s own records carry. Which house they lived in is our allocation, not something a source says.',
+      'It is a boarding house, and it has people in it: a keeper, four boarders and five people the town already counts sleep there, and Donnelly’s boarding house joins the town’s list of businesses. The keeper, the boarders and the firm are our reconstruction; no source names this house.',
       'Three buildings nearby that nobody lives in now say what they were for. Click the stable behind the Jefferson Street cottage, the stable beside the new house, or the big work shed on Randolph, and the card tells you: two stables for their neighbours’ horses, and a shed where house frames were cut.',
       'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each will give way to a source or a seated household that says otherwise.',
+    ] },
+  { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
+    items: [
+      'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
+      'None of these five fronts a street; the nearest is 75 to 140 metres away. A framed cottage set back from a road it does not have made no sense, so out here the town now builds what the prairie edge would have held: log cabins and barns.',
+      'Four labouring households live in the four cabins. Two tradesman families who had lived out here now live in framed houses nearer Clinton Street, and two others lose their house in the re-seating and wait for the next houses to be built.',
+      'Every one of these buildings is our reconstruction. No source places a house or a barn on this ground in July 1835; the positions, sizes and kinds are reasoned from how the town was laid out, and each card says so.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [

@@ -117,23 +117,23 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 44 if the household kind changed too, 106 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 43 if the household kind changed too, 106 if the trade could change as well, and 129 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
-    "still_owed_now": 290,
-    "still_owed_when_the_programme_is_spent": 290,
+    "still_owed_now": 281,
+    "still_owed_when_the_programme_is_spent": 281,
     "persons_standing_in_the_layer": 2381,
-    "converges_to_now": 2671,
-    "converges_to_when_the_programme_is_spent": 2671,
+    "converges_to_now": 2662,
+    "converges_to_when_the_programme_is_spent": 2662,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,671 is inside the model's 2,362-3,265 and 128 above its 2,543 point, against 128 above it today.",
+    "reading": "2,662 is inside the model's 2,362-3,265 and 119 above its 2,543 point, against 119 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 2542,
-      "this_report_says": 2671,
+      "the_rule_says": 2533,
+      "this_report_says": 2662,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },

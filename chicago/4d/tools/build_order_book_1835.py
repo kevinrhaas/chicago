@@ -469,7 +469,8 @@ STRUCTURE_TICKETS = {
     ("west", "workshops"): "T-1766",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     ("west", "warehouses_freight"): "T-1773",
-    ("west", "institutional_public"): "T-1208",
+    # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
+    ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
@@ -4664,8 +4665,12 @@ def cmd_self_test() -> int:
     # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
     # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
     # four of those passes before it settled at 177.
+    # T-1782 seats one more: `recon_1835_west_046`, re-dealt from a freight shed to an H2,
+    # is a standing roof the merchant-and-professional clause admits, so the platted pass
+    # adopts it for hh_adams_james (178) and the slot that household held on
+    # blk_randolph_clinton passes to the next in its clause; 249 -> 250.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 249
+        data["inventory"], data["programme"], occ))["seated"] == 250
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

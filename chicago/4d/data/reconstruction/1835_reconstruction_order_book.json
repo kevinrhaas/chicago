@@ -1342,7 +1342,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 95,
+      "records": 105,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1371,7 +1371,10 @@
         "persons/male/30_39/north/lodging/none",
         "persons/male/30_39/south/lodging/none",
         "persons/male/30_39/west/lodging/none",
-        "persons/male/40_49/north/lodging/none"
+        "persons/male/30_39/west/lodging/trade",
+        "persons/male/40_49/north/lodging/none",
+        "persons/male/40_49/west/lodging/none",
+        "persons/male/50_plus/north/lodging/none"
       ]
     },
     {
@@ -1448,14 +1451,14 @@
     "roofs_standing": 493,
     "roofs_to_build": 189,
     "persons_standing": 2381,
-    "persons_still_owed": 290,
-    "persons_when_the_book_is_filled": 2671,
+    "persons_still_owed": 281,
+    "persons_when_the_book_is_filled": 2662,
     "persons_target_range": [
       2362,
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 422
+    "households_still_owed": 421
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1519,9 +1522,9 @@
         },
         "by_clause": {
           "heavy_and_noxious_trades": 1,
-          "labourer_dwellings": 23,
+          "labourer_dwellings": 25,
           "merchant_and_professional_dwellings": 8,
-          "tradesman_dwellings": 40
+          "tradesman_dwellings": 38
         }
       }
     ],
@@ -1883,8 +1886,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_market",
         "lot_id": "blk_washington_market#03",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_cleaveland_wm_p",
@@ -1925,14 +1928,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 290,
-      "converges_to": 2671,
+      "persons_still_owed": 281,
+      "converges_to": 2662,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 290 still owed is 2,671, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 128 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 281 still owed is 2,662, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 119 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3437,7 +3440,7 @@
           "known_attested": 3,
           "known_inferred": 8,
           "to_reconstruct": 13,
-          "filled": 10,
+          "filled": 12,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3587,7 +3590,7 @@
           "known_attested": 3,
           "known_inferred": 7,
           "to_reconstruct": 8,
-          "filled": 4,
+          "filled": 6,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3790,11 +3793,11 @@
           "known_attested": 1,
           "known_inferred": 1,
           "to_reconstruct": 3,
-          "filled": 1,
+          "filled": 2,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 5,
-          "drawn_here": 0,
+          "drawn_here": 1,
           "refamilied_in": 1
         },
         {
@@ -3810,7 +3813,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 3,
+          "filled": 4,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3885,7 +3888,7 @@
           "known_attested": 0,
           "known_inferred": 1,
           "to_reconstruct": 2,
-          "filled": 1,
+          "filled": 2,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4031,7 +4034,7 @@
           "known_attested": 0,
           "known_inferred": 1,
           "to_reconstruct": 2,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4105,7 +4108,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 1,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4462,7 +4465,7 @@
           "target": 9,
           "known": 1,
           "to_reconstruct": 8,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
@@ -5237,7 +5240,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1208",
+          "owning_ticket": "T-1785",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -6189,7 +6192,7 @@
       "bucket": "persons/male/20_29/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 10,
+      "records": 12,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6210,7 +6213,7 @@
       "bucket": "persons/male/20_29/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 4,
+      "records": 6,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6231,11 +6234,32 @@
       "bucket": "persons/male/30_39/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/west/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/male/40_49/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 1,
@@ -6280,7 +6304,7 @@
       "bucket": "households/boarding_house/west",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6303,13 +6327,6 @@
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/institutional/south",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
     },
     {
       "bucket": "persons/female/10_19/north/family/none",
@@ -6443,6 +6460,174 @@
       "stage": "modelled_families",
       "records": 20,
       "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 15,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 35,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 13,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 6,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 16,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 6,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 3,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 6,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 3,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 2,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 4,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 2,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 25,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 60,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 23,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 15,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 35,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 13,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 4,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 10,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 3,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/north/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 2,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/south/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 5,
+      "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/west/family/trade",
+      "ticket": "T-1347",
+      "stage": "trade_households",
+      "records": 2,
+      "by": "tools/reconstruct_trade_households.py --build"
     },
     {
       "bucket": "households/family_dwelling/north",
@@ -6634,172 +6819,11 @@
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
-      "bucket": "persons/female/20_29/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 15,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 35,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 13,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 6,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 16,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 6,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 3,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 6,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 3,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 2,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 4,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 2,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 25,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 60,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 23,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 15,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 35,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 13,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 4,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 10,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 3,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/50_plus/north/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 2,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/50_plus/south/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 5,
-      "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/male/50_plus/west/family/trade",
-      "ticket": "T-1347",
-      "stage": "trade_households",
-      "records": 2,
-      "by": "tools/reconstruct_trade_households.py --build"
+      "bucket": "households/institutional/south",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
     }
   ],
   "re_family_ledger": {
@@ -9151,11 +9175,11 @@
       "buckets_refused": 45,
       "people_held": 396,
       "people_still_held": 396,
-      "open_headroom_in_person_buckets": 290,
+      "open_headroom_in_person_buckets": 281,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 290,
+      "still_owed_now": 281,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
