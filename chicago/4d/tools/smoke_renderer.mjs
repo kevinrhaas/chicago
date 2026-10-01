@@ -4175,7 +4175,10 @@ for (const [label, viewport, touch] of [
     const clashes = await page.evaluate(() => {
       const a = window.__chicago4d;
       const wagons = (a.yard?.wagons ?? []).filter((w) => w.stands_on || w.in_enclosure);
-      const walks = a.frontage?.keepOut ?? [];
+      // T-1813 — less the wagon aprons: an apron is the plank a dray draws up on
+      // at a forwarding house's door, so a wagon standing on one is the fitting
+      // doing its work, not a wagon on a footway. Stoops, blocks and rails stay in.
+      const walks = (a.frontage?.keepOut ?? []).filter((k) => !k.id.endsWith('__apron'));
       const inPoly = (pts, e, n) => {
         let inside = false;
         for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
@@ -4410,6 +4413,30 @@ for (const [label, viewport, touch] of [
         }
         return false;
       };
+      // THE BUSINESS-FRONT FITTINGS ARE NOT DECK (T-1813). A stoop's landing
+      // stands 0.38 m over its ground, a mounting block 0.46 m and a tie rail's
+      // rail 0.93 to 1.03 m, so they are measured against their own records
+      // below — the way the posts are measured against their own ground — and
+      // their own footprints are left out of the deck's band, as the fence lines
+      // are. A footprint is the part's own box, a hand's breadth (0.01 m) wider.
+      const fitParts = [];
+      for (const q of f?.fittings ?? []) {
+        const b = ((q.facade_bearing_deg ?? 0) * Math.PI) / 180;
+        for (const p of q.parts ?? []) {
+          fitParts.push({ id: q.id, part: p.part, e: p.at_local_enu_m[0], n: p.at_local_enu_m[1],
+            ae: Math.cos(b), an: -Math.sin(b), oe: Math.sin(b), on: Math.cos(b),
+            hl: p.len_m / 2 + 0.01, hd: p.depth_m / 2 + 0.01, top: p.top_m,
+            r: Math.hypot(p.len_m / 2, p.depth_m / 2) + 0.02 });
+        }
+      }
+      const inPart = (fp, e, n) => {
+        const de = e - fp.e;
+        const dn = n - fp.n;
+        if (Math.abs(de) > fp.r || Math.abs(dn) > fp.r) return false;
+        return Math.abs(de * fp.ae + dn * fp.an) <= fp.hl
+          && Math.abs(de * fp.oe + dn * fp.on) <= fp.hd;
+      };
+      const onFitting = (e, n) => fitParts.some((fp) => inPart(fp, e, n));
       const reliefAt = (e, n) => {
         const g0 = terrain.surfaceHeight(e, n);
         let lo = g0;
@@ -4458,7 +4485,7 @@ for (const [label, viewport, touch] of [
           const deck = deckAt(e, n);
           const base = deck === null ? ground
             : (Number.isFinite(ground) ? Math.max(ground, deck) : deck);
-          if (Number.isFinite(base) && !onFence(e, n)) {
+          if (Number.isFinite(base) && !onFence(e, n) && !onFitting(e, n)) {
             const d = y - base;
             highest = Math.max(highest, d);
             // The deck: everything under a metre. The post and its board are
@@ -4673,27 +4700,29 @@ for (const [label, viewport, touch] of [
           timberOrder: timber[0].order,
         };
       })();
-      // T-1813 — each business-front fitting against its own stand: how many
-      // vertices of the layer's timber lie within 0.5 m of its centre, and the
-      // highest of them over the ground there. A fitting the record carries and
-      // the layer never drew reads zero; one that fell through to a post's
-      // branch would stand far taller than any stoop or block.
+      // T-1813 — each business-front fitting, PART BY PART: the vertices of the
+      // layer's timber inside the part's own footprint, and the highest of them
+      // over the ground at the part's centre. A part the record carries and the
+      // layer never drew reads zero; one that fell through to a post's branch
+      // would stand far taller than any stoop, block or rail.
       const fittings = (f?.fittings ?? []).map((q) => {
-        const [e0, n0] = q.at_local_enu_m;
-        const stand = terrain.surfaceHeight(e0, n0);
-        let found = 0;
-        let top = -Infinity;
-        for (const t of timber) {
-          const pos = t.geometry?.getAttribute('position');
-          if (!pos) continue;
-          for (let i = 0; i < pos.count; i++) {
-            if (Math.abs(pos.getX(i) - e0) > 0.5) continue;
-            if (Math.abs(-pos.getZ(i) - n0) > 0.5) continue;
-            found += 1;
-            top = Math.max(top, pos.getY(i) - stand);
+        const mine = fitParts.filter((fp) => fp.id === q.id);
+        const parts = mine.map((fp) => {
+          const stand = terrain.surfaceHeight(fp.e, fp.n);
+          let found = 0;
+          let top = -Infinity;
+          for (const t of timber) {
+            const pos = t.geometry?.getAttribute('position');
+            if (!pos) continue;
+            for (let i = 0; i < pos.count; i++) {
+              if (!inPart(fp, pos.getX(i), -pos.getZ(i))) continue;
+              found += 1;
+              top = Math.max(top, pos.getY(i) - stand);
+            }
           }
-        }
-        return { id: q.id, kind: q.kind, found, top };
+          return { part: fp.part, found, top, recorded: fp.top };
+        });
+        return { id: q.id, kind: q.kind, parts };
       });
       return {
         edge,
@@ -5413,8 +5442,14 @@ for (const [label, viewport, touch] of [
     // same reason the posts' are: a fitting appearing or vanishing is worth
     // failing over, and a run that moves one updates them here.
     const fitKinds = frontage.census?.fittingKinds ?? {};
-    const fitBad = (frontage.fittings ?? []).filter((q) => !(q.found > 0
-      && q.top > 0.04 && q.top < 1.6));
+    // A part is good when it was drawn and its highest vertex stands within its
+    // recorded top, give or take what the ground does under it: the top is
+    // taken over the HIGHEST corner and the reading is from the centre, so a
+    // slope lifts it a little, and nothing may sink under its record or stand
+    // more than 0.25 m over it.
+    const fitBad = (frontage.fittings ?? []).filter((q) => !(q.parts.length > 0
+      && q.parts.every((p) => p.found > 0 && p.top >= p.recorded - 0.02
+        && p.top <= p.recorded + 0.25)));
     check(`${label}: the forty-six business-front fittings are drawn at their own fronts`,
       frontage.census?.fittings === 46 && (frontage.fittings ?? []).length === 46
         && fitKinds.stoop === 37 && fitKinds.mounting_block === 5
@@ -5422,7 +5457,8 @@ for (const [label, viewport, touch] of [
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
-      + fitBad.slice(0, 6).map((q) => `${q.id} ${q.found} vert, top ${q.top?.toFixed(2)} m`)
+      + fitBad.slice(0, 6).map((q) => `${q.id} [` + q.parts.map((p) => `${p.part} `
+        + `${p.found} vert, top ${p.top?.toFixed(2)}/${p.recorded} m`).join(', ') + ']')
         .join(' | '));
 
     // AND IT READS FROM THE STREET, the same bar the Green Tree's frontage is

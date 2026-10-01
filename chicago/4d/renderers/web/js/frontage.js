@@ -1147,6 +1147,22 @@ export async function createFrontage({
       if (!buildFitting(target, fit, terrain, level, problems)) continue;
       if (!bucket) spans.push({ id: fit.belongs_to, from, to: buf.pos.length / 9 });
       out.fittings.push(fit);
+      // A stoop or an apron is a floor like the walk, and a block or a rail stands
+      // on its own ground: nothing is planted up through any of them. An apron is
+      // named apart because it is the one floor here a WAGON may stand on — it is
+      // laid for the dray at a forwarding house's door.
+      const fb = ((fit.facade_bearing_deg ?? 0) * Math.PI) / 180;
+      const [fae, fan, foe, fon] = [Math.cos(fb), -Math.sin(fb), Math.sin(fb), Math.cos(fb)];
+      for (const part of fit.parts) {
+        const [pe, pn] = part.at_local_enu_m;
+        const hl = part.len_m / 2;
+        const hd = part.depth_m / 2;
+        out.keepOut.push({
+          id: `${fit.belongs_to}__${fit.kind === 'wagon_apron' ? 'apron' : 'fitting'}`,
+          pts: [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
+            pe + fae * sa * hl + foe * so * hd, pn + fan * sa * hl + fon * so * hd]),
+        });
+      }
       out.census.fittings += 1;
       out.census.fittingKinds[fit.kind] = (out.census.fittingKinds[fit.kind] ?? 0) + 1;
     }
