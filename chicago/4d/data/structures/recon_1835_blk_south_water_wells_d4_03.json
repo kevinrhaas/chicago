@@ -155,9 +155,16 @@
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 3,
-    "finish_key": "fresh_timber",
+    "finish_key": "weathered_timber",
     "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "silvered clapboard under a weathered roof — a two-room frame cottage, a year old (rule F-T: a tradesman's by its type)"
+    }
   },
   "resident_assignment": {
     "status": "unassigned",

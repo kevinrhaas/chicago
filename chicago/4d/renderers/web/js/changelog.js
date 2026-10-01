@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1273, ts: '2026-10-01T22:28:22.635Z', date: 'Oct 1, 2026, 5:28 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+  { v: null, ts: '', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
       'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
       'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
+    ] },
+  { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
+    items: [
+      'The Prairie Avenue and pre-fire atlases inside the walkthrough now open their map sheets, drawings and photographs from the atlases\u2019 own pages on this site. Before, they carried a second copy of every file.',
+      'That saves about 91 MB. The new Prairie Avenue image collection had pushed the site over its size limit, and that had stopped every other change from going out. It fits again.',
+      'Nothing you see changes. The new Prairie Avenue images are not in the main atlas yet, so the walkthrough\u2019s copy still carries those itself.',
+    ] },
+  { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+    items: [
+      'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
+      'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
+      'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
+      'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
+      'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
     ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [

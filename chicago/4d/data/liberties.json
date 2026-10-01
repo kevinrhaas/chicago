@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 324,
+  "count": 325,
   "liberties": [
     {
       "id": "L1",
@@ -20644,6 +20644,56 @@
         {
           "label": "Related",
           "text": "**L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
+        }
+      ]
+    },
+    {
+      "id": "L330",
+      "title": "The anonymous roofs' finish is dealt by whose house it is: a class rule for paint, weathering, roof and age",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_*",
+          "phase": "*",
+          "aspect": "form.paint"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every anonymous reconstructed roof (`recon_*`, 363 today) takes its wall finish, its `paint`, its `roof_condition` and its `age_state` from **one rule**, `tools/fabric_rule_1835.py` (T-1816, the first piece of T-1210), which all six anonymous-roof generators now deal through. Before it, a hash of the record id picked the wall, and the roof and age were both `(…)[seq % 4]`, so a merchant's house was as likely to be silvered and patched as a shanty. The rule decides in this order: - **A keeper the record names.** Where `1835_roof_keepers.json` WROTE a household onto the roof (23 roofs), that household's own trade sets the class of a dwelling or store through `seat_known_1835.TRADE_CLAUSE`, and its arrival year sets the age (1835 new, 1834 recent, 1832–33 established, earlier older than the boom). The refused (T-0379) and owed seats are never read. - **Otherwise the family's household class**, read off the reconstruction spec's own family label: an older log cabin or a shanty is a labourer's (F-L), a frame cottage, small shop or store-residence a tradesman's (F-T), a merchant's or professional house or a two-storey store a merchant's (F-M), a boarding house a keeper's (F-B), a works bare boards (F-W), a shed or warehouse the freight trade's (F-F), a yard building a yard's (F-Y). Its age is dealt by a hash of the id inside the family's window of the boom. What each class may wear: **a merchant's house is always coated** (red oxide, ochre or lime, equal shares), **a boarding house limewashed** (two in three) or ochre, **a tradesman's coated about three times in ten** with a cheap earth or lime wash, **a labourer's never**; works, freight and yard buildings are bare boards. Bare boards and roofs follow the age: new-sawn, silvered, then patched — and the sheet sets that clock, since bare stock \"silvered off by a season or two of weather\" means a house of 1834 is already grey by July 1835 — with the merchant's roof kept and the labourer's mended. `white_paint` stays the Sauganash's alone and no class can deal it. Every record states the result and its reason in `reconstruction.fabric_basis`, and the building card's Built line prints it."
+        },
+        {
+          "label": "Why",
+          "text": "the owner asked that houses be finished \"based on the type of person living there\". No source paints any of these roofs, so the class is what can be argued: lead paint was a remarkable expense here (the Sauganash, materials.md §2.1), lime and earth washes were not, and the November 1835 census counts 3,265 people in 398 dwellings against a village of a few hundred two years before, so most of the town was new or one winter old."
+        },
+        {
+          "label": "The grade does not move",
+          "text": "every value is `reconstructed`, as the programme's deal was. A class bounds the reconstruction; it does not prove a coat of paint on any building."
+        },
+        {
+          "label": "Consequence",
+          "text": "the wealth gradient is readable from the street: whitewashed, ochre and red better houses and stores; bare, silvering cottages; patched cabins and shanties. The coated share falls from 84 to 47 of 363 roofs (ochre, an earth wash dealt as `unpainted`, is 36 more). The rule clusters like with like, and that is measured rather than hidden: **101 of 363 roofs now share a wall finish with their nearest reconstructed neighbour (73 under the old hash), and 56 share wall and roof both (10 before)** — a row of one class built in one year reads as one row. Per-building tone jitter and board irregularity (T-1818) is what separates them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any source describing the finish of a particular 1835 Chicago house, which outranks the rule for that roof; any account of what paint or wash cost or who used it in the 1830s West, which re-grades the class rows."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_*.*.form.paint`"
+        },
+        {
+          "label": "Related",
+          "text": "**L157** (the material sheet paints the town), **L22** (wall surfaces are the archetype's), **L196** (the anonymous roofs' siding stocks), **L90** (the anonymous roofs), **T-1210**, **T-1816** (this rule), **T-1817** and **T-1818** (its form and its photographic finish)."
         },
         {
           "label": "Recorded",
