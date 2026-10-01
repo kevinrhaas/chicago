@@ -10404,6 +10404,12 @@
       "asset": "gltf/exchange_coffee_house__frame_1834.glb"
     },
     {
+      "id": "exchange_coffee_house_stable",
+      "name": "The Exchange Coffee House's Stable",
+      "sidecar": "sidecars/1835/exchange_coffee_house_stable.json",
+      "asset": "gltf/exchange_coffee_house_stable__stable_1834.glb"
+    },
+    {
       "id": "first_presbyterian_church",
       "name": "First Presbyterian Church",
       "sidecar": "sidecars/1835/first_presbyterian_church.json",
@@ -10842,6 +10848,12 @@
       "asset": "gltf/mansion_house__log_frame_1833.glb"
     },
     {
+      "id": "mansion_house_stable",
+      "name": "The Mansion House's Stable",
+      "sidecar": "sidecars/1835/mansion_house_stable.json",
+      "asset": "gltf/mansion_house_stable__stable_1833.glb"
+    },
+    {
       "id": "mason_blacksmith_shop",
       "name": "Matthias Mason & Co.'s Blacksmith Shop",
       "sidecar": "sidecars/1835/mason_blacksmith_shop.json",
@@ -10882,6 +10894,12 @@
       "name": "New York House",
       "sidecar": "sidecars/1835/new_york_house.json",
       "asset": "gltf/new_york_house__frame_1834.glb"
+    },
+    {
+      "id": "new_york_house_stable",
+      "name": "The New York House's Stable",
+      "sidecar": "sidecars/1835/new_york_house_stable.json",
+      "asset": "gltf/new_york_house_stable__stable_1834.glb"
     },
     {
       "id": "newberry_dole_packing_house_south_branch",
@@ -12144,6 +12162,30 @@
       "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "name": "Reconstructed D5 deep-plan frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d5_04.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d5_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d6_03.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_d6_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "name": "Reconstructed W2 carpenter or joiner shop #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_w2_01.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_w2_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_forks_freight_f2_001",
       "name": "Reconstructed F2 narrow two-story warehouse #001",
       "sidecar": "sidecars/1835/recon_1835_forks_freight_f2_001.json",
@@ -13146,6 +13188,12 @@
       "asset": "gltf/sauganash_hotel__frame_1831.glb"
     },
     {
+      "id": "sauganash_hotel_stable",
+      "name": "The Sauganash Hotel's Stable",
+      "sidecar": "sidecars/1835/sauganash_hotel_stable.json",
+      "asset": "gltf/sauganash_hotel_stable__stable_1831.glb"
+    },
+    {
       "id": "slough_log_bridge",
       "name": "The Slough Log Bridge, State Street",
       "sidecar": "sidecars/1835/slough_log_bridge.json",
@@ -13188,6 +13236,12 @@
       "asset": "gltf/steamboat_hotel__frame_1835.glb"
     },
     {
+      "id": "steamboat_hotel_stable",
+      "name": "The Steamboat Hotel's Stable",
+      "sidecar": "sidecars/1835/steamboat_hotel_stable.json",
+      "asset": "gltf/steamboat_hotel_stable__stable_1835.glb"
+    },
+    {
       "id": "temple_building",
       "name": "Temple Building",
       "sidecar": "sidecars/1835/temple_building.json",
@@ -13210,6 +13264,24 @@
       "name": "Tremont House (the first)",
       "sidecar": "sidecars/1835/tremont_house_1.json",
       "asset": "gltf/tremont_house_1__frame_1833.glb"
+    },
+    {
+      "id": "tremont_house_1_stable",
+      "name": "The Tremont House's Stable",
+      "sidecar": "sidecars/1835/tremont_house_1_stable.json",
+      "asset": "gltf/tremont_house_1_stable__stable_1833.glb"
+    },
+    {
+      "id": "wabansia_doctors_barn",
+      "name": "The doctor's barn in Wabansia",
+      "sidecar": "sidecars/1835/wabansia_doctors_barn.json",
+      "asset": "gltf/wabansia_doctors_barn__documented_1834.glb"
+    },
+    {
+      "id": "wabansia_doctors_house",
+      "name": "The doctor's house in Wabansia",
+      "sidecar": "sidecars/1835/wabansia_doctors_house.json",
+      "asset": "gltf/wabansia_doctors_house__documented_1834.glb"
     },
     {
       "id": "walker_meeting_house",

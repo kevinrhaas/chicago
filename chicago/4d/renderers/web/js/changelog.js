@@ -1,10 +1,44 @@
 export const CHANGELOG = [ // newest first
-  { v: 1254, ts: '2026-10-01T11:57:36.389Z', date: 'Oct 1, 2026, 6:57 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
+  { v: null, ts: '', date: '', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
       'It looks like a boarding house and not an inn. Seven chamber windows run across its upper floor, front and back, and four iron stovepipes rise through the roof beside its two brick chimneys. There is no gallery, no sign and no wagon door.',
       'The window and stovepipe counts come from its beds. The lodging model gives the house 12 sleepers on an ordinary night and 28 when full, and the house is filled to that. Every other boarding house\u2019s share moved by a bed at most.',
       'Nothing here is claimed as evidence. No source puts a boarding house, its keeper or its lodgers on this lot. The Mark Beaubien household, which asked for this lot, now lives in it. The register says how every number was reached.',
+    ] },
+  { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+    items: [
+      'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
+      'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
+      'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
+      'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1257, ts: '2026-10-01T12:40:59.752Z', date: 'Oct 1, 2026, 7:40 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
+      'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
+      'The West Side still owes 42 buildings, mostly cottages, barns and sheds, and each has a job already waiting to build it. Another 42 are held back because the map does not yet reach the ground they would stand on.',
+    ] },
+  { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
+    items: [
+      'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
+      'Each stretch of walk has its own weathering, so a street of separately laid walks no longer looks like one strip of paint. Board to board, the planks differ a little too.',
+      'The boards had been drawn in the signboards’ pale tone. No source records the colour of any walk in 1835, so the tones are our reconstruction, kept within the range of real weathered planks. The Liberties page (L320) says how they were chosen.',
+      'The fences and hitching posts keep their old colour for now. Grain, worn edges and damp patches come in later work.',
+    ] },
+  { v: 1255, ts: '2026-10-01T11:16:22.660Z', date: 'Oct 1, 2026, 6:16 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
+    items: [
+      'Walk the alley behind Lake Street and there is now a plank stable at the back of the Tremont, the Exchange Coffee House, the New York House and the Mansion House. There is another at the alley end of the Sauganash\u2019s lot, and one behind the Steamboat Hotel on the north bank.',
+      'Each is sized from the house\u2019s own beds: a stall for every two guests on an ordinary night, and never fewer than four. The Tremont, a stage stop, gets one per guest, in two ranges of six.',
+      'A county order of 1831 priced keeping a traveller\u2019s horse overnight at a licensed house. No source mentions any of these six stables, so each one, its size and its place are reconstructions, and their cards say so.',
+      'The Green Tree gets none. There is no room for one between its back wall, Lake Street and the river bank as the town is modelled.',
+    ] },
+  { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+    items: [
+      'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
+      'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
+      'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
+      'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
     ] },
   { v: 1253, ts: '2026-10-01T10:43:44.207Z', date: 'Oct 1, 2026, 5:43 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
     items: [

@@ -440,9 +440,18 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 deals the dwellings owed onto
-    # the outer platted West blocks, which is where the 24 left in this cell can stand.
-    ("west", "ordinary_dwellings"): "T-1783",
+    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
+    # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
+    # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
+    # balance beyond committed control — moves to T-1784, the sibling that owns that ground,
+    # and T-1784 was itself split the same hour, so to its live child T-1794, which raises the
+    # West's owed dwellings on the extended ground. T-1794 then landed (#216) seating farm
+    # families in the barn cabins, and T-1773 (#217) took lot 1 of blk_west_lake_canal for its
+    # warehouse, so that block's deal is three cottages now, not four. With T-1781..T-1784 all
+    # closed, the one live ticket whose acceptance hands T-1208 on "with the West's exact
+    # remainder" is T-1774, the West book-closer, and the 19 left here move to it, with the
+    # finding written on that ticket (the queue is over its ceiling for a new line).
+    ("west", "ordinary_dwellings"): "T-1774",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -467,7 +476,9 @@ STRUCTURE_TICKETS = {
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
-    ("west", "warehouses_freight"): "T-1773",
+    # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
+    # names T-1773 in the builds it closes the Wolf Point books behind.
+    ("west", "warehouses_freight"): "T-1774",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
@@ -4664,8 +4675,13 @@ def cmd_self_test() -> int:
     # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
     # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
     # four of those passes before it settled at 177.
+    # 249 -> 255 on 2026-10-01 (T-1783): opening the three lot-ruled outer West blocks gave
+    # the platted pass six more seats, 177 -> 183 — three adoptions of the three cottages
+    # built on blk_west_randolph_des_plaines and three slots asked of blk_west_lake_canal's
+    # three dealt ones (T-1773's warehouse took that block's lot 1) — and the off-plat pass
+    # stands at 72.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 249
+        data["inventory"], data["programme"], occ))["seated"] == 255
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

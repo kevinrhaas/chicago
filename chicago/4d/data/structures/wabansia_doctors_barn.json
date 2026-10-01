@@ -1,0 +1,174 @@
+{
+  "id": "wabansia_doctors_barn",
+  "name": "The doctor's barn in Wabansia",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "documented_1834",
+      "documented_range": {
+        "from": "1834-07-16",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicago_democrat_1833_1835"
+        ],
+        "note": "The barn is attested on the same day and by the same advertisement as the house it served (data/structures/wabansia_doctors_house.json), and is carried to the scene date by the same inference. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+      },
+      "position": {
+        "utm_e": 446668.494,
+        "utm_n": 4637714.058,
+        "rotation_deg": 179.86,
+        "symbolic_location": "Wabansia, behind the doctor's house on the eastern lot of Wright's block 59 (blk_wabansia_c_t7), its doors to Kinzie Street, local ENU E -404.2 N 318.3",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "wright_1834"
+        ],
+        "note": "RECONSTRUCTED, AND ONLY RELATIVE TO A HOUSE WHOSE OWN POSITION IS RECONSTRUCTED. The advertisement says the barn was 'attached to' the house and nothing more. It is set 34.0 m back from the Kinzie Street line and 9.0 m east of the lot's centre line - behind the house and to the river side of it, clear of the kitchen ell, with a wagon's turning room between - through the same lot frame as the house. Every metre is a choice; covered by docs/LIBERTIES.md L316.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Placed relative to wabansia_doctors_house, whose own position is a reconstructed choice of block and lot; see that record."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.096,
+            0
+          ],
+          [
+            6.096,
+            7.925
+          ],
+          [
+            0,
+            7.925
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "NO DIMENSION IS ATTESTED. 20 x 26 ft is the small end of the A2 band (18x26-28x44 ft): room for a physician's horse, a gig and the hay over them, which is what a doctor riding to patients kept. Invented."
+      },
+      "form": {
+        "construction": {
+          "value": "plank",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "wall_height_m": {
+          "value": 3.6,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "door": {
+          "value": "wagon",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "A gig goes in through a wagon door. Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_democrat_1833_1835"
+          ],
+          "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+        }
+      },
+      "change_note": "The barn the advertisement lists with the house."
+    }
+  ],
+  "function": {
+    "value": "barn",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+  },
+  "occupants": {
+    "value": "The household of data/structures/wabansia_doctors_house.json, whoever it was on the scene date",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "A barn 'attached to' a let house goes with the tenancy."
+  },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "wabansia",
+    "plat": "wabansia",
+    "layer": "data/traces/vectors/thompson_lots.json",
+    "block_id": "blk_wabansia_c_t7",
+    "lot_index": 1,
+    "lot_number": null,
+    "lot_number_withheld": "wabansia's lots carry no numeral: the grid orders them along the face and the sheet this file reads prints no lot number for them, so the seat names the block and the position in the block's own lot list and stops there.",
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": null,
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on the unnumbered lot of blk_wabansia_c_t7 in the wabansia grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (none — unnumbered), read from data/traces/vectors/thompson_lots.json."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Edmond Roberts, 5 October 1830",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE MARGIN IS ONLY 29 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "W2NW of section 09, T39N R14E",
+    "entries": [
+      "ls0054"
+    ],
+    "date_purchased": "1830-10-05",
+    "type_of_sale": "canal land sale",
+    "margin_m": 28.8,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "Attested by the same line as the house; see data/structures/wabansia_doctors_house.json.",
+  "review_required": false
+}

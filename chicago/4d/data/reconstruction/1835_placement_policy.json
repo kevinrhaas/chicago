@@ -691,9 +691,9 @@
     }
   ],
   "coverage": {
-    "documented_roofs_with_a_family": 94,
-    "conforming": 70,
-    "outliers": 24,
+    "documented_roofs_with_a_family": 102,
+    "conforming": 76,
+    "outliers": 26,
     "by_family": {
       "A1": [
         "ancillary_behind_its_own_roof"
@@ -1008,6 +1008,17 @@
       "reason": "at Wolf Point, off the platted grid: the store fronts the forks and the ferry landing, and Lake Street's line is 27 m away because Lake ENDS at the river."
     },
     {
+      "id": "sauganash_hotel_stable",
+      "family": "A1",
+      "street": "market",
+      "class": "principal",
+      "setback_m": 10.27,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "the Sauganash's own stable (T-1776), at the alley end of the hotel's own lot. That lot is the Lake and Market corner, and both are principal streets, so every point of it is nearest a principal street; the stable stands as far from both as the lot allows while staying behind the house, against the block alley the ancillary clause names."
+    },
+    {
       "id": "steamboat_hotel",
       "family": "T2",
       "street": "kinzie",
@@ -1017,6 +1028,18 @@
         "stands 20.47 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
       ],
       "reason": "north division. Until T-1191 State was simply the nearest line, 203 m off across the river; the hotel is now read against Kinzie at 20.47 m, which is a real north-bank line and still a setback no lodging clause allows."
+    },
+    {
+      "id": "wabansia_doctors_house",
+      "family": "D6",
+      "street": null,
+      "class": null,
+      "setback_m": 98.86,
+      "measured": [
+        "fronts no street (its nearest corridor is 98.86 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one",
+        "fronts no street (its nearest corridor is 98.86 m away, beyond the frontage reach), and tradesman_dwellings seats it by a `typology` setback, which is measured from one"
+      ],
+      "reason": "a house the Chicago Democrat of 16 July 1834 puts 'in Wabansia' and nowhere more exactly, and the only roof in that survey. It does front a street: its facade stands 6.1 m behind the corridor edge of `kinzie_west`, Wright's line of Kinzie Street across Wabansia in data/streets/1835.json, which is inside the frontage reach. The census cannot see that, because tools/plat_corridors.py carries no corridor for any Wabansia street — the nearest it holds is Kinzie's Thompson reach, which ends at local east -320, 98.86 m away — so the policy reads the house as fronting nothing. Its position is invented under docs/LIBERTIES.md L316; the reason goes when Wabansia's streets enter the corridor layer."
     },
     {
       "id": "walker_meeting_house",
