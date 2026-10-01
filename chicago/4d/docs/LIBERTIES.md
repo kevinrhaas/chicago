@@ -10844,9 +10844,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 93 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 94 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 93 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10863,7 +10863,8 @@ how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same 
 two two-room cottages and their woodshed and stable stand four lots west of the first deal's
 pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia,
 the first named records on that survey, which the construction puts in the tract entered by
-Edmond Roberts on 5 October 1830, 2 m inside its line). The construction is
+Edmond Roberts on 5 October 1830, 2 m inside its line); and 93 to 94 the same day, T-1776's stable behind the Steamboat
+Hotel, which stands in the north fraction of section 10 with the house it serves). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -17945,3 +17946,64 @@ position; a later advertisement or a description of the house replaces its dimen
 **Ticket:** T-1785 (piece 5 of T-1208).
 
 **Recorded:** 2026-10-01 (T-1785).
+
+### L317 — Six public houses get a stable behind them, sized from their beds
+
+**Decision:** six of the licensed houses the lodging model sizes get a reconstructed stable
+behind them (T-1776): `exchange_coffee_house_stable`, `new_york_house_stable`,
+`tremont_house_1_stable`, `mansion_house_stable`, `sauganash_hotel_stable` and
+`steamboat_hotel_stable`. **Every one is invented in its existence, its size, its place and the
+side its door is on.** The four on the Lake Street lots and the Sauganash's stand at the alley
+end of the house's own lot, 1.5 m inside the alley line, as the placement policy's ancillary
+clause puts every stable; the Steamboat Hotel's stands behind the house on the landward side,
+off the plat.
+**Why:** a county order of 13 April 1831 set the rates "allowed to tavern keepers", among them
+"Keeping horse one night 50" (Andreas, scan p. 249). Keeping a traveller's horse was a priced
+service of a Chicago public house, and the town drew a stable at only two of the nine named
+houses. No source mentions a stable at any of these six. The size answers each house's beds in
+`data/reconstruction/1835_lodging_model.json` on an ordinary night: **one single stall per two
+guests, never fewer than four**, five feet a stall, a 20 ft deep range and a 6 ft harness bay.
+Half a horse a guest because the summer crowd of 1835 came mostly by lake; the Western Hotel's
+"teams as numerous as were the guests" is that teamsters' house's own sentence and is not carried
+to Lake Street. **The Tremont is the exception, at one stall a guest**: it was a stage stop, and
+the 1874 letter on `chicagology_prefire021` has the stage driven to its corner. Its twelve stalls
+stand in two ranges of six on the Western stable's 28 ft section. The resulting sizes run from
+26 x 20 ft (7.92 x 6.10 m: the New York House, the Mansion House and the Sauganash) through
+36 x 20 ft (10.97 x 6.10 m: the Exchange and the Steamboat) to 36 x 28 ft (10.97 x 8.53 m: the
+Tremont).
+**Consequence:** a visitor sees a plank stable at the back of six hotel lots. That a house kept
+horses is argued from a price list; that it kept them in a building of this size, at this end
+of this lot, with its door to the alley, is ours. A house that sent its guests' horses to a
+livery or a neighbour's barn had no stable here at all, and this entry would then be wrong.
+**The two houses not given one, and why.** The **Wolf Point Tavern**'s stable already stands
+(9 x 6 m, L72) and has room for four or five horses against the two its four beds imply, so it
+is left as it is. The **Green Tree Tavern** gets no stable: a four-stall range was tried behind
+the house and stood 2.64 m inside Lake Street's corridor, and the ground between the house's
+back wall and the modelled South Branch bank is about 12 m. That absence is a fact about the
+model's ground, not about 1835, and it is written into
+`docs/RESEARCH/1835_tavern_horse_keeping.md` as the house's reading.
+**How to resolve:** any of the houses' own cards in the Chicago American or the Democrat of
+1834-35 naming their stabling; the 1839 fire-loss lists; Wright 1834 or Hathaway 1834 read at
+lot level for blocks 20, 17, 16 and 31 of the Original Town.
+**Covers:** `exchange_coffee_house_stable.stable_1834.position`,
+`exchange_coffee_house_stable.stable_1834.footprint`,
+`exchange_coffee_house_stable.stable_1834.form.door_side`,
+`new_york_house_stable.stable_1834.position`,
+`new_york_house_stable.stable_1834.footprint`,
+`new_york_house_stable.stable_1834.form.door_side`,
+`tremont_house_1_stable.stable_1833.position`,
+`tremont_house_1_stable.stable_1833.footprint`,
+`tremont_house_1_stable.stable_1833.form.door_side`,
+`mansion_house_stable.stable_1833.position`,
+`mansion_house_stable.stable_1833.footprint`,
+`mansion_house_stable.stable_1833.form.door_side`,
+`sauganash_hotel_stable.stable_1831.position`,
+`sauganash_hotel_stable.stable_1831.footprint`,
+`sauganash_hotel_stable.stable_1831.form.door_side`,
+`steamboat_hotel_stable.stable_1835.position`,
+`steamboat_hotel_stable.stable_1835.footprint`,
+`steamboat_hotel_stable.stable_1835.form.door_side`
+**Related:** **L72** (the Western and Wolf Point stables, sized by the same trade), **T-1775**
+(the Western's stable re-sized from its guests), **T-1209** (the boarding houses built to their
+beds, whose second piece this is).
+**Recorded:** 2026-10-01.

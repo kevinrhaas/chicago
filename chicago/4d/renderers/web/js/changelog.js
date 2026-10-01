@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1255, ts: '2026-10-01T11:55:03.532Z', date: 'Oct 1, 2026, 6:55 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: 1256, ts: '2026-10-01T12:27:56.485Z', date: 'Oct 1, 2026, 7:27 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1255, ts: '2026-10-01T11:16:22.660Z', date: 'Oct 1, 2026, 6:16 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
+    items: [
+      'Walk the alley behind Lake Street and there is now a plank stable at the back of the Tremont, the Exchange Coffee House, the New York House and the Mansion House. There is another at the alley end of the Sauganash\u2019s lot, and one behind the Steamboat Hotel on the north bank.',
+      'Each is sized from the house\u2019s own beds: a stall for every two guests on an ordinary night, and never fewer than four. The Tremont, a stage stop, gets one per guest, in two ranges of six.',
+      'A county order of 1831 priced keeping a traveller\u2019s horse overnight at a licensed house. No source mentions any of these six stables, so each one, its size and its place are reconstructions, and their cards say so.',
+      'The Green Tree gets none. There is no room for one between its back wall, Lake Street and the river bank as the town is modelled.',
     ] },
   { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [

@@ -31,6 +31,32 @@ ceiling cannot climb on what the schedule itself deals.
 no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
 so the deal carries frame cottages.
 
+
+## T-1776 — six public houses get a stable, sized from their beds (2026-10-01)
+
+Second piece of T-1209. Each licensed house the lodging model sizes is read for its
+horse-keeping against its beds. The ledger is `docs/RESEARCH/1835_tavern_horse_keeping.md`.
+Six houses get a new stable: the Tremont, the Exchange Coffee House, the New York House, the
+Mansion House, the Sauganash and the Steamboat Hotel. The Western's (T-1775) and the Wolf
+Point's already stood. The Green Tree's is a **stated absence**: a four-stall range behind it
+stood 2.64 m inside Lake Street's corridor, and the house's back wall is about 12 m from the
+bank. Every new stable is reconstructed under **L317**:
+
+- **Stalls:** one per two ordinary guests, never fewer than four. The Tremont gets one per
+  guest, because it was a stage stop.
+- **Size:** 5 ft a stall, 20 ft ranges (28 ft for the Tremont's two), plus a 6 ft harness bay.
+- **Place:** the alley end of the house's own lot, 1.5 m inside the alley line, or behind the
+  house off the plat.
+
+The service is the 1831 county tariff ("Keeping horse one night 50"). No source mentions a
+stable at any of these six houses. Baked with `bake.sh --only`.
+
+The six are A1 roofs in the existing-roof reconciliation. Like the other two stables, each
+substitutes for an anonymous A1 slot. The programme now reads **495 standing, 173 remaining**
+(dev before this PR: 489/179), and barns-and-stables left is 8 south and 7 north (was 13/8). The chain re-run
+to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
+The Sauganash's corner lot is nearest Market from every point, so its stable carries an
+`OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
 ## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
 
 **What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,

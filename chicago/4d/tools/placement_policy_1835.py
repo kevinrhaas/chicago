@@ -622,6 +622,12 @@ OUTLIER_REASONS = {
     "wolf_point_tavern":
         "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two "
         "branches, which is precisely why it stands there.",
+    "sauganash_hotel_stable":
+        "the Sauganash's own stable (T-1776), at the alley end of the hotel's own lot. "
+        "That lot is the Lake and Market corner, and both are principal streets, so every "
+        "point of it is nearest a principal street; the stable stands as far from both "
+        "as the lot allows while staying behind the house, against the block alley the "
+        "ancillary clause names.",
     "wolf_point_tavern_stable":
         "the tavern's own stable, at the forks with it.",
 }
