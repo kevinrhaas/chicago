@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1273, ts: '2026-10-01T21:51:07.530Z', date: 'Oct 1, 2026, 4:51 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
+    items: [
+      'Open the card of the store-residence south-west of the Western Hotel\u2019s wagon yard. It used to read as an anonymous count of the town\u2019s roofs. It now says what the building was for: a store with attic rooms, kept for the wagon trade.',
+      'Nobody is named for it. No household the town can seat there keeps a store, so the card says so instead of leaving it blank. No trade, goods or signboard is invented for it.',
+      'This is our reconstruction, recorded in the register (L310). Nothing in the 3-D scene moved.',
+    ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
