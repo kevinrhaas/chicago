@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+  { v: 1245, ts: '2026-10-01T05:17:30.539Z', date: 'Oct 1, 2026, 12:17 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
       'Two families had asked for exactly these two buildings on exactly these two lots \u2014 the Adams household for the corner house, the Bennett household for the cottage \u2014 and neither is the family that moved in. Two families already under other roofs scored higher on the new ones. The Adams household takes the house one of them left on the same block; the Bennetts keep their request, now on the block to the north.',

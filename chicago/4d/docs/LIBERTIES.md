@@ -15027,7 +15027,7 @@ reading 174 for four of those passes before it settled at 177.
 
 **AND A WEST DIVISION BLOCK'S SECOND DEAL SUBSTITUTES CLEANLY TOO (T-1761, 2026-10-01).**
 `blk_randolph_clinton` was dealt the two slot requests standing against it, plus two yard
-buildings — see **L307** — and measured against `dev` at `c2dccdcd` the pass runs **177 → 177**
+buildings — see **L307** — and measured against `dev` at `7af3cf98` the pass runs **177 → 177**
 seats: adoptions **140 → 142**, slots **37 → 35**, rows handed to **T-1614** unmoved at
 **1,301**. Both new dwellings are occupied, and once again **neither by the household the lot
 was sized against**: the adoption step runs before the slot step, so `hh_abbot_8_g` moves from

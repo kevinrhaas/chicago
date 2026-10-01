@@ -348,8 +348,8 @@
      "recon_1835_blk_randolph_clinton_a4_11",
      "recon_1835_blk_randolph_clinton_d1_03",
      "recon_1835_blk_randolph_clinton_d3_04",
-     "recon_1835_blk_randolph_clinton_d3_09",
      "recon_1835_blk_randolph_clinton_d4_02",
+     "recon_1835_blk_randolph_clinton_d4_09",
      "recon_1835_blk_randolph_clinton_d5_01",
      "recon_1835_blk_randolph_clinton_d7_08"
     ],
@@ -374,8 +374,8 @@
      "recon_1835_blk_randolph_clinton_a4_11",
      "recon_1835_blk_randolph_clinton_d1_03",
      "recon_1835_blk_randolph_clinton_d3_04",
-     "recon_1835_blk_randolph_clinton_d3_09",
      "recon_1835_blk_randolph_clinton_d4_02",
+     "recon_1835_blk_randolph_clinton_d4_09",
      "recon_1835_blk_randolph_clinton_d5_01",
      "recon_1835_blk_randolph_clinton_d7_08",
      "recon_1835_west_019",
@@ -513,7 +513,7 @@
       "structures": [
        "recon_1835_blk_randolph_clinton_a1_06",
        "recon_1835_blk_randolph_clinton_a4_11",
-       "recon_1835_blk_randolph_clinton_d3_09",
+       "recon_1835_blk_randolph_clinton_d4_09",
        "recon_1835_blk_randolph_clinton_d5_01"
       ]
      },
@@ -532,8 +532,8 @@
       "structures": [
        "recon_1835_blk_randolph_clinton_a1_06",
        "recon_1835_blk_randolph_clinton_a4_11",
-       "recon_1835_blk_randolph_clinton_d3_09",
        "recon_1835_blk_randolph_clinton_d4_02",
+       "recon_1835_blk_randolph_clinton_d4_09",
        "recon_1835_blk_randolph_clinton_d5_01"
       ]
      },
@@ -552,8 +552,8 @@
       "structures": [
        "recon_1835_blk_randolph_clinton_a3_10",
        "recon_1835_blk_randolph_clinton_a4_11",
-       "recon_1835_blk_randolph_clinton_d3_09",
        "recon_1835_blk_randolph_clinton_d4_02",
+       "recon_1835_blk_randolph_clinton_d4_09",
        "recon_1835_blk_randolph_clinton_d7_08"
       ]
      },
@@ -589,7 +589,7 @@
     "the_better_of_the_new_pair": "canal",
     "no_slot_fronts_a_face_the_transpose_removed": true,
     "principal_roofs_on_the_better_face": [
-     "D3",
+     "D4",
      "D4",
      "D5",
      "D7"
@@ -689,7 +689,7 @@
       "that_face_is_graded": "ordinary"
      },
      {
-      "family": "D3",
+      "family": "D4",
       "inventory_class": "principal_functional",
       "lot_index": 7,
       "plat_lot_number": 5,
