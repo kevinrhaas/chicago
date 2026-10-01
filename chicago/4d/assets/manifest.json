@@ -426,11 +426,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 96496,
-      "inputs_sha256": "5294992d0f7265c97aa5c32790724f681e82dbe6d574ae8fb30122996d1b5594",
+      "bytes": 125182728,
+      "inputs_sha256": "f0d9499b51aa0cb261344c9e28137a1353cebea3b9e0c4231674675ab3cba654",
       "kind": "generated",
       "phase_id": "as_built_1887",
-      "structure_id": "glessner_house"
+      "structure_id": "glessner_house",
+      "web_lods": {
+        "light": {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4",
+          "output_sha256": "f4c9745a329f738d4b63b74d6a736ff2102563efb8f0ce463a24becdafc21a01",
+          "recipe_sha256": "edfb6ca7d2200ef0a2680f46f9751e1d11f5643ac7b828addb5986d2363cf70d",
+          "triangles": 193387
+        }
+      },
+      "web_master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
@@ -1115,6 +1125,78 @@
       "kind": "generated",
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
+    },
+    "recon_1835_blk_indiana_north_cass_a1_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 86092,
+      "inputs_sha256": "cfaeead238f093541d78178a5ff39a9d441483e2cb0640a77b7e7dc7c31dce21",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a1_08"
+    },
+    "recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29236,
+      "inputs_sha256": "13a07912d183e96cb40ee64959499e315304582aefa5e9c92266a47faee71b08",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a3_03"
+    },
+    "recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 56396,
+      "inputs_sha256": "01d75cdc1e8775266b6c00a0ee4eaa9183d0f872539258accadce7c1acc0d0ca",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a4_04"
+    },
+    "recon_1835_blk_indiana_north_cass_a4_07__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 47032,
+      "inputs_sha256": "e5d340a9f63065c161dbc20000c136cb6b6aae272b4adfd1476fbbb0e624fb67",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a4_07"
+    },
+    "recon_1835_blk_indiana_north_cass_d3_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 28956,
+      "inputs_sha256": "318f80ee795ae36a25a47b1b84238e68b3a0012715843388b5e7b231a4109972",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_01"
+    },
+    "recon_1835_blk_indiana_north_cass_d3_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 27720,
+      "inputs_sha256": "e169ac1d0c7c67e466df3e7390eaa0c7e961911746dc8ab94c058d5cfa3e05f5",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d3_02"
+    },
+    "recon_1835_blk_indiana_north_cass_d4_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 26772,
+      "inputs_sha256": "d5783db0a150e8286c40a33b080e0b9c5b6897052b8f5ea4edeb0ade443d036e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d4_05"
+    },
+    "recon_1835_blk_indiana_north_cass_d4_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 33952,
+      "inputs_sha256": "55072700e919bac213e0fcc20a25df65797d2e240fe95948e2b993719c64cf4f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_d4_06"
     },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2402,6 +2484,123 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d5_01"
+    },
+    "recon_1835_blk_washington_franklin_a1_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 89844,
+      "inputs_sha256": "268fc7997f06e25cd00dffb9c12ab695828970382d0098b41082f683bbc44c79",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a1_08"
+    },
+    "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 99204,
+      "inputs_sha256": "6e3f5ae7ef7fdb28e4fe9fccb337e662649bb1f87422db1a33b884d340e3bac8",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a1_10"
+    },
+    "recon_1835_blk_washington_franklin_a2_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 155580,
+      "inputs_sha256": "a911495365fe25b51b830aa603e21adabdbdb2a8975574d34983f6d61f302992",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a2_09"
+    },
+    "recon_1835_blk_washington_franklin_a3_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32668,
+      "inputs_sha256": "ef518f43ffc94561c3e246f714373a93f3e5a0492561e269f58b25e62213e658",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a3_13"
+    },
+    "recon_1835_blk_washington_franklin_a4_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 55772,
+      "inputs_sha256": "001f195b58ec4f2f66fb3b1c254a85fbfa6d29f04918698ef63ee80e919a309d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a4_11"
+    },
+    "recon_1835_blk_washington_franklin_a4_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 58900,
+      "inputs_sha256": "e6c4ca515ebd4f9fee46d43aa470f3ef30cfb248793f72486a1f5deb26a8ecd3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_a4_12"
+    },
+    "recon_1835_blk_washington_franklin_d3_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 29588,
+      "inputs_sha256": "b04f4bef0af2b94c992649ec1968b1b365aa90af02d68f9c636198d0bbff545a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_05"
+    },
+    "recon_1835_blk_washington_franklin_d3_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25516,
+      "inputs_sha256": "a80af771454c86515e00108bac383804507ed74ae7de1229928977bd53fe8ba1",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_06"
+    },
+    "recon_1835_blk_washington_franklin_d3_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25844,
+      "inputs_sha256": "7dcb5758cde94dbf6c2bfc4b239b77145ea18e27ad9f3d8b913ac67549789edd",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d3_07"
+    },
+    "recon_1835_blk_washington_franklin_d7_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 56120,
+      "inputs_sha256": "d5821122d65a8755d647972f82e61a28da852b9d0f45fef3fa55f44ef479ffb2",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d7_01"
+    },
+    "recon_1835_blk_washington_franklin_d7_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 58620,
+      "inputs_sha256": "ee52a4b1566306714e782d48fc06d3645ba3cde0dd9531e450898fc1937c9c20",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_d7_04"
+    },
+    "recon_1835_blk_washington_franklin_h1_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 36836,
+      "inputs_sha256": "612b3f794ec8673814310585e7a78a57b179fbc068136f7f7a96d68691ea9266",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_h1_03"
+    },
+    "recon_1835_blk_washington_franklin_h2_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 47072,
+      "inputs_sha256": "6b0ef9d323246acc2793918febde0989e4372dee79b2d432939dbce56644ee5c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_franklin_h2_02"
     },
     "recon_1835_blk_washington_lasalle_a1_08__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -4178,19 +4377,19 @@
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 28906804,
+      "bytes": 28585544,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
+      "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0056,
+        "max_m": 0.0039,
         "misses": 0,
         "rms_m": 0.00024,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1110643
+      "triangles": 1098205
     },
     "terrain__e1871_postfire.glb": {
       "baked_ao": false,
@@ -4239,7 +4438,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
+      "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",

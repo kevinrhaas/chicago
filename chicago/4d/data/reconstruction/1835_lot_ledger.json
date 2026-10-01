@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 103,
-   "free": 185,
+   "at_capacity": 114,
+   "free": 174,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 158,
-  "lots_barring_another_roof": 156,
+  "lots_with_a_roof": 169,
+  "lots_barring_another_roof": 167,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 217,
+  "principal_roofs_standing": 228,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -914,14 +914,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_cass_a4_07",
+    "recon_1835_blk_indiana_north_cass_d4_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_cass_a4_07": "A4",
+    "recon_1835_blk_indiana_north_cass_d4_05": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_cass#05",
@@ -943,14 +949,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_cass_a1_08",
+    "recon_1835_blk_indiana_north_cass_d4_06"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_cass_a1_08": "A1",
+    "recon_1835_blk_indiana_north_cass_d4_06": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_cass#06",
@@ -1030,14 +1042,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_cass_a3_03",
+    "recon_1835_blk_indiana_north_cass_d3_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_cass_a3_03": "A3",
+    "recon_1835_blk_indiana_north_cass_d3_01": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_cass#09",
@@ -1059,14 +1077,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_indiana_north_cass_a4_04",
+    "recon_1835_blk_indiana_north_cass_d3_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_indiana_north_cass_a4_04": "A4",
+    "recon_1835_blk_indiana_north_cass_d3_02": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_indiana_north_cass#10",
@@ -8865,7 +8889,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8878,14 +8902,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a1_08",
+    "recon_1835_blk_washington_franklin_d7_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a1_08": "A1",
+    "recon_1835_blk_washington_franklin_d7_01": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#01",
@@ -8894,7 +8924,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8923,7 +8953,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8936,14 +8966,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a2_09",
+    "recon_1835_blk_washington_franklin_h2_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a2_09": "A2",
+    "recon_1835_blk_washington_franklin_h2_02": "H2"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#03",
@@ -8952,7 +8988,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8965,14 +9001,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a4_12",
+    "recon_1835_blk_washington_franklin_d3_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a4_12": "A4",
+    "recon_1835_blk_washington_franklin_d3_05": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#04",
@@ -8981,7 +9023,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8994,14 +9036,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a1_10",
+    "recon_1835_blk_washington_franklin_h1_03"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a1_10": "A1",
+    "recon_1835_blk_washington_franklin_h1_03": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#05",
@@ -9010,7 +9058,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9023,14 +9071,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a3_13",
+    "recon_1835_blk_washington_franklin_d3_06"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a3_13": "A3",
+    "recon_1835_blk_washington_franklin_d3_06": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#06",
@@ -9039,7 +9093,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9052,14 +9106,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_a4_11",
+    "recon_1835_blk_washington_franklin_d7_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_a4_11": "A4",
+    "recon_1835_blk_washington_franklin_d7_04": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#07",
@@ -9068,7 +9128,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9081,14 +9141,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_franklin_d3_07"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_franklin_d3_07": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_lasalle#00",

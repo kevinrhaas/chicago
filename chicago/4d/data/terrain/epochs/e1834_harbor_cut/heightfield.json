@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 716082,
+  "plain_cells_audited": 720273,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -46,7 +46,7 @@
    "note": "the ground carried south of evidence_limit, excluded from the plain audit and measured here instead. The surface is one evidenced row repeated, so north_south_block_max is the micro-relief texture and nothing else (the spec's own +/- 0.10 ft, two octaves), and the east-west figure is that row's own, already audited where it stands."
   },
   "plain_block_max": 0.468,
-  "plain_block_mean": 0.084,
+  "plain_block_mean": 0.0852,
   "passes": true,
   "plain_cell_roughness_max": 33.196,
   "shore_and_swale_cell_max": 224.231,
@@ -120,7 +120,7 @@
     "cell_max": 224.231
    },
    "swales": {
-    "cells": 21883,
+    "cells": 16261,
     "cell_max": 224.231
    }
   },
@@ -136,5 +136,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972"
+ "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193"
 }

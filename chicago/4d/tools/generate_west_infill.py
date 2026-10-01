@@ -611,8 +611,10 @@ HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 #
 # So the parcel is measured against the corridors of the streets the corridor layer omits,
 # built from each street record's OWN declared `corridor_width_m`, and the occupancy is
-# FROZEN — the same shape as `SWALE_CORRIDOR_OCCUPANTS` below, and for the same reason: a
-# frozen set says both what stands there and that nothing new may join it.
+# FROZEN — a frozen set says both what stands there and that nothing new may join it. It
+# used to have a sibling, `SWALE_CORRIDOR_OCCUPANTS`, freezing the eight roofs inside a
+# conjectural swale corridor; T-1460 retired the swales instead, so that set is gone and
+# this one is the only occupancy freeze the parcel keeps.
 #
 # SIX OF THIS PARCEL'S ROOFS STOOD IN ONE, AND THE SET IS NOW EMPTY (T-1570, 2026-09-28).
 # T-1545 named them here rather than hiding them behind its own re-deal, and handed the
@@ -655,23 +657,17 @@ def omitted_street_corridors() -> dict:
     return out
 
 
-# The reading T-1444 took of the recipe's fourth terrain rule, frozen so the corridor
-# cannot quietly gain a roof while T-1460 is open. Measured as footprint-corner distance
-# to the swale centreline against its own half_width_m; see validate() for what it means
-# and why nothing is moved to satisfy it. Closest in is recon_1835_west_002 at 3.2 m of
-# a 30 m half-width; the eighth, recon_1835_west_013, arrives with the release at 14.3 m.
-#
-# THIS SET HOLDS MEMBERSHIP, NOT DISTANCE, and the difference turned out to matter. A
-# roof that stays inside the corridor and MOVES passes this gate, and two of the eight
-# did exactly that — T-1545 and T-1570 re-seated West Division slots off platted street
-# corridors, and west_005 went 22.7 -> 25.5 m and west_011 26.4 -> 24.5 m while T-1460
-# quoted the old pair to the owner. The distances are pinned in
-# `tools/measure_west_swale_corridors.py`, which also re-derives this set and must agree
-# with it; the two are one reading with two readers, and check.sh runs both.
-SWALE_CORRIDOR_OCCUPANTS = {
-    (f"{PREFIX}{n}", "west_prairie_swale_a")
-    for n in ("001", "002", "003", "005", "009", "011", "012", "013")
-}
+# THE RECIPE'S FOURTH TERRAIN RULE IS SETTLED, AND WHAT IS FROZEN HERE IS THE SETTLEMENT.
+# T-1444 took the reading the rule deferred and found both conjectural west-prairie swales
+# beginning 385 m inside the extended ground, with `west_prairie_swale_a`'s 30 m corridor
+# standing over eight reviewed, baked roofs of this parcel. T-1460 put the choice to the
+# owner — move the roofs, re-draw the lines, or retire them — and he retired them
+# (2026-09-29, option a): the swale is the conjectural half of that pair, not the roofs,
+# and zone 18's swales are now recorded in `not_modelled_in_this_box` rather than graded
+# into the field. So the set of roofs in a swale corridor is not frozen at eight; there
+# is no corridor, and `validate()` below holds the ground to that instead. The eight
+# distances the reading took are in the ticket and in docs/LIBERTIES.md L31f's strike,
+# which is where a reading whose subject no longer exists belongs.
 
 
 def make_record(row: dict, seq: int, datum: dict) -> dict:
@@ -764,15 +760,6 @@ def world_polygon(record: dict, datum: dict) -> list[tuple[float, float]]:
     e0 = float(pos["utm_e"]) - float(datum["origin_utm_e"])
     n0 = float(pos["utm_n"]) - float(datum["origin_utm_n"])
     return [(e0 + u * cos + v * sin, n0 - u * sin + v * cos) for u, v in poly]
-
-
-def point_segment_distance(e: float, n: float, a: tuple[float, float],
-                           b: tuple[float, float]) -> float:
-    """Local-ENU distance from a point to a segment, for the swale corridors."""
-    de, dn = b[0] - a[0], b[1] - a[1]
-    span = de * de + dn * dn
-    t = 0.0 if span == 0 else max(0.0, min(1.0, ((e - a[0]) * de + (n - a[1]) * dn) / span))
-    return math.hypot(e - (a[0] + t * de), n - (a[1] + t * dn))
 
 
 def polygons_overlap(a: list[tuple[float, float]], b: list[tuple[float, float]]) -> bool:
@@ -910,39 +897,24 @@ def validate(records: list[dict], rows: list[dict],
             "Re-extend the field or re-impose the recipe's instantiation block; do not "
             "leave thirty-five roofs standing off the edge of it.")
 
-    # The recipe's fourth terrain rule deferred a reading to "after the west terrain
-    # extension", which is now: no roof in the two conjectural west-prairie swales, and
-    # move the roof rather than flatten the swale. T-1444 took the reading and it does
-    # not say what the rule assumed. SEVEN OF THE TWENTY ROOFS BUILT UNDER THE HOLD
-    # ALREADY STAND INSIDE west_prairie_swale_a's 30 m corridor, seated there in 2026-08
-    # while the rule was still deferred, and an eighth arrives with the release. The
-    # swale is the conjectural half of that pair: its alignment is invented (no source;
-    # T-0795 walked the whole Wright sheet and it draws no watercourse on this prairie),
-    # and since T-1416 carried the field out to E -705 its line no longer even reaches
-    # the edge of the ground — it begins abruptly at E -320, in open modelled prairie,
-    # where the old west wall used to be. Moving eight reviewed roofs to fit an invented
-    # line that starts nowhere is not what the rule was protecting, so the alignment
-    # goes to the owner (T-1460) and the occupancy is frozen here instead: the corridor
-    # may not quietly acquire a ninth roof while that question is open.
-    swales = [sw for sw in spec.get("swales", []) if sw["id"].startswith("west_prairie_")]
-    inside = set()
-    for sid, poly in polygons:
-        for swale in swales:
-            line = [(float(e), float(n)) for e, n in swale["line"]]
-            half = float(swale["half_width_m"])
-            if any(point_segment_distance(e, n, a, b) <= half
-                   for e, n in poly for a, b in zip(line, line[1:])):
-                inside.add((sid, swale["id"]))
-    if inside != SWALE_CORRIDOR_OCCUPANTS:
-        arrived = sorted(f"{sid} in {swale}" for sid, swale in inside - SWALE_CORRIDOR_OCCUPANTS)
-        left = sorted(f"{sid} in {swale}" for sid, swale in SWALE_CORRIDOR_OCCUPANTS - inside)
+    # The recipe's fourth terrain rule — "do not place a roof in the two conjectural
+    # west-prairie swales until their alignments are reviewed after the west terrain
+    # extension; move the roof rather than flattening the swale" — was reviewed and
+    # ANSWERED by retiring the alignments (T-1460, owner, 2026-09-29). Neither swale
+    # grades the ground any more, so there is no corridor for a roof to stand in and
+    # nothing here to measure. What is gated instead is the retirement: if a
+    # west-prairie swale is ever graded back into the field, eight of this parcel's
+    # roofs are inside one again on ground nobody re-read, and the rule the owner
+    # answered is being asked a second time without him.
+    returned = sorted(sw["id"] for sw in spec.get("swales", [])
+                      if sw["id"].startswith("west_prairie_"))
+    if returned:
         raise SystemExit(
-            "the conjectural west-prairie swale corridors no longer hold the roofs "
-            "T-1444 measured into them"
-            + (f"; arrived: {', '.join(arrived)}" if arrived else "")
-            + (f"; left: {', '.join(left)}" if left else "")
-            + ". See T-1460: the alignment, not the roofs, is what the recipe's fourth "
-              "terrain rule asked to be reviewed.")
+            f"the terrain spec grades {', '.join(returned)} again — T-1460 retired both "
+            "conjectural west-prairie swales to the record (they are in "
+            "not_modelled_in_this_box, dossier zone 18), and eight of this parcel's "
+            "roofs were seated on the ground that ruling left flat. Re-read the "
+            "occupancy and take the owner's ruling back to him before re-grading it.")
 
     for sid, poly in polygons:
         heights = [field.height(e, n) for e, n in poly]

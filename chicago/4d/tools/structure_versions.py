@@ -5,6 +5,7 @@
     python3 tools/structure_versions.py check-label <label>
     python3 tools/structure_versions.py seed <id> <label> --summary "…" [--test-fixture]
     python3 tools/structure_versions.py adopt <id> <label>
+    python3 tools/structure_versions.py build-light <key> <out.glb>  # reduced same-version mesh
     python3 tools/structure_versions.py record-web <key>        # tools/web_derivatives.sh
     python3 tools/structure_versions.py status <id>             # what needs a bake
     python3 tools/structure_versions.py promote <id> <label> [--keep-as L] [--dry-run]
@@ -194,15 +195,64 @@ def cmd_adopt(args) -> int:
     return adopt(args.id, args.label)
 
 
+
+def cmd_build_light(args) -> int:
+    """Build reduced geometry from the current v4 record, without touching its master."""
+    if args.key not in (V.GLESSNER_V4_KEY, V.GLESSNER_DEFAULT_KEY):
+        print("   build-light: this recipe is only for Glessner v4")
+        return 2
+    master = ROOT / "assets/gltf" / args.key
+    book = ROOT / "assets" / ("manifest.versions.json" if args.key.startswith("versions/") else "manifest.json")
+    entry = json.loads(book.read_text())["assets"].get(args.key, {})
+    record = json.loads(V.glessner_detail_record(ROOT).read_text())
+    phase = next(p for p in record["phases"] if p["id"] == "as_built_1887")
+    import mesh_inputs  # noqa: PLC0415
+    if not master.is_file() or entry.get("inputs_sha256") != mesh_inputs.structure_inputs_sha(
+            record, phase, record.get("archetype")):
+        print("   build-light: the full version master is missing/stale; bake it first")
+        return 2
+    from _glessner_lod import build_light  # noqa: PLC0415
+    result = build_light(master, Path(args.output), root=ROOT,
+                         recipe_sha256=V.lod_recipe_sha(ROOT))
+    print("   built same-version light geometry: " + json.dumps(result, sort_keys=True))
+    return 0
+
+
 def cmd_record_web(args) -> int:
-    vman = V.read_manifest()
+    canonical = not args.key.startswith("versions/")
+    vman = json.loads((ROOT / "assets/manifest.json").read_text()) if canonical else V.read_manifest()
     entry = vman["assets"].get(args.key)
     master = ROOT / "assets" / "gltf" / args.key
     if entry is None or not master.exists():
         print(f"   record-web: {args.key} has no manifest entry or no master — bake it first")
         return 2
+    # Record only a complete production: a failed/missing light output cannot stamp
+    # either derivative fresh. The producer writes both before invoking this command.
+    lods = {}
+    for level, key in V.lod_asset_keys(args.key).items():
+        output = ROOT / "assets/web" / key
+        if not output.is_file():
+            print(f"   record-web: missing {level} derivative {key}")
+            return 2
+        try:
+            receipt, triangles = V.light_receipt(output)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            print(f"   record-web: invalid {level} derivative: {error}")
+            return 2
+        master_sha, recipe_sha = V.sha256_file(master), V.lod_recipe_sha(ROOT)
+        if receipt.get("master_sha256") != master_sha or receipt.get("recipe_sha256") != recipe_sha:
+            print(f"   record-web: {level} receipt does not match the current master/recipe")
+            return 2
+        lods[level] = {"asset": key, "master_sha256": master_sha,
+                       "recipe_sha256": recipe_sha, "triangles": triangles,
+                       "output_sha256": V.sha256_file(output)}
     entry["web_master_sha256"] = V.sha256_file(master)
-    V.write_manifest(vman)
+    if lods:
+        entry["web_lods"] = lods
+    if canonical:
+        (ROOT / "assets/manifest.json").write_text(json.dumps(vman, indent=2, sort_keys=True) + "\n")
+    else:
+        V.write_manifest(vman)
     return 0
 
 
@@ -261,6 +311,10 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
     if version.get("id") != sid or canon.get("id") != sid:
         raise SystemExit("REFUSED: the version and the canonical record must both carry "
                          f"id '{sid}'")
+    packaged = V.asset_key(sid, label, "as_built_1887") == V.GLESSNER_V4_KEY
+    if packaged:
+        from recover_glessner_v4 import materialize
+        materialize(root=root, recovery=root / "docs/RESEARCH/glessner-v4-recovery", check=True)
     log: list[str] = []
 
     # ---- the meshes and their books --------------------------------------------------
@@ -294,6 +348,11 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
             _move(gltf / key, gltf / name, dry, log, root)
         if (web / key).exists():
             _move(web / key, web / name, dry, log, root)
+        for lod in entry.get("web_lods", {}).values():
+            old_key = lod["asset"]
+            new_key = old_key.removeprefix(prefix)
+            _move(web / old_key, web / new_key, dry, log, root)
+            lod["asset"] = new_key
         web_sha = entry.pop("web_master_sha256", None)
         for k in ("version_label", "adopted_from"):
             entry.pop(k, None)
@@ -323,6 +382,9 @@ def promote(root: Path, sid: str, label: str, keep: str, *, dry: bool = False,
         webdoc["masters"] = dict(sorted(masters.items()))
         web_p.write_text(json.dumps(webdoc, indent=2) + "\n", encoding="utf-8")
         V.write_manifest(vman, root)
+        if packaged:
+            from recover_glessner_v4 import pack
+            pack(root=root, recovery=root / "docs/RESEARCH/glessner-v4-recovery")
     log.append("update assets/manifest.json, assets/manifest.web.json, "
                "assets/manifest.versions.json")
     return log
@@ -356,6 +418,8 @@ def status(sid: str) -> list[str]:
             elif e.get("inputs_sha256") != mesh_inputs.structure_inputs_sha(rec, ph, rec.get(
                     "archetype")):
                 out.append(f"assets/gltf/{key} (stale)")
+            else:
+                out.extend(f"{key}: {problem}" for problem in V.lod_problems(key, e, ROOT))
     return out
 
 
@@ -397,6 +461,10 @@ def main() -> int:
     p.add_argument("id")
     p.add_argument("label")
     p.set_defaults(fn=cmd_adopt)
+    p = sub.add_parser("build-light", help="reduced same-version geometry; no Blender")
+    p.add_argument("key")
+    p.add_argument("output")
+    p.set_defaults(fn=cmd_build_light)
     p = sub.add_parser("record-web")
     p.add_argument("key")
     p.set_defaults(fn=cmd_record_web)

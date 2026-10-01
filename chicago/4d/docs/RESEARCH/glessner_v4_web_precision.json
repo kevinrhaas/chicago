@@ -1,0 +1,385 @@
+{
+  "not_a_reading": "Generated-mesh precision measurement, not historical source adjudication.",
+  "ticket": "T-1730",
+  "date": "2026-09-29",
+  "inputs": {
+    "master": {
+      "bytes": 70375492,
+      "sha256": "e72fad0af84e141179b9969c4af3bb63d030f986afffe522238caba990fc99a1"
+    },
+    "web14": {
+      "bytes": 32115656,
+      "sha256": "0b7ec129659d83a385fd5eb7d925e09f836e7f1f10279179b6fa89f69399b5d0"
+    },
+    "web16": {
+      "bytes": 32047212,
+      "sha256": "6b0d9df5d44d671d72c6cb35a7a51e92f7b1ae764a686ba9fa3fbc785e7d4bb5"
+    }
+  },
+  "method": "Decode EXT_meshopt_compression, de-normalize POSITION and apply node world transforms. Test zero area on the exact integer position grid for web meshes, and float32 master coordinates promoted to float64 for the master. Position error is the maximum bidirectional nearest-neighbor distance within each material, accounting for vertex/index reordering; it is a point-cloud comparison, not claimed vertex correspondence.",
+  "transform": "Unmodified pinned optimize --compress false --simplify false --palette false, then meshopt with position bits14 or16; no Blender rebake.",
+  "total_triangles": 580172,
+  "grass_triangles": 20000,
+  "grass_zero_area": {
+    "master": 0,
+    "web14": 6146,
+    "web16": 0
+  },
+  "additional_zero_area_all_materials": {
+    "web14": 42692,
+    "web16": 13114
+  },
+  "limestone_trim_zero_area": {
+    "master": 64,
+    "web14": 35240,
+    "web16": 12884
+  },
+  "iron_zero_area": {
+    "master": 0,
+    "web14": 0,
+    "web16": 0
+  },
+  "max_bidirectional_nearest_position_error_mm": {
+    "web14": 3.305950049755088,
+    "web16": 0.6504124037971772
+  },
+  "limit": "16-bit retains all grass blades but still collapses some submillimeter ornament facets; this is not lossless position storage.",
+  "per_material": [
+    {
+      "material": "granite",
+      "master_tris": 2082,
+      "web_tris": 2082,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.991596722418564,
+      "mean_nearest_position_error_mm": 1.6455969583754388,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6372220588144527
+    },
+    {
+      "material": "brick",
+      "master_tris": 79275,
+      "web_tris": 79275,
+      "master_zero_area": 0,
+      "web_zero_area": 204,
+      "new_zero_area": 204,
+      "max_nearest_position_error_mm": 3.2844635592696223,
+      "mean_nearest_position_error_mm": 1.4929547620086703,
+      "web16_zero_area": 26,
+      "web16_max_nearest_position_error_mm": 0.6491667945008298
+    },
+    {
+      "material": "limestone_trim",
+      "master_tris": 160057,
+      "web_tris": 160057,
+      "master_zero_area": 64,
+      "web_zero_area": 35240,
+      "new_zero_area": 35176,
+      "max_nearest_position_error_mm": 3.0746456882652025,
+      "mean_nearest_position_error_mm": 1.4136973680565628,
+      "web16_zero_area": 12884,
+      "web16_max_nearest_position_error_mm": 0.6467397071829204
+    },
+    {
+      "material": "roof_plane",
+      "master_tris": 438,
+      "web_tris": 438,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.394655041257624,
+      "mean_nearest_position_error_mm": 1.3207403715824606,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6171233016626697
+    },
+    {
+      "material": "copper",
+      "master_tris": 251,
+      "web_tris": 251,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.494349226738279,
+      "mean_nearest_position_error_mm": 1.4495206288697455,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.5932337585388824
+    },
+    {
+      "material": "glass",
+      "master_tris": 878,
+      "web_tris": 878,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.8561279934232635,
+      "mean_nearest_position_error_mm": 1.5591189344159382,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.5936337489686087
+    },
+    {
+      "material": "oak",
+      "master_tris": 2430,
+      "web_tris": 2430,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.530227104538688,
+      "mean_nearest_position_error_mm": 1.4503606892447969,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6175608537186624
+    },
+    {
+      "material": "lawn",
+      "master_tris": 4,
+      "web_tris": 4,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 1.8466585909672095,
+      "mean_nearest_position_error_mm": 1.645985247250338,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.4653476042317658
+    },
+    {
+      "material": "drive",
+      "master_tris": 134,
+      "web_tris": 134,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.3184788810809005,
+      "mean_nearest_position_error_mm": 1.1746652973521308,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.4999161812527542
+    },
+    {
+      "material": "mortar",
+      "master_tris": 3321,
+      "web_tris": 3321,
+      "master_zero_area": 0,
+      "web_zero_area": 23,
+      "new_zero_area": 23,
+      "max_nearest_position_error_mm": 2.8868890968746546,
+      "mean_nearest_position_error_mm": 1.304743091270702,
+      "web16_zero_area": 8,
+      "web16_max_nearest_position_error_mm": 0.6416564549118091
+    },
+    {
+      "material": "iron",
+      "master_tris": 1254,
+      "web_tris": 1254,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.819791224530606,
+      "mean_nearest_position_error_mm": 1.5224644761658301,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6080710997668098
+    },
+    {
+      "material": "glass_dark",
+      "master_tris": 2165,
+      "web_tris": 2165,
+      "master_zero_area": 0,
+      "web_zero_area": 58,
+      "new_zero_area": 58,
+      "max_nearest_position_error_mm": 2.991596722418564,
+      "mean_nearest_position_error_mm": 1.567378704045645,
+      "web16_zero_area": 2,
+      "web16_max_nearest_position_error_mm": 0.6178639820077982
+    },
+    {
+      "material": "granite_1",
+      "master_tris": 32699,
+      "web_tris": 32699,
+      "master_zero_area": 0,
+      "web_zero_area": 193,
+      "new_zero_area": 193,
+      "max_nearest_position_error_mm": 3.1460335593934285,
+      "mean_nearest_position_error_mm": 1.4957029944607194,
+      "web16_zero_area": 52,
+      "web16_max_nearest_position_error_mm": 0.6476736152452229
+    },
+    {
+      "material": "granite_2",
+      "master_tris": 30923,
+      "web_tris": 30923,
+      "master_zero_area": 0,
+      "web_zero_area": 164,
+      "new_zero_area": 164,
+      "max_nearest_position_error_mm": 3.0653869925130346,
+      "mean_nearest_position_error_mm": 1.4847579832031867,
+      "web16_zero_area": 45,
+      "web16_max_nearest_position_error_mm": 0.6456639067282898
+    },
+    {
+      "material": "granite_3",
+      "master_tris": 32719,
+      "web_tris": 32719,
+      "master_zero_area": 0,
+      "web_zero_area": 171,
+      "new_zero_area": 171,
+      "max_nearest_position_error_mm": 3.2368403489978976,
+      "mean_nearest_position_error_mm": 1.4927145121141674,
+      "web16_zero_area": 47,
+      "web16_max_nearest_position_error_mm": 0.6385431067603482
+    },
+    {
+      "material": "granite_4",
+      "master_tris": 29936,
+      "web_tris": 29936,
+      "master_zero_area": 0,
+      "web_zero_area": 193,
+      "new_zero_area": 193,
+      "max_nearest_position_error_mm": 3.2327034818822895,
+      "mean_nearest_position_error_mm": 1.4695755549542373,
+      "web16_zero_area": 41,
+      "web16_max_nearest_position_error_mm": 0.6486457107211296
+    },
+    {
+      "material": "brick_dark_red",
+      "master_tris": 26343,
+      "web_tris": 26343,
+      "master_zero_area": 0,
+      "web_zero_area": 69,
+      "new_zero_area": 69,
+      "max_nearest_position_error_mm": 3.0414240596108435,
+      "mean_nearest_position_error_mm": 1.5005323562985555,
+      "web16_zero_area": 6,
+      "web16_max_nearest_position_error_mm": 0.6504124037971772
+    },
+    {
+      "material": "brick_buff",
+      "master_tris": 18438,
+      "web_tris": 18438,
+      "master_zero_area": 0,
+      "web_zero_area": 40,
+      "new_zero_area": 40,
+      "max_nearest_position_error_mm": 3.305950049755088,
+      "mean_nearest_position_error_mm": 1.4971829392292075,
+      "web16_zero_area": 3,
+      "web16_max_nearest_position_error_mm": 0.646540501015824
+    },
+    {
+      "material": "brick_smoky",
+      "master_tris": 8164,
+      "web_tris": 8164,
+      "master_zero_area": 0,
+      "web_zero_area": 16,
+      "new_zero_area": 16,
+      "max_nearest_position_error_mm": 3.051758131736409,
+      "mean_nearest_position_error_mm": 1.5030427906414914,
+      "web16_zero_area": 1,
+      "web16_max_nearest_position_error_mm": 0.6483036550015822
+    },
+    {
+      "material": "roof_plane_1",
+      "master_tris": 39788,
+      "web_tris": 39788,
+      "master_zero_area": 0,
+      "web_zero_area": 84,
+      "new_zero_area": 84,
+      "max_nearest_position_error_mm": 3.2118864988483926,
+      "mean_nearest_position_error_mm": 1.5291940132874293,
+      "web16_zero_area": 24,
+      "web16_max_nearest_position_error_mm": 0.6495337144972692
+    },
+    {
+      "material": "roof_plane_2",
+      "master_tris": 40033,
+      "web_tris": 40033,
+      "master_zero_area": 0,
+      "web_zero_area": 79,
+      "new_zero_area": 79,
+      "max_nearest_position_error_mm": 3.1330675452643324,
+      "mean_nearest_position_error_mm": 1.5297328617552524,
+      "web16_zero_area": 19,
+      "web16_max_nearest_position_error_mm": 0.6474915002955033
+    },
+    {
+      "material": "roof_plane_3",
+      "master_tris": 39590,
+      "web_tris": 39590,
+      "master_zero_area": 0,
+      "web_zero_area": 76,
+      "new_zero_area": 76,
+      "max_nearest_position_error_mm": 3.1820825522176137,
+      "mean_nearest_position_error_mm": 1.5321323171415027,
+      "web16_zero_area": 20,
+      "web16_max_nearest_position_error_mm": 0.6483680592516632
+    },
+    {
+      "material": "linen_blind",
+      "master_tris": 736,
+      "web_tris": 736,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.7220239261614125,
+      "mean_nearest_position_error_mm": 1.5027297727947404,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6174358934389497
+    },
+    {
+      "material": "painted_wood",
+      "master_tris": 5174,
+      "web_tris": 5174,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.8690286643416045,
+      "mean_nearest_position_error_mm": 1.4627543514982173,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6327556999614329
+    },
+    {
+      "material": "rough_stone_trim",
+      "master_tris": 3340,
+      "web_tris": 3340,
+      "master_zero_area": 0,
+      "web_zero_area": 0,
+      "new_zero_area": 0,
+      "max_nearest_position_error_mm": 2.77339430779451,
+      "mean_nearest_position_error_mm": 1.408700100889658,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6451504301538533
+    },
+    {
+      "material": "turf_blade_dark",
+      "master_tris": 3923,
+      "web_tris": 3923,
+      "master_zero_area": 0,
+      "web_zero_area": 1233,
+      "new_zero_area": 1233,
+      "max_nearest_position_error_mm": 2.7848356559911127,
+      "mean_nearest_position_error_mm": 1.4255556486598824,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6325430486875623
+    },
+    {
+      "material": "turf_blade_middle",
+      "master_tris": 10018,
+      "web_tris": 10018,
+      "master_zero_area": 0,
+      "web_zero_area": 3091,
+      "new_zero_area": 3091,
+      "max_nearest_position_error_mm": 2.8576935138419968,
+      "mean_nearest_position_error_mm": 1.428008113616567,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.636877180525376
+    },
+    {
+      "material": "turf_blade_light",
+      "master_tris": 6059,
+      "web_tris": 6059,
+      "master_zero_area": 0,
+      "web_zero_area": 1822,
+      "new_zero_area": 1822,
+      "max_nearest_position_error_mm": 2.837579122012167,
+      "mean_nearest_position_error_mm": 1.4290234686455527,
+      "web16_zero_area": 0,
+      "web16_max_nearest_position_error_mm": 0.6281337872803214
+    }
+  ]
+}

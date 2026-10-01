@@ -25,7 +25,8 @@ const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
 import { createArrival } from './arrival.js';
-import { loadScene, resolveBases } from './scene-loader.js';
+import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
+  createLatestDetailSwitch, disposeLoadedAsset } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -726,6 +727,16 @@ const sealLadder = (declared, order) => {
   return sealed;
 };
 const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
+// T-1730, 2026-09-30: FULL allowance for explicitly selected Glessner v4 only,
+// on the owner's permission to spend rendering headroom for this inspection.
+// Ref04's actual 47,037,292-byte optimized GLB, desktop 1280x800, read over
+// Prairie / 18th / courtyard / stable / aerial: 3,360,569 / 3,430,985 /
+// 3,407,033 / 3,377,651 / 3,380,925 rendered triangles, at most 105 calls.
+// The 3,800,000 ceiling leaves 10.8% over that observed maximum. These are
+// rendered passes, not the master inventory of 1,070,689 triangles. Final
+// all-viewport validation still checks the released bytes. The ordinary town,
+// balanced 1,280,000, light 825,000 and 215 draw calls are unchanged.
+const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.
@@ -881,6 +892,7 @@ const params = new URLSearchParams(location.search);
  */
 const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1];
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
+document.getElementById('view').setAttribute('aria-label', `Chicago, ${YEAR}`);
 const DEBUG = params.get('debug') === '1';
 /** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
  *  for comparing competing builds side by side. Null when the address asks for none. */
@@ -935,9 +947,11 @@ const bootController = createBoot({
 api.boot = bootController;
 const arrival = createArrival({
   boot: bootController,
+  targetYear: YEAR,
+  titleEl: document.getElementById('gate-title'),
   contentOptions: {
     seed: new URLSearchParams(location.search).get('seed') ?? Math.random(),
-    warm: (() => { try { return sessionStorage.getItem('c4d.loading.build') === VERSION; } catch { return false; } })(),
+    warm: (() => { try { return sessionStorage.getItem(`c4d.loading.build.${YEAR}`) === VERSION; } catch { return false; } })(),
   },
   yearEl: document.getElementById('arrival-year'),
   phaseEl: gateSub,
@@ -948,8 +962,8 @@ const arrival = createArrival({
 });
 api.arrival = arrival;
 // Start alongside scene loading; optional presentation never joins the ready barrier.
-void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
-bootController.on('ready', () => { try { sessionStorage.setItem('c4d.loading.build', VERSION); } catch { /* optional */ } });
+if (YEAR === '1835') void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -973,6 +987,10 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
+  // full inspection model simply to turn it down once Settings has mounted.
+  let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
+  const detailOpts = () => ({ detail: detailLevel });
 
   /**
    * MULTISAMPLING, ON EVERY DEVICE INCLUDING A PHONE (T-0157).
@@ -1045,7 +1063,14 @@ async function boot() {
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
+    detail: detailLevel,
   });
+  const inspectionLod = hasInspectionLod(loaded.registry.get('glessner_house'));
+  const detailLevels = inspectionLod ? { ...DETAIL,
+    full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
+      declared: GLESSNER_V4_FULL_TRIANGLES,
+      measured: 'Selected Glessner v4 inspection; see T-1730 at GLESSNER_V4_FULL_TRIANGLES.' },
+  } : DETAIL;
   // Which structure version the address asked for and what it got — the HUD chip and
   // the smoke both read it. A fallback is carried here as `notice`, NOT pushed onto
   // `problems`: an unknown label is the visitor's typo, not a defect in the build.
@@ -1111,7 +1136,8 @@ async function boot() {
   bootController.end('terrain');
   bootController.start('buildings', loaded.registry.size);
   await yieldToPaint();
-  const buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
+  let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
+    preserveMaterials: inspectionLod,
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -1196,9 +1222,6 @@ async function boot() {
   // first fence is built. A phone starts at `light` and a desktop at `full`; the
   // visitor's own choice, once made, outranks the guess and is what
   // `hud.settings.detail` carries.
-  let detailLevel = DETAIL[readDetailPreference()] ? readDetailPreference()
-    : (coarse ? 'light' : 'full');
-  const detailOpts = () => ({ detail: detailLevel });
 
   // The town's fence lines — yards, pens, garden pickets. An enclosure takes a
   // PERIMETER rather than a footprint and is roofless, which is why it is not a
@@ -1379,7 +1402,7 @@ async function boot() {
     renderer.getSize(_size);
     return _size.y / (camera.fov * Math.PI / 180);
   };
-  BUDGET.triangles = DETAIL[detailLevel].triangles;
+  BUDGET.triangles = detailLevels[detailLevel].triangles;
 
   /**
    * T-0115 — the half of a detail level that is the SUN rather than the town.
@@ -1617,10 +1640,108 @@ async function boot() {
    * and changing back gives you the town you had, not a reshuffled one.
    */
   let detailPending = null;
+  // The one opt-in structure whose geometry changes with Settings. Everything
+  // is prepared off-scene, then committed in one turn so no empty lot or mismatched
+  // budget is rendered between the two. Ordinary scenes keep their existing path.
+  const discardDetail = (next) => {
+    next.buildings?.dispose();
+    next.flora?.dispose?.();
+    next.trees?.dispose?.();
+    if (next.asset) disposeLoadedAsset(next.asset.gltf);
+  };
+  const inspectionSwitch = inspectionLod ? createLatestDetailSwitch({
+    initial: detailLevel,
+    async prepare(level) {
+      const next = {};
+      try {
+        const record = loaded.registry.get('glessner_house');
+        if (String(detailAssetUrl(record, level, bases)) !== record.assetUrl) {
+          next.asset = await loaded.loadDetailAsset(record, level);
+          if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
+          next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
+          Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
+            checkpoint: bootCheckpoint, preserveMaterials: true });
+          if (next.buildings.problems.length || next.buildings.roll.missing.length) {
+            throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
+          }
+          next.buildings.setWeathering(buildings.weathering);
+          next.buildings.group.visible = buildings.group.visible;
+        }
+        next.flora = await createFlora({
+          dataBase: layerBase('flora'), terrain, footprints: planting,
+          growthBlocked: swardBlocked,
+          confidence, problems: layerProblems('flora'), detail: level,
+        });
+        next.trees = await createTrees({
+          dataBase: layerBase('flora'), terrain, footprints: planting,
+          growthBlocked: streets.blocksGrowth,
+          confidence, problems: layerProblems('flora'), pixelsPerRadian,
+          streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
+          zoneAt: (e, n) => next.flora.zoneAt(e, n), detail: level,
+        });
+        return next;
+      } catch (error) { discardDetail(next); throw error; }
+    },
+    commit(next, level) {
+      if (next.buildings) {
+        const previous = buildings;
+        const oldAsset = loaded.registry.get('glessner_house').gltf;
+        // Keep the public registry and each record object stable. The new batch's
+        // pick map is pointed at those same objects after the atomic replacement.
+        for (const [id, row] of next.registry) {
+          const original = loaded.registry.get(id);
+          Object.assign(original, row);
+          next.registry.set(id, original);
+        }
+        buildings = next.buildings;
+        scene3d.add(buildings.group);
+        scene3d.remove(previous.group);
+        api.buildings = buildings;
+        api.roll = buildings.roll;
+        previous.dispose();
+        disposeLoadedAsset(oldAsset);
+      }
+      loaded.registry.get('glessner_house').assetDetail = level;
+      const previousFlora = flora;
+      const previousTrees = trees;
+      flora = next.flora;
+      trees = next.trees;
+      scene3d.add(flora.group, trees.group);
+      scene3d.remove(previousFlora.group, previousTrees.group);
+      previousFlora.dispose?.();
+      previousTrees.dispose?.();
+      api.flora = flora;
+      api.trees = trees;
+      detailLevel = level;
+      BUDGET.triangles = detailLevels[level].triangles;
+      enclosures.setDetail?.(level);
+      applyShadowTier(level);
+      applyFurnitureReach(level);
+      confidence.set(confidence.enabled);
+      hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
+    },
+    discard: discardDetail,
+    onError(error, wanted, retained) {
+      const message = `Could not load ${wanted} detail; keeping ${retained}. ${error.message}`;
+      problems.push(`Glessner v4 detail: ${message}`);
+      console.error(`[4D Chicago] ${message}`);
+      hud.say(message, 9000);
+      hud.settings.detail = retained;
+      const select = document.getElementById('s-detail');
+      if (select) select.value = retained;
+      try { window.localStorage.setItem('chicago4d.settings', JSON.stringify(hud.settings)); } catch { /* optional */ }
+    },
+  }) : null;
   async function applyDetail(level) {
+    if (inspectionSwitch) {
+      if (!DETAIL[level]) return false;
+      if (level !== detailLevel) hud.say(`Loading ${level} detail…`, 9000);
+      return inspectionSwitch.set(level);
+    }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
-    BUDGET.triangles = DETAIL[level].triangles;
+    BUDGET.triangles = detailLevels[level].triangles;
     // The fence's half of the level, first: `light` draws a pale as a plank and
     // the other two as a prism (T-0067), and the layer rebuilds its own meshes
     // in place from records it has already loaded. It is done BEFORE the shadow
@@ -2514,7 +2635,7 @@ async function boot() {
       const estimateOptions = () => ({ resolve: target => {
         const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
       }, settings: hud.settings, router: travel.router });
-      jauntPreview = preview.createJauntPreview({ root: jauntRoot, dataBase: bases.dataBase, destinations, api: api.jaunts,
+      jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
@@ -2522,7 +2643,7 @@ async function boot() {
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions });
-      jauntRuntime = runtime.createJaunts({ load: jauntPreview.load, travel,
+      jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         resolve: resolveJaunt, place: spawnAtDestination,
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
@@ -2555,7 +2676,7 @@ async function boot() {
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
-  api.welcome = createWelcome({ gate, destinations, isTouch: coarse,
+  api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');
@@ -2755,7 +2876,7 @@ async function boot() {
     // record and ask whether what it says reached the renderer — rather than
     // comparing the renderer against a copy of itself.
     dataBase: bases.dataBase,
-    detailLevels: DETAIL,
+    detailLevels,
     detailOrder: DETAIL_ORDER,
     // The setter side only. `detail` and `furnitureShadows` are LIVE readings
     // and are defined with the other live ones below — FOUND BY T-0115, and it

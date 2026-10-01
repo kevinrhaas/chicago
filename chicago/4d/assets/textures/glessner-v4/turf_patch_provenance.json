@@ -1,0 +1,26 @@
+{
+  "type": "original_generated_generic_material",
+  "method": "built-in image generation",
+  "prompt": "Use case: photorealistic-natural. Asset type: production PBR diffuse/base-color texture for an accurate architectural 3D reconstruction, not a scene rendering. Create one high-resolution square seamless tile, ideally 2048 x 2048 pixels, representing exactly a 4 metre by 4 metre patch of short maintained July cool-season courtyard lawn, viewed perfectly vertically from above, orthographic and filling every pixel. Dense short fine grass with individual 1\u20133 mm wide blades implied at this scale, subtle irregular changes in growth direction, fine natural tan thatch below the blades. Include coherent irregular 0.5\u20132 metre patches of modestly darker/cooler green growth and slightly thinner warm tan thatch, only about 10\u201320 percent broad tonal variation; the surface remains healthy and mostly green, subdued natural grass, not neon or lime. The scale is essential: this is a 4 metre-wide lawn patch, not a close-up of giant grass blades. Diffuse albedo appearance under extremely even overcast illumination, no baked directional shadows, specular highlights, ambient occlusion, vignette, perspective or horizon. Edges must tile seamlessly in both directions. No bare dead zones, no mowing stripes, no paths, no dirt cracks, no leaves, no flowers, no objects, no lettering, no borders. Produce an original generic material texture; it is not documentary imagery of a real historical site.",
+  "usage": "Reconstructed diffuse lawn appearance, representing a 4m square. Not documentary evidence of Glessner House.",
+  "input_images": [],
+  "transparent_background": false,
+  "created_utc": "2026-09-30",
+  "original_file": "exec-209c9f01-8249-4d9b-99f1-f15fd4f78f7e.png",
+  "asset": "turf_patch_photographic_basecolor.png",
+  "sha256": "c027861dbd1bd072de213fe787030d8bef6768daa1c84b5f609fd778b836e364",
+  "bytes": 3958556,
+  "size_px": [
+    1254,
+    1254
+  ],
+  "physical_repeat_m": [
+    4.0,
+    4.0
+  ],
+  "colour_space": "sRGB",
+  "output_modified": false,
+  "confidence": "reconstructed",
+  "rights": "Original generated material; use, modification and redistribution with this project under LICENSE.txt. Retain provenance.",
+  "limitations": "The 4m scale, seamless tiling and diffuse lighting are generation targets, not surveyed or measured qualities. No source photograph pixels were supplied."
+}

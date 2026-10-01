@@ -1,0 +1,52 @@
+{
+  "protected_material_faces_identical": true,
+  "materials": {
+    "4": {
+      "sha256": "1c9f9ebf5acb5e0fee118e652f37da76a2beecae83ea417060a8c51ba1e0b688",
+      "faces": 151,
+      "triangles": 203
+    },
+    "5": {
+      "sha256": "72b771ee2025d9093e52fceeb3f21f6844f3d80fcaf94830709026671628f435",
+      "faces": 636,
+      "triangles": 1272
+    },
+    "6": {
+      "sha256": "998e651c78e2fa5eb990db34ccefba4796f00593d1c2b4e39748f237d56d697a",
+      "faces": 1917,
+      "triangles": 3834
+    },
+    "7": {
+      "sha256": "86da8be3679a691faa011e77ad9662c8c5347fe69ca83196f90ad9bd927f0385",
+      "faces": 1,
+      "triangles": 4
+    },
+    "8": {
+      "sha256": "1242c32e3e73602467a42d361396f589454ed6ebe17bc28e8b39193f89458371",
+      "faces": 66,
+      "triangles": 134
+    },
+    "10": {
+      "sha256": "1f571dba632850b2a5657334215c5abe70af575f9827ee276558fab558f65bdc",
+      "faces": 3184,
+      "triangles": 6596
+    },
+    "11": {
+      "sha256": "9b2512e999e944914d062a7d329cd38e2c7f6c816233933ebe78b420170a5286",
+      "faces": 1037,
+      "triangles": 2327
+    },
+    "22": {
+      "sha256": "47acdaa4b542cbf8cff8c029824f10397fabeca4b8b70b9f2e4c9cc4a2453cf3",
+      "faces": 622,
+      "triangles": 1244
+    },
+    "23": {
+      "sha256": "7554425a20ff8d1556a19099b52b813c6064feb8c4f0756a79c647d216c334e2",
+      "faces": 2614,
+      "triangles": 5228
+    }
+  },
+  "full_measurement_seconds": 38.443716049194336,
+  "note": "Exact ordered float32 vertex/confidence fingerprints of unchanged shared geometry. Full font datestones excluded; they use only unprotected stone/trim slots."
+}

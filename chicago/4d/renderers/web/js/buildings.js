@@ -328,7 +328,8 @@ function materialKey(m) {
  * @param {object} o.confidence             from createConfidenceView
  * @param {object} o.terrain                from createTerrain (for ground height)
  */
-export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null, onProgress = () => {} }) {
+export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
+  onProgress = () => {}, preserveMaterials = false }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -403,7 +404,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
 
     for (const { mesh, matrix } of meshes) {
       const label = `${record.id}/${mesh.name || 'mesh'}`;
-      const material = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
+      const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
+      // A detail replacement rebuilds from the same source records. Never whiten
+      // or shader-patch those source materials: each batch owns its own copy.
+      const material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
       // Before the key is taken, and only ever by name — T-1488 and
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);
@@ -415,6 +419,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         // building's own existence grade governs what its parts may claim.
         applyExistence(prepared.geo, existenceFloor(record));
       } catch (err) {
+        if (preserveMaterials) material.dispose();
         problems.push(`${label}: ${err.message}`);
         continue;
       }
@@ -438,6 +443,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         confidence.patch(material);
         bucket = { material, entries: [] };
         groups.set(key, bucket);
+      } else if (preserveMaterials) {
+        material.dispose();
       }
       bucket.entries.push({ record, geo: prepared.geo, factors: prepared.factors });
       totalTris += prepared.geo.getIndex().count / 3;

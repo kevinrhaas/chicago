@@ -1,4 +1,5 @@
 import { createLoadingContent } from './loading-content.js';
+import { arrivalTitles, scenePresentation } from './scene-presentation.js';
 /** Arrival presentation over the real boot controller (T-1247). */
 const clamp01 = n => Math.max(0, Math.min(1, Number.isFinite(n) ? n : 0));
 
@@ -33,11 +34,12 @@ export function bootProgress(phases, expected = {}, nowMs = 0) {
   return Math.min(0.999999, clamp01(done / total));
 }
 
-export function yearForProgress(progress, currentYear = new Date().getFullYear(), ready = false) {
-  const present = Math.max(1836, Math.trunc(currentYear) || 1836);
-  if (ready) return 1835;
-  const y = present - (present - 1836) * easeInOut(progress);
-  return Math.max(1836, y);
+export function yearForProgress(progress, currentYear = new Date().getFullYear(), ready = false, targetYear = 1835) {
+  const floor = Number(targetYear) + 1;
+  const present = Math.max(floor, Math.trunc(currentYear) || floor);
+  if (ready) return Number(targetYear);
+  const y = present - (present - floor) * easeInOut(progress);
+  return Math.max(floor, y);
 }
 
 export function settleDurationMs({ reducedMotion = false, bootDurationMs = Infinity } = {}) {
@@ -96,6 +98,8 @@ export function createArrival({
   barEl,
   buttonEl,
   contentOptions = {},
+  targetYear = 1835,
+  titleEl,
   onWelcome = () => {},
   currentYear = new Date().getFullYear(),
   reducedMotion = typeof matchMedia === 'function'
@@ -106,13 +110,19 @@ export function createArrival({
   cancelFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : () => {},
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
-  const content = cardEl ? createLoadingContent({ boot, cardEl, now, ...contentOptions }) : null;
+  const presentation = scenePresentation(targetYear);
+  targetYear = presentation.year;
+  const titles = arrivalTitles(targetYear);
+  let titleIndex = 0, titleAt = now();
+  if (titleEl) titleEl.textContent = titles[0];
+  const content = cardEl ? createLoadingContent({ boot, cardEl, now,
+    entries: presentation.entries, arrivalLine: presentation.arrivalLine, ...contentOptions }) : null;
   let failed = false;
   let ready = false;
   let settleRaf = null;
   let lastShown = null;
   let progress = 0;
-  let displayedYear = Math.max(1836, currentYear);
+  let displayedYear = Math.max(targetYear + 1, currentYear);
   let tickerRaf = null;
   let lastFrame = now();
 
@@ -141,15 +151,19 @@ export function createArrival({
     if (label && phaseEl && phaseEl.textContent !== label) phaseEl.textContent = label;
     progress = Math.max(progress, bootProgress(boot.phases, boot.expected, now()));
     setBar(barEl, progress);
-    if (reducedMotion) showYear(yearForProgress(reducedProgress(progress), currentYear), false);
-    else if (!requestFrame) showYear(yearForProgress(progress, currentYear), false);
+    if (reducedMotion) showYear(yearForProgress(reducedProgress(progress), currentYear, false, targetYear), false);
+    else if (!requestFrame) showYear(yearForProgress(progress, currentYear, false, targetYear), false);
   }
 
   function tick() {
     if (failed || ready) return;
     const at = now();
+    if (titleEl && !reducedMotion && at - titleAt >= 3000) {
+      titleIndex = (titleIndex + 1) % titles.length; titleAt = at;
+      titleEl.textContent = titles[titleIndex];
+    }
     sync();
-    const target = yearForProgress(progress, currentYear);
+    const target = yearForProgress(progress, currentYear, false, targetYear);
     // Smooth discrete work events without running ahead of completed/estimated work.
     // A resumed tab reads the current clock once; it never replays queued ticks.
     const alpha = 1 - Math.exp(-Math.max(0, at - lastFrame) / 90);
@@ -167,6 +181,8 @@ export function createArrival({
   function fail(error, { message } = {}) {
     if (ready) return;
     failed = true;
+    if (phaseEl) phaseEl.hidden = false;
+    if (cardEl) cardEl.hidden = true;
     content?.stop(true);
     stopTicker();
     if (settleRaf != null) cancelFrame(settleRaf);
@@ -189,16 +205,16 @@ export function createArrival({
       reducedMotion,
       bootDurationMs: Math.max(0, (event?.at ?? now()) - firstStartedAt()),
     });
-    const from = Math.max(1836, lastShown ?? Math.round(yearForProgress(
-      bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false)));
+    const from = Math.max(targetYear + 1, lastShown ?? Math.round(yearForProgress(
+      bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false, targetYear)));
     if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
-      showYear(1835, false);
+      showYear(targetYear, false);
       content?.land();
       setBar(barEl, 1);
       barEl?.classList.add('done');
       if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
-        : 'You have arrived in Chicago, summer 1835.';
+        : presentation.arrivalLine;
       if (buttonEl) {
         buttonEl.textContent = 'Tap to enter';
         buttonEl.disabled = false;
@@ -212,9 +228,9 @@ export function createArrival({
     const started = now();
     const frame = () => {
       const t = clamp01((now() - started) / duration);
-      const y = from - (from - 1835) * easeInOut(t);
+      const y = from - (from - targetYear) * easeInOut(t);
       if (t < 1) {
-        showYear(Math.max(1836, y), true);
+        showYear(Math.max(targetYear + 1, y), true);
         settleRaf = requestFrame(frame);
       } else finish();
     };

@@ -184,7 +184,7 @@ export function createConfidenceView({
     uReconTint: { value: new THREE.Color(inferred) },
   };
 
-  const patched = new Set();
+  const patched = new WeakSet();
 
   /**
    * Patch a material in place. Safe to call twice on the same material.

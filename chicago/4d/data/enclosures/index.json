@@ -22,6 +22,16 @@
       "file": "sauganash_yard.json"
     },
     {
+      "id": "wolf_point_tavern_yard",
+      "file": "wolf_point_tavern_yard.json",
+      "note": "HAND-AUTHORED (T-1762). The ground between the Wolf Point Tavern and the stable already committed behind it \u2014 the enclosure the stable's own record says a priced horse-keeping service needs and does not draw. Every vertex is a committed building corner or the meeting of two committed wall lines; the fence, its gateway and the worn ground inside it are invented and graded below the existence, at docs/LIBERTIES.md L303."
+    },
+    {
+      "id": "miller_house_yard",
+      "file": "miller_house_yard.json",
+      "note": "HAND-AUTHORED (T-1762), and the pair of the record above it. The Miller house is the second of the two Chicago houses licensed by the Cook County court on 13 April 1831, and the tariff that order set is the same sentence the Wolf Point Tavern's stable is built on. Its yard is the ground between the house and the Miller tannery, on the two buildings' shared east wall line."
+    },
+    {
       "id": "town_lot_line_boards",
       "file": "town_lot_line_boards.json"
     },

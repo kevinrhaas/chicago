@@ -727,58 +727,6 @@
   ],
   "swales": [
     {
-      "id": "west_prairie_swale_a",
-      "line": [
-        [
-          -320.0,
-          -120.0
-        ],
-        [
-          -150.0,
-          60.0
-        ],
-        [
-          -90.0,
-          250.0
-        ]
-      ],
-      "half_width_m": 30.0,
-      "depth_ft": 0.75,
-      "dossier_zone": 18,
-      "confidence": "reconstructed",
-      "sources": [],
-      "note": "Zone 18 says the West Division wet prairie carried 1-2 ft slough swales. That they existed is inferred from the dossier; WHERE they ran is not attested anywhere and this alignment is invented. Kept shallow (0.75 ft over a 30 m half-width, about 2.3 ft per 300 ft) and recorded as a liberty in docs/LIBERTIES.md. T-0795 WALKED THE WHOLE NA/HUP SHEET AND WRIGHT DRAWS NO WATERCOURSE ON THE WEST DIVISION'S PRAIRIE. The tiles covering this ground carry platted blocks, lot lines and the ward band and nothing else, so the one sheet that could have given this swale a source has been looked at and does not. 'No source found' and 'the sheet that would show it shows nothing' are different states and only the second is a finding. The grade does not move: reconstructed, as placed. docs/RESEARCH/wright_1834_watercourses.md.",
-      "mesh": {
-        "dossier_zone": "record_only"
-      }
-    },
-    {
-      "id": "west_prairie_swale_b",
-      "line": [
-        [
-          -320.0,
-          200.0
-        ],
-        [
-          -230.0,
-          300.0
-        ],
-        [
-          -200.0,
-          320.0
-        ]
-      ],
-      "half_width_m": 26.0,
-      "depth_ft": 0.6,
-      "dossier_zone": 18,
-      "confidence": "reconstructed",
-      "sources": [],
-      "note": "As west_prairie_swale_a. As west_prairie_swale_a, including T-0795's reading of the sheet's silence. docs/RESEARCH/wright_1834_watercourses.md.",
-      "mesh": {
-        "dossier_zone": "record_only"
-      }
-    },
-    {
       "id": "lasalle_slough_lower",
       "line": [
         [
@@ -1450,6 +1398,10 @@
     {
       "dossier_zone": 17,
       "why": "the Wells Street marsh (about E +600) is inside the box now. Deferred to parcel (c). It arrives in the same sentence as the slough and on the same terms — the stream drained 'the pond and the marsh extending up Wells Street' — so whatever dates the slough dates what the slough drains. What is missing here is the EXTENT and not the date: the dossier's own tag is 'documented qualitatively' and 'broad, ill-defined' is the whole of the geometry any source reached supplies — data/terrain/1835_intown_water_dating.json zone 17."
+    },
+    {
+      "dossier_zone": 18,
+      "why": "zone 18's '1-2 ft slough swales' on the West Division wet prairie are recorded and not modelled. Two alignments — west_prairie_swale_a and _b — were graded here from 2026-08 until T-1460 (2026-09-29), drawn on invented lines with invented depths: confidence reconstructed, sources [], and T-0795 walked the whole Wright 1834 NA/HUP sheet and found NO watercourse anywhere on this prairie, so the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E -705 and left both heads beginning abruptly at E -320 — the old west wall of the box — 385 m inside open modelled prairie that carries no hollow and no reason for one, and swale_a's 30 m corridor stood over eight reviewed, baked West Division roofs. The recipe's fourth terrain rule offered to move the roofs; the owner ruled (T-1460, option a) that the invented line is the conjectural half of that pair, not the roofs, and retired both to the record. That the prairie carried swales is what the dossier says and it is kept here; WHERE they ran is not attested anywhere and is no longer asserted in the ground. No roof moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. docs/LIBERTIES.md L15 and L31f are struck by the same ruling."
     },
     {
       "dossier_zone": 24,

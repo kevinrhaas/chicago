@@ -1,3 +1,135 @@
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+The owner’s option (a) is implemented: both conjectural west-prairie swales are record-only, with their dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator now refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
+## T-1752 — frontage census repaired from its authored history (2026-09-29)
+
+Seven stale smoke counts now follow the existing frontage records: 51 walks,
+46 crossings, 18 unchanged posts, 32 fences, 119 refusals, 58 authored meshes
+(plus optional lettering) and 40 street-edge faces. T-1734 transposed Clinton's
+lots; T-1736, T-1708, T-1735 and T-1751 improved four Washington blocks. The
+evidence is in `docs/measurements/T-1752-frontage-census.md`. No scene data or
+geometry changes; all other assertions and floors remain. This repairs the
+gate blocking the visible Glessner v4 parcel, T-1730.
+
+The frontage re-derivation passes. Published mobile smoke parts 1–2 pass
+158/0 in 2 m 50 s, with zero page errors, on `sha256:001a8c5194069f6e`; the
+standing smoke record carries that exact tree. `CHECK_JOBS=2 bash tools/check.sh`
+passes all 708 steps, none red. Other browser parts were not rerun for this
+isolated census repair. The final integrated comparison build also passes all
+712 GitHub gate steps and the complete published smoke: mobile 572/0 and
+desktop 569/0, with zero page errors. The final receipts are in
+`docs/RESEARCH/glessner-v4-qa/` and the standing smoke record.
+
+## T-1730 — Glessner v4, owner-directed detailed model (2026-09-29)
+
+The opt-in v4 uses the default envelope with measured ashlar course heights,
+corrected crossing roofs and courtyard openings, physical window/door recesses,
+stone and brick relief, overlapping clay tiles and original metric PBR maps.
+Evidence: `docs/RESEARCH/glessner_house_v4.md`; reconstructed details: L305.
+The working branch is `steward/glessner-v4`; recoverable checkpoints and the
+remaining acceptance work are in `docs/RESEARCH/glessner_v4_work.md`.
+
+Refined06 packages full and reduced versions of the same model, retaining all
+172 openings. Full uses detailed relief; Balanced and Light use the reduced
+mesh. Clear dielectric glazing and enclosed recesses improve the previous grey
+panels. Published desktop/touch-mobile review passes all 30 view/tier readings,
+failed-download recovery and repeated/rapid detail switches.
+
+The final code checkpoint `823442ee` passes all 712 GitHub gate steps. Complete
+published smoke passes mobile 572/0 and desktop 569/0 with zero page errors.
+`docs/RESEARCH/glessner-v4-qa/refined-06-final-review.md` records exact assets,
+measurements, renders and limitations. The local full preflight was blocked by
+the environment's API policy and is not counted as a pass.
+
+The comparison build corrects the early blank tower windows, bay glazing,
+blocked passage and flat chimney faces, and refines stone fracture, joinery,
+carving and glass. Exact carving and surface appearance remain reconstructed;
+passing checks do not establish photographic likeness. Default, v2 and v3 stay
+available. T-1730 remains open for the owner's comparison among versions.
+
+## T-1753 — the Addition's second block gets its first roofs, and a set-out moved so two blocks do not read as one street (2026-09-29)
+
+`blk_indiana_north_cass` — bounded by Indiana, Rush, Illinois and Cass, the cell
+immediately east of the Wolcott block T-1747 and T-1756 built — stood empty and now
+carries **four anonymous roofs**: two one-room frame cottages on lots 8 and 9, back to
+back across the block alley near its east end, with a privy behind the first and a
+woodshed behind the second. `hh_avery_charles` took the lot 8 cottage and
+`hh_arquette_michel` the lot 9 one — the two households whose requests stood on those
+lots, which is the opposite of what happened one block west.
+
+**The two names moved once while the deal waited, and the register records the move rather
+than quietly restating it.** The requests on lots 8 and 9 were `hh_andrews_davi`'s and
+`hh_anderson_eli_f`'s when this block's deal was written. T-1756 then raised two cottages
+one block west, those two households adopted them under the same precedence, and the lot 8
+and lot 9 requests passed to the Avery and Arquette households. Nothing about the buildings
+changed; which invented household the seating pass hands each one to is not a finding about
+1835 and must not be read as one.
+
+**Ten of the block's twelve lots stay open, and that is a decision rather than a
+shortage.** T-1522's placement pass wrote eleven slot requests against this block and
+the 665-roof schedule offers it 43 roofs of headroom, so neither the seating nor the
+programme stopped at two. `docs/RESEARCH/1835_north_division_extent_and_infill.md` did:
+the primary maps show a substantially larger platted north side with no buildings on it,
+so the build leaves most legal frontage empty and keeps the outer addition visibly
+speculative. **T-1746** still carries the disagreement between the twenty roofs the
+seating asks of this addition's two subdivided blocks and the memo that will not carry
+twenty; this deal neither builds the surplus nor withdraws it.
+
+**THE SET-OUT IS THE ONE THING HERE THAT IS NOT A REPEAT OF THE BLOCK NEXT DOOR.** The
+Wolcott cottages stand 6.0 m back from Indiana and 5.0 m from Illinois; these stand 5.5 m
+and 6.5 m, the deeper one on the opposite face. Nothing states any of the four numbers
+and nothing states the difference between them either — it is chosen, because the memo
+reads this frontage as alternating roof and open yard with no continuous street wall, and
+two adjacent blocks set out alike would read across Cass Street as a single row of
+houses. The invention is not that the numbers are invented; every set-out on this row is.
+It is that a VISIBLE regularity was deliberately broken, and a later reader is entitled to
+know the irregularity is ours and not a finding. The liberty is **L302**.
+
+**The liberty renumbered four times, and the register renumbers rather than argues.**
+The entry was written as **L295** and became **L296**, **L299**, **L301** and finally
+**L302**, one place per lap: `dev` took L295 for the Glessner House default, L296 and L297
+for the 1904 Prairie Avenue surfaces, L298 for T-1708's Wells block, L299 for Glessner v2,
+L300 for T-1735's La Salle block and L301 for Glessner v3, all while this branch was open.
+Not one of those moves changed a word of what the entry says.
+
+**Restated, not re-summed.** **L263**'s roof-type phase count reads **456** with these
+four written beside T-1735's eleven; `measure_generator_half.py` states **479** committed
+assets and **475** for emit.py's reach, both read off the committed tree by its own
+`--gate` rather than carried over. The whole seating chain — the address book, the platted
+and off-plat ledgers and their deals, the keepers, the anonymous redeal and the order book
+— was rebuilt in dependency order after each lap, and the Newberry index re-parsed
+over all four volumes so `leads.json` re-derives from the merged layers.
+
+**Five laps onto `dev`, and the laps are what this ticket cost.** The work itself was one
+run; `dev` took T-1708, T-1756, T-1460, T-1730 (twice, v2 and v3) and T-1735 while the
+branch was open, and each one moved the derived layer under it. Two runs overlapped on the
+branch on the fifth lap and both are in it: the correction of the two household names below
+is theirs, kept whole. No mesh moved — `validate.py --stale` is clean — so nothing needed
+rebaking.
+
+**One order-book sweep was forced on this branch and none of it is this ticket's work.**
+`dev` split **T-1207** into T-1760 through T-1764 at 11:14Z, and a bucket whose
+`owning_ticket` names a `split` ticket orders work nobody can claim, so
+`build_order_book_1835.py` refused to build at all until the four West rows —
+stores_mixed_use, inns_taverns, workshops and warehouses_freight — were swept onto
+**T-1764**, the child that closes the parent. T-1420 owns the standing rule that keeps
+making these sweeps necessary.
+
+**Verification.** `tools/check.sh` **CHECK PASS**, 707 steps, none red, with jsonschema,
+pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked reading.
+`smoke_renderer.mjs --published` part 1 **PASS 80/0 at desktop 1280x800** (3 m 11 s) and
+**PASS 80/0 at mobile 390x780** (1 m 56 s) on the final tree, filed to
+`tools/dev-smoke-state.json` along with every earlier lap's reading. Parts 2-13 were not
+re-run: the four meshes have not moved since the lap that baked them, and what the later
+laps changed is derived data, docs and the order-book owner table — none of which the
+renderer draws.
+
+
 ## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
 
 `data/structures/versions/glessner_house/v2.json` (T-1727's mechanism, same archetype
@@ -18478,3 +18610,44 @@ The existing 5050-by-6628 Wright sheet is retained. An 1834 shortcut and an all-
 selector now expose it directly; selecting a map sets the timeline to its date.
 Long provenance paths wrap on mobile. Both research viewers are included in the dev
 preview so these changes can be inspected before production promotion.
+
+## T-1767 — Selected-year arrival (2026-09-29)
+
+Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected scene. The 1904 catalog has a two-stop Glessner orientation; the 1835 pilot is unchanged. Loading phase events still drive progress and errors, but their separate decorative line is hidden. Eight arrival titles rotate every three seconds, held still for reduced motion. Broader drawer content remains T-1740. Verification is recorded in the PR; no production promotion is implied.
+
+T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
+
+
+### T-1730 v4 glazing and version-contract refinement
+
+The v4 comparison now has clear dielectric glazing and enclosed dark recesses,
+removing the flat grey window veil while preserving all openings at both detail
+levels. The sidecar validator includes the alternate-version indexes the viewer
+loads; regression cases preserve the missing-field refusal. Full GitHub gate
+and published desktop/mobile smoke are pending. No final photographic-quality
+claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.
+## T-1757 — two more Cass-block cottages and the resumed integration (2026-09-30)
+
+`blk_indiana_north_cass` now carries four cottages and four yard buildings:
+the second deal adds two two-room cottages on lots 4 and 5, a woodshed and a
+stable. Eight of its twelve lots remain open. The Rush–Pine fringe stays
+unbuilt because the programme apportions its three lotted blocks no roofs;
+the north-division research memo records that limit. These are reconstructed
+buildings, with no claim that a source places them on these lots.
+
+PR #199 resumed after the automated lap integrated current `dev`. Its only
+remaining preflight failure was the off-plat ledger: the derived Canal
+Commissioners tract area and total ground area were each 7.8 m² stale.
+`seat_off_plat_ground_1835.py --build` corrects both from committed inputs;
+its re-derivation check passes. Household seats and meshes do not change in
+this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
+Full gate and published browser verification receipts are recorded on PR #199.
+
+
+## T-1765 — recovered bridge-head furniture
+
+Four reconstructed timber piles complete this bridge-approach parcel. Recovery
+corrects the deck-corner/centerline confusion and retains ferry operation as an
+open historical question. New ground and corner checks validate the placement.
+No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
+validation record carries the subsequent full mobile and desktop results.

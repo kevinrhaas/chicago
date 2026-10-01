@@ -294,7 +294,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "The two verified Lake intersections fix the line. The official chronology calls Lake one of the two principal early turnpiked and graded streets, but separately dates its western extension to Desplaines to fall 1836; the 1835 visual treatment therefore stays earth and does not imply that every western block had already received the later work. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. WEST TO DES PLAINES STREET (T-1443). The line is carried 202.03 m west of the clip at local east -320 to [-522.025, -105.461], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.008115, read from the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0029 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 42 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.05 m above the summer-1835 water surface.",
+      "note": "The two verified Lake intersections fix the line. The official chronology calls Lake one of the two principal early turnpiked and graded streets, but separately dates its western extension to Desplaines to fall 1836; the 1835 visual treatment therefore stays earth and does not imply that every western block had already received the later work. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. WEST TO DES PLAINES STREET (T-1443). The line is carried 202.03 m west of the clip at local east -320 to [-522.025, -105.461], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.008115, read from the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0029 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 42 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.26 m above the summer-1835 water surface.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -10998,6 +10998,54 @@
       "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb"
     },
     {
+      "id": "recon_1835_blk_indiana_north_cass_a1_08",
+      "name": "Reconstructed A1 stable #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a1_08.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a1_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a3_03.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a4_04",
+      "name": "Reconstructed A4 woodshed or storage shed #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a4_04.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a4_07",
+      "name": "Reconstructed A4 woodshed or storage shed #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a4_07.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a4_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d3_01",
+      "name": "Reconstructed D3 one-room frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d3_01.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d3_02",
+      "name": "Reconstructed D3 one-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d3_02.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d3_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d4_05",
+      "name": "Reconstructed D4 two-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d4_05.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d4_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_d4_06",
+      "name": "Reconstructed D4 two-room frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d4_06.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_d4_06__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
       "name": "Reconstructed A3 privy #04",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a3_04.json",
@@ -11854,6 +11902,84 @@
       "name": "Reconstructed D5 deep-plan frame cottage #01",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d5_01.json",
       "asset": "gltf/recon_1835_blk_washington_clark_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a1_08",
+      "name": "Reconstructed A1 stable #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_08.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a1_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a1_10",
+      "name": "Reconstructed A1 stable #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_10.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a2_09",
+      "name": "Reconstructed A2 barn or carriage shed #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a2_09.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a2_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a3_13",
+      "name": "Reconstructed A3 privy #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a3_13.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a3_13__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a4_11",
+      "name": "Reconstructed A4 woodshed or storage shed #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a4_11.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a4_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a4_12",
+      "name": "Reconstructed A4 woodshed or storage shed #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a4_12.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a4_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_d3_05.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_d3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_d3_06",
+      "name": "Reconstructed D3 one-room frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_d3_06.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_d3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_d3_07",
+      "name": "Reconstructed D3 one-room frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_d3_07.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_d3_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_d7_01",
+      "name": "Reconstructed D7 small two-story frame house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_d7_01.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_d7_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_d7_04",
+      "name": "Reconstructed D7 small two-story frame house #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_d7_04.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_d7_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_h1_03",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_h1_03.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_h1_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_h2_02",
+      "name": "Reconstructed H2 merchant or professional house #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_h2_02.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_h2_02__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_lasalle_a1_08",

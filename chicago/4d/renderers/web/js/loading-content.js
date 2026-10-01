@@ -36,11 +36,11 @@ export function createBags(entries, seed) {
   };
 }
 export function dwellMs(entry, expectedSeconds = 2.4) {
-  return Math.max(2000, Math.min(4000, Math.max(entry.min_dwell_ms, expectedSeconds * 1000)));
+  return Math.max(2000, Math.min(4000, Math.max(entry?.min_dwell_ms || 2400, expectedSeconds * 1000)));
 }
 export function createLoadingContent({ boot, cardEl, seed = Math.random(),
   now = () => performance.now(), schedule = setTimeout, cancel = clearTimeout,
-  entries = EARLY_ENTRIES, warm = false } = {}) {
+  entries = EARLY_ENTRIES, arrivalLine = ARRIVAL_LINE, warm = false } = {}) {
   const bags = createBags(entries, seed);
   let phase = 'assess', bootPhase = 'scene', stopped = false, landed = false, failed = false;
   let timer = null, shownAt = -Infinity, current = null, count = 0, renderedBoot = null;
@@ -82,7 +82,7 @@ export function createLoadingContent({ boot, cardEl, seed = Math.random(),
   return {
     stop,
     land() { if (landed || failed) return; stop(); landed = true;
-      paint({id:'arrival',phase:'land',kind:'operational',text:ARRIVAL_LINE}); },
+      paint({id:'arrival',phase:'land',kind:'operational',text:arrivalLine}); },
     async load(url, fetcher = fetch) {
       try { const res = await fetcher(url); if (!res.ok) return;
         const data = await res.json();

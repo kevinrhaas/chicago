@@ -5,7 +5,14 @@
   "1800 Prairie Avenue",
   "1800 S. Prairie Avenue"
  ],
- "archetype": "masonry_house",
+  "archetype": "masonry_house",
+  "present_status": {
+    "value": "Still standing — Glessner House museum",
+    "confidence": "attested",
+    "sources": ["glessner_house_current_status"],
+    "geometry": "record_only",
+    "note": "Verified 2026-09-30 on the museum's official history page. The 1946 endpoint belongs to this modeled exterior phase: conversion for the Lithographic Technical Foundation changed the building, not ended its existence. This present-day status does not extend the unchanged 1904 model through the present."
+  },
  "phases": [
   {
    "id": "as_built_1887",

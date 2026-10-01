@@ -1,0 +1,478 @@
+{
+  "glb": "/workspace/scratch/2b9723ff55ae/glessner-v4/chicago/4d/assets/gltf/versions/glessner_house/v4/glessner_house__as_built_1887.glb",
+  "sha256": "52f214b2d5dc145077bf79eb3783aa5ec9e608163da0b7038f158cf63da87f14",
+  "blender": "4.5.3 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 48,
+    "seed": 1904,
+    "resolution": [
+      800,
+      640
+    ],
+    "view_transform": "AgX",
+    "look": "AgX - Base Contrast",
+    "exposure_ev": -1.5,
+    "neutral_ground_linear_rgb": [
+      0.18,
+      0.17,
+      0.15
+    ],
+    "sky": "clear",
+    "sun_elevation_deg": 32.0,
+    "sun_azimuth_deg": 45.0,
+    "world_strength": 0.25,
+    "sun_intensity": 0.7,
+    "photographic_sky": null,
+    "overcast_relative_distribution": null,
+    "overcast_zenith_linear_rgb": null
+  },
+  "model": {
+    "bounds_m": {
+      "min": [
+        -0.2981630265712738,
+        -0.133725106716156,
+        -0.02500000037252903
+      ],
+      "max": [
+        49.41305923461914,
+        22.799039840698242,
+        15.044899940490723
+      ]
+    },
+    "mesh_objects": 1,
+    "vertices": 1395639,
+    "polygons": 669811,
+    "materials": [
+      "brick",
+      "brick_buff",
+      "brick_dark_red",
+      "brick_smoky",
+      "copper",
+      "drive",
+      "glass",
+      "glass_dark",
+      "granite",
+      "granite_1",
+      "granite_2",
+      "granite_3",
+      "granite_4",
+      "iron",
+      "lawn",
+      "limestone_trim",
+      "linen_blind",
+      "mortar",
+      "oak",
+      "painted_wood",
+      "roof_plane",
+      "roof_plane_1",
+      "roof_plane_2",
+      "roof_plane_3",
+      "rough_stone_trim",
+      "turf_blade_dark",
+      "turf_blade_light",
+      "turf_blade_middle"
+    ],
+    "imported_shader_parameters": {
+      "brick_smoky": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "mortar": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "painted_wood": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_3": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "glass": {
+        "Transmission Weight": 0.94,
+        "IOR": 1.52,
+        "Roughness": 0.065,
+        "Metallic": 0.0
+      },
+      "limestone_trim": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane_1": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "iron": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.4,
+        "Metallic": 0.7
+      },
+      "roof_plane": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "rough_stone_trim": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_4": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "oak": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane_2": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "glass_dark": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "turf_blade_dark": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "brick_dark_red": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "brick": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "lawn": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane_3": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_1": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "turf_blade_middle": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "brick_buff": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "drive": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "linen_blind": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.98,
+        "Metallic": 0.0
+      },
+      "granite_2": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "copper": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "turf_blade_light": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      }
+    },
+    "images": [
+      {
+        "name": "brick_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "brick_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "brick_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "copper_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "copper_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "copper_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "granite_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "granite_photographic_basecolor",
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "granite_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "gravel_basecolor",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "gravel_normal",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "gravel_roughness",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "limestone_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "limestone_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "limestone_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "oak_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "oak_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "oak_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "painted_wood_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "painted_wood_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "painted_wood_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "terracotta_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "terracotta_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "terracotta_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "turf_normal",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "turf_photographic_basecolor",
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "turf_roughness",
+        "size": [
+          512,
+          512
+        ]
+      }
+    ]
+  },
+  "review_additions": [
+    "Neutral ground plane, z=-0.005 m",
+    "Procedural Nishita sky",
+    "Review camera; no GLB mesh or material edits"
+  ],
+  "renders": [
+    {
+      "name": "prairie-entry-detail",
+      "position": [
+        60,
+        12.5,
+        1.7
+      ],
+      "target": [
+        49.15,
+        12.5,
+        4.5
+      ],
+      "lens": 48,
+      "path": "/workspace/scratch/2b9723ff55ae/glessner-review/refined-03-clear-entry/prairie-entry-detail.png",
+      "seconds": 56.23
+    },
+    {
+      "name": "prairie-entry-oblique",
+      "position": [
+        62.5,
+        18,
+        1.7
+      ],
+      "target": [
+        49.15,
+        12.5,
+        4.15
+      ],
+      "lens": 42,
+      "path": "/workspace/scratch/2b9723ff55ae/glessner-review/refined-03-clear-entry/prairie-entry-oblique.png",
+      "seconds": 56.26
+    }
+  ]
+}
