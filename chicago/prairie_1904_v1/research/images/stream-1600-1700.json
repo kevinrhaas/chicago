@@ -43,7 +43,7 @@
   },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'pullman residence'",
-  "notes": "Glass negative ('286' on negative; holder note 'Prarie Avenue'). Date bracket from Detroit Catalogue J (1901); the Fort Dearborn Massacre monument (erected 1893) is visible at the far right end of 18th Street, so the view is 1893 or later. The best in-period full view of the Pullman house's west (Prairie) and south (18th St) fronts: three-storey ashlar Second Empire block with mansard, iron roof cresting, pedimented dormers, ivy-covered walls, columned entrance porch on Prairie, corner/side porch on 18th, low stone-capped wall with piers along both sidewalks, lamp posts, young elms on parkway, unpaved/macadam roadway with stone crosswalk slabs and a carriage at the 18th St kerb. At the left edge, the neighbouring house to the north (1721 Prairie, Wirt Dexter house, identification by position) shows a broad columned front porch, gabled dormers and tall chimneys — useful for the Dexter house's 1889 Arthur Little front. Leafless trees: autumn/spring.",
+  "notes": "Glass negative ('286' on negative; holder note 'Prarie Avenue'). Date bracket from Detroit Catalogue J (1901); the Fort Dearborn Massacre monument (erected 1893) is visible at the far right end of 18th Street, so the view is 1893 or later. The best in-period full view of the Pullman house's west (Prairie) and south (18th St) fronts: three-storey ashlar Second Empire block with mansard, iron roof cresting, pedimented dormers, ivy-covered walls, columned entrance porch on Prairie, corner/side porch on 18th, low stone-capped wall with piers along both sidewalks, lamp posts, young elms on parkway, unpaved/macadam roadway with stone crosswalk slabs and a carriage at the 18th St kerb. At the left edge is the 1721 (Wirt Dexter) property, identified by position: a set-back two-storey gabled house with tall chimneys and a columned porch (apparently part of the original 1863 frame house) and, further left, a taller three-storey flat-roofed masonry block with a parapet (probably Arthur Little's 1889 front addition, cf. the Inland Architect 1891 plate). Useful for the relative setbacks of 1721 and 1729. Leafless trees: autumn/spring.",
   "measurements": []
  },
  {
@@ -184,7 +184,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Dexter'",
-  "notes": "Winter view by George Glessner (the Glessners' son, an amateur photographer) of the 1863 frame Dexter house BEFORE Arthur Little's 1889 brick front addition: two-storey clapboard house with central front gable (round attic window), shuttered windows, bracketed eaves, a square cupola/belvedere and several tall chimneys, ground-floor bays, a low stone wall along the sidewalk with gate piers, a gas street lamp in the foreground; the neighbouring house at right (south, toward Pullman) shows brick bays. Because the 1889 addition was built nearly to the lot line, the 1904 frontage looked very different; this documents the original block that stood behind the addition until a later owner demolished it.",
+  "notes": "Winter view by George Glessner (the Glessners' son, an amateur photographer) of the 1863 frame Dexter house BEFORE Arthur Little's 1889 brick front addition: two-storey clapboard house with central front gable (round attic window), shuttered windows, bracketed eaves, a square cupola/belvedere and several tall chimneys, ground-floor bays, a low stone wall along the sidewalk with gate piers, a gas street lamp in the foreground; the neighbouring house at right (south, toward Pullman) shows masonry bays. Because the 1889 addition was built nearly to the lot line, the 1904 frontage looked very different; this documents the original block that stood behind the addition until a later owner demolished it.",
   "measurements": []
  },
  {
@@ -1208,8 +1208,14 @@
   },
   "verified": "viewed",
   "found_via": "archive.org full-text search inside 'Pullman' (list of illustrations: 'Massacre tree and Pullman house, 184')",
-  "notes": "Halftone of the dead cottonwood with the south (18th Street) wall of the Pullman house behind: ashlar brownstone three storeys over a raised basement, round-arched and segment-arched windows with moulded surrounds, string courses, a deep modillioned cornice, slate mansard with arched dormers and a continuous iron roof cresting with finials, a lower wing at right (east); low stone-capped wall along the sidewalk; unpaved verge. Pre-May 1894 (tree felled) and probably before or just after the 1892 Beman addition. Good detail of the cresting and dormer pattern on the 18th Street side.",
-  "measurements": []
+  "notes": "Halftone of the dead cottonwood with the south (18th Street) wall of the Pullman house behind: ashlar brownstone three storeys over a raised basement, round-arched and segment-arched windows with moulded surrounds, string courses, a deep modillioned cornice, slate mansard with arched dormers and a continuous iron roof cresting with finials, a lower wing at right (east); low stone-capped wall along the sidewalk; unpaved verge. Pre-May 1894 (tree felled) and probably before or just after the 1892 Beman addition. Good detail of the cresting and dormer pattern on the 18th Street side. Kirkland's Appendix K (pp. 207–212) places the 1893 bronze group 'at the eastern extremity of Eighteenth Street and the northern of Calumet Avenue', 'just one hundred and twenty feet east of the Massacre tree', with only the Illinois Central right of way between it and the lake — a usable control for siting the tree, the monument and the Pullman frontage on 18th Street. (The book also has a second illustration 'Massacre tree; 18th St.' at p. 113, not separately recorded.)",
+  "measurements": [
+   {
+    "what": "monument position relative to the massacre tree",
+    "value": "120 ft east of the tree; at the east end of 18th St / north end of Calumet Ave",
+    "locator": "Kirkland 1893, Appendix K, p. 212"
+   }
+  ]
  },
  {
   "id": "a16-andreas-1884-chicagos-historic-tree",

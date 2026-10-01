@@ -59,11 +59,15 @@ def merge(lib):
             if not rid or not re.fullmatch(r'[a-z0-9][a-z0-9-]{2,100}', rid): errors.append(f'{where}: bad id'); continue
             if not r.get('title'): errors.append(f'{where}: no title')
             if not (r.get('catalog_url') or r.get('image_url') or r.get('local')): errors.append(f'{where}: no catalog_url, image_url or local file — where does it live?')
-            key = (r.get('catalog_url') or '').rstrip('/') + '|' + (r.get('image_url') or '')
-            if rid in seen: continue
-            if key != '|' and key in keys:
-                # The same item found by two streams: keep the first, add the second's buildings.
-                first = keys[key]
+            # Two streams finding the SAME item: same catalogue page, same image, same local copy and
+            # same kind. A stream never collapses its own records — several plates, crops or pages
+            # of one catalogue record are separate items, and the stream that made them knows.
+            kind0 = (r.get('kind') or '').strip().lower()
+            key = '|'.join([(r.get('catalog_url') or '').rstrip('/'), r.get('image_url') or '',
+                            str((r.get('local') or {}).get('display') or ''), kind0])
+            if rid in seen: errors.append(f'{where}: duplicate id'); continue
+            first = keys.get(key)
+            if first is not None and first['stream'] != f.stem.replace('stream-', '') and key.strip('|' + kind0):
                 first['building_ids'] = sorted(set(first['building_ids']) | set(r.get('building_ids') or []))
                 first.setdefault('also_found_by', []).append(f.stem.replace('stream-', ''))
                 continue
@@ -82,7 +86,7 @@ def merge(lib):
                     if local.get(k) and not (P / local[k]).is_file(): errors.append(f'{where}: missing local {k} {local[k]}')
             rec = dict(r, kind=kind, rights=rights, building_ids=b, stream=f.stem.replace('stream-', ''),
                        period=period_of(r), streetscape=bool(r.get('streetscape')) or not b, local=local)
-            keys[key] = rec
+            keys.setdefault(key, rec)
             out.append(rec)
     return out, errors, [f.name for f in streams]
 

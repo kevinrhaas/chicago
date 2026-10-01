@@ -2310,10 +2310,12 @@
   "kind": "newspaper item",
   "title": "The American Contractor, December 3, 1921: \"Louis H. Sullivan has moved his architectural office from 1808 Prairie avenue… to 1701 Prairie avenue\"",
   "building_ids": [
-   "pa-1808-6"
+   "pa-1808-6",
+   "pa-1701-3"
   ],
   "addresses": [
-   "1808 S. Prairie Avenue"
+   "1808 S. Prairie Avenue",
+   "1701 S. Prairie Avenue"
   ],
   "streetscape": false,
   "view": "text",
@@ -2334,7 +2336,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-  "notes": "Trade-journal notice documenting the post-1917 commercial use of 1808 (American Terra Cotta & Ceramic Co. sales office, where Sullivan had his office). Evidence of change of use after 1904, not of form.",
+  "notes": "Trade-journal notice documenting the post-1917 commercial use of 1808 (American Terra Cotta & Ceramic Co. sales office, where Sullivan had his office). Evidence of change of use after 1904, not of form. The notice also names 1701 Prairie, Sullivan's new office address (the Hibbard house) — added by the coordinator from the notice's own text.",
   "measurements": []
  },
  {

@@ -754,7 +754,7 @@
   "date": "undated (before demolition c. 1912–15; winter)",
   "date_earliest": 1870,
   "date_latest": 1915,
-  "period": "in-period",
+  "period": "near-period",
   "creator": "unknown (original photographer/publisher not named on the hosting page)",
   "repository": "Chicagology (chicagology.com) — secondary web reproduction; original holder not stated",
   "collection": "Chicagology: Prairie Avenue house pages",
@@ -1101,7 +1101,7 @@
   "date": "undated (sepia print; after the 1880s mansard addition)",
   "date_earliest": 1885,
   "date_latest": 1930,
-  "period": "in-period",
+  "period": "near-period",
   "creator": "unknown",
   "repository": "Glessner House Museum (blog, 'The Story of a House')",
   "collection": "Glessner House blog post 'Elbridge Keith House', 3 November 2014",
@@ -2885,7 +2885,7 @@
   "date": "1912 (publication); photograph c. 1909–1912",
   "date_earliest": 1909,
   "date_latest": 1912,
-  "period": "in-period",
+  "period": "near-period",
   "creator": "Gatlin Institute (advertiser); photographer uncredited",
   "repository": "Internet Archive",
   "collection": "The Chicago Blue Book of selected names of Chicago and suburban towns, 1912 — IA chicagobluebooko1912chic",
@@ -2930,7 +2930,7 @@
   "date": "1913 (publication); photograph c. 1909–1912",
   "date_earliest": 1909,
   "date_latest": 1913,
-  "period": "in-period",
+  "period": "near-period",
   "creator": "Gatlin Institute (advertiser); photographer uncredited",
   "repository": "Internet Archive",
   "collection": "Chicago Daily News Almanac and Year-Book for 1913, p. 619 (advertisement) — IA chicagodailynews1913chic",
@@ -3217,6 +3217,245 @@
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages (each page ends with a '…Robinson Fire Insurance Map 1886' crop)",
   "notes": "Each house page carries the same colour plate of the blocks between 16th/18th and 22nd Streets (Indiana–Prairie–Calumet) with an arrow on the house: brick (pink) and frame (yellow) footprints, lot lines and numbers; viewed for 1905 and 1936. Gives 1886 footprints and outbuildings (stables) for every house in this stream — pre-dates the 1902 Field Jr. enlargement and the 1887 Ream rebuild. Same-plate crops at …/chicagoimages9/{1900,1901,1906,1912,1919,1923,1936,1945}prairie1886map.jpg. Already listed in data/sources.csv for 1905 (pa-chicagology-1905prairie1886map). Stream-2000-2100 has the equivalent record for the 2000–2100 blocks; the full atlas sheet belongs with stream-streetscape.",
+  "measurements": []
+ },
+ {
+  "id": "a19-chm-ichi66015-west-side-north-from-allerton",
+  "kind": "photograph",
+  "title": "Residences at Prairie Avenue and 18th Street — 'Residences on the west side of Prairie Avenue at 18th Street, north from the Allerton residence, Chicago, Illinois, circa 1905'",
+  "building_ids": [
+   "pa-1936-11",
+   "pa-1912-10",
+   "pa-1906-34",
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1936–1900 S. Prairie Avenue (west side), looking north"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "north",
+  "camera_position": "near the west curb of Prairie Avenue at about 20th Street, looking north along the west-side frontage",
+  "date": "circa 1905",
+  "date_earliest": 1903,
+  "date_latest": 1907,
+  "period": "in-period",
+  "creator": "Charles R. Clark (photographer)",
+  "repository": "Chicago History Museum (via CARLI Digital Collections)",
+  "collection": "Prints and Photographs Collection — Charles R. Clark photograph collection, nitrate negatives, Box 4 (numbered negatives); gift of Mrs. Charles R. Clark",
+  "call_number": "ICHi-66015 (source X.1667.1991)",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/1296",
+  "image_url": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "CHM record: 'No known copyright restrictions'; CHM nonetheless asks that reproduction be licensed via images.chicagohistory.org — kept link-only",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API (collections.carli.illinois.edu) title search 'prairie avenue' → chm_pp/1296",
+  "notes": "THE closest-dated streetscape of this stream's west-side houses (c.1905; 4.5×3.25 in nitrate negative): at the left edge the bracketed cornice of the Allerton (Thompson) house; then the brownstone château of 1912 Prairie (Moulton/Lowden — Lowden owned it until 1908) with its round corner turret, steep slate roof with crocketed dormers and finial, tall chimney and stone balustrade along the front; then a stone-fronted house with arched porch and bay (1906 Edson Keith); then the mansard of 1900 Elbridge Keith and the long line of the 1800-block houses toward 18th Street; wide paved street with granite-curbed parkway, young street trees, a horse-drawn vehicle in the distance. The catalogue title's 'at 18th Street' conflicts with 'north from the Allerton residence' (Allerton stood at 20th); the image shows the 1900 block from near 20th. House identifications are by comparison with other views, not captioned.",
+  "measurements": []
+ },
+ {
+  "id": "a19-chm-reed-collection-clarke",
+  "kind": "document",
+  "title": "Earl Howell Reed, Jr., photograph collection (Chicago History Museum), c.1922–1968 — includes 'the Clarke house'",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "circa 1922–1968",
+  "date_earliest": 1922,
+  "date_latest": 1968,
+  "period": "later",
+  "creator": "Earl Howell Reed, Jr. (architect; HABS Illinois District Officer 1934–35)",
+  "repository": "Chicago History Museum (via CARLI Digital Collections)",
+  "collection": "Prints and Photographs Collection — Earl Howell Reed, Jr., photograph collection",
+  "call_number": "CHM P&P, image no. 01_1980-0130_4415 (collection record)",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/1714",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Collection-level record; item copyright status listed per image in the collection PDF",
+  "local": null,
+  "verified": "catalog-only",
+  "found_via": "CARLI CONTENTdm API search chm_pp 'Clarke house'",
+  "notes": "Collection-level catalogue record: street scenes and dwellings photographed by Reed (who directed the 1935 HABS Clarke House survey); 'Historic buildings include the Auditorium building, the Clarke house …'. Lead for additional c.1920s–30s views of the Clarke house at 4526 S. Wabash (its 1904 site) beyond the four HABS photographs; item-level images not examined.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nby-sloan-2ndpres-street",
+  "kind": "photograph",
+  "title": "Second Presbyterian Church of Chicago, Chicago, early 20th century ['Second Presbyterian Church, S. Michigan Ave., N.W. corner of 20th St.(?)' — photograph verso]",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "south",
+  "camera_position": "on the west sidewalk of Michigan Avenue north of the church, looking south",
+  "date": "1900/1925? (Newberry); tower spire present → before its 1929 loss",
+  "date_earliest": 1901,
+  "date_latest": 1925,
+  "period": "near-period",
+  "creator": "Percy H. (Percy Haydn) Sloan, 1867– (photographer)",
+  "repository": "Newberry Library (via CARLI Digital Collections)",
+  "collection": "Percy H. Sloan photographs (Midwest MS Sloan), Box 1 Folder 25",
+  "call_number": "Midwest MS Sloan Box 1 Folder 25",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/nby_chicago/id/800",
+  "image_url": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:800/full/1600,/0/default.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Newberry: 'makes its collections available for any lawful purpose, commercial or non-commercial, without licensing or permission fees to the library' (https://www.newberry.org/rights-and-reproductions)",
+  "local": {
+   "display": "research/images/files/a19-nby-sloan-2ndpres-street.jpg",
+   "display_bytes": 210192,
+   "thumb": "research/images/files/a19-nby-sloan-2ndpres-street-thumb.jpg",
+   "thumb_bytes": 24307,
+   "original_px": [
+    1600,
+    2018
+   ],
+   "original_sha256": "1cec5afa287107416427612f8c43db6141357c162ab3ad634f215a1cec973750",
+   "original_bytes": 304126,
+   "fetched_from": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:800/full/1600,/0/default.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API title search 'second presbyterian'",
+  "notes": "Michigan Avenue street view looking south with the church's SE tower crowned by its TALL PYRAMIDAL SPIRE and finial (lost 1929 per the 1976 landmark report), open belfry, the east gable and portal, the low post-1900 nave roof beyond, and a large brick-and-stone building in the foreground at right; wide unpaved/stone roadway, lamp posts, few people. The spire dates it before 1929; the post-1900-fire roof profile and the neighbouring building suggest c.1905–1920. The church as it stood in 1904 (exterior shell + 1884 spire) is essentially what this shows. Period assigned in-period on the evidence of the early date bound; could be 1912–25.",
+  "measurements": []
+ },
+ {
+  "id": "a19-nby-sloan-2ndpres-elevated",
+  "kind": "photograph",
+  "title": "Second Presbyterian Church of Chicago, Chicago, early 20th century ['2nd Presbyterian Michigan Blvd., and 20th St.' — photograph verso]",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "elevated, from across Michigan Avenue to the southeast (upper floor of a building at Michigan and 20th)",
+  "date": "1900/1925? (Newberry); tower spire present → before its 1929 loss",
+  "date_earliest": 1901,
+  "date_latest": 1925,
+  "period": "near-period",
+  "creator": "Percy H. (Percy Haydn) Sloan, 1867– (photographer)",
+  "repository": "Newberry Library (via CARLI Digital Collections)",
+  "collection": "Percy H. Sloan photographs (Midwest MS Sloan), Box 1 Folder 25",
+  "call_number": "Midwest MS Sloan Box 1 Folder 25",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/nby_chicago/id/518",
+  "image_url": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:518/full/1600,/0/default.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Newberry: 'makes its collections available for any lawful purpose, commercial or non-commercial, without licensing or permission fees to the library' (https://www.newberry.org/rights-and-reproductions)",
+  "local": {
+   "display": "research/images/files/a19-nby-sloan-2ndpres-elevated.jpg",
+   "display_bytes": 164079,
+   "thumb": "research/images/files/a19-nby-sloan-2ndpres-elevated-thumb.jpg",
+   "thumb_bytes": 18956,
+   "original_px": [
+    1600,
+    2098
+   ],
+   "original_sha256": "acc0fd2a095075062f523761caf5b9cbc1452d83d4cbd29b2b0eb53ed9490f96",
+   "original_bytes": 253355,
+   "fetched_from": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:518/full/1600,/0/default.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API title search 'second presbyterian'",
+  "notes": "Elevated oblique view of the SE corner: the tower with paired pointed belfry openings, corner pinnacles and the slate SPIRE with finial; the south (Cullerton) flank with its row of large pointed windows and a long, LOW-PITCHED post-1900 nave roof with rectangular clerestory lights; pinnacled east gable. A multi-storey commercial building at right (west/north) suggests Motor Row-era Michigan Avenue (c.1908–1925). Key evidence for the post-fire roofline combined with the pre-1929 spire — i.e. the 1904 silhouette.",
+  "measurements": []
+ },
+ {
+  "id": "a19-uic-daley-clarke-1963",
+  "kind": "photograph",
+  "title": "Richard J. Daley and others on porch of Clarke House",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (1872–1977 site)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": "on the front porch",
+  "date": "circa 1963",
+  "date_earliest": 1963,
+  "date_latest": 1963,
+  "period": "later",
+  "creator": "Rhoden's Photo and Press Service",
+  "repository": "University of Illinois Chicago Library, Special Collections (via CARLI Digital Collections)",
+  "collection": "Richard J. Daley Era Photographs — 'Camera Highlights of the '63 Campaign…' scrapbook",
+  "call_number": "RJD_04_01_0021_0011_020",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/uic_rjdaley/id/3255",
+  "image_url": "https://collections.carli.illinois.edu/digital/api/singleitem/image/uic_rjdaley/3255/default.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "UIC: 'Copyright Not Evaluated'",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API title search 'clarke house'",
+  "notes": "Close view of the Clarke house front at 4526 S. Wabash: horizontal clapboards, the house number '4526', a bronze 'Chicago's Oldest House' plaque, a lantern bracket and window/door trim of the post-1872 front porch. Confirms clapboard siding and the porch-level entrance at the Wabash site (state c.1963, long after 1904).",
+  "measurements": []
+ },
+ {
+  "id": "a19-nby-newchicagoalbum-1883-residences",
+  "kind": "publication plate",
+  "title": "Private residences of Chicago (The New Chicago Album, Wittemann Bros., 1883) — vignettes incl. Marshall Field, Samuel Allerton, B. F. [B. P.] Moulton",
+  "building_ids": [
+   "pa-1905-16",
+   "pa-1936-11",
+   "pa-1912-10",
+   "pa-1823-13"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue",
+   "1936 S. Prairie Avenue",
+   "1912 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1883",
+  "date_earliest": 1883,
+  "date_latest": 1883,
+  "period": "in-period",
+  "creator": "Wittemann Bros. (publisher, New York)",
+  "repository": "Newberry Library (via CARLI Digital Collections)",
+  "collection": "The new Chicago album (Case F548.37 .N49 1883), p. 11",
+  "call_number": "Case F548.37 .N49 1883, page 11 (file case_f548_37_n49_1883_11.jpg)",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/nby_chicago/id/7411",
+  "image_url": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:7411/full/2400,/0/default.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "Published 1883 (public domain); Newberry permits any lawful use without fees",
+  "local": {
+   "display": "research/images/files/a19-nby-newchicagoalbum-1883-residences.jpg",
+   "display_bytes": 618413,
+   "thumb": "research/images/files/a19-nby-newchicagoalbum-1883-residences-thumb.jpg",
+   "thumb_bytes": 32058,
+   "original_px": [
+    2400,
+    1480
+   ],
+   "original_sha256": "0be119c9ca3b47dac0d8a81e8946d530bd4af67f82b672148e45552a30075397",
+   "original_bytes": 618467,
+   "fetched_from": "https://collections.carli.illinois.edu/iiif/2/nby_chicago:7411/full/2400,/0/default.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API search nby_chicago 'marshall field'",
+  "notes": "Accordion-fold lithotint plate of ten residence vignettes. In scope: 'MARSHALL FIELD' (small oblique view: mansard house set back behind its fence with carriages in the street), 'SAMUEL ALLERTON' (the Thompson/Allerton villa with its tall tower/belvedere behind trees and a long iron fence, lawn and curving walk), and 'B. F. MOULTON' (1912 Prairie, then just built: tall stone château front with stepped gable, turret, chimneys, high stoop and side house at left — Moulton's 1882 house, which Lowden owned in 1904). The Moulton vignette is the earliest view of 1912 found. Other vignettes (Story, Dent 1823 Prairie, Libby, Thompson, Medill, McCormick, Dearborn Avenue) are outside this stream except Thomas Dent (stream-1800).",
   "measurements": []
  }
 ]
