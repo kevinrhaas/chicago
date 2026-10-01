@@ -171,7 +171,14 @@
     "fronts": "washington",
     "sequence": 5,
     "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn boards under a new roof — a rough plank dwelling or shanty, new-built (rule F-L: a labourer's by its type)"
+    }
   }
 }

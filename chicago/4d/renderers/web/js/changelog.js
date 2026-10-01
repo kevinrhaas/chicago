@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+    items: [
+      'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
+      'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
+      'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
+      'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
+      'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
+    ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',

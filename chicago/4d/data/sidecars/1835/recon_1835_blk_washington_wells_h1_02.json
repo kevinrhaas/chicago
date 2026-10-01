@@ -176,7 +176,14 @@
     "fronts": "washington",
     "sequence": 2,
     "finish_key": "ochre",
-    "roof_condition": "patched",
-    "age_state": "established"
+    "roof_condition": "fresh",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a larger one-and-a-half-story house, a year old (rule F-M: a merchant's or professional man's by its type)"
+    }
   }
 }

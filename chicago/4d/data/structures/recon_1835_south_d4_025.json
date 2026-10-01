@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "red",
+          "value": "unpainted",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -151,9 +151,16 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 25,
-    "finish_key": "red_oxide",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a two-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
   "review_required": false

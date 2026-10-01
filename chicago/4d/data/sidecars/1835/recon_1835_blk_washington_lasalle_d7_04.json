@@ -176,7 +176,14 @@
     "fronts": "washington",
     "sequence": 4,
     "finish_key": "whitewash",
-    "roof_condition": "fresh",
-    "age_state": "new"
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a weathered roof — a small two-story frame house, a year old (rule F-T: a tradesman's by its type)"
+    }
   }
 }

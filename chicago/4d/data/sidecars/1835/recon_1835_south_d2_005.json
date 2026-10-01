@@ -166,8 +166,15 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 5,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
+    }
   }
 }

@@ -100,6 +100,7 @@ from boarding_house_beds import (  # noqa: E402
 # form value that depends on where a building's neighbours stand — and the recipe is
 # the only thing that knows the parcel whole. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -699,7 +700,8 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
     held = width_ft != recipe_width_ft
     width, depth = round(width_ft * .3048, 3), round(depth_ft * .3048, 3)
     local_e, local_n = footprint_origin(center_e, center_n, width, depth, bearing)
-    finish_key, paint = finish_for(seq)
+    fabric = fabric_rule_1835.deal(sid, family, archetype_for(family))
+    finish_key, paint = fabric["finish_key"], fabric["paint"]
     function = FUNCTIONS[family]
     label = LABELS[family]
     where = CLUSTER_PLACE.get(row["cluster"], "the West Division approaches")
@@ -721,8 +723,8 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
         "status": "inferred_anonymous", "family": family, "district": "west",
         "inventory_class": row["inventory_class"], "programme_phase": PROGRAMME_PHASE,
         "source_id": SOURCE_ID, "sequence": seq, "finish_key": finish_key,
-        "roof_condition": ("weathered", "fresh", "patched", "darkened")[seq % 4],
-        "age_state": ("recent", "new", "older_frontier", "established")[seq % 4],
+        "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+        "fabric_basis": fabric["fabric_basis"],
     }
     if family == "H2":
         reconstruction["capacity"] = size_from_beds(sid, width)[0]
