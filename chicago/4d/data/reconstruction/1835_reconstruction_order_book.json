@@ -1445,8 +1445,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 493,
-    "roofs_to_build": 189,
+    "roofs_standing": 497,
+    "roofs_to_build": 185,
     "persons_standing": 2381,
     "persons_still_owed": 290,
     "persons_when_the_book_is_filled": 2671,
@@ -1468,9 +1468,9 @@
     "still_owed": 1229,
     "roofs_adopted": 212,
     "slots_requested": 37,
-    "roofs_standing": 493,
-    "roofs_standing_unseated": 281,
-    "share_of_standing_roofs_seated": 0.43,
+    "roofs_standing": 497,
+    "roofs_standing_unseated": 285,
+    "share_of_standing_roofs_seated": 0.4266,
     "passes": [
       {
         "key": "platted",
@@ -5080,11 +5080,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 493,
+        "standing_records": 497,
         "standing_with_an_occupant": 151,
-        "standing_without_an_occupant": 342,
-        "to_build_total": 189,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 342 of the 493 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 346,
+        "to_build_total": 185,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 346 of the 497 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5327,15 +5327,15 @@
             "division": "west"
           },
           "target": 75,
-          "standing": 51,
-          "to_build": 24,
+          "standing": 54,
+          "to_build": 21,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1783",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 24 of them to build"
+          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 21 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/north",
@@ -5572,15 +5572,15 @@
             "division": "west"
           },
           "target": 8,
-          "standing": 5,
-          "to_build": 3,
+          "standing": 6,
+          "to_build": 2,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1766",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 8; the 668-roof programme leaves 3 of them to build"
+          "basis": "the inventory's district/group matrix sets 8; the 668-roof programme leaves 2 of them to build"
         },
         {
           "key": "structures/workshops/north",
@@ -5619,9 +5619,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 141,
-        "roofs_gated_on_coverage": 47,
-        "statement": "141 of the 189 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 47 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 145,
+        "roofs_gated_on_coverage": 39,
+        "statement": "145 of the 185 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 39 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5630,7 +5630,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5642,7 +5642,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5654,19 +5654,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
-          "filled": 0
-        },
-        {
-          "key": "ground/blk_west_lake_des_plaines",
-          "axes": {
-            "division": "west"
-          },
-          "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5678,31 +5666,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
-          "filled": 0
-        },
-        {
-          "key": "ground/blk_west_lake_canal",
-          "axes": {
-            "division": "west"
-          },
-          "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
-          "filled": 0
-        },
-        {
-          "key": "ground/blk_west_randolph_des_plaines",
-          "axes": {
-            "division": "west"
-          },
-          "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5714,7 +5678,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5726,7 +5690,7 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
           "owning_tickets": [
             "T-1414"
           ],
@@ -5943,7 +5907,7 @@
           "axes": {
             "division": "west"
           },
-          "roofs_gated": 36,
+          "roofs_gated": 28,
           "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
           "owning_tickets": [
             "T-1414"
@@ -6037,7 +6001,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "342 of 493 standing records carry no occupants block."
+      "measured_now": "346 of 497 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

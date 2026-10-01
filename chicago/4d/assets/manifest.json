@@ -2773,6 +2773,42 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_h2_07"
     },
+    "recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 30544,
+      "inputs_sha256": "734b85586d3e8e13b24040172b1bacfb52eb8ecea42b2fee20d1c3fb1e464960",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02"
+    },
+    "recon_1835_blk_west_randolph_des_plaines_d5_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32724,
+      "inputs_sha256": "e09712e29304b8bd4e62bbcfcb7d45d97aeab495693783aefb590684831b8e08",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04"
+    },
+    "recon_1835_blk_west_randolph_des_plaines_d6_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32420,
+      "inputs_sha256": "5ad87095dea42eb452720b3e0941ad348f681a9d20984d4131908e634cccd143",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03"
+    },
+    "recon_1835_blk_west_randolph_des_plaines_w2_01__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 119516,
+      "inputs_sha256": "4c13ba55129fcd88c7346383c9dcc70a4dea3c5ae250c9fed6329de89520c361",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01"
+    },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

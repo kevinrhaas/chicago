@@ -14137,7 +14137,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 473 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 477 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14173,7 +14173,11 @@ that each state a roof type and thirteen more the exposure reaches. T-1757's sec
 the Cass cell makes **473**, and it is the first addition to this entry that is not four of
 the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
 Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
-north of the river, taking the same exposure across more of it. No record's
+north of the river, taking the same exposure across more of it. T-1783's deal on
+`blk_west_randolph_des_plaines` makes **477**, and they are the first roofs this entry reaches
+on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a
+storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines
+edge where the reviewed West recipe had stood only two roofs. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -17466,3 +17470,49 @@ stock, or evidence locating an operating forks ferry on the scene date.
 **Ticket:** T-1765. See `docs/RESEARCH/bridge_head_timber.md`.
 
 **Recorded:** 2026-09-30 (T-1765).
+
+### L310 — The West Division's outer platted blocks opened at a density read off West lots, and four invented roofs on the Des Plaines edge
+
+**Decision:** `tools/reconcile_665.py` schedules a lot-ruled West Division block at the density
+the reviewed West recipe already stands at on its densest lot-ruled block — **six roofs on the
+ten lots of `blk_west_lake_des_plaines`** — so a ten-lot outer block has a ceiling of six roofs.
+Three outer blocks carry lot lines the sheet prints figures for and so open:
+`blk_west_lake_des_plaines` (at that ceiling already), `blk_west_lake_canal` and
+`blk_west_randolph_des_plaines` (four roofs of room each). The six West cells with no lot
+figures stay gated, waiting on T-1414 for a lot line. On `blk_west_randolph_des_plaines` (plat
+block 47) the schedule's four are built: a two-room cottage on plat lot 7 and a carpenter's or
+joiner's shop at the Randolph corner of the Des Plaines face, a storey-and-a-half cottage on plat
+lot 5 and a deep-plan cottage on plat lot 9 of the Jefferson face. Four lots are left open and
+the Washington end of the outer face is prairie.
+
+**Why:** T-1455 withheld the whole West grid because the only density the schedule had was the
+Original Town's party-line figure, measured on other frontage. That reason is kept — nothing
+here sizes a West block by it. What was missing was a figure of the West's own, and one has
+stood on the grid since T-1444 instantiated the reviewed recipe. The densest block is taken,
+not the mean: a lower figure would call the reviewed parcel over-dense on the block it is
+measured on, and a higher one is a density nobody reviewed on this ground. Only the recipe's
+own placements count, so the ceiling cannot climb on roofs this schedule deals.
+
+**What is invented:** all of the four roofs — their presence, families, lots, set-outs (4.5 to
+7.0 m) and lateral offsets — and the ceiling itself, which is one reviewed parcel's density
+carried to two neighbouring blocks. The lot lines and the block number are the sheet's
+(`data/traces/thompson_west_division_lots.json`). No source places any building on block 47 in
+July 1835.
+
+**Consequence:** the town gains its first roofs on the West Division's outer platted ground
+beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its
+target. `blk_west_lake_canal`'s four (a cottage, a shanty, a warehouse and a boarding house) are
+scheduled and not built: its warehouse is T-1773's, in flight on the same block, and where a
+boarding house may stand is T-1777's question.
+
+**How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
+blocks, or a period view west along Randolph; either replaces the ceiling and these placements
+outright. A named discovery substitutes for a compatible anonymous roof and never increases the
+total.
+
+**Covers:** `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`,
+`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`
+
+**Ticket:** T-1783.
+
+**Recorded:** 2026-10-01 (T-1783).

@@ -3511,6 +3511,103 @@
         }
       ],
       "arrangement_note": "EIGHT ROOFS ON TWELVE LOTS ACROSS THE ADDITION'S TWO BUILT BLOCKS, AND FOUR ON THIS ONE. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 16 of the 20 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces -- Indiana Street on the north and Illinois Street on the south -- are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL, BUT THEY ARE NOT THE SAME TWO. A woodshed stands off the alley behind the Indiana Street cottage -- the last A4 the block's plan holds -- and a stable off the alley behind the Illinois Street one, the first of its two A1. The privies are gone: the plan held exactly two and the first deal spent both, so this deal takes what is left rather than adding a third. The stable stands on the shallower-set cottage's lot on purpose, where the rear of the lot is deepest; the plan's remaining stable, its two barns and its smokehouse stay unbuilt, because a stable AND a barn AND a smokehouse behind a two-room cottage is a claim about how these households lived that nothing supports.\n\nTHE RUSH-PINE FRINGE IS SETTLED IN THE SAME BREATH, AND IT IS SETTLED BY SAYING SO. T-1754 asked for the scattered better houses on that fringe; the 665-roof programme's district deal apportions it NONE. blk_indiana_north_rush, blk_illinois_north_wolcott and blk_illinois_north_rush are each lotted at twelve lots and each read `roofs: 0`, `families: {}`, `standing_roofs: 0`, and every cell east of Rush Street and north of Indiana Street is `unsubdivided` with no lots at all. The north district's whole remaining allocation -- 47 roofs -- is on this block and the wolcott block. So there is nothing scheduled to build on the fringe, `the open ground left honestly open` is what the schedule already says, and the settlement is a statement rather than a parcel. `docs/RESEARCH/1835_north_division_extent_and_infill.md` carries it in prose, where the next reader of that memo will meet it.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces, the alley line, the street hierarchy and the ground reading are all committed and none of them moves here; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+    },
+    {
+      "block_id": "blk_west_randolph_des_plaines",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_randolph_des_plaines",
+      "claimed": "2026-10-01",
+      "bounded_by": {
+        "north": "randolph",
+        "south": "washington",
+        "west": "des_plaines",
+        "east": "jefferson"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 2,
+        "free_lots": 8,
+        "headroom": 4,
+        "dealt_roofs": 4,
+        "dealt_principal": 4,
+        "dealt_ancillary": 0,
+        "principal": 4,
+        "ancillary": 0
+      },
+      "families": {
+        "D4": 1,
+        "D5": 1,
+        "D6": 1,
+        "W2": 1
+      },
+      "frontage": {
+        "face": "north",
+        "fronts": "randolph",
+        "setback_m": 3.0,
+        "lots": [
+          0
+        ],
+        "why": "T-0024 sends a workshop to its block's better face, and this block's better face is Randolph Street, the ordinary road west out of the town, while every West Division lot fronts the north-south street on the outer side of its column. So the carpenter's or joiner's shop does not stand on a lot frame at all: it stands in a one-lot frontage run on the Randolph face of plat lot 2, against the Des Plaines corner, 3.0 m back from the street line, where a wagon bringing timber or a customer coming out along Randolph meets it first. The run is one lot long and holds one roof; nothing is built shoulder to shoulder here, and the rest of the face stays as open as the recipe's outer edge requires."
+      },
+      "open_lots": [
+        {
+          "lot": 2,
+          "why": "The Des Plaines column's middle lot (plat lot 6), left open between the standing west_046 shed on plat lot 3 and the two-room cottage dealt to plat lot 7, so neither roof on the outer face has a neighbour along its own frontage. The West recipe's outer edge is 'separated by large gaps', and this is the gap."
+        },
+        {
+          "lot": 4,
+          "why": "The Des Plaines column's southern end lot (plat lot 10), at Washington Street, left open because the outer face of the outermost platted block is where the recipe's w5 edge 'terminates in visibly unbuilt wet prairie rather than filling the legal plat'. The lot line continues through prairie; nothing stands on it."
+        },
+        {
+          "lot": 6,
+          "why": "The Jefferson column's second lot (plat lot 4), left open between the standing west_036 roof at the Randolph corner and the cottage dealt to plat lot 5, for the same alternating vacancy every West outer cluster carries: one principal roof every one to three lots, with open ground between."
+        },
+        {
+          "lot": 8,
+          "why": "The Jefferson column's fourth lot (plat lot 8), left open between the two cottages this parcel deals to that face, so the face reads roof, open, roof, open, roof from Randolph to Washington and never as a continuous row. Which free lot takes the gap is an invention; that there is one is the recipe's own zone-C density."
+        }
+      ],
+      "slots": [
+        {
+          "family": "W2",
+          "inventory_class": "principal_functional",
+          "stands_on": "frontage",
+          "fronts": "randolph",
+          "anchor": {
+            "corner": "west",
+            "clear_m": 1.5
+          }
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "des_plaines",
+          "setback_m": 7.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D6",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "jefferson",
+          "setback_m": 5.5,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 9,
+          "stands_on": "street",
+          "fronts": "jefferson",
+          "setback_m": 6.5,
+          "lateral_m": -2.0
+        }
+      ],
+      "frontage_argued_on": "west_division_thompson_1830",
+      "arrangement_note": "THE FIRST PARCEL ON THE WEST DIVISION'S OUTER PLATTED BLOCKS, AND THE DENSITY IT IS DEALT AT IS READ OFF WEST LOTS (T-1783). Until this deal the West grid was withheld from the schedule whole (T-1455), because the only density the schedule had was the Original Town's party-line figure and these are loose outer blocks of 75 3/5 ft lots in two columns on a north-south alley. `tools/reconcile_665.py` now sizes a lot-ruled West block at the density the reviewed West recipe already stands at on its densest lot-ruled block -- six roofs on blk_west_lake_des_plaines's ten lots -- so this ten-lot block has a ceiling of six, two standing (the recipe's west_036 and west_046) and four dealt. The four are what the schedule dealt, in its order: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's or joiner's shop. The carpenter stands in a one-lot frontage run on Randolph Street at the Des Plaines corner, the block's better face and the road toward the town, as every non-dwelling takes its block's better face (T-0024); the two-room cottage two lots south of the standing shed on the same face; and the other two cottages on the Jefferson face at plat lots 5 and 9, so each face alternates roof and open ground and the Washington end of the outer face is left as prairie. The set-outs (4.5 to 7.0 m) and lateral offsets are inventions bounded by the platted block's own lot lines and differ lot to lot so no two read as a surveyed row. Which family stands where, which lots are open, and the setbacks are all reconstructed; the lot lines and the block are the sheet's (plat block 47)."
     }
   ],
   "redealt": {

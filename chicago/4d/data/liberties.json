@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 310,
+  "count": 311,
   "liberties": [
     {
       "id": "L1",
@@ -16139,14 +16139,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 473
+        "count": 477
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 473 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 477 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1783's deal on `blk_west_randolph_des_plaines` makes **477**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -19295,6 +19295,62 @@
         {
           "label": "Recorded",
           "text": "2026-09-30 (T-1765)."
+        }
+      ]
+    },
+    {
+      "id": "L310",
+      "title": "The West Division's outer platted blocks opened at a density read off West lots, and four invented roofs on the Des Plaines edge",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_west_randolph_des_plaines_*",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_west_randolph_des_plaines_*",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`tools/reconcile_665.py` schedules a lot-ruled West Division block at the density the reviewed West recipe already stands at on its densest lot-ruled block — **six roofs on the ten lots of `blk_west_lake_des_plaines`** — so a ten-lot outer block has a ceiling of six roofs. Three outer blocks carry lot lines the sheet prints figures for and so open: `blk_west_lake_des_plaines` (at that ceiling already), `blk_west_lake_canal` and `blk_west_randolph_des_plaines` (four roofs of room each). The six West cells with no lot figures stay gated, waiting on T-1414 for a lot line. On `blk_west_randolph_des_plaines` (plat block 47) the schedule's four are built: a two-room cottage on plat lot 7 and a carpenter's or joiner's shop at the Randolph corner of the Des Plaines face, a storey-and-a-half cottage on plat lot 5 and a deep-plan cottage on plat lot 9 of the Jefferson face. Four lots are left open and the Washington end of the outer face is prairie."
+        },
+        {
+          "label": "Why",
+          "text": "T-1455 withheld the whole West grid because the only density the schedule had was the Original Town's party-line figure, measured on other frontage. That reason is kept — nothing here sizes a West block by it. What was missing was a figure of the West's own, and one has stood on the grid since T-1444 instantiated the reviewed recipe. The densest block is taken, not the mean: a lower figure would call the reviewed parcel over-dense on the block it is measured on, and a higher one is a density nobody reviewed on this ground. Only the recipe's own placements count, so the ceiling cannot climb on roofs this schedule deals."
+        },
+        {
+          "label": "What is invented",
+          "text": "all of the four roofs — their presence, families, lots, set-outs (4.5 to 7.0 m) and lateral offsets — and the ceiling itself, which is one reviewed parcel's density carried to two neighbouring blocks. The lot lines and the block number are the sheet's (`data/traces/thompson_west_division_lots.json`). No source places any building on block 47 in July 1835."
+        },
+        {
+          "label": "Consequence",
+          "text": "the town gains its first roofs on the West Division's outer platted ground beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its target. `blk_west_lake_canal`'s four (a cottage, a shanty, a warehouse and a boarding house) are scheduled and not built: its warehouse is T-1773's, in flight on the same block, and where a boarding house may stand is T-1777's question."
+        },
+        {
+          "label": "How to resolve",
+          "text": "parcel-level tax, deed or assessment evidence for the West Division's outer blocks, or a period view west along Randolph; either replaces the ceiling and these placements outright. A named discovery substitutes for a compatible anonymous roof and never increases the total."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`, `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1783."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01 (T-1783)."
         }
       ]
     },
