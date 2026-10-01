@@ -18293,7 +18293,9 @@ boarding houses — `recon_1835_north_h1_007` and `recon_1835_west_006`, both
 their modelled beds** (T-1807), the count L324 could not give them because `frame_dwelling` drew
 no pipe. **The ratio is L318's, carried unchanged:** one box stove per **three sleepers on an
 ordinary night**, held to 2–6 as at L324. Seven ordinary beds each (T-1370's apportionment of
-their 119 and 123 m² of enclosed floor) give **3** pipes each. Each record carries the beds it
+their 119 and 123 m² of enclosed floor) gave **3** pipes each; once T-1809's second
+`blk_washington_clark` house took its lodgers, `recon_1835_north_h1_007` reads **6** ordinary beds
+and **2** pipes, and `recon_1835_west_006` still 7 and 3. Each record carries the beds it
 read and the arithmetic in `reconstruction.capacity`, and `tools/boarding_house_beds.py`
 (`stovepipes_from_beds`) is the one place the carry lives, so both generators' `--check`
 re-derive the count from the committed lodging model.
