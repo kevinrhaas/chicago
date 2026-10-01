@@ -310,13 +310,23 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # will keep being restated a parcel at a time for as long as the town is built a block
 # at a time.
 #
+# 492 -> 496 and 488 -> 492 on 2026-09-29 (T-1757): the four roofs of the SECOND deal on
+# `blk_indiana_north_cass` — two two-room frame cottages four lots west of the first pair,
+# with a woodshed and the Addition's first stable off the alley behind them. Four new
+# structure assets on the same terms as every entry above: four more meshes the shared
+# generator modules or emit.py would re-stale, the terrain reach still 4 and pier_crib still
+# 2. Nothing about the debt itself moved. The from-numbers were 479 -> 483 when this branch
+# was written; T-1751's thirteen landed on `dev` first, so its 492/488 are the base these
+# four go on top of. SEVENTH move in two days, and the note above already said why: the
+# debt is per-ASSET.
+#
 STATED = {
-    "assets": 492,
+    "assets": 496,
     "restales": {
-        "generators/common/*.py": 492,
+        "generators/common/*.py": 496,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 488,
+        "generators/emit.py": 492,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

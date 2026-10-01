@@ -1021,6 +1021,25 @@ docs/RESEARCH/main_branch_sloughs_1833.md.
 **Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`.
 **Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118). **Struck:** 2026-09-26 (T-1628) — the second `Covers:` token, `terrain.e1834_harbor_cut.swales.lasalle_slough_upper`, is removed because the block it names is deleted, and a token pointing at nothing admits to nothing a visitor reads (`validate.py`: "that epoch's spec makes no graded claim"). The prose above is otherwise verbatim, and the deletion is what the **Resolved:** line below is about — nothing is hidden by the strike.
 **Resolved:** 2026-09-26 (T-1628), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of a course that no longer stands. He flew the reach and compared it with Wright 1834 and Hathaway 1834: *"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper"*. **`lasalle_slough_upper` is deleted and `lasalle_slough_lower` is truncated**, so the 1933 reconstruction no longer carries any terminus at all: the position at `orientation` ceiling that this entry admits to inventing is simply not in the terrain any more, and the invention it was recorded for is withdrawn rather than corrected. What survives is Wright's traced mouth plus 16.35 m of channel inside block 50's lot, which is a different and much smaller liberty, recorded as **L273** in the per-subject register below. Conley/Stelzer is set aside rather than refuted — the reading is kept in `docs/RESEARCH/main_branch_sloughs_1833.md` § 6 with the date it was set aside and why — and T-0795's finding that the NA/HUP sheet draws no inland course here, which this entry already carried, is now what the terrain says as well as what the note says.
+### L15 — Terrain: the west-prairie swales are invented alignments
+**Decision:** two shallow swales (0.75 and 0.6 ft deep) cross the West Division wet prairie,
+tagged `conjectural` and rendered dithered-translucent in the confidence view.
+**Why:** dossier zone 18 says the West Division carried "1–2 ft slough swales", so that swales
+existed is inferred from a source. **Where they ran is attested nowhere**, and these two
+alignments were drawn to make the wet prairie read as wet prairie rather than as a lawn. They
+are the only piece of terrain geometry in this parcel invented outright.
+**How to resolve:** the 1821 GLO township plat land-cover, or the ISGS "Illinois Landcover in
+the Early 1800s" digitisation, both named in the dossier and neither reached.
+**Recorded:** 2026-08-10. **Resolved:** 2026-09-29 (T-1460), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of two alignments that no longer stand. He was asked which was the fixed thing, the invented line or the eight reviewed roofs standing in one of the corridors, and he ruled: *retire both to record_only — zone 18's swales stay in the dossier and come out of the field. Nothing invented is left in the ground layer, and the eight roofs do not move.* The alignments carried `confidence: reconstructed` and `sources: []`, and T-0795 had walked the whole Wright 1834 NA/HUP sheet and found no watercourse anywhere on this prairie — the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E −705 and left both heads beginning abruptly at E −320, the old west wall of the box, 385 m inside open modelled prairie. **Moving eight reviewed, baked roofs to clear an invented line that starts nowhere would have traded a recorded liberty for an unrecorded one**, so the invention is withdrawn rather than relocated. Nothing built moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. The reading is preserved here because the tool that pinned it (`tools/measure_west_swale_corridors.py`) is retired with the question — footprint-corner distance to `west_prairie_swale_a`'s centreline, against its 30 m half-width: `recon_1835_west_002` 3.20 m, `_003` 8.93 m, `_012` 12.25 m, `_013` 14.30 m, `_009` 16.40 m, `_001` 19.22 m, `_011` 24.52 m, `_005` 25.46 m; `_004` at 32.7 m and `_029` at 33.3 m stood clear, and `west_prairie_swale_b`'s corridor was empty. Dossier zone 18 is now recorded in the spec's `not_modelled_in_this_box`, and `tools/generate_west_infill.py` gates the retirement: a west-prairie swale graded back into the field stops the parcel.
+
+### L31f — Terrain: the west-prairie swales are invented alignments
+**Decision:** the two west-prairie swales are drawn on invented lines with shallow invented depths, tagged `conjectural`.
+**Why:** the dossier says the wet prairie carried slough swales. It does not say where they ran in this box. A swale has to be somewhere to be visible at all, so two were drawn where they plausibly express the described relief without exceeding the project's flatness rule.
+**Consequence:** a visitor sees channels in the prairie that stand for a real kind of landform and not for attested individual ones. Their existence is argued; their exact alignment is ours.
+**How to resolve:** any map, survey or description locating specific swales in the west prairie.
+**Recorded:** 2026-08-10. **Struck:** 2026-09-29 (T-1460) — both `Covers:` tokens, `terrain.e1834_harbor_cut.swales.west_prairie_swale_a` and `terrain.e1834_harbor_cut.swales.west_prairie_swale_b`, are removed because the blocks they name are deleted, and a token pointing at nothing admits to nothing a visitor reads (`validate.py`: "that epoch's spec makes no graded claim"). The prose above is otherwise verbatim, and the deletion is what the **Resolved:** line below is about — nothing is hidden by the strike.
+**Resolved:** 2026-09-29 (T-1460), by the owner's ruling. He was asked which was the fixed thing, the invented line or the eight reviewed roofs standing in one of the corridors, and he ruled: *retire both to record_only — zone 18's swales stay in the dossier and come out of the field. Nothing invented is left in the ground layer, and the eight roofs do not move.* The alignments carried `confidence: reconstructed` and `sources: []`, and T-0795 had walked the whole Wright 1834 NA/HUP sheet and found no watercourse anywhere on this prairie — the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E −705 and left both heads beginning abruptly at E −320, the old west wall of the box, 385 m inside open modelled prairie. **Moving eight reviewed, baked roofs to clear an invented line that starts nowhere would have traded a recorded liberty for an unrecorded one**, so the invention is withdrawn rather than relocated. Nothing built moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. The reading is preserved here because the tool that pinned it (`tools/measure_west_swale_corridors.py`) is retired with the question — footprint-corner distance to `west_prairie_swale_a`'s centreline, against its 30 m half-width: `recon_1835_west_002` 3.20 m, `_003` 8.93 m, `_012` 12.25 m, `_013` 14.30 m, `_009` 16.40 m, `_001` 19.22 m, `_011` 24.52 m, `_005` 25.46 m; `_004` at 32.7 m and `_029` at 33.3 m stood clear, and `west_prairie_swale_b`'s corridor was empty. Dossier zone 18 is now recorded in the spec's `not_modelled_in_this_box`, and `tools/generate_west_infill.py` gates the retirement: a west-prairie swale graded back into the field stops the parcel.
+
 
 ---
 
@@ -1221,17 +1240,6 @@ made. Setting `micro_relief.amplitude_ft` to 0 in `terrain_spec.json` removes it
 **Consequence:** the plain is measurably rougher at cell scale (2.8 ft per 300 ft) than the
 dossier's flatness rule, while the *block* gradient the rule is actually about stays inside it
 (0.47 ft per 300 ft). The generator prints both on every run.
-**Recorded:** 2026-08-10.
-
-### L15 — Terrain: the west-prairie swales are invented alignments
-**Decision:** two shallow swales (0.75 and 0.6 ft deep) cross the West Division wet prairie,
-tagged `conjectural` and rendered dithered-translucent in the confidence view.
-**Why:** dossier zone 18 says the West Division carried "1–2 ft slough swales", so that swales
-existed is inferred from a source. **Where they ran is attested nowhere**, and these two
-alignments were drawn to make the wet prairie read as wet prairie rather than as a lawn. They
-are the only piece of terrain geometry in this parcel invented outright.
-**How to resolve:** the 1821 GLO township plat land-cover, or the ISGS "Illinois Landcover in
-the Early 1800s" digitisation, both named in the dossier and neither reached.
 **Recorded:** 2026-08-10.
 
 ### L16 — Terrain: the water is a wall to the walker
@@ -1618,14 +1626,6 @@ structure member by member.
 **Consequence:** the harbour opens into plausible water rather than into a box edge, and the abandoned channel remains a watercourse rather than collapsing flat. Neither depth is a measurement and neither should be read as one.
 **How to resolve:** any pre-dredging sounding or section of the old outlet channel or the nearshore lake bed east of the cut.
 **Covers:** `terrain.e1834_harbor_cut.reaches.old_south_channel`, `terrain.e1834_harbor_cut.reaches.open_lake_shelf`.
-**Recorded:** 2026-08-10.
-
-### L31f — Terrain: the west-prairie swales are invented alignments
-**Decision:** the two west-prairie swales are drawn on invented lines with shallow invented depths, tagged `conjectural`.
-**Why:** the dossier says the wet prairie carried slough swales. It does not say where they ran in this box. A swale has to be somewhere to be visible at all, so two were drawn where they plausibly express the described relief without exceeding the project's flatness rule.
-**Consequence:** a visitor sees channels in the prairie that stand for a real kind of landform and not for attested individual ones. Their existence is argued; their exact alignment is ours.
-**How to resolve:** any map, survey or description locating specific swales in the west prairie.
-**Covers:** `terrain.e1834_harbor_cut.swales.west_prairie_swale_a`, `terrain.e1834_harbor_cut.swales.west_prairie_swale_b`.
 **Recorded:** 2026-08-10.
 
 ### L31g — Terrain: the plain is roughened by synthetic micro-relief
@@ -10830,9 +10830,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 87 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 91 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 87 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10845,7 +10845,9 @@ commissioners and this register does not hold them; then 79 to 83 on the same da
 second deal on the same block, which reaches the same tract by the same construction; and 83
 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside
 the same north fraction, which reach the register for the same reason and change nothing about
-how). The construction is
+how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose
+two two-room cottages and their woodshed and stable stand four lots west of the first deal's
+pair inside the one tract). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -10873,10 +10875,10 @@ tract line than that drops to `reconstructed`, and the metres are printed on the
 the 69 stand at the bottom tier**, and mostly not for geometry: 44 of them are roofs a recipe
 dealt to a lot, and nothing on an invented structure may outrank the invention that put it
 there — the tract is real, but the claim that THIS roof stands on it is the recipe's.
-Re-measured 2026-09-29 with T-1747's four, T-1756's four and T-1753's four in the file:
-**64 of the 87 stand at the bottom tier, 52 of them roofs a recipe dealt to a lot**, and the
-twelve new ones are all twelve of both counts. THE THREE DEALS ARE AT THE BOTTOM FOR DIFFERENT
-REASONS, AND THAT IS WORTH SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m,
+Re-measured 2026-09-29 with T-1747's four, T-1756's four, T-1753's four and T-1757's four in
+the file: **68 of the 91 stand at the bottom tier, 56 of them roofs a recipe dealt to a lot**,
+and the sixteen new ones are all sixteen of both counts. THE FOUR DEALS ARE AT THE BOTTOM FOR
+DIFFERENT REASONS, AND THAT IS WORTH SAYING RATHER THAN AVERAGING. T-1747's four stand 58.1 m, 63.3 m,
 64.8 m and 67.1 m inside the tract boundary, which on a documented building would carry the
 middle tier, so they are held at the bottom for the invention under them and not for their
 geometry. T-1756's four stand on lots four lots further west — 28.4 m, 30.3 m, 31.6 m and
@@ -10884,7 +10886,11 @@ geometry. T-1756's four stand on lots four lots further west — 28.4 m, 30.3 m,
 held at the bottom by the ordinary geometric rule even if nothing about them were invented.
 T-1753's four are the far case: on the next cell east across Cass Street they stand 172 m,
 178 m, 171 m and 168 m inside the boundary — hundreds of metres clear of it — so like T-1747's they are held at the bottom for the invention rather than for
-the geometry. All three readings are the register's; none is another's evidence. Three of
+the geometry. T-1757's four stand on the same cell four lots west of those, at 139 m, 145 m,
+149 m and 145 m: nearer the tract line than the first deal's by about thirty metres, which is
+the lot grid's own westward step and not a different reading, and still three times the 40 m
+the middle tier asks for — so they too are held at the bottom for the invention under them.
+All four readings are the register's; none is another's evidence. Three of
 the remaining seven are the fort's own service buildings, added 2026-09-06 by T-0883, and they
 are at the bottom tier for the ordinary geometric reason rather than for an invention behind
 them: the wash house stands 12.9 m from a tract line and the shop 39.1 m, both inside the 40 m
@@ -14117,7 +14123,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 469 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 473 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14149,7 +14155,11 @@ new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the
 single move this count has taken from one parcel: seven dwellings — two small two-story frame
 houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages —
 with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs
-that each state a roof type and thirteen more the exposure reaches. No record's
+that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
+the Cass cell makes **473**, and it is the first addition to this entry that is not four of
+the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
+Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
+north of the river, taking the same exposure across more of it. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -17381,3 +17391,40 @@ reconstructed rendering closures, not surveyed rooms or claimed historic
 interiors; their vertices carry confidence 1.0. Aperture dimensions, glass,
 sash, shades and the building envelope are unchanged. The light and full
 versions use the same closure geometry.
+
+
+### L306 — Four reconstructed repair-timber piles at the branch bridges
+
+**Applies to:** `data/yard/bridge_head_timber.json`
+
+**What we invented:** One pile at each of the four ends of the North and South
+Branch bridges. Eleven squared sticks per pile, 3.048 m by 0.2 m by 0.2 m,
+stacked in three courses. Quantity, existence at these points, squared form,
+stacking, colour and the 6 m longitudinal and lateral offsets are reconstructed.
+The deck-width reuse bounds a plausible stock length; it does not attest it.
+
+**Why:** The bridge records document timber construction, maintenance planning
+and repair specifications. The anti-removal ordinance does not distinguish
+spare stock from installed timber, and the committee instruction does not prove
+an executed contract. None of these sources locates a pile on 1835-07-01.
+
+**Placement:** Evaluate the chosen offsets from the committed deck centerlines,
+using the footprint midpoint across the width rather than the corner origin.
+Choose the higher of two sampled terrain points; check all pile corners are dry.
+The 0.8 m pile width leaves 4.08 m clear of the deck corridor. The renderer uses
+the terrain at the pile anchor, as for other stock in the yard layer.
+
+**Omission:** No forks ferry landing is drawn because its operation and form on
+the scene date remain unestablished. Earlier licences and construction of bridges
+do not prove the ferries had ceased. This omission can be replaced by dated
+ferry evidence; it is not a historical closure claim.
+
+**Sources:** `chicago_democrat_1833_1835`, `chicago_democrat_1833_11_26`,
+`old_settlers_bridges_1883`, `chicagology_kinzie_bridge`.
+
+**Would replace:** A dated description, plan or repair inventory locating bridge
+stock, or evidence locating an operating forks ferry on the scene date.
+
+**Ticket:** T-1765. See `docs/RESEARCH/bridge_head_timber.md`.
+
+**Recorded:** 2026-09-30 (T-1765).

@@ -1,3 +1,7 @@
+## T-1460 — west-prairie swales retired
+
+Owner answer (a) is implemented on the recovery branch. The dossier keeps zone 18’s swales while the terrain no longer invents their alignments; the eight roofs stay fixed. Recovered terrain assets and regenerated ground readings accompany the change. Validation and integration status are recorded in STATUS; ticket settlement follows the dev PR.
+
 ## T-1752 — frontage smoke census (2026-09-29)
 
 Seven exact smoke expectations now follow the independently compared frontage
@@ -5039,3 +5043,14 @@ remains historical reasoning pending the existing construction work.
 ## T-1767 - Selected-year arrival
 
 Arrival and jaunts now follow the chosen scene; 1904 has a Glessner orientation. The broader drawer-panel work remains T-1740.
+
+### T-1765 bridge-head recovery
+
+Four bridge heads receive reconstructed repair stock. The forks ferry landing
+remains undrawn pending dated evidence of operation and form. This completes
+only T-1207's crossing-furniture slice; shops remain with T-1766. See the
+bridge_head_timber research memo and liberty L306.
+
+
+### T-1768 - Owner-requested temporal menu
+The front door offers 1835, 1904 and 1812 with acquisition and transfer animation. Interface skins are secondary and shared with the viewer; 1812 is identified as pending reconstruction. Existing year doors and explicit query links remain available.

@@ -1,3 +1,11 @@
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
+## T-1460 — retire the invented west-prairie drains (2026-09-30)
+
+The owner’s option (a) is implemented: both conjectural west-prairie swales are record-only, with their dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator now refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
+
 ## T-1752 — frontage census repaired from its authored history (2026-09-29)
 
 Seven stale smoke counts now follow the existing frontage records: 51 walks,
@@ -18618,3 +18626,33 @@ levels. The sidecar validator includes the alternate-version indexes the viewer
 loads; regression cases preserve the missing-field refusal. Full GitHub gate
 and published desktop/mobile smoke are pending. No final photographic-quality
 claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.
+## T-1757 — two more Cass-block cottages and the resumed integration (2026-09-30)
+
+`blk_indiana_north_cass` now carries four cottages and four yard buildings:
+the second deal adds two two-room cottages on lots 4 and 5, a woodshed and a
+stable. Eight of its twelve lots remain open. The Rush–Pine fringe stays
+unbuilt because the programme apportions its three lotted blocks no roofs;
+the north-division research memo records that limit. These are reconstructed
+buildings, with no claim that a source places them on these lots.
+
+PR #199 resumed after the automated lap integrated current `dev`. Its only
+remaining preflight failure was the off-plat ledger: the derived Canal
+Commissioners tract area and total ground area were each 7.8 m² stale.
+`seat_off_plat_ground_1835.py --build` corrects both from committed inputs;
+its re-derivation check passes. Household seats and meshes do not change in
+this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
+Full gate and published browser verification receipts are recorded on PR #199.
+
+
+## T-1765 — recovered bridge-head furniture
+
+Four reconstructed timber piles complete this bridge-approach parcel. Recovery
+corrects the deck-corner/centerline confusion and retains ferry operation as an
+open historical question. New ground and corner checks validate the placement.
+No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
+validation record carries the subsequent full mobile and desktop results.
+
+
+## T-1768 — Temporal observatory
+
+The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. Published renderer part 1 passed 80/0 at both desktop (10m48s) and mobile (7m46s), with zero page errors. Initial desktop attempts timed out during startup under concurrent local validation; the solo retry passed. The standalone menu checks also cover the final Space Age light/dark synchronization. Full repository CI is pending; local full-gate attempts were interrupted without a complete verdict. Renderer parts 2–13 were not rerun for this interface change; the part-1 ledger deliberately carries no exact final-tree hash because tone synchronization was finalized during the smoke sequence.

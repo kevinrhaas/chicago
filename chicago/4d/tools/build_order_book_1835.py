@@ -510,7 +510,24 @@ STRUCTURE_TICKETS = {
     # its Rush-Pine fringe blocks -- blk_indiana_north_rush, blk_illinois_north_rush and
     # blk_illinois_north_wolcott -- are apportioned `roofs: 0` by the district deal, so the
     # whole of the north's remaining 55 sit on the wolcott and cass blocks.)
-    ("north", "ordinary_dwellings"): "T-1757",
+    #
+    # AND T-1757 IS THE LAST OF THAT LINE, so on 2026-09-29 the row moves for the FIFTH time
+    # and for the first time NOT onto a child: `ticket_liveness.py` fired on T-1757's own
+    # close -- "has 26 left and is ordered by T-1757, which is done" -- and T-1757 has no
+    # sibling left to take it. T-1206, T-1742, T-1748 and T-1754 all lose their last live
+    # descendant with it, so the test that served four times ("which child raises the
+    # dwellings that are LEFT") has no answer and a NEW ticket would be a second copy of one
+    # already open. The 26 go to **T-1746**, which is the live ticket that owns their
+    # question in as many words: "the seating pass asks twenty roofs of Kinzie's Addition's
+    # two subdivided blocks and the north-division memo will not carry twenty: rule which of
+    # the two moves, or carry the surplus off the addition". That is what the 26 ARE. Both
+    # subdivided blocks are now at the memo's own ceiling -- four roofs each, every one with
+    # open ground on both sides along its own face, and no fifth position on either that does
+    # not adjoin a standing roof -- and the three other lotted cells of the Addition are
+    # apportioned `roofs: 0`, so there is nowhere on this addition the 26 can stand without
+    # either the memo or the seating giving way. Ordering them from T-1746 is the order book
+    # saying so: the next run on this cell rules, and does not deal.
+    ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1209",
     ("north", "inns_taverns"): "T-1205",

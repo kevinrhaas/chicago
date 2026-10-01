@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
+    'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
+    'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',
+    'Keyboard navigation, reduced-motion preferences and direct links remain supported. Each year keeps its own address.'
+  ] },
+  { v: 1242, ts: '2026-10-01T02:31:45.601Z', date: 'Sep 30, 2026, 9:31 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
+    items: [
+      'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',
+      'They were never found on a map. The dossier says the West Division prairie carried one- and two-foot slough swales, so swales of some kind belonged there — but where they ran is written down nowhere, and the two lines in the model were drawn by this project to make the wet prairie read as wet prairie. Every stroke of both was ours.',
+      'What made them worse was the ground growing. When they were drawn, the modelled field stopped at the same line both channels started on, so each read as a drain running off the edge of the world. The field later reached nearly four hundred metres further west, and both were left beginning abruptly in the middle of open grass — starting nowhere, going somewhere.',
+      'One of them ran through eight houses. Not under them: the cut was about a centimetre of fall for every metre, so no house stood in a hole and every one of the eight met the ground it was built on. But the rule written beside those channels said to move a roof rather than flatten a channel, and that rule assumed the channel was the certain thing. It was the invented thing; the houses had been surveyed, placed and reviewed.',
+      'So the channels went and the houses stayed. The ground beneath those eight has risen by a few centimetres and nothing else about them changed — not a position, not a wall, not a card. Nothing invented is left in the ground layer of that prairie.',
+      'The reading is kept rather than thrown away. What was measured while the question waited — which eight houses, how far each stood from the centreline, how little relief crossed each footprint — is written into the liberties register beside the two entries this withdraws, so the decision can be read back later.',
+    ] },
+  { v: 1241, ts: '2026-09-30T22:14:16.152Z', date: 'Sep 30, 2026, 5:14 PM CT', title: 'Repair timber at the branch bridges', kind: 'change',
+    items: [
+      'Small stacks of repair timber now stand beside all four ends of the North and South Branch bridges, clear of the crossing approaches.',
+      'The stockpiles and their arrangement are reconstructed. The bridge records document timber construction and maintenance, but no source locates these piles.',
+      'No ferry landing is drawn at the forks: its operation and form in July 1835 remain unestablished. The record keeps that uncertainty open.',
+    ] },
+  { v: 1240, ts: '2026-09-30T13:35:39.083Z', date: 'Sep 30, 2026, 8:35 AM CT', title: 'Two bigger cottages east of Cass, and a stable behind one', kind: 'change',
+    items: [
+      'Indiana Street between Cass and Rush carries four cottages now instead of two. The two new ones stand four lots west of the first pair \u2014 one facing Indiana, one facing Illinois \u2014 and they are bigger: two rooms rather than one, a wider and deeper footprint. Behind them, off the block alley, a woodshed and a stable. It is the first stable anywhere in Kinzie\u2019s Addition.',
+      'Every house on the block now has empty ground on both sides of it along its own street, and that is where the block stops. The north-side research reads this frontage as alternating roof and open yard with no continuous street wall, so a fifth house on either face would have to stand next door to one already there. Eight of the twelve lots stay open prairie.',
+      'The stable is our choice and the reason is the ground it stands on. The block\u2019s building plan had two privies in it and the first pair of cottages took both, so this pair gets the last woodshed and the first of two stables. A household two tiers north of the settled town, with the river between it and the stores, either keeps a horse on its own lot or keeps none.',
+      'The two families who asked for these lots are not the two who moved in. The Bailly and Babcock households had requests on the lots next door \u2014 the ones deliberately left empty \u2014 and the seating pass walked them into these houses instead, leaving the Baily and Barber households holding the empty lots. Families with somewhere to be is unchanged at 177; two more have walls.',
+      'East of Rush Street nothing is scheduled at all. Three more lotted blocks out on the Rush and Pine fringe are apportioned no roofs by the building programme, and the nineteen blocks beyond them are not even divided into lots. So that ground stays open, and the reason is now written into the north-side research rather than left to be guessed at.',
+      'No source says a building stood on this block in 1835, which buildings they were, where on their lots they sat, or how far back from the street. The lots, the alley and the ground under them are committed; everything else is on each cottage\u2019s own card.',
+    ] },
   { v: 1239, ts: '2026-09-30T04:44:39.649Z', date: 'Sep 29, 2026, 11:44 PM CT', title: 'Glessner House v4 becomes the default', kind: 'change',
     items: [
       'Prairie Avenue now opens with the detailed Glessner House: stonework, courtyard brick, intersecting roofs and recessed glazing. No version parameter is needed.',

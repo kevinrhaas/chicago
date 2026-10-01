@@ -708,23 +708,6 @@ step "North Division initial parcel matches its reviewed recipe" \
 step "West Division approaches parcel matches its recipe" \
   python3 tools/generate_west_infill.py --check
 
-# AND THE FIGURES AN OPEN OWNER QUESTION IS ASKED ABOUT (T-1460). The recipe's fourth
-# terrain rule deferred a reading to "after the west terrain extension"; T-1444 took it
-# and it does not say what the rule assumed, because the rule's remedy — move the roof —
-# assumes the swale is the fixed thing and the swale is the conjectural thing. That fork
-# is the owner's and the step above does not answer it. What the step above also does not
-# do is notice a roof that stays inside the corridor and MOVES: its frozen set holds
-# membership, not distance, and two of the eight had already drifted 2.5 m under the
-# question before anything measured them (T-1545 and T-1570 re-seating off platted street
-# corridors). So the figures are pinned, the same way measure_corridor_strip.py pins
-# T-0419's. A red step here is not a fault in the town — it is the question needing a new
-# reading before the owner answers the old one.
-step "the figures T-1460 asks the owner about have not moved under him" \
-  python3 tools/measure_west_swale_corridors.py --gate
-
-selftest "…and that reading's own assertions still fire when broken" \
-  python3 tools/measure_west_swale_corridors.py --self-test
-
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the
@@ -1832,6 +1815,14 @@ step "the watering place's ruling still matches the committed surfaces" \
 
 selftest "…and the run classifier that reading rests on still fires" \
   python3 tools/measure_watering_place.py --self-test
+
+# T-1765: reconstructed stock at the four branch-bridge ends. Validate the
+# chosen offsets against committed deck centerlines and dry terrain corners.
+step "the bridge-head timber still stands where the decks and the ground put it" \
+  python3 tools/measure_bridge_head_timber.py --gate --quiet
+
+selftest "…and every assertion that set-out rests on still fires" \
+  python3 tools/measure_bridge_head_timber.py --self-test
 
 # And the feature that crossing's own drain runs OUT of. "How much of the public
 # square was wet" (T-0027) presumes a fraction can be read off the block, and it
