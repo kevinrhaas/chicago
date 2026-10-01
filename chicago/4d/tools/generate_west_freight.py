@@ -82,19 +82,26 @@ def front_edge(lot: list[tuple[float, float]]) -> tuple[tuple[float, float], tup
     return max(edges, key=lambda e: (e[0][0] + e[1][0]) / 2)
 
 
-def seat(lot, width: float, depth: float, setback: float) -> tuple[float, float, float]:
-    """Centre the roof on the lot's frontage, `setback` metres inside its street line."""
+def seat(lot, width: float, depth: float, setback: float,
+         side_setback: float) -> tuple[float, float, float]:
+    """Stand the roof `setback` metres inside the lot's West Water line and `side_setback`
+    metres inside its northern (Lake Street) line: on both street lines of the corner, which
+    is where the placement policy's `commercial_front` clause puts a freight roof."""
     (ae, an), (be, bn) = front_edge(lot)
+    if an < bn:                       # walk the frontage from its Lake Street end
+        (ae, an), (be, bn) = (be, bn), (ae, an)
     de, dn = be - ae, bn - an
     length = math.hypot(de, dn)
+    along = (de / length, dn / length)
     cx = sum(p[0] for p in lot) / len(lot)
     cy = sum(p[1] for p in lot) / len(lot)
     inward = (-dn / length, de / length)
     if inward[0] * (cx - ae) + inward[1] * (cy - an) < 0:
         inward = (-inward[0], -inward[1])
-    mid = ((ae + be) / 2, (an + bn) / 2)
+    station = side_setback + width / 2
     offset = setback + depth / 2
-    centre = (mid[0] + inward[0] * offset, mid[1] + inward[1] * offset)
+    centre = (ae + along[0] * station + inward[0] * offset,
+              an + along[1] * station + inward[1] * offset)
     # The archetypes put the facade on max-v (+Y); point +Y back out at the street.
     bearing = (math.degrees(math.atan2(*inward)) + 180) % 360
     return (*footprint_origin(*centre, width, depth, bearing), bearing)
@@ -106,7 +113,8 @@ def make_record(recipe: dict, datum: dict) -> dict:
     spec = families()[family]
     width, depth = dimensions_m(family, spec["band_ft"], seed)
     lot = lot_polygon(row["block_id"], row["lot_column"], row["lot_row"])
-    east, north, bearing = seat(lot, width, depth, float(row["front_setback_m"]))
+    east, north, bearing = seat(lot, width, depth, float(row["front_setback_m"]),
+                                float(row["side_setback_m"]))
     finish, paint = finish_for(seed)
     return {
         "id": row["structure_id"],
@@ -124,9 +132,10 @@ def make_record(recipe: dict, datum: dict) -> dict:
                 "symbolic_location": "Reconstructed warehouse at Lake and West Water Streets, facing the forks of the river",
                 "confidence": "reconstructed",
                 "note": (f"The lot is the plat's (Thompson 1830, {row['block_id']} lot "
-                         f"{row['plat_lot_number']}); this roof on it is not. Centred on the "
-                         f"lot's West Water line and set {row['front_setback_m']} m inside it, "
-                         "the rear toward the block's alley. Chosen as the one platted West "
+                         f"{row['plat_lot_number']}); this roof on it is not. It stands on the "
+                         f"corner, {row['front_setback_m']} m inside the lot's West Water line "
+                         f"and {row['side_setback_m']} m inside its Lake Street line, the rear "
+                         "toward the block's alley. Chosen as the one platted West "
                          "Division lot facing the South Branch at the forks; no source seats "
                          "a building here."),
                 "derivation": {"method": "not_derivable",

@@ -12,12 +12,12 @@
         "note": "An invented count-unit for July 1835, not evidence that this particular building existed."
       },
       "position": {
-        "utm_e": 447031.648,
-        "utm_n": 4637266.103,
+        "utm_e": 447031.805,
+        "utm_n": 4637272.979,
         "rotation_deg": 91.30635,
         "symbolic_location": "Reconstructed warehouse at Lake and West Water Streets, facing the forks of the river",
         "confidence": "reconstructed",
-        "note": "The lot is the plat's (Thompson 1830, blk_west_lake_canal lot 1); this roof on it is not. Centred on the lot's West Water line and set 1.5 m inside it, the rear toward the block's alley. Chosen as the one platted West Division lot facing the South Branch at the forks; no source seats a building here.",
+        "note": "The lot is the plat's (Thompson 1830, blk_west_lake_canal lot 1); this roof on it is not. It stands on the corner, 1.5 m inside the lot's West Water line and 1.5 m inside its Lake Street line, the rear toward the block's alley. Chosen as the one platted West Division lot facing the South Branch at the forks; no source seats a building here.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 West Division roof register survives in the supplied evidence."

@@ -714,7 +714,7 @@ step "West Division approaches parcel matches its recipe" \
 # validator is proved by breaking it.
 step "West freight roof at the forks matches its recipe" \
   python3 tools/generate_west_freight.py --check
-step "West freight roof validator refuses bad ground" \
+selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
 
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py

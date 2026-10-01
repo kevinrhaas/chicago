@@ -25,14 +25,14 @@
   },
   "counts": {
     "audited": 378,
-    "keep": 369,
-    "refamily": 9,
+    "keep": 370,
+    "refamily": 8,
     "retire": 0,
     "kept_occupied": 3,
     "breach_owed_out": 0,
     "seated": 93,
     "raised_for_a_trade": 31,
-    "band_already_fits": 7,
+    "band_already_fits": 6,
     "roof_target": 668,
     "standing_before": 480,
     "standing_after": 480,
@@ -180,8 +180,8 @@
       "standing": 2,
       "anonymous": 2,
       "head_before": 4,
-      "standing_after": 4,
-      "head_after": 2
+      "standing_after": 3,
+      "head_after": 3
     },
     {
       "bucket": "structures/larger_boarding_houses/north",
@@ -334,8 +334,8 @@
       "standing": 2,
       "anonymous": 2,
       "head_before": 0,
-      "standing_after": 0,
-      "head_after": 2
+      "standing_after": 1,
+      "head_after": 1
     },
     {
       "bucket": "structures/warehouses_freight/north",
@@ -4259,30 +4259,12 @@
       "footprint_ft2": 996.3,
       "street": "lake",
       "street_class": "principal",
-      "setback_m": 8.15,
-      "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "setback_m": 1.28,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/warehouses_freight/west",
-      "reason": "the placement policy refuses this family here — stands 8.15 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands",
-      "to_family": "H2",
-      "to_group": "larger_boarding_houses",
-      "to_bucket": "structures/larger_boarding_houses/west",
-      "to_band_ft": [
-        24,
-        32,
-        30,
-        42
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "H2",
-        "H1",
-        "D6",
-        "D7",
-        "D5",
-        "D4"
-      ]
+      "reason": "the order book has an occupant class for a F2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_north_a1_008",
