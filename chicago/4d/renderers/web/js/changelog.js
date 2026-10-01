@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1246, ts: '2026-10-01T07:06:56.260Z', date: 'Oct 1, 2026, 2:06 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+    items: [
+      'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
+      'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
+      'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
+      'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
   { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
     items: [
       'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
