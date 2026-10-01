@@ -20,14 +20,14 @@
       },
       "position": {
         "utm_e": 446931.8,
-        "utm_n": 4637090.8,
+        "utm_n": 4637089.3,
         "rotation_deg": 0.0,
         "symbolic_location": "In the rear of the Western Hotel at the south-east corner of Randolph and Canal Streets — that is, south of the hotel block, across the wagon yard, with the stable's long side parallel to Randolph.",
         "confidence": "inferred",
         "sources": [
           "chicagology_prefire278"
         ],
-        "note": "PLACED 2026-08-11 AGAINST THE HOTEL, WHICH IS THE ONLY THING THE SOURCE PLACES IT AGAINST. What is attested is a RELATION and not a location: 'In the rear was the large stable and the yard into which the trains were driven. There were entrances to the yard from both streets.' The hotel's own facade bearing in this dataset is 0, due north onto Randolph, so 'the rear' is south, and this coordinate shares the hotel's easting exactly (UTM E 446931.8) and stands 27.2 m south of the hotel's origin — which is to say the stable's north face is about 20 m behind the hotel's south wall. THE 20 M IS DERIVED FROM THE YARD, NOT PICKED: the yard is what the two buildings enclose, and the attested thing that happened in it is that wagon trains were driven in off two streets and turned. Twenty metres is about the least depth in which a two-horse team and its wagon can be driven in, unhitched and turned; less and the source's sentence stops being true of the drawing. It is still a number nobody wrote down. WHAT THIS INHERITS: the hotel's coordinate is itself derived from a modern OpenStreetMap reading of the Randolph and Canal intersection with a working uncertainty of about 20 m, and its facade bearing is an argued reading rather than an attested one — chicagology does not say which street the 40 ft front faced. If the hotel is turned to face Canal, this stable turns with it and stands east of the block instead of south of it, at the same distance. WORKING UNCERTAINTY about 20 m from the georeference, plus the hotel's own bearing question, plus the invented yard depth. Facade bearing 0: the stable faces north across the yard at the back of the hotel, which is where the teams stood; nothing states it.",
+        "note": "PLACED 2026-08-11 AGAINST THE HOTEL, WHICH IS THE ONLY THING THE SOURCE PLACES IT AGAINST. What is attested is a RELATION and not a location: 'In the rear was the large stable and the yard into which the trains were driven. There were entrances to the yard from both streets.' The hotel's own facade bearing in this dataset is 0, due north onto Randolph, so 'the rear' is south, and this coordinate shares the hotel's easting exactly (UTM E 446931.8) and stands 28.7 m south of the hotel's origin — which is to say the stable's north face is about 20 m behind the hotel's south wall. (Until T-1775 the origin stood 27.2 m south; the stable was deepened from 7.0 to 8.5 m away from the yard, so the origin, which is the south-west corner, moved 1.5 m south and the north face did not move.) THE 20 M IS DERIVED FROM THE YARD, NOT PICKED: the yard is what the two buildings enclose, and the attested thing that happened in it is that wagon trains were driven in off two streets and turned. Twenty metres is about the least depth in which a two-horse team and its wagon can be driven in, unhitched and turned; less and the source's sentence stops being true of the drawing. It is still a number nobody wrote down. WHAT THIS INHERITS: the hotel's coordinate is itself derived from a modern OpenStreetMap reading of the Randolph and Canal intersection with a working uncertainty of about 20 m, and its facade bearing is an argued reading rather than an attested one — chicagology does not say which street the 40 ft front faced. If the hotel is turned to face Canal, this stable turns with it and stands east of the block instead of south of it, at the same distance. WORKING UNCERTAINTY about 20 m from the georeference, plus the hotel's own bearing question, plus the invented yard depth. Facade bearing 0: the stable faces north across the yard at the back of the hotel, which is where the teams stood; nothing states it.",
         "derivation": {
           "method": "not_derivable",
           "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
@@ -40,20 +40,20 @@
             0
           ],
           [
-            13.0,
+            22.0,
             0
           ],
           [
-            13.0,
-            7.0
+            22.0,
+            8.5
           ],
           [
             0,
-            7.0
+            8.5
           ]
         ],
         "confidence": "reconstructed",
-        "note": "INVENTED. The only dimensional word in the record is 'large', and it is a comparison rather than a measurement. 13.0 x 7.0 m is about 43 x 23 ft: a single range of stalls down each side of a central drive, which is about eight horses, with the 13 m along Randolph and the 7 m as the depth. The size answers the documented TRADE rather than being chosen freely — this was the west-side wagon house, 'the stopping place for all the farmers town from the west', whose teams the source says 'were as numerous as were the guests' — so it is drawn as the largest outbuilding in this dataset and still smaller than the hotel it served. Every number is invented and this polygon cites no sources. It is also the footprint the outbuilding archetype's own golden 'hotel_stable' case uses (generators/preview.py), which is not evidence about this building; it is the same convention twice."
+        "note": "INVENTED, AND SINCE 2026-10-01 (T-1775) SIZED FROM THE HOUSE'S GUESTS RATHER THAN FROM THE WORD 'LARGE'. The record first drew 13.0 x 7.0 m, 'about eight horses', and said the size answered the trade. It did not answer the sentence the trade is attested by: the source says the yard 'was one of the most important parts of the hostlery, for the teams were as numerous as were the guests'. data/reconstruction/1835_lodging_model.json sizes this house at 15 people on an ordinary night (its `western_hotel` row, apportioned by floor area and graded `inferred`), so the attested sentence asks for about fifteen teams, and eight horses is four of them. THE ARITHMETIC, every factor of which is stated so it can be replaced: fifteen teams; a team taken as a PAIR, the ordinary draught team of a farm wagon; a pair standing in one double stall about 9 ft wide and 10 ft deep with its manger; the stalls in two ranges of eight down either side of a central passage about 8 ft wide. Sixteen double stalls hold the fifteen teams with one to spare: 8 x 9 ft = 72 ft along the yard and 10 + 8 + 10 = 28 ft deep, drawn as 22.0 x 8.5 m. None of the stall or passage figures is a reading of any source about this building or this town; they are what a pair of horses needs to stand, be fed and be led out, and docs/LIBERTIES.md L72 carries them. WHAT IT DOES NOT ASSUME: that every team was horses (an ox team was as often yarded as stalled, and this is the stable for the horse teams the sentence implies), or the crowded night of 35 (the stable is sized for the ordinary night, as the beds are). The stable is now larger on the ground than the hotel's 164 m2 and smaller than its 329 m2 of floor, which is the order a wagon house's barn and house stood in. The north face, the one the wagon yard's fence meets, stays where it was; the growth is east along the yard and south away from it. WHAT WOULD REPLACE IT: an advertisement of Stow's naming his stabling, or a later description of the premises giving the stable's size — either retires this arithmetic outright."
       },
       "form": {
         "construction": {
@@ -67,7 +67,7 @@
         "wall_height_m": {
           "value": 3.4,
           "confidence": "inferred",
-          "note": "No figure is attested. 3.4 m is about 11 ft, and the number is set by what has to happen inside rather than by a convention: a horse is led in and out under a header, hay is forked over the stalls, and a wall much under 3 m makes a stable a shed. It is a little over the archetype's own size-aware default for this footprint (3.32 m) and well under its 4.5 m ceiling. What is inferred is the range, not the number."
+          "note": "No figure is attested. 3.4 m is about 11 ft, and the number is set by what has to happen inside rather than by a convention: a horse is led in and out under a header, hay is forked over the stalls, and a wall much under 3 m makes a stable a shed. It was a little over the archetype's own size-aware default for the first 13 x 7 m footprint (3.32 m); at 22.0 x 8.5 m that default is 3.93 m and the record keeps 3.4 m, because the reason for the figure is what has to happen at a stall, and a longer range of stalls does not change it. Well under the archetype's 4.5 m ceiling. What is inferred is the range, not the number."
         },
         "door": {
           "value": "stable",
