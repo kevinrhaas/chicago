@@ -92,7 +92,32 @@ DISTRICTS = ("south", "west", "north", "fort")
 # with it. A repaired breach is NOT left standing as an allowance for the next
 # one, which is what this gate says when it finds a declaration it no longer
 # needs — and it is why it found this one.
-DECLARED_OVERSHOOT: dict[tuple[str, str], dict] = {}
+#
+# ONE DECLARATION AGAIN, 2026-10-01, and it is a holding position, not a licence. Two
+# parcels were built against the same three free West workshop slots at once: T-1766
+# (PR #206) measured 5 of 8 standing and raised three Canal approach shops
+# (recon_1835_canal_trade_w1_003, _w2_004, _w3_005), and T-1783 (PR #215), merged first,
+# raised a carpenter's shop on the outer West blocks
+# (recon_1835_blk_west_randolph_des_plaines_w2_01). Neither was wrong against the dev it
+# was built on; together they stand nine where the row authors eight. Repairing the row is
+# the T-0283 re-split — workshops west 8 -> 9 against an unbuilt south workshop slot, with
+# ordinary_dwellings swapping the other way — and that moves model_town_1835's dwelling
+# split and every population layer it feeds, which is a decision about the authored
+# programme and not a merge's to take. Until it is taken, the shed is the one stated here.
+DECLARED_OVERSHOOT: dict[tuple[str, str], dict] = {
+    ("west", "workshops"): {
+        "over": 1,
+        "why": "Nine West workshops stand against a row of eight: the three T-1766 Canal "
+               "approach shops (recon_1835_canal_trade_w1_003, recon_1835_canal_trade_w2_004, "
+               "recon_1835_canal_trade_w3_005) and T-1783's carpenter's shop "
+               "(recon_1835_blk_west_randolph_des_plaines_w2_01) were each dealt against the "
+               "same free slots on a dev that did not yet carry the other. reconcile_665.py "
+               "sheds the one slot from west ordinary_dwellings. Retired by the T-0283-shape "
+               "re-split of the workshops row (west 8 -> 9 from the south's unbuilt workshop "
+               "head), which moves the town model's dwelling split and so is the programme's "
+               "decision rather than this merge's.",
+    },
+}
 
 
 def load(path: Path):

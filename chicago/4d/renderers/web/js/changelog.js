@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1259, ts: '2026-10-01T14:36:40.558Z', date: 'Oct 1, 2026, 9:36 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
