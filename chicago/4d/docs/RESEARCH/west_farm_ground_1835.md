@@ -48,9 +48,9 @@ as a farmstead's holding is an *inferred* reading, so every count below is a **c
 forty is the only farm-size register row that reaches the West ground outside the limits, and only
 5,500 m² of it is unsubdivided.
 
-**4. What the programme carries.** A farmstead is two roofs. The West's target is 135, with 52
-left to build. Of those, **0 are D1 and 4 are A2.** The 24 remaining dwellings belong to T-1783
-and the 8 barns to T-1212. A farmstead for every owed household would need 88 roofs.
+**4. What the programme carries.** A farmstead is two roofs. The West's target is 135, with 49
+left to build. Of those, **0 are D1 and 3 are A2.** The 22 remaining dwellings belong to T-1783
+and the 7 barns to T-1212. A farmstead for every owed household would need 88 roofs.
 
 ## The ceilings T-1794 deals within
 

@@ -40,10 +40,10 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 140,
+    "adopted_seats": 142,
     "written": 23,
     "refused": 77,
-    "owed": 40,
+    "owed": 42,
     "refused_letter_list": 75,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
@@ -800,6 +800,17 @@
       "on_the_card": false
     },
     {
+      "household_id": "hh_allan_richard_b",
+      "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#07",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
       "household_id": "hh_dyer_sidney",
       "structure_id": "recon_1835_blk_lake_market_d1_05",
       "block_id": "blk_lake_market",
@@ -891,7 +902,7 @@
       }
     },
     {
-      "household_id": "hh_ayres_levi",
+      "household_id": "hh_baldwin_eimer",
       "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
       "block_id": "blk_randolph_clinton",
       "lot_id": "blk_randolph_clinton#02",
@@ -1679,28 +1690,6 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_baldwin_eimer",
-      "structure_id": "recon_1835_west_016",
-      "block_id": "blk_lake_clinton",
-      "lot_id": "blk_lake_clinton#03",
-      "clause": "tradesman_dwellings",
-      "family": "D3",
-      "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
-      "on_the_card": false
-    },
-    {
-      "household_id": "hh_allan_richard_b",
-      "structure_id": "recon_1835_west_018",
-      "block_id": "blk_randolph_clinton",
-      "lot_id": "blk_randolph_clinton#05",
-      "clause": "tradesman_dwellings",
-      "family": "D5",
-      "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
-      "on_the_card": false
-    },
-    {
       "household_id": "hh_abbot_8_g",
       "structure_id": "recon_1835_west_019",
       "block_id": "blk_randolph_clinton",
@@ -1712,10 +1701,10 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_andress_stephen",
-      "structure_id": "recon_1835_west_034",
-      "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#08",
+      "household_id": "hh_ayres_levi",
+      "structure_id": "recon_1835_west_021",
+      "block_id": "blk_randolph_clinton",
+      "lot_id": "blk_randolph_clinton#03",
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "west",
@@ -1723,10 +1712,10 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_barrows_mary",
-      "structure_id": "recon_1835_west_042",
+      "household_id": "hh_barney_john",
+      "structure_id": "recon_1835_west_030",
       "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#00",
+      "lot_id": "blk_west_lake_des_plaines#05",
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
@@ -1734,12 +1723,23 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_barney_john",
-      "structure_id": "recon_1835_west_044",
+      "household_id": "hh_barrows_mary",
+      "structure_id": "recon_1835_west_031",
       "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#04",
+      "lot_id": "blk_west_lake_des_plaines#05",
       "clause": "tradesman_dwellings",
       "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_andress_stephen",
+      "structure_id": "recon_1835_west_033",
+      "block_id": "blk_west_lake_des_plaines",
+      "lot_id": "blk_west_lake_des_plaines#08",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
       "district": "west",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false
@@ -1786,6 +1786,16 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "north",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_barnard_j_b",
+      "structure_id": "recon_1835_blk_lake_clinton_d3_02",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#02",
+      "clause": "tradesman_dwellings",
+      "family": "D3",
+      "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
@@ -2119,7 +2129,7 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_barry_william",
+      "household_id": "hh_beaubien_b",
       "structure_id": "recon_1835_west_008",
       "block_id": "blk_lake_clinton",
       "lot_id": "blk_lake_clinton#00",
@@ -2139,42 +2149,52 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_aspam_magdeleine",
-      "structure_id": "recon_1835_west_021",
-      "block_id": "blk_randolph_clinton",
-      "lot_id": "blk_randolph_clinton#03",
-      "clause": "tradesman_dwellings",
-      "family": "D6",
-      "district": "west",
-      "why": "its roof is not one the platted block-infill generator owns, and this pass is only wired through that one"
-    },
-    {
       "household_id": "hh_ballingale_p",
-      "structure_id": "recon_1835_west_030",
-      "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#05",
+      "structure_id": "recon_1835_west_016",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#03",
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_barnard_j_b",
-      "structure_id": "recon_1835_west_031",
-      "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#05",
+      "household_id": "hh_allen_edward_richards",
+      "structure_id": "recon_1835_west_018",
+      "block_id": "blk_randolph_clinton",
+      "lot_id": "blk_randolph_clinton#05",
       "clause": "tradesman_dwellings",
-      "family": "D4",
+      "family": "D5",
+      "district": "west",
+      "why": "its roof is not one the platted block-infill generator owns, and this pass is only wired through that one"
+    },
+    {
+      "household_id": "hh_aspam_magdeleine",
+      "structure_id": "recon_1835_west_034",
+      "block_id": "blk_west_lake_des_plaines",
+      "lot_id": "blk_west_lake_des_plaines#08",
+      "clause": "tradesman_dwellings",
+      "family": "D6",
       "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_allen_edward_richards",
-      "structure_id": "recon_1835_west_033",
+      "household_id": "hh_baxley_j_m",
+      "structure_id": "recon_1835_west_042",
       "block_id": "blk_west_lake_des_plaines",
-      "lot_id": "blk_west_lake_des_plaines#08",
+      "lot_id": "blk_west_lake_des_plaines#00",
       "clause": "tradesman_dwellings",
-      "family": "D5",
+      "family": "D3",
+      "district": "west",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_barry_william",
+      "structure_id": "recon_1835_west_044",
+      "block_id": "blk_west_lake_des_plaines",
+      "lot_id": "blk_west_lake_des_plaines#04",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
       "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     }
