@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
+    items: [
+      'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
+      'Each upper floor has seven chamber windows across its front and back instead of the five an inn has, and four iron stovepipes rise through each roof beside the two brick chimneys.',
+      'The counts come from the beds each house already holds, by the same rule as the first boarding house at Madison and Dearborn. Nobody moved: the same lodgers sleep in the same houses.',
+      'These houses, their windows and their stoves are our reconstruction. No source counts the rooms or stoves of a Chicago boarding house in 1835; the register says how each number was reached.',
+    ] },
   { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
     items: [
       'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
