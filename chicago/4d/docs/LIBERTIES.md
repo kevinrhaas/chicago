@@ -14283,10 +14283,9 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 7 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 6 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
-`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022`, and since T-1782 `_046` (an F1
-freight shed carried to H2 under the same adjudication; **L310**). The first six are six of the
+`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022`. These are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
 released.
@@ -14652,9 +14651,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 178 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 178 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15591,9 +15590,9 @@ for on the taverns.
 
 ### L278 — The freight shed's cargo opening: 2.20 × 2.35 m, two of them, and no source describes either
 
-**Scope:** `structures.phases[cargo_openings]` — 1 phase built with the freight shed's
-`cargo` opening: `recon_1835_south_f1_038`, the town's one F1 roof since T-1782 carried
-`recon_1835_west_046` to H2 under T-1445's verdict (**L310**); it was two. The opening itself is `DOOR_SIZE_M["cargo"]` and `door_bays` in
+**Scope:** `structures.phases[cargo_openings]` — 2 phases built with the freight shed's
+`cargo` opening: `recon_1835_south_f1_038` and `recon_1835_west_046`, the town's two F1
+roofs. The opening itself is `DOOR_SIZE_M["cargo"]` and `door_bays` in
 `generators/archetypes/outbuilding_params.py`, and the `door: cargo` / `door_bays: 2` the
 five anonymous-parcel generators now deal family **F1** — so every F1 roof dealt after
 this stands on it too.
@@ -17444,34 +17443,32 @@ stock, or evidence locating an operating forks ferry on the scene date.
 
 **Recorded:** 2026-09-30 (T-1765).
 
-### L310 — Three West roofs nobody holds, given a stated use; a freight shed re-dealt to a house
+### L310 — Three West roofs nobody holds, given a stated use
 
-**Applies to:** `data/reconstruction/1835_stated_uses.json`, and placement `west_rec_046` of
-`data/reconstruction/1835_phase2_west_wolf_point_approaches.json`
+**Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
 `recon_1835_west_047.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
-dwelling clause admits. `recon_1835_west_037` and `recon_1835_west_047` are stated as the
-stables of the houses whose yards the West recipe already draws them in (`yard_group`
-`west_rec_033` and `west_rec_046`). `recon_1835_west_036`, the W5 heavy work shed on the Randolph
-block between Jefferson and Des Plaines, is stated as a framing shed where house frames were cut:
-of the W5 line's three uses (sawmill, boat repair, riverside shop) the first two need the river,
-and this roof stands three streets back from the South Branch. Nobody is named for any of the
-three; the card says what the building was for, graded `reconstructed`.
-
-**And one verdict carried out:** `recon_1835_west_046` stood as the cluster's one F1 freight
-shed 36.6 m off its street line, which the placement policy's `commercial_front` refuses; T-1445's
-redeal verdict moved it to H2, and T-1782 carried that verdict out alone (`execute_roof_redeal.py
---apply --only`), footprint 24 × 44 ft to 24 × 36 ft, the H2 band's buildable size. The platted
-deal then seats a household the town's records name on it; which house it is remains the deal's
-allocation, not a reading.
+dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard
+the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the
+stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from
+it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des
+Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
+(sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
+streets back from the South Branch. Nobody is named for any of the three; the card says what the
+building was for, graded `reconstructed`.
 
 **Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
 for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
 seated household's yard carded as an anonymous count-unit forever.
+
+**Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
+outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
+its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
+is T-1774's.
 
 **Would replace:** A keeper seated on any of the three by a deal or a source retires its row
 outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West

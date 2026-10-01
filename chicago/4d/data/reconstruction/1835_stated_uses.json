@@ -6,7 +6,7 @@
   "parent_ticket": "T-1208",
   "target_date": "1835-07-01",
   "not_a_reading": "No page of any source was opened for this file. Each row states the USE of an anonymous roof the 668-roof programme already raised and no household's seat reaches, so that the order book's `every_structure_occupied_or_its_use_stated` can be answered for it on the card rather than left blank.",
-  "the_rule": "A roof is given a stated use here only when (a) no seat in data/reconstruction/1835_platted_seats.json or 1835_off_plat_seats.json and no other occupancy programme names it, (b) its family is not one the dwelling clauses admit, so no deal would ever seat a household on it, and (c) the use is bounded by something committed — the recipe's own `yard_group`, or the family's line in data/reconstruction/1835_family_archetype_crosswalk.json. A stated use names nobody: it is the building's purpose, reconstructed, and it retires the moment a deal or a source seats a keeper (tools/inferred_occupancy.py refuses a roof claimed twice).",
+  "the_rule": "A roof is given a stated use here only when (a) no seat in data/reconstruction/1835_platted_seats.json or 1835_off_plat_seats.json and no other occupancy programme names it, (b) no clause of the placement policy can seat a household on it where it stands — its family is not a dwelling, or the only clause admitting it asks for ground it does not stand on — so a deal declining it loses nobody a roof, and (c) the use is bounded by something committed — the recipe's own `yard_group`, or the family's line in data/reconstruction/1835_family_archetype_crosswalk.json. A stated use names nobody: it is the building's purpose, reconstructed, and it retires the moment a deal or a source seats a keeper (tools/inferred_occupancy.py refuses a roof claimed twice).",
   "confidence": "reconstructed",
   "liberty": "L310",
   "rows": [
@@ -16,7 +16,7 @@
       "cluster": "w3_jefferson_lake_residential",
       "serves": null,
       "value": "No household of its own — a heavy timber work shed on the Randolph road, where frames were cut for the West Division's new houses",
-      "bounded_by": "The W5 line of the family crosswalk: heavy timber and rough boards, an open work bay and timber piles. Of the line's three uses — sawmill, boat repair, riverside shop — the first two need the river and this roof stands on blk_west_randolph_des_plaines, three streets back from the South Branch, so the use stated is the third read as a framing shop: the kind of work the dwellings of the cluster it stands in would have called on. No keeper is named: none of the households the deals seat in this cluster or the next (recon_1835_west_026 to 045) has a trade on its card for 1835, and this file names nobody."
+      "bounded_by": "The W5 line of the family crosswalk: heavy timber and rough boards, an open work bay and timber piles. Of the line's three uses — sawmill, boat repair, riverside shop — the first two need the river and this roof stands on blk_west_randolph_des_plaines, three streets back from the South Branch, so the use stated is the third read as a framing shop: the kind of work the dwellings of the cluster it stands in would have called on. No keeper is named: none of the households the deals seat in this cluster or the next (recon_1835_west_026 to 045) has a trade on its card for 1835, and this file names nobody. The platted deal OFFERED this roof and nobody could take it: the only clause admitting W5, heavy_and_noxious_trades, seats on `ground:branch`, which no platted lot draws, and the two heads that clause holds are South and North Division. With the use stated the deal holds it back instead (roofs_held_back), which changes no seat."
     },
     {
       "structure_id": "recon_1835_west_037",
@@ -31,8 +31,8 @@
       "family": "A1",
       "cluster": "w4_clinton_work_fringe",
       "serves": "recon_1835_west_046",
-      "value": "No household of its own — the stable of the larger frame house beside it on the wagon approach",
-      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046, re-dealt from a freight shed to an H2 house by T-1782 under T-1445's verdict, which the platted deal then seats on blk_west_randolph_des_plaines#01 under its merchant_and_professional_dwellings clause. A stable keeps that house's horses on the westward wagon approach; nobody sleeps in it."
+      "value": "No household of its own — the stable beside the freight shed, for the teams that haul from it",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046, the cluster's one F1 freight shed on the westward wagon approach. Goods leave a freight shed by wagon, and the teams that draw them stand in a stable between loads; nobody sleeps in it. The shed itself carries an outstanding H2 verdict from T-1445 that this file does not touch: a stated use on recon_1835_west_046 would be an occupancy, and the redeal keeps an occupied roof whatever its verdict, so the shed is left without one until that verdict is carried out (T-1774, which owns the 55 phase-two roofs' redeal)."
     }
   ]
 }

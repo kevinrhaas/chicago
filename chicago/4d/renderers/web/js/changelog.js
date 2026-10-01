@@ -1,10 +1,9 @@
 export const CHANGELOG = [ // newest first
-  { v: 1245, ts: '2026-10-01T05:44:56.495Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'A house where the freight shed stood, and three sheds explained', kind: 'change',
+  { v: 1245, ts: '2026-10-01T06:14:35.091Z', date: 'Oct 1, 2026, 1:14 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
     items: [
-      'On the block between Jefferson and Des Plaines Streets, off Randolph, the long freight shed is gone and a two-storey frame house stands in its place, a little shorter than the shed was. A freight shed belongs on the street line; this one stood well back from it, which suits a house.',
-      'The house has a household now. The seating pass gives it to the Adams household, a name the town’s own records carry. Which house they lived in is our allocation, not something a source says.',
-      'Three buildings nearby that nobody lives in now say what they were for. Click the stable behind the Jefferson Street cottage, the stable beside the new house, or the big work shed on Randolph, and the card tells you: two stables for their neighbours’ horses, and a shed where house frames were cut.',
-      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each will give way to a source or a seated household that says otherwise.',
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [

@@ -40,10 +40,10 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 141,
+    "adopted_seats": 140,
     "written": 23,
     "refused": 77,
-    "owed": 41,
+    "owed": 40,
     "refused_letter_list": 75,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
@@ -2175,16 +2175,6 @@
       "lot_id": "blk_west_lake_des_plaines#08",
       "clause": "tradesman_dwellings",
       "family": "D5",
-      "district": "west",
-      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
-    },
-    {
-      "household_id": "hh_adams_james",
-      "structure_id": "recon_1835_west_046",
-      "block_id": "blk_west_randolph_des_plaines",
-      "lot_id": "blk_west_randolph_des_plaines#01",
-      "clause": "merchant_and_professional_dwellings",
-      "family": "H2",
       "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     }
