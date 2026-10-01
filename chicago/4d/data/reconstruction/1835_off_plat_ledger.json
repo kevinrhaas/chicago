@@ -51,8 +51,8 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 133,
-  "ground_m2": 7314847.5
+  "principal_roofs_standing": 137,
+  "ground_m2": 7314855.3
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -6997,7 +6997,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1035925.8,
+   "area_m2": 1035933.6,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",
@@ -7044,6 +7044,10 @@
     "newberry_dole_warehouse",
     "north_bank_shed_dearborn_e1",
     "north_side_school_1833",
+    "recon_1835_canal_trade_c3_001",
+    "recon_1835_canal_trade_c4_002",
+    "recon_1835_canal_trade_w1_003",
+    "recon_1835_canal_trade_w2_004",
     "recon_1835_north_d4_017",
     "recon_1835_south_a3_041",
     "recon_1835_west_001",
@@ -7112,6 +7116,10 @@
     "newberry_dole_warehouse": "F2",
     "north_bank_shed_dearborn_e1": "F1",
     "north_side_school_1833": "I2",
+    "recon_1835_canal_trade_c3_001": "C3",
+    "recon_1835_canal_trade_c4_002": "C4",
+    "recon_1835_canal_trade_w1_003": "W1",
+    "recon_1835_canal_trade_w2_004": "W2",
     "recon_1835_north_d4_017": "D4",
     "recon_1835_south_a3_041": "A3",
     "recon_1835_west_001": "D1",
@@ -7148,7 +7156,7 @@
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 47
+   "principal_roofs_standing": 51
   },
   {
    "parcel_id": "wabansia",

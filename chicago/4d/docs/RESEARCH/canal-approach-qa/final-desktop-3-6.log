@@ -1,0 +1,612 @@
+﻿2026-10-01T07:05:16.0921722Z Current runner version: '2.337.0'
+2026-10-01T07:05:16.0957479Z ##[group]Runner Image Provisioner
+2026-10-01T07:05:16.0958923Z Hosted Compute Agent
+2026-10-01T07:05:16.0959991Z Version: 20260901.588
+2026-10-01T07:05:16.0961266Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-01T07:05:16.0962539Z Build Date: 2026-09-01T19:56:44Z
+2026-10-01T07:05:16.0963870Z Worker ID: {3b984021-0ab7-4af7-9b7e-dda242d6038c}
+2026-10-01T07:05:16.0965639Z Azure Region: eastus2
+2026-10-01T07:05:16.0966533Z ##[endgroup]
+2026-10-01T07:05:16.0968959Z ##[group]Operating System
+2026-10-01T07:05:16.0970003Z Ubuntu
+2026-10-01T07:05:16.0970973Z 24.04.5
+2026-10-01T07:05:16.0971911Z LTS
+2026-10-01T07:05:16.0972769Z ##[endgroup]
+2026-10-01T07:05:16.0973790Z ##[group]Runner Image
+2026-10-01T07:05:16.0975332Z Image: ubuntu-24.04
+2026-10-01T07:05:16.0976694Z Version: 20260927.320.1
+2026-10-01T07:05:16.0978906Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-01T07:05:16.0981627Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-01T07:05:16.0983414Z ##[endgroup]
+2026-10-01T07:05:16.0985765Z ##[group]GITHUB_TOKEN Permissions
+2026-10-01T07:05:16.0989205Z Contents: read
+2026-10-01T07:05:16.0990131Z Metadata: read
+2026-10-01T07:05:16.0991080Z Packages: read
+2026-10-01T07:05:16.0992092Z ##[endgroup]
+2026-10-01T07:05:16.0995890Z Secret source: Actions
+2026-10-01T07:05:16.0997415Z Cache mode: write
+2026-10-01T07:05:16.0998742Z Prepare workflow directory
+2026-10-01T07:05:16.1470656Z Prepare all required actions
+2026-10-01T07:05:16.1541077Z Getting action download info
+2026-10-01T07:05:16.3386268Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-01T07:05:16.4365088Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-01T07:05:16.6293105Z Complete job name: smoke
+2026-10-01T07:05:16.7053216Z ##[group]Run actions/checkout@v4
+2026-10-01T07:05:16.7054149Z with:
+2026-10-01T07:05:16.7055182Z   repository: kevinrhaas/chicago
+2026-10-01T07:05:16.7059176Z   token: ***
+2026-10-01T07:05:16.7059610Z   ssh-strict: true
+2026-10-01T07:05:16.7060041Z   ssh-user: git
+2026-10-01T07:05:16.7060476Z   persist-credentials: true
+2026-10-01T07:05:16.7060976Z   clean: true
+2026-10-01T07:05:16.7061428Z   sparse-checkout-cone-mode: true
+2026-10-01T07:05:16.7061943Z   fetch-depth: 1
+2026-10-01T07:05:16.7062371Z   fetch-tags: false
+2026-10-01T07:05:16.7062806Z   show-progress: true
+2026-10-01T07:05:16.7063247Z   lfs: false
+2026-10-01T07:05:16.7063655Z   submodules: false
+2026-10-01T07:05:16.7064105Z   set-safe-directory: true
+2026-10-01T07:05:16.7064771Z   allow-unsafe-pr-checkout: false
+2026-10-01T07:05:16.7066008Z ##[endgroup]
+2026-10-01T07:05:16.8058558Z Syncing repository: kevinrhaas/chicago
+2026-10-01T07:05:16.8061326Z ##[group]Getting Git version info
+2026-10-01T07:05:16.8062454Z Working directory is '/home/runner/work/chicago/chicago'
+2026-10-01T07:05:16.8064407Z [command]/usr/bin/git version
+2026-10-01T07:05:16.8149991Z git version 2.55.0
+2026-10-01T07:05:16.8172722Z ##[endgroup]
+2026-10-01T07:05:16.8188714Z Temporarily overriding HOME='/home/runner/work/_temp/202a1c67-a5d1-4f07-97ad-d3add389d107' before making global git config changes
+2026-10-01T07:05:16.8191209Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T07:05:16.8195084Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T07:05:16.8251670Z Deleting the contents of '/home/runner/work/chicago/chicago'
+2026-10-01T07:05:16.8256812Z ##[group]Initializing the repository
+2026-10-01T07:05:16.8261569Z [command]/usr/bin/git init /home/runner/work/chicago/chicago
+2026-10-01T07:05:16.8385578Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-01T07:05:16.8386873Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-01T07:05:16.8388265Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-01T07:05:16.8389319Z hint: call:
+2026-10-01T07:05:16.8390057Z hint:
+2026-10-01T07:05:16.8390983Z hint: 	git config --global init.defaultBranch <name>
+2026-10-01T07:05:16.8391779Z hint:
+2026-10-01T07:05:16.8392442Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-01T07:05:16.8393443Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-01T07:05:16.8394487Z hint:
+2026-10-01T07:05:16.8394984Z hint: 	git branch -m <name>
+2026-10-01T07:05:16.8395573Z hint:
+2026-10-01T07:05:16.8396253Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-01T07:05:16.8397354Z Initialized empty Git repository in /home/runner/work/chicago/chicago/.git/
+2026-10-01T07:05:16.8401274Z [command]/usr/bin/git remote add origin https://github.com/kevinrhaas/chicago
+2026-10-01T07:05:16.8451621Z ##[endgroup]
+2026-10-01T07:05:16.8452954Z ##[group]Disabling automatic garbage collection
+2026-10-01T07:05:16.8456362Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-01T07:05:16.8486195Z ##[endgroup]
+2026-10-01T07:05:16.8486916Z ##[group]Setting up auth
+2026-10-01T07:05:16.8492660Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T07:05:16.8521840Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T07:05:16.8887328Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T07:05:16.8916910Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T07:05:16.9131619Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T07:05:16.9161332Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T07:05:16.9383558Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-01T07:05:16.9420913Z ##[endgroup]
+2026-10-01T07:05:16.9421744Z ##[group]Fetching the repository
+2026-10-01T07:05:16.9430867Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ef515fab75dd9d989faa7ce6ee0fc09546aff7f5:refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:48.1458496Z From https://github.com/kevinrhaas/chicago
+2026-10-01T07:05:48.1460011Z  * [new ref]         ef515fab75dd9d989faa7ce6ee0fc09546aff7f5 -> origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:48.1463813Z ##[endgroup]
+2026-10-01T07:05:48.1465148Z ##[group]Determining the checkout info
+2026-10-01T07:05:48.1467211Z ##[endgroup]
+2026-10-01T07:05:48.1474093Z [command]/usr/bin/git sparse-checkout disable
+2026-10-01T07:05:48.1525073Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-01T07:05:48.1552391Z ##[group]Checking out the ref
+2026-10-01T07:05:48.1557543Z [command]/usr/bin/git checkout --progress --force -B steward/t1766-canal-grocery-workshops refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T07:05:49.2348531Z Updating files:  62% (5637/9085)
+2026-10-01T07:05:49.2388222Z Updating files:  63% (5724/9085)
+2026-10-01T07:05:49.2429321Z Updating files:  64% (5815/9085)
+2026-10-01T07:05:49.2492524Z Updating files:  65% (5906/9085)
+2026-10-01T07:05:49.2585583Z Updating files:  66% (5997/9085)
+2026-10-01T07:05:49.2652228Z Updating files:  67% (6087/9085)
+2026-10-01T07:05:49.2708853Z Updating files:  68% (6178/9085)
+2026-10-01T07:05:49.2762011Z Updating files:  69% (6269/9085)
+2026-10-01T07:05:49.2814127Z Updating files:  70% (6360/9085)
+2026-10-01T07:05:49.2997835Z Updating files:  71% (6451/9085)
+2026-10-01T07:05:49.3203374Z Updating files:  72% (6542/9085)
+2026-10-01T07:05:49.3578927Z Updating files:  73% (6633/9085)
+2026-10-01T07:05:49.5492451Z Updating files:  74% (6723/9085)
+2026-10-01T07:05:49.5706810Z Updating files:  75% (6814/9085)
+2026-10-01T07:05:49.6133470Z Updating files:  76% (6905/9085)
+2026-10-01T07:05:49.6855514Z Updating files:  77% (6996/9085)
+2026-10-01T07:05:49.7180666Z Updating files:  78% (7087/9085)
+2026-10-01T07:05:49.7428046Z Updating files:  79% (7178/9085)
+2026-10-01T07:05:49.7665056Z Updating files:  80% (7268/9085)
+2026-10-01T07:05:49.7829900Z Updating files:  81% (7359/9085)
+2026-10-01T07:05:49.7992548Z Updating files:  82% (7450/9085)
+2026-10-01T07:05:49.8130701Z Updating files:  83% (7541/9085)
+2026-10-01T07:05:49.8280772Z Updating files:  84% (7632/9085)
+2026-10-01T07:05:49.8432826Z Updating files:  85% (7723/9085)
+2026-10-01T07:05:49.8577343Z Updating files:  86% (7814/9085)
+2026-10-01T07:05:49.9482400Z Updating files:  87% (7904/9085)
+2026-10-01T07:05:49.9962652Z Updating files:  88% (7995/9085)
+2026-10-01T07:05:50.1812216Z Updating files:  89% (8086/9085)
+2026-10-01T07:05:50.2174580Z Updating files:  89% (8163/9085)
+2026-10-01T07:05:50.5605764Z Updating files:  90% (8177/9085)
+2026-10-01T07:05:50.8037140Z Updating files:  91% (8268/9085)
+2026-10-01T07:05:50.9237421Z Updating files:  92% (8359/9085)
+2026-10-01T07:05:50.9769642Z Updating files:  93% (8450/9085)
+2026-10-01T07:05:51.0160560Z Updating files:  94% (8540/9085)
+2026-10-01T07:05:51.1495149Z Updating files:  95% (8631/9085)
+2026-10-01T07:05:51.1664844Z Updating files:  96% (8722/9085)
+2026-10-01T07:05:51.2770178Z Updating files:  96% (8735/9085)
+2026-10-01T07:05:51.3520157Z Updating files:  97% (8813/9085)
+2026-10-01T07:05:51.6615955Z Updating files:  98% (8904/9085)
+2026-10-01T07:05:51.9475585Z Updating files:  99% (8995/9085)
+2026-10-01T07:05:51.9476290Z Updating files: 100% (9085/9085)
+2026-10-01T07:05:51.9476756Z Updating files: 100% (9085/9085), done.
+2026-10-01T07:05:51.9573115Z Switched to a new branch 'steward/t1766-canal-grocery-workshops'
+2026-10-01T07:05:51.9580533Z branch 'steward/t1766-canal-grocery-workshops' set up to track 'origin/steward/t1766-canal-grocery-workshops'.
+2026-10-01T07:05:51.9748503Z ##[endgroup]
+2026-10-01T07:05:51.9796808Z [command]/usr/bin/git log -1 --format=%H
+2026-10-01T07:05:51.9822124Z ef515fab75dd9d989faa7ce6ee0fc09546aff7f5
+2026-10-01T07:05:52.0090967Z ##[group]Run actions/setup-node@v4
+2026-10-01T07:05:52.0091275Z with:
+2026-10-01T07:05:52.0091588Z   node-version: 22
+2026-10-01T07:05:52.0091823Z   always-auth: false
+2026-10-01T07:05:52.0092081Z   check-latest: false
+2026-10-01T07:05:52.0094755Z   token: ***
+2026-10-01T07:05:52.0094971Z ##[endgroup]
+2026-10-01T07:05:52.1531489Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-01T07:05:52.1536407Z (node:2358) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T07:05:52.1537464Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T07:05:52.1538970Z ##[group]Environment details
+2026-10-01T07:05:52.5817856Z node: v22.23.3
+2026-10-01T07:05:52.5818306Z npm: 10.9.9
+2026-10-01T07:05:52.5818632Z yarn: 1.22.22
+2026-10-01T07:05:52.5819593Z ##[endgroup]
+2026-10-01T07:05:52.5949034Z ##[group]Run set -e
+2026-10-01T07:05:52.5949351Z [36;1mset -e[0m
+2026-10-01T07:05:52.5949601Z [36;1mnpm install -g playwright@1.56.1[0m
+2026-10-01T07:05:52.5950044Z [36;1mnode "$(npm root -g)/playwright/cli.js" install --with-deps chromium[0m
+2026-10-01T07:05:52.6271117Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:05:52.6271690Z ##[endgroup]
+2026-10-01T07:05:54.5874861Z 
+2026-10-01T07:05:54.5885082Z added 2 packages in 2s
+2026-10-01T07:05:55.2779342Z Installing dependencies...
+2026-10-01T07:05:55.2844451Z Switching to root user to install dependencies...
+2026-10-01T07:05:55.3635434Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T07:05:55.3956778Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-01T07:05:55.3989884Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-01T07:05:55.4012077Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-01T07:05:55.4022423Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-01T07:05:55.4056257Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-01T07:05:55.5242147Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1342 kB]
+2026-10-01T07:05:55.5376654Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [302 kB]
+2026-10-01T07:05:55.5405626Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+2026-10-01T07:05:55.5411036Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1699 kB]
+2026-10-01T07:05:55.5515309Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [341 kB]
+2026-10-01T07:05:55.5531154Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+2026-10-01T07:05:55.5556804Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1697 kB]
+2026-10-01T07:05:55.5715043Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [388 kB]
+2026-10-01T07:05:55.5739966Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-10-01T07:05:55.5790183Z Get:16 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [509 kB]
+2026-10-01T07:05:55.5902332Z Get:17 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [456 kB]
+2026-10-01T07:05:55.6235535Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+2026-10-01T07:05:55.6697037Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+2026-10-01T07:05:55.6705715Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1066 kB]
+2026-10-01T07:05:55.6776634Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [220 kB]
+2026-10-01T07:05:55.6795895Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [46.4 kB]
+2026-10-01T07:05:55.6802868Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1216 kB]
+2026-10-01T07:05:55.6865691Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [244 kB]
+2026-10-01T07:05:55.6882985Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+2026-10-01T07:05:55.6905335Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1566 kB]
+2026-10-01T07:05:55.6965278Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [361 kB]
+2026-10-01T07:06:00.8763385Z Fetched 12.5 MB in 1s (9469 kB/s)
+2026-10-01T07:06:01.7121417Z Reading package lists...
+2026-10-01T07:06:01.7361350Z Reading package lists...
+2026-10-01T07:06:01.9168473Z Building dependency tree...
+2026-10-01T07:06:01.9176424Z Reading state information...
+2026-10-01T07:06:02.0519311Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-01T07:06:02.0520223Z libasound2t64 set to manually installed.
+2026-10-01T07:06:02.0521212Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:06:02.0522063Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-01T07:06:02.0523117Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:06:02.0523874Z libatk1.0-0t64 set to manually installed.
+2026-10-01T07:06:02.0524896Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T07:06:02.0525695Z libatspi2.0-0t64 set to manually installed.
+2026-10-01T07:06:02.0526584Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-01T07:06:02.0527357Z libcairo2 set to manually installed.
+2026-10-01T07:06:02.0528618Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-01T07:06:02.0529337Z libcups2t64 set to manually installed.
+2026-10-01T07:06:02.0530036Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-01T07:06:02.0530718Z libdbus-1-3 set to manually installed.
+2026-10-01T07:06:02.0531171Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-01T07:06:02.0531584Z libdrm2 set to manually installed.
+2026-10-01T07:06:02.0531995Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-01T07:06:02.0532410Z libglib2.0-0t64 set to manually installed.
+2026-10-01T07:06:02.0532827Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-01T07:06:02.0533225Z libnspr4 set to manually installed.
+2026-10-01T07:06:02.0533619Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-01T07:06:02.0534094Z libnss3 set to manually installed.
+2026-10-01T07:06:02.0535033Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-01T07:06:02.0535562Z libpango-1.0-0 set to manually installed.
+2026-10-01T07:06:02.0535980Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-01T07:06:02.0536437Z libx11-6 set to manually installed.
+2026-10-01T07:06:02.0536821Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-01T07:06:02.0537182Z libxcb1 set to manually installed.
+2026-10-01T07:06:02.0537589Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-01T07:06:02.0538022Z libxcomposite1 set to manually installed.
+2026-10-01T07:06:02.0538449Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-01T07:06:02.0539022Z libxdamage1 set to manually installed.
+2026-10-01T07:06:02.0539662Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-01T07:06:02.0540047Z libxext6 set to manually installed.
+2026-10-01T07:06:02.0540470Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-01T07:06:02.0540885Z libxfixes3 set to manually installed.
+2026-10-01T07:06:02.0541320Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-01T07:06:02.0541927Z libxkbcommon0 set to manually installed.
+2026-10-01T07:06:02.0542764Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-01T07:06:02.0543572Z libxrandr2 set to manually installed.
+2026-10-01T07:06:02.0545250Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-01T07:06:02.0545884Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-01T07:06:02.0546479Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-01T07:06:02.0546907Z libfontconfig1 set to manually installed.
+2026-10-01T07:06:02.0547363Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.1).
+2026-10-01T07:06:02.0547922Z libfreetype6 set to manually installed.
+2026-10-01T07:06:02.0548683Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-01T07:06:02.0549420Z fonts-liberation set to manually installed.
+2026-10-01T07:06:02.0550026Z The following additional packages will be installed:
+2026-10-01T07:06:02.0550666Z   libgl1-mesa-dri libglx-mesa0 libwayland-server0 mesa-libgallium
+2026-10-01T07:06:02.0551080Z   xfonts-encodings xfonts-utils
+2026-10-01T07:06:02.0551559Z Recommended packages:
+2026-10-01T07:06:02.0551843Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-01T07:06:02.0740101Z The following NEW packages will be installed:
+2026-10-01T07:06:02.0740951Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-01T07:06:02.0745796Z   fonts-wqy-zenhei libwayland-server0 xfonts-cyrillic xfonts-encodings
+2026-10-01T07:06:02.0746624Z   xfonts-scalable xfonts-utils
+2026-10-01T07:06:02.0749752Z The following packages will be upgraded:
+2026-10-01T07:06:02.0754023Z   libgbm1 libgl1-mesa-dri libglx-mesa0 mesa-libgallium
+2026-10-01T07:06:02.0917148Z 4 upgraded, 10 newly installed, 0 to remove and 19 not upgraded.
+2026-10-01T07:06:02.0917873Z Need to get 32.1 MB of archives.
+2026-10-01T07:06:02.0918328Z After this operation, 79.7 MB of additional disk space will be used.
+2026-10-01T07:06:02.0919580Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T07:06:02.1341175Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-01T07:06:02.3145095Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-01T07:06:02.6240674Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-01T07:06:02.6477641Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-01T07:06:02.7914780Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-01T07:06:03.0712787Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgl1-mesa-dri amd64 25.2.8-0ubuntu0.24.04.3 [37.9 kB]
+2026-10-01T07:06:03.0903451Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libwayland-server0 amd64 1.22.0-2.1build1 [33.9 kB]
+2026-10-01T07:06:03.1140167Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglx-mesa0 amd64 25.2.8-0ubuntu0.24.04.3 [110 kB]
+2026-10-01T07:06:03.1367865Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgbm1 amd64 25.2.8-0ubuntu0.24.04.3 [34.3 kB]
+2026-10-01T07:06:03.1605642Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 mesa-libgallium amd64 25.2.8-0ubuntu0.24.04.3 [10.8 MB]
+2026-10-01T07:06:03.4187963Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-01T07:06:03.4478399Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-01T07:06:03.4671380Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-01T07:06:03.4930757Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-01T07:06:03.7450839Z Fetched 32.1 MB in 1s (22.7 MB/s)
+2026-10-01T07:06:03.7722763Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-01T07:06:03.8059956Z (Reading database ... 
+2026-10-01T07:06:03.8060668Z (Reading database ... 5%
+2026-10-01T07:06:03.8061443Z (Reading database ... 10%
+2026-10-01T07:06:03.8061923Z (Reading database ... 15%
+2026-10-01T07:06:03.8062380Z (Reading database ... 20%
+2026-10-01T07:06:03.8062690Z (Reading database ... 25%
+2026-10-01T07:06:03.8062984Z (Reading database ... 30%
+2026-10-01T07:06:03.8063276Z (Reading database ... 35%
+2026-10-01T07:06:03.8063718Z (Reading database ... 40%
+2026-10-01T07:06:03.8064624Z (Reading database ... 45%
+2026-10-01T07:06:03.8065225Z (Reading database ... 50%
+2026-10-01T07:06:03.8120900Z (Reading database ... 55%
+2026-10-01T07:06:03.8970158Z (Reading database ... 60%
+2026-10-01T07:06:04.1371610Z (Reading database ... 65%
+2026-10-01T07:06:04.3395307Z (Reading database ... 70%
+2026-10-01T07:06:04.4918754Z (Reading database ... 75%
+2026-10-01T07:06:04.6409344Z (Reading database ... 80%
+2026-10-01T07:06:04.7452017Z (Reading database ... 85%
+2026-10-01T07:06:04.8560159Z (Reading database ... 90%
+2026-10-01T07:06:04.9372584Z (Reading database ... 95%
+2026-10-01T07:06:04.9373138Z (Reading database ... 100%
+2026-10-01T07:06:04.9373908Z (Reading database ... 202296 files and directories currently installed.)
+2026-10-01T07:06:04.9415832Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-01T07:06:04.9506553Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T07:06:05.1760062Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-01T07:06:05.1885638Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-01T07:06:05.1894480Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T07:06:05.2681401Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-01T07:06:05.2806351Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-01T07:06:05.2813902Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T07:06:05.3022057Z Selecting previously unselected package fonts-unifont.
+2026-10-01T07:06:05.3146036Z Preparing to unpack .../03-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-01T07:06:05.3154194Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T07:06:05.4193609Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-01T07:06:05.4320718Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-01T07:06:05.4417718Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T07:06:05.9079983Z Preparing to unpack .../05-libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:06:05.9226963Z Unpacking libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:06:05.9641164Z Selecting previously unselected package libwayland-server0:amd64.
+2026-10-01T07:06:05.9770065Z Preparing to unpack .../06-libwayland-server0_1.22.0-2.1build1_amd64.deb ...
+2026-10-01T07:06:05.9789534Z Unpacking libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T07:06:06.0124826Z Preparing to unpack .../07-libglx-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:06:06.0152193Z Unpacking libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:06:06.0559937Z Preparing to unpack .../08-libgbm1_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:06:06.0591484Z Unpacking libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:06:06.0977493Z Preparing to unpack .../09-mesa-libgallium_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T07:06:06.1003371Z Unpacking mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T07:06:06.2720806Z Selecting previously unselected package xfonts-encodings.
+2026-10-01T07:06:06.2849158Z Preparing to unpack .../10-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-01T07:06:06.2855574Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T07:06:06.3125661Z Selecting previously unselected package xfonts-utils.
+2026-10-01T07:06:06.3251230Z Preparing to unpack .../11-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-01T07:06:06.3258147Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-01T07:06:06.3623268Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-01T07:06:06.3749792Z Preparing to unpack .../12-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-01T07:06:06.3758312Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T07:06:06.4092047Z Selecting previously unselected package xfonts-scalable.
+2026-10-01T07:06:06.4216087Z Preparing to unpack .../13-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-01T07:06:06.4225001Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T07:06:06.4649150Z Setting up libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T07:06:06.4669439Z Setting up mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:06:06.4687990Z Setting up libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:06:06.4708879Z Setting up libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:06:06.4781013Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T07:06:06.4889313Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T07:06:06.4906739Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T07:06:06.4923991Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T07:06:06.4940560Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T07:06:06.5003899Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-01T07:06:06.5039134Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T07:06:06.5057955Z Setting up libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T07:06:06.5076066Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-01T07:06:06.5114210Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T07:06:06.5402887Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T07:06:06.5666199Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-01T07:06:06.5997351Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-01T07:06:06.6018447Z Not building database; man-db/auto-update is not 'true'.
+2026-10-01T07:06:06.6028943Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-01T07:06:07.3486391Z 
+2026-10-01T07:06:07.3487167Z Running kernel seems to be up-to-date.
+2026-10-01T07:06:07.3487671Z 
+2026-10-01T07:06:07.3487980Z No services need to be restarted.
+2026-10-01T07:06:07.3488336Z 
+2026-10-01T07:06:07.3488589Z No containers need to be restarted.
+2026-10-01T07:06:07.3488845Z 
+2026-10-01T07:06:07.3489109Z No user sessions are running outdated binaries.
+2026-10-01T07:06:07.3489426Z 
+2026-10-01T07:06:07.3489841Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-01T07:06:08.1947643Z Downloading Chromium 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-linux.zip
+2026-10-01T07:06:08.3504641Z |                                                                                |   0% of 173.9 MiB
+2026-10-01T07:06:08.4915430Z |■■■■■■■■                                                                        |  10% of 173.9 MiB
+2026-10-01T07:06:08.5726552Z |■■■■■■■■■■■■■■■■                                                                |  20% of 173.9 MiB
+2026-10-01T07:06:08.6504819Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 173.9 MiB
+2026-10-01T07:06:08.7149231Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 173.9 MiB
+2026-10-01T07:06:08.7765880Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 173.9 MiB
+2026-10-01T07:06:08.8399952Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 173.9 MiB
+2026-10-01T07:06:08.9005731Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 173.9 MiB
+2026-10-01T07:06:08.9592170Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 173.9 MiB
+2026-10-01T07:06:09.0275991Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 173.9 MiB
+2026-10-01T07:06:09.0945242Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 173.9 MiB
+2026-10-01T07:06:12.6172112Z Chromium 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium-1194
+2026-10-01T07:06:12.6175568Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-01T07:06:12.7740090Z |                                                                                |   0% of 2.3 MiB
+2026-10-01T07:06:12.7865017Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-01T07:06:12.7958860Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-01T07:06:12.8018140Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-01T07:06:12.8071429Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-01T07:06:12.8096315Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-01T07:06:12.8129951Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-01T07:06:12.8151365Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-01T07:06:12.8174701Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-01T07:06:12.8207996Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-01T07:06:12.8224036Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-01T07:06:12.8825483Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-01T07:06:12.8829161Z Downloading Chromium Headless Shell 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux.zip
+2026-10-01T07:06:13.0374497Z |                                                                                |   0% of 104.3 MiB
+2026-10-01T07:06:13.1430010Z |■■■■■■■■                                                                        |  10% of 104.3 MiB
+2026-10-01T07:06:13.2022947Z |■■■■■■■■■■■■■■■■                                                                |  20% of 104.3 MiB
+2026-10-01T07:06:13.2529884Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 104.3 MiB
+2026-10-01T07:06:13.3048597Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 104.3 MiB
+2026-10-01T07:06:13.3461359Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 104.3 MiB
+2026-10-01T07:06:13.3864385Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 104.3 MiB
+2026-10-01T07:06:13.4311188Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 104.3 MiB
+2026-10-01T07:06:13.4705471Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 104.3 MiB
+2026-10-01T07:06:13.5119410Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 104.3 MiB
+2026-10-01T07:06:13.5485463Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 104.3 MiB
+2026-10-01T07:06:15.4141476Z Chromium Headless Shell 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1194
+2026-10-01T07:06:15.5009485Z ##[group]Run bash tools/publish.sh
+2026-10-01T07:06:15.5009834Z [36;1mbash tools/publish.sh[0m
+2026-10-01T07:06:15.5074094Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:06:15.5074643Z ##[endgroup]
+2026-10-01T07:06:16.4205090Z Glessner v4 package verified; 3 missing GLB(s) materialized.
+2026-10-01T07:06:17.0813237Z shipped derivatives: 501 pair(s) carry the master's triangles, node identity and contract attributes; worst bounding-box disagreement 2.68 of 4 rungs; 0 asset(s) lose their material identity to the publish path (banked, K36(b)); 4 master passthrough(s), all of them decided (K38); and every one of them records the master it was made from, which is still the master in the tree (K39)
+2026-10-01T07:06:17.1364572Z Prairie Avenue browser published: /home/runner/work/chicago/chicago/site/4d/prairie-1904
+2026-10-01T07:06:17.2193816Z published 15 map images + viewer + media to site/pre-fire
+2026-10-01T07:06:17.2898618Z    changelog.js published to site/4d/js/changelog.js (T-0722)
+2026-10-01T07:06:17.3298369Z    changelog.js published to site/4d/walk/js/changelog.js (T-0722)
+2026-10-01T07:06:18.6873051Z tickets: cloned https://github.com/kevinrhaas/chicago-tickets.git → tickets/ (1661 tickets)
+2026-10-01T07:06:20.0734084Z entry pages: index.html, 1812/index.html, 1835/index.html, 1880/index.html, 1904/index.html
+2026-10-01T07:06:20.0801654Z    build ef515fa  Oct 1, 2026, 2:06 AM CT
+2026-10-01T07:06:20.1338971Z published ../../site/4d  (57.03 MB)
+2026-10-01T07:06:20.1387675Z ##[group]Run node tools/smoke_renderer.mjs --published
+2026-10-01T07:06:20.1388135Z [36;1mnode tools/smoke_renderer.mjs --published[0m
+2026-10-01T07:06:20.1449912Z shell: /usr/bin/bash -e {0}
+2026-10-01T07:06:20.1450211Z env:
+2026-10-01T07:06:20.1450443Z   SMOKE_VIEWPORT: desktop
+2026-10-01T07:06:20.1450729Z   SMOKE_STAGE: 3-6
+2026-10-01T07:06:20.1451004Z ##[endgroup]
+2026-10-01T07:06:20.5505491Z serving /home/runner/work/chicago/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+2026-10-01T07:06:20.5506210Z 
+2026-10-01T07:06:20.5507092Z NOT THE FULL GATE — viewports filtered to "desktop"
+2026-10-01T07:06:20.5507455Z 
+2026-10-01T07:06:20.5508413Z NOT THE FULL GATE — stages filtered to "3-6" of 13
+2026-10-01T07:06:20.5508885Z 
+2026-10-01T07:06:20.5509148Z desktop 1280x800:
+2026-10-01T07:06:21.1175508Z   pass  desktop 1280x800: page serves
+2026-10-01T07:06:48.2905574Z   pass  desktop 1280x800: scene reaches ready
+2026-10-01T07:06:54.8335956Z   pass  desktop 1280x800: the scene declares its exact consultation blockers
+2026-10-01T07:06:54.8339946Z   pass  desktop 1280x800: no unexpected loader problems
+2026-10-01T07:06:54.8381421Z   pass  desktop 1280x800: scene has structures
+2026-10-01T07:06:54.8415367Z   pass  desktop 1280x800: every structure that should draw, drew
+2026-10-01T07:06:54.9059270Z   pass  desktop 1280x800: no ground tile faces away from the sky
+2026-10-01T07:06:54.9060764Z   pass  desktop 1280x800: no ground vertex faces downward
+2026-10-01T07:06:54.9061789Z   pass  desktop 1280x800: the terrain and river report no load problems
+2026-10-01T07:06:58.2875942Z   pass  desktop 1280x800: the drawn ground matches the heightfield the town anchors to
+2026-10-01T07:06:58.2884738Z   pass  desktop 1280x800: the ground was conformed to the field, with nothing left over
+2026-10-01T07:07:36.3106857Z   pass  desktop 1280x800: an evidence-only household's head is a person a source names
+2026-10-01T07:07:36.3112258Z   pass  desktop 1280x800: nothing was drawn into an evidence-only household
+2026-10-01T07:07:36.3113774Z   pass  desktop 1280x800: the manifest's reconstructed count is the layer the records hold
+2026-10-01T07:07:36.3147196Z   pass  desktop 1280x800: every reconstructed person carries its stage, basis, seed and replacement
+2026-10-01T07:07:36.3148412Z   pass  desktop 1280x800: the household is named for its head and still says which layer it is
+2026-10-01T07:07:39.4399728Z   pass  desktop 1280x800: no building's name claims a grade its own record does not
+2026-10-01T07:07:39.4405464Z   pass  desktop 1280x800: that check still catches the fault when it is put back
+2026-10-01T07:07:45.7391003Z   pass  desktop 1280x800: no building titles itself by its part number
+2026-10-01T07:07:45.7391769Z   pass  desktop 1280x800: the naming rule titles a house for its people and an empty one plainly
+2026-10-01T07:07:45.7392521Z   pass  desktop 1280x800: the card shows that title and keeps the reference below it
+2026-10-01T07:07:45.7393280Z   pass  desktop 1280x800: search still finds a roof by its part number and a house by its household
+2026-10-01T07:08:28.6839866Z   pass  desktop 1280x800: hiding a level removes it from the view
+2026-10-01T07:08:28.6841781Z   pass  desktop 1280x800: hiding works with the colouring switched off
+2026-10-01T07:08:28.6843914Z   pass  desktop 1280x800: a hidden level is marked on the control and remembered
+2026-10-01T07:08:28.6887057Z   pass  desktop 1280x800: the control counts each level against the loaded town
+2026-10-01T07:08:44.0503161Z   pass  desktop 1280x800: pick('sauganash_hotel') opens the popup
+2026-10-01T07:08:44.0505612Z   pass  desktop 1280x800: popup carries a real citation
+2026-10-01T07:08:44.0506616Z   pass  desktop 1280x800: popup shows per-attribute confidence
+2026-10-01T07:08:47.2170123Z   pass  desktop 1280x800: every citation says what rung it is on
+2026-10-01T07:08:47.2171272Z   pass  desktop 1280x800: the rung belongs to its own citation
+2026-10-01T07:08:50.3686491Z   pass  desktop 1280x800: a citation says what document it reprints
+2026-10-01T07:08:50.3695408Z   pass  desktop 1280x800: a source that IS its document reprints nothing
+2026-10-01T07:08:50.3727283Z   pass  desktop 1280x800: a source states what it does not supply
+2026-10-01T07:08:53.5291283Z   pass  desktop 1280x800: the card's dossier link leaves the payload it is not in
+2026-10-01T07:08:53.5292657Z   pass  desktop 1280x800: a building with no dossier written offers no dossier link
+2026-10-01T07:08:59.8800596Z   pass  desktop 1280x800: an attested feature the model omits says so on its row
+2026-10-01T07:08:59.8801701Z   pass  desktop 1280x800: the documented wolf sign is built and its row is unmarked
+2026-10-01T07:08:59.8802730Z   pass  desktop 1280x800: a value a fixed default stands in for is marked differently
+2026-10-01T07:08:59.8803742Z   pass  desktop 1280x800: the recorded chimney count is built, so its row is unmarked
+2026-10-01T07:08:59.8805036Z   pass  desktop 1280x800: an attribute the generator builds carries no marker
+2026-10-01T07:08:59.8806322Z   pass  desktop 1280x800: a reading recorded but never a build instruction is not marked
+2026-10-01T07:09:03.1416003Z   pass  desktop 1280x800: the popup carries the liberties taken with this building
+2026-10-01T07:09:03.1417441Z   pass  desktop 1280x800: it shows the reasoning, not just the admission
+2026-10-01T07:09:03.1418667Z   pass  desktop 1280x800: another building gets its own liberties, not the whole list
+2026-10-01T07:09:03.1419986Z   pass  desktop 1280x800: a scene-wide liberty is not attached to a building
+2026-10-01T07:09:06.3038820Z   pass  desktop 1280x800: popup liberties start collapsed on their own pane and open on demand
+2026-10-01T07:09:06.3040562Z   pass  desktop 1280x800: the compiled agencies still carry a refused holding on a roof
+2026-10-01T07:09:06.3041809Z   pass  desktop 1280x800: the compiled agencies still put Hubbard & Co.'s holding on a roof
+2026-10-01T07:09:09.4659545Z   pass  desktop 1280x800: the card names the agency this house held, and its principal
+2026-10-01T07:09:09.4660787Z   pass  desktop 1280x800: it dates the holding by its printings and calls them printings
+2026-10-01T07:09:09.4661765Z   pass  desktop 1280x800: the holding cites the printings it rests on
+2026-10-01T07:09:09.4662494Z   pass  desktop 1280x800: the card says a holding is only a holding
+2026-10-01T07:09:09.4665427Z   pass  desktop 1280x800: a refused holding is on the card of the house it was refused for
+2026-10-01T07:09:09.4667513Z   pass  desktop 1280x800: a house that held no agency says nothing about one
+2026-10-01T07:09:12.6798648Z   pass  desktop 1280x800: the card says whether the building was here on the scene date
+2026-10-01T07:09:12.6825301Z   pass  desktop 1280x800: the presence claim is graded per building, not stamped
+2026-10-01T07:09:12.6855153Z   pass  desktop 1280x800: the presence claim carries its reasoning, folded away
+2026-10-01T07:09:12.6885421Z   pass  desktop 1280x800: the phase's own account of itself leads the card
+2026-10-01T07:09:12.6891355Z   pass  desktop 1280x800: a record without an account gets a lead composed from its function and location, marked as composed
+2026-10-01T07:09:15.8140758Z   pass  desktop 1280x800: the position's reasoning opens on demand
+2026-10-01T07:09:23.0641171Z   pass  desktop 1280x800: the card says how much of the shape is evidence
+2026-10-01T07:09:23.0642580Z   pass  desktop 1280x800: the footprint's reasoning is the record's, verbatim
+2026-10-01T07:09:23.0643964Z   pass  desktop 1280x800: and prints no dimension it would have had to invent
+2026-10-01T07:09:32.1031779Z   pass  desktop 1280x800: every graded claim in a record reaches the card as a chip
+2026-10-01T07:09:35.2453074Z   pass  desktop 1280x800: the facts carry grade dots, not chips
+2026-10-01T07:09:44.6836800Z   pass  desktop 1280x800: the card's per-level summary is a partition of its own claims
+2026-10-01T07:09:44.6838234Z   pass  desktop 1280x800: and it says what is NOT there, per building rather than stamped
+2026-10-01T07:09:44.6839883Z   pass  desktop 1280x800: a source on an invention is named as a bound, not as attribution
+2026-10-01T07:09:44.6841131Z   pass  desktop 1280x800: and separates what is attested from what is actually built
+2026-10-01T07:09:44.6842325Z   pass  desktop 1280x800: the summary defines each level in the Evidence panel's own words
+2026-10-01T07:09:47.8883229Z   pass  desktop 1280x800: established assets remain identified as real bakes
+2026-10-01T07:09:47.8884965Z   pass  desktop 1280x800: anonymous infill is visibly flagged as a reconstruction
+2026-10-01T07:09:47.8886307Z   pass  desktop 1280x800: that flag names the grade the record itself carries
+2026-10-01T07:09:47.8887629Z   pass  desktop 1280x800: the placeholder label agrees with the asset it describes
+2026-10-01T07:09:47.8888961Z   pass  desktop 1280x800: and a real bake told it is a stand-in is caught saying so
+2026-10-01T07:09:51.1495502Z   pass  desktop 1280x800: every held building says so on its card
+2026-10-01T07:09:51.1559595Z   pass  desktop 1280x800: and says what it is held for, in the record's own words
+2026-10-01T07:09:51.1565516Z   pass  desktop 1280x800: and a building that is not held does not claim to be
+2026-10-01T07:09:54.3166832Z   pass  desktop 1280x800: the record's own account reaches the card
+2026-10-01T07:09:54.3174542Z   pass  desktop 1280x800: it is the record's words, unabridged
+2026-10-01T07:09:54.3175653Z   pass  desktop 1280x800: another building gets its own account, not this one's
+2026-10-01T07:09:57.4665732Z   pass  desktop 1280x800: a building names the household the sources put in it
+2026-10-01T07:09:57.4671705Z   pass  desktop 1280x800: a person's grade is shown, and it is not a confidence chip
+2026-10-01T07:09:57.4673212Z   pass  desktop 1280x800: a building's household says on the card why it is attached there
+2026-10-01T07:09:57.4674710Z   pass  desktop 1280x800: a building with no household gets no section at all
+2026-10-01T07:10:00.6239629Z   pass  desktop 1280x800: the account starts collapsed on the Record pane and opens on demand
+2026-10-01T07:10:03.7819041Z   pass  desktop 1280x800: the card reads head, lead, facts, tabs, pane — in that order
+2026-10-01T07:10:03.7820345Z   pass  desktop 1280x800: the card opens on its Evidence pane with the other two folded
+2026-10-01T07:10:03.7821363Z   pass  desktop 1280x800: each moved section lives in the pane named for it
+2026-10-01T07:10:03.7822360Z   pass  desktop 1280x800: Hogan's facts say it was standing, from the year its record gives
+2026-10-01T07:10:07.0136387Z   pass  desktop 1280x800: a plain boot asks for no structure version and shows none (T-1727)
+2026-10-01T07:10:44.2306239Z   pass  desktop 1280x800: ?structure=bates_auction_room&version=fixture reaches ready (T-1727)
+2026-10-01T07:10:54.2876046Z   pass  desktop 1280x800: the version boot loads the fixture's own sidecar and mesh for that one structure (T-1727)
+2026-10-01T07:10:54.2895412Z   pass  desktop 1280x800: …and every other structure is the same record, the same mesh, in the same place (T-1727)
+2026-10-01T07:10:54.2897186Z   pass  desktop 1280x800: …the fixture stands exactly where the default did, as its identical record says (T-1727)
+2026-10-01T07:10:54.2898646Z   pass  desktop 1280x800: the HUD and the card both name the version, so two screenshots cannot be confused (T-1727)
+2026-10-01T07:11:31.2355982Z   pass  desktop 1280x800: the default address boots again after the version (T-1727)
+2026-10-01T07:11:44.5994467Z   pass  desktop 1280x800: raycast down the crosshair resolves a structure_id
+2026-10-01T07:12:09.2248714Z   pass  desktop 1280x800: walk intent moves the camera
+2026-10-01T07:12:15.7324503Z   pass  desktop 1280x800: walking stays exactly on the terrain through rises and falls
+2026-10-01T07:12:21.7720487Z   pass  desktop 1280x800: the walker is pushed out of a building footprint
+2026-10-01T07:12:35.0912645Z   pass  desktop 1280x800: the North Branch bridge has a walkable deck
+2026-10-01T07:12:35.0924560Z   pass  desktop 1280x800: the walker crosses the bridge end to end on its deck
+2026-10-01T07:12:35.0926436Z   pass  desktop 1280x800: the deck, not the wading barrier, is what holds the walker up
+2026-10-01T07:12:35.0927516Z   pass  desktop 1280x800: and walks off the far end onto the bank
+2026-10-01T07:12:43.0925046Z   pass  desktop 1280x800: a walker on the bank climbs the approach onto the deck
+2026-10-01T07:12:55.3465812Z   pass  desktop 1280x800: the scene's draw-call ceiling is the one this gate was written against
+2026-10-01T07:12:55.3485139Z   pass  desktop 1280x800: draw calls under budget at the reference stand
+2026-10-01T07:12:55.3505004Z   pass  desktop 1280x800: triangles under budget at the reference stand
+2026-10-01T07:12:55.3545484Z         123 draw calls · 1016832 tris · 3 batch(es) · 497 structure(s) · 7427 KB of GLB · 0 fps
+2026-10-01T07:13:00.4695442Z   pass  desktop 1280x800: the rendered ground covers the whole heightfield
+2026-10-01T07:13:00.4708957Z   pass  desktop 1280x800: no structure is collapsed to the quantisation clamp
+2026-10-01T07:13:00.4710876Z   pass  desktop 1280x800: every structure is rendered at a believable size
+2026-10-01T07:13:00.4711931Z   pass  desktop 1280x800: the Sauganash is rendered as its two-mass plan
+2026-10-01T07:13:05.7885653Z   pass  desktop 1280x800: no building hovers above the ground beneath it
+2026-10-01T07:13:05.7905292Z   pass  desktop 1280x800: rendered height matches the documented wall height
+2026-10-01T07:26:31.5682636Z   pass  desktop 1280x800: scene detail 'full' stays inside its own ceiling at the WORST stand
+2026-10-01T07:26:31.5686601Z   pass  desktop 1280x800: scene detail 'balanced' stays inside its own ceiling at the WORST stand
+2026-10-01T07:26:31.5688165Z   pass  desktop 1280x800: scene detail 'light' stays inside its own ceiling at the WORST stand
+2026-10-01T07:26:31.5689477Z   pass  desktop 1280x800: draw calls under budget at the town's WORST frame
+2026-10-01T07:26:31.5690785Z   pass  desktop 1280x800: turning scene detail down actually draws less, at every stand
+2026-10-01T07:26:31.5692173Z   pass  desktop 1280x800: the light tier draws inside its 90-call floor at the worst stand
+2026-10-01T07:26:31.5693620Z   pass  desktop 1280x800: the light tier stays materially cheaper than full at the worst stand
+2026-10-01T07:26:31.5695135Z   pass  desktop 1280x800: the level the visitor started on is restored
+2026-10-01T07:26:31.5696643Z   pass  desktop 1280x800: the light tier draws no furniture into the shadow map, and only the ground-hugging timber is exempt above it
+2026-10-01T07:26:31.5699326Z   pass  desktop 1280x800: the furniture reach is a ladder — full holds nothing back, and each rung below reaches less far
+2026-10-01T07:26:31.5701074Z   pass  desktop 1280x800: the far merge gives back draw calls down the axial street and moves no triangle doing it
+2026-10-01T07:26:31.5702539Z   pass  desktop 1280x800: the light tier holds furniture back down the axial street
+2026-10-01T07:26:31.5704029Z   pass  desktop 1280x800: the furniture reach is what makes the light tier cheaper down that street
+2026-10-01T07:26:31.5705683Z   pass  desktop 1280x800: the balanced tier holds furniture back down the axial street
+2026-10-01T07:26:31.5707104Z   pass  desktop 1280x800: the furniture reach is what makes the balanced tier cheaper down that street
+2026-10-01T07:26:31.5708472Z   pass  desktop 1280x800: the light tier's shorter shadow reach costs no texel
+2026-10-01T07:26:31.5711004Z         detail  full 1016832/1460000 (123 calls, ±240 m, 144/197 furniture casting)  ·  balanced 938651/1280000 (123 calls, ±240 m, 144/197 furniture casting)  ·  light 609866/825000 (74 calls, ±120 m, 0/197 furniture casting)
+2026-10-01T07:26:31.5713761Z         full      worst   1,424,307 tris of 1,460,000 at Lake Street at Canal, east down the axis  ·  worst  201 calls at Lake Street at Canal, east down the axis
+2026-10-01T07:26:31.5716322Z         balanced  worst   1,226,906 tris of 1,280,000 at Lake Street at Canal, east down the axis  ·  worst  186 calls at Lake Street at Canal, east down the axis
+2026-10-01T07:26:31.5718725Z         light     worst     807,664 tris of 825,000 at the open aerial  ·  worst   84 calls at Lake and Market, the corner itself
+2026-10-01T07:28:10.0771784Z   pass  desktop 1280x800: tap-to-start reveals the walkthrough
+2026-10-01T07:28:10.0773095Z   pass  desktop 1280x800: first entry shows the navigation guide for the active input mode
+2026-10-01T07:28:10.0774157Z   pass  desktop 1280x800: no horizontal overflow
+2026-10-01T07:28:47.5759386Z   pass  desktop 1280x800: the navigation guide dismisses and remembers the choice
+2026-10-01T07:29:58.4067743Z   pass  desktop 1280x800: a level checkbox takes the click and the menu stays open
+2026-10-01T07:31:07.5463353Z   pass  desktop 1280x800: reset restores every level and the caret shuts the menu
+2026-10-01T07:31:07.5465294Z   pass  desktop 1280x800: the suite body ran to completion
+2026-10-01T07:31:07.5475251Z   pass  desktop 1280x800: zero page errors
+2026-10-01T07:31:07.6726710Z 
+2026-10-01T07:31:08.0325599Z   pass  vendor: meshopt decoder loads and reports supported
+2026-10-01T07:31:08.0326768Z   pass  vendor: meshopt import raises no page error
+2026-10-01T07:31:08.0668429Z 
+2026-10-01T07:31:08.0668952Z 142 passed, 0 failed
+2026-10-01T07:31:08.0669560Z 132 staged-section check(s) (stage 3-6 of 13), 10 always-on check(s)
+2026-10-01T07:31:08.0670596Z 24 m 48 s for stage 3-6 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+2026-10-01T07:31:08.0671079Z SMOKE PASS
+2026-10-01T07:31:08.1002905Z Post job cleanup.
+2026-10-01T07:31:08.2219836Z (node:3839) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T07:31:08.2221239Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T07:31:08.2480936Z Post job cleanup.
+2026-10-01T07:31:08.3371664Z [command]/usr/bin/git version
+2026-10-01T07:31:08.3412246Z git version 2.55.0
+2026-10-01T07:31:08.3450435Z Temporarily overriding HOME='/home/runner/work/_temp/565e5e62-c74d-404d-8d9e-1564a5a185fc' before making global git config changes
+2026-10-01T07:31:08.3451998Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T07:31:08.3455841Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T07:31:08.3493293Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T07:31:08.3526405Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T07:31:08.3771961Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T07:31:08.3806605Z http.https://github.com/.extraheader
+2026-10-01T07:31:08.3817851Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-01T07:31:08.3850138Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T07:31:08.4090867Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T07:31:08.4122838Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T07:31:08.4508461Z Cleaning up orphan processes
+2026-10-01T07:31:08.4823872Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

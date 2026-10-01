@@ -941,7 +941,7 @@ rather than true with one exception. This is the same defect §9.5 filed against
 ## 12. WIRED IN — T-1816, 2026-10-01: the finish is dealt by whose house it is
 
 §1.1's vocabulary was dealt by a hash. `finish_for` picked the wall from the record id, and
-`roof_condition` and `age_state` were both `(…)[seq % 4]` on all five anonymous-roof
+`roof_condition` and `age_state` were both `(…)[seq % 4]` on all six anonymous-roof
 generators. So the two were locked together, and nothing on a facade said who lived behind it.
 T-1210 asked for the opposite: "based on the type of person living there". Its first piece,
 T-1816, deals the same four fields from the household. It uses the same vocabulary, adds no new
@@ -975,11 +975,11 @@ printed whole in `1835_placement_policy.json` under `fabric`, and argued in **L3
   reconstruction; it is not evidence of any coat of paint.
 
 **Measured on the tree it shipped with:**
-- **Walls:** `weathered_timber` 141, `fresh_timber` 78, `mixed_patch` 59, `whitewash` 35, `ochre`
-  35, `red_oxide` 11.
-- **Coatings:** 46 of 359 roofs are lime or paint, where the hash dealt 84.
-- **Neighbours:** 100 roofs share a wall finish with their nearest reconstructed neighbour, where
-  the hash gave 73. 55 share both wall and roof, where the hash gave 10.
+- **Walls:** `weathered_timber` 141, `fresh_timber` 78, `mixed_patch` 61, `whitewash` 36, `ochre`
+  36, `red_oxide` 11.
+- **Coatings:** 47 of 363 roofs are lime or paint, where the hash dealt 84.
+- **Neighbours:** 101 roofs share a wall finish with their nearest reconstructed neighbour, where
+  the hash gave 73. 56 share both wall and roof, where the hash gave 10.
 
 A class rule clusters like with like. T-1818's per-building jitter is the part that answers for
 that.

@@ -168,6 +168,8 @@ if (JSON_OUT) {
   console.log(`  nearer to the MIRROR of its anchor (|N| > 5 m): ${B.mirrorCloser}`
     + `${B.worstMirrorId ? ` (first ${B.worstMirrorId})` : ''}`);
   console.log(`  instances with no readable placement: ${B.unrecorded}`);
+  console.log(`  wrong vertex transforms: ${B.misplaced}; worst ${B.worstTransform.toFixed(6)} m`
+    + ` against the 0.001 m bar; ${B.compounds} sparse camp plots`);
   for (const s of B.strays) {
     console.log(`    ${s.id}: anchor E ${s.anchor[0]} N ${s.anchor[1]}, `
       + `drawn centre E ${s.drawn[0]} N ${s.drawn[1]}, ${s.out} m outside a ${s.span} m span `
@@ -213,6 +215,7 @@ if (broken && !JSON_OUT) {
 }
 
 const clean = out.buildings.outside === 0 && out.buildings.mirrorCloser === 0
+  && out.buildings.misplaced === 0
   && out.buildings.unrecorded === 0 && out.streets.stray === 0
   && pageErrors.length === 0;
 if (!JSON_OUT) console.log(clean ? '\nBOTH LAYERS DRAW WHERE THEY DECIDED' : '\nSTRAYS FOUND');

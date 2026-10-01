@@ -1,11 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1269, ts: '2026-10-01T19:04:10.610Z', date: 'Oct 1, 2026, 2:04 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+  { v: 1271, ts: '2026-10-01T20:10:00.036Z', date: 'Oct 1, 2026, 3:10 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
     items: [
       'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
       'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
       'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
       'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
       'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
+    ] },
+  { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+    items: [
+      'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
+      'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+    items: [
+      'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
+      'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
+      'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+      'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
     ] },
   { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
     items: [

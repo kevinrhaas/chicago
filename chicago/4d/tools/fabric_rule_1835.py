@@ -7,7 +7,7 @@ surfaces, weathered appropriately, based on the type of person living there, lik
 doctor or financial person, trader might have a nice house … or a laborer might have a
 small not as nice house."*
 
-WHAT IT REPLACES. Five generators dealt the four finish fields of an anonymous roof
+WHAT IT REPLACES. Six generators dealt the four finish fields of an anonymous roof
 without asking who it was for. `finish_for` hashed the record id (or stepped the
 sequence) into a wall finish, and `roof_condition` and `age_state` were both
 `(…)[seq % 4]` — so the two were locked together on every record, a merchant's house was

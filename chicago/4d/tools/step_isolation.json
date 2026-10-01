@@ -2425,6 +2425,9 @@
     "tools/build_trade_table_1839.py": {
       "wrote": []
     },
+    "tools/canal_approach_occupancy.py": {
+      "wrote": []
+    },
     "tools/carry_kinzie_west.py": {
       "wrote": []
     },
@@ -2666,6 +2669,9 @@
       "wrote": []
     },
     "tools/generate_business_signboards.py": {
+      "wrote": []
+    },
+    "tools/generate_canal_approach_trade.py": {
       "wrote": []
     },
     "tools/generate_dooryard_pickets.py": {
@@ -3563,6 +3569,9 @@
       "wrote": []
     },
     "tools/test_dev_preview.mjs": {
+      "wrote": []
+    },
+    "tools/test_drawn_placement_census.mjs": {
       "wrote": []
     },
     "tools/test_frontage_faces.py": {

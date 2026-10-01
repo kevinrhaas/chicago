@@ -1,0 +1,27 @@
+================  desktop 1280x800  ================
+
+full  ceiling 1,460,000  worst 1,424,307 at Lake Street at Canal, east down the axis  — PASS by 35,693
+   stand                                        triangles    calls
+   the Sauganash at 26 m                        1,016,832    123
+   Lake Street at Canal, east down the axis     1,424,307    201
+   the forks, from Wolf Point                   1,412,530    168
+   the open aerial                              1,313,939    128
+   Lake and Market                              1,184,810    171
+
+balanced  ceiling 1,280,000  worst 1,226,906 at Lake Street at Canal, east down the axis  — PASS by 53,094
+   stand                                        triangles    calls
+   the Sauganash at 26 m                          938,651    123
+   Lake Street at Canal, east down the axis     1,226,906    186
+   the forks, from Wolf Point                   1,214,804    156
+   the open aerial                              1,177,334    127
+   Lake and Market                              1,058,407    169
+
+light  ceiling 825,000  worst 807,664 at the open aerial  — PASS by 17,336
+   stand                                        triangles    calls
+   the Sauganash at 26 m                          609,866     74
+   Lake Street at Canal, east down the axis       797,666     71
+   the forks, from Wolf Point                     803,387     67
+   the open aerial                                807,664     73
+   Lake and Market                                644,855     84
+
+every tier inside its ceiling

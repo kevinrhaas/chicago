@@ -435,21 +435,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 125182728,
-      "inputs_sha256": "912c98712af4a5289cb5c6c72bda99110341854d03fcc47ddfbe4694fba58fad",
+      "bytes": 124290120,
+      "inputs_sha256": "cde356358e181c2d19765ff1e66fa3f90ecce81761af0301c800826f1512bea5",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4",
-          "output_sha256": "f4c9745a329f738d4b63b74d6a736ff2102563efb8f0ce463a24becdafc21a01",
-          "recipe_sha256": "edfb6ca7d2200ef0a2680f46f9751e1d11f5643ac7b828addb5986d2363cf70d",
-          "triangles": 193387
+          "master_sha256": "5a919b27e0ba0402745450a2d0ebc107cf20273e8c7a4ae4d231ead65588a4ef",
+          "output_sha256": "89fa3916917b219c615dfcec9f166c755a32f14a240cd510f999b8763cd9dcac",
+          "recipe_sha256": "9763d1552514019a4e8f5892c142b2ec38e66f5dccfa4f0032f60da1ba41e749",
+          "triangles": 196687
         }
       },
-      "web_master_sha256": "7fdc2520bc36530056e196a4673677cfae867f0afdbc3c7fa353c384faa87de4"
+      "web_master_sha256": "5a919b27e0ba0402745450a2d0ebc107cf20273e8c7a4ae4d231ead65588a4ef"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
@@ -2925,6 +2925,42 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01"
+    },
+    "recon_1835_canal_trade_c3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 57836,
+      "inputs_sha256": "2ee55be0db24820e274011b3cc379b5c8052ac99299ed55bdfb6472447451672",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c3_001"
+    },
+    "recon_1835_canal_trade_c4_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 76964,
+      "inputs_sha256": "1bcf41eb3d89817a7d664e3f9fd116acc89fe3f5b4515175828b07242e2f8a9d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c4_002"
+    },
+    "recon_1835_canal_trade_w1_003__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 118468,
+      "inputs_sha256": "12f6472b2a459a2819e9470e00bc7045b305dd40700a5490baa9ffb9addf2062",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w1_003"
+    },
+    "recon_1835_canal_trade_w2_004__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 128840,
+      "inputs_sha256": "b142291301412679a21d398cbf76a79a7b2c7ff40367e38bd90597a557ea473e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w2_004"
     },
     "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
