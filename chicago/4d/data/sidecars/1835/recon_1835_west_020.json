@@ -168,6 +168,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the C2 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "No household seated — a store with rooms in its attic on the teamster approach south and west of the Western Hotel yard, kept for the wagon trade; its keeper is not named",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1826; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The C2 line of the family crosswalk (store-residence: shop below, attic rooms, a front gable to the road) and the West recipe's own cluster, w2_canal_randolph_teamster: loose mixed lots south and west of the documented Western Hotel's teamster yard, where the recipe placed this roof as placement west_rec_020. No household is seated because none can be where it stands: the placement policy admits C2 under one clause only, commercial_front, and no band the off-plat deal was handed names that clause, so data/reconstruction/1835_off_plat_seats.json carried this roof as `roofs_offered_and_unspent` — offered, and nobody in scope could take it. The use stated names no trade, goods or signboard: town_business_signboards.json and town_trade_goods.json refuse all three for an anonymous slot, and this row keeps that refusal. It retires the moment a deal or a source seats a storekeeper here. The roof's own existence, position and footprint remain the invention they were."
     }
   },
   "residents": [],
