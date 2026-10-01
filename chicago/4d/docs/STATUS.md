@@ -1,3 +1,32 @@
+## T-1813 — the street edge dealt by business: stoops, posts, mounting blocks, aprons and a tie rail (2026-10-01)
+
+The first piece of T-1211 (owner: *"include their correct plank sidewalks for each business
+that varies because business vary"*). T-1211 was split three ways: **T-1813** (this one, the
+fittings), **T-1814** (the walk itself varied by business and carried to every face) and
+**T-1815** (the photographic pass: captures, critique, frame costs).
+
+**What changed in the scene.** `tools/generate_frontage_works.py` now reads each business
+front on the four covered streets through one table, `FRONTAGE_BY_BUSINESS`, and lays what the
+trade implies. Inns get two posts, a stoop and a mounting block. Stores get one post and a
+stoop. Forwarding houses and warehouses get a wagon apron across the verge. Works get a tie
+rail. On today's town: **46 street-edge hitching posts (was 16), 37 stoops, 5 mounting blocks,
+3 wagon aprons and 1 tie rail.** `renderers/web/js/frontage.js` draws a fitting as the list of
+timber boxes the record carries (`parts`). Each box stands on the lowest ground under its
+corners, so nothing floats. The fittings sit in the street's existing standing chunk, so they
+add no draw call.
+
+**The grade clause is retired.** A reconstructed trade now takes its post and fittings at its
+own tier (24 grade refusals gone; 25 posts at reconstructed trades). Every record carries
+`trade_confidence`. Refusals across the layer: 119 → 113, the 18 new ones each naming their
+clause: no walk at the door, a wall 19.5 m back behind its fence, a neighbour standing on the
+ground. L160 is amended.
+
+**Honest gaps.** The door is the middle of the front, because no record places one. The walk
+is still the same 1.83 m everywhere (T-1814). The works still front a plank walk where the
+ticket wants bare ground (T-1814). The fittings use the walk's plain timber, not the
+photographic treatment (T-1815). And the frame cost was not measured on this run (T-1815
+owns the measurement).
+
 ## T-1803 — the camps of the landing place: a new `camp` archetype and two emigrants' camps on the South Water bank (2026-10-01)
 
 **What a visitor sees.** Two rows of tents on the bank between South Water Street's roadway

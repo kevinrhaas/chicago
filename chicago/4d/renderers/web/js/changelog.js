@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1267, ts: '2026-10-01T17:57:07.408Z', date: 'Oct 1, 2026, 12:57 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+  { v: 1268, ts: '2026-10-01T18:07:41.672Z', date: 'Oct 1, 2026, 1:07 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
       'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
       'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
       'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
+    ] },
+  { v: 1267, ts: '2026-10-01T17:44:52.415Z', date: 'Oct 1, 2026, 12:44 PM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
+    items: [
+      'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
+      'Inns have two hitching posts and a mounting block for riders getting down. Forwarding houses and warehouses have a broad plank apron across the verge, so a loaded dray can come off the road to the door. The smith has a tie rail.',
+      'Twenty-five more shops now have a hitching post, including the reconstructed bakery, butcher, tailor and their neighbours.',
+      'All of this is our reconstruction. No source places a stoop, a post or a block at any Chicago door in 1835, and no record says where each door was, so each stoop stands at the middle of its front. Open the street edge\u2019s card to see which shop each one serves.',
     ] },
   { v: 1266, ts: '2026-10-01T16:51:04.113Z', date: 'Oct 1, 2026, 11:51 AM CT', title: 'Two small boarding houses get their stovepipes', kind: 'change',
     items: [
