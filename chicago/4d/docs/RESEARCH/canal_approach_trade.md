@@ -94,3 +94,14 @@ chunks plus all eligible far merges at 57; differential signatures preserve all
 The bake smoke's partial checkout also omitted four source JSON files required by
 stage 13; the standalone smoke uses a full checkout. Final integrated desktop and
 mobile smoke results remain pending.
+
+The retired West prairie drains also exposed a regular grass fringe: the same
+plant reach that passed with 14.3 cm of terrain relief failed on the corrected
+2 cm relief (3.944 px, below the existing 4 px visual minimum). Centered 1.5x
+contrast of the world-anchored lobe field restores 4.944 px variation, with all
+16 bins covered and mean reach increasing from 26.382 to 26.588 m. The existing
+fringe amplitude, lattice, primitive geometry and assertions remain unchanged.
+The measured pair is `canal-approach-qa/sward-fringe-pair.json`. The repository's
+smoke routing maps this flora-only repair to parts 10–11; parts 1–9 run on
+08dfea9 and parts 10–13 will run after this repair, with actual commits retained
+in each receipt. The final frame-budget sweep is repeated for the repair.

@@ -4,6 +4,7 @@ export const CHANGELOG = [ // newest first
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
+      'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [

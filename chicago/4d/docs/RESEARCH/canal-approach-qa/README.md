@@ -15,3 +15,8 @@ retained as an intermediate reading, not the final integrated budget.
 `yard-batching.json` compares actual builders on deterministic synthetic terrain;
 full-attribute triangle and per-owner pick hashes agree across cell sizes. Its
 maximum includes every eligible lazy far-merge cluster, rather than one camera.
+
+`sward-fringe-pair.json` records the identical published-scene measurement
+before and after bounded lobe contrast; it is a focused check, not full smoke.
+`sward-fringe-mobile.json` repeats the unchanged focused coverage and anchoring
+checks at 390×780 with touch/DPR2; the repaired fringe passes at 20.112 px.
