@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 2,
     "roof_target": 668,
-    "standing_before": 487,
-    "standing_after": 487,
-    "short_of_the_programme_before": 181,
-    "short_of_the_programme_after": 181
+    "standing_before": 493,
+    "standing_after": 493,
+    "short_of_the_programme_before": 175,
+    "short_of_the_programme_after": 175
   },
   "ledger": [
     {
@@ -45,11 +45,11 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 22,
+      "standing": 27,
       "anonymous": 20,
-      "head_before": 13,
-      "standing_after": 22,
-      "head_after": 13
+      "head_before": 8,
+      "standing_after": 27,
+      "head_after": 8
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -67,11 +67,11 @@
       "group": "barns_stables",
       "division": "north",
       "target": 17,
-      "standing": 9,
+      "standing": 10,
       "anonymous": 9,
-      "head_before": 8,
-      "standing_after": 9,
-      "head_after": 8
+      "head_before": 7,
+      "standing_after": 10,
+      "head_after": 7
     },
     {
       "bucket": "structures/barns_stables/fort",

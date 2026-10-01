@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1252, ts: '2026-10-01T10:26:19.966Z', date: 'Oct 1, 2026, 5:26 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
+    items: [
+      'Walk the alley behind Lake Street and there is now a plank stable at the back of the Tremont, the Exchange Coffee House, the New York House and the Mansion House. There is another at the alley end of the Sauganash\u2019s lot, and one behind the Steamboat Hotel on the north bank.',
+      'Each is sized from the house\u2019s own beds: a stall for every two guests on an ordinary night, and never fewer than four. The Tremont, a stage stop, gets one per guest, in two ranges of six.',
+      'A county order of 1831 priced keeping a traveller\u2019s horse overnight at a licensed house. No source mentions any of these six stables, so each one, its size and its place are reconstructions, and their cards say so.',
+      'The Green Tree gets none. There is no room for one between its back wall, Lake Street and the river bank as the town is modelled.',
+    ] },
   { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',

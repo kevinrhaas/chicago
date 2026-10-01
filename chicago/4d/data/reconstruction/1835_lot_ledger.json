@@ -3326,11 +3326,13 @@
    "principal_roofs_max": 3,
    "standing": [
     "philo_carpenter_log_shop",
-    "sauganash_hotel"
+    "sauganash_hotel",
+    "sauganash_hotel_stable"
    ],
    "standing_families": {
     "philo_carpenter_log_shop": "C1",
-    "sauganash_hotel": "T3"
+    "sauganash_hotel": "T3",
+    "sauganash_hotel_stable": "A1"
    },
    "principal_roofs_standing": 2,
    "bars_another_roof": true,
@@ -6716,10 +6718,12 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "tremont_house_1"
+    "tremont_house_1",
+    "tremont_house_1_stable"
    ],
    "standing_families": {
-    "tremont_house_1": "T2"
+    "tremont_house_1": "T2",
+    "tremont_house_1_stable": "A1"
    },
    "principal_roofs_standing": 1,
    "bars_another_roof": true,
@@ -6784,10 +6788,12 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "mansion_house"
+    "mansion_house",
+    "mansion_house_stable"
    ],
    "standing_families": {
-    "mansion_house": "T1"
+    "mansion_house": "T1",
+    "mansion_house_stable": "A1"
    },
    "principal_roofs_standing": 1,
    "bars_another_roof": true,
@@ -7271,11 +7277,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "exchange_coffee_house",
-    "new_york_house"
+    "exchange_coffee_house_stable",
+    "new_york_house",
+    "new_york_house_stable"
    ],
    "standing_families": {
     "exchange_coffee_house": "T2",
-    "new_york_house": "T2"
+    "exchange_coffee_house_stable": "A1",
+    "new_york_house": "T2",
+    "new_york_house_stable": "A1"
    },
    "principal_roofs_standing": 2,
    "bars_another_roof": true,
