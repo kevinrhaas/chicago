@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A test patch of photographic ground, south of the town', kind: 'change',
+  { v: 1259, ts: '2026-10-01T13:41:21.452Z', date: 'Oct 1, 2026, 8:41 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [
       'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
       'It is a sample, not a place. No source puts ground like this at that spot. It is there to show how the town\u2019s streets, river banks and lakeshore will be surfaced, and what that costs, before any of them are.',
