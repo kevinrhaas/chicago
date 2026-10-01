@@ -21,6 +21,187 @@
       ],
       "verdict": "pass",
       "target": "published",
+      "passed": 572,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 3035,
+      "takenAt": "2026-09-30T23:10:25.131Z",
+      "ref": "steward/t1765-bridge-head-recovery",
+      "commit": "91c584e64a5b",
+      "devCommit": "a2d8d58955ff",
+      "treeHash": "sha256:56ca884317ca9904",
+      "treeDirty": false,
+      "changelogHash": "sha256:1794399ca6ff1c7f",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          5.9,
+          7.8,
+          10.4
+        ]
+      },
+      "source": "/tmp/t1765-desktop-full.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1,13",
+      "parts": [
+        1,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 194,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 377,
+      "takenAt": "2026-09-30T22:59:10.624Z",
+      "ref": "steward/t1765-bridge-head-recovery",
+      "commit": "91c584e64a5b",
+      "devCommit": "a2d8d58955ff",
+      "treeHash": "sha256:56ca884317ca9904",
+      "treeDirty": false,
+      "changelogHash": "sha256:1794399ca6ff1c7f",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          14.4,
+          14.7,
+          13.8
+        ]
+      },
+      "source": "/tmp/t1765-mobile-recheck.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-13",
+      "parts": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 423,
+      "failed": 2,
+      "failures": [
+        "mobile 390x780: no unexpected loader problems — recon_1835_blk_randolph_market_d3_04: its asset gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d5_11: its asset gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file | recon_1835_blk_randolph_market_d4_03: its asset gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb failed on the first ask and loaded on the second — a dropped request, not a bad file",
+        "mobile 390x780: zero page errors — HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb | HTTP 404 http://127.0.0.1:4191/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb"
+      ],
+      "wallSeconds": 1667,
+      "takenAt": "2026-09-30T22:52:40.708Z",
+      "ref": "steward/t1765-bridge-head-recovery",
+      "commit": "91c584e64a5b",
+      "devCommit": "a2d8d58955ff",
+      "treeHash": "sha256:56ca884317ca9904",
+      "treeDirty": false,
+      "changelogHash": "sha256:1794399ca6ff1c7f",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          12,
+          14,
+          13.2
+        ]
+      },
+      "source": "/tmp/t1765-mobile-rest.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 90,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-09-30T22:45:34.836Z",
+      "ref": "steward/t1765-bridge-head-recovery",
+      "commit": "91c584e64a5b",
+      "devCommit": "a2d8d58955ff",
+      "treeHash": "sha256:56ca884317ca9904",
+      "treeDirty": false,
+      "changelogHash": "sha256:1794399ca6ff1c7f",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          14.1,
+          14.9,
+          12.7
+        ]
+      },
+      "source": "/tmp/t1765-mobile1.log /tmp/t1765-mobile2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-09-30T22:45:34.836Z",
+      "ref": "steward/t1765-bridge-head-recovery",
+      "commit": "91c584e64a5b",
+      "devCommit": "a2d8d58955ff",
+      "treeHash": "sha256:56ca884317ca9904",
+      "treeDirty": false,
+      "changelogHash": "sha256:1794399ca6ff1c7f",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          14.1,
+          14.9,
+          12.7
+        ]
+      },
+      "source": "/tmp/t1765-mobile1.log /tmp/t1765-mobile2.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
       "passed": 569,
       "failed": 0,
       "failures": [],
@@ -1767,164 +1948,6 @@
         ]
       },
       "source": "/tmp/t1279-smoke-desktop-10.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "10-11",
-      "parts": [
-        10,
-        11
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 46,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 549,
-      "takenAt": "2026-09-28T03:13:58.027Z",
-      "ref": "steward/t-1587-street-readings",
-      "commit": "d22c779b4142",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:07368b8cb73cb136",
-      "treeDirty": false,
-      "changelogHash": "sha256:1a986a9881ae1895",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          4.2,
-          4
-        ]
-      },
-      "source": "/tmp/smoke-m1011.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 41,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 461,
-      "takenAt": "2026-09-28T03:13:57.936Z",
-      "ref": "steward/t-1587-street-readings",
-      "commit": "d22c779b4142",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:07368b8cb73cb136",
-      "treeDirty": false,
-      "changelogHash": "sha256:1a986a9881ae1895",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          4.2,
-          4
-        ]
-      },
-      "source": "/tmp/smoke-m78.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "9",
-      "parts": [
-        9
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 24,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 152,
-      "takenAt": "2026-09-28T03:02:05.314Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:1e960b8a87226e05",
-      "treeDirty": true,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          12.3,
-          12.1,
-          12.4
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-9.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 18,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 377,
-      "takenAt": "2026-09-28T02:59:29.259Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:1e960b8a87226e05",
-      "treeDirty": true,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          9.7,
-          11.9,
-          12.4
-        ]
-      },
-      "source": "/tmp/t1279-smoke-desktop-8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "9-10",
-      "parts": [
-        9,
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 47,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 377,
-      "takenAt": "2026-09-28T02:26:28.938Z",
-      "ref": "steward/t-1279-playable-jaunt",
-      "commit": "2d08f716faf0",
-      "devCommit": "8df48ef16259",
-      "treeHash": "sha256:31de719e245b5708",
-      "treeDirty": false,
-      "changelogHash": "sha256:7992c797e8547ca5",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          14.1,
-          14,
-          13.8
-        ]
-      },
-      "source": "/tmp/t1279-smoke-mobile-9-10.log"
     }
   ]
 }

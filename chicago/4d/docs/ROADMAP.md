@@ -5043,3 +5043,10 @@ remains historical reasoning pending the existing construction work.
 ## T-1767 - Selected-year arrival
 
 Arrival and jaunts now follow the chosen scene; 1904 has a Glessner orientation. The broader drawer-panel work remains T-1740.
+
+### T-1765 bridge-head recovery
+
+Four bridge heads receive reconstructed repair stock. The forks ferry landing
+remains undrawn pending dated evidence of operation and form. This completes
+only T-1207's crossing-furniture slice; shops remain with T-1766. See the
+bridge_head_timber research memo and liberty L306.

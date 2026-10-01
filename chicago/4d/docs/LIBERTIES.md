@@ -17391,3 +17391,40 @@ reconstructed rendering closures, not surveyed rooms or claimed historic
 interiors; their vertices carry confidence 1.0. Aperture dimensions, glass,
 sash, shades and the building envelope are unchanged. The light and full
 versions use the same closure geometry.
+
+
+### L306 — Four reconstructed repair-timber piles at the branch bridges
+
+**Applies to:** `data/yard/bridge_head_timber.json`
+
+**What we invented:** One pile at each of the four ends of the North and South
+Branch bridges. Eleven squared sticks per pile, 3.048 m by 0.2 m by 0.2 m,
+stacked in three courses. Quantity, existence at these points, squared form,
+stacking, colour and the 6 m longitudinal and lateral offsets are reconstructed.
+The deck-width reuse bounds a plausible stock length; it does not attest it.
+
+**Why:** The bridge records document timber construction, maintenance planning
+and repair specifications. The anti-removal ordinance does not distinguish
+spare stock from installed timber, and the committee instruction does not prove
+an executed contract. None of these sources locates a pile on 1835-07-01.
+
+**Placement:** Evaluate the chosen offsets from the committed deck centerlines,
+using the footprint midpoint across the width rather than the corner origin.
+Choose the higher of two sampled terrain points; check all pile corners are dry.
+The 0.8 m pile width leaves 4.08 m clear of the deck corridor. The renderer uses
+the terrain at the pile anchor, as for other stock in the yard layer.
+
+**Omission:** No forks ferry landing is drawn because its operation and form on
+the scene date remain unestablished. Earlier licences and construction of bridges
+do not prove the ferries had ceased. This omission can be replaced by dated
+ferry evidence; it is not a historical closure claim.
+
+**Sources:** `chicago_democrat_1833_1835`, `chicago_democrat_1833_11_26`,
+`old_settlers_bridges_1883`, `chicagology_kinzie_bridge`.
+
+**Would replace:** A dated description, plan or repair inventory locating bridge
+stock, or evidence locating an operating forks ferry on the scene date.
+
+**Ticket:** T-1765. See `docs/RESEARCH/bridge_head_timber.md`.
+
+**Recorded:** 2026-09-30 (T-1765).
