@@ -152,8 +152,15 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 7,
     "finish_key": "whitewash",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a larger one-and-a-half-story house, new-built (rule F-M: a merchant's or professional man's by its type)"
+    },
     "capacity": {
       "beds_ordinary": 7,
       "beds_crowded": 16,

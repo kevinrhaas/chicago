@@ -190,6 +190,13 @@
     "finish_key": "fresh_timber",
     "roof_condition": "fresh",
     "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn clapboard under a new roof — a small shop, grocery or land office, new-built (rule F-T: a tradesman's by its type)"
+    },
     "frontage": {
       "block": "blk_south_water_lasalle",
       "face": "north",

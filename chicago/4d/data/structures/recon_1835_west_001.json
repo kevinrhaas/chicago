@@ -123,8 +123,15 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 1,
     "finish_key": "mixed_patch",
-    "roof_condition": "fresh",
-    "age_state": "new"
+    "roof_condition": "patched",
+    "age_state": "older_frontier",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "hewn logs under a patched roof — an older log cabin, older than the boom (rule F-L: a labourer's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

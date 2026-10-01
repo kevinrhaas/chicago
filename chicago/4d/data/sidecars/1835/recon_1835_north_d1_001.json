@@ -150,8 +150,15 @@
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 1,
-    "finish_key": "red_oxide",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "finish_key": "weathered_timber",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "hewn logs under a patched roof — an older log cabin, from the 1832–33 town (rule F-L: a labourer's by its type)"
+    }
   }
 }

@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D3 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "unpainted",
+          "value": "whitewash",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -143,9 +143,16 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 8,
-    "finish_key": "ochre",
-    "roof_condition": "fresh",
-    "age_state": "new"
+    "finish_key": "whitewash",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a weathered roof — a one-room frame cottage, a year old (rule F-T: a tradesman's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
   "review_required": false

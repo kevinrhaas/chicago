@@ -23,7 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'data'
 sys.path[:0] = [str(ROOT / 'tools'), str(ROOT / 'generators')]
 from family_bands import families, dimensions_m
-from generate_block_infill import form_for, finish_for, invented, no_build_rings, FUNCTIONS
+from generate_block_infill import form_for, invented, no_build_rings, FUNCTIONS
+import fabric_rule_1835  # T-1816: the finish says whose building it is
 from generate_west_infill import footprint_origin, omitted_street_corridors
 from generate_plat_lots import street_lines
 from plat_corridors import corridors, intrusion
@@ -79,7 +80,8 @@ def make_record(row, seq, table, datum, street, people):
     spec = table[family]
     width, depth = dimensions_m(family, spec['band_ft'], seed)
     east, north, bearing = seat(row, width, depth, street)
-    finish, paint = finish_for(seed)
+    fabric = fabric_rule_1835.deal(sid, family, spec['archetype'])
+    finish, paint = fabric['finish_key'], fabric['paint']
     return {
         'id': sid, 'name': f"Reconstructed Canal Street {spec['label'].lower()}",
         'archetype': spec['archetype'],
@@ -107,8 +109,8 @@ def make_record(row, seq, table, datum, street, people):
             'district': 'west', 'inventory_class': 'principal_functional',
             'programme_phase': 'canal_approach_trade_1835', 'source_id': SOURCE,
             'sequence': seq, 'finish_key': finish,
-            'roof_condition': ('fresh', 'darkened', 'patched', 'weathered')[seq % 4],
-            'age_state': ('new', 'recent', 'established', 'older_frontier')[seq % 4]},
+            'roof_condition': fabric['roof_condition'], 'age_state': fabric['age_state'],
+            'fabric_basis': fabric['fabric_basis']},
         **({'occupants': people[sid]} if sid in people else {}),
         'research_note': 'RECONSTRUCTED, NOT A RECOVERED ADDRESS. The West memo bounds mixed trade on the Canal approach; the live programme leaves room for two stores and two workshops. C3 and C4 use remaining store-family capacity because C1 and C2 are already full. Exact existence, location, dimensions, finish and form remain inventions. Any reconstructed occupants are separately graded by their own records.',
         'review_required': False,

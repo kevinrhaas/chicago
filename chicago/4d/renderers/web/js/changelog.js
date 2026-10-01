@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1273, ts: '2026-10-01T21:06:50.269Z', date: 'Oct 1, 2026, 4:06 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
+  { v: 1275, ts: '2026-10-01T22:18:11.880Z', date: 'Oct 1, 2026, 5:18 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
     items: [
       'Walk the lake shore south of the old river channel, or north of the harbour, and the ground behind the beach is no longer flat. A low ridge of sand rises a few steps back from the water, with a second, lower one behind it and a hollow between.',
       'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre and a half above the ground around it, and you walk up and over them.',
       'The fort, the river mouth, the sand bar and the platted streets of the North Side keep the ground they had.',
       'A visitor at the fort wrote of \u201cthe white sand hills both to the north and south\u201d, but no source places or measures one. Where they stand and how high they are is our reconstruction, recorded in the register (L334).',
+    ] },
+  { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
+    items: [
+      'The Prairie Avenue and pre-fire atlases inside the walkthrough now open their map sheets, drawings and photographs from the atlases\u2019 own pages on this site. Before, they carried a second copy of every file.',
+      'That saves about 91 MB. The new Prairie Avenue image collection had pushed the site over its size limit, and that had stopped every other change from going out. It fits again.',
+      'Nothing you see changes. The new Prairie Avenue images are not in the main atlas yet, so the walkthrough\u2019s copy still carries those itself.',
+    ] },
+  { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+    items: [
+      'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
+      'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
+      'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
+      'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
+      'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
     ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
