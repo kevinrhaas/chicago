@@ -1,0 +1,210 @@
+{
+  "id": "wabansia_doctors_barn",
+  "phase": "documented_1834",
+  "name": "The doctor's barn in Wabansia",
+  "aka": [],
+  "archetype": "outbuilding",
+  "asset": "gltf/wabansia_doctors_barn__documented_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-07-16",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "The barn is attested on the same day and by the same advertisement as the house it served (data/structures/wabansia_doctors_house.json), and is carried to the scene date by the same inference. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+  },
+  "change_note": "The barn the advertisement lists with the house.",
+  "placement": {
+    "local_e": -404.206,
+    "local_n": 318.258,
+    "rotation_deg": 179.86,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "chicago_democrat_1833_1835",
+      "wright_1834"
+    ],
+    "position_note": "RECONSTRUCTED, AND ONLY RELATIVE TO A HOUSE WHOSE OWN POSITION IS RECONSTRUCTED. The advertisement says the barn was 'attached to' the house and nothing more. It is set 34.0 m back from the Kinzie Street line and 9.0 m east of the lot's centre line - behind the house and to the river side of it, clear of the kitchen ell, with a wagon's turning room between - through the same lot frame as the house. Every metre is a choice; covered by docs/LIBERTIES.md L316.",
+    "symbolic_location": "Wabansia, behind the doctor's house on the eastern lot of Wright's block 59 (blk_wabansia_c_t7), its doors to Kinzie Street, local ENU E -404.2 N 318.3",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.096,
+        0
+      ],
+      [
+        6.096,
+        7.925
+      ],
+      [
+        0,
+        7.925
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "NO DIMENSION IS ATTESTED. 20 x 26 ft is the small end of the A2 band (18x26-28x44 ft): room for a physician's horse, a gig and the hay over them, which is what a doctor riding to patients kept. Invented."
+  },
+  "attributes": {
+    "construction": {
+      "value": "plank",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "wall_height_m": {
+      "value": 3.6,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "door": {
+      "value": "wagon",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "A gig goes in through a wagon door. Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Type-level choice within the A2 barn band of data/reconstruction/1835_family_archetype_crosswalk.json; it is not evidence for this building."
+    },
+    "function": {
+      "value": "barn",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+    },
+    "occupants": {
+      "value": "The household of data/structures/wabansia_doctors_house.json, whoever it was on the scene date",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "A barn 'attached to' a let house goes with the tenancy."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Edmond Roberts, 5 October 1830",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE MARGIN IS ONLY 29 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "Attested by the same line as the house; see data/structures/wabansia_doctors_house.json.",
+  "research_doc": "",
+  "review_required": false
+}

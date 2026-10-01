@@ -633,7 +633,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
 - `standing_records`: 496
-- `standing_with_an_occupant`: 154
+- `standing_with_an_occupant`: 156
 - `standing_without_an_occupant`: 342
 - `to_build_total`: 186
 - `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 342 of the 496 standing records carry no occupants block today, and T-1197 re-audits them against this book.

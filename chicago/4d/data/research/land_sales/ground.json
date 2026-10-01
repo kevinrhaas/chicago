@@ -35,11 +35,11 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 497,
-    "structures_reached": 91,
+    "structures_placed": 499,
+    "structures_reached": 93,
     "structures_reached_by_grade": {
       "inferred": 23,
-      "reconstructed": 68
+      "reconstructed": 70
     },
     "structures_unreached_by_section": {
       "09": 403,
@@ -2113,7 +2113,16 @@
       },
       "refusal": null,
       "note": null,
-      "structures": []
+      "structures": [
+        {
+          "id": "wabansia_doctors_barn",
+          "margin_m": 28.8
+        },
+        {
+          "id": "wabansia_doctors_house",
+          "margin_m": 2.4
+        }
+      ]
     },
     {
       "record_id": "ls0055",

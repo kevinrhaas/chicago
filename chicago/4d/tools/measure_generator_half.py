@@ -326,13 +326,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # mean three more meshes a shared generator or emit.py change would re-stale; the terrain
 # reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved.
 #
+# 499 -> 501 and 495 -> 497 on 2026-10-01 (T-1785): the doctor's house and barn in
+# Wabansia, two named records rather than recipe roofs, and two more meshes the same
+# shared-generator or emit.py change would re-stale. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 499,
+    "assets": 501,
     "restales": {
-        "generators/common/*.py": 499,
+        "generators/common/*.py": 501,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 495,
+        "generators/emit.py": 497,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
