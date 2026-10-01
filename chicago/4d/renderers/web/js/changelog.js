@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
+    items: [
+      'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
+      'It is a sample, not a place. No source puts ground like this at that spot. It is there to show how the town\u2019s streets, river banks and lakeshore will be surfaced, and what that costs, before any of them are.',
+      'The dirt is worn in wandering lanes rather than two clean wheel tracks, with grit, clods and hoof marks underfoot and grass holding on at the shoulders. Every edge fades into the prairie instead of stopping at a line.',
+      'Building it turned up a fault in the project\u2019s own texture library: its soil, muck and sand surfaces are almost perfectly smooth. The strip makes its own grit instead, and the street work that follows can use it.',
+    ] },
   { v: 1261, ts: '2026-10-01T14:18:41.044Z', date: 'Oct 1, 2026, 9:18 AM CT', title: 'Finish a jaunt and keep its keepsake in your daybook', kind: 'feature',
     items: [
       'Finish a jaunt and its keepsake is kept in your Chicago daybook. The ending shows the memento you earned and which family moved.',
