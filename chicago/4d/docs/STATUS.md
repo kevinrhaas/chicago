@@ -1,3 +1,25 @@
+## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
+
+T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on
+the extended ground. It turned out to be more than one run, so it was split: T-1793 measures, and
+T-1794 builds. `tools/measure_west_farm_ground_1835.py` writes
+`data/reconstruction/1835_west_farm_ground.json`, and `check.sh` re-derives it. It is listed in
+`tools/derived_manifest.json`, so PR laps rebuild it rather than conflict on it.
+Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
+
+- All 44 households are `policy_only`: post-office letter-list names whose division and class were
+  dealt. No source places one.
+- The West ground outside the 1833 corporation limits and off every subdivided tract is
+  **177.7 ha, 10.98 forties**, most of it south of Twelfth Street. At one farm per forty, the
+  modelled ground holds **at most 10 farmsteads**; **34 or more** must be stated as farming beyond it.
+- **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
+  pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
+  labourers.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 4 A2 left to build. The 24
+  remaining dwellings are T-1783's and the 8 barns T-1212's.
+
+**Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
+the build. Nothing in the scene changed.
 ## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
 
 T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
@@ -18705,9 +18727,10 @@ The parcel adds two stores and three workshops against the West Division
 remainder, with exact presence, placement and business assignments reconstructed.
 The existing roofs and prior workshop-to-dwelling rulings are retained.
 The canonical bake passed all 716 checks and supplied all five compressed models.
-Card naming and yard batching repairs are implemented; the final integrated
-published desktop/mobile smoke is pending.
+Card naming, yard batching and the bounded grass-fringe repair are implemented. Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.
 See `docs/RESEARCH/canal_approach_trade.md` and liberty L307.
+
+The final evidence commit also integrates dev `773e956` (T-1793). Its new farm-ground report is an offline research output, omitted from the published site; no existing scene inputs, geometry, assets or runtime code change except the shared changelog. `docs/RESEARCH/canal-approach-qa/research-carryforward-scope.json` records that comparison separately from the eight smoke receipts and preserves their actual tested commits. The reader was regenerated against the completed Canal parcel: 47 West roofs remain, with the two store and three workshop slots removed; the 13 farm-ground roofs and their measurements are unchanged.
 
 ## T-1768 — Temporal observatory
 

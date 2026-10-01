@@ -3,6 +3,248 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 145,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 731,
+      "takenAt": "2026-10-01T07:06:05Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828389290/job/110259143007 (run https://github.com/kevinrhaas/chicago/actions/runs/36828389290; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 142,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1488,
+      "takenAt": "2026-10-01T07:05:15Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828312090/job/110258902293 (run https://github.com/kevinrhaas/chicago/actions/runs/36828312090; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 245,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 569,
+      "takenAt": "2026-10-01T07:04:17Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828219115/job/110258610728 (run https://github.com/kevinrhaas/chicago/actions/runs/36828219115; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 245,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1696,
+      "takenAt": "2026-10-01T07:03:21Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36828132674/job/110258340571 (run https://github.com/kevinrhaas/chicago/actions/runs/36828132674; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 160,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 287,
+      "takenAt": "2026-10-01T06:55:42Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827407322/job/110256086665 (run https://github.com/kevinrhaas/chicago/actions/runs/36827407322; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 160,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 604,
+      "takenAt": "2026-10-01T06:54:39Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827314390/job/110255796116 (run https://github.com/kevinrhaas/chicago/actions/runs/36827314390; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 55,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 301,
+      "takenAt": "2026-10-01T06:53:21Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827199844/job/110255432653 (run https://github.com/kevinrhaas/chicago/actions/runs/36827199844; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 55,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 827,
+      "takenAt": "2026-10-01T06:52:29Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Coverage context (not an exact-tree proof): Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36827122760/job/110255188296 (run https://github.com/kevinrhaas/chicago/actions/runs/36827122760; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
       "stage": "1",
       "parts": [
         1
@@ -1700,256 +1942,6 @@
         ]
       },
       "source": "/tmp/smoke_d3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 206,
-      "takenAt": "2026-09-28T19:35:25.803Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "16f4069cfb40",
-      "devCommit": "7e81788834cc",
-      "treeHash": "sha256:7c2c8a4c28df188a",
-      "treeDirty": false,
-      "changelogHash": "sha256:f18c53bb6079407d",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.4,
-          4.1,
-          4
-        ]
-      },
-      "source": "/tmp/smoke_m1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 340,
-      "takenAt": "2026-09-28T19:35:25.692Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "16f4069cfb40",
-      "devCommit": "7e81788834cc",
-      "treeHash": "sha256:7c2c8a4c28df188a",
-      "treeDirty": false,
-      "changelogHash": "sha256:f18c53bb6079407d",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.4,
-          4.1,
-          4
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "2-3",
-      "parts": [
-        2,
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 173,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 356,
-      "takenAt": "2026-09-28T18:06:58.096Z",
-      "ref": "steward/t-1716-river-mouth",
-      "commit": "70b4496ba0b6",
-      "devCommit": "ef1f85c97b49",
-      "treeHash": "sha256:f3cd49fcd6bde88b",
-      "treeDirty": false,
-      "changelogHash": "sha256:505b5f41d06d6924",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          3.9,
-          3
-        ]
-      },
-      "source": "/tmp/smoke_d23b.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 102,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 209,
-      "takenAt": "2026-09-28T17:41:58.306Z",
-      "ref": "claude/t-1727-structure-versions",
-      "commit": "f72041734b0e",
-      "devCommit": "2265e89fd6c7",
-      "treeHash": "sha256:f23c1d704d2c038e",
-      "treeDirty": true,
-      "changelogHash": "sha256:9e4e90af05ce11e7",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          6.6,
-          4.6,
-          4.1
-        ]
-      },
-      "source": "/tmp/claude-0/-home-user/5ec1322d-f6bd-5239-9cf0-36c6f3365ca7/scratchpad/smoke-mobile-3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 114,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 240,
-      "takenAt": "2026-09-28T12:38:00.324Z",
-      "ref": "steward/t-1707-south-columns-to-madison",
-      "commit": "5040288671ff",
-      "devCommit": "7c11961fee07",
-      "treeHash": "sha256:4546d2f09a81180a",
-      "treeDirty": false,
-      "changelogHash": "sha256:f251df56eea8665e",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.8,
-          3.2,
-          3.7
-        ]
-      },
-      "source": "/tmp/smoke_m13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 451,
-      "takenAt": "2026-09-28T07:36:08.364Z",
-      "ref": "steward/t-1707-south-columns-to-madison",
-      "commit": "1f2875d33c65",
-      "devCommit": "17f42eb3d697",
-      "treeHash": "sha256:938600fed7420177",
-      "treeDirty": false,
-      "changelogHash": "sha256:854ecc6980b915d3",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.3,
-          4.1
-        ]
-      },
-      "source": "/tmp/smoke-d7.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 114,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 529,
-      "takenAt": "2026-09-28T06:35:15.419Z",
-      "ref": "steward/t-1597-refamily-fixpoint",
-      "commit": "da4e894be67a",
-      "devCommit": "c08d875cc5ea",
-      "treeHash": "sha256:eed5374f9782dcb1",
-      "treeDirty": false,
-      "changelogHash": "sha256:2f16c3c41365b2aa",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.6,
-          3,
-          3.7
-        ]
-      },
-      "source": "/tmp/smoke-d13.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 116,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 194,
-      "takenAt": "2026-09-28T05:16:05.991Z",
-      "ref": "steward/t1625-prose-placements",
-      "commit": "4521d7c0143a",
-      "devCommit": "d1024c187748",
-      "treeHash": "sha256:f53268503b634ecd",
-      "treeDirty": false,
-      "changelogHash": "sha256:b38d5abad8f79c55",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          4.1,
-          4.2
-        ]
-      },
-      "source": "/tmp/s2-m34.log"
     }
   ]
 }

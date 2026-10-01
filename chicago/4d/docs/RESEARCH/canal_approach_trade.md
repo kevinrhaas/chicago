@@ -92,8 +92,7 @@ specification in the reference and search. A 110 m yard grid bounds the measured
 chunks plus all eligible far merges at 57; differential signatures preserve all
 66,344 triangles and per-owner pick geometry. No smoke assertion or ceiling changed.
 The bake smoke's partial checkout also omitted four source JSON files required by
-stage 13; the standalone smoke uses a full checkout. Final integrated desktop and
-mobile smoke results remain pending.
+stage 13; the standalone smoke uses a full checkout. Final verification is recorded below.
 
 The retired West prairie drains also exposed a regular grass fringe: the same
 plant reach that passed with 14.3 cm of terrain relief failed on the corrected
@@ -111,4 +110,6 @@ Dev subsequently advanced to b18a034 (T-1781), refamiling five existing West
 roofs. Those source records and canonical meshes are integrated with all five
 Canal roofs preserved; combined seating, inventory and research outputs are
 regenerated. That mesh/data change requires fresh parts 1–13 on both viewports
-and a new frame-budget reading. Those final integrated results are pending.
+and a new frame-budget reading.
+
+Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.

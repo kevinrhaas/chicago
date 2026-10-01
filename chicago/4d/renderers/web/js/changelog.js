@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1247, ts: '2026-10-01T06:54:05.009Z', date: 'Oct 1, 2026, 1:54 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1248, ts: '2026-10-01T07:31:09.266Z', date: 'Oct 1, 2026, 2:31 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
     ] },
   { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
     items: [

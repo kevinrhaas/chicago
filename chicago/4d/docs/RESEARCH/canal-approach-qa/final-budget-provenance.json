@@ -1,0 +1,34 @@
+{
+  "measurement_file": "/tmp/t1766-post-b18-budget.json",
+  "measurement_sha256": "9ea7ad2d30244b471f2ef26ef2d024d7179612404164a93f7960f0a45eede9ac",
+  "tiers": [
+    {
+      "level": "full",
+      "ceiling": 1460000,
+      "worst": 1424307
+    },
+    {
+      "level": "balanced",
+      "ceiling": 1280000,
+      "worst": 1226906
+    },
+    {
+      "level": "light",
+      "ceiling": 825000,
+      "worst": 807664
+    }
+  ],
+  "displayed_build_label": "12ef981",
+  "label_explanation": "Budget ran after b18 integration but before its commit15fb79d; the displayed label was the premerge HEAD, not a claim that pristine12ef981 contained the measured scene.",
+  "equivalent_current_draw_inputs_to_commit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+  "proof": "Every tracked asset/manifest and renderer module except changelog unchanged from15fb79d; generated scene/geometry/layer records unchanged; three changed structures/sidecars add only occupant prose and retain identical mesh input hashes.",
+  "limitation": "Budget JSON itself contains no tested-commit/tree fingerprint. The attribution to integrated b18 rests on contemporaneous integration verification and root run provenance, not a retrospectively invented recorded SHA.",
+  "equivalentCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+  "geometryEquivalenceVerified": true,
+  "measuredWorkingTree": true,
+  "originalBuildLabel": "12ef981",
+  "note": "Budget ran after b18 integration but before its commit15fb79d; the displayed label was the premerge HEAD, not a claim that pristine12ef981 contained the measured scene. Every tracked asset/manifest and renderer module except changelog unchanged from15fb79d; generated scene/geometry/layer records unchanged; three changed structures/sidecars add only occupant prose and retain identical mesh input hashes. Budget JSON itself contains no tested-commit/tree fingerprint. The attribution to integrated b18 rests on contemporaneous integration verification and root run provenance, not a retrospectively invented recorded SHA.",
+  "sourcePath": "/tmp/t1766-post-b18-budget.json",
+  "sha256": "9ea7ad2d30244b471f2ef26ef2d024d7179612404164a93f7960f0a45eede9ac",
+  "scope": "Geometry/rendering equivalence only; measured integrated working tree before final commit, not an exact whole-tree CI receipt."
+}
