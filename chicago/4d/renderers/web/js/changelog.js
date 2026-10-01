@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+  { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [
       'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
       'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
