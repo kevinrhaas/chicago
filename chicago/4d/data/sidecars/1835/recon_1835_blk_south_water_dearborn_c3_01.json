@@ -242,9 +242,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 1,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
     "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a narrow two-story store, a year old (rule F-M: a merchant's or professional man's by its type)"
+    },
     "frontage": {
       "block": "blk_south_water_dearborn",
       "face": "north",

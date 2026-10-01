@@ -791,14 +791,18 @@ function headsOf(s) {
 }
 
 /** "braced frame · 2 storeys" — the fabric in one phrase, or as much of it as
- *  the record has. */
-function builtWords(attrs) {
+ *  the record has. A reconstructed roof adds what its walls and roof wear and
+ *  whose house that says it is (T-1816, `reconstruction.fabric_basis.words`):
+ *  "silvered clapboard under a weather-darkened roof — The Brown household's, a
+ *  blacksmith, in Chicago since 1833 (rule F-T)". */
+function builtWords(attrs, fabric) {
   const parts = [];
   const cons = attrs.construction?.value;
   if (cons !== null && cons !== undefined && cons !== '') parts.push(prettyValue(cons));
   const st = attrs.stories?.value;
   if (typeof st === 'number') parts.push(`${st} ${st === 1 ? 'storey' : 'storeys'}`);
   else if (st) parts.push(`${prettyValue(st)} storeys`);
+  if (fabric?.words) parts.push(fabric.words);
   return parts.join(' · ');
 }
 
@@ -1046,7 +1050,7 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
-  row('Built', builtWords(attrs),
+  row('Built', builtWords(attrs, s.reconstruction?.fabric_basis),
     weaker(attrs.construction?.confidence, attrs.stories?.confidence), 'fabric');
   row('Roof', roofWords(attrs),
     attrs.roof_pitch_deg && attrs.roof_type?.value !== 'none'

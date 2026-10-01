@@ -128,6 +128,7 @@ from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E4
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, mapping_note, plan_for  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -1014,7 +1015,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         lateral = float(slot.get("lateral_m") or 0.0)
         local_e, local_n, bearing = place(edge_mid, inward, setback, lateral, width, depth)
 
-    finish_key, paint = finish_for(sid)
+    fabric = fabric_rule_1835.deal(sid, family, spec["archetype"])
+    finish_key, paint = fabric["finish_key"], fabric["paint"]
     fallback = (spec["label"] or family).lower()
     function = FUNCTIONS.get(family) or canonical_function(fallback)
     label = LABELS.get(family) or fallback
@@ -1093,8 +1095,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         "block_id": block["block_id"], "lot_index": lot_index,
         "stands_on": slot["stands_on"], "fronts": slot["fronts"],
         "sequence": seq, "finish_key": finish_key,
-        "roof_condition": ("fresh", "darkened", "patched", "weathered")[seq % 4],
-        "age_state": ("new", "recent", "established", "older_frontier")[seq % 4],
+        "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+        "fabric_basis": fabric["fabric_basis"],
     }
     if family == "H3":
         # the beds the form was sized from, disclosed where the counts can be checked

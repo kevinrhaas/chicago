@@ -147,9 +147,16 @@
     "stands_on": "street",
     "fronts": "madison",
     "sequence": 7,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a merchant's or professional house, a year old (rule F-M: a merchant's or professional man's by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented. TWO OF THIS FAMILY'S NAMED VARIANTS ARE REFUSED AND TWO STAND (T-1686): the hip its roof line offers (\"side gable or hip, 6:12-9:12\") is refused rather than quietly substituted, because a hip, gambrel or mansard roof on a Chicago house in 1835 would be a claim and not a default; the Greek doorway its variants name is refused BY DATE — the earliest Greek Revival house in Chicago is the Clarke House of 1836, which data/exclusions.json keeps out of this scene, so no entablature, corner pilaster or portico stands on a roof of 1835-07-01; and the corner boards and the one-to-two chimneys the same line names already stand: the trim follows the stud module the construction argument picks.",
   "review_required": false

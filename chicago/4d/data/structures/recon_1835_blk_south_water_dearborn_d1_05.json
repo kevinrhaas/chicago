@@ -125,9 +125,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 5,
-    "finish_key": "red_oxide",
-    "roof_condition": "darkened",
-    "age_state": "recent",
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "older_frontier",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "hewn logs under a patched roof — an older log cabin, older than the boom (rule F-L: a labourer's by its type)"
+    },
     "frontage": {
       "block": "blk_south_water_dearborn",
       "face": "north",

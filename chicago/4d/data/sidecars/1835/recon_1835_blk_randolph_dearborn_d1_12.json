@@ -207,9 +207,16 @@
     "stands_on": "frontage",
     "fronts": "randolph",
     "sequence": 12,
-    "finish_key": "red_oxide",
-    "roof_condition": "fresh",
-    "age_state": "new",
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "keeper",
+      "household": "hh_dowd_james",
+      "words": "hewn logs under a weathered roof — The Dowd household's, in Chicago since 1834 (rule F-L)"
+    },
     "frontage": {
       "block": "blk_randolph_dearborn",
       "face": "north",
