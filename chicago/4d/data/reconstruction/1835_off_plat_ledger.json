@@ -52,7 +52,7 @@
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
   "principal_roofs_standing": 133,
-  "ground_m2": 7314855.3
+  "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -6997,7 +6997,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1035933.6,
+   "area_m2": 1035925.8,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",
@@ -7029,6 +7029,8 @@
     "inf_wheelwright_shop_west",
     "james_kinzie_house",
     "kinzie_hunter_warehouse",
+    "landing_camp_east",
+    "landing_camp_west",
     "lasalle_slough_crossing",
     "log_jail",
     "miller_house",
@@ -7095,6 +7097,8 @@
     "inf_wheelwright_shop_west": "W3",
     "james_kinzie_house": "D1",
     "kinzie_hunter_warehouse": "F1",
+    "landing_camp_east": null,
+    "landing_camp_west": null,
     "lasalle_slough_crossing": null,
     "log_jail": "I3",
     "miller_house": "C4",

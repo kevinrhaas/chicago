@@ -64,6 +64,7 @@ const ARCHETYPE_KIND = {
   bridge_timber: 'waterfront', pier_crib: 'waterfront',
   frame_tavern: 'taverns', frame_storefront: 'stores',
   frame_dwelling: 'homes', log_dwelling: 'homes', outbuilding: 'homes',
+  camp: 'homes',
 };
 
 /** The anonymous programme's family letters, read off what each family's 1835 roofs were

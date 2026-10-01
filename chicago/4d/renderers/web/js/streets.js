@@ -291,7 +291,7 @@ const AID_LIFT = 0.25;
  * doors, droves and foot traffic; the peer-city views the owner supplied (St
  * Louis 1840, Detroit 1837, Cincinnati 1835) all show one broad worked plane
  * with no grass median. None of them is Chicago and none gives a width, so the
- * width is a RECONSTRUCTION (L324), bounded on both sides:
+ * width is a RECONSTRUCTION (L326), bounded on both sides:
  *
  *   - never narrower than the recorded `track_width_m`, which stays the opaque
  *     core it always claimed to be;
@@ -330,7 +330,7 @@ const CORE_SHARE_FLOOR = 0.5;
  * show of a summer street. `graded_earth` is the dustiest (thrown up and
  * drained), the light streets a shade darker. Mud sits inside
  * `wet_prairie_muck`'s measured basecolor (L 47 of 255); the shoulder sod is
- * dirt carrying root and leaf. Reconstructed, all of it (L324).
+ * dirt carrying root and leaf. Reconstructed, all of it (L326).
  */
 const DIRT_TONES = {
   graded_earth: { lane: [146, 131, 107], rest: [117, 105, 84] },

@@ -64,7 +64,7 @@ lighter than the grass passes both. A dry July street plausibly is that, and the
 views show one. The light streets' sod islands were reduced in the same pass (bare share 0.55 →
 0.68), because a probe that lands on sod reads no road.
 
-All of it is reconstruction, recorded as **L324**.
+All of it is reconstruction, recorded as **L326**.
 
 ## Coverage — every opened corridor
 
