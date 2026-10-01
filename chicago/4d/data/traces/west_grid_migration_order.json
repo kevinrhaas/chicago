@@ -83,20 +83,29 @@
     "so": "under the West Division grid's own rule a block with no figure of its own keeps its boundary, its numeral, its lot count and its ground, and its lot LINES are withheld — so moving this block onto that grid cuts no lots at all"
    },
    "the_committed_seating_on_this_block": {
-    "structures_seated_by_block_id": [],
+    "structures_seated_by_block_id": [
+     "recon_1835_blk_lake_clinton_a1_03",
+     "recon_1835_blk_lake_clinton_d3_02",
+     "recon_1835_blk_lake_clinton_d4_01"
+    ],
     "lots_reached_by_a_committed_record": [
      "blk_lake_clinton_lot0",
+     "blk_lake_clinton_lot2",
      "blk_lake_clinton_lot3",
      "blk_lake_clinton_lot4",
      "blk_lake_clinton_lot5",
      "blk_lake_clinton_lot6",
+     "blk_lake_clinton_lot7",
      "blk_lake_clinton_lot8",
      "blk_lake_clinton_lot9"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 25
+     "data/enclosures/town_lot_line_rails.json": 30
     },
     "structures_named_on_those_lots": [
+     "recon_1835_blk_lake_clinton_a1_03",
+     "recon_1835_blk_lake_clinton_d3_02",
+     "recon_1835_blk_lake_clinton_d4_01",
      "recon_1835_west_007",
      "recon_1835_west_008",
      "recon_1835_west_014",
@@ -123,8 +132,10 @@
    },
    "the_re_seat": {
     "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in.",
-    "carries_a_dealt_parcel": [],
-    "so_the_positions_are": "UNCHANGED. The block carries no dealt parcel, so no position on it is derived from a lot line: no record moved a metre and nothing was rebaked.",
+    "carries_a_dealt_parcel": [
+     "phase3_platted_block_lake_clinton"
+    ],
+    "so_the_positions_are": "RE-DERIVED. A dealt roof stands where its parcel's slot puts it off its own lot's street or alley edge, so every position on this block comes out of a lot line and the re-cut re-computes all of them; the deal that decides WHICH lot had to be re-argued first, which is what held this block while its twin moved. The meshes do not change and nothing is rebaked even so: a re-seat moves a record's position and rotation and leaves its footprint, form and asset exactly as they were.",
     "every_seating_on_this_block_moved_lot": true,
     "why": "the transpose shares no line with the cut it replaced. The alley turned from east-west to north-south, the faces turned through ninety degrees, and the lot count went from eight to 10 — so no lot of the old cut survives to be kept.",
     "lot_by_lot": [
@@ -159,8 +170,17 @@
       "plat_lot_confidence": "documented",
       "column": "west",
       "row": 3,
-      "records": [],
-      "structures": []
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot2",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot2_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot2_blk_lake_clinton_lot3_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot2_n"
+      ],
+      "structures": [
+       "recon_1835_blk_lake_clinton_d3_02",
+       "recon_1835_west_015",
+       "recon_1835_west_016"
+      ]
      },
      {
       "lot_id": "blk_lake_clinton_lot3",
@@ -171,10 +191,11 @@
       "records": [
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot3",
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot3_gate",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot3_blk_lake_clinton_lot4_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot3_n"
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot2_blk_lake_clinton_lot3_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot3_blk_lake_clinton_lot4_s"
       ],
       "structures": [
+       "recon_1835_blk_lake_clinton_d3_02",
        "recon_1835_west_015",
        "recon_1835_west_016",
        "recon_1835_west_023",
@@ -226,9 +247,11 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot6",
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot6_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot5_blk_lake_clinton_lot6_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot6_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot6_blk_lake_clinton_lot7_s"
       ],
       "structures": [
+       "recon_1835_blk_lake_clinton_a1_03",
+       "recon_1835_blk_lake_clinton_d4_01",
        "recon_1835_west_007"
       ]
      },
@@ -238,8 +261,17 @@
       "plat_lot_confidence": "documented",
       "column": "east",
       "row": 3,
-      "records": [],
-      "structures": []
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot7",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot7_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot6_blk_lake_clinton_lot7_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot7_blk_lake_clinton_lot8_s"
+      ],
+      "structures": [
+       "recon_1835_blk_lake_clinton_a1_03",
+       "recon_1835_blk_lake_clinton_d4_01",
+       "recon_1835_west_014"
+      ]
      },
      {
       "lot_id": "blk_lake_clinton_lot8",
@@ -250,10 +282,12 @@
       "records": [
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot8",
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot8_gate",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot8_blk_lake_clinton_lot9_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot8_n"
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot7_blk_lake_clinton_lot8_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot8_blk_lake_clinton_lot9_s"
       ],
       "structures": [
+       "recon_1835_blk_lake_clinton_a1_03",
+       "recon_1835_blk_lake_clinton_d4_01",
        "recon_1835_west_014"
       ]
      },
@@ -272,6 +306,60 @@
       "structures": [
        "recon_1835_west_014"
       ]
+     }
+    ]
+   },
+   "the_deal_re_argued": {
+    "the_faces_the_transpose_removed": {
+     "lake": "principal",
+     "randolph": "ordinary"
+    },
+    "the_faces_it_gave": {
+     "clinton": "light",
+     "canal": "ordinary"
+    },
+    "the_better_of_the_new_pair": "canal",
+    "no_slot_fronts_a_face_the_transpose_removed": true,
+    "principal_roofs_on_the_better_face": [
+     "D4"
+    ],
+    "principal_roofs_on_the_lighter_face": [
+     "D3"
+    ],
+    "so": "the rule the first deal was argued on — the better dwellings take the better street of the block's pair, by the grading in data/streets/1835.json — is re-applied to the pair the transpose gives. It is stated as a re-application and not as a confirmation: the ranking of the new pair is read here, and had it come out the other way about the four roofs would have crossed the alley.",
+    "slots": [
+     {
+      "family": "D4",
+      "inventory_class": "principal_functional",
+      "lot_index": 7,
+      "plat_lot_number": 5,
+      "column": "east",
+      "row": 3,
+      "stands_on": "street",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "D3",
+      "inventory_class": "principal_functional",
+      "lot_index": 2,
+      "plat_lot_number": 6,
+      "column": "west",
+      "row": 3,
+      "stands_on": "street",
+      "fronts": "clinton",
+      "that_face_is_graded": "light"
+     },
+     {
+      "family": "A1",
+      "inventory_class": "ancillary",
+      "lot_index": 7,
+      "plat_lot_number": 5,
+      "column": "east",
+      "row": 3,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
      }
     ]
    }

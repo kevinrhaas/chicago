@@ -92,26 +92,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 497,
+  "structure_records": 500,
   "physical_roofs": {
-   "min": 483,
-   "max": 484,
+   "min": 486,
+   "max": 487,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 350,
+   "generated": 353,
    "inferred_household_programme": 7,
    "pre_existing": 95,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 271,
-   "west": 87,
+   "west": 90,
    "north": 109,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 237,
+   "ordinary_dwellings": 239,
    "larger_boarding_houses": 26,
    "stores_mixed_use": 48,
    "inns_taverns": 9,
@@ -119,11 +119,11 @@
    "warehouses_freight": 15,
    "institutional_public": 9,
    "fort_principal": 10,
-   "barns_stables": 44,
+   "barns_stables": 45,
    "small_outbuildings": 63
   },
   "by_family": {
-   "A1": 27,
+   "A1": 28,
    "A2": 17,
    "A3": 31,
    "A4": 22,
@@ -134,8 +134,8 @@
    "C4": 2,
    "D1": 57,
    "D2": 28,
-   "D3": 53,
-   "D4": 47,
+   "D3": 54,
+   "D4": 48,
    "D5": 26,
    "D6": 16,
    "D7": 10,
@@ -179,11 +179,11 @@
   ]
  },
  "remaining": {
-  "roofs": 185,
+  "roofs": 182,
   "of_target": 668,
   "by_district": {
    "south": 94,
-   "west": 48,
+   "west": 45,
    "north": 43,
    "fort": 0
   },
@@ -197,9 +197,9 @@
     "workshops": 4
    },
    "west": {
-    "barns_stables": 8,
+    "barns_stables": 7,
     "larger_boarding_houses": 4,
-    "ordinary_dwellings": 22,
+    "ordinary_dwellings": 20,
     "small_outbuildings": 8,
     "stores_mixed_use": 2,
     "warehouses_freight": 1,
@@ -218,7 +218,7 @@
    "fort": {}
   },
   "by_family": {
-   "A1": 15,
+   "A1": 14,
    "A2": 14,
    "A3": 9,
    "A4": 6,
@@ -229,9 +229,9 @@
    "C4": 3,
    "D1": 0,
    "D2": 10,
-   "D3": 12,
+   "D3": 11,
    "D4": 22,
-   "D5": 23,
+   "D5": 22,
    "D6": 13,
    "D7": 8,
    "F1": 0,
@@ -262,8 +262,8 @@
     "H2": 2,
     "H3": 7,
     "D2": 6,
-    "D3": 7,
-    "D4": 12,
+    "D3": 6,
+    "D4": 13,
     "D5": 13,
     "D6": 7,
     "D7": 5,
@@ -279,14 +279,14 @@
    },
    "west": {
     "A1": 4,
-    "A2": 4,
+    "A2": 3,
     "H1": 1,
     "H2": 1,
     "H3": 2,
-    "D2": 3,
+    "D2": 2,
     "D3": 3,
     "D4": 5,
-    "D5": 6,
+    "D5": 5,
     "D6": 3,
     "D7": 2,
     "A3": 3,
@@ -304,8 +304,8 @@
     "T1": 1,
     "H3": 1,
     "D2": 3,
-    "D3": 4,
-    "D4": 6,
+    "D3": 3,
+    "D4": 7,
     "D5": 7,
     "D6": 4,
     "D7": 2,
@@ -327,16 +327,16 @@
    "W5": 3
   },
   "absorbed_from": {
-   "D5": 9,
-   "D4": 6
+   "D5": 10,
+   "D4": 5
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 133,
-  "gated_on_coverage": 51,
-  "statement": "133 of the 185 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 51 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "schedulable_on_committed_ground": 125,
+  "gated_on_coverage": 56,
+  "statement": "125 of the 182 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 56 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 338,
   "blocks_named": 80,
   "southern_ground": {
@@ -410,9 +410,9 @@
    "roofs": 4,
    "families": {
     "A1": 1,
-    "D3": 1,
     "D4": 1,
-    "D5": 1
+    "D5": 1,
+    "D6": 1
    },
    "principal": 3,
    "ancillary": 1,
@@ -492,7 +492,7 @@
    "roofs": 4,
    "families": {
     "A2": 1,
-    "D6": 1,
+    "D2": 1,
     "H3": 1,
     "W2": 1
    },
@@ -515,28 +515,18 @@
    },
    "lots": 10,
    "capacity_roofs": 39,
-   "standing_roofs": 11,
-   "free_lots": 3,
-   "principal_room": 6,
-   "ancillary_room": 2,
-   "headroom": 8,
-   "state": "open",
-   "roofs": 8,
-   "families": {
-    "A1": 1,
-    "A2": 1,
-    "D2": 1,
-    "D3": 1,
-    "D4": 1,
-    "D5": 2,
-    "D6": 1
-   },
-   "principal": 6,
-   "ancillary": 2,
-   "trade_roofs": 0,
-   "frontage_weight": 0.4725,
-   "lot_ceiling_principal": 2,
-   "row_lots_required": 2
+   "standing_roofs": 14,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 0,
+   "row_lots_required": 0
   },
   {
    "id": "blk_lake_market",
@@ -900,9 +890,9 @@
     "A3": 2,
     "A4": 1,
     "A5": 1,
-    "D2": 2,
+    "D2": 1,
     "D3": 2,
-    "D4": 3,
+    "D4": 4,
     "D5": 4,
     "D6": 2,
     "D7": 2,
@@ -1020,9 +1010,9 @@
     "A5": 1,
     "D2": 2,
     "D3": 2,
-    "D4": 4,
+    "D4": 3,
     "D5": 3,
-    "D6": 1,
+    "D6": 2,
     "D7": 1,
     "F4": 1,
     "H3": 1
@@ -1061,9 +1051,9 @@
     "A5": 1,
     "D2": 2,
     "D3": 2,
-    "D4": 3,
+    "D4": 4,
     "D5": 4,
-    "D6": 2,
+    "D6": 1,
     "D7": 2,
     "H1": 1,
     "H2": 1,
@@ -1599,12 +1589,11 @@
     "C4": 1,
     "D2": 2,
     "D3": 2,
-    "D4": 3,
+    "D4": 4,
     "D5": 4,
     "D6": 2,
     "D7": 1,
     "F2": 1,
-    "H3": 1,
     "W1": 1,
     "W2": 1
    },
@@ -1638,11 +1627,12 @@
     "A1": 1,
     "A2": 2,
     "D2": 1,
-    "D3": 2,
+    "D3": 1,
     "D4": 3,
     "D5": 3,
     "D6": 2,
     "D7": 1,
+    "H3": 1,
     "T1": 1
    },
    "principal": 13,
@@ -2547,14 +2537,14 @@
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 40,
+   "capacity_roofs": 45,
    "standing_roofs": 0,
-   "headroom": 40,
+   "headroom": 45,
    "state": "gated",
    "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 40,
+   "roofs": 45,
    "families": {
-    "A1": 3,
+    "A1": 4,
     "A2": 3,
     "A3": 3,
     "A4": 2,
@@ -2562,10 +2552,10 @@
     "C3": 1,
     "C4": 1,
     "D2": 2,
-    "D3": 2,
-    "D4": 4,
-    "D5": 4,
-    "D6": 2,
+    "D3": 3,
+    "D4": 5,
+    "D5": 5,
+    "D6": 3,
     "D7": 2,
     "F2": 1,
     "H1": 1,
@@ -2574,8 +2564,8 @@
     "W1": 1,
     "W2": 2
    },
-   "principal": 26,
-   "ancillary": 14
+   "principal": 30,
+   "ancillary": 15
   },
   {
    "id": "north_division_beyond_modelled_ground",

@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1248, ts: '2026-10-01T07:55:13.282Z', date: 'Oct 1, 2026, 2:55 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+  { v: 1249, ts: '2026-10-01T08:22:58.405Z', date: 'Oct 1, 2026, 3:22 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
-      'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household still ends up on this block, in the corner house one of them left; the Bennett household is offered a lot across Lake Street instead.',
+      'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household moves in from outside the town plat, into the corner house one of them left; the Bennett household moves into a cottage across Lake Street instead.',
       'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
       'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
+    ] },
+  { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+    items: [
+      'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
+      'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
+      'The better house takes the better street. Canal is a cart road worn down toward the forks and Clinton is barely worn at all, so the two-room cottage faces Canal and the one-room cottage faces Clinton — the opposite way round from the two requests, by the rule this block’s neighbour already goes by.',
+      'The stable is the only yard building built, and this corner of town is why: a teamster’s house, his stable and a blacksmith’s shop already stand on the same face. The barn the block’s plan also holds is left for a later house that can argue for it.',
+      'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed — and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
+      'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
     ] },
   { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
     items: [

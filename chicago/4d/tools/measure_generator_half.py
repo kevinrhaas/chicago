@@ -320,19 +320,25 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # four go on top of. SEVENTH move in two days, and the note above already said why: the
 # debt is per-ASSET.
 #
-# 496 -> 500 and 492 -> 496 on 2026-10-01 (T-1761): the four roofs of the SECOND deal on
+# 496 -> 499 and 492 -> 495 on 2026-09-30 (T-1760): the three roofs of the first deal on
+# `blk_lake_clinton` — a two-room cottage on Canal Street, a one-room cottage on Clinton
+# Street, and a stable off the alley behind the Canal house. Three new structure assets
+# mean three more meshes a shared generator or emit.py change would re-stale; the terrain
+# reach stays at 4 and pier_crib at 2. Nothing about the debt itself moved.
+#
+# 499 -> 503 and 495 -> 499 on 2026-10-01 (T-1761): the four roofs of the SECOND deal on
 # `blk_randolph_clinton` — a two-storey frame house and a two-room cottage on the Canal
 # face, with a privy and a woodshed off the alley behind them. Four new structure assets on
-# the same terms as every entry above; terrain reach still 4 and pier_crib still 2. If
-# T-1766's five land on `dev` first, these four go on top of its 501/497.
+# the same terms as every entry above, on top of T-1760's three; terrain reach still 4 and
+# pier_crib still 2.
 #
 STATED = {
-    "assets": 500,
+    "assets": 503,
     "restales": {
-        "generators/common/*.py": 500,
+        "generators/common/*.py": 503,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 496,
+        "generators/emit.py": 499,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
