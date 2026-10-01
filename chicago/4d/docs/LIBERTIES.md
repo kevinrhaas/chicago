@@ -14137,7 +14137,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 474 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 477 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14173,8 +14173,11 @@ that each state a roof type and thirteen more the exposure reaches. T-1757's sec
 the Cass cell makes **473**, and it is the first addition to this entry that is not four of
 the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
 Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
-north of the river, taking the same exposure across more of it. T-1773's warehouse at Lake and
-West Water makes **474** — one F2 roof, the West Division's second freight roof (L308). No record's
+north of the river, taking the same exposure across more of it. T-1760's first deal on
+`blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room
+cottage on Clinton Street, and a stable off the alley behind the first. All three state a
+roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes
+**477** — one F2 roof, the West Division's second freight roof (L308). No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
@@ -14284,9 +14287,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 6 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 11 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
-`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022`. These are six of the
+`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451), and
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781, see the amendment below).
+The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
 released.
@@ -14337,11 +14342,31 @@ an observed building.
 parent audit **T-1197**, the roof programme **T-1196**, the order book **T-1166**, the
 placement policy **T-1195**; the twenty-six verdicts whose record id carries its family,
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
+
+**Amended 2026-10-01 — five more, on the Des Plaines edge (T-1781).** When T-1444 released
+the thirty-five held slots, the re-derived adjudication returned eight new West verdicts, and
+none had been carried out. T-1781 carries out the five in the `w5_desplaines_open_edge`
+cluster, the open prairie edge 75 to 140 m from any street corridor: `_050` and `_051`
+(two-room D2) and `_052` (deep-plan D3) become D1 log cabins, `_054` (an A1 stable) becomes
+a D1 log cabin, and `_053` (a D4 cottage) becomes an A2 barn beside the A2 already at `_055`.
+The reason is T-1445's, quoted beside each roof in the recipe: none of these fronts a
+street, and the clause that seated a framed cottage measures its setback from one. The
+cabin and the barn are the two families the placement policy's `farms_and_country_seats`
+clause admits off the street. **One footprint moves:** `_050` widens from 14 to 16 ft, the
+narrowest front the D1 band allows; the other four already fit their new bands. Coordinates,
+rotations and inventory classes do not move, and the grade stays `inferred_anonymous`. The
+three other new verdicts (`_013`, `_020`, `_046`) are left standing for T-1764's and
+T-1782's roofs, and `docs/RESEARCH/1835_roof_redeal_execution.md` names them. The household
+seating re-derives over what now stands: four labourer households sleep in the four
+cabins, and the two tradesman households that had held `_052` and `_053` move to framed
+roofs in the Clinton cluster (`_043`, `_045`); the cascade leaves two other tradesman households (Butterfield, Cappy)
+without a roof, handed on to T-1615 with the rest of the owed, and two labourer households
+(Barnes, Doyle) gain one in the re-seating.
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 79 phases: 64 log dwellings and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 83 phases: 68 log dwellings and
 15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
@@ -14356,14 +14381,16 @@ reservation; T-1714 raised the agency's ring at the foot of State Street —
 on the north bank. T-1715 raised `fort_dearborn_root_house_b`, the second of the garrison's
 root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry
 deals reaches it and draws nothing. All six are shingled by the same selector and on the same
-argument as the other 59.
+argument as the other 59. T-1781 then added four on the Des Plaines edge,
+`recon_1835_west_050`, `_051`, `_052` and `_054`, re-dealt into the D1 log cabin by T-1445's
+verdicts (L265), which makes 83.
 The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 
 **Decision:** `generators/common/materials.py`'s `roof_substrate()` deals the `shingle`
 substrate to every roofed building that is not an outbuilding. For the 180 framed roofs
-that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 79
+that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 83
 it is a claim, and this is the claim.
 
 **What §2.2 actually grades, and where it stops.** It grades a shingled covering
@@ -17484,3 +17511,114 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).
+### L310 — Three West roofs nobody holds, given a stated use
+
+**Applies to:** `data/reconstruction/1835_stated_uses.json`
+
+**Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
+`recon_1835_west_047.occupants`
+
+**What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
+that no deal seats a household in and no deal ever could, because their families are not ones a
+dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard
+the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the
+stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from
+it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des
+Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
+(sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
+streets back from the South Branch. Nobody is named for any of the three; the card says what the
+building was for, graded `reconstructed`.
+
+**Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
+for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
+seated household's yard carded as an anonymous count-unit forever.
+
+**Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
+outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
+its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
+is T-1774's.
+
+**Would replace:** A keeper seated on any of the three by a deal or a source retires its row
+outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
+Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+
+**Ticket:** T-1782 (piece 2 of T-1208).
+
+**Recorded:** 2026-10-01 (T-1782).
+
+### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
+
+**Decision:** `blk_lake_clinton` — the West Division plat block bounded by Lake, Canal,
+Randolph and Clinton — carries **three anonymous roofs** dealt by
+`tools/generate_block_infill.py`: a two-room frame cottage (D4) on lot index 7 fronting Canal
+Street, a one-room frame cottage (D3) on lot index 2 fronting Clinton Street, and a stable (A1)
+off the block alley in the Canal cottage's yard. The family mix and the ceiling are the
+665-roof programme's schedule; **everything below that is invented** — that any building stood
+on these two lots in July 1835, which buildings they were, that they were dwellings, which face
+each took, how far back from its street edge it sits and how far to one side of its lot. No
+coordinate is authored: every metre is read off the committed lot polygon from the recipe entry
+in `data/reconstruction/1835_platted_block_parcels.json`.
+
+**Eleven roofs already stood on this block and none of them is this recipe's,** which is what
+makes three the interesting number rather than a small one. Seven came from the pre-plat West
+approaches parcel — `recon_1835_west_007`, `_008`, `_014`, `_015`, `_016`, `_023` and `_024`,
+placed from typed coordinates months before the plat module existed, so no record of theirs
+names a lot — and four are the inferred West trade ecology: an artisan's dwelling on the
+Canal-and-Lake corner, a blacksmith's shop, a teamster's dwelling and the teamster's stable.
+The generator derives which lots all eleven hold from their committed footprints and refuses a
+principal roof on any lot they bar, which leaves three lots free. The schedule counts principal
+room over the free lots less one, so a block can never be dealt out of its open lot; the ceiling
+here is therefore two principal roofs. The seating pass asked for exactly two.
+
+**The faces are exchanged against the two requests, by the block's own face rule.**
+`data/reconstruction/1835_platted_seats.json` asked a D3 on lot 7 fronting Canal and a D4 on lot
+2 fronting Clinton. Canal Street is `worn_earth` in `data/streets/1835.json` and reads
+`ordinary` in the lot ledger; Clinton is `light_worn_earth` and reads `light`. A two-room
+cottage is the better of the two dwellings, so the better face takes it and the faces are
+swapped. That rule is `blk_randolph_clinton`'s, written into the parcel file one block south
+when T-1734 re-argued that block's deal on the transposed cut. Both families are raised and
+both lots are built on; what moved is which roof each lot carries.
+
+**One yard building out of the two the plan holds, and the stable is chosen for the trade
+already on the face.** The schedule apportions this block an A1 stable and an A2 barn or
+carriage shed. Canal Street is the graded approach from the forks and this block is already the
+town's teamster corner — his dwelling, his stable and a blacksmith's shop stand on the same
+face — so a stable in a Canal-face yard is the ordinary yard building here. The barn stays in
+the plan. The Clinton cottage therefore stands with no yard building at all.
+
+**The face this deal completes is looser than the memo's own recommendation, and that is
+measured rather than asserted.** `docs/RESEARCH/west_division_infill_1835.md` puts this ground
+in Zone B — the Canal/Lake mixed approach — and asks for side gaps mainly inside the
+specification's 10–35 ft band, with larger breaks between yard groups rather than a continuous
+frontage. The nearest approach between the new Canal cottage and any other building is 11.34 m
+to the blacksmith's shop and 14.38 m to the teamster's dwelling — 37.2 ft and 47.2 ft, both
+above the top of that band. The Clinton cottage's nearest neighbour is 19.64 m, 64.4 ft.
+
+**Lot 1 stays empty on purpose.** It is the one free lot the seating asked nothing on, so
+reserving it refuses no request. It also puts the Clinton column's gap between the standing
+`recon_1835_west_008` roof on the Lake corner and the cottage this deal stands two lots south.
+
+**What is read and what is not, kept apart.** This block is one of the few whose lot numerals
+are read at their own positions off the sheet — 2|1, 3|4, 6|5, 7|8, 10|9, graded `documented` in
+`data/reconstruction/1835_lot_ledger.json` — and the block faces come from the committed street
+centrelines. The side lot lines within the numerals and the alley between the two columns are
+conjectural, and they are what every setback here is measured against. The ground reading under
+all three roofs is `dry: every sample stands above datum on the modelled field`.
+
+**Neither household that asked ended up under these roofs.** The adoption step runs before the
+slot step, so both new roofs entered the re-run as standing roofs an admitted clause could
+adopt: `hh_allan_richard_b` took the Canal cottage and `hh_barnard_j_b` the Clinton one.
+`hh_baxley_j_m` and `hh_beaubien_b`, whose requests sized the deal, both end the pass housed
+rather than asking. The current re-derivation records the final seating arithmetic; **L270**
+carries the precedence rule rather than this parcel freezing a stale town-wide count.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+West Division block between Lake and Randolph, Clinton and Canal. A named discovery substitutes
+for a compatible anonymous roof and never increases the total. Evidence that this block was
+still unbuilt in July 1835 would retire these three rather than re-place them.
+
+**Covers:** `recon_1835_blk_lake_clinton_*.inferred_1835.position`,
+`recon_1835_blk_lake_clinton_*.inferred_1835.footprint`
+**Related:** **L90**, **L263**, **L265**, **L270**, **L292**, **L294**, **L298**, **L300**,
+**L302**, **L304**, **T-1733**, **T-1734**, **T-1760**, **T-1207**, **T-1208**.
+**Recorded:** 2026-09-30.

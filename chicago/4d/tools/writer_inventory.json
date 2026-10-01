@@ -663,6 +663,13 @@
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
     },
+    "measure_west_farm_ground_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: ran `--build` on a clean tree in about 2s, rewrote data/reconstruction/1835_west_farm_ground.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its two gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-10-01 \u2014 near the foot of the manifest, before the closing set's report, because it reads the off-plat seats, the address book, the 668-roof programme, the order book and the structure records, and a later step that moved any of them would leave it one model behind (T-1793). Nothing reads what it writes, so nothing constrains it from below."
+    },
     "measure_west_division_spacing.py": {
       "placement": "manifest",
       "write_mode": "--write",

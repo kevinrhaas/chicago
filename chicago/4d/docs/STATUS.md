@@ -15,11 +15,60 @@ Its own generator (`tools/generate_west_freight.py`, `--check` and `--self-test`
 because the West grid is unscheduled (T-1455) and the block parcels cannot deal onto it. The
 first placement, centred on the lot, stood 8.15 m off Lake Street and the anonymous-roof audit
 refamilied it to H2 (`commercial_front` puts a freight roof on the line); moved to the corner,
-the audit keeps it. L308 records the invention; L263 (474) and L280 (three F2 roofs) are
+the audit keeps it. L308 records the invention; L263 (477) and L280 (three F2 roofs) are
 restated. The order book now reads the West freight row 2 of 2.
 
 **Verification.** See the PR: `check.sh` and the `--for-diff` smoke parts at both viewports.
 
+## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
+
+T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on
+the extended ground. It turned out to be more than one run, so it was split: T-1793 measures, and
+T-1794 builds. `tools/measure_west_farm_ground_1835.py` writes
+`data/reconstruction/1835_west_farm_ground.json`, and `check.sh` re-derives it. It is listed in
+`tools/derived_manifest.json`, so PR laps rebuild it rather than conflict on it.
+Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
+
+- All 44 households are `policy_only`: post-office letter-list names whose division and class were
+  dealt. No source places one.
+- The West ground outside the 1833 corporation limits and off every subdivided tract is
+  **177.7 ha, 10.98 forties**, most of it south of Twelfth Street. At one farm per forty, the
+  modelled ground holds **at most 10 farmsteads**; **34 or more** must be stated as farming beyond it.
+- **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
+  pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
+  labourers.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 3 A2 left to build. The 22
+  remaining dwellings are T-1783's and the 7 barns T-1212's.
+
+**Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
+the build. Nothing in the scene changed.
+## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
+
+T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
+was split into T-1781 … T-1785; this is the first piece. When T-1444 released the thirty-five
+held West slots, the re-derived roof adjudication (T-1445) returned eight new West refamily
+verdicts and nobody carried them out. This carries out the five in `w5_desplaines_open_edge`:
+`recon_1835_west_050`, `_051`, `_052` and `_054` become D1 log cabins and `_053` an A2 barn beside
+`_055`. Same coordinates, rotations and inventory classes; `_050` widens 14 → 16 ft to the D1
+band's floor. Baked with `bake.sh --only` (five GLBs and their web derivatives).
+
+- `tools/execute_roof_redeal.py --apply` gained `--only/--ticket/--on`: a PARTIAL execution
+  that refuses a name with no standing verdict, stamps the later ticket on each roof's own
+  `redealt` entry, and lists the verdicts it left standing in
+  `docs/RESEARCH/1835_roof_redeal_execution.md`. The other three (`_013`, `_020`, `_046`) stay
+  for T-1764/T-1774 and T-1782.
+- The adjudication re-audits all five as `keep` (377 roofs: 374 keep, 3 refamily).
+- Seating re-derived: four labourer households in the four cabins; the two tradesman households
+  that held `_052`/`_053` move to `_043`/`_045` (Clinton cluster); Butterfield and Cappy lose
+  their roofs in the cascade and are owed to T-1615; Barnes and Doyle gain one.
+- The order book's owner table was swept off three tickets split this hour (T-1208, T-1209,
+  T-1764) onto their live children (T-1783, T-1785, T-1779, T-1774) — the gate refuses a book
+  ordering work from a split ticket.
+- L265 and L266 restated (11 re-dealt roofs; 83 log or fort phases).
+
+**Not done here, and owned:** no new ground is opened (T-1783 needs a measured West lot
+density, and the ground waits on T-1414); no farm household is seated on these cabins — the
+re-seating put labourers there, and the farms-and-country-seats band stays owed to T-1784.
 ## T-1775 — the Western Hotel's stable re-sized to its guests (2026-10-01)
 
 First piece of T-1209 (split this run into T-1775..T-1780). `western_hotel_stable` was
