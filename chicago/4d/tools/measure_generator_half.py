@@ -350,13 +350,19 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # blocks — three frame cottages and a carpenter's shop. Four new structure assets on the
 # same terms; the terrain reach still 4 and pier_crib still 2.
 #
+# 516 -> 518 and 512 -> 514 on 2026-10-01 (T-1803): the two emigrants' camps on the
+# South Water bank, the first records of the new `camp` archetype. Registering it in
+# emit.py's ARCHETYPES re-staled every structure asset once, and the whole town was
+# rebaked in the same PR (the GLB bytes came back identical; only the manifests' input
+# hashes moved). Terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 516,
+    "assets": 518,
     "restales": {
-        "generators/common/*.py": 516,
+        "generators/common/*.py": 518,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 512,
+        "generators/emit.py": 514,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

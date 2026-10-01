@@ -5,45 +5,41 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 34648,
-      "inputs_sha256": "1c9942afdbcf60472a5c7faaf3c1f684cb39354d6d938807db672600f2fdca8c",
+      "inputs_sha256": "d086a67c63593f0c91e08fe142800ad3df32f4a7cace8885968a598e7b14c32d",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "bates_auction_room",
-      "version_label": "fixture",
-      "web_master_sha256": "f24ffe9e92996ca68e1e434b7243c551a138e2ced104418d03b2d6d5ed345227"
+      "version_label": "fixture"
     },
     "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 96496,
-      "inputs_sha256": "7ff9b887e5718f039b54d526d653086268fab5c67e7f46a81df43f4407329148",
+      "inputs_sha256": "928095926ae8f28e1707e3b26da97bd2706e40c8a73da9976606cb15dc061061",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "pre-v4",
-      "web_master_sha256": "b04ab5c15f8df19158544e2df64e239ed4716eec9f89b2f9b835b65ec85f604c"
+      "version_label": "pre-v4"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 98832,
-      "inputs_sha256": "b84ad2014b2d8516bdc49ec18edc24ffeeb9d83ebb4420470447d412d8cdc6c3",
+      "inputs_sha256": "fb23f4e0ce45bf03d3c96a0dd0dc35569a5d1f55446f108045135bd48ee8dda4",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "v2",
-      "web_master_sha256": "98aaea0aa8f7772c23c7c1d634ea72735ff450f984ffd766d9c7655ff0f9a6b0"
+      "version_label": "v2"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 95728,
-      "inputs_sha256": "211794f82ae7a9340dbba3cbec2446bb65321791b6706f1781821554e2793da2",
+      "inputs_sha256": "05157ea6b17ae6caee85570711d193268da5a75cdb776c64702925f18c72a5a1",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "v3",
-      "web_master_sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
+      "version_label": "v3"
     }
   },
   "inputs_scheme": "resolved-params-v4"

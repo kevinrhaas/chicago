@@ -1,3 +1,44 @@
+## T-1803 — the camps of the landing place: a new `camp` archetype and two emigrants' camps on the South Water bank (2026-10-01)
+
+**What a visitor sees.** Two rows of tents on the bank between South Water Street's roadway
+and the river, from Franklin toward Wells — 15 tents (wall and wedge, alternating), two covered
+wagons, a brush lean-to, eight cold fire rings with pot cranes, cordwood, and 13 heaps of
+chests and barrels for the households that slept in the open. No figure, no flame, no smoke (L1).
+
+**What it rests on.** The Chicago American of 13 June 1835 puts the strangers "under the open sky
+upon the wharves" and says "Some build tents upon the spot they were landed from the boats";
+`1835_camp_grounds.json` grades that ground documented, and `1835_transient_persons.json`
+(T-1353) deals 28 camp households to it — 15 tent, 13 open-sky, 102 persons. Each camp record
+names its households as occupants. Everything drawn — the stretch of bank, the tents' forms and
+sizes, the wagons, the fires — is reconstructed and covered by L321.
+
+**Where, measured.** `tools/place_landing_camps_1835.py` derives both records and re-derives them
+with `--check`. The dry strip between the DRAWN South Water roadway and the traced 1834 bank is
+9-16 m wide only between E +240 and E +450, and the river walk takes it east of Jones's landing;
+the camps stand at E +264-297 and E +300-342, at least 1 m clear of the roadway, the wharf decks,
+the river walk, the beached rowboats and every footprint, on ground 0.22 m or more above the
+water. On the CONTROL line the platted street ran to the water, so both camps are in the plat's
+roadway; the records say so (AGENTS.md rule 10).
+
+**The archetype.** `generators/archetypes/camp.py` + `camp_params.py`: tents (wall, wedge or
+mixed), covered wagons, brush shelters, fire rings, woodpiles, baggage heaps; `row`, `ring` and
+`scatter` layouts; canvas `new`/`weathered`/`patched`. Five materials, about 1,800 triangles a
+camp. A camp is not a roof: it is entered in `1835_existing_roof_reconciliation.json` at zero
+roofs, answers no family in the 668-roof programme, and the walker does not treat its footprint
+as a wall. **The ticket asked for an `X1` family in the inventory; it was not added**, because
+`family_targets` must sum to the roof total and `1835_camp_grounds.json` rules that a tent is not
+a building — a camp family belongs to whoever builds a transient ledger, not to the roof count.
+
+**Registering the archetype re-staled the town.** `generators/emit.py` is hashed into every
+structure mesh, so adding `camp` to its registry made all 516 assets stale; the whole town was
+rebaked in this PR (about two minutes). The GLB bytes came back identical and only the manifests'
+input hashes moved.
+
+**Not done here (T-1804).** The conjectural grounds — the shore south of the fort, the west
+approach — and the Native and Métis camps from T-1177's evidence, which carry the standing
+constraint's review. The camp households' own `lodged_at` still names the candidate ground, not
+these records.
+
 ## T-1783 — the outer West blocks opened at a West density; four roofs on plat block 47 (2026-10-01)
 
 Third piece of T-1208. The West Division's platted grid was withheld from the 665-roof schedule

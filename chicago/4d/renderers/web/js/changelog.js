@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+    items: [
+      'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
+      'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
+      'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
+      'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
+    ] },
   { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',

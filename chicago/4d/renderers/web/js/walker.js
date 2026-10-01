@@ -91,6 +91,10 @@ export function footprintsFrom(registry) {
     // square with nothing at head height to explain it, which is the same bug
     // the water clause above exists to prevent.
     if (record.sidecar?.drawn_by) continue;
+    // Nor is a camp's ground (T-1803). Its footprint is the strip of bank the tents
+    // stand on, open between every pitch, and a polygon the length of a row of tents
+    // would be an invisible wall across the riverfront with gaps in plain view.
+    if (record.sidecar?.archetype === 'camp') continue;
     const th = (p.rotation_deg ?? 0) * DEG;
     const cos = Math.cos(th);
     const sin = Math.sin(th);
