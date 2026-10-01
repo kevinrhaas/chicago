@@ -4,6 +4,13 @@ Version 1.0.0 provides **25 seamless, 1024 × 1024, physically scaled materials*
 1835 Chicago reconstruction. The library is engine-neutral and includes both Blender/OpenGL
 and Unreal/DirectX normal maps.
 
+**Two of them carry no course line** (T-1801): `walls/clapboard_board_face` and
+`walls/hewn_log_face` hold only what lies inside one board or one log — grain, raised grain,
+checks, broadaxe scallops — because the lap and the log courses are geometry in the
+archetypes, and a course-bearing map bound over them draws a second set of courses out of
+phase. Bind those two, not `clapboard_*` or `hewn_log_oak_chinked`, on a modelled wall.
+See `docs/RESEARCH/1835_fabric_proof.md`. That makes 27.
+
 ## What is included
 
 Each material folder contains:

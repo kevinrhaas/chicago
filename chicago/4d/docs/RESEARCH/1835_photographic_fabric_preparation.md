@@ -274,6 +274,12 @@ frame rate.
   `tools/render_structure_review.py` under fixed neutral and scene light. Then the browser at
   390×780 and 1280×800 against the current treatment and Glessner. Strategy A with the two
   patches. Report calls, triangles, texture bytes and load time at all three tiers.
+  *Done in T-1801 (piece 2 of T-1796), 2026-10-01:* `docs/RESEARCH/1835_fabric_proof.md`. The
+  two no-course maps are in the library. The assembly was built through the real Blender →
+  gltf-transform path and reviewed in the town's own light at both viewports against the current
+  treatment and Glessner. Costs were taken at all three tiers. The recessed opening measured
+  +162 triangles, not 40–80. Transmission glass was rejected. A finish now needs a grain
+  strength as well as a colour and a roughness.
 - **T-1797 (ground strip):** the wear mask, the loam/mud/muck/sand reuse and the new prairie
   study of § 4, through the terrain/runtime-canvas path.
 - **T-1211 (plank works):** the white walk is `frontage.js`'s `TIMBER`, the signboard's linear

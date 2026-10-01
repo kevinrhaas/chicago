@@ -268,6 +268,22 @@
             "established",
             "older_frontier"
           ]
+        },
+        "capacity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["beds_ordinary", "beds_crowded", "from", "row", "sizes"],
+          "description": "The beds a lodging roof's form was sized from, and where they came from (T-1778). The figures are the lodging model's (data/reconstruction/1835_lodging_model.json): the house's own apportioned row once the model carries it, its class's per-place figure before. `sizes` names each form value the beds decide and the rule that turned beds into it, so the window and stovepipe counts can be re-derived from this block rather than taken on trust. A capacity is not evidence of occupancy: it is a modelled ceiling, and nobody is seated by it.",
+          "properties": {
+            "beds_ordinary": {"type": "integer", "minimum": 0},
+            "beds_crowded": {"type": "integer", "minimum": 0},
+            "from": {"type": "string"},
+            "row": {"type": "string"},
+            "sizes": {
+              "type": "object",
+              "additionalProperties": {"type": "string"}
+            }
+          }
         }
       }
     },

@@ -5,6 +5,19 @@ export const CHANGELOG = [ // newest first
       'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
       'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
       'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
+  { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is a test wall, built away from the town, that shows how its walls can look like real weathered wood.',
+      'A clapboard wall, a log pen, a sash window, a painted signboard and a stretch of plank walk were built with the town\u2019s own tools and lit by the town\u2019s own sun.',
+      'The clapboard now shows grain and drying checks, and the logs show axe marks. The window sits in the wall with real glass and a dark room behind it, instead of a dark panel stuck on the front.',
+      'The same wood surface works under bare boards and white paint, so each household can keep its own finish. The next work applies this to the town\u2019s houses.',
+    ] },
+  { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',
+      'It looks like a boarding house and not an inn. Seven chamber windows run across its upper floor, front and back, and four iron stovepipes rise through the roof beside its two brick chimneys. There is no gallery, no sign and no wagon door.',
+      'The window and stovepipe counts come from its beds. The lodging model gives the house 12 sleepers on an ordinary night and 28 when full, and the house is filled to that. Every other boarding house\u2019s share moved by a bed at most.',
+      'Nothing here is claimed as evidence. No source puts a boarding house, its keeper or its lodgers on this lot. The Mark Beaubien household, which asked for this lot, now lives in it. The register says how every number was reached.',
     ] },
   { v: 1258, ts: '2026-10-01T13:01:47.714Z', date: 'Oct 1, 2026, 8:01 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
