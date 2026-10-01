@@ -216,7 +216,12 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                         "CONTROL line (AGENTS.md rule 10) the platted street ran to "
                         "the water and this ground is roadway; a camp of people "
                         "nobody had a room for is the ordinary reading of a crowd "
-                        "on the riverfront, and it is drawn there. The point recorded "
+                        "on the riverfront, and it is drawn there. That lap is REFUSED "
+                        "IN WRITING (T-1803, tools/corridor_intrusion_baseline.json): "
+                        "the whole dry strip lies inside the control corridor, so the "
+                        "only escape runs north across the camp's own front and off the "
+                        "bank into the river, and a camp moved anywhere else would no "
+                        "longer stand on the ground the American names. The point recorded "
                         "is the camp's north-east corner, the footprint's origin at "
                         "rotation 180. Placed by tools/place_landing_camps_1835.py; "
                         "L321.",
