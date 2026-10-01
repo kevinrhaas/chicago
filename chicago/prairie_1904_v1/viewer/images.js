@@ -30,6 +30,20 @@ window.PrairieImages = (() => {
   const lotName = id => { const p = lotsById().get(id); const names = array(p?.building_ids).map(b => buildingsById.get(b)?.name).filter(Boolean); return lotLabel(id) + (names.length ? ' · ' + names.join('; ') : ' · no building record yet'); };
   const thumbOf = r => r.local && (localURL(r.local.thumb) || localURL(r.local.display));
   const fullOf = r => r.local && (localURL(r.local.display) || localURL(r.local.thumb));
+  // Link-only items are SHOWN from their holder, never copied here (owner, 2026-10-01): the
+  // record's own image_url, asked for at a small size where the host has a size parameter.
+  function remoteURL2(value, size) {
+    const href = remoteURL(value); if (!href) return null;
+    let u = href;
+    if (/googleusercontent\.com|bp\.blogspot\.com/.test(u)) u = u.replace(/\/s\d+(-[a-z0-9-]+)?\//, '/s' + size + '/').replace(/=s\d+(-[a-z0-9-]+)?$/, '=s' + size);
+    else if (/\/iiif\//.test(u) && /\/full\/[^/]+\/0\/default\.(jpg|png)/.test(u)) u = u.replace(/\/full\/[^/]+\/0\//, '/full/!' + size + ',' + size + '/0/');
+    else if (/tile\.loc\.gov\/storage-services\/service\//.test(u)) { if (/\.tiff?$/i.test(u)) return null; if (size <= 640) u = u.replace(/[uv]\.jpg$/i, 'r.jpg'); }
+    else if (!/\.(jpe?g|png|gif|webp)(\?|#|$)/i.test(u)) return null;
+    return u;
+  }
+  const remoteThumbOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 480) : null;
+  const remoteFullOf = r => !r.local && r.image_url ? remoteURL2(r.image_url, 1600) : null;
+  function remoteImg(src, r) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; return img; }
   const dateText = r => r.date || (r.date_earliest && r.date_latest && r.date_earliest !== r.date_latest ? r.date_earliest + '–' + r.date_latest : r.date_earliest || r.date_latest) || 'Undated';
   const sortYear = r => r.date_earliest || r.date_latest || 9999;
 
@@ -42,8 +56,8 @@ window.PrairieImages = (() => {
   function forBuilding(id) { return array(imgs?.by_building?.[id]).map(i => byId.get(i)).filter(Boolean); }
   // The card's lead picture: an in-period front view held here, else anything held here.
   function leadImage(id) {
-    const list = forBuilding(id).filter(thumbOf);
-    const score = r => (r.period === 'in-period' ? 0 : r.period === 'near-period' ? 2 : 4) + (/front|elevation|oblique/i.test(r.view || '') && !/plan|section/i.test(r.view || '') ? 0 : 1) + (/plan|section|map/i.test(r.view || '') ? 2 : 0);
+    const list = forBuilding(id).filter(r => thumbOf(r) || remoteThumbOf(r));
+    const score = r => (r.period === 'in-period' ? 0 : r.period === 'near-period' ? 2 : 4) + (/front|elevation|oblique/i.test(r.view || '') && !/plan|section/i.test(r.view || '') ? 0 : 1) + (/plan|section|map/i.test(r.view || '') ? 2 : 0) + (thumbOf(r) ? 0 : 0.5);
     return list.sort((x, y) => score(x) - score(y))[0] || null;
   }
 
@@ -74,7 +88,12 @@ window.PrairieImages = (() => {
   function thumbBox(r, cls = 'img-thumb') {
     const box = node('div', null, cls), src = thumbOf(r);
     if (src) { const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async'; img.addEventListener('error', () => { img.replaceWith(node('span', r.kind, 'img-ph')); }); box.append(img); }
-    else { box.classList.add('link-only'); box.append(node('span', r.kind, 'img-ph'), node('span', 'View at ' + (r.repository || 'holder') + ' ↗', 'img-ph-sub')); }
+    else {
+      const placeholder = () => { box.classList.add('link-only'); box.replaceChildren(node('span', r.kind, 'img-ph'), node('span', 'View at ' + (r.repository || 'holder') + ' ↗', 'img-ph-sub')); };
+      const remote = remoteThumbOf(r);
+      if (remote) { const img = remoteImg(remote, r); img.addEventListener('error', placeholder); box.classList.add('remote'); box.title = 'Shown from ' + (r.repository || 'its holder') + ' — not copied here'; box.append(img, node('span', '↗', 'remote-mark')); }
+      else placeholder();
+    }
     return box;
   }
   function badges(r) {
@@ -232,7 +251,13 @@ window.PrairieImages = (() => {
     openIndex = i; const r = current[i]; if (!r) return;
     const d = $('imageDialog'), body = $('imageDialogBody'); body.replaceChildren();
     const fig = node('figure', null, 'img-figure'), full = fullOf(r);
+    const remote = !full && remoteFullOf(r);
     if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; a.append(img); fig.append(a); }
+    else if (remote) {
+      const a = node('a'); a.href = remoteURL(r.image_url) || remote; a.target = '_blank'; a.rel = 'noopener noreferrer'; const img = remoteImg(remote, r); img.loading = 'eager';
+      img.addEventListener('error', () => a.replaceWith(thumbBox(Object.assign({}, r, { image_url: null }), 'img-thumb big')));
+      a.append(img); fig.append(a, node('p', 'Shown from ' + (r.repository || 'its holder') + ' — not copied here. ' + (RIGHTS_LABEL[r.rights] || r.rights) + '.', 'meta remote-note'));
+    }
     else { const ph = thumbBox(r, 'img-thumb big'); fig.append(ph); }
     const cap = node('figcaption'); cap.append(node('p', [r.kind, dateText(r), r.creator].filter(Boolean).join(' · '), 'kicker'), node('h2', r.title || r.id)); fig.append(cap);
     const info = node('div', null, 'img-info');
@@ -372,7 +397,7 @@ window.PrairieImages = (() => {
     if (!ready) return;
     const list = forBuilding(id); if (!list.length) return;
     const lead = leadImage(id);
-    if (lead && summaryEl) { const t = node('img', null, 'card-lead'); t.src = thumbOf(lead); t.alt = ''; t.loading = 'lazy'; t.addEventListener('error', () => t.remove()); summaryEl.prepend(t); }
+    if (lead && summaryEl) { const t = node('img', null, 'card-lead'); t.src = thumbOf(lead) || remoteThumbOf(lead); t.referrerPolicy = 'no-referrer'; t.alt = ''; t.loading = 'lazy'; t.addEventListener('error', () => t.remove()); summaryEl.prepend(t); }
     if (summaryEl) summaryEl.append(node('span', list.length + ' image' + (list.length === 1 ? '' : 's'), 'badge img-count'));
     const strip = node('div', null, 'card-strip');
     list.slice(0, 8).forEach(r => { const b = node('button', null, 'img-open small'); b.type = 'button'; b.title = r.title; b.append(thumbBox(r, 'img-thumb small')); b.addEventListener('click', () => { pickBuilding(id); const j = current.findIndex(c => c.id === r.id); openDetail(j); }); strip.append(b); });
