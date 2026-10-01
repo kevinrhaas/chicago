@@ -127,7 +127,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The H2 family read as the crosswalk's merchant two-storey house (`house_frame_large:merchant_two_story`), the function the South's H2 records carry: the platted deal adopts this roof for hh_arrowsmith_sidney under merchant_and_professional_dwellings (T-1827), so it is that household's house and not a boarding house, and the lodging model counts no beds in it. The household's trade is not recorded; the clause, not a source, places it here."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The H2 family read as the crosswalk's merchant two-storey house (`house_frame_large:merchant_two_story`), the function the South's H2 records carry: the platted deal holds this roof under its merchant_and_professional_dwellings clause (T-1827), so it stands as a merchant's house and not a boarding house, and the lodging model counts no beds in it. No occupant is named; the clause, not a source, sets the use."
     }
   },
   "residents": [],
@@ -163,15 +163,15 @@
     "programme_phase": "phase2_west_wolf_point_approaches",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 46,
-    "finish_key": "fresh_timber",
+    "finish_key": "ochre",
     "roof_condition": "fresh",
     "age_state": "new",
     "fabric_basis": {
-      "rule": "F-F",
-      "class": "freight",
+      "rule": "F-M",
+      "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "new-sawn boards under a new roof — a freight shed, new-built (rule F-F: the freight trade's by its type)"
+      "words": "ochre-washed clapboard under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
     }
   }
 }
