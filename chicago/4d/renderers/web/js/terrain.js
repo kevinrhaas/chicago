@@ -1154,7 +1154,7 @@ function gridGeometry(hf, step = 1) {
 /* materials                                                                   */
 /* -------------------------------------------------------------------------- */
 
-const WORLD_POS_VERT = /* glsl */`
+export const WORLD_POS_VERT = /* glsl */`
   vChiWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
 `;
 
@@ -1316,6 +1316,63 @@ ${blocks}
 }
 
 /**
+ * THE PRAIRIE, as fragment code — the statements `groundMaterial` splices in place
+ * of `<map_fragment>`, lifted out unchanged so a second surface can paint the SAME
+ * prairie rather than a copy of it (T-1797: the ground strip feathers into the
+ * terrain at its edges, and a copy would drift the first time this one is tuned).
+ * The compiled ground shader is byte for byte the one it was. It expects
+ * `varying vec3 vChiWorld` and `uniform sampler2D uGround` (the prairie tile) and
+ * leaves `chiTex`, `chiPatch`, `chiWet` and `chiPrairie` declared.
+ */
+export const PRAIRIE_FRAGMENT = /* glsl */`
+  // ONE texture fetch, deliberately. The ground covers most of the screen, so
+  // every instruction here is paid a million times a frame; a second octave
+  // fetched from the same texture at a different scale looked slightly better
+  // and halved the frame rate under software rasterisation. The finer octaves
+  // are therefore baked INTO that one texture (see prairieTexture) and the
+  // patch-scale variation above the tile is arithmetic, which costs a fraction
+  // of a filtered fetch.
+  vec3 chiTex = texture2D(uGround, vChiWorld.xz * 0.0909).rgb;
+
+  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
+  // this replaces beat at ~200 m, a soft blur the size of a city block that read
+  // as cloud shadow rather than as ground; prairie patchiness is a
+  // swale-and-rise business at tens of metres, which is the scale the
+  // heightfield's own relief works at. THREE sines total, one more than before
+  // and no more: this runs once per ground fragment and the ground is most of
+  // the screen, so the count is a budget, not a taste (the same reason there is
+  // exactly one texture fetch above). Amplitude is held near +/-14 % — past that
+  // the pattern competes with the sward instead of sitting under it.
+  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
+                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
+  // Wet ground: the marshy shore strip, keyed on height above the datum.
+  // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
+  // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide
+  // on the low South Division shore and narrow on the higher north and west
+  // banks, which is what the sources say. The top of the band is pulled in to
+  // 0.70 m so it stops at the foot of the plain (p25 of the land is 0.83 m)
+  // instead of tinting it. It keys the SUBSTRATE zones too, between their own
+  // two declared colours, so the reading is one rule and not two.
+  float chiWet = 1.0 - smoothstep(0.05, 0.70, vChiWorld.y);
+
+  // THE PRAIRIE PATH, arithmetically what it has always been — the three
+  // statements below are the previous revision's, moved onto a local so the
+  // substrate can be mixed against them. Where no zone covers a fragment the
+  // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
+  // zones moves" is a property of the code rather than a claim about a
+  // screenshot. (No backticks in here: this is a JS template literal.)
+  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
+  chiPrairie = mix(chiPrairie,
+                   chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
+                   chiWet);
+  // Drier mesic prairie on the rises. A July shift, not a September one: a few
+  // per cent lighter and a few per cent less blue, so the crown of the plain
+  // reads finer and yellower than the swale beside it and still reads green.
+  chiPrairie *= mix(vec3(1.0), vec3(1.05, 1.03, 0.92),
+                    smoothstep(0.95, 1.28, vChiWorld.y));
+`;
+
+/**
  * Ground: a procedural prairie sampled in WORLD space, darkening to wet mud as
  * the surface approaches the water.
  *
@@ -1369,53 +1426,7 @@ function groundMaterial(zones = []) {
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
-` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`
-  // ONE texture fetch, deliberately. The ground covers most of the screen, so
-  // every instruction here is paid a million times a frame; a second octave
-  // fetched from the same texture at a different scale looked slightly better
-  // and halved the frame rate under software rasterisation. The finer octaves
-  // are therefore baked INTO that one texture (see prairieTexture) and the
-  // patch-scale variation above the tile is arithmetic, which costs a fraction
-  // of a filtered fetch.
-  vec3 chiTex = texture2D(uGround, vChiWorld.xz * 0.0909).rgb;
-
-  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
-  // this replaces beat at ~200 m, a soft blur the size of a city block that read
-  // as cloud shadow rather than as ground; prairie patchiness is a
-  // swale-and-rise business at tens of metres, which is the scale the
-  // heightfield's own relief works at. THREE sines total, one more than before
-  // and no more: this runs once per ground fragment and the ground is most of
-  // the screen, so the count is a budget, not a taste (the same reason there is
-  // exactly one texture fetch above). Amplitude is held near +/-14 % — past that
-  // the pattern competes with the sward instead of sitting under it.
-  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
-                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
-  // Wet ground: the marshy shore strip, keyed on height above the datum.
-  // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
-  // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide
-  // on the low South Division shore and narrow on the higher north and west
-  // banks, which is what the sources say. The top of the band is pulled in to
-  // 0.70 m so it stops at the foot of the plain (p25 of the land is 0.83 m)
-  // instead of tinting it. It keys the SUBSTRATE zones too, between their own
-  // two declared colours, so the reading is one rule and not two.
-  float chiWet = 1.0 - smoothstep(0.05, 0.70, vChiWorld.y);
-
-  // THE PRAIRIE PATH, arithmetically what it has always been — the three
-  // statements below are the previous revision's, moved onto a local so the
-  // substrate can be mixed against them. Where no zone covers a fragment the
-  // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
-  // zones moves" is a property of the code rather than a claim about a
-  // screenshot. (No backticks in here: this is a JS template literal.)
-  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
-  chiPrairie = mix(chiPrairie,
-                   chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
-                   chiWet);
-  // Drier mesic prairie on the rises. A July shift, not a September one: a few
-  // per cent lighter and a few per cent less blue, so the crown of the plain
-  // reads finer and yellower than the swale beside it and still reads green.
-  chiPrairie *= mix(vec3(1.0), vec3(1.05, 1.03, 0.92),
-                    smoothstep(0.95, 1.28, vChiWorld.y));
-
+` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones)}
   diffuseColor.rgb = chiPrairie;
 `);
@@ -1535,7 +1546,7 @@ uniform vec3 uSky;
  * cost the software rasteriser measurably, this being the one texture that
  * covers the screen. Detail here is bought in octaves, not in pixels.
  */
-function prairieTexture() {
+export function prairieTexture() {
   const S = PRAIRIE_TILE_PX;
   const c = document.createElement('canvas');
   c.width = c.height = S;

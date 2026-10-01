@@ -177,6 +177,21 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
         "$dst/"
 done
 
+# The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,
+# drawn only under `?proof=ground`. Same asset-base rename and the same reason as
+# the roof relief above: material.json carries the metric tile the strip reads.
+# TWO FILES AND NOT TEN: the strip binds the basecolor only (the library's
+# ground normals are flat — the strip's relief is its own grit tile), and the
+# height, ORM and loose channels stay in the repository.
+for ground in wet_prairie_muck lake_michigan_dune_sand; do
+  src="assets/textures/chicago_1835_pbr/ground/$ground"
+  dst="$SITE/data/textures/chicago_1835_pbr/ground/$ground"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${ground}_basecolor.png" \
+        "$dst/"
+done
+
 # scenes, sidecars, datum (the renderer needs the origin for sun position).
 # Keep the scenes/ subdirectory — the renderer fetches data/scenes/<year>.json,
 # and flattening it here 404s the published build while the source tree works.
