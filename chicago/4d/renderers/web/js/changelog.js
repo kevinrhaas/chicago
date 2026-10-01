@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1278, ts: '2026-10-01T23:33:50.561Z', date: 'Oct 1, 2026, 6:33 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+  { v: null, ts: '', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
       'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
       'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
+    ] },
+  { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
+    items: [
+      'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
+      'The grass near you rises and falls with those stands. Clumps in a lush patch grow taller and darker together, and in a thin one they stay lower and lighter, with more dead blades. Before, every clump was drawn the same.',
+      'The prairie\u2019s overall colour is unchanged, and so are each grass\u2019s recorded heights. Only where the tall and short plants stand has changed. The frame rate is unchanged too.',
+      'Where the thick and thin stands fall is our reconstruction. No survey of 1835 maps them. The Liberties page says so (L337).',
     ] },
   { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
