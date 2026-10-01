@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1247, ts: '2026-10-01T07:02:10.210Z', date: 'Oct 1, 2026, 2:02 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+  { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [
       'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
       'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
@@ -7,6 +7,12 @@ export const CHANGELOG = [ // newest first
       'The stable is the only yard building built, and this corner of town is why: a teamster’s house, his stable and a blacksmith’s shop already stand on the same face. The barn the block’s plan also holds is left for a later house that can argue for it.',
       'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed — and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
       'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
+    ] },
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
     ] },
   { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
     items: [
