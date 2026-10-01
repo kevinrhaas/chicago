@@ -20,3 +20,7 @@ maximum includes every eligible lazy far-merge cluster, rather than one camera.
 before and after bounded lobe contrast; it is a focused check, not full smoke.
 `sward-fringe-mobile.json` repeats the unchanged focused coverage and anchoring
 checks at 390×780 with touch/DPR2; the repaired fringe passes at 20.112 px.
+
+`budget-after-fringe.json` and `budget-after-fringe.log` measure the repaired published tree
+before the later T-1781 integration. `budget-after-fringe-provenance.json` identifies the tested commit and
+the older generated build label present during the measurement.

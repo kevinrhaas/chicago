@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1245, ts: '2026-10-01T05:34:46.324Z', date: 'Oct 1, 2026, 12:34 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1246, ts: '2026-10-01T06:23:11.629Z', date: 'Oct 1, 2026, 1:23 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
+    items: [
+      'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
+      'None of these five fronts a street; the nearest is 75 to 140 metres away. A framed cottage set back from a road it does not have made no sense, so out here the town now builds what the prairie edge would have held: log cabins and barns.',
+      'Four labouring households live in the four cabins. Two tradesman families who had lived out here now live in framed houses nearer Clinton Street, and two others lose their house in the re-seating and wait for the next houses to be built.',
+      'Every one of these buildings is our reconstruction. No source places a house or a barn on this ground in July 1835; the positions, sizes and kinds are reasoned from how the town was laid out, and each card says so.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [

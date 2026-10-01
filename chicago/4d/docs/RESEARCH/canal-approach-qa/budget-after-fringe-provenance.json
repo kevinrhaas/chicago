@@ -1,0 +1,6 @@
+{
+  "tested_commit": "12ef98123ab83e17faa2eb73b784e5ed3f985efb",
+  "note": "Published files matched the staged fringe repair later committed as the tested commit. Measurement began before commit transport; generated build label still reported parent08dfea9. No source/asset changes during the measurement. This precedes integration of dev b18a034 (T-1781).",
+  "viewport": "desktop 1280x800",
+  "log": "budget-after-fringe.log"
+}

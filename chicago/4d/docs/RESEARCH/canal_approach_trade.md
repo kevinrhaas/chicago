@@ -102,6 +102,13 @@ contrast of the world-anchored lobe field restores 4.944 px variation, with all
 16 bins covered and mean reach increasing from 26.382 to 26.588 m. The existing
 fringe amplitude, lattice, primitive geometry and assertions remain unchanged.
 The measured pair is `canal-approach-qa/sward-fringe-pair.json`. The repository's
-smoke routing maps this flora-only repair to parts 10–11; parts 1–9 run on
-08dfea9 and parts 10–13 will run after this repair, with actual commits retained
-in each receipt. The final frame-budget sweep is repeated for the repair.
+smoke routing maps this flora-only repair to parts 10–11. The intermediate
+coverage uses parts 1–9 at 08dfea9 and parts 10–13 at 12ef981, with actual
+commits retained in each receipt. The repaired budget passes Full 1,424,307,
+Balanced 1,226,906 and Light 807,664 against unchanged ceilings.
+
+Dev subsequently advanced to b18a034 (T-1781), refamiling five existing West
+roofs. Those source records and canonical meshes are integrated with all five
+Canal roofs preserved; combined seating, inventory and research outputs are
+regenerated. That mesh/data change requires fresh parts 1–13 on both viewports
+and a new frame-budget reading. Those final integrated results are pending.
