@@ -56,3 +56,15 @@ excluded meshes are named yard-far-merge. Both source chunks and cached batches
 must still share one material and carry bounding spheres. No yard geometry or
 rendering setting changes. Rerun parts 1–2 with their preceding camera history,
 plus part 5's unchanged zero-extra-triangle far-merge and rendering-budget gates.
+
+Dev integration at 21acac92 added the landing camps and registered their archetype
+in the shared emitter, invalidating the input fingerprints of this branch's four
+Glessner masters. Rebuilt all four with pinned Blender 4.5.3 and regenerated their
+web derivatives. Every master and the canonical full/light web files reproduced
+byte-for-byte; the recovery archive is unchanged. Staleness is again zero errors.
+The repair's desktop 1904 loading, placement, picking and street-grid checks also
+passed in run 36888731661. That wider run separately found a 3.9 px sward-boundary
+reading against the unchanged 4 px floor in part 11; the prior unfiltered receipt
+has the identical ground reaches but an 8.2 px spread. An isolated dev comparison
+and explicit buffer/FOV/eye-height diagnostics are checking the measurement state.
+No grass parameter or assertion threshold has been changed.

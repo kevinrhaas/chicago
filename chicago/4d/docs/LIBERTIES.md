@@ -18159,6 +18159,61 @@ platted deal whose request this answers), **L312** (the same shape of deal), **T
 **T-1209** (the boarding houses built to their beds).
 **Recorded:** 2026-10-01.
 
+### L321 — Two emigrants' camps on the South Water bank: the ground documented, the tents invented
+
+**Decision:** two camps of tents stand on the South Water Street bank of the main stem
+(T-1803, the first piece of T-1214): `landing_camp_west` between local E +264 and E +297 and
+`landing_camp_east` between E +300 and E +342, between the street's drawn roadway and the
+traced 1834 bank, and between J. H. Kinzie's landing and Jones's. They hold the 28 camp
+households `data/reconstruction/1835_transient_persons.json` deals to the landing place: one
+tent to each of the 15 households "in a tent at the landing place", and a heap of baggage —
+two chests, a barrel and a blanket roll — for each of the 13 "under the open sky upon the
+wharves". The camps carry 7 and 8 tents in the alternating wall and wedge forms, a covered wagon
+each, a brush lean-to in the east camp, one cold fire ring to two tents with a pot crane over
+it, and cordwood. **Everything drawn is invented except the use of the ground.**
+**Why:** the Chicago American of 13 June 1835 says the emigrants "remained under the open sky
+upon the wharves. Some build tents upon the spot they were landed from the boats", and
+`1835_camp_grounds.json` grades that ground `documented` and resolves it to the bank the
+landings stand their decks on. The paper says neither where along the riverfront nor what the
+tents were. The stretch is chosen because it is the only one the measurement leaves: the dry
+strip between the roadway and the water is 9 to 16 m wide here and closes to nothing west of
+it and under the river walk east of it (`tools/place_landing_camps_1835.py` measures it and
+refuses a camp within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or
+on ground under 0.20 m above the water). The tents are the two forms an outfitter of the
+1830s sold — the 9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes
+(`generators/archetypes/camp_params.py`). One tent a household is the reading that invents
+no sharing. The wagons answer the owner's ruling that wagons are not to be rationed
+(AGENTS.md, 2026-08-18); a family that came by lake shipped its wagon on the schooner.
+**Consequence:** a visitor on South Water Street sees a row of greyed canvas on the bank
+below the stores, with wagons, fire rings and piled baggage, and nobody there. **L1 stands
+over every vertex**: no figure is drawn, and no flame or smoke either — a column of smoke is
+the one thing a visitor would read as a person at the fire. On the street's CONTROL line
+(AGENTS.md rule 10) the platted South Water Street ran to the water, so these camps stand in
+the plat's roadway; that is what a crowd nobody had a room for did, and it is said on both
+records. These are not Native or Métis camps, which are T-1804's and carry the standing
+constraint's review.
+**How to resolve:** a letter, a diary or a view of the summer of 1835 placing the tents on the
+riverfront or describing them; the American's or the Democrat's later notices of the
+emigrants at the landing; any account of what an emigrant family's outfit at Chicago held.
+**Covers:** `landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`,
+`landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`,
+`landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`,
+`landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`,
+`landing_camp_west.camp_1835.form.baggage_heaps`,
+`landing_camp_west.camp_1835.form.canvas_condition`,
+`landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`,
+`landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`,
+`landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`,
+`landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`,
+`landing_camp_east.camp_1835.form.baggage_heaps`,
+`landing_camp_east.camp_1835.form.canvas_condition`,
+`landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`,
+`landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`,
+`landing_camp_west.occupants`, `landing_camp_east.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the
+camp households), **T-1804** (the other grounds and the Native and Métis camps).
+**Recorded:** 2026-10-01.
+
 ### L324 — The five medium boarding houses sized from their beds: upper windows and stovepipes by the H3's rule
 
 **Decision:** the five H2 houses the North and West parcels raised and the lodging model counts

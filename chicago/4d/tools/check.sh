@@ -1368,6 +1368,12 @@ selftest "…and its own assertions still fire when broken" \
 step "the river wharves re-derive from the records that state a dock" \
   python3 tools/generate_river_wharves.py --check
 
+# The landing-place camps (T-1803) are placed against the drawn South Water line, the
+# traced bank, the heightfield and every committed obstacle on the bank, so a moved
+# deck, walk, boat or footprint must move a camp with it or fail here.
+step "the landing-place camps re-derive from the bank they stand on" \
+  python3 tools/place_landing_camps_1835.py --check
+
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was
 # WITHDRAWN on 2026-08-27 on the three readings this holds. Not on an opinion about

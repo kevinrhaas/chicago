@@ -11345,7 +11345,8 @@ for (const [label, viewport, touch] of [
           spread: Math.max(...before) - Math.min(...before),
         };
       })();
-      return { ...out, station, anchored };
+      return { ...out, station, anchored, heightPx: H, fovDeg: a.camera.fov,
+        eyeHeightM: a.walkBudget.eyeHeight };
     });
     check(`${label}: an open station exists to measure the sward's boundary from`,
       !!seam.station,
@@ -11374,7 +11375,9 @@ for (const [label, viewport, touch] of [
       check(`${label}: the sward's outer boundary is not a constant screen row`,
         s.bins >= 12 && s.spreadPx >= 4,
         `${s.bins}/16 bearing bins from E ${seam.station.e} N ${seam.station.n}, boundary rows `
-        + `spread ${s.spreadPx.toFixed(1)} px, reach ${s.minReach.toFixed(2)}`
+        + `spread ${s.spreadPx.toFixed(1)} px (${seam.heightPx}px buffer, `
+        + `${seam.fovDeg.toFixed(1)}deg field, ${seam.eyeHeightM.toFixed(2)}m eye), `
+        + `reach ${s.minReach.toFixed(2)}`
         + `-${s.maxReach.toFixed(2)} m at ${(s.seen * 100).toFixed(2)}% coverage `
         + `(at the old ${(s.faintAt * 100).toFixed(0)}%: ${s.faint.bins}/16 bins, `
         + `spread ${s.faint.spreadPx.toFixed(1)} px, reach ${s.faint.minReach.toFixed(2)}`

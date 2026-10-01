@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1265, ts: '2026-10-01T16:31:54.512Z', date: 'Oct 1, 2026, 11:31 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+  { v: 1266, ts: '2026-10-01T16:49:28.405Z', date: 'Oct 1, 2026, 11:49 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
       'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
       'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+    ] },
+  { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+    items: [
+      'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
+      'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
+      'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
+      'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
     ] },
   { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [
