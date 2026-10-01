@@ -11964,12 +11964,6 @@
       "asset": "gltf/recon_1835_blk_washington_clark_h3_05__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_washington_franklin_a1_08",
-      "name": "Reconstructed A1 stable #08",
-      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_08.json",
-      "asset": "gltf/recon_1835_blk_washington_franklin_a1_08__inferred_1835.glb"
-    },
-    {
       "id": "recon_1835_blk_washington_franklin_a1_10",
       "name": "Reconstructed A1 stable #10",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_10.json",
@@ -11998,6 +11992,12 @@
       "name": "Reconstructed A4 woodshed or storage shed #12",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a4_12.json",
       "asset": "gltf/recon_1835_blk_washington_franklin_a4_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_franklin_a5_08",
+      "name": "Reconstructed A5 small utility building #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a5_08.json",
+      "asset": "gltf/recon_1835_blk_washington_franklin_a5_08__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_franklin_d3_05",

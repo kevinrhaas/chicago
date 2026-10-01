@@ -8935,11 +8935,11 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_washington_franklin_a1_08",
+    "recon_1835_blk_washington_franklin_a5_08",
     "recon_1835_blk_washington_franklin_d7_01"
    ],
    "standing_families": {
-    "recon_1835_blk_washington_franklin_a1_08": "A1",
+    "recon_1835_blk_washington_franklin_a5_08": "A5",
     "recon_1835_blk_washington_franklin_d7_01": "D7"
    },
    "principal_roofs_standing": 1,

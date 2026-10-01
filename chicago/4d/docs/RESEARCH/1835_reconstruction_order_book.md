@@ -640,7 +640,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `structures/barns_stables/south` | 35 | 27 | 8 | 0 | T-1212 |
+| `structures/barns_stables/south` | 35 | 26 | 9 | 0 | T-1212 |
 | `structures/barns_stables/west` | 20 | 14 | 6 | 0 | T-1212 |
 | `structures/barns_stables/north` | 17 | 10 | 7 | 0 | T-1212 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -651,13 +651,13 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1202 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 28 | 18 | 10 | 0 | T-1779 |
-| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1779 |
-| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1779 |
+| `structures/larger_boarding_houses/south` | 28 | 18 | 10 | 0 | T-1810 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1810 |
+| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1810 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1758 |
 | `structures/ordinary_dwellings/west` | 75 | 59 | 16 | 0 | T-1774 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
-| `structures/small_outbuildings/south` | 48 | 35 | 13 | 0 | T-1212 |
+| `structures/small_outbuildings/south` | 48 | 36 | 12 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 6 | 8 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 19 | 1 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |

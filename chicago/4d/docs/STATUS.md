@@ -39,6 +39,46 @@ approach — and the Native and Métis camps from T-1177's evidence, which carry
 constraint's review. The camp households' own `lodged_at` still names the candidate ground, not
 these records.
 
+## T-1802 — the Franklin block's recipe corrected to the seating it landed on (2026-10-01)
+
+Owner-asked fix. #186 (T-1751) landed `blk_washington_franklin` with a recipe entry cut on
+an older seating than the one it merged onto. Two things in it were stale, and no gate could
+see either:
+
+- **The seven `dealt_against_a_request` seats** (hh_aspam_antoine, hh_ashbaugh_fre,
+  hh_bailly_esther, hh_aspam_jean_baptiste, hh_calhoun_alvin, hh_cady_levi,
+  hh_campbell_james_b) no longer asked for this block. `adopt_street_faces.py`
+  (`requested_roofs`) reads this list for refusal 7, so the derived adoptions file named
+  the wrong households.
+- **The yard mix** was two stables, where the block's 665-schedule plan holds one stable and
+  one small utility building.
+
+**How the fix was derived.** Dev today has the block built, so no household holds a slot on it
+any more. The requests were re-derived as a counterfactual, in a scratch copy: the block's
+recipe entry and its 13 records were taken off and the seating chain was walked to its
+fixpoint (2 passes). The placement pass then writes a slot against this block for
+hh_beddlecome_ash (lot 0, D7), hh_benediet_loma (lot 2, H2), hh_beech_reuben (lot 4, H1),
+hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3), hh_chandler_catherine
+(lot 5, D3) and hh_chattin_clark (lot 7, D3). The schedule plans A1 + A2 + A3 + 2 A4 + A5.
+
+- **Lot 7 stays a D3.** The closed re-cut #198 had moved it to a D4, because the 9/29
+  seating asked hh_chiney_ralph to have a D4 there. Today's seating asks for a D3 there, so the
+  D4 is stale too and was not carried over.
+- The new requests ask for exactly the families the deal raised. So the seven roofs refusal 7
+  holds back are the same seven, and only the names they record change.
+- **Lot 0's stable is now an A5 small utility building**
+  (`recon_1835_blk_washington_franklin_a5_08`, replacing `…_a1_08`). It was baked with
+  pinned Blender 4.5.3 (`generators/build.py --only`), its web derivative was made with
+  `web_derivatives.sh --only`, and the sidecars were recompiled with `compile_scene.py --all`.
+
+**Converged figures (chain at fixpoint, 2 passes, then `rederive.mjs --run`, then 2 more):**
+platted seats **183** (148 adopted, 35 slots), **1,295** handed on, off-plat **72**, keepers
+**23** (80 refused, 45 owed). None of these moved: the seating files are byte-identical to
+dev's. The programme reads **500 standing, 168 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
+barns and stables owed there go 8 → 9, small outbuildings 13 → 12. Assets: one GLB swapped,
+so the count is unchanged. **L304** carries the correction; **L263** (prose only, count
+unmoved at 483) and **L270** (a no-seat-moved restatement) are restated.
+
 ## T-1783 — the outer West blocks opened at a West density; four roofs on plat block 47 (2026-10-01)
 
 Third piece of T-1208. The West Division's platted grid was withheld from the 665-roof schedule
