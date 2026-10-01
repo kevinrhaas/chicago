@@ -15,12 +15,12 @@ ceiling cannot climb on what the schedule itself deals.
   W2 shop in a one-lot Randolph frontage run at the Des Plaines corner (T-0024 sends a
   non-dwelling to the better face, and every West lot fronts a north-south street), D6 on plat
   lot 5 and D5 on plat lot 9 of the Jefferson face. Four lots open. Baked with `bake.sh --only`.
-- Not built: `blk_west_lake_canal`'s deal (three frame cottages, with two households already
+- Not built: `blk_west_lake_canal`'s deal (three frame cottages, with three households already
   asking for slots on it). T-1773's warehouse now stands on lot 1 of that block and spends one
   of its six. The order book's `structures/ordinary_dwellings/west` row (19 left) and its
   `warehouses_freight/west` row (2 of 2) move from the done T-1794 and T-1773 to T-1774, the open
   ticket that hands T-1208 on with the West's exact remainder. The finding is written on T-1774.
-- Seated: three households adopt the three new cottages (L270 restated, 177 → 182 seats; L276 restated, 23 → 24 keepers). The
+- Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 24 → 23 keepers: the re-deal moves T-1761's Ballingale off `d3_04`). The
   workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
 - L313 records the ceiling and the four roofs; L263 restated (485 phases).
 - The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the

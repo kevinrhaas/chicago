@@ -14687,9 +14687,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 182 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 182 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 183 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -14740,12 +14740,13 @@ households took slots on it. A block's slot count is therefore not a ratchet in 
 direction, and no reading of this entry should treat it as one: it is what the schedule
 apportions to that block on the day it is read, and raising a block's roofs re-deals the order
 behind them across the whole tier.
-**T-1783 took the count from 177 to 182 by opening the West Division's three lot-ruled outer
+**T-1783 took the count from 177 to 183 by opening the West Division's three lot-ruled outer
 blocks** (see **L313**): three households adopt the three cottages built on
-`blk_west_randolph_des_plaines`, and two ask for slots on `blk_west_lake_canal`, whose three
-dwellings the schedule now deals and nobody has built yet. It was four dwellings and three slots
-until T-1773's warehouse (L308) took that block's plat lot 1 at the forks; the West lot ceiling
-holds the block at six roofs to its ten lots, so the warehouse spends one of them.
+`blk_west_randolph_des_plaines`, and three ask for slots on `blk_west_lake_canal`, whose three
+dwellings the schedule now deals and nobody has built yet. It was four dwellings until T-1773's
+warehouse (L308) took that block's plat lot 1 at the forks; the West lot ceiling holds the block
+at six roofs to its ten lots, so the warehouse spends one of them. One intermediate pass of the
+chain read 182 on the way to this fixpoint.
 **Four more arrived the same way and on the same kind of ground — two blocks, one ruling, and
 the second of them took a whole ticket longer to reach.** `blk_lake_clinton` and
 `blk_randolph_clinton` are plat blocks 28 and 45, between Clinton and Canal, and both grids of
@@ -15529,22 +15530,27 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-four roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 24 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 24 are on the
-South Water blocks and were written by T-1638; the other 15 are on the Randolph–Washington
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
 
-**T-1783 made it 24.** Opening the outer West blocks re-dealt the West Division's households
-across the ground the schedule now names, and the Barnard household (`hh_barnard_j_b`) now
-adopts the one-room cottage on `blk_randolph_clinton` (`recon_1835_blk_randolph_clinton_d3_04`),
-so that roof names its keeper where it had stated a refusal.
+**T-1783 takes it back to 23, and the one it loses is T-1761's.** Opening the outer West blocks
+re-deals the West Division's households across the ground the schedule now names. On the tree
+before T-1761 that put the Barnard household under the D3 cottage on `blk_randolph_clinton`
+(`recon_1835_blk_randolph_clinton_d3_04`) and made 24; on top of T-1761 the same re-deal moves
+both nameable households off that roof. `hh_ballingale_p` goes to lot 8 of
+`blk_west_lake_des_plaines` and `hh_barnard_j_b` to `recon_1835_west_021`, and neither is a
+roof the platted block-infill generator owns, so both are owed rather than written. Written
+**24 → 23**, refused **77 → 79**, owed **43 → 44**. No ruling moved, and no name was written to a
+roof it was not dealt.
 
 **It was 23 until T-1736, and the two it lost show what "one district at a time" costs.**
 That ticket dealt the first two roofs on blk_washington_clark, on the plat's last tier, and

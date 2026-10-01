@@ -315,12 +315,12 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 314,
-  "outside": 186,
+  "outside": 190,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 40,
-   "west_of_canal_street": 78,
+   "west_of_canal_street": 82,
    "south_of_washington_street": 40,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -421,6 +421,10 @@
     "recon_1835_blk_randolph_clinton_d4_09",
     "recon_1835_blk_randolph_clinton_d5_01",
     "recon_1835_blk_randolph_clinton_d7_08",
+    "recon_1835_blk_west_randolph_des_plaines_d4_02",
+    "recon_1835_blk_west_randolph_des_plaines_d5_04",
+    "recon_1835_blk_west_randolph_des_plaines_d6_03",
+    "recon_1835_blk_west_randolph_des_plaines_w2_01",
     "recon_1835_west_001",
     "recon_1835_west_002",
     "recon_1835_west_003",
@@ -929,7 +933,7 @@
    },
    {
     "id": "blk_west_lake_des_plaines",
-    "state": "gated",
+    "state": "at_capacity",
     "roofs_scheduled": 0,
     "centre_local_enu_m": [
      -458.39,
@@ -949,7 +953,7 @@
    },
    {
     "id": "blk_west_randolph_des_plaines",
-    "state": "gated",
+    "state": "at_capacity",
     "roofs_scheduled": 0,
     "centre_local_enu_m": [
      -455.06,
@@ -1097,7 +1101,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 44
+    "roofs": 37
    },
    {
     "id": "north_division_beyond_modelled_ground",
