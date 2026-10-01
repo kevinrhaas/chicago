@@ -469,7 +469,8 @@ STRUCTURE_TICKETS = {
     ("west", "workshops"): "T-1766",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     ("west", "warehouses_freight"): "T-1773",
-    ("west", "institutional_public"): "T-1208",
+    # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
+    ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
