@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1275, ts: '2026-10-01T22:18:11.880Z', date: 'Oct 1, 2026, 5:18 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
+  { v: 1276, ts: '2026-10-01T22:45:32.074Z', date: 'Oct 1, 2026, 5:45 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
     items: [
       'Walk the lake shore south of the old river channel, or north of the harbour, and the ground behind the beach is no longer flat. A low ridge of sand rises a few steps back from the water, with a second, lower one behind it and a hollow between.',
       'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre and a half above the ground around it, and you walk up and over them.',
       'The fort, the river mouth, the sand bar and the platted streets of the North Side keep the ground they had.',
       'A visitor at the fort wrote of \u201cthe white sand hills both to the north and south\u201d, but no source places or measures one. Where they stand and how high they are is our reconstruction, recorded in the register (L334).',
+    ] },
+  { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
+    items: [
+      'Open the card of the store-residence south-west of the Western Hotel\u2019s wagon yard. It used to read as an anonymous count of the town\u2019s roofs. It now says what the building was for: a store with attic rooms, kept for the wagon trade.',
+      'Nobody is named for it. No household the town can seat there keeps a store, so the card says so instead of leaving it blank. No trade, goods or signboard is invented for it.',
+      'This is our reconstruction, recorded in the register (L310). Nothing in the 3-D scene moved.',
     ] },
   { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
     items: [
