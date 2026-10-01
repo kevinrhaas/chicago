@@ -391,7 +391,13 @@ STRUCTURE_TICKETS = {
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1694",
-    ("south", "larger_boarding_houses"): "T-1209",
+    # T-1209 WAS SPLIT on 2026-09-30 (T-1775 … T-1780). These three live cells move
+    # to T-1778, the first child that actually raises a boarding-house roof: T-1777
+    # rules and finds the first seat, T-1778 raises the H3 form on it, T-1779 raises
+    # the remaining H3s, and T-1780 follows with the H1/H2 houses and closes the books.
+    # The row must move again at each hand-off while a remainder stands; leaving it on
+    # the split parent orders sixteen roofs from a ticket no run can claim.
+    ("south", "larger_boarding_houses"): "T-1778",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -437,7 +443,11 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    ("west", "ordinary_dwellings"): "T-1208",
+    # T-1208 WAS SPLIT on 2026-09-30 (T-1781 … T-1785). T-1783 explicitly opens
+    # the outer platted West blocks and deals the owed D1-D3 cabins, so it owns the
+    # twenty-two ordinary-dwelling roofs still ordered here; the other children deal
+    # standing redeal verdicts, book-closing, off-plat farms, and Wabansia.
+    ("west", "ordinary_dwellings"): "T-1783",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -458,7 +468,7 @@ STRUCTURE_TICKETS = {
     #     Wolf Point pieces land.
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
     ("west", "stores_mixed_use"): "T-1766",
-    ("west", "larger_boarding_houses"): "T-1209",
+    ("west", "larger_boarding_houses"): "T-1778",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
     ("west", "warehouses_freight"): "T-1773",
@@ -528,7 +538,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1209",
+    ("north", "larger_boarding_houses"): "T-1778",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
