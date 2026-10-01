@@ -18580,3 +18580,55 @@ draws the shore behind the beach.
 **Related:** **L329** (the beach and sand prairie's reach and tone), **L3** (vertical exaggeration
 stays 1.0).
 **Recorded:** 2026-10-01.
+
+### L338 — The anonymous frame buildings' form is dealt by whose house it is: frame by age, porch and shutters by class
+
+**Decision:** the same rule that finishes an anonymous roof (L330, `tools/fabric_rule_1835.py`)
+now deals three things the frame archetypes actually BUILD (T-1817, piece 2 of T-1210):
+- **Construction, by the roof's age**, on every reconstructed frame dwelling, store and tavern
+  whose programme value is already a frame: a roof of the 1834–35 boom (`new`, `recent`) is a
+  **balloon frame**, one of the 1832–33 town or older (`established`, `older_frontier`) a
+  **braced frame**. The age is the keeper's arrival year where `1835_roof_keepers.json` writes
+  one, otherwise the family's window (L330). It moves vertices: stud module, the braced frame's
+  girt line and its heavier corner board (`frame_dwelling_params.py`). Log and plank walls are
+  never re-framed.
+- **Porch, by the household class**, on frame dwellings: a merchant's or professional man's
+  house has a **roofed porch** over the door (three in four) or a stoop; a keeper's a roofed
+  porch; a tradesman's cottage a **plank stoop** on about six in ten and nothing on the rest; a
+  labourer's neither.
+- **Shutters, by the class**, on frame dwellings: board shutters on about six in ten merchants'
+  houses (green two parts, black one) and three in ten keepers'; none on a tradesman's or
+  labourer's. `bright_blue` is the Sauganash's attested pair and no class deals it.
+
+Before this a hash dealt balloon or braced at 52/48 regardless of age, a stoop to 58 % of the
+platted blocks' houses and none anywhere else, and no anonymous house had shutters.
+
+**Why:** the owner asked that houses be "correctly designed … based on the type of person living
+there … nice details for them". Chicago's balloon frame is dated to 1833 (St Mary's, Augustine
+D. Taylor — `andreas_1884_v1`, as `frame_dwelling_params.py` quotes it), so the boom's houses
+are argued to it and the older town's to the joiner's braced frame. A roofed porch and hung
+shutters cost joinery and hardware a cottage did without. **The grade does not move:** every
+value written is `reconstructed`, and an attested or inferred value is never touched
+(`apply_form`, held by the rule's `--self-test`). No source frames, porches or shutters any
+particular one of these buildings.
+
+**Consequence:** frame construction across the 198 anonymous frame roofs goes from 105 balloon /
+93 braced to 163 / 35; porches from 66 stoops to 100 stoops and 12 roofed porches; shutters from
+none to 14 houses. The better houses on the Washington, Randolph and Wells tiers read as better
+from the street. 134 meshes rebaked.
+
+**Not dealt, and why:** glazing (sash counts and pane sizes): the archetypes build one window
+arrangement (L23), so a dealt glazing would be an unbuilt claim; cladding (the store and tavern
+archetypes build the clapboard the record states, and the dwelling always clapboard); trim; and
+the siding stock, which has its own neighbour-separated deal (L196, T-0112). Those stay with
+T-1210's remaining piece.
+
+**How to resolve:** any source on the framing, porch or shutters of a particular 1835 Chicago
+house, which outranks the rule for that roof; any count of balloon against braced frames in the
+1834–35 building, which re-grades the age split.
+
+**Covers:** `recon_*.*.form.construction`, `recon_*.*.form.porch`, `recon_*.*.form.shutters`
+**Related:** **L330** (the finish, the same rule), **L23** (one window arrangement), **L196**
+(the siding stocks), **L90** (the anonymous roofs), **T-1210**, **T-1816**, **T-1817** (this
+rule), **T-1818**.
+**Recorded:** 2026-10-01.

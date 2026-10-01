@@ -989,3 +989,20 @@ that.
   dealt by household. That is T-1817.
 - T-0002's tone jitter and weathering inside materials.py, under the photographic benchmark.
   That is T-1818.
+
+## 13. WIRED IN — T-1817, 2026-10-01: the form is dealt by whose house it is
+
+`tools/fabric_rule_1835.py` now deals form as well as finish, from the same class and age as
+§12, through `apply_form`, which all six anonymous-roof generators call on their form body:
+
+| value | by | rule |
+|---|---|---|
+| `construction` (frame archetypes) | age | `new`/`recent` → `balloon_frame`; `established`/`older_frontier` → `braced_frame` |
+| `porch` (frame_dwelling) | class | merchant: roofed 3 in 4, else stoop · keeper: roofed · tradesman: stoop 6 in 10 · labourer: none |
+| `shutters` (frame_dwelling) | class | merchant: 6 in 10 (green 2 : black 1) · keeper: 3 in 10, green · others: none |
+
+Only a `reconstructed` value is written; an attested or inferred one, and any wall that is not a
+frame, is left exactly as it is. The Built line names the frame, shutters and porch. L338.
+
+**Not this piece:** glazing (one window arrangement, L23), cladding, trim, and the siding stock
+(T-0112's neighbour-separated deal). T-0002's jitter is T-1818.

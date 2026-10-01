@@ -554,6 +554,38 @@ def self_test() -> int:
         if deal(f"selftest_l_{i}", "D2", "frame_dwelling", keeper="")["finish_key"] in PAINT_OF:
             failures.append("a shanty came out coated")
             break
+    # T-1817: the form. An attested or inferred value is never moved, nor a log wall;
+    # a labourer's house gets no porch or shutters; the Sauganash's blue is never dealt.
+    fab = deal("selftest_form_h2", "H2", "frame_dwelling", keeper="")
+    fab["form"].update(porch="roofed", shutters="green")
+    held = {"construction": {"value": "braced_frame", "confidence": "inferred", "note": "x"},
+            "porch": {"value": "stoop", "confidence": "documented", "sources": ["s"]}}
+    got = apply_form({k: dict(v) for k, v in held.items()}, fab)
+    if got["construction"] != held["construction"] or got["porch"] != held["porch"]:
+        failures.append("apply_form moved an inferred or documented form value")
+    logs = apply_form({"construction": {"value": "log", "confidence": "reconstructed"}}, fab)
+    if logs["construction"]["value"] != "log":
+        failures.append("apply_form re-framed a log wall")
+    none = deal("selftest_form_none", "D3", "frame_dwelling", keeper="")
+    none["form"].update(porch=None, shutters=None)
+    gone = apply_form({"construction": {"value": "balloon_frame", "confidence": "reconstructed"},
+                       "porch": {"value": "stoop", "confidence": "reconstructed"}}, none)
+    if "porch" in gone:
+        failures.append("apply_form kept a reconstructed porch the rule deals as none")
+    for i in range(80):
+        lab = form_for_class(f"selftest_lab_{i}", "labourer", "new", "frame_dwelling")
+        if lab.get("porch") or lab.get("shutters"):
+            failures.append("a labourer's house was dealt a porch or shutters")
+            break
+        mer = form_for_class(f"selftest_mer_{i}", "merchant", "recent", "frame_dwelling")
+        if mer.get("shutters") == "bright_blue":
+            failures.append("a merchant's house was dealt the Sauganash's blue shutters")
+            break
+        if not mer.get("porch") or mer["construction"] != "balloon_frame":
+            failures.append("a merchant's 1834 house came out without a porch or balloon frame")
+            break
+    if form_for_class("selftest_cabin", "merchant", "new", "log_dwelling"):
+        failures.append("a log house was dealt a frame form")
     # the gate catches a record that drifted off the rule
     for path, rec in _records():
         recon = rec.get("reconstruction") or {}
