@@ -455,7 +455,10 @@ STRUCTURE_TICKETS = {
     # closed, the one live ticket whose acceptance hands T-1208 on "with the West's exact
     # remainder" is T-1774, the West book-closer, and the 19 left here move to it, with the
     # finding written on that ticket (the queue is over its ceiling for a new line).
-    ("west", "ordinary_dwellings"): "T-1774",
+    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827) and its four West rows move to
+    # T-1826, the piece that keeps "T-1208 handed on with the West's exact remainder";
+    # T-1827 carries out one roof's verdict and raises nothing the rows order.
+    ("west", "ordinary_dwellings"): "T-1826",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -477,14 +480,14 @@ STRUCTURE_TICKETS = {
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owned these two remainders.
     # T-1766 landed (#206) and both rows still order work, so they move to T-1774,
     # which closes the West's books and hands T-1208 "the West's exact remainder".
-    ("west", "stores_mixed_use"): "T-1774",
+    ("west", "stores_mixed_use"): "T-1826",
     ("west", "larger_boarding_houses"): "T-1810",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1774",
+    ("west", "workshops"): "T-1826",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind.
-    ("west", "warehouses_freight"): "T-1774",
+    ("west", "warehouses_freight"): "T-1826",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
@@ -4686,8 +4689,12 @@ def cmd_self_test() -> int:
     # built on blk_west_randolph_des_plaines and three slots asked of blk_west_lake_canal's
     # three dealt ones (T-1773's warehouse took that block's lot 1) — and the off-plat pass
     # stands at 72.
+    # 255 -> 256 on 2026-10-01 (T-1827): `recon_1835_west_046`, re-dealt from a freight
+    # shed to an H2, is a standing roof the merchant-and-professional clause admits, so the
+    # platted pass adopts it on blk_west_randolph_des_plaines#01 (183 -> 184); the household
+    # is a letter-list name the keeper pass refuses to name (T-0379), as on west_008.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 255
+        data["inventory"], data["programme"], occ))["seated"] == 256
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

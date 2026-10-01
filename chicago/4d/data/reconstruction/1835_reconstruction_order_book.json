@@ -1468,13 +1468,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1478,
-    "seated": 255,
-    "still_owed": 1223,
-    "roofs_adopted": 220,
+    "seated": 256,
+    "still_owed": 1222,
+    "roofs_adopted": 221,
     "slots_requested": 35,
     "roofs_standing": 520,
-    "roofs_standing_unseated": 300,
-    "share_of_standing_roofs_seated": 0.4231,
+    "roofs_standing_unseated": 299,
+    "share_of_standing_roofs_seated": 0.425,
     "passes": [
       {
         "key": "platted",
@@ -1483,24 +1483,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1478,
-        "seated": 183,
-        "handed_on": 1295,
-        "roofs_adopted": 148,
+        "seated": 184,
+        "handed_on": 1294,
+        "roofs_adopted": 149,
         "slots_requested": 35,
         "roofs_offered_for_adoption": 152,
         "roofs_held_back": 55,
-        "ground_taken": 165,
+        "ground_taken": 166,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 22,
           "south": 134,
-          "west": 27
+          "west": 28
         },
         "by_clause": {
           "labourer_dwellings": 35,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 110
+          "tradesman_dwellings": 111
         }
       },
       {
@@ -1509,9 +1509,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1295,
+        "rows_offered": 1294,
         "seated": 72,
-        "handed_on": 1223,
+        "handed_on": 1222,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 73,
@@ -1587,10 +1587,10 @@
         "name": "The Beddlecome household — a name from the post office's letter lists",
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#06",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "block_id": "blk_washington_clark",
+        "lot_id": "blk_washington_clark#02",
+        "family": "H2",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beech_reuben",
@@ -1598,7 +1598,7 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#00",
+        "lot_id": "blk_washington_dearborn#06",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1608,9 +1608,9 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#04",
-        "family": "H1",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_washington_dearborn#00",
+        "family": "D7",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_bennet_lyman",
@@ -1618,9 +1618,9 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#02",
-        "family": "H2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_washington_dearborn#04",
+        "family": "H1",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_bently_wm_t",
@@ -1651,16 +1651,6 @@
         "lot_id": "blk_washington_market#04",
         "family": "H1",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_blake_levi",
-        "name": "The Blake household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_market",
-        "lot_id": "blk_washington_market#02",
-        "family": "H2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_baily_john",
@@ -1807,10 +1797,10 @@
         "name": "The Catton household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
-        "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#02",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "block_id": "blk_washington_dearborn",
+        "lot_id": "blk_washington_dearborn#05",
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_chamberlain_l_c",
@@ -1818,7 +1808,7 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#05",
+        "lot_id": "blk_washington_dearborn#03",
         "family": "D3",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1828,9 +1818,9 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#03",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_washington_dearborn#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_chapman_george",
@@ -1868,6 +1858,16 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_market",
+        "lot_id": "blk_washington_market#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_clarke_h_b",
+        "name": "The Clarke household — a documented hardware merchant, unplaced in the town",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_washington_market",
         "lot_id": "blk_washington_market#07",
         "family": "D4",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
@@ -1892,7 +1892,7 @@
       "blk_west_lake_canal"
     ],
     "what_the_slots_wait_on": "35 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,223 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,222 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5265,15 +5265,15 @@
             "division": "west"
           },
           "target": 6,
-          "standing": 2,
-          "to_build": 4,
+          "standing": 3,
+          "to_build": 3,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1810",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 4 of them to build"
+          "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 3 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/north",
@@ -5316,7 +5316,7 @@
           "to_build": 16,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1826",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5425,7 +5425,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1826",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5510,15 +5510,15 @@
             "division": "west"
           },
           "target": 2,
-          "standing": 2,
-          "to_build": 0,
+          "standing": 1,
+          "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1826",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 1 of them to build"
         },
         {
           "key": "structures/warehouses_freight/north",
@@ -5561,7 +5561,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1774",
+          "owning_ticket": "T-1826",
           "ground_waits_on": [
             "T-1414"
           ],

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1273, ts: '2026-10-01T22:28:22.635Z', date: 'Oct 1, 2026, 5:28 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+    items: [
+      'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
+      'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
+      'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
+    ] },
   { v: 1272, ts: '2026-10-01T20:27:21.458Z', date: 'Oct 1, 2026, 3:27 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',

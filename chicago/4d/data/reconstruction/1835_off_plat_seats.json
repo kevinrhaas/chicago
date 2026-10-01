@@ -34,9 +34,9 @@
   "data/reconstruction/1835_665_roof_programme.json"
  ],
  "counts": {
-  "rows_in_scope": 1295,
+  "rows_in_scope": 1294,
   "seated": 72,
-  "owed": 1223,
+  "owed": 1222,
   "by_how": {
    "adopted": 72
   },
@@ -77,12 +77,12 @@
    "heavy_and_noxious_trades": 1,
    "labourer_dwellings": 99,
    "merchant_and_professional_dwellings": 362,
-   "tradesman_dwellings": 507
+   "tradesman_dwellings": 506
   },
   "owed_by_district": {
    "north": 259,
    "south": 720,
-   "west": 244
+   "west": 243
   },
   "roofs_offered_for_adoption": 73,
   "roofs_held_back": 18,
@@ -90,9 +90,9 @@
   "roofs_offered_and_unspent": 1
  },
  "what_this_ground_could_not_hold": {
-  "rows": 1223,
+  "rows": 1222,
   "handed_to": "T-1615",
-  "statement": "the ground the plat does not draw seats 72 of the 1295 households T-1613 handed on. The rest is not refused: it is handed to T-1615 with the gate named. The gate is the one the 665-roof programme states about itself — \"12 of the 262 remaining roofs stand on ground this project has already surveyed, platted and modelled… the binding constraint is coverage, not recipes\" — and off the plat it bites harder still: not one parcel of this ledger is open ground in that schedule, so a household with no standing roof free in its own division has nowhere at all to be put."
+  "statement": "the ground the plat does not draw seats 72 of the 1294 households T-1613 handed on. The rest is not refused: it is handed to T-1615 with the gate named. The gate is the one the 665-roof programme states about itself — \"12 of the 262 remaining roofs stand on ground this project has already surveyed, platted and modelled… the binding constraint is coverage, not recipes\" — and off the plat it bites harder still: not one parcel of this ledger is open ground in that schedule, so a household with no standing roof free in its own division has nowhere at all to be put."
  },
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
@@ -102,7 +102,7 @@
   "rows_owed_by_district": {
    "north": 259,
    "south": 720,
-   "west": 244
+   "west": 243
   },
   "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 720 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
  },
@@ -348,33 +348,6 @@
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_arrowsmith_sidney",
-   "kind": "household",
-   "name": "The Arrowsmith household — a name from the post office's letter lists",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "west",
-   "band": "west/merchant_and_professional_dwellings",
-   "parcel_id": "canal_commissioners_1830",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_west_035",
-   "family": "H2",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "merchant_and_professional_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_arrowsmith_sidney|T-1522|division:e4c73b71b90e|class:7183be677821",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
    "id": "hh_babeue_joseph",
    "kind": "household",
    "name": "The Babeue household — a name from the post office's letter lists",
@@ -419,8 +392,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_west_006",
-   "family": "H1",
+   "structure_id": "recon_1835_west_035",
+   "family": "H2",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "merchant_and_professional_dwellings",
@@ -480,6 +453,33 @@
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": null,
    "seed": "hh_beadieston_ste|T-1522|division:1c0e5a6b6b62|class:8c50f718a465",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_beaubien_alexandre",
+   "kind": "household",
+   "name": "The Beaubien household — a name the town's own records carry",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "west",
+   "band": "west/merchant_and_professional_dwellings",
+   "parcel_id": "canal_commissioners_1830",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_west_006",
+   "family": "H1",
+   "stands_on": "tract",
+   "setback_class": "typology",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_beaubien_alexandre|T-1522|division:f29e1d54d0b9|class:7f77cddfb2fc",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -2251,15 +2251,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_beaubien_alexandre",
-   "kind": "household",
-   "band": "west/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "west",
-   "why": "every one of the 2 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_behan_thos",
    "kind": "household",
    "band": "west/merchant_and_professional_dwellings",
@@ -2302,6 +2293,15 @@
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
    "why": "every one of the 2 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_blake_levi",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -5533,15 +5533,6 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "why": "every one of the 11 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
-   "id": "hh_clarke_h_b",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {

@@ -31,8 +31,8 @@
       "family": "A1",
       "cluster": "w4_clinton_work_fringe",
       "serves": "recon_1835_west_046",
-      "value": "No household of its own — the stable beside the freight shed, for the teams that haul from it",
-      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046, the cluster's one F1 freight shed on the westward wagon approach. Goods leave a freight shed by wagon, and the teams that draw them stand in a stable between loads; nobody sleeps in it. The shed itself carries an outstanding H2 verdict from T-1445 that this file does not touch: a stated use on recon_1835_west_046 would be an occupancy, and the redeal keeps an occupied roof whatever its verdict, so the shed is left without one until that verdict is carried out (T-1774, which owns the 55 phase-two roofs' redeal)."
+      "value": "No household of its own — the stable of the two-storey frame house beside it on the westward wagon approach",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_047 is drawn in the yard of west_rec_046. That roof was the cluster's F1 freight shed until T-1827 carried out T-1445's verdict on it (F1 24×44 → H2 24×36 ft), and the platted deal now adopts it under its merchant_and_professional_dwellings clause on blk_west_randolph_des_plaines#01, so it stands as a merchant's two-storey house and not a shed or a boarding house. A stable keeps that house's horse and carriage on the wagon road west; nobody sleeps in it."
     }
   ]
 }
