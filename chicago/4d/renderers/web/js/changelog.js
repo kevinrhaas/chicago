@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1253, ts: '2026-10-01T10:46:35.181Z', date: 'Oct 1, 2026, 5:46 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
       'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
       'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
       'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
+    ] },
+  { v: 1253, ts: '2026-10-01T10:43:44.207Z', date: 'Oct 1, 2026, 5:43 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the plan the next runs build photographic-quality walls, walks and ground from, using the methods that made the 1904 Glessner House look real.',
+      'It finds why the plank sidewalks look white: they are drawn in the signboards\u2019 pale tone, not a weathered board\u2019s. The fix belongs to the sidewalk work, which now has the palette to use.',
+      'It also finds that the clapboard and log textures would draw a second set of courses over the ones already built as geometry, so those textures are remade before they go on a wall.',
     ] },
   { v: 1252, ts: '2026-10-01T10:16:23.229Z', date: 'Oct 1, 2026, 5:16 AM CT', title: 'Two tavern keepers are given lots for their boarding houses', kind: 'change',
     items: [
