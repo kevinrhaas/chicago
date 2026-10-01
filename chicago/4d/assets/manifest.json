@@ -4223,46 +4223,46 @@
       "structure_id": "recon_1835_west_049"
     },
     "recon_1835_west_050__inferred_1835.glb": {
-      "archetype": "outbuilding",
+      "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 68512,
-      "inputs_sha256": "5b630e0a1ae7b12bdea871302d9d67d2e6d0030796c85d14647c060ce341dce1",
+      "bytes": 32772,
+      "inputs_sha256": "4063a9c90c01909214e3ac4f3291c8035a929b5ddedf239013d44bc7666c5f07",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_050"
     },
     "recon_1835_west_051__inferred_1835.glb": {
-      "archetype": "outbuilding",
+      "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 75056,
-      "inputs_sha256": "bd0a3a5a68cec018a6d8340a54e485992874f16db6624dc5fd21edca39053c92",
+      "bytes": 32772,
+      "inputs_sha256": "60d9133fa706b8d229716bf7770fb7dffe998e8f375fcae434718b55e426e277",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_051"
     },
     "recon_1835_west_052__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
+      "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 27028,
-      "inputs_sha256": "652c92e3c62b68104e71f156653d70bcaea48fbc0fea5893afabd78f48f5d881",
+      "bytes": 34648,
+      "inputs_sha256": "a91111a356fbbcdce6a735ac20d9688274ac03fba2620b6614cb307388878f15",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_052"
     },
     "recon_1835_west_053__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
+      "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 30772,
-      "inputs_sha256": "8a3bbdeba44b98f4482dc4b87a3677315a80f78fcc6c2eba4ce0286a7d777063",
+      "bytes": 154264,
+      "inputs_sha256": "5c499d2fc6f87cecaa94cd84168a628d49438af786aa553ad4db39f4545ef7c0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_053"
     },
     "recon_1835_west_054__inferred_1835.glb": {
-      "archetype": "outbuilding",
+      "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 136324,
-      "inputs_sha256": "beb3b8b13bd2ce9796d5e8372fa43dc6f29b5ceaa7ebf2bd5204ab94d91271cc",
+      "bytes": 34648,
+      "inputs_sha256": "fece5d905f0da0cc39780d0a334d8c96652531551021d190a2f0d48b58b12bc2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_054"
