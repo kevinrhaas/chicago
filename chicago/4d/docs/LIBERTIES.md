@@ -17463,6 +17463,8 @@ did not order.
 **Would replace:** Any reading that seats a named forwarder or warehouse in the West
 Division in July 1835 substitutes for this roof rather than standing beside it.
 
+**Covers:** `recon_1835_forks_freight_f2_001.inferred_1835.position`, `recon_1835_forks_freight_f2_001.inferred_1835.footprint`.
+
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).

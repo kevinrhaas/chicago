@@ -19298,7 +19298,20 @@
         "recon_1835_forks_freight_f2_001",
         "recon_1835_west_046"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_forks_freight_f2_001",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_forks_freight_f2_001",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
       "recorded": "2026-10-01",
       "revised": null,
       "fields": [
@@ -19321,6 +19334,10 @@
         {
           "label": "Would replace",
           "text": "Any reading that seats a named forwarder or warehouse in the West Division in July 1835 substitutes for this roof rather than standing beside it."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_forks_freight_f2_001.inferred_1835.position`, `recon_1835_forks_freight_f2_001.inferred_1835.footprint`."
         },
         {
           "label": "Ticket",
