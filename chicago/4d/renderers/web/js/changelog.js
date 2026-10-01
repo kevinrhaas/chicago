@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
+      'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
+      'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L321) says how each was placed and sized.',
+    ] },
   { v: 1259, ts: '2026-10-01T13:36:26.520Z', date: 'Oct 1, 2026, 8:36 AM CT', title: 'The town\u2019s first boarding house, at Madison and Dearborn', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and the corner lot at Madison now has a boarding house on it: two storeys of clapboard, its gable end to Madison Street, with a one-storey kitchen wing behind. It is the first of the ten boarding houses the town plan holds.',

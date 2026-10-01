@@ -156,8 +156,8 @@
   },
   "residents": [
     {
-      "household": "hh_bailey_amos",
-      "name": "Amos Bailey",
+      "household": "hh_brown_jesse_b",
+      "name": "Jesse B Brown",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -165,7 +165,26 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Amos Bailey",
+          "name": "Jesse B Brown",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_donner_jacob",
+      "name": "Jacob Donner",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Jacob Donner",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -175,8 +194,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_barry_j_r",
-      "name": "J R Barry",
+      "household": "hh_holsman_george",
+      "name": "George Holsman",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -184,66 +203,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "J R Barry",
+          "name": "George Holsman",
           "relationship": "boarder",
-          "grade": "inferred",
-          "occupation": "",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
-      "household": "hh_butterfield_d_h",
-      "name": "D H Butterfield",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "D H Butterfield",
-          "relationship": "boarder",
-          "grade": "inferred",
-          "occupation": "",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
-      "household": "hh_goodrich_john",
-      "name": "John Goodrich",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "John Goodrich",
-          "relationship": "boarder",
-          "grade": "inferred",
-          "occupation": "",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
-      "household": "hh_latzky_john",
-      "name": "John Latzky",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "John Latzky",
-          "relationship": "boarder",
-          "grade": "inferred",
+          "grade": "attested",
           "occupation": "",
           "note": ""
         }
@@ -255,7 +217,7 @@
       "name": "The lodgers of Reconstructed H3 boarding house #05",
       "division": "south",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 28 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
       "basis": "BEDS, AND ONE FAMILY. 5 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
@@ -271,28 +233,28 @@
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Ezra Ingalls",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Michael Quinn",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Orrin Wadsworth",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Johanna Lynch",
@@ -319,8 +281,8 @@
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_roberts_edmund",
-      "name": "Edmund Roberts",
+      "household": "hh_montgomery_w",
+      "name": "W Montgomery",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -328,9 +290,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Edmund Roberts",
+          "name": "W Montgomery",
           "relationship": "boarder",
-          "grade": "inferred",
+          "grade": "attested",
           "occupation": "",
           "note": ""
         }
@@ -338,19 +300,38 @@
       "research_note": ""
     },
     {
-      "household": "hh_ulrich_nicholas",
-      "name": "Nicholas Ulrich",
+      "household": "hh_rc_flynn_owen",
+      "name": "Owen Flynn",
       "division": "",
       "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at labourer in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
       "sources": [],
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Nicholas Ulrich",
+          "name": "Owen Flynn",
           "relationship": "boarder",
-          "grade": "inferred",
-          "occupation": "",
+          "grade": "reconstructed",
+          "occupation": "labourer",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_smith_george",
+      "name": "George Smith",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at coffee_house_keeper in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "George Smith",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "coffee_house_keeper",
           "note": ""
         }
       ],
@@ -397,21 +378,21 @@
     "roof_condition": "darkened",
     "age_state": "recent",
     "capacity": {
-      "beds_ordinary": 12,
-      "beds_crowded": 28,
+      "beds_ordinary": 11,
+      "beds_crowded": 27,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_washington_clark_h3_05]",
       "sizes": {
-        "upper_windows": "ceil(28 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 7 sashes a front of 8.47 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(12 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
+        "upper_windows": "ceil(27 crowded beds / 3 to a chamber) = 9, held to the crosswalk's 6-10 = 9, then to the 7 sashes a front of 8.47 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(11 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }
   },
   "lodging": {
     "class": "boarding_house",
-    "beds_ordinary": 12,
-    "beds_crowded": 28,
+    "beds_ordinary": 11,
+    "beds_crowded": 27,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 209.38,
@@ -419,10 +400,10 @@
     "note": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 209 m² of enclosed floor (105 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 12,
-      "beds_ordinary": 12,
+      "people": 11,
+      "beds_ordinary": 11,
       "empty": 0,
-      "statement": "12 on this card against an ordinary night's 12 beds: 7 seated here from elsewhere in the layer, where no source gives them a roof, 4 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
+      "statement": "11 on this card against an ordinary night's 11 beds: 6 seated here from elsewhere in the layer, where no source gives them a roof, 4 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
       "empty_note": "",
       "keeper_persons": 4,
       "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."

@@ -18120,3 +18120,77 @@ platted deal whose request this answers), **L312** (the same shape of deal), **T
 **T-1778** (this deal), **T-1779** (the remaining H3 roofs, their yards, keepers and lodgers),
 **T-1209** (the boarding houses built to their beds).
 **Recorded:** 2026-10-01.
+
+### L321 — The second boarding house on blk_washington_clark, and a stable and a privy behind each of the two
+
+**Decision:** `blk_washington_clark` carries **five more anonymous roofs**: a second two-storey
+clapboard boarding house (H3, `recon_1835_blk_washington_clark_h3_06`) on lot 6, the
+Washington-and-Dearborn corner, and a lofted stable (A1) and a privy (A3) off the block alley
+behind each of the two boarding houses — `recon_1835_blk_washington_clark_a1_07` and `_a3_08`
+behind the new house, `_a1_09` and `_a3_10` behind **L318**'s house on lot 7. The house and its
+lot are the seating pass's, not this deal's: T-1778's re-deal moved `hh_sweet_alanson`'s H3 slot
+under `lodging_near_the_landings` from `blk_washington_dearborn`'s lot 7 to this block's lot 6,
+and the slot carried the sentence this deal answers — this block's own plan still holds an H3 roof
+of headroom. **Everything below that is invented**: that any building stood on these lots in July
+1835, that they were a boarding house, stables and privies, their sizes, forms and places on the
+lots. No source puts a boarding house, a stable, a tavern keeper or anybody else here.
+
+**THE HOUSE IS L318's FORM, SIZED FROM ITS OWN BEDS.** The same `frame_tavern` placeholder with the
+tavern's cues left off, the same kitchen wing and kitchen door, and the same two ratios: the lodging
+model now gives this house **16 ordinary and 35 crowded** beds (a larger footprint than the first,
+9.96 × 14.55 m, so a larger share of the class), which asks for 12 chambers, is held to the
+crosswalk's 10 and then to the **8** sashes a 9.96 m front carries; and **6** stovepipes, the most
+the crosswalk's "multiple" is held to here. It faces Washington Street, which the committed
+hierarchy grades `light`, where the first house faces Madison's `none`.
+
+**THE YARD MIX IS NOT THE SCHEDULE'S, AND THAT IS THE LIBERTY.** The 665-roof schedule apportions
+this block's remaining yard as one stable, one barn or carriage shed, one privy and one smokehouse —
+a mix sized for the dwellings its plan expected. This deal spends the same four roofs of ancillary
+room as **two stables and two privies**, one of each per house, because the clause that seated both
+keepers reads "every one of them … with its stable in the yard behind it" of the nine documented
+lodging roofs, and T-1209 asks for each house's stable and privies. A barn and a smokehouse behind
+two lodging houses, with no stable behind the second, would have been the plan's guess instead of
+this one. Each yard building stands 4-4.5 m in from the alley edge and serves only its own lot, as
+every yard building of the plat module does; the stable and privy behind lot 7 are dealt here
+because T-1778 raised that house without them on purpose. `tools/generate_block_infill.py` now
+reads a lot the block's EARLIER deal built a principal roof on as a lot a yard building may serve,
+which is what lets a later deal give a house its yard; a lot somebody else's building holds is
+still refused.
+
+**WHAT RAISING IT MOVED, MEASURED AT THE CHAIN'S FIXPOINT.** The lodging model apportions the
+boarding-house class over eleven places instead of ten, so seven standing houses lose an
+ordinary-night bed. The lodgers stage fills the new house with eleven people from the layer and
+draws its keeper, `rc_stebbins_alvah`, and four boarders from the order book. **The keeper's first
+pick fell in a cell the book has since re-cut away** (`female/10_19/south/lodging/trade`, still 8 in
+the stage's frozen basis); the stage now sheds such a pick, and only such a pick, onto a cell the
+live book still leaves open, so no keeper already standing moves. **Two ordinary-night beds at
+Kelsey's boarding house now stand empty, said rather than filled**: the layer's solitary people
+re-seat towards the house with the most free beds, and once they have, the South Division's adult
+lodging cells hold no open order for the last two (T-1535's "no order left, no mint").
+
+**THE SEAM L318 LEFT IS STILL OPEN, AND IT IS HANDED ON RATHER THAN DECIDED HERE.** The platted deal
+seats `hh_beaubien_mark` on lot 7's house and `hh_sweet_alanson` on lot 6's, while the lodgers stage
+keeps the two houses under keepers it draws. Mark Beaubien is a documented man whose own card says,
+deliberately, that where he lived and worked on 1 July 1835 is not in the record; letting a policy
+seat write him in as the keeper of an invented house would be a claim that card refuses, and keeping
+the drawn keeper leaves two households answering for one roof. Which way it goes is its own ticket.
+
+**How to resolve:** any source naming a boarding house, a stable, its keeper or its lodgers south of
+Washington Street in 1835; any 1830s account of what a Chicago boarding house kept in its yard;
+parcel evidence for these lots. A named discovery substitutes for a compatible anonymous roof and
+never increases the total.
+
+**Covers:** `recon_1835_blk_washington_clark_h3_06.inferred_1835.position`,
+`recon_1835_blk_washington_clark_h3_06.inferred_1835.footprint`,
+`recon_1835_blk_washington_clark_h3_06.inferred_1835.form.upper_windows`,
+`recon_1835_blk_washington_clark_h3_06.inferred_1835.form.stovepipes`,
+`recon_1835_blk_washington_clark_h3_06.inferred_1835.form.rear_ell`,
+`recon_1835_blk_washington_clark_h3_06.inferred_1835.form.rear_ell_door`,
+`recon_1835_blk_washington_clark_a1_07.inferred_1835.position`,
+`recon_1835_blk_washington_clark_a3_08.inferred_1835.position`,
+`recon_1835_blk_washington_clark_a1_09.inferred_1835.position`,
+`recon_1835_blk_washington_clark_a3_10.inferred_1835.position`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
+platted deal whose request this answers), **L318** (the first house and its form), **T-1777** (the
+seats), **T-1779** (this deal), **T-1209** (the boarding houses built to their beds).
+**Recorded:** 2026-10-01.

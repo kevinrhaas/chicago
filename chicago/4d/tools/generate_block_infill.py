@@ -1891,10 +1891,27 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         raise SystemExit(f"{block['block_id']}: the yard building on lot {index} "
                          f"stands behind {holder}, which this parcel did not build. A "
                          f"yard building is a claim about the household on its own lot")
+    # T-1779. AN EARLIER DEAL'S HOUSE IS THIS PARCEL'S HOUSE TOO. A yard building
+    # serves the lot it stands in the yard of, and until a block was dealt a house in
+    # one entry and its outbuildings in the next, "the lot carries a principal roof"
+    # and "this entry built a principal roof on it" were the same question. T-1778
+    # raised the first boarding house with no stable or privy, on purpose, and left
+    # them to T-1779; read against this entry's own records alone, that stable stands
+    # behind no roof. The lots the block's OTHER deals built principal roofs on are
+    # read off the committed records — the same parcel `occupied` excludes above, so
+    # a lot somebody else's building holds is still refused there and not here.
+    served = set(used)
+    for path in sorted(STRUCTURES.glob("*.json")):
+        if path.stem in parcel and path.stem not in mine_ids:
+            recon = (load(path).get("reconstruction") or {})
+            if (recon.get("inventory_class") == "principal_functional"
+                    and recon.get("block_id") == block["block_id"]
+                    and "lot_index" in recon):
+                served.add(int(recon["lot_index"]))
     for record in records:
         recon = record["reconstruction"]
         if (recon["inventory_class"] != "principal_functional"
-                and recon.get("lot_index") not in set(used)):
+                and recon.get("lot_index") not in served):
             raise SystemExit(f"{block['block_id']}: the yard building on lot "
                              f"{recon['lot_index']} stands behind no roof — an ancillary "
                              f"building serves the lot it is in the yard of")
