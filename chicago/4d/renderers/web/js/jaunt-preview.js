@@ -1,9 +1,10 @@
 /** Lazy catalog, route preview and session handoff. */
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null }) {
+import { createJournal, presentKeepsake } from './jaunt-journal.js';
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
-  let catalogPromise, serial = 0;
+  let catalogPromise, daybookPromise, journal = null, serial = 0;
   const contents = new Map();
   const modes = new Map();
   const node = (tag, text, className) => {
@@ -28,18 +29,85 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     }).catch(error => { catalogPromise = null; throw error; });
     return catalogPromise;
   }
+  // T-1258: the daybook loads with the menu, never at boot; a missing book costs only the daybook.
+  function daybook() {
+    daybookPromise ??= json('daybook.json').then(book => (journal = createJournal({ book, scene: String(scene), storage })))
+      .catch(error => { daybookPromise = null; throw error; });
+    return daybookPromise;
+  }
+  function award(session) {
+    return daybook().then(j => j.award(session.jaunt, session.outcome)).catch(() => null);
+  }
+  function keepsakeCard(entry) {
+    const k = presentKeepsake(journal.book, entry), card = node('article', '', `jaunt-keepsake jaunt-keepsake-${k.style}`);
+    card.dataset.keepsake = entry.key;
+    card.append(node('p', `${k.form} · ${k.lead}`, 'jaunt-keepsake-form'), node('h4', k.title), node('p', k.text),
+      node('p', k.secondary ? `${k.family} · ${k.secondary}` : k.family, 'jaunt-keepsake-family'));
+    return card;
+  }
+  function counters(counts, moved = new Set()) {
+    const row = node('ul', '', 'jaunt-daybook-families'); row.setAttribute('aria-label', 'Keepsakes by family');
+    for (const family of journal.book.families) {
+      const item = node('li', '', moved.has(family.id) ? 'jaunt-daybook-moved' : '');
+      item.dataset.family = family.id; item.title = family.description;
+      item.append(node('strong', String(counts[family.id])), node('span', family.name)); row.append(item);
+    }
+    return row;
+  }
+  function rankLine() {
+    const rank = journal.level(), next = journal.nextRank();
+    const line = node('p', `Rank: ${rank.title}`, 'jaunt-daybook-rank'); line.dataset.level = rank.id;
+    if (next) line.append(node('small', ` · ${next.title} at ${next.threshold} in every family`));
+    return line;
+  }
+  function showDaybook(returnId) {
+    ++serial;
+    const title = node('h3', journal.book.title), back = button('Back to Jaunts', () => list(api.catalog, returnId));
+    const view = node('section', '', 'jaunt-daybook'); view.setAttribute('aria-label', 'Daybook');
+    view.append(title, node('p', journal.book.disclaimer, 'jaunt-meta'));
+    if (journal.notice) view.append(node('p', journal.notice, 'jaunt-session-note'));
+    view.append(rankLine(), counters(journal.counts()));
+    const items = journal.keepsakes;
+    if (!items.length) view.append(node('p', 'No keepsakes yet. Finish a jaunt and its memento is kept here.'));
+    else { const shelf = node('div', '', 'jaunt-keepsakes'); shelf.append(...items.reverse().map(keepsakeCard)); view.append(shelf); }
+    if (items.length) {
+      const reset = button('Reset daybook', () => {
+        if (reset.dataset.confirm) { journal.reset(); showDaybook(returnId); return; }
+        reset.dataset.confirm = 'true'; reset.textContent = 'Tap again to clear every keepsake';
+      });
+      reset.dataset.action = 'daybook-reset'; view.append(reset);
+    }
+    root.replaceChildren(back, view); focus(title); back.scrollIntoView?.({ block: 'nearest' });
+  }
+  function awardNote(session) {
+    const result = journal?.lastAward;
+    if (!result || result.jaunt !== session.jaunt.id || !result.entry) return null;
+    const box = node('div', '', 'jaunt-award'); box.setAttribute('aria-live', 'polite');
+    box.append(node('p', result.added ? 'Kept in your daybook' : 'Already in your daybook — replays keep one copy', 'jaunt-meta'), keepsakeCard(result.entry));
+    const moved = new Set(Object.keys(result.after.counts).filter(id => result.after.counts[id] !== result.before.counts[id]));
+    box.append(counters(result.after.counts, moved));
+    if (result.rankChanged) box.append(node('p', `New rank: ${result.after.level.title}`, 'jaunt-daybook-rank'));
+    return box;
+  }
   function focus(el) {
     if (!root.closest('[hidden]')) { el.tabIndex = -1; el.focus({ preventScroll: true }); }
   }
   function list(rows, returnId, focusStart = false) {
     root.replaceChildren(node('p', 'Choose an outing, or read its route before you start.'));
+    if (journal) {
+      const entry = button(`Daybook · ${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
+      entry.dataset.action = 'daybook'; root.append(entry);
+    }
     const session = getSession();
     if (session?.notice) root.append(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
       if (session.phase === 'outcome') {
         note.append(node('h3', session.outcome.fallback ? 'Outing interrupted' : 'Outing complete'), node('p', session.outcome.text));
-        if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
+        const awarded = !session.outcome.fallback && awardNote(session);
+        if (awarded) note.append(awarded);
+        else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
+        if (journal) note.append(button('Open your daybook', () => showDaybook(session.jaunt.id)));
       } else note.append(node('h3', `Paused · ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', onResume));
       note.append(button('Restart Jaunt', () => onStart(session.jaunt.id, { mode: session.mode }))); root.append(note);
     }
@@ -124,8 +192,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   async function open(returnId) {
     const request = ++serial;
     root.replaceChildren(node('p', 'Loading jaunts…'));
-    try { const rows = await catalog(); if (request === serial) list(rows, returnId, true); }
+    try { const [rows] = await Promise.all([catalog(), daybook().catch(() => null)]); if (request === serial) list(rows, returnId, true); }
     catch { if (request === serial) root.replaceChildren(node('p', 'Jaunts could not load. You can still explore on your own.'), button('Try again', open)); }
   }
-  return { open, load };
+  return { open, load, award, daybook };
 }
