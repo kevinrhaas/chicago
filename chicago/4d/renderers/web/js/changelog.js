@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1261, ts: '2026-10-01T14:40:21.790Z', date: 'Oct 1, 2026, 9:40 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+  { v: 1262, ts: '2026-10-01T14:59:05.849Z', date: 'Oct 1, 2026, 9:59 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [
       'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
       'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
       'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
       'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
+    ] },
+  { v: 1261, ts: '2026-10-01T14:18:41.044Z', date: 'Oct 1, 2026, 9:18 AM CT', title: 'Finish a jaunt and keep its keepsake in your daybook', kind: 'feature',
+    items: [
+      'Finish a jaunt and its keepsake is kept in your Chicago daybook. The ending shows the memento you earned and which family moved.',
+      'Open the Daybook from the Jaunts menu or the ending. It shows five families of keepsakes: receipts, work chits, route notes, clippings and calling cards. Each one looks like what it is.',
+      'Your rank goes from New Arrival to Seasoned Chicagoan as every family fills. Replaying a jaunt keeps one copy, so the only way up is a new outing.',
+      'Keepsakes are narrative mementos, not evidence, and the daybook says so at the top. It stays in this browser between visits, and Reset daybook clears it.',
     ] },
   { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
     items: [
