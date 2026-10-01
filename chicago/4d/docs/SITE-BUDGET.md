@@ -221,3 +221,23 @@ authored — was measured at **1.99 MB** across 1,831 files. It is not done here
 make the published record unreadable at its own URL, and this project publishes records
 people are meant to be able to open. It is a decision about what the mirror is for, which
 is the owner's, so it is a ticket and not a quiet optimisation.
+
+## 7. The same bytes across the tree's edge — T-1828
+
+On 2026-10-01 T-1821's Prairie Avenue image collection took the tree to **287.0 MB** of
+256, and dev's gate went red with every PR behind it. `site_budget.py --dupes` saw
+nothing, because it walks `site/4d/` only — and the duplicate was across that edge:
+publish.sh copies the two reference browsers (`prairie-1904/`, `pre-fire/`) into the
+mirror for the dev preview, while the site root already publishes their production
+copies from the tracked `site/prairie-1904/` and `site/pre-fire/`. **91.7 MB** of the
+mirror was byte-identical to a file at the same path under the root.
+
+`tools/serve_from_root.py` (run by publish.sh, self-tested in check.sh) removes an asset
+directory from the mirror only when **every** file in it is identical at the root, and
+writes `viewer/root-served.js` so the viewer reads that directory from `/<app>/`. A
+directory holding anything the root lacks stays whole — T-1821's
+`research/images/files/` stays today, and moves by itself once the production copy is
+refreshed to hold it. Result: **196.3 MB**, 76.7 % of budget, 59.7 MB of headroom.
+
+The cost, stated: the root is deployed from `main`, so `/4d/dev/` previews a moved
+directory at main's bytes until the next promotion. Viewer code and data never move.

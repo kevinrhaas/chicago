@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1274, ts: '2026-10-01T21:45:32.807Z', date: 'Oct 1, 2026, 4:45 PM CT', title: 'The research atlases load their maps and drawings from one place', kind: 'fix',
+    items: [
+      'The Prairie Avenue and pre-fire atlases inside the walkthrough now open their map sheets, drawings and photographs from the atlases\u2019 own pages on this site. Before, they carried a second copy of every file.',
+      'That saves about 91 MB. The new Prairie Avenue image collection had pushed the site over its size limit, and that had stopped every other change from going out. It fits again.',
+      'Nothing you see changes. The new Prairie Avenue images are not in the main atlas yet, so the walkthrough\u2019s copy still carries those itself.',
+    ] },
   { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
     items: [
       'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
