@@ -1,6 +1,48 @@
 # T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
-Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged and the 727-step source preflight passes. Browser gate results are tracked with the T-1830 review. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through 6f53477. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+
+## T-1826 — Wolf Point's books closed: the store on the teamster road states its use, T-1208 handed on (2026-10-01)
+
+**T-1774 was split** (T-1826, T-1827) before work began. Its acceptance asked for "the 55
+`phase2_west_wolf_point_approaches` roofs adopted/redealt", and `execute_roof_redeal.py --check`
+reads 0 West verdicts outstanding as an id migration — but `recon_1835_west_046` still stands F1
+under T-1445's `refamily → H2` verdict, and carrying it out re-deals the boarders already seated
+in nine houses (T-1782's finding on T-1774; the reference tree is
+`salvage/046-h2-lodgers-open-ceiling`, 82 files). That is its own demonstration and a bake, so it
+is T-1827 (needs_bake). This ticket closed the rest:
+
+- **The recipe's status restated.** `1835_phase2_west_wolf_point_approaches.json` read
+  `research_recipe_not_instantiated` while every one of its 55 placements has stood as a record
+  since T-1444 and `reconcile_665.py` reads `west_wolf_point_outer` complete. It now reads
+  `instantiated`, with a `status_restated` block naming what it was, why it moved, and that 046's
+  verdict is still open. No tool read the field; no record moved.
+- **`recon_1835_west_020` states its use** (row 4 of `1835_stated_uses.json`, L310 revised). The C2
+  store-residence on the Canal and Randolph teamster approach was the off-plat deal's one
+  `roofs_offered_and_unspent`: the placement policy admits C2 under `commercial_front` alone and no
+  band handed to that deal names it. The card now says what the building was for — a store with
+  attic rooms kept for the wagon trade, keeper unnamed — bounded by the C2 crosswalk line and the
+  recipe's `w2_canal_randolph_teamster` cluster; it names no trade goods or signboard, which the
+  signage and goods layers refuse for an anonymous slot. The deal now holds it back
+  (`roofs_held_back` 18 → 19, `roofs_offered_and_unspent` 1 → 0); no seat moved.
+  `inferred_occupancy.py` now credits a row's own `ticket` in the card's note, so 020 cites T-1826
+  and the T-1782 rows still cite T-1782.
+- **T-1208 handed on.** Every ticket in T-1208's chain is split or done, so the order book's four
+  rows that named T-1774 went to live owners: `ordinary_dwellings/west` (75 target, 59 standing,
+  **16 to build**), `stores_mixed_use/west` (6 of 6) and `workshops/west` (8 of 8) to **T-1829**,
+  filed for the West's remainder with `blk_west_lake_canal`'s three dealt cottages first;
+  `warehouses_freight/west` (2 of 2) to T-1827, because 046 is one of its two roofs and its verdict
+  takes it out of the row.
+- **The frame budget, read on the published tree** (`measure_detail_ceilings.mjs`, desktop): full
+  1,441,310 of 1,460,000 (Lake Street at Canal; the forks from Wolf Point 1,421,332), balanced
+  1,256,961 of 1,280,000, light 815,760 of 825,000 (the open aerial; the forks 815,727). Every tier
+  inside its ceiling. This ticket moved no mesh, so these are dev's numbers too.
+- **The screenshot from the Wolf Point tavern door**, looking west across its wagon yard to the
+  Canal Street roofs: `docs/evidence/t-1826-wolf-point-tavern-door-west-desktop.png` (local
+  E −86, N −44, yaw 270). `tools/shoot.mjs` now also answers the welcome card's "Enter Chicago";
+  since the start experience every `shoot.mjs` frame had the welcome card over its middle.
+
+**Not closed:** 046's H2 verdict (T-1827) and the West's 16 ordinary dwellings (T-1829).
 
 ## T-1822 — the walk itself dealt by business: decked walks at the forwarding houses, bare ground at the smithy (2026-10-01)
 

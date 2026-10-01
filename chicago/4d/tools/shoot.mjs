@@ -140,12 +140,15 @@ const shots = [
   ['high-above', { e: 60, n: -160, yaw: 0, altitude_m: 420, pitch_deg: -75 }],
 ];
 
-// Dismiss the help card — it covers a quarter of every frame.
+// Dismiss the help card — it covers a quarter of every frame — and the welcome
+// card, which since the start experience (T-1259) covers the middle of it and is
+// not answered by `chicago4d.entered`: "Enter Chicago" is the visitor's own way in.
 await page.evaluate(() => {
   for (const b of document.querySelectorAll('button')) {
-    if (/got it/i.test(b.textContent ?? '')) b.click();
+    if (/got it|^\s*enter chicago\s*$/i.test(b.textContent ?? '')) b.click();
   }
 });
+await page.waitForTimeout(600);
 
 for (const [name, { e, n, yaw, ...rest }] of AT ?? shots) {
   await page.evaluate((t) => {

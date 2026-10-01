@@ -127,6 +127,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      # THE PRAIRIE AVENUE RESEARCH BROWSER IS PUBLISHED HERE TOO (T-1821). /prairie-1904/
+      # used to be only the COMMITTED copy site/prairie-1904/, and nothing regenerated it:
+      # publish.sh writes the /4d/ mirror alone, so a promotion carried the package's new
+      # viewer, image index and image files to main and production went on serving the old
+      # copy. Publishing from chicago/prairie_1904_v1/ at deploy time makes /prairie-1904/
+      # always the package on the branch being deployed. Built aside and swapped in only on
+      # success, so a failed publish keeps the committed copy rather than shipping a hole —
+      # the same not-fatal doctrine as the 4D step below. It runs BEFORE that step on purpose:
+      # publish.sh's serve_from_root.py (T-1828) moves out of the /4d/ mirror every asset
+      # directory identical at the root, so with the fresh copy already in place the image
+      # collection ships once, here, rather than twice.
+      - name: Publish the Prairie Avenue research browser into the artifact
+        run: |
+          out="$RUNNER_TEMP/prairie-1904"
+          rm -rf "$out"
+          if python3 chicago/prairie_1904_v1/tools/publish.py "$out"; then
+            rm -rf site/prairie-1904 && mv "$out" site/prairie-1904
+          else
+            echo "::warning::Prairie 1904 publish failed — /prairie-1904/ serves the committed copy in this deploy"
+          fi
       # BUILD THE 4D MIRROR BEFORE ANYTHING READS site/ (T-0938). `site/4d/`
       # is untracked and .gitignored — a generated tree with one writer,
       # `chicago/4d/tools/publish.sh` — so the checkout above does not contain it and

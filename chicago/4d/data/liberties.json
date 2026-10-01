@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 326,
+  "count": 327,
   "liberties": [
     {
       "id": "L1",
@@ -19536,15 +19536,23 @@
     },
     {
       "id": "L310",
-      "title": "Three West roofs nobody holds, given a stated use",
+      "title": "Four West roofs nobody holds, given a stated use",
       "section": "per_subject",
       "subjects": [
+        "recon_1835_west_020",
         "recon_1835_west_036",
         "recon_1835_west_037",
         "recon_1835_west_046",
-        "recon_1835_west_047"
+        "recon_1835_west_047",
+        "western_hotel"
       ],
       "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_020",
+          "phase": null,
+          "aspect": "occupants"
+        },
         {
           "domain": "structure",
           "structure": "recon_1835_west_036",
@@ -19565,7 +19573,7 @@
         }
       ],
       "recorded": "2026-10-01",
-      "revised": null,
+      "revised": "2026-10-01",
       "fields": [
         {
           "label": "Applies to",
@@ -19573,11 +19581,11 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`"
+          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`"
         },
         {
           "label": "What we invented",
-          "text": "The USE of three anonymous roofs in the Jefferson and Clinton clusters that no deal seats a household in and no deal ever could, because their families are not ones a dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses (sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three streets back from the South Branch. Nobody is named for any of the three; the card says what the building was for, graded `reconstructed`."
+          "text": "The USE of three anonymous roofs in the Jefferson and Clinton clusters that no deal seats a household in and no deal ever could, because their families are not ones a dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses (sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three streets back from the South Branch. Nobody is named for any of the three; the card says what the building was for, graded `reconstructed`. A fourth row was added by T-1826: `recon_1835_west_020`, the C2 store-residence the recipe places on the Canal and Randolph teamster approach (cluster `w2_canal_randolph_teamster`, south and west of the documented Western Hotel's yard), is stated as a store with attic rooms kept for the wagon trade, its keeper unnamed. The placement policy admits C2 under `commercial_front` alone, no band handed to the off-plat deal names that clause, and the deal had carried the roof as `roofs_offered_and_unspent`. The row names no trade, goods or signboard, which the signage and trade-goods layers refuse for an anonymous slot."
         },
         {
           "label": "Why",
@@ -19585,19 +19593,23 @@
         },
         {
           "label": "Omission",
-          "text": "The freight shed `recon_1835_west_046` is given no stated use. It carries an outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and is T-1774's."
+          "text": "The freight shed `recon_1835_west_046` is given no stated use. It carries an outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and is T-1827's (split from T-1774 on 2026-10-01 for exactly that)."
         },
         {
           "label": "Would replace",
-          "text": "A keeper seated on any of the three by a deal or a source retires its row outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`."
+          "text": "A keeper seated on any of the three by a deal or a source retires its row outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`. A storekeeper seated on the Canal Street approach by a deal or a source retires the row for `recon_1835_west_020`."
         },
         {
           "label": "Ticket",
-          "text": "T-1782 (piece 2 of T-1208)."
+          "text": "T-1782 (piece 2 of T-1208); the fourth row T-1826."
         },
         {
           "label": "Recorded",
           "text": "2026-10-01 (T-1782)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-01 (T-1826) — `recon_1835_west_020` added."
         }
       ]
     },
@@ -20718,6 +20730,66 @@
         {
           "label": "Recorded",
           "text": "2026-10-01. The owner's northwest/west views and HABS sheets 2–3 bound a full northern west-facing gable, a lower southern roof and a projecting dormer. The sheets have no roof plan. Rear ridge 31 ft ng, west eave 15.5 ft, east/south eaves 23.1 ft, south hip at S50 ft and gable foot at S32 ft are reconstructed (about ±1.5 ft). The planar connector to the measured north-range section is a hidden-join reconstruction. These supersede L305's interpolated stable roof and retained high rear profile; its measured footprint and north opening axis remain. The nine-foot timber dormer and hipped hood at S46 have reconstructed heights, flare, tile cheeks, brackets and joinery. No modern source is asserted as a dated 1904 measurement and no photograph supplies texture pixels. The north porch's 12-ft opening and left-turn stair arrangement follow HABS sheet 2. Six-foot recess depth, 1.5-ft landing, 6-ft raised side-door threshold, three approach risers, eight internal risers, cheek/coping dimensions and back window height are bounded reconstructions from that plan and supplied surviving fabric. A measured porch section and roof plan would replace these dimensions."
+        }
+      ]
+    },
+    {
+      "id": "L334",
+      "title": "The sand hills north and south of the fort: where they stand, how high, and in what form",
+      "section": "per_subject",
+      "subjects": [
+        "kelsey_boarding_house"
+      ],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1834_harbor_cut",
+          "claim": "dunes.north_lake_dunes"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1834_harbor_cut",
+          "claim": "dunes.south_lake_dunes"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/terrain/epochs/e1834_harbor_cut/terrain_spec.json` § `dunes` (`north_lake_dunes`, `south_lake_dunes`), read by `generators/terrain_gen.py` into the committed heightfield and the ground mesh, and so into the walker's footing (`renderers/web/js/terrain.js` samples the same heightfield)"
+        },
+        {
+          "label": "What we invented",
+          "text": "the form of the lakefront dunes. The source says only that the fort looked out on \"the white sand hills both to the north and south\" (chicagology_prefire274), and the terrain dossier sizes them as scattered hummocks 50–150 ft across with +10 to +14 ft local peaks; no source places, measures or draws a single one. So: (1) **where** — two reaches, N +440 to +920 between the unopened Sand Street corridor and the lake, and N −700 to −2120 along the lake south of the old channel's end, each fading in and out over 60–90 m; (2) **the form** — a foredune ridge 34–44 m inland of the lake's edge (4.4–4.5 ft at most), a lower back ridge 58–96 m inland (2.2–2.6 ft), and a blowout hollow between (1.1–1.6 ft deep), all broken into hummocks 20–45 m across by noise and wandering 7–9 m along the shore; (3) **the bounds** — the tallest hummock stands +13.9 ft, inside the dossier's +10 to +14 ft, and the reaches stop short of the fort, the mouth, the bar, the harbour works and Kinzie's platted streets. The beach (the bank face) is left as it was."
+        },
+        {
+          "label": "Why",
+          "text": "the owner's request of 2026-09-30 (T-1772): \"gentle dune-like ridges\" blended into the prairie, shaped in the actual terrain rather than painted. A dossier zone that documents the hills' existence and gives their scale is enough to build them at the reconstructed tier."
+        },
+        {
+          "label": "Omission",
+          "text": "none of the hummocks is a particular hill a witness saw. The reservation strip beside the fort keeps no dune (the 1839 Fort Dearborn Addition plat makes it \"at best a low sandbar\"), and kelsey_boarding_house is held clear by a 22 m flat circle with a 20 m fade. The dune's poplars keep L329's reach; the inland prairie's material is T-1825's."
+        },
+        {
+          "label": "Would replace",
+          "text": "a survey, plat or sketch that places or measures any of the sand hills north or south of the fort before the 1850s grade-raising; the 1830s US Engineer harbour surveys, if one draws the shore behind the beach."
+        },
+        {
+          "label": "Covers",
+          "text": "`terrain.e1834_harbor_cut.dunes.north_lake_dunes`, `terrain.e1834_harbor_cut.dunes.south_lake_dunes`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1824 (piece 1 of T-1820, under T-1772)."
+        },
+        {
+          "label": "Related",
+          "text": "**L329** (the beach and sand prairie's reach and tone), **L3** (vertical exaggeration stays 1.0)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
         }
       ]
     },

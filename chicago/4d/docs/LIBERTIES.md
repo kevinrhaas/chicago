@@ -17786,12 +17786,12 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).
-### L310 — Three West roofs nobody holds, given a stated use
+### L310 — Four West roofs nobody holds, given a stated use
 
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
-`recon_1835_west_047.occupants`
+`recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
@@ -17802,7 +17802,14 @@ it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between 
 Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
 (sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
 streets back from the South Branch. Nobody is named for any of the three; the card says what the
-building was for, graded `reconstructed`.
+building was for, graded `reconstructed`. A fourth row was added by T-1826:
+`recon_1835_west_020`, the C2 store-residence the recipe places on the Canal and Randolph teamster
+approach (cluster `w2_canal_randolph_teamster`, south and west of the documented Western Hotel's
+yard), is stated as a store with attic rooms kept for the wagon trade, its keeper unnamed. The
+placement policy admits C2 under `commercial_front` alone, no band handed to the off-plat deal
+names that clause, and the deal had carried the roof as `roofs_offered_and_unspent`. The row
+names no trade, goods or signboard, which the signage and trade-goods layers refuse for an
+anonymous slot.
 
 **Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
 for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
@@ -17811,15 +17818,19 @@ seated household's yard carded as an anonymous count-unit forever.
 **Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
 outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
 its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
-is T-1774's.
+is T-1827's (split from T-1774 on 2026-10-01 for exactly that).
 
 **Would replace:** A keeper seated on any of the three by a deal or a source retires its row
 outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
 Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+A storekeeper seated on the Canal Street approach by a deal or a source retires the row for
+`recon_1835_west_020`.
 
-**Ticket:** T-1782 (piece 2 of T-1208).
+**Ticket:** T-1782 (piece 2 of T-1208); the fourth row T-1826.
 
 **Recorded:** 2026-10-01 (T-1782).
+
+**Revised:** 2026-10-01 (T-1826) — `recon_1835_west_020` added.
 
 ### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 
@@ -18553,3 +18564,41 @@ sheet 2. Six-foot recess depth, 1.5-ft landing, 6-ft raised side-door threshold,
 three approach risers, eight internal risers, cheek/coping dimensions and back
 window height are bounded reconstructions from that plan and supplied surviving
 fabric. A measured porch section and roof plan would replace these dimensions.
+
+### L334 — The sand hills north and south of the fort: where they stand, how high, and in what form
+
+**Applies to:** `data/terrain/epochs/e1834_harbor_cut/terrain_spec.json` § `dunes`
+(`north_lake_dunes`, `south_lake_dunes`), read by `generators/terrain_gen.py` into the committed
+heightfield and the ground mesh, and so into the walker's footing (`renderers/web/js/terrain.js`
+samples the same heightfield)
+
+**What we invented:** the form of the lakefront dunes. The source says only that the fort looked
+out on "the white sand hills both to the north and south" (chicagology_prefire274), and the
+terrain dossier sizes them as scattered hummocks 50–150 ft across with +10 to +14 ft local peaks;
+no source places, measures or draws a single one. So: (1) **where** — two reaches, N +440 to +920
+between the unopened Sand Street corridor and the lake, and N −700 to −2120 along the lake south
+of the old channel's end, each fading in and out over 60–90 m; (2) **the form** — a foredune ridge
+34–44 m inland of the lake's edge (4.4–4.5 ft at most), a lower back ridge 58–96 m inland (2.2–2.6 ft),
+and a blowout hollow between (1.1–1.6 ft deep), all broken into hummocks 20–45 m across by noise
+and wandering 7–9 m along the shore; (3) **the bounds** — the tallest hummock stands +13.9 ft,
+inside the dossier's +10 to +14 ft, and the reaches stop short of the fort, the mouth, the bar,
+the harbour works and Kinzie's platted streets. The beach (the bank face) is left as it was.
+
+**Why:** the owner's request of 2026-09-30 (T-1772): "gentle dune-like ridges" blended into the
+prairie, shaped in the actual terrain rather than painted. A dossier zone that documents the hills'
+existence and gives their scale is enough to build them at the reconstructed tier.
+
+**Omission:** none of the hummocks is a particular hill a witness saw. The reservation strip beside
+the fort keeps no dune (the 1839 Fort Dearborn Addition plat makes it "at best a low sandbar"), and
+kelsey_boarding_house is held clear by a 22 m flat circle with a 20 m fade. The dune's poplars keep
+L329's reach; the inland prairie's material is T-1825's.
+
+**Would replace:** a survey, plat or sketch that places or measures any of the sand hills north or
+south of the fort before the 1850s grade-raising; the 1830s US Engineer harbour surveys, if one
+draws the shore behind the beach.
+
+**Covers:** `terrain.e1834_harbor_cut.dunes.north_lake_dunes`, `terrain.e1834_harbor_cut.dunes.south_lake_dunes`
+**Ticket:** T-1824 (piece 1 of T-1820, under T-1772).
+**Related:** **L329** (the beach and sand prairie's reach and tone), **L3** (vertical exaggeration
+stays 1.0).
+**Recorded:** 2026-10-01.

@@ -57,10 +57,18 @@ regressions pass. The exact shipped light derivative was decoded and rendered at
 the same northwest and entrance-turn cameras; both retain the repaired geometry.
 It contains 188,675 triangles, below the 200,000 ceiling. The three-file recovery
 package verifies, and all canonical/older-version meshes report fresh. After
-integrating dev through 6b3ef7a (including the publishing-size fix), source
+integrating dev through 6f53477 (including the publishing and terrain changes), source
 preflight passes: 727 steps, none red; changelog and ticket-id checks pass.
-The new geometry test has a measured no-write isolation row. Desktop/mobile
-browser results are tracked in the T-1830 PR before merge.
+The new geometry test has a measured no-write isolation row. Full published-mirror
+browser checks on repair checkpoint a8fac67 pass: mobile 1–6, 297/0; mobile 7–13,
+290/0; desktop 1–6, 294/0; desktop 7–13, 290/0. Both screen sizes finish with zero
+page errors. After the later dev terrain change, stage 5 was repeated on 6f53477:
+26/0 on each viewport. The repair changes no 1835 meshes or renderer logic, so
+those budget results cover the integrated 1835 geometry. Its desktop worst stands
+are 1,442,860 full triangles and 817,290 light triangles, within their ceilings.
+The Glessner meshes remain byte-identical to the visually reviewed repair. All six
+workflow receipts are filed in tools/dev-smoke-state.json, with their actual commits
+and unknown CI load/tree digests stated, and linked from PR #243.
 
 Commands from chicago/4d:
 - Pinned Blender 4.5.3: generators/build.py -- --only glessner_house --no-bake.
