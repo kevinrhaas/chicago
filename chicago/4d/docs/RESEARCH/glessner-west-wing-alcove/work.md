@@ -39,13 +39,28 @@ flight and side-facing door. Reconstructed depth 6 ft; three front risers reach 
 back-wall window is kept above the landing; sheet 3 is checked against the upper
 floor so it is not mistaken for the wide window over the outer arch.
 
-## Recovery checkpoint — implementation in progress
+## Geometry review and recovery checkpoint
 
 Claim: T-1830 in chicago-tickets/main. Branch: steward/t-1830-glessner-west-wing-alcove.
-The new planar-union module, parameter record, shared full/light details and alcove
-are implemented. First bake and model review are underway. Do not merge this
-checkpoint: full/light reproduction, package, renders, provenance derivations,
-source preflight and desktop/mobile browser checks remain to be completed.
+The planar roof union and the shared full/light entrance are implemented and visually
+reviewed. The first source checkpoint is ece92a8. The roof helper belongs to the
+`masonry_house_v4*` family so both master freshness and light receipts hash its code.
+The outer arch has a short masonry return opening into the taller porch room; a
+full-depth low spring line would obstruct the ascending turn. The inset west sash
+stands above a tiled apron, beneath a flared hipped hood. L331 records estimates.
+
+Six generated review views are in `renders/`: northwest roof, west alley, south,
+courtyard-facing east, north alcove and the turn to its side door. They show no
+projecting gable strip, the lower rear eave, upper south/courtyard windows, and an
+open route up the left stair. The 1,800-ray envelope check and aperture/glazing
+regressions pass. The exact shipped light derivative was decoded and rendered at
+the same northwest and entrance-turn cameras; both retain the repaired geometry.
+It contains 188,675 triangles, below the 200,000 ceiling. The three-file recovery
+package verifies, and all canonical/older-version meshes report fresh. After
+integrating dev through 6b3ef7a (including the publishing-size fix), source
+preflight passes: 727 steps, none red; changelog and ticket-id checks pass.
+The new geometry test has a measured no-write isolation row. Desktop/mobile
+browser results are tracked in the T-1830 PR before merge.
 
 Commands from chicago/4d:
 - Pinned Blender 4.5.3: generators/build.py -- --only glessner_house --no-bake.

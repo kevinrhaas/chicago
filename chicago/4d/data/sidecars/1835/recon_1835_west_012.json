@@ -166,8 +166,15 @@
     "programme_phase": "phase2_west_wolf_point_approaches",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 11,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
-    "age_state": "established"
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "older_frontier",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a woodshed, older than the boom (rule F-Y: a yard building's by its type)"
+    }
   }
 }

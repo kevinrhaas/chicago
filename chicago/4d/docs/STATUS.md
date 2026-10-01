@@ -1,6 +1,6 @@
-# T-1830 work in progress — 2026-10-01
+# T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
-Glessner west-wing roof and north porch rebuilding from the owner's views and HABS plans. Source implemented; bake, model review and browser validation pending. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged and the 727-step source preflight passes. Browser gate results are tracked with the T-1830 review. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
 
 ## T-1822 — the walk itself dealt by business: decked walks at the forwarding houses, bare ground at the smithy (2026-10-01)
 

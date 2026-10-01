@@ -166,9 +166,16 @@
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 10,
-    "finish_key": "fresh_timber",
+    "finish_key": "mixed_patch",
     "roof_condition": "patched",
-    "age_state": "established",
+    "age_state": "older_frontier",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a woodshed, older than the boom (rule F-Y: a yard building's by its type)"
+    },
     "yard_group": "nw_d4_004_yard"
   }
 }

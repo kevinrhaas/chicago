@@ -744,7 +744,7 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 
 def roof_ridges(b,params):
     from archetypes.masonry_house_v4_roof_crests import add_ridge_crest
-    from archetypes.masonry_house_west_roof import ridge_ranges
+    from archetypes.masonry_house_v4_west_roof import ridge_ranges
     for r,a0,a1 in (segment for source in params.ranges for segment in ridge_ranges(source)):
         step=.36
         for i in range(math.ceil((a1-a0)/step)):
@@ -1319,11 +1319,11 @@ def north_entry(b,p):
     landing,threshold=d['landing_z'],d['threshold_z']
     arch=next(o for o in p.openings if o.get('style')=='north_entry_alcove')
     poly=aperture(arch)
-    # Barrel intrados follows the opening through the masonry. It ends at the
-    # actual recess, not a black back card or a gate filling the arch.
+    # The arch return passes through the outer masonry only. Extruding its
+    # low spring line across the room blocks the rising left-turn flight.
     for (u,z),(v,zz) in zip(poly,poly[1:]+poly[:1]):
         if max(z,zz)<.01:continue
-        end=yf-.35 if abs(u-c)<1e-6 and abs(v-c)<1e-6 else yb
+        end=yf-.35
         b.raw([(u,yf,z),(v,yf,zz),(v,end,zz),(u,end,z)],conf,GRANITE)
     wp={'axis':'y','sign':1,'at':yb,'face':'north','kind':'window',
         'u0':d['window_x'][0],'u1':d['window_x'][1],'z0':d['window_z'][0],
@@ -1333,8 +1333,10 @@ def north_entry(b,p):
         'z1':d['door_top'],'conf':conf,'style':'service_door'}
     b.openings.extend([wp,dp])
     top=d['door_top']+.3
-    b.wall([(a,yb,landing),(east,yb,landing),(east,yb,top),(a,yb,top)],conf,GRANITE)
-    b.wall([(east,yb,landing),(east,yf-.3,landing),(east,yf-.3,top),(east,yb,top)],conf,GRANITE)
+    b.wall([(a,yb,landing),(a,yb,top),(east,yb,top),(east,yb,landing)],conf,GRANITE)
+    b.wall([(east,yb,landing),(east,yb,top),(east,yf-.3,top),(east,yf-.3,landing)],conf,GRANITE)
+    b.wall([(a,yb,landing),(a,yf-.35,landing),(a,yf-.35,top),(a,yb,top)],conf,GRANITE)
+    b.raw([(a,yb,top),(east,yb,top),(east,yf-.35,top),(a,yf-.35,top)],conf,GRANITE,(0,0,-1))
     opening(b,wp);opening(b,dp)
     old=b.decorate;b.decorate=False
     legacy._box(b,a,yb,0,east,yf,landing,conf,TRIM)
@@ -1357,22 +1359,30 @@ def north_entry(b,p):
 
 def west_hood(b,p,d):
     """Timber dormer with tile cheeks and the hood generated in the roof union."""
-    from archetypes.masonry_house_west_roof import height
+    from archetypes.masonry_house_v4_west_roof import height
     r=next(r for r in p.ranges if r.get('stable_roof'))
     a,c=d['u0'],d['u1'];front,back=d['front'],d['back'];conf=d['conf']
     pl={'axis':'x','sign':-1,'at':front}
     # The wide opening in sheet 3 belongs up here, above the four lower lights.
     o={**pl,'face':'west','kind':'window','u0':a+.22,'u1':c-.22,
        'z0':d['eave_z']-1.35,'z1':d['eave_z']-.13,'conf':conf,'style':'courtyard_sash'}
-    base=min(height(r,front,a),height(r,front,c))
+    apron_front=r['x0']-.10
+    apron_z=height(r,apron_front,(a+c)/2)+.025
     old=b.decorate;b.decorate=False
     # Wooden boards around an actual aperture; no opaque panel behind the glass.
-    slab(b,pl,a,c,base,o['z0'],-.03,.03,conf,23)
+    # The sash is set into the roof, above a steep tiled apron. A tall wooden
+    # face here falsely turns the small hood into a box rising from the eave.
+    b.decorate=old
+    legacy._two_sided_roof(b,[(apron_front,a,apron_z),(front,a,o['z0']),
+                            (front,c,o['z0']),(apron_front,c,apron_z)],conf,ROOF)
+    b.decorate=False
     slab(b,pl,a,c,o['z1'],d['eave_z'],-.03,.03,conf,23)
     slab(b,pl,a,o['u0'],o['z0'],o['z1'],-.03,.03,conf,23)
     slab(b,pl,o['u1'],c,o['z0'],o['z1'],-.03,.03,conf,23)
     for u in (a,c):
         zf=height(r,front,u);zb=height(r,back,u)
+        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
+              (0,-1 if u==a else 1,0))
         cheek=[(front,u,zf),(back,u,zb),(back,u,d['eave_z']),(front,u,d['eave_z'])]
         b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
         # Restrained overlapping tile courses on the cheeks (not masonry).
@@ -1384,7 +1394,7 @@ def west_hood(b,p,d):
             b.raw([(front,at,max(zl,zf)),(back,at,max(zl,zb)),(back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
     opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
-    slab(b,pl,a-.25,c+.25,d['eave_z']-.10,d['eave_z'],-.02,.45,conf,23)
+    slab(b,pl,a-.25,c+.25,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
     for u in (a+.1,c-.1):
         slab(b,pl,u-.06,u+.06,d['eave_z']-.42,d['eave_z']-.08,0,.22,conf,23)
     b.decorate=old

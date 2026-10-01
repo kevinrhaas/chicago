@@ -679,6 +679,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             if dormer:
                 dormer["style"] = wd.get("style")
                 dormer["crest_x"] = fr.x(wd["crest_W"])
+                dormer["hood_front"] = fr.x(wd["hood_front_W"])
                 west["stable_roof"]["dormer"] = dormer
         alcove = raw.get("north_entry_alcove")
         if alcove:

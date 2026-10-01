@@ -2659,6 +2659,9 @@
     "tools/export_resident_research_package.py": {
       "wrote": []
     },
+    "tools/fabric_rule_1835.py": {
+      "wrote": []
+    },
     "tools/fergus_1839_street_faces.py": {
       "wrote": []
     },
@@ -3427,6 +3430,9 @@
     "tools/select_resident_research_pilot.py": {
       "wrote": []
     },
+    "tools/serve_from_root.py": {
+      "wrote": []
+    },
     "tools/smoke_budget.mjs": {
       "wrote": []
     },
@@ -3575,6 +3581,9 @@
       "wrote": []
     },
     "tools/test_glessner_block_clipping.py": {
+      "wrote": []
+    },
+    "tools/test_glessner_roof_envelope.py": {
       "wrote": []
     },
     "tools/test_glessner_v4_package.py": {

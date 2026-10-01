@@ -71,13 +71,20 @@ def components(r, include_dormer=True):
            ('connector_upper',(x0-ov,x1,yk,nr),[taper(high)]),
            ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
     if include_dormer and g.get('dormer'):
-        d=g['dormer'];front=d['front']-.45;back=d['back'];a=d['u0']-.25;c=d['u1']+.25
+        d=g['dormer'];front=d['hood_front'];back=d['back'];a=d['u0']-.25;c=d['u1']+.25
         peak=d['apex_z'];eave=d['eave_z'];cx=d['crest_x'];mid=(a+c)/2
         # Hipped, flared hood, with a level eave at the front and both sides.
-        inner=(front+.22,back,a+.18,c-.18)
-        planes=[slope('x',front,eave,cx,peak),slope('x',back,eave,cx,peak),
-                slope('y',a,eave,mid,peak),slope('y',c,eave,mid,peak)]
+        inner=(front+.42,back-.12,a+.23,c-.23);rise=.13
+        planes=[slope('x',inner[0],eave+rise,cx,peak),slope('x',inner[1],eave+rise,cx,peak),
+                slope('y',inner[2],eave+rise,mid,peak),slope('y',inner[3],eave+rise,mid,peak)]
+        # A shallow skirt meets the steeper cap at the inner rectangle. Their
+        # upper envelope makes the small concave flare visible at the eaves.
+        skirt=[slope('x',front,eave,inner[0],eave+rise),
+               slope('x',back,eave,inner[1],eave+rise),
+               slope('y',a,eave,inner[2],eave+rise),
+               slope('y',c,eave,inner[3],eave+rise)]
         comps.append(('dormer',(front,back,a,c),planes))
+        comps.append(('dormer_skirt',(front,back,a,c),skirt))
     return comps
 
 

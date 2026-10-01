@@ -126,9 +126,16 @@
     "stands_on": "street",
     "fronts": "washington",
     "sequence": 6,
-    "finish_key": "weathered_timber",
+    "finish_key": "mixed_patch",
     "roof_condition": "patched",
-    "age_state": "established"
+    "age_state": "older_frontier",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "hewn logs under a patched roof — an older log cabin, older than the boom (rule F-L: a labourer's by its type)"
+    }
   },
   "resident_assignment": {
     "status": "unassigned",

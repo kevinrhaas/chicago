@@ -169,9 +169,16 @@
     "stands_on": "frontage",
     "fronts": "washington",
     "sequence": 9,
-    "finish_key": "ochre",
-    "roof_condition": "darkened",
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
     "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
+    },
     "frontage": {
       "block": "blk_randolph_market",
       "face": "south",

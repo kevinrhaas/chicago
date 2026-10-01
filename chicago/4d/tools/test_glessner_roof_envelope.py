@@ -6,7 +6,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'generators'))
 from archetypes.masonry_house_params import from_phase
-from archetypes.masonry_house_west_roof import components, patches, height, z, bounds_planes, profile
+from archetypes.masonry_house_v4_west_roof import components, patches, height, z, bounds_planes, profile
 
 record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
 p=from_phase(record['phases'][0],record)

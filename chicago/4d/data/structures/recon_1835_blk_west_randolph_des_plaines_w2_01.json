@@ -141,9 +141,16 @@
     "stands_on": "frontage",
     "fronts": "randolph",
     "sequence": 1,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
-    "age_state": "recent",
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-W",
+      "class": "works",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a carpenter's shop, from the 1832–33 town (rule F-W: a tradesman's shop by its type)"
+    },
     "frontage": {
       "block": "blk_west_randolph_des_plaines",
       "face": "north",

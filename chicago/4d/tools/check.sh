@@ -110,6 +110,8 @@ selftest "…only the canonical v4 derivative producer refreshes the package" \
   python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
   python3 tools/test_glessner_block_clipping.py --self-test
+step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
+  python3 tools/test_glessner_roof_envelope.py
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -729,6 +731,15 @@ step "Canal trade roofs have existing keepers without invented homes" \
   python3 tools/canal_approach_occupancy.py --check
 selftest "Canal trade occupancy preserves identities and lodging constraints" \
   python3 tools/canal_approach_occupancy.py --self-test
+
+# T-1816: the anonymous-roof generators above deal every anonymous roof's finish, paint, roof
+# condition and age through ONE rule — whose house it is — and each record says so in
+# `reconstruction.fabric_basis`. The rule re-reads every record against itself, and its
+# self-test proves no class can deal the Sauganash's white paint or a finish off the sheet.
+step "every anonymous roof's finish is the fabric-by-household rule's" \
+  python3 tools/fabric_rule_1835.py --check
+selftest "…and the rule refuses white paint, off-sheet finishes and drift" \
+  python3 tools/fabric_rule_1835.py --self-test
 
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
@@ -2897,6 +2908,11 @@ step "publish.sh produces a mirror that matches its source" \
 # no door.
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
+
+# The reference browsers' asset directories leave the mirror only when the site root
+# already ships every byte of them (T-1828) — never a directory with new work in it.
+selftest "reference browsers: only what the root already ships is served from it" \
+  python3 tools/serve_from_root.py --self-test
 
 # …and the one layer in it publish.sh transforms rather than copies. The residents
 # records ship minified for the size budget, so the byte comparison above cannot see

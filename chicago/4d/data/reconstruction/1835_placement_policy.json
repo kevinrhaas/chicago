@@ -149,6 +149,398 @@
       "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs. The rear cottage the owner admitted on 2026-09-23 does not raise this maximum: `rear_dwelling_behind_its_own_roof` seats a dwelling in the yard as ANCILLARY, and this number counts principal roofs."
     }
   },
+  "fabric": {
+    "ticket": "T-1816",
+    "dealt_by": "tools/fabric_rule_1835.py — every anonymous-roof generator deals finish_key, paint, roof_condition and age_state through it",
+    "order": [
+      "1. the keeper 1835_roof_keepers.json WROTE onto the roof: their trade (seat_known_1835.TRADE_CLAUSE) sets the class of a dwelling or store, their arrival year the age. Refused and owed seats are never read.",
+      "2. otherwise the family's household class (class_of_family), its age dealt inside the family's window of the boom (ages_by_family)."
+    ],
+    "classes": {
+      "merchant": {
+        "rule": "F-M",
+        "who": "a merchant's or professional man's",
+        "coat_share": 1.0,
+        "coats": [
+          "red_oxide",
+          "ochre",
+          "whitewash"
+        ],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "fresh_timber",
+          "established": "weathered_timber",
+          "older_frontier": "weathered_timber"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "fresh",
+          "established": "weathered",
+          "older_frontier": "weathered"
+        },
+        "why": "money bought the coat and kept the roof: the better houses are painted or washed, and their shingles are renewed before they patch"
+      },
+      "keeper": {
+        "rule": "F-B",
+        "who": "a boarding-house or tavern keeper's",
+        "coat_share": 1.0,
+        "coats": [
+          "whitewash",
+          "whitewash",
+          "ochre"
+        ],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "fresh_timber",
+          "established": "weathered_timber",
+          "older_frontier": "weathered_timber"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "darkened",
+          "older_frontier": "darkened"
+        },
+        "why": "a house that took in the public showed it a clean face, and lime was the cheapest clean face there was"
+      },
+      "tradesman": {
+        "rule": "F-T",
+        "who": "a tradesman's",
+        "coat_share": 0.3,
+        "coats": [
+          "ochre",
+          "whitewash"
+        ],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "weathered_timber",
+          "established": "weathered_timber",
+          "older_frontier": "mixed_patch"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "darkened",
+          "older_frontier": "darkened"
+        },
+        "why": "mostly bare boards silvering with their age, a cheap earth or lime wash on some"
+      },
+      "labourer": {
+        "rule": "F-L",
+        "who": "a labourer's",
+        "coat_share": 0.0,
+        "coats": [],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "mixed_patch",
+          "established": "weathered_timber",
+          "older_frontier": "mixed_patch"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "patched",
+          "older_frontier": "patched"
+        },
+        "why": "never coated; boards from whatever stock came to hand, and a roof mended rather than renewed"
+      },
+      "works": {
+        "rule": "F-W",
+        "who": "a tradesman's shop",
+        "coat_share": 0.0,
+        "coats": [],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "weathered_timber",
+          "established": "mixed_patch",
+          "older_frontier": "mixed_patch"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "patched",
+          "older_frontier": "patched"
+        },
+        "why": "a working building is bare boards, patched where the work wore it"
+      },
+      "freight": {
+        "rule": "F-F",
+        "who": "the freight trade's",
+        "coat_share": 0.0,
+        "coats": [],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "weathered_timber",
+          "established": "weathered_timber",
+          "older_frontier": "weathered_timber"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "darkened",
+          "older_frontier": "darkened"
+        },
+        "why": "a shed or warehouse is bare boards, new with the boom's trade"
+      },
+      "yard": {
+        "rule": "F-Y",
+        "who": "a yard building's",
+        "coat_share": 0.0,
+        "coats": [],
+        "bare": {
+          "new": "fresh_timber",
+          "recent": "weathered_timber",
+          "established": "weathered_timber",
+          "older_frontier": "mixed_patch"
+        },
+        "roof": {
+          "new": "fresh",
+          "recent": "weathered",
+          "established": "darkened",
+          "older_frontier": "patched"
+        },
+        "why": "a stable, privy or shed is never coated"
+      }
+    },
+    "class_of_family": {
+      "D1": [
+        "labourer",
+        "an older log cabin"
+      ],
+      "D2": [
+        "labourer",
+        "a rough plank dwelling or shanty"
+      ],
+      "D3": [
+        "tradesman",
+        "a one-room frame cottage"
+      ],
+      "D4": [
+        "tradesman",
+        "a two-room frame cottage"
+      ],
+      "D5": [
+        "tradesman",
+        "a deep-plan frame cottage"
+      ],
+      "D6": [
+        "tradesman",
+        "a one-and-a-half-story cottage"
+      ],
+      "D7": [
+        "tradesman",
+        "a small two-story frame house"
+      ],
+      "H1": [
+        "merchant",
+        "a larger one-and-a-half-story house"
+      ],
+      "H2": [
+        "merchant",
+        "a merchant's or professional house"
+      ],
+      "H3": [
+        "keeper",
+        "a boarding house"
+      ],
+      "C1": [
+        "tradesman",
+        "a small shop, grocery or land office"
+      ],
+      "C2": [
+        "tradesman",
+        "a store-residence"
+      ],
+      "C3": [
+        "merchant",
+        "a narrow two-story store"
+      ],
+      "C4": [
+        "merchant",
+        "a wide two-story store"
+      ],
+      "T1": [
+        "keeper",
+        "a public house"
+      ],
+      "T2": [
+        "keeper",
+        "a frontier inn"
+      ],
+      "W1": [
+        "works",
+        "a blacksmith shop"
+      ],
+      "W2": [
+        "works",
+        "a carpenter's shop"
+      ],
+      "W3": [
+        "works",
+        "a cooper's or wheelwright's shop"
+      ],
+      "W4": [
+        "works",
+        "a small artisan's shop"
+      ],
+      "W5": [
+        "works",
+        "a riverside shop"
+      ],
+      "F1": [
+        "freight",
+        "a freight shed"
+      ],
+      "F2": [
+        "freight",
+        "a two-story warehouse"
+      ],
+      "F3": [
+        "freight",
+        "a river warehouse"
+      ],
+      "F4": [
+        "freight",
+        "a lumber shed"
+      ],
+      "A1": [
+        "yard",
+        "a stable"
+      ],
+      "A2": [
+        "yard",
+        "a barn or carriage shed"
+      ],
+      "A3": [
+        "yard",
+        "a privy"
+      ],
+      "A4": [
+        "yard",
+        "a woodshed"
+      ],
+      "A5": [
+        "yard",
+        "a small utility shed"
+      ]
+    },
+    "ages_by_family": {
+      "D1": [
+        "established",
+        "older_frontier"
+      ],
+      "D2": [
+        "new",
+        "recent"
+      ],
+      "H1": [
+        "new",
+        "recent"
+      ],
+      "H2": [
+        "new",
+        "recent"
+      ],
+      "C3": [
+        "new",
+        "recent"
+      ],
+      "C4": [
+        "new",
+        "recent"
+      ],
+      "H3": [
+        "new",
+        "recent",
+        "established"
+      ],
+      "T1": [
+        "new",
+        "recent",
+        "established"
+      ],
+      "T2": [
+        "new",
+        "recent",
+        "established"
+      ],
+      "F1": [
+        "new",
+        "recent"
+      ],
+      "F2": [
+        "new",
+        "recent"
+      ],
+      "F3": [
+        "new",
+        "recent"
+      ],
+      "F4": [
+        "new",
+        "recent"
+      ],
+      "W1": [
+        "recent",
+        "established"
+      ],
+      "W2": [
+        "recent",
+        "established"
+      ],
+      "W3": [
+        "recent",
+        "established"
+      ],
+      "W4": [
+        "recent",
+        "established"
+      ],
+      "W5": [
+        "recent",
+        "established"
+      ],
+      "A1": [
+        "new",
+        "recent",
+        "established",
+        "older_frontier"
+      ],
+      "A2": [
+        "new",
+        "recent",
+        "established",
+        "older_frontier"
+      ],
+      "A3": [
+        "new",
+        "recent",
+        "established",
+        "older_frontier"
+      ],
+      "A4": [
+        "new",
+        "recent",
+        "established",
+        "older_frontier"
+      ],
+      "A5": [
+        "new",
+        "recent",
+        "established",
+        "older_frontier"
+      ]
+    },
+    "boom_ages": [
+      "new",
+      "new",
+      "recent",
+      "recent",
+      "established"
+    ],
+    "white_paint": "the Sauganash's alone — no class deals it",
+    "liberty": "L330"
+  },
   "clauses": [
     {
       "id": "commercial_front",

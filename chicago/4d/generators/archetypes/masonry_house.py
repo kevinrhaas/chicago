@@ -325,7 +325,7 @@ def _range(b, r) -> None:
 
 
 def _stable_reworked(b, r):
-    from archetypes.masonry_house_west_roof import patches, profile
+    from archetypes.masonry_house_v4_west_roof import patches, profile
     g = r["stable_roof"]
     for face in ("north", "west", "east", "south"):
         kind = r["walls"][face]

@@ -218,9 +218,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 13,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
+    "finish_key": "ochre",
+    "roof_condition": "weathered",
     "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "keeper",
+      "household": "hh_blanshard_f_g",
+      "words": "ochre-washed clapboard under a weathered roof — The Blanshard household's, in Chicago since 1834 (rule F-T)"
+    },
     "frontage": {
       "block": "blk_south_water_franklin",
       "face": "north",
