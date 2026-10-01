@@ -336,18 +336,22 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # the same terms as every entry above, on top of T-1760's three and T-1773's one; terrain reach still 4 and
 # pier_crib still 2.
 #
-# 504 -> 508 and 500 -> 504 on 2026-10-01 (T-1783): the four roofs on
+# 504 -> 506 and 500 -> 502 on 2026-10-01 (T-1785): the doctor's house and barn in
+# Wabansia, two named records rather than recipe roofs, and two more meshes the same
+# shared-generator or emit.py change would re-stale. Nothing about the debt itself moved.
+#
+# 506 -> 510 and 502 -> 506 on 2026-10-01 (T-1783): the four roofs on
 # `blk_west_randolph_des_plaines`, the first deal on the West Division's outer platted
 # blocks — three frame cottages and a carpenter's shop. Four new structure assets on the
 # same terms; the terrain reach still 4 and pier_crib still 2.
 #
 STATED = {
-    "assets": 508,
+    "assets": 510,
     "restales": {
-        "generators/common/*.py": 508,
+        "generators/common/*.py": 510,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 504,
+        "generators/emit.py": 506,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

@@ -13,10 +13,10 @@
   "commercial_front",
   "professional_row",
   "mechanics_streets",
+  "lodging_near_the_landings",
   "merchant_and_professional_dwellings",
   "tradesman_dwellings",
-  "labourer_dwellings",
-  "lodging_near_the_landings"
+  "labourer_dwellings"
  ],
  "off_the_plat": {
   "farms_and_country_seats": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
@@ -38,9 +38,10 @@
    "slot": 36
   },
   "by_clause": {
-   "labourer_dwellings": 34,
-   "merchant_and_professional_dwellings": 35,
-   "tradesman_dwellings": 114
+   "labourer_dwellings": 35,
+   "lodging_near_the_landings": 2,
+   "merchant_and_professional_dwellings": 36,
+   "tradesman_dwellings": 110
   },
   "by_district": {
    "north": 22,
@@ -49,14 +50,15 @@
   },
   "by_family": {
    "D1": 21,
-   "D2": 13,
-   "D3": 45,
-   "D4": 38,
-   "D5": 20,
-   "D6": 11,
-   "D7": 16,
+   "D2": 14,
+   "D3": 44,
+   "D4": 37,
+   "D5": 19,
+   "D6": 10,
+   "D7": 17,
    "H1": 11,
-   "H2": 8
+   "H2": 8,
+   "H3": 2
   },
   "lots_taken": 165,
   "roofs_adopted": 147,
@@ -65,10 +67,9 @@
    "division_ground": 52,
    "farms_and_country_seats": 204,
    "heavy_and_noxious_trades": 2,
-   "labourer_dwellings": 123,
-   "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 371,
-   "tradesman_dwellings": 541
+   "labourer_dwellings": 122,
+   "merchant_and_professional_dwellings": 370,
+   "tradesman_dwellings": 545
   },
   "roofs_offered_for_adoption": 151,
   "roofs_held_back": 55
@@ -476,14 +477,14 @@
   {
    "block_id": "blk_indiana_north_cass",
    "family": "D5",
-   "roofs": 1,
+   "roofs": 2,
    "district": "north",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_cass#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
    "block_id": "blk_indiana_north_cass",
    "family": "D6",
-   "roofs": 2,
+   "roofs": 1,
    "district": "north",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_cass#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -580,6 +581,13 @@
   },
   {
    "block_id": "blk_south_water_wells",
+   "family": "D3",
+   "roofs": 1,
+   "district": "south",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_south_water_wells",
    "family": "D4",
    "roofs": 1,
    "district": "south",
@@ -588,13 +596,6 @@
   {
    "block_id": "blk_south_water_wells",
    "family": "D5",
-   "roofs": 1,
-   "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_south_water_wells",
-   "family": "D6",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
@@ -609,7 +610,7 @@
   {
    "block_id": "blk_washington_clark",
    "family": "D4",
-   "roofs": 1,
+   "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_clark#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -624,13 +625,6 @@
    "block_id": "blk_washington_clark",
    "family": "D6",
    "roofs": 2,
-   "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_clark#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_washington_clark",
-   "family": "H3",
-   "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_clark#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -665,7 +659,7 @@
   {
    "block_id": "blk_washington_dearborn",
    "family": "D6",
-   "roofs": 1,
+   "roofs": 2,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_dearborn#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
@@ -679,9 +673,9 @@
   {
    "block_id": "blk_washington_dearborn",
    "family": "H3",
-   "roofs": 2,
+   "roofs": 1,
    "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_dearborn#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_dearborn",
@@ -730,7 +724,7 @@
    "family": "H3",
    "roofs": 2,
    "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_washington_market#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_market",
@@ -741,6 +735,62 @@
   }
  ],
  "seats": [
+  {
+   "id": "hh_beaubien_mark",
+   "kind": "household",
+   "name": "The Mark Beaubien household",
+   "clause": "lodging_near_the_landings",
+   "district": "south",
+   "band": "south/lodging_near_the_landings",
+   "lot_id": "blk_washington_clark#07",
+   "block_id": "blk_washington_clark",
+   "lot_index": 7,
+   "fronts": "madison",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "H3",
+   "stands_on": "street",
+   "setback_class": "street_line",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "lodging_near_the_landings",
+   "order_book_draw": {
+    "block_id": "blk_washington_clark",
+    "family": "H3",
+    "district": "south"
+   },
+   "seed": "hh_beaubien_mark|south|tavern_keeper|T-1512",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_sweet_alanson",
+   "kind": "household",
+   "name": "The Sweet household",
+   "clause": "lodging_near_the_landings",
+   "district": "south",
+   "band": "south/lodging_near_the_landings",
+   "lot_id": "blk_washington_dearborn#07",
+   "block_id": "blk_washington_dearborn",
+   "lot_index": 7,
+   "fronts": "madison",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "H3",
+   "stands_on": "street",
+   "setback_class": "street_line",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "lodging_near_the_landings",
+   "order_book_draw": {
+    "block_id": "blk_washington_dearborn",
+    "family": "H3",
+    "district": "south"
+   },
+   "seed": "hh_sweet_alanson|south|tavern_keeper|T-1512",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
   {
    "id": "hh_abbot_8_g",
    "kind": "household",
@@ -896,10 +946,10 @@
    "clause": "merchant_and_professional_dwellings",
    "district": "north",
    "band": "north/merchant_and_professional_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#11",
-   "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 11,
-   "fronts": "illinois_north",
+   "lot_id": "blk_indiana_north_cass#10",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 10,
+   "fronts": "indiana_north",
    "street_class": "none",
    "corner": true,
    "how": "slot",
@@ -910,7 +960,7 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": {
-    "block_id": "blk_indiana_north_wolcott",
+    "block_id": "blk_indiana_north_cass",
     "family": "D7",
     "district": "north"
    },
@@ -964,6 +1014,34 @@
    "order_book_draw": null,
    "seed": "hh_albyn_lucius_b|T-1522|division:3d5693d0183f|class:797e8723252f",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_allen_william",
+   "kind": "household",
+   "name": "The Allen household — a name from the post office's letter lists",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "north",
+   "band": "north/merchant_and_professional_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#11",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 11,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D7",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D7",
+    "district": "north"
+   },
+   "seed": "hh_allen_william|T-1522|division:3b33bba7634c|class:60345fff9a8b",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_ann_cierno",
@@ -2872,10 +2950,10 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#10",
+   "lot_id": "blk_indiana_north_cass#01",
    "block_id": "blk_indiana_north_cass",
-   "lot_index": 10,
-   "fronts": "indiana_north",
+   "lot_index": 1,
+   "fronts": "illinois_north",
    "street_class": "none",
    "corner": true,
    "how": "slot",
@@ -2900,26 +2978,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_cass#01",
-   "block_id": "blk_indiana_north_cass",
-   "lot_index": 1,
+   "lot_id": "blk_indiana_north_wolcott#07",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 7,
    "fronts": "illinois_north",
    "street_class": "none",
-   "corner": true,
+   "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_indiana_north_cass",
-    "family": "D5",
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D3",
     "district": "north"
    },
    "seed": "hh_beaubien_susan|T-1522|division:2c637fde1987|class:b48b12f8d6c0",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_beeson_william",
@@ -3024,10 +3102,10 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#07",
+   "lot_id": "blk_indiana_north_wolcott#06",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 7,
-   "fronts": "illinois_north",
+   "lot_index": 6,
+   "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
@@ -3100,26 +3178,26 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#06",
+   "lot_id": "blk_indiana_north_wolcott#03",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 6,
-   "fronts": "indiana_north",
+   "lot_index": 3,
+   "fronts": "illinois_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_indiana_north_wolcott",
-    "family": "D3",
+    "family": "D4",
     "district": "north"
    },
    "seed": "hh_bigelow_david|T-1522|division:305f89fbd633|class:925d5a9f8f1d",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_blaisdell_b",
@@ -3128,10 +3206,10 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#03",
+   "lot_id": "blk_indiana_north_wolcott#02",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 3,
-   "fronts": "illinois_north",
+   "lot_index": 2,
+   "fronts": "indiana_north",
    "street_class": "none",
    "corner": false,
    "how": "slot",
@@ -3228,12 +3306,12 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#02",
+   "lot_id": "blk_indiana_north_wolcott#10",
    "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 2,
+   "lot_index": 10,
    "fronts": "indiana_north",
    "street_class": "none",
-   "corner": false,
+   "corner": true,
    "how": "slot",
    "structure_id": null,
    "family": "D4",
@@ -3504,62 +3582,6 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "lot_id": "blk_indiana_north_wolcott#10",
-   "block_id": "blk_indiana_north_wolcott",
-   "lot_index": 10,
-   "fronts": "indiana_north",
-   "street_class": "none",
-   "corner": true,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D4",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_indiana_north_wolcott",
-    "family": "D4",
-    "district": "north"
-   },
-   "seed": "hh_bourassa_lon|T-1522|division:22009360e08b|class:b74b7b3868b3",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-  },
-  {
-   "id": "hh_bourassa_mark",
-   "kind": "household",
-   "name": "The Bourassa household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_canal#01",
-   "block_id": "blk_west_lake_canal",
-   "lot_index": 1,
-   "fronts": "canal",
-   "street_class": "ordinary",
-   "corner": false,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D6",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_west_lake_canal",
-    "family": "D6",
-    "district": "west"
-   },
-   "seed": "hh_bourassa_mark|T-1522|division:df004b5d1005|class:b15c316729e5",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-  },
-  {
-   "id": "hh_bourassa_noel",
-   "kind": "household",
-   "name": "The Bourassa household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "band": "north/tradesman_dwellings",
    "lot_id": "blk_indiana_north_wolcott#01",
    "block_id": "blk_indiana_north_wolcott",
    "lot_index": 1,
@@ -3578,7 +3600,7 @@
     "family": "D4",
     "district": "north"
    },
-   "seed": "hh_bourassa_noel|T-1522|division:0bba60e78a74|class:982b863c3e17",
+   "seed": "hh_bourassa_lon|T-1522|division:22009360e08b|class:b74b7b3868b3",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
@@ -4244,9 +4266,9 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_washington_clark#07",
+   "lot_id": "blk_washington_clark#01",
    "block_id": "blk_washington_clark",
-   "lot_index": 7,
+   "lot_index": 1,
    "fronts": "madison",
    "street_class": "none",
    "corner": true,
@@ -4272,34 +4294,6 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_washington_clark#01",
-   "block_id": "blk_washington_clark",
-   "lot_index": 1,
-   "fronts": "madison",
-   "street_class": "none",
-   "corner": true,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D4",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_washington_clark",
-    "family": "D4",
-    "district": "south"
-   },
-   "seed": "hh_chandler_catherine|T-1522|division:4cbf0880b660|class:df2beace820d",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-  },
-  {
-   "id": "hh_chapman_george",
-   "kind": "household",
-   "name": "The Chapman household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "band": "south/tradesman_dwellings",
    "lot_id": "blk_washington_dearborn#05",
    "block_id": "blk_washington_dearborn",
    "lot_index": 5,
@@ -4318,13 +4312,13 @@
     "family": "D3",
     "district": "south"
    },
-   "seed": "hh_chapman_george|T-1522|division:9b729db18a7e|class:9c9ef8b6cf47",
+   "seed": "hh_chandler_catherine|T-1522|division:4cbf0880b660|class:df2beace820d",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_chattin_clark",
+   "id": "hh_chapman_george",
    "kind": "household",
-   "name": "The Chattin household — a name from the post office's letter lists",
+   "name": "The Chapman household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4334,34 +4328,6 @@
    "fronts": "madison",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D3",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_washington_dearborn",
-    "family": "D3",
-    "district": "south"
-   },
-   "seed": "hh_chattin_clark|T-1522|division:675b1d6b3f38|class:e48772e1976a",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-  },
-  {
-   "id": "hh_chevalier_joseph",
-   "kind": "household",
-   "name": "The Chevalier household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "band": "south/tradesman_dwellings",
-   "lot_id": "blk_washington_dearborn#07",
-   "block_id": "blk_washington_dearborn",
-   "lot_index": 7,
-   "fronts": "madison",
-   "street_class": "none",
-   "corner": true,
    "how": "slot",
    "structure_id": null,
    "family": "D4",
@@ -4374,13 +4340,13 @@
     "family": "D4",
     "district": "south"
    },
-   "seed": "hh_chevalier_joseph|T-1522|division:cc33cb680a19|class:a7de58adaedc",
+   "seed": "hh_chapman_george|T-1522|division:9b729db18a7e|class:9c9ef8b6cf47",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_chiney_ralph",
+   "id": "hh_chattin_clark",
    "kind": "household",
-   "name": "The Chiney household — a name from the post office's letter lists",
+   "name": "The Chattin household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4402,13 +4368,13 @@
     "family": "D3",
     "district": "south"
    },
-   "seed": "hh_chiney_ralph|T-1522|division:9f5925f505cd|class:95302775ddcb",
+   "seed": "hh_chattin_clark|T-1522|division:675b1d6b3f38|class:e48772e1976a",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_clarke_h_b",
+   "id": "hh_chevalier_joseph",
    "kind": "household",
-   "name": "The Clarke household — a documented hardware merchant, unplaced in the town",
+   "name": "The Chevalier household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4430,13 +4396,13 @@
     "family": "D3",
     "district": "south"
    },
-   "seed": "hh_clarke_h_b|T-1522|division:56769e018508|class:cc4d211c1195",
+   "seed": "hh_chevalier_joseph|T-1522|division:cc33cb680a19|class:a7de58adaedc",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_cleaveland_wm_p",
+   "id": "hh_chiney_ralph",
    "kind": "household",
-   "name": "The Cleaveland household — a name from the post office's letter lists",
+   "name": "The Chiney household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4458,7 +4424,7 @@
     "family": "D4",
     "district": "south"
    },
-   "seed": "hh_cleaveland_wm_p|T-1522|division:caa69cb54393|class:dc417914d708",
+   "seed": "hh_chiney_ralph|T-1522|division:9f5925f505cd|class:95302775ddcb",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
@@ -4820,6 +4786,34 @@
    "order_book_draw": null,
    "seed": "hh_bowen_air|T-1522|division:cedd5ea5084d|class:3804725dbcc9",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bruno_anne_franoise_apolline",
+   "kind": "household",
+   "name": "The Bruno household — a name the town's own records carry",
+   "clause": "labourer_dwellings",
+   "district": "west",
+   "band": "west/labourer_dwellings",
+   "lot_id": "blk_west_lake_canal#08",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 8,
+   "fronts": "west_water",
+   "street_class": "light",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D2",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_west_lake_canal",
+    "family": "D2",
+    "district": "west"
+   },
+   "seed": "hh_bruno_anne_franoise_apolline|T-1522|division:d32ed91e844b|class:3beedd3522c4",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_burdick_paul",
@@ -5279,15 +5273,6 @@
   }
  ],
  "owed": [
-  {
-   "id": "hh_allen_william",
-   "kind": "household",
-   "band": "north/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
   {
    "id": "hh_archer_joseph",
    "kind": "household",
@@ -8619,6 +8604,24 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_bourassa_mark",
+   "kind": "household",
+   "band": "west/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_bourassa_noel",
+   "kind": "household",
+   "band": "north/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_cass (blk_indiana_north_cass#00), blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_bowen_erastus_selden",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -8826,12 +8829,30 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_clarke_h_b",
+   "kind": "household",
+   "band": "south/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01), blk_washington_clark (blk_washington_clark#00), blk_washington_dearborn (blk_washington_dearborn#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_clarke_l",
    "kind": "household",
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
    "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_cass (blk_indiana_north_cass#00), blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_cleaveland_wm_p",
+   "kind": "household",
+   "band": "south/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01), blk_washington_clark (blk_washington_clark#00), blk_washington_dearborn (blk_washington_dearborn#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13524,15 +13545,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_bruno_anne_franoise_apolline",
-   "kind": "household",
-   "band": "west/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_chadwick_joseph",
    "kind": "household",
    "band": "north/labourer_dwellings",
@@ -14590,24 +14602,6 @@
    "kind": "household",
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
-   "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_washington_clark (blk_washington_clark#00), blk_washington_dearborn (blk_washington_dearborn#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_beaubien_mark",
-   "kind": "household",
-   "band": "south/lodging_near_the_landings",
-   "clause": "lodging_near_the_landings",
-   "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_washington_clark (blk_washington_clark#00), blk_washington_dearborn (blk_washington_dearborn#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_sweet_alanson",
-   "kind": "household",
-   "band": "south/lodging_near_the_landings",
-   "clause": "lodging_near_the_landings",
    "district": "south",
    "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_washington_clark (blk_washington_clark#00), blk_washington_dearborn (blk_washington_dearborn#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"

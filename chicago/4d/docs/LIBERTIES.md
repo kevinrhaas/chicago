@@ -10844,9 +10844,9 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 91 structures
+**Scope:** `structures.land_owner[constructed_section_grid]` — 93 structures
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
-traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes
+traced, and 93 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
 keeper's quarters at the Chicago light on the reservation tract this same construction
 resolves, and T-1717's two Lake House neighbours on the north bank east end;
@@ -10861,7 +10861,9 @@ to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next ce
 the same north fraction, which reach the register for the same reason and change nothing about
 how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose
 two two-room cottages and their woodshed and stable stand four lots west of the first deal's
-pair inside the one tract). The construction is
+pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia,
+the first named records on that survey, which the construction puts in the tract entered by
+Edmond Roberts on 5 October 1830, 2 m inside its line). The construction is
 one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State &
 Madison, whose own note has said since the datum work that it is the *PLSS section corner:
 sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake,
@@ -14137,7 +14139,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 485 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 487 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14181,8 +14183,11 @@ roof type and are shingled by this exposure. T-1773's warehouse at Lake and West
 `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey
 frame house and a two-room cottage on the same Canal teamster approach with a privy and a
 woodshed behind them, all four shingled by this exposure for the same reason every frame roof
-the block recipe raises is. T-1783's deal on
-`blk_west_randolph_des_plaines` makes **485**, and they are the first roofs this entry reaches
+the block recipe raises is. T-1785's house and barn
+in Wabansia make 483: the first roofs the exposure reaches in that survey, a
+story-and-a-half house with its kitchen ell and a plank barn, both named records rather than
+recipe roofs. T-1783's deal on
+`blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches
 on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a
 storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines
 edge where the reviewed West recipe had stood only two roofs. No record's
@@ -15095,7 +15100,32 @@ same 17 and gained nobody; against `c2dccdcd` it moved 26.
 The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS
 REPORTED RATHER THAN TIDIED, and **T-1626** is still the question.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged).
+**AND THE INNS DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777, 2026-10-01).** The order
+this entry deals in was T-1199's: the commercial front, the better houses, the tradesmen, the
+labourers, and the lodging houses last. On the committed plat, last meant never. Every block
+whose plan carries an H3 boarding house had been dealt down to the one lot its sizing keeps
+open (T-1623) before a tavern keeper was reached, so both households the address book bands
+`south/lodging_near_the_landings`, hh_beaubien_mark and hh_sweet_alanson, were owed, and all
+seven planned H3 roofs stood unclaimed. **The clause now deals fourth, after the three business
+clauses and before the three dwelling clauses**, for two reasons. An inn is a house of trade,
+and its keeper is banded by his trade as a storekeeper is. And `lodging_near_the_landings` is a
+DOCUMENTED clause (nine standing lodging roofs, every one on a corner, an approach or the
+water), where all three dwelling clauses are inferred: where the two contest a lot,
+the placement the record fixes takes it. Measured at the chain's fixpoint against `dev` at
+`ee5da30e`, the pass runs **177 → 177** seats, adoptions **144** and slots **33** unmoved.
+**Both keepers are seated on an H3 slot**: hh_beaubien_mark on `blk_washington_clark#07` and
+hh_sweet_alanson on `blk_washington_dearborn#07`, each a corner lot. **Six tradesmen's slots
+shift one lot along** behind them on the three Washington blocks, and **two leave the plat**:
+hh_clarke_h_b and hh_cleaveland_wm_p are owed to **T-1614** in writing (1,301 owed, unmoved). The
+off-plat deal holds at 72. **Which corner is the scorer's tie and not a finding**: both lots front
+Madison Street, which carries no traffic class in 1835, because the clause's `class:principal`
+reads Washington's `light` and Madison's `none` the same and the lot id breaks the tie. **T-1778**
+raises the first house on the seat as dealt, or argues the face first. Five of the seven
+planned H3 roofs are still unclaimed: the north's one on `blk_indiana_north_cass` (no banded row
+of the north is a lodging keeper), the south's one on `blk_south_water_dearborn` (its last lot is
+the open one), and three on the Washington blocks with no third keeper to take them.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -17859,3 +17889,59 @@ total.
 **Ticket:** T-1783.
 
 **Recorded:** 2026-10-01 (T-1783). **Revised:** 2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse).
+
+### L316 — The doctor's house in Wabansia: an attested house, barn and garden on ground the advertisement names only as Wabansia
+
+**Applies to:** `data/structures/wabansia_doctors_house.json`,
+`data/structures/wabansia_doctors_barn.json`, `data/enclosures/wabansia_doctors_garden.json`
+
+**Covers:** `wabansia_doctors_house.documented_1834.position`,
+`wabansia_doctors_house.documented_1834.footprint`,
+`wabansia_doctors_barn.documented_1834.position`,
+`wabansia_doctors_barn.documented_1834.footprint`,
+`wabansia_doctors_house.documented_1834.form.roof_type`,
+`wabansia_doctors_house.documented_1834.form.roof_pitch_deg`,
+`wabansia_doctors_house.documented_1834.form.construction`,
+`wabansia_doctors_house.documented_1834.form.plan`,
+`wabansia_doctors_house.documented_1834.form.bays`,
+`wabansia_doctors_house.documented_1834.form.chimneys`,
+`wabansia_doctors_house.documented_1834.form.paint`,
+`wabansia_doctors_house.documented_1834.form.siding_exposure_m`,
+`wabansia_doctors_barn.documented_1834.form.construction`,
+`wabansia_doctors_barn.documented_1834.form.wall_height_m`,
+`wabansia_doctors_barn.documented_1834.form.roof_type`,
+`wabansia_doctors_barn.documented_1834.form.roof_pitch_deg`,
+`wabansia_doctors_barn.documented_1834.form.door`,
+`wabansia_doctors_barn.documented_1834.form.door_side`,
+`wabansia_doctors_barn.documented_1834.form.loft`,
+`wabansia_doctors_barn.documented_1834.form.paint`
+
+**What we invented:** Where the house stands, and its size. The Chicago Democrat of 16 July 1834
+offers to rent or lease "[a] convenient dwelling house, in Wabansia, now occupied by Doctor
+Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it." That line attests
+the house, its four rooms, its kitchen, its barn and its garden, and the survey they stood in; it
+gives no block, lot, street or dimension. The house is placed on Wright's block 59
+(`blk_wabansia_c_t7`), the survey's south-east block on Kinzie Street beside the North Branch,
+on its eastern lot, 6 m back from the Kinzie line — the block nearest the town and its road,
+chosen for that and for nothing a source says. The four rooms are read as a 24 × 18 ft
+story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft
+rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of
+the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale
+on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule. The house's clapboard exposure is the one `tools/deal_siding_stock.py` deals every named frame
+building (L148), and is no more evidence than theirs.
+
+**Why:** It is the only household the corpus puts in Wabansia before the scene date, and the only
+house in the Democrat's 1834 run described room by room. Leaving it out because the advertisement
+names no lot would leave the survey empty when the evidence says one house stood in it.
+
+**Omission:** No household is seated under the roof. The 1834 occupant is a physician whose name
+is cut at the column edge; that he is the Dr Kimberly of `kimberly_residence` (Kinzie's Addition,
+1835) would fit a house offered for let, but no source says so and no merge is declared. Who
+lived there on 1 July 1835 is not known.
+
+**Would replace:** A deed, tax list or reminiscence naming the lot replaces the whole of the
+position; a later advertisement or a description of the house replaces its dimensions and plan.
+
+**Ticket:** T-1785 (piece 5 of T-1208).
+
+**Recorded:** 2026-10-01 (T-1785).

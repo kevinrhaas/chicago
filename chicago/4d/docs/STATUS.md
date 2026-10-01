@@ -31,6 +31,34 @@ ceiling cannot climb on what the schedule itself deals.
 no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
 so the deal carries frame cottages.
 
+## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
+
+**What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
+was empty prairie. Its south-east block (Wright's block 59, `blk_wabansia_c_t7`) now carries a
+story-and-a-half frame house with a rear kitchen ell, fronting Kinzie Street; a plank barn with
+a loft behind it; and a picket-fenced kitchen garden on the house's river side. They are named
+records — `wabansia_doctors_house`, `wabansia_doctors_barn`, `data/enclosures/wabansia_doctors_garden.json`
+— not recipe roofs, because a source attests them: the Chicago Democrat of 16 July 1834
+(claim c017) offers to let "[a] convenient dwelling house, in W[a]bansia, now occupied by Doctor
+Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it."
+
+**What is attested and what is not.** The house, its four rooms, its kitchen, barn and garden,
+and the survey are attested; the house standing on 1 July 1835 is inferred (it was let, not
+removed). Block, lot, setbacks and every dimension are reconstructed under **L316**. No household
+is seated: the 1834 doctor is not merged with `kimberly_residence`'s Dr E. S. Kimberly, and
+spend_rulings' "reaches no seat" ruling on c017 is withdrawn because the claim now has a building.
+
+**Defects found on the way.** `tools/fronting_street.py` assumed every lot is a tier of its block;
+Wabansia's lots run tier line to tier line with no alley, and the first building on one raised a
+KeyError — it now fronts both tier streets, nearest first. `tools/plat_corridors.py` carries no
+corridor for any Wabansia street, so the frontage census and the placement policy read the house
+as fronting nothing although it stands 6.1 m behind `kinzie_west`'s corridor edge; stated as an
+outlier reason and in the census count, not fixed here.
+
+**Not done (T-1785's remaining clauses).** The district's frame budget was not read on the
+published tree and the Canal-approach screenshot west was not taken; T-1209 is not handed on.
+The Wabansia blocks' remaining slots stay `gated` on a placement policy for the survey.
+
 ## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
 
 **T-1764 was split** (T-1773, T-1774). Its first clause — the cabins and boarding houses

@@ -1,10 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1252, ts: '2026-10-01T11:08:19.329Z', date: 'Oct 1, 2026, 6:08 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: 1255, ts: '2026-10-01T11:55:03.532Z', date: 'Oct 1, 2026, 6:55 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+    items: [
+      'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
+      'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
+      'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
+      'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
+    ] },
+  { v: 1253, ts: '2026-10-01T10:43:44.207Z', date: 'Oct 1, 2026, 5:43 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the plan the next runs build photographic-quality walls, walks and ground from, using the methods that made the 1904 Glessner House look real.',
+      'It finds why the plank sidewalks look white: they are drawn in the signboards\u2019 pale tone, not a weathered board\u2019s. The fix belongs to the sidewalk work, which now has the palette to use.',
+      'It also finds that the clapboard and log textures would draw a second set of courses over the ones already built as geometry, so those textures are remade before they go on a wall.',
+    ] },
+  { v: 1252, ts: '2026-10-01T10:16:23.229Z', date: 'Oct 1, 2026, 5:16 AM CT', title: 'Two tavern keepers are given lots for their boarding houses', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This decides where the first boarding houses will stand, so they can be built next.',
+      'The town plans seven boarding houses, and until now none of them had anywhere to go. Innkeepers were placed last, after every house and cottage, so the free lots were all taken before they were reached.',
+      'Innkeepers are now placed with the other trades, before the houses fill in behind them. The Mark Beaubien and Sweet households each get a corner lot south of Washington Street, on blocks already planned for a boarding house.',
+      'Two tradesmen\u2019s families who had asked for lots on those blocks are now waiting for a place elsewhere. The lots are our reconstruction. No source places either keeper there.',
     ] },
   { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [

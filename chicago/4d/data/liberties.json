@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 315,
+  "count": 316,
   "liberties": [
     {
       "id": "L1",
@@ -14291,18 +14291,18 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 91
+        "count": 93
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 91 structures"
+          "text": "`structures.land_owner[constructed_section_grid]` — 93 structures"
         },
         {
           "label": "Decision",
-          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 91 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
+          "text": "the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than traced, and 93 structures carry a `land_owner` block that rests on them (71 until three changes landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's keeper's quarters at the Chicago light on the reservation tract this same construction resolves, and T-1717's two Lake House neighbours on the north bank east end; `resolve_land_tracts.py` gave each of the four the same constructed grid, and none of their records states a tract of its own; then 75 to 79 on 2026-09-29, T-1747's four roofs on `blk_indiana_north_wolcott`, which are the first roofs a BLOCK RECIPE has ever raised on ground this register resolves — the north fraction of section 10, entered by Robert A Kinzie on 7 May 1831, is Kinzie's Addition, while the Original Town's lots were sold by the canal commissioners and this register does not hold them; then 79 to 83 on the same day, T-1756's second deal on the same block, which reaches the same tract by the same construction; and 83 to 87 the same day again, T-1753's four on `blk_indiana_north_cass`, the next cell east inside the same north fraction, which reach the register for the same reason and change nothing about how; and 87 to 91 the same day a fourth time, T-1757's second deal on that same cell, whose two two-room cottages and their woodshed and stable stand four lots west of the first deal's pair inside the one tract; and 91 to 93 on 2026-10-01, T-1785's house and barn in Wabansia, the first named records on that survey, which the construction puts in the tract entered by Edmond Roberts on 5 October 1830, 2 m inside its line). The construction is one committed control point — `G1` in `data/traces/gcp/wright_1834_gcps.json`, State & Madison, whose own note has said since the datum work that it is the *PLSS section corner: sections 9/10/15/16, T39N R14E* — carried on the plat's own east-west bearing, which Lake, Randolph and Washington agree on to the sixth decimal, in **nominal one-mile squares**. The quarters and half-quarters an entry like `E2NE` names are that square halved and halved again. `tools/resolve_land_tracts.py` builds all of it and re-derives it on every `tools/check.sh`."
         },
         {
           "label": "Why",
@@ -16139,14 +16139,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 485
+        "count": 487
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 485 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1783's deal on `blk_west_randolph_des_plaines` makes **485**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 487 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16458,7 +16458,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-09-26 (T-1623) — **the refusal above landed after that reversal, so the seats it reports as 112 stand at 108 and the rows handed to T-1614 at 1,372.** The reversal gave the two franklin roofs back to the household layer and left the slot table at four; the refusal then took the table to nothing, because the four roofs it asked for could stand only on the one lot each of two blocks keeps open. So the deal is 108 seats, every one of them an adoption, no order drawn on, nothing baked, and no seat that is a household with an address and no walls. The 4 the reversal counted as requests are OWED to **T-1200** through **T-1214**, and the guard in `seat_platted_ground_1835.py` is an assertion rather than a memory: a seat on a block's last open lot, or beside a standing roof on a free lot, refuses the whole pass. The order book's seated join moves with it, 184 to **180** — this pass's 108 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than re-summed. **The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26 and restating their arithmetic would falsify the account. What moved since is one seat, and it moved for a reason outside this liberty: the street-face business deal (**L212**) was re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings it holds changed, and this deal — which takes from the same pool of anonymous roofs and may not read the other's allocation — reached one more `tradesman_dwellings` seat in the South Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the order book takes off this pass moves with it. Neither deal can see the other's picks, on the reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**. **The deal reached 174 on 2026-09-29 (T-1735), and every dated paragraph above keeps the number it was written against** — that convention is the one this entry set for itself two revisions ago, and restating their arithmetic would falsify the accounts they are. What this build changed, measured against dev at `b4c27fa6`, which is the Wells block (**L298**) already landed: the tier's south-west block was raised, so the seven slot requests standing against `blk_washington_lasalle` became roofs and the pass runs **170 → 174** seats, adoptions **120 → 124**, slots unmoved at **50**, rows handed to **T-1614** **1,308 → 1,304**, and the seated join the order book takes off this pass and the off-plat pass together **242 → 246**. The gain is FOUR seats and not seven, for the same reason the Wells deal's was five and not seven: the households that took these roofs vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking — **T-1622**'s precedence again, not a refusal. **AND RAISING A BLOCK RE-APPORTIONS THE TIER, which is the part of this that is not arithmetic — and the third block shows it moving a DIFFERENT way from the second.** The programme's roof total is fixed, so what eleven roofs becoming STANDING moves is the REMAINDER. This time the remainder does not shrink: the tier's slot count is **unmoved at 26** and `blk_washington_clark`'s is **unmoved at 5**, because the seven households the LaSalle block was sized against are re-slotted onto its neighbours as fast as its own roofs take them off the table — 7 on `blk_washington_dearborn`, 7 on `blk_washington_franklin`, 7 on `blk_washington_market`, 5 on Clark. What DID move is the BAND: the tier's 26 slots run **14** tradesmen's against **12** merchant and professional where dev's ran 14 merchant and professional against 12 tradesmen's, the two bands having swapped which of them the tier still owes most. **A block's slot count is not a ratchet and the tier's is not a burn-down**, and a reading of this entry that assumes either will be wrong about the tier. Read at the chain's fixpoint, not one pass in. **AND THE FRANKLIN BLOCK IS THE CLEANEST SUBSTITUTION THE TIER HAS SHOWN (T-1751, 2026-09-29).** `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings and six yard buildings, see **L304** — and measured against `dev` at `10a1e710`, which is the La Salle block (**L300**) and the Addition's second block already landed, the pass runs **177 → 177** seats: adoptions **131 → 138**, slots **46 → 39**, and rows handed to **T-1614** unmoved at **1,301**. Seven slots became seven adoptions and the seat total did not move a place, which is the substitution this entry has been describing since the Clark block stated in arithmetic at last. All seven dwellings are occupied — the seats file carries seven `adopted` rows on this block and no empty roof — and **not one of the seven households the block was sized against is seated on it**: hh_beaubien_monique re-slots onto `blk_washington_clark`, hh_beddlecome_ash, hh_beech_reuben, hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto `blk_washington_dearborn`, and hh_chiney_ralph onto `blk_washington_market`. The roofs go to hh_bailly_esther, hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william, hh_bench_reuben and hh_brookes_samuel, who the clause order scored higher on these lots than on the roofs they had been standing under, and **59 households change roof behind them** — the largest cascade any deal here has set off — each taking the one the household above it vacated, not one of them left without a roof. Two rows do change hands at the margin and both are named rather than netted out: hh_blake_levi gains a slot on `blk_washington_market` that the re-apportionment opened and hh_clement_dorcinrk loses one there, so the total holds at 177 by a gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as every paragraph above: a roof raised in answer to a request is not reserved to the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner. **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its principal room out can offer no slot, so this block's seven come off the table and the tier is left asking 7 on `blk_washington_dearborn`, 7 on `blk_washington_market` and 5 on `blk_washington_clark`. That is not the tier burning down: the programme's roof total is fixed and what moves is the REMAINDER, which the La Salle deal one paragraph above re-apportioned UPWARD onto this very block. The band runs **10** tradesmen's against **9** merchant and professional. Read at the chain's fixpoint, not one pass in — and this deal's fixpoint took **seven runs of the whole chain**, the address book, the platted deal, the keeper naming, the block infill, the roof re-audit and the order book each feeding the next, with the seat count reading 174 for four of those passes before it settled at 177. **AND THE WEST DIVISION'S FIRST BLOCK DEAL EMPTIES THE WEST'S SLOT TABLE (T-1761, 2026-10-01).** `blk_randolph_clinton` was dealt two dwellings and two yard buildings against the two slot requests standing on it when the deal was cut — see **L312**. Measured at the fixpoint of the chain AND the derived layer together against `dev` at `19c45643`, which carries T-1760's first deal on `blk_lake_clinton` across Lake Street and T-1794's farm cabins and T-1773's warehouse after it, the pass runs **177 → 177** seats: adoptions **142 → 144**, slots **35 → 33**, and rows handed to **T-1614** unmoved at **1,301**. The block's schedule row closes to `at_capacity` behind the deal, and **no slot is requested west of the river any more.** As on every block above, **neither new roof goes to a household whose request it was sized against**, and on this `dev` those requests had themselves moved: T-1760's cascade had left the block asking a D4 for hh_bloget_josiah_i on lot 9 and a D3 for hh_bennett_h_c on lot 7, not the D7 and D4 the deal was cut against. **The deal is not re-cut to chase them**: a request is the cascade's reading on the day, each deal beside it moves it again, and this one has been re-cut once already (D3 to D4); `dealt_against_a_request` keeps the two it answered. The corner house on lot 9 goes to hh_abbot_8_g and the cottage on lot 7 to hh_abbott_titus_h. **hh_adams_james, whom this `dev` seats off the plat at `recon_1835_west_035` (**L271**), moves onto it** — adopting `recon_1835_west_019` on lot 0, the corner house hh_abbot_8_g vacated — and hh_bennett_h_c adopts the D4 at `recon_1835_west_008` on `blk_lake_clinton`. **hh_bloget_josiah_i loses its slot**: the block has no lot left that a slot may name, and it is seated off the plat instead. At the far margin, on `blk_indiana_north_wolcott`, hh_bourassa_noel comes onto the plat with a slot and hh_allen_william leaves it for a seat off it. **17 households change roof** behind them. The off-plat deal holds at **72** across it while four households trade places there (hh_bailey_bennet and hh_forbes_stephen in, hh_bennett_c_h and hh_butterfield_ben out), so the town houses as many households after the deal as before; it moves who is housed where. (Cut against `a45a86aa`, before T-1794 and T-1773, it measured exactly this; against `b18a0346` it moved the same 17 and gained nobody; against `c2dccdcd` it moved 26. The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS REPORTED RATHER THAN TIDIED, and **T-1626** is still the question."
+          "text": "2026-09-26 (T-1623) — **the refusal above landed after that reversal, so the seats it reports as 112 stand at 108 and the rows handed to T-1614 at 1,372.** The reversal gave the two franklin roofs back to the household layer and left the slot table at four; the refusal then took the table to nothing, because the four roofs it asked for could stand only on the one lot each of two blocks keeps open. So the deal is 108 seats, every one of them an adoption, no order drawn on, nothing baked, and no seat that is a household with an address and no walls. The 4 the reversal counted as requests are OWED to **T-1200** through **T-1214**, and the guard in `seat_platted_ground_1835.py` is an assertion rather than a memory: a seat on a block's last open lot, or beside a standing roof on a free lot, refuses the whole pass. The order book's seated join moves with it, 184 to **180** — this pass's 108 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than re-summed. **The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26 and restating their arithmetic would falsify the account. What moved since is one seat, and it moved for a reason outside this liberty: the street-face business deal (**L212**) was re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings it holds changed, and this deal — which takes from the same pool of anonymous roofs and may not read the other's allocation — reached one more `tradesman_dwellings` seat in the South Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the order book takes off this pass moves with it. Neither deal can see the other's picks, on the reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**. **The deal reached 174 on 2026-09-29 (T-1735), and every dated paragraph above keeps the number it was written against** — that convention is the one this entry set for itself two revisions ago, and restating their arithmetic would falsify the accounts they are. What this build changed, measured against dev at `b4c27fa6`, which is the Wells block (**L298**) already landed: the tier's south-west block was raised, so the seven slot requests standing against `blk_washington_lasalle` became roofs and the pass runs **170 → 174** seats, adoptions **120 → 124**, slots unmoved at **50**, rows handed to **T-1614** **1,308 → 1,304**, and the seated join the order book takes off this pass and the off-plat pass together **242 → 246**. The gain is FOUR seats and not seven, for the same reason the Wells deal's was five and not seven: the households that took these roofs vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking — **T-1622**'s precedence again, not a refusal. **AND RAISING A BLOCK RE-APPORTIONS THE TIER, which is the part of this that is not arithmetic — and the third block shows it moving a DIFFERENT way from the second.** The programme's roof total is fixed, so what eleven roofs becoming STANDING moves is the REMAINDER. This time the remainder does not shrink: the tier's slot count is **unmoved at 26** and `blk_washington_clark`'s is **unmoved at 5**, because the seven households the LaSalle block was sized against are re-slotted onto its neighbours as fast as its own roofs take them off the table — 7 on `blk_washington_dearborn`, 7 on `blk_washington_franklin`, 7 on `blk_washington_market`, 5 on Clark. What DID move is the BAND: the tier's 26 slots run **14** tradesmen's against **12** merchant and professional where dev's ran 14 merchant and professional against 12 tradesmen's, the two bands having swapped which of them the tier still owes most. **A block's slot count is not a ratchet and the tier's is not a burn-down**, and a reading of this entry that assumes either will be wrong about the tier. Read at the chain's fixpoint, not one pass in. **AND THE FRANKLIN BLOCK IS THE CLEANEST SUBSTITUTION THE TIER HAS SHOWN (T-1751, 2026-09-29).** `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings and six yard buildings, see **L304** — and measured against `dev` at `10a1e710`, which is the La Salle block (**L300**) and the Addition's second block already landed, the pass runs **177 → 177** seats: adoptions **131 → 138**, slots **46 → 39**, and rows handed to **T-1614** unmoved at **1,301**. Seven slots became seven adoptions and the seat total did not move a place, which is the substitution this entry has been describing since the Clark block stated in arithmetic at last. All seven dwellings are occupied — the seats file carries seven `adopted` rows on this block and no empty roof — and **not one of the seven households the block was sized against is seated on it**: hh_beaubien_monique re-slots onto `blk_washington_clark`, hh_beddlecome_ash, hh_beech_reuben, hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto `blk_washington_dearborn`, and hh_chiney_ralph onto `blk_washington_market`. The roofs go to hh_bailly_esther, hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william, hh_bench_reuben and hh_brookes_samuel, who the clause order scored higher on these lots than on the roofs they had been standing under, and **59 households change roof behind them** — the largest cascade any deal here has set off — each taking the one the household above it vacated, not one of them left without a roof. Two rows do change hands at the margin and both are named rather than netted out: hh_blake_levi gains a slot on `blk_washington_market` that the re-apportionment opened and hh_clement_dorcinrk loses one there, so the total holds at 177 by a gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as every paragraph above: a roof raised in answer to a request is not reserved to the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner. **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its principal room out can offer no slot, so this block's seven come off the table and the tier is left asking 7 on `blk_washington_dearborn`, 7 on `blk_washington_market` and 5 on `blk_washington_clark`. That is not the tier burning down: the programme's roof total is fixed and what moves is the REMAINDER, which the La Salle deal one paragraph above re-apportioned UPWARD onto this very block. The band runs **10** tradesmen's against **9** merchant and professional. Read at the chain's fixpoint, not one pass in — and this deal's fixpoint took **seven runs of the whole chain**, the address book, the platted deal, the keeper naming, the block infill, the roof re-audit and the order book each feeding the next, with the seat count reading 174 for four of those passes before it settled at 177. **AND THE WEST DIVISION'S FIRST BLOCK DEAL EMPTIES THE WEST'S SLOT TABLE (T-1761, 2026-10-01).** `blk_randolph_clinton` was dealt two dwellings and two yard buildings against the two slot requests standing on it when the deal was cut — see **L312**. Measured at the fixpoint of the chain AND the derived layer together against `dev` at `19c45643`, which carries T-1760's first deal on `blk_lake_clinton` across Lake Street and T-1794's farm cabins and T-1773's warehouse after it, the pass runs **177 → 177** seats: adoptions **142 → 144**, slots **35 → 33**, and rows handed to **T-1614** unmoved at **1,301**. The block's schedule row closes to `at_capacity` behind the deal, and **no slot is requested west of the river any more.** As on every block above, **neither new roof goes to a household whose request it was sized against**, and on this `dev` those requests had themselves moved: T-1760's cascade had left the block asking a D4 for hh_bloget_josiah_i on lot 9 and a D3 for hh_bennett_h_c on lot 7, not the D7 and D4 the deal was cut against. **The deal is not re-cut to chase them**: a request is the cascade's reading on the day, each deal beside it moves it again, and this one has been re-cut once already (D3 to D4); `dealt_against_a_request` keeps the two it answered. The corner house on lot 9 goes to hh_abbot_8_g and the cottage on lot 7 to hh_abbott_titus_h. **hh_adams_james, whom this `dev` seats off the plat at `recon_1835_west_035` (**L271**), moves onto it** — adopting `recon_1835_west_019` on lot 0, the corner house hh_abbot_8_g vacated — and hh_bennett_h_c adopts the D4 at `recon_1835_west_008` on `blk_lake_clinton`. **hh_bloget_josiah_i loses its slot**: the block has no lot left that a slot may name, and it is seated off the plat instead. At the far margin, on `blk_indiana_north_wolcott`, hh_bourassa_noel comes onto the plat with a slot and hh_allen_william leaves it for a seat off it. **17 households change roof** behind them. The off-plat deal holds at **72** across it while four households trade places there (hh_bailey_bennet and hh_forbes_stephen in, hh_bennett_c_h and hh_butterfield_ben out), so the town houses as many households after the deal as before; it moves who is housed where. (Cut against `a45a86aa`, before T-1794 and T-1773, it measured exactly this; against `b18a0346` it moved the same 17 and gained nobody; against `c2dccdcd` it moved 26. The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS REPORTED RATHER THAN TIDIED, and **T-1626** is still the question. **AND THE INNS DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777, 2026-10-01).** The order this entry deals in was T-1199's: the commercial front, the better houses, the tradesmen, the labourers, and the lodging houses last. On the committed plat, last meant never. Every block whose plan carries an H3 boarding house had been dealt down to the one lot its sizing keeps open (T-1623) before a tavern keeper was reached, so both households the address book bands `south/lodging_near_the_landings`, hh_beaubien_mark and hh_sweet_alanson, were owed, and all seven planned H3 roofs stood unclaimed. **The clause now deals fourth, after the three business clauses and before the three dwelling clauses**, for two reasons. An inn is a house of trade, and its keeper is banded by his trade as a storekeeper is. And `lodging_near_the_landings` is a DOCUMENTED clause (nine standing lodging roofs, every one on a corner, an approach or the water), where all three dwelling clauses are inferred: where the two contest a lot, the placement the record fixes takes it. Measured at the chain's fixpoint against `dev` at `ee5da30e`, the pass runs **177 → 177** seats, adoptions **144** and slots **33** unmoved. **Both keepers are seated on an H3 slot**: hh_beaubien_mark on `blk_washington_clark#07` and hh_sweet_alanson on `blk_washington_dearborn#07`, each a corner lot. **Six tradesmen's slots shift one lot along** behind them on the three Washington blocks, and **two leave the plat**: hh_clarke_h_b and hh_cleaveland_wm_p are owed to **T-1614** in writing (1,301 owed, unmoved). The off-plat deal holds at 72. **Which corner is the scorer's tie and not a finding**: both lots front Madison Street, which carries no traffic class in 1835, because the clause's `class:principal` reads Washington's `light` and Madison's `none` the same and the lot id breaks the tie. **T-1778** raises the first house on the seat as dealt, or argues the face first. Five of the seven planned H3 roofs are still unclaimed: the north's one on `blk_indiana_north_cass` (no banded row of the north is a lodging keeper), the south's one on `blk_south_water_dearborn` (its last lot is the open one), and three on the Washington blocks with no third keeper to take them."
         },
         {
           "label": "Recorded",
@@ -16466,7 +16466,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged)."
+          "text": "2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth)."
         }
       ]
     },
@@ -19637,6 +19637,174 @@
         {
           "label": "Revised",
           "text": "2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse)."
+        }
+      ]
+    },
+    {
+      "id": "L316",
+      "title": "The doctor's house in Wabansia: an attested house, barn and garden on ground the advertisement names only as Wabansia",
+      "section": "per_subject",
+      "subjects": [
+        "kimberly_residence",
+        "wabansia_doctors_barn",
+        "wabansia_doctors_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.door"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.door_side"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.loft"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_barn",
+          "phase": "documented_1834",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/structures/wabansia_doctors_house.json`, `data/structures/wabansia_doctors_barn.json`, `data/enclosures/wabansia_doctors_garden.json`"
+        },
+        {
+          "label": "Covers",
+          "text": "`wabansia_doctors_house.documented_1834.position`, `wabansia_doctors_house.documented_1834.footprint`, `wabansia_doctors_barn.documented_1834.position`, `wabansia_doctors_barn.documented_1834.footprint`, `wabansia_doctors_house.documented_1834.form.roof_type`, `wabansia_doctors_house.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_house.documented_1834.form.construction`, `wabansia_doctors_house.documented_1834.form.plan`, `wabansia_doctors_house.documented_1834.form.bays`, `wabansia_doctors_house.documented_1834.form.chimneys`, `wabansia_doctors_house.documented_1834.form.paint`, `wabansia_doctors_house.documented_1834.form.siding_exposure_m`, `wabansia_doctors_barn.documented_1834.form.construction`, `wabansia_doctors_barn.documented_1834.form.wall_height_m`, `wabansia_doctors_barn.documented_1834.form.roof_type`, `wabansia_doctors_barn.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_barn.documented_1834.form.door`, `wabansia_doctors_barn.documented_1834.form.door_side`, `wabansia_doctors_barn.documented_1834.form.loft`, `wabansia_doctors_barn.documented_1834.form.paint`"
+        },
+        {
+          "label": "What we invented",
+          "text": "Where the house stands, and its size. The Chicago Democrat of 16 July 1834 offers to rent or lease \"[a] convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.\" That line attests the house, its four rooms, its kitchen, its barn and its garden, and the survey they stood in; it gives no block, lot, street or dimension. The house is placed on Wright's block 59 (`blk_wabansia_c_t7`), the survey's south-east block on Kinzie Street beside the North Branch, on its eastern lot, 6 m back from the Kinzie line — the block nearest the town and its road, chosen for that and for nothing a source says. The four rooms are read as a 24 × 18 ft story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule. The house's clapboard exposure is the one `tools/deal_siding_stock.py` deals every named frame building (L148), and is no more evidence than theirs."
+        },
+        {
+          "label": "Why",
+          "text": "It is the only household the corpus puts in Wabansia before the scene date, and the only house in the Democrat's 1834 run described room by room. Leaving it out because the advertisement names no lot would leave the survey empty when the evidence says one house stood in it."
+        },
+        {
+          "label": "Omission",
+          "text": "No household is seated under the roof. The 1834 occupant is a physician whose name is cut at the column edge; that he is the Dr Kimberly of `kimberly_residence` (Kinzie's Addition, 1835) would fit a house offered for let, but no source says so and no merge is declared. Who lived there on 1 July 1835 is not known."
+        },
+        {
+          "label": "Would replace",
+          "text": "A deed, tax list or reminiscence naming the lot replaces the whole of the position; a later advertisement or a description of the house replaces its dimensions and plan."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1785 (piece 5 of T-1208)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01 (T-1785)."
         }
       ]
     },
