@@ -9,9 +9,9 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 608,
-  "local": 127,
-  "in_period": 349,
+  "images": 609,
+  "local": 128,
+  "in_period": 350,
   "buildings_with_images": 62,
   "buildings": 62
  },
@@ -930,6 +930,7 @@
    "dw-rb-microfilm-second-presbyterian-renwick-frame-360",
    "dw-rb-microfilm-second-presbyterian-renwick-frame-362",
    "a19-andreas-1886-2ndpres",
+   "a19-tribune-1900-03-09-2ndpres-fire",
    "dw-aabn-1900-05-second-presbyterian-rebuild",
    "dw-rb-inland-second-presbyterian-shaw-interior-plate",
    "dw-rb-sketch-club-second-presbyterian-shaw-details",
@@ -7801,7 +7802,20 @@
    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Marshall_Field_Residence.jpg",
    "rights": "public domain",
    "rights_basis": "Commons: public domain in the US (published before 1931); Chicago Daily News 1902–33 negatives were offered by LoC/CHM without known restrictions",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-field-cdn-dn0003324.jpg",
+    "display_bytes": 54476,
+    "thumb": "research/images/files/a19-field-cdn-dn0003324-thumb.jpg",
+    "thumb_bytes": 29980,
+    "original_px": [
+     640,
+     457
+    ],
+    "original_sha256": "c7d6494e244662e6c02e4612e994f499ce793b67fd1e9fa082214c4cff8c4475",
+    "original_bytes": 84567,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/d/de/Marshall_Field_Residence.jpg",
+    "fetched": "2026-10-01"
+   },
    "verified": "viewed",
    "found_via": "Wikimedia Commons MediaSearch 'Marshall Field house Prairie Avenue' (file page read); same image seen as Chicagology 1905prairieC.jpg",
    "notes": "The best dated near-1904 exterior of the Field house: winter, c. 1905 (Field died Jan 1906). Mansard with dormers and the square-headed upper windows, brick walls with light stone trim, the curved glazed conservatory on the south side, iron balconettes; the house is set far back behind a tall vertical-bar iron fence on a stone curb running along the whole frontage, with a row of young street trees; neighbouring 1919 (Field Jr., post-1902) at right and houses north at left. Original handle hdl.loc.gov/loc.ndlpcoop/ichicdn.n003324 now redirects only to the collection record (LCCN 2002565163); the CHM original is the citable holder. 640×457 px on Commons; local copy not yet made (Commons upload server returned HTTP 429 to repeated attempts).",
@@ -18763,6 +18777,45 @@
    "found_via": "IA search-inside (illustration list leaf 74: 'Prairie Av. and Twentieth Street 65', 'Prairie Av., north from Twentieth 382'; 'Second Presbyterian' leaf 845)",
    "notes": "Engraving on p. 797 showing Renwick's church BEFORE the 1900 fire and before the tower's steeple was completed (tower completed 1884 per the 1976 landmark report): steep nave roof, ROSE WINDOW in the east gable, buttressed south flank with tall pointed windows, the SE tower truncated, iron fence, young trees, carriage on Michigan Avenue. Text: 'clere-story Gothic … with nave and side-aisles … built of bituminous limestone, with bands of weatherings and arches of lighter sandstone. A massive tower stands on the southeast corner'; dedicated 7 June 1874; organ cost $10,000. Shows what the 1900–01 rebuild changed (rose window, roof pitch); not the 1904 roofline.",
    "measurements": [],
+   "stream": "1900"
+  },
+  {
+   "id": "a19-tribune-1900-03-09-2ndpres-fire",
+   "kind": "newspaper item",
+   "title": "'Presbyterian Church Burns. Only the Walls and Steeple of the Second Congregation's Edifice Saved from Ruin. Value of Place $275,000' — Chicago Daily Tribune, 9 March 1900, p. 1",
+   "building_ids": [
+    "pa-1936-s.-michigan-avenue-32"
+   ],
+   "addresses": [
+    "1936 S. Michigan Avenue (NW corner Michigan Avenue and 20th Street)"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "March 9, 1900",
+   "date_earliest": 1900,
+   "date_latest": 1900,
+   "period": "in-period",
+   "creator": "Chicago Daily Tribune",
+   "repository": "Internet Archive (newspaper microfilm scan)",
+   "collection": "The Chicago Daily Tribune 1900-03-09, vol. 59 no. 68 — IA per_chicago-daily-tribune_1900-03-09_59_68",
+   "call_number": "p. 1, col. 8 (IA leaf n0)",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1900-03-09_59_68/page/n0/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1900-03-09_59_68/page/n0_w1600.jpg",
+   "rights": "public domain",
+   "rights_basis": "Published 1900 in the United States",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA search-inside of the Tribune issues for 9–10 March 1900 ('\"Second Presbyterian\"')",
+   "notes": "Front-page report (read in OCR; page image viewed): the church at the NW corner of Michigan and 20th 'was destroyed last evening, except for the walls and steeple', fire starting in the organ loft about 10 p.m. (Thursday 8 March 1900), three hours to subdue; building and contents incl. organ, font and memorial windows cost $275,000; probable cause a gas leak to a chandelier in the space over the organ; the lecture hall 'forms the west wing of the church, and fronts in Twentieth street'. Text only (no illustration). Establishes that the walls and the 1884 steeple survived into the 1900–01 rebuild — so the spire stood in 1904. Follow-up 10 March 1900 (IA per_chicago-daily-tribune_1900-03-10_59_69, leaves 3 and 13) on rebuilding/consolidation.",
+   "measurements": [
+    {
+     "what": "cost of building and contents (1900)",
+     "value": "$275,000",
+     "locator": "Tribune 9 Mar 1900 p.1"
+    }
+   ],
    "stream": "1900"
   },
   {

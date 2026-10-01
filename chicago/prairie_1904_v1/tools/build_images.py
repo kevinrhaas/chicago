@@ -158,6 +158,7 @@ def dump(o): return json.dumps(o, ensure_ascii=False, indent=1) + '\n'
 
 
 if __name__ == '__main__':
+    if {'-h', '--help'} & set(sys.argv): print(__doc__); sys.exit()
     doc, plan, errors = build()
     if errors:
         print('\n'.join(errors)); sys.exit(f'{len(errors)} problem(s) in the image streams')
