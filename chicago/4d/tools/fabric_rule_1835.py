@@ -48,6 +48,17 @@ THE GRADE does not move: every value this writes is `reconstructed`, as the prog
 deal was. A class bounds the reconstruction; it does not prove the paint. The rule and
 its reasoning are L330 and materials.md §12.
 
+THE FORM, T-1817 (piece 2 of T-1210). The same class and age now deal what a frame
+building is BUILT as, not only what it is painted: `construction` by the age (a roof of
+the 1834–35 boom is balloon-framed, the method this town invented in 1833; one of the
+1832–33 town or older is braced), and on a frame house the `porch` and `shutters` by the
+class (a merchant's or keeper's house a roofed porch and, on most, shutters; a
+tradesman's cottage a plain stoop or nothing; a labourer's neither). Only a value the
+programme dealt `reconstructed` is ever written; an attested or inferred one is never
+moved (`apply_form`, `--self-test`). Glazing, cladding, trim and siding stock are NOT
+dealt here: the archetype builds one window arrangement (L23), and siding has its own
+neighbour-separated deal (T-0112). The rule's reasoning is L338.
+
     python3 tools/fabric_rule_1835.py --check      every record agrees with the rule
     python3 tools/fabric_rule_1835.py --self-test  the rule's guarantees, by breaking them
     python3 tools/fabric_rule_1835.py --report     the class/finish mix, printed
@@ -206,6 +217,86 @@ AGES_BY_FAMILY: dict[str, tuple[str, ...]] = {
 #: Every other family — the frame cottages and small stores — the boom's own spread.
 BOOM_AGES = ("new", "new", "recent", "recent", "established")
 
+#: T-1817 — THE FORM. The frame archetypes, and the two values only a house builds.
+FRAME_ARCHETYPES = ("frame_dwelling", "frame_storefront", "frame_tavern")
+FRAMES = ("balloon_frame", "braced_frame")
+#: Chicago's balloon frame is dated to 1833 (St Mary's, Augustine D. Taylor —
+#: `andreas_1884_v1`, as frame_dwelling_params quotes it); the boom that followed was
+#: raised that way. A house of the 1832–33 town or older was framed the old way.
+FRAME_OF_AGE = {"new": "balloon_frame", "recent": "balloon_frame",
+                "established": "braced_frame", "older_frontier": "braced_frame"}
+#: Per class: the porch as (value, cumulative share) steps — a draw past the last step
+#: is no porch — and the shutters as (share, colours). `bright_blue` is the
+#: Sauganash's attested pair and, like `white_paint`, no class deals it.
+FORMS: dict[str, dict] = {
+    "merchant": {"porch": (("roofed", 0.75), ("stoop", 1.0)),
+                 "shutters": (0.6, ("green", "green", "black")),
+                 "why": "the house money built faced the street with a roofed porch over "
+                        "the door and hung board shutters at most of its windows"},
+    "keeper": {"porch": (("roofed", 1.0),), "shutters": (0.3, ("green",)),
+               "why": "a house that took in the public sheltered its door, and a few "
+                      "hung shutters"},
+    "tradesman": {"porch": (("stoop", 0.6),), "shutters": (0.0, ()),
+                  "why": "a plank stoop at the door on most, and no shutters"},
+    "labourer": {"porch": (), "shutters": (0.0, ()),
+                 "why": "neither porch nor shutters: the door opens onto the ground"},
+}
+FORM_WORDS = {"balloon_frame": "on a balloon frame", "braced_frame": "on a braced frame"}
+FORM_NOTE = ("RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by "
+             "tools/fabric_rule_1835.py from the household class and age it reads for this "
+             "roof, not from evidence about this building: ")
+
+
+def form_for_class(sid: str, klass: str, age: str, archetype: str) -> dict:
+    """Construction, porch and shutters for one frame roof; `{}` for any other."""
+    if archetype not in FRAME_ARCHETYPES:
+        return {}
+    out = {"construction": FRAME_OF_AGE[age]}
+    if archetype != "frame_dwelling":
+        return out
+    row = FORMS.get(klass, FORMS["tradesman"])
+    draw = _fraction(sid, "porch")
+    out["porch"] = next((v for v, upto in row["porch"] if draw < upto), None)
+    share, colours = row["shutters"]
+    out["shutters"] = (colours[int(_fraction(sid, "shutter_colour") * len(colours))]
+                       if colours and _fraction(sid, "shutters") < share else None)
+    return out
+
+
+def form_why(key: str, klass: str, age: str) -> str:
+    if key == "construction":
+        return (f"the roof's age is {age!r}; a building of the 1834–35 boom is balloon-"
+                "framed, the method dated here to 1833, and one of the 1832–33 town or "
+                "older is braced (rule FORM-C).")
+    row = FORMS.get(klass, FORMS["tradesman"])
+    return f"{klass} class — {row['why']} (rule FORM-{key[0].upper()})."
+
+
+def apply_form(body: dict, fabric: dict) -> dict:
+    """Write the rule's form into a generator's form body, mutated and returned.
+
+    Only a `reconstructed` value is ever replaced or removed, and `construction` only
+    where it is already a frame: an attested or inferred value, a log or a plank wall
+    is never moved. A value the rule deals as absent (no porch, no shutters) is removed
+    only if it too was reconstructed.
+    """
+    want = fabric.get("form") or {}
+    basis = fabric["fabric_basis"]
+    template = body.get("construction") or {}
+    for key, value in want.items():
+        cur = body.get(key)
+        if isinstance(cur, dict) and cur.get("confidence") != "reconstructed":
+            continue
+        if key == "construction" and (cur or {}).get("value") not in FRAMES:
+            continue
+        if value is None:
+            body.pop(key, None)
+            continue
+        body[key] = {"value": value, "confidence": "reconstructed",
+                     "sources": list(template.get("sources") or []),
+                     "note": FORM_NOTE + form_why(key, basis["class"], fabric["age_state"])}
+    return body
+
 #: seat_known_1835's clause, read as a class. A clause with no class here (the garrison,
 #: the farms) leaves the family's class standing.
 CLASS_OF_CLAUSE = {
@@ -292,6 +383,14 @@ def deal(sid: str, family: str, archetype: str, keeper: str | None = None) -> di
     substrate = SUBSTRATE_WORDS.get(archetype, "clapboard")
     wall = (substrate if archetype == "log_dwelling"
             else f"{WALL_WORDS[finish]} {substrate}")
+    form = form_for_class(sid, klass, age, archetype)
+    if form:
+        wall += f" {FORM_WORDS[form['construction']]}"
+        extras = ([f"{form['shutters'].replace('_', ' ')} shutters"] if form.get("shutters")
+                  else []) + ({"roofed": ["a roofed porch"], "stoop": ["a stoop"]}
+                              .get(form.get("porch"), []))
+        if extras:
+            wall += ", " + " and ".join(extras) + ","
     if household:
         whose = f"{household['name']}'s"
         if household["trade"]:
@@ -307,7 +406,7 @@ def deal(sid: str, family: str, archetype: str, keeper: str | None = None) -> di
     if household and by == "trade":
         basis["by"] = "keeper_trade"
     return {"finish_key": finish, "paint": PAINT_OF.get(finish, "unpainted"),
-            "roof_condition": roof, "age_state": age, "fabric_basis": basis}
+            "roof_condition": roof, "age_state": age, "fabric_basis": basis, "form": form}
 
 
 def policy_table() -> dict:
@@ -329,6 +428,17 @@ def policy_table() -> dict:
         "boom_ages": list(BOOM_AGES),
         "white_paint": "the Sauganash's alone — no class deals it",
         "liberty": "L330",
+        "form": {
+            "ticket": "T-1817",
+            "construction_by_age": dict(FRAME_OF_AGE),
+            "frame_archetypes": list(FRAME_ARCHETYPES),
+            "porch_and_shutters_by_class": {
+                k: {"porch": [list(p) for p in v["porch"]],
+                    "shutters": {"share": v["shutters"][0], "colours": list(v["shutters"][1])},
+                    "why": v["why"]} for k, v in FORMS.items()},
+            "never_moved": "an attested or inferred value, and any construction that is not a frame",
+            "not_dealt": "glazing (one window arrangement, L23), cladding, trim, siding stock (T-0112)",
+            "liberty": "L338"},
     }
 
 
@@ -354,7 +464,17 @@ def check() -> list[str]:
                 errors.append(f"{path.name}: reconstruction.{key} is {recon.get(key)!r}, "
                               f"the rule deals {want[key]!r}")
         for phase in rec.get("phases") or ():
-            paint = ((phase.get("form") or {}).get("paint") or {})
+            form = phase.get("form") or {}
+            for key, value in want["form"].items():
+                cur = form.get(key)
+                if isinstance(cur, dict) and cur.get("confidence") != "reconstructed":
+                    continue
+                if key == "construction" and (cur or {}).get("value") not in FRAMES:
+                    continue
+                if (cur or {}).get("value") != value:
+                    errors.append(f"{path.name}: form.{key} is "
+                                  f"{(cur or {}).get('value')!r}, the rule deals {value!r}")
+            paint = (form.get("paint") or {})
             if paint and paint.get("confidence") == "reconstructed" \
                     and paint.get("value") != want["paint"]:
                 errors.append(f"{path.name}: form.paint is {paint.get('value')!r}, the "

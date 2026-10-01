@@ -760,7 +760,8 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
                          if held else
                          f"A {width_ft:g} × {depth_ft:g} ft rectangle assigned by the reconstruction recipe within the {family} family band; no individual dimensions are documented.")
             },
-            "form": form_for(family, seq, paint, width, depth, sid),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, seq, paint, width, depth, sid), fabric),
             "change_note": "Reconstructed anonymous July 1835 West Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": inferred(function, f"Assigned from the {family} family to satisfy the aggregate West Division mix; no occupant or individual use is known."),
