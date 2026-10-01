@@ -1111,7 +1111,8 @@ def build_field(spec, feats, origin, streets=None):
     # deepest in a gutter `gutter_inset_m` inside each shoulder, rising to the
     # shelf across that inset. Streets combine by the deeper cut, so a crossing
     # is one surface. It runs before the approaches, whose max()/min() then
-    # still meet every deck exactly as authored. Every depth is the spec's
+    # still meet every deck exactly as authored. A structure standing inside a
+    # worked width keeps its ground (`keep_clear`). Every depth is the spec's
     # (L330); the width is streets.js's WORKED_SHARE, held equal to the spec's
     # `worked_share` by tools/check_street_section.py.
     ss = spec.get("street_sections")
@@ -1132,6 +1133,10 @@ def build_field(spec, feats, origin, streets=None):
             cut_ft[r0:r1, c0:c1] = np.maximum(
                 cut_ft[r0:r1, c0:c1],
                 section_depth_ft(d, half, inset, st["crown_ft"], st["gutter_ft"]))
+        for kc in ss.get("keep_clear", []):
+            rr = np.hypot(E - float(kc["e"]), N - float(kc["n"]))
+            cut_ft = cut_ft * smoothstep((rr - float(kc["flat_m"]))
+                                         / max(1e-9, float(kc["outer_m"]) - float(kc["flat_m"])))
         floor_ft = float(ss["water_floor_ft"])
         cut_to = np.maximum(h_ft - cut_ft, np.minimum(h_ft, floor_ft))
         graded = (~water) & (cut_ft > 0.0)

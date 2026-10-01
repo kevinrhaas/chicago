@@ -1331,7 +1331,38 @@
         "sources": []
       }
     ],
-    "note": "T-1812 (piece 2 of T-1770). The worked roadway is graded DOWN below the ground its walks stand on: the ground at the corridor's edges - the walk and the shelf it sits on, at the level the doors already stand at - is left exactly where the plain put it, and inside the worked width the roadbed is lowered, crowned at the centreline and deepest in a gutter just inside each shoulder, rising to the shelf across the last `gutter_inset_m`. The centreline is the line streets.js DRAWS (`drawn_track_local_enu_m` where a street carries one, else `path_local_enu_m`), and `worked_share` is streets.js's WORKED_SHARE (T-1811), so the cut and the painted road are one width; tools/check_street_section.py holds the two tables equal. Where streets cross, the deeper cut wins, so an intersection is one surface with no seam. The cut never takes land below `water_floor_ft` over the water (or below where it already was, if lower), never touches water, and runs BEFORE the bridge approaches, whose fills and cuts still meet their decks. EVERY DEPTH IS INVENTED: the owner's peer views (St Louis 1840, Detroit 1837, Cincinnati 1835) show a broad carriageway below entrance-level walks and print no dimension, and no Chicago source of 1835 gives a section; the depths are sized under the walker's 0.35 m step so every crossing is a step down, not a climb, and scaled by traffic class because wear is what lowered an unpaved frontier street. Recorded as L330."
+    "note": "T-1812 (piece 2 of T-1770). The worked roadway is graded DOWN below the ground its walks stand on: the ground at the corridor's edges - the walk and the shelf it sits on, at the level the doors already stand at - is left exactly where the plain put it, and inside the worked width the roadbed is lowered, crowned at the centreline and deepest in a gutter just inside each shoulder, rising to the shelf across the last `gutter_inset_m`. The centreline is the line streets.js DRAWS (`drawn_track_local_enu_m` where a street carries one, else `path_local_enu_m`), and `worked_share` is streets.js's WORKED_SHARE (T-1811), so the cut and the painted road are one width; tools/check_street_section.py holds the two tables equal. Where streets cross, the deeper cut wins, so an intersection is one surface with no seam. The cut never takes land below `water_floor_ft` over the water (or below where it already was, if lower), never touches water, and runs BEFORE the bridge approaches, whose fills and cuts still meet their decks. EVERY DEPTH IS INVENTED: the owner's peer views (St Louis 1840, Detroit 1837, Cincinnati 1835) show a broad carriageway below entrance-level walks and print no dimension, and no Chicago source of 1835 gives a section; the depths are sized under the walker's 0.35 m step so every crossing is a step down, not a climb, and scaled by traffic class because wear is what lowered an unpaved frontier street. Recorded as L330.",
+    "keep_clear": [
+      {
+        "id": "beaubien_trading_post",
+        "e": 1148.0,
+        "n": 160.9,
+        "flat_m": 5.4,
+        "outer_m": 8.4
+      },
+      {
+        "id": "hogan_store",
+        "e": 113.2,
+        "n": -95.1,
+        "flat_m": 9.0,
+        "outer_m": 12.0
+      },
+      {
+        "id": "newberry_dole_slaughterhouse_south_branch",
+        "e": 69.3,
+        "n": -259.8,
+        "flat_m": 9.3,
+        "outer_m": 12.3
+      },
+      {
+        "id": "slough_log_bridge",
+        "e": 826.9,
+        "n": -8.4,
+        "flat_m": 5.8,
+        "outer_m": 8.8
+      }
+    ],
+    "keep_clear_note": "A structure that stands inside a worked width keeps the ground it was seated on: the cut is held at nothing within `flat_m` of the footprint's centroid (its circumradius plus 1.5 m) and eases back to the full section by `outer_m`. Each is a building or bridge whose contact outline the cut otherwise left more than the walker's 0.35 m step off the terrain (tools/validate.py's ground-contact check named all four), so this list is that gate's answer and the gate is what adds to it. A building is not dug round, and a road does not run under a door."
   },
   "micro_relief": {
     "amplitude_ft": 0.1,

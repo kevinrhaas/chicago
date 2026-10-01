@@ -145,7 +145,8 @@ CONSUMED = {
                              "side_slope", "end_overhang_m"}),
     "street_sections": frozenset({"streets_file", "water_floor_ft", "classes", "traffic",
                                   "worked_share", "crown_depth_ft", "gutter_depth_ft",
-                                  "gutter_inset_m"}),
+                                  "gutter_inset_m", "keep_clear", "e", "n", "flat_m",
+                                  "outer_m"}),
     "watercourses": frozenset({"bed_ft", "e_fold_m"}),
     "micro_relief": frozenset({"amplitude_ft", "wavelengths_m", "seed",
                                "south_limit_n_m"}),
@@ -341,7 +342,7 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
     ep_dir = Path(ep_dir)
     graded = GRADED_EPOCHS.get(ep_dir.name)
     vectors = graded["vectors"] if graded else VECTORS_1835
-    return {
+    doc = {
         "scheme": SCHEME,
         "epoch": ep_dir.name,
         "spec": strip_prose(_load(ep_dir / "terrain_spec.json")),
@@ -350,10 +351,15 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
             for name in vectors
         },
         "datum": strip_prose(_load(ROOT / "data" / "datum.json")),
-        "streets": street_section_inputs(ep_dir),
         "code": _code_shas((graded["generator"],) if graded else ()),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
+    # Only an epoch whose spec grades its streets reads a street file, so only that
+    # epoch's hash carries one; the others hash exactly as they did before T-1812.
+    streets = street_section_inputs(ep_dir)
+    if streets is not None:
+        doc["streets"] = streets
+    return doc
 
 
 def terrain_inputs_sha(ep_dir: Path) -> str:
