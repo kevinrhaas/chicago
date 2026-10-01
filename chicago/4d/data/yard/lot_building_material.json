@@ -14,14 +14,14 @@
       "timber": 3,
       "stone": 2
     },
-    "refused": 16
+    "refused": 17
   },
   "census": {
-    "standing": 502,
+    "standing": 508,
     "anonymous_refused": 384,
-    "named_examined": 118,
-    "named_with_1835_start_refused": 16,
-    "state_not_stated_refused": 117,
+    "named_examined": 124,
+    "named_with_1835_start_refused": 17,
+    "state_not_stated_refused": 123,
     "qualified": 1
   },
   "existence": {
@@ -352,6 +352,13 @@
       "structure_id": "steamboat_hotel",
       "name": "Steamboat Hotel",
       "function": "hotel",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "steamboat_hotel_stable",
+      "name": "The Steamboat Hotel's Stable",
+      "function": "hotel_stable",
       "documented_range_from": "1835-01-01",
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
     },
