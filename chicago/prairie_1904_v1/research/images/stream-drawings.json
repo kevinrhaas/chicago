@@ -1419,5 +1419,223 @@
   "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
   "notes": "Sheet 6: 'Restored east elevation from photograph taken in 1856' (Greek Revival portico with four columns) and restored porch plan. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
   "measurements": []
+ },
+ {
+  "id": "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation",
+  "kind": "document",
+  "title": "National Register nomination, Prairie Avenue District (1972), continuation sheet 7 p. 8 of 12: Coleman (Ames) House, 1811 South Prairie Avenue — plan and west elevation sketches",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "received April 18, 1972; entered Nov. 15, 1972",
+  "date_earliest": 1972,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "nomination preparers (Commission on Chicago Historical and Architectural Landmarks)",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 72000452 (Prairie Avenue District)",
+  "call_number": "NRIS 72000452, PDF p. 11",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; constituent sketch rights not established (see sources.csv pa-district-nrhp-1972)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF research-assets/buildings/prairie-district-nrhp-1972.pdf (same bytes re-fetched from NARA S3, 40,352,871 B), page 11 rendered",
+  "notes": "Free-hand first-floor plan (porch, vestibule, parlor, sitting, foyer, stair, dining, billiard, service; rear 'alteration' marked) and west elevation (rusticated sandstone, two-storey bay with parapet/balcony, gable, entrance porch under square turret). Captioned 'drawings are not to scale'. Text: 'Coleman (Ames) House, ca. 1886, Cobb and Frost architects… two and one-half story brick… front elevation (west side) faced in red sandstone'; notes the gable's three narrow windows and sandstone columns had been replaced by metal columns. Good room-layout and facade-composition evidence for a demolished/altered house; not dimensional.",
+  "measurements": []
+ },
+ {
+  "id": "dw-nrhp-1972-district-p13-keith-1900-plan-elevation",
+  "kind": "document",
+  "title": "National Register nomination, Prairie Avenue District (1972), continuation sheet: Keith House, 1900 South Prairie Avenue — plan and east elevation sketches",
+  "building_ids": [
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "received April 18, 1972; entered Nov. 15, 1972",
+  "date_earliest": 1972,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "nomination preparers (Commission on Chicago Historical and Architectural Landmarks)",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 72000452 (Prairie Avenue District)",
+  "call_number": "NRIS 72000452, PDF p. 13 (sheet 7, p. 10 of 12)",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; constituent sketch rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF prairie-district-nrhp-1972.pdf / keith-nrhp-1972.pdf (identical 40.35 MB file), page 13 rendered",
+  "notes": "Sketch first-floor plan (front steps, bay, library, dining room with bay, hall, double parlors, rear stair) and east elevation: three-storey bay-front with mansard and dormers, full-width stone balcony on brackets over a high rusticated limestone base. Text: 'three-story brick building with limestone facing the front elevation… sits high upon a foundation of limestone blocks… narrow stone balcony running the full width of the front'; 'exterior unaltered on front facade, interior altered'. Not to scale.",
+  "measurements": []
+ },
+ {
+  "id": "dw-nrhp-1972-district-p24-ownership-lot-map",
+  "kind": "document",
+  "title": "National Register nomination, Prairie Avenue District (1972), item 4 continuation: owner-of-property lot map, 1800 block of Prairie Avenue and 18th Street",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800–1900 S. Prairie Avenue",
+   "E. 18th Street"
+  ],
+  "streetscape": true,
+  "view": "site plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "received April 18, 1972",
+  "date_earliest": 1972,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "nomination preparers",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 72000452",
+  "call_number": "NRIS 72000452, PDF p. 24",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; base map source not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF prairie-district-nrhp-1972.pdf, page 24 rendered",
+  "notes": "Plat-style map with subdivision lot numbers, 14 numbered ownership parcels outlined in blue (owners list: R. R. Donnelley; Cahners/Medalist; Chicago School of Architecture Foundation, 1800 S. Prairie; …), alleys and lot frontages/depths written on the lines. Useful for lot lines and depths in the 1800 block; 1972 ownership, not 1904. Map is turned (Prairie Ave. runs horizontally); only 1800 S. Prairie (owner no. 3, Chicago School of Architecture Foundation) is named on this page; the other 13 parcels are listed on the next sheet and not yet matched to building ids.",
+  "measurements": [
+   {
+    "what": "lot depth (one block face)",
+    "value": "176 ft",
+    "locator": "p. 24, written on lot lines"
+   },
+   {
+    "what": "lot depth (other block face)",
+    "value": "176 ft 8 in",
+    "locator": "p. 24, written on lot lines"
+   }
+  ]
+ },
+ {
+  "id": "dw-nrhp-1972-district-p22-boundary-map",
+  "kind": "document",
+  "title": "National Register nomination, Prairie Avenue District (1972): district boundary sketch map (Calumet Avenue, Prairie Avenue, 18th Street)",
+  "building_ids": [],
+  "addresses": [
+   "Prairie Avenue District, 1800–1900 blocks"
+  ],
+  "streetscape": true,
+  "view": "map",
+  "facing": null,
+  "camera_position": null,
+  "date": "1972",
+  "date_earliest": 1972,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": "nomination preparers",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 72000452",
+  "call_number": "NRIS 72000452, PDF p. 22",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF prairie-district-nrhp-1972.pdf, contact-sheet view of pages 22–23",
+  "notes": "Hand-drawn boundary map with red district line around the Prairie/Calumet/18th Street blocks and lettered parcels; p. 23 is a wider location map. Boundary context only.",
+  "measurements": []
+ },
+ {
+  "id": "dw-nrhp-2003-reid-p32-floor-plans",
+  "kind": "document",
+  "title": "National Register nomination, Reid House (2003), PDF p. 32: Basement, First, Second and Third floor plans with room keys",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "fax header 04/24/2003 ('Baldwin Historic Pro', page 02/02)",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Baldwin Historic Properties (nomination preparers)",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 03000783 (Reid House)",
+  "call_number": "NRIS 03000783, PDF p. 32",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; constituent drawing rights require review",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF research-assets/buildings/reid-nrhp-2003.pdf (same 38,678,201 B file re-fetched), p. 32 rendered",
+  "notes": "Schematic, unscaled plans, north arrow pointing left. Ground floor: kitchen, pantry, gallery, rear garden, carriage house. First: entry, parlor, music room (circular dome over), library, dining room (with rear bay), butler's pantry, hall/powder. Second: upstairs hall, guest room, guest bath, morning room, dressing room, owner's room. Third: hall/bath, ballroom (front, west), bedroom/nursery, bedroom, roof deck. Nomination text (pp. 4–9) gives the dimensions: house fills its 25-ft lot; main and 2nd floor ceilings 10 ft; ballroom 12 ft; music-room dome c. 7 ft; mahogany paneling to c. 7 ft. Built 1894, Beers, Clay & Dutton.",
+  "measurements": [
+   {
+    "what": "lot / facade width",
+    "value": "25 ft",
+    "locator": "PDF p. 4 (text)"
+   },
+   {
+    "what": "main and second-floor ceilings",
+    "value": "10 ft",
+    "locator": "PDF p. 8"
+   },
+   {
+    "what": "third-floor ballroom ceiling",
+    "value": "12 ft",
+    "locator": "PDF p. 8"
+   }
+  ]
+ },
+ {
+  "id": "dw-nrhp-1999-wheeler-kohn-p22-first-floor-plan",
+  "kind": "document",
+  "title": "National Register nomination, Wheeler-Kohn House (1999), PDF p. 22: first-floor plan 'Wheeler – Kohn House, Chicago, Illinois'",
+  "building_ids": [
+   "pa-2018-s.-calumet-avenue-31"
+  ],
+  "addresses": [
+   "2018 S. Calumet Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "1999",
+  "date_earliest": 1999,
+  "date_latest": 1999,
+  "period": "later",
+  "creator": "nomination preparers",
+  "repository": "U.S. National Archives (RG 79, National Register of Historic Places records)",
+  "collection": "National Register nomination 99000975 (Wheeler-Kohn House)",
+  "call_number": "NRIS 99000975, PDF p. 22",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/99000975.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; constituent drawing rights require review",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "held PDF research-assets/buildings/wheeler-kohn-nrhp-1999.pdf (same 32,663,769 B file re-fetched), p. 22 rendered",
+  "notes": "Unscaled first-floor plan, north to the right: central east–west hall, vestibule and porch (dashed), parlor with canted bay, second parlor, dining room, pantry, main stair, baths, and a later FIRE STAIR (exclude for 1904). Text (p. 10): central-hall plan; basement 10 ft and third-floor 11 ft ceilings. House 1870, Otis L. Wheelock.",
+  "measurements": []
  }
 ]

@@ -11,8 +11,8 @@
   ],
   "streetscape": false,
   "view": "oblique front",
-  "facing": "northwest",
-  "camera_position": "from the southeast, at the NE/SE corner area of Prairie Avenue and 21st Street (inferred from corner lot and visible south side)",
+  "facing": "southwest",
+  "camera_position": "from the northeast, at the Prairie Avenue / 21st Street intersection (house stands at the SW corner of Prairie and 21st per Sullivan, quoted on Glessner blog); north (21st Street) flank receding at right",
   "date": "undated (19th century; costume suggests c. 1885–1895)",
   "date_earliest": 1876,
   "date_latest": 1902,
@@ -28,7 +28,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "Chicagology Prairie Avenue index page (chicagology.com/prairie/)",
-  "notes": "High-quality albumen-era photograph of the Burnham & Root Sherman house (completed 1876): two-and-a-half storeys of dark brick banded with light stone over a high rusticated stone basement, steep slate roofs with Gothic gabled dormers and iron cresting, a tall corner pavilion with conical/hipped slate roof and finial, carved chimney stacks, a front porch carried on clustered colonnettes reached by a curved stone stair with pierced balustrade, a side bay/oriel on the 21st Street flank, low stone-post-and-iron front fence, parkway trees, plank-guard tree boxes and stone sidewalk. A woman stands on the porch; two children sit at the curb. A numeral '4' is printed lower right (plate/series number). Chicagology gives no source; the CHM holds ICHi-001299 'Sherman house, 2100 Prairie, circa 1890' (marker credit) which may be this or a related view — unverified. Key reference for the 1904 massing; the house stood until 1936 so 1904 appearance should match unless altered after the photo.",
+  "notes": "High-quality albumen-era photograph of the Burnham & Root Sherman house (completed 1876): two-and-a-half storeys of dark brick banded with light stone over a high rusticated stone basement, steep slate roofs with Gothic gabled dormers and iron cresting, a tall corner pavilion with conical/hipped slate roof and finial, carved chimney stacks, a front porch carried on clustered colonnettes reached by a curved stone stair with pierced balustrade, a side bay/oriel on the 21st Street flank, low stone-post-and-iron front fence, parkway trees, plank-guard tree boxes and stone sidewalk. A woman stands on the porch; two children sit at the curb. A numeral '4' is printed lower right (plate/series number). Chicagology gives no source; the CHM holds ICHi-001299 'Sherman house, 2100 Prairie, circa 1890' (marker credit) which may be this or a related view — unverified. Key reference for the 1904 massing; the house stood until 1936 so 1904 appearance should match unless altered after the photo. The same photograph is reproduced on the Glessner House blog ('Prairie Avenue and Louis Sullivan – Part I', 2020-06-02), which quotes Sullivan's Autobiography of an Idea describing the house 'nearing completion' on the SW corner of Prairie and 21st.",
   "measurements": []
  },
  {
@@ -255,7 +255,8 @@
   "building_ids": [
    "pa-2110-30",
    "pa-2108-40",
-   "pa-2112-39"
+   "pa-2112-39",
+   "pa-2100-18"
   ],
   "addresses": [
    "2110 S. Prairie Avenue",
@@ -263,8 +264,8 @@
   ],
   "streetscape": true,
   "view": "street view",
-  "facing": "south",
-  "camera_position": "in Prairie Avenue roadway / west parkway near 21st Street looking south along the west side of the 2100 block (inferred)",
+  "facing": "north",
+  "camera_position": "in Prairie Avenue near 2114–2120 looking north-northwest along the west side of the 2100 block (orientation per Glessner House identification of the uncropped image)",
   "date": "about 1895 (Chicagology caption)",
   "date_earliest": 1888,
   "date_latest": 1900,
@@ -280,7 +281,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "Chicagology 2110 Prairie page",
-  "notes": "Cropped panoramic street view: row of high-stooped stone-fronted houses on the west side of the 2100 block with the narrow Rees house (Cobb & Frost, 1888) marked by an arrow — its curved carved band over a bay and arched entrance — with neighbours on either side (probably 2108 Kimball to the north/left and 2112 Rothschild to the south/right), all with steep stone stoops and carved newels, iron fences, parkway trees with young foliage. Roadway is smooth pavement with a covered carriage and horse; stone bollards/carriage posts line the east curb at right; street lamps. One of the best street-level views of the 2100 block in period. Same image is also likely held by CHM or the Glessner House; holder unresolved.",
+  "notes": "Cropped panoramic street view: row of high-stooped stone-fronted houses on the west side of the 2100 block with the narrow Rees house (Cobb & Frost, 1888) marked by an arrow — its curved carved band over a bay and arched entrance — with neighbours on either side (2112 Rothschild at left, 2108 Kimball and 2100 Sherman beyond to the right, per the Glessner House caption of the uncropped image a20-glessner-2100-block-west-side-1890s), all with steep stone stoops and carved newels, iron fences, parkway trees with young foliage. Roadway is smooth pavement with a covered carriage and horse; stone bollards/carriage posts line the east curb at right; street lamps. One of the best street-level views of the 2100 block in period. Same image is also likely held by CHM or the Glessner House; holder unresolved. Crop of the same negative as a20-glessner-2100-block-west-side-1890s.",
   "measurements": []
  },
  {
@@ -553,6 +554,640 @@
   "verified": "viewed",
   "found_via": "Chicagology address pages (each ends with a Robinson 1886 crop)",
   "notes": "Hand-coloured fire-insurance atlas plate (north at right) showing 16th–22nd Streets between Indiana and Calumet: lot lines with frontage figures (mostly 25 and 50 ft), footprints coloured pink (brick) / yellow (frame) / brown (stone), rear stables along the alleys, Second Presbyterian church, street names. Pages reuse crops from one scan: e.g. 2009prairie1886map.jpg, 2013prairie1886map.jpg, 2021…, 2027…, 2031…, 2033…, 2036…, 2108…, 2109…, 2110…, 2112…, 2115…, 2126…, 2130… under chicagoimages9/. Shows 2108, 2110, 2125 and 2130 as EMPTY lots in 1886 (Rees 1888, Murdoch 1890 built later) and 2009 before the 1888 Burnham & Root house. Footprint reference for pre-1904 state; combine with Sanborn 1911 (held in maps/originals) for 1904.",
+  "measurements": []
+ },
+ {
+  "id": "a20-reid-nrhp-2003-photo-front",
+  "kind": "photograph",
+  "title": "Reid House, Cook Co., IL — nomination photograph (front)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "east",
+  "camera_position": "from the west sidewalk of Prairie Avenue, slightly north",
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF p34. 2003 view of the 1894 front: portico with Ionic columns (parapet gone), oval grilled windows, tripartite and Palladian windows, cornice brackets; roof balustrade missing, end posts topped with salvaged balusters (per text). Iron fence, mature tree. Vacant lots either side by 2003. Compare with the 1895 plate (a20-chicagology-2013-reid-ia1895) for 1904 roofline.",
+  "measurements": []
+ },
+ {
+  "id": "a20-reid-nrhp-2003-photo-north-side",
+  "kind": "photograph",
+  "title": "Reid House — nomination photograph (north side elevation across vacant lot)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "southeast",
+  "camera_position": "from the vacant lot to the northwest (site of 2009–2011)",
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF p36. Full north party wall exposed: parged common brick over west half, red brick and window openings to the east, cornice of the front visible at right; vacant lot with chain-link fence, cars. Shows full building depth and storey heights in profile — useful for massing (3 storeys + raised basement, flat roof). Post-1955 condition (neighbour 2009 demolished 1955).",
+  "measurements": []
+ },
+ {
+  "id": "a20-reid-nrhp-2003-photo-rear",
+  "kind": "photograph",
+  "title": "Reid House — nomination photograph (rear, east elevation)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "rear",
+  "facing": "west",
+  "camera_position": "from the alley / rear lot to the east",
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF p38. Rear of house with open top-floor terrace (roof deck) under a later frame canopy, south side notch with oriel, and the 1910 coach house with upper living quarters. NB the coach house post-dates 1904 (built 1910 per nomination text), so the 1904 rear yard differed.",
+  "measurements": []
+ },
+ {
+  "id": "a20-reid-nrhp-2003-photo-rear-garden",
+  "kind": "photograph",
+  "title": "Reid House — nomination photograph (rear garden / coach house)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "rear",
+  "facing": null,
+  "camera_position": "in the rear garden",
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF p48. Ivy-covered brick wall with doors and barred windows — the 1910 coach house or rear wing seen from the garden. Not 1904 fabric if coach house.",
+  "measurements": []
+ },
+ {
+  "id": "a20-reid-nrhp-2003-photos-interiors",
+  "kind": "photograph",
+  "title": "Reid House — nomination photographs (interiors, set)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF pp40–46: interior views of the 1894 interiors (stair hall with mahogany staircase, reception rooms, fireplace with carved mantel, ballroom). Text (section 7) records ceiling heights (10 ft on first/second floors, 12 ft ballroom), 7-ft paneling, a ~7-ft diameter stained-glass dome. NPS evaluation sheet (PDF p50) notes photos 2–7, 10, 13, 15, 17–22 missing from the digitized core documentation.",
+  "measurements": [
+   {
+    "what": "second-floor ceiling height",
+    "value": "10 ft (same as main floor)",
+    "locator": "section 7 p.4"
+   },
+   {
+    "what": "third-floor ballroom ceiling",
+    "value": "12 ft",
+    "locator": "section 7 p.5"
+   },
+   {
+    "what": "stained-glass ceiling dome",
+    "value": "approx. 7 ft diameter",
+    "locator": "section 7 p.3"
+   }
+  ]
+ },
+ {
+  "id": "a20-reid-nrhp-2003-floor-plans",
+  "kind": "measured drawing",
+  "title": "Reid House floor plans (Ground, First, Second, Third Floor) — nomination sketch plans",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": null,
+  "date": "February 2003 (photo labels \"2/03\")",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Baldwin Historic Properties (preparers)",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "PDF p32: four schematic floor plans with keyed rooms — Ground: kitchen, pantry, gallery, rear garden, carriage house; First: entry, parlor, music room, library, dining room, butler's pantry, hall/powder room; Second: upstairs hall, guest room/bath, morning room, dressing room, owner's room; Third: hall/bath, ballroom, bedroom/nursery, bedroom, roof deck. Not to scale as reproduced but gives plan depth and room sequence for a 25-ft-wide steel-framed house.",
+  "measurements": [
+   {
+    "what": "lot / house width",
+    "value": "25 ft (house occupies full lot width)",
+    "locator": "section 7 p.1"
+   },
+   {
+    "what": "storeys",
+    "value": "3 storeys on raised (granite-faced) basement",
+    "locator": "section 7 p.1"
+   }
+  ]
+ },
+ {
+  "id": "a20-reid-nrhp-2003-nomination-text",
+  "kind": "document",
+  "title": "National Register of Historic Places Registration Form: Reid House, 2013 South Prairie Avenue (listed 2003)",
+  "building_ids": [
+   "pa-2013-29"
+  ],
+  "addresses": [
+   "2013 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "February 1, 2003 (form); listed 2003",
+  "date_earliest": 2003,
+  "date_latest": 2003,
+  "period": "later",
+  "creator": "Susan M. Baldwin and Lara Ramsey, Baldwin Historic Properties",
+  "repository": "National Archives (NARA), RG 79 National Register files",
+  "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+  "call_number": "NRHP 03000783",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+  "notes": "53-page PDF. Section 7 detailed exterior/interior description (materials: granite basement, cream rough-textured brick, terra cotta/limestone ornament; steel frame — 'first steel-framed house in the city'; original roof balustrade and portico parapet now missing; 1910 coach house). Section 8 history of the 2000 block incl. the 2031–2035 trio (1869, 25-ft lots, Lemont limestone), Beers, Clay & Dutton; bibliography cites Inland Architect Feb. 1895 illustration, Rand McNally Bird's-Eye Views, Sanborn. Prime measured-text source for the only survivor on the east side of the 2000 block.",
+  "measurements": [
+   {
+    "what": "lot width",
+    "value": "25 ft",
+    "locator": "section 7 p.1"
+   }
+  ]
+ },
+ {
+  "id": "a20-aic-walker-evans-2033",
+  "kind": "photograph",
+  "title": "2033 Prairie Avenue, Chicago",
+  "building_ids": [
+   "pa-2033-nrhp"
+  ],
+  "addresses": [
+   "2033 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "east",
+  "camera_position": "from the west side of Prairie Avenue",
+  "date": "1946",
+  "date_earliest": 1946,
+  "date_latest": 1946,
+  "period": "later",
+  "creator": "Walker Evans (American, 1903–1975)",
+  "repository": "Art Institute of Chicago",
+  "collection": "Photography and Media; Gift of David C. and Sarajean Ruttenberg",
+  "call_number": "1991.1475",
+  "catalog_url": "https://www.artic.edu/artworks/118616",
+  "image_url": null,
+  "rights": "copyright — link only",
+  "rights_basis": "AIC API: is_public_domain false",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "api.artic.edu search 'Prairie Avenue'",
+  "notes": "Gelatin silver print, image 26.3 × 21.7 cm, from Evans' 1946 Chicago series (Fortune). Same image reproduced on Chicagology (a20-chicagology-2033-walker-evans), which was viewed. Frontal view of the 1869 stone-fronted Otis house with full-height bay, carved window hoods, bracketed cornice, pedimented door hood and high stoop; neighbours gone. AIC also holds Evans 'Victorian Building, South Side, Chicago' c.1946 (1978.262) — subject not identified, not checked.",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-2100-block-west-side-1890s",
+  "kind": "photograph",
+  "title": "The 2100 block of Prairie Avenue looking northwest, 1890s",
+  "building_ids": [
+   "pa-2112-39",
+   "pa-2110-30",
+   "pa-2108-40",
+   "pa-2100-18",
+   "pa-2036-38"
+  ],
+  "addresses": [
+   "2112 S. Prairie Avenue",
+   "2110 S. Prairie Avenue",
+   "2108 S. Prairie Avenue",
+   "2100 S. Prairie Avenue",
+   "2036 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "north",
+  "camera_position": "in Prairie Avenue near 2114–2120, looking north-northwest along the west side of the 2100 block toward 21st Street",
+  "date": "1890s (blog caption: \"early 1890s\")",
+  "date_earliest": 1888,
+  "date_latest": 1899,
+  "period": "in-period",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/moving-house-on-prairie-avenue-1891.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3dAJ-v9IDp_TkoY0P54C_R68hCAAzHhyphenhyphensUmGR1jyxAlPOt9-9h4eMEx8K_pzN_78S72v5Vi2JT17xeyR8BztNq0wTgGz3XQYIk77qjriBQYcuBpKHq8pJLMn78CCUfzPA96AVDxGkGhE/s1600/14-08-04+2100+block+NW.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced on museum blog without holder credit or rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Rees' / '2100 block'",
+  "notes": "Sepia street photograph; the blog identifies, left to right, Max Rothschild (2112), Harriet Rees (2110), Mark Kimball (2108), John B. Sherman (2100) and Ebenezer Buckingham (2036, across 21st St). Shows the continuous run of tall stone row-house fronts with high stone stoops, heavy carved newels and cheek walls, arched entrances, the Rees bay with carved band, a deep iron balustraded porch/veranda on the Kimball house, then Sherman's corner and mansarded houses beyond; elm parkway trees (blog suggests damaged in the 1891 house move), smooth pavement, curb-side stone bollards along the east (right) side, a covered carriage. Also published 2014-04-21 ('The Rees House and the Changing Face…', file '14-04-21 2100 block looking NW.jpg') with a matching April 2014 view; Chicagology's 'Rees House (arrow), about 1895' (a20-chicagology-2110-rees-street-c1895) is a crop of the same negative. One of the most important in-period streetscapes for the 2100 block; holder of the original unknown (likely CHM or Glessner House collection).",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-2100-block-west-side-2014",
+  "kind": "photograph",
+  "title": "The same view, April 2014",
+  "building_ids": [
+   "pa-2110-30"
+  ],
+  "addresses": [
+   "2100–2112 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "north",
+  "camera_position": "same station as the 1890s view (Prairie Avenue, west side of 2100 block, looking NW)",
+  "date": "April 2014",
+  "date_earliest": 2014,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum (William Tyre?)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/04/the-rees-house-and-changing-face-of.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyBbJHAxLO0rAlHmINcoFYnArqbpNfZVx8Cm5JNu5Mqau1LgNwO6WsiAolLIGLDLaIWUDIGjROp4y2AhOYUaeqriVasllCAuUSOKoV8YdnSK-Z8XuYPNooAjiDWvxtLc3GcoGarHbrmSo/s1600/14-04-21+2100+block+NW+now.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Museum staff photograph on blog",
+  "local": null,
+  "verified": "catalog-only",
+  "found_via": "Glessner House blog post 2014-04-21",
+  "notes": "Re-photograph of the 1890s view, made before the Rees house was moved (Nov 2014). Only the Rees house survived; useful for registering the 1890s photo to modern geometry (setback, street width). Image listed with caption on the post; not opened at full size.",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-tribune-1891-house-move-sketch",
+  "kind": "newspaper item",
+  "title": "[Frame house blocking Prairie Avenue just south of Twenty-first Street] — Chicago Tribune, 14 Sept. 1891 (as reproduced)",
+  "building_ids": [],
+  "addresses": [
+   "Prairie Avenue just south of 21st Street (in front of 2101–2115)"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": null,
+  "camera_position": null,
+  "date": "1891 (Tribune articles of 14 Sept. and 27 Oct. 1891 quoted)",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "Chicago Tribune staff artist (attribution by context)",
+  "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/moving-house-on-prairie-avenue-1891.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv-tg9i4irNu1xISnvhVxjmHcCPL6oJ_tmfRSB9DZvVTPClZOXWUmm1vvHYlScmGCp03MJAuXDDAX_93yR-ExcljgZofdpM9Q_ujcVVnoo9ocLCAj_jd6YRGu1lyN_kZE021A4i9fHpJI/s1600/14-08-04+House+in+transit.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in a US newspaper in 1891 (public domain by date); blog scan, link only",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog 2014-08-04",
+  "notes": "Line cut of the two-storey frame house (from 1833 Michigan) on cribbing in Prairie Avenue, between parkway trees, with a stone stoop at left. The quoted Tribune text gives a key street measurement: the house was 29 ft 4 in wide 'while the street is but thirty-two feet from curb to curb' (Prairie Ave roadway, 2100 block, 1891), and lists the neighbouring residents (Sherman, Armour 2115, Pike 2101, Roloson, Rothschild, Mrs E. J. Kimball). Image date not stated on blog beyond the article context.",
+  "measurements": [
+   {
+    "what": "Prairie Avenue roadway width, curb to curb (2100 block)",
+    "value": "32 ft",
+    "locator": "Chicago Tribune 14 Sept 1891, quoted on blog"
+   }
+  ]
+ },
+ {
+  "id": "a20-glessner-rees-exterior-2012",
+  "kind": "photograph",
+  "title": "Rees exterior (gable detail), 2012",
+  "building_ids": [
+   "pa-2110-30"
+  ],
+  "addresses": [
+   "2110 S. Prairie Avenue (original site)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "west",
+  "camera_position": "from the Prairie Avenue sidewalk at 2110, looking up",
+  "date": "January 2012 (post date)",
+  "date_earliest": 2011,
+  "date_latest": 2012,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2012/01/prairie-avenue-mansion-designated.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigBkILKURKPtzrKunI0XQyumIjeKgBzkAEpBcu12ItC0xDujiC8YMU_E-dr0pfsELPQwlCi5Zlwx4JyKF9iX5n_6y2WM0x7eNy9KV1zhBOUD7qZxoLl3E-dW5DxwU2QolJwCipo08nWh4/s1600/12-01-09+Rees+exterior.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Museum photograph on blog",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search Rees",
+  "notes": "Smooth limestone upper front of the Rees house on its ORIGINAL site: steep front gable with Sullivanesque carved tympanum and finial, five-bay arcaded third-storey loggia with foliate capitals and carved archivolt, and the copper-capped curved oriel below. Fabric is 1888 original (restored after 2001) — reliable for 1904 detail of the upper façade. Blog text: smooth limestone façade, 'manually operated elevator', designated Chicago Landmark 5 Jan 2012.",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-rees-coach-house-2014",
+  "kind": "photograph",
+  "title": "Rees coach house before relocation (2014)",
+  "building_ids": [
+   "pa-2110-30",
+   "pa-2108-40"
+  ],
+  "addresses": [
+   "rear of 2110 S. Prairie Avenue (original site, SW corner Prairie & 21st after clearance)"
+  ],
+  "streetscape": false,
+  "view": "rear",
+  "facing": null,
+  "camera_position": "on the cleared block west of Prairie, near the alley",
+  "date": "2014",
+  "date_earliest": 2014,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/10/rees-coach-house-relocated.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6_ZCAPUwJTtx65XqgyBQ_Wfd89TYzz_Y2VUf7wgwReqgmZk_vRZT3WrqqIL5IelTYyvoMdhMqTaWqD3upy2FLKbO5yIK12HbPU4L6xXEmNHi4698vyElknCt7iRKnd0qMblIQXDzoA-M/s1600/DSCN1289.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Museum photograph on blog",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search Rees",
+  "notes": "Two-storey flat-roofed common-brick coach house with segmental-arched openings. Blog text: when Rees bought her lot from Mark Kimball (2108) in 1888, Kimball's coach house extended across the back of BOTH lots (possibly pre-1871); Rees took the south half and a party wall was built; the Kimball half was demolished in the 1930s. Carriages on the ground floor, horses in a full basement reached by a ramp, coachman upstairs. So in 1904 a single double coach house spanned the rear of 2108–2110. Post also has c. 20 photos of the 1 Oct 2014 move.",
+  "measurements": [
+   {
+    "what": "Rees (south) half of Kimball coach house",
+    "value": "25 ft wide × 35 ft deep × 23 ft high; 187 tons",
+    "locator": "blog text 2014-10-01"
+   }
+  ]
+ },
+ {
+  "id": "a20-glessner-rees-house-move-2014",
+  "kind": "photograph",
+  "title": "Harriet Rees House Moved (photo series, 11–12 Nov 2014)",
+  "building_ids": [
+   "pa-2110-30"
+  ],
+  "addresses": [
+   "2110 S. Prairie Avenue → 2017 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": "various, along Prairie Avenue 2000–2100 blocks",
+  "date": "November 11–12, 2014",
+  "date_earliest": 2014,
+  "date_latest": 2014,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/harriet-rees-house-moved.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg81fjedaT00TXWnf3tZX1l6rq1xiiKvjiht7kTBvNYduxw6YPnXt-ODHHtro6ZODp1GQX56NwpKZhRsHg0Gh1lj8Te8HDeoQ6pE3ICHtQd0HXGUWzV9VacBIV1ZdqhHi9Jh_o3NqvWYxw/s320/DSCN3264.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Museum photographs on blog",
+  "local": null,
+  "verified": "catalog-only",
+  "found_via": "Glessner House blog feed search Rees",
+  "notes": "~20 photos of the house in its steel cage on dollies — the only time the side and rear walls were fully exposed. Text gives overall dimensions. The house now faces WEST at 2017 S. Prairie; do not use its present site for 1904.",
+  "measurements": [
+   {
+    "what": "Rees house overall",
+    "value": "25 ft wide, 72 ft high, 95 ft long; 762–763 tons",
+    "locator": "blog text 2014-11-12 and 2014-10-01"
+   }
+  ]
+ },
+ {
+  "id": "a20-glessner-prairie-house-cafe-postcard",
+  "kind": "postcard",
+  "title": "Rees house as the Prairie House Café (1970s postcard)",
+  "building_ids": [
+   "pa-2110-30"
+  ],
+  "addresses": [
+   "2110 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1970s (blog: café operated in the 1970s)",
+  "date_earliest": 1970,
+  "date_latest": 1979,
+  "period": "later",
+  "creator": "unknown",
+  "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/04/the-rees-house-and-changing-face-of.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGIXvg13W9G3y3ODK7r6Xx4xi7Zgk5aL2242dAREdvEahqECOHgbcjoP0ZAc5qrcrfzoQYEuTtxlXwe65epRy2ahkYcAJmcHKgiqJX0MN9ZxG26M-nwhBen8M2YfhEw0pMG-UGFc-Hf4E/s1600/14-04-21+Rees+house+as+cafe.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced on museum blog without holder credit or rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog 2014-04-21",
+  "notes": "Multi-view advertising card: oval exterior of the Rees gable/oriel front (with awning) plus four interiors (entry hall with original woodwork and stained-glass door, dining rooms with fireplaces). Exterior shows the 1888 front intact in the 1970s; interiors show surviving original trim.",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-hanford-engraving",
+  "kind": "engraving",
+  "title": "[P. C. Hanford house, 2008 S. Calumet Avenue] (engraving reproduced as \"2008 CA\")",
+  "building_ids": [
+   "pa-2008-s.-calumet-avenue-56"
+  ],
+  "addresses": [
+   "2008 S. Calumet Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "from the east side of Calumet Avenue, southeast of the house (inferred)",
+  "date": "undated (c. 1883–1890; built 1883)",
+  "date_earliest": 1883,
+  "date_latest": 1893,
+  "period": "in-period",
+  "creator": "unknown engraver",
+  "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/03/unearthing-hanford.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD0lDHmxOJWXqLp_3SSSWh8NWKY9pHY6EicnmLNZyzgWtOPJrtgKTw-ooko9zXWJi-Uc-9x196h9MU4Yof8934x-3feWImbTVFZoNYVULtBZVtRVq2Qws2VdKSU5ZxVY-6L8Uu6atOegM/s1600/2008+CA.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Probably a 19th-c. publication engraving (public domain by date) but source not credited; link only",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Hanford'",
+  "notes": "Line engraving of the Henry S. Jaffray-designed Hanford house (1883): massive two-and-a-half/three-storey ashlar (Connecticut brownstone per blog) block with a steep pyramidal/hipped slate roof, tall dormers with gables and finials, an oriel on the side, bay windows, a corner entrance porch with columns and balustraded deck reached by a long stone stair. The blog: largest house on Calumet; vacant for decades after Hanford's 1893 suicide; fire-damaged; demolished 1953. In 1904 the house was standing but unoccupied (caretaker) per blog.",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-hanford-excavation-2001",
+  "kind": "photograph",
+  "title": "Hanford house foundation excavation, 2001 (Jack Simmerling photographs)",
+  "building_ids": [
+   "pa-2008-s.-calumet-avenue-56"
+  ],
+  "addresses": [
+   "2008 S. Calumet Avenue"
+  ],
+  "streetscape": false,
+  "view": "plan",
+  "facing": null,
+  "camera_position": "on the excavated site",
+  "date": "2001",
+  "date_earliest": 2001,
+  "date_latest": 2001,
+  "period": "later",
+  "creator": "Jack Simmerling",
+  "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/03/unearthing-hanford.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcUFhzhge-1_Lvqhv0BA6nKwDtpdz6tVa_8u7QjkZriZ4wpjDBjhtiHpXCRMMSF51bQpWuwIwqzdWjnm_dMmhQDILbKxZHiAK238BFZuVN8uGcPs-FC9YSJH6bGxj0ezWO5RBKW96j3Xw/s1600/Excavation+foundation.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Simmerling photographs reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog 'Unearthing Hanford' (2015-03-30)",
+  "notes": "Colour photos of the thick limestone foundation walls exposed when the 1953 parking lot was removed (2001): basement walls with openings, brownstone blocks, a carved window hood, chimney remnants. Blog: 'the huge footprint of the house was fully revealed' — potential footprint evidence if Simmerling's full set (Glessner House Museum) can be measured. Several images in post (foundation, stone blocks, decorative hood, fragments).",
+  "measurements": []
+ },
+ {
+  "id": "a20-glessner-wheeler-entry-2012",
+  "kind": "photograph",
+  "title": "Wheeler exterior (entry porch), 2012",
+  "building_ids": [
+   "pa-2018-s.-calumet-avenue-31"
+  ],
+  "addresses": [
+   "2020 S. Calumet Avenue (blog address; index lists 2018)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "west",
+  "camera_position": "at the front steps on Calumet Avenue",
+  "date": "June 2012 (post date)",
+  "date_earliest": 2012,
+  "date_latest": 2012,
+  "period": "later",
+  "creator": "Glessner House Museum",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "glessnerhouse.blogspot.com",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2012/06/wheeler-mansion-featured-on-annual-tour.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAHhC-6Aa6YIYArxh0CvgLpbGlS2L05U4aNbzl0xUgC9EYW1p7D_zwcmR1aAp7DPNQRc9sldUAj-fgVgnMGgz4AwtDvWk3ug6wOWkyT8EMyS7ADKrBdcxvTf70DX8QnegfQnVD2rKD3w/s1600/12-06-04+Wheeler+exterior.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Museum photograph on blog",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "Glessner House blog feed search 'Wheeler'",
+  "notes": "Entrance of the Calvin T. Wheeler house (Otis L. Wheelock, 1870; Kohn family from 1874): red brick with stone-trimmed round-arched windows with keyed hoods, gabled wooden/stone entry porch with pierced brackets and colonnettes, stone stair with pierced (circle-pattern) balustrade and urn. Blog gives address as 2020 S. Calumet, Second Empire style, Kohn family sold early 1900s → publishing company offices → Murphy Butter & Egg warehouse (loading dock around dining room) → restored 1997–99 as Wheeler Mansion hotel. Also interior photos (vestibule mosaic, Lincrusta ceilings, hall, dining room) in the same post. Note: the house was MOVED — verify (the City landmark report should say) whether 2020 is its original 1904 site.",
   "measurements": []
  }
 ]

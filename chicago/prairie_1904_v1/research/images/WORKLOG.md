@@ -1,7 +1,7 @@
 # Image & document collection — work log
 
 Started 2026-10-01 on the owner's request (claude/lucid-gates-1w48ds → PR into dev).
-Ticket: none filed — the ticket queue was at its 140-line ceiling; see the PR body.
+Ticket: T-1821 (filed --anyway on the owner's instruction; claimed). PR #237.
 
 ## Streams
 

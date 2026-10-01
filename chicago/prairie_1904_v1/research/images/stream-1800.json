@@ -1306,5 +1306,1520 @@
   "found_via": "existing acquisition (data/sources.csv pa-glessner-houghton-gle-e4d)",
   "notes": "Houghton drawing GLE E4d: “Drawing Room: fireplace wall, working drawing. Graphite, watercolor on tracing paper; scale: 3/4\":1'” (catalog entry 69; Box 4, Folder 9). Henry Hobson Richardson drawings, circa 1886–1940, Houghton Library, Harvard College Library; “Chicago, Ill. J. J. Glessner house (GLE), 1885–1887. Client: John Jacob Brothers (1843–1936). Contractor: Norcross Brothers, 1885–1887” (105 drawings; Ochsner 134, O’Gorman 9; microfilm reel 8, project 2). Identified by inscribed “House for J. J. Glessner Esq. Drawing Room.”; a fireplace wall in graphite and watercolor on tracing paper, which is entry 69 (entry 68 is on drawing paper). Harvard DRS 499504241; the image here is the full-size file from Harvard (5000×3288 px). Evidence limit: A working drawing; no HABS photograph shows the drawing room.",
   "measurements": []
+ },
+ {
+  "id": "a18-kimball-habs-photo-01",
+  "kind": "photograph",
+  "title": "1. Historic American Buildings Survey Harold Allen, Photographer, June 1965 VIEW: WEST (PRAIRIE AVE.) AND SOUTH (COURT) ELEVATIONS - W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1801-23",
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue",
+   "1811 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": "from the west side of Prairie Avenue, south-west of the house",
+  "date": "June 1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Harold Allen for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1077)",
+  "call_number": "HABS ILL,16-CHIG,75--1",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0136.photos.580872p/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580872pv.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS photograph made for the U.S. Government; LoC: no known restrictions on publication",
+  "local": {
+   "display": "research/images/files/a18-kimball-habs-photo-01.jpg",
+   "display_bytes": 168302,
+   "thumb": "research/images/files/a18-kimball-habs-photo-01-thumb.jpg",
+   "thumb_bytes": 38057,
+   "original_px": [
+    1024,
+    776
+   ],
+   "original_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
+   "original_bytes": 349615,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580872pv.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Kimball House 1801' and 'il0136' (fo=json) 2026-10-01",
+  "notes": "West (Prairie Avenue) front and south court elevation of the Bedford-stone Chateauesque house, with the iron fence along the court and the porch steps. At right the brownstone north wall and front of 1811 Prairie (Coleman/Ames house) and a low service wing are visible, so the photograph also documents the 1801/1811 relationship. 1965 condition: the house was then a publishing office (Domestic Engineering Co.); exterior stone, slate roofs, cresting and fence appear substantially as built in 1890–92, but check for lost cresting/finials and replacement windows.",
+  "measurements": []
+ },
+ {
+  "id": "a18-kimball-habs-photo-02",
+  "kind": "photograph",
+  "title": "2. Historic American Buildings Survey Harold Allen, Photographer , June 1965 VIEW: EXTERIOR - FROM NW, NORTH (18th ST.) AND WEST (PRAIRIE AVE.) ELEVATIONS - W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1801-23"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southeast",
+  "camera_position": "from the northwest corner of Prairie Avenue and 18th Street",
+  "date": "June 1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Harold Allen for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1077)",
+  "call_number": "HABS ILL,16-CHIG,75--2",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0136.photos.580873p/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580873pv.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS photograph made for the U.S. Government; LoC: no known restrictions on publication",
+  "local": {
+   "display": "research/images/files/a18-kimball-habs-photo-02.jpg",
+   "display_bytes": 138920,
+   "thumb": "research/images/files/a18-kimball-habs-photo-02-thumb.jpg",
+   "thumb_bytes": 33228,
+   "original_px": [
+    1024,
+    776
+   ],
+   "original_sha256": "f1a22ac6a82de6fdf220179bb1b9b53337a9759349cc11225357e27a96e41418",
+   "original_bytes": 304248,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580873pv.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Kimball House 1801' and 'il0136' (fo=json) 2026-10-01",
+  "notes": "North (18th Street) and west (Prairie Avenue) elevations from the north-west: corner tower, conical and hipped slate roofs, dormers, the long 18th Street side running east with its service/stable end. Utility poles and wires are 1965 intrusions. Best single view for massing of the 1801 corner as it stood in 1904 (house complete 1892; Kimball died 1904, widow lived here to 1921).",
+  "measurements": []
+ },
+ {
+  "id": "a18-kimball-habs-photo-03",
+  "kind": "photograph",
+  "title": "3. Historic American Buildings Survey Harold Allen, Photographer , June 1965 VIEW: FRONT PORCH AND IRON FENCE- FROM NE- NORTH ELEVATION (18th ST.) GLESSNER HOUSE IN BACKGROUND ACROSS PRAIRIE AVENUE - W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL",
+  "building_ids": [
+   "pa-1801-23",
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue",
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "southwest",
+  "camera_position": "on 18th Street at the north side of the house, looking south-west",
+  "date": "June 1965",
+  "date_earliest": 1965,
+  "date_latest": 1965,
+  "period": "later",
+  "creator": "Harold Allen for HABS",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1077)",
+  "call_number": "HABS ILL,16-CHIG,75--3",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0136.photos.580874p/",
+  "image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580874pv.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS photograph made for the U.S. Government; LoC: no known restrictions on publication",
+  "local": {
+   "display": "research/images/files/a18-kimball-habs-photo-03.jpg",
+   "display_bytes": 155662,
+   "thumb": "research/images/files/a18-kimball-habs-photo-03-thumb.jpg",
+   "thumb_bytes": 34841,
+   "original_px": [
+    1024,
+    789
+   ],
+   "original_sha256": "08d97f7dda2e79fe83402b89abc131c2ffaaddf40686966b95c662d3f53a4563",
+   "original_bytes": 329638,
+   "fetched_from": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0136/photos/580874pv.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "loc.gov/pictures search 'Kimball House 1801' and 'il0136' (fo=json) 2026-10-01",
+  "notes": "Close view of the arched front-porch with carved stone ornament and the wrought-iron fence curving beneath the projecting porch; Glessner House (1800) visible across Prairie Avenue at right. Fence detail is valuable for the 1904 street edge.",
+  "measurements": []
+ },
+ {
+  "id": "a18-kimball-habs-data",
+  "kind": "document",
+  "title": "W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL — HABS IL-1077 data pages (6 pp.)",
+  "building_ids": [
+   "pa-1801-23"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "survey August 24, 1967",
+  "date_earliest": 1967,
+  "date_latest": 1967,
+  "period": "later",
+  "creator": "Historic American Buildings Survey",
+  "repository": "Library of Congress Prints & Photographs Division",
+  "collection": "Historic American Buildings Survey (HABS IL-1077)",
+  "call_number": "HABS ILL,16-CHIG,75-",
+  "catalog_url": "https://www.loc.gov/pictures/item/il0136/",
+  "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0100/il0136/data/il0136data.pdf",
+  "rights": "no known restrictions",
+  "rights_basis": "HABS federal text",
+  "local": {
+   "display": "research/public/kimball-habs-data.pdf",
+   "thumb": null,
+   "note": "existing repository file (data/sources.csv pa-kimball-habs-il1077)"
+  },
+  "verified": "viewed",
+  "found_via": "existing acquisition; LoC group record il0136 (Photo(s): 3, Data Page(s): 6) re-confirmed 2026-10-01",
+  "notes": "Six data pages; pp. 2–5 architectural description (materials, plan, dimensions), p. 6 survey date August 24, 1967. No HABS measured drawings exist for Kimball (group record lists photos + data only).",
+  "measurements": [
+   {
+    "what": "architectural description incl. dimensions",
+    "value": "see data pp. 2–5",
+    "locator": "il0136data.pdf pp. 2–5"
+   }
+  ]
+ },
+ {
+  "id": "a18-artistic-houses-doane-hall-2",
+  "kind": "publication plate",
+  "title": "Mr. J. W. Doane's Hall (Second View)",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1883 (published); house completed 1882",
+  "date_earliest": 1882,
+  "date_latest": 1883,
+  "period": "in-period",
+  "creator": "Unknown photographer for D. Appleton & Co., Artistic Houses (1883–84), vol. 2 pt. 1",
+  "repository": "Smithsonian Libraries (digitized copy on Internet Archive)",
+  "collection": "Artistic houses: being a series of interior views… (New York: D. Appleton, 1883–84), vol. 2, pt. 1, plate facing p. 55–59",
+  "call_number": "Smithsonian 39088007140106",
+  "catalog_url": "https://archive.org/details/Artistichouses2",
+  "image_url": "https://archive.org/download/Artistichouses2/page/n168_w2000.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published 1883 (US public domain); IA metadata: possible-copyright-status \"Not in copyright.\"",
+  "local": {
+   "display": "research/images/files/a18-artistic-houses-doane-hall-2.jpg",
+   "display_bytes": 184593,
+   "thumb": "research/images/files/a18-artistic-houses-doane-hall-2-thumb.jpg",
+   "thumb_bytes": 16615,
+   "original_px": [
+    2669,
+    3898
+   ],
+   "original_sha256": "dc4807eb0aca2907eb6a3679f3d9b9be1144485433d13cd32bd9ea4cca5b75c6",
+   "original_bytes": 790547,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n168_w2000.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "archive.org advancedsearch title:(\"artistic houses\"); djvu text grep 'Doane'; page n168",
+  "notes": "Photogravure plate (printed sideways on the page) of the two-storey galleried \"grand hall\" of 1827 Prairie: carved oak columns, gallery balustrades, coffered/beamed ceiling. The accompanying text (pp. 55–59) gives the only in-period description of the house: \"broad stone front… unrelieved, save by the tower in the southwestern corner, the lofty pillared porch, and the massive flight of steps\"; grand hall \"thirty feet square\" with dome of stained glass; La Farge stained glass; dining room SE corner; library, drawing room (bird's-eye maple), reception room; ballroom across the full west front on the third floor; electric light throughout. The first plate (\"Mr. J. W. Doane's Hall\") is listed in the table of contents but is missing from this Smithsonian copy — look for it in another copy (HathiTrust / LoC NA7207.A72).",
+  "measurements": [
+   {
+    "what": "grand hall",
+    "value": "30 ft square",
+    "locator": "Artistic Houses vol. 2 pt. 1, p. 56"
+   }
+  ]
+ },
+ {
+  "id": "a18-artistic-houses-doane-text",
+  "kind": "document",
+  "title": "Mr. John W. Doane's House (text, Artistic Houses vol. 2 pt. 1, pp. 55–59)",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1883",
+  "date_earliest": 1883,
+  "date_latest": 1883,
+  "period": "in-period",
+  "creator": "D. Appleton & Co.",
+  "repository": "Smithsonian Libraries (digitized copy on Internet Archive)",
+  "collection": "Artistic houses (1883–84), vol. 2, pt. 1",
+  "call_number": "Smithsonian 39088007140106",
+  "catalog_url": "https://archive.org/details/Artistichouses2",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published 1883",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "archive.org Artistichouses2_djvu.txt",
+  "notes": "Full room-by-room description of the newly completed (1882) Doane house at 1827 Prairie: exterior \"broad stone front\", tower at the south-west corner, lofty pillared porch, massive flight of steps; vestibule of variegated marble; La Farge glass; grand hall 30 ft square with staircase on the north side and stained-glass dome; elevator west of the hall; smoking room NE; dining room SE with east windows toward the lake; library (San Domingo mahogany), drawing room (bird's-eye maple, alcove SW), reception room; billiard room and full-width ballroom on the third floor (west front). Use to orient the plan and the front elevation.",
+  "measurements": [
+   {
+    "what": "grand hall",
+    "value": "30 ft square",
+    "locator": "p. 56"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-kimball-lot-c1888",
+  "kind": "photograph",
+  "title": "The empty Kimball lot from George Glessner's bedroom window (winter, c. 1888)",
+  "building_ids": [
+   "pa-1801-23",
+   "pa-1729-5"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue",
+   "1729 S. Prairie Avenue (coach house)"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "east",
+  "camera_position": "second-floor window of 1800 Prairie (George Glessner's bedroom), looking east across Prairie Avenue",
+  "date": "c. 1888 (after Dec. 1887, before 1890)",
+  "date_earliest": 1887,
+  "date_latest": 1890,
+  "period": "in-period",
+  "creator": "George Glessner",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/05/the-kimball-house-on-chicagos-prairie.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoL-7tH57LQcglqzunH2IDVHSJs3vdVt80JVCXXCBe-DFwAr1grd_yh0uAGtI3yIFebX3jemfU4fFssY0FVE26P1uXS5JR9H-3cvsHmLEyQM-li6ZOyizDJ8ENdJNhUXwW1Kt8aeiYugc/s1600/13-05-27+Kimball+lot.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Snow-covered vacant lot at the SE corner of Prairie and 18th (future 1801) seen from the Glessner house, with a diagonal path toward 18th Street, a row of young street trees and bollard posts along Prairie Avenue, an Illinois Central train on the embankment behind, and the Pullman coach house at far left. Pre-dates the Kimball house (begun 1890): shows the site, street edge, trees and IC rail line. Not the 1904 state of 1801, but the best evidence for curb, parkway trees and the view east toward the lake.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-kimball-exterior-2013",
+  "kind": "photograph",
+  "title": "Kimball house exterior (2013)",
+  "building_ids": [
+   "pa-1801-23"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": null,
+  "date": "2013",
+  "date_earliest": 2013,
+  "date_latest": 2013,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/05/the-kimball-house-on-chicagos-prairie.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrWESqHoreYagNFyera08X37rY7oFxmD_DInNo2CzPlnF2ydrvzLSdx9_7F-D0FV6AupI7qbKQXKlsARibv4nZqm9_DxvVDhxPY4PAOIm4RUtXhLJnyjitgB5Hh9qAIMCML7p1Srg7BEw/s1600/13-05-27+Exterior.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Modern photograph by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Modern colour view of the west (Prairie) front: arched porch, carved Bedford stone, slate roofs, wrought-iron fence and gate. Blog text: house completed 1892 after two years, 29 rooms, first-floor ceilings 13 ft 4 in, second floor one foot lower; reported cost $1,000,000. Fence and stone survive from 1892.",
+  "measurements": [
+   {
+    "what": "first-floor ceiling height",
+    "value": "13 ft 4 in",
+    "locator": "blog text"
+   },
+   {
+    "what": "second-floor ceiling height",
+    "value": "12 ft 4 in (one foot lower)",
+    "locator": "blog text"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-kimball-porch-north-2013",
+  "kind": "photograph",
+  "title": "North side of the entrance porch (2013)",
+  "building_ids": [
+   "pa-1801-23"
+  ],
+  "addresses": [
+   "1801 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "2013",
+  "date_earliest": 2013,
+  "date_latest": 2013,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/05/the-kimball-house-on-chicagos-prairie.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCeJrfJfHehXoIeCH4IxzXQJVyOfZ0-dbHnMIBmdPO5JGBiu_Z3i9eUQVWUio_nES7QpYNllXk7PC2LdBVulvp8hgpXepSALAHRnZMGQzvBuDM37SEQZ7kjePsKa5o4tWRK4f16QJ-kBk/s1600/13-05-27+Side+balcony.JPG",
+  "rights": "copyright — link only",
+  "rights_basis": "Modern photograph by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Caption: \"North side of the entrance porch. Note how the wrought iron fence is constructed to curve underneath the projecting extension.\" Original 1890s fence detail.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-sears-house-exterior",
+  "kind": "photograph",
+  "title": "Joseph Sears house, 1815 S. Prairie Avenue (historic photograph)",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1815 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": "west side of Prairie Avenue, south-west of the house",
+  "date": "undated (between 1882 and 1967)",
+  "date_earliest": 1882,
+  "date_latest": 1967,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2012/05/joseph-sears-and-his-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgkR479_QHJkEjFkDUWpK5_mlOuPUe0RlZY9sLlNj_4br7XMxHBpn702r2wNIbpd93OziM1rTch_lkyk9a92lFkUpBnCHFIiJCtajrwwrN5jb9mMrhq_pTltLr-i5NSwc9HW5QaGi5x2Y/s1600/12-05-07+Sears+house.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Historic photograph of the Burnham & Root house (built 1881–82): three storeys of light ashlar with darker rock-faced side wall, steep mansard/slate roof with tall chimney, gabled dormer, curved stone front stair, bay at the first floor, young street tree. Undated; the blog post (2012) does not say whether it shows the house before or after Arthur Meeker's 1902 remodel by Arthur Heun — compare with ICHi-038250 (1959). Period is assigned provisionally as in-period on the evidence of the bare young tree and unpaved parkway; verify.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-sears-house-interior",
+  "kind": "photograph",
+  "title": "Sears house, 1815 S. Prairie Avenue: parlor interior (historic photograph)",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1815 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated (probably 1880s)",
+  "date_earliest": 1882,
+  "date_latest": 1892,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2012/05/joseph-sears-and-his-prairie-avenue.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYA0tr52SPQ4ALEPc8tNyIstBvrDYOhUBLXMaEkFD9M2iKjbYpXAwPNMpD_PgnlSlC8tBGJpQ50i_GHgn6ho0ldQB5T3VLA6_s6cEW5IVM1kQ-HjH_NDPhd-rcBQrV_9vT9iLZiGAWshQ/s1600/12-05-07+Sears+interior.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Parlor with gasolier, draped tall windows, paintings and Eastlake furniture — Sears-era interior (Sears lived here 1882–1892; leased to Levy Mayer; sold 1902 to Arthur Meeker who remodeled). Blog text gives the lot \"less than 100 feet south\" of the New Church Hall (SE corner Prairie & 18th, later the Kimball site); house razed 1967.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-doane-exterior",
+  "kind": "photograph",
+  "title": "John W. Doane house, 1827 S. Prairie Avenue (historic photograph)",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southeast",
+  "camera_position": "west side of Prairie Avenue, north-west of the house",
+  "date": "undated (after 1882)",
+  "date_earliest": 1882,
+  "date_latest": 1936,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/08/electricity-comes-to-prairie-avenue-1882.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRWQXG8S9Fg3gxlOZytNwKlx7gsnVXC2reNyGyU2d2SpcVM133grFjMsRljekr40RAQOWmLNm9pBolQr0NmHGWGNfX6b-19FXFmkha82ZZZvmKSUeNGJr-TjBoqCaJXy0n3wl6J0MJ9vM/s1600/13-08-05+1827+PA+exterior.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Three-storey stone house by T. V. Wadskier (1882): two corner towers with steep conical/pyramidal slate roofs and finials, mansard with dormers, carved window heads, a porch with steps at left, low cast-iron fence on a stone curb around a lawn, and the coach house (which held Doane's private 1882 electric plant) visible at right rear across the side yard. One of the best exterior views of any lost 1800-block house. Date uncertain (house razed 1936); the bare young trees suggest the 1880s–1890s.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-doane-stairhall",
+  "kind": "photograph",
+  "title": "Doane house, 1827 S. Prairie Avenue: stair hall",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1882–1883",
+  "date_earliest": 1882,
+  "date_latest": 1883,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/08/electricity-comes-to-prairie-avenue-1882.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUj4mL_8lLV25sH5ON4Kw3uhrbe8tjjMWPQbHxl1J8uYqYrsSBKMDfkC5rxW5GF6eQVrC-I515BaTmor9aRX6ER2YxXND8FcXpHr3dkx1vyUo_b3ugvK3qDIoD8D3iJulyktPUvFzPKAg/s1600/13-08-05+1827+PA+stairhall.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Grand stair hall with carved oak staircase, galleried upper level and coffered ceiling with dome. Matches the style of the Artistic Houses (1883) plates and is probably the \"Mr. J. W. Doane's Hall\" first view missing from the Smithsonian copy (see a18-artistic-houses-doane-hall-2). Blog text: 250 Edison lamps powered from a plant in the coach-house basement, built Aug. 1882 at $7,197; wiring $971; house opened Nov. 10, 1882; plant later served Dent (1823), Sears (1815), Field (1905) and Edson Keith (1906).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-pomeroy-house-italianate",
+  "kind": "photograph",
+  "title": "Pomeroy house, 1824 S. Prairie Avenue (original Italianate form)",
+  "building_ids": [
+   "pa-1824-8"
+  ],
+  "addresses": [
+   "1824 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "east side of Prairie Avenue",
+  "date": "before c. 1880 (pre-dates the new stone facade)",
+  "date_earliest": 1857,
+  "date_latest": 1880,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue_23.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHw3VOXje35goyfwzTdVF-J2HiXQbi-mEfnTQlYAUzxUZ0qJM7tfoBgHf33P2s4pe0m7mtLoat9xN9Ny5rPYi86PCMv_0keGUCT-KQoJU-aqV9H_G3k4n0d1V11fl8asMsUDbwhL2vGkQ/s1600/Pomeroy.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "The second house on Prairie Avenue (Samuel B. Pomeroy, c. 1857): two-storey Italianate villa with bracketed cornice, arched windows, arcaded side/front porch with balcony, large cupola, ornamental iron fence. Blog: sold 1863 to Henry Hinsdale, then James Smith; bought 1880 by George B. Marsh who soon gave it \"an entirely new stone façade\"; demolished 1940s. So this photograph shows the PRE-1880 form — the 1904 house had the Marsh stone front (massing/cupola may or may not survive). A neighbouring masonry house is visible at right.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-hitchcock-galloway-1874-sketch",
+  "kind": "engraving",
+  "title": "Hitchcock and Galloway double houses, 1804–1808 S. Prairie Avenue (detail of 1874 engraving)",
+  "building_ids": [
+   "pa-1804–1808-s.-prairie-avenue-(predecessors)-44"
+  ],
+  "addresses": [
+   "1804–1808 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "southwest",
+  "camera_position": "Prairie Avenue at 18th Street, north-east of the corner",
+  "date": "1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "The Land Owner (Chicago), May 1874",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue_23.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS7UIvXkonLde0ukKll0NKd4bnGARNEn3Adn-QY9b514c1mXnp-mVerDFYccG1cvqsxCnquSHTgojt98Gp6fzWViAE47cJ9BDobwP950P96U_dP5DbPx7YXYKSR8tz99_IJYWDhXVH_BI/s1600/Galloway+and+Hitchcock+houses.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Detail of the Land Owner (May 1874) vignette \"Prairie Avenue looking southwest at 18th Street\": the three-storey Second Empire double house (mansard third storey) built c. 1858 for Dr Horatio Hitchcock (north/corner) and A. J. Galloway, with picket fences, gas lamp and carriage. Blog: \"There are no known photographs of the house, only the sketch\". Demolished 1886 for Glessner (1800) and O. R. Keith (1808). The Hitchcock footprint lay well south of 18th St, largely in the later Glessner courtyard.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-landowner-1874-plate",
+  "kind": "engraving",
+  "title": "\"Prairie Avenue\" — The Land Owner, May 1874 (nine vignettes)",
+  "building_ids": [
+   "pa-1816-33",
+   "pa-1804–1808-s.-prairie-avenue-(predecessors)-44",
+   "pa-1905-16",
+   "pa-1729-5",
+   "pa-1936-11",
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1816 S. Prairie Avenue",
+   "1804–1808 S. Prairie Avenue",
+   "2026, 1906, 1905, 1620, 1729, 1730, 1936 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": null,
+  "camera_position": null,
+  "date": "May 1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "The Land Owner (Chicago)",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcrExSkQBPWpsNN7Fg2LthRA7B7nwB7NqhdB6-pukMGJT6ha9icYnEZ1zOLrs38lKBYyZnPyn_LMzy3LntmyJNjtxD0T3bASiuWOP1zwanhbU6zYi061dR2qIkaRdQp7lH7mnFlttUZ_4/s1600/Land+Owner.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Full-page wood engraving from The Land Owner (Chicago monthly), May 1874: Louis Wahl (2026), \"Prairie Avenue looking southwest at 18th Street\", Edson Keith (1906), C. M. HENDERSON (1816 — the only known view of the Henderson house, a two/three-storey Second Empire house with mansard and corner bay, fenced lawn), Marshall Field (1905), Robert Law (1620), George M. Pullman (1729, under construction), A. A. Dewey (1730), Daniel M. Thompson (1936, centre). For 1904, the Henderson vignette is the key in-scope image (house status in 1904 unresolved).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-landowner-1874-glessner-site",
+  "kind": "engraving",
+  "title": "\"Prairie Avenue looking southwest at 18th Street\" (The Land Owner, May 1874) — the Glessner site before 1886",
+  "building_ids": [
+   "pa-1804–1808-s.-prairie-avenue-(predecessors)-44",
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800–1808 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "southwest",
+  "camera_position": "north-east corner of Prairie Avenue and 18th Street",
+  "date": "May 1874",
+  "date_earliest": 1874,
+  "date_latest": 1874,
+  "period": "in-period",
+  "creator": "The Land Owner (Chicago)",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2QLuLnVOmKMcVszEaoOUaIn0NdXokVlFODc9EYFO3rxtexuO7u40G32eYKm7CIara-nw5iB8Cy2hqYtO_IPAhQrNrilqm00HP4b8cJ-WN-k0-c2LII7r5uts1UTsDpsR5-H7NsBN_ML0/s1600/Glessner+house+site.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Blog: \"the only known image showing the southwest corner of Prairie and 18th prior to the construction of Glessner House\". Right of centre the three-storey mansard double house (Hitchcock/Galloway); a smaller gabled cottage and a church-like tower further west along 18th St; plank sidewalks, picket fences, gas lamp. Glessner bought the double house March 1885, sold the south part to O. R. Keith and kept 75 ft of frontage.",
+  "measurements": [
+   {
+    "what": "Glessner frontage retained",
+    "value": "75 ft",
+    "locator": "blog text"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-shipman-1828-with-automobile",
+  "kind": "photograph",
+  "title": "Daniel B. Shipman house, 1828 S. Prairie Avenue, with an early automobile",
+  "building_ids": [],
+  "addresses": [
+   "1828 S. Prairie Avenue",
+   "1824 S. Prairie Avenue (neighbour at right, probably)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "east side of Prairie Avenue roadway, opposite 1828",
+  "date": "c. 1902–1906 (from the automobile)",
+  "date_earliest": 1900,
+  "date_latest": 1910,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_gjxlytGWc2IycwWDAkySurZ86bqK7mQIOVV7sbaIQjp_0DrjDqptLeh1Cxl3vSkJb8TkJmk6ZpUlYO1CdSCtcyWD9V_EcoL3vBD4q3MbdNSBDwEJhfZIqDIfnq9B2mJ9sUjbY3UhHis/s1600/Shipman+house+1828+PA.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Street-level photograph of the W. W. Boyington Second Empire house (1874) at 1828 Prairie (no building id in this library's index — it stands between 1824 Marsh and 1834 Jones): stone front, bracketed hooded entrance porch on columns, high stoop with stone balustrade, iron fence on a stone curb, unpaved/dirt carriageway with stone curb and a parkway with a young tree; a man in a curved-dash-type runabout in the street. The house at right (north), with stacked bay windows and carved stone, is probably 1824 (Marsh, refaced c. 1880). Automobile dates the image to the early 1900s — one of the closest views to 1904 for the west side of the 1800 block. Shipman died 1906.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-shipman-1828-partial",
+  "kind": "photograph",
+  "title": "Shipman house, 1828 S. Prairie Avenue (partial view, damaged print)",
+  "building_ids": [],
+  "addresses": [
+   "1828 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": null,
+  "date": "undated",
+  "date_earliest": 1874,
+  "date_latest": 1950,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv0GUPvVjIxms3qMqnB_ZT9_8T_uOy_EPwfl60Nkjtmba8Z7QBwu-UqWnxlDqDLWhyphenhyphenE9IDfwVeGxwvq1ZQ7Wto7HWCNhx8dJUxRkw1jrrUi58FCFZiRN564Pcd7B1Et9GPfIeAO1wMWDU/s1600/Shipman+house+partial.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Partial view of the 1828 front (mansard, dormer, hooded entrance) with a damaged emulsion; at right a long brick/stone building with gables and an arched opening — possibly a later structure behind/next door. Date unknown; period set to \"later\" pending dating. Low priority.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-cornell-glessner-front-c1887",
+  "kind": "photograph",
+  "title": "Glessner House from the north-east, c. 1887 (albumen print, Cornell A. D. White collection; as reproduced by the museum)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southwest",
+  "camera_position": "north-east corner of Prairie Avenue and 18th Street",
+  "date": "c. 1887",
+  "date_earliest": 1887,
+  "date_latest": 1888,
+  "period": "in-period",
+  "creator": "Unknown photographer",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR6FFXMYFGfGFfu_Mot7MzopYmbwIL0uAb_66L0Y6b8qvU2Ak4ix-W6OWdAnNB5_tevq3XA_pqC2W9EabqViFmCs3nC_8cUtYvVXY5TZygPnsMvIMgb-6mw6lkJzWkUgUnEtyrauhADqqHCGhwhGtRqWan-AMPPqF5C-kYlzmOYdh5sNxqpLbr5-QL/s1800/Cornell%20front.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Albumen print c. 1887 (public domain by age); reproduced by Glessner House Museum; held by Cornell University Library",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Newly completed house from the north-east corner of Prairie and 18th: rough granite, the 18th Street front with its row of small windows, front arched entrance on Prairie, gas lamp post at the corner, fresh sidewalks and young trees, building debris and workmen still about. Earliest exterior photograph of the house; also shows the O. R. Keith house (1808) parapet at far left. The original albumen print is in the Andrew Dickson White Architectural Photographs Collection, Cornell (see a18-cornell-adw-glessner).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-cornell-glessner-rear-c1887",
+  "kind": "photograph",
+  "title": "Glessner House stable/coach-house end on 18th Street, c. 1887 (Cornell A. D. White collection; as reproduced by the museum)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "side elevation",
+  "facing": "southeast",
+  "camera_position": "18th Street near the alley, north-west of the stable",
+  "date": "c. 1887",
+  "date_earliest": 1887,
+  "date_latest": 1888,
+  "period": "in-period",
+  "creator": "Unknown photographer",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0W8l_hxJ6n-OD0Pm1I3no0LL8nG6Wc5cuPM8tFyfjCgwZFhqNKqJ1V9mA8aM0nMrH9VLEY_e63y-eARCWVNYNWF1ZuDZIKoTWPlqlf-ROIec_L44cPx6NAyLJwU_Gk8w9-VxYPAIWMQAPxR83FXJF-ca7gNHUnDwQFnpfx6W16n2M07UcFqnIBOUo/s1800/Cornell%20rear.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Albumen print c. 1887 (public domain by age); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-glessner-front-with-keith",
+  "kind": "photograph",
+  "title": "Glessner House Prairie Avenue front, with the O. R. Keith house (1808) at far left",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue",
+   "1808 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "west",
+  "camera_position": "east side of Prairie Avenue opposite 1800",
+  "date": "undated (probably 1890s–1920s)",
+  "date_earliest": 1888,
+  "date_latest": 1930,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEip1QarESnrLSryNW8p1f4geYp7IX3ijvJfHfSZCcHNl3Gzls9P9eAbsaDaozJz88-eNwfH1u0mr3Qv6lQaR4tK43U2oQt7YtSKwM9SKkM0g-azBfW1zps7YWrBWysjfDXqsrwNmW0UiFiSQ7OR94at-blfj99xSrPJsQr9Ig_xGoh150spiJH6r4VB/s1950/Keith%20and%20Glessner.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Square-on view of the long east (Prairie) front: granite, hipped slate roof with three chimneys, front door arch, small first-floor windows, young tree. The north wall/corner of 1808 at left. Blog caption: \"Osborne Keith's house (partially seen at far left, above) stood immediately to the south\". Date not given; period provisional.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-chicago-herald-1887-illustration",
+  "kind": "newspaper item",
+  "title": "\"A Queer House Out on the Avenue\" — Chicago Herald illustration, late 1887",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "late 1887",
+  "date_earliest": 1887,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "Chicago Herald",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilmU27OEOikCH_ciROHNAV35qvAK-gIbQUOzSGlzkLKM_BLaUH6uGDdEs7JB4ywE6TeDCpmOvmyxv5OBPl63zfqTDwOYXEkr51gDb11gcey96DOMycCfiEDBC2ZCXK_IPm2KwddeiwtqOg61wQuAB2zKUJAvZ_EpCAGvNNT4opc4tJhiSRYDDAGrPV/s1800/Queer%20illustration.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Newspaper illustration 1887 (public domain by age); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Crude newspaper line-cut of the Glessner house from the north-east published with the Chicago Herald article; text gives lot \"75 x 160\" and court \"40 x 100\", cost $60,000. Measurements: Tribune June 5, 1886 gives frontage 76 ft on Prairie and 160 ft on 18th Street, two storeys, cost $60,000.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "75 x 160 ft",
+    "locator": "Chicago Herald, late 1887"
+   },
+   {
+    "what": "court",
+    "value": "40 x 100 ft",
+    "locator": "Chicago Herald, late 1887"
+   },
+   {
+    "what": "frontage",
+    "value": "76 ft on Prairie, 160 ft on 18th St",
+    "locator": "Chicago Tribune, June 5, 1886"
+   },
+   {
+    "what": "cost",
+    "value": "$60,000",
+    "locator": "Tribune 1886 / Herald 1887"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-1800-block-looking-sw-c1888",
+  "kind": "photograph",
+  "title": "The 1800 block of Prairie Avenue looking south-west from 18th Street, c. 1888",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33"
+  ],
+  "addresses": [
+   "1800, 1808, 1812, 1816 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "south",
+  "camera_position": "north-west corner area of Prairie Avenue and 18th Street, on the roadway",
+  "date": "c. 1888",
+  "date_earliest": 1887,
+  "date_latest": 1892,
+  "period": "in-period",
+  "creator": "Unknown photographer",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnxKUBoQMyhEJ9KPC9674ynIW61wrTfelODwkLrq5XO84N4ej7iw8NjXN1NLfHJNu2O1BE0JWr9fT8XwI4X1xrVDAdCKz450qHU4m0KbNOqUhJtoS-uDfjxbYFdUGeQtcEjexWXI3L0hynNe7gNOW8rC79FixSnvh-vF4UeZ_cce5OSmKggTp_C29G/s1733/1800%20block%20looking%20SW.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Photograph c. 1888 (public domain by age); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "KEY STREET VIEW. Looking south down the west side of Prairie from the 18th Street corner: Glessner (1800) granite front in the right foreground with corner lamp post; then the tall stone O. R. Keith house (1808, Cobb & Frost 1886) with its arcaded top storey and chimney stack; then a row of mansard and gabled houses (1812 Wheeler, 1816 Henderson and beyond) with high stoops; parkway trees, raised curb, wide unpaved roadway. Accompanies the Chicago Herald \"Nest of Millionaires\" (late 1887) text in the post. Establishes the west-side street wall south of Glessner.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-glessner-exterior-historic",
+  "kind": "photograph",
+  "title": "Glessner House from the north-east (historic photograph)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "southwest",
+  "camera_position": "north-east corner of Prairie and 18th",
+  "date": "undated (late 1880s–1890s)",
+  "date_earliest": 1887,
+  "date_latest": 1900,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI2DpIeGcWg62ujsL-istgT_knkjLPD9AfJFgfDsgP-OHlCbNd9nSsx0G5GvfMw37i-g44eUevHWfdF4vI6mio-Rj8h6Vb9qmmMlXNZbT7zddN49enXTmq-mwjtZNrpsvs18a6X_2QWXCm29kKNwxJmhyY_ZhUEBGaMPYjKUW7A0zK52VnLh2y6ZlS/s1323/Glessner%20exterior%20historic.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic photograph reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "NE oblique of the granite house with the 18th Street side, corner lamp post, bare trees, and the Keith house (1808) parapet at left. Similar station to the Cornell view but with the site cleaned up, so slightly later.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-courtyard-watercolor",
+  "kind": "architectural drawing",
+  "title": "Glessner House courtyard, watercolor rendering",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "rear",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated (design period, 1885–1887?)",
+  "date_earliest": 1885,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYD-_qnuhUJUqJiwbuu9sKGshMCpAW1Cd4R5iBl-UUVjBCV4jq9xmTSJAg2_7nmLhbkcG7WeUsmj8-irrCTLRDZxSTb-9CKjhOBqkEmTy4Oy4JuJhi1IXKJd61WjvGLrgHV-8gq8XpEnYFEcpfRfshQz_Bhq-7jhu5odGy-Pdg9aym-G8hTHlr2yd6/s1800/Courtyard%20watercolor.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Rendering reproduced by Glessner House Museum; origin not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Watercolor of the south-facing court elevation with a glazed conservatory/bay, round stair turret, groom and horse in the court. Accompanies the Chicago Evening Journal (July 10, 1886) excerpt; author and date not stated on the page — treat as a design-stage rendering, not proof of as-built details (compare HABS photo 5, court c. 1923).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1808-keith-field-front",
+  "kind": "photograph",
+  "title": "1808 S. Prairie Avenue (Cobb & Frost, 1886)",
+  "building_ids": [
+   "pa-1808-6"
+  ],
+  "addresses": [
+   "1808 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": "west",
+  "camera_position": "east side of Prairie Avenue",
+  "date": "undated (after 1886)",
+  "date_earliest": 1887,
+  "date_latest": 1968,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/prairie-avenue-and-louis-sullivan-part.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzzgLaEbE1Zt2xsJ_NXdQqKaZQzOhYWZQGJX3ZIMw9tvCUAAegubIJHrRTTRyvx2j99p1Oodu9KhS7Y1_-WI0yyiMva_n7cUBhvI0aMNjE8qS8zCj6n6IBSWpUspxpMhw7n3NS8WnhAO0/s1600/3+-+1808+Prairie+Avenue.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Front of the O. R. Keith / Stanley Field house: three storeys of rock-faced granite, a two-storey rounded bay at the first/second floors, Ionic-columned entrance porch with balustrade and stair at right, a top storey with a band of windows under a pierced/latticed stone parapet, corner turret toward Glessner (right). Blog: \"The three-story house with a granite front at 1808 sat next to the Glessner House… designed by Cobb & Frost for O.R. Keith in 1886. Keith sold it to Stanley Field (nephew of Marshall Field) in 1901 for $45,000. But by 1917 it was being leased for commercial purposes\" (Louis Sullivan had his office here c. 1919–21 at the American Terra Cotta sales office). In 1904 it was Stanley Field's house.",
+  "measurements": [
+   {
+    "what": "sale price 1901",
+    "value": "$45,000",
+    "locator": "blog text"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-american-contractor-1921-sullivan-1808",
+  "kind": "newspaper item",
+  "title": "The American Contractor, December 3, 1921: \"Louis H. Sullivan has moved his architectural office from 1808 Prairie avenue… to 1701 Prairie avenue\"",
+  "building_ids": [
+   "pa-1808-6"
+  ],
+  "addresses": [
+   "1808 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 3, 1921",
+  "date_earliest": 1921,
+  "date_latest": 1921,
+  "period": "near-period",
+  "creator": "The American Contractor",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/06/prairie-avenue-and-louis-sullivan-part.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEit8XmHKgjNU64yN4bHDiWutraMcbSPLpqfphEtSi97lY8knNjG1veQQsgyFB1__PDLCc7n2IVNdyeJycAt945QbuQo3S13v2xADNcSGIqaHkAYz3nW6z5Gy97RFy0gEXnB2L_eM7auFvo/s1600/6+-+American+Contractor+notice+12-3-1921.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Periodical 1921 (public domain by age); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Trade-journal notice documenting the post-1917 commercial use of 1808 (American Terra Cotta & Ceramic Co. sales office, where Sullivan had his office). Evidence of change of use after 1904, not of form.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-nickel-1967-1812-1808-1800",
+  "kind": "photograph",
+  "title": "Wheeler house (1812), Keith house (1808), and Glessner house (1800 S. Prairie Avenue), 1967",
+  "building_ids": [
+   "pa-1812-7",
+   "pa-1808-6",
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1812 S. Prairie Avenue",
+   "1808 S. Prairie Avenue",
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "west",
+  "camera_position": "upper floor on the east side of Prairie Avenue (Kimball house?), looking west",
+  "date": "1967",
+  "date_earliest": 1967,
+  "date_latest": 1967,
+  "period": "later",
+  "creator": "Richard Nickel",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/04/richard-nickel-and-glessner-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdTAeiulE1GP41sLVk3qr1qW0apvOiQFEj0XUHXwftE4zksDCKHigDDJQneH-vMa33G2aCSVFYYpngwd_F5N17oxe-GiIE5i6O0xGM6E1KrEKcB1O__gu2JTndyKcVUFW6rBNvmY0UYmpIn1XPPvslGt3IkXAanYuP33nlizOzS-Nqxpu2Q4RrHTyt/s1200/GH%20-%20ext%20-%20with%201808-1812.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Richard Nickel photograph (Richard Nickel Committee / Ryerson & Burnham Archives hold Nickel's archive); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Richard Nickel photograph from an elevated position across Prairie Avenue (probably the Kimball house), the year before 1808 and 1812 were demolished (1968): Glessner (ivy-covered) at right, 1808 Keith/Field granite front with latticed parapet and porch in the centre, and 1812 Wheeler (Burnham & Root, 1884) at left with its stepped/curved Dutch gable and arched entrance. The only located photograph of the 1812 front. 1960s condition (cars, institutional use) but facades largely original.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-nickel-west-roof-dormer",
+  "kind": "photograph",
+  "title": "Glessner House: west roof and hayloft dormer (Richard Nickel, 1966–67)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "1966–1967",
+  "date_earliest": 1966,
+  "date_latest": 1967,
+  "period": "later",
+  "creator": "Richard Nickel",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/04/richard-nickel-and-glessner-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnCVLRHh5NDpoLK8mLKTty-oJ0t88WWSFVZA3D4Ns9xEtj-pHK89siWpyE1MJvzNZRWbyhrPII6MD1nS0oZz93D03V5TZDYsM7JtWkJRRiIg95Du6xljMQW_31c7IqfoOopGS4YGuytCaNt9vnIJawopJlXT48ea4GuJpQy2PPsQ94iVdOSsXQylBs/s1200/GH%20-%20ext%20-%20west%20roof%20and%20dormer.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Richard Nickel photograph",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Slate roofs of the coach-house end with the ventilator cupola and the hayloft dormer — roof geometry of the stable wing.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-nickel-coach-house-interior",
+  "kind": "photograph",
+  "title": "Glessner House: coach house interior (Richard Nickel, 1966–67)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1966–1967",
+  "date_earliest": 1966,
+  "date_latest": 1967,
+  "period": "later",
+  "creator": "Richard Nickel",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2022/04/richard-nickel-and-glessner-house.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhARSsXWm_5B6GO1enk8DCfZd-bm6GishiA-ZQ0grROPEUupLdt480Mw-fTF4Do9g4W7u41uIFfv1rfCr5A3iTvC7ucZkALLZ8kkhjOP0-HLZ79U7KZR28IUkHMB_24GkTguJ0o_UTpQU5h_kJtfehjwrZ1aR0MizTiFF5gbKgJm21z5HXPUNg3mRn1/s1200/GH%20-%20int%20-%20coach%20house.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Richard Nickel photograph",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Carriage-house interior after 1940s–50s conversion (glazed brick, overhead door, fluorescent fixtures). Evidence of post-1904 alteration.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1811-ames-house",
+  "kind": "photograph",
+  "title": "1811 S. Prairie Avenue (Coleman / Ames house), historic photograph",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "east",
+  "camera_position": "west side of Prairie Avenue",
+  "date": "undated (after 1886)",
+  "date_earliest": 1886,
+  "date_latest": 1930,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/01/miner-t-ames-coal-merchant.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiho0BSthTZivzUgbmKqYpSNnCc6cFUHIz4RhbMdv1XdO_D7h1kVQKhFXDfB-JMYMElhDwJnQro7cwtI65AHHQIro1P-uq0mmNBRdPi_OFshSVldbRuPFfUhKGuCx7iRtzt8MO00A0BuYA/s1600/1811+PA.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Rock-faced brownstone Romanesque house by Cobb & Frost (1886): round-arched entrance with stair and stone cheek walls, a projecting bay rising to a carved stone balcony, steep gabled and pyramidal slate roofs with finials and chimney, adjoining house at right edge. Built for Joseph G. Coleman (wife was Silas Cobb's daughter); sold at auction Aug. 1888 to coal merchant Miner T. Ames (d. 1890); later leased (William B. Keep, Joseph Fish, David Mayer). Survives (U.S. Soccer HQ).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1811-for-sale-1894",
+  "kind": "newspaper item",
+  "title": "\"For Sale. 1811 Prairie-av. The Late Miner T. Ames' Residence\" — Chicago Tribune, May 27, 1894",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "May 27, 1894",
+  "date_earliest": 1894,
+  "date_latest": 1894,
+  "period": "in-period",
+  "creator": "Chicago Tribune",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/01/miner-t-ames-coal-merchant.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgOpQpOmz3ZHX8bEn_bJBmGI3K7e6xqSP3If3asjCX25U0-kfVgQ3dfIAhhTwYoZ8DCPpDUj81Qq3_fz0z-DB2e1rOQS8Gv-RgPVBV-5D0mjT5vZEB3SmJ-9R59xbqxnrvyRxbPqGVeY0/s1600/House+sale+adv.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Newspaper 1894 (public domain by age)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Real-estate advertisement (W. D. Kerfoot & Co.): \"Elegant modern house, lot 46½ ft. front.\" Blog adds the estate inventory value of the homestead, $90,000 (1890), and the $50,000 sale price of 1888.",
+  "measurements": [
+   {
+    "what": "lot frontage",
+    "value": "46½ ft",
+    "locator": "Chicago Tribune, May 27, 1894"
+   },
+   {
+    "what": "homestead value 1890",
+    "value": "$90,000",
+    "locator": "Tribune Jan. 21, 1890 via blog"
+   },
+   {
+    "what": "auction price 1888",
+    "value": "$50,000",
+    "locator": "blog text"
+   }
+  ]
+ },
+ {
+  "id": "a18-gh-1911-map-west-1800-block",
+  "kind": "fire insurance map",
+  "title": "The block bounded by 18th St, Prairie, Cullerton (20th) and Indiana as it appeared in 1911 (annotated insurance map)",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33",
+   "pa-1824-8",
+   "pa-1834-9",
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1800–1834 S. Prairie Avenue (west side)",
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "map",
+  "facing": null,
+  "camera_position": null,
+  "date": "1911 (map); annotated 2021",
+  "date_earliest": 1911,
+  "date_latest": 1911,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/03/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3A4FmBXfCYlfyXVGYYkSX2VYI7OPN4jJqY_w45jACEwfNYIcsaSXMjkkQ5owGEgj-LA7f_TKiXRorJiaRo-S4gQ4IlJao0OUuGbCpeH0hiU4ZzLMw7iec7Ofb_vpQxzFC6nqAnGSiIWE/s2048/1+-+1911+map.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "1911 map (public domain by age); annotation by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Fire-insurance-style block plan (most likely the 1911 Sanborn sheet; the post does not name the publisher) of the whole west side of the 1800 block plus the Indiana Avenue frontage, with the present park outlined in red, Glessner and Keith (1900) in green (survivors), yellow = standing in 1950. Shows footprints, bays, porches, barns/garages and lot lines of 1800, 1808, 1812, 1816, 1824, 1828, 1834 and the rowhouses on 18th St — the closest-to-1904 footprint source for the lost west-side houses. Cross-check with maps/originals/sanborn-1911-sheet-*.jpg already in this repository.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1800-block-sw-george-glessner",
+  "kind": "photograph",
+  "title": "1800 block of Prairie Avenue looking southwest; Glessner House at right. Photo by George Glessner, circa 1888.",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33"
+  ],
+  "addresses": [
+   "1800–1816 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "south",
+  "camera_position": "Prairie Avenue roadway at 18th Street",
+  "date": "circa 1888",
+  "date_earliest": 1887,
+  "date_latest": 1892,
+  "period": "in-period",
+  "creator": "George Glessner",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/03/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJFmzKcbYkZskrLeTnN4x3-VH8NcNcSFEpqTTPCr8QMGtVz-EBM37S3O6y_0_0thNDnlarm7mpGRqECAVi9S8KXn5axdAvrJ4B3GUUzaOCv2BpkJ0Esa5q_M4_ryh2f0ooK0M8oXIB3Nw/s954/2+-+1800+block.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Photograph c. 1888 by George Glessner (public domain by age); Glessner House Museum collection",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Same photograph as a18-gh-1800-block-looking-sw-c1888 (fortress post) — here credited by the museum to George Glessner, c. 1888. Kept as a separate record because this page carries the attribution; use either image URL.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1935-donnelley-aerial",
+  "kind": "aerial",
+  "title": "Aerial view from the tower of the R. R. Donnelley building, 1935",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33",
+   "pa-1824-8",
+   "pa-1834-9"
+  ],
+  "addresses": [
+   "1800 block S. Prairie and Indiana Avenues"
+  ],
+  "streetscape": true,
+  "view": "aerial",
+  "facing": null,
+  "camera_position": null,
+  "date": "1935",
+  "date_earliest": 1935,
+  "date_latest": 1935,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/03/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtjPqgPyLWlBLKMUUxgSuGe05nYtIVzkNB08iCHzAd0CzocNBVkzn_d-b0znefWi6ZVQ34e5GgvnCsdvq5Na0vAzCxbV6ouUJei5GFKi7pPD7Yjxfsu2H2_Qlhahs0M8tg7O1VYyarx78/s900/5+-+1935+Donnelley+aerial.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "1935 photograph; reproduced by Glessner House Museum without credit line",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Oblique aerial looking (approximately) north-east over the Indiana/Prairie block from the Donnelley tower (Calumet Plant, 350 E. Cermak): mansard-roofed houses and coach houses of the Prairie west side still standing, many vacant lots along Indiana after the late-1920s street widening. Roof forms of 1808/1812/1816/1824/1834 may be readable at full resolution. Post-dates 1904 by 31 years; Indiana Ave frontage much changed, Prairie houses largely intact (1834 razed 1942, 1824 1940s).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-nickel-prairie-nw-after-1968",
+  "kind": "photograph",
+  "title": "Looking northwest on Prairie Avenue, Glessner House at right (Richard Nickel, after 1968)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800–1834 S. Prairie Avenue (site)"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "northwest",
+  "camera_position": null,
+  "date": "late 1960s (after 1968)",
+  "date_earliest": 1968,
+  "date_latest": 1970,
+  "period": "later",
+  "creator": "Richard Nickel",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/03/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizs55ZDVoD-hAdRq_sy_ofuW04zgMjvHY7YEHAv5tHpyXqpo7stMuswHbTyqV3pcx3Hwm7I6OPJQK0hyphenhyphen91aoeCKNw5z_9kxF64nPldFbMF5X888SJrRFR1BIVb_4IlODd4dGI3QaN0B0s/s654/9+-+15-2+PA+south+after+68.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Richard Nickel photograph",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Vacant west side of the 1800 block after the 1968 demolitions of 1808 and 1812 (and earlier losses), parkway trees, chain-link; Glessner at right. Documents the cleared site and street geometry (curb line, parkway width), not 1904 buildings.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-nickel-aerial-ne-after-1968",
+  "kind": "aerial",
+  "title": "Aerial view looking northeast, Glessner House at upper center (after 1968)",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1801-23",
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1800 block S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "aerial",
+  "facing": null,
+  "camera_position": null,
+  "date": "after 1968",
+  "date_earliest": 1968,
+  "date_latest": 1972,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/03/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2wzkubudhyphenhyphenJNB9gSuu7WkFGH6O690EbZ689U6qVcFRkTHLdUXIoGtAkaqklL8mtQB7C38gBPKYEaDq1TyF616Lym_h5kDakvg5vVr18cC1CV19fYAOdEGbi1bxX6m1Cr8RhosU-6OvXo/s891/8+-+14-3+aerial+N+after+68.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Photograph (Richard Nickel series per post); reproduced by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "High oblique over the cleared west half of the block (parking lots), Glessner, Kimball and the east side beyond. Later evidence of lot geometry only.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1800-block-south-1975",
+  "kind": "photograph",
+  "title": "1800 block of Prairie Avenue looking south, 1975",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1800 block S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "south",
+  "camera_position": null,
+  "date": "1975",
+  "date_earliest": 1975,
+  "date_latest": 1975,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2021/04/the-chicago-womens-park-and-gardens.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRcu9lBThm5hPizZuWWqMbqAxUojxZT91T_mxl-zpQbfuD1IPweOOUIzo5hoKKXXNRI3bT99uBUKwGKEYvA7tL9y5s5X_xQ6CAeRCb2yjJNGfIGi7pvn4oemD4gSLsG0UgNY_F8GavyK8/s900/1975+-+1900+block+PA+SW.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Modern photograph by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Looking south: the low 1968 office building on the 1815 site (east side, left), vacant west side with surviving stone curb/coping and trees, the Keith house (1900) at right distance. Later evidence (curb line, street width).",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-sears-interpretive-panel",
+  "kind": "architectural drawing",
+  "title": "Interpretive panel: \"The Joseph Sears House, 1815 Prairie Avenue\" (installed c. 1980)",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1815 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "front elevation",
+  "facing": null,
+  "camera_position": null,
+  "date": "c. 1980 (panel); depicts 1882 house",
+  "date_earliest": 1979,
+  "date_latest": 1981,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54L_nJ10VFQOQYCN12luD3YUAutG93AGuc4-qqX9EaUMFjJXoaQXlrCJndhbYQowcs6E7MEnFD42gkNHO2rKwD6Bc3BXwe_9XRt9lbZ6P3s-weQHzp-3yu-NwukGysJjZ2hS8NXI3Dro/s1600/7-Sears+plaque.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Modern interpretive panel",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Bronze/etched interpretive panel set into the alcove marking the former front entrance, with a reconstructed front-elevation drawing of the Sears house (three storeys plus mansard with dormers, rock-faced ashlar, central entrance), historic photographs and text. Blog: Sears house razed in 1968 [elsewhere 1967] for the office building now on the site. Secondary reconstruction; useful for the elevation composition but verify against photographs.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1815-office-building-1981",
+  "kind": "photograph",
+  "title": "Office building on the site of the Sears house, 1815 S. Prairie Avenue (1981)",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "1815 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1981",
+  "date_earliest": 1981,
+  "date_latest": 1981,
+  "period": "later",
+  "creator": null,
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH0E8Pc0ToS9CjW77pDrltpGG5A1YUq9IGKVdt37ZLbswr4whQk1xtzXwRh7j6bg4VYP-V2bXuRkN4rwBUkVG7X7S2-c1cx0naDKo-5ZJgTjDKseKl4z0SJ2cT7-nlhIQrLBzX0yviTlU/s1600/1815+PA+warehouse.jpg",
+  "rights": "copyright — link only",
+  "rights_basis": "Modern photograph by Glessner House Museum",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Post-1968 two-storey office building replacing the Sears/Meeker house; documents the loss only.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-1834-fernando-jones",
+  "kind": "photograph",
+  "title": "1834 S. Prairie Avenue (Fernando Jones house, John M. Van Osdel)",
+  "building_ids": [
+   "pa-1834-9"
+  ],
+  "addresses": [
+   "1834 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "west",
+  "camera_position": "east side of Prairie Avenue, north-east of the house",
+  "date": "undated (probably before 1886)",
+  "date_earliest": 1866,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "Unknown photographer",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhJBL_KIT_oiMIb5yXypMXdKBfk9ZW8_-ZiGB2AHAIMbPBRqdUmPTkfeiGRi46_VIqcBF8g_FC7cUxcrv9b_XZ-0NowigHAkz4svAOpvgmjl4LVdWrRMk7wpO7CPv4f-U2LuwJ6igmeL4/s1600/1834+S+Prairie+Ave.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Two-storey Italianate brick house on a high rusticated stone basement: bracketed cornice with pediment-like gable, segmental-arched stone window hoods, a projecting angled bay on the north (left), front stoop with ornamental cast-iron railings and arched entrance, small oculus in the gable; neighbouring Italianate house visible at right (south) and a cupola at far left. NOTE: the library's building record cites an 1886 mansard addition — this photograph shows no mansard, so it probably pre-dates 1886 and does NOT show the 1904 roofline. Blog: built 1866 for Fernando Jones, razed 1942.",
+  "measurements": []
  }
 ]
