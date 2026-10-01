@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1251, ts: '2026-10-01T09:52:22.026Z', date: 'Oct 1, 2026, 4:52 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: 1252, ts: '2026-10-01T10:24:13.056Z', date: 'Oct 1, 2026, 5:24 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
       'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
       'The house, the barn and the garden are attested. Where they stand is not: the advertisement gives no lot or street. We put them on the survey’s block nearest the town, and their sizes are our reconstruction of four rooms and a kitchen. The house card and the Liberties page say so.',
       'Nobody is shown living there in July 1835. The doctor of 1834 may be the Dr Kimberly who lived in Kinzie’s Addition by then, but no source says they are the same man.',
+    ] },
+  { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+    items: [
+      'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
+      'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household moves in from outside the town plat, into the corner house one of them left; the Bennett household moves into a cottage across Lake Street instead.',
+      'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
+      'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
     ] },
   { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
     items: [
