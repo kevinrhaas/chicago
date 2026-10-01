@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1257, ts: '2026-10-01T12:40:59.752Z', date: 'Oct 1, 2026, 7:40 AM CT', title: 'Nothing you can see: the West Side\u2019s outer build checked and closed', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This checks that the West Side, with the new doctor\u2019s house in Wabansia, still draws inside the scene\u2019s budget on phones and desktops at every detail setting. It does.',
+      'The busiest view in town is now Lake Street at Canal, looking east. More of the town is built in front of it than anywhere else, so the next West Side buildings are measured there before they go up.',
+      'The West Side still owes 42 buildings, mostly cottages, barns and sheds, and each has a job already waiting to build it. Another 42 are held back because the map does not yet reach the ground they would stand on.',
+    ] },
   { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
     items: [
       'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
