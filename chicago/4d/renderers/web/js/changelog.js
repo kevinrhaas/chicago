@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
+    items: [
+      'Cross the Lake Street bridge to the west bank and the first lot on your left, at the corner of Lake and West Water, now has a building on it: a narrow two-storey warehouse of unpainted vertical boards, 23 by 44 feet, facing the river across West Water Street.',
+      'It has two loading bays, each a wagon door with a cargo door above it, and a hoist beam over them. It is the West Division\u2019s second freight building; the only other one is a small shed far out on Des Plaines Street.',
+      'Nobody is recorded owning a warehouse here in July 1835, so the building, its size and its place are ours. The lot is the 1830 plat\u2019s own lot 1, and the warehouse\u2019s card says what was invented and what would replace it.',
+    ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [
       'Behind the Western Hotel at Randolph and Canal, the stable across the wagon yard is much bigger now: 72 by 28 feet instead of 43 by 23. It runs further east along the yard, past the fence line, and a little deeper away from it.',

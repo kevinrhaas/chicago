@@ -17455,7 +17455,7 @@ row sets two freight roofs for the West Division and found one standing (`recon_
 an F1 shed far out on Des Plaines Street), so it ordered one more. This is that roof: an **F2**
 narrow two-storey warehouse with a hoist door and vertical boards — the family's own crosswalk
 variants — on plat lot 1 of `blk_west_lake_canal`, the Lake Street corner of the block's West
-Water column. Its gable front stands 1.5 m inside the lot's West Water line, centred on the
+Water column. Its front stands 1.5 m inside the lot's West Water line, centred on the
 lot, facing the South Branch at the forks; its rear runs toward the block's alley. Footprint,
 storeys, eave, pitch, finish, the cargo-door count (L280) and the shingle exposure (L263) are
 all type-level values from the reconstruction specification, sampled deterministically from

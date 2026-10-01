@@ -320,13 +320,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # four go on top of. SEVENTH move in two days, and the note above already said why: the
 # debt is per-ASSET.
 #
+# 496 -> 497 and 492 -> 493 on 2026-10-01 (T-1773): one roof, the West Division's second
+# freight roof — an F2 warehouse at Lake and West Water. One more mesh the shared generator
+# modules or emit.py would re-stale, on the same terms as every entry above.
+#
 STATED = {
-    "assets": 496,
+    "assets": 497,
     "restales": {
-        "generators/common/*.py": 496,
+        "generators/common/*.py": 497,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 492,
+        "generators/emit.py": 493,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
