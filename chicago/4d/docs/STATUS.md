@@ -1,3 +1,22 @@
+## T-1775 — the Western Hotel's stable re-sized to its guests (2026-10-01)
+
+First piece of T-1209 (split this run into T-1775..T-1780). `western_hotel_stable` was
+13.0 x 7.0 m — about eight horses, four teams — against the one sentence its trade is
+attested by, "the teams were as numerous as were the guests", and a house the lodging model
+sizes at 15 on an ordinary night. It is now **22.0 x 8.5 m (72 x 28 ft)**: sixteen double
+stalls in two ranges of eight either side of an 8 ft passage, for fifteen pair teams. Every
+stall, passage and team figure is ours and L72 carries it (revised, append-only). The north
+face the wagon yard's fence meets is unchanged at N -298.00; the stable grew east to
+E -118.90 and south to N -306.50, and the yard's east run now meets its north wall instead of
+its old north-east corner. Rebaked with `bake.sh --only western_hotel_stable`.
+
+Found on the way and fixed because the gate is shared: the order book named T-1209, T-1208 and
+T-1764 for live cells after all three were split this morning. Boarding houses (all three
+divisions) now point at T-1779, West dwellings at T-1783, West freight at T-1773.
+
+**Not done here:** the other named houses' horse-keeping (T-1776), and where the H3 boarding
+houses can stand at all — every scheduled H3 slot is refused today (T-1777).
+
 ## T-1460 — retire the invented west-prairie drains (2026-09-30)
 
 Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
