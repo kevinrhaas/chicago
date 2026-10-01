@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
+  { v: 1256, ts: '2026-10-01T12:07:48.414Z', date: 'Oct 1, 2026, 7:07 AM CT', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
     items: [
       'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
       'Each stretch of walk has its own weathering, so a street of separately laid walks no longer looks like one strip of paint. Board to board, the planks differ a little too.',
