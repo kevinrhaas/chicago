@@ -901,6 +901,78 @@
       "seamless": true,
       "generator_seed": 18353029,
       "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "clapboard_board_face",
+      "group": "walls",
+      "span_m": 4.48,
+      "confidence": "attested/inferred",
+      "mean_roughness": 0.86,
+      "kind": "boardface",
+      "colors": [
+        [
+          126,
+          112,
+          91
+        ],
+        [
+          92,
+          86,
+          74
+        ]
+      ],
+      "note": "One clapboard's face, no course lines: grain along the board, raised grain, checks and broad weathering. The lap and its joints are geometry.",
+      "generator_seed": 18350701,
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "hewn_log_face",
+      "group": "walls",
+      "span_m": 4.08,
+      "confidence": "attested/inferred",
+      "mean_roughness": 0.92,
+      "kind": "logface",
+      "colors": [
+        [
+          112,
+          88,
+          63
+        ],
+        [
+          70,
+          57,
+          43
+        ]
+      ],
+      "note": "One hewn log's face, no chinking: adze facets, grain along the log and drying checks. Courses and chinking are geometry.",
+      "generator_seed": 18351283,
+      "resolution_px": 1024,
+      "px_per_m": 250.98,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generation_method": "deterministic procedural synthesis"
     }
   ]
 }

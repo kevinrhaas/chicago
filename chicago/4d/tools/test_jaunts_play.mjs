@@ -148,6 +148,35 @@ try {
     assert.equal(outcome.events.filter(e => e.type === 'complete').length, 1); states.push(outcome);
     await page.getByRole('heading', { name: 'Outing complete', exact: true }).waitFor();
     await page.screenshot({ path: path.join(out, `${viewport.width}-outcome.png`) });
+    // T-1258: the outcome shows the keepsake earned and its family counter moving; the
+    // Daybook opens from the outcome card, lists it, and the award is saved for a reload.
+    await page.locator('.jaunt-award [data-keepsake="new-in-chicago:finding-your-feet"]').waitFor();
+    assert.equal(await page.locator('.jaunt-award .jaunt-daybook-moved').getAttribute('data-family'), 'wayfinding');
+    assert.match(await page.locator('.jaunt-award').innerText(), /Kept in your daybook[\s\S]*Route note/);
+    assert.equal(await page.locator('.jaunt-award').getByText('New rank:').count(), 0, 'one family alone is not a rank');
+    await click(page.getByRole('button', { name: 'Open your daybook', exact: true }));
+    await page.locator('.jaunt-daybook [data-keepsake="new-in-chicago:finding-your-feet"]').waitFor();
+    assert.equal(await page.locator('.jaunt-daybook').getByText('Narrative keepsakes, not evidence', { exact: false }).count(), 1);
+    assert.equal(await page.locator('.jaunt-daybook-rank').first().getAttribute('data-level'), 'new_arrival');
+    if (viewport.width === 390) {
+      // Every family name fits its tile without breaking inside a word.
+      const broken = await page.locator('.jaunt-daybook-families li span').evaluateAll(nodes => nodes.filter(n => {
+        const words = n.textContent.split(' '), range = document.createRange(), lines = new Set();
+        range.selectNodeContents(n); for (const r of range.getClientRects()) lines.add(Math.round(r.top));
+        return n.scrollWidth > n.clientWidth + 1 || lines.size > words.length;
+      }).map(n => n.textContent));
+      assert.deepEqual(broken, [], 'family names fit at 390px');
+    }
+    await page.screenshot({ path: path.join(out, `${viewport.width}-daybook.png`) });
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('c4d.daybook.v1')));
+    assert.deepEqual(saved.keepsakes.map(k => k.key), ['new-in-chicago:finding-your-feet']);
+    await click(page.getByRole('button', { name: 'Back to Jaunts', exact: true }));
+    assert.match(await page.locator('[data-action="daybook"]').innerText(), /New Arrival · 1 kept/);
+    await page.reload();
+    await page.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', {}, { timeout: 180000 });
+    await click(page.locator('#welcome-jaunts'));
+    await page.locator('[data-action="daybook"]').getByText('1 kept', { exact: false }).waitFor();
+    console.log(`JAUNT PLAY ${viewport.width}: the daybook survives a reload`);
     assert(await page.evaluate(id => __chicago4d.jaunts.start(id), fixture.id));
     await page.evaluate(() => __chicago4d.jaunts.next()); await finishRide(); await page.evaluate(() => __chicago4d.jaunts.next());
     assert.equal((await state()).phase, 'outcome');

@@ -626,6 +626,25 @@ sheet and is not drawn. `data/street_grid/` is one dated file and carries no `in
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
 
+## T-1258 — the Chicago daybook (2026-10-01)
+
+Finishing a jaunt now keeps its keepsake in a daybook: five families (Provisions,
+Livelihood, Wayfinding, News & Knowledge, Neighbors), four ranks from New Arrival to
+Seasoned Chicagoan. Families, ranks, thresholds and each family's paper form (receipt,
+work chit, route note, clipping, calling card) are data in `data/jaunts/daybook.json`;
+`compile_jaunts.py` validates it against the keepsake schema's family list and ships it
+beside each scene's catalog. `jaunt-journal.js` awards on a completed, eligible ending
+only, idempotent per jaunt + keepsake, and counts a jaunt's `secondary_family` too.
+Storage is `c4d.daybook.v1` (1835) or `c4d.daybook.v1.<year>`; a damaged save is set
+aside under `.damaged` with a notice, an old schema is set aside, unreadable rows are
+dropped and counted aloud, and blocked storage runs in memory and says so.
+
+Unverified: only one jaunt (Wayfinding) is published for 1835, so a visitor can reach
+no rank above New Arrival yet. The ladder is proven on fifteen generated fixture
+outings in `tools/test_daybook.mjs`, not on authored content. The desktop leg of
+`test_jaunts_play.mjs` did not finish inside one 600 s foreground call on the runner;
+the 390×780 leg (pilot, outcome, daybook, reload) passed.
+
 ## T-1257 — optional history beside a jaunt (2026-09-28)
 
 Stop chips open existing structure, person, business, source and Evidence cards.
@@ -18902,4 +18921,4 @@ The root front door is a lightweight three-period menu. SVG orbital graphics and
 
 ## T-1805 — Glessner west roof repair, in validation (2026-10-01)
 
-The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB Blender north and alley renders exposed an additional projecting alley cornice; its span is now shortened to the true eave run. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. Full/light final derivatives and gates are being regenerated. Local Chromium cannot start because the execution environment denies its socket; no local browser pass is claimed. See docs/RESEARCH/glessner-west-roof-repair/work.md.
+The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB Blender north and alley renders exposed an additional projecting alley cornice; its span is now shortened to the true eave run. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. Recovered and saved the final full/light derivatives, recovery package and model review renders in 8a77dbeb. Light is 196,687 triangles; package and staleness checks pass. Integrated dev at 4ca01605; final preflight and published browser checks are in progress. Local Chromium cannot start because the execution environment denies its socket; browser results will be recorded in the repair PR. See docs/RESEARCH/glessner-west-roof-repair/work.md.

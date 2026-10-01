@@ -27,3 +27,12 @@ Production is not authorized by this request. Dev is the integration target.
 - Street surfaces already stand 30–60 mm above terrain. Remove their large slope-dependent depth pull, which can draw sidewalk pixels through walls at grazing views; retain a one-unit constant bias. Browser visual verification remains outstanding.
 - Existing stone/aperture/glass clipping fixtures pass. Final web derivatives, recovery package, full gate and published desktop/mobile smoke remain outstanding. Local Chromium cannot launch because the execution sandbox refuses its socket; use the existing GitHub bake/smoke workflow for the required browser gate.
 - The full source checkpoint is pushed separately from generated assets, at the owner's explicit request for recoverable progress. Do not merge this checkpoint until those gates are green.
+
+## Recovery checkpoint — 2026-10-01
+
+The owner requested continuation after the original session stopped reporting. The last process was no longer running. Recovered the pushed source checkpoint e643f977 and the subsequent local bake, shortened cornice, sidewalk change and final render outputs. All recovered assets were saved on the same branch in 8a77dbeb.
+
+- The final full master is SHA-256 `5a919b27e0ba0402745450a2d0ebc107cf20273e8c7a4ae4d231ead65588a4ef`. Its full/light web derivatives and split recovery package are rebuilt and checked. Light has 196,687 triangles against the unchanged 200,000 ceiling. Older-version derivatives were refreshed to match their rebaked masters.
+- Full north and northwest review images are beside this note. A fresh light northwest render also confirms the gable return and clear loft opening. The final alley cornice ends at the intersecting range. These are actual model renders, not generated illustrations.
+- Staleness validation passes with no errors (262 existing warnings); stone/aperture/glass clipping fixtures pass. The first recovered source gate passed 715 of 716 checks. Its sole failure was the external split of T-1779: all three boarding-house order-book owners now follow its open remainder T-1810, matching the sweep already proposed in PR #229. The book was regenerated without changing its allocations.
+- Integrated dev at 4ca01605 and restamped the repair changelog. Final preflight and published desktop/mobile browser checks are the remaining merge gates; their results belong in the repair PR. Local Chromium is refused by the environment, so browser validation uses the existing GitHub smoke workflow.
