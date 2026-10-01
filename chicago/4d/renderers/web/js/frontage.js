@@ -100,20 +100,23 @@ const PAINT = '#2f2013';        // the letterform's paint: L135 claims the colou
  * one per weathering the owner named: dark grey-brown, brown, grey-brown and
  * silvered grey. The bound is T-1795 § 6's: from the library's
  * `plank_walk_weathered` (L* 33–40 across its spread, mean 36.6) up to the sheet's
- * `weathered_board` (L* 62). The tones sit at L* ≈ 38, 46, 51 and 56, and the
- * owner scale and the board jitter below keep every board inside 33–62.
- * RECONSTRUCTED (L314): no source gives the tone of any one walk in 1835.
+ * `weathered_board` (L* 62). The tones sit at L* ≈ 38, 45, 51 and 52, and the
+ * stretch scale and the board jitter below keep every board inside 33–62. They
+ * lean warm on purpose: measured in the browser at 1280×800, the sky and grass
+ * light cast the first, cooler set (2026-10-01) to a green-grey, and the owner
+ * asked for brown as well as grey.
+ * RECONSTRUCTED (L320): no source gives the tone of any one walk in 1835.
  */
 const WALK_TONES = [
-  [0.112, 0.098, 0.080],        // dark grey-brown — old, damp, trodden
-  [0.190, 0.143, 0.098],        // brown — the newer boards, not yet silvered
-  [0.215, 0.188, 0.150],        // grey-brown — a season or two of weather
-  [0.245, 0.240, 0.228],        // silvered grey — sun-bleached softwood
+  [0.120, 0.095, 0.070],        // dark grey-brown — old, damp, trodden
+  [0.200, 0.140, 0.085],        // brown — the newer boards, not yet silvered
+  [0.225, 0.185, 0.135],        // grey-brown — a season or two of weather
+  [0.215, 0.205, 0.185],        // silvered grey — sun-bleached softwood
 ];
 /** How far one stretch of walk is lighter or darker than its tone, at most. */
 const WALK_OWNER_SPAN = 0.12;
 /** How far one board differs from the next, at most, in luminance and in hue. */
-const WALK_BOARD_SPAN = 0.09;
+const WALK_BOARD_SPAN = 0.14;
 const WALK_BOARD_HUE = 0.03;
 /** The L* bound above, as linear luminance: L* 33 and L* 62. */
 const WALK_Y_MIN = 0.0754;

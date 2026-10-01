@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The plank sidewalks are weathered wood, not white', kind: 'change',
+    items: [
+      'Walk Lake Street or South Water Street and the plank sidewalks no longer read as white. Every walk and board crossing in town is now worn timber: dark grey-brown, brown, grey-brown or silvered grey.',
+      'Each stretch of walk has its own weathering, so a street of separately laid walks no longer looks like one strip of paint. Board to board, the planks differ a little too.',
+      'The boards had been drawn in the signboards’ pale tone. No source records the colour of any walk in 1835, so the tones are our reconstruction, kept within the range of real weathered planks. The Liberties page (L320) says how they were chosen.',
+      'The fences and hitching posts keep their old colour for now. Grain, worn edges and damp patches come in later work.',
+    ] },
   { v: 1255, ts: '2026-10-01T11:16:22.660Z', date: 'Oct 1, 2026, 6:16 AM CT', title: 'Six of the town\u2019s hotels get a stable behind them', kind: 'change',
     items: [
       'Walk the alley behind Lake Street and there is now a plank stable at the back of the Tremont, the Exchange Coffee House, the New York House and the Mansion House. There is another at the alley end of the Sauganash\u2019s lot, and one behind the Steamboat Hotel on the north bank.',
       'Each is sized from the house\u2019s own beds: a stall for every two guests on an ordinary night, and never fewer than four. The Tremont, a stage stop, gets one per guest, in two ranges of six.',
       'A county order of 1831 priced keeping a traveller\u2019s horse overnight at a licensed house. No source mentions any of these six stables, so each one, its size and its place are reconstructions, and their cards say so.',
       'The Green Tree gets none. There is no room for one between its back wall, Lake Street and the river bank as the town is modelled.',
-    ] },
   { v: 1254, ts: '2026-10-01T11:03:30.205Z', date: 'Oct 1, 2026, 6:03 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
