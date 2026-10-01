@@ -70,7 +70,7 @@ function nearestOnBoundary(e, n, pts) {
  * Tolerates both shapes seen in the wild: a bare `[[u, v], ...]` array and a
  * `{ polygon, confidence, note }` object.
  */
-export function footprintsFrom(registry) {
+export function footprintsFrom(registry, { camps = false } = {}) {
   const out = [];
   for (const record of registry.values()) {
     const raw = record.sidecar?.footprint;
@@ -93,8 +93,10 @@ export function footprintsFrom(registry) {
     if (record.sidecar?.drawn_by) continue;
     // Nor is a camp's ground (T-1803). Its footprint is the strip of bank the tents
     // stand on, open between every pitch, and a polygon the length of a row of tents
-    // would be an invisible wall across the riverfront with gaps in plain view.
-    if (record.sidecar?.archetype === 'camp') continue;
+    // would be an invisible wall across the riverfront with gaps in plain view. It IS
+    // ground nothing grows through, though, so the planting keep-out asks for the
+    // camps alone with `{ camps: true }` and gets exactly those.
+    if ((record.sidecar?.archetype === 'camp') !== camps) continue;
     const th = (p.rotation_deg ?? 0) * DEG;
     const cos = Math.cos(th);
     const sin = Math.sin(th);

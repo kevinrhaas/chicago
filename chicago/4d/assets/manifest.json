@@ -859,8 +859,8 @@
     "landing_camp_east__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,
-      "bytes": 146068,
-      "inputs_sha256": "e44855f81b70241a272a32a3bc82cb19e34c785b800df06f6c2ba00cea30ed8f",
+      "bytes": 146072,
+      "inputs_sha256": "d003508b1476f196e39beeb63814b2ec25a25881ee3428567fa60b18dc3e2694",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "landing_camp_east"
@@ -869,7 +869,7 @@
       "archetype": "camp",
       "baked_ao": false,
       "bytes": 134476,
-      "inputs_sha256": "e6c20537f9a63abb48b92ae2d59b8c7731014bbd1ad8e76e505bcf5d25c2ad9b",
+      "inputs_sha256": "5e6aaa310183a4e928fbd928627ec69c6d945c095b5cd77ad73ac92fa5b0b0bf",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "landing_camp_west"

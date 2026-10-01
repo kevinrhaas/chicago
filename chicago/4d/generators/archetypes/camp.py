@@ -42,11 +42,12 @@ M_CANVAS, M_WOOD, M_DARK, M_STONE, M_BRUSH = 0, 1, 2, 3, 4
 # Unbleached cotton duck. New canvas is the pale cream of the cloth; a season under
 # a lake sun and a wood fire greys and browns it, and a patched cloth is the weathered
 # one a shade darker. Chosen against the plank walks' weathered tones (L320) so the
-# canvas reads as cloth beside timber and never as a white wall.
+# canvas reads as cloth beside timber and never as a white wall — and checked in the
+# lit browser, where the first, paler values (0.65 for weathered) tone-mapped to white.
 CANVAS_RGBA = {
-    "new": (0.780, 0.745, 0.660, 1.0),
-    "weathered": (0.650, 0.615, 0.540, 1.0),
-    "patched": (0.590, 0.555, 0.480, 1.0),
+    "new": (0.640, 0.610, 0.530, 1.0),
+    "weathered": (0.480, 0.452, 0.390, 1.0),
+    "patched": (0.430, 0.400, 0.340, 1.0),
 }
 # Wagon boxes, tent poles, chests and the woodpile: grey-brown weathered wood.
 WOOD_RGBA = (0.330, 0.270, 0.200, 1.0)
