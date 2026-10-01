@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
+  { v: 1253, ts: '2026-10-01T10:49:32.624Z', date: 'Oct 1, 2026, 5:49 AM CT', title: 'A doctor’s house, barn and garden in Wabansia', kind: 'change',
     items: [
       'Cross the North Branch and walk up Kinzie Street into Wabansia, the survey north of it. It was empty prairie; now a story-and-a-half house faces Kinzie Street there, with a kitchen wing behind it, a barn further back and a fenced vegetable garden beside it.',
       'They come from one newspaper line. On 16 July 1834 the Chicago Democrat offered to rent or lease “a convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.” It is the only house the papers put in Wabansia before the summer of 1835.',
