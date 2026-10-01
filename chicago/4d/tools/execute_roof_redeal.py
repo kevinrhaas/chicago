@@ -98,6 +98,7 @@ from reconcile_665 import inventory_class  # noqa: E402
 import roof_id_pins  # noqa: E402
 
 TICKET = "T-1451"
+REDEALT_ON = "2026-09-20"
 ARCHETYPE_OF = {f["id"]: f["current_placeholder_archetype"]
                 for f in json.loads(
                     (RECON / "1835_family_archetype_crosswalk.json")
@@ -243,6 +244,7 @@ def plan_west(recipe: dict, here: list[dict]) -> list[dict]:
             "band_already_fits": bool(v["band_already_fits"]),
             "inventory_class": p["inventory_class"],
             "why": v["reason"],
+            "ticket": TICKET, "on": REDEALT_ON,
         })
     plan.sort(key=lambda e: e["id"])
     return plan
@@ -272,6 +274,7 @@ def merge_recorded_west(recipe: dict, plan: list[dict]) -> list[dict]:
             "to_footprint_ft": list(r["footprint_ft"]),
             "band_already_fits": not r["footprint_moved"],
             "inventory_class": None, "why": r["why"],
+            "ticket": r.get("ticket", TICKET), "on": r.get("on", REDEALT_ON),
         })
     plan.sort(key=lambda e: e["id"])
     return plan
@@ -414,7 +417,7 @@ def apply_west(text: str, recipe: dict, plan: list[dict]) -> str:
     text = _replace_key(text, "inventory_group_totals", group_ordered)
 
     redealt = {
-        "on": "2026-09-20",
+        "on": REDEALT_ON,
         "ticket": TICKET,
         "adjudicated_by": "T-1445",
         "ledger": "data/reconstruction/1835_roof_redeal.json",
@@ -428,6 +431,10 @@ def apply_west(text: str, recipe: dict, plan: list[dict]) -> str:
                 "footprint_ft": e["to_footprint_ft"],
                 "footprint_moved": e["from_footprint_ft"] != e["to_footprint_ft"],
                 "why": e["why"],
+                # A roof re-dealt by a LATER ticket than the block's own says so on
+                # its own entry (T-1781); the first execution's six stay unstamped.
+                **({"ticket": e["ticket"], "on": e["on"]}
+                   if e.get("ticket", TICKET) != TICKET else {}),
             }
             for e in plan
         ],
@@ -1285,7 +1292,8 @@ def references(roof_id: str) -> list[str]:
     return hits
 
 
-def write_report(plan: list[dict], outstanding: list[dict], retire: list[dict]) -> str:
+def write_report(plan: list[dict], outstanding: list[dict], retire: list[dict],
+                 west_left: list[dict] = ()) -> str:
     out = []
     out.append("# The anonymous-roof redeal, carried out — July 1835\n")
     out.append(f"DERIVED — regenerate with `tools/execute_roof_redeal.py --apply`. {TICKET}.\n")
@@ -1294,8 +1302,13 @@ def write_report(plan: list[dict], outstanding: list[dict], retire: list[dict]) 
         "execution: the verdicts carried back into the authored recipes so the "
         "generators re-derive the records. It adjudicates nothing — every family "
         "below is the `to_family` T-1445 reached.\n")
-    out.append(f"- refamily verdicts standing: **{len(plan) + len(outstanding)}**")
+    out.append(f"- refamily verdicts standing: "
+               f"**{len(plan) + len(outstanding) + len(west_left)}**")
     out.append(f"- carried out here: **{len(plan)}** (the West Division parcel)")
+    if west_left:
+        out.append(f"- West verdicts left standing by a partial `--only` execution: "
+                   f"**{len(west_left)}** — their ids do not move, so they wait on the "
+                   f"ticket that owns their roofs, not on a migration")
     out.append(f"- outstanding, and why: **{len(outstanding)}** — the record id carries "
                f"the family, so executing them renames a roof other files name "
                f"(T-1481/T-1482/T-1484, over the surface "
@@ -1312,6 +1325,17 @@ def write_report(plan: list[dict], outstanding: list[dict], retire: list[dict]) 
         out.append(f"| `{e['id']}` | {e['from_family']} | {e['to_family']} | "
                    f"{e['from_group']} → {e['to_group']} | {fp} | {e['why']} |")
     out.append("")
+    if west_left:
+        out.append("## Standing West verdicts not carried out here\n")
+        out.append("A partial execution (`--apply --only`, T-1781) took the roofs its "
+                   "ticket owns and left these for theirs. Each is still the verdict "
+                   "T-1445 reached, unexecuted.\n")
+        out.append("| roof | family | verdict | group | why |")
+        out.append("| --- | --- | --- | --- | --- |")
+        for v in sorted(west_left, key=lambda v: v["id"]):
+            out.append(f"| `{v['id']}` | {v['family']} | {v['to_family']} | "
+                       f"{v['group']} → {v['to_group']} | {v['reason']} |")
+        out.append("")
     out.append("## Outstanding — the id migration T-1481, T-1482 and T-1484 own\n")
     if not outstanding:
         # NOT AN EMPTY TABLE. All three id migrations have run, and where the record of
@@ -1520,6 +1544,15 @@ def self_test() -> int:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--only", default="",
+                    help="with --apply: carry out only these West roofs "
+                         "(comma-separated record ids), leaving the rest of the "
+                         "West verdicts standing for the ticket that owns them")
+    ap.add_argument("--ticket", default="",
+                    help="with --only: the ticket carrying them out, stamped on "
+                         "each roof's own `redealt` entry")
+    ap.add_argument("--on", default="",
+                    help="with --only: the date (YYYY-MM-DD) stamped beside --ticket")
     ap.add_argument("--migrate", action="store_true",
                     help="carry the North Division's nine id-moving verdicts out")
     ap.add_argument("--check-migration", action="store_true")
@@ -1528,10 +1561,6 @@ def main() -> int:
     ap.add_argument("--check-blocks", action="store_true")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
-    ap.add_argument("--only", action="append", metavar="RECORD_ID",
-                    help="with --apply, carry out only these West verdicts (T-1782): "
-                         "the West's open verdicts belong to different tickets, and a "
-                         "run that executes all of them takes its siblings' roofs")
     args = ap.parse_args()
 
     if args.self_test:
@@ -1605,16 +1634,34 @@ def main() -> int:
 
     if args.apply:
         if args.only:
-            unknown = sorted(set(args.only) - {v["id"] for v in here})
-            if unknown:
-                raise SystemExit("--only names no executable West verdict: "
-                                 + ", ".join(unknown))
-            here = [v for v in here if v["id"] in set(args.only)]
-        plan = merge_recorded_west(recipe, plan_west(recipe, here))
+            # A PARTIAL EXECUTION, for a ticket that owns some of the West roofs and
+            # not the others (T-1781 took the Des Plaines edge's five while T-1764 and
+            # T-1782 own the forks' and the inner clusters'). Every id named must be
+            # a standing West verdict: a typo or an already-settled roof is refused,
+            # never silently skipped.
+            want = [x.strip() for x in args.only.split(",") if x.strip()]
+            standing = {v["id"] for v in here}
+            missing = [x for x in want if x not in standing]
+            if missing:
+                raise SystemExit("--only names no standing West verdict for: "
+                                 + ", ".join(missing))
+            if not (args.ticket and args.on):
+                raise SystemExit("--only needs --ticket and --on: a partial "
+                                 "execution says who carried it out and when")
+            todo = [v for v in here if v["id"] in set(want)]
+            fresh_plan = plan_west(recipe, todo)
+            for e in fresh_plan:
+                e["ticket"], e["on"] = args.ticket, args.on
+            plan = merge_recorded_west(recipe, fresh_plan)
+            west_left = [v for v in here if v["id"] not in set(want)]
+        else:
+            plan = merge_recorded_west(recipe, plan_west(recipe, here))
+            west_left = []
         text = WEST_RECIPE.read_text(encoding="utf-8")
         WEST_RECIPE.write_text(apply_west(text, recipe, plan), encoding="utf-8")
         dump(EXCLUSIONS, apply_retirements(retire))
-        REPORT.write_text(write_report(plan, outstanding, retire), encoding="utf-8")
+        REPORT.write_text(write_report(plan, outstanding, retire, west_left),
+                          encoding="utf-8")
         print(f"{len(plan)} West Division verdict(s) carried out; "
               f"{len(outstanding)} outstanding as an id migration; "
               f"{len(retire)} retired")
