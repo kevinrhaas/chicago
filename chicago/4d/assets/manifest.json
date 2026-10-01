@@ -2773,6 +2773,51 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_h2_07"
     },
+    "recon_1835_canal_trade_c3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 57832,
+      "inputs_sha256": "1e15f8cb975b0401186368bd50724ecdeda30bc9575ea3468c983a2987a59284",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c3_001"
+    },
+    "recon_1835_canal_trade_c4_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 76968,
+      "inputs_sha256": "2e91eb397b1654f2cb691b4dd154ce6e9fe74f00235bbf575a54a0b409cc59f9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_c4_002"
+    },
+    "recon_1835_canal_trade_w1_003__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 118468,
+      "inputs_sha256": "4acc67e3e6a6bafa3184b1ad9a198f304d7f8c0911561c3c9f9ba9b071809afd",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w1_003"
+    },
+    "recon_1835_canal_trade_w2_004__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 128840,
+      "inputs_sha256": "445f02d27713f9c23eeb2f1e43f0a897b3a5a34c96c8e7bef1b68a00d7851024",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w2_004"
+    },
+    "recon_1835_canal_trade_w3_005__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 122220,
+      "inputs_sha256": "6fecf8fb6fda49732e891eee5b67edf2fd279147ddc91259216adc863a2b217c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_canal_trade_w3_005"
+    },
     "recon_1835_north_a1_008__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
