@@ -4351,10 +4351,6 @@
           "layer": "employment",
           "seat": "on_their_own_account",
           "houses": []
-        },
-        {
-          "layer": "business",
-          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/40_49/west/family/trade:carpenter:001",

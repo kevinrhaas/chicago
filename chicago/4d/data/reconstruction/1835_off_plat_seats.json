@@ -85,7 +85,7 @@
    "west": 244
   },
   "roofs_offered_for_adoption": 73,
-  "roofs_held_back": 19,
+  "roofs_held_back": 18,
   "roofs_standing_on_no_committed_parcel": 4,
   "roofs_offered_and_unspent": 1
  },
@@ -255,13 +255,6 @@
    "family": "W2",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "Horace Stebbins, carpenter shop"
-  },
-  {
-   "structure_id": "recon_1835_canal_trade_w3_005",
-   "parcel_id": "canal_commissioners_1830",
-   "family": "W3",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Otis Bacon, wagon woodwork shop"
   }
  ],
  "roofs_on_no_committed_parcel": [

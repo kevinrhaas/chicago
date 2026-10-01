@@ -547,7 +547,14 @@
   {
    "block_id": "blk_indiana_north_wolcott",
    "family": "W2",
-   "roofs": 2,
+   "roofs": 1,
+   "district": "north",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  },
+  {
+   "block_id": "blk_indiana_north_wolcott",
+   "family": "W3",
+   "roofs": 1,
    "district": "north",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
@@ -623,7 +630,7 @@
   },
   {
    "block_id": "blk_washington_clark",
-   "family": "W1",
+   "family": "W2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -672,7 +679,7 @@
   },
   {
    "block_id": "blk_washington_dearborn",
-   "family": "W2",
+   "family": "W3",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"

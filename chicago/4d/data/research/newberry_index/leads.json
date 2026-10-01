@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "6c031cc63c40f930f0744258186d90719acbf3a077316071ce7e8e4937a6c133",
+    "fingerprint": "cd168c7d75760ec32d939785f22161095a8c19ab37e92eb6c96d8b7860e467d5",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 516,
+      "structures": 520,
       "voters": 345
     }
   },
@@ -25365,11 +25365,6 @@
         {
           "id": "recon_1835_canal_trade_w2_004",
           "name": "Reconstructed Canal Street carpenter or joiner shop",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_canal_trade_w3_005",
-          "name": "Reconstructed Canal Street cooper, wagon, or wheelwright shop",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],

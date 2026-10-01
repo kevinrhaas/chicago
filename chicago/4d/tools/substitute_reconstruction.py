@@ -117,7 +117,7 @@ LIBERTY_OF_TICKET = {
     "T-1418": "L259",   # two law offices and a physician's room
     "T-1424": "L260",   # two livery stables and two lumber yards
     "T-1419": "L262",   # the fifteen service houses
-    "T-1766": "L307",   # five Canal approach firms on non-lodging trade roofs
+    "T-1766": "L307",   # four Canal approach firms on non-lodging trade roofs
 }
 
 # The number-words the liberty prose states a share in. A closed list on purpose: a parser
@@ -692,15 +692,15 @@ def self_test() -> int:
         reconstructed_firms = keep
 
     print()
-    # T-1766: the five actual non-lodging firms preserve roof and keeper, and never
+    # T-1766: the four actual non-lodging firms preserve roof and keeper, and never
     # make up a business quota or reuse a lodging capacity on substitution.
     trade_roofs = [f for f in reconstructed_firms()
                    if (f.get("reconstruction") or {}).get("trade_roof")]
-    assert len(trade_roofs) == 5, "the five Canal trade roofs must remain covered"
+    assert len(trade_roofs) == 4, "the four Canal trade roofs must remain covered"
     for firm in trade_roofs:
         tr = firm["reconstruction"]["trade_roof"]
         retirement = plan(good, {"kind": "business", "record": firm, "place": "fixture"},
-                          {}, {"L307": 5})
+                          {}, {"L307": 4})
         assert tr["structure_id"] in retirement["roof"]
         assert "not demolished" in retirement["roof"]
         assert tr["keeper_person_id"] in retirement["head"]
@@ -708,8 +708,8 @@ def self_test() -> int:
         assert retirement["order_book"]["bucket"] is None
         assert "no lodging beds" in retirement["order_book"]["reading"]
         assert "canal_approach_occupancy.py" in retirement["performed_by"]
-        assert retirement["liberty"].startswith("L307: its share falls from 5 to 4")
-    print("  ok    all five trade-roof substitutions retain roof and keeper, free no quota and name L307")
+        assert retirement["liberty"].startswith("L307: its share falls from 4 to 3")
+    print("  ok    all four trade-roof substitutions retain roof and keeper, free no quota and name L307")
 
     print()
     # THE LIBERTY RE-COUNT, broken in memory against the committed entries.

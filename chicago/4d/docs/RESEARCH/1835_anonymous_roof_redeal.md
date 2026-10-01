@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **395** anonymous roofs
+- audited: **394** anonymous roofs
 - keep: **391** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **4** (3 of them into a band that already fits the committed footprint)
+- refamily: **3** (2 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 505 stand, so the town is 163 roofs short before this audit and 163 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 504 stand, so the town is 164 roofs short before this audit and 164 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -30,7 +30,7 @@ The programme wants 668 roofs and 505 stand, so the town is 163 roofs short befo
 | `structures/larger_boarding_houses/west` | 6 | 2 | 2 | 4 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 7 | 5 | 1 | 7 | 1 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 116 | 50 | 126 | 50 |
-| `structures/ordinary_dwellings/west` | 75 | 59 | 55 | 16 | 62 | 13 |
+| `structures/ordinary_dwellings/west` | 75 | 59 | 55 | 16 | 61 | 14 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 52 | 26 | 58 | 26 |
 | `structures/small_outbuildings/south` | 48 | 36 | 35 | 12 | 36 | 12 |
 | `structures/small_outbuildings/west` | 14 | 6 | 6 | 8 | 5 | 9 |
@@ -44,15 +44,14 @@ The programme wants 668 roofs and 505 stand, so the town is 163 roofs short befo
 | `structures/warehouses_freight/west` | 2 | 2 | 2 | 0 | 1 | 1 |
 | `structures/warehouses_freight/north` | 7 | 6 | 0 | 1 | 6 | 1 |
 | `structures/workshops/south` | 15 | 11 | 8 | 4 | 11 | 4 |
-| `structures/workshops/west` | 8 | 9 | 7 | -1 | 8 | 0 |
+| `structures/workshops/west` | 8 | 8 | 6 | 0 | 8 | 0 |
 | `structures/workshops/north` | 7 | 5 | 1 | 2 | 5 | 2 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 4 roofs that change
+## The 3 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_west_randolph_des_plaines_w2_01` | west | W2 | D4 | refamily | the west division stands 1 roof(s) over its workshops row, and this is one the order book has no occupant class for where it stands; the position is wanted and the kind is not |
 | `recon_1835_west_013` | west | A5 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_west_020` | west | C2 | D6 | refamily | the placement policy refuses this family here — stands 8.82 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_west_046` | west | F1 | H2 | refamily | the placement policy refuses this family here — stands 36.63 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
