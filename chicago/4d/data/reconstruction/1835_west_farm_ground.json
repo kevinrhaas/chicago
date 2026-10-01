@@ -178,7 +178,7 @@
  },
  "the_programme": {
   "west_target": 135,
-  "west_remaining": 49,
+  "west_remaining": 48,
   "remaining_by_family": {
    "D1": 0,
    "A2": 3
@@ -198,7 +198,6 @@
    "ordinary_dwellings": 22,
    "small_outbuildings": 10,
    "stores_mixed_use": 2,
-   "warehouses_freight": 1,
    "workshops": 3
   }
  },

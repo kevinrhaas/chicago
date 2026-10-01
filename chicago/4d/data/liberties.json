@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 312,
+  "count": 313,
   "liberties": [
     {
       "id": "L1",
@@ -16139,14 +16139,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 476
+        "count": 477
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 476 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 477 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16971,19 +16971,20 @@
       "section": "per_subject",
       "subjects": [
         "recon_1835_blk_south_water_clark_f2_01",
-        "recon_1835_blk_south_water_lasalle_f2_10"
+        "recon_1835_blk_south_water_lasalle_f2_10",
+        "recon_1835_forks_freight_f2_001"
       ],
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[cargo_rhythm]",
-        "count": 2
+        "count": 3
       },
       "recorded": "2026-09-27",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[cargo_rhythm]` — 2 phases built with a cargo-door rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01` and `recon_1835_blk_south_water_lasalle_f2_10`, the town's only two **F2** roofs. The rhythm itself is `goods_door_bays` and `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No F3 stands in this town (`phase1_instantiated: 0`), so nothing is baked for F3 here. **What the crosswalk asks for, in its own words.** - **F3** `warehouse_river_large` — variants *\"multiple cargo doors; landing apron; sparse glazing\"*, and an evidence note that names the *\"multiple cargo-door rhythm\"* as the thing no current archetype conveys. - **F2** `warehouse_narrow_two_story` — variants *\"hoist beam; upper freight doors; few windows\"*, and an evidence note that `frame_storefront` *\"gives a two-storey shell and goods door but its retail shopfront must be removed and warehouse framing/hoist support added\"*. Before this the archetype drew exactly one goods door, centred, on every store and every warehouse alike, and drew no hoist on anything — `hoist_door` existed and no committed record had ever set it. **The invention, stated as one number per family.** No source reached counts the cargo openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The count is bounded rather than chosen, and the bound is the family's OWN footprint band at its short end, measured against the braced frame the wall is already set out on: - the loading side is the **depth** — an `end` goods door stands on the gable wall, which spans the plan's depth — so the shortest loading side a family can be dealt is the low figure of its `footprint_ft` band; - an opening with its jamb stock takes 1.85 + 2 × 0.16 = **2.17 m**, and the even set-out leaves n + 1 equal piers; - a pier narrower than `POST_SPACING_M` (2.44 m, 8 ft between principal posts) is narrower than one bay of that frame, so the opening beside it cannot stand in a bay of its own. The answer is the largest rhythm EVERY plan the band authors will carry. **F2's 40 ft short side takes two** (2.62 m piers) and refuses three (1.42 m). **F3's 55 ft takes three** (2.56 m) and refuses four (1.62 m). Neither number moves with the individual plan: a count that followed the plan would be the generator deciding how a particular building was worked, which is a claim about its use and not about its family. **The upper freight doors are the same rhythm, one storey up.** A load comes off one wagon at one door and goes up at that door, so the plural in *\"upper freight doors\"* is a plural of loading POINTS — two doors above means two doors below, not two doors over one. One set-out therefore serves both storeys, which is also what keeps the frames at the ground and the openings above from drifting apart. **The over-claim, taken deliberately and not hidden.** F2's assumption note reads *\"Hoist beam presence varies\"*, and giving both of the town's F2 roofs a hoist claims a uniformity that note warns against. It is taken because the same entry's EVIDENCE note names \"warehouse framing/hoist support\" as what this archetype must add before the family is satisfied, and because a two-storey warehouse whose only opening is a ground door cannot load the floor it exists to have. Nothing in either record distinguishes one from the other, so there is nothing here to vary ON, and dealing a difference would be inventing one rather than recording one. **If a source is ever reached that describes either building, this is the entry it overturns.** **What is NOT claimed.** Nothing here says either warehouse was worked at two points rather than one, or that its doors stood where the even set-out puts them; an even rhythm is chosen because any other would claim a plan no source gives. F3's landing apron and sparse glazing are **not built** and are not covered by this entry. The beam is drawn only where the gable actually carries it — on both of these it does."
+          "text": "`structures.phases[cargo_rhythm]` — 3 phases built with a cargo-door rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`, `recon_1835_blk_south_water_lasalle_f2_10` and, since T-1773, `recon_1835_forks_freight_f2_001` at Lake and West Water — the town's three **F2** roofs. The rhythm itself is `goods_door_bays` and `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No F3 stands in this town (`phase1_instantiated: 0`), so nothing is baked for F3 here. **What the crosswalk asks for, in its own words.** - **F3** `warehouse_river_large` — variants *\"multiple cargo doors; landing apron; sparse glazing\"*, and an evidence note that names the *\"multiple cargo-door rhythm\"* as the thing no current archetype conveys. - **F2** `warehouse_narrow_two_story` — variants *\"hoist beam; upper freight doors; few windows\"*, and an evidence note that `frame_storefront` *\"gives a two-storey shell and goods door but its retail shopfront must be removed and warehouse framing/hoist support added\"*. Before this the archetype drew exactly one goods door, centred, on every store and every warehouse alike, and drew no hoist on anything — `hoist_door` existed and no committed record had ever set it. **The invention, stated as one number per family.** No source reached counts the cargo openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The count is bounded rather than chosen, and the bound is the family's OWN footprint band at its short end, measured against the braced frame the wall is already set out on: - the loading side is the **depth** — an `end` goods door stands on the gable wall, which spans the plan's depth — so the shortest loading side a family can be dealt is the low figure of its `footprint_ft` band; - an opening with its jamb stock takes 1.85 + 2 × 0.16 = **2.17 m**, and the even set-out leaves n + 1 equal piers; - a pier narrower than `POST_SPACING_M` (2.44 m, 8 ft between principal posts) is narrower than one bay of that frame, so the opening beside it cannot stand in a bay of its own. The answer is the largest rhythm EVERY plan the band authors will carry. **F2's 40 ft short side takes two** (2.62 m piers) and refuses three (1.42 m). **F3's 55 ft takes three** (2.56 m) and refuses four (1.62 m). Neither number moves with the individual plan: a count that followed the plan would be the generator deciding how a particular building was worked, which is a claim about its use and not about its family. **The upper freight doors are the same rhythm, one storey up.** A load comes off one wagon at one door and goes up at that door, so the plural in *\"upper freight doors\"* is a plural of loading POINTS — two doors above means two doors below, not two doors over one. One set-out therefore serves both storeys, which is also what keeps the frames at the ground and the openings above from drifting apart. **The over-claim, taken deliberately and not hidden.** F2's assumption note reads *\"Hoist beam presence varies\"*, and giving every F2 roof in the town a hoist (two, and since T-1773 three) claims a uniformity that note warns against. It is taken because the same entry's EVIDENCE note names \"warehouse framing/hoist support\" as what this archetype must add before the family is satisfied, and because a two-storey warehouse whose only opening is a ground door cannot load the floor it exists to have. Nothing in either record distinguishes one from the other, so there is nothing here to vary ON, and dealing a difference would be inventing one rather than recording one. **If a source is ever reached that describes either building, this is the entry it overturns.** **What is NOT claimed.** Nothing here says either warehouse was worked at two points rather than one, or that its doors stood where the even set-out puts them; an even rhythm is chosen because any other would claim a plan no source gives. F3's landing apron and sparse glazing are **not built** and are not covered by this entry. The beam is drawn only where the gable actually carries it — on both of these it does."
         },
         {
           "label": "Held by",
@@ -19295,6 +19296,66 @@
         {
           "label": "Recorded",
           "text": "2026-09-30 (T-1765)."
+        }
+      ]
+    },
+    {
+      "id": "L308",
+      "title": "The West Division's second freight roof: a warehouse at Lake and West Water that no source seats",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern",
+        "recon_1835_forks_freight_f2_001",
+        "recon_1835_west_046"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_forks_freight_f2_001",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_forks_freight_f2_001",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`recon_1835_forks_freight_f2_001` (`data/structures/`), written by `tools/generate_west_freight.py` from `data/reconstruction/1835_west_freight_forks.json`."
+        },
+        {
+          "label": "What we invented",
+          "text": "The whole building. The order book's `structures/warehouses_freight/west` row sets two freight roofs for the West Division and found one standing (`recon_1835_west_046`, an F1 shed far out on Des Plaines Street), so it ordered one more. This is that roof: an **F2** narrow two-storey warehouse with a hoist door and vertical boards — the family's own crosswalk variants — on plat lot 1 of `blk_west_lake_canal`, the Lake Street corner of the block's West Water column. It stands on the corner, 1.5 m inside the lot's West Water line and 1.5 m inside its Lake Street line — both street lines, where the placement policy's `commercial_front` clause puts a freight roof (set back 8 m on the lot's centre, the anonymous-roof audit refamilied it to H2) — facing the South Branch at the forks; its rear runs toward the block's alley. Footprint, storeys, eave, pitch, finish, the cargo-door count (L280) and the shingle exposure (L263) are all type-level values from the reconstruction specification, sampled deterministically from the F2 band. No owner, forwarder, cargo or occupant is claimed."
+        },
+        {
+          "label": "Why here",
+          "text": "The West memo keeps the named landings for named records and seats anonymous freight on the approaches. The one platted West Division ground that faces the river at the forks is the east column of this block, and lot 1 is the first lot a cart reaches off the Lake Street bridge. The lot is the plat's (Thompson 1830, numeral read); the building on it is nobody's reading."
+        },
+        {
+          "label": "Bounds held by the generator",
+          "text": "wholly on its lot; out of every drawn street corridor and refused ground; 36.9 m from traced water (the memo's anonymous setback is 8 m); 26.9 m from the nearest footprint (the Green Tree Tavern); dry modelled ground at every corner with 0.02 m of relief; facade toward West Water. `--self-test` refuses a roof moved into the street, one straddling the next lot, one turned to face the alley and a family the recipe did not order."
+        },
+        {
+          "label": "Would replace",
+          "text": "Any reading that seats a named forwarder or warehouse in the West Division in July 1835 substitutes for this roof rather than standing beside it."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_forks_freight_f2_001.inferred_1835.position`, `recon_1835_forks_freight_f2_001.inferred_1835.footprint`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1773 (piece of T-1764, under T-1207)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01 (T-1773)."
         }
       ]
     },
