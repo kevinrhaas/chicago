@@ -118,7 +118,10 @@ def make_record(recipe: dict, datum: dict) -> dict:
     finish, paint = finish_for(seed)
     return {
         "id": row["structure_id"],
-        "name": f"Reconstructed West Water Street {spec['label'].lower()}",
+        # The anonymous programme's production name, which display-name.js reads into the
+        # title a visitor sees ("A vacant narrow two-story warehouse"); any other shape is
+        # shown verbatim and the smoke refuses it.
+        "name": f"Reconstructed {family} {spec['label'].lower()} #001",
         "archetype": spec["archetype"],
         "phases": [{
             "id": "inferred_1835",
