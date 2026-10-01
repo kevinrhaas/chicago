@@ -391,7 +391,9 @@ STRUCTURE_TICKETS = {
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1694",
-    ("south", "larger_boarding_houses"): "T-1209",
+    # T-1209 split: T-1779 raises the remaining H3 roofs in all three divisions;
+    # T-1777 rules their seats and T-1778 builds the first form, not the remainder.
+    ("south", "larger_boarding_houses"): "T-1779",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -437,7 +439,9 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    ("west", "ordinary_dwellings"): "T-1208",
+    # T-1208 split: T-1783 owns the owed D1-D3 cabins on the outer platted blocks;
+    # T-1781 redeals standing roofs and T-1784 separately owns the off-plat farms.
+    ("west", "ordinary_dwellings"): "T-1783",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -459,10 +463,12 @@ STRUCTURE_TICKETS = {
     #     building it out of place.
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
     ("west", "stores_mixed_use"): "T-1766",
-    ("west", "larger_boarding_houses"): "T-1209",
+    ("west", "larger_boarding_houses"): "T-1779",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1764",
+    # T-1764 split: T-1773 explicitly owns this last freight roof and this row;
+    # T-1774 closes the books after it stands.
+    ("west", "warehouses_freight"): "T-1773",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
@@ -529,7 +535,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1209",
+    ("north", "larger_boarding_houses"): "T-1779",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",

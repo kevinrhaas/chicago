@@ -8,8 +8,8 @@ All five presences, exact uses, placements and forms are reconstructed.
 
 ## Why this family mix
 
-The current programme has four West stores against six and five workshops against
-eight. Its town-wide C1 and C2 budgets are already exceeded by one each; repeating
+At claim time the programme had four West stores against six and five workshops
+against eight. Its town-wide C1 and C2 budgets are already exceeded by one each; repeating
 the old memo's initial C1/C2 allocation would add to that excess. This parcel uses
 one C3 narrow two-storey store, one C4 wider two-storey store, and W1/W2/W3 shop
 families. The memo's first-parcel table is an earlier allocation, not a second
@@ -22,7 +22,7 @@ The new parcel takes free frontage on the east side of the drawn Canal Street
 corridor between Lake and Randolph. Its street line is the drawn line, consistent with the
 project's block-placement ruling; it does not silently substitute survey control.
 Individual sites and gaps are inventions. They must clear existing footprints,
-road corridors, the river setback, the unrevised swale corridors and no-build
+road corridors, the river setback, any active swale corridors and no-build
 polygons, and remain on dry terrain across their complete footprints.
 
 The Wright and Hathaway maps bound streets and lots; they are not evidence for
