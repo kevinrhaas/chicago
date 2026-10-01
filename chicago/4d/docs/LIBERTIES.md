@@ -18260,6 +18260,7 @@ which substitutes for the anonymous roof.
 **Related:** **L318** (the H3's rule, whose ratios these are), **L90** (the anonymous roofs the
 reconstruction programme raises), **L271** (`recon_1835_west_035`'s release), **T-1209** (the
 boarding houses built to their beds), **T-1806** (this sizing), **T-1807** (the two H1 houses).
+**Recorded:** 2026-10-01.
 
 ### L325 — The second boarding house on blk_washington_clark, and a stable and a privy behind each of the two
 
