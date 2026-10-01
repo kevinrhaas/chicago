@@ -28,6 +28,15 @@ for m in json.loads((P/'research/acquired-files.json').read_text()):
   if p.exists():require(hashlib.sha256(p.read_bytes()).hexdigest()==m['sha256'],f'hash mismatch {p}')
 for r in j.get('measurements',[]):require(r.get('source_id') in sources,'unresolved measurement source')
 require(j['meta']['target_year']==1904,'wrong target')
+# The image & document index (research/images/README.md): every stream record checked and merged, both outputs current.
+import subprocess,sys
+r=subprocess.run([sys.executable,str(P/'tools/build_images.py'),'--check'],capture_output=True,text=True)
+require(r.returncode==0,'image index: '+(r.stdout+r.stderr).strip())
+if (P/'data/images.json').exists():
+ im=json.loads((P/'data/images.json').read_text())
+ for rec in im['images']:
+  for bid in rec['building_ids']:require(bid in {b['id'] for b in j['buildings']},f'image {rec["id"]} cites unknown building {bid}')
+  if rec.get('local'):require(rec['rights'] in ('public domain','no known restrictions') or rec['local'].get('display','').startswith('research/public/'),f'image {rec["id"]}: local copy of a {rec["rights"]} item')
 print(f'{len(j["buildings"])} buildings; {len(sources)} sources; {len(j["map_inventory"]["records"])} frontage readings; {len(j["occupancy_candidates"])} directory candidates')
 if errors:raise SystemExit('\n'.join(errors))
 print('PASS: identities, evidence dates, source links and acquired-file hashes')
