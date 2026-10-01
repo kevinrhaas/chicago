@@ -17661,6 +17661,7 @@ still unbuilt in July 1835 would retire these three rather than re-place them.
 `wabansia_doctors_house.documented_1834.form.bays`,
 `wabansia_doctors_house.documented_1834.form.chimneys`,
 `wabansia_doctors_house.documented_1834.form.paint`,
+`wabansia_doctors_house.documented_1834.form.siding_exposure_m`,
 `wabansia_doctors_barn.documented_1834.form.construction`,
 `wabansia_doctors_barn.documented_1834.form.wall_height_m`,
 `wabansia_doctors_barn.documented_1834.form.roof_type`,
@@ -17681,7 +17682,8 @@ chosen for that and for nothing a source says. The four rooms are read as a 24 �
 story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft
 rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of
 the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale
-on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule.
+on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule. The house's clapboard exposure is the one `tools/deal_siding_stock.py` deals every named frame
+building (L148), and is no more evidence than theirs.
 
 **Why:** It is the only household the corpus puts in Wabansia before the scene date, and the only
 house in the Democrat's 1834 run described room by room. Leaving it out because the advertisement

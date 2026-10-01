@@ -19602,6 +19602,12 @@
           "domain": "structure",
           "structure": "wabansia_doctors_house",
           "phase": "documented_1834",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "wabansia_doctors_house",
+          "phase": "documented_1834",
           "aspect": "position"
         }
       ],
@@ -19614,11 +19620,11 @@
         },
         {
           "label": "Covers",
-          "text": "`wabansia_doctors_house.documented_1834.position`, `wabansia_doctors_house.documented_1834.footprint`, `wabansia_doctors_barn.documented_1834.position`, `wabansia_doctors_barn.documented_1834.footprint`, `wabansia_doctors_house.documented_1834.form.roof_type`, `wabansia_doctors_house.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_house.documented_1834.form.construction`, `wabansia_doctors_house.documented_1834.form.plan`, `wabansia_doctors_house.documented_1834.form.bays`, `wabansia_doctors_house.documented_1834.form.chimneys`, `wabansia_doctors_house.documented_1834.form.paint`, `wabansia_doctors_barn.documented_1834.form.construction`, `wabansia_doctors_barn.documented_1834.form.wall_height_m`, `wabansia_doctors_barn.documented_1834.form.roof_type`, `wabansia_doctors_barn.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_barn.documented_1834.form.door`, `wabansia_doctors_barn.documented_1834.form.door_side`, `wabansia_doctors_barn.documented_1834.form.loft`, `wabansia_doctors_barn.documented_1834.form.paint`"
+          "text": "`wabansia_doctors_house.documented_1834.position`, `wabansia_doctors_house.documented_1834.footprint`, `wabansia_doctors_barn.documented_1834.position`, `wabansia_doctors_barn.documented_1834.footprint`, `wabansia_doctors_house.documented_1834.form.roof_type`, `wabansia_doctors_house.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_house.documented_1834.form.construction`, `wabansia_doctors_house.documented_1834.form.plan`, `wabansia_doctors_house.documented_1834.form.bays`, `wabansia_doctors_house.documented_1834.form.chimneys`, `wabansia_doctors_house.documented_1834.form.paint`, `wabansia_doctors_house.documented_1834.form.siding_exposure_m`, `wabansia_doctors_barn.documented_1834.form.construction`, `wabansia_doctors_barn.documented_1834.form.wall_height_m`, `wabansia_doctors_barn.documented_1834.form.roof_type`, `wabansia_doctors_barn.documented_1834.form.roof_pitch_deg`, `wabansia_doctors_barn.documented_1834.form.door`, `wabansia_doctors_barn.documented_1834.form.door_side`, `wabansia_doctors_barn.documented_1834.form.loft`, `wabansia_doctors_barn.documented_1834.form.paint`"
         },
         {
           "label": "What we invented",
-          "text": "Where the house stands, and its size. The Chicago Democrat of 16 July 1834 offers to rent or lease \"[a] convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.\" That line attests the house, its four rooms, its kitchen, its barn and its garden, and the survey they stood in; it gives no block, lot, street or dimension. The house is placed on Wright's block 59 (`blk_wabansia_c_t7`), the survey's south-east block on Kinzie Street beside the North Branch, on its eastern lot, 6 m back from the Kinzie line — the block nearest the town and its road, chosen for that and for nothing a source says. The four rooms are read as a 24 × 18 ft story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule."
+          "text": "Where the house stands, and its size. The Chicago Democrat of 16 July 1834 offers to rent or lease \"[a] convenient dwelling house, in Wabansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, and garden attached to it.\" That line attests the house, its four rooms, its kitchen, its barn and its garden, and the survey they stood in; it gives no block, lot, street or dimension. The house is placed on Wright's block 59 (`blk_wabansia_c_t7`), the survey's south-east block on Kinzie Street beside the North Branch, on its eastern lot, 6 m back from the Kinzie line — the block nearest the town and its road, chosen for that and for nothing a source says. The four rooms are read as a 24 × 18 ft story-and-a-half front range (two rooms down, two chambers up) and the kitchen as a 12 × 14 ft rear ell, inside the D6 band; the barn as a 20 × 26 ft plank barn with a loft, at the small end of the A2 band, 34 m back and to the river side; the garden as a 13 × 17 m plot behind a picket pale on the house's east side, its fence and ground borrowed unchanged from the dooryard-picket rule. The house's clapboard exposure is the one `tools/deal_siding_stock.py` deals every named frame building (L148), and is no more evidence than theirs."
         },
         {
           "label": "Why",

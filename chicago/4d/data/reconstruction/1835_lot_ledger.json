@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 115,
-   "free": 173,
+   "at_capacity": 116,
+   "free": 172,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 170,
-  "lots_barring_another_roof": 168,
+  "lots_with_a_roof": 171,
+  "lots_barring_another_roof": 169,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 229,
+  "principal_roofs_standing": 230,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
