@@ -102,26 +102,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 507,
+  "structure_records": 509,
   "physical_roofs": {
-   "min": 493,
-   "max": 494,
+   "min": 495,
+   "max": 496,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
    "generated": 354,
    "inferred_household_programme": 7,
-   "pre_existing": 101,
+   "pre_existing": 103,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 276,
-   "west": 91,
+   "west": 93,
    "north": 110,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 239,
+   "ordinary_dwellings": 240,
    "larger_boarding_houses": 26,
    "stores_mixed_use": 48,
    "inns_taverns": 9,
@@ -129,12 +129,12 @@
    "warehouses_freight": 16,
    "institutional_public": 9,
    "fort_principal": 10,
-   "barns_stables": 51,
+   "barns_stables": 52,
    "small_outbuildings": 63
   },
   "by_family": {
    "A1": 34,
-   "A2": 17,
+   "A2": 18,
    "A3": 31,
    "A4": 22,
    "A5": 10,
@@ -147,7 +147,7 @@
    "D3": 54,
    "D4": 48,
    "D5": 26,
-   "D6": 16,
+   "D6": 17,
    "D7": 10,
    "F1": 10,
    "F2": 5,
@@ -189,11 +189,11 @@
   ]
  },
  "remaining": {
-  "roofs": 175,
+  "roofs": 173,
   "of_target": 668,
   "by_district": {
    "south": 89,
-   "west": 44,
+   "west": 42,
    "north": 42,
    "fort": 0
   },
@@ -207,9 +207,9 @@
     "workshops": 4
    },
    "west": {
-    "barns_stables": 7,
+    "barns_stables": 6,
     "larger_boarding_houses": 4,
-    "ordinary_dwellings": 20,
+    "ordinary_dwellings": 19,
     "small_outbuildings": 8,
     "stores_mixed_use": 2,
     "workshops": 3
@@ -228,7 +228,7 @@
   },
   "by_family": {
    "A1": 8,
-   "A2": 14,
+   "A2": 13,
    "A3": 9,
    "A4": 6,
    "A5": 7,
@@ -241,7 +241,7 @@
    "D3": 11,
    "D4": 22,
    "D5": 22,
-   "D6": 13,
+   "D6": 12,
    "D7": 8,
    "F1": 0,
    "F2": 2,
@@ -286,13 +286,13 @@
     "W3": 1
    },
    "west": {
-    "A1": 3,
+    "A1": 2,
     "A2": 4,
     "H1": 1,
     "H2": 1,
     "H3": 2,
     "D2": 2,
-    "D3": 3,
+    "D3": 2,
     "D4": 5,
     "D5": 5,
     "D6": 3,
@@ -342,8 +342,8 @@
  },
  "coverage": {
   "schedulable_on_committed_ground": 124,
-  "gated_on_coverage": 51,
-  "statement": "124 of the 175 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 51 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "gated_on_coverage": 49,
+  "statement": "124 of the 173 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 49 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 338,
   "blocks_named": 80,
   "southern_ground": {
@@ -2429,8 +2429,8 @@
    },
    "lots": 2,
    "capacity_roofs": 0,
-   "standing_roofs": 0,
-   "free_lots": 2,
+   "standing_roofs": 2,
+   "free_lots": 1,
    "principal_room": 0,
    "ancillary_room": 0,
    "headroom": 0,
@@ -2440,7 +2440,7 @@
    "families": {},
    "principal": 0,
    "ancillary": 0,
-   "lot_ceiling_principal": 1,
+   "lot_ceiling_principal": 0,
    "row_lots_required": 0
   },
   {
@@ -2540,14 +2540,14 @@
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 44,
+   "capacity_roofs": 42,
    "standing_roofs": 0,
-   "headroom": 44,
+   "headroom": 42,
    "state": "gated",
    "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 44,
+   "roofs": 42,
    "families": {
-    "A1": 3,
+    "A1": 2,
     "A2": 4,
     "A3": 3,
     "A4": 2,
@@ -2555,7 +2555,7 @@
     "C3": 1,
     "C4": 1,
     "D2": 2,
-    "D3": 3,
+    "D3": 2,
     "D4": 5,
     "D5": 5,
     "D6": 3,
@@ -2566,8 +2566,8 @@
     "W1": 1,
     "W2": 2
    },
-   "principal": 29,
-   "ancillary": 15
+   "principal": 28,
+   "ancillary": 14
   },
   {
    "id": "north_division_beyond_modelled_ground",

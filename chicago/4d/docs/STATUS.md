@@ -6,7 +6,7 @@ Six houses get a new stable: the Tremont, the Exchange Coffee House, the New Yor
 Mansion House, the Sauganash and the Steamboat Hotel. The Western's (T-1775) and the Wolf
 Point's already stood. The Green Tree's is a **stated absence**: a four-stall range behind it
 stood 2.64 m inside Lake Street's corridor, and the house's back wall is about 12 m from the
-bank. Every new stable is reconstructed under **L313**:
+bank. Every new stable is reconstructed under **L317**:
 
 - **Stalls:** one per two ordinary guests, never fewer than four. The Tremont gets one per
   guest, because it was a stage stop.
@@ -18,11 +18,38 @@ The service is the 1831 county tariff ("Keeping horse one night 50"). No source 
 stable at any of these six houses. Baked with `bake.sh --only`.
 
 The six are A1 roofs in the existing-roof reconciliation. Like the other two stables, each
-substitutes for an anonymous A1 slot. The programme now reads **493 standing, 175 remaining**
-(was 487/181), and barns-and-stables left is 8 south and 7 north (was 13/8). The chain re-run
+substitutes for an anonymous A1 slot. The programme now reads **495 standing, 173 remaining**
+(dev before this PR: 489/179), and barns-and-stables left is 8 south and 7 north (was 13/8). The chain re-run
 to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
 The Sauganash's corner lot is nearest Market from every point, so its stable carries an
 `OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
+## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
+
+**What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
+was empty prairie. Its south-east block (Wright's block 59, `blk_wabansia_c_t7`) now carries a
+story-and-a-half frame house with a rear kitchen ell, fronting Kinzie Street; a plank barn with
+a loft behind it; and a picket-fenced kitchen garden on the house's river side. They are named
+records — `wabansia_doctors_house`, `wabansia_doctors_barn`, `data/enclosures/wabansia_doctors_garden.json`
+— not recipe roofs, because a source attests them: the Chicago Democrat of 16 July 1834
+(claim c017) offers to let "[a] convenient dwelling house, in W[a]bansia, now occupied by Doctor
+Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it."
+
+**What is attested and what is not.** The house, its four rooms, its kitchen, barn and garden,
+and the survey are attested; the house standing on 1 July 1835 is inferred (it was let, not
+removed). Block, lot, setbacks and every dimension are reconstructed under **L316**. No household
+is seated: the 1834 doctor is not merged with `kimberly_residence`'s Dr E. S. Kimberly, and
+spend_rulings' "reaches no seat" ruling on c017 is withdrawn because the claim now has a building.
+
+**Defects found on the way.** `tools/fronting_street.py` assumed every lot is a tier of its block;
+Wabansia's lots run tier line to tier line with no alley, and the first building on one raised a
+KeyError — it now fronts both tier streets, nearest first. `tools/plat_corridors.py` carries no
+corridor for any Wabansia street, so the frontage census and the placement policy read the house
+as fronting nothing although it stands 6.1 m behind `kinzie_west`'s corridor edge; stated as an
+outlier reason and in the census count, not fixed here.
+
+**Not done (T-1785's remaining clauses).** The district's frame budget was not read on the
+published tree and the Canal-approach screenshot west was not taken; T-1209 is not handed on.
+The Wabansia blocks' remaining slots stay `gated` on a placement policy for the survey.
 
 ## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
 

@@ -894,9 +894,14 @@ def self_test() -> int:
     # 38 -> 39 on 2026-09-28 (T-1716): `chicago_lighthouse_keepers_quarters` was raised beside
     # the 1832 light tower on the same unplatted reservation, where no street crossed the
     # ground in 1835 either, so it fronts no street and is reported here rather than dropped.
+    # 39 -> 41 on 2026-10-01 (T-1785): `wabansia_doctors_house` and `wabansia_doctors_barn`,
+    # the first roofs in Wabansia. They DO stand on a street — the house 6.1 m behind the
+    # corridor edge of `kinzie_west` — but tools/plat_corridors.py carries no corridor for
+    # any Wabansia street, so this census reads them as fronting none and reports them here
+    # rather than dropping them. They leave this count when Wabansia enters the corridors.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 39 and all(
+                   "leaving it out", len(absent) == 41 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))

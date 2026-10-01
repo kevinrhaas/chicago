@@ -23,7 +23,7 @@
         "rotation_deg": 0.0,
         "symbolic_location": "Rear of the Mansion House's lot on the north side of Lake Street east of Dearborn, against the block's east-west alley.",
         "confidence": "reconstructed",
-        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_dearborn lot #01, the Mansion House's own lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) at the alley's west end, and 3.3 m inside the lot's Dearborn line, square behind the house. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L313.",
+        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_dearborn lot #01, the Mansion House's own lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) at the alley's west end, and 3.3 m inside the lot's Dearborn line, square behind the house. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317.",
         "derivation": {
           "method": "not_derivable",
           "reason": "Placed against the lot it stands on (data/traces/vectors/thompson_lots.json) or, off the plat, against the house it serves — neither is a street line or a traced waterline that validate.py can re-derive a coordinate from. The reasoning is in position.note."
@@ -49,7 +49,7 @@
           ]
         ],
         "confidence": "reconstructed",
-        "note": "INVENTED, AND SIZED FROM THE HOUSE'S BEDS. The lodging model (data/reconstruction/1835_lodging_model.json, T-1164) puts 5 in the Mansion House on an ordinary night (35 crowded), itself graded reconstructed. ONE STALL PER TWO ORDINARY GUESTS: 5 beds / 2 = 3, raised to the floor of 4 = 4 stalls. Half, because the summer of 1835's crowd came mostly by lake and many of a town house's guests arrived without a horse; the Western Hotel's 'teams as numerous as were the guests' (chicagology_prefire278) is that house's own sentence about the teamsters' road west and is not carried to a Lake Street house; one range of 4 single standing stalls 5 ft wide and 9 ft deep, a passage behind them and a mangers' run, 20 ft deep in all, plus a 6 ft bay for harness and feed at one end: 4 x 5 + 6 = 26 ft long by 20 ft deep = 7.92 x 6.1 m. The ordinary night, not the crowded one, as the beds are sized. Every factor is ours and stated so it can be replaced: an advertisement or a sale notice naming this house's stabling, a fire-loss list, or a lot-level view of the block. L313."
+        "note": "INVENTED, AND SIZED FROM THE HOUSE'S BEDS. The lodging model (data/reconstruction/1835_lodging_model.json, T-1164) puts 5 in the Mansion House on an ordinary night (35 crowded), itself graded reconstructed. ONE STALL PER TWO ORDINARY GUESTS: 5 beds / 2 = 3, raised to the floor of 4 = 4 stalls. Half, because the summer of 1835's crowd came mostly by lake and many of a town house's guests arrived without a horse; the Western Hotel's 'teams as numerous as were the guests' (chicagology_prefire278) is that house's own sentence about the teamsters' road west and is not carried to a Lake Street house; one range of 4 single standing stalls 5 ft wide and 9 ft deep, a passage behind them and a mangers' run, 20 ft deep in all, plus a 6 ft bay for harness and feed at one end: 4 x 5 + 6 = 26 ft long by 20 ft deep = 7.92 x 6.1 m. The ordinary night, not the crowded one, as the beds are sized. Every factor is ours and stated so it can be replaced: an advertisement or a sale notice naming this house's stabling, a fire-loss list, or a lot-level view of the block. L317."
       },
       "form": {
         "construction": {
@@ -73,7 +73,7 @@
         "door_side": {
           "value": "front",
           "confidence": "reconstructed",
-          "note": "NOT ATTESTED. The front, at bearing 0, chosen so the door faces the block alley the placement policy puts a stable's traffic on. L313."
+          "note": "NOT ATTESTED. The front, at bearing 0, chosen so the door faces the block alley the placement policy puts a stable's traffic on. L317."
         },
         "paint": {
           "value": "unpainted",

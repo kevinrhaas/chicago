@@ -25,7 +25,7 @@
     "rotation_deg": 0.0,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_clark lot #07, the Tremont's own corner lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) and 1.5 m inside the lot's Dearborn line, under the house's east half. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L313.",
+    "position_note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_clark lot #07, the Tremont's own corner lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) and 1.5 m inside the lot's Dearborn line, under the house's east half. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317.",
     "symbolic_location": "Rear of the first Tremont House's lot at the north-west corner of Lake and Dearborn, against the block's east-west alley.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -53,7 +53,7 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "INVENTED, AND SIZED FROM THE HOUSE'S BEDS. The lodging model (data/reconstruction/1835_lodging_model.json, T-1164) puts 12 in the Tremont House (the first) on an ordinary night (35 crowded), itself graded reconstructed. ONE STALL PER ORDINARY GUEST, not one per two, because this house was a stage stop: the 1874 letter on chicagology_prefire021 has 'the stage' driven to this corner and passengers walking two blocks when 'the horses could not navigate' the mud. A stage's teams are changed and stood at the house it stops at, so this house kept more horses per bed than a house that only served riders. 12 beds x 1 = 12 stalls; two ranges of 6 single standing stalls 5 ft wide either side of an 8 ft passage (10 + 8 + 10 = 28 ft deep, the Western Hotel stable's own section from T-1775), plus a 6 ft bay for harness and feed: 6 x 5 + 6 = 36 ft long by 28 ft deep = 10.97 x 8.53 m. The ordinary night, not the crowded one, as the beds are sized. Every factor is ours and stated so it can be replaced: an advertisement or a sale notice naming this house's stabling, a fire-loss list, or a lot-level view of the block. L313."
+    "note": "INVENTED, AND SIZED FROM THE HOUSE'S BEDS. The lodging model (data/reconstruction/1835_lodging_model.json, T-1164) puts 12 in the Tremont House (the first) on an ordinary night (35 crowded), itself graded reconstructed. ONE STALL PER ORDINARY GUEST, not one per two, because this house was a stage stop: the 1874 letter on chicagology_prefire021 has 'the stage' driven to this corner and passengers walking two blocks when 'the horses could not navigate' the mud. A stage's teams are changed and stood at the house it stops at, so this house kept more horses per bed than a house that only served riders. 12 beds x 1 = 12 stalls; two ranges of 6 single standing stalls 5 ft wide either side of an 8 ft passage (10 + 8 + 10 = 28 ft deep, the Western Hotel stable's own section from T-1775), plus a 6 ft bay for harness and feed: 6 x 5 + 6 = 36 ft long by 28 ft deep = 10.97 x 8.53 m. The ordinary night, not the crowded one, as the beds are sized. Every factor is ours and stated so it can be replaced: an advertisement or a sale notice naming this house's stabling, a fire-loss list, or a lot-level view of the block. L317."
   },
   "attributes": {
     "construction": {
@@ -77,7 +77,7 @@
     "door_side": {
       "value": "front",
       "confidence": "reconstructed",
-      "note": "NOT ATTESTED. The front, at bearing 0, chosen so the door faces the block alley the placement policy puts a stable's traffic on. L313."
+      "note": "NOT ATTESTED. The front, at bearing 0, chosen so the door faces the block alley the placement policy puts a stable's traffic on. L317."
     },
     "paint": {
       "value": "unpainted",

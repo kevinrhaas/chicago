@@ -15,7 +15,7 @@ licensed Chicago house. That establishes the service. It does not establish a bu
 can be kept at a picket line, in a fenced lot or at a livery. No source reached mentions a stable
 at any of these houses except the Western Hotel.
 
-## The rule (reconstructed, L313)
+## The rule (reconstructed, L317)
 
 - **Stalls:** one single standing stall per two ordinary-night guests, rounded up, never fewer
   than four. Half a horse per guest because the summer crowd of 1835 came mostly by lake.

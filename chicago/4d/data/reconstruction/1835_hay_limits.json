@@ -315,11 +315,11 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 320,
-  "outside": 186,
+  "outside": 188,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
-   "north_of_the_limit": 40,
+   "north_of_the_limit": 42,
    "west_of_canal_street": 78,
    "south_of_washington_street": 40,
    "east_of_the_limit_in_the_water": 1,
@@ -395,7 +395,9 @@
     "recon_1835_north_d4_056",
     "recon_1835_north_d5_057",
     "recon_1835_north_d6_058",
-    "recon_1835_north_h2_030"
+    "recon_1835_north_h2_030",
+    "wabansia_doctors_barn",
+    "wabansia_doctors_house"
    ],
    "west_of_canal_street": [
     "inf_artisan_dwelling_west_a",
@@ -1097,7 +1099,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 44
+    "roofs": 42
    },
    {
     "id": "north_division_beyond_modelled_ground",

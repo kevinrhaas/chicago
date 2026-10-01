@@ -1292,6 +1292,28 @@
       "substitutes_anonymous_slots": 1,
       "confidence": "moderate",
       "reasoning": "T-1717. The small yellow house among the sand-hills north-east of Dr. Kimberly's corner, kept as a boarding-house by Eve Kelsey while Parnick Kelsey sub-contracted on the North Side street grading, raised on the same Bonnell walk of 26 August 1835. ONE PHYSICAL ROOF AND ONE INVENTORY ROOF: separately described, and described as full. THE FAMILY IS H1 AND NOT A DWELLING FAMILY, which is the one part of this entry the source settles outright: Bonnell names the trade and then evidences it by being turned away for want of a bed, so this is lodging stock and takes a lodging slot. It SUBSTITUTES rather than adds - the north district's anonymous stock is what it comes out of - and it is the second H1 roof this town has. T-1209 sizes the rest of the H1-H3 houses against the lodging model; this one is sized against two words, 'small' and full."
+    },
+    {
+      "structure_id": "wabansia_doctors_house",
+      "district": "west",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "D6",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1785. The 'convenient dwelling house, in Wabansia' the Chicago Democrat of 16 July 1834 offers to rent or lease, 'now occupied by Doctor Kimberl[y]', with 'four rooms, with a kitchen, barn, and garden attached to it' (claim chicago_democrat_1834_07_16#c017). ONE PHYSICAL ROOF AND ONE INVENTORY ROOF: the advertisement describes this house separately, room by room. IT SUBSTITUTES AND DOES NOT ADD: the West district's target already counts the roofs of the ground west of the river, Wabansia included, and a documented house there fills one of them rather than raising the town above its total. THE FAMILY IS AN ARGUMENT FROM THE ROOM COUNT: four rooms read as two down and two chambers in a half-storey, with the kitchen as a rear ell, which is the D6 story-and-a-half band (the record's footprint note)."
+    },
+    {
+      "structure_id": "wabansia_doctors_barn",
+      "district": "west",
+      "roof_count": 1,
+      "inventory_eligible": true,
+      "inventory_roof_count": 1,
+      "likely_family": "A2",
+      "substitutes_anonymous_slots": 1,
+      "confidence": "moderate",
+      "reasoning": "T-1785. The barn the same 16 July 1834 advertisement lists with the doctor's house in Wabansia ('a kitchen, barn, and garden attached to it'). One detached gable roof; A2 by name. Substitutes one of the West district's counted roofs, for the reason its house's row gives."
     }
   ]
 }
