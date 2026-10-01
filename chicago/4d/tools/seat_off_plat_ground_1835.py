@@ -79,6 +79,21 @@ ground that the roof programme does not carry. So this pass raises NO slot, and 
 row it cannot seat is owed against the programme's own coverage statement — *"the
 binding constraint on the 668-roof programme is coverage, not recipes."*
 
+## THE FARMSTEAD RULE (T-1794)
+
+`farms_and_country_seats` admits a D1 cabin and an A2 barn and ranks BELOW
+`labourer_dwellings`, so by the policy's order alone every cabin on the West farm ground
+went to a labourer and all 44 West farm households were owed (T-1793 measured it). But a
+cabin with a barn beside it is not a labourer's cabin: it is a farmstead's two roofs. So
+in the West, off the plat and on ground with no lot line, each A2 barn is paired with the
+nearest unpaired D1 cabin within FARMSTEAD_REACH_M, and that cabin is RESERVED for the
+farm clause — offered to farm households first and to no other clause at all. Nothing is
+raised and no barn is seated (a barn is ancillary); the barn is named on the seat. The
+farm households left over are stated as farming beyond the modelled ground, and
+tools/measure_west_farm_ground_1835.py sizes that ground. The North has one barn that
+would pair the same way (recon_1835_north_a2_059 with recon_1835_north_d1_054, 28 m);
+the rule is held to the West because that is the ground T-1793 measured.
+
 ## WHICH WAY IT IS WRONG IF IT IS WRONG
 
 The same way its predecessor was: toward ground holding too FEW of the town's
@@ -144,6 +159,15 @@ GROUND_TERMS_UNSCORED = {
                       "no committed parcel record here names a river frontage, and "
                       "joining the two is a reading T-1214 owns, not this pass.",
 }
+
+# THE FARMSTEAD RULE (T-1794) — see the module docstring. The reach is a reading, not a
+# record: a forty is 402 m on a side (1835_west_farm_ground.json `the_forty`), so a house
+# and barn within 150 m of each other stand comfortably inside one holding, while the next
+# barn-and-cabin cluster on this ground is further than that from both.
+FARM_CLAUSE = "farms_and_country_seats"
+FARMSTEAD_DIVISIONS = ("west",)
+FARMSTEAD_REACH_M = 150.0
+FARMSTEAD_TICKET = "T-1794"
 
 # The band whose clause key the address book leaves null, because no dwelling clause of
 # the policy reaches that head's trade. It is answered here with the reason, never a seat.
@@ -602,9 +626,56 @@ def in_scope(data: dict) -> list[dict]:
     return rows
 
 
+def farmsteads(data: dict, offer: dict[str, dict]) -> dict[str, dict]:
+    """Pair each off-plat barn with the cabin that is its farmhouse: {cabin: pairing}.
+
+    A barn in a farmstead division, standing off the plat on a parcel with no lot line
+    (or on none), takes the nearest D1 cabin still unpaired that is free to be offered,
+    of its own division and within FARMSTEAD_REACH_M. Barns are taken in id order, so the
+    pairing is deterministic; a barn with no cabin in reach pairs with nothing.
+    """
+    footprints = dict(data["occupancy"].footprints(data["datum"]))
+    by_district: dict[str, list[str]] = {}
+    for structure_id in sorted(offer):
+        record = data["records"][structure_id]
+        parcel = offer[structure_id]
+        if family_of(record, data["documented"]) != "D1":
+            continue
+        if parcel is not None and parcel["granularity"] == "lot":
+            continue
+        district = (record.get("reconstruction") or {}).get("district")
+        by_district.setdefault(district, []).append(structure_id)
+
+    pairs: dict[str, dict] = {}
+    for barn_id, record in sorted(data["records"].items()):
+        if barn_id in data["on_a_platted_lot"] or barn_id not in footprints:
+            continue
+        if data["occupancy"].layer_of_record(record) != "reconstruction":
+            continue
+        if family_of(record, data["documented"]) != "A2":
+            continue
+        district = (record.get("reconstruction") or {}).get("district")
+        if district not in FARMSTEAD_DIVISIONS:
+            continue
+        here = centroid(footprints[barn_id])
+        reach = sorted(
+            (math.dist(here, centroid(footprints[cabin_id])), cabin_id)
+            for cabin_id in by_district.get(district, [])
+            if cabin_id not in pairs and cabin_id in footprints)
+        reach = [(metres, cabin_id) for metres, cabin_id in reach
+                 if metres <= FARMSTEAD_REACH_M]
+        if reach:
+            metres, cabin_id = reach[0]
+            pairs[cabin_id] = {"barn": barn_id, "metres": round(metres, 1),
+                               "district": district}
+    return pairs
+
+
 def deal(data: dict, parcels: list[dict]) -> dict:
     """Offer the off-plat ground to every handed-on household in the policy's order."""
     offer, held_back, unparcelled = adoptable(data, parcels)
+    farmhouse = farmsteads(data, offer)
+    passed_over: set[str] = set()
     taken: dict[str, str] = {}
     order = data["clause_order"]
     scheduled = sum(1 for parcel in parcels if parcel["in_the_roof_schedule"])
@@ -647,9 +718,28 @@ def deal(data: dict, parcels: list[dict]) -> dict:
                 said = ("no roof of a family this clause admits stands off the plat in "
                         "this division at all")
             return f"{said}, {no_slot}"
+        reserved = [s for s in pool if s in farmhouse and clause_id != FARM_CLAUSE]
+        if clause_id == FARM_CLAUSE and district in FARMSTEAD_DIVISIONS:
+            ours = [s for s in pool if s in farmhouse]
+            return (f"every farmstead standing off the plat in this division — "
+                    f"{len(ours)} D1 cabin(s) each with an A2 barn in reach, which the "
+                    f"farmstead rule ({FARMSTEAD_TICKET}) gives to farm households ahead "
+                    "of the labourers — is already seated, and the other cabins are "
+                    "labourers' with no barn beside them. So this household is stated "
+                    "as farming beyond the modelled ground: no source places its farm, "
+                    "and tools/measure_west_farm_ground_1835.py sizes the West farm "
+                    f"ground it could stand on; {no_slot}")
         spent = sorted({taken[structure_id] for structure_id in pool
-                        if structure_id in taken})
+                        if structure_id in taken and structure_id not in reserved})
         above = [name for name in spent if name != clause_id]
+        if reserved and not [s for s in pool if s not in taken and s not in reserved]:
+            return (f"every one of the {len(pool)} off-plat roof(s) of a family this "
+                    f"clause admits in this division is spent: {len(reserved)} of them "
+                    "are farmhouses, a D1 cabin with an A2 barn in reach, which the "
+                    f"farmstead rule ({FARMSTEAD_TICKET}) keeps for "
+                    f"{FARM_CLAUSE}, and the rest are already seated"
+                    + (f" by {', '.join(above)}" if above else "")
+                    + f" — {no_slot}")
         if above:
             return (f"every one of the {len(pool)} off-plat roof(s) of a family this "
                     "clause admits in this division is already spent, "
@@ -691,10 +781,34 @@ def deal(data: dict, parcels: list[dict]) -> dict:
             and (data["records"][structure_id].get("reconstruction") or {}).get("district")
             == district
             and family_of(data["records"][structure_id], data["documented"]) in admitted
+            and (structure_id not in passed_over or clause_id == FARM_CLAUSE)
         ]
+        if clause_id == FARM_CLAUSE:
+            candidates = [pair for pair in candidates if pair[0] in farmhouse] or [
+                pair for pair in candidates if pair[0] not in farmhouse]
         if candidates:
             structure_id, parcel = max(
                 candidates, key=lambda pair: (score(pair[1], clause), pair[0]))
+            # THE FARMHOUSE IS PASSED OVER, NOT RE-DEALT AROUND. The household this deal
+            # would have put under a farmhouse is the one that gives it up and is owed;
+            # every other seat stays exactly where the deal without the rule put it, so
+            # the rule moves two households and not every labourer down a roof.
+            if structure_id in farmhouse and clause_id != FARM_CLAUSE:
+                passed_over.add(structure_id)
+                pairing = farmhouse[structure_id]
+                owed.append({
+                    "id": row["id"], "kind": row["kind"], "band": seat["id"],
+                    "clause": clause_id, "district": district,
+                    "why": f"the roof this clause's deal reaches for this household, "
+                           f"{structure_id}, is a farmhouse — a D1 cabin with the A2 barn "
+                           f"{pairing['barn']} {pairing['metres']:g} m from it — and the "
+                           f"farmstead rule ({FARMSTEAD_TICKET}) keeps it for "
+                           f"{FARM_CLAUSE}; no other roof of a family this clause admits "
+                           "is free for it here without moving a household already "
+                           f"seated, {no_slot}",
+                    "handed_to": SUCCESSOR,
+                })
+                continue
             taken[structure_id] = clause_id
             letter = family_of(data["records"][structure_id], data["documented"])
             seats.append({
@@ -718,6 +832,16 @@ def deal(data: dict, parcels: list[dict]) -> dict:
                        "the plat and in this household's own division: the roof is "
                        "already raised, so nothing is drawn off the order book",
             })
+            if structure_id in farmhouse:
+                pairing = farmhouse[structure_id]
+                seats[-1]["farmstead_barn"] = pairing["barn"]
+                seats[-1]["why"] = (
+                    f"a farmstead: this D1 cabin and the A2 barn {pairing['barn']} "
+                    f"{pairing['metres']:g} m from it already stand off the plat on "
+                    "unsubdivided ground in this household's own division, and the "
+                    f"farmstead rule ({FARMSTEAD_TICKET}) gives the pair to a farm "
+                    "household ahead of the labourers. Both roofs are already raised, so "
+                    "nothing is drawn off the order book")
             continue
 
         owed.append({
@@ -728,6 +852,11 @@ def deal(data: dict, parcels: list[dict]) -> dict:
         })
 
     return {
+        "farmsteads": [
+            {"cabin": cabin_id, **pairing,
+             "seated": next((seat["id"] for seat in seats
+                             if seat["structure_id"] == cabin_id), None)}
+            for cabin_id, pairing in sorted(farmhouse.items())],
         "seats": seats, "owed": owed, "held_back": held_back,
         "unparcelled": unparcelled, "adoptable_offered": len(offer),
         "offered_ids": sorted(offer),
@@ -799,6 +928,15 @@ def assert_the_deal_is_honest(data: dict, parcels: list[dict], dealt: dict) -> N
                 seat["structure_id"] not in by_id[seat["parcel_id"]]["standing"]:
             raise Fault(f"{seat['id']} adopts {seat['structure_id']}, which does not "
                         f"stand on {seat['parcel_id']}")
+
+    # A FARMHOUSE IS A FARM'S. The farmstead rule reserves each paired cabin for the farm
+    # clause; a seat that puts another clause's household under one has undone the rule.
+    reserved = {row["cabin"] for row in dealt.get("farmsteads", [])}
+    for seat in dealt["seats"]:
+        if seat["structure_id"] in reserved and seat["clause"] != FARM_CLAUSE:
+            raise Fault(f"{seat['id']} ({seat['clause']}) is seated in "
+                        f"{seat['structure_id']}, a farmhouse the farmstead rule keeps "
+                        f"for {FARM_CLAUSE}")
 
     # NOBODY IS DROPPED. Every row handed on is either seated or owed, once.
     scope = {row["id"] for row in in_scope(data)}
@@ -988,6 +1126,20 @@ def seats_document(data: dict, parcels: list[dict], dealt: dict) -> dict:
                 "their reason is a shortage of roofs rather than a shortage of clauses. "
                 "It is the sharpest reading of the coverage gate in either file.",
         },
+        "farmsteads": {
+            "ticket": FARMSTEAD_TICKET,
+            "rule": f"in {', '.join(FARMSTEAD_DIVISIONS)}, each A2 barn standing off the "
+                    "plat pairs with the nearest unpaired D1 cabin within "
+                    f"{FARMSTEAD_REACH_M:g} m that stands on no lot, and that cabin is "
+                    f"offered to {FARM_CLAUSE} first and to no other clause",
+            "reach_m": FARMSTEAD_REACH_M,
+            "confidence": "inferred",
+            "note": "the reach is a reading: a forty is 402 m on a side, so a house and "
+                    "barn within 150 m stand on one holding. No source pairs these roofs; "
+                    "the pairing is the policy's own clause (D1 + A2) read off where the "
+                    "roofs already stand.",
+            "pairs": dealt["farmsteads"],
+        },
         "roofs_held_back": dealt["held_back"],
         "roofs_on_no_committed_parcel": dealt["unparcelled"],
         "roofs_offered_and_unspent": dealt["adoptable_unspent"],
@@ -1140,6 +1292,16 @@ def cmd_self_test() -> int:
         assert_the_deal_is_honest(data, parcels, bent)
     _fires("an owed row with a blank reason", a_blank_reason)
     print("   an owed row with no reason written                  refused")
+
+    def a_farmhouse_given_to_a_labourer():
+        bent = json.loads(json.dumps(dealt))
+        if not bent["farmsteads"]:
+            raise Fault("fixture needs a farmstead")
+        seat = next(seat for seat in bent["seats"] if seat["clause"] != FARM_CLAUSE)
+        seat["structure_id"] = bent["farmsteads"][0]["cabin"]
+        assert_the_deal_is_honest(data, parcels, bent)
+    _fires("a farmhouse dealt to another clause", a_farmhouse_given_to_a_labourer)
+    print("   a farmhouse dealt to a household of another clause  refused")
 
     print("\nSELF-TEST PASS")
     return 0

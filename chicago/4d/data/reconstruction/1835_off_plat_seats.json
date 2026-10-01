@@ -41,8 +41,9 @@
    "adopted": 72
   },
   "by_clause": {
+   "farms_and_country_seats": 2,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 25,
+   "labourer_dwellings": 23,
    "merchant_and_professional_dwellings": 8,
    "tradesman_dwellings": 38
   },
@@ -72,9 +73,9 @@
   "slots_requested": 0,
   "owed_by_clause": {
    "division_ground": 52,
-   "farms_and_country_seats": 204,
+   "farms_and_country_seats": 202,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 98,
+   "labourer_dwellings": 100,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 362,
    "tradesman_dwellings": 504
@@ -105,6 +106,29 @@
    "west": 244
   },
   "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 720 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
+ },
+ "farmsteads": {
+  "ticket": "T-1794",
+  "rule": "in west, each A2 barn standing off the plat pairs with the nearest unpaired D1 cabin within 150 m that stands on no lot, and that cabin is offered to farms_and_country_seats first and to no other clause",
+  "reach_m": 150.0,
+  "confidence": "inferred",
+  "note": "the reach is a reading: a forty is 402 m on a side, so a house and barn within 150 m stand on one holding. No source pairs these roofs; the pairing is the policy's own clause (D1 + A2) read off where the roofs already stand.",
+  "pairs": [
+   {
+    "cabin": "recon_1835_west_052",
+    "barn": "recon_1835_west_055",
+    "metres": 126.5,
+    "district": "west",
+    "seated": "hh_beegle_a"
+   },
+   {
+    "cabin": "recon_1835_west_054",
+    "barn": "recon_1835_west_053",
+    "metres": 46.9,
+    "district": "west",
+    "seated": "hh_ayers_david"
+   }
+  ]
  },
  "roofs_held_back": [
   {
@@ -1620,33 +1644,6 @@
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bruno_anne_franoise_apolline",
-   "kind": "household",
-   "name": "The Bruno household — a name the town's own records carry",
-   "clause": "labourer_dwellings",
-   "district": "west",
-   "band": "west/labourer_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_west_054",
-   "family": "D1",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "labourer_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_bruno_anne_franoise_apolline|T-1522|division:d32ed91e844b|class:3beedd3522c4",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
    "id": "hh_chadwick_joseph",
    "kind": "household",
    "name": "The Chadwick household — a name from the post office's letter lists",
@@ -1698,33 +1695,6 @@
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
    "seed": "hh_conger_thomas|T-1522|division:1173e0d9e607|class:3819f842fa36",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_cooley_edward_v",
-   "kind": "household",
-   "name": "The Cooley household — a name from the post office's letter lists",
-   "clause": "labourer_dwellings",
-   "district": "west",
-   "band": "west/labourer_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_west_052",
-   "family": "D1",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "labourer_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_cooley_edward_v|T-1522|division:dd9787dd9fa3|class:2eae6c444aae",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -2185,6 +2155,62 @@
    "order_book_draw": null,
    "seed": "hh_rc_doyle_ellen|west|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_ayers_david",
+   "kind": "household",
+   "name": "The Ayers household — a name from the post office's letter lists",
+   "clause": "farms_and_country_seats",
+   "district": "west",
+   "band": "west/farms_and_country_seats",
+   "parcel_id": "canal_section_9_remainder",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_west_054",
+   "family": "D1",
+   "stands_on": "tract",
+   "setback_class": "unplatted",
+   "policy_rule": "farms_and_country_seats",
+   "order_book_draw": null,
+   "seed": "hh_ayers_david|T-1522|division:f608012d4f28|class:192c3e3767be",
+   "why": "a farmstead: this D1 cabin and the A2 barn recon_1835_west_053 46.9 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book",
+   "farmstead_barn": "recon_1835_west_053"
+  },
+  {
+   "id": "hh_beegle_a",
+   "kind": "household",
+   "name": "The Beegle household — a name from the post office's letter lists",
+   "clause": "farms_and_country_seats",
+   "district": "west",
+   "band": "west/farms_and_country_seats",
+   "parcel_id": "canal_section_9_remainder",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_west_052",
+   "family": "D1",
+   "stands_on": "tract",
+   "setback_class": "unplatted",
+   "policy_rule": "farms_and_country_seats",
+   "order_book_draw": null,
+   "seed": "hh_beegle_a|T-1522|division:fbc3bd4e1ed2|class:1f219a7208ba",
+   "why": "a farmstead: this D1 cabin and the A2 barn recon_1835_west_055 126.5 m from it already stand off the plat on unsubdivided ground in this household's own division, and the farmstead rule (T-1794) gives the pair to a farm household ahead of the labourers. Both roofs are already raised, so nothing is drawn off the order book",
+   "farmstead_barn": "recon_1835_west_055"
   }
  ],
  "owed": [
@@ -9992,6 +10018,24 @@
    "handed_to": "T-1615"
   },
   {
+   "id": "hh_bruno_anne_franoise_apolline",
+   "kind": "household",
+   "band": "west/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "west",
+   "why": "the roof this clause's deal reaches for this household, recon_1835_west_054, is a farmhouse — a D1 cabin with the A2 barn recon_1835_west_053 46.9 m from it — and the farmstead rule (T-1794) keeps it for farms_and_country_seats; no other roof of a family this clause admits is free for it here without moving a household already seated, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_cooley_edward_v",
+   "kind": "household",
+   "band": "west/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "west",
+   "why": "the roof this clause's deal reaches for this household, recon_1835_west_052, is a farmhouse — a D1 cabin with the A2 barn recon_1835_west_055 126.5 m from it — and the farmstead rule (T-1794) keeps it for farms_and_country_seats; no other roof of a family this clause admits is free for it here without moving a household already seated, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
    "id": "hh_hunt_charles_cotesworth_pinckney",
    "kind": "household",
    "band": "south/labourer_dwellings",
@@ -10294,7 +10338,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10303,7 +10347,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10384,7 +10428,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10420,7 +10464,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10456,7 +10500,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10465,7 +10509,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10474,7 +10518,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10483,7 +10527,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10492,7 +10536,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10555,7 +10599,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10690,7 +10734,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10699,7 +10743,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10753,7 +10797,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10762,7 +10806,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10807,7 +10851,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10861,7 +10905,7 @@
    "band": "west/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "west",
-   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every one of the 15 off-plat roof(s) of a family this clause admits in this division is spent: 2 of them are farmhouses, a D1 cabin with an A2 barn in reach, which the farmstead rule (T-1794) keeps for farms_and_country_seats, and the rest are already seated — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10937,15 +10981,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_ayers_david",
-   "kind": "household",
-   "band": "west/farms_and_country_seats",
-   "clause": "farms_and_country_seats",
-   "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_babeu_joseph",
    "kind": "household",
    "band": "south/farms_and_country_seats",
@@ -10982,21 +11017,12 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_beegle_a",
-   "kind": "household",
-   "band": "west/farms_and_country_seats",
-   "clause": "farms_and_country_seats",
-   "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_bell_william_a",
    "kind": "household",
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11023,7 +11049,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11032,7 +11058,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11050,7 +11076,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11068,7 +11094,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11086,7 +11112,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11104,7 +11130,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11158,7 +11184,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11167,7 +11193,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11311,7 +11337,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11320,7 +11346,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11365,7 +11391,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11401,7 +11427,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11419,7 +11445,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11473,7 +11499,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11482,7 +11508,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11500,7 +11526,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11563,7 +11589,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11590,7 +11616,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11608,7 +11634,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11617,7 +11643,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11716,7 +11742,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11743,7 +11769,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11797,7 +11823,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11815,7 +11841,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11842,7 +11868,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11977,7 +12003,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12013,7 +12039,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12022,7 +12048,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12049,7 +12075,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12085,7 +12111,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12112,7 +12138,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12328,7 +12354,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12355,7 +12381,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12373,7 +12399,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12382,7 +12408,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12454,7 +12480,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12472,7 +12498,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12499,7 +12525,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12580,7 +12606,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12661,7 +12687,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -12688,7 +12714,7 @@
    "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "west",
-   "why": "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {

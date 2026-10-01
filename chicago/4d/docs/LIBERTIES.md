@@ -15136,6 +15136,23 @@ grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-05
 anonymous-stock statement it refuses to overturn).
 **Recorded:** 2026-09-26.
 
+**The farmstead rule (T-1794, 2026-10-01).** By the policy's clause order alone every D1
+cabin on the West farm ground went to a labourer, because `labourer_dwellings` ranks above
+`farms_and_country_seats`, and all 44 West farm households were owed. The deal now pairs
+each A2 barn standing off the plat in the West with the nearest unpaired D1 cabin within
+150 m that stands on no lot, and keeps that cabin for the farm clause. Two pairs answer:
+`recon_1835_west_054` with the barn `recon_1835_west_053` (47 m) and `recon_1835_west_052`
+with `recon_1835_west_055` (126 m). The Ayers and Beegle households now hold them, and the
+Bruno and Cooley households, the two labourers who had them, are owed again. Every other
+seat stays where it was. The invention is the PAIRING: no source puts any of these roofs
+or households together. The 150 m reach is a reading, not a record: a forty is 402 m on a
+side, so a house and barn that close fit on one holding. The 42 farm households still owed
+are stated as farming beyond the modelled ground, and
+`data/reconstruction/1835_west_farm_ground.json` sizes that ground (34 of the 44 at best).
+The North has one barn that would pair the same way (`recon_1835_north_a2_059` with
+`recon_1835_north_d1_054`, 28 m), but the rule is held to the West, the ground T-1793
+measured. A source placing any of these farms retires the pairing.
+
 ### L272 — Six invented yard buildings on three platted blocks become rear cottages, and every one of them grows or shrinks to the dwelling band it joins
 
 **Scope:** `1835_platted_block_parcels.json[redealt]` — 6 slots of three South Division

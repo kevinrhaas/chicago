@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1249, ts: '2026-10-01T08:58:25.037Z', date: 'Oct 1, 2026, 3:58 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: 1250, ts: '2026-10-01T09:17:31.938Z', date: 'Oct 1, 2026, 4:17 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1249, ts: '2026-10-01T08:03:51.291Z', date: 'Oct 1, 2026, 3:03 AM CT', title: 'Two farm families move into the cabins beside the barns', kind: 'change',
+    items: [
+      'Out on the Des Plaines prairie edge, two log cabins stand near a barn. Open the Ayers or the Beegle household card now and it gives each family one of those cabins, with a button that walks you there. Before, both cards said the family had nowhere to live.',
+      'A cabin with a barn beside it is a farm, so farm families now get those cabins ahead of labourers. Until now labourers came first in the order households are housed, and they had taken every cabin out there. The Bruno and Cooley households, the two labouring families who lived in these cabins, are waiting for a house again. Every other family stays where it was.',
+      'There are 44 West Side farm families and the modelled prairie has room for about ten farms, so at least 34 of them farmed beyond the edge of the map. The town’s seating records now give that as the reason the other 42 have no house here, instead of saying only that none was free.',
+      'None of this comes from a source. No record puts these families, cabins and barns together. The pairing is our reconstruction, and the Liberties page says how it was made.',
     ] },
   { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [
