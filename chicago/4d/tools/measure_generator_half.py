@@ -350,13 +350,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # blocks — three frame cottages and a carpenter's shop. Four new structure assets on the
 # same terms; the terrain reach still 4 and pier_crib still 2.
 #
+# 516 -> 517 and 512 -> 513 on 2026-10-01 (T-1778): one roof, the town's first H3
+# boarding house on `blk_washington_clark` — one more mesh on the same terms as every
+# entry above; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 516,
+    "assets": 517,
     "restales": {
-        "generators/common/*.py": 516,
+        "generators/common/*.py": 517,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 512,
+        "generators/emit.py": 513,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

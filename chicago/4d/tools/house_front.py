@@ -193,6 +193,14 @@ def mapping_note(family: str) -> str:
     """
     if not family.startswith("H"):
         return ""
+    if family == "H3":
+        # T-1778. The boarding house is the one H family whose crosswalk placeholder
+        # is NOT the frame dwelling, and saying it was would misname the generator.
+        return (" The H3 boarding house resolves through the frame_tavern archetype, "
+                "the crosswalk's placeholder for it; the canonical "
+                "boarding_house_frame generator is not implemented. The tavern's own "
+                "cues are not raised on it: no gallery, no frontispiece, no sign, and "
+                "a kitchen door rather than a carriage door in the rear service wing.")
     note = (" H-family house massing currently resolves through the frame dwelling "
             "archetype; no larger house generator is implemented.")
     if entry_names_centre_hall(family):
