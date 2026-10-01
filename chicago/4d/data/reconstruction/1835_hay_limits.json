@@ -314,7 +314,7 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 325,
+  "inside": 326,
   "outside": 193,
   "no_committed_position": 0,
   "outside_by_where": {
@@ -490,12 +490,12 @@
     "recon_1835_blk_washington_clark_d4_02",
     "recon_1835_blk_washington_clark_d5_01",
     "recon_1835_blk_washington_clark_h3_05",
-    "recon_1835_blk_washington_franklin_a1_08",
     "recon_1835_blk_washington_franklin_a1_10",
     "recon_1835_blk_washington_franklin_a2_09",
     "recon_1835_blk_washington_franklin_a3_13",
     "recon_1835_blk_washington_franklin_a4_11",
     "recon_1835_blk_washington_franklin_a4_12",
+    "recon_1835_blk_washington_franklin_a5_08",
     "recon_1835_blk_washington_franklin_d3_05",
     "recon_1835_blk_washington_franklin_d3_06",
     "recon_1835_blk_washington_franklin_d3_07",

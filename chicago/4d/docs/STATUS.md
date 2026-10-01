@@ -1,3 +1,84 @@
+## T-1803 — the camps of the landing place: a new `camp` archetype and two emigrants' camps on the South Water bank (2026-10-01)
+
+**What a visitor sees.** Two rows of tents on the bank between South Water Street's roadway
+and the river, from Franklin toward Wells — 15 tents (wall and wedge, alternating), two covered
+wagons, a brush lean-to, eight cold fire rings with pot cranes, cordwood, and 13 heaps of
+chests and barrels for the households that slept in the open. No figure, no flame, no smoke (L1).
+
+**What it rests on.** The Chicago American of 13 June 1835 puts the strangers "under the open sky
+upon the wharves" and says "Some build tents upon the spot they were landed from the boats";
+`1835_camp_grounds.json` grades that ground documented, and `1835_transient_persons.json`
+(T-1353) deals 28 camp households to it — 15 tent, 13 open-sky, 102 persons. Each camp record
+names its households as occupants. Everything drawn — the stretch of bank, the tents' forms and
+sizes, the wagons, the fires — is reconstructed and covered by L321.
+
+**Where, measured.** `tools/place_landing_camps_1835.py` derives both records and re-derives them
+with `--check`. The dry strip between the DRAWN South Water roadway and the traced 1834 bank is
+9-16 m wide only between E +240 and E +450, and the river walk takes it east of Jones's landing;
+the camps stand at E +264-297 and E +300-342, at least 1 m clear of the roadway, the wharf decks,
+the river walk, the beached rowboats and every footprint, on ground 0.22 m or more above the
+water. On the CONTROL line the platted street ran to the water, so both camps are in the plat's
+roadway; the records say so (AGENTS.md rule 10).
+
+**The archetype.** `generators/archetypes/camp.py` + `camp_params.py`: tents (wall, wedge or
+mixed), covered wagons, brush shelters, fire rings, woodpiles, baggage heaps; `row`, `ring` and
+`scatter` layouts; canvas `new`/`weathered`/`patched`. Five materials, about 1,800 triangles a
+camp. A camp is not a roof: it is entered in `1835_existing_roof_reconciliation.json` at zero
+roofs, answers no family in the 668-roof programme, and the walker does not treat its footprint
+as a wall. **The ticket asked for an `X1` family in the inventory; it was not added**, because
+`family_targets` must sum to the roof total and `1835_camp_grounds.json` rules that a tent is not
+a building — a camp family belongs to whoever builds a transient ledger, not to the roof count.
+
+**Registering the archetype re-staled the town.** `generators/emit.py` is hashed into every
+structure mesh, so adding `camp` to its registry made all 516 assets stale; the whole town was
+rebaked in this PR (about two minutes). The GLB bytes came back identical and only the manifests'
+input hashes moved.
+
+**Not done here (T-1804).** The conjectural grounds — the shore south of the fort, the west
+approach — and the Native and Métis camps from T-1177's evidence, which carry the standing
+constraint's review. The camp households' own `lodged_at` still names the candidate ground, not
+these records.
+
+## T-1802 — the Franklin block's recipe corrected to the seating it landed on (2026-10-01)
+
+Owner-asked fix. #186 (T-1751) landed `blk_washington_franklin` with a recipe entry cut on
+an older seating than the one it merged onto. Two things in it were stale, and no gate could
+see either:
+
+- **The seven `dealt_against_a_request` seats** (hh_aspam_antoine, hh_ashbaugh_fre,
+  hh_bailly_esther, hh_aspam_jean_baptiste, hh_calhoun_alvin, hh_cady_levi,
+  hh_campbell_james_b) no longer asked for this block. `adopt_street_faces.py`
+  (`requested_roofs`) reads this list for refusal 7, so the derived adoptions file named
+  the wrong households.
+- **The yard mix** was two stables, where the block's 665-schedule plan holds one stable and
+  one small utility building.
+
+**How the fix was derived.** Dev today has the block built, so no household holds a slot on it
+any more. The requests were re-derived as a counterfactual, in a scratch copy: the block's
+recipe entry and its 13 records were taken off and the seating chain was walked to its
+fixpoint (2 passes). The placement pass then writes a slot against this block for
+hh_beddlecome_ash (lot 0, D7), hh_benediet_loma (lot 2, H2), hh_beech_reuben (lot 4, H1),
+hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3), hh_chandler_catherine
+(lot 5, D3) and hh_chattin_clark (lot 7, D3). The schedule plans A1 + A2 + A3 + 2 A4 + A5.
+
+- **Lot 7 stays a D3.** The closed re-cut #198 had moved it to a D4, because the 9/29
+  seating asked hh_chiney_ralph to have a D4 there. Today's seating asks for a D3 there, so the
+  D4 is stale too and was not carried over.
+- The new requests ask for exactly the families the deal raised. So the seven roofs refusal 7
+  holds back are the same seven, and only the names they record change.
+- **Lot 0's stable is now an A5 small utility building**
+  (`recon_1835_blk_washington_franklin_a5_08`, replacing `…_a1_08`). It was baked with
+  pinned Blender 4.5.3 (`generators/build.py --only`), its web derivative was made with
+  `web_derivatives.sh --only`, and the sidecars were recompiled with `compile_scene.py --all`.
+
+**Converged figures (chain at fixpoint, 2 passes, then `rederive.mjs --run`, then 2 more):**
+platted seats **183** (148 adopted, 35 slots), **1,295** handed on, off-plat **72**, keepers
+**23** (80 refused, 45 owed). None of these moved: the seating files are byte-identical to
+dev's. The programme reads **500 standing, 168 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
+barns and stables owed there go 8 → 9, small outbuildings 13 → 12. Assets: one GLB swapped,
+so the count is unchanged. **L304** carries the correction; **L263** (prose only, count
+unmoved at 483) and **L270** (a no-seat-moved restatement) are restated.
+
 ## T-1783 — the outer West blocks opened at a West density; four roofs on plat block 47 (2026-10-01)
 
 Third piece of T-1208. The West Division's platted grid was withheld from the 665-roof schedule
@@ -18916,8 +18997,10 @@ validation record carries the subsequent full mobile and desktop results.
 
 ## T-1766: Canal approach trade roofs
 
-The parcel adds two stores and three workshops against the West Division
-remainder, with exact presence, placement and business assignments reconstructed.
+The parcel adds two stores and two workshops against the West Division
+remainder (built as five; the W3 wagon shop was withdrawn on 2026-10-01 when
+T-1783's carpenter's shop filled the West workshops row first — see
+`docs/RESEARCH/canal_approach_trade.md` § Built as five), with exact presence, placement and business assignments reconstructed.
 The existing roofs and prior workshop-to-dwelling rulings are retained.
 The canonical bake passed all 716 checks and supplied all five compressed models.
 Card naming, yard batching and the bounded grass-fringe repair are implemented. Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.

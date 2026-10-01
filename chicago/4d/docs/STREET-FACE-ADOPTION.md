@@ -545,9 +545,9 @@ policy) · T-0338, T-0340, T-0408 (identity) · L205, L212 ·
 
 ### T-1766 — an authored workplace is not spare street-face supply (2026-10-01)
 
-The five Canal approach roofs are commissioned by the explicit allocation in
+The four Canal approach roofs are commissioned by the explicit allocation in
 `data/reconstruction/1835_canal_approach_occupancy.json`: two grocers, a smith and
-two carpenters already in the resident layer, each with one reconstructed firm.
+a carpenter already in the resident layer, each with one reconstructed firm.
 Their workplace allocations are upstream of the adoption pass, just as the
 platted household requests are. Refusal 7 reserves these roofs too; otherwise
 regenerating the street-face deal could put a second, unrelated firm in a roof

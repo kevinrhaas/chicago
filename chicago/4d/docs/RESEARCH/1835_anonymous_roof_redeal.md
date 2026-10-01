@@ -15,7 +15,7 @@ The programme wants 668 roofs and 505 stand, so the town is 163 roofs short befo
 
 | bucket | target | standing | anonymous | head | after | head after |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `structures/barns_stables/south` | 35 | 27 | 20 | 8 | 27 | 8 |
+| `structures/barns_stables/south` | 35 | 26 | 19 | 9 | 26 | 9 |
 | `structures/barns_stables/west` | 20 | 14 | 11 | 6 | 14 | 6 |
 | `structures/barns_stables/north` | 17 | 10 | 9 | 7 | 10 | 7 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
@@ -32,7 +32,7 @@ The programme wants 668 roofs and 505 stand, so the town is 163 roofs short befo
 | `structures/ordinary_dwellings/south` | 176 | 126 | 116 | 50 | 126 | 50 |
 | `structures/ordinary_dwellings/west` | 75 | 59 | 55 | 16 | 62 | 13 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 52 | 26 | 58 | 26 |
-| `structures/small_outbuildings/south` | 48 | 35 | 34 | 13 | 35 | 13 |
+| `structures/small_outbuildings/south` | 48 | 36 | 35 | 12 | 36 | 12 |
 | `structures/small_outbuildings/west` | 14 | 6 | 6 | 8 | 5 | 9 |
 | `structures/small_outbuildings/north` | 20 | 19 | 16 | 1 | 19 | 1 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |

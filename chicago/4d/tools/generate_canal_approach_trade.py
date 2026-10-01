@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Build T-1766's five reconstructed Canal Street trade roofs.
+"""Build T-1766's four reconstructed Canal Street trade roofs.
 
-The recipe fixes a bounded street-front arrangement, not five recovered addresses.
+The recipe fixes a bounded street-front arrangement, not four recovered addresses.
+It was built as five; the W3 wagon shop was withdrawn when T-1783's carpenter's shop
+took one of the West workshop slots first, leaving the live budget at W1 and W2.
 Family dimensions, form and siding use the same production helpers as the existing
 block parcels. No standing roof is moved, refamilied or copied. New meshes must be
 baked by the ordinary structure pipeline.
@@ -37,7 +39,7 @@ CORRIDOR_LINE_WHY = 'Place new roofs beside the existing Canal frontage and bloc
 RECIPE = DATA / 'reconstruction/1835_canal_approach_trade.json'
 PREFIX = 'recon_1835_canal_trade_'
 SOURCE = 'owner_chicago_1835_reconstruction_spec_2026'
-EXPECTED = Counter({'C3': 1, 'C4': 1, 'W1': 1, 'W2': 1, 'W3': 1})
+EXPECTED = Counter({'C3': 1, 'C4': 1, 'W1': 1, 'W2': 1})
 
 
 def load(path):
@@ -71,7 +73,7 @@ def make_record(row, seq, table, datum, street, people):
     seed = row['geometry_seed']
     sid = row['structure_id']
     expected_seed = PREFIX + family.lower()
-    expected_id = expected_seed + '_' + {'C3': '001', 'C4': '002', 'W1': '003', 'W2': '004', 'W3': '005'}[family]
+    expected_id = expected_seed + '_' + {'C3': '001', 'C4': '002', 'W1': '003', 'W2': '004'}[family]
     if seed != expected_seed or sid != expected_id:
         raise ValueError('Canal public identity or preserved geometry seed changed')
     spec = table[family]
@@ -108,7 +110,7 @@ def make_record(row, seq, table, datum, street, people):
             'roof_condition': ('fresh', 'darkened', 'patched', 'weathered')[seq % 4],
             'age_state': ('new', 'recent', 'established', 'older_frontier')[seq % 4]},
         **({'occupants': people[sid]} if sid in people else {}),
-        'research_note': 'RECONSTRUCTED, NOT A RECOVERED ADDRESS. The West memo bounds mixed trade on the Canal approach; the current programme orders two stores and three workshops. C3 and C4 use remaining store-family capacity because C1 and C2 are already full. Exact existence, location, dimensions, finish and form remain inventions. Any reconstructed occupants are separately graded by their own records.',
+        'research_note': 'RECONSTRUCTED, NOT A RECOVERED ADDRESS. The West memo bounds mixed trade on the Canal approach; the live programme leaves room for two stores and two workshops. C3 and C4 use remaining store-family capacity because C1 and C2 are already full. Exact existence, location, dimensions, finish and form remain inventions. Any reconstructed occupants are separately graded by their own records.',
         'review_required': False,
     }
 
@@ -135,9 +137,9 @@ def separation(a, b):
 
 def validate(records, recipe, datum):
     if Counter(r['reconstruction']['family'] for r in records) != EXPECTED:
-        raise ValueError('the parcel must contain exactly C3, C4, W1, W2 and W3')
-    if len({r['id'] for r in records}) != 5:
-        raise ValueError('five distinct structure ids required')
+        raise ValueError('the parcel must contain exactly C3, C4, W1 and W2')
+    if len({r['id'] for r in records}) != 4:
+        raise ValueError('four distinct structure ids required')
     lanes = {**corridors(), **omitted_street_corridors()}
     refused = no_build_rings()
     field = Heightfield.load(DATA / 'terrain/epochs/e1834_harbor_cut')
@@ -281,7 +283,7 @@ def main():
     if drift:
         print('FAIL: Canal trade outputs drift: ' + ', '.join(drift))
         return 1
-    print('PASS: five Canal trade roofs' + (' rederive exactly' if args.check else ' generated'))
+    print('PASS: four Canal trade roofs' + (' rederive exactly' if args.check else ' generated'))
     return 0
 
 

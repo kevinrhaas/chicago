@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""T-1766: five trade roofs, five existing heads, no new people or claimed homes.
+"""T-1766: four trade roofs, four existing heads, no new people or claimed homes.
 
---build writes five authored firms; --check reproduces them; --self-test mutates
+The parcel was built as five and stands as four: T-1783's carpenter's shop took one of
+the West workshop slots first, and the live family budget left W1 and W2, not W3.
+
+--build writes four authored firms; --check reproduces them; --self-test mutates
 identity, division, trade and duplicate assignments. Geometry consumes occupancy()
 and assignments(). A separate trade_roof business form keeps lodging beds honest.
 """
@@ -38,11 +41,11 @@ def resolved(doc=None):
             raise ValueError('keeper must remain in the west division')
         if head['occupation']['value'] != row['occupation']:
             raise ValueError('the existing occupation cannot be reassigned')
-        expected = {'C3':'grocer','C4':'grocer','W1':'blacksmith','W2':'carpenter','W3':'carpenter'}
+        expected = {'C3':'grocer','C4':'grocer','W1':'blacksmith','W2':'carpenter'}
         if expected.get(row['family']) != row['occupation']:
             raise ValueError('family and existing trade disagree')
-        if row['structure_id'] != 'recon_1835_canal_trade_' + row['family'].lower() + '_' + {'C3':'001','C4':'002','W1':'003','W2':'004','W3':'005'}[row['family']]:
-            raise ValueError('assignment escaped the five new roofs')
+        if row['structure_id'] != 'recon_1835_canal_trade_' + row['family'].lower() + '_' + {'C3':'001','C4':'002','W1':'003','W2':'004'}[row['family']]:
+            raise ValueError('assignment escaped the four new roofs')
         if not row['business_id'].startswith(PREFIX):
             raise ValueError('firm escaped this generator namespace')
         for path in list((ROOT / 'data/businesses/authored').glob('*.json')) + list((ROOT / 'data/businesses').glob('*.json')):
@@ -52,17 +55,15 @@ def resolved(doc=None):
             if any(p.get('person_id') == row['person_id'] for p in other.get('proprietors', [])):
                 raise ValueError('keeper already owns another authored firm: ' + other['id'])
         result.append((row, hh, head))
-    if seen['family'] != {'C3','C4','W1','W2','W3'}:
-        raise ValueError('exactly the five ticket roofs must be occupied')
+    if seen['family'] != {'C3','C4','W1','W2'}:
+        raise ValueError('exactly the four ticket roofs must be occupied')
     return result
 
 
 def note(row):
-    extra = (' The wagon woodwork specialty is invented within a carpenter\'s woodworking trade; '
-             'the person remains a carpenter, not a documented wheelwright or cooper.' if row['family'] == 'W3' else '')
     return ('RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west '
             'trade head; no person is minted, no source places this firm here, and no residence '
-            'is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address.' + extra)
+            'is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address.')
 
 
 def occupancy():
@@ -118,7 +119,7 @@ def self_test():
     if assignments(): raise ValueError("workplace allocation became a residential seat")
     for label, mutate in [
         ('duplicate keeper',lambda d:d['rows'][1].update(person_id=d['rows'][0]['person_id'])),
-        ('invented trade',lambda d:d['rows'][4].update(occupation='wheelwright')),
+        ('invented trade',lambda d:d['rows'][3].update(occupation='wheelwright')),
         ('wrong head',lambda d:d['rows'][0].update(person_id='rc_missing')),
         ('foreign roof',lambda d:d['rows'][0].update(structure_id='recon_elsewhere')),
         ('missing roof',lambda d:d['rows'].pop()),
@@ -150,7 +151,7 @@ def self_test():
     try: jsonschema.validate(lodging,schema)
     except jsonschema.ValidationError: pass
     else: raise ValueError('lodging lost its bed requirement')
-    print('Canal occupancy: identity/trade refusal mutations, compiler joins, five schemas and unchanged lodging bed gate pass')
+    print('Canal occupancy: identity/trade refusal mutations, compiler joins, four schemas and unchanged lodging bed gate pass')
 
 
 def main():
@@ -170,7 +171,7 @@ def main():
                 raise ValueError('standing roof family differs from the occupied trade family')
             if not path.exists() or path.read_text()!=text: raise ValueError('stale '+str(path))
         else: p.error('choose --build, --check or --self-test')
-    print('Canal occupancy: five existing keepers, five reconstructed firms; no people or homes created')
+    print('Canal occupancy: four existing keepers, four reconstructed firms; no people or homes created')
 
 
 if __name__ == '__main__': main()

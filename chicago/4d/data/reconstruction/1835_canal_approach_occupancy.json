@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "ticket": "T-1766",
-  "rule": "Five newly reconstructed Canal approach trade roofs adopt five existing west trade heads, in the explicit stable family-to-head allocation below. Names and occupations come from their existing cards, never from a second mint. The placement, firm and W3 wagon woodwork specialty are reconstructed, not recovered addresses or documented firms. No residence is asserted.",
+  "rule": "Four newly reconstructed Canal approach trade roofs adopt four existing west trade heads, in the explicit stable family-to-head allocation below. Names and occupations come from their existing cards, never from a second mint. The placement and firm are reconstructed, not recovered addresses or documented firms. No residence is asserted. A fifth row (W3, a wagon woodwork shop for hh_rc_bacon_otis) was withdrawn with its roof when T-1783's carpenter's shop took a West workshop slot first; that keeper keeps his card and holds no firm here.",
   "rows": [
     {
       "family": "C3",
@@ -38,15 +38,6 @@
       "occupation": "carpenter",
       "business_id": "rcb_canal_stebbins_horace",
       "trade": "carpenter shop"
-    },
-    {
-      "family": "W3",
-      "structure_id": "recon_1835_canal_trade_w3_005",
-      "household_id": "hh_rc_bacon_otis",
-      "person_id": "rc_bacon_otis",
-      "occupation": "carpenter",
-      "business_id": "rcb_canal_bacon_otis",
-      "trade": "wagon woodwork shop"
     }
   ]
 }

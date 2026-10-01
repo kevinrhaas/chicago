@@ -354,17 +354,24 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # boarding house on `blk_washington_clark` — one more mesh on the same terms as every
 # entry above; terrain reach still 4 and pier_crib still 2.
 #
-# 517 -> 522 and 513 -> 518 on 2026-10-01 (T-1766): the five Canal approach trade roofs —
-# two stores and three workshops on the Canal Street approach. Five new structure assets on
-# the same terms as every entry above; terrain reach still 4 and pier_crib still 2.
+# 517 -> 519 and 513 -> 515 on 2026-10-01 (T-1803): the two emigrants' camps on the
+# South Water bank, the first records of the new `camp` archetype. Registering it in
+# emit.py's ARCHETYPES re-staled every structure asset once, and the whole town was
+# rebaked in the same PR (the GLB bytes came back identical; only the manifests' input
+# hashes moved). Terrain reach still 4 and pier_crib still 2.
+#
+# 519 -> 523 and 515 -> 519 on 2026-10-01 (T-1766): the Canal approach trade roofs — two
+# stores and two workshops on the Canal Street approach (built as five; the W3 shop was
+# withdrawn for the West workshops row). Four new structure assets on the same terms as
+# every entry above; terrain reach still 4 and pier_crib still 2.
 #
 STATED = {
-    "assets": 522,
+    "assets": 523,
     "restales": {
-        "generators/common/*.py": 522,
+        "generators/common/*.py": 523,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 518,
+        "generators/emit.py": 519,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

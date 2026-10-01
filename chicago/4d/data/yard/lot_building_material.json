@@ -14,14 +14,14 @@
       "timber": 3,
       "stone": 2
     },
-    "refused": 17
+    "refused": 19
   },
   "census": {
-    "standing": 518,
-    "anonymous_refused": 394,
-    "named_examined": 124,
-    "named_with_1835_start_refused": 17,
-    "state_not_stated_refused": 123,
+    "standing": 519,
+    "anonymous_refused": 393,
+    "named_examined": 126,
+    "named_with_1835_start_refused": 19,
+    "state_not_stated_refused": 125,
     "qualified": 1
   },
   "existence": {
@@ -318,6 +318,20 @@
       "name": "Dr. Kimberly's residence",
       "function": "dwelling",
       "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "landing_camp_east",
+      "name": "The emigrants' camp at the landing, east",
+      "function": "emigrant_camp",
+      "documented_range_from": "1835-06-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "landing_camp_west",
+      "name": "The emigrants' camp at the landing, west",
+      "function": "emigrant_camp",
+      "documented_range_from": "1835-06-01",
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
     },
     {

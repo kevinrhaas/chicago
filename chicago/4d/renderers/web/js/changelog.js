@@ -1,10 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1263, ts: '2026-10-01T15:10:34.572Z', date: 'Oct 1, 2026, 10:10 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1266, ts: '2026-10-01T17:58:02.493Z', date: 'Oct 1, 2026, 12:58 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
-      'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
-      'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
-      'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
+      'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+    items: [
+      'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
+      'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
+      'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
+      'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
+    ] },
+  { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
+    items: [
+      'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
+      'Each upper floor has seven chamber windows across its front and back instead of the five an inn has, and four iron stovepipes rise through each roof beside the two brick chimneys.',
+      'The counts come from the beds each house already holds, by the same rule as the first boarding house at Madison and Dearborn. Nobody moved: the same lodgers sleep in the same houses.',
+      'These houses, their windows and their stoves are our reconstruction. No source counts the rooms or stoves of a Chicago boarding house in 1835; the register says how each number was reached.',
+    ] },
+  { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+    items: [
+      'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
+      'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
     ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [

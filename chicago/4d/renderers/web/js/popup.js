@@ -757,7 +757,7 @@ function kindWords(value) {
 
 /** The archetype the generators built from, in words. `bridge_timber` and
  *  `pier_crib` are the schema's noun-first order and read wrongly reversed. */
-const ARCHETYPE_WORDS = { bridge_timber: 'timber bridge', pier_crib: 'crib pier' };
+const ARCHETYPE_WORDS = { bridge_timber: 'timber bridge', pier_crib: 'crib pier', camp: 'camp of tents' };
 function archetypeWords(archetype) {
   if (!archetype) return '';
   return ARCHETYPE_WORDS[archetype] ?? String(archetype).replace(/_/g, ' ');

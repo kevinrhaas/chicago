@@ -1654,6 +1654,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
       "placed": "Immediately after canal_approach_occupancy and before compile_businesses/reconcile_665/compile_scene; geometry and occupants therefore precede downstream scene readers."
+    },
+    "place_landing_camps_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
+      "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
     }
   }
 }

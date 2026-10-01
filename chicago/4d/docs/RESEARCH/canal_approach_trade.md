@@ -1,20 +1,40 @@
 # Canal approach stores and workshops — T-1766
 
 This parcel completes the current West Division trade-roof remainder: two stores
-and three workshops. It does not identify five historical buildings or recover
-five addresses. The owner reconstruction specification bounds the building
+and two workshops. It does not identify four historical buildings or recover
+four addresses. The owner reconstruction specification bounds the building
 families and town totals; the West Division memo bounds the district character.
-All five presences, exact uses, placements and forms are reconstructed.
+All four presences, exact uses, placements and forms are reconstructed.
 
 ## Why this family mix
 
 At claim time the programme had four West stores against six and five workshops
 against eight. Its town-wide C1 and C2 budgets are already exceeded by one each; repeating
 the old memo's initial C1/C2 allocation would add to that excess. This parcel uses
-one C3 narrow two-storey store, one C4 wider two-storey store, and W1/W2/W3 shop
+one C3 narrow two-storey store, one C4 wider two-storey store, and W1/W2 shop
 families. The memo's first-parcel table is an earlier allocation, not a second
 master inventory. The four original West workshop slots that were refamilied
 because they stood off the street retain that ruling.
+
+## Built as five, standing as four (2026-10-01)
+
+The parcel was measured against five of eight West workshops standing and raised
+three shops: W1, W2 and a W3 wagon-woodwork shop (`recon_1835_canal_trade_w3_005`,
+kept by the existing carpenter `rc_bacon_otis`). Before it merged, T-1783 (#215)
+raised a carpenter's shop on `blk_west_randolph_des_plaines` against the same free
+slots, and together the two stood nine workshops against the row's eight.
+`measure_group_district_rows --gate` caught it, and the anonymous-roof adjudication
+then asked for T-1783's shop to be refamilied.
+
+Three ways out were set out on PR #206: (a) two Canal workshops instead of three,
+(b) refamily T-1783's shop, or (c) re-split the authored workshops row. This parcel
+takes **(a)**. The ticket's acceptance asks for "the live family budget", and after
+T-1783 the West's live remainder was one W1 and one W2 — no W3. (a) moves no landed
+roof and no authored row; (b) would re-bake merged work to make room for unmerged
+work, and (c) would move the town model's dwelling split for one shop. The W3 roof,
+its meshes and its firm are withdrawn; Bacon keeps his card and holds no firm here,
+and the Randolph end of the frontage stays open. The overshoot declaration the lap
+had added to `measure_group_district_rows.py` is gone with it.
 
 ## Placement and evidence limits
 
@@ -26,7 +46,7 @@ road corridors, the river setback, any active swale corridors and no-build
 polygons, and remain on dry terrain across their complete footprints.
 
 The Wright and Hathaway maps bound streets and lots; they are not evidence for
-these five roofs or their occupants. The owner specification
+these four roofs or their occupants. The owner specification
 (`owner_chicago_1835_reconstruction_spec_2026`) supports reconstruction within
 family bands. The existing West memo, `west_division_infill_1835.md`, supplies
 context. A dated plan, address, advertisement or archaeological finding specific

@@ -13354,9 +13354,9 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, eight are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards fifteen are **L262**'s services, and five are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, eight are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards fifteen are **L262**'s services, and five are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13628,14 +13628,14 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade, of which EIGHT are this
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which EIGHT are this
 entry's. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
-yards, **L262**'s services and **L307**'s five Canal approach firms; the
+yards, **L262**'s services and **L307**'s four Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
-narrowed, and each entry says which of the thirty-nine are its own.
+narrowed, and each entry says which of the thirty-eight are its own.
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1408) writes a reconstructed
 business record for each of the six standing reconstructed boarding houses —
@@ -13713,14 +13713,14 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade. TWO are this entry's, the
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade. TWO are this entry's, the
 mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six
 **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
-lumber yards, fifteen **L262**'s services and five **L307**'s Canal approach firms. The
+lumber yards, fifteen **L262**'s services and four **L307**'s Canal approach firms. The
 selector reads the whole layer, so the count is restated here rather than narrowed, and the
 register keeps saying how many reconstructed houses of trade the town carries in total
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group mechanics_shops` (T-1185) writes
 **two** houses, the second group of the business reconstruction: *M. Quinn, brewery* on the
@@ -13780,15 +13780,15 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade, of which ONE is this
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which ONE is this
 entry's: a single law office. The physician's room went the same way as the second law
-office, and the block below says how. The other thirty-eight are **L254**'s
+office, and the block below says how. The other thirty-seven are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
 jeweller's, **L260**'s liveries and lumber yards, **L262**'s services — the other half of
-this entry's own group, and the half no census line reaches — and **L307**'s five Canal approach firms; the selector reads the whole
+this entry's own group, and the half no census line reaches — and **L307**'s four Canal approach firms; the selector reads the whole
 reconstructed layer, so the count is restated here rather than narrowed.
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1418, of T-1186) writes **two** reconstructed records: *B. Robillard, attorney and counsellor at
@@ -13902,15 +13902,15 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade, of which FOUR are this
-entry's. The other thirty-five are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which FOUR are this
+entry's. The other thirty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades, and
-**L307**'s five Canal approach firms; the
+**L307**'s four Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
-narrowed, and each entry says which of the thirty-nine are its own.
+narrowed, and each entry says which of the thirty-eight are its own.
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1424, of T-1409 and T-1187) writes a
 reconstructed business record for each of the four reconstructed trade heads the resident
@@ -14063,14 +14063,14 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 39 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 38 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
-shop. The other twenty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
+shop. The other twenty-three are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
-**L260**'s liveries and lumber yards and **L307**'s five Canal approach firms; the selector reads the whole reconstructed layer, so
-the count is restated here rather than narrowed, and each entry says which of the thirty-nine are its own.
+**L260**'s liveries and lumber yards and **L307**'s four Canal approach firms; the selector reads the whole reconstructed layer, so
+the count is restated here rather than narrowed, and each entry says which of the thirty-eight are its own.
 
-**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 39 with the five Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+**Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1419, of T-1186) writes fifteen reconstructed business records on **L260**'s fourth form,
@@ -14152,7 +14152,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 493 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 492 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14183,8 +14183,9 @@ Cass Street, and by then the exposure on an Addition roof is the ordinary case r
 new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest
 single move this count has taken from one parcel: seven dwellings — two small two-story frame
 houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages —
-with two stables, a carriage shed, two woodsheds and a privy in their yards, thirteen roofs
-that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
+with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their
+yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count),
+thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on
 the Cass cell makes **473**, and it is the first addition to this entry that is not four of
 the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the
 Addition's first stable — a wider and deeper roof plane than anything the recipe has raised
@@ -14209,9 +14210,9 @@ Street (**L318**). No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
-**Scope revision, 2026-10-01 (T-1766):** Five Canal approach trade roofs — C3, C4,
-W1, W2 and W3 — each state a roof type and take this exposure, and on top of the
-**488** above they make **493**. Their placement and occupancy are **L307**'s
+**Scope revision, 2026-10-01 (T-1766):** Four Canal approach trade roofs — C3, C4,
+W1 and W2 — each state a roof type and take this exposure, and on top of the
+**488** above they make **492**. Their placement and occupancy are **L307**'s
 reconstruction; the historical sequence above remains the record of the earlier additions.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -15078,6 +15079,13 @@ re-apportionment opened and hh_clement_dorcinrk loses one there, so the total ho
 gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on
 the same terms as every paragraph above: a roof raised in answer to a request is not reserved to
 the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner.
+**Restated 2026-10-01 (T-1802), and no seat moved.** The block's recipe now records the seven
+households that ask for it on `dev` of that date, re-derived by taking the deal off and walking
+the chain to its fixpoint (**L304**): hh_chapman_george and hh_chandler_catherine stand where
+hh_chevalier_joseph and hh_chiney_ralph stood, and hh_chattin_clark asks for lot 7 rather than
+lot 5. With the deal standing, the chain reads **183** seated (**148** adopted, **35** slots) and
+**1,295** handed on, the same as before the correction, and the same seven households hold the
+seven roofs.
 
 **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its
 principal room out can offer no slot, so this block's seven come off the table and the tier is
@@ -17318,8 +17326,8 @@ and standing empty until now — carries **thirteen anonymous roofs**: seven dwe
 lot, and six yard buildings behind them. The seven are the two small two-story frame houses
 (D7), the merchant-or-professional house (H2), the larger one-and-a-half-story house (H1) and
 the three one-room cottages (D3) that T-1522's placement pass wrote `slot` requests for against
-this block's own committed plan; the six are two stables, a carriage shed, two woodsheds and a
-privy. The ceiling, the family mix and the lots are the seating's and the schedule's;
+this block's own committed plan; the six are a stable, a carriage shed, two woodsheds, a privy
+and a small utility building. The ceiling, the family mix and the lots are the seating's and the schedule's;
 **everything below that is invented** — that any building stood on this block in July 1835,
 which buildings they were, that they were dwellings, how far back from its street edge each
 sits and how far to one side of its lot. No coordinate is authored: every metre is read off the
@@ -17344,9 +17352,10 @@ July 1835 is a claim nothing supports.
 **Why these yard buildings behind these houses.** The block's plan holds six and all six are
 built, which is the difference from `blk_washington_clark` (**L292**), where four of six were
 argued away as claims about how two tradesmen's households lived. They are dealt UP the
-household scale rather than evenly: the carriage shed stands in the merchant's yard, a stable
-apiece behind the one-and-a-half-story house and the D7 on the Washington-and-Franklin corner,
-woodsheds behind the other D7 and behind one cottage, and the privy behind another. **One
+household scale rather than evenly: the carriage shed stands in the merchant's yard, the stable
+behind the one-and-a-half-story house, the small utility building behind the D7 on the
+Washington-and-Franklin corner, woodsheds behind the other D7 and behind one cottage, and the
+privy behind another. **One
 household is dealt nothing at all** — the cottage on the Madison-and-Wells corner stands in an
 open yard — because six were apportioned and seven dwellings are raised. That is the plan
 binding, not an omission; the schedule re-derives with fourteen roofs of headroom still on the
@@ -17376,6 +17385,30 @@ block between Washington and Madison, Franklin and Wells, and a reading of Thomp
 numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
 roof and never increases the total. Any evidence that the tier south of Washington was still
 wholly unbuilt in July 1835 would retire all thirteen of these rather than re-place them.
+
+**CORRECTED 2026-10-01 (T-1802): THE RECIPE HAD BEEN CUT ON AN OLDER SEATING THAN THE ONE IT
+LANDED ON.** The recipe entry #186 merged was written when its branch was first cut. Its seven
+`dealt_against_a_request` seats (hh_aspam_antoine, hh_ashbaugh_fre, hh_bailly_esther,
+hh_aspam_jean_baptiste, hh_calhoun_alvin, hh_cady_levi, hh_campbell_james_b) no longer asked for
+this block by the day it merged, and its yard plan carried two stables where the block's
+665-schedule plan holds one stable and one small utility building (A1 + A5). The requests are what
+`adopt_street_faces.py` reads to hold a roof back for the household that asked (refusal 7), so the
+derived adoptions file was naming the wrong households and no gate could see it. **Both are now
+re-derived against `dev` of 2026-10-01**, by taking this block's deal off (its recipe entry and its
+thirteen records) and walking the seating chain to its fixpoint. The placement pass then writes a
+`slot` against this block for hh_beddlecome_ash (lot 0, D7), hh_benediet_loma (lot 2, H2),
+hh_beech_reuben (lot 4, H1), hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3),
+hh_chandler_catherine (lot 5, D3) and hh_chattin_clark (lot 7, D3), and the recipe now records
+those seven. They ask for exactly the families the deal raised, so lot 7 stays a D3: the D4 that
+the 2026-09-29 seating asked of it no longer stands, and the roofs refusal 7 holds back are the
+same seven roofs. The same counterfactual reads the block's yard plan as A1 + A2 + A3 + 2 A4 + A5,
+so the stable on lot 0 is now a small utility building (`recon_1835_blk_washington_franklin_a5_08`,
+re-baked, replacing `…_a1_08`). Nothing else moved. The seating reads 183 seated (148 adopted,
+35 slots) and 1,295 handed on, before and after, and the other twelve roofs keep their ids,
+positions and footprints. The stable that is no longer built here goes back into the South
+Division's remaining plan (barns and stables owed there 8 → 9; small outbuildings 13 → 12). Which
+household asked is still not who lives there: all seven roofs stay adopted by the households
+named above, and the seven who asked hold slots on the Dearborn, Clark and Market blocks.
 
 **Covers:** `recon_1835_blk_washington_franklin_*.inferred_1835.position`,
 `recon_1835_blk_washington_franklin_*.inferred_1835.footprint`
@@ -17608,29 +17641,27 @@ stock, or evidence locating an operating forks ferry on the scene date.
 
 **Recorded:** 2026-09-30 (T-1765).
 
-### L307 — Five reconstructed trade roofs on the Canal approach
+### L307 — Four reconstructed trade roofs on the Canal approach
 
 **Applies to:** `data/reconstruction/1835_canal_approach_trade.json` and
 `recon_1835_canal_trade_c3_001`, `recon_1835_canal_trade_c4_002`,
-`recon_1835_canal_trade_w1_003`, `recon_1835_canal_trade_w2_004`,
-and `recon_1835_canal_trade_w3_005`.
+`recon_1835_canal_trade_w1_003` and `recon_1835_canal_trade_w2_004`.
 
 **Covers:** `recon_1835_canal_trade_c3_001.inferred_1835.footprint`, `recon_1835_canal_trade_c3_001.inferred_1835.position`,
 `recon_1835_canal_trade_c4_002.inferred_1835.footprint`, `recon_1835_canal_trade_c4_002.inferred_1835.position`,
 `recon_1835_canal_trade_w1_003.inferred_1835.footprint`, `recon_1835_canal_trade_w1_003.inferred_1835.position`,
-`recon_1835_canal_trade_w2_004.inferred_1835.footprint`, `recon_1835_canal_trade_w2_004.inferred_1835.position`,
-`recon_1835_canal_trade_w3_005.inferred_1835.footprint`, `recon_1835_canal_trade_w3_005.inferred_1835.position`.
+`recon_1835_canal_trade_w2_004.inferred_1835.footprint`, `recon_1835_canal_trade_w2_004.inferred_1835.position`.
 
-**What we invented:** Two stores and three workshops on the east side of Canal
+**What we invented:** Two stores and two workshops on the east side of Canal
 Street between Lake and Randolph. Their existence, individual uses, exact frontage stations,
 setbacks, gaps, dimensions, finishes and construction dates are reconstructed.
 The site plan leaves the yards to the east and does not assert recovered lots or
-addresses. The five firms are reconstructed workplaces for existing trade heads;
+addresses. The four firms are reconstructed workplaces for existing trade heads;
 they are not newly discovered historical firms.
 
-**Why:** The live district inventory owes two store roofs and three workshops.
+**Why:** The live district inventory owes two store roofs and two workshops.
 The older West memo's C1/C2 first-parcel allocation has already been spent. The
-remaining town-wide family budget permits C3/C4 and W1/W2/W3, whose geometry is
+remaining family budget permits C3/C4 and, in the West, W1/W2, whose geometry is
 sampled by the same deterministic family helpers as the standing town. The owner
 reconstruction specification bounds the forms; it does not document these sites.
 
@@ -17639,13 +17670,12 @@ with discontinuous gaps and rear yards. The generator checks the complete
 footprints against dry terrain, existing roofs, road corridors, an eight-metre
 river setback and no-build ground. The initial reading also excluded the conjectural
 west-prairie swales; T-1460 retired those exclusions before this parcel shipped,
-without changing ground heights at any of the five chosen roofs.
+without changing ground heights at any of the chosen roofs.
 Clearance checks make the invention physically consistent; they do not make it
 historical evidence.
 
 **Occupants:** Assigning existing grocers and mechanics to these particular
-premises is reconstructed. A carpenter's wagon-woodwork specialization is also
-reconstructed, while their recorded occupation remains carpenter. No bed count
+premises is reconstructed. No bed count
 is invented to make a workshop pass a lodging schema, and no new person is minted.
 
 **Sources:** `owner_chicago_1835_reconstruction_spec_2026`. The committed West
@@ -17660,9 +17690,18 @@ archaeology; better evidence about any proposed proprietor or workshop use.
 **Recorded:** 2026-10-01 (T-1766).
 
 **L307 implementation note, 2026-10-01:** The authored workplace allocation reserves
-these five roofs from a second street-face business. This is a workplace reservation,
+these four roofs from a second street-face business. This is a workplace reservation,
 not a residential seat. Ordinal public IDs preserve the original documented geometry
 seed keys, so the naming correction changes no measured shape or placement.
+
+**L307 scope revision, 2026-10-01 (T-1766): built as five, it stands as four.** A third
+workshop, a W3 wagon-woodwork shop (`recon_1835_canal_trade_w3_005`, kept by the existing
+carpenter `rc_bacon_otis`), was baked and then withdrawn before merge. T-1783's carpenter's
+shop on `blk_west_randolph_des_plaines` landed first against the same free West workshop
+slots, and the two parcels together stood nine workshops against the row's eight. The
+ticket asks for the live family budget, and that budget was W1 and W2, so the parcel follows
+it rather than declaring the overshoot or re-splitting the authored workshops row. The
+Randolph end of the frontage is left open; Bacon keeps his card and holds no firm here.
 
 ### L308 — The West Division's second freight roof: a warehouse at Lake and West Water that no source seats
 
@@ -18198,4 +18237,111 @@ substitutes for a compatible anonymous roof and never increases the total.
 platted deal whose request this answers), **L312** (the same shape of deal), **T-1777** (the seat),
 **T-1778** (this deal), **T-1779** (the remaining H3 roofs, their yards, keepers and lodgers),
 **T-1209** (the boarding houses built to their beds).
+**Recorded:** 2026-10-01.
+
+### L321 — Two emigrants' camps on the South Water bank: the ground documented, the tents invented
+
+**Decision:** two camps of tents stand on the South Water Street bank of the main stem
+(T-1803, the first piece of T-1214): `landing_camp_west` between local E +264 and E +297 and
+`landing_camp_east` between E +300 and E +342, between the street's drawn roadway and the
+traced 1834 bank, and between J. H. Kinzie's landing and Jones's. They hold the 28 camp
+households `data/reconstruction/1835_transient_persons.json` deals to the landing place: one
+tent to each of the 15 households "in a tent at the landing place", and a heap of baggage —
+two chests, a barrel and a blanket roll — for each of the 13 "under the open sky upon the
+wharves". The camps carry 7 and 8 tents in the alternating wall and wedge forms, a covered wagon
+each, a brush lean-to in the east camp, one cold fire ring to two tents with a pot crane over
+it, and cordwood. **Everything drawn is invented except the use of the ground.**
+**Why:** the Chicago American of 13 June 1835 says the emigrants "remained under the open sky
+upon the wharves. Some build tents upon the spot they were landed from the boats", and
+`1835_camp_grounds.json` grades that ground `documented` and resolves it to the bank the
+landings stand their decks on. The paper says neither where along the riverfront nor what the
+tents were. The stretch is chosen because it is the only one the measurement leaves: the dry
+strip between the roadway and the water is 9 to 16 m wide here and closes to nothing west of
+it and under the river walk east of it (`tools/place_landing_camps_1835.py` measures it and
+refuses a camp within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or
+on ground under 0.20 m above the water). The tents are the two forms an outfitter of the
+1830s sold — the 9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes
+(`generators/archetypes/camp_params.py`). One tent a household is the reading that invents
+no sharing. The wagons answer the owner's ruling that wagons are not to be rationed
+(AGENTS.md, 2026-08-18); a family that came by lake shipped its wagon on the schooner.
+**Consequence:** a visitor on South Water Street sees a row of greyed canvas on the bank
+below the stores, with wagons, fire rings and piled baggage, and nobody there. **L1 stands
+over every vertex**: no figure is drawn, and no flame or smoke either — a column of smoke is
+the one thing a visitor would read as a person at the fire. On the street's CONTROL line
+(AGENTS.md rule 10) the platted South Water Street ran to the water, so these camps stand in
+the plat's roadway; that is what a crowd nobody had a room for did, and it is said on both
+records. These are not Native or Métis camps, which are T-1804's and carry the standing
+constraint's review.
+**How to resolve:** a letter, a diary or a view of the summer of 1835 placing the tents on the
+riverfront or describing them; the American's or the Democrat's later notices of the
+emigrants at the landing; any account of what an emigrant family's outfit at Chicago held.
+**Covers:** `landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`,
+`landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`,
+`landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`,
+`landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`,
+`landing_camp_west.camp_1835.form.baggage_heaps`,
+`landing_camp_west.camp_1835.form.canvas_condition`,
+`landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`,
+`landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`,
+`landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`,
+`landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`,
+`landing_camp_east.camp_1835.form.baggage_heaps`,
+`landing_camp_east.camp_1835.form.canvas_condition`,
+`landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`,
+`landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`,
+`landing_camp_west.occupants`, `landing_camp_east.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the
+camp households), **T-1804** (the other grounds and the Native and Métis camps).
+**Recorded:** 2026-10-01.
+
+### L324 — The five medium boarding houses sized from their beds: upper windows and stovepipes by the H3's rule
+
+**Decision:** the five H2 houses the North and West parcels raised and the lodging model counts
+as boarding houses — `recon_1835_north_h2_022`, `_028`, `_030`, `_045` and `recon_1835_west_035`,
+all `medium_boarding_house` on the `frame_tavern` placeholder — carry an **upper-storey window
+count and a stovepipe count sized from their modelled beds** (T-1806). They had stood with the
+tavern's five-bay upper storey and no stove pipe at all, so the beds the lodging model gave them
+(T-1370) were counted and nothing on the house said so. **The two ratios are L318's, carried
+unchanged**, so the town has one rule for what a boarding house's beds look like from the
+street: one chamber per **three lodgers on a crowded night**, one box stove per **three sleepers
+on an ordinary night**. Each record carries the beds it read and the arithmetic in
+`reconstruction.capacity`, and `tools/boarding_house_beds.py` is the one place the rule lives
+for both generators, so `--check` re-derives the counts from the committed lodging model.
+
+**WHAT IS THIS ENTRY'S OWN, beyond L318:** the H2 crosswalk entry (a "merchant or professional
+house") states no window range, so the band the chamber count is held to is chosen here — a
+floor of **five**, the five bays each house already stood with (a house sized from its beds
+never shows fewer chambers than it did), and a ceiling of **ten**, the H3 crosswalk's top (a
+medium house does not out-window the large one). Then, exactly as for the H3, the count is held
+to the sashes the front can carry with a pier between them (0.85 m sash + 0.30 m pier, the
+archetype's refusal). On these five fronts — 8.07 to 8.88 m — that last hold binds every time:
+22 to 27 crowded beds ask for 8 or 9 chambers and each front carries **7**. Ten to twelve
+ordinary beds give **4** stovepipes each. So the five read alike, and that is the rule read
+honestly rather than a variety chosen for the look: their beds are alike too.
+
+Neither ratio is read off any source. No 1835 Chicago boarding house's chambers, beds or stoves
+are counted anywhere in the evidence this project holds; the counts indicate capacity and are
+not a recovered interior plan. **What does NOT move:** the footprints, storeys, walls, roofs and
+chimneys (the two brick stacks are the household's hearths, not the boarders' stoves); the
+lodging model's floor areas, so not one bed or lodger moves; and the six H2 *merchant* houses
+on `frame_dwelling`, which the model does not count as lodging places. The two H1 boarding houses
+stand on `frame_dwelling`, which carries no stovepipe yet — T-1807 owns them.
+
+**How to resolve:** any 1830s account counting a Chicago boarding house's rooms, beds or stoves
+(it replaces the ratios outright, here and at L318); any source naming one of these houses,
+which substitutes for the anonymous roof.
+
+**Covers:** `recon_1835_north_h2_022.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_022.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_028.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_028.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_030.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_030.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_045.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_045.inferred_1835.form.stovepipes`,
+`recon_1835_west_035.inferred_1835.form.upper_windows`,
+`recon_1835_west_035.inferred_1835.form.stovepipes`
+**Related:** **L318** (the H3's rule, whose ratios these are), **L90** (the anonymous roofs the
+reconstruction programme raises), **L271** (`recon_1835_west_035`'s release), **T-1209** (the
+boarding houses built to their beds), **T-1806** (this sizing), **T-1807** (the two H1 houses).
 **Recorded:** 2026-10-01.
