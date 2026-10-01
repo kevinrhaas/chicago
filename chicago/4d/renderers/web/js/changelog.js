@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Houses now look like who lives in them', kind: 'change',
+  { v: 1273, ts: '2026-10-01T21:13:50.635Z', date: 'Oct 1, 2026, 4:13 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
     items: [
       'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
       'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
