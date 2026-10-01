@@ -4350,19 +4350,19 @@
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 28906804,
+      "bytes": 28585544,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
+      "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0056,
+        "max_m": 0.0039,
         "misses": 0,
         "rms_m": 0.00024,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1110643
+      "triangles": 1098205
     },
     "terrain__e1871_postfire.glb": {
       "baked_ao": false,
@@ -4411,7 +4411,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972",
+      "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",

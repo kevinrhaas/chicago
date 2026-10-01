@@ -9,7 +9,7 @@
   "seed": "Geometry retains the original stable keys recon_1835_canal_trade_c3, recon_1835_canal_trade_c4, recon_1835_canal_trade_w1, recon_1835_canal_trade_w2 and recon_1835_canal_trade_w3. Public ids append unique pool ordinals 001 through 005 to satisfy street-face adoption; dimensions, form, finish and siding continue to use the pre-rename key. The generator temporarily restores those keys only during the siding deal, then restores public ids. Stations are explicitly argued layout choices, not random draws or recovered addresses.",
   "replaceable_by": "A source locating a compatible July 1835 store or workshop on this approach, with evidence for its footprint or proprietor, supersedes the relevant invented slot. A correction to the drawn street or authoritative terrain requires this recipe to revalidate; it does not license moving a documented building.",
   "family_choice": "One C3 narrow two-storey store and one C4 wider two-storey store fill current C-family capacity. C1 and C2 are already at or above their town-wide targets, so the older memo's small-store family suggestion is not repeated as a new oversubscription. W1, W2 and W3 provide smith, joiner and wagon-work typologies. The memo licenses the mixed approach, not the precise height or width of an anonymous store.",
-  "rejected_layout": "West Canal frontage north of Lake was considered and rejected: its southern candidate entered the still-frozen west_prairie_swale_a exclusion. The selected east frontage between Lake and Randolph passes the same exclusion without modifying the swale.",
+  "rejected_layout": "West Canal frontage north of Lake was initially rejected because its southern candidate entered the then-frozen west_prairie_swale_a exclusion. T-1460 retired those conjectural exclusions before this parcel shipped. The selected east frontage between Lake and Randolph is retained; all five corner/center ground readings are unchanged on the revised terrain.",
   "geometry_contract": {
     "corridor_line": "drawn",
     "front_setback_m": 1.0,
@@ -17,7 +17,7 @@
     "minimum_traced_bank_separation_m": 8.0,
     "maximum_footprint_relief_m": 0.35,
     "confidence": "reconstructed",
-    "note": "Setback, separation and terrain limits are modelling bounds, not recovered historical measurements. Every footprint corner must be on covered dry ground. No roof may intersect any committed street corridor, no-build region or West prairie swale corridor. Three of the four inter-roof gaps are within the memo's 10\u201335 ft band; the fourth is a larger break between the stores and shops."
+    "note": "Setback, separation and terrain limits are modelling bounds, not recovered historical measurements. Every footprint corner must be on covered dry ground. No roof may intersect any committed street corridor, no-build region or active swale corridor. Three of the four inter-roof gaps are within the memo's 10\u201335 ft band; the fourth is a larger break between the stores and shops."
   },
   "family_totals": {
     "C3": 1,

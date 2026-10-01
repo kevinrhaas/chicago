@@ -595,33 +595,6 @@
       ]
     },
     {
-      "id": "L15",
-      "title": "Terrain: the west-prairie swales are invented alignments",
-      "section": "per_subject",
-      "subjects": [],
-      "covers": [],
-      "recorded": "2026-08-10",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "two shallow swales (0.75 and 0.6 ft deep) cross the West Division wet prairie, tagged `conjectural` and rendered dithered-translucent in the confidence view."
-        },
-        {
-          "label": "Why",
-          "text": "dossier zone 18 says the West Division carried \"1–2 ft slough swales\", so that swales existed is inferred from a source. **Where they ran is attested nowhere**, and these two alignments were drawn to make the wet prairie read as wet prairie rather than as a lawn. They are the only piece of terrain geometry in this parcel invented outright."
-        },
-        {
-          "label": "How to resolve",
-          "text": "the 1821 GLO township plat land-cover, or the ISGS \"Illinois Landcover in the Early 1800s\" digitisation, both named in the dossier and neither reached."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-08-10."
-        }
-      ]
-    },
-    {
       "id": "L16",
       "title": "Terrain: the water is a wall to the walker",
       "section": "per_subject",
@@ -1387,52 +1360,6 @@
         {
           "label": "Covers",
           "text": "`terrain.e1834_harbor_cut.reaches.old_south_channel`, `terrain.e1834_harbor_cut.reaches.open_lake_shelf`."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-08-10."
-        }
-      ]
-    },
-    {
-      "id": "L31f",
-      "title": "Terrain: the west-prairie swales are invented alignments",
-      "section": "per_subject",
-      "subjects": [],
-      "covers": [
-        {
-          "domain": "terrain",
-          "epoch": "e1834_harbor_cut",
-          "claim": "swales.west_prairie_swale_a"
-        },
-        {
-          "domain": "terrain",
-          "epoch": "e1834_harbor_cut",
-          "claim": "swales.west_prairie_swale_b"
-        }
-      ],
-      "recorded": "2026-08-10",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "the two west-prairie swales are drawn on invented lines with shallow invented depths, tagged `conjectural`."
-        },
-        {
-          "label": "Why",
-          "text": "the dossier says the wet prairie carried slough swales. It does not say where they ran in this box. A swale has to be somewhere to be visible at all, so two were drawn where they plausibly express the described relief without exceeding the project's flatness rule."
-        },
-        {
-          "label": "Consequence",
-          "text": "a visitor sees channels in the prairie that stand for a real kind of landform and not for attested individual ones. Their existence is argued; their exact alignment is ours."
-        },
-        {
-          "label": "How to resolve",
-          "text": "any map, survey or description locating specific swales in the west prairie."
-        },
-        {
-          "label": "Covers",
-          "text": "`terrain.e1834_harbor_cut.swales.west_prairie_swale_a`, `terrain.e1834_harbor_cut.swales.west_prairie_swale_b`."
         },
         {
           "label": "Recorded",
@@ -19488,7 +19415,7 @@
         },
         {
           "label": "Placement",
-          "text": "A chosen one-metre setback outside the drawn east edge of Canal, with discontinuous gaps and rear yards. The generator checks the complete footprints against dry terrain, existing roofs, road corridors, an eight-metre river setback, no-build ground and the still-active west-prairie swale exclusions. Clearance checks make the invention physically consistent; they do not make it historical evidence."
+          "text": "A chosen one-metre setback outside the drawn east edge of Canal, with discontinuous gaps and rear yards. The generator checks the complete footprints against dry terrain, existing roofs, road corridors, an eight-metre river setback and no-build ground. The initial reading also excluded the conjectural west-prairie swales; T-1460 retired those exclusions before this parcel shipped, without changing ground heights at any of the five chosen roofs. Clearance checks make the invention physically consistent; they do not make it historical evidence."
         },
         {
           "label": "Occupants",
@@ -20532,6 +20459,84 @@
         {
           "label": "Resolved",
           "text": "2026-09-26 (T-1628), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of a course that no longer stands. He flew the reach and compared it with Wright 1834 and Hathaway 1834: *\"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper\"*. **`lasalle_slough_upper` is deleted and `lasalle_slough_lower` is truncated**, so the 1933 reconstruction no longer carries any terminus at all: the position at `orientation` ceiling that this entry admits to inventing is simply not in the terrain any more, and the invention it was recorded for is withdrawn rather than corrected. What survives is Wright's traced mouth plus 16.35 m of channel inside block 50's lot, which is a different and much smaller liberty, recorded as **L273** in the per-subject register below. Conley/Stelzer is set aside rather than refuted — the reading is kept in `docs/RESEARCH/main_branch_sloughs_1833.md` § 6 with the date it was set aside and why — and T-0795's finding that the NA/HUP sheet draws no inland course here, which this entry already carried, is now what the terrain says as well as what the note says."
+        }
+      ]
+    },
+    {
+      "id": "L15",
+      "title": "Terrain: the west-prairie swales are invented alignments",
+      "section": "resolved",
+      "subjects": [
+        "recon_1835_west_002"
+      ],
+      "covers": [],
+      "recorded": "2026-08-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "two shallow swales (0.75 and 0.6 ft deep) cross the West Division wet prairie, tagged `conjectural` and rendered dithered-translucent in the confidence view."
+        },
+        {
+          "label": "Why",
+          "text": "dossier zone 18 says the West Division carried \"1–2 ft slough swales\", so that swales existed is inferred from a source. **Where they ran is attested nowhere**, and these two alignments were drawn to make the wet prairie read as wet prairie rather than as a lawn. They are the only piece of terrain geometry in this parcel invented outright."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1821 GLO township plat land-cover, or the ISGS \"Illinois Landcover in the Early 1800s\" digitisation, both named in the dossier and neither reached."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-08-10."
+        },
+        {
+          "label": "Resolved",
+          "text": "2026-09-29 (T-1460), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of two alignments that no longer stand. He was asked which was the fixed thing, the invented line or the eight reviewed roofs standing in one of the corridors, and he ruled: *retire both to record_only — zone 18's swales stay in the dossier and come out of the field. Nothing invented is left in the ground layer, and the eight roofs do not move.* The alignments carried `confidence: reconstructed` and `sources: []`, and T-0795 had walked the whole Wright 1834 NA/HUP sheet and found no watercourse anywhere on this prairie — the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E −705 and left both heads beginning abruptly at E −320, the old west wall of the box, 385 m inside open modelled prairie. **Moving eight reviewed, baked roofs to clear an invented line that starts nowhere would have traded a recorded liberty for an unrecorded one**, so the invention is withdrawn rather than relocated. Nothing built moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. The reading is preserved here because the tool that pinned it (`tools/measure_west_swale_corridors.py`) is retired with the question — footprint-corner distance to `west_prairie_swale_a`'s centreline, against its 30 m half-width: `recon_1835_west_002` 3.20 m, `_003` 8.93 m, `_012` 12.25 m, `_013` 14.30 m, `_009` 16.40 m, `_001` 19.22 m, `_011` 24.52 m, `_005` 25.46 m; `_004` at 32.7 m and `_029` at 33.3 m stood clear, and `west_prairie_swale_b`'s corridor was empty. Dossier zone 18 is now recorded in the spec's `not_modelled_in_this_box`, and `tools/generate_west_infill.py` gates the retirement: a west-prairie swale graded back into the field stops the parcel."
+        }
+      ]
+    },
+    {
+      "id": "L31f",
+      "title": "Terrain: the west-prairie swales are invented alignments",
+      "section": "resolved",
+      "subjects": [
+        "recon_1835_west_002"
+      ],
+      "covers": [],
+      "recorded": "2026-08-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the two west-prairie swales are drawn on invented lines with shallow invented depths, tagged `conjectural`."
+        },
+        {
+          "label": "Why",
+          "text": "the dossier says the wet prairie carried slough swales. It does not say where they ran in this box. A swale has to be somewhere to be visible at all, so two were drawn where they plausibly express the described relief without exceeding the project's flatness rule."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor sees channels in the prairie that stand for a real kind of landform and not for attested individual ones. Their existence is argued; their exact alignment is ours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any map, survey or description locating specific swales in the west prairie."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-08-10."
+        },
+        {
+          "label": "Struck",
+          "text": "2026-09-29 (T-1460) — both `Covers:` tokens, `terrain.e1834_harbor_cut.swales.west_prairie_swale_a` and `terrain.e1834_harbor_cut.swales.west_prairie_swale_b`, are removed because the blocks they name are deleted, and a token pointing at nothing admits to nothing a visitor reads (`validate.py`: \"that epoch's spec makes no graded claim\"). The prose above is otherwise verbatim, and the deletion is what the"
+        },
+        {
+          "label": "Resolved",
+          "text": "line below is about — nothing is hidden by the strike."
+        },
+        {
+          "label": "Resolved",
+          "text": "2026-09-29 (T-1460), by the owner's ruling. He was asked which was the fixed thing, the invented line or the eight reviewed roofs standing in one of the corridors, and he ruled: *retire both to record_only — zone 18's swales stay in the dossier and come out of the field. Nothing invented is left in the ground layer, and the eight roofs do not move.* The alignments carried `confidence: reconstructed` and `sources: []`, and T-0795 had walked the whole Wright 1834 NA/HUP sheet and found no watercourse anywhere on this prairie — the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E −705 and left both heads beginning abruptly at E −320, the old west wall of the box, 385 m inside open modelled prairie. **Moving eight reviewed, baked roofs to clear an invented line that starts nowhere would have traded a recorded liberty for an unrecorded one**, so the invention is withdrawn rather than relocated. Nothing built moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. The reading is preserved here because the tool that pinned it (`tools/measure_west_swale_corridors.py`) is retired with the question — footprint-corner distance to `west_prairie_swale_a`'s centreline, against its 30 m half-width: `recon_1835_west_002` 3.20 m, `_003` 8.93 m, `_012` 12.25 m, `_013` 14.30 m, `_009` 16.40 m, `_001` 19.22 m, `_011` 24.52 m, `_005` 25.46 m; `_004` at 32.7 m and `_029` at 33.3 m stood clear, and `west_prairie_swale_b`'s corridor was empty. Dossier zone 18 is now recorded in the spec's `not_modelled_in_this_box`, and `tools/generate_west_infill.py` gates the retirement: a west-prairie swale graded back into the field stops the parcel."
         }
       ]
     }

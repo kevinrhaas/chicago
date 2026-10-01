@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1242, ts: '2026-10-01T02:21:29.238Z', date: 'Sep 30, 2026, 9:21 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1243, ts: '2026-10-01T03:20:28.164Z', date: 'Sep 30, 2026, 10:20 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
+    ] },
+  { v: 1242, ts: '2026-10-01T02:31:45.601Z', date: 'Sep 30, 2026, 9:31 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
+    items: [
+      'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',
+      'They were never found on a map. The dossier says the West Division prairie carried one- and two-foot slough swales, so swales of some kind belonged there — but where they ran is written down nowhere, and the two lines in the model were drawn by this project to make the wet prairie read as wet prairie. Every stroke of both was ours.',
+      'What made them worse was the ground growing. When they were drawn, the modelled field stopped at the same line both channels started on, so each read as a drain running off the edge of the world. The field later reached nearly four hundred metres further west, and both were left beginning abruptly in the middle of open grass — starting nowhere, going somewhere.',
+      'One of them ran through eight houses. Not under them: the cut was about a centimetre of fall for every metre, so no house stood in a hole and every one of the eight met the ground it was built on. But the rule written beside those channels said to move a roof rather than flatten a channel, and that rule assumed the channel was the certain thing. It was the invented thing; the houses had been surveyed, placed and reviewed.',
+      'So the channels went and the houses stayed. The ground beneath those eight has risen by a few centimetres and nothing else about them changed — not a position, not a wall, not a card. Nothing invented is left in the ground layer of that prairie.',
+      'The reading is kept rather than thrown away. What was measured while the question waited — which eight houses, how far each stood from the centreline, how little relief crossed each footprint — is written into the liberties register beside the two entries this withdraws, so the decision can be read back later.',
     ] },
   { v: 1241, ts: '2026-09-30T22:14:16.152Z', date: 'Sep 30, 2026, 5:14 PM CT', title: 'Repair timber at the branch bridges', kind: 'change',
     items: [

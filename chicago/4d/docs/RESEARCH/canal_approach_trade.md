@@ -58,7 +58,9 @@ must pass its own budget sweep. No ceiling is raised.
 
 The selected frontage is east of Canal between Lake and Randolph. Earlier
 north-of-Lake candidate sites were rejected because they entered an active
-conjectural swale. The final records omit `resident_assignment`: a household's
+conjectural swale. T-1460 subsequently retired those exclusions; the chosen
+frontage remains unchanged and all five corner/center ground readings are identical
+on the revised terrain. The final records omit `resident_assignment`: a household's
 keeper working here does not establish a dwelling here, and the platted dealer
 would otherwise mistake that field for a residential reservation.
 
