@@ -125,7 +125,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's rule (L318) carried to the medium house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L324) owns the ratios."
     },
     "stovepipes": {
-      "value": 4,
+      "value": 3,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -325,13 +325,13 @@
     "roof_condition": "patched",
     "age_state": "established",
     "capacity": {
-      "beds_ordinary": 10,
-      "beds_crowded": 24,
+      "beds_ordinary": 9,
+      "beds_crowded": 22,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_north_h2_030]",
       "sizes": {
-        "upper_windows": "ceil(24 crowded beds / 3 to a chamber) = 8, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 8, then to the 7 sashes a front of 8.18 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(10 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
+        "upper_windows": "ceil(22 crowded beds / 3 to a chamber) = 8, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 8, then to the 7 sashes a front of 8.18 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(9 ordinary beds / 3 to a stove) = 3, held to 2-6: 3",
         "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }

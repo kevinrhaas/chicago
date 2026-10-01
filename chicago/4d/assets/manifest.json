@@ -2534,7 +2534,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 98876,
-      "inputs_sha256": "9a93548a2f77da32c1bb80152608ca8bebfab0f4f2d9d72ae1c1f510cd614b46",
+      "inputs_sha256": "7100165a77a4d123cdd242156ea2bbe23d6f0d9d9931a5f6c1e54ccbc838b3ca",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_07"
@@ -2543,7 +2543,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 84524,
-      "inputs_sha256": "098500e24acad15f2e0db8cb4d1781c156a1974bc63350b20bf1c21f7222d845",
+      "inputs_sha256": "49f2e7781daf4b8e201838a84f2ce24a16e6eacd95995860eb62ee6863b26690",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_09"
@@ -2561,7 +2561,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 28604,
-      "inputs_sha256": "387e32f8bc160a3a002fcb08b6774cd3338d1c90fa70a430855f06a6e7a825ed",
+      "inputs_sha256": "c1d218caef487b215e275e2816782da4168a37648895c2eb05fb49f5ebb3766e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_08"
@@ -2570,7 +2570,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 31408,
-      "inputs_sha256": "61bbfe4a82eec9b08aea9eb59f5df57aa31cc366b6aef9fc79097d03c5dd007c",
+      "inputs_sha256": "452d91b518bd9ec0d21562dae80dade598d235fe5f783cf9edfa345fea1b9551",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_10"
@@ -2615,7 +2615,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 38204,
-      "inputs_sha256": "efb7af942d8ea9d447a435fd1f7fac857dec193f8ba111fd772e6e1b1ce9e9f1",
+      "inputs_sha256": "1b3df756ede81f7c18f30d6eba71fc9b91e8ebd05313b1bc378450328eace097",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
@@ -3478,8 +3478,8 @@
     "recon_1835_north_h2_022__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 29976,
-      "inputs_sha256": "36cb54553d3ed3491903cc95511771a309b45ffb7f7da726a27e1ae439ea9392",
+      "bytes": 29192,
+      "inputs_sha256": "a04b979e9c17761afc73c9cbad1d02346f42f8e3261a7b1c24b97dbca07b6caf",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_022"
@@ -3496,8 +3496,8 @@
     "recon_1835_north_h2_030__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 26544,
-      "inputs_sha256": "a8d6b762296c3b4a64ffa932bc071a7fab0bf65cd5cfc2d5a2804ce865b2522a",
+      "bytes": 25760,
+      "inputs_sha256": "b7c1bbe707aecfb6e51a052ed49029a7f93179cda7be061f2bf3e603210dff5e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_030"
