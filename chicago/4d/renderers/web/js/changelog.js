@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1271, ts: '2026-10-01T20:10:00.036Z', date: 'Oct 1, 2026, 3:10 PM CT', title: 'Houses now look like who lives in them', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Houses now look like who lives in them', kind: 'change',
     items: [
       'Walk any street of the reconstructed town and the houses now show who lives in them. Merchants\u2019 and professional men\u2019s houses and the two-storey stores are painted red, washed ochre or limewashed, under well-kept roofs.',
       'Tradesmen\u2019s cottages are mostly bare boards, with an earth or lime wash on about three in ten. Labourers\u2019 cabins and shanties are never painted, and their roofs are patched. Boarding houses are limewashed. Stables, privies, sheds and workshops are bare.',
       'Age shows too. Bare boards are new and pale only on houses built this year. A house from 1834 has already gone grey, because bare boards silver within a season.',
       'Where we know who keeps a house, their trade and the year they came to Chicago decide its finish. Open a house\u2019s card: the Built line now says what its walls and roof are, whose house that makes it, and which rule applied.',
       'These finishes are our reconstruction. No source records the paint of any of these houses. The rule and its reasons are on the Liberties page (L330).',
+    ] },
+  { v: 1271, ts: '2026-10-01T20:11:20.402Z', date: 'Oct 1, 2026, 3:11 PM CT', title: 'The lake\u2019s sand now runs the whole shore', kind: 'change',
+    items: [
+      'Stand by the fort and look north or south along the lake. The beach no longer stops 400 metres either side of the river mouth. It now runs the whole length of the shore, with the sandy ground behind it reaching back to the rise at State Street.',
+      'The sand is a cooler grey-beige, and it no longer ends in a straight line. It thins gradually into sandy prairie and then grass, along an uneven edge. Where more sand shows, the grass and flowers thin out with it.',
+      'Where the beach ends and what colour the sand was are our reconstruction. No survey of 1835 draws either. The register (L329) says so.',
     ] },
   { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
