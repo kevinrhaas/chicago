@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1266, ts: '2026-10-01T16:49:28.405Z', date: 'Oct 1, 2026, 11:49 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+  { v: 1267, ts: '2026-10-01T17:57:07.408Z', date: 'Oct 1, 2026, 12:57 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
       'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
       'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
       'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
+    ] },
+  { v: 1266, ts: '2026-10-01T16:51:04.113Z', date: 'Oct 1, 2026, 11:51 AM CT', title: 'Two small boarding houses get their stovepipes', kind: 'change',
+    items: [
+      'Two one-and-a-half-storey boarding houses, one on the North Side and one on the West Side approaches, now have three iron stovepipes rising through each roof beside the two brick chimneys.',
+      'The number comes from the beds each house already holds, by the same rule as the town\u2019s other boarding houses: one stove for every three people sleeping there on an ordinary night. Nobody moved, and the fronts are unchanged.',
+      'These houses and their stoves are our reconstruction. No source counts the stoves of a Chicago boarding house in 1835; the register says how the number was reached.',
     ] },
   { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [
