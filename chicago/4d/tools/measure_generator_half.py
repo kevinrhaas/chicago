@@ -354,17 +354,23 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # boarding house on `blk_washington_clark` — one more mesh on the same terms as every
 # entry above; terrain reach still 4 and pier_crib still 2.
 #
-# 517 -> 522 and 513 -> 518 on 2026-10-01 (T-1809): the second H3 boarding house on
+# 517 -> 519 and 513 -> 515 on 2026-10-01 (T-1803): the two emigrants' camps on the
+# South Water bank, the first records of the new `camp` archetype. Registering it in
+# emit.py's ARCHETYPES re-staled every structure asset once, and the whole town was
+# rebaked in the same PR (the GLB bytes came back identical; only the manifests' input
+# hashes moved). Terrain reach still 4 and pier_crib still 2.
+#
+# 519 -> 524 and 515 -> 520 on 2026-10-01 (T-1809): the second H3 boarding house on
 # `blk_washington_clark` and a stable and a privy behind each of the two — five more
 # meshes on the same terms; terrain reach still 4 and pier_crib still 2.
 #
 STATED = {
-    "assets": 522,
+    "assets": 524,
     "restales": {
-        "generators/common/*.py": 522,
+        "generators/common/*.py": 524,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 518,
+        "generators/emit.py": 520,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
