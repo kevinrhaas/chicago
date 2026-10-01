@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1264, ts: '2026-10-01T15:58:46.681Z', date: 'Oct 1, 2026, 10:58 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+  { v: 1265, ts: '2026-10-01T16:31:54.512Z', date: 'Oct 1, 2026, 11:31 AM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
     items: [
       'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
       'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
       'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+    ] },
+  { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
+    items: [
+      'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
+      'Each upper floor has seven chamber windows across its front and back instead of the five an inn has, and four iron stovepipes rise through each roof beside the two brick chimneys.',
+      'The counts come from the beds each house already holds, by the same rule as the first boarding house at Madison and Dearborn. Nobody moved: the same lodgers sleep in the same houses.',
+      'These houses, their windows and their stoves are our reconstruction. No source counts the rooms or stoves of a Chicago boarding house in 1835; the register says how each number was reached.',
     ] },
   { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
     items: [

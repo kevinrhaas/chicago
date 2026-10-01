@@ -36,3 +36,23 @@ The owner requested continuation after the original session stopped reporting. T
 - Full north and northwest review images are beside this note. A fresh light northwest render also confirms the gable return and clear loft opening. The final alley cornice ends at the intersecting range. These are actual model renders, not generated illustrations.
 - Staleness validation passes with no errors (262 existing warnings); stone/aperture/glass clipping fixtures pass. The first recovered source gate passed 715 of 716 checks. Its sole failure was the external split of T-1779: all three boarding-house order-book owners now follow its open remainder T-1810, matching the sweep already proposed in PR #229. The book was regenerated without changing its allocations.
 - Integrated dev at 4ca01605 and restamped the repair changelog. Final preflight and published desktop/mobile browser checks are the remaining merge gates; their results belong in the repair PR. Local Chromium is refused by the environment, so browser validation uses the existing GitHub smoke workflow.
+
+## Integration validation — PR #230
+
+The 717-step source gate passed on 3be47a42, and both portrait GLB variants were
+reviewed from north, northwest and alley views. Published mobile parts 10–13
+passed, including Glessner loading, placement, picking and its 1904 street grid,
+with zero page errors. Both viewports passed parts 7–9. The subsequent dev merge
+at 13af98aa adds five 1835 boarding-house models; local preflight passed again.
+Remaining run receipts are recorded in PR #230 before merge.
+
+The desktop parts 1–2 run found a pre-existing yard census error blocking this
+visible repair: it counted 64 source chunks plus four lazy far-merge cache meshes
+as 68 chunks. Far batches live beside the originals and reuse their geometry;
+they are not extra yard objects. The frontage census already excludes those
+tagged caches. Apply that same distinction to yard geometry, retain the 64-chunk
+ceiling, require agreement with the layer's own chunk census, and verify that
+excluded meshes are named yard-far-merge. Both source chunks and cached batches
+must still share one material and carry bounding spheres. No yard geometry or
+rendering setting changes. Rerun parts 1–2 with their preceding camera history,
+plus part 5's unchanged zero-extra-triangle far-merge and rendering-budget gates.

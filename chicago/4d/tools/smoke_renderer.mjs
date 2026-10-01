@@ -3572,7 +3572,15 @@ for (const [label, viewport, touch] of [
       // kilometre would otherwise have drawn in every frame, behind the camera
       // included (T-0115 item 2). So everything below reads the chunks together:
       // the geometry is still one buffer's worth of contract, in several pieces.
-      const meshes = (y?.group?.children ?? []).filter((m) => m.isMesh);
+      // T-1805 integration gate: earlier stands can leave lazy T-0146 far
+      // batches beside their source chunks (64 chunks + 4 cached batches on
+      // desktop). As in the frontage census below, measure the source geometry
+      // once; the far-merge gate separately proves identical triangles and
+      // fewer calls. The 64-chunk ceiling still applies to every real chunk.
+      const meshes = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && !m.userData?.farMerged);
+      const merged = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && m.userData?.farMerged);
       const geos = meshes.map((m) => m.geometry).filter(Boolean);
       const frontages = y?.frontages ?? [];
       const wagons = y?.wagons ?? [];
@@ -3786,12 +3794,13 @@ for (const [label, viewport, touch] of [
       return {
         census: y?.census ?? null,
         meshes: meshes.length,
+        mergedNames: merged.map((m) => m.name),
         // One material across every chunk, which is what makes the chunking a
         // CULLING decision rather than a second layer.
-        materials: new Set(meshes.map((m) => m.material?.uuid)).size,
+        materials: new Set([...meshes, ...merged].map((m) => m.material?.uuid)).size,
         // And every chunk has to carry its own bounding sphere, or the frustum
         // has nothing to test and the split bought nothing at all.
-        bounded: geos.every((geo) => !!geo.boundingSphere),
+        bounded: [...meshes, ...merged].every((m) => !!m.geometry?.boundingSphere),
         // T-0065. The marks ride on the ONE material as a canvas atlas, so what
         // has to hold is that the material carries a map at all, that every
         // chunk carries the uv to read it with, and that no uv leaves the sheet
@@ -3902,9 +3911,11 @@ for (const [label, viewport, touch] of [
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.materials === 1
-        && goods.bounded,
-      `${goods.meshes} chunk mesh(es), ${goods.materials} material(s), `
+      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+        && goods.materials === 1 && goods.bounded
+        && goods.mergedNames.every((name) => name === 'yard-far-merge'),
+      `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
+      + `${goods.mergedNames.length} cached far batch(es), ${goods.materials} material(s), `
       + `bounding spheres ${goods.bounded ? 'on every chunk' : 'MISSING on one'}`);
     // T-0065. Every cask and every case carries a mark the record dealt it — a
     // stencilled commodity, the house's brand, or a shipping mark — and the
