@@ -2734,6 +2734,20 @@ Point group; the 1839 land-sale plat of Block 5 with the lot numbers Andreas quo
 now also fix how far north of the corner lot the group stood.
 **Covers:** `western_hotel_stable.stable_1834.footprint`, `wolf_point_tavern_stable.stable_1831.footprint`, `wolf_point_tavern_stable.stable_1831.position`, `wolf_point_tavern_stable.stable_1831.form.door_side`, `beaubien_barn.converted_1817.footprint`, `beaubien_barn.converted_1817.position`, `beaubien_barn.converted_1817.form.door_side`, `beaubien_barn.converted_1817.ground_contact`.
 **Recorded:** 2026-08-11.
+**Revised:** 2026-10-01 (T-1775) — **the Western's stable is re-sized from its guests, and is now
+22.0 x 8.5 m, not 13 x 7 m.** The first size answered the word "large"; it did not answer the
+sentence the size was said to answer, "the teams were as numerous as were the guests": the
+lodging model (`data/reconstruction/1835_lodging_model.json`, row `western_hotel`, graded
+`inferred`) puts 15 people in the house on an ordinary night, and 13 x 7 m stalled about eight
+horses — four teams. The new size is arithmetic on stated factors, and every factor is OURS: a
+team taken as a pair, a pair in one double stall about 9 ft wide and 10 ft deep, two ranges of
+eight stalls either side of an 8 ft passage — sixteen double stalls for fifteen teams, 72 x 28 ft.
+It is sized for the ordinary night and not the crowded one (35), as the beds are, and it stalls
+horse teams only. The north face the wagon yard's fence meets did not move; the stable grew east
+along the yard and south away from it, and the yard's east run now meets its north wall
+(`data/enclosures/western_hotel_wagon_yard.json`). The stable is now larger on the ground than
+the hotel (164 m²) and smaller than the hotel's floor (329 m²). An advertisement of Stow's naming
+his stabling would replace all of it.
 
 ### L73 — Every outbuilding in the town is detailed by the archetype, not by a source
 **Decision:** the `outbuilding` archetype supplies, as fixed conventions applied to every record

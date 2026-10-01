@@ -391,6 +391,9 @@ STRUCTURE_TICKETS = {
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1694",
+    # T-1209 WAS SPLIT on 2026-10-01 (T-1775..T-1780) and the boarding houses' three cells
+    # moved to T-1779, the child that RAISES the houses still owed; T-1777 rules where they
+    # may stand first and T-1778 their form, and neither raises a roof the book counts.
     ("south", "larger_boarding_houses"): "T-1779",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
@@ -437,17 +440,8 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    # T-1208 AND T-1209 WERE SPLIT on 2026-10-01 (T-1781 … T-1785; T-1775 … T-1780), and
-    # T-1764 the same hour (its closer is T-1774). Same test as every sweep in this table:
-    # WHICH CHILD RAISES THE ROOFS THAT ARE LEFT.
-    #   west ordinary_dwellings (24 left) -> T-1783, which deals "the owed D1–D3 cabins" on
-    #     the outer platted blocks; T-1781 re-deals standing roofs and raises none.
-    #   west institutional_public (0 left) -> T-1785, the district's closer, swept for the
-    #     reason the T-1207 block below gives for inns_taverns.
-    #   larger_boarding_houses, all three divisions -> T-1779, "Raise the remaining H3
-    #     boarding houses to their beds"; T-1777/T-1778 rule the seat and the form first,
-    #     and T-1780's H1/H2 rows wait on a ruling.
-    #   west warehouses_freight -> T-1774, the child that kept T-1764's closing clause.
+    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 deals the dwellings owed onto
+    # the outer platted West blocks, which is where the 24 left in this cell can stand.
     ("west", "ordinary_dwellings"): "T-1783",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
@@ -473,7 +467,9 @@ STRUCTURE_TICKETS = {
     ("west", "larger_boarding_houses"): "T-1779",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1774",
+    # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
+    ("west", "warehouses_freight"): "T-1773",
+    # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
