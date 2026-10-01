@@ -686,6 +686,49 @@ function buildPost(buf, post, terrain, level, problems) {
 }
 
 /**
+ * A FITTING AT A BUSINESS'S FRONT (T-1813) — a stoop, a mounting block, a tie
+ * rail or a wagon apron. The generator has already done all the arithmetic: a
+ * fitting is a list of `parts`, each a timber box centred at `at_local_enu_m`,
+ * `len_m` along the facade and `depth_m` out of it, its top `top_m` over the
+ * ground under it. A part with no `thick_m` STANDS on that ground — its foot
+ * reaches the lowest ground under its four corners, so nothing floats on a
+ * slope — and one with `thick_m` (a tie rail's rail) is carried at its height.
+ * The top is taken over the HIGHEST corner, so no corner of a step is buried.
+ */
+function buildFitting(buf, fit, terrain, level, problems) {
+  const parts = Array.isArray(fit.parts) ? fit.parts : [];
+  if (!parts.length) {
+    problems.push(`frontage: ${fit.id} carries no parts — nothing is laid`);
+    return false;
+  }
+  const b = ((fit.facade_bearing_deg ?? 0) * Math.PI) / 180;
+  const ae = Math.cos(b);
+  const an = -Math.sin(b);       // along the face, ENU
+  const oe = Math.sin(b);
+  const on = Math.cos(b);        // out of the face, ENU
+  for (const part of parts) {
+    const at = part.at_local_enu_m;
+    const hl = part.len_m / 2;
+    const hd = part.depth_m / 2;
+    const gs = [];
+    for (const [sa, so] of [[-1, -1], [1, -1], [1, 1], [-1, 1], [0, 0]]) {
+      const g = groundAt(terrain, at[0] + ae * sa * hl + oe * so * hd,
+        at[1] + an * sa * hl + on * so * hd);
+      if (g !== null) gs.push(g);
+    }
+    if (!gs.length) {
+      problems.push(`frontage: ${fit.id} ${part.part} has no ground under it`);
+      return false;
+    }
+    const top = Math.max(...gs) + part.top_m;
+    const foot = part.thick_m != null ? top - part.thick_m : Math.min(...gs) - 0.03;
+    pushBox(buf, at[0], (top + foot) / 2, -at[1], ae, -an, hl, hd, (top - foot) / 2,
+      level);
+  }
+  return true;
+}
+
+/**
  * The painted name, as a canvas texture on a plane just proud of each board
  * face. Drawn rather than left blank because the wording is evidence this
  * project holds and the letterform is the only invented part — see
@@ -810,6 +853,9 @@ export async function createFrontage({
     records: [],
     walks: [],
     posts: [],
+    /** The fittings at the business fronts (T-1813): stoops, mounting blocks,
+     *  tie rails and wagon aprons, each a record naming the business it serves. */
+    fittings: [],
     /** Deck rectangles in local ENU, for the planting block-list: a walk is a
      *  floor, and nothing may grow up through it (T-0085/T-0124). Same shape
      *  as the wharves' keepOut — `{ id, pts }`, consumed by flora's
@@ -825,7 +871,7 @@ export async function createFrontage({
     fences: [],
     census: {
       records: 0, walks: 0, crossings: 0, posts: 0, hitching: 0, lettered: 0,
-      fences: 0, decks: 0, refused: 0, orphaned: 0, meshes: 0,
+      fittings: 0, fittingKinds: {}, fences: 0, decks: 0, refused: 0, orphaned: 0, meshes: 0,
       /** THE EDGE RULE (T-0460). `kerb` is how many lengths of string piece the
        *  layer laid down the sides of its walks; `kerbStep_m` is the largest
        *  height step between two consecutive lengths on one run, which is what
@@ -1088,6 +1134,37 @@ export async function createFrontage({
       if (post.kind === 'hitching_post') out.census.hitching += 1;
       if (board.text) out.census.lettered += 1;
       boards.push({ ...board, level });
+    }
+    // The fittings (T-1813) are standing timber at a street's edge exactly as the
+    // posts are, so they land in the same street's standing chunk — no draw call
+    // of their own.
+    for (const fit of record.fittings ?? []) {
+      if (hostMissing(fit.belongs_to)) { out.census.orphaned += 1; continue; }
+      const level = LEVEL[fit.confidence] ?? 1;
+      const bucket = bufFor(standingChunk(record, fit), fit.belongs_to, true);
+      const target = bucket ? bucket.buf : buf;
+      const from = buf.pos.length / 9;
+      if (!buildFitting(target, fit, terrain, level, problems)) continue;
+      if (!bucket) spans.push({ id: fit.belongs_to, from, to: buf.pos.length / 9 });
+      out.fittings.push(fit);
+      // A stoop or an apron is a floor like the walk, and a block or a rail stands
+      // on its own ground: nothing is planted up through any of them. An apron is
+      // named apart because it is the one floor here a WAGON may stand on — it is
+      // laid for the dray at a forwarding house's door.
+      const fb = ((fit.facade_bearing_deg ?? 0) * Math.PI) / 180;
+      const [fae, fan, foe, fon] = [Math.cos(fb), -Math.sin(fb), Math.sin(fb), Math.cos(fb)];
+      for (const part of fit.parts) {
+        const [pe, pn] = part.at_local_enu_m;
+        const hl = part.len_m / 2;
+        const hd = part.depth_m / 2;
+        out.keepOut.push({
+          id: `${fit.belongs_to}__${fit.kind === 'wagon_apron' ? 'apron' : 'fitting'}`,
+          pts: [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
+            pe + fae * sa * hl + foe * so * hd, pn + fan * sa * hl + fon * so * hd]),
+        });
+      }
+      out.census.fittings += 1;
+      out.census.fittingKinds[fit.kind] = (out.census.fittingKinds[fit.kind] ?? 0) + 1;
     }
   }
   // The named chunks join the polyline ones: same material, same render order,
