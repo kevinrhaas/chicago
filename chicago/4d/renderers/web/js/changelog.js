@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1245, ts: '2026-10-01T05:05:31.111Z', date: 'Oct 1, 2026, 12:05 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [
       'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
       'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
@@ -7,6 +7,18 @@ export const CHANGELOG = [ // newest first
       'The stable is the only yard building built, and this corner of town is why: a teamster’s house, his stable and a blacksmith’s shop already stand on the same face. The barn the block’s plan also holds is left for a later house that can argue for it.',
       'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed — and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
       'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
+  { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
+    items: [
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
+    ] },
+  { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
+    items: [
+      'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
+      'None of these five fronts a street; the nearest is 75 to 140 metres away. A framed cottage set back from a road it does not have made no sense, so out here the town now builds what the prairie edge would have held: log cabins and barns.',
+      'Four labouring households live in the four cabins. Two tradesman families who had lived out here now live in framed houses nearer Clinton Street, and two others lose their house in the re-seating and wait for the next houses to be built.',
+      'Every one of these buildings is our reconstruction. No source places a house or a barn on this ground in July 1835; the positions, sizes and kinds are reasoned from how the town was laid out, and each card says so.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [
