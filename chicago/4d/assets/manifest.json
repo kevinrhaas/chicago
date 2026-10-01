@@ -3433,8 +3433,8 @@
     "recon_1835_north_h2_022__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 25152,
-      "inputs_sha256": "60c6c40aea36352b15b0af26c83546229df61dd81dab940992542c6ff9832dd6",
+      "bytes": 29976,
+      "inputs_sha256": "36cb54553d3ed3491903cc95511771a309b45ffb7f7da726a27e1ae439ea9392",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_022"
@@ -3442,8 +3442,8 @@
     "recon_1835_north_h2_028__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 23276,
-      "inputs_sha256": "2342de5750ccc12c2aaf747c8aa217ab115d6bd7a6bf4b33e71f9eba5143e3d4",
+      "bytes": 28096,
+      "inputs_sha256": "28ca1ff07aec9d0988ecbace01a88647110867b4b2201fb1e971a856fde61b50",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_028"
@@ -3451,8 +3451,8 @@
     "recon_1835_north_h2_030__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 21720,
-      "inputs_sha256": "37c346377b3d4b5c5791a982206669fb8305978ba0d337aed0a934f6015138c6",
+      "bytes": 26544,
+      "inputs_sha256": "a8d6b762296c3b4a64ffa932bc071a7fab0bf65cd5cfc2d5a2804ce865b2522a",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_030"
@@ -3460,8 +3460,8 @@
     "recon_1835_north_h2_045__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 22964,
-      "inputs_sha256": "e310cecc29140d84df6dcc5536384e4b4822df64a2627393be75ebb66f425e59",
+      "bytes": 27788,
+      "inputs_sha256": "820384cadbe6b6d4157948ea75a7f6c79ab878e8257a4545a470d4e1a6639e6a",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_045"
@@ -4216,8 +4216,8 @@
     "recon_1835_west_035__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 25764,
-      "inputs_sha256": "9b821ed47f365f5a35dc744d4416d175fccfa3d0c8c34acfd1cc14c96ef5cec8",
+      "bytes": 30588,
+      "inputs_sha256": "e21a69902a34fac6cdfc03b8cc80668fcb67a5dc4ce552310db79eeac31d49c5",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_035"

@@ -18208,3 +18208,55 @@ emigrants at the landing; any account of what an emigrant family's outfit at Chi
 **Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the
 camp households), **T-1804** (the other grounds and the Native and Métis camps).
 **Recorded:** 2026-10-01.
+
+### L324 — The five medium boarding houses sized from their beds: upper windows and stovepipes by the H3's rule
+
+**Decision:** the five H2 houses the North and West parcels raised and the lodging model counts
+as boarding houses — `recon_1835_north_h2_022`, `_028`, `_030`, `_045` and `recon_1835_west_035`,
+all `medium_boarding_house` on the `frame_tavern` placeholder — carry an **upper-storey window
+count and a stovepipe count sized from their modelled beds** (T-1806). They had stood with the
+tavern's five-bay upper storey and no stove pipe at all, so the beds the lodging model gave them
+(T-1370) were counted and nothing on the house said so. **The two ratios are L318's, carried
+unchanged**, so the town has one rule for what a boarding house's beds look like from the
+street: one chamber per **three lodgers on a crowded night**, one box stove per **three sleepers
+on an ordinary night**. Each record carries the beds it read and the arithmetic in
+`reconstruction.capacity`, and `tools/boarding_house_beds.py` is the one place the rule lives
+for both generators, so `--check` re-derives the counts from the committed lodging model.
+
+**WHAT IS THIS ENTRY'S OWN, beyond L318:** the H2 crosswalk entry (a "merchant or professional
+house") states no window range, so the band the chamber count is held to is chosen here — a
+floor of **five**, the five bays each house already stood with (a house sized from its beds
+never shows fewer chambers than it did), and a ceiling of **ten**, the H3 crosswalk's top (a
+medium house does not out-window the large one). Then, exactly as for the H3, the count is held
+to the sashes the front can carry with a pier between them (0.85 m sash + 0.30 m pier, the
+archetype's refusal). On these five fronts — 8.07 to 8.88 m — that last hold binds every time:
+22 to 27 crowded beds ask for 8 or 9 chambers and each front carries **7**. Ten to twelve
+ordinary beds give **4** stovepipes each. So the five read alike, and that is the rule read
+honestly rather than a variety chosen for the look: their beds are alike too.
+
+Neither ratio is read off any source. No 1835 Chicago boarding house's chambers, beds or stoves
+are counted anywhere in the evidence this project holds; the counts indicate capacity and are
+not a recovered interior plan. **What does NOT move:** the footprints, storeys, walls, roofs and
+chimneys (the two brick stacks are the household's hearths, not the boarders' stoves); the
+lodging model's floor areas, so not one bed or lodger moves; and the six H2 *merchant* houses
+on `frame_dwelling`, which the model does not count as lodging places. The two H1 boarding houses
+stand on `frame_dwelling`, which carries no stovepipe yet — T-1807 owns them.
+
+**How to resolve:** any 1830s account counting a Chicago boarding house's rooms, beds or stoves
+(it replaces the ratios outright, here and at L318); any source naming one of these houses,
+which substitutes for the anonymous roof.
+
+**Covers:** `recon_1835_north_h2_022.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_022.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_028.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_028.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_030.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_030.inferred_1835.form.stovepipes`,
+`recon_1835_north_h2_045.inferred_1835.form.upper_windows`,
+`recon_1835_north_h2_045.inferred_1835.form.stovepipes`,
+`recon_1835_west_035.inferred_1835.form.upper_windows`,
+`recon_1835_west_035.inferred_1835.form.stovepipes`
+**Related:** **L318** (the H3's rule, whose ratios these are), **L90** (the anonymous roofs the
+reconstruction programme raises), **L271** (`recon_1835_west_035`'s release), **T-1209** (the
+boarding houses built to their beds), **T-1806** (this sizing), **T-1807** (the two H1 houses).
+**Recorded:** 2026-10-01.
