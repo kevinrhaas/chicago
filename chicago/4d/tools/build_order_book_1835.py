@@ -451,18 +451,17 @@ STRUCTURE_TICKETS = {
     #     This row has 0 left and the gate was therefore silent about it; it is swept anyway,
     #     because a row pointing at a split ticket is wrong whether or not it currently orders
     #     anything, and the next roof drawn against it would find nobody to claim it.
-    #   warehouses_freight -> T-1764, AND THIS ONE IS THE JUDGEMENT CALL OF THE FOUR. No child
-    #     names freight in its title. T-1763 is the approach's own furniture and T-1764 is the
-    #     closer — "the pre-plat West roofs reconciled, the refusals resolved" — so the single
-    #     remaining freight roof goes to the child that reconciles what the others leave. If
-    #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
-    #     building it out of place.
+    #   warehouses_freight -> T-1773. T-1764 was itself split on 2026-09-30, and its first
+    #     child names this remainder exactly: "The West's last freight roof: a two-storey
+    #     warehouse at Lake and West Water facing the forks, built and baked." Keep the live
+    #     owner on that child while its sibling T-1774 closes the wider books after the other
+    #     Wolf Point pieces land.
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
     ("west", "stores_mixed_use"): "T-1766",
     ("west", "larger_boarding_houses"): "T-1209",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1764",
+    ("west", "warehouses_freight"): "T-1773",
     ("west", "institutional_public"): "T-1208",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
