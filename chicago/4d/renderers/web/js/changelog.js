@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1252, ts: '2026-10-01T10:25:21.030Z', date: 'Oct 1, 2026, 5:25 AM CT', title: 'Nothing you can see: the plan for photographic surfaces', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the plan the next runs build photographic-quality walls, walks and ground from, using the methods that made the 1904 Glessner House look real.',
+      'It finds why the plank sidewalks look white: they are drawn in the signboards\u2019 pale tone, not a weathered board\u2019s. The fix belongs to the sidewalk work, which now has the palette to use.',
+      'It also finds that the clapboard and log textures would draw a second set of courses over the ones already built as geometry, so those textures are remade before they go on a wall.',
+    ] },
   { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
