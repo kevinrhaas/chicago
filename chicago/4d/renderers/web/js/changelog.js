@@ -1,11 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1245, ts: '2026-10-01T05:17:30.539Z', date: 'Oct 1, 2026, 12:17 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
       'Two families had asked for exactly these two buildings on exactly these two lots \u2014 the Adams household for the corner house, the Bennett household for the cottage \u2014 and neither is the family that moved in. Two families already under other roofs scored higher on the new ones. The Adams household takes the house one of them left on the same block; the Bennetts keep their request, now on the block to the north.',
       'The block is not finished, and it cannot be. Its plan still holds four more houses, but no block here is built out of the last lot its own sizing keeps open \u2014 so one lot stays empty, on Clinton Street, the plainer of the two faces.',
       'That empty lot used to be on Canal. The earlier deal on this block left a gap in the Canal row and said the gap mattered more than which lot it fell on. Both families asked for Canal lots and neither for a Clinton one, so the gap moved across the block. The register says so in as many words.',
       'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
+    ] },
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
+    ] },
+  { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
+    items: [
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
+    ] },
+  { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
+    items: [
+      'Walk west past Clinton toward the Des Plaines edge and the scattered houses out on the open prairie have changed. Three framed cottages and a small stable there are now four log cabins, and a framed cottage is now a second barn beside the one already standing.',
+      'None of these five fronts a street; the nearest is 75 to 140 metres away. A framed cottage set back from a road it does not have made no sense, so out here the town now builds what the prairie edge would have held: log cabins and barns.',
+      'Four labouring households live in the four cabins. Two tradesman families who had lived out here now live in framed houses nearer Clinton Street, and two others lose their house in the re-seating and wait for the next houses to be built.',
+      'Every one of these buildings is our reconstruction. No source places a house or a barn on this ground in July 1835; the positions, sizes and kinds are reasoned from how the town was laid out, and each card says so.',
     ] },
   { v: 1244, ts: '2026-10-01T04:32:35.447Z', date: 'Sep 30, 2026, 11:32 PM CT', title: 'A stable big enough for the Western Hotel’s teams', kind: 'change',
     items: [

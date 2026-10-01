@@ -2672,6 +2672,17 @@
       ]
     },
     {
+      "why": "T-1793's measurement of the ground the West Division's owed farm households could stand on: the West ground outside the 1833 corporation limits by survey tract, in forties, the farm-size register rows on it, the roofs already standing there and the programme headroom a farmstead would draw. IT MOVES NOTHING \u2014 every figure is read back out of committed files (the off-plat seats, the address book, the programme, the order book, the structure records, the tracts and the river) \u2014 so it may own its output outright. It goes after everything those files are rebuilt by, because a seat, a roof or an order-book cell moved by a later step would leave it one model behind.",
+      "command": [
+        "python3",
+        "tools/measure_west_farm_ground_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_west_farm_ground.json"
+      ]
+    },
+    {
       "why": "THE CLOSING SET'S OWN REPORT, AND IT GOES LAST (T-1333). docs/RESEARCH/closing-convergence-2026-09.md states the resident layer's closing numbers as deltas against a frozen baseline, so it is a function of the WHOLE tree the 143 steps above leave behind — index.json, the 1835 sidecars, the town census, the audit workbook and the standing readings T-1144 banked to this pass. Anywhere but the foot of the manifest it would report the tree half-rebuilt. `--build` measures and renders only; the rebuild of the five members themselves is the steps above, which is why this does not re-run them and cannot recurse.",
       "command": [
         "python3",

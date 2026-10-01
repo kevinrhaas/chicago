@@ -1,0 +1,213 @@
+{
+ "$schema_note": "DERIVED — regenerate with tools/measure_west_farm_ground_1835.py --build; tools/check.sh re-derives it (--check). Do not hand-edit.",
+ "id": "chicago_july_1835_west_farm_ground",
+ "ticket": "T-1793",
+ "parent_ticket": "T-1784",
+ "successor": "T-1794",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/measure_west_farm_ground_1835.py --build",
+ "not_a_reading": "no page of any source is read here. Every figure is a join over committed records: the seats owe the households, the address book grades them, the corporation ordinance (resolved) and the survey tracts cut the ground, the register places the forties, the programme and the order book hold the roofs.",
+ "raises_no_roof": "nothing here builds, seats or moves anything. It is the measurement T-1794 deals on.",
+ "inputs": [
+  "data/reconstruction/1835_off_plat_seats.json",
+  "data/reconstruction/1835_address_book.json",
+  "data/reconstruction/1835_survey_tracts.json",
+  "data/reconstruction/1835_land_sales_by_tract.json",
+  "data/research/land_sales/ground.json",
+  "data/terrain/west_of_box_reading.json",
+  "data/datum.json",
+  "data/reconstruction/1835_665_roof_programme.json",
+  "data/reconstruction/1835_reconstruction_order_book.json",
+  "data/reconstruction/1835_building_inventory.json",
+  "data/terrain/epochs/e1834_harbor_cut/river.geojson",
+  "data/terrain/epochs/e1834_harbor_cut/branches.geojson",
+  "data/terrain/epochs/e1834_harbor_cut/south_branch_below_twelfth.geojson",
+  "data/reconstruction/1835_corporation_limits.json (via tools/measure_corporation_limits.py)",
+  "data/structures/*.json (positions)"
+ ],
+ "the_households": {
+  "band": "west/farms_and_country_seats",
+  "owed": 44,
+  "by_rung": {
+   "policy_only": 44
+  },
+  "missing_from_the_address_book": [],
+  "placed_by_a_source": 0,
+  "handed_to": {
+   "T-1615": 44
+  },
+  "why_owed": {
+   "every one of the 12 off-plat roof(s) of a family this clause admits in this division is already spent, 12 of them by labourer_dwellings — clause(s) the placement policy's own order ranks above farms_and_country_seats — and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 44
+  },
+  "statement": "every one of them is `policy_only`: a name from the post office's letter lists with no address, its division dealt from the order book's household target and its class from the town model's employment distribution, whose `Agriculture` column is the farms clause. No source puts any of them on any ground — the post office served the whole country round, and a farmer who collected mail at Chicago need not have farmed inside the modelled box."
+ },
+ "the_grid": {
+  "cell_m": 10.0,
+  "box_local_enu_m": {
+   "e": [
+    -705.0,
+    1700.0
+   ],
+   "n": [
+    -3800.0,
+    1120.0
+   ]
+  },
+  "west_of_the_branches": "a cell is West when it lies west of the westmost crossing of the committed river water polygons on its own row (river.geojson, branches.geojson, south_branch_below_twelfth.geojson)",
+  "west_cells": 37327,
+  "west_m2": 3732700.0,
+  "rows_beyond_the_traced_branches_m2": 96000.0,
+  "rows_beyond_the_traced_branches": "north of the North Branch's trace no water is committed to divide the ground by, so those rows are not read as West at all",
+  "eastmost_west_cell_e_m": 530.0
+ },
+ "the_ground": {
+  "corporation_limits": "the Trustees' bounds of 7 November 1833 (chicago_democrat_1833_11_26#c024), resolved by tools/measure_corporation_limits.py. On the West the line is Jefferson Street, so the ground outside it is a strip between Jefferson and the box's west wall.",
+  "by_tract": {
+   "below_the_school_section": {
+    "legend": null,
+    "inside_the_limits_m2": 0.0,
+    "outside_the_limits_m2": 1608100.0,
+    "outside_the_limits_forties": 9.93,
+    "subdivided": false,
+    "why": "west of the South Branch and south of the School Section's south line — no committed survey tract covers it and no lot is drawn on it"
+   },
+   "canal_commissioners_1830": {
+    "legend": "Surveyed by Canal Com. in 1830",
+    "inside_the_limits_m2": 276200.0,
+    "outside_the_limits_m2": 84000.0,
+    "outside_the_limits_forties": 0.52,
+    "subdivided": true,
+    "why": "the Original Town itself — the Canal Commissioners' plat of 1830, whose lots the committed lot ledger draws"
+   },
+   "canal_section_9_remainder": {
+    "legend": "Part of Canal Sec. No 9",
+    "inside_the_limits_m2": 10400.0,
+    "outside_the_limits_m2": 165500.0,
+    "outside_the_limits_forties": 1.02,
+    "subdivided": false,
+    "why": "the residual of section 9 — what the other tracts leave over; no committed record lays it out in lots"
+   },
+   "on_no_tract": {
+    "legend": null,
+    "inside_the_limits_m2": 0.0,
+    "outside_the_limits_m2": 3500.0,
+    "outside_the_limits_forties": 0.02,
+    "subdivided": false,
+    "why": "no committed survey tract covers this ground"
+   },
+   "school_section": {
+    "legend": "School Section „ 1833",
+    "inside_the_limits_m2": 148400.0,
+    "outside_the_limits_m2": 1172600.0,
+    "outside_the_limits_forties": 7.24,
+    "subdivided": true,
+    "why": "sold in 1833 by the block — the register carries 336 school-section block rows on this tract in 1835_land_sales_by_tract.json, each block 1.87–6.75 acres"
+   },
+   "wabansia": {
+    "legend": "Wonbonsia Surveyed in 1831",
+    "inside_the_limits_m2": 62100.0,
+    "outside_the_limits_m2": 201900.0,
+    "outside_the_limits_forties": 1.25,
+    "subdivided": true,
+    "why": "surveyed into a subdivision in 1831 (the tract's own legend); its blocks are T-1785's ground and its one evidenced household is that ticket's"
+   }
+  },
+  "subdivided_tracts": [
+   "canal_commissioners_1830",
+   "fractional_section_15",
+   "kinzies_addition",
+   "school_section",
+   "us_military_reservation",
+   "wabansia"
+  ]
+ },
+ "the_forty": {
+  "acres": 40,
+  "m2": 161874.3,
+  "confidence": "inferred",
+  "evidence": [
+   "data/research/land_sales/ground.json#ls0054 — Edmond Roberts' W2NW of section 9, entered at the canal sale on 1830-10-05 and read at 40.00 acres: a forty on this very ground, the only register row under 80 acres that the project can place",
+   "data/research/newspapers/extracted/chicago_american_1835_06_27.json#c003 — '40 acres of excellent land' offered for sale by legal description, in the week before the scene date"
+  ],
+  "note": "One forty per farmstead is the reading, not the record. A forty is the smallest aliquot part either source names on or near this ground, so it is the smallest holding this file will call a farm; a market garden on a town block is a household with a garden, which other clauses already deal. Every farm count below is therefore a CEILING — the most farmsteads the ground could hold if every farm were the smallest the evidence shows."
+ },
+ "the_farm_ground": {
+  "what_it_is": "West, outside the corporation limits, and on no subdivided tract",
+  "m2": 1777100.0,
+  "forties": 10.98,
+  "standing_on_it": 13,
+  "standing_by_family": {
+   "A1": 1,
+   "A2": 2,
+   "D1": 7,
+   "D2": 1,
+   "D3": 1,
+   "D5": 1
+  },
+  "standing_ids": [
+   "recon_1835_west_039",
+   "recon_1835_west_041",
+   "recon_1835_west_043",
+   "recon_1835_west_045",
+   "recon_1835_west_047",
+   "recon_1835_west_048",
+   "recon_1835_west_049",
+   "recon_1835_west_050",
+   "recon_1835_west_051",
+   "recon_1835_west_052",
+   "recon_1835_west_053",
+   "recon_1835_west_054",
+   "recon_1835_west_055"
+  ]
+ },
+ "documented_farm_size_entries": {
+  "rule": "register rows of 40 acres or more whose placed ground reaches West ground outside the corporation limits",
+  "rows": [
+   {
+    "record_id": "ls0054",
+    "purchaser": "Edmond Roberts",
+    "part": "W2NW of section 09",
+    "acres_as_read": 40.0,
+    "date_purchased": "1830-10-05",
+    "type_of_sale": "CN",
+    "west_ground_outside_the_limits_m2": 204400.0,
+    "of_it_on_unsubdivided_ground_m2": 5500.0
+   }
+  ],
+  "count": 1
+ },
+ "the_programme": {
+  "west_target": 135,
+  "west_remaining": 48,
+  "remaining_by_family": {
+   "D1": 0,
+   "A2": 4
+  },
+  "ordinary_dwellings": {
+   "to_build": 24,
+   "owning_ticket": "T-1783"
+  },
+  "barns_stables": {
+   "to_build": 8,
+   "owning_ticket": "T-1212"
+  },
+  "roofs_a_farmstead_per_owed_household_needs": 88,
+  "remaining_by_group": {
+   "barns_stables": 8,
+   "larger_boarding_houses": 4,
+   "ordinary_dwellings": 22,
+   "small_outbuildings": 8,
+   "stores_mixed_use": 2,
+   "warehouses_freight": 1,
+   "workshops": 3
+  }
+ },
+ "the_ceiling": {
+  "farmsteads_the_ground_holds_at_one_per_forty": 10,
+  "farmsteads_the_programme_carries_as_it_stands": 0,
+  "owed_households_left_beyond_the_ground_at_best": 34,
+  "cabin_and_barn_pairs_already_standing_on_it": 2,
+  "pairs_note": "a D1 cabin and an A2 barn that already stand on the farm ground ARE a farmstead's two roofs, and seating a farm household under one draws on no programme headroom at all. Today the seating order gives them to labourers (labourer_dwellings ranks above farms_and_country_seats), which is why the band is owed."
+ },
+ "verdict": "44 West farm households are owed and no source places one of them. The West ground outside the 1833 corporation limits and off every subdivided tract is 177.7 ha — 10.98 forties — so at one farm to the smallest holding either source names, the modelled ground holds at most 10 farmstead(s), and 34 of the 44 must be stated as farming beyond it. 13 roof(s) already stand on that ground, 7 of them D1 cabins and 2 A2 barns — 2 cabin-and-barn pair(s) a farm household could take with no new roof. The programme carries 0 D1+A2 farmstead(s) as it stands: the West has 0 D1 and 4 A2 left to build, its 24 remaining dwellings are T-1783's and its 8 barns T-1212's. 1 register row(s) of farm size reach the West ground outside the limits."
+}

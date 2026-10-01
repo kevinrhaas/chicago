@@ -65,6 +65,8 @@ ROOT = Path(__file__).resolve().parent.parent
 PROGRAMME = ROOT / "data" / "reconstruction" / "1835_inferred_household_programme.json"
 ADOPTIONS = ROOT / "data" / "research" / "newspapers" / "street_face_adoptions.json"
 KEEPERS = ROOT / "data" / "reconstruction" / "1835_roof_keepers.json"
+STATED_USES = ROOT / "data" / "reconstruction" / "1835_stated_uses.json"
+STATED_USE_SOURCE = "owner_chicago_1835_reconstruction_spec_2026"
 
 # A claim id is `<issue_id>#<claim>`, and an issue id opens with the paper's name. The
 # structure schema wants the SOURCE RECORD rather than the issue, and there are two.
@@ -291,7 +293,53 @@ def _with_keepers(blocks: dict[str, dict]) -> dict[str, dict]:
                 "and the deal have come apart — re-run "
                 "tools/name_the_keepers_1835.py --build." % sid)
         blocks[sid] = block
+    for sid, block in stated_use_occupancy().items():
+        if sid in blocks:
+            raise LedgerError(
+                "%s is given a stated use and is also seated by another programme. A stated "
+                "use is for a roof NOBODY holds, so it retires the moment a keeper arrives: "
+                "take its row out of data/reconstruction/1835_stated_uses.json." % sid)
+        blocks[sid] = block
     return blocks
+
+
+def stated_use_occupancy(doc: dict | None = None) -> dict[str, dict]:
+    """T-1782. The `occupants` block of every roof whose USE is stated rather than seated.
+
+    THE FOURTH PROGRAMME, and the only one that seats nobody. The order book's
+    `every_structure_occupied_or_its_use_stated` asks for an occupant OR a stated use, and
+    until now only the first half had anywhere to go: a stable in somebody's yard, or a
+    work shed no household's trade reaches, carded as an anonymous count-unit forever.
+    `data/reconstruction/1835_stated_uses.json` is authored, one row per roof, each with
+    what bounds it. The block it yields says what the building is FOR, graded
+    `reconstructed` and citing the spec the roof itself was raised under — and it never
+    names a person or a household id, because a stated use is not a keeper.
+    """
+    doc = doc if doc is not None else (
+        json.loads(STATED_USES.read_text(encoding="utf-8")) if STATED_USES.exists() else {})
+    out: dict[str, dict] = {}
+    for row in doc.get("rows") or []:
+        sid, value, bound = row.get("structure_id"), row.get("value"), row.get("bounded_by")
+        if not sid or not sid.startswith("recon_") or not value or not bound:
+            raise LedgerError("a stated-use row needs an anonymous `recon_` roof, the use "
+                              "and what bounds it")
+        if "hh_" in json.dumps(row):
+            raise LedgerError("%s names a household id in a stated use, which is a keeper "
+                              "and not a use (and grows a dooryard garden, "
+                              "tools/generate_dooryard_pickets.py clause 4)" % sid)
+        if sid in out:
+            raise LedgerError("%s is given two stated uses" % sid)
+        out[sid] = {
+            "value": value,
+            "confidence": "reconstructed",
+            "sources": [STATED_USE_SOURCE],
+            "note": ("A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, "
+                     "%s; liberty %s). No household holds this roof and nobody is named for it: "
+                     "what is stated is what the building was for. %s The roof's own existence, "
+                     "position and footprint remain the invention they were."
+                     % (doc.get("ticket", "T-1782"), doc.get("liberty", "L310"), bound)),
+        }
+    return out
 
 
 def keeper_occupancy(doc: dict | None = None) -> dict[str, dict]:
