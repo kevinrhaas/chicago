@@ -49,6 +49,8 @@ step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
+step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
+  node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
   python3 tools/check_loading_content.py
 step "loading evidence refuses promoted or unrelated facts (T-1275)" \

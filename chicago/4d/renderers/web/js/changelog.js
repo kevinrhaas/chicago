@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
+  { v: 1263, ts: '2026-10-01T15:35:48.553Z', date: 'Oct 1, 2026, 10:35 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [
       'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
       'Each upper floor has seven chamber windows across its front and back instead of the five an inn has, and four iron stovepipes rise through each roof beside the two brick chimneys.',
       'The counts come from the beds each house already holds, by the same rule as the first boarding house at Madison and Dearborn. Nobody moved: the same lodgers sleep in the same houses.',
       'These houses, their windows and their stoves are our reconstruction. No source counts the rooms or stoves of a Chicago boarding house in 1835; the register says how each number was reached.',
+  { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
+    items: [
+      'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',
+      'It is a sample, not a place. No source puts ground like this at that spot. It is there to show how the town\u2019s streets, river banks and lakeshore will be surfaced, and what that costs, before any of them are.',
+      'The dirt is worn in wandering lanes rather than two clean wheel tracks, with grit, clods and hoof marks underfoot and grass holding on at the shoulders. Every edge fades into the prairie instead of stopping at a line.',
+      'Building it turned up a fault in the project\u2019s own texture library: its soil, muck and sand surfaces are almost perfectly smooth. The strip makes its own grit instead, and the street work that follows can use it.',
+    ] },
+  { v: 1261, ts: '2026-10-01T14:18:41.044Z', date: 'Oct 1, 2026, 9:18 AM CT', title: 'Finish a jaunt and keep its keepsake in your daybook', kind: 'feature',
+    items: [
+      'Finish a jaunt and its keepsake is kept in your Chicago daybook. The ending shows the memento you earned and which family moved.',
+      'Open the Daybook from the Jaunts menu or the ending. It shows five families of keepsakes: receipts, work chits, route notes, clippings and calling cards. Each one looks like what it is.',
+      'Your rank goes from New Arrival to Seasoned Chicagoan as every family fills. Replaying a jaunt keeps one copy, so the only way up is a new outing.',
+      'Keepsakes are narrative mementos, not evidence, and the daybook says so at the top. It stays in this browser between visits, and Reset daybook clears it.',
     ] },
   { v: 1260, ts: '2026-10-01T14:02:45.125Z', date: 'Oct 1, 2026, 9:02 AM CT', title: 'Nothing you can see: a test wall for photographic surfaces', kind: 'change',
     items: [
