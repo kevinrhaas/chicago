@@ -19,9 +19,9 @@ ceiling cannot climb on what the schedule itself deals.
   already asking for slots on it). T-1773's warehouse is in flight on lot 1 of that block; the
   order book's `structures/ordinary_dwellings/west` row (21 left) moves from T-1783 to T-1794,
   the live child of the split T-1784, with the finding written on that ticket.
-- Seated: three households adopt the three new cottages (L270 restated, 177 → 184 seats). The
+- Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 23 → 24 keepers). The
   workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
-- L311 records the ceiling and the four roofs; L263 restated (477 phases).
+- L312 records the ceiling and the four roofs; L263 restated (480 phases).
 - The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the
   Clinton blocks' unclaimed deals changed family (T-1760/T-1761 claim from the schedule they
   read; a claimed parcel's `drawn_from_schedule` is frozen, so nothing built moves).
@@ -46,8 +46,8 @@ Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
 - **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
   pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
   labourers.
-- **The programme carries 0 new farmsteads**: the West has 0 D1 and 4 A2 left to build. The 24
-  remaining dwellings are T-1783's and the 8 barns T-1212's.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 3 A2 left to build. The 22
+  remaining dwellings are T-1783's and the 7 barns T-1212's.
 
 **Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
 the build. Nothing in the scene changed.

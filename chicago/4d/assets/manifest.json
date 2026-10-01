@@ -1306,6 +1306,33 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_clark_c3_03"
     },
+    "recon_1835_blk_lake_clinton_a1_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 80772,
+      "inputs_sha256": "487210ff515fcbd5872b97dfa59d75e866e47c490b7cdeffe68ec6982c66c8e2",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_lake_clinton_a1_03"
+    },
+    "recon_1835_blk_lake_clinton_d3_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25824,
+      "inputs_sha256": "f71bcc655e1c01b45465a4923b0453a9016c16da4ee27e04ec276113360ec3fe",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_lake_clinton_d3_02"
+    },
+    "recon_1835_blk_lake_clinton_d4_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 27696,
+      "inputs_sha256": "0084932a422529ae0499abbb1b95dd366c721c3ac5e2ea041916c6858a66806c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_lake_clinton_d4_01"
+    },
     "recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

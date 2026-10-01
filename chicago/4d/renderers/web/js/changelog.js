@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1248, ts: '2026-10-01T07:43:33.806Z', date: 'Oct 1, 2026, 2:43 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
+    items: [
+      'Cross the river to the Canal and Lake approach and the block between Lake and Randolph carries three buildings it did not have. A two-room cottage stands on the Canal Street side with a stable behind it off the block alley, and a one-room cottage stands on the Clinton Street side.',
+      'Two families had asked for a house on this block, and two is all the block had room for: three of its ten lots were empty and the schedule keeps one of those empty on purpose. So the ceiling was two houses, and two is what stands.',
+      'The better house takes the better street. Canal is a cart road worn down toward the forks and Clinton is barely worn at all, so the two-room cottage faces Canal and the one-room cottage faces Clinton — the opposite way round from the two requests, by the rule this block’s neighbour already goes by.',
+      'The stable is the only yard building built, and this corner of town is why: a teamster’s house, his stable and a blacksmith’s shop already stand on the same face. The barn the block’s plan also holds is left for a later house that can argue for it.',
+      'Neither family that asked ended up under these roofs. A household takes the best house already standing before it asks for one built, so the Allan and Barnard families moved in the moment these existed — and the Baxley and Beaubien households, whose requests the houses were sized against, both end up housed anyway on roofs the shuffle freed.',
+      'None of it is evidence. No source says a building stood on these two lots in 1835. The block face, the street lines and the ten lot numbers are read off the plat; the buildings are the programme filling a town it can count but cannot name, and every card says so.',
     ] },
   { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
     items: [

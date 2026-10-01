@@ -1,10 +1,10 @@
 {
-  "id": "recon_1835_blk_randolph_clinton_d3_04",
+  "id": "recon_1835_blk_lake_clinton_d3_02",
   "phase": "inferred_1835",
-  "name": "Reconstructed D3 one-room frame cottage #04",
+  "name": "Reconstructed D3 one-room frame cottage #02",
   "aka": [],
   "archetype": "frame_dwelling",
-  "asset": "gltf/recon_1835_blk_randolph_clinton_d3_04__inferred_1835.glb",
+  "asset": "gltf/recon_1835_blk_lake_clinton_d3_02__inferred_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
   "documented_range": {
@@ -16,13 +16,13 @@
   },
   "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
   "placement": {
-    "local_e": -254.895,
-    "local_n": -322.07,
+    "local_e": -257.948,
+    "local_n": -179.002,
     "rotation_deg": 270.46,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 4.5 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
-    "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Randolph, Canal, Washington and Clinton; standing back from the Clinton Street frontage",
+    "position_note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.2 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+    "symbolic_location": "Anonymous reconstructed roof in the West Division block bounded by Lake, Canal, Randolph and Clinton; standing back from the Clinton Street frontage",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -35,21 +35,21 @@
         0
       ],
       [
-        5.006,
+        5.019,
         0
       ],
       [
-        5.006,
-        6.908
+        5.019,
+        6.407
       ],
       [
         0,
-        6.908
+        6.407
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "A 5.01 × 6.91 m rectangle sampled deterministically inside the D3 family's authored footprint band; no individual dimensions are documented."
+    "note": "A 5.02 × 6.41 m rectangle sampled deterministically inside the D3 family's authored footprint band; no individual dimensions are documented."
   },
   "attributes": {
     "stories": {
@@ -61,7 +61,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "wall_height_m": {
-      "value": 2.623,
+      "value": 2.557,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -77,7 +77,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "roof_pitch_deg": {
-      "value": 35.6,
+      "value": 35.7,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -133,9 +133,9 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "siding_exposure_m": {
-      "value": 0.127,
+      "value": 0.152,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "one_room_frame_cottage",
@@ -176,15 +176,15 @@
     "family": "D3",
     "district": "west",
     "inventory_class": "principal_functional",
-    "programme_phase": "phase3_platted_block_randolph_clinton",
+    "programme_phase": "phase3_platted_block_lake_clinton",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "block_id": "blk_randolph_clinton",
+    "block_id": "blk_lake_clinton",
     "lot_index": 2,
     "stands_on": "street",
     "fronts": "clinton",
-    "sequence": 4,
-    "finish_key": "weathered_timber",
-    "roof_condition": "fresh",
-    "age_state": "new"
+    "sequence": 2,
+    "finish_key": "ochre",
+    "roof_condition": "patched",
+    "age_state": "established"
   }
 }
