@@ -19,3 +19,11 @@ Recovery commands, from chicago/4d:
 5. Run check.sh, published desktop/mobile smoke and preflight; only then merge to dev.
 
 Production is not authorized by this request. Dev is the integration target.
+
+## Checkpoint 2 — source correction ready; validation in progress
+
+- Actual GLB review confirms the centered street gable, ordinary eave return and clear loft opening. The alley review caught a remaining floating cornice; its north end now stops at the intersecting range, and the full master has been rebuilt.
+- Reduced roof sampling keeps the shared light geometry within the existing 200,000-triangle limit (196,687 before the final cornice trim); the limit is unchanged. The first checkpoint's CI bake stopped on that limit, as expected before this correction.
+- Street surfaces already stand 30–60 mm above terrain. Remove their large slope-dependent depth pull, which can draw sidewalk pixels through walls at grazing views; retain a one-unit constant bias. Browser visual verification remains outstanding.
+- Existing stone/aperture/glass clipping fixtures pass. Final web derivatives, recovery package, full gate and published desktop/mobile smoke remain outstanding. Local Chromium cannot launch because the execution sandbox refuses its socket; use the existing GitHub bake/smoke workflow for the required browser gate.
+- The full source checkpoint is pushed separately from generated assets, at the owner's explicit request for recoverable progress. Do not merge this checkpoint until those gates are green.

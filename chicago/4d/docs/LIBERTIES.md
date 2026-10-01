@@ -17549,6 +17549,11 @@ sash, shades and the building envelope are unchanged. The light and full
 versions use the same closure geometry.
 
 
+**L305 continued — T-1805, stable north gable and crossing roof correction (2026-10-01).**
+
+HABS photographs 1 and 15 show the north gable returning to the ordinary north-range eave before the alley corner. The former full-wing asymmetric triangle was incorrect. Its replacement feet at W 125.75/156.25 and z 23.1 ft ng are photographic proportions (about ±1 ft), centered on the unchanged W 141 loft/carriage/pigeon axis. The remaining 5 ft is the eave return. A continuous roof envelope ties that frontage to the retained rear stable profile inside the crossing range; the hidden tie-in is reconstructed, not a measured roof plan. Full and reduced models share the construction and all 172 architectural openings. No photographic pixels are reused. The alley cornice ends at the crossing range instead of projecting past its lower north corner. Sidewalk depth-bias correction changes rendering only, not the grid, material attribution, elevation or historic footprint.
+
+
 ### L306 — Four reconstructed repair-timber piles at the branch bridges
 
 **Applies to:** `data/yard/bridge_head_timber.json`

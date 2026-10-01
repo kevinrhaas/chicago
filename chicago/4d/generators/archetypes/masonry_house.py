@@ -357,7 +357,7 @@ def _crossed_stable_roof(b, r, original_z):
         t = min(1., max(0., (y1-y)/(y1-g["cross_ridge_at"])))
         stable = front+(old-front)*t
         return max(north_z(y), stable)
-    def subdivide(values, step=.45):
+    def subdivide(values, step=1.8):
         values=sorted(set(values)); result=[]
         for a,c in zip(values,values[1:]):
             n=max(1,math.ceil((c-a)/step))
