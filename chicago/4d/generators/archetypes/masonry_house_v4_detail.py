@@ -1313,7 +1313,7 @@ def date_stones(b,params):
 
 def supplemental(b,p):
     g=p.detail.get('west_cross_gable')
-    if g:
+    if g and not any(r.get('north_cross_gable') for r in p.ranges):
         lo,hi=g['u0'],g['u1'];base=min(g['eave_lo_z'],g['eave_hi_z'])
         # Existing west wall owns the wall below the crossed roof's eaves.
         poly=[(lo,base),(hi,base),(hi,g['eave_hi_z']),(g['ridge_at'],g['ridge_z']),(lo,g['eave_lo_z'])]

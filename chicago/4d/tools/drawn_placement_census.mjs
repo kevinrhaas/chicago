@@ -66,6 +66,7 @@ export const CENSUS = () => {
   const B = {
     batches: 0, instances: 0, compared: 0, unrecorded: 0, verts: 0,
     outside: 0, worst: 0, worstId: null, worstSpan: 0,
+    misplaced: 0, worstTransform: 0, compounds: 0,
     mirrorCloser: 0, worstMirrorId: null, strays: [], corners: [], worstCorner: 0,
   };
   const plan = new Map();
@@ -99,6 +100,12 @@ export const CENSUS = () => {
       const m8 = matrices[o + 8]; const m12 = matrices[o + 12];
       const m2 = matrices[o + 2]; const m6 = matrices[o + 6];
       const m10 = matrices[o + 10]; const m14 = matrices[o + 14];
+      // Read the GPU's transform against the DATA bearing and origin, not
+      // another renderer placement. This also covers sparse compounds whose
+      // recorded plot corner need not be occupied by a tent or a wagon.
+      const yaw = -(p.rotation_deg ?? 0) * Math.PI / 180;
+      const cos = Math.cos(yaw); const sin = Math.sin(yaw);
+      let transformError = 0;
       let e0 = Infinity; let e1 = -Infinity;
       let n0 = Infinity; let n1 = -Infinity;
       for (let k = gi.start, l = gi.start + gi.count; k < l; k++) {
@@ -111,6 +118,9 @@ export const CENSUS = () => {
         // terrain.js worldToEnu: e = x, n = -z.
         const e = x;
         const n = -z;
+        const expectedE = p.local_e + vx * cos + vz * sin;
+        const expectedN = p.local_n + vx * sin - vz * cos;
+        transformError = Math.max(transformError, Math.hypot(e - expectedE, n - expectedN));
         if (e < e0) e0 = e;
         if (e > e1) e1 = e;
         if (n < n0) n0 = n;
@@ -123,13 +133,20 @@ export const CENSUS = () => {
         box.e0 = Math.min(box.e0, e0); box.e1 = Math.max(box.e1, e1);
         box.n0 = Math.min(box.n0, n0); box.n1 = Math.max(box.n1, n1);
         box.parts++;
+        box.transformError = Math.max(box.transformError, transformError);
       } else {
-        plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n });
+        plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n,
+          compound: rec.sidecar.archetype === 'camp', transformError });
       }
     }
   }
   for (const [id, box] of plan) {
     B.compared++;
+    // One millimetre allows float32 matrix rounding; a shifted or rotated
+    // compound must still fail even if it remains inside its recorded plot.
+    if (!Number.isFinite(box.transformError) || box.transformError > 0.001) B.misplaced++;
+    B.worstTransform = Math.max(B.worstTransform, box.transformError);
+    if (box.compound) B.compounds++;
     // How far outside its own drawn plan footprint the record's anchor falls.
     // Zero for every building whose body was drawn where it was placed.
     const outE = Math.max(box.e0 - box.e, box.e - box.e1, 0);
@@ -146,7 +163,11 @@ export const CENSUS = () => {
       }
     }
     if (corner > B.worstCorner) B.worstCorner = corner;
-    if (out > 1) {
+    // A camp's anchor names its ground's corner, not an occupied building
+    // corner (landing_camp_east leaves 3.87 m open there). Its actual vertices
+    // owe the independent millimetre transform check above. Buildings retain
+    // the original one-metre occupied-footprint assertion as well.
+    if (!box.compound && out > 1) {
       B.outside++;
       if (B.strays.length < 12) {
         B.strays.push({ id, out: +out.toFixed(2), span: +span.toFixed(1),

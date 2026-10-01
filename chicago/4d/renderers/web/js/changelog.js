@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1269, ts: '2026-10-01T19:03:50.456Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: null, ts: '', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+    items: [
+      'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
+      'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
+      'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+      'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
     ] },
   { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
     items: [
