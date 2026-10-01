@@ -16498,7 +16498,14 @@
       "id": "L271",
       "title": "The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source",
       "section": "per_subject",
-      "subjects": [],
+      "subjects": [
+        "recon_1835_north_a2_059",
+        "recon_1835_north_d1_054",
+        "recon_1835_west_052",
+        "recon_1835_west_053",
+        "recon_1835_west_054",
+        "recon_1835_west_055"
+      ],
       "covers": [],
       "scope": {
         "enumeration": "off_plat_seats.seats[dealt]",
@@ -16525,7 +16532,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-09-26."
+          "text": "2026-09-26. **The farmstead rule (T-1794, 2026-10-01).** By the policy's clause order alone every D1 cabin on the West farm ground went to a labourer, because `labourer_dwellings` ranks above `farms_and_country_seats`, and all 44 West farm households were owed. The deal now pairs each A2 barn standing off the plat in the West with the nearest unpaired D1 cabin within 150 m that stands on no lot, and keeps that cabin for the farm clause. Two pairs answer: `recon_1835_west_054` with the barn `recon_1835_west_053` (47 m) and `recon_1835_west_052` with `recon_1835_west_055` (126 m). The Ayers and Beegle households now hold them, and the Bruno and Cooley households, the two labourers who had them, are owed again. Every other seat stays where it was. The invention is the PAIRING: no source puts any of these roofs or households together. The 150 m reach is a reading, not a record: a forty is 402 m on a side, so a house and barn that close fit on one holding. The 42 farm households still owed are stated as farming beyond the modelled ground, and `data/reconstruction/1835_west_farm_ground.json` sizes that ground (34 of the 44 at best). The North has one barn that would pair the same way (`recon_1835_north_a2_059` with `recon_1835_north_d1_054`, 28 m), but the rule is held to the West, the ground T-1793 measured. A source placing any of these farms retires the pairing."
         }
       ]
     },

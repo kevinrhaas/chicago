@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1249, ts: '2026-10-01T07:59:25.103Z', date: 'Oct 1, 2026, 2:59 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1250, ts: '2026-10-01T08:45:42.109Z', date: 'Oct 1, 2026, 3:45 AM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and three workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics occupy the new trade premises. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The shops include a smithy, a carpenter shop and a wagon-woodwork shop. The last specialty is reconstructed for an existing carpenter; it does not change their recorded occupation.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1249, ts: '2026-10-01T08:03:51.291Z', date: 'Oct 1, 2026, 3:03 AM CT', title: 'Two farm families move into the cabins beside the barns', kind: 'change',
+    items: [
+      'Out on the Des Plaines prairie edge, two log cabins stand near a barn. Open the Ayers or the Beegle household card now and it gives each family one of those cabins, with a button that walks you there. Before, both cards said the family had nowhere to live.',
+      'A cabin with a barn beside it is a farm, so farm families now get those cabins ahead of labourers. Until now labourers came first in the order households are housed, and they had taken every cabin out there. The Bruno and Cooley households, the two labouring families who lived in these cabins, are waiting for a house again. Every other family stays where it was.',
+      'There are 44 West Side farm families and the modelled prairie has room for about ten farms, so at least 34 of them farmed beyond the edge of the map. The town’s seating records now give that as the reason the other 42 have no house here, instead of saying only that none was free.',
+      'None of this comes from a source. No record puts these families, cabins and barns together. The pairing is our reconstruction, and the Liberties page says how it was made.',
     ] },
   { v: 1248, ts: '2026-10-01T07:26:32.191Z', date: 'Oct 1, 2026, 2:26 AM CT', title: 'Three roofs on the Canal and Lake approach', kind: 'change',
     items: [

@@ -3,6 +3,302 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 55,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 296,
+      "takenAt": "2026-10-01T08:36:07Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837319030/job/110287773574 (run https://github.com/kevinrhaas/chicago/actions/runs/36837319030; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 160,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 183,
+      "takenAt": "2026-10-01T08:35:07Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837216011/job/110287434150 (run https://github.com/kevinrhaas/chicago/actions/runs/36837216011; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 160,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 657,
+      "takenAt": "2026-10-01T08:34:33Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837158319/job/110287238787 (run https://github.com/kevinrhaas/chicago/actions/runs/36837158319; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 55,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 411,
+      "takenAt": "2026-10-01T08:33:44Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36837070736/job/110286950311 (run https://github.com/kevinrhaas/chicago/actions/runs/36837070736; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 245,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1197,
+      "takenAt": "2026-10-01T08:31:58Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836885781/job/110286335282 (run https://github.com/kevinrhaas/chicago/actions/runs/36836885781; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5-6",
+      "parts": [
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 32,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 677,
+      "takenAt": "2026-10-01T08:31:26Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836830583/job/110286149527 (run https://github.com/kevinrhaas/chicago/actions/runs/36836830583; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12-13",
+      "parts": [
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 209,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1026,
+      "takenAt": "2026-10-01T08:30:08Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836683208/job/110285697097 (run https://github.com/kevinrhaas/chicago/actions/runs/36836683208; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 145,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 741,
+      "takenAt": "2026-10-01T08:29:25Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836609879/job/110285446167 (run https://github.com/kevinrhaas/chicago/actions/runs/36836609879; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 120,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 203,
+      "takenAt": "2026-10-01T08:27:41Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836433037/job/110284857877 (run https://github.com/kevinrhaas/chicago/actions/runs/36836433037; downloaded job log)"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10-11",
+      "parts": [
+        10,
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 46,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 766,
+      "takenAt": "2026-10-01T08:26:15Z",
+      "ref": "steward/t1766-canal-grocery-workshops",
+      "commit": "9446a07a87b92ae4920e69398e1d986ad91f0bb4",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": null,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "memGB": null,
+        "loadavg": null,
+        "note": "GitHub Actions published smoke jobs; CPU, memory and load were not measured in the downloaded logs. Local hashes intentionally unset: CI artifact equivalence was not proven."
+      },
+      "source": "gh-job:https://github.com/kevinrhaas/chicago/actions/runs/36836282995/job/110284365646 (run https://github.com/kevinrhaas/chicago/actions/runs/36836282995; downloaded job log)"
+    },
+    {
+      "viewport": "mobile",
       "stage": "3-6",
       "parts": [
         3,
@@ -1632,316 +1928,6 @@
         ]
       },
       "source": "/tmp/smoke-desktop-1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 221,
-      "takenAt": "2026-09-29T03:50:34.669Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "30f60b1cfc68",
-      "devCommit": "682be5f236dc",
-      "treeHash": "sha256:c9ad04a6f820d03a",
-      "treeDirty": false,
-      "changelogHash": "sha256:af7a77ec67109038",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.8,
-          3.1,
-          3.3
-        ]
-      },
-      "source": "/tmp/smoke-mobile-1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 359,
-      "takenAt": "2026-09-29T03:10:03.056Z",
-      "ref": "steward/t1742-kinzie-addition-first-roofs",
-      "commit": "cb77c855ace3",
-      "devCommit": "682be5f236dc",
-      "treeHash": "sha256:03b25c1089849ca2",
-      "treeDirty": false,
-      "changelogHash": "sha256:4b086a9978ad2170",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.5,
-          4.3,
-          3.9
-        ]
-      },
-      "source": "/tmp/smoke1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 365,
-      "takenAt": "2026-09-29T01:05:30.679Z",
-      "ref": "steward/t-1736-washington-clark",
-      "commit": "f7f2bf2e9e55",
-      "devCommit": "9aee39d09452",
-      "treeHash": "sha256:5ac5ddd5db6c72fe",
-      "treeDirty": false,
-      "changelogHash": "sha256:7524a3e2d8960b31",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          4.1,
-          3.4
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 356,
-      "takenAt": "2026-09-29T01:00:22.410Z",
-      "ref": "steward/t1735-lasalle-recover",
-      "commit": "5a51a0956ee4",
-      "devCommit": "9aee39d09452",
-      "treeHash": "sha256:28709d49a460ff2f",
-      "treeDirty": false,
-      "changelogHash": "sha256:0ec850cbdef65f96",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 369,
-      "takenAt": "2026-09-28T23:09:39.975Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "7e276bf7aff3",
-      "devCommit": "d50d38b0deae",
-      "treeHash": "sha256:6808d37528ad7aa9",
-      "treeDirty": false,
-      "changelogHash": "sha256:5197a9626d079fe6",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.6,
-          4.4,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_d1b.txt"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 358,
-      "takenAt": "2026-09-28T22:46:25.060Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "846d4c4c03d4",
-      "devCommit": "0a0a6e15e4b0",
-      "treeHash": "sha256:cfbedc64bb499a6c",
-      "treeDirty": false,
-      "changelogHash": "sha256:135593f36182c93a",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.6,
-          4.4,
-          3
-        ]
-      },
-      "source": "/tmp/smoke_d1.txt"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 102,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 231,
-      "takenAt": "2026-09-28T21:18:58.885Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "fae4ab26fcbb",
-      "devCommit": "cda64c94f810",
-      "treeHash": "sha256:01e5d89fe9726244",
-      "treeDirty": false,
-      "changelogHash": "sha256:02b8cb040648f662",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          3.9,
-          3.7
-        ]
-      },
-      "source": "/tmp/s_d3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 171,
-      "takenAt": "2026-09-28T21:18:58.802Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "fae4ab26fcbb",
-      "devCommit": "cda64c94f810",
-      "treeHash": "sha256:01e5d89fe9726244",
-      "treeDirty": false,
-      "changelogHash": "sha256:02b8cb040648f662",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          3.9,
-          3.7
-        ]
-      },
-      "source": "/tmp/s_m1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 278,
-      "takenAt": "2026-09-28T21:18:58.719Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "fae4ab26fcbb",
-      "devCommit": "cda64c94f810",
-      "treeHash": "sha256:01e5d89fe9726244",
-      "treeDirty": false,
-      "changelogHash": "sha256:02b8cb040648f662",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          3.9,
-          3.7
-        ]
-      },
-      "source": "/tmp/s_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 95,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 214,
-      "takenAt": "2026-09-28T19:35:25.916Z",
-      "ref": "steward/t-1717-north-bank-east-end",
-      "commit": "16f4069cfb40",
-      "devCommit": "7e81788834cc",
-      "treeHash": "sha256:7c2c8a4c28df188a",
-      "treeDirty": false,
-      "changelogHash": "sha256:f18c53bb6079407d",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.4,
-          4.1,
-          4
-        ]
-      },
-      "source": "/tmp/smoke_d3.log"
     }
   ]
 }
