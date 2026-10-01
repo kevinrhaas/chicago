@@ -148,19 +148,48 @@ UNSCHEDULED_PLATS = {
                           "tract's own name and platter are still unsettled (T-1080)"),
     "wabansia": ("data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one "
                  "unplaced household in the whole survey"),
-    # T-1455, re-read when T-1444 closed (2026-09-26). The West Division's own grid, and
-    # it is unscheduled for a different reason from the two above: this district is not
-    # short of evidence, it is already spoken for. `west_wolf_point_outer` held the West
-    # recipe's remaining reviewed placements and T-1444 has now INSTANTIATED them — all
-    # 55 of them, nothing withheld — so dealing this district's remainder onto new lot
-    # lines would bid against placements that are no longer merely written but standing
-    # and baked. The reason is the same one and it is stronger, not weaker. And the
-    # density is not measured here either — see the block comment in
-    # `programme_document`.
-    "west_division": ("data/reconstruction/1835_phase2_west_wolf_point_approaches.json, "
-                      "whose reviewed placements already hold this district's remainder "
-                      "and are instantiated on it (T-1444)"),
+    # T-1455 put the West Division's own grid here, and T-1783 (2026-10-01) took it out
+    # again: its lot-ruled blocks are scheduled at a density MEASURED on West lots — see
+    # `west_lot_ceiling` — and its unruled ones wait on T-1414 for a lot line, below.
 }
+
+
+# T-1783. THE WEST DIVISION'S LOTS ARE DEALT AT A DENSITY READ OFF WEST LOTS. T-1455
+# withheld the whole grid because `ROW_UNITS_PER_LOT` is a party-line density measured on
+# Original Town frontage, and these are loose outer blocks of 75 3/5 ft lots in two columns
+# on a north-south alley where no row stands. That reason holds and is kept: nothing below
+# uses the party-line figure to size a West block. What it did not have was a figure of
+# its own, and one has been standing on the grid since T-1444 instantiated the reviewed
+# West recipe: its placements fill lot-ruled West blocks at a density somebody reviewed.
+WEST_GRID = "west_division"
+
+
+def west_lot_ceiling(grid: dict, rows: list[dict], recipe_id: str) -> dict:
+    """The roofs per lot the reviewed West recipe already stands at, on its densest
+    lot-ruled West Division block (T-1783).
+
+    A CEILING, not a target, and the densest block rather than the mean for the reason
+    the core standard took its worst case: a lower figure would call the reviewed parcel
+    over-dense on the one block it measures, and a higher one is a density nobody
+    reviewed on this ground. Only the recipe's own placements count — a documented shop
+    or a later parcel's roof is not the recipe's density, and counting this schedule's
+    own deals would let the ceiling climb on what it had just built.
+    """
+    best = None
+    for block in grid["blocks"]:
+        lots = len(block["lots"])
+        if block.get("grid") != WEST_GRID or not lots:
+            continue
+        reviewed = sum(r["roofs_min"] for r in rows
+                       if r.get("block") == block["id"]
+                       and r.get("programme_phase") == recipe_id)
+        if reviewed and (best is None
+                         or reviewed * best["lots"] > best["reviewed_roofs"] * lots):
+            best = {"block": block["id"], "lots": lots, "reviewed_roofs": reviewed}
+    if best is None:
+        raise SystemExit("no lot-ruled West Division block carries a reviewed West "
+                         "recipe roof, so there is no West density to deal at")
+    return best
 
 
 def block_capacity(lots: int) -> int:
@@ -1105,6 +1134,7 @@ def programme_document():
     # block room its own generator will not build (T-A6, and the reason both halves
     # call one module).
     available = exclusive_lots(grid, datum)
+    west_density = west_lot_ceiling(grid, rows, west_recipe["id"])
 
     # ---- what stands ------------------------------------------------------------
     built_family: dict[str, int] = {}
@@ -1279,6 +1309,25 @@ def programme_document():
                 f"them — see {UNSCHEDULED_PLATS[block['grid']]}. Dealing this district's "
                 "remainder onto them at the Original Town's units-per-lot would be a "
                 "density read off other ground, and these lots are not that size.")
+        if block.get("grid") == WEST_GRID and not lots:
+            unit["kind"] = "platted_block_unscheduled"
+            unit["state"] = "gated"
+            unit["waiting_on"] = (
+                "a lot line. The sheet prints no lot figures for this cell "
+                "(data/traces/thompson_west_division_lots.json), so there is nothing to "
+                "deal a roof onto; T-1414 owns the small lots the West sheets draw.")
+        elif block.get("grid") == WEST_GRID:
+            ceiling = (lots * west_density["reviewed_roofs"]) // west_density["lots"]
+            rooms = block_rooms(free, max(0, ceiling - stands))
+            unit.update({
+                "capacity_roofs": ceiling,
+                "principal_room": rooms[0], "ancillary_room": rooms[1],
+                "headroom": rooms[0] + rooms[1],
+                "state": "open" if rooms[0] + rooms[1] > 0 else "at_capacity",
+                "density": (f"{west_density['reviewed_roofs']} roofs per "
+                            f"{west_density['lots']} lots, the reviewed West recipe on "
+                            f"{west_density['block']} (T-1783)"),
+            })
         hold = block.get("reserved")
         if hold:
             unit["kind"] = "platted_block_reserved"

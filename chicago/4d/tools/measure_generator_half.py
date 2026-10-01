@@ -345,17 +345,22 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # Sauganash and the Steamboat Hotel). Six new structure assets on the same terms as every
 # entry above; terrain reach still 4 and pier_crib still 2.
 #
-# 512 -> 517 and 508 -> 513 on 2026-10-01 (T-1766): the five Canal approach trade roofs —
+# 512 -> 516 and 508 -> 512 on 2026-10-01 (T-1783): the four roofs on
+# `blk_west_randolph_des_plaines`, the first deal on the West Division's outer platted
+# blocks — three frame cottages and a carpenter's shop. Four new structure assets on the
+# same terms; the terrain reach still 4 and pier_crib still 2.
+#
+# 516 -> 521 and 512 -> 517 on 2026-10-01 (T-1766): the five Canal approach trade roofs —
 # two stores and three workshops on the Canal Street approach. Five new structure assets on
 # the same terms as every entry above; terrain reach still 4 and pier_crib still 2.
 #
 STATED = {
-    "assets": 517,
+    "assets": 521,
     "restales": {
-        "generators/common/*.py": 517,
+        "generators/common/*.py": 521,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 513,
+        "generators/emit.py": 517,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

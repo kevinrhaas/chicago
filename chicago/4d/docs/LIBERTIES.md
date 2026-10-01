@@ -14153,7 +14153,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 488 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 492 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14198,15 +14198,19 @@ roof type and are shingled by this exposure. T-1773's warehouse at Lake and West
 frame house and a two-room cottage on the same Canal teamster approach with a privy and a
 woodshed behind them, all four shingled by this exposure for the same reason every frame roof
 the block recipe raises is. T-1785's house and barn
-in Wabansia make **483**: the first roofs the exposure reaches in that survey, a
+in Wabansia make 483: the first roofs the exposure reaches in that survey, a
 story-and-a-half house with its kitchen ell and a plank barn, both named records rather than
-recipe roofs. No record's
+recipe roofs. T-1783's deal on
+`blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches
+on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a
+storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines
+edge where the reviewed West recipe had stood only two roofs. No record's
 `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
 
 **Scope revision, 2026-10-01 (T-1766):** Five Canal approach trade roofs — C3, C4,
 W1, W2 and W3 — each state a roof type and take this exposure, and on top of the
-**483** above they make **488**. Their placement and occupancy are **L307**'s
+**487** above they make **492**. Their placement and occupancy are **L307**'s
 reconstruction; the historical sequence above remains the record of the earlier additions.
 
 **Decision:** the shingle exposure is committed at **0.14 m**, and with it the 4.48 m roof
@@ -14707,9 +14711,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 177 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 177 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 183 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -14760,6 +14764,13 @@ households took slots on it. A block's slot count is therefore not a ratchet in 
 direction, and no reading of this entry should treat it as one: it is what the schedule
 apportions to that block on the day it is read, and raising a block's roofs re-deals the order
 behind them across the whole tier.
+**T-1783 took the count from 177 to 183 by opening the West Division's three lot-ruled outer
+blocks** (see **L313**): three households adopt the three cottages built on
+`blk_west_randolph_des_plaines`, and three ask for slots on `blk_west_lake_canal`, whose three
+dwellings the schedule now deals and nobody has built yet. It was four dwellings until T-1773's
+warehouse (L308) took that block's plat lot 1 at the forks; the West lot ceiling holds the block
+at six roofs to its ten lots, so the warehouse spends one of them. One intermediate pass of the
+chain read 182 on the way to this fixpoint.
 **Four more arrived the same way and on the same kind of ground — two blocks, one ruling, and
 the second of them took a whole ticket longer to reach.** `blk_lake_clinton` and
 `blk_randolph_clinton` are plat blocks 28 and 45, between Clinton and Canal, and both grids of
@@ -15568,17 +15579,27 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-four roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 24 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
-`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 24 are on the
-South Water blocks and were written by T-1638; the other 15 are on the Randolph–Washington
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
+South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
 tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**T-1783 takes it back to 23, and the one it loses is T-1761's.** Opening the outer West blocks
+re-deals the West Division's households across the ground the schedule now names. On the tree
+before T-1761 that put the Barnard household under the D3 cottage on `blk_randolph_clinton`
+(`recon_1835_blk_randolph_clinton_d3_04`) and made 24; on top of T-1761 the same re-deal moves
+both nameable households off that roof. `hh_ballingale_p` goes to lot 8 of
+`blk_west_lake_des_plaines` and `hh_barnard_j_b` to `recon_1835_west_021`, and neither is a
+roof the platted block-infill generator owns, so both are owed rather than written. Written
+**24 → 23**, refused **77 → 79**, owed **43 → 44**. No ruling moved, and no name was written to a
+roof it was not dealt.
 
 **It was 23 until T-1736, and the two it lost show what "one district at a time" costs.**
 That ticket dealt the first two roofs on blk_washington_clark, on the plat's last tier, and
@@ -17900,6 +17921,54 @@ cottage re-sized to the D4 the request then asked for, and the seating outcome r
 not re-cut to them, which is said above); 2026-10-01 a third time (numbered **L312**: it was
 written as L308, and T-1773's warehouse took that number on `dev` first — the entry's words did not
 change, only its number, and the four references to it moved with it).
+
+### L313 — The West Division's outer platted blocks opened at a density read off West lots, and four invented roofs on the Des Plaines edge
+
+**Decision:** `tools/reconcile_665.py` schedules a lot-ruled West Division block at the density
+the reviewed West recipe already stands at on its densest lot-ruled block — **six roofs on the
+ten lots of `blk_west_lake_des_plaines`** — so a ten-lot outer block has a ceiling of six roofs.
+Three outer blocks carry lot lines the sheet prints figures for and so open:
+`blk_west_lake_des_plaines` (at that ceiling already), `blk_west_lake_canal` (three roofs of
+room: T-1773's warehouse, L308, spends one of its six on plat lot 1) and
+`blk_west_randolph_des_plaines` (four roofs of room). The six West cells with no lot
+figures stay gated, waiting on T-1414 for a lot line. On `blk_west_randolph_des_plaines` (plat
+block 47) the schedule's four are built: a two-room cottage on plat lot 7 and a carpenter's or
+joiner's shop at the Randolph corner of the Des Plaines face, a storey-and-a-half cottage on plat
+lot 5 and a deep-plan cottage on plat lot 9 of the Jefferson face. Four lots are left open and
+the Washington end of the outer face is prairie.
+
+**Why:** T-1455 withheld the whole West grid because the only density the schedule had was the
+Original Town's party-line figure, measured on other frontage. That reason is kept — nothing
+here sizes a West block by it. What was missing was a figure of the West's own, and one has
+stood on the grid since T-1444 instantiated the reviewed recipe. The densest block is taken,
+not the mean: a lower figure would call the reviewed parcel over-dense on the block it is
+measured on, and a higher one is a density nobody reviewed on this ground. Only the recipe's
+own placements count, so the ceiling cannot climb on roofs this schedule deals.
+
+**What is invented:** all of the four roofs — their presence, families, lots, set-outs (1.5 to
+7.0 m) and lateral offsets — and the ceiling itself, which is one reviewed parcel's density
+carried to two neighbouring blocks. The lot lines and the block number are the sheet's
+(`data/traces/thompson_west_division_lots.json`). No source places any building on block 47 in
+July 1835.
+
+**Consequence:** the town gains its first roofs on the West Division's outer platted ground
+beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its
+target. `blk_west_lake_canal`'s three (frame cottages) are
+scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the
+order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774,
+the ticket that hands T-1208 on with the West's exact remainder.
+
+**How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
+blocks, or a period view west along Randolph; either replaces the ceiling and these placements
+outright. A named discovery substitutes for a compatible anonymous roof and never increases the
+total.
+
+**Covers:** `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`,
+`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`
+
+**Ticket:** T-1783.
+
+**Recorded:** 2026-10-01 (T-1783). **Revised:** 2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse).
 
 ### L316 — The doctor's house in Wabansia: an attested house, barn and garden on ground the advertisement names only as Wabansia
 
