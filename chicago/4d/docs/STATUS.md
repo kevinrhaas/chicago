@@ -8,18 +8,19 @@ other frontage. `tools/reconcile_665.py` now gives the West grid a figure of its
 (`density` on each unit says where it came from). Only the recipe's own placements count, so the
 ceiling cannot climb on what the schedule itself deals.
 
-- Opened: `blk_west_lake_des_plaines` (6 of 6, at its ceiling), `blk_west_lake_canal` (4 room)
+- Opened: `blk_west_lake_des_plaines` (6 of 6, at its ceiling), `blk_west_lake_canal` (3 room)
   and `blk_west_randolph_des_plaines` (4 room). The six West cells with no lot figures stay
   gated with `waiting_on` naming T-1414. The district balance falls 36 → 28.
 - Built: `blk_west_randolph_des_plaines` (plat block 47) takes its four — D4 on plat lot 7 and a
   W2 shop in a one-lot Randolph frontage run at the Des Plaines corner (T-0024 sends a
   non-dwelling to the better face, and every West lot fronts a north-south street), D6 on plat
   lot 5 and D5 on plat lot 9 of the Jefferson face. Four lots open. Baked with `bake.sh --only`.
-- Not built: `blk_west_lake_canal`'s deal (four frame cottages, D3–D6, with four households
-  already asking for slots on it). T-1773's warehouse now stands on lot 1 of that block; the
-  order book's `structures/ordinary_dwellings/west` row (21 left) moves from T-1783 to T-1794,
-  the live child of the split T-1784, with the finding written on that ticket.
-- Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 23 → 24 keepers). The
+- Not built: `blk_west_lake_canal`'s deal (three frame cottages, with two households already
+  asking for slots on it). T-1773's warehouse now stands on lot 1 of that block and spends one
+  of its six. The order book's `structures/ordinary_dwellings/west` row (19 left) and its
+  `warehouses_freight/west` row (2 of 2) move from the done T-1794 and T-1773 to T-1774, the open
+  ticket that hands T-1208 on with the West's exact remainder. The finding is written on T-1774.
+- Seated: three households adopt the three new cottages (L270 restated, 177 → 182 seats; L276 restated, 23 → 24 keepers). The
   workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
 - L312 records the ceiling and the four roofs; L263 restated (481 phases).
 - The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the

@@ -14683,9 +14683,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 182 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 183 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 182 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -14735,10 +14735,12 @@ households took slots on it. A block's slot count is therefore not a ratchet in 
 direction, and no reading of this entry should treat it as one: it is what the schedule
 apportions to that block on the day it is read, and raising a block's roofs re-deals the order
 behind them across the whole tier.
-**T-1783 took the count from 177 to 183 by opening the West Division's three lot-ruled outer
+**T-1783 took the count from 177 to 182 by opening the West Division's three lot-ruled outer
 blocks** (see **L312**): three households adopt the three cottages built on
-`blk_west_randolph_des_plaines`, and three ask for slots on `blk_west_lake_canal`, whose four
-dwellings the schedule now deals and nobody has built yet.
+`blk_west_randolph_des_plaines`, and two ask for slots on `blk_west_lake_canal`, whose three
+dwellings the schedule now deals and nobody has built yet. It was four dwellings and three slots
+until T-1773's warehouse (L308) took that block's plat lot 1 at the forks; the West lot ceiling
+holds the block at six roofs to its ten lots, so the warehouse spends one of them.
 **Four more arrived the same way and on the same kind of ground — two blocks, one ruling, and
 the second of them took a whole ticket longer to reach.** `blk_lake_clinton` and
 `blk_randolph_clinton` are plat blocks 28 and 45, between Clinton and Canal, and both grids of
@@ -17659,8 +17661,9 @@ still unbuilt in July 1835 would retire these three rather than re-place them.
 the reviewed West recipe already stands at on its densest lot-ruled block — **six roofs on the
 ten lots of `blk_west_lake_des_plaines`** — so a ten-lot outer block has a ceiling of six roofs.
 Three outer blocks carry lot lines the sheet prints figures for and so open:
-`blk_west_lake_des_plaines` (at that ceiling already), `blk_west_lake_canal` and
-`blk_west_randolph_des_plaines` (four roofs of room each). The six West cells with no lot
+`blk_west_lake_des_plaines` (at that ceiling already), `blk_west_lake_canal` (three roofs of
+room: T-1773's warehouse, L308, spends one of its six on plat lot 1) and
+`blk_west_randolph_des_plaines` (four roofs of room). The six West cells with no lot
 figures stay gated, waiting on T-1414 for a lot line. On `blk_west_randolph_des_plaines` (plat
 block 47) the schedule's four are built: a two-room cottage on plat lot 7 and a carpenter's or
 joiner's shop at the Randolph corner of the Des Plaines face, a storey-and-a-half cottage on plat
@@ -17683,9 +17686,10 @@ July 1835.
 
 **Consequence:** the town gains its first roofs on the West Division's outer platted ground
 beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its
-target. `blk_west_lake_canal`'s four (frame cottages, D3 to D6) are
-scheduled and not built here: T-1773's warehouse is in flight on lot 1 of that block, and the
-order book hands the cottages to T-1794 to raise beside it.
+target. `blk_west_lake_canal`'s three (frame cottages) are
+scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the
+order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774,
+the ticket that hands T-1208 on with the West's exact remainder.
 
 **How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
 blocks, or a period view west along Randolph; either replaces the ceiling and these placements

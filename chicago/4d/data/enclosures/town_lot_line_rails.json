@@ -28,9 +28,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 53,
-      "runs_bounding_structures_only": 348,
+      "runs_bounding_structures_only": 359,
       "households_that_gained_a_fence": 25,
-      "lots_named": 161,
+      "lots_named": 165,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -2157,6 +2157,30 @@
       "note": "A SIDE LOT LINE — the south side of blk_lake_clinton_lot9 — and the fence on it is built ONCE: blk_lake_clinton_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_west_randolph_des_plaines_lot0_n",
+      "path_local_enu_m": [
+        [
+          -470.97,
+          -260.86
+        ],
+        [
+          -459.13,
+          -260.96
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot0",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_w2_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the north side of blk_west_randolph_des_plaines_lot0 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_west_randolph_des_plaines_lot5_n",
       "path_local_enu_m": [
         [
@@ -2229,6 +2253,30 @@
       "note": "THE REAR LOT LINE of blk_randolph_clinton_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_west_019 — and the yard behind those buildings is 12.19 m deep by 22.20 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "rear_blk_west_randolph_des_plaines_lot0",
+      "path_local_enu_m": [
+        [
+          -459.13,
+          -260.96
+        ],
+        [
+          -458.6,
+          -283.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot0",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_w2_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_randolph_des_plaines_w2_01 — and the yard behind those buildings is 12.19 m deep by 22.20 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
       "id": "rear_blk_west_randolph_des_plaines_lot5",
       "path_local_enu_m": [
         [
@@ -2251,6 +2299,30 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_west_036 — and the yard behind those buildings is 7.74 m deep by 22.20 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot0_s",
+      "path_local_enu_m": [
+        [
+          -471.15,
+          -283.05
+        ],
+        [
+          -458.6,
+          -283.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot0",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_w2_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot0 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_west_randolph_des_plaines_lot5_s",
@@ -2423,7 +2495,31 @@
       "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_west_046 — and the yard behind those buildings is 12.19 m deep by 22.20 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "side_blk_west_randolph_des_plaines_lot2_s",
+      "id": "rear_blk_west_randolph_des_plaines_lot7",
+      "path_local_enu_m": [
+        [
+          -452.05,
+          -327.57
+        ],
+        [
+          -452.58,
+          -305.38
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot7",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d6_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_randolph_des_plaines_d6_03 — and the yard behind those buildings is 12.19 m deep by 22.20 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot2_blk_west_randolph_des_plaines_lot3_s",
       "path_local_enu_m": [
         [
           -470.08,
@@ -2441,10 +2537,68 @@
             "recon_1835_west_046"
           ],
           "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_west_randolph_des_plaines_lot3",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d4_02"
+          ],
+          "households": [],
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot2 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot2 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot2 and blk_west_randolph_des_plaines_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot7_n",
+      "path_local_enu_m": [
+        [
+          -452.58,
+          -305.38
+        ],
+        [
+          -440.03,
+          -305.48
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot7",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d6_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the north side of blk_west_randolph_des_plaines_lot7 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot7_s",
+      "path_local_enu_m": [
+        [
+          -452.05,
+          -327.57
+        ],
+        [
+          -440.21,
+          -327.67
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot7",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d6_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot7 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_randolph_clinton_lot2_n",
@@ -4299,6 +4453,78 @@
       "note": "A SIDE LOT LINE — the east side of blk_randolph_dearborn_lot6 — and the fence on it is built ONCE: blk_randolph_dearborn_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "rear_blk_west_randolph_des_plaines_lot3",
+      "path_local_enu_m": [
+        [
+          -457.53,
+          -327.53
+        ],
+        [
+          -457.0,
+          -349.71
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot3",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_randolph_des_plaines_d4_02 — and the yard behind those buildings is 12.19 m deep by 22.19 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot3_s",
+      "path_local_enu_m": [
+        [
+          -469.55,
+          -349.61
+        ],
+        [
+          -457.0,
+          -349.71
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot3",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot3 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot9_n",
+      "path_local_enu_m": [
+        [
+          -451.52,
+          -349.76
+        ],
+        [
+          -438.97,
+          -349.86
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot9",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d5_04"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the north side of blk_west_randolph_des_plaines_lot9 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_randolph_clinton_lot3",
       "path_local_enu_m": [
         [
@@ -4985,6 +5211,54 @@
         }
       ],
       "note": "A SIDE LOT LINE — the east side of blk_randolph_dearborn_lot7 — and the fence on it is built ONCE: blk_randolph_dearborn_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "rear_blk_west_randolph_des_plaines_lot9",
+      "path_local_enu_m": [
+        [
+          -450.99,
+          -371.94
+        ],
+        [
+          -451.52,
+          -349.76
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot9",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d5_04"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_randolph_des_plaines_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_randolph_des_plaines_d5_04 — and the yard behind those buildings is 12.19 m deep by 22.19 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_randolph_des_plaines_lot9_s",
+      "path_local_enu_m": [
+        [
+          -450.99,
+          -371.94
+        ],
+        [
+          -439.15,
+          -372.04
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_des_plaines_lot9",
+          "structures": [
+            "recon_1835_blk_west_randolph_des_plaines_d5_04"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot9 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_randolph_clinton_lot4",
@@ -7545,6 +7819,17 @@
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
     },
     {
+      "id": "rear_blk_west_randolph_des_plaines_lot0_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -458.87,
+        -272.05
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
       "id": "rear_blk_west_randolph_des_plaines_lot2_gate",
       "on": "alley",
       "at_local_enu_m": [
@@ -7556,11 +7841,44 @@
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
     },
     {
+      "id": "rear_blk_west_randolph_des_plaines_lot3_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -457.26,
+        -338.62
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
       "id": "rear_blk_west_randolph_des_plaines_lot5_gate",
       "on": "alley",
       "at_local_enu_m": [
         -453.38,
         -272.11
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "rear_blk_west_randolph_des_plaines_lot7_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -452.31,
+        -316.48
+      ],
+      "width_m": 3.048,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "rear_blk_west_randolph_des_plaines_lot9_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -451.25,
+        -360.85
       ],
       "width_m": 3.048,
       "confidence": "reconstructed",
@@ -7602,7 +7920,7 @@
   },
   "coverage": {
     "where": "the edge blocks and the outlying lanes — every block that touches a street the project classes `light`",
-    "lots_fenced": 94,
+    "lots_fenced": 98,
     "lots": [
       "blk_indiana_north_wolcott_lot4",
       "blk_indiana_north_wolcott_lot5",
@@ -7696,11 +8014,15 @@
       "blk_washington_wells_lot7",
       "blk_west_lake_canal_lot0",
       "blk_west_lake_canal_lot5",
+      "blk_west_randolph_des_plaines_lot0",
       "blk_west_randolph_des_plaines_lot2",
-      "blk_west_randolph_des_plaines_lot5"
+      "blk_west_randolph_des_plaines_lot3",
+      "blk_west_randolph_des_plaines_lot5",
+      "blk_west_randolph_des_plaines_lot7",
+      "blk_west_randolph_des_plaines_lot9"
     ],
-    "runs": 232,
-    "note": "161 of the 168 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 7 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "runs": 243,
+    "note": "165 of the 172 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 7 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",
