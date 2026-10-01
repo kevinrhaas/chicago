@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1251, ts: '2026-10-01T09:57:27.679Z', date: 'Oct 1, 2026, 4:57 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1251, ts: '2026-10-01T09:37:50.003Z', date: 'Oct 1, 2026, 4:37 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+    items: [
+      'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
+      'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household moves in from outside the town plat, into the corner house one of them left; the Bennett household moves into a cottage across Lake Street instead.',
+      'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
+      'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
     ] },
   { v: 1250, ts: '2026-10-01T08:41:48.447Z', date: 'Oct 1, 2026, 3:41 AM CT', title: 'A warehouse at the forks, on West Water Street', kind: 'change',
     items: [

@@ -22,7 +22,7 @@ ceiling cannot climb on what the schedule itself deals.
   ticket that hands T-1208 on with the West's exact remainder. The finding is written on T-1774.
 - Seated: three households adopt the three new cottages (L270 restated, 177 → 182 seats; L276 restated, 23 → 24 keepers). The
   workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
-- L312 records the ceiling and the four roofs; L263 restated (481 phases).
+- L313 records the ceiling and the four roofs; L263 restated (485 phases).
 - The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the
   Clinton blocks' unclaimed deals changed family (T-1760/T-1761 claim from the schedule they
   read; a claimed parcel's `drawn_from_schedule` is frozen, so nothing built moves).
