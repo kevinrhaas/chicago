@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1243, ts: '2026-10-01T03:12:02.814Z', date: 'Sep 30, 2026, 10:12 PM CT', title: 'Choose your moment in Chicago', kind: 'feature', items: [
+    'A new temporal observatory opens the home page: three periods resolve into view around a slowly turning river instrument. Choose 1835 or 1904 to travel into the scene; 1812 is marked as awaiting reconstruction.',
+    'Choose Sci-fi, brass-and-parchment Steampunk, or retro Space Age in the small Interface selector. Your choice follows you into the arrival window and the shared interface panels.',
+    'Keyboard navigation, reduced-motion preferences and direct links remain supported. Each year keeps its own address.'
+  ] },
   { v: 1242, ts: '2026-10-01T02:31:45.601Z', date: 'Sep 30, 2026, 9:31 PM CT', title: 'Two drains come out of the west prairie', kind: 'change',
     items: [
       'Walk west past the forks onto the open prairie and two shallow channels that used to cross it are gone. The ground there is flat now, which is all any source says about it.',

@@ -18651,3 +18651,8 @@ corrects the deck-corner/centerline confusion and retains ferry operation as an
 open historical question. New ground and corner checks validate the placement.
 No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
 validation record carries the subsequent full mobile and desktop results.
+
+
+## T-1768 — Temporal observatory
+
+The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. The broader gate and renderer smoke remain in progress.

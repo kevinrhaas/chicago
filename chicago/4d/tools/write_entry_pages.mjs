@@ -6,22 +6,23 @@
 // The renderer is published at `walk/` (tools/publish.sh copies renderers/web
 // there), but nobody is sent to that address: the app is reached at
 //
-//   /4d/            the target year (1835)
+//   /4d/            temporal observatory menu
 //   /4d/<year>/     a named year — /4d/1835/, /4d/1812/, /4d/1880/
 //   /4d/dev/…       the same doors on the dev preview (deploy copies the tree)
 //
-// Each door is `walk/index.html` with one `<base href>` added, pointing into
+// Year doors are `walk/index.html` with one `<base href>` added, pointing into
 // walk/. Every relative URL on the page (./css, ./js, the import map, the data
 // layer via scene-loader.js's document base) therefore resolves exactly as it
 // does from walk/ itself, and the address bar keeps the short path. main.js reads
 // the year from the door's path; `?year=` and any further query parameters still
-// override, so /4d/?year=1835&debug=1 works as it always has.
+// override. The separate root menu forwards explicit query deep links to a year door.
 //
 // A door is written for every scene in data/scenes/ and for every year in
 // PLANNED. A planned year with no scene yet opens to a gate that says so rather
 // than a GitHub 404 — and when its scene lands, the same URL starts working.
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, mkdtempSync, rmSync } from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 
 export const PLANNED = ['1812', '1835', '1880'];
 
@@ -48,10 +49,12 @@ export function writeEntryPages(site) {
   if (!existsSync(walk)) throw new Error(`${walk} does not exist — publish the renderer first`);
   const html = readFileSync(walk, 'utf8');
   const written = ['index.html'];
-  writeFileSync(path.join(site, 'index.html'), door(html, 'walk/'));
+  writeFileSync(path.join(site, 'index.html'), readFileSync(path.join(ROOT4D, 'renderers/web/portal/index.html'), 'utf8'));
   for (const year of doorYears()) {
     mkdirSync(path.join(site, year), { recursive: true });
-    writeFileSync(path.join(site, year, 'index.html'), door(html, '../walk/'));
+    writeFileSync(path.join(site, year, 'index.html'), year === '1812' && !existsSync(path.join(ROOT4D, 'data/scenes/1812.json'))
+      ? readFileSync(path.join(ROOT4D, 'renderers/web/portal/pending.html'), 'utf8')
+      : door(html, '../walk/'));
     written.push(`${year}/index.html`);
   }
   return written;
@@ -70,6 +73,19 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
     const years = doorYears();
     for (const y of PLANNED) if (!years.includes(y)) fail(`planned year ${y} gets no door`);
     if (!years.includes('1835')) fail('the target year gets no door');
+    const fixture = mkdtempSync(path.join(os.tmpdir(), 'temporal-doors-'));
+    try {
+      mkdirSync(path.join(fixture, 'walk'));
+      writeFileSync(path.join(fixture, 'walk/index.html'), html);
+      writeEntryPages(fixture);
+      const menu = readFileSync(path.join(fixture, 'index.html'), 'utf8');
+      if (menu !== readFileSync(path.join(ROOT4D, 'renderers/web/portal/index.html'), 'utf8')) fail('root menu differs from its authored template');
+      for (const year of ['1835', '1904']) {
+        if (!menu.includes(`href="${year}/"`)) fail(`${year} is missing its relative destination link`);
+        if (readFileSync(path.join(fixture, year, 'index.html'), 'utf8') !== door(html, '../walk/')) fail(`${year} lost the renderer door`);
+      }
+      if (!existsSync(path.join(ROOT4D, 'data/scenes/1812.json')) && !readFileSync(path.join(fixture, '1812/index.html'), 'utf8').includes('Reconstruction pending')) fail('1812 must state its missing scene');
+    } finally { rmSync(fixture, { recursive: true, force: true }); }
     if (!process.exitCode) console.log(`write_entry_pages: self-test ok (doors: ${years.join(', ')})`);
   } else {
     const site = process.argv[2];
