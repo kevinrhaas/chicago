@@ -146,6 +146,10 @@ CONSUMED = {
     "watercourses": frozenset({"bed_ft", "e_fold_m"}),
     "micro_relief": frozenset({"amplitude_ft", "wavelengths_m", "seed",
                                "south_limit_n_m"}),
+    # The lakefront sand hills (T-1824): every figure is a build instruction.
+    "dunes": frozenset({"n_range", "end_fade_m", "west_limit_e_m", "west_fade_m",
+                        "ridges", "hollow", "wander_m", "wander_wavelength_m",
+                        "hummock_wavelength_m", "seed", "keep_clear"}),
     "surface_materials": frozenset(),
     # The graded ground, read by generators/terrain_gen_graded.py (T-1738).
     "lake_surface": frozenset(),

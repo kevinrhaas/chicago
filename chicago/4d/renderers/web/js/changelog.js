@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1276, ts: '2026-10-01T22:53:14.171Z', date: 'Oct 1, 2026, 5:53 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
+  { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
     items: [
       'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
       'The grass near you rises and falls with those stands. Clumps in a lush patch grow taller and darker together, and in a thin one they stay lower and lighter, with more dead blades. Before, every clump was drawn the same.',
       'The prairie\u2019s overall colour is unchanged, and so are each grass\u2019s recorded heights. Only where the tall and short plants stand has changed. The frame rate is unchanged too.',
       'Where the thick and thin stands fall is our reconstruction. No survey of 1835 maps them. The Liberties page says so (L337).',
+    ] },
+  { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+    items: [
+      'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
+      'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
+      'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets keep patches of grass along their edges and between their lanes, and every edge gives way to the prairie in ragged clumps.',
+      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L327.',
+      'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
+    ] },
+  { v: 1276, ts: '2026-10-01T22:45:32.074Z', date: 'Oct 1, 2026, 5:45 PM CT', title: 'Sand hills rise behind the beach north and south of the fort', kind: 'change',
+    items: [
+      'Walk the lake shore south of the old river channel, or north of the harbour, and the ground behind the beach is no longer flat. A low ridge of sand rises a few steps back from the water, with a second, lower one behind it and a hollow between.',
+      'The ridges break up into separate hummocks rather than one long bank. The tallest stands about a metre and a half above the ground around it, and you walk up and over them.',
+      'The fort, the river mouth, the sand bar and the platted streets of the North Side keep the ground they had.',
+      'A visitor at the fort wrote of \u201cthe white sand hills both to the north and south\u201d, but no source places or measures one. Where they stand and how high they are is our reconstruction, recorded in the register (L334).',
     ] },
   { v: 1275, ts: '2026-10-01T22:12:41.487Z', date: 'Oct 1, 2026, 5:12 PM CT', title: 'The Canal Street teamster store now says what it was for', kind: 'change',
     items: [

@@ -31,7 +31,7 @@ python3 chicago/prairie_1904_v1/tools/publish.py
 python3 -m http.server 8765 --directory site
 ```
 
-The lightweight copy lives at `/prairie-1904/viewer/` after production promotion; `chicago/4d/tools/publish.sh` also mirrors it into `/4d/dev/prairie-1904/viewer/` for dev preview. Large originals never enter those copies. No production promotion is part of this change.
+`deploy.yml` publishes this package into `/prairie-1904/` on every deploy (T-1821), so production shows the package on `main` as soon as a promotion lands. The committed `site/prairie-1904/` is only the fallback a failed publish leaves in place. `chicago/4d/tools/publish.sh` also mirrors the package into `/4d/dev/prairie-1904/viewer/` for the dev preview. Large originals never enter either copy. Link-only images are shown in the viewer from their holder's own `image_url` at a small size, and never copied here.
 
 ## Completeness
 
