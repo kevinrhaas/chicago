@@ -344,10 +344,14 @@
      "recon_1835_blk_randolph_clinton_a1_06",
      "recon_1835_blk_randolph_clinton_a2_05",
      "recon_1835_blk_randolph_clinton_a3_07",
+     "recon_1835_blk_randolph_clinton_a3_10",
+     "recon_1835_blk_randolph_clinton_a4_11",
      "recon_1835_blk_randolph_clinton_d1_03",
      "recon_1835_blk_randolph_clinton_d3_04",
      "recon_1835_blk_randolph_clinton_d4_02",
-     "recon_1835_blk_randolph_clinton_d5_01"
+     "recon_1835_blk_randolph_clinton_d4_09",
+     "recon_1835_blk_randolph_clinton_d5_01",
+     "recon_1835_blk_randolph_clinton_d7_08"
     ],
     "lots_reached_by_a_committed_record": [
      "blk_randolph_clinton_lot0",
@@ -355,19 +359,25 @@
      "blk_randolph_clinton_lot3",
      "blk_randolph_clinton_lot4",
      "blk_randolph_clinton_lot6",
-     "blk_randolph_clinton_lot8"
+     "blk_randolph_clinton_lot7",
+     "blk_randolph_clinton_lot8",
+     "blk_randolph_clinton_lot9"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 23
+     "data/enclosures/town_lot_line_rails.json": 28
     },
     "structures_named_on_those_lots": [
      "recon_1835_blk_randolph_clinton_a1_06",
      "recon_1835_blk_randolph_clinton_a2_05",
      "recon_1835_blk_randolph_clinton_a3_07",
+     "recon_1835_blk_randolph_clinton_a3_10",
+     "recon_1835_blk_randolph_clinton_a4_11",
      "recon_1835_blk_randolph_clinton_d1_03",
      "recon_1835_blk_randolph_clinton_d3_04",
      "recon_1835_blk_randolph_clinton_d4_02",
+     "recon_1835_blk_randolph_clinton_d4_09",
      "recon_1835_blk_randolph_clinton_d5_01",
+     "recon_1835_blk_randolph_clinton_d7_08",
      "recon_1835_west_019",
      "recon_1835_west_021"
     ]
@@ -390,7 +400,8 @@
    "the_re_seat": {
     "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in.",
     "carries_a_dealt_parcel": [
-     "phase3_platted_block_randolph_clinton"
+     "phase3_platted_block_randolph_clinton",
+     "phase3_platted_block_randolph_clinton_second_deal"
     ],
     "so_the_positions_are": "RE-DERIVED. A dealt roof stands where its parcel's slot puts it off its own lot's street or alley edge, so every position on this block comes out of a lot line and the re-cut re-computes all of them; the deal that decides WHICH lot had to be re-argued first, which is what held this block while its twin moved. The meshes do not change and nothing is rebaked even so: a re-seat moves a record's position and rotation and leaves its footprint, form and asset exactly as they were.",
     "every_seating_on_this_block_moved_lot": true,
@@ -496,11 +507,13 @@
       "records": [
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot6",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot6_gate",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_n",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_blk_randolph_clinton_lot7_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_n"
       ],
       "structures": [
        "recon_1835_blk_randolph_clinton_a1_06",
+       "recon_1835_blk_randolph_clinton_a4_11",
+       "recon_1835_blk_randolph_clinton_d4_09",
        "recon_1835_blk_randolph_clinton_d5_01"
       ]
      },
@@ -510,8 +523,19 @@
       "plat_lot_confidence": "documented",
       "column": "east",
       "row": 3,
-      "records": [],
-      "structures": []
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot7",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot7_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_blk_randolph_clinton_lot7_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a1_06",
+       "recon_1835_blk_randolph_clinton_a4_11",
+       "recon_1835_blk_randolph_clinton_d4_02",
+       "recon_1835_blk_randolph_clinton_d4_09",
+       "recon_1835_blk_randolph_clinton_d5_01"
+      ]
      },
      {
       "lot_id": "blk_randolph_clinton_lot8",
@@ -522,11 +546,15 @@
       "records": [
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8_gate",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_n",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_blk_randolph_clinton_lot9_s"
       ],
       "structures": [
-       "recon_1835_blk_randolph_clinton_d4_02"
+       "recon_1835_blk_randolph_clinton_a3_10",
+       "recon_1835_blk_randolph_clinton_a4_11",
+       "recon_1835_blk_randolph_clinton_d4_02",
+       "recon_1835_blk_randolph_clinton_d4_09",
+       "recon_1835_blk_randolph_clinton_d7_08"
       ]
      },
      {
@@ -535,8 +563,17 @@
       "plat_lot_confidence": "documented",
       "column": "east",
       "row": 5,
-      "records": [],
-      "structures": []
+      "records": [
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot9",
+       "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot9_gate",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_blk_randolph_clinton_lot9_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot9_s"
+      ],
+      "structures": [
+       "recon_1835_blk_randolph_clinton_a3_10",
+       "recon_1835_blk_randolph_clinton_d4_02",
+       "recon_1835_blk_randolph_clinton_d7_08"
+      ]
      }
     ]
    },
@@ -553,7 +590,9 @@
     "no_slot_fronts_a_face_the_transpose_removed": true,
     "principal_roofs_on_the_better_face": [
      "D4",
-     "D5"
+     "D4",
+     "D5",
+     "D7"
     ],
     "principal_roofs_on_the_lighter_face": [
      "D1",
@@ -637,6 +676,50 @@
       "stands_on": "alley",
       "fronts": "clinton",
       "that_face_is_graded": "light"
+     },
+     {
+      "family": "D7",
+      "inventory_class": "principal_functional",
+      "lot_index": 9,
+      "plat_lot_number": 9,
+      "column": "east",
+      "row": 5,
+      "stands_on": "street",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "D4",
+      "inventory_class": "principal_functional",
+      "lot_index": 7,
+      "plat_lot_number": 5,
+      "column": "east",
+      "row": 3,
+      "stands_on": "street",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A3",
+      "inventory_class": "ancillary",
+      "lot_index": 9,
+      "plat_lot_number": 9,
+      "column": "east",
+      "row": 5,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A4",
+      "inventory_class": "ancillary",
+      "lot_index": 7,
+      "plat_lot_number": 5,
+      "column": "east",
+      "row": 3,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
      }
     ]
    }

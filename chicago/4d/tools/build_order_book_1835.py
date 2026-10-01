@@ -391,7 +391,18 @@ STRUCTURE_TICKETS = {
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1694",
-    ("south", "larger_boarding_houses"): "T-1209",
+    # T-1208, T-1209 AND T-1764 WERE SPLIT on 2026-10-01 (T-1773 … T-1785) and the five rows
+    # the gate named move by the same test as every sweep here — WHICH CHILD RAISES THE ROOFS
+    # THAT ARE LEFT. larger_boarding_houses (north 1, south 11, west 4) -> T-1779, "raise the
+    # remaining H3 boarding houses to their beds"; its siblings rule where an H3 may stand
+    # (T-1777) and what one looks like (T-1778) and raise nothing. West ordinary_dwellings (22)
+    # -> T-1783, which opens the outer platted West blocks at a measured lot density; the
+    # farms (T-1784) and Wabansia (T-1785) are a handful of those roofs at most and the run
+    # that takes either moves its share. West warehouses_freight (1) -> T-1773, "the West's
+    # last freight roof", which names it outright and settles the judgement call below.
+    # West institutional_public has 0 left and is swept to T-1783 anyway, for the reason the
+    # inns_taverns row below gives.
+    ("south", "larger_boarding_houses"): "T-1779",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -437,7 +448,7 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    ("west", "ordinary_dwellings"): "T-1208",
+    ("west", "ordinary_dwellings"): "T-1783",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -459,11 +470,11 @@ STRUCTURE_TICKETS = {
     #     building it out of place.
     # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
     ("west", "stores_mixed_use"): "T-1766",
-    ("west", "larger_boarding_houses"): "T-1209",
+    ("west", "larger_boarding_houses"): "T-1779",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1764",
-    ("west", "institutional_public"): "T-1208",
+    ("west", "warehouses_freight"): "T-1773",
+    ("west", "institutional_public"): "T-1783",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
@@ -529,7 +540,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1209",
+    ("north", "larger_boarding_houses"): "T-1779",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
