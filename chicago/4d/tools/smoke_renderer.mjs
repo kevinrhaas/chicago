@@ -1796,7 +1796,8 @@ for (const [label, viewport, touch] of [
         // authored). Re-deriving from the plat would count panels the module
         // never emitted and turn an authored track into a false failure here.
         for (const rec of a.streets.records) {
-          const half = (rec.track_width_m ?? 10.5) * 0.5;
+          // T-1811. The module draws the WORKED width, not the track alone.
+          const half = (rec.drawn_width_m ?? rec.track_width_m ?? 10.5) * 0.5;
           const line = rec.drawn ?? rec.path;
           const pts = [];
           for (let i = 1; i < line.length; i++) {
@@ -1965,7 +1966,7 @@ for (const [label, viewport, touch] of [
         let jointStations = 0;
         for (const rec of a.streets.records) {
           const line = rec.drawn ?? rec.path;
-          const half = (rec.track_width_m ?? 6) * 0.5;
+          const half = (rec.drawn_width_m ?? rec.track_width_m ?? 6) * 0.5;
           for (let i = 1; i < line.length - 1; i++) {
             const [A, P, B] = [line[i - 1], line[i], line[i + 1]];
             let turn = Math.atan2(B[1] - P[1], B[0] - P[0])

@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1263, ts: '2026-10-01T16:15:25.204Z', date: 'Oct 1, 2026, 11:15 AM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+    items: [
+      'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
+      'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
+      'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets on the north side keep islands of grass between their lanes, and every edge gives way to the prairie in ragged clumps.',
+      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L324.',
+      'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
+    ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [
       'Nothing in the town itself changed. Add ?proof=ground to the walk\u2019s address and you arrive on a 48-metre test strip on the open prairie south of the town: packed street dirt, a damp bank, grey sand, and sand thinning into prairie.',

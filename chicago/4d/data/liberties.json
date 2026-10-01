@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 319,
+  "count": 320,
   "liberties": [
     {
       "id": "L1",
@@ -20084,6 +20084,45 @@
         {
           "label": "Recorded",
           "text": "2026-10-01."
+        }
+      ]
+    },
+    {
+      "id": "L324",
+      "title": "The worked roadway: every opened street drawn as full-width packed earth, its width, wear, ruts and mud ours",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/streets.js` (`WORKED_SHARE`, `WEAR_INTENSITY`, `DIRT_TONES`, the roadway fragment). That is all 28 opened streets in `data/streets/1835.json`. The 51 platted but unopened lines draw nothing, as before."
+        },
+        {
+          "label": "What we invented",
+          "text": "How much of each street was worn bare and what that wear looked like. Each opened street is drawn as packed earth across a **worked width** set by its traffic class: 0.80 of the 80 ft corridor for `principal` streets (19.5 m), 0.64 for `ordinary` (15.6 m) and 0.44 for `light` (10.7 m). It is never narrower than the recorded `track_width_m`, which stays the opaque core. Past the core, the shoulders give way to grass in clumps. A light street also keeps sod islands between its lanes. The wear is many overlapping lanes that wander along the street, with narrow ruts and muddy patches where the wear is heaviest. The tones are T-1797's proof values for worn lanes and the ground between them (sRGB 126,112,91 / 96,86,69). Graded streets are a shade dustier and light streets a shade darker, the mud sits inside `wet_prairie_muck`'s measured basecolor, and the fine grit is T-1797's generated tile. Where a particular lane, rut or puddle falls is a seeded hash per street, not anyone's account of it."
+        },
+        {
+          "label": "Why",
+          "text": "The owner asked on 2026-09-30 (T-1770) for \"a full dirt roadway\" in place of the two clean wheel treads on grass the town had drawn. His four peer-city views all show one broad worked street plane with no grassy median: St Louis 1840, Detroit 1837 (a print of 1883) and Cincinnati 1835 east and west. They are analogies and give no Chicago width, so the width is bounded rather than measured. It is never less than the recorded track, and it never reaches the plank walks: the corridor less a 1.83 m walk and its 0.2 m clearance each side leaves 20.3 m."
+        },
+        {
+          "label": "Omission",
+          "text": "The roadway still lies on the heightfield. It is not graded below an entrance-level walk shelf, and the walker, doorsteps and crossings stand where they stood. That is T-1812. The flora's clearance of the travelled way (`blocksGrowth`) still reads the recorded track, so grass blades can stand on the shoulders' dirt, and the generators that keep fences, trees and goods out of the street read the track too. Nothing they placed moved."
+        },
+        {
+          "label": "Would replace",
+          "text": "A Chicago view, survey or account of a street's worked width or condition in 1835. That replaces the class share for that street. A sidewalk or street-grading ordinance with dimensions replaces the walk-side bound."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1811 (piece 1 of T-1770)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01 (T-1811)."
         }
       ]
     },

@@ -8,6 +8,13 @@
  *                     "which street am I standing in?"
  *   track_width_m     the narrower, visibly worn wagon path inside it
  *
+ * T-1811 adds a third, derived here and nowhere else: `drawn_width_m`, the
+ * worked earth a frontier street actually was — packed full-width by wheels,
+ * hooves and feet, thinning to grass at its shoulders — sized by the street's
+ * traffic class from the corridor (see WORKED_SHARE). The recorded track keeps
+ * its meaning as the opaque core; the generators that keep things out of the
+ * travelled way still read `track_width_m` and nothing moved for them.
+ *
  * The second is a stated visual liberty.  It is not allowed to flatten the
  * terrain or author a second collision surface: every ribbon vertex samples
  * terrain.surfaceHeight(), and the walker continues to stand on that exact same
@@ -16,6 +23,7 @@
  */
 
 import * as THREE from 'three';
+import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 
 const STEP_M = 2.25;
 const LIFT_M = 0.022;
@@ -215,7 +223,11 @@ const MITRE_MAX_TURN_RAD = (120 * Math.PI) / 180;
  */
 const MIN_TRACK_PX = 2.0;
 const MAX_THIN_BOOST = 6.0;
-const MAX_ALPHA = 0.92;
+// T-1811. Was 0.92: a translucent ribbon could never quite cover the prairie,
+// and the 8 % of grass it let through is what read as a grassy median between
+// two treads. The roadbed is now opaque earth where it is worked and gives way
+// to grass by COVERAGE (clumps, shoulders), not by a ceiling on every pixel.
+const MAX_ALPHA = 1.0;
 // T-0713. How faint an entirely INVENTED track reads while the confidence view
 // is on. It scales the worn texture only — never whether the ribbon is drawn,
 // which is the line's claim and is carried on `_confidence` — and it is inert
@@ -263,7 +275,64 @@ const MID_FADE_M = 700.0;
 const MID_GAIN = 1.7;
 // R-A1. The faintest authored body alpha is 0.28 - 0.04 = 0.24 (light worn
 // earth at the crown); this takes that one surface to opaque at full aid.
+// T-1811 kept the gain: it still lifts every partly-covered shoulder pixel.
 const AID_GAIN = 1 / 0.24;
+
+/**
+ * T-1811 — THE WORKED ROADWAY, and why it is wider than the track.
+ *
+ * The owner, 2026-09-30: replace "the paired-tread appearance with a full dirt
+ * roadway". `roadTexture` used to draw exactly that pair — two Gaussian ruts at
+ * 0.29 and 0.71 of the track over a 0.28-0.93 alpha body — so every street read
+ * as two brown lines on grass. A town street in a wet frontier summer was worn
+ * across most of its width by wagons pulling out to pass, teams standing at
+ * doors, droves and foot traffic; the peer-city views the owner supplied (St
+ * Louis 1840, Detroit 1837, Cincinnati 1835) all show one broad worked plane
+ * with no grass median. None of them is Chicago and none gives a width, so the
+ * width is a RECONSTRUCTION (L324), bounded on both sides:
+ *
+ *   - never narrower than the recorded `track_width_m`, which stays the opaque
+ *     core it always claimed to be;
+ *   - never past the frontage: the 80 ft corridor less a walk (1.83 m) and its
+ *     0.2 m clearance each side leaves 20.3 m, so principal streets stop short
+ *     of the walks at 0.80 of the corridor (19.5 m) and lighter streets well
+ *     inside it, by traffic class.
+ *
+ * WEAR_INTENSITY is how much of the core is bare. A principal street is bare
+ * end to end; a `light` street keeps grass between irregular lanes — the
+ * "sparse peripheral tracks" the ticket allows where use supports nothing more.
+ * CORE_SHARE_FLOOR keeps the opaque core at least half the worked width, so the
+ * shoulders never outgrow the road they belong to.
+ */
+const WORKED_SHARE = { principal: 0.80, ordinary: 0.64, light: 0.44 };
+const WEAR_INTENSITY = { principal: 1.0, ordinary: 0.88, light: 0.55 };
+const CORE_SHARE_FLOOR = 0.5;
+/**
+ * The dirt's tones, sRGB. Worn lanes and the ground between them are T-1797's
+ * proof values (`ground-strip.js` TONES, bounded by the § 4 packed-dirt row of
+ * docs/RESEARCH/1835_photographic_fabric_preparation.md); `graded_earth` is the
+ * same pair a shade dustier because it was thrown up and drained, and the light
+ * streets a shade darker for the organic soil left in them. Mud sits inside
+ * `wet_prairie_muck`'s measured basecolor (L 47 of 255) and the shoulder sod is
+ * dirt carrying root and leaf. Reconstructed, all of it (L324).
+ */
+const DIRT_TONES = {
+  graded_earth: { lane: [130, 115, 92], rest: [101, 90, 72] },
+  worn_earth: { lane: [126, 112, 91], rest: [96, 86, 69] },
+  light_worn_earth: { lane: [121, 107, 86], rest: [92, 83, 66] },
+};
+const MUD_TONE = [64, 56, 44];
+const SOD_TONE = [86, 82, 60];
+
+function trafficOf(raw) {
+  return WORKED_SHARE[raw.traffic] ? raw.traffic : 'light';
+}
+
+function seedOf(id) {
+  let h = 2166136261;
+  for (const ch of String(id ?? '')) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+  return ((h >>> 0) % 997) / 997;
+}
 
 function pointSegment(e, n, a, b) {
   const dx = b[0] - a[0];
@@ -317,12 +386,21 @@ function prepare(raw) {
   const pad = Math.max(raw.corridor_width_m ?? 24.384, raw.track_width_m ?? 6) * 0.5;
   const es = [...path, ...drawn].map((p) => p[0]);
   const ns = [...path, ...drawn].map((p) => p[1]);
+  // T-1811. The worked width, derived — see WORKED_SHARE.
+  const corridor = raw.corridor_width_m ?? 24.384;
+  const track = raw.track_width_m ?? 6;
+  const traffic = trafficOf(raw);
+  const drawnWidth = Math.max(track, WORKED_SHARE[traffic] * corridor);
   return {
     ...raw,
     path,
     drawn,
-    corridor_width_m: raw.corridor_width_m ?? 24.384,
-    track_width_m: raw.track_width_m ?? 6,
+    corridor_width_m: corridor,
+    track_width_m: track,
+    drawn_width_m: drawnWidth,
+    core_share: Math.min(1, Math.max(track / drawnWidth, CORE_SHARE_FLOOR)),
+    wear_intensity: WEAR_INTENSITY[traffic],
+    wear_seed: seedOf(raw.id),
     bounds: {
       e0: Math.min(...es) - pad, e1: Math.max(...es) + pad,
       n0: Math.min(...ns) - pad, n1: Math.max(...ns) + pad,
@@ -572,14 +650,17 @@ function mitreJoins(pts, half, dryReach, stats) {
 
 function addRecord(buffers, record, terrain, stats) {
   const key = record.surface;
-  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], idx: [] };
+  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], road: [], idx: [] };
   buffers.set(key, buf);
   // T-0111. The ribbon is painted on the WHEEL line; every other question this
   // module answers is asked of the platted one. `drawn` is `path` for all but
   // the one street that authors a separate track, so this is the same call it
   // has always been everywhere else.
   const pts = sampled(record.drawn);
-  const half = record.track_width_m * 0.5;
+  // T-1811. The worked earth, not the wheel track alone — see WORKED_SHARE.
+  const half = record.drawn_width_m * 0.5;
+  const road = [record.drawn_width_m, record.core_share, record.wear_intensity,
+    record.wear_seed];
   // Distance along the ribbon at each centreline point, accumulated exactly as
   // the panel loop always accumulated it — degenerate chords add nothing — so
   // the texture's `v` is untouched. A joint fan needs to read it at a point
@@ -717,14 +798,15 @@ function addRecord(buffers, record, terrain, stats) {
     const cols = grid[0].length - 1;
     const base = buf.pos.length / 3;
     for (let r = 0; r <= rows; r++) {
-      // Across first, distance along second. The texture repeats every eight
-      // metres, long enough that its ruts read as travel rather than corduroy.
-      const v = (along + (length * r) / rows) / 8;
+      // Across first, distance along second — in METRES since T-1811: the
+      // wear is laid in the street's own frame and nothing repeats along it.
+      const v = along + (length * r) / rows;
       for (let c = 0; c <= cols; c++) {
         const [e, n, y] = grid[r][c];
         buf.pos.push(e, y, -n);
         buf.conf.push(confidence);
         buf.track.push(trackConfidence);
+        buf.road.push(...road);
         buf.uv.push(c / cols, v);
       }
     }
@@ -751,13 +833,14 @@ function addRecord(buffers, record, terrain, stats) {
     if (terrain.isWater(apex.e, apex.n)) continue;
     if (outer.some(([e, n]) => terrain.isWater(e, n))) continue;
     const base = buf.pos.length / 3;
-    const v = alongAt[p] / 8;
+    const v = alongAt[p];
     const push = (pe, pn, u) => {
       const e = Math.fround(pe);
       const n = Math.fround(pn);
       buf.pos.push(e, terrain.surfaceHeight(e, n) + LIFT_M, -n);
       buf.conf.push(confidence);
       buf.track.push(trackConfidence);
+      buf.road.push(...road);
       buf.uv.push(u, v);
     };
     // `u` runs 0 at the left edge to 1 at the right, as it does across a panel,
@@ -778,54 +861,142 @@ function hash(x, y) {
   return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
 }
 
-function roadTexture(surface) {
+/**
+ * T-1811. The one grit tile every street shares — T-1797's `gritTilePixels`,
+ * 256 px over 1.6 m: R is height read as grain, G/B the OpenGL normal. It
+ * replaces `roadTexture`'s per-surface canvas and its two painted ruts. Built
+ * once per createStreets() and disposed with it.
+ */
+function roadGrit() {
+  const data = gritTilePixels();
   const canvas = document.createElement('canvas');
-  canvas.width = 128;
-  canvas.height = 256;
-  const ctx = canvas.getContext('2d');
-  const image = ctx.createImageData(canvas.width, canvas.height);
-  const graded = surface === 'graded_earth';
-  const light = surface === 'light_worn_earth';
-  const base = graded ? [113, 91, 55] : light ? [102, 85, 55] : [106, 84, 50];
-  for (let y = 0; y < canvas.height; y++) {
-    for (let x = 0; x < canvas.width; x++) {
-      const q = x / (canvas.width - 1);
-      const edge = Math.min(1, Math.max(0, Math.min(q, 1 - q) / 0.12));
-      const ruts = Math.exp(-(((q - 0.29) / 0.065) ** 2))
-        + Math.exp(-(((q - 0.71) / 0.065) ** 2));
-      const crown = Math.exp(-(((q - 0.5) / 0.13) ** 2));
-      const grain = (hash(x >> 1, y >> 1) - 0.5) * 18
-        + (hash(x >> 3, y >> 3) - 0.5) * 11;
-      const wet = ruts * (graded ? 13 : 18);
-      const i = (y * canvas.width + x) * 4;
-      image.data[i] = Math.max(0, Math.min(255, base[0] + grain - wet));
-      image.data[i + 1] = Math.max(0, Math.min(255, base[1] + grain * 0.74 - wet));
-      image.data[i + 2] = Math.max(0, Math.min(255, base[2] + grain * 0.48 - wet * 0.58));
-      // Baselines raised for R-BUG2 fault 2 — see the note at the top of the
-      // file. The modulation shape (ruts up, crown down) and the graded > worn
-      // > light ordering are unchanged; only the floor each surface starts
-      // from moved, from 0.54/0.20/0.08 to 0.54/0.38/0.28. The faintest
-      // surface now bottoms out at 0.24 rather than 0.04.
-      const body = graded
-        ? 0.54 + ruts * 0.25 - crown * 0.08
-        : light ? 0.28 + ruts * 0.54 - crown * 0.04
-          : 0.38 + ruts * 0.55 - crown * 0.08;
-      image.data[i + 3] = Math.round(255 * edge * Math.max(0, Math.min(MAX_ALPHA, body)));
-    }
-  }
-  ctx.putImageData(image, 0, 0);
+  canvas.width = GRIT_TILE_PX;
+  canvas.height = GRIT_TILE_PX;
+  canvas.getContext('2d').putImageData(new ImageData(data, GRIT_TILE_PX, GRIT_TILE_PX), 0, 0);
   const texture = new THREE.CanvasTexture(canvas);
-  texture.name = `street-${surface}`;
-  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.name = 'street-grit';
+  texture.colorSpace = THREE.NoColorSpace;
+  texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.LinearFilter;
   texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.anisotropy = 4;
-  return texture;
+  let sum = 0;
+  for (let i = 0; i < data.length; i += 4) sum += data[i];
+  return { texture, mean: sum / (data.length / 4) / 255 };
 }
 
-function meshOf(surface, buf, confidence, aidUniform) {
+function linearTone(rgb) {
+  return new THREE.Color().setRGB(...rgb.map((v) => v / 255), THREE.SRGBColorSpace);
+}
+
+const ROAD_VERTEX = /* glsl */`
+  vRoad = _road;
+  vRoadUv = uv;
+  vRoadWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
+`;
+
+/**
+ * T-1811 — the worked roadway, per fragment. No texture fetch but the grit:
+ * the coarse scales are value noise in the street's own frame (u across, metres
+ * along), so a lane runs WITH the street on every bearing — the T-1797 mask was
+ * axis-aligned only because its strip was.
+ *
+ *   lanes     anisotropic, 11 x 1.3 m then 4 x 0.55 m cells: many overlapping
+ *             irregular tracks, wandering off the centreline over ~23 m
+ *   coverage  1 across the core; the shoulders give way to grass as CLUMPS
+ *             (0.6-2 m) once a jittered ramp passes each clump's own value, and
+ *             a light street keeps grass between its lanes too
+ *   wet       7-18 m patches, only where wear has broken the sod: muck-dark,
+ *             smoother, the grit's relief levelled
+ *   tone      the lane / between-lane pair x the grit's grain, x a 35 m tone
+ *
+ * (No backticks in here: a JS template literal.)
+ */
+const ROAD_FRAGMENT = /* glsl */`
+  vec2 chiEN = vec2(vRoadWorld.x, -vRoadWorld.z);
+  float chiW = vRoad.x;
+  float chiCore = vRoad.y;
+  float chiInt = vRoad.z;
+  float chiSeed = vRoad.w * 97.0;
+  float chiAlong = vRoadUv.y;
+  float chiX = vRoadUv.x - 0.5;
+  float chiAcross = chiX * chiW;
+  float chiWander = (chiNoise(vec2(chiAlong / 23.0 + chiSeed, 0.5)) - 0.5) * 0.22;
+  float chiA = abs(chiX * 2.0);
+  float chiAw = abs((chiX - chiWander) * 2.0);
+  float chiLanes = 0.6 * chiNoise(vec2(chiAlong / 11.0 + chiSeed * 1.3, chiAcross / 1.3))
+                 + 0.4 * chiNoise(vec2(chiAlong / 4.0 + chiSeed * 2.1, chiAcross / 0.55));
+  float chiCentre = 1.0 - smoothstep(chiCore * 0.6, 1.05, chiAw);
+  float chiWear = clamp(chiCentre * (0.35 + 0.85 * chiLanes), 0.0, 1.0);
+  float chiClump = chiNoise(chiEN / 1.1 + chiSeed * 0.37);
+  float chiJit = (chiNoise(vec2(chiAlong / 6.0 + chiSeed * 3.7, 2.5)) - 0.5) * 0.20
+               + (chiNoise(vec2(chiAlong / 1.7 + chiSeed, 9.5)) - 0.5) * 0.08;
+  float chiShoulder = smoothstep(chiCore + chiJit, 1.0 + chiJit * 0.4, chiA);
+  float chiGrass = smoothstep(chiClump - 0.14, chiClump + 0.14, chiShoulder * 1.12);
+  // A light street keeps sod wherever its lanes have not reached: grass
+  // islands strung along the street between the worn ways.
+  float chiSodIsle = chiNoise(vec2(chiAlong / 7.0 + chiSeed * 4.9, chiAcross / 0.9));
+  float chiBetween = (1.0 - chiInt) * 2.2
+                   * smoothstep(0.42, 0.62, chiSodIsle * 0.75 + chiClump * 0.25 - chiLanes * 0.35 + 0.15);
+  float chiCover = (1.0 - chiGrass) * (1.0 - min(chiBetween, 1.0));
+  // Ruts: narrow wheel-cut lines that run WITH the street and wander, many of
+  // them and never the same two — 9 m along by 0.3 m across, cut where the
+  // field crests, deepest where wear is.
+  float chiRutF = chiNoise(vec2(chiAlong / 9.0 + chiSeed * 5.3, chiAcross / 0.32));
+  float chiRut = smoothstep(0.70, 0.86, chiRutF) * smoothstep(0.3, 0.8, chiWear);
+  float chiWet = smoothstep(0.66, 0.80, 0.65 * chiNoise(chiEN / 8.0 + chiSeed * 0.11)
+                                     + 0.35 * chiNoise(chiEN / 2.6 + 3.1))
+               * smoothstep(0.45, 0.85, chiWear);
+  vec4 chiGrit = texture2D(uGrit, chiEN / uGritM);
+  float chiGrain = chiGrit.r / max(uGritMean, 1e-6);
+  float chiBroad = 0.93 + 0.14 * chiNoise(chiEN / 35.0 + chiSeed * 0.07);
+  vec3 chiDirt = mix(uDirtRest, uDirtLane, smoothstep(0.30, 0.80, chiWear)) * chiBroad;
+  chiDirt = mix(chiDirt, uSod, 0.55 * chiShoulder);
+  chiDirt *= 1.0 - 0.18 * chiRut;
+  chiDirt = mix(chiDirt, uMud, 0.7 * chiWet);
+  diffuseColor.rgb = min(chiDirt * mix(1.0, chiGrain, mix(0.65, 0.2, chiWet)), vec3(1.0));
+  diffuseColor.a = chiCover;
+  float chiRough = mix(0.97 - 0.06 * chiWear, 0.55, chiWet);
+`;
+
+const ROAD_NORMAL = /* glsl */`
+  // The grit's relief in a world tangent frame (east, north, up), as T-1797's
+  // strip does: full on dry dirt, levelled where it is wet.
+  vec2 chiXY = (chiGrit.gb * 2.0 - 1.0) * mix(1.0, 0.2, chiWet);
+  vec3 chiTn = normalize(vec3(chiXY, 1.0));
+  vec3 chiEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
+  vec3 chiT = normalize(chiEastV - normal * dot(chiEastV, normal));
+  vec3 chiB = cross(normal, chiT);
+  normal = normalize(chiT * chiTn.x + chiB * chiTn.y + normal * chiTn.z);
+`;
+
+const ROAD_HEAD = /* glsl */`
+varying vec4 vRoad;
+varying vec2 vRoadUv;
+varying vec3 vRoadWorld;
+uniform sampler2D uGrit;
+uniform float uGritM;
+uniform float uGritMean;
+uniform vec3 uDirtLane;
+uniform vec3 uDirtRest;
+uniform vec3 uMud;
+uniform vec3 uSod;
+float chiHash(vec2 p) {
+  vec3 q = fract(vec3(p.xyx) * 0.1031);
+  q += dot(q, q.yzx + 33.33);
+  return fract((q.x + q.y) * q.z);
+}
+float chiNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(chiHash(i), chiHash(i + vec2(1.0, 0.0)), u.x),
+             mix(chiHash(i + vec2(0.0, 1.0)), chiHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+
+function meshOf(surface, buf, confidence, aidUniform, grit) {
   if (!buf.idx.length) return null;
   const geo = new THREE.BufferGeometry();
   geo.name = `streets-${surface}`;
@@ -838,11 +1009,12 @@ function meshOf(surface, buf, confidence, aidUniform) {
   // below, which paints the track rather than deciding the road.
   geo.setAttribute('_trackConfidence',
     new THREE.Float32BufferAttribute(buf.track, 1));
+  // T-1811. Worked width, core share, wear intensity, seed — per street.
+  geo.setAttribute('_road', new THREE.Float32BufferAttribute(buf.road, 4));
   geo.setIndex(buf.idx);
   geo.computeVertexNormals();
-  const map = roadTexture(surface);
+  const tones = DIRT_TONES[surface] ?? DIRT_TONES.worn_earth;
   const mat = new THREE.MeshStandardMaterial({
-    map,
     transparent: true,
     alphaTest: 0.025,
     depthWrite: false,
@@ -879,6 +1051,21 @@ function meshOf(surface, buf, confidence, aidUniform) {
   const graded = Boolean(confidence);
   mat.onBeforeCompile = (shader) => {
     shader.uniforms.uRoadAid = aidUniform;
+    Object.assign(shader.uniforms, {
+      uGrit: { value: grit.texture },
+      uGritM: { value: GRIT_TILE_M },
+      uGritMean: { value: grit.mean },
+      uDirtLane: { value: linearTone(tones.lane) },
+      uDirtRest: { value: linearTone(tones.rest) },
+      uMud: { value: linearTone(MUD_TONE) },
+      uSod: { value: linearTone(SOD_TONE) },
+    });
+    shader.vertexShader = `attribute vec4 _road;
+varying vec4 vRoad;
+varying vec2 vRoadUv;
+varying vec3 vRoadWorld;
+${shader.vertexShader}`.replace('#include <begin_vertex>',
+      `#include <begin_vertex>${ROAD_VERTEX}`);
     if (graded) {
       shader.vertexShader = `attribute float _trackConfidence;
 varying float vTrackConfidence;
@@ -894,11 +1081,14 @@ ${shader.vertexShader}`.replace(
       );
     }
     shader.fragmentShader = `uniform float uRoadAid;
-${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`.replace(
+${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`
+      .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = chiRough;')
+      .replace('#include <normal_fragment_maps>', ROAD_NORMAL)
+      .replace(
       '#include <map_fragment>',
-      `#include <map_fragment>
+      `${ROAD_FRAGMENT}
       {
-        float trackPx = 1.0 / max(fwidth(vMapUv.x), 1e-6);
+        float trackPx = 1.0 / max(fwidth(vRoadUv.x), 1e-6);
         float thin = clamp(${MIN_TRACK_PX.toFixed(1)} / trackPx, 1.0, ${MAX_THIN_BOOST.toFixed(1)});
         diffuseColor.a = min(diffuseColor.a * thin, ${MAX_ALPHA.toFixed(2)});
         // R-BUG3. Distance from the eye, not a pixel count: the band this
@@ -941,7 +1131,7 @@ ${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`.re
   mesh.receiveShadow = true;
   mesh.castShadow = false;
   mesh.renderOrder = 0;
-  return { mesh, geo, mat, map };
+  return { mesh, geo, mat };
 }
 
 export function createStreets({ terrain, records = [], confidence = null } = {}) {
@@ -973,8 +1163,10 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
   // R-A1. One uniform object shared by every surface's material, so the aid
   // cannot end up applied to the graded tracks and not the worn ones.
   const aidUniform = { value: 0 };
+  // T-1811. One grit tile for the whole town, shared by every surface.
+  const grit = buffers.size ? roadGrit() : null;
   for (const [surface, buf] of buffers) {
-    const built = meshOf(surface, buf, confidence, aidUniform);
+    const built = meshOf(surface, buf, confidence, aidUniform, grit);
     if (!built) continue;
     group.add(built.mesh);
     resources.push(built);
@@ -1056,8 +1248,8 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
       for (const r of resources) {
         r.geo.dispose();
         r.mat.dispose();
-        r.map.dispose();
       }
+      grit?.texture.dispose();
     },
   };
 }
