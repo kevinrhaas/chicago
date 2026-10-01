@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
+  { v: 1269, ts: '2026-10-01T18:58:26.957Z', date: 'Oct 1, 2026, 1:58 PM CT', title: 'Forwarding houses get a wide decked walk; the smithy has none', kind: 'change',
     items: [
       'The plank walk now changes with the business it passes. Shops and inns keep the ordinary six-foot board walk.',
       'In front of Kinzie\u2019s forwarding store on South Water Street, and Dole\u2019s warehouse and the packing house on Lake Street, the walk widens to a ten-foot deck of heavy plank, where goods were landed and loaded. Their hitching post and wagon apron stand out past it.',
