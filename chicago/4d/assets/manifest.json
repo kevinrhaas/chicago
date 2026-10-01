@@ -2533,8 +2533,8 @@
     "recon_1835_blk_washington_clark_a1_07__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 98876,
-      "inputs_sha256": "7100165a77a4d123cdd242156ea2bbe23d6f0d9d9931a5f6c1e54ccbc838b3ca",
+      "bytes": 98880,
+      "inputs_sha256": "ffab29875e41facaee8d76c1eaf10294fa9d733215d14583f93ca298459d040c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_07"
@@ -2543,7 +2543,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 84524,
-      "inputs_sha256": "49f2e7781daf4b8e201838a84f2ce24a16e6eacd95995860eb62ee6863b26690",
+      "inputs_sha256": "e194596c5a46175fc56a66aacc63838ffb80e97edfa93c5f3c0bf262c974b00c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_09"
@@ -2561,7 +2561,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 28604,
-      "inputs_sha256": "c1d218caef487b215e275e2816782da4168a37648895c2eb05fb49f5ebb3766e",
+      "inputs_sha256": "2dd1ce788d206d65fd9d43193754bcc21d3940ccad248936ecfafb2a0e000eb3",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_08"
@@ -2570,7 +2570,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 31408,
-      "inputs_sha256": "452d91b518bd9ec0d21562dae80dade598d235fe5f783cf9edfa345fea1b9551",
+      "inputs_sha256": "95e475bc9725503cf58abbbf42b5cd6a0a70038197248844434b3d56b5f71e17",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_10"
@@ -2615,7 +2615,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 38204,
-      "inputs_sha256": "1b3df756ede81f7c18f30d6eba71fc9b91e8ebd05313b1bc378450328eace097",
+      "inputs_sha256": "d854990dd87bbf4ad20880298d82556370d17a0ce1b3485489315e786b719ee6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
