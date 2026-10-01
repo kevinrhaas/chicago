@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1263, ts: '2026-10-01T15:35:48.553Z', date: 'Oct 1, 2026, 10:35 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
+  { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [
       'Four two-storey boarding houses on the North Side, between the river and Michigan Street, and one on the West Side approaches, now look like the boarding houses they are.',
       'Each upper floor has seven chamber windows across its front and back instead of the five an inn has, and four iron stovepipes rise through each roof beside the two brick chimneys.',
       'The counts come from the beds each house already holds, by the same rule as the first boarding house at Madison and Dearborn. Nobody moved: the same lodgers sleep in the same houses.',
       'These houses, their windows and their stoves are our reconstruction. No source counts the rooms or stoves of a Chicago boarding house in 1835; the register says how each number was reached.',
+    ] },
+  { v: 1263, ts: '2026-10-01T15:09:22.486Z', date: 'Oct 1, 2026, 10:09 AM CT', title: 'A smaller shed replaces a stable on the Franklin block', kind: 'fix',
+    items: [
+      'On the block at Washington and Franklin, the yard building behind the corner house is now a small plank shed, not a log stable. The block’s plan has room for one stable, and that stable still stands behind the larger house further along Washington.',
+      'Behind the scenes, the block’s record now names the seven households that actually asked for its houses. The old list was out of date. Nobody moves: the same seven families live in the same seven houses.',
     ] },
   { v: 1262, ts: '2026-10-01T14:47:44.509Z', date: 'Oct 1, 2026, 9:47 AM CT', title: 'A test patch of photographic ground, south of the town', kind: 'change',
     items: [
