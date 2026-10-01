@@ -320,13 +320,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # four go on top of. SEVENTH move in two days, and the note above already said why: the
 # debt is per-ASSET.
 #
+# 496 -> 501 and 492 -> 497 on 2026-10-01 (T-1766): the two Canal stores and
+# three workshops add five canonical structure assets. Measured by bake run
+# 36810462677: shared geometry reaches all 501, emit.py reaches 497; terrain
+# and pier_crib reaches are unchanged. This updates the recorded reading only.
 STATED = {
-    "assets": 496,
+    "assets": 501,
     "restales": {
-        "generators/common/*.py": 496,
+        "generators/common/*.py": 501,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 492,
+        "generators/emit.py": 497,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,
