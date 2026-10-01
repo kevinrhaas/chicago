@@ -31,6 +31,71 @@ ceiling cannot climb on what the schedule itself deals.
 no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
 so the deal carries frame cottages.
 
+## T-1799 — Wabansia's books closed, and the West's outer build with them (2026-10-01)
+
+Piece 2 of 2 of T-1785, which is piece 5 of 5 of T-1208. T-1798 raised the doctor's house in
+Wabansia; this piece answers the three clauses it left open, on the published tree, and
+**changes nothing in the town**. The reading is `data/render/west_close_out.json`.
+
+**Visible-progress rule, stated rather than dodged.** This run is invisible and no exemption
+covers it: two of the last four entries (v1252, v1253) were invisible already. It was taken
+because it is the owner-requested closer of a build whose visible half landed in v1254, and it
+was the topmost free workable ticket for this slot; the sibling runs in flight beside it (T-1766,
+T-1776, T-1778, T-1783) were all visible parcels, and T-1776 landed while this was open.
+
+**The frame budget, with the doctor's house standing: PASS at every tier, both viewports.**
+Read with `tools/smoke_renderer.mjs` part 5, the ceiling sweep `measure_detail_ceilings.mjs`
+copies. That tool itself ran past the 600 s foreground cap on desktop and printed nothing, so it
+was stopped; the smoke part reports each tier's worst stand rather than the five-stand spread.
+**Read twice.** Dev moved while this was open (T-1776's six hotel stables, #221), so the sweep
+was re-run on the merged tree; the tables are that reading. The stables cost 9,021 triangles at
+Lake and Canal at both viewports. The first read, at `08e0163c`, is kept in the reading.
+
+| tier | ceiling | worst desktop | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,436,965 (Lake Street at Canal, east down the axis) | 23,035 (1.58 %) | 205 |
+| `balanced` | 1,280,000 | 1,239,725 (Lake Street at Canal, east down the axis) | 40,275 (3.15 %) | 189 |
+| `light` | 825,000 | 803,666 (the open aerial) | 21,334 (2.59 %) | 83 |
+
+| tier | ceiling | worst mobile | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,307,831 (Lake Street at Canal, east down the axis) | 152,169 (10.42 %) | 188 |
+| `balanced` | 1,280,000 | 1,132,251 (Lake Street at Canal, east down the axis) | 147,749 (11.54 %) | 177 |
+| `light` | 825,000 | 736,228 (the open aerial) | 88,772 (10.76 %) | 76 |
+
+**The binding stand moved west.** T-1688 read desktop `balanced` worst at the forks (margin
+23,456, 1.83 %). It is now Lake Street at Canal for `full` and `balanced` at both viewports, and
+desktop `full` is the tightest tier, at 1.58 %. Lake and Canal's frame is also the town's worst
+for draw calls, at 205 of 215. The next West parcel inside that frustum should price itself first
+(`measure_detail_ceilings.mjs --price`). No re-budget is proposed.
+
+**The Canal-approach screenshot, looking west**: `docs/evidence/t-1799-canal-approach-west-desktop.png`
+and `-mobile.png`. This is the `lake_at_canal` anchor turned to yaw 270, on the published mirror
+with the clock held. The pose and hashes are in the reading.
+
+**T-1209 handed on with the West's remainder**, written into the ticket with each row's live owner.
+Read from the order book:
+
+| row | target | standing | to build | owner |
+| --- | --- | --- | --- | --- |
+| `structures/barns_stables/west` | 20 | 14 | 6 | T-1212 |
+| `structures/inns_taverns/west` | 3 | 3 | 0 | T-1762 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | T-1785 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | T-1779 |
+| `structures/ordinary_dwellings/west` | 75 | 56 | 19 | T-1783 |
+| `structures/small_outbuildings/west` | 14 | 6 | 8 | T-1212 |
+| `structures/stores_mixed_use/west` | 6 | 4 | 2 | T-1766 |
+| `structures/warehouses_freight/west` | 2 | 2 | 0 | T-1773 |
+| `structures/workshops/west` | 8 | 5 | 3 | T-1766 |
+
+42 roofs are still owed on modelled ground. Another 42 are gated in
+`ground/west_division_beyond_committed_control`, because there is no committed street control
+west of Clinton and Canal. `institutional_public/west` is full and names T-1785, which this
+closes. The owner gate skips a row with nothing left, and `ticket_liveness.py --closing T-1799`
+strands nothing.
+
+**Not closed:** T-1208's stop condition (every outer West slot built and seated). T-1774 closes
+Wolf Point's own books separately.
 
 ## T-1776 — six public houses get a stable, sized from their beds (2026-10-01)
 
