@@ -267,6 +267,13 @@
     "sequence": 3,
     "finish_key": "whitewash",
     "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "keeper",
+      "household": "hh_beaubien_charles_h",
+      "words": "whitewashed clapboard under a weathered roof — The Beaubien household's, in Chicago since 1832 (rule F-M)"
+    }
   }
 }

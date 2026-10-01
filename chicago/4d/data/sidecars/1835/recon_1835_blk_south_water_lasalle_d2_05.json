@@ -170,8 +170,15 @@
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 5,
-    "finish_key": "ochre",
-    "roof_condition": "darkened",
-    "age_state": "recent"
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
+    }
   }
 }

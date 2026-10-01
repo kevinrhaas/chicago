@@ -133,9 +133,16 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 5,
-    "finish_key": "fresh_timber",
-    "roof_condition": "darkened",
+    "finish_key": "red_oxide",
+    "roof_condition": "fresh",
     "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "keeper_trade",
+      "household": "hh_blanshard_g",
+      "words": "hewn logs under a new roof — The Blanshard household's, a land agent, in Chicago since 1834 (rule F-M)"
+    },
     "frontage": {
       "block": "blk_south_water_wells",
       "face": "north",

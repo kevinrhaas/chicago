@@ -30,12 +30,13 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 sys.path[:0] = [str(ROOT / "tools"), str(ROOT / "generators")]
 from family_bands import families, dimensions_m  # noqa: E402
-from generate_block_infill import form_for, finish_for, invented, no_build_rings, FUNCTIONS  # noqa: E402
+from generate_block_infill import form_for, invented, no_build_rings, FUNCTIONS  # noqa: E402
 from generate_west_infill import footprint_origin, omitted_street_corridors  # noqa: E402
 from plat_corridors import corridors, intrusion  # noqa: E402
 from plat_occupancy import world_polygon, footprints, overlap_area  # noqa: E402
 from heightfield import Heightfield  # noqa: E402
 from siding_stock import deal_records as deal_siding  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 CORRIDOR_LINE = "drawn"
 CORRIDOR_LINE_WHY = ("A question about a roof on a lot: the warehouse stands on the plat's own "
@@ -115,7 +116,8 @@ def make_record(recipe: dict, datum: dict) -> dict:
     lot = lot_polygon(row["block_id"], row["lot_column"], row["lot_row"])
     east, north, bearing = seat(lot, width, depth, float(row["front_setback_m"]),
                                 float(row["side_setback_m"]))
-    finish, paint = finish_for(seed)
+    fabric = fabric_rule_1835.deal(row["structure_id"], family, spec["archetype"])
+    finish, paint = fabric["finish_key"], fabric["paint"]
     return {
         "id": row["structure_id"],
         # The anonymous programme's production name, which display-name.js reads into the
@@ -156,7 +158,8 @@ def make_record(recipe: dict, datum: dict) -> dict:
             "inventory_class": "principal_functional",
             "programme_phase": "west_freight_forks_1835", "source_id": SOURCE,
             "sequence": 1, "finish_key": finish,
-            "roof_condition": "weathered", "age_state": "recent"},
+            "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+            "fabric_basis": fabric["fabric_basis"]},
         "research_note": ("RECONSTRUCTED, NOT A RECOVERED ADDRESS. The order book's West freight "
                           "row sets two roofs and one stood; this is the second. The family, the "
                           "lot, the dimensions, the finish and every form value are inventions "

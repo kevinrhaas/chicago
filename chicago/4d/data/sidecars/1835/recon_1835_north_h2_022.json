@@ -360,8 +360,15 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 22,
     "finish_key": "ochre",
-    "roof_condition": "patched",
-    "age_state": "established",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
+    },
     "capacity": {
       "beds_ordinary": 10,
       "beds_crowded": 22,

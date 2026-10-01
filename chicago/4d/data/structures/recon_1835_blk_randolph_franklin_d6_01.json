@@ -155,9 +155,16 @@
     "stands_on": "street",
     "fronts": "randolph",
     "sequence": 1,
-    "finish_key": "fresh_timber",
+    "finish_key": "weathered_timber",
     "roof_condition": "darkened",
-    "age_state": "recent"
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "silvered clapboard under a weather-darkened roof — a one-and-a-half-story cottage, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+    }
   },
   "resident_assignment": {
     "status": "unassigned",

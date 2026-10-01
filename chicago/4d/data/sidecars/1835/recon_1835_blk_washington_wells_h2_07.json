@@ -175,8 +175,15 @@
     "stands_on": "street",
     "fronts": "madison",
     "sequence": 7,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-M",
+      "class": "merchant",
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard under a new roof — a merchant's or professional house, a year old (rule F-M: a merchant's or professional man's by its type)"
+    }
   }
 }

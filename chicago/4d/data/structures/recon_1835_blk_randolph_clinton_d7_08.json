@@ -111,7 +111,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D7 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
         },
         "paint": {
-          "value": "unpainted",
+          "value": "whitewash",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -155,9 +155,16 @@
     "stands_on": "street",
     "fronts": "canal",
     "sequence": 8,
-    "finish_key": "fresh_timber",
+    "finish_key": "whitewash",
     "roof_condition": "fresh",
-    "age_state": "new"
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard under a new roof — a small two-story frame house, new-built (rule F-T: a tradesman's by its type)"
+    }
   },
   "resident_assignment": {
     "status": "unassigned",

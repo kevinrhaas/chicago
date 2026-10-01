@@ -17786,12 +17786,12 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).
-### L310 — Three West roofs nobody holds, given a stated use
+### L310 — Four West roofs nobody holds, given a stated use
 
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
-`recon_1835_west_047.occupants`
+`recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
@@ -17802,7 +17802,14 @@ it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between 
 Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
 (sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
 streets back from the South Branch. Nobody is named for any of the three; the card says what the
-building was for, graded `reconstructed`.
+building was for, graded `reconstructed`. A fourth row was added by T-1826:
+`recon_1835_west_020`, the C2 store-residence the recipe places on the Canal and Randolph teamster
+approach (cluster `w2_canal_randolph_teamster`, south and west of the documented Western Hotel's
+yard), is stated as a store with attic rooms kept for the wagon trade, its keeper unnamed. The
+placement policy admits C2 under `commercial_front` alone, no band handed to the off-plat deal
+names that clause, and the deal had carried the roof as `roofs_offered_and_unspent`. The row
+names no trade, goods or signboard, which the signage and trade-goods layers refuse for an
+anonymous slot.
 
 **Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
 for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
@@ -17811,15 +17818,19 @@ seated household's yard carded as an anonymous count-unit forever.
 **Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
 outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
 its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
-is T-1774's.
+is T-1827's (split from T-1774 on 2026-10-01 for exactly that).
 
 **Would replace:** A keeper seated on any of the three by a deal or a source retires its row
 outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
 Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+A storekeeper seated on the Canal Street approach by a deal or a source retires the row for
+`recon_1835_west_020`.
 
-**Ticket:** T-1782 (piece 2 of T-1208).
+**Ticket:** T-1782 (piece 2 of T-1208); the fourth row T-1826.
 
 **Recorded:** 2026-10-01 (T-1782).
+
+**Revised:** 2026-10-01 (T-1826) — `recon_1835_west_020` added.
 
 ### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 
@@ -18473,6 +18484,63 @@ and south ends; a measured colour of Lake Michigan beach sand at Chicago.
 
 **Ticket:** T-1819 (piece 1 of T-1772).
 **Related:** **L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes).
+**Recorded:** 2026-10-01.
+
+### L330 — The anonymous roofs' finish is dealt by whose house it is: a class rule for paint, weathering, roof and age
+
+**Decision:** every anonymous reconstructed roof (`recon_*`, 363 today) takes its wall finish,
+its `paint`, its `roof_condition` and its `age_state` from **one rule**, `tools/fabric_rule_1835.py`
+(T-1816, the first piece of T-1210), which all six anonymous-roof generators now deal through.
+Before it, a hash of the record id picked the wall, and the roof and age were both
+`(…)[seq % 4]`, so a merchant's house was as likely to be silvered and patched as a shanty.
+The rule decides in this order:
+- **A keeper the record names.** Where `1835_roof_keepers.json` WROTE a household onto the
+  roof (23 roofs), that household's own trade sets the class of a dwelling or store through
+  `seat_known_1835.TRADE_CLAUSE`, and its arrival year sets the age (1835 new, 1834 recent,
+  1832–33 established, earlier older than the boom). The refused (T-0379) and owed seats are
+  never read.
+- **Otherwise the family's household class**, read off the reconstruction spec's own family
+  label: an older log cabin or a shanty is a labourer's (F-L), a frame cottage, small shop or
+  store-residence a tradesman's (F-T), a merchant's or professional house or a two-storey store
+  a merchant's (F-M), a boarding house a keeper's (F-B), a works bare boards (F-W), a shed or
+  warehouse the freight trade's (F-F), a yard building a yard's (F-Y). Its age is dealt by a
+  hash of the id inside the family's window of the boom.
+
+What each class may wear: **a merchant's house is always coated** (red oxide, ochre or lime,
+equal shares), **a boarding house limewashed** (two in three) or ochre, **a tradesman's coated
+about three times in ten** with a cheap earth or lime wash, **a labourer's never**; works,
+freight and yard buildings are bare boards. Bare boards and roofs follow the age: new-sawn,
+silvered, then patched — and the sheet sets that clock, since bare stock "silvered off by a
+season or two of weather" means a house of 1834 is already grey by July 1835 — with the
+merchant's roof kept and the labourer's mended. `white_paint`
+stays the Sauganash's alone and no class can deal it. Every record states the result and its
+reason in `reconstruction.fabric_basis`, and the building card's Built line prints it.
+
+**Why:** the owner asked that houses be finished "based on the type of person living there". No
+source paints any of these roofs, so the class is what can be argued: lead paint was a
+remarkable expense here (the Sauganash, materials.md §2.1), lime and earth washes were not, and
+the November 1835 census counts 3,265 people in 398 dwellings against a village of a few hundred
+two years before, so most of the town was new or one winter old. **The grade does not move:**
+every value is `reconstructed`, as the programme's deal was. A class bounds the reconstruction;
+it does not prove a coat of paint on any building.
+
+**Consequence:** the wealth gradient is readable from the street: whitewashed, ochre and red
+better houses and stores; bare, silvering cottages; patched cabins and shanties. The coated share
+falls from 84 to 47 of 363 roofs (ochre, an earth wash dealt as `unpainted`, is 36 more). The
+rule clusters like with like, and that is measured rather than hidden: **101 of 363 roofs now
+share a wall finish with their nearest reconstructed neighbour (73 under the old hash), and 56
+share wall and roof both (10 before)** — a row of one class built in one year reads as one row.
+Per-building tone jitter and board irregularity (T-1818) is what separates them.
+
+**How to resolve:** any source describing the finish of a particular 1835 Chicago house, which
+outranks the rule for that roof; any account of what paint or wash cost or who used it in the
+1830s West, which re-grades the class rows.
+
+**Covers:** `recon_*.*.form.paint`
+**Related:** **L157** (the material sheet paints the town), **L22** (wall surfaces are the
+archetype's), **L196** (the anonymous roofs' siding stocks), **L90** (the anonymous roofs),
+**T-1210**, **T-1816** (this rule), **T-1817** and **T-1818** (its form and its photographic
+finish).
 **Recorded:** 2026-10-01.
 
 ### L327 — The worked roadway: every opened street drawn as full-width packed earth, its width, wear, ruts and mud ours
