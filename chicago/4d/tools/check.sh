@@ -2145,6 +2145,20 @@ step "the off-plat ledger and its seats still re-derive" \
 selftest "…and the off-plat deal's seven refusals still fire when broken" \
   python3 tools/seat_off_plat_ground_1835.py --self-test
 
+# T-1793, the first piece of T-1784. The off-plat deal above owes 44 households to
+# `west/farms_and_country_seats`; this measures the ground they could farm before anyone
+# raises a roof for them. The West is read west of the committed river on a 10 m lattice,
+# cut by the corporation's 1833 bounds and by the survey tracts, and the unsubdivided
+# ground outside the limits is counted in forties — the smallest holding the register and
+# the 1835 press name here. It also reads the roofs already standing on that ground and the
+# West's programme headroom for a D1 cabin and an A2 barn. It moves nothing; it fails when
+# any of those inputs moves and the record was not rebuilt, or when its sums stop closing.
+step "the West farm ground still re-derives from the seats, the tracts and the programme" \
+  python3 tools/measure_west_farm_ground_1835.py --check
+
+selftest "…and its sums and ceilings still refuse when broken" \
+  python3 tools/measure_west_farm_ground_1835.py --self-test
+
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
 # at all. ROADMAP T-I3 enumerated them: on 1835-07-01 the town's public buildings with a

@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1246, ts: '2026-10-01T07:06:56.260Z', date: 'Oct 1, 2026, 2:06 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
+  { v: 1248, ts: '2026-10-01T07:43:33.806Z', date: 'Oct 1, 2026, 2:43 AM CT', title: 'Three cottages and a carpenter on the far west blocks', kind: 'change',
     items: [
       'Walk west along Randolph Street to the Des Plaines edge, and the block between Des Plaines and Jefferson south of Randolph is no longer nearly empty. A carpenter’s shop now stands at the Randolph corner, a two-room cottage further down the Des Plaines side, and two more cottages face Jefferson Street.',
       'Each house has an open lot on either side of it along its street, and the Washington Street end of the outer face is left as prairie. Fences, dooryard gardens and the shop’s sign and timber came with them.',
       'Why here: the outermost West blocks had no building rule of their own, so nothing was ever dealt onto them. They are now filled no denser than the busiest of them already was: six buildings to ten lots.',
       'Every one of these buildings is our reconstruction. No source places a house or a shop on this block in July 1835; the positions, sizes and kinds are reasoned from the town’s layout, and each card says so.',
+    ] },
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
+    ] },
+  { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
+    items: [
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
     ] },
   { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
     items: [
