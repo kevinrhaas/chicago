@@ -2957,5 +2957,266 @@
   "found_via": "IA full-text search '\"Gatlin Institute\" \"1919 Prairie\"' → search-inside",
   "notes": "Larger halftone captioned 'Former Residence of Marshall Field Jr.': street view of 1919 Prairie with its tall gabled roofs, chimneys and turret-like bays, the iron fence and parkway trees, and the neighbouring houses to the north and south partly visible — a c.1910 Prairie Avenue streetscape around the Field Jr. house. Same campaign as the 1912 Blue Book ad (a19-bluebook-1912-gatlin-1919); different photograph.",
   "measurements": []
+ },
+ {
+  "id": "a19-gh-1981-gaylord-factory-1936-site",
+  "kind": "photograph",
+  "title": "The northwest corner of Prairie Avenue and Cullerton … occupied by the factory for Gaylord Products (1981)",
+  "building_ids": [
+   "pa-1936-11",
+   "pa-1900-25"
+  ],
+  "addresses": [
+   "1936 S. Prairie Avenue (site)",
+   "1900 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "northwest",
+  "camera_position": null,
+  "date": "1981",
+  "date_earliest": 1981,
+  "date_latest": 1981,
+  "period": "later",
+  "creator": "unknown (photographs taken for the museum, 1981, per post)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Flashback 1981 – Glessner House and Prairie Avenue' (7 Jun 2016)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaxDOdt-wpkwpbC5zLVX3jYTop6o78UMAsY-ADtqT4pJ1CSIgRQM_RKSyqbr1Kyft0fR-MIPBDR7aL-NDdbvkKoK5br2bbNNGTfEw_-FY5RcYDlvCl4iDFBqSHZcGf-a90u7h1WIzORWs/s1600/Hump+Hairpin.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'hump hairpin'",
+  "notes": "The 1912–15 Hump Hairpin/Gaylord factory (Alfred S. Alschuler) that replaced the Thompson/Allerton house on the NW corner of Prairie and Cullerton, with its water tower; the mansard of the Keith house (1900) is just visible at the right edge. Shows what replaced 1936 after c.1915 — useful only to bound the Allerton lot (razed 1999 for Commonwealth on Prairie townhouses). Not the 1904 state.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-1981-donnelley-warehouse-1905-site",
+  "kind": "photograph",
+  "title": "A huge warehouse, erected by R. R. Donnelley, marked the site of the former Marshall Field mansion (1981)",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue (site)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1981",
+  "date_earliest": 1981,
+  "date_latest": 1981,
+  "period": "later",
+  "creator": "unknown (photographs taken for the museum, 1981, per post)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Flashback 1981'",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRRRpeoIf3yHTQ7zNrtKKAwtzVV0touOfE4Le-MO0ISC7-N_fIbiIugHVwAL7EALJOYU0aj-ghxiaSvuku-BUNLS3NHQbHuao3UqNytXV0XZ0yUamIJ5_WKU9vTlFJdZFwa50V5QqydQo/s1600/1913+PA+warehouse.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'field mansion'",
+  "notes": "Post-1955 brick warehouse on the Field Sr. site (file name '1913 PA warehouse' presumably an address on the 1900 block's east side). Documents the site after demolition; no 1904 information except lot extent.",
+  "measurements": []
+ },
+ {
+  "id": "a19-gh-1981-fieldjr-1919",
+  "kind": "photograph",
+  "title": "Marshall Field Jr. house, 1919 S. Prairie Avenue (1981)",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1981",
+  "date_earliest": 1981,
+  "date_latest": 1981,
+  "period": "later",
+  "creator": "unknown (photographs taken for the museum, 1981, per post)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Flashback 1981'",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4yMQeO4-wqlfZU_BD-Zfq1CpWoD1ZhzFqtG9SbUUNBH9AHUszKWBSXSuP6kKyyaWpWBBoBZE-YK3NivO-KVQr2Q-S9rPHA6Dmfr4tywuq3lDE4qyKkYBrCXzbmitM_iHDP9687LjmAWc/s1600/Field+Jr+1981.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'marshall field jr'",
+  "notes": "The vacant, boarded Field Jr. house in 1981 seen from the side/alley: brick walls with stone trim, multiple gables, tall corbelled chimney, bay windows; the post says it was a 23,000 sq ft building recently sold and 'in dire need of renovation'. Massing is the post-1902 enlarged house that stood in 1904.",
+  "measurements": [
+   {
+    "what": "floor area (1981 newspaper figure)",
+    "value": "23,000 sq ft",
+    "locator": "blog text quoting Chicago Tribune 1981 'First steps in area revival'"
+   }
+  ]
+ },
+ {
+  "id": "a19-gh-1955-field-demolition",
+  "kind": "photograph",
+  "title": "[Marshall Field house, 1905 Prairie Avenue, during demolition, 1955] (file '13-07-22 1905 PA demolition')",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": null,
+  "camera_position": null,
+  "date": "1955 (demolition, March 1955)",
+  "date_earliest": 1955,
+  "date_latest": 1955,
+  "period": "later",
+  "creator": "probably Jack Simmerling (the post says he travelled from Notre Dame to witness the demolition)",
+  "repository": "Glessner House Museum (blog)",
+  "collection": "Glessner House blog 'Jack Simmerling (1935–2013): A Tribute' (22 Jul 2013)",
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2013/07/jack-simmerling-1935-2013-tribute.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSvNPFCqQ63RnijWGqrt5pOJ9Ndbsd8fH6-n_6BV_z3avIoBMwVReT5mLqmWl0LI1sjsaWNxEj7kA3m7LqGBEZGqXjkjO2RzMyJkDahhha_jFUk5IWI4qHDauSFNoahezgqCpUq4MsZg4/s1600/13-07-22+1905+PA+demolition.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Museum blog reproduction; rights not stated",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com feed search 'marshall field jr'",
+  "notes": "Rubble of timber joists and masonry during the 1955 demolition — evidence of heavy timber floor framing and brick walls; no form information. Simmerling (artist, collector of Prairie Avenue fragments) is a lead: his collection/drawings of the Field house (Glessner House holds Simmerling material).",
+  "measurements": []
+ },
+ {
+  "id": "a19-rebj-1891-tardy-20th-near-prairie",
+  "kind": "newspaper item",
+  "title": "'Thomas & Rapp plans for a three story residence to be built on 20th street, near Prairie avenue, for Dr. Charles V. Tardy. Brown stone and pressed brick front … cost $12,000' (REBJ, 19 Sept 1891)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "E. 20th (Cullerton) Street near Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "September 19, 1891 (issue)",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "The Real Estate and Building Journal (Chicago)",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Real Estate and Building Journal v.33 no.2 (1891) — IA realestatebuildi3321unse",
+  "call_number": "issue of Sept. 19, 1891, architects' news column (IA search-inside leaf 421)",
+  "catalog_url": "https://archive.org/details/realestatebuildi3321unse",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in Chicago 1891",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "grep of the item's OCR text for 'Thomas & Rapp' and 'Twentieth st' (the 1890s name of Cullerton Street), confirmed with IA search-inside",
+  "notes": "A Thomas & Rapp design of 1891 on 20th (Cullerton) Street near Prairie — the AIC/Glessner sources date 213 E. Cullerton to 1891 by Thomas & Rapp, and 217 to 1892 by Thomas & Rapp; this notice is a CANDIDATE for 213 (brownstone-and-pressed-brick front matches the red sandstone/brick front of 213 today) but the address is not given — identification unconfirmed. Three storeys; $12,000; hardwood finish, hot-water heating, plate and bevelled glass.",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "REBJ 19 Sep 1891"
+   }
+  ]
+ },
+ {
+  "id": "a19-rebj-1891-purdy-20th-near-indiana",
+  "kind": "newspaper item",
+  "title": "'Architects Thomas & Rapp have prepared drawings for residence on Twentieth street, near Indiana avenue, for Dr. C. W. Purdy, 22x80 feet, three-story and basement. The front will be of rock faced blue Bedford with bays …' (REBJ, 10 Oct 1891)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "E. 20th (Cullerton) Street near Indiana Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "October 10, 1891 (issue)",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "period": "in-period",
+  "creator": "The Real Estate and Building Journal (Chicago)",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Real Estate and Building Journal v.33 no.2 (1891) — IA realestatebuildi3321unse",
+  "call_number": "issue of Oct. 10, 1891, architects' news column (IA search-inside leaf 529); lot transfer at leaf 572",
+  "catalog_url": "https://archive.org/details/realestatebuildi3321unse",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in Chicago 1891",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "grep of the item's OCR text for 'Thomas & Rapp' and 'Twentieth st' (the 1890s name of Cullerton Street), confirmed with IA search-inside",
+  "notes": "Second 1891 Thomas & Rapp residence on 20th/Cullerton Street, this one 'near Indiana avenue' — i.e. the 200 East block where 213–217 stand. 22 × 80 ft, three storeys and basement, rock-faced blue Bedford stone front with bays, $15,000. A candidate for 213 or 217, unconfirmed (today's fronts read as red brick/sandstone, so possibly a different house nearby). The same volume records (Nov 14, 1891 issue) a transfer of 'Twentieth st, 197 ft w of Prairie av, n f 22x90 with bldg No 63' from M. E. Adams to M. E. Clark for $10,760 — possibly the c.1870 Italianate at 215 or the Clark property at 217 (John M. Clark Apartments per AIC index). Related transfer in the same volume (Oct. 17, 1891 issue, leaf 572): 'Twentieth st, 111¼ ft e of Indiana av, n f 22x90 imp; July 30. Est of F E Johnson to F E Purdy $10,600' — a 22-ft lot on the NORTH side of Cullerton about 111 ft east of Indiana, i.e. within the 211–217 E. Cullerton frontage; with the October plans this makes the Purdy house a strong candidate for one of the three surviving rowhouses (probably 213 or 217).",
+  "measurements": [
+   {
+    "what": "residence",
+    "value": "22 × 80 ft, three storeys and basement",
+    "locator": "REBJ 10 Oct 1891"
+   },
+   {
+    "what": "lot transferred (Nov 1891)",
+    "value": "22 × 90 ft, 197 ft west of Prairie Av., north front of 20th St., with building No. 63 (old numbering)",
+    "locator": "REBJ 14 Nov 1891, transfers"
+   },
+   {
+    "what": "Purdy lot (July 1891)",
+    "value": "22 × 90 ft, north side of 20th St., 111¼ ft east of Indiana Av.",
+    "locator": "REBJ 1891, transfers (leaf 572)"
+   }
+  ]
+ },
+ {
+  "id": "a19-cgy-robinson-1886-crops-1900-block",
+  "kind": "atlas plate",
+  "title": "Robinson Fire Insurance Map 1886 — address crops for 1900, 1901, 1905, 1906, 1912, 1919, 1923, 1936 (and 1945) S. Prairie Avenue (Chicagology house pages)",
+  "building_ids": [
+   "pa-1900-25",
+   "pa-1901-15",
+   "pa-1905-16",
+   "pa-1906-34",
+   "pa-1912-10",
+   "pa-1919-26",
+   "pa-1923-35",
+   "pa-1936-11"
+  ],
+  "addresses": [
+   "1900–1945 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "map",
+  "facing": null,
+  "camera_position": null,
+  "date": "1886 (atlas); crops posted on Chicagology",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "E. Robinson (Robinson's Atlas of the City of Chicago, 1886); crops by Chicagology",
+  "repository": "Chicagology (chicagology.com) — secondary web reproduction",
+  "collection": "Chicagology: Prairie Avenue house pages",
+  "call_number": null,
+  "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
+  "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1905prairie1886map.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Secondary website crops of an 1886 atlas (the atlas itself is public domain; locate the original plate for reuse)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "chicagology.com Prairie Avenue house pages (each page ends with a '…Robinson Fire Insurance Map 1886' crop)",
+  "notes": "Each house page carries the same colour plate of the blocks between 16th/18th and 22nd Streets (Indiana–Prairie–Calumet) with an arrow on the house: brick (pink) and frame (yellow) footprints, lot lines and numbers; viewed for 1905 and 1936. Gives 1886 footprints and outbuildings (stables) for every house in this stream — pre-dates the 1902 Field Jr. enlargement and the 1887 Ream rebuild. Same-plate crops at …/chicagoimages9/{1900,1901,1906,1912,1919,1923,1936,1945}prairie1886map.jpg. Already listed in data/sources.csv for 1905 (pa-chicagology-1905prairie1886map). Stream-2000-2100 has the equivalent record for the 2000–2100 blocks; the full atlas sheet belongs with stream-streetscape.",
+  "measurements": []
  }
 ]

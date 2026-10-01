@@ -3798,5 +3798,769 @@
   "found_via": "IA text scan; page images viewed to pair the columns",
   "notes": "Confirms Burnham & Root authorship and the 1882–91 date window for the Dent and Sears houses (building index: Burnham & Root). The list also names Arthur I. Caton, Calumet Ave. near 20th St., and N. B. Ream at Groveland Park (not 1901 Prairie). Records before 1882 burned in the Grannis Block fire.",
   "measurements": []
+ },
+ {
+  "id": "dw-aabn-1876-04-15-sherman-2100-finished",
+  "kind": "document",
+  "title": "Chicago correspondence: 'Burnham & Root … have just finished the beautiful house of John B. Sherman, on the corner of Twenty-First Street and Prairie Avenue.'",
+  "building_ids": [
+   "pa-2100-18"
+  ],
+  "addresses": [
+   "2100 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "April 15, 1876 (vol. I no. 16, p. 126)",
+  "date_earliest": 1876,
+  "date_latest": 1876,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. I no. 16 (Apr. 15, 1876) p. 126",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1876-04-15_1_16/page/n11/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1876-04-15_1_16, page index 11)",
+  "notes": "Completion date (spring 1876) for the Sherman house; describes Burnham & Root as 'professed Gothic men', pupils of P. B. Wight.",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1879-sears-1815-basement-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'Prairie Ave., near Eighteenth St., basement for Joseph Sears; cost, $…'",
+  "building_ids": [
+   "pa-1815-12"
+  ],
+  "addresses": [
+   "Prairie Avenue near 18th Street"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "December 6, 1879 (vol. VI, suppl. p. vi)",
+  "date_earliest": 1879,
+  "date_latest": 1879,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Dec. 6, 1879, suppl. p. vi",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1879-12-27_6_209/page/n284/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1879-12-27_6_209, page index 284)",
+  "notes": "OCR garbled around the cost; a permit for the Sears house foundations in late 1879, before the Burnham & Root superstructure (Monroe lists the Sears residence among their 1882–91 works). Check the page image for the cost figure.",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1881-03-doane-1827-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'J. W. Doane, two-st'y brick dwell., Prairie Ave., near Eighteenth St.; cost, $100,000.'",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "March 5, 1881 (vol. IX no. 271, p. 119)",
+  "date_earliest": 1881,
+  "date_latest": 1881,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Mar. 5, 1881, p. 119, 'Building Intelligence'",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-03-05_9_271/page/n28/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-03-05_9_271, page index 28)",
+  "notes": "Permit for the Doane house (architect T. V. Wadskier per the building index); the Artistic Houses interiors (dw-rb-artistic-houses-doane-1827-*) show it c. 1883–84.",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "2 (as permitted)",
+    "locator": "AABN Mar. 5, 1881 p. 119"
+   },
+   {
+    "what": "cost",
+    "value": "$100,000",
+    "locator": "same"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1881-11-dent-1823-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'W. [Thomas] Dent, three-st'y and basement brick dwell., 44' x 60', Prairie Ave., near Eighteenth St.; cost, $25,000.'",
+  "building_ids": [
+   "pa-1823-13"
+  ],
+  "addresses": [
+   "1823 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "November 5, 1881 (vol. X, suppl. p. ix)",
+  "date_earliest": 1881,
+  "date_latest": 1881,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Nov. 5, 1881, suppl. p. ix",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-12-31_10_314/page/n310/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 310)",
+  "notes": "Permit for the Dent house (Burnham & Root; cf. Monroe App. B). OCR reads 'W. Dent'; only Thomas Dent is known at this location — confirm on the page image.",
+  "measurements": [
+   {
+    "what": "footprint",
+    "value": "44 ft × 60 ft",
+    "locator": "AABN Nov. 5, 1881, suppl. p. ix"
+   },
+   {
+    "what": "storeys",
+    "value": "3 + basement",
+    "locator": "same"
+   },
+   {
+    "what": "cost",
+    "value": "$25,000",
+    "locator": "same"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1881-marsh-1824-barn-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'G. B. Marsh, two-st'y brick barn, 30' x 50', 1824 Prairie Ave.; cost, $3,500.'",
+  "building_ids": [
+   "pa-1824-8"
+  ],
+  "addresses": [
+   "1824 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1881 (vol. X; weekly page date not legible in OCR)",
+  "date_earliest": 1881,
+  "date_latest": 1881,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. X (bound with Dec. 31, 1881 item), IA page index 198",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-12-31_10_314/page/n198/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 198)",
+  "notes": "Rear brick barn/coach house for the Pomeroy/Marsh house — a rear outbuilding to place on the lot for 1904.",
+  "measurements": [
+   {
+    "what": "barn footprint",
+    "value": "30 ft × 50 ft, 2 storeys",
+    "locator": "AABN 1881, IA page 198"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1882-03-murray-1919-barn-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'W. H. McMurray [Murray], two-st'y barn, 28' x 36', 1919 Prairie Ave.; cost, $6,500.'",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "March 25, 1882 (vol. XI no. 326, p. 144)",
+  "date_earliest": 1882,
+  "date_latest": 1882,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Mar. 25, 1882, p. 144",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1882-03-25_11_326/page/n19/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-03-25_11_326, page index 19)",
+  "notes": "Barn on the Murray lot built before the 1884–85 Beman house.",
+  "measurements": [
+   {
+    "what": "barn footprint",
+    "value": "28 ft × 36 ft, 2 storeys",
+    "locator": "AABN Mar. 25, 1882 p. 144"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1884-murray-1919-beman-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'Mrs. W. H. Murray, two-st'y dwell., 1919 Prairie Ave.; cost, $30,000; architect, S. S. Beman; builders, McDermott & O'Brien.'",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1884 (vol. XV, item dated June 21, 1884)",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. XV no. 443 item, IA page index 11",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-06-21_15_443/page/n11/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-06-21_15_443, page index 11)",
+  "notes": "Permit corresponding to the Beman design reported in Inland Architect (dw-inland-1884-06-murray-beman-plans; dw-inland-1885-06-murray-1919-beman-report).",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$30,000",
+    "locator": "AABN 1884 permit list"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1884-09-hanford-2010-calumet-barn-permit",
+  "kind": "permit record",
+  "title": "Chicago building permits: 'P. C. Hanford, two-st'y barn, 2010 Calumet Ave.; cost, $3,500.'",
+  "building_ids": [
+   "pa-2008-s.-calumet-avenue-56"
+  ],
+  "addresses": [
+   "2010 S. Calumet Avenue (barn of the Hanford house, 2008)"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "September 13, 1884 (vol. XVI no. 455, p. 181)",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Sept. 13, 1884, p. 181",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-09-13_16_455/page/n28/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-09-13_16_455, page index 28)",
+  "notes": "Hanford's two-storey barn/coach house (rear outbuilding).",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$3,500",
+    "locator": "p. 181"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1886-keith-1808-permit",
+  "kind": "permit record",
+  "title": "Building Intelligence: 'Chicago, Ill.—O. R. Keith, three-st'y dwell., Prairie Ave.; cost, $30,000; Cobb & Frost, architects.'",
+  "building_ids": [
+   "pa-1808-6"
+  ],
+  "addresses": [
+   "1808 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1886 (vol. XX no. 557, suppl. p. xii)",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. XX no. 557, suppl. p. xii",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1886-12-25_20_574/page/n197/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1886-12-25_20_574, page index 197)",
+  "notes": "National-press version of the 1886 Cobb & Frost commission (Inland Architect gives $40,000 and 38 × 80 ft).",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$30,000",
+    "locator": "AABN XX:557 p. xii"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1887-high-2021-rear-addition",
+  "kind": "permit record",
+  "title": "Building Intelligence: 'J. L. High, two-st'y rear addition, Prairie Ave.; cost, $5,000; architect, W. W. Clay.'",
+  "building_ids": [
+   "pa-2021-36"
+  ],
+  "addresses": [
+   "2021 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "1887 (vol. XXII no. 609, suppl. p. ii)",
+  "date_earliest": 1887,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. XXII no. 609, suppl. p. ii",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1887-12-31_22_627/page/n193/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1887-12-31_22_627, page index 193)",
+  "notes": "A two-storey rear addition to the Adams/High house by W. W. Clay — affects the rear massing in 1904.",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$5,000",
+    "locator": "p. ii"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1888-rees-2110-permit-notice",
+  "kind": "permit record",
+  "title": "Building Intelligence: 'H. F. Rees, three-st'y dwell., Prairie Ave.; cost, $20,000; architects, Cobb & Frost.'",
+  "building_ids": [
+   "pa-2110-30"
+  ],
+  "addresses": [
+   "2110 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "July 7, 1888 (vol. XXIV, p. xviii — date and page per the Rees NRHP nomination; found in the IA volume item for July–Dec. 1888)",
+  "date_earliest": 1888,
+  "date_latest": 1888,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. XXIV, July 7, 1888, p. xviii",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1888-12-29_24_679",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1888-12-29_24_679, page index None)",
+  "notes": "Confirms the nomination's citation; pairs with the city permit (dw-permit-1888-rees-2110-ledger-e-257). Page index not resolved (IA page-index file failed to download).",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$20,000",
+    "locator": "AABN July 7, 1888 p. xviii"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1889-dexter-1721-little-alteration",
+  "kind": "permit record",
+  "title": "Building Intelligence: 'Wirt Dexter, alteration to brick dwell., Prairie Ave., ball-room, den, hall and vestibule, old colonial …; contract to be let; architect, Arthur Little, Boston.'",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "June 1889 (vol. XXV no. 703, suppl. p. xiv)",
+  "date_earliest": 1889,
+  "date_latest": 1889,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN vol. XXV no. 703, suppl. p. xiv",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n669/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 669)",
+  "notes": "Explains the Arthur Little 'Colonial' Dexter house of the 1891 Inland Architect plate (dw-rb-inland-dexter-1721-plate): an 1889 remodelling of an existing brick house (earlier house credited to Charles A. Alexander).",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1889-mcbirney-1736-permit",
+  "kind": "permit record",
+  "title": "Building Intelligence: 'H. J. McBirney, three-st'y dwell., Prairie Ave.; … architects, Burling & Whitehouse.'",
+  "building_ids": [
+   "pa-1736-49"
+  ],
+  "addresses": [
+   "1736 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "June 1, 1889 (vol. XXV, suppl. p. xv)",
+  "date_earliest": 1889,
+  "date_latest": 1889,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN June 1, 1889, suppl. p. xv",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
+  "notes": "Permit notice for the McBirney house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image.",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1893-04-dexter-1721-plate-listing",
+  "kind": "document",
+  "title": "Illustrations: 'House of Mrs. Wirt Dexter, Prairie Ave., Chicago, Ill. Messrs. Little, Browne & Moore, Architects, Boston, Mass. (Gelatine Print, issued with the International and Imperial Editions only.)'",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "April 8, 1893 (vol. XL no. 902, p. 99)",
+  "date_earliest": 1893,
+  "date_latest": 1893,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Apr. 8, 1893, p. 99",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1893-04-08_40_902/page/n14/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1893-04-08_40_902, page index 14)",
+  "notes": "Lead: a gelatine print of the Dexter house exists in the International/Imperial editions of AABN (not in this regular-edition scan). Pair with the 1891 Inland Architect plate.",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1900-05-second-presbyterian-rebuild",
+  "kind": "document",
+  "title": "Advance rumors: 'The Second Presbyterian Church will erect a new temple at the corner of Michigan Ave. and 20th St., costing $80,000, to replace the one recently destroyed by fire.'",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "May 12, 1900 (vol. LXVIII no. 1272)",
+  "date_earliest": 1900,
+  "date_latest": 1900,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN May 12, 1900, Building Intelligence",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1900-05-12_68_1272/page/n25/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1900-05-12_68_1272, page index 25)",
+  "notes": "Post-fire rebuilding budget (March 1900 fire); Shaw's rebuild kept Renwick's walls.",
+  "measurements": [
+   {
+    "what": "rebuilding cost",
+    "value": "$80,000",
+    "locator": "AABN May 12, 1900"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1883-03-treat-foltz-prairie-near-16th",
+  "kind": "document",
+  "title": "'[Treat & Foltz have completed plans for] … a dwelling on Prairie Ave., near Sixteenth St., of pressed-brick and brownstone; to cost $21,000.'",
+  "building_ids": [],
+  "addresses": [
+   "Prairie Avenue near 16th Street"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "March 31, 1883 (vol. XIII, suppl. p. xi)",
+  "date_earliest": 1883,
+  "date_latest": 1883,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN Mar. 31, 1883, suppl. p. xi",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1883-06-30_13_392/page/n236/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1883-06-30_13_392, page index 236)",
+  "notes": "Unnamed client. Same spring the permit list shows W. G. Hibbard's 24 × 80 ft house at 1616 Prairie ($15,000; AABN item 1883-06-30, IA page 292, and Inland Architect — dw-inland-1883-hibbard-1616-permit) — possibly the same house; unresolved.",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1882-einstein-1628-barn-permit",
+  "kind": "permit record",
+  "title": "'Maurice Einstein, two-st'y brick barn, 25' x 38', 1628 Prairie Ave.; cost, $3,000.'",
+  "building_ids": [],
+  "addresses": [
+   "1628 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "May 6, 1882 (p. 216)",
+  "date_earliest": 1882,
+  "date_latest": 1882,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN May 6, 1882 (p. 216)",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1882-05-06_11_332/page/n23/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-05-06_11_332, page index 23)",
+  "notes": "Rear barn in the 1600 block (owner not in the building index).",
+  "measurements": [
+   {
+    "what": "barn",
+    "value": "25 ft × 38 ft, 2 storeys",
+    "locator": "AABN May 6, 1882 p. 216"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1884-shortall-1608-permit",
+  "kind": "permit record",
+  "title": "'J. G. Shortall, two-st'y dwell., 1608 Prairie Ave.; cost, $12,000.'",
+  "building_ids": [],
+  "addresses": [
+   "1608 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "August 2, 1884 (p. 59)",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN August 2, 1884 (p. 59)",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-08-02_16_449/page/n36/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-08-02_16_449, page index 36)",
+  "notes": "Same project as Inland Architect Aug. 1884 (vol. IV no. 1, IA leaf n15): 'Architect L. B. Dixon is building a residence for John G. Shortall, on Prairie avenue, near Sixteenth street, of variegated brownstone, basement of brick, slate roof, two stories above basement, cost about $12,000.' The building index lists a Shortall/Gregory house at 1638 by John W. Roberts — 1608 vs 1638 to be resolved (separate houses or renumbering).",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "2 above basement",
+    "locator": "Inland Architect IV:1 (Aug. 1884)"
+   },
+   {
+    "what": "cost",
+    "value": "$12,000",
+    "locator": "AABN Aug. 2, 1884 p. 59"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz",
+  "kind": "permit record",
+  "title": "'J. H. Hamlin, two-st'y dwell., 1621 Prairie Ave.; cost, $10,000; architects, Treat & Foltz' (Oct. 3, 1885); also 'G. Farwell, two-st'y dwell., 1626 Prairie Ave.; cost $10,000; architects, Treat & Foltz' (vol. XVIII)",
+  "building_ids": [],
+  "addresses": [
+   "1621 and 1626 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "October 3, 1885 (p. 167)",
+  "date_earliest": 1885,
+  "date_latest": 1885,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN October 3, 1885 (p. 167)",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1885-10-03_18_510/page/n32/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1885-10-03_18_510, page index 32)",
+  "notes": "Two Treat & Foltz houses of 1885 in the 1600 block not in the building index; Inland Architect gives Farwell's as 1625 Prairie, $11,000 (dw-inland-1885-11-farwell-1625-treat-foltz). The Farwell line is in the bound volume americanarchitec18newyuoft (IA page 302).",
+  "measurements": []
+ },
+ {
+  "id": "dw-aabn-1896-springer-flats-1625-1635",
+  "kind": "document",
+  "title": "'E. H. Turnock has plans for a $250,000 flat-building to be put up for Warren Springer, at 1625 to 1635 Prairie Ave.'",
+  "building_ids": [],
+  "addresses": [
+   "1625–1635 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "September 12, 1896",
+  "date_earliest": 1896,
+  "date_latest": 1896,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN September 12, 1896",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1896-09-26_54_1083/page/n294/mode/1up",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1896-09-26_54_1083, page index 294)",
+  "notes": "If built, a large apartment building replaced houses on the west side of the 1600 block (incl. 1625 Farwell) before 1904 — check the 1911 Sanborn sheets and 1904 directory.",
+  "measurements": [
+   {
+    "what": "cost",
+    "value": "$250,000",
+    "locator": "AABN Sept. 12, 1896"
+   }
+  ]
+ },
+ {
+  "id": "dw-aabn-1898-lowden-1712-addition",
+  "kind": "permit record",
+  "title": "'Chicago, Ill. — Prairie Ave., No. 1712, three-st'y bk. & st. addition to dwell., 40' x 50'; $30,000; o., Frank O. Lowden.'",
+  "building_ids": [],
+  "addresses": [
+   "1712 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "late 1898 (vol. LXII)",
+  "date_earliest": 1898,
+  "date_latest": 1898,
+  "period": "in-period",
+  "creator": "The American Architect and Building News (Boston)",
+  "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+  "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+  "call_number": "AABN late 1898 (vol. LXII)",
+  "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1898-12-31_62_1201",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1898-12-31_62_1201, page index None)",
+  "notes": "A substantial 1898 addition at 1712 Prairie for Frank O. Lowden (Pullman's son-in-law) — 1712 is not in the building index (between 1708 Thorne and 1720 Tyrrell/Walker); check whether this is the Pullman-adjacent house the Lowdens occupied before moving to 1912.",
+  "measurements": [
+   {
+    "what": "addition",
+    "value": "40 ft × 50 ft, 3 storeys, brick & stone",
+    "locator": "AABN vol. LXII (Dec. 1898 item)"
+   }
+  ]
  }
 ]

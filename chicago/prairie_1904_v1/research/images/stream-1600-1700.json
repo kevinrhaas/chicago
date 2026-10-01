@@ -1957,8 +1957,8 @@
   ],
   "streetscape": true,
   "view": "oblique front",
-  "facing": null,
-  "camera_position": "'view from NW' (holder); appears to be taken across the Prairie Avenue / 18th Street corner",
+  "facing": "northeast",
+  "camera_position": "holder says 'view from NW'; the content (Prairie Avenue front at left, 18th Street porte-cochère at right) shows it was taken from the south-west corner of Prairie and 18th",
   "date": "c.1890s (view date)",
   "date_earliest": 1890,
   "date_latest": 1899,
@@ -1974,7 +1974,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-  "notes": "Mounted J. W. Taylor print with Kodak gray scale in the scan: the brownstone mansard house with the 18th Street porte-cochère arch, low walls, bare elms and a wide earth intersection; the stable roof visible at right. 1890s state, essentially the 1904 exterior of the main block.",
+  "notes": "Mounted J. W. Taylor print (Kodak gray scale in the scan): the brownstone mansard house with the Prairie Avenue portico at left and the arched 18th Street porte-cochère at right, low stone walls, bare elms and a wide earth intersection; at right the low hipped-roof stable with arched openings (apparently before Beman's 1892 enlargement). Essentially the 1904 exterior of the main block.",
   "measurements": []
  },
  {
@@ -1989,11 +1989,11 @@
   ],
   "streetscape": true,
   "view": "street view",
-  "facing": null,
-  "camera_position": "on 18th Street (per content), looking at the east addition between gate piers",
-  "date": "c.1890–1910 (view date)",
+  "facing": "north",
+  "camera_position": "in 18th Street east of Prairie Avenue, looking north at the 1892 east addition",
+  "date": "c.1890–1910 (holder view date); content dates it 1892–May 1894",
   "date_earliest": 1892,
-  "date_latest": 1910,
+  "date_latest": 1894,
   "period": "in-period",
   "creator": "J. W. Taylor (Chicago)",
   "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (Architecture Photograph Collection)",
@@ -2006,7 +2006,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-  "notes": "Holder's description: 'west front, showing portion enclosing palm house and stable'. Shows the domed palm house and the hipped-roof stable framed by stone gate piers and large elms, with the drive/court in front — the 1892 Beman complex as it stood c.1900.",
+  "notes": "Holder's description: 'west front, showing portion enclosing palm house and stable'. The dead Fort Dearborn 'massacre tree' stands in the middle of the view (felled 18 May 1894) in front of Beman's 1892 domed palm house, terrace steps and balustrade, with the stable's hipped roof and arcaded bay at right, stone gate piers and a striped awning on the main house's 18th Street porch at left — so the photograph dates from 1892–94. Key image tying the tree, the monument site and the new addition together.",
   "measurements": []
  },
  {
@@ -2038,7 +2038,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-  "notes": "Holder: 'view from SW, showing palm house and stable'. A long view of the whole 18th Street frontage: main house at left, then the palm-house dome and the stable at right, the curved kerb of 18th Street in the foreground. The single best image for the full east–west length of the Pullman frontage on 18th Street c.1900.",
+  "notes": "Holder: 'view from SW, showing palm house and stable'. A long view of the whole 18th Street frontage across a broad lawn/roadway with a curved kerb: the mansard house at left, the low colonnaded palm-house range with its dome at centre, and the large hipped-roof stable with roof lantern at right. The single best image for the full east–west length of the Pullman frontage on 18th Street after 1892.",
   "measurements": []
  },
  {
@@ -2333,6 +2333,123 @@
   "verified": "viewed",
   "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
   "notes": "Holder: 'Prairie Avenue at 18th St., looking south. Includes: John J. Glessner Residence, Eastman Kodak Company Building (1939). House at NW corner may be A.A. Dewey Residence or Joseph E. Otis Residence.' Later evidence of the 1700/1800-block junction after the 1700 block's clearance; parked 1940s cars.",
+  "measurements": []
+ },
+ {
+  "id": "a16-inland-1889-09-adler-sullivan-dexter-addition",
+  "kind": "document",
+  "title": "Building news: Adler & Sullivan '...making plans for a front addition to the residence of Mr. Wirt Dexter' — The Inland Architect and News Record, vol. 14, no. 2 (September 1889)",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "September 1889",
+  "date_earliest": 1889,
+  "date_latest": 1889,
+  "period": "in-period",
+  "creator": "The Inland Architect and News Record",
+  "repository": "Internet Archive (Serials in Microfilm)",
+  "collection": "sim_inland-architect-and-news-record_1889-09_14_2",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_inland-architect-and-news-record_1889-09_14_2",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "US periodical published 1889 (pre-1931)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "bulk grep of IA OCR text of all 293 Inland Architect issues for owner names",
+  "notes": "Text (OCR, leaf ~12): 'Also making plans for a front addition to the residence of Mr. Wirt Dexter, to be three stories in height, 50 by 20 feet area, rock-faced stone, elaborate interior work; cost $25,000.' This is the Adler & Sullivan scheme the Glessner House 'Sullivan Part I' post says was not built; Arthur Little's executed addition (Inland Architect plate, June 1891) appears to be smooth/painted masonry. The 50 × 20 ft footprint and three-storey height are the best documented dimensions for the Dexter front block and plausibly held for the executed design (to be checked against the 1911 Sanborn sheet 20 and the Rand McNally 1893 strip).",
+  "measurements": [
+   {
+    "what": "proposed front addition (Adler & Sullivan scheme)",
+    "value": "3 storeys; 50 × 20 ft; rock-faced stone; $25,000",
+    "locator": "Inland Architect vol. 14 no. 2, Sept. 1889, building news (IA leaf ~12)"
+   }
+  ]
+ },
+ {
+  "id": "a16-inland-1888-06-alexander-obituary-dexter-harvey",
+  "kind": "document",
+  "title": "Obituary of architect Charles A. Alexander (died New York, May 21, 1888) — The Inland Architect and News Record, vol. 11, no. 7 (June 1888)",
+  "building_ids": [
+   "pa-1721-4",
+   "pa-1702-43"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue",
+   "1702 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "June 1888",
+  "date_earliest": 1888,
+  "date_latest": 1888,
+  "period": "in-period",
+  "creator": "The Inland Architect and News Record",
+  "repository": "Internet Archive (Serials in Microfilm)",
+  "collection": "sim_inland-architect-and-news-record_1888-06_11_7",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/sim_inland-architect-and-news-record_1888-06_11_7",
+  "image_url": null,
+  "rights": "public domain",
+  "rights_basis": "US periodical published 1888 (pre-1931)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "bulk grep of IA OCR text of all Inland Architect issues for 'Wirt Dexter' / 'T. W. Harvey'",
+  "notes": "'Of his work there are several good examples in Chicago, such as the residences of Wirt Dexter, T. W. Harvey, Edwin Walker, and that of Mr. Huntington, northwest corner of Michigan avenue and Sixteenth street.' Gives an architect attribution (Charles A. Alexander) for work on the Dexter house (pre-1889, i.e. the frame house or an earlier alteration) and for T. W. Harvey's house — very probably the 1880 Second Empire remodelling of the Staples house at 1702. New lead for both buildings' architect fields (not in building-research.json).",
+  "measurements": []
+ },
+ {
+  "id": "a16-albertype-1890-pullman-residence",
+  "kind": "publication plate",
+  "title": "Chicago Residences: Henry J. Sheldon — Geo. M. Pullman — J. V. Farwell — Potter Palmer — D. M. Wells — Archbishop Feehan (plate in Chicago Illustrated in Albertype)",
+  "building_ids": [
+   "pa-1729-5"
+  ],
+  "addresses": [
+   "1729 S. Prairie Avenue (top centre vignette)"
+  ],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": "northeast",
+  "camera_position": "from the south-west, across the Prairie Avenue / 18th Street corner",
+  "date": "1890 (publication)",
+  "date_earliest": 1888,
+  "date_latest": 1890,
+  "period": "in-period",
+  "creator": "Albertype Co., New York (collotype plates)",
+  "repository": "Internet Archive (digitised from University of Illinois at Chicago copy, CARLI)",
+  "collection": "Chicago illustrated in albertype (chicagoillustrat00albe)",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/chicagoillustrat00albe/page/n62/mode/1up",
+  "image_url": "https://archive.org/download/chicagoillustrat00albe/page/leaf63.jpg",
+  "rights": "public domain",
+  "rights_basis": "US publication of 1890 (pre-1931); IA: 'Public Domain assumed'",
+  "local": {
+   "display": "research/images/files/a16-albertype-1890-pullman-residence.jpg",
+   "display_bytes": 667238,
+   "thumb": "research/images/files/a16-albertype-1890-pullman-residence-thumb.jpg",
+   "thumb_bytes": 35938,
+   "original_px": [
+    3152,
+    1962
+   ],
+   "original_sha256": "03a22b60f2f28c484765745102343d1c85689a97fda50ab68c16cff04311cf3d",
+   "original_bytes": 977296,
+   "fetched_from": "https://archive.org/download/chicagoillustrat00albe/page/leaf63.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "archive.org Chicago view-book texts grep ('Geo. M. Pullman', leaf 63)",
+  "notes": "Six-vignette collotype plate; the top-centre view (captioned 'Geo. M. Pullman') shows the house from the south-west BEFORE Beman's 1892 east addition: brownstone mansard block with iron cresting, the Prairie Avenue portico with balustraded terrace, the 18th Street porte-cochère arch, low stone walls, young street trees and a planked crossing. Pre-1892 baseline for the main block (unchanged in 1904); the east wing visible in later views is absent here.",
   "measurements": []
  }
 ]

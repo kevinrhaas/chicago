@@ -9,9 +9,9 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 545,
-  "local": 120,
-  "in_period": 301,
+  "images": 580,
+  "local": 122,
+  "in_period": 332,
   "buildings_with_images": 62,
   "buildings": 62
  },
@@ -76,6 +76,7 @@
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-west-1700-1800",
+   "a16-inland-1888-06-alexander-obituary-dexter-harvey",
    "dw-inland-1888-06-alexander-obituary-dexter-harvey",
    "a16-ghm-blog-1702-staples"
   ],
@@ -91,10 +92,14 @@
    "st-randmcnally-1893-p233-west-1700-1800",
    "st-chicagology-prairie-avenue-1887-pullman-north",
    "a16-ghm-blog-1721-dexter-c1888",
+   "a16-inland-1888-06-alexander-obituary-dexter-harvey",
    "dw-inland-1888-06-alexander-obituary-dexter-harvey",
+   "a16-inland-1889-09-adler-sullivan-dexter-addition",
    "a16-inland-1891-dexter-residence",
+   "dw-aabn-1889-dexter-1721-little-alteration",
    "dw-rb-inland-dexter-1721-plate",
    "a16-pullman-det-4a08065",
+   "dw-aabn-1893-04-dexter-1721-plate-listing",
    "a16-chm-clark-ichi-071912-dexter-c1905"
   ],
   "pa-1729-5": [
@@ -119,6 +124,7 @@
    "a16-aic-taylor-album-pullman-p69",
    "a16-ghm-blog-massacre-tree-george-glessner-c1888",
    "a18-gh-kimball-lot-c1888",
+   "a16-albertype-1890-pullman-residence",
    "a16-aic-taylor-pullman-from-nw",
    "a16-kirkland-1893-massacre-tree-pullman-house",
    "a16-aic-lowe-pullman-drawing-room-plan-1891",
@@ -153,6 +159,7 @@
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-west-1700-1800",
    "a16-ghm-blog-1736-mcbirney-c1890",
+   "dw-aabn-1889-mcbirney-1736-permit",
    "dw-inland-1890-01-mcbirney-plate-listing",
    "dw-rb-inland-mcbirney-1736-plate",
    "a16-ghm-blog-1736-mcbirney-curbstone-2015"
@@ -169,7 +176,9 @@
    "st-picturesque-chicago-1892-prairie-avenue-text",
    "a18-gh-landowner-1874-plate",
    "st-landowner-1874-homes-of-prairie-avenue",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-cgy-1923-randmcnally-1893",
    "dw-field-1905-hunt-principal-floor-plan",
@@ -187,7 +196,9 @@
    "a19-field-cdn-dn0003324",
    "a19-cgy-1905-field-school",
    "a19-cgy-1905-field-1955",
-   "a19-cgy-1905-field-tribune-1955"
+   "a19-cgy-1905-field-tribune-1955",
+   "a19-gh-1955-field-demolition",
+   "a19-gh-1981-donnelley-warehouse-1905-site"
   ],
   "pa-2115-19": [
    "st-picturesque-chicago-1892-prairie-avenue-text",
@@ -197,10 +208,13 @@
   ],
   "pa-1834-9": [
    "dw-indchi-1891-v1-1867-wadskier-shortall",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-gh-1911-map-west-1800-block",
    "a18-gh-1935-donnelley-aerial",
    "a18-city1973-landmarks-report",
+   "a18-cgy-inter-ocean-1887-palace-avenue",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "a18-gh-1834-fernando-jones",
    "a18-eoc-10381"
   ],
@@ -208,8 +222,11 @@
    "dw-indchi-1891-v1-1867-wadskier-shortall",
    "a18-gh-landowner-1874-plate",
    "st-landowner-1874-homes-of-prairie-avenue",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "a18-eoc-10381",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation",
    "a19-gh-keith-1900-historic",
@@ -218,10 +235,13 @@
   ],
   "pa-1912-10": [
    "dw-indchi-1891-v1-1867-wadskier-shortall",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "a18-eoc-10381",
    "a19-cgy-1912-tribune-permit-1882",
    "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-cgy-1912-exterior",
    "a19-gh-prairie-1800-1900-elevations"
   ],
@@ -232,6 +252,7 @@
    "dw-monroe-1896-sherman-meyer-text",
    "a20-aic-ryerson-building-index-monographs",
    "a20-chicagology-2100-sherman-photo",
+   "dw-aabn-1876-04-15-sherman-2100-finished",
    "a20-aic-taylor-sherman-residence",
    "a20-chicagology-2110-rees-street-c1895",
    "a20-glessner-2100-block-west-side-1890s"
@@ -270,6 +291,7 @@
    "st-ghm-postcard-1908-prairie-south-at-18th",
    "st-picturesque-chicago-1892-prairie-avenue-p199",
    "a18-gh-glessner-front-with-keith",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-eoc-10382",
    "a18-rba-taylor-9974-prairie-south-from-18th",
    "a18-rba-lowe-taylor-9974-copy",
@@ -283,9 +305,11 @@
    "a18-gh-1808-porch-1965",
    "a18-gh-nickel-1967-1812-1808-1800",
    "a18-city1973-landmarks-report",
+   "a18-cgy-inter-ocean-1887-palace-avenue",
    "a18-gh-landowner-1874-glessner-site",
    "a18-cgy-1804-tribune-1885-sale",
    "a18-gh-courtyard-watercolor",
+   "a18-gh-glessner-main-hall-1885-rendering",
    "a18-glessner-habs-photo-12",
    "a18-glessner-houghton-gle-b1",
    "a18-glessner-houghton-gle-b2",
@@ -356,9 +380,11 @@
    "a18-gh-cornell-glessner-front-c1887",
    "a18-gh-cornell-glessner-rear-c1887",
    "a18-gh-glessner-exterior-historic",
+   "a18-gh-glessner-female-servants-entrance",
    "a18-gho-porte-cochere-doors-c1888",
    "a18-rba-ia-1888-glessner",
    "a18-rba-taylor-2135-glessner-ne-print2",
+   "a18-gh-glessner-main-hall-1888",
    "a18-rba-lowe-glessner-stable-18th-c1900",
    "a18-rba-glessner-library",
    "a18-rba-glessner-main-hall",
@@ -416,6 +442,7 @@
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-west-1700-1800",
    "a18-gh-kimball-lot-c1888",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-rba-reed-1941-prairie-north-from-1820",
    "st-chicagology-1941-prairie-at-18th",
    "a18-city1973-landmarks-report",
@@ -447,6 +474,7 @@
   "pa-1808-6": [
    "st-randmcnally-1893-p233-west-1700-1800",
    "a18-inland-architect-1886-09-keith-notice",
+   "dw-aabn-1886-keith-1808-permit",
    "dw-inland-1886-09-keith-1808-cobb-frost-report",
    "a18-gh-1800-block-looking-sw-c1888",
    "a18-gh-1800-block-sw-george-glessner",
@@ -462,6 +490,7 @@
    "st-ghm-postcard-1908-prairie-south-at-18th",
    "st-picturesque-chicago-1892-prairie-avenue-p199",
    "a18-gh-glessner-front-with-keith",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-eoc-10382",
    "a18-rba-taylor-9974-prairie-south-from-18th",
    "a18-rba-lowe-taylor-9974-copy",
@@ -483,6 +512,7 @@
   ],
   "pa-1811-24": [
    "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-rba-reed-1941-prairie-north-from-1820",
    "st-chicagology-1941-prairie-at-18th",
    "a18-city1973-landmarks-report",
@@ -503,6 +533,7 @@
    "st-flinn-1892-looking-south-prairie-from-18th",
    "st-ghm-postcard-1908-prairie-south-at-18th",
    "st-picturesque-chicago-1892-prairie-avenue-p199",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-eoc-10382",
    "a18-rba-taylor-9974-prairie-south-from-18th",
    "a18-rba-lowe-taylor-9974-copy",
@@ -519,7 +550,9 @@
   ],
   "pa-1815-12": [
    "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-city1973-landmarks-report",
+   "dw-aabn-1879-sears-1815-basement-permit",
    "a18-cgy-1815-sears-two-views",
    "a18-gh-sears-house-exterior",
    "a18-gh-sears-house-interior",
@@ -535,10 +568,12 @@
    "st-landowner-1874-homes-of-prairie-avenue",
    "a18-gh-1800-block-looking-sw-c1888",
    "a18-gh-1800-block-sw-george-glessner",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-rba-taylor-9974-prairie-south-from-18th",
    "a18-gh-1911-map-west-1800-block",
    "a18-gh-1935-donnelley-aerial",
    "a18-city1973-landmarks-report",
+   "a18-cgy-inter-ocean-1887-palace-avenue",
    "st-randmcnally-1893-p269-east-1800-1900",
    "a18-cgy-1816-henderson-photo"
   ],
@@ -553,27 +588,63 @@
   "pa-1936-11": [
    "a18-gh-landowner-1874-plate",
    "st-landowner-1874-homes-of-prairie-avenue",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "a18-eoc-10381",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-cgy-1936-tribune-1869",
    "a19-cgy-1936-thompson-etching",
    "a19-cgy-1936-thompson-photo",
    "a19-andreas-1886-prairie-20th",
-   "st-ghm-ward-1887-prairie-north-from-20th"
+   "st-ghm-ward-1887-prairie-north-from-20th",
+   "a19-gh-1981-gaylord-factory-1936-site"
+  ],
+  "pa-1823-13": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "a18-city1973-landmarks-report",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-monroe-1896-appendix-b-dent-sears",
+   "a18-cgy-1823-dent-engraving",
+   "dw-aabn-1881-11-dent-1823-permit"
   ],
   "pa-1824-8": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-gh-1911-map-west-1800-block",
    "a18-gh-1935-donnelley-aerial",
    "a18-city1973-landmarks-report",
    "a18-gh-pomeroy-house-italianate",
-   "st-randmcnally-1893-p269-east-1800-1900"
+   "dw-aabn-1881-marsh-1824-barn-permit",
+   "a18-cgy-inter-ocean-1887-palace-avenue",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936"
+  ],
+  "pa-1827-14": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "a18-city1973-landmarks-report",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-aabn-1881-03-doane-1827-permit",
+   "a18-artistic-houses-doane-hall-2",
+   "a18-cgy-1827-hall-interior",
+   "a18-cgy-1827-tribune-1882-description",
+   "a18-gh-doane-exterior",
+   "a18-gh-doane-stairhall",
+   "a18-rba-taylor-doane-hall-fixture",
+   "dw-rb-artistic-houses-doane-1827-hall-side",
+   "dw-rb-artistic-houses-doane-1827-hall-stair",
+   "a18-artistic-houses-doane-text",
+   "a18-cgy-1827-fire-1927"
   ],
   "pa-1900-25": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-gh-1911-map-west-1800-block",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "a18-eoc-10381",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
+   "a19-gh-1981-gaylord-factory-1936-site",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation",
    "a19-gh-keith-dining-room",
    "a19-gh-keith-1900-historic",
@@ -586,29 +657,11 @@
    "a19-cgy-1900-keith-exterior",
    "a19-cgy-1906-keith-photo"
   ],
-  "pa-1823-13": [
-   "a18-city1973-landmarks-report",
-   "st-randmcnally-1893-p269-east-1800-1900",
-   "dw-monroe-1896-appendix-b-dent-sears",
-   "a18-cgy-1823-dent-engraving"
-  ],
-  "pa-1827-14": [
-   "a18-city1973-landmarks-report",
-   "st-randmcnally-1893-p269-east-1800-1900",
-   "a18-artistic-houses-doane-hall-2",
-   "a18-cgy-1827-hall-interior",
-   "a18-cgy-1827-tribune-1882-description",
-   "a18-gh-doane-exterior",
-   "a18-gh-doane-stairhall",
-   "a18-rba-taylor-doane-hall-fixture",
-   "dw-rb-artistic-houses-doane-1827-hall-side",
-   "dw-rb-artistic-houses-doane-1827-hall-stair",
-   "a18-artistic-houses-doane-text",
-   "a18-cgy-1827-fire-1927"
-  ],
   "pa-1901-15": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
    "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-rebj-1886-ream-purchase",
    "dw-inland-1887-05-ream-1901-interior-contract",
@@ -619,22 +672,29 @@
    "a19-cgy-1901-exterior"
   ],
   "pa-1919-26": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-cgy-1923-randmcnally-1893",
    "a19-field-cdn-dn0003324",
+   "dw-aabn-1882-03-murray-1919-barn-permit",
    "a19-andreas-1886-prairie-north-from-20th",
    "a19-cgy-1919-before-1902",
    "a19-rebj-1884-murray-permit",
+   "dw-aabn-1884-murray-1919-beman-permit",
    "dw-inland-1884-06-murray-beman-plans",
    "dw-inland-1885-06-murray-1919-beman-report",
    "a19-bluebook-1912-gatlin-1919",
    "a19-cdnalmanac-1913-gatlin-1919",
    "a19-cgy-1919-later",
+   "a19-gh-1981-fieldjr-1919",
    "a19-commons-fieldjr-2004"
   ],
   "pa-1923-35": [
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-cgy-1923-randmcnally-1893",
    "a19-andreas-1886-prairie-north-from-20th"
@@ -670,6 +730,7 @@
   ],
   "pa-2021-36": [
    "a20-chicagology-robinson-1886-crops",
+   "dw-aabn-1887-high-2021-rear-addition",
    "a20-aic-reed-1941-2021-2033-prairie",
    "a20-chicagology-2021-high-photo"
   ],
@@ -722,6 +783,7 @@
    "a20-chicagology-2110-rees-street-c1895",
    "a20-glessner-2100-block-west-side-1890s",
    "a20-rees-landmark-report-1951-street-view",
+   "dw-aabn-1888-rees-2110-permit-notice",
    "dw-permit-1888-rees-2110-ledger-e-257",
    "a20-glessner-prairie-house-cafe-postcard",
    "a20-aic-rees-c1980s-photo",
@@ -776,6 +838,7 @@
    "a20-glessner-hanford-engraving",
    "a20-ia-1883-10-hanford-notice",
    "dw-inland-1883-12-hanford-plate",
+   "dw-aabn-1884-09-hanford-2010-calumet-barn-permit",
    "a20-ghm-simmerling-hanford-demolition-1953",
    "a20-glessner-hanford-excavation-2001"
   ],
@@ -792,6 +855,7 @@
    "a20-glessner-wheeler-entry-2012"
   ],
   "pa-213–217-e.-cullerton-street-27": [
+   "a19-rebj-1891-tardy-20th-near-prairie",
    "a19-jyoti-cullerton-106",
    "a19-jyoti-cullerton-220",
    "a19-jyoti-cullerton-222",
@@ -838,6 +902,7 @@
    "dw-rb-microfilm-second-presbyterian-renwick-frame-360",
    "dw-rb-microfilm-second-presbyterian-renwick-frame-362",
    "a19-andreas-1886-2ndpres",
+   "dw-aabn-1900-05-second-presbyterian-rebuild",
    "dw-rb-inland-second-presbyterian-shaw-interior-plate",
    "dw-rb-sketch-club-second-presbyterian-shaw-details",
    "dw-rb-sketch-club-second-presbyterian-shaw-interior",
@@ -1526,6 +1591,41 @@
    "stream": "1600-1700"
   },
   {
+   "id": "a16-inland-1888-06-alexander-obituary-dexter-harvey",
+   "kind": "document",
+   "title": "Obituary of architect Charles A. Alexander (died New York, May 21, 1888) — The Inland Architect and News Record, vol. 11, no. 7 (June 1888)",
+   "building_ids": [
+    "pa-1721-4",
+    "pa-1702-43"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue",
+    "1702 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "June 1888",
+   "date_earliest": 1888,
+   "date_latest": 1888,
+   "period": "in-period",
+   "creator": "The Inland Architect and News Record",
+   "repository": "Internet Archive (Serials in Microfilm)",
+   "collection": "sim_inland-architect-and-news-record_1888-06_11_7",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/sim_inland-architect-and-news-record_1888-06_11_7",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "US periodical published 1888 (pre-1931)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "bulk grep of IA OCR text of all Inland Architect issues for 'Wirt Dexter' / 'T. W. Harvey'",
+   "notes": "'Of his work there are several good examples in Chicago, such as the residences of Wirt Dexter, T. W. Harvey, Edwin Walker, and that of Mr. Huntington, northwest corner of Michigan avenue and Sixteenth street.' Gives an architect attribution (Charles A. Alexander) for work on the Dexter house (pre-1889, i.e. the frame house or an earlier alteration) and for T. W. Harvey's house — very probably the 1880 Second Empire remodelling of the Staples house at 1702. New lead for both buildings' architect fields (not in building-research.json).",
+   "measurements": [],
+   "stream": "1600-1700"
+  },
+  {
    "id": "dw-inland-1888-06-alexander-obituary-dexter-harvey",
    "kind": "document",
    "title": "Obituary of architect Charles A. Alexander (d. May 21, 1888): 'Of his work there are several good examples in Chicago, such as the residences of Wirt Dexter, T. W. Harvey, Edwin Walker, and that of Mr. Huntington…'",
@@ -1559,6 +1659,45 @@
    "notes": "Architect attribution lead: the Wirt Dexter (1721 Prairie) and T. W. Harvey (1702 Prairie, demolished before 1904) residences credited to Charles A. Alexander. The building index has no architect for either.",
    "measurements": [],
    "stream": "drawings"
+  },
+  {
+   "id": "a16-inland-1889-09-adler-sullivan-dexter-addition",
+   "kind": "document",
+   "title": "Building news: Adler & Sullivan '...making plans for a front addition to the residence of Mr. Wirt Dexter' — The Inland Architect and News Record, vol. 14, no. 2 (September 1889)",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "September 1889",
+   "date_earliest": 1889,
+   "date_latest": 1889,
+   "period": "in-period",
+   "creator": "The Inland Architect and News Record",
+   "repository": "Internet Archive (Serials in Microfilm)",
+   "collection": "sim_inland-architect-and-news-record_1889-09_14_2",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/sim_inland-architect-and-news-record_1889-09_14_2",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "US periodical published 1889 (pre-1931)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "bulk grep of IA OCR text of all 293 Inland Architect issues for owner names",
+   "notes": "Text (OCR, leaf ~12): 'Also making plans for a front addition to the residence of Mr. Wirt Dexter, to be three stories in height, 50 by 20 feet area, rock-faced stone, elaborate interior work; cost $25,000.' This is the Adler & Sullivan scheme the Glessner House 'Sullivan Part I' post says was not built; Arthur Little's executed addition (Inland Architect plate, June 1891) appears to be smooth/painted masonry. The 50 × 20 ft footprint and three-storey height are the best documented dimensions for the Dexter front block and plausibly held for the executed design (to be checked against the 1911 Sanborn sheet 20 and the Rand McNally 1893 strip).",
+   "measurements": [
+    {
+     "what": "proposed front addition (Adler & Sullivan scheme)",
+     "value": "3 storeys; 50 × 20 ft; rock-faced stone; $25,000",
+     "locator": "Inland Architect vol. 14 no. 2, Sept. 1889, building news (IA leaf ~12)"
+    }
+   ],
+   "stream": "1600-1700"
   },
   {
    "id": "a16-inland-1891-dexter-residence",
@@ -1607,6 +1746,39 @@
    "notes": "KEY FIND — the only located image of Arthur Little's 1889 Colonial Revival front addition that brought the Dexter house up nearly to the lot line (the frame 1863 house survived behind it). Shows a three-storey light-coloured brick (or painted) block with a bowed (swell) centre bay rising full height, shuttered sash windows, iron balconettes on the first floor, a two-column entrance porch with a balustraded balcony above, a modillioned cornice and a balustraded parapet over the roof, a tall chimney; at the left rear the older gabled frame block with bay windows; at right edge the mansard and cresting of the Pullman house. Low stone kerb wall and young elms along the sidewalk. This is the 1904 frontage of 1721 (per AIC street field '1721 S. Prairie Ave.'; later owner moved the addition back — after 1904). The 1911 Sanborn's 'two curved Prairie-facing bays' at 1719 may record the relocated block.",
    "measurements": [],
    "stream": "1600-1700"
+  },
+  {
+   "id": "dw-aabn-1889-dexter-1721-little-alteration",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'Wirt Dexter, alteration to brick dwell., Prairie Ave., ball-room, den, hall and vestibule, old colonial …; contract to be let; architect, Arthur Little, Boston.'",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "June 1889 (vol. XXV no. 703, suppl. p. xiv)",
+   "date_earliest": 1889,
+   "date_latest": 1889,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. XXV no. 703, suppl. p. xiv",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n669/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 669)",
+   "notes": "Explains the Arthur Little 'Colonial' Dexter house of the 1891 Inland Architect plate (dw-rb-inland-dexter-1721-plate): an 1889 remodelling of an existing brick house (earlier house credited to Charles A. Alexander).",
+   "measurements": [],
+   "stream": "drawings"
   },
   {
    "id": "dw-rb-inland-dexter-1721-plate",
@@ -1688,6 +1860,39 @@
    "notes": "Glass negative ('286' on negative; holder note 'Prarie Avenue'). Date bracket from Detroit Catalogue J (1901); the Fort Dearborn Massacre monument (erected 1893) is visible at the far right end of 18th Street, so the view is 1893 or later. The best in-period full view of the Pullman house's west (Prairie) and south (18th St) fronts: three-storey ashlar Second Empire block with mansard, iron roof cresting, pedimented dormers, ivy-covered walls, columned entrance porch on Prairie, corner/side porch on 18th, low stone-capped wall with piers along both sidewalks, lamp posts, young elms on parkway, unpaved/macadam roadway with stone crosswalk slabs and a carriage at the 18th St kerb. At the left edge, the neighbouring house to the north (1721 Prairie, Wirt Dexter house, identification by position) shows a broad columned front porch, gabled dormers and tall chimneys — useful for the Dexter house's 1889 Arthur Little front. Leafless trees: autumn/spring.",
    "measurements": [],
    "stream": "1600-1700"
+  },
+  {
+   "id": "dw-aabn-1893-04-dexter-1721-plate-listing",
+   "kind": "document",
+   "title": "Illustrations: 'House of Mrs. Wirt Dexter, Prairie Ave., Chicago, Ill. Messrs. Little, Browne & Moore, Architects, Boston, Mass. (Gelatine Print, issued with the International and Imperial Editions only.)'",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "April 8, 1893 (vol. XL no. 902, p. 99)",
+   "date_earliest": 1893,
+   "date_latest": 1893,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Apr. 8, 1893, p. 99",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1893-04-08_40_902/page/n14/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1893-04-08_40_902, page index 14)",
+   "notes": "Lead: a gelatine print of the Dexter house exists in the International/Imperial editions of AABN (not in this regular-edition scan). Pair with the 1891 Inland Architect plate.",
+   "measurements": [],
+   "stream": "drawings"
   },
   {
    "id": "a16-chm-clark-ichi-071912-dexter-c1905",
@@ -2178,6 +2383,52 @@
    "stream": "1800"
   },
   {
+   "id": "a16-albertype-1890-pullman-residence",
+   "kind": "publication plate",
+   "title": "Chicago Residences: Henry J. Sheldon — Geo. M. Pullman — J. V. Farwell — Potter Palmer — D. M. Wells — Archbishop Feehan (plate in Chicago Illustrated in Albertype)",
+   "building_ids": [
+    "pa-1729-5"
+   ],
+   "addresses": [
+    "1729 S. Prairie Avenue (top centre vignette)"
+   ],
+   "streetscape": false,
+   "view": "oblique front",
+   "facing": "northeast",
+   "camera_position": "from the south-west, across the Prairie Avenue / 18th Street corner",
+   "date": "1890 (publication)",
+   "date_earliest": 1888,
+   "date_latest": 1890,
+   "period": "in-period",
+   "creator": "Albertype Co., New York (collotype plates)",
+   "repository": "Internet Archive (digitised from University of Illinois at Chicago copy, CARLI)",
+   "collection": "Chicago illustrated in albertype (chicagoillustrat00albe)",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/chicagoillustrat00albe/page/n62/mode/1up",
+   "image_url": "https://archive.org/download/chicagoillustrat00albe/page/leaf63.jpg",
+   "rights": "public domain",
+   "rights_basis": "US publication of 1890 (pre-1931); IA: 'Public Domain assumed'",
+   "local": {
+    "display": "research/images/files/a16-albertype-1890-pullman-residence.jpg",
+    "display_bytes": 667238,
+    "thumb": "research/images/files/a16-albertype-1890-pullman-residence-thumb.jpg",
+    "thumb_bytes": 35938,
+    "original_px": [
+     3152,
+     1962
+    ],
+    "original_sha256": "03a22b60f2f28c484765745102343d1c85689a97fda50ab68c16cff04311cf3d",
+    "original_bytes": 977296,
+    "fetched_from": "https://archive.org/download/chicagoillustrat00albe/page/leaf63.jpg",
+    "fetched": "2026-10-01"
+   },
+   "verified": "viewed",
+   "found_via": "archive.org Chicago view-book texts grep ('Geo. M. Pullman', leaf 63)",
+   "notes": "Six-vignette collotype plate; the top-centre view (captioned 'Geo. M. Pullman') shows the house from the south-west BEFORE Beman's 1892 east addition: brownstone mansard block with iron cresting, the Prairie Avenue portico with balustraded terrace, the 18th Street porte-cochère arch, low stone walls, young street trees and a planked crossing. Pre-1892 baseline for the main block (unchanged in 1904); the east wing visible in later views is absent here.",
+   "measurements": [],
+   "stream": "1600-1700"
+  },
+  {
    "id": "a16-aic-taylor-pullman-from-nw",
    "kind": "photograph",
    "title": "Pullman, George M., Residence",
@@ -2189,8 +2440,8 @@
    ],
    "streetscape": true,
    "view": "oblique front",
-   "facing": null,
-   "camera_position": "'view from NW' (holder); appears to be taken across the Prairie Avenue / 18th Street corner",
+   "facing": "northeast",
+   "camera_position": "holder says 'view from NW'; the content (Prairie Avenue front at left, 18th Street porte-cochère at right) shows it was taken from the south-west corner of Prairie and 18th",
    "date": "c.1890s (view date)",
    "date_earliest": 1890,
    "date_latest": 1899,
@@ -2206,7 +2457,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-   "notes": "Mounted J. W. Taylor print with Kodak gray scale in the scan: the brownstone mansard house with the 18th Street porte-cochère arch, low walls, bare elms and a wide earth intersection; the stable roof visible at right. 1890s state, essentially the 1904 exterior of the main block.",
+   "notes": "Mounted J. W. Taylor print (Kodak gray scale in the scan): the brownstone mansard house with the Prairie Avenue portico at left and the arched 18th Street porte-cochère at right, low stone walls, bare elms and a wide earth intersection; at right the low hipped-roof stable with arched openings (apparently before Beman's 1892 enlargement). Essentially the 1904 exterior of the main block.",
    "measurements": [],
    "stream": "1600-1700"
   },
@@ -2357,7 +2608,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-   "notes": "Holder: 'view from SW, showing palm house and stable'. A long view of the whole 18th Street frontage: main house at left, then the palm-house dome and the stable at right, the curved kerb of 18th Street in the foreground. The single best image for the full east–west length of the Pullman frontage on 18th Street c.1900.",
+   "notes": "Holder: 'view from SW, showing palm house and stable'. A long view of the whole 18th Street frontage across a broad lawn/roadway with a curved kerb: the mansard house at left, the low colonnaded palm-house range with its dome at centre, and the large hipped-roof stable with roof lantern at right. The single best image for the full east–west length of the Pullman frontage on 18th Street after 1892.",
    "measurements": [],
    "stream": "1600-1700"
   },
@@ -2373,11 +2624,11 @@
    ],
    "streetscape": true,
    "view": "street view",
-   "facing": null,
-   "camera_position": "on 18th Street (per content), looking at the east addition between gate piers",
-   "date": "c.1890–1910 (view date)",
+   "facing": "north",
+   "camera_position": "in 18th Street east of Prairie Avenue, looking north at the 1892 east addition",
+   "date": "c.1890–1910 (holder view date); content dates it 1892–May 1894",
    "date_earliest": 1892,
-   "date_latest": 1910,
+   "date_latest": 1894,
    "period": "in-period",
    "creator": "J. W. Taylor (Chicago)",
    "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (Architecture Photograph Collection)",
@@ -2390,7 +2641,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "AIC CONTENTdm street-field query 'prairie' (mqc)",
-   "notes": "Holder's description: 'west front, showing portion enclosing palm house and stable'. Shows the domed palm house and the hipped-roof stable framed by stone gate piers and large elms, with the drive/court in front — the 1892 Beman complex as it stood c.1900.",
+   "notes": "Holder's description: 'west front, showing portion enclosing palm house and stable'. The dead Fort Dearborn 'massacre tree' stands in the middle of the view (felled 18 May 1894) in front of Beman's 1892 domed palm house, terrace steps and balustrade, with the stable's hipped roof and arcaded bay at right, stone gate piers and a striped awning on the main house's 18th Street porch at left — so the photograph dates from 1892–94. Key image tying the tree, the monument site and the new addition together.",
    "measurements": [],
    "stream": "1600-1700"
   },
@@ -3222,6 +3473,45 @@
    "stream": "1800"
   },
   {
+   "id": "dw-aabn-1886-keith-1808-permit",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'Chicago, Ill.—O. R. Keith, three-st'y dwell., Prairie Ave.; cost, $30,000; Cobb & Frost, architects.'",
+   "building_ids": [
+    "pa-1808-6"
+   ],
+   "addresses": [
+    "1808 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "1886 (vol. XX no. 557, suppl. p. xii)",
+   "date_earliest": 1886,
+   "date_latest": 1886,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. XX no. 557, suppl. p. xii",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1886-12-25_20_574/page/n197/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1886-12-25_20_574, page index 197)",
+   "notes": "National-press version of the 1886 Cobb & Frost commission (Inland Architect gives $40,000 and 38 × 80 ft).",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$30,000",
+     "locator": "AABN XX:557 p. xii"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
    "id": "dw-inland-1886-09-keith-1808-cobb-frost-report",
    "kind": "document",
    "title": "'Architects Cobb & Frost report: For C. [O.] R. Keith, three story dwelling, 38 by 80 feet, 1808 Prairie avenue, granite front; cost $40,000; John Angus, mason.'",
@@ -3864,6 +4154,60 @@
    "notes": "Square-on view of the long east (Prairie) front: granite, hipped slate roof with three chimneys, front door arch, small first-floor windows, young tree. The north wall/corner of 1808 at left. Blog caption: \"Osborne Keith's house (partially seen at far left, above) stood immediately to the south\". Date not given; period provisional.",
    "measurements": [],
    "stream": "1800"
+  },
+  {
+   "id": "a18-cgy-elevation-strip-1800-1900-blocks",
+   "kind": "architectural drawing",
+   "title": "\"East Side of Prairie Ave.\" / \"West Side of Prairie Ave.\" — measured-style street elevation drawing of the 1800 and 1900 blocks",
+   "building_ids": [
+    "pa-1800-22",
+    "pa-1801-23",
+    "pa-1808-6",
+    "pa-1811-24",
+    "pa-1812-7",
+    "pa-1815-12",
+    "pa-1816-33",
+    "pa-1823-13",
+    "pa-1824-8",
+    "pa-1827-14",
+    "pa-1834-9",
+    "pa-1900-25",
+    "pa-1901-15",
+    "pa-1905-16",
+    "pa-1906-34",
+    "pa-1912-10",
+    "pa-1919-26",
+    "pa-1923-35",
+    "pa-1936-11"
+   ],
+   "addresses": [
+    "1800 and 1900 blocks S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "street view",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated drawing (depicts the blocks c. 1890s–1914)",
+   "date_earliest": 1890,
+   "date_latest": 1990,
+   "period": "later",
+   "creator": null,
+   "repository": "Chicagology (chicagology.com) — secondary web compilation; original holder not named",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairieavenue.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Reproduced on chicagology.com without source or rights statement",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "chicagology.com Prairie Avenue main page (image postfire/prairieavenue.jpg, captioned there with the 1887 Inter Ocean text)",
+   "notes": "Two strips of flat front elevations drawn to a common scale. WEST SIDE (south→north, left→right): 1936 Allerton, 1912, 1906, 1900 Keith | 1834 Jones (two-storey with a mansard and central tower-dormer — consistent with the 1886 mansard addition), 1828 Shipman (small mansard), 1824 (large gabled stone front with bay — the Marsh refacing), 1816 Henderson (mansard with dormers), 1812 Wheeler (scrolled Flemish gable, round attic window), 1808 Keith (latticed parapet), 1800 Glessner (long, low, at far right). EAST SIDE (north→south, left→right as seen from the street): 1801 Kimball (château) with low service wing, 1811 Coleman (gable, arched entry), 1815 Sears/Meeker (mansard with gables), 1823 Dent (mansard), 1827 Doane (twin towers), then 1901, 1905 Field, 1919, 1923, 1945. Identification of each elevation is this researcher's reading from position and style (not captioned). Glessner House blog (2011, \"Business Encroachment on Prairie Avenue\") says the drawing \"shows the 1800 and 1900 blocks of Prairie Avenue as they appeared at the time\" of a 1914 Daily News article; author and date of the drawing are not stated — it looks like a modern reconstruction. The ONLY elevation-scale evidence found for 1816, 1823, 1824, 1828 and the post-1886 1834. Same drawing recorded by the 1900 stream from the blog (a19-gh-prairie-1800-1900-elevations). NOTE: the streetscape stream records the same chicagology image as st-chicagology-prairie-elevation-strips (no building ids); this record is kept for its per-house identification — merge the two.",
+   "measurements": [],
+   "stream": "1800",
+   "also_found_by": [
+    "streetscape"
+   ]
   },
   {
    "id": "a18-eoc-10382",
@@ -4516,7 +4860,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv B-city1973 (PDF read via pdftotext this session)",
-   "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted.",
+   "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted. NOTE: this is the TEXT record of the report; its two plates are recorded separately by the streetscape stream (st-cl1973-p23-kimball-corner-18th-looking-se, st-cl1973-p24-sidewalk-view-9974).",
    "measurements": [
     {
      "what": "1808 third-storey front",
@@ -4678,6 +5022,81 @@
    "stream": "1800"
   },
   {
+   "id": "dw-aabn-1881-marsh-1824-barn-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'G. B. Marsh, two-st'y brick barn, 30' x 50', 1824 Prairie Ave.; cost, $3,500.'",
+   "building_ids": [
+    "pa-1824-8"
+   ],
+   "addresses": [
+    "1824 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "1881 (vol. X; weekly page date not legible in OCR)",
+   "date_earliest": 1881,
+   "date_latest": 1881,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. X (bound with Dec. 31, 1881 item), IA page index 198",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-12-31_10_314/page/n198/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 198)",
+   "notes": "Rear brick barn/coach house for the Pomeroy/Marsh house — a rear outbuilding to place on the lot for 1904.",
+   "measurements": [
+    {
+     "what": "barn footprint",
+     "value": "30 ft × 50 ft, 2 storeys",
+     "locator": "AABN 1881, IA page 198"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
+   "id": "a18-cgy-inter-ocean-1887-palace-avenue",
+   "kind": "newspaper item",
+   "title": "\"Palace Avenue. Its More Plebian but Better Known Title of Prairie.\" (Chicago Inter Ocean, January 2, 1887) — transcription",
+   "building_ids": [
+    "pa-1816-33",
+    "pa-1834-9",
+    "pa-1824-8",
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 block S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "January 2, 1887",
+   "date_earliest": 1887,
+   "date_latest": 1887,
+   "period": "in-period",
+   "creator": null,
+   "repository": "Chicagology (chicagology.com) — secondary web compilation; original holder not named",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+   "image_url": null,
+   "rights": "unknown — link only",
+   "rights_basis": "Newspaper 1887 (public domain); transcription on chicagology.com",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "chicagology.com Prairie Avenue main page",
+   "notes": "House-by-house newspaper tour of Prairie Avenue (16th–22nd St). 1800-block passages: Charles M. Henderson \"has enjoyed his airy but substantially built mansion for many years\"; \"The Fernando Jones house has been improved and enlarged recently\" (supports the 1886 mansard addition at 1834); \"The light stone-front house, No. 1828, is a gem of artistic beauty\" (D. B. Shipman); \"Contiguous to Mr. Shipman's is the handsome brown stone…\" (1824); the Glessner house under construction (\"the northern wall… is unbroken\").",
+   "measurements": [],
+   "stream": "1800"
+  },
+  {
    "id": "st-randmcnally-1893-p269-east-1800-1900",
    "kind": "bird's-eye view",
    "title": "Prairie Avenue (looking North East) (Between 18th & 20th Streets) [east side, 1823–1945] — 'Views of Chicago', p. 269",
@@ -4738,6 +5157,57 @@
    "also_found_by": [
     "streetscape"
    ]
+  },
+  {
+   "id": "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "kind": "photograph",
+   "title": "Residences at Prairie Avenue and 18th Street (Charles R. Clark, circa 1905) — CHM ICHi-66015",
+   "building_ids": [
+    "pa-1936-11",
+    "pa-1912-10",
+    "pa-1906-34",
+    "pa-1900-25",
+    "pa-1834-9",
+    "pa-1824-8"
+   ],
+   "addresses": [
+    "1936–1900 S. Prairie Avenue (west side) and the 1800 block beyond"
+   ],
+   "streetscape": true,
+   "view": "street view",
+   "facing": "north",
+   "camera_position": "east side of Prairie Avenue roadway near 1936 (Allerton), looking north along the west side",
+   "date": "circa 1905",
+   "date_earliest": 1903,
+   "date_latest": 1907,
+   "period": "in-period",
+   "creator": "Charles R. Clark",
+   "repository": "Chicago History Museum (via CARLI Digital Collections)",
+   "collection": "Prints and Photographs Collection (Chicago History Museum); gift of Mrs. Charles R. Clark",
+   "call_number": "ICHi-66015; accession X.1667.1991; CHM cat. 4250",
+   "catalog_url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/1296",
+   "image_url": "https://collections.carli.illinois.edu/iiif/2/chm_pp:1296/full/full/0/default.jpg",
+   "rights": "no known restrictions",
+   "rights_basis": "CHM record: \"Copyright Notice: No known copyright restrictions\"; licensing inquiries to CHM Rights & Reproductions",
+   "local": {
+    "display": "research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936.jpg",
+    "display_bytes": 96863,
+    "thumb": "research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936-thumb.jpg",
+    "thumb_bytes": 19856,
+    "original_px": [
+     1200,
+     904
+    ],
+    "original_sha256": "8f31787ca7ebcabb5d701ef0a5efe398a1b1a0fa1d8c96a550e939c6f08157ce",
+    "original_bytes": 96855,
+    "fetched_from": "https://collections.carli.illinois.edu/iiif/2/chm_pp:1296/full/full/0/default.jpg",
+    "fetched": "2026-10-01"
+   },
+   "verified": "viewed",
+   "found_via": "CARLI CONTENTdm API search \"prairie avenue\" (collections.carli.illinois.edu), collection chm_pp",
+   "notes": "NEAREST-TO-1904 VIEW OF THE WEST SIDE SOUTH OF THE BLOCK: cellulose-nitrate negative c. 1905 (title says \"at 18th Street\" but description: \"west side of Prairie Avenue … north from the Allerton residence\"). Foreground: Allerton (1936) cornice at left edge, the rock-faced Romanesque house with corner turret and bay (1912), mansard and Italianate stone fronts of the 1900 block with high stoops and porches; in the distance the 1800-block west side (1834 Jones with mansard, 1828, 1824 …) recedes to 18th St. Wide paved roadway, narrow parkway with a sapling, stone sidewalks, a carriage. Identification of individual distant houses is tentative — compare with the Rand McNally 1893 street elevations. Almost certainly the image the Encyclopedia of Chicago lists as \"View of 1828-1936 S. Prairie Avenue (West Side), c.1905\" (a18-eoc-10381).",
+   "measurements": [],
+   "stream": "1800"
   },
   {
    "id": "a18-gh-1834-fernando-jones",
@@ -4887,6 +5357,46 @@
    "notes": "Names Treat & Foltz as architects of the B. P. Moulton house (1912 Prairie; later Lowden) and L. P. Dickson [Lavall B. Dixon] for O. R. Keith's house (1901 Prairie; later Ream). Interior-finish evidence only.",
    "measurements": [],
    "stream": "drawings"
+  },
+  {
+   "id": "a19-cgy-robinson-1886-crops-1900-block",
+   "kind": "atlas plate",
+   "title": "Robinson Fire Insurance Map 1886 — address crops for 1900, 1901, 1905, 1906, 1912, 1919, 1923, 1936 (and 1945) S. Prairie Avenue (Chicagology house pages)",
+   "building_ids": [
+    "pa-1900-25",
+    "pa-1901-15",
+    "pa-1905-16",
+    "pa-1906-34",
+    "pa-1912-10",
+    "pa-1919-26",
+    "pa-1923-35",
+    "pa-1936-11"
+   ],
+   "addresses": [
+    "1900–1945 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "map",
+   "facing": null,
+   "camera_position": null,
+   "date": "1886 (atlas); crops posted on Chicagology",
+   "date_earliest": 1886,
+   "date_latest": 1886,
+   "period": "in-period",
+   "creator": "E. Robinson (Robinson's Atlas of the City of Chicago, 1886); crops by Chicagology",
+   "repository": "Chicagology (chicagology.com) — secondary web reproduction",
+   "collection": "Chicagology: Prairie Avenue house pages",
+   "call_number": null,
+   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
+   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1905prairie1886map.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Secondary website crops of an 1886 atlas (the atlas itself is public domain; locate the original plate for reuse)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "chicagology.com Prairie Avenue house pages (each page ends with a '…Robinson Fire Insurance Map 1886' crop)",
+   "notes": "Each house page carries the same colour plate of the blocks between 16th/18th and 22nd Streets (Indiana–Prairie–Calumet) with an arrow on the house: brick (pink) and frame (yellow) footprints, lot lines and numbers; viewed for 1905 and 1936. Gives 1886 footprints and outbuildings (stables) for every house in this stream — pre-dates the 1902 Field Jr. enlargement and the 1887 Ream rebuild. Same-plate crops at …/chicagoimages9/{1900,1901,1906,1912,1919,1923,1936,1945}prairie1886map.jpg. Already listed in data/sources.csv for 1905 (pa-chicagology-1905prairie1886map). Stream-2000-2100 has the equivalent record for the 2000–2100 blocks; the full atlas sheet belongs with stream-streetscape.",
+   "measurements": [],
+   "stream": "1900"
   },
   {
    "id": "a19-cgy-1912-exterior",
@@ -5197,6 +5707,74 @@
    "notes": "Museum caption: 'The view shows Prairie Avenue looking north from 20th Street (now Cullerton Street)… the house at far left (1936 S. Prairie) was built for Daniel Thompson…' Tinted wood engraving: roadway drawn with a block (cedar-block) texture and a stone crossing at the intersection; a continuous row of bare (winter) parkway trees on both sides and a lamp post at the east-side parkway corner; low ornamental cast-iron fences on stone copings; high stoops; carriages and promenaders. The 1900-block east side mansard row and the Thompson tower house are recognisable. Seventeen years before 1904 — street furniture and paving may have changed (compare the 1908 postcard), building fronts largely persisted.",
    "measurements": [],
    "stream": "streetscape"
+  },
+  {
+   "id": "a19-gh-1981-gaylord-factory-1936-site",
+   "kind": "photograph",
+   "title": "The northwest corner of Prairie Avenue and Cullerton … occupied by the factory for Gaylord Products (1981)",
+   "building_ids": [
+    "pa-1936-11",
+    "pa-1900-25"
+   ],
+   "addresses": [
+    "1936 S. Prairie Avenue (site)",
+    "1900 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "street view",
+   "facing": "northwest",
+   "camera_position": null,
+   "date": "1981",
+   "date_earliest": 1981,
+   "date_latest": 1981,
+   "period": "later",
+   "creator": "unknown (photographs taken for the museum, 1981, per post)",
+   "repository": "Glessner House Museum (blog)",
+   "collection": "Glessner House blog 'Flashback 1981 – Glessner House and Prairie Avenue' (7 Jun 2016)",
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaxDOdt-wpkwpbC5zLVX3jYTop6o78UMAsY-ADtqT4pJ1CSIgRQM_RKSyqbr1Kyft0fR-MIPBDR7aL-NDdbvkKoK5br2bbNNGTfEw_-FY5RcYDlvCl4iDFBqSHZcGf-a90u7h1WIzORWs/s1600/Hump+Hairpin.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog reproduction; rights not stated",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com feed search 'hump hairpin'",
+   "notes": "The 1912–15 Hump Hairpin/Gaylord factory (Alfred S. Alschuler) that replaced the Thompson/Allerton house on the NW corner of Prairie and Cullerton, with its water tower; the mansard of the Keith house (1900) is just visible at the right edge. Shows what replaced 1936 after c.1915 — useful only to bound the Allerton lot (razed 1999 for Commonwealth on Prairie townhouses). Not the 1904 state.",
+   "measurements": [],
+   "stream": "1900"
+  },
+  {
+   "id": "dw-aabn-1879-sears-1815-basement-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'Prairie Ave., near Eighteenth St., basement for Joseph Sears; cost, $…'",
+   "building_ids": [
+    "pa-1815-12"
+   ],
+   "addresses": [
+    "Prairie Avenue near 18th Street"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "December 6, 1879 (vol. VI, suppl. p. vi)",
+   "date_earliest": 1879,
+   "date_latest": 1879,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Dec. 6, 1879, suppl. p. vi",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1879-12-27_6_209/page/n284/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1879-12-27_6_209, page index 284)",
+   "notes": "OCR garbled around the cost; a permit for the Sears house foundations in late 1879, before the Burnham & Root superstructure (Monroe lists the Sears residence among their 1882–91 works). Check the page image for the cost figure.",
+   "measurements": [],
+   "stream": "drawings"
   },
   {
    "id": "a18-cgy-1815-sears-two-views",
@@ -5540,6 +6118,99 @@
     }
    ],
    "stream": "1800"
+  },
+  {
+   "id": "dw-aabn-1881-11-dent-1823-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'W. [Thomas] Dent, three-st'y and basement brick dwell., 44' x 60', Prairie Ave., near Eighteenth St.; cost, $25,000.'",
+   "building_ids": [
+    "pa-1823-13"
+   ],
+   "addresses": [
+    "1823 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "November 5, 1881 (vol. X, suppl. p. ix)",
+   "date_earliest": 1881,
+   "date_latest": 1881,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Nov. 5, 1881, suppl. p. ix",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-12-31_10_314/page/n310/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 310)",
+   "notes": "Permit for the Dent house (Burnham & Root; cf. Monroe App. B). OCR reads 'W. Dent'; only Thomas Dent is known at this location — confirm on the page image.",
+   "measurements": [
+    {
+     "what": "footprint",
+     "value": "44 ft × 60 ft",
+     "locator": "AABN Nov. 5, 1881, suppl. p. ix"
+    },
+    {
+     "what": "storeys",
+     "value": "3 + basement",
+     "locator": "same"
+    },
+    {
+     "what": "cost",
+     "value": "$25,000",
+     "locator": "same"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
+   "id": "dw-aabn-1881-03-doane-1827-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'J. W. Doane, two-st'y brick dwell., Prairie Ave., near Eighteenth St.; cost, $100,000.'",
+   "building_ids": [
+    "pa-1827-14"
+   ],
+   "addresses": [
+    "1827 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "March 5, 1881 (vol. IX no. 271, p. 119)",
+   "date_earliest": 1881,
+   "date_latest": 1881,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Mar. 5, 1881, p. 119, 'Building Intelligence'",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1881-03-05_9_271/page/n28/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-03-05_9_271, page index 28)",
+   "notes": "Permit for the Doane house (architect T. V. Wadskier per the building index); the Artistic Houses interiors (dw-rb-artistic-houses-doane-1827-*) show it c. 1883–84.",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "2 (as permitted)",
+     "locator": "AABN Mar. 5, 1881 p. 119"
+    },
+    {
+     "what": "cost",
+     "value": "$100,000",
+     "locator": "same"
+    }
+   ],
+   "stream": "drawings"
   },
   {
    "id": "a18-artistic-houses-doane-hall-2",
@@ -6836,6 +7507,72 @@
    "stream": "1900"
   },
   {
+   "id": "a19-gh-1955-field-demolition",
+   "kind": "photograph",
+   "title": "[Marshall Field house, 1905 Prairie Avenue, during demolition, 1955] (file '13-07-22 1905 PA demolition')",
+   "building_ids": [
+    "pa-1905-16"
+   ],
+   "addresses": [
+    "1905 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": null,
+   "camera_position": null,
+   "date": "1955 (demolition, March 1955)",
+   "date_earliest": 1955,
+   "date_latest": 1955,
+   "period": "later",
+   "creator": "probably Jack Simmerling (the post says he travelled from Notre Dame to witness the demolition)",
+   "repository": "Glessner House Museum (blog)",
+   "collection": "Glessner House blog 'Jack Simmerling (1935–2013): A Tribute' (22 Jul 2013)",
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2013/07/jack-simmerling-1935-2013-tribute.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSvNPFCqQ63RnijWGqrt5pOJ9Ndbsd8fH6-n_6BV_z3avIoBMwVReT5mLqmWl0LI1sjsaWNxEj7kA3m7LqGBEZGqXjkjO2RzMyJkDahhha_jFUk5IWI4qHDauSFNoahezgqCpUq4MsZg4/s1600/13-07-22+1905+PA+demolition.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog reproduction; rights not stated",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com feed search 'marshall field jr'",
+   "notes": "Rubble of timber joists and masonry during the 1955 demolition — evidence of heavy timber floor framing and brick walls; no form information. Simmerling (artist, collector of Prairie Avenue fragments) is a lead: his collection/drawings of the Field house (Glessner House holds Simmerling material).",
+   "measurements": [],
+   "stream": "1900"
+  },
+  {
+   "id": "a19-gh-1981-donnelley-warehouse-1905-site",
+   "kind": "photograph",
+   "title": "A huge warehouse, erected by R. R. Donnelley, marked the site of the former Marshall Field mansion (1981)",
+   "building_ids": [
+    "pa-1905-16"
+   ],
+   "addresses": [
+    "1905 S. Prairie Avenue (site)"
+   ],
+   "streetscape": false,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1981",
+   "date_earliest": 1981,
+   "date_latest": 1981,
+   "period": "later",
+   "creator": "unknown (photographs taken for the museum, 1981, per post)",
+   "repository": "Glessner House Museum (blog)",
+   "collection": "Glessner House blog 'Flashback 1981'",
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRRRpeoIf3yHTQ7zNrtKKAwtzVV0touOfE4Le-MO0ISC7-N_fIbiIugHVwAL7EALJOYU0aj-ghxiaSvuku-BUNLS3NHQbHuao3UqNytXV0XZ0yUamIJ5_WKU9vTlFJdZFwa50V5QqydQo/s1600/1913+PA+warehouse.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog reproduction; rights not stated",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com feed search 'field mansion'",
+   "notes": "Post-1955 brick warehouse on the Field Sr. site (file name '1913 PA warehouse' presumably an address on the 1900 block's east side). Documents the site after demolition; no 1904 information except lot extent.",
+   "measurements": [],
+   "stream": "1900"
+  },
+  {
    "id": "a20-chicagology-robinson-1886-crops",
    "kind": "atlas plate",
    "title": "Robinson Fire Insurance Map 1886 (address crops, 2000–2140 S. Prairie)",
@@ -7367,6 +8104,39 @@
    "notes": "High-quality albumen-era photograph of the Burnham & Root Sherman house (completed 1876): two-and-a-half storeys of dark brick banded with light stone over a high rusticated stone basement, steep slate roofs with Gothic gabled dormers and iron cresting, a tall corner pavilion with conical/hipped slate roof and finial, carved chimney stacks, a front porch carried on clustered colonnettes reached by a curved stone stair with pierced balustrade, a side bay/oriel on the 21st Street flank, low stone-post-and-iron front fence, parkway trees, plank-guard tree boxes and stone sidewalk. A woman stands on the porch; two children sit at the curb. A numeral '4' is printed lower right (plate/series number). Chicagology gives no source; the CHM holds ICHi-001299 'Sherman house, 2100 Prairie, circa 1890' (marker credit) which may be this or a related view — unverified. Key reference for the 1904 massing; the house stood until 1936 so 1904 appearance should match unless altered after the photo. The same photograph is reproduced on the Glessner House blog ('Prairie Avenue and Louis Sullivan – Part I', 2020-06-02), which quotes Sullivan's Autobiography of an Idea describing the house 'nearing completion' on the SW corner of Prairie and 21st. ORIGINAL identified: J. W. Taylor albumen print at the Art Institute of Chicago (a20-aic-taylor-sherman-residence).",
    "measurements": [],
    "stream": "2000-2100"
+  },
+  {
+   "id": "dw-aabn-1876-04-15-sherman-2100-finished",
+   "kind": "document",
+   "title": "Chicago correspondence: 'Burnham & Root … have just finished the beautiful house of John B. Sherman, on the corner of Twenty-First Street and Prairie Avenue.'",
+   "building_ids": [
+    "pa-2100-18"
+   ],
+   "addresses": [
+    "2100 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "April 15, 1876 (vol. I no. 16, p. 126)",
+   "date_earliest": 1876,
+   "date_latest": 1876,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. I no. 16 (Apr. 15, 1876) p. 126",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1876-04-15_1_16/page/n11/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1876-04-15_1_16, page index 11)",
+   "notes": "Completion date (spring 1876) for the Sherman house; describes Burnham & Root as 'professed Gothic men', pupils of P. B. Wight.",
+   "measurements": [],
+   "stream": "drawings"
   },
   {
    "id": "a20-aic-taylor-sherman-residence",
@@ -7989,6 +8759,39 @@
    "verified": "viewed",
    "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
    "notes": "Watercolor of the south-facing court elevation with a glazed conservatory/bay, round stair turret, groom and horse in the court. Accompanies the Chicago Evening Journal (July 10, 1886) excerpt; author and date not stated on the page — treat as a design-stage rendering, not proof of as-built details (compare HABS photo 5, court c. 1923).",
+   "measurements": [],
+   "stream": "1800"
+  },
+  {
+   "id": "a18-gh-glessner-main-hall-1885-rendering",
+   "kind": "architectural drawing",
+   "title": "Rendering of the main hall, 1885 (Office of H. H. Richardson)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "interior",
+   "facing": null,
+   "camera_position": null,
+   "date": "1885",
+   "date_earliest": 1885,
+   "date_latest": 1885,
+   "period": "in-period",
+   "creator": "Office of H. H. Richardson",
+   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-ii-main-hall.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZ3Kk5kdIPutrLeDpVTtBneuxt400tSKqAALHPrDWGddI-S61MrHqFXXJEHHpPHR2W2ChJTy1Viwis-m8rxXJp8X9aD1l77zzDFOGAg8SKoqxJ_brSw7psG_9lDdz4HnJGN0OEeDzlGjw/s1600/1885+-+HHR+design.JPG",
+   "rights": "unknown — link only",
+   "rights_basis": "Drawing 1885 (public domain by age)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+   "notes": "Pen sketch inscribed \"Sketch for Hall, House of J. J. Glessner Esq., Chicago, Ill.\" — the fireplace with shelf of ceramics and the stair with landing. Design stage; compare with the 1888 photograph.",
    "measurements": [],
    "stream": "1800"
   },
@@ -10471,6 +11274,39 @@
    "stream": "1800"
   },
   {
+   "id": "a18-gh-glessner-female-servants-entrance",
+   "kind": "photograph",
+   "title": "Female servants' entrance at Glessner House (photograph by George Glessner)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue (18th Street front)"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": "south",
+   "camera_position": null,
+   "date": "c. 1888–1890s",
+   "date_earliest": 1887,
+   "date_latest": 1899,
+   "period": "in-period",
+   "creator": "George Glessner",
+   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdPppOpj39nAqx5_nBDsF7QPCI9ym4cqsXYMEJmj-ZDld4QpPNBQfQ5RhbLCyzDaVduoyTNuRYxA39MkMYLGw7Br7rliF0GJwukvUSig-Yugwws_n7trOLzrWcp58y8FUUquvp4HCToxw/s1600/Female+servants+entrance.JPG",
+   "rights": "unknown — link only",
+   "rights_basis": "Photograph by George Glessner (public domain by age)",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+   "notes": "Square-on view of the giant rough-granite voussoir arch over the female servants' entrance on 18th Street with its stone steps and a small window in which the cook's silhouette shows (post caption). Exact masonry evidence for the 18th Street front.",
+   "measurements": [],
+   "stream": "1800"
+  },
+  {
    "id": "a18-gho-porte-cochere-doors-c1888",
    "kind": "photograph",
    "title": "Porte cochere doors (photograph by George Glessner, about 1888)",
@@ -10566,6 +11402,39 @@
    "verified": "viewed",
    "found_via": "Art Institute CONTENTdm (artic.contentdm.oclc.org) API search, collection mqc, terms \"prairie avenue\", glessner, kimball, keith, coleman, doane, wheeler… 2026-10-01; item metadata via /digital/api/singleitem",
    "notes": "Second print of Taylor #2135 (uncaptioned mount). RBA caption/notes: Description: view from NE; Reference Sources: AIA 361-62; Date of Photographic View: c.1889",
+   "measurements": [],
+   "stream": "1800"
+  },
+  {
+   "id": "a18-gh-glessner-main-hall-1888",
+   "kind": "photograph",
+   "title": "Earliest known image of the main hall, 1888 (Photo by George Glessner)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "interior",
+   "facing": null,
+   "camera_position": null,
+   "date": "1888",
+   "date_earliest": 1888,
+   "date_latest": 1888,
+   "period": "in-period",
+   "creator": "George Glessner",
+   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-ii-main-hall.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxI2m9VCe6T7DdiflcocNmZTzN9NGbHg8M72RVCyxf7-zfZRsTinphzHLbyltCJ6rW4Fvnna3aaT2SB9EPyTtZSYIu1faUgOzO-6h1T3dhYVlC3w5W-5SMtKe9N8eLNjPxi5rss9j_ixs/s1600/1888+-+north.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Photograph 1888 by George Glessner (public domain by age); museum collection",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+   "notes": "Mounted print stamped \"GEO. M. GLESSNER, AMATEUR, CHICAGO\": the oak-panelled main hall with the stair, carpet runner, newel, rugs, gas sconces and furniture as first arranged. Pre-1892 electrification; best evidence for the hall as built.",
    "measurements": [],
    "stream": "1800"
   },
@@ -13597,6 +14466,45 @@
    "stream": "1900"
   },
   {
+   "id": "dw-aabn-1882-03-murray-1919-barn-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'W. H. McMurray [Murray], two-st'y barn, 28' x 36', 1919 Prairie Ave.; cost, $6,500.'",
+   "building_ids": [
+    "pa-1919-26"
+   ],
+   "addresses": [
+    "1919 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "March 25, 1882 (vol. XI no. 326, p. 144)",
+   "date_earliest": 1882,
+   "date_latest": 1882,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Mar. 25, 1882, p. 144",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1882-03-25_11_326/page/n19/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-03-25_11_326, page index 19)",
+   "notes": "Barn on the Murray lot built before the 1884–85 Beman house.",
+   "measurements": [
+    {
+     "what": "barn footprint",
+     "value": "28 ft × 36 ft, 2 storeys",
+     "locator": "AABN Mar. 25, 1882 p. 144"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
    "id": "a19-andreas-1886-prairie-north-from-20th",
    "kind": "engraving",
    "title": "Prairie Avenue, north from Twentieth Street",
@@ -13727,6 +14635,45 @@
     }
    ],
    "stream": "1900"
+  },
+  {
+   "id": "dw-aabn-1884-murray-1919-beman-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'Mrs. W. H. Murray, two-st'y dwell., 1919 Prairie Ave.; cost, $30,000; architect, S. S. Beman; builders, McDermott & O'Brien.'",
+   "building_ids": [
+    "pa-1919-26"
+   ],
+   "addresses": [
+    "1919 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "1884 (vol. XV, item dated June 21, 1884)",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. XV no. 443 item, IA page index 11",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-06-21_15_443/page/n11/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-06-21_15_443, page index 11)",
+   "notes": "Permit corresponding to the Beman design reported in Inland Architect (dw-inland-1884-06-murray-beman-plans; dw-inland-1885-06-murray-1919-beman-report).",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$30,000",
+     "locator": "AABN 1884 permit list"
+    }
+   ],
+   "stream": "drawings"
   },
   {
    "id": "dw-inland-1884-06-murray-beman-plans",
@@ -13952,6 +14899,45 @@
    "stream": "1900"
   },
   {
+   "id": "a19-gh-1981-fieldjr-1919",
+   "kind": "photograph",
+   "title": "Marshall Field Jr. house, 1919 S. Prairie Avenue (1981)",
+   "building_ids": [
+    "pa-1919-26"
+   ],
+   "addresses": [
+    "1919 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1981",
+   "date_earliest": 1981,
+   "date_latest": 1981,
+   "period": "later",
+   "creator": "unknown (photographs taken for the museum, 1981, per post)",
+   "repository": "Glessner House Museum (blog)",
+   "collection": "Glessner House blog 'Flashback 1981'",
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4yMQeO4-wqlfZU_BD-Zfq1CpWoD1ZhzFqtG9SbUUNBH9AHUszKWBSXSuP6kKyyaWpWBBoBZE-YK3NivO-KVQr2Q-S9rPHA6Dmfr4tywuq3lDE4qyKkYBrCXzbmitM_iHDP9687LjmAWc/s1600/Field+Jr+1981.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog reproduction; rights not stated",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com feed search 'marshall field jr'",
+   "notes": "The vacant, boarded Field Jr. house in 1981 seen from the side/alley: brick walls with stone trim, multiple gables, tall corbelled chimney, bay windows; the post says it was a 23,000 sq ft building recently sold and 'in dire need of renovation'. Massing is the post-1902 enlarged house that stood in 1904.",
+   "measurements": [
+    {
+     "what": "floor area (1981 newspaper figure)",
+     "value": "23,000 sq ft",
+     "locator": "blog text quoting Chicago Tribune 1981 'First steps in area revival'"
+    }
+   ],
+   "stream": "1900"
+  },
+  {
    "id": "a19-commons-fieldjr-2004",
    "kind": "photograph",
    "title": "Chicago 20041009 83 Marshall Field Mansion, Prairie Ave. (8635285351).jpg",
@@ -13983,6 +14969,48 @@
    "notes": "The Field Jr. house (1919) during its 2004–06 condominium conversion ('Marshall Field Mansion' sign, lift and dumpster): red brick and red sandstone, multiple gables, tall chimney, bay windows — the post-1902 enlarged form that stood in 1904 — with a new pale-stone townhouse building immediately north (on part of the former Field Sr. grounds). Iron fence modern. Good current reference for the surviving 1904 massing.",
    "measurements": [],
    "stream": "1900"
+  },
+  {
+   "id": "a19-rebj-1891-tardy-20th-near-prairie",
+   "kind": "newspaper item",
+   "title": "'Thomas & Rapp plans for a three story residence to be built on 20th street, near Prairie avenue, for Dr. Charles V. Tardy. Brown stone and pressed brick front … cost $12,000' (REBJ, 19 Sept 1891)",
+   "building_ids": [
+    "pa-213–217-e.-cullerton-street-27"
+   ],
+   "addresses": [
+    "E. 20th (Cullerton) Street near Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "September 19, 1891 (issue)",
+   "date_earliest": 1891,
+   "date_latest": 1891,
+   "period": "in-period",
+   "creator": "The Real Estate and Building Journal (Chicago)",
+   "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+   "collection": "The Real Estate and Building Journal v.33 no.2 (1891) — IA realestatebuildi3321unse",
+   "call_number": "issue of Sept. 19, 1891, architects' news column (IA search-inside leaf 421)",
+   "catalog_url": "https://archive.org/details/realestatebuildi3321unse",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in Chicago 1891",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "grep of the item's OCR text for 'Thomas & Rapp' and 'Twentieth st' (the 1890s name of Cullerton Street), confirmed with IA search-inside",
+   "notes": "A Thomas & Rapp design of 1891 on 20th (Cullerton) Street near Prairie — the AIC/Glessner sources date 213 E. Cullerton to 1891 by Thomas & Rapp, and 217 to 1892 by Thomas & Rapp; this notice is a CANDIDATE for 213 (brownstone-and-pressed-brick front matches the red sandstone/brick front of 213 today) but the address is not given — identification unconfirmed. Three storeys; $12,000; hardwood finish, hot-water heating, plate and bevelled glass.",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "REBJ 19 Sep 1891"
+    }
+   ],
+   "stream": "1900",
+   "also_found_by": [
+    "1900"
+   ]
   },
   {
    "id": "a19-jyoti-cullerton-106",
@@ -15456,6 +16484,45 @@
     }
    ],
    "stream": "2000-2100"
+  },
+  {
+   "id": "dw-aabn-1888-rees-2110-permit-notice",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'H. F. Rees, three-st'y dwell., Prairie Ave.; cost, $20,000; architects, Cobb & Frost.'",
+   "building_ids": [
+    "pa-2110-30"
+   ],
+   "addresses": [
+    "2110 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "July 7, 1888 (vol. XXIV, p. xviii — date and page per the Rees NRHP nomination; found in the IA volume item for July–Dec. 1888)",
+   "date_earliest": 1888,
+   "date_latest": 1888,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. XXIV, July 7, 1888, p. xviii",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1888-12-29_24_679",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1888-12-29_24_679, page index None)",
+   "notes": "Confirms the nomination's citation; pairs with the city permit (dw-permit-1888-rees-2110-ledger-e-257). Page index not resolved (IA page-index file failed to download).",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$20,000",
+     "locator": "AABN July 7, 1888 p. xviii"
+    }
+   ],
+   "stream": "drawings"
   },
   {
    "id": "dw-permit-1888-rees-2110-ledger-e-257",
@@ -16934,6 +18001,45 @@
    "notes": "Engraving on p. 797 showing Renwick's church BEFORE the 1900 fire and before the tower's steeple was completed (tower completed 1884 per the 1976 landmark report): steep nave roof, ROSE WINDOW in the east gable, buttressed south flank with tall pointed windows, the SE tower truncated, iron fence, young trees, carriage on Michigan Avenue. Text: 'clere-story Gothic … with nave and side-aisles … built of bituminous limestone, with bands of weatherings and arches of lighter sandstone. A massive tower stands on the southeast corner'; dedicated 7 June 1874; organ cost $10,000. Shows what the 1900–01 rebuild changed (rose window, roof pitch); not the 1904 roofline.",
    "measurements": [],
    "stream": "1900"
+  },
+  {
+   "id": "dw-aabn-1900-05-second-presbyterian-rebuild",
+   "kind": "document",
+   "title": "Advance rumors: 'The Second Presbyterian Church will erect a new temple at the corner of Michigan Ave. and 20th St., costing $80,000, to replace the one recently destroyed by fire.'",
+   "building_ids": [
+    "pa-1936-s.-michigan-avenue-32"
+   ],
+   "addresses": [
+    "1936 S. Michigan Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "May 12, 1900 (vol. LXVIII no. 1272)",
+   "date_earliest": 1900,
+   "date_latest": 1900,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN May 12, 1900, Building Intelligence",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1900-05-12_68_1272/page/n25/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1900-05-12_68_1272, page index 25)",
+   "notes": "Post-fire rebuilding budget (March 1900 fire); Shaw's rebuild kept Renwick's walls.",
+   "measurements": [
+    {
+     "what": "rebuilding cost",
+     "value": "$80,000",
+     "locator": "AABN May 12, 1900"
+    }
+   ],
+   "stream": "drawings"
   },
   {
    "id": "dw-rb-inland-second-presbyterian-shaw-interior-plate",
@@ -18578,6 +19684,45 @@
    "stream": "1900"
   },
   {
+   "id": "dw-aabn-1887-high-2021-rear-addition",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'J. L. High, two-st'y rear addition, Prairie Ave.; cost, $5,000; architect, W. W. Clay.'",
+   "building_ids": [
+    "pa-2021-36"
+   ],
+   "addresses": [
+    "2021 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "1887 (vol. XXII no. 609, suppl. p. ii)",
+   "date_earliest": 1887,
+   "date_latest": 1887,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN vol. XXII no. 609, suppl. p. ii",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1887-12-31_22_627/page/n193/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1887-12-31_22_627, page index 193)",
+   "notes": "A two-storey rear addition to the Adams/High house by W. W. Clay — affects the rear massing in 1904.",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$5,000",
+     "locator": "p. ii"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
    "id": "a20-aic-reed-1941-2021-2033-prairie",
    "kind": "photograph",
    "title": "Prairie Avenue [approximately 2021–2033 S. Prairie Ave. at 21st St., looking northeast]",
@@ -19017,6 +20162,39 @@
    "stream": "1600-1700"
   },
   {
+   "id": "dw-aabn-1889-mcbirney-1736-permit",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'H. J. McBirney, three-st'y dwell., Prairie Ave.; … architects, Burling & Whitehouse.'",
+   "building_ids": [
+    "pa-1736-49"
+   ],
+   "addresses": [
+    "1736 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "June 1, 1889 (vol. XXV, suppl. p. xv)",
+   "date_earliest": 1889,
+   "date_latest": 1889,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN June 1, 1889, suppl. p. xv",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
+   "notes": "Permit notice for the McBirney house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image.",
+   "measurements": [],
+   "stream": "drawings"
+  },
+  {
    "id": "dw-inland-1890-01-mcbirney-plate-listing",
    "kind": "document",
    "title": "Inland Architect plate list, Jan. 1890: 'Residence for Mr. Hugh J. McBirney, Chicago; Burling & Whitehouse, architects.'",
@@ -19410,6 +20588,45 @@
    "found_via": "IA OCR caption scan ('RESIDENCE OF P. C. HANFORD'); also bound volume inlandarc114518831884west leaf 157",
    "notes": "Pen perspective (printed sideways) of the design: three-storey stone house with steep pyramidal/hipped roof, gabled dormers, tall chimneys with finials, corner tower-like bay, round-arched oriel, entrance porch with steps at the left end. A design rendering published before/at construction — check against later photographs for as-built differences. Interiors by Isaac Scott (building index).",
    "measurements": [],
+   "stream": "drawings"
+  },
+  {
+   "id": "dw-aabn-1884-09-hanford-2010-calumet-barn-permit",
+   "kind": "permit record",
+   "title": "Chicago building permits: 'P. C. Hanford, two-st'y barn, 2010 Calumet Ave.; cost, $3,500.'",
+   "building_ids": [
+    "pa-2008-s.-calumet-avenue-56"
+   ],
+   "addresses": [
+    "2010 S. Calumet Avenue (barn of the Hanford house, 2008)"
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "September 13, 1884 (vol. XVI no. 455, p. 181)",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Sept. 13, 1884, p. 181",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-09-13_16_455/page/n28/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-09-13_16_455, page index 28)",
+   "notes": "Hanford's two-storey barn/coach house (rear outbuilding).",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$3,500",
+     "locator": "p. 181"
+    }
+   ],
    "stream": "drawings"
   },
   {
@@ -19896,6 +21113,74 @@
    "stream": "streetscape"
   },
   {
+   "id": "dw-aabn-1882-einstein-1628-barn-permit",
+   "kind": "permit record",
+   "title": "'Maurice Einstein, two-st'y brick barn, 25' x 38', 1628 Prairie Ave.; cost, $3,000.'",
+   "building_ids": [],
+   "addresses": [
+    "1628 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "May 6, 1882 (p. 216)",
+   "date_earliest": 1882,
+   "date_latest": 1882,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN May 6, 1882 (p. 216)",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1882-05-06_11_332/page/n23/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-05-06_11_332, page index 23)",
+   "notes": "Rear barn in the 1600 block (owner not in the building index).",
+   "measurements": [
+    {
+     "what": "barn",
+     "value": "25 ft × 38 ft, 2 storeys",
+     "locator": "AABN May 6, 1882 p. 216"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
+   "id": "dw-aabn-1883-03-treat-foltz-prairie-near-16th",
+   "kind": "document",
+   "title": "'[Treat & Foltz have completed plans for] … a dwelling on Prairie Ave., near Sixteenth St., of pressed-brick and brownstone; to cost $21,000.'",
+   "building_ids": [],
+   "addresses": [
+    "Prairie Avenue near 16th Street"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "March 31, 1883 (vol. XIII, suppl. p. xi)",
+   "date_earliest": 1883,
+   "date_latest": 1883,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN Mar. 31, 1883, suppl. p. xi",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1883-06-30_13_392/page/n236/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1883-06-30_13_392, page index 236)",
+   "notes": "Unnamed client. Same spring the permit list shows W. G. Hibbard's 24 × 80 ft house at 1616 Prairie ($15,000; AABN item 1883-06-30, IA page 292, and Inland Architect — dw-inland-1883-hibbard-1616-permit) — possibly the same house; unresolved.",
+   "measurements": [],
+   "stream": "drawings"
+  },
+  {
    "id": "dw-inland-1883-hibbard-1616-permit",
    "kind": "permit record",
    "title": "Building-permit list: 'W. G. Hibbard, two story and basement brick dwelling, 24 by 80 by 30, 1616 Prairie avenue … 15,000'",
@@ -19935,6 +21220,79 @@
      "locator": "same"
     }
    ],
+   "stream": "drawings"
+  },
+  {
+   "id": "dw-aabn-1884-shortall-1608-permit",
+   "kind": "permit record",
+   "title": "'J. G. Shortall, two-st'y dwell., 1608 Prairie Ave.; cost, $12,000.'",
+   "building_ids": [],
+   "addresses": [
+    "1608 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "August 2, 1884 (p. 59)",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN August 2, 1884 (p. 59)",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1884-08-02_16_449/page/n36/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-08-02_16_449, page index 36)",
+   "notes": "Same project as Inland Architect Aug. 1884 (vol. IV no. 1, IA leaf n15): 'Architect L. B. Dixon is building a residence for John G. Shortall, on Prairie avenue, near Sixteenth street, of variegated brownstone, basement of brick, slate roof, two stories above basement, cost about $12,000.' The building index lists a Shortall/Gregory house at 1638 by John W. Roberts — 1608 vs 1638 to be resolved (separate houses or renumbering).",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "2 above basement",
+     "locator": "Inland Architect IV:1 (Aug. 1884)"
+    },
+    {
+     "what": "cost",
+     "value": "$12,000",
+     "locator": "AABN Aug. 2, 1884 p. 59"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
+   "id": "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz",
+   "kind": "permit record",
+   "title": "'J. H. Hamlin, two-st'y dwell., 1621 Prairie Ave.; cost, $10,000; architects, Treat & Foltz' (Oct. 3, 1885); also 'G. Farwell, two-st'y dwell., 1626 Prairie Ave.; cost $10,000; architects, Treat & Foltz' (vol. XVIII)",
+   "building_ids": [],
+   "addresses": [
+    "1621 and 1626 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "October 3, 1885 (p. 167)",
+   "date_earliest": 1885,
+   "date_latest": 1885,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN October 3, 1885 (p. 167)",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1885-10-03_18_510/page/n32/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1885-10-03_18_510, page index 32)",
+   "notes": "Two Treat & Foltz houses of 1885 in the 1600 block not in the building index; Inland Architect gives Farwell's as 1625 Prairie, $11,000 (dw-inland-1885-11-farwell-1625-treat-foltz). The Farwell line is in the bound volume americanarchitec18newyuoft (IA page 302).",
+   "measurements": [],
    "stream": "drawings"
   },
   {
@@ -20602,6 +21960,75 @@
    "stream": "streetscape"
   },
   {
+   "id": "a18-gh-shipman-1828-with-automobile",
+   "kind": "photograph",
+   "title": "Daniel B. Shipman house, 1828 S. Prairie Avenue, with an early automobile",
+   "building_ids": [],
+   "addresses": [
+    "1828 S. Prairie Avenue",
+    "1824 S. Prairie Avenue (neighbour at right, probably)"
+   ],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": "west",
+   "camera_position": "east side of Prairie Avenue roadway, opposite 1828",
+   "date": "c. 1897–1906 (chicagology captions it \"about 1897\"; the runabout suggests c. 1900–1905)",
+   "date_earliest": 1896,
+   "date_latest": 1906,
+   "period": "in-period",
+   "creator": null,
+   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+   "collection": null,
+   "call_number": null,
+   "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_gjxlytGWc2IycwWDAkySurZ86bqK7mQIOVV7sbaIQjp_0DrjDqptLeh1Cxl3vSkJb8TkJmk6ZpUlYO1CdSCtcyWD9V_EcoL3vBD4q3MbdNSBDwEJhfZIqDIfnq9B2mJ9sUjbY3UhHis/s1600/Shipman+house+1828+PA.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+   "notes": "Street-level photograph of the W. W. Boyington Second Empire house (1874) at 1828 Prairie (no building id in this library's index — it stands between 1824 Marsh and 1834 Jones): stone front, bracketed hooded entrance porch on columns, high stoop with stone balustrade, iron fence on a stone curb, unpaved/dirt carriageway with stone curb and a parkway with a young tree; a man in a curved-dash-type runabout in the street. The house at right (north), with stacked bay windows and carved stone, is probably 1824 (Marsh, refaced c. 1880). Automobile dates the image to the early 1900s — one of the closest views to 1904 for the west side of the 1800 block. Shipman died 1906. Same photograph on chicagology.com/chicagostreets/prairieavenue/1828prairie/ captioned \"1828 S. Prairie Ave. About 1897\".",
+   "measurements": [],
+   "stream": "1800"
+  },
+  {
+   "id": "dw-aabn-1896-springer-flats-1625-1635",
+   "kind": "document",
+   "title": "'E. H. Turnock has plans for a $250,000 flat-building to be put up for Warren Springer, at 1625 to 1635 Prairie Ave.'",
+   "building_ids": [],
+   "addresses": [
+    "1625–1635 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "September 12, 1896",
+   "date_earliest": 1896,
+   "date_latest": 1896,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN September 12, 1896",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1896-09-26_54_1083/page/n294/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": null,
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1896-09-26_54_1083, page index 294)",
+   "notes": "If built, a large apartment building replaced houses on the west side of the 1600 block (incl. 1625 Farwell) before 1904 — check the 1911 Sanborn sheets and 1904 directory.",
+   "measurements": [
+    {
+     "what": "cost",
+     "value": "$250,000",
+     "locator": "AABN Sept. 12, 1896"
+    }
+   ],
+   "stream": "drawings"
+  },
+  {
    "id": "st-uchicago-blanchard-1897-street-car-lines-se",
    "kind": "document",
    "title": "New map showing street car lines … [Rufus Blanchard], SE sheet",
@@ -20633,36 +22060,41 @@
    "stream": "streetscape"
   },
   {
-   "id": "a18-gh-shipman-1828-with-automobile",
-   "kind": "photograph",
-   "title": "Daniel B. Shipman house, 1828 S. Prairie Avenue, with an early automobile",
+   "id": "dw-aabn-1898-lowden-1712-addition",
+   "kind": "permit record",
+   "title": "'Chicago, Ill. — Prairie Ave., No. 1712, three-st'y bk. & st. addition to dwell., 40' x 50'; $30,000; o., Frank O. Lowden.'",
    "building_ids": [],
    "addresses": [
-    "1828 S. Prairie Avenue",
-    "1824 S. Prairie Avenue (neighbour at right, probably)"
+    "1712 S. Prairie Avenue"
    ],
    "streetscape": true,
-   "view": "oblique front",
-   "facing": "west",
-   "camera_position": "east side of Prairie Avenue roadway, opposite 1828",
-   "date": "c. 1902–1906 (from the automobile)",
-   "date_earliest": 1900,
-   "date_latest": 1910,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "late 1898 (vol. LXII)",
+   "date_earliest": 1898,
+   "date_latest": 1898,
    "period": "in-period",
-   "creator": null,
-   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
-   "collection": null,
-   "call_number": null,
-   "catalog_url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
-   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_gjxlytGWc2IycwWDAkySurZ86bqK7mQIOVV7sbaIQjp_0DrjDqptLeh1Cxl3vSkJb8TkJmk6ZpUlYO1CdSCtcyWD9V_EcoL3vBD4q3MbdNSBDwEJhfZIqDIfnq9B2mJ9sUjbY3UhHis/s1600/Shipman+house+1828+PA.jpg",
-   "rights": "unknown — link only",
-   "rights_basis": "Historic image reproduced by Glessner House Museum without a rights statement; original holder not named on the page",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN late 1898 (vol. LXII)",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1898-12-31_62_1201",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
    "local": null,
    "verified": "viewed",
-   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-   "notes": "Street-level photograph of the W. W. Boyington Second Empire house (1874) at 1828 Prairie (no building id in this library's index — it stands between 1824 Marsh and 1834 Jones): stone front, bracketed hooded entrance porch on columns, high stoop with stone balustrade, iron fence on a stone curb, unpaved/dirt carriageway with stone curb and a parkway with a young tree; a man in a curved-dash-type runabout in the street. The house at right (north), with stacked bay windows and carved stone, is probably 1824 (Marsh, refaced c. 1880). Automobile dates the image to the early 1900s — one of the closest views to 1904 for the west side of the 1800 block. Shipman died 1906.",
-   "measurements": [],
-   "stream": "1800"
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1898-12-31_62_1201, page index None)",
+   "notes": "A substantial 1898 addition at 1712 Prairie for Frank O. Lowden (Pullman's son-in-law) — 1712 is not in the building index (between 1708 Thorne and 1720 Tyrrell/Walker); check whether this is the Pullman-adjacent house the Lowdens occupied before moving to 1912.",
+   "measurements": [
+    {
+     "what": "addition",
+     "value": "40 ft × 50 ft, 3 storeys, brick & stone",
+     "locator": "AABN vol. LXII (Dec. 1898 item)"
+    }
+   ],
+   "stream": "drawings"
   },
   {
    "id": "st-uchicago-1902-surface-street-railroads",
@@ -21197,37 +22629,6 @@
    "notes": "Front of the William Armour house (between Reid 2013 and Adams/High 2021): smooth brick/stone front with crenellated cornice, steep front gable with paired windows, gabled dormers, entrance porch with colonnettes and balustraded deck, high stoop with iron railing. Not in the buildings index but stands between two indexed houses; the same house appears at the right edge of the Reid plate (a20-chicagology-2013-reid-ia1895).",
    "measurements": [],
    "stream": "2000-2100"
-  },
-  {
-   "id": "st-chicagology-prairie-elevation-strips",
-   "kind": "architectural drawing",
-   "title": "East Side of Prairie Ave. / West Side of Prairie Ave. [elevation strips; chicagology \"Prairie Avenue\"]",
-   "building_ids": [],
-   "addresses": [
-    "S. Prairie Avenue (block not stated)"
-   ],
-   "streetscape": true,
-   "view": "front elevation",
-   "facing": null,
-   "camera_position": null,
-   "date": "undated (appears to be a later reconstruction drawing)",
-   "date_earliest": null,
-   "date_latest": null,
-   "period": "later",
-   "creator": "unrecorded",
-   "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
-   "collection": "Chicagology, \"Prairie Avenue\" street history page",
-   "call_number": null,
-   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
-   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairieavenue.jpg",
-   "rights": "unknown — link only",
-   "rights_basis": "Origin and date not stated",
-   "local": null,
-   "verified": "viewed",
-   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
-   "notes": "Two rows of measured-style front elevations (11 east-side, 12 west-side façades) in a uniform hand, lettered 'East Side of Prairie Ave.' and 'West Side of Prairie Ave.' The drafting style looks 20th-century and the source is not given, so treated as a later reconstruction pending identification (possibly from a 1970s district study). Potentially very useful for façade sequence once its author, block and basis are known — do not use until then.",
-   "measurements": [],
-   "stream": "streetscape"
   }
  ]
 }

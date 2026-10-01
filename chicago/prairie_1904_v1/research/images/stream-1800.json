@@ -1969,9 +1969,9 @@
   "view": "oblique front",
   "facing": "west",
   "camera_position": "east side of Prairie Avenue roadway, opposite 1828",
-  "date": "c. 1902–1906 (from the automobile)",
-  "date_earliest": 1900,
-  "date_latest": 1910,
+  "date": "c. 1897–1906 (chicagology captions it \"about 1897\"; the runabout suggests c. 1900–1905)",
+  "date_earliest": 1896,
+  "date_latest": 1906,
   "period": "in-period",
   "creator": null,
   "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
@@ -1984,7 +1984,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-  "notes": "Street-level photograph of the W. W. Boyington Second Empire house (1874) at 1828 Prairie (no building id in this library's index — it stands between 1824 Marsh and 1834 Jones): stone front, bracketed hooded entrance porch on columns, high stoop with stone balustrade, iron fence on a stone curb, unpaved/dirt carriageway with stone curb and a parkway with a young tree; a man in a curved-dash-type runabout in the street. The house at right (north), with stacked bay windows and carved stone, is probably 1824 (Marsh, refaced c. 1880). Automobile dates the image to the early 1900s — one of the closest views to 1904 for the west side of the 1800 block. Shipman died 1906.",
+  "notes": "Street-level photograph of the W. W. Boyington Second Empire house (1874) at 1828 Prairie (no building id in this library's index — it stands between 1824 Marsh and 1834 Jones): stone front, bracketed hooded entrance porch on columns, high stoop with stone balustrade, iron fence on a stone curb, unpaved/dirt carriageway with stone curb and a parkway with a young tree; a man in a curved-dash-type runabout in the street. The house at right (north), with stacked bay windows and carved stone, is probably 1824 (Marsh, refaced c. 1880). Automobile dates the image to the early 1900s — one of the closest views to 1904 for the west side of the 1800 block. Shipman died 1906. Same photograph on chicagology.com/chicagostreets/prairieavenue/1828prairie/ captioned \"1828 S. Prairie Ave. About 1897\".",
   "measurements": []
  },
  {
@@ -7025,7 +7025,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "data/sources.csv B-city1973 (PDF read via pdftotext this session)",
-  "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted.",
+  "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted. NOTE: this is the TEXT record of the report; its two plates are recorded separately by the streetscape stream (st-cl1973-p23-kimball-corner-18th-looking-se, st-cl1973-p24-sidewalk-view-9974).",
   "measurements": [
    {
     "what": "1808 third-storey front",
@@ -7033,5 +7033,236 @@
     "locator": "p. 21"
    }
   ]
+ },
+ {
+  "id": "a18-cgy-elevation-strip-1800-1900-blocks",
+  "kind": "architectural drawing",
+  "title": "\"East Side of Prairie Ave.\" / \"West Side of Prairie Ave.\" — measured-style street elevation drawing of the 1800 and 1900 blocks",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33",
+   "pa-1824-8",
+   "pa-1834-9",
+   "pa-1801-23",
+   "pa-1811-24",
+   "pa-1815-12",
+   "pa-1823-13",
+   "pa-1827-14",
+   "pa-1900-25",
+   "pa-1901-15",
+   "pa-1905-16",
+   "pa-1906-34",
+   "pa-1912-10",
+   "pa-1919-26",
+   "pa-1923-35",
+   "pa-1936-11"
+  ],
+  "addresses": [
+   "1800 and 1900 blocks S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated drawing (depicts the blocks c. 1890s–1914)",
+  "date_earliest": 1890,
+  "date_latest": 1990,
+  "period": "later",
+  "creator": null,
+  "repository": "Chicagology (chicagology.com) — secondary web compilation; original holder not named",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+  "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairieavenue.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Reproduced on chicagology.com without source or rights statement",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "chicagology.com Prairie Avenue main page (image postfire/prairieavenue.jpg, captioned there with the 1887 Inter Ocean text)",
+  "notes": "Two strips of flat front elevations drawn to a common scale. WEST SIDE (south→north, left→right): 1936 Allerton, 1912, 1906, 1900 Keith | 1834 Jones (two-storey with a mansard and central tower-dormer — consistent with the 1886 mansard addition), 1828 Shipman (small mansard), 1824 (large gabled stone front with bay — the Marsh refacing), 1816 Henderson (mansard with dormers), 1812 Wheeler (scrolled Flemish gable, round attic window), 1808 Keith (latticed parapet), 1800 Glessner (long, low, at far right). EAST SIDE (north→south, left→right as seen from the street): 1801 Kimball (château) with low service wing, 1811 Coleman (gable, arched entry), 1815 Sears/Meeker (mansard with gables), 1823 Dent (mansard), 1827 Doane (twin towers), then 1901, 1905 Field, 1919, 1923, 1945. Identification of each elevation is this researcher's reading from position and style (not captioned). Glessner House blog (2011, \"Business Encroachment on Prairie Avenue\") says the drawing \"shows the 1800 and 1900 blocks of Prairie Avenue as they appeared at the time\" of a 1914 Daily News article; author and date of the drawing are not stated — it looks like a modern reconstruction. The ONLY elevation-scale evidence found for 1816, 1823, 1824, 1828 and the post-1886 1834. Same drawing recorded by the 1900 stream from the blog (a19-gh-prairie-1800-1900-elevations). NOTE: the streetscape stream records the same chicagology image as st-chicagology-prairie-elevation-strips (no building ids); this record is kept for its per-house identification — merge the two.",
+  "measurements": []
+ },
+ {
+  "id": "a18-cgy-inter-ocean-1887-palace-avenue",
+  "kind": "newspaper item",
+  "title": "\"Palace Avenue. Its More Plebian but Better Known Title of Prairie.\" (Chicago Inter Ocean, January 2, 1887) — transcription",
+  "building_ids": [
+   "pa-1816-33",
+   "pa-1834-9",
+   "pa-1824-8",
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 block S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "date": "January 2, 1887",
+  "date_earliest": 1887,
+  "date_latest": 1887,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Chicagology (chicagology.com) — secondary web compilation; original holder not named",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Newspaper 1887 (public domain); transcription on chicagology.com",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "chicagology.com Prairie Avenue main page",
+  "notes": "House-by-house newspaper tour of Prairie Avenue (16th–22nd St). 1800-block passages: Charles M. Henderson \"has enjoyed his airy but substantially built mansion for many years\"; \"The Fernando Jones house has been improved and enlarged recently\" (supports the 1886 mansard addition at 1834); \"The light stone-front house, No. 1828, is a gem of artistic beauty\" (D. B. Shipman); \"Contiguous to Mr. Shipman's is the handsome brown stone…\" (1824); the Glessner house under construction (\"the northern wall… is unbroken\").",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-glessner-main-hall-1888",
+  "kind": "photograph",
+  "title": "Earliest known image of the main hall, 1888 (Photo by George Glessner)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1888",
+  "date_earliest": 1888,
+  "date_latest": 1888,
+  "period": "in-period",
+  "creator": "George Glessner",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-ii-main-hall.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxI2m9VCe6T7DdiflcocNmZTzN9NGbHg8M72RVCyxf7-zfZRsTinphzHLbyltCJ6rW4Fvnna3aaT2SB9EPyTtZSYIu1faUgOzO-6h1T3dhYVlC3w5W-5SMtKe9N8eLNjPxi5rss9j_ixs/s1600/1888+-+north.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Photograph 1888 by George Glessner (public domain by age); museum collection",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Mounted print stamped \"GEO. M. GLESSNER, AMATEUR, CHICAGO\": the oak-panelled main hall with the stair, carpet runner, newel, rugs, gas sconces and furniture as first arranged. Pre-1892 electrification; best evidence for the hall as built.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-glessner-main-hall-1885-rendering",
+  "kind": "architectural drawing",
+  "title": "Rendering of the main hall, 1885 (Office of H. H. Richardson)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue"
+  ],
+  "streetscape": false,
+  "view": "interior",
+  "facing": null,
+  "camera_position": null,
+  "date": "1885",
+  "date_earliest": 1885,
+  "date_latest": 1885,
+  "period": "in-period",
+  "creator": "Office of H. H. Richardson",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-ii-main-hall.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZ3Kk5kdIPutrLeDpVTtBneuxt400tSKqAALHPrDWGddI-S61MrHqFXXJEHHpPHR2W2ChJTy1Viwis-m8rxXJp8X9aD1l77zzDFOGAg8SKoqxJ_brSw7psG_9lDdz4HnJGN0OEeDzlGjw/s1600/1885+-+HHR+design.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Drawing 1885 (public domain by age)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Pen sketch inscribed \"Sketch for Hall, House of J. J. Glessner Esq., Chicago, Ill.\" — the fireplace with shelf of ceramics and the stair with landing. Design stage; compare with the 1888 photograph.",
+  "measurements": []
+ },
+ {
+  "id": "a18-gh-glessner-female-servants-entrance",
+  "kind": "photograph",
+  "title": "Female servants' entrance at Glessner House (photograph by George Glessner)",
+  "building_ids": [
+   "pa-1800-22"
+  ],
+  "addresses": [
+   "1800 S. Prairie Avenue (18th Street front)"
+  ],
+  "streetscape": false,
+  "view": "detail",
+  "facing": "south",
+  "camera_position": null,
+  "date": "c. 1888–1890s",
+  "date_earliest": 1887,
+  "date_latest": 1899,
+  "period": "in-period",
+  "creator": "George Glessner",
+  "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+  "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdPppOpj39nAqx5_nBDsF7QPCI9ym4cqsXYMEJmj-ZDld4QpPNBQfQ5RhbLCyzDaVduoyTNuRYxA39MkMYLGw7Br7rliF0GJwukvUSig-Yugwws_n7trOLzrWcp58y8FUUquvp4HCToxw/s1600/Female+servants+entrance.JPG",
+  "rights": "unknown — link only",
+  "rights_basis": "Photograph by George Glessner (public domain by age)",
+  "local": null,
+  "verified": "viewed",
+  "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
+  "notes": "Square-on view of the giant rough-granite voussoir arch over the female servants' entrance on 18th Street with its stone steps and a small window in which the cook's silhouette shows (post caption). Exact masonry evidence for the 18th Street front.",
+  "measurements": []
+ },
+ {
+  "id": "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+  "kind": "photograph",
+  "title": "Residences at Prairie Avenue and 18th Street (Charles R. Clark, circa 1905) — CHM ICHi-66015",
+  "building_ids": [
+   "pa-1936-11",
+   "pa-1912-10",
+   "pa-1906-34",
+   "pa-1900-25",
+   "pa-1834-9",
+   "pa-1824-8"
+  ],
+  "addresses": [
+   "1936–1900 S. Prairie Avenue (west side) and the 1800 block beyond"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "north",
+  "camera_position": "east side of Prairie Avenue roadway near 1936 (Allerton), looking north along the west side",
+  "date": "circa 1905",
+  "date_earliest": 1903,
+  "date_latest": 1907,
+  "period": "in-period",
+  "creator": "Charles R. Clark",
+  "repository": "Chicago History Museum (via CARLI Digital Collections)",
+  "collection": "Prints and Photographs Collection (Chicago History Museum); gift of Mrs. Charles R. Clark",
+  "call_number": "ICHi-66015; accession X.1667.1991; CHM cat. 4250",
+  "catalog_url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/1296",
+  "image_url": "https://collections.carli.illinois.edu/iiif/2/chm_pp:1296/full/full/0/default.jpg",
+  "rights": "no known restrictions",
+  "rights_basis": "CHM record: \"Copyright Notice: No known copyright restrictions\"; licensing inquiries to CHM Rights & Reproductions",
+  "local": {
+   "display": "research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936.jpg",
+   "display_bytes": 96863,
+   "thumb": "research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936-thumb.jpg",
+   "thumb_bytes": 19856,
+   "original_px": [
+    1200,
+    904
+   ],
+   "original_sha256": "8f31787ca7ebcabb5d701ef0a5efe398a1b1a0fa1d8c96a550e939c6f08157ce",
+   "original_bytes": 96855,
+   "fetched_from": "https://collections.carli.illinois.edu/iiif/2/chm_pp:1296/full/full/0/default.jpg",
+   "fetched": "2026-10-01"
+  },
+  "verified": "viewed",
+  "found_via": "CARLI CONTENTdm API search \"prairie avenue\" (collections.carli.illinois.edu), collection chm_pp",
+  "notes": "NEAREST-TO-1904 VIEW OF THE WEST SIDE SOUTH OF THE BLOCK: cellulose-nitrate negative c. 1905 (title says \"at 18th Street\" but description: \"west side of Prairie Avenue … north from the Allerton residence\"). Foreground: Allerton (1936) cornice at left edge, the rock-faced Romanesque house with corner turret and bay (1912), mansard and Italianate stone fronts of the 1900 block with high stoops and porches; in the distance the 1800-block west side (1834 Jones with mansard, 1828, 1824 …) recedes to 18th St. Wide paved roadway, narrow parkway with a sapling, stone sidewalks, a carriage. Identification of individual distant houses is tentative — compare with the Rand McNally 1893 street elevations. Almost certainly the image the Encyclopedia of Chicago lists as \"View of 1828-1936 S. Prairie Avenue (West Side), c.1905\" (a18-eoc-10381).",
+  "measurements": []
  }
 ]
