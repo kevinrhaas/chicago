@@ -1,3 +1,25 @@
+## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
+
+T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on
+the extended ground. It turned out to be more than one run, so it was split: T-1793 measures, and
+T-1794 builds. `tools/measure_west_farm_ground_1835.py` writes
+`data/reconstruction/1835_west_farm_ground.json`, and `check.sh` re-derives it. It is listed in
+`tools/derived_manifest.json`, so PR laps rebuild it rather than conflict on it.
+Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
+
+- All 44 households are `policy_only`: post-office letter-list names whose division and class were
+  dealt. No source places one.
+- The West ground outside the 1833 corporation limits and off every subdivided tract is
+  **177.7 ha, 10.98 forties**, most of it south of Twelfth Street. At one farm per forty, the
+  modelled ground holds **at most 10 farmsteads**; **34 or more** must be stated as farming beyond it.
+- **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
+  pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
+  labourers.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 4 A2 left to build. The 24
+  remaining dwellings are T-1783's and the 8 barns T-1212's.
+
+**Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
+the build. Nothing in the scene changed.
 ## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
 
 T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it

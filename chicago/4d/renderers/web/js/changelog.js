@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
+  { v: 1248, ts: '2026-10-01T07:55:13.282Z', date: 'Oct 1, 2026, 2:55 AM CT', title: 'A house and a cottage close the Canal Street frontage', kind: 'change',
     items: [
       'Walk Canal Street west of the river, between Randolph and Washington, and the two gaps in the row are gone. A two-storey frame house stands on the corner lot and a two-room frame cottage beside it, with a privy behind the house and a woodshed behind the cottage, both off the block\u2019s alley.',
       'Two families had asked for exactly these two buildings on exactly these two lots, and neither is the family that moved in: two households already on the block scored higher on the new roofs. The Adams household still ends up on this block, in the corner house one of them left; the Bennett household is offered a lot across Lake Street instead.',
       'The block is not finished, and cannot be. No block here is built out of the last lot its own sizing keeps open, so one lot stays empty \u2014 now on Clinton Street, the plainer face, where before the gap was on Canal. The register says why it moved.',
       'Nothing here is claimed as evidence. No source says a building stood on either lot in July 1835, which buildings they were, or how far back from the street they sat \u2014 the set-outs continue the block\u2019s own irregular rhythm and are ours.',
+    ] },
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
+    ] },
+  { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
+    items: [
+      'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
+      'The stable behind the cottage on the Jefferson Street face kept that house’s horse and cow. The stable beside the freight shed off Randolph stood the teams that hauled from it. The big work shed on Randolph was where house frames were cut.',
+      'Those uses are our reconstruction, bounded by where each building stands and what kind of building it is. None of them names a person, and each gives way to a source or a seated household that says otherwise.',
     ] },
   { v: 1245, ts: '2026-10-01T05:44:52.468Z', date: 'Oct 1, 2026, 12:44 AM CT', title: 'Log cabins and a barn on the Des Plaines prairie edge', kind: 'change',
     items: [

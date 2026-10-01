@@ -17586,3 +17586,38 @@ first deal put it on.
 block on the same approach), **T-1764** (the ticket that closes the West Division's books).
 **Recorded:** 2026-09-29. **Revised:** 2026-10-01 (T-1761, re-cut on current `dev`: the lot 7
 cottage re-sized to the D4 the request now asks for, and the seating outcome re-measured).
+
+### L310 — Three West roofs nobody holds, given a stated use
+
+**Applies to:** `data/reconstruction/1835_stated_uses.json`
+
+**Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
+`recon_1835_west_047.occupants`
+
+**What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
+that no deal seats a household in and no deal ever could, because their families are not ones a
+dwelling clause admits. `recon_1835_west_037` is stated as the stable of the D5 cottage whose yard
+the West recipe already draws it in (`yard_group` `west_rec_033`), and `recon_1835_west_047` as the
+stable beside the cluster's freight shed (`yard_group` `west_rec_046`), for the teams that haul from
+it. `recon_1835_west_036`, the W5 heavy work shed on the Randolph block between Jefferson and Des
+Plaines, is stated as a framing shed where house frames were cut: of the W5 line's three uses
+(sawmill, boat repair, riverside shop) the first two need the river, and this roof stands three
+streets back from the South Branch. Nobody is named for any of the three; the card says what the
+building was for, graded `reconstructed`.
+
+**Why:** The order book's `every_structure_occupied_or_its_use_stated` asks every standing roof
+for an occupant OR a stated use, and until now the second half had nowhere to go: a stable in a
+seated household's yard carded as an anonymous count-unit forever.
+
+**Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
+outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
+its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
+is T-1774's.
+
+**Would replace:** A keeper seated on any of the three by a deal or a source retires its row
+outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West
+Division framing yard, mill or shop in 1835 replaces the use stated for `recon_1835_west_036`.
+
+**Ticket:** T-1782 (piece 2 of T-1208).
+
+**Recorded:** 2026-10-01 (T-1782).
