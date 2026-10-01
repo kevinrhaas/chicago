@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1265, ts: '2026-10-01T16:42:53.296Z', date: 'Oct 1, 2026, 11:42 AM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
+  { v: 1266, ts: '2026-10-01T17:33:45.653Z', date: 'Oct 1, 2026, 12:33 PM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
     items: [
       'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
       'Inns have two hitching posts and a mounting block for riders getting down. Forwarding houses and warehouses have a broad plank apron across the verge, so a loaded dray can come off the road to the door. The smith has a tie rail.',
       'Twenty-five more shops now have a hitching post, including the reconstructed bakery, butcher, tailor and their neighbours.',
       'All of this is our reconstruction. No source places a stoop, a post or a block at any Chicago door in 1835, and no record says where each door was, so each stoop stands at the middle of its front. Open the street edge\u2019s card to see which shop each one serves.',
+    ] },
+  { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
+    items: [
+      'Walk South Water Street from Franklin toward Wells and look toward the river. Two rows of tents now stand on the bank below the stores, between the landings, with a covered wagon in each, cold fire rings, cordwood and piles of chests and barrels.',
+      'They are the summer crowd of 1835. The Chicago American of 13 June says newcomers slept on the wharves under the open sky, and some pitched tents where the boats landed them. Fifteen families have a tent here; thirteen more have only their baggage.',
+      'The tents, wagons and fires are our reconstruction. The paper names the place but not the tents, so their kinds and sizes come from what outfitters sold in the 1830s. Open a camp\u2019s card, or see the Liberties page (L321).',
+      'As everywhere in the town, nobody is shown. The fires are out and there is no smoke.',
     ] },
   { v: 1264, ts: '2026-10-01T16:02:21.630Z', date: 'Oct 1, 2026, 11:02 AM CT', title: 'Five more boarding houses show their lodgers from the street', kind: 'change',
     items: [

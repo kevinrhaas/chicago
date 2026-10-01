@@ -1381,6 +1381,10 @@ async function boot() {
     // planting layer now refuses them too, so nothing grows up between the
     // planks of a bridge deck either.
     decks,
+    // The camps' ground (T-1803), which the walker crosses and the sward does not:
+    // a bush rooting between the tents, or a tree through a wall tent, was the
+    // first thing the bank showed once the canvas stood on it.
+    footprintsFrom(loaded.registry, { camps: true }),
   );
 
   // …AND THE WHARF PLANKS BECOME FLOORS — after `planting` has been taken and

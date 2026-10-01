@@ -102,7 +102,7 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 514,
+  "structure_records": 516,
   "physical_roofs": {
    "min": 500,
    "max": 501,
@@ -179,6 +179,8 @@
    "fort_dearborn_parade",
    "fort_dearborn_root_house_b",
    "lake_house_construction",
+   "landing_camp_east",
+   "landing_camp_west",
    "lasalle_slough_crossing",
    "north_branch_bridge",
    "north_pier",
