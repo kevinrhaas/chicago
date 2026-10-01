@@ -1,11 +1,42 @@
 export const CHANGELOG = [ // newest first
-  { v: 1266, ts: '2026-10-01T17:19:42.766Z', date: 'Oct 1, 2026, 12:19 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
+  { v: null, ts: '', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
       'Every open street in the 1835 town is now a broad roadway of packed earth. Before, each one was two clean wheel tracks with a strip of grass between them, on a band you could see the prairie through.',
       'Wagons, horses and people wore a frontier street across most of its width. You now see many wandering lanes, narrow ruts and dark muddy patches where the traffic was heaviest, with grit and clods underfoot.',
       'How wide the bare ground runs depends on how busy the street was. South Water and Lake are bare almost to the plank walks. Lighter streets keep patches of grass along their edges and between their lanes, and every edge gives way to the prairie in ragged clumps.',
-      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L326.',
+      'The widths, ruts and mud are a reconstruction. No source gives them for Chicago, so they are bounded by the recorded wagon tracks and by the walks, and recorded as liberty L327.',
       'The streets still lie on the ground as before. Lowering the roadway below an entrance-level walk is the next piece of this work.',
+    ] },
+  { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+    items: [
+      'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
+      'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
+      'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
+      'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1269, ts: '2026-10-01T19:03:25.823Z', date: 'Oct 1, 2026, 2:03 PM CT', title: 'Glessner’s stable gable meets the roof cleanly', kind: 'fix',
+    items: [
+      'The 18th Street roof now rises into the stable gable and returns to its usual eave before the alley corner. The peak lines up with the loft opening and carriage doorway.',
+      'The crossing roof no longer cuts a horizontal stripe through the gable and its windows. A projecting cornice at the alley corner has also been removed.',
+      'The sidewalk’s depth bias is reduced so a shallow viewing angle cannot pull it through the wall. The gable proportions follow historical photographs; the hidden roof junction remains a reconstruction.',
+      'The riverfront camps now sit on their ground reference, and full-detail prairie grass has a more irregular outer edge.',
+    ] },
+  { v: 1268, ts: '2026-10-01T18:01:38.298Z', date: 'Oct 1, 2026, 1:01 PM CT', title: 'The app is called 4D Chicago', kind: 'change',
+    items: [
+      'The browser tab, link previews and the Chicago home page now call the app 4D Chicago instead of \u201cwalk 1835\u201d. The year still shows where it names the town you are walking.',
+    ] },
+  { v: 1267, ts: '2026-10-01T17:44:52.415Z', date: 'Oct 1, 2026, 12:44 PM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
+    items: [
+      'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
+      'Inns have two hitching posts and a mounting block for riders getting down. Forwarding houses and warehouses have a broad plank apron across the verge, so a loaded dray can come off the road to the door. The smith has a tie rail.',
+      'Twenty-five more shops now have a hitching post, including the reconstructed bakery, butcher, tailor and their neighbours.',
+      'All of this is our reconstruction. No source places a stoop, a post or a block at any Chicago door in 1835, and no record says where each door was, so each stoop stands at the middle of its front. Open the street edge\u2019s card to see which shop each one serves.',
+    ] },
+  { v: 1266, ts: '2026-10-01T16:51:04.113Z', date: 'Oct 1, 2026, 11:51 AM CT', title: 'Two small boarding houses get their stovepipes', kind: 'change',
+    items: [
+      'Two one-and-a-half-storey boarding houses, one on the North Side and one on the West Side approaches, now have three iron stovepipes rising through each roof beside the two brick chimneys.',
+      'The number comes from the beds each house already holds, by the same rule as the town\u2019s other boarding houses: one stove for every three people sleeping there on an ordinary night. Nobody moved, and the fronts are unchanged.',
+      'These houses and their stoves are our reconstruction. No source counts the stoves of a Chicago boarding house in 1835; the register says how the number was reached.',
     ] },
   { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [

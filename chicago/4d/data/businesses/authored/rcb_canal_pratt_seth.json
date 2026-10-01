@@ -1,0 +1,100 @@
+{
+  "id": "rcb_canal_pratt_seth",
+  "register_id": null,
+  "name": "Seth Pratt, grocery and provision store",
+  "provenance": "reconstructed",
+  "type": [
+    "store"
+  ],
+  "trade": "grocery and provision store",
+  "occupation": "grocer",
+  "goods": [
+    "grocery and provision store"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Seth Pratt",
+      "person_id": "rc_pratt_seth",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "street_id": "canal",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address.",
+      "limit_reason": "The whole placement is invented within the Canal approach programme."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "Reconstructed as trading on 1835-07-01; no opening or closing date is claimed."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Seth Pratt (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_pratt_seth",
+        "name": "Seth Pratt",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "Evidence naming the real keeper or premises; retirement of this reconstructed roof or keeper.",
+  "reconstruction": {
+    "programme": "canal_approach_trade_roofs",
+    "group": "canal_approach",
+    "ticket": "T-1766",
+    "seed": "T-1766:C4:rc_pratt_seth",
+    "trade_roof": {
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "family": "C4",
+      "keeper_person_id": "rc_pratt_seth",
+      "keeper_household_id": "hh_rc_pratt_seth",
+      "occupation": "grocer",
+      "note": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address."
+    },
+    "basis": {
+      "kind": "rule",
+      "id": "1835_canal_approach_occupancy",
+      "note": "RECONSTRUCTED WORKPLACE AND FIRM, T-1766. The standing roof adopts an existing west trade head; no person is minted, no source places this firm here, and no residence is asserted. The need is bounded by owner_chicago_1835_reconstruction_spec_2026. This is an explicit family-to-head allocation, not a recovered address."
+    },
+    "withdrawn_if": "The roof or its existing keeper is retired, or evidence replaces this reconstructed firm."
+  }
+}

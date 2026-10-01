@@ -1,0 +1,52 @@
+{
+  "scope": "Focused actual published1904 What-is-new UI at both viewports; not a full1835 smoke or geometry test.",
+  "startedAt": "2026-10-01T07:42:52.805Z",
+  "head": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+  "uncommittedTree": true,
+  "publishedRoot": "/workspace/scratch/834d2e70e9c9/chicago/site/4d",
+  "publishedChangelogSha256": "4e0f5254c7b1cbf5f93217b0ede1b4e7d76362b0b44078cc5ed62830351b0482",
+  "publishedChangelogReexportSha256": "2b276143a734ed7c952f38e4256034073daf1565b6f81f6ebb412c679cf0b341",
+  "sourceChangelogSha256": "4e0f5254c7b1cbf5f93217b0ede1b4e7d76362b0b44078cc5ed62830351b0482",
+  "viewports": [
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 780,
+      "deviceScaleFactor": 2,
+      "scene": {
+        "scene": "1904",
+        "ready": true,
+        "welcome": "world"
+      },
+      "unread": {
+        "chip": true,
+        "tab": true
+      },
+      "first": {
+        "entries": 1248,
+        "items": 6764,
+        "newest": "Stores and workshops on the Canal approach",
+        "newestMeta": "change · Oct 1, 2026, 2:31 AM CT",
+        "research": {
+          "title": "How many farms the West Side prairie could hold",
+          "items": [
+            "Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.",
+            "The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.",
+            "Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building."
+          ],
+          "date": "change · Oct 1, 2026, 1:56 AM CT"
+        },
+        "flagged": [],
+        "chipCleared": true,
+        "tabCleared": true,
+        "seen": "1248",
+        "fits": false
+      }
+    }
+  ],
+  "failures": [
+    "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(a.fits)\n\n    at /tmp/t1766-t1793-whatsnew.cjs:77:407"
+  ],
+  "pass": false,
+  "finishedAt": "2026-10-01T07:44:40.895Z"
+}

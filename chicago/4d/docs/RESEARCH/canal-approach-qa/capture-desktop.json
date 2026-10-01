@@ -1,0 +1,206 @@
+{
+  "door": {
+    "threshold": [
+      -70.29999999998836,
+      -49.09999999962747
+    ],
+    "stand": [
+      -68.79999999998836,
+      -49.09999999962747
+    ]
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "shots": [
+    {
+      "name": "wolf-point-door-toward-canal",
+      "note": "At the actual east-facing tavern doorway, 1.5 m outside the threshold. The tavern obstructs the westward Canal view; the camera is not moved to hide this.",
+      "pose": {
+        "local_e": -68.79999999998836,
+        "local_n": -49.09999999962747,
+        "yaw_deg": 264.0028926533338,
+        "pitch_deg": 5
+      },
+      "filename": "wolf-point-door-toward-canal-desktop.png",
+      "state": {
+        "player": {
+          "e": -68.79999999998836,
+          "n": -49.09999999962747,
+          "y": 2.5744160013966377,
+          "bearingDeg": 264.0028926533338,
+          "pitchDeg": 5,
+          "speed": 0,
+          "moving": false,
+          "altitude": 0,
+          "flying": false
+        },
+        "problems": [
+          "agency_striker_log_house: review_required is set — this scene cannot be released",
+          "beaubien_new_residence: review_required is set — this scene cannot be released",
+          "beaubien_barn: review_required is set — this scene cannot be released",
+          "beaubien_trading_post: review_required is set — this scene cannot be released",
+          "blacksmith_shop_state_st: review_required is set — this scene cannot be released",
+          "caldwell_agency_log_house: review_required is set — this scene cannot be released",
+          "clybourn_slaughterhouse: review_required is set — this scene cannot be released",
+          "council_house: review_required is set — this scene cannot be released",
+          "cobweb_castle: review_required is set — this scene cannot be released",
+          "jb_beaubien_homestead: review_required is set — this scene cannot be released",
+          "madore_beaubien_house: review_required is set — this scene cannot be released",
+          "mckee_log_house: review_required is set — this scene cannot be released",
+          "robert_kinzie_store: review_required is set — this scene cannot be released",
+          "robinson_caldwell_cabins: review_required is set — this scene cannot be released"
+        ],
+        "stats": {
+          "drawCalls": 108,
+          "triangles": 612784,
+          "programs": 46,
+          "geometries": 138,
+          "textures": 27,
+          "batches": 3,
+          "structures": 497,
+          "structuresExpected": 496,
+          "structuresStanding": 496,
+          "bytes": 7593904,
+          "fps": 0,
+          "cameraNear": 0.1,
+          "budget": {
+            "drawCalls": 215,
+            "triangles": 1460000
+          },
+          "withinBudget": true
+        },
+        "ready": true,
+        "detail": "full",
+        "welcome": "world"
+      }
+    },
+    {
+      "name": "canal-frontage-ground",
+      "note": "Companion ground view from Canal toward the west-facing store and workshop doors; not the tavern-door viewpoint.",
+      "pose": {
+        "local_e": -179,
+        "local_n": -52,
+        "yaw_deg": 90,
+        "pitch_deg": 4
+      },
+      "filename": "canal-frontage-ground-desktop.png",
+      "state": {
+        "player": {
+          "e": -179,
+          "n": -52,
+          "y": 2.7680000352859495,
+          "bearingDeg": 90,
+          "pitchDeg": 4,
+          "speed": 0,
+          "moving": false,
+          "altitude": 0,
+          "flying": false
+        },
+        "problems": [
+          "agency_striker_log_house: review_required is set — this scene cannot be released",
+          "beaubien_new_residence: review_required is set — this scene cannot be released",
+          "beaubien_barn: review_required is set — this scene cannot be released",
+          "beaubien_trading_post: review_required is set — this scene cannot be released",
+          "blacksmith_shop_state_st: review_required is set — this scene cannot be released",
+          "caldwell_agency_log_house: review_required is set — this scene cannot be released",
+          "clybourn_slaughterhouse: review_required is set — this scene cannot be released",
+          "council_house: review_required is set — this scene cannot be released",
+          "cobweb_castle: review_required is set — this scene cannot be released",
+          "jb_beaubien_homestead: review_required is set — this scene cannot be released",
+          "madore_beaubien_house: review_required is set — this scene cannot be released",
+          "mckee_log_house: review_required is set — this scene cannot be released",
+          "robert_kinzie_store: review_required is set — this scene cannot be released",
+          "robinson_caldwell_cabins: review_required is set — this scene cannot be released"
+        ],
+        "stats": {
+          "drawCalls": 198,
+          "triangles": 1447940,
+          "programs": 48,
+          "geometries": 215,
+          "textures": 27,
+          "batches": 3,
+          "structures": 497,
+          "structuresExpected": 496,
+          "structuresStanding": 496,
+          "bytes": 7593904,
+          "fps": 0,
+          "cameraNear": 0.1,
+          "budget": {
+            "drawCalls": 215,
+            "triangles": 1460000
+          },
+          "withinBudget": true
+        },
+        "ready": true,
+        "detail": "full",
+        "welcome": "world"
+      }
+    },
+    {
+      "name": "canal-frontage-overview",
+      "note": "Companion elevated overview of all five roofs and open side gaps, looking east from west of Canal.",
+      "pose": {
+        "local_e": -211,
+        "local_n": -55,
+        "yaw_deg": 90,
+        "altitude_m": 25,
+        "pitch_deg": -17
+      },
+      "filename": "canal-frontage-overview-desktop.png",
+      "state": {
+        "player": {
+          "e": -211,
+          "n": -55,
+          "y": 26.125,
+          "bearingDeg": 90,
+          "pitchDeg": -17,
+          "speed": 0,
+          "moving": false,
+          "altitude": 25,
+          "flying": true
+        },
+        "problems": [
+          "agency_striker_log_house: review_required is set — this scene cannot be released",
+          "beaubien_new_residence: review_required is set — this scene cannot be released",
+          "beaubien_barn: review_required is set — this scene cannot be released",
+          "beaubien_trading_post: review_required is set — this scene cannot be released",
+          "blacksmith_shop_state_st: review_required is set — this scene cannot be released",
+          "caldwell_agency_log_house: review_required is set — this scene cannot be released",
+          "clybourn_slaughterhouse: review_required is set — this scene cannot be released",
+          "council_house: review_required is set — this scene cannot be released",
+          "cobweb_castle: review_required is set — this scene cannot be released",
+          "jb_beaubien_homestead: review_required is set — this scene cannot be released",
+          "madore_beaubien_house: review_required is set — this scene cannot be released",
+          "mckee_log_house: review_required is set — this scene cannot be released",
+          "robert_kinzie_store: review_required is set — this scene cannot be released",
+          "robinson_caldwell_cabins: review_required is set — this scene cannot be released"
+        ],
+        "stats": {
+          "drawCalls": 205,
+          "triangles": 1467375,
+          "programs": 48,
+          "geometries": 216,
+          "textures": 27,
+          "batches": 3,
+          "structures": 497,
+          "structuresExpected": 496,
+          "structuresStanding": 496,
+          "bytes": 7593904,
+          "fps": 0,
+          "cameraNear": 1,
+          "budget": {
+            "drawCalls": 215,
+            "triangles": 1460000
+          },
+          "withinBudget": false
+        },
+        "ready": true,
+        "detail": "full",
+        "welcome": "world"
+      }
+    }
+  ],
+  "errors": []
+}

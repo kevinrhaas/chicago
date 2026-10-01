@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
+  node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
@@ -718,6 +720,15 @@ step "West freight roof at the forks matches its recipe" \
   python3 tools/generate_west_freight.py --check
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
+
+step "Canal approach trade roofs match their bounded recipe" \
+  python3 tools/generate_canal_approach_trade.py --check
+selftest "Canal trade placement refuses collisions and missing ground" \
+  python3 tools/generate_canal_approach_trade.py --self-test
+step "Canal trade roofs have existing keepers without invented homes" \
+  python3 tools/canal_approach_occupancy.py --check
+selftest "Canal trade occupancy preserves identities and lodging constraints" \
+  python3 tools/canal_approach_occupancy.py --self-test
 
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs

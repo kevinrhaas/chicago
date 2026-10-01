@@ -1,0 +1,139 @@
+# Canal approach stores and workshops — T-1766
+
+This parcel completes the current West Division trade-roof remainder: two stores
+and two workshops. It does not identify four historical buildings or recover
+four addresses. The owner reconstruction specification bounds the building
+families and town totals; the West Division memo bounds the district character.
+All four presences, exact uses, placements and forms are reconstructed.
+
+## Why this family mix
+
+At claim time the programme had four West stores against six and five workshops
+against eight. Its town-wide C1 and C2 budgets are already exceeded by one each; repeating
+the old memo's initial C1/C2 allocation would add to that excess. This parcel uses
+one C3 narrow two-storey store, one C4 wider two-storey store, and W1/W2 shop
+families. The memo's first-parcel table is an earlier allocation, not a second
+master inventory. The four original West workshop slots that were refamilied
+because they stood off the street retain that ruling.
+
+## Built as five, standing as four (2026-10-01)
+
+The parcel was measured against five of eight West workshops standing and raised
+three shops: W1, W2 and a W3 wagon-woodwork shop (`recon_1835_canal_trade_w3_005`,
+kept by the existing carpenter `rc_bacon_otis`). Before it merged, T-1783 (#215)
+raised a carpenter's shop on `blk_west_randolph_des_plaines` against the same free
+slots, and together the two stood nine workshops against the row's eight.
+`measure_group_district_rows --gate` caught it, and the anonymous-roof adjudication
+then asked for T-1783's shop to be refamilied.
+
+Three ways out were set out on PR #206: (a) two Canal workshops instead of three,
+(b) refamily T-1783's shop, or (c) re-split the authored workshops row. This parcel
+takes **(a)**. The ticket's acceptance asks for "the live family budget", and after
+T-1783 the West's live remainder was one W1 and one W2 — no W3. (a) moves no landed
+roof and no authored row; (b) would re-bake merged work to make room for unmerged
+work, and (c) would move the town model's dwelling split for one shop. The W3 roof,
+its meshes and its firm are withdrawn; Bacon keeps his card and holds no firm here,
+and the Randolph end of the frontage stays open. The overshoot declaration the lap
+had added to `measure_group_district_rows.py` is gone with it.
+
+## Placement and evidence limits
+
+The new parcel takes free frontage on the east side of the drawn Canal Street
+corridor between Lake and Randolph. Its street line is the drawn line, consistent with the
+project's block-placement ruling; it does not silently substitute survey control.
+Individual sites and gaps are inventions. They must clear existing footprints,
+road corridors, the river setback, any active swale corridors and no-build
+polygons, and remain on dry terrain across their complete footprints.
+
+The Wright and Hathaway maps bound streets and lots; they are not evidence for
+these four roofs or their occupants. The owner specification
+(`owner_chicago_1835_reconstruction_spec_2026`) supports reconstruction within
+family bands. The existing West memo, `west_division_infill_1835.md`, supplies
+context. A dated plan, address, advertisement or archaeological finding specific
+to one of these sites would replace the relevant reconstruction.
+
+This work does not complete the deferred West street ticket T-1414. Its proposed
+sites are on existing modelled Canal frontage, and its former terrain-limit
+statement is not treated as evidence that the entire street programme is complete.
+The T-1764 programme continues through T-1773 (freight) and T-1774 (close-out);
+the T-1208 successors retain the outer West clusters.
+
+## Validation record
+
+The pre-deal frame-budget reading, final geometry clearances, occupancy assignments,
+bake and published viewport results are recorded with the implementation and PR.
+The five structures must be baked and occupied before this parcel is complete.
+
+### Pre-deal budget
+
+`data/render/canal_approach_before.json` records the published `dev` desktop
+sweep before the new roofs: Full 1,417,245/1,460,000, Balanced
+1,220,005/1,280,000, and Light 802,855/825,000. The largest standing C3/C4/W1/W3
+meshes cost 828/850/1,504/1,626 triangles. No standing W2 mesh is attributable,
+so the instrument correctly refuses to price that family. For planning only,
+allowing W2 twice the largest W3 gives 8,060 triangles before the measured
+shadow multipliers: about 9,508 at Full/Balanced and 10,663 at Light. The
+remaining margins would be 33,247, 50,487 and 11,482. This surrogate is an
+explicit estimate, not a measured W2 mesh or a guarantee; the final baked scene
+must pass its own budget sweep. No ceiling is raised.
+
+The selected frontage is east of Canal between Lake and Randolph. Earlier
+north-of-Lake candidate sites were rejected because they entered an active
+conjectural swale. T-1460 subsequently retired those exclusions; the chosen
+frontage remains unchanged and all five corner/center ground readings are identical
+on the revised terrain. The final records omit `resident_assignment`: a household's
+keeper working here does not establish a dwelling here, and the platted dealer
+would otherwise mistake that field for a residential reservation.
+
+Both archetypes define the front at local +Y. The generated bearing is
+266.704005 degrees, so the front doors face west toward Canal. A regression
+case reverses that bearing while preserving the footprint and requires the
+frontage check to reject it.
+
+The street-face allocator reads the authored workplace allocation as a reservation,
+so a second firm cannot adopt the same roof. Its five rejection cases pass; it
+does not reserve or invent a home. Public IDs end in unique ordinals as required
+by the existing allocation system. Separate, explicit geometry seed keys preserve
+the original measured dimensions, form, finish and siding through this naming fix.
+
+### Canonical assets and smoke repairs
+
+Canonical bake [36816632611](https://github.com/kevinrhaas/chicago/actions/runs/36816632611)
+passed all 716 checks and committed five masters, five web derivatives and their
+manifest entries at `7f60f9d2e648bc3ad8462598949d4eb8bd249ccf`. The five meshes
+contain 6,128 triangles in total. The asset audit and three desktop views are in
+`canal-approach-qa/`. The actual Wolf Point east doorway cannot see the Canal
+frontage through the tavern; the separate ground and overview views show it.
+
+The first published suite found two renderer faults: technical reconstruction
+names appeared as card titles, and yard goods could grow to 65 meshes after lazy
+far merges. Cards now use the assigned keeper and trade, retaining the original
+specification in the reference and search. A 110 m yard grid bounds the measured
+chunks plus all eligible far merges at 57; differential signatures preserve all
+66,344 triangles and per-owner pick geometry. No smoke assertion or ceiling changed.
+The bake smoke's partial checkout also omitted four source JSON files required by
+stage 13; the standalone smoke uses a full checkout. Final verification is recorded below.
+
+The retired West prairie drains also exposed a regular grass fringe: the same
+plant reach that passed with 14.3 cm of terrain relief failed on the corrected
+2 cm relief (3.944 px, below the existing 4 px visual minimum). Centered 1.5x
+contrast of the world-anchored lobe field restores 4.944 px variation, with all
+16 bins covered and mean reach increasing from 26.382 to 26.588 m. The existing
+fringe amplitude, lattice, primitive geometry and assertions remain unchanged.
+The measured pair is `canal-approach-qa/sward-fringe-pair.json`. The repository's
+smoke routing maps this flora-only repair to parts 10–11. The intermediate
+coverage uses parts 1–9 at 08dfea9 and parts 10–13 at 12ef981, with actual
+commits retained in each receipt. The repaired budget passes Full 1,424,307,
+Balanced 1,226,906 and Light 807,664 against unchanged ceilings.
+
+Dev subsequently advanced to b18a034 (T-1781), refamiling five existing West
+roofs. Those source records and canonical meshes are integrated with all five
+Canal roofs preserved; combined seating, inventory and research outputs are
+regenerated. That mesh/data change requires fresh parts 1–13 on both viewports
+and a new frame-budget reading.
+
+Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.
+
+## Combined T-1760 integration smoke
+
+The combined T-1766/T-1760 integration at `9446a07a87b92ae4920e69398e1d986ad91f0bb4` passes fresh published smoke parts 1–13 at both desktop and mobile, across ten completed jobs with zero failures. Actual job URLs, API start times, tested commit and untouched logs are retained in `combined-ci-manifest.json` beside this evidence. These readings supersede the earlier 15fb79d/ef515fa scoped smoke coverage for the combined scene; those earlier receipts remain historical evidence. The standing smoke ledger retains each new job's actual provenance. Reported counts include repeated boot/vendor checks from this ten-job partition and are not compared with differently partitioned totals. This receipt describes the tested commit and does not assert equivalence to subsequent untested edits.

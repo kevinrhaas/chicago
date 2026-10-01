@@ -360,13 +360,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # rebaked in the same PR (the GLB bytes came back identical; only the manifests' input
 # hashes moved). Terrain reach still 4 and pier_crib still 2.
 #
+# 519 -> 523 and 515 -> 519 on 2026-10-01 (T-1766): the Canal approach trade roofs — two
+# stores and two workshops on the Canal Street approach (built as five; the W3 shop was
+# withdrawn for the West workshops row). Four new structure assets on the same terms as
+# every entry above; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 519,
+    "assets": 523,
     "restales": {
-        "generators/common/*.py": 519,
+        "generators/common/*.py": 523,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 515,
+        "generators/emit.py": 519,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

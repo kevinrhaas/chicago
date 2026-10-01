@@ -1,3 +1,32 @@
+## T-1813 — the street edge dealt by business: stoops, posts, mounting blocks, aprons and a tie rail (2026-10-01)
+
+The first piece of T-1211 (owner: *"include their correct plank sidewalks for each business
+that varies because business vary"*). T-1211 was split three ways: **T-1813** (this one, the
+fittings), **T-1814** (the walk itself varied by business and carried to every face) and
+**T-1815** (the photographic pass: captures, critique, frame costs).
+
+**What changed in the scene.** `tools/generate_frontage_works.py` now reads each business
+front on the four covered streets through one table, `FRONTAGE_BY_BUSINESS`, and lays what the
+trade implies. Inns get two posts, a stoop and a mounting block. Stores get one post and a
+stoop. Forwarding houses and warehouses get a wagon apron across the verge. Works get a tie
+rail. On today's town: **46 street-edge hitching posts (was 16), 37 stoops, 5 mounting blocks,
+3 wagon aprons and 1 tie rail.** `renderers/web/js/frontage.js` draws a fitting as the list of
+timber boxes the record carries (`parts`). Each box stands on the lowest ground under its
+corners, so nothing floats. The fittings sit in the street's existing standing chunk, so they
+add no draw call.
+
+**The grade clause is retired.** A reconstructed trade now takes its post and fittings at its
+own tier (24 grade refusals gone; 25 posts at reconstructed trades). Every record carries
+`trade_confidence`. Refusals across the layer: 119 → 113, the 18 new ones each naming their
+clause: no walk at the door, a wall 19.5 m back behind its fence, a neighbour standing on the
+ground. L160 is amended.
+
+**Honest gaps.** The door is the middle of the front, because no record places one. The walk
+is still the same 1.83 m everywhere (T-1814). The works still front a plank walk where the
+ticket wants bare ground (T-1814). The fittings use the walk's plain timber, not the
+photographic treatment (T-1815). And the frame cost was not measured on this run (T-1815
+owns the measurement).
+
 ## T-1803 — the camps of the landing place: a new `camp` archetype and two emigrants' camps on the South Water bank (2026-10-01)
 
 **What a visitor sees.** Two rows of tents on the bank between South Water Street's roadway
@@ -18995,6 +19024,26 @@ No roof or baked mesh changes. The project gate passed all 714 steps. The recove
 validation record carries the subsequent full mobile and desktop results.
 
 
+## T-1766: Canal approach trade roofs
+
+The parcel adds two stores and two workshops against the West Division
+remainder (built as five; the W3 wagon shop was withdrawn on 2026-10-01 when
+T-1783's carpenter's shop filled the West workshops row first — see
+`docs/RESEARCH/canal_approach_trade.md` § Built as five), with exact presence, placement and business assignments reconstructed.
+The existing roofs and prior workshop-to-dwelling rulings are retained.
+The canonical bake passed all 716 checks and supplied all five compressed models.
+Card naming, yard batching and the bounded grass-fringe repair are implemented. Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.
+See `docs/RESEARCH/canal_approach_trade.md` and liberty L307.
+
+The final evidence commit also integrates dev `773e956` (T-1793). Its new farm-ground report is an offline research output, omitted from the published site; no existing scene inputs, geometry, assets or runtime code change except the shared changelog. `docs/RESEARCH/canal-approach-qa/research-carryforward-scope.json` records that comparison separately from the eight smoke receipts and preserves their actual tested commits. The reader was regenerated against the completed Canal parcel: 47 West roofs remain, with the two store and three workshop slots removed; the 13 farm-ground roofs and their measurements are unchanged.
+
+**Combined T-1760 integration smoke.** The combined T-1766/T-1760 integration at `9446a07a87b92ae4920e69398e1d986ad91f0bb4` passes fresh published smoke parts 1–13 at both desktop and mobile, across ten completed jobs with zero failures. Actual job URLs, API start times, tested commit and untouched logs are retained in `docs/RESEARCH/canal-approach-qa/combined-ci-manifest.json` beside this evidence. These readings supersede the earlier 15fb79d/ef515fa scoped smoke coverage for the combined scene; those earlier receipts remain historical evidence. The standing smoke ledger retains each new job's actual provenance. Reported counts include repeated boot/vendor checks from this ten-job partition and are not compared with differently partitioned totals. This receipt describes the tested commit and does not assert equivalence to subsequent untested edits.
+
 ## T-1768 — Temporal observatory
 
 The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. Published renderer part 1 passed 80/0 at both desktop (10m48s) and mobile (7m46s), with zero page errors. Initial desktop attempts timed out during startup under concurrent local validation; the solo retry passed. The standalone menu checks also cover the final Space Age light/dark synchronization. Full repository CI is pending; local full-gate attempts were interrupted without a complete verdict. Renderer parts 2–13 were not rerun for this interface change; the part-1 ledger deliberately carries no exact final-tree hash because tone synchronization was finalized during the smoke sequence.
+
+
+## T-1805 — Glessner west roof repair (2026-10-01)
+
+The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB north, northwest and alley reviews confirm the shortened cornice and clear loft opening in full/light variants. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. The full/light derivatives and recovery package are saved; light is 196,687 triangles against the unchanged 200,000 ceiling. Package and staleness checks pass. The four Glessner masters and canonical web files reproduced byte-for-byte after the shared emitter changed. Source CI passed all 719 steps on b034b066 (36905203833). Published Chromium desktop 5,10–11 passed 62 checks (36905832670), mobile 10 passed 33 (36904172019), desktop 1,5 passed 96 (36899248098), and mobile 1,5,11,13 passed 223 (36899419433), all with zero page errors. Both viewports' 1904 Glessner loading, placement, picking, materials and draw-budget checks pass. The integration repairs retain the yard budget, place the camp anchors on their ground, verify drawn placement to 0.001 m, and give the desktop grass edge a measured 4.94 px spread against the unchanged 4 px floor. Final receipts and the subsequent app-title merge are recorded in PR #230 and tools/dev-smoke-state.json. Browser validation ran on GitHub because local Chromium is refused by this environment. See docs/RESEARCH/glessner-west-roof-repair/work.md.

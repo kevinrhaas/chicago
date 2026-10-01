@@ -231,7 +231,10 @@ const TUNE = {
    */
   near: { radius: 7.6, cell: 0.74, perCell: 4, tuftsPerM2: 7.30, band: 2.2,
     spreadOuter: true },
-  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 3.0,
+  // The full-detail edge needs more world-anchored variation: the published
+  // 1280x800, DPR-1 view stayed below a four-pixel spread at both 3 and 3.5 m.
+  // Light and balanced keep their explicit overrides.
+  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 4.0,
     spreadInner: true },
   forb: { radius: 26.0, cell: 3.4, perCell: 4, band: 5.0, fringe: 3.0 },
   /**
@@ -449,7 +452,12 @@ function lobeNoise(e, n) {
  */
 function fringeOf(e, n, amp) {
   if (!amp) return 0;
-  const lobe = lobeNoise(e, n);
+  // T-1766: the retired swale had supplied screen-row variation that this
+  // field should carry itself. Give the world-anchored lobes 1.5x contrast
+  // about their midpoint, bounded to the same range. This keeps the lattice,
+  // fringe amplitude and primitive geometry unchanged; the symmetric mapping
+  // sharpens both inward and outward lobes rather than shrinking the ring.
+  const lobe = Math.max(0, Math.min(1, 0.5 + 1.5 * (lobeNoise(e, n) - 0.5)));
   const dither = unitHash(Math.round(e * 64), Math.round(n * 64), 0x2f1b3c59);
   return amp * (2 * (0.7 * lobe + 0.3 * dither) - 1);
 }

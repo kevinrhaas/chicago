@@ -1949,6 +1949,559 @@
         ]
       },
       "source": "/tmp/smoke_d23b.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5,10-11",
+      "parts": [
+        5,
+        10,
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 62,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1228,
+      "takenAt": "2026-10-01T18:18:27.1980615Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "b034b066cfe9fd25e0a389a7c8ba0f8ed0621905",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
+      },
+      "source": "gh-run:36905832670 https://github.com/kevinrhaas/chicago/actions/runs/36905832670"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 328,
+      "takenAt": "2026-10-01T18:05:06.8865204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "7f3536de664a70920be57105accfe18a03e6b724",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
+      },
+      "source": "gh-run:36904172019 https://github.com/kevinrhaas/chicago/actions/runs/36904172019"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1,5,11,13",
+      "parts": [
+        1,
+        5,
+        11,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 223,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1079,
+      "takenAt": "2026-10-01T17:26:50.0855158Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "e0c9d3e1cbf3ed3fb59b2494b519f11ed079e459",
+      "devCommit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36899419433 https://github.com/kevinrhaas/chicago/actions/runs/36899419433"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1,5",
+      "parts": [
+        1,
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 96,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 844,
+      "takenAt": "2026-10-01T17:25:23.8177391Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "e0c9d3e1cbf3ed3fb59b2494b519f11ed079e459",
+      "devCommit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36899248098 https://github.com/kevinrhaas/chicago/actions/runs/36899248098"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11,13",
+      "parts": [
+        11,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 135,
+      "failed": 2,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px (800px buffer, 55.0deg field, 1.68m eye), reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:02:08.1250819Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896083944 https://github.com/kevinrhaas/chicago/actions/runs/36896083944"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "11,13",
+      "parts": [
+        11,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 134,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:02:08.1250819Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896083944 https://github.com/kevinrhaas/chicago/actions/runs/36896083944"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:00:50.0462918Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 160,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T17:00:50.0462918Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 24,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:59:17.1350684Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896021816 https://github.com/kevinrhaas/chicago/actions/runs/36896021816"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 26,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:59:17.1350684Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36896021816 https://github.com/kevinrhaas/chicago/actions/runs/36896021816"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 21,
+      "failed": 2,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)",
+        "desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface — 515 structures, worst above-ground 0.0050, deepest bedding 1.44 m, Exchange {\"y\":0.7950000166893005,\"expected\":0.7950000166893005,\"error\":0}, dry alias 0"
+      ],
+      "wallSeconds": 323,
+      "takenAt": "2026-10-01T16:56:18.7420918Z",
+      "ref": "dev",
+      "commit": "21acac92f184a6eed5a41b37f920150cd0812feb",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36895681173 https://github.com/kevinrhaas/chicago/actions/runs/36895681173"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 245,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 848,
+      "takenAt": "2026-10-01T16:18:51.5129745Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36889183566 https://github.com/kevinrhaas/chicago/actions/runs/36889183566"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 53,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:48.6652200Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 55,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:48.6652200Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 143,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:14.9620204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 142,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:03:14.9620204Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:02:49.3371224Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 159,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the yard layer chunks for culling on a single material — 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-01T16:02:49.3371224Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 244,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)"
+      ],
+      "wallSeconds": 2276,
+      "takenAt": "2026-10-01T16:00:51.9605964Z",
+      "ref": "steward/glessner-west-roof-repair",
+      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
+      "devCommit": null,
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
+      },
+      "source": "gh-run:36888731661 https://github.com/kevinrhaas/chicago/actions/runs/36888731661"
     }
   ]
 }

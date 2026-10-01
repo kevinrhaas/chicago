@@ -52,7 +52,8 @@ from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 # T-1806. The H2 houses here are boarding houses in the lodging model, so their upper
 # windows and stovepipes are sized from its beds by the H3's rule (L318, L324).
-from boarding_house_beds import CAPACITY_WHY, size_from_beds  # noqa: E402
+from boarding_house_beds import (  # noqa: E402
+    CAPACITY_WHY, CAPACITY_WHY_H1, size_from_beds, stovepipes_from_beds)
 # T-0112. The clapboard stock is dealt HERE, at the end of the parcel, because it is
 # the one form value that depends on where a building's neighbours stand — and the
 # recipe is the only thing that knows the parcel whole. See tools/siding_stock.py.
@@ -337,6 +338,11 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
                                       else 3), why),
             "chimneys": inferred(2 if family.startswith("H") else 1, why),
             "paint": inferred(paint, why),
+            # T-1807. The H1 houses are small boarding houses in the lodging model, so
+            # their stovepipes are sized from its beds by the H3's ratio (L318, L325).
+            **({"stovepipes": inferred(stovepipes_from_beds(key)[1],
+                                       CAPACITY_WHY_H1)}
+               if family == "H1" else {}),
         }
 
     if family.startswith("C"):
@@ -440,6 +446,8 @@ def make_record(row: list, datum: dict) -> dict:
         reconstruction["yard_group"] = yard_group
     if family == "H2":
         reconstruction["capacity"] = size_from_beds(sid, width)[0]
+    elif family == "H1":
+        reconstruction["capacity"] = stovepipes_from_beds(sid)[0]
     mapping_note = (" H-family boarding-house massing currently uses a generic frame "
                     "dwelling/block archetype." if family.startswith("H") else
                     " I2 currently uses a generic rectangular frame block because no "
