@@ -47,6 +47,14 @@ MATERIALS = [
     dict(id="wrought_iron_forged", group="props", span_m=1.00, confidence="period-inferred", mean_roughness=.62, kind="iron", colors=((48,47,44),(18,20,20)), note="Hand-forged iron hardware with restrained oxidation; metallic workflow."),
     dict(id="signboard_weathered", group="props", span_m=2.00, confidence="reconstructed", mean_roughness=.85, kind="planks", colors=((155,137,105),(91,82,68)), note="Unlettered weathered sign board. Lettering belongs in the signage atlas."),
     dict(id="blue_painted_shutter", group="props", span_m=2.00, confidence="attested for Sauganash", mean_roughness=.75, kind="planks", colors=((52,89,145),(30,54,92)), note="Aged bright-blue oil-painted timber shutter."),
+    # T-1801: the two no-course faces. The lap, the butt joints and the log courses
+    # are GEOMETRY in the archetypes (frame_dwelling._clapboard, logwork.hewn_log_wall),
+    # so these maps carry only what lies inside one board or one log -- the Glessner
+    # rule (docs/RESEARCH/1835_photographic_fabric_preparation.md section 4). They keep
+    # their parent's seed, and a span that the course module divides (32 x 0.14 m,
+    # 12 x 0.34 m) at the parent's texel density.
+    dict(id="clapboard_board_face", group="walls", span_m=4.48, confidence="attested/inferred", mean_roughness=.86, kind="boardface", colors=((126,112,91),(92,86,74)), note="One clapboard's face, no course lines: grain along the board, raised grain, checks and broad weathering. The lap and its joints are geometry.", generator_seed=18350701),
+    dict(id="hewn_log_face", group="walls", span_m=4.08, confidence="attested/inferred", mean_roughness=.92, kind="logface", colors=((112,88,63),(70,57,43)), note="One hewn log's face, no chinking: adze facets, grain along the log and drying checks. Courses and chinking are geometry.", generator_seed=18351283),
 ]
 
 
@@ -109,6 +117,70 @@ def clapboard(size, seed):
             joints[y0:y1,max(0,x-1):min(size,x+2)]=1
     h-=ndimage.gaussian_filter(joints,1.1,mode="wrap")*.10
     return clamp01(h), clamp01(overlap+joints*.4)
+
+
+def streaks(size, seed, sx, sy):
+    """Wrap-seamless noise stretched along x (the run of a board or a log)."""
+    rng=np.random.default_rng(seed)
+    a=ndimage.gaussian_filter(rng.random((size,size),dtype=np.float32),sigma=(sy,sx),mode="wrap")
+    return (a-a.min())/max(float(a.max()-a.min()),1e-6)
+
+
+def checks(size, seed, count, length, width):
+    """Drying checks: thin dark splits running with the grain, tapered at both ends."""
+    rng=np.random.default_rng(seed); out=np.zeros((size,size),np.float32)
+    xs=np.arange(size)
+    for _ in range(count):
+        cx,cy=rng.integers(0,size,2); L=int(rng.integers(length//2,length)); w=float(rng.uniform(*width))
+        t=(xs-cx)%size; on=t<L
+        taper=np.sin(np.clip(t/max(L,1),0,1)*math.pi)
+        wob=(cy+3*np.sin(t/37.0+rng.uniform(0,6.3))).astype(int)%size
+        for dy in range(-3,4):
+            v=np.exp(-(dy/w)**2)*taper
+            rows=(wob+dy)%size
+            out[rows[on],xs[on]]=np.maximum(out[rows[on],xs[on]],v[on])
+    return out
+
+
+def boardface(size, seed):
+    """A clapboard's own face: grain, raised grain and checks, NO course line.
+
+    Returns height, the check mask, and the tone the colour follows.
+    """
+    fine=streaks(size,seed+1,40,1.2)        # raised grain, a few mm across
+    mid=streaks(size,seed+2,110,4)          # early/late wood bands
+    broad=fbm(size,seed+3,(160,60),(.7,.3)) # 0.5-2 m weathering, Glessner's lawn lesson
+    ck=checks(size,seed+4,45,200,(0.5,1.4))
+    h=.50+.10*(fine-.5)+.08*(mid-.5)+.05*(broad-.5)-.22*ck
+    tone=clamp01(.5+1.3*(mid-.5)+.7*(fine-.5)+.9*(broad-.5))
+    return clamp01(h),clamp01(ck),tone
+
+
+def logface(size, seed):
+    """A hewn log's face: broadaxe scallops in runs along the log, grain, long checks.
+
+    A hewer scores the log and chops the waste between the scores, so the face is a
+    run of shallow scoops ACROSS the grain, 8-15 cm apart, each a little taller than
+    it is wide. They are relief only: the colour follows the grain and the weather.
+    """
+    rng=np.random.default_rng(seed); yy,xx=np.indices((size,size)); facets=np.zeros((size,size),np.float32)
+    row_h=size/12                            # one log course (0.34 m) per row of scoops
+    for r in range(12):
+        x0=float(rng.uniform(0,size)); x=0.0
+        while x<size:                        # once round the row; the phase x0 staggers rows
+            rx=float(rng.uniform(11,17)); ry=float(rng.uniform(.30,.48))*row_h
+            cx=int(x+x0)%size; cy=int(r*row_h+row_h/2+rng.uniform(-.18,.18)*row_h)%size
+            dx=np.minimum(abs(xx-cx),size-abs(xx-cx)); dy=np.minimum(abs(yy-cy),size-abs(yy-cy))
+            win=(dx<rx)&(dy<ry)
+            bowl=clamp01(1-(dx[win]/rx)**2-(dy[win]/ry)**2)
+            facets[win]=np.maximum(facets[win],np.sqrt(bowl))
+            x+=rx*float(rng.uniform(1.5,2.4))
+    grainv=streaks(size,seed+1,55,2)
+    broad=fbm(size,seed+3,(140,50),(.7,.3))
+    ck=checks(size,seed+4,26,520,(0.9,2.0))
+    h=.55-.10*facets+.10*(grainv-.5)+.04*(broad-.5)-.30*ck
+    tone=clamp01(.5+1.2*(grainv-.5)+1.0*(broad-.5)+.15*(facets-.5))
+    return clamp01(h),clamp01(ck),tone
 
 
 def logwall(size, seed):
@@ -194,6 +266,8 @@ def surface(spec, seed):
     elif k=="batten": h,m=board_surface(SIZE,seed,True,12,True)
     elif k=="vertical": h,m=board_surface(SIZE,seed,True,20)
     elif k=="log": h,m=logwall(SIZE,seed)
+    elif k=="boardface": h,m,tone=boardface(SIZE,seed)
+    elif k=="logface": h,m,tone=logface(SIZE,seed)
     elif k in ("planks","roofboards","walk","tarwood"): h,m=board_surface(SIZE,seed,k not in ("roofboards","walk"),14 if k!="walk" else 11)
     elif k=="shingle": h,m=shingles(SIZE,seed)
     elif k=="brick": h,m=brick(SIZE,seed)
@@ -205,7 +279,11 @@ def surface(spec, seed):
     else: raise ValueError(k)
 
     n=fbm(SIZE,seed+40,(80,24,7,2),(.45,.30,.17,.08))
-    if k in ("clapboard","batten","vertical","planks","roofboards","walk","tarwood","shingle","log"):
+    if k in ("boardface","logface"):
+        # Colour follows the grain, the weather and the checks the normal map lights,
+        # so the albedo modulation a renderer reads from it lands on the same wood.
+        color=palette(.20*n+.80*tone,*spec["colors"]); color*=1-.35*m[...,None]
+    elif k in ("clapboard","batten","vertical","planks","roofboards","walk","tarwood","shingle","log"):
         g=grain(SIZE,seed+12,vertical=k in ("clapboard","shingle","log","roofboards","walk"))
         color=palette(.25*n+.75*g,*spec["colors"])
     else:
@@ -324,13 +402,14 @@ def build(out: Path, mud_source: Path | None = None):
     out.mkdir(parents=True,exist_ok=True); manifest=[]
     for i,spec in enumerate(MATERIALS):
         d=out/spec["group"]/spec["id"]; d.mkdir(parents=True,exist_ok=True)
-        data={**spec,"resolution_px":SIZE,"px_per_m":round(SIZE/spec["span_m"],2),"color_space":{"basecolor":"sRGB","normal_gl":"linear","normal_dx":"linear","roughness":"linear","height16":"linear 16-bit","ao":"linear","metallic":"linear","orm":"linear; R=AO G=Roughness B=Metallic"},"seamless":True,"generator_seed":18350701+i*97}
+        seed=spec.get("generator_seed",18350701+i*97)
+        data={**spec,"resolution_px":SIZE,"px_per_m":round(SIZE/spec["span_m"],2),"color_space":{"basecolor":"sRGB","normal_gl":"linear","normal_dx":"linear","roughness":"linear","height16":"linear 16-bit","ao":"linear","metallic":"linear","orm":"linear; R=AO G=Roughness B=Metallic"},"seamless":True,"generator_seed":seed}
         if spec["kind"]=="mud" and mud_source is not None:
             data["generation_method"]="AI-generated flat-lit color study, made periodic; procedural/aligned PBR derivation"
         else:
             data["generation_method"]="deterministic procedural synthesis"
         if not valid_material_dir(d,spec["id"]):
-            h,color,rough,metal=surface(spec,18350701+i*97); ngl,ndx,ao=maps_from_height(h,5.5 if spec["kind"] not in ("earth","mud","muck","sand") else 3.2)
+            h,color,rough,metal=surface(spec,seed); ngl,ndx,ao=maps_from_height(h,5.5 if spec["kind"] not in ("earth","mud","muck","sand") else 3.2)
             if spec["kind"]=="mud" and mud_source is not None:
                 h,color,rough,metal=ai_mud_maps(mud_source,h,spec["mean_roughness"])
                 ngl,ndx,ao=maps_from_height(h,3.8)
