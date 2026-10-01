@@ -224,7 +224,7 @@ HALL_FRACTION = 0.62
 CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
-    "chimneys", "paint", "shutters", "siding_exposure_m",
+    "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -310,6 +310,12 @@ class FrameDwellingParams:
     # the archetype's — first at one gable, second at the other or on the ell — and
     # docs/LIBERTIES.md L26 owns that arrangement for every archetype here.
     chimneys: int = 1
+
+    # Sheet-iron stovepipes through the main roof, beside the brick stacks (T-1807).
+    # A boarding house heated its chambers with box stoves, and the count is the
+    # record's, sized there from the house's beds; where each pipe stands is this
+    # archetype's deal. 0 draws none and is every other committed house's value.
+    stovepipes: int = 0
 
     # The rear wing. `ell` says whether one is built; its size and side come from the
     # footprint polygon and are filled in by from_phase, or stated directly by a golden
@@ -572,6 +578,15 @@ class FrameDwellingParams:
                 + (" and one on the ell" if self.ell else "")
                 + ", and has nowhere argued to put another")
 
+        # The same ceiling frame_tavern holds its pipes to: "multiple", and no more
+        # than a front range's ridge carries between its two gable stacks.
+        if (not isinstance(self.stovepipes, int) or isinstance(self.stovepipes, bool)
+                or not 0 <= self.stovepipes <= 6):
+            raise ParamError(f"stovepipes {self.stovepipes!r} not a count in 0..6")
+        if self.stovepipes and self.roof_type != "gable":
+            raise ParamError("stovepipes are set on the main gable's two slopes; this "
+                             f"roof is {self.roof_type!r}")
+
     def _validate_ell(self) -> None:
         if self.ell_side not in ELL_SIDES:
             raise ParamError(f"ell_side '{self.ell_side}' not in {ELL_SIDES}")
@@ -792,6 +807,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         shutters=(None if shutters in (None, False, "") else str(shutters)),
         porch=(None if porch in (None, False, "") else str(porch)),
         chimneys=int(val("chimneys", 1)),
+        stovepipes=int(val("stovepipes", 0)),
         ell=ell,
         ell_width_m=round(plan_from_footprint["ell_width_m"], 3),
         ell_depth_m=round(plan_from_footprint["ell_depth_m"], 3),

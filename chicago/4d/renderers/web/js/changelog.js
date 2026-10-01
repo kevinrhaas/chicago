@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1266, ts: '2026-10-01T17:58:02.493Z', date: 'Oct 1, 2026, 12:58 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
+  { v: 1268, ts: '2026-10-01T18:07:58.802Z', date: 'Oct 1, 2026, 1:07 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',
       'Existing grocers and mechanics keep the new premises: a grocer in each store, a blacksmith in the smithy and a carpenter in the joiner\u2019s shop. The buildings, firm assignments and exact addresses are reconstructed, with the limits explained on their cards.',
       'The Randolph end of the frontage is left open. A third workshop was planned there, but the West Side already has as many workshops as the town plan allows.',
       'The prairie grass fades out along a less regular edge, keeping the flatter west ground from revealing a straight band in the distance.',
+    ] },
+  { v: 1267, ts: '2026-10-01T17:44:52.415Z', date: 'Oct 1, 2026, 12:44 PM CT', title: 'Every shop front now has its own steps, posts and blocks', kind: 'change',
+    items: [
+      'Walk along South Water, Lake, Randolph or Washington Street and each business shows what its customers needed. Stores and inns now have a wooden stoop: a landing at the door and a step down to the plank walk.',
+      'Inns have two hitching posts and a mounting block for riders getting down. Forwarding houses and warehouses have a broad plank apron across the verge, so a loaded dray can come off the road to the door. The smith has a tie rail.',
+      'Twenty-five more shops now have a hitching post, including the reconstructed bakery, butcher, tailor and their neighbours.',
+      'All of this is our reconstruction. No source places a stoop, a post or a block at any Chicago door in 1835, and no record says where each door was, so each stoop stands at the middle of its front. Open the street edge\u2019s card to see which shop each one serves.',
+    ] },
+  { v: 1266, ts: '2026-10-01T16:51:04.113Z', date: 'Oct 1, 2026, 11:51 AM CT', title: 'Two small boarding houses get their stovepipes', kind: 'change',
+    items: [
+      'Two one-and-a-half-storey boarding houses, one on the North Side and one on the West Side approaches, now have three iron stovepipes rising through each roof beside the two brick chimneys.',
+      'The number comes from the beds each house already holds, by the same rule as the town\u2019s other boarding houses: one stove for every three people sleeping there on an ordinary night. Nobody moved, and the fronts are unchanged.',
+      'These houses and their stoves are our reconstruction. No source counts the stoves of a Chicago boarding house in 1835; the register says how the number was reached.',
     ] },
   { v: 1265, ts: '2026-10-01T16:25:59.178Z', date: 'Oct 1, 2026, 11:25 AM CT', title: 'Emigrants\u2019 tents on the South Water bank', kind: 'change',
     items: [

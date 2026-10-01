@@ -10937,7 +10937,7 @@
       ],
       "covers": [],
       "recorded": "2026-09-03",
-      "revised": "2026-09-03",
+      "revised": "2026-10-01",
       "fields": [
         {
           "label": "Decision",
@@ -10981,7 +10981,11 @@
         },
         {
           "label": "Revised",
-          "text": "2026-09-03."
+          "text": "2026-09-03. **Amended 2026-10-01 — the street edge is dealt by business (T-1813, the first piece of T-1211).** The owner, of the plank walks: *\"include their correct plank sidewalks for each business that varies because business vary and fill it in so it is complete.\"* So each business front on a covered street now takes the fittings its trade implies, read off one table in `tools/generate_frontage_works.py` (`FRONTAGE_BY_BUSINESS`): an **inn** stands two hitching posts at the thirds of its front (the Sauganash's own arrangement), a **stoop** at the door and a **mounting block** in the verge between the posts; a **store** stands one post and a stoop; a **forwarding house or warehouse** gets a **wagon apron** of 3-inch plank laid from the walk's outer edge across the verge; a **works** gets a **tie rail** in the verge. On today's town that is 46 street-edge posts (was 16), 37 stoops, 5 mounting blocks, 3 wagon aprons and 1 tie rail, and 18 fronts the rule could not fit are refused in writing, each with its clause. **All of it is invented.** No source in this repository puts a stoop, a block, a rail or an apron at any Chicago door in 1835. No record places a door either, so the middle of each front stands in for one. Every dimension is ordinary carpentry, not a measurement. **The trade's grade no longer refuses a post**: T-1052's clause 3 refused every trade the roof schedule dealt, and T-1211 asks for \"every business face … attested, inferred, reconstructed\". So a reconstructed trade takes its fittings at its own tier, and each record carries `trade_confidence` beside its own `confidence: reconstructed`. Seven shop trades the reconstructed firms carry and neither signboard set knows (bakery, barber, butcher, gunsmith, harness maker, shoemaker, tailor) are read as stores, **for the street edge only**. Whether they hang a board is T-1213's question."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-01."
         }
       ]
     },
@@ -20529,6 +20533,65 @@
         {
           "label": "Related",
           "text": "**L318** (the H3's rule, whose ratios these are), **L90** (the anonymous roofs the reconstruction programme raises), **L271** (`recon_1835_west_035`'s release), **T-1209** (the boarding houses built to their beds), **T-1806** (this sizing), **T-1807** (the two H1 houses)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
+        }
+      ]
+    },
+    {
+      "id": "L325",
+      "title": "The two small boarding houses sized from their beds: stovepipes by the H3's rule, and where `frame_dwelling` puts them",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_north_h1_007",
+        "recon_1835_west_006"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_h1_007",
+          "phase": "inferred_1835",
+          "aspect": "form.stovepipes"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_006",
+          "phase": "inferred_1835",
+          "aspect": "form.stovepipes"
+        }
+      ],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the two H1 houses the North and West parcels raised and the lodging model counts as boarding houses — `recon_1835_north_h1_007` and `recon_1835_west_006`, both `small_boarding_house` on the `frame_dwelling` placeholder — carry a **stovepipe count sized from their modelled beds** (T-1807), the count L324 could not give them because `frame_dwelling` drew no pipe."
+        },
+        {
+          "label": "The ratio is L318's, carried unchanged",
+          "text": "one box stove per **three sleepers on an ordinary night**, held to 2–6 as at L324. Seven ordinary beds each (T-1370's apportionment of their 119 and 123 m² of enclosed floor) give **3** pipes each. Each record carries the beds it read and the arithmetic in `reconstruction.capacity`, and `tools/boarding_house_beds.py` (`stovepipes_from_beds`) is the one place the carry lives, so both generators' `--check` re-derive the count from the committed lodging model."
+        },
+        {
+          "label": "WHAT IS THIS ENTRY'S OWN, beyond L318 and L324",
+          "text": "- **No window count.** L318's other ratio (a chamber per three lodgers on a crowded night) is NOT carried: the H1 crosswalk entry states the front outright (\"5 bays; center hall\"), and a one-and-a-half-storey house lights its chambers from its gable ends, which `frame_dwelling` already draws, rather than from a row of upper sashes. The front is not resized. - **Where the pipes stand.** `frame_dwelling` gains an off-by-default `stovepipes` count. The pipes rise through the front range's main gable, spread along the stretch of ridge between the two gable stacks (1.35 m in from each gable, clear of a stack's corbelled head), nudged off even spacing and alternating slopes a fifth of the span off the ridge, at frame_tavern's six dealt heights and its blacked sheet-iron colour (T-1778). None of that is attested for any building here; it is dealt from the index so it is stable from bake to bake. A kitchen ell takes no pipe: its stove is the kitchen hearth `_chimneys` already draws. Neither the ratio nor the placement is read off any source. No 1835 Chicago boarding house's beds or stoves are counted anywhere in the evidence this project holds; the count indicates capacity and is not a recovered interior plan."
+        },
+        {
+          "label": "What does NOT move",
+          "text": "the footprints, storeys, walls, roofs, fronts and chimneys (the two brick stacks are the household's hearths); the lodging model, so not one bed or lodger moves; and every other house on `frame_dwelling`, which states no pipe and rebuilt **byte-identical** when the new parameter restaled it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any 1830s account counting a Chicago boarding house's beds or stoves (it replaces the ratio outright, here and at L318 and L324); any source naming one of these houses, which substitutes for the anonymous roof."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_north_h1_007.inferred_1835.form.stovepipes`, `recon_1835_west_006.inferred_1835.form.stovepipes`"
+        },
+        {
+          "label": "Related",
+          "text": "**L318** (the H3's rule, whose ratio this is), **L324** (the same carry to the medium houses), **L90** (the anonymous roofs the reconstruction programme raises), **L26** (every chimney stands where its archetype puts it), **T-1209** (the boarding houses built to their beds), **T-1807** (this sizing)."
         },
         {
           "label": "Recorded",
