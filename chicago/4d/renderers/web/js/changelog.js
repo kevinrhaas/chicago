@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1247, ts: '2026-10-01T06:56:28.896Z', date: 'Oct 1, 2026, 1:56 AM CT', title: 'How many farms the West Side prairie could hold', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. This is the measurement the next West Side farms will be built from.',
+      'The town owes 44 West Side farm families a home. The open, unsubdivided prairie outside the 1833 town limits and inside the modelled ground comes to about 178 hectares. At forty acres to a farm, that is room for ten farms at most, so most of these families farmed beyond the edge of the map.',
+      'Two log cabins on the Des Plaines prairie edge already stand beside barns, so a farm family could move into each without a new building.',
+    ] },
   { v: 1246, ts: '2026-10-01T06:18:44.587Z', date: 'Oct 1, 2026, 1:18 AM CT', title: 'Three West Side sheds now say what they were for', kind: 'change',
     items: [
       'Out on the West Side between Jefferson and Des Plaines Streets, three buildings nobody lived in used to say only that they were anonymous. Click them now and the card says what each was for.',
