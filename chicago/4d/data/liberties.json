@@ -20600,6 +20600,49 @@
       ]
     },
     {
+      "id": "L329",
+      "title": "The lake's sand follows the lake: where the beach and the sand prairie end, and their grey",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/flora/zones/z08_lakeshore.json` and `z09_sand_prairie.json` (their `extent` and `ground`), read by `renderers/web/js/lakeshore.js` for the ground shader (`terrain.js`), the sward (`flora.js`) and the dune timber (`trees.js`)"
+        },
+        {
+          "label": "What we invented",
+          "text": "Three things about the lakefront's sand, none of which any source in this project measures. (1) **Its north-south reach.** The beach and the beach-ridge belt behind it were drawn only between N −400 and +400, the scene's own bounds and never the belt's; both now run the whole 4.9 km of modelled lake shore, N −3800 to +1120. (2) **Where the beach ends inland.** It is a band 75 m deep measured west from the lake's edge, which is read off the committed heightfield rather than drawn, so the sand bar and the shore north and south of the fort all carry it; the sand prairie's west side stays on the State Street break of slope (E +840) its record has always reasoned from. (3) **The shape and softness of both edges.** Each is a ramp (40 m either side of the beach's line, 90 m of the belt's) that wanders by up to 30 m and 50 m on three scales — about 310 m, 97 m and 18 m — so neither edge is a line. The plants read the same weight the ground does, dithered point by point, so the sward thins into the sand across the ramp. (4) **The tone.** The beach is now a cool grey-beige (sRGB 186, 181, 166; wet 146, 142, 131) and the sand prairie's soil the colour of a grass mat with sand in it (124, 124, 94; wet 100, 100, 80), about a third of the way from the mesic prairie's to the beach's, on the owner's instruction (T-1772) — the sand prairie's own record says 18 % of it is bare, and the bare-sand buff it had painted the whole belt as desert once it ran the shore. The warm buffs they replace were no measurement either."
+        },
+        {
+          "label": "Why",
+          "text": "the owner's report of 2026-09-30 — the fort's sand should continue north and south along the historical lake shore, greyer, and blend into prairie with no sharp beach line. Every one of those faults was the box's: a box cannot follow a shore, and its sides were ruled lines."
+        },
+        {
+          "label": "Omission",
+          "text": "the landform. The beach is still the terrain's flat shelf with its step at the water; dune ridges and hollows are T-1820's, with the bake they need. So are the dune's poplars: they keep the reach they had (N −400 to +400, fading over 100 m, `woody_stratum.reach_n_m` on z08), because their band is an elevation band and the south terrace clears all of it. The 8 m marsh buffer (`z04_marsh`) still outranks the beach at the waterline."
+        },
+        {
+          "label": "Would replace",
+          "text": "a survey or plat that draws the beach's inland edge or the ridge belt's north and south ends; a measured colour of Lake Michigan beach sand at Chicago."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1819 (piece 1 of T-1772)."
+        },
+        {
+          "label": "Related",
+          "text": "**L32** (the sward's density, which this zone's cover thins), **T-1820** (the dunes)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

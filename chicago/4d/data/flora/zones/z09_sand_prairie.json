@@ -35,32 +35,37 @@
   },
   "ground": {
     "rgb": [
-      168,
-      158,
-      124
+      124,
+      124,
+      94
     ],
     "wet_rgb": [
-      132,
-      124,
-      100
-    ]
+      100,
+      100,
+      80
+    ],
+    "note": "RETONED, T-1819, 2026-10-01, on the owner's instruction (T-1772: the sand should pass 'through sand prairie into grass'). The previous triple, 168,158,124, was the colour of bare sand, painted under a community whose own cover block records 18 % bare soil — so once the belt ran the whole shore it read as 4.9 km of desert. A zone's ground colour is how its ground READS under the sward (the prairies' triples are their grass mat, not their soil), so this one is the sand prairie's mat: about a third of the way from z02_mesic_prairie's 86,92,56 toward the beach's 186,181,166, which puts the sand in the tone without making it the ground. A reconstruction of tone, not a measurement; LIBERTIES L329 says so."
   },
   "extent": {
     "kind": "everywhere",
     "box": {
       "e": [
         840,
-        1400
+        1800
       ],
       "n": [
-        -400,
-        400
+        -3900,
+        1220
       ]
+    },
+    "edge": {
+      "ramp_m": 90,
+      "wander_m": 50
     },
     "priority": 40,
     "confidence": "inferred",
     "sources": [],
-    "note": "PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
+    "note": "CARRIED NORTH AND SOUTH SINCE T-1819, 2026-10-01 (the owner's T-1772). The box was N -400..+400, 'the scene's own' bounds as this note always said, so the beach-ridge belt ended along ruled lines either side of the mouth. It now runs the whole modelled field, N -3800..+1120 (the box reaches 100 m past each end so the soft edge falls off the ground, not on it), and east to the lake, where z08_lakeshore's band outranks it. The west side stays on the State Street break of slope this note has always reasoned from (E +840; the terrain spec builds that band between E +780 and +880), and `edge` makes it a 90 m ramp that wanders +/-50 m (renderers/web/js/lakeshore.js) instead of a meridian. Carrying the belt past the box is a reconstruction: the dossier places relict beach ridges along the lake, but no source in this project draws their north-south extent; LIBERTIES L329 states it. WHAT THE PREVIOUS NOTE SAID: PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
   },
   "species": [
     {

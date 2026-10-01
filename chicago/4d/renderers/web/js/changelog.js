@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The lake\u2019s sand now runs the whole shore', kind: 'change',
+    items: [
+      'Stand by the fort and look north or south along the lake. The beach no longer stops 400 metres either side of the river mouth. It now runs the whole length of the shore, with the sandy ground behind it reaching back to the rise at State Street.',
+      'The sand is a cooler grey-beige, and it no longer ends in a straight line. It thins gradually into sandy prairie and then grass, along an uneven edge. Where more sand shows, the grass and flowers thin out with it.',
+      'Where the beach ends and what colour the sand was are our reconstruction. No survey of 1835 draws either. The register (L329) says so.',
+    ] },
   { v: 1270, ts: '2026-10-01T19:36:52.878Z', date: 'Oct 1, 2026, 2:36 PM CT', title: 'Stores and workshops on the Canal approach', kind: 'change',
     items: [
       'Two stores and two workshops stand on the east side of Canal Street between Lake and Randolph, with open gaps and yards behind them.',

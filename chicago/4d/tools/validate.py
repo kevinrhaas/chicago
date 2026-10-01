@@ -3557,7 +3557,7 @@ FLORA_ROLES = ("matrix", "forb", "emergent", "shrub_low", "ground", "tree", "thi
 FLORA_SWARD_ROLES = ("matrix", "forb", "emergent", "shrub_low", "ground")
 FLORA_PHENOLOGY = ("flowering", "vegetative", "budding", "past_bloom", "fruiting",
                    "leafless", "senescent")
-EXTENT_KINDS = ("elevation_band", "polygon", "buffer", "everywhere")
+EXTENT_KINDS = ("elevation_band", "polygon", "buffer", "everywhere", "lake_shore")
 ABUNDANCE_LIMITS = {"cover_fraction": 1.0, "density_per_ha": 5000.0, "stems_per_m2": 200.0}
 
 # The three warm-season grasses that are LEAFY AND VEGETATIVE in mid-July, at
@@ -3665,9 +3665,116 @@ def _water_distance(field) -> list:
     return [x * cell for x in d]
 
 
-def _extent_matches(ext: dict, e: float, n: float, h: float, dwater: float) -> bool:
+# ---- the lake's sand (T-1819) ------------------------------------------------
+# A mirror of renderers/web/js/lakeshore.js, function for function, so the extent
+# audit below answers the question the renderer answers. Change one, change both.
+LAKE_SHORE_Y = -0.10
+SHORE_LINE_STEP_M = 40.0
+SHORE_FILL_M = 120.0
+SHORE_MEDIAN_M = 50.0
+_M32 = 0xFFFFFFFF
+
+
+def _lake_shore_line(field) -> dict | None:
+    """The lake's edge as E per 40 m of N: per row the easternmost land node, a
+    median over +/-50 m, a running max over +/-120 m (bridging the mouth), a mean
+    per 40 m sample."""
+    cols, rows, cell = field.cols, field.rows, field.cell_m
+    raw = [math.nan] * rows
+    for j in range(rows):
+        for i in range(cols - 1, -1, -1):
+            if field._at(i, j) >= LAKE_SHORE_Y:
+                raw[j] = field.origin_e + i * cell
+                break
+    wm = max(1, round(SHORE_MEDIAN_M / cell))
+    steady = []
+    for j in range(rows):
+        vals = sorted(v for v in raw[max(0, j - wm):min(rows - 1, j + wm) + 1]
+                      if not math.isnan(v))
+        steady.append(vals[(len(vals) - 1) >> 1] if vals else math.nan)
+    w = max(1, round(SHORE_FILL_M / cell))
+    filled = []
+    for j in range(rows):
+        vals = [v for v in steady[max(0, j - w):min(rows - 1, j + w) + 1] if not math.isnan(v)]
+        filled.append(max(vals) if vals else math.nan)
+    count = int((rows - 1) * cell // SHORE_LINE_STEP_M) + 1
+    half = SHORE_LINE_STEP_M / 2
+    out: list[float] = []
+    last = math.nan
+    for k in range(count):
+        nk = k * SHORE_LINE_STEP_M
+        j0 = max(0, math.ceil((nk - half) / cell))
+        j1 = min(rows - 1, math.floor((nk + half) / cell))
+        vals = [filled[j] for j in range(j0, j1 + 1) if not math.isnan(filled[j])]
+        out.append(sum(vals) / len(vals) if vals else last)
+        if vals:
+            last = out[-1]
+    first = next((v for v in out if not math.isnan(v)), None)
+    if first is None:
+        return None
+    out = [first if math.isnan(v) else v for v in out]
+    return {"n0": field.origin_n, "step": SHORE_LINE_STEP_M, "e": out}
+
+
+def _shore_e(line: dict, n: float) -> float:
+    last = len(line["e"]) - 1
+    t = min(last, max(0.0, (n - line["n0"]) / line["step"]))
+    i = min(last - 1, math.floor(t))
+    f = t - i
+    return line["e"][i] * (1 - f) + line["e"][i + 1] * f
+
+
+def _shore_wander(e: float, n: float) -> float:
+    return (0.55 * math.sin(0.0203 * n + 1.3)
+            + 0.30 * math.sin(0.0647 * n + 0.0211 * e + 0.7)
+            + 0.15 * math.sin(0.2731 * e - 0.2113 * n + 2.1))
+
+
+def _smoothstep(lo: float, hi: float, x: float) -> float:
+    if not hi > lo:
+        return 1.0 if x >= hi else 0.0
+    t = min(1.0, max(0.0, (x - lo) / (hi - lo)))
+    return t * t * (3 - 2 * t)
+
+
+def _band_weight(x: float, limit: float, ramp: float) -> float:
+    return 1.0 - _smoothstep(limit - ramp, limit + ramp, x)
+
+
+def _dither_hash(e: float, n: float) -> float:
+    a = math.floor(e * 2 + 0.5) & _M32
+    b = math.floor(n * 2 + 0.5) & _M32
+    h = ((a * 0x27D4EB2D) & _M32) ^ ((b * 0x165667B1) & _M32) ^ 0x51ED270B
+    h = ((h ^ (h >> 15)) * 0x85EBCA6B) & _M32
+    h = ((h ^ (h >> 13)) * 0xC2B2AE35) & _M32
+    return (h ^ (h >> 16)) / 4294967296.0
+
+
+def _soft_extent_weight(ext: dict, e: float, n: float, line: dict | None) -> float | None:
+    if ext.get("kind") == "lake_shore":
+        if line is None:
+            return 0.0
+        far = (ext.get("distance_m") or [0, 0])[1]
+        d = _shore_e(line, n) - e + (ext.get("wander_m") or 0) * _shore_wander(e, n)
+        return _band_weight(d, far, ext.get("ramp_m") or 0)
+    edge, box = ext.get("edge"), ext.get("box")
+    if edge and box:
+        r = edge.get("ramp_m") or 0
+        off = (edge.get("wander_m") or 0) * _shore_wander(e, n)
+        w = 1.0
+        be, bn = box.get("e"), box.get("n")
+        if be:
+            w *= _band_weight(be[0] - e + off, 0, r) * _band_weight(e - be[1] + off, 0, r)
+        if bn:
+            w *= _band_weight(bn[0] - n + off, 0, r) * _band_weight(n - bn[1] + off, 0, r)
+        return w
+    return None
+
+
+def _extent_matches(ext: dict, e: float, n: float, h: float, dwater: float,
+                    line: dict | None = None) -> bool:
     box = ext.get("box")
-    if box:
+    if box and not ext.get("edge"):
         be, bn = box.get("e"), box.get("n")
         if be and not (be[0] <= e <= be[1]):
             return False
@@ -3675,7 +3782,10 @@ def _extent_matches(ext: dict, e: float, n: float, h: float, dwater: float) -> b
             return False
     kind = ext.get("kind")
     ok = True
-    if kind == "elevation_band":
+    soft = _soft_extent_weight(ext, e, n, line)
+    if soft is not None:
+        ok = soft > _dither_hash(e, n)
+    elif kind == "elevation_band":
         lo, hi = ext.get("elev_m", [0, 0])
         ok = lo <= h <= hi
     elif kind == "polygon":
@@ -3712,6 +3822,7 @@ def check_flora_extents(zones: dict, field, rep: Report) -> None:
         rep.note("flora extents: skipped — needs the committed heightfield")
         return
     dwater = _water_distance(field)
+    line = _lake_shore_line(field)
     cols, rows, cell = field.cols, field.rows, field.cell_m
     step = 2  # every second cell: 5 m spacing over a 640 m box
     matched = {zid: 0 for zid in zones}
@@ -3725,7 +3836,7 @@ def check_flora_extents(zones: dict, field, rep: Report) -> None:
             d = dwater[j * cols + i]
             hits = [(z.get("extent", {}).get("priority", 0), zid)
                     for zid, z in zones.items()
-                    if _extent_matches(z.get("extent", {}), e, n, h, d)]
+                    if _extent_matches(z.get("extent", {}), e, n, h, d, line)]
             for _, zid in hits:
                 matched[zid] += 1
             if h <= 0.0:
@@ -4118,6 +4229,22 @@ def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
             rep.error(where, "extent.elev_m must be [low,high] metres above the datum water")
         if kind == "polygon" and len(ext.get("polygon") or []) < 3:
             rep.error(where, "extent.polygon needs at least three vertices")
+        if kind == "lake_shore":
+            if not _num_range(ext.get("distance_m"), 0.0, 2000.0):
+                rep.error(where, "extent.distance_m must be [min,max] metres west of the "
+                                 "lake's edge")
+            for key in ("ramp_m", "wander_m"):
+                if not isinstance(ext.get(key, 0), (int, float)) or ext.get(key, 0) < 0:
+                    rep.error(where, f"extent.{key} must be a non-negative number of metres")
+        edge = ext.get("edge")
+        if edge is not None:
+            if kind != "everywhere" or not ext.get("box"):
+                rep.error(where, "extent.edge softens a box's sides; only a kind "
+                                 "'everywhere' box carries one (lakeshore.js reads no other)")
+            for key in ("ramp_m", "wander_m"):
+                v = (edge or {}).get(key)
+                if not isinstance(v, (int, float)) or v < 0:
+                    rep.error(where, f"extent.edge.{key} must be a non-negative number of metres")
         if kind == "buffer":
             if ext.get("of") != "water":
                 rep.error(where, "extent.of only takes 'water' — the renderer implements one "
