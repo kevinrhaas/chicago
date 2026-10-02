@@ -1017,6 +1017,6 @@ The rule deals one more form value, and `frame_dwelling` builds it:
 
 The window is built from its glazing: lights, 7/8 in muntins, the stiles and rails and the
 meeting rail, in the trim's colour over the dark opening. The default, for a record that states
-none, is 12/12 of the attested 6 × 8 in pane. The Built line names the sash. L339.
+none, is 12/12 of the attested 6 × 8 in pane. The Built line names the sash. L343.
 
 **Not this piece:** cladding, trim, chimney fabric and the siding stock (T-1839).

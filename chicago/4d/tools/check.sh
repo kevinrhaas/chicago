@@ -1312,6 +1312,13 @@ step "the business signboards re-derive from the rule that chose their frontages
 step "admitting one signboard reaches no board further off than the rule's own 40 m" \
   python3 tools/generate_business_signboards.py --prove-locality
 
+# ...AND AN INVENTED FIRM'S BOARD NEVER MOVES AN EVIDENCED ONE (T-1834). Reconstructed
+# firms the business layer records IN a reconstructed roof now take a board, dealt after
+# every named frontage; this re-derives the town without them and holds every evidenced
+# board byte-identical. ~2 s.
+step "a reconstructed firm's signboard moves no board the evidence carries" \
+  python3 tools/generate_business_signboards.py --prove-recon-yields
+
 # The yard goods are the third record of this shape and the first whose evidence is an
 # ORDINANCE: the village corporation legislated in November 1833 about timber, stone,
 # brick, boxes and barrels stacked in the streets, which attests the treatment and not one

@@ -245,7 +245,7 @@ FORMS: dict[str, dict] = {
 #: pane (`frame_dwelling_params.GLAZINGS`). 6 x 8 in is the one pane attested at
 #: Chicago (the Green Tree; Gale's guest chamber), so it is what the cottages and
 #: shops glaze with; the larger boxed lights went to the houses that could pay for
-#: them. No source glazes any particular house here (docs/LIBERTIES.md L339).
+#: them. No source glazes any particular house here (docs/LIBERTIES.md L343).
 GLAZING: dict[str, tuple] = {
     "merchant": (("12_over_12_8x10", 0.5), ("12_over_12_7x9", 1.0)),
     "keeper": (("12_over_12_7x9", 1.0),),
@@ -476,7 +476,7 @@ def policy_table() -> dict:
                                  for k, v in GLAZING.items()},
             "never_moved": "an attested or inferred value, and any construction that is not a frame",
             "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
-            "liberty": "L338, L339"},
+            "liberty": "L338, L343"},
     }
 
 

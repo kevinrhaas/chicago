@@ -40,10 +40,10 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 149,
+    "adopted_seats": 150,
     "written": 23,
     "refused": 81,
-    "owed": 45,
+    "owed": 46,
     "refused_letter_list": 79,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
@@ -1883,6 +1883,16 @@
       "structure_id": "recon_1835_blk_washington_clark_h3_05",
       "block_id": "blk_washington_clark",
       "lot_id": "blk_washington_clark#07",
+      "clause": "lodging_near_the_landings",
+      "family": "H3",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_sweet_alanson",
+      "structure_id": "recon_1835_blk_washington_clark_h3_06",
+      "block_id": "blk_washington_clark",
+      "lot_id": "blk_washington_clark#06",
       "clause": "lodging_near_the_landings",
       "family": "H3",
       "district": "south",

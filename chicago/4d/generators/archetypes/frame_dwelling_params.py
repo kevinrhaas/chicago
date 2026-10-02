@@ -137,7 +137,7 @@ ELL_SIDES = ("west", "east")
 # the Green Tree's lights (`chicagology_prefire127`) and Gale's guest chamber "with two
 # windows 6x8". The larger lights are the boxed window-glass sizes of the period and
 # no source puts any of them in any particular house here — the fabric rule deals them
-# by class (docs/LIBERTIES.md L339), which is why a record that states nothing gets the
+# by class (docs/LIBERTIES.md L343), which is why a record that states nothing gets the
 # attested one.
 GLAZINGS = {
     "12_over_12_6x8": (4, 3, 3, 6, 8),

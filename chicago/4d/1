@@ -1,0 +1,775 @@
+0.046	step	node tools/test_drawn_placement_census.mjs 	Drawn placement rejects shifted, mirrored and rotated camps (T-1805)
+0.056	step	node tools/test_arrival.mjs 	Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)
+0.082	step	node tools/test_selected_year.mjs 	Selected-year arrival and catalog isolation (T-1767)
+0.048	step	node tools/test_jaunts_reducer.mjs 	Jaunt session history, cancellation and replacement (T-1279)
+0.109	step	node tools/test_boot_phases.mjs 	Boot phase readiness, failure and history contract (T-1246)
+0.059	step	node tools/test_leg_notes.mjs 	Jaunt optional context and route notes (T-1257)
+0.074	step	node tools/test_daybook.mjs 	Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)
+0.289	step	node tools/test_travel_estimate.mjs 	Jaunt route and pace estimates (T-1280)
+0.342	step	python3 tools/check_loading_content.py 	loading library: 160 sourced, phase-local cards (T-1275)
+0.013	step	bash tools/check-merge-drivers.sh 	the merge drivers this clone needs are registered (T-1548)
+0.629	step	node tools/test_jaunt_mechanics.mjs 	Jaunt resources, Revise, endings and saved-session replay (T-1256)
+0.446	step	bash tools/tickets.sh 	the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)
+1.785	step	python3 tools/test_loading_content.py 	loading evidence refuses promoted or unrelated facts (T-1275)
+3.549	step	node tools/test_loading_content.mjs 	loading cards: seeded bags, dwell, stop and humor cap (T-1275)
+3.832	step	bash tools/publish.sh 	publish the mirror the gate measures (site/4d/ is generated, T-0938)
+0.089	selftest	python3 tools/test_glessner_v4_package.py --self-test 	…materialization refuses corruption and never overwrites a new bake
+0.315	step	python3 tools/test_glessner_roof_envelope.py 	Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)
+0.192	step	python3 tools/check_gate_readers.py 	the gate can ask what it claims to ask (raster readers present)
+0.058	selftest	python3 tools/check_gate_readers.py --self-test 	…and its own assertions still fire when broken
+0.007	selftest	bash -c echo\ FAIL\ the\ roofs\ are\ wrong\;\ echo\ ok\ \>\&2 	a self-test that fires
+0.005	selftest	false 	a self-test gone quiet
+0.003	step	false 	the second gate
+0.005	step	true 	the first gate
+0.008	selftest	false 	a self-test gone quiet
+0.003	step	sh -c echo one	first
+0.004	selftest	sh -c echo two; exit 0	second
+0.002	step	sh -c echo three; exit 1	third
+0.002	step	sh -c echo four	fourth
+0.007	step	sh -c echo\ one 	first
+0.007	step	sh -c echo\ four 	fourth
+0.013	selftest	sh -c echo\ two\;\ exit\ 0 	second
+0.009	step	sh -c echo\ three\;\ exit\ 1 	third
+0.002	step	sh -c echo\ FAST 	fast
+1.162	step	python3 tools/recover_glessner_v4.py --check 	Glessner v4 packaged GLBs match both generated outputs (T-1730)
+0.005	selftest	bash -c echo\ FAIL\ the\ roofs\ are\ wrong\;\ echo\ ok\ \>\&2 	a self-test that fires
+0.005	selftest	false 	a self-test gone quiet
+0.001	step	true 	the first gate
+0.002	step	false 	the second gate
+0.006	selftest	false 	a self-test gone quiet
+0.002	step	sh -c echo one	first
+0.003	selftest	sh -c echo two; exit 0	second
+0.002	step	sh -c echo three; exit 1	third
+0.003	step	sh -c echo four	fourth
+0.003	step	sh -c echo\ one 	first
+0.002	step	sh -c echo\ four 	fourth
+0.004	step	sh -c echo\ three\;\ exit\ 1 	third
+0.010	selftest	sh -c echo\ two\;\ exit\ 0 	second
+0.003	step	sh -c echo\ FAST 	fast
+0.505	step	sh -c sleep\ 0.5\;\ echo\ SLOW 	slow
+0.105	step	sh -c sleep\ 0.1\;\ if\ \[\ -e\ /tmp/tmp.W62Hd4JHIr/drift\ \]\;\ then\ echo\ DRIFT\ SEEN\;\ exit\ 1\;\ fi\;\ echo\ quiet 	the step that reads it
+0.407	step	sh -c touch\ /tmp/tmp.W62Hd4JHIr/drift\;\ sleep\ 0.4\;\ rm\ -f\ /tmp/tmp.W62Hd4JHIr/drift 	the neighbour that holds the tree wrong
+0.504	step	sh -c sleep\ 0.5\;\ echo\ SLOW 	slow
+0.003	step	sh -c echo\ BROKEN\;\ exit\ 1 	genuinely broken
+0.003	step	sh -c echo\ ok 	fine
+0.002	step	sh -c echo ok	fine
+0.003	step	sh -c echo\ three\;\ exit\ 1 	third
+0.008	step	sh -c echo\ one 	first
+0.104	step	sh -c sleep\ 0.1\;\ if\ \[\ -e\ /tmp/tmp.eQh97GWYgX/drift\ \]\;\ then\ echo\ DRIFT\ SEEN\;\ exit\ 1\;\ fi\;\ echo\ quiet 	the step that reads it
+0.006	step	sh -c echo\ four 	fourth
+0.011	selftest	sh -c echo\ two\;\ exit\ 0 	second
+1.483	step	bash tools/test_check_harness.sh 	the gate's own output tells a fired assertion from a failure
+0.407	step	sh -c touch\ /tmp/tmp.eQh97GWYgX/drift\;\ sleep\ 0.4\;\ rm\ -f\ /tmp/tmp.eQh97GWYgX/drift 	the neighbour that holds the tree wrong
+0.002	step	sh -c echo\ BROKEN\;\ exit\ 1 	genuinely broken
+0.002	step	sh -c echo\ ok 	fine
+0.002	step	sh -c echo ok	fine
+0.003	step	sh -c echo\ one 	first
+0.003	step	sh -c echo\ four 	fourth
+0.006	step	sh -c echo\ three\;\ exit\ 1 	third
+0.006	selftest	sh -c echo\ two\;\ exit\ 0 	second
+1.460	selftest	bash tools/test_check_harness.sh --self-test 	…and its own assertions still fire when broken
+2.126	selftest	bash ../../.github/chicago-4d-clone.sh --self-test 	…and the bounded clone abandons a bad draw and re-rolls (T-0232)
+0.053	step	node tools/check_gh_rest.mjs 	the steward surfaces spend the REST bucket, not GraphQL (T-0234)
+0.059	selftest	node tools/check_gh_rest.mjs --self-test 	…and a reintroduced gh pr draw is refused (T-0234)
+0.084	step	python3 tools/check_only_selection.py --gate 	the --only form bake.sh documents is the form build.py implements (T-1652)
+0.125	selftest	python3 tools/check_only_selection.py --self-test 	…and the equality comparison and the falsy-empty test are both refused (T-1652)
+0.032	selftest	python3 generators/common/selection.py --self-test 	…and the selection rule itself still fires on each of its assertions (T-1652)
+0.050	step	node tools/check_detail_ladder.mjs 	the scene-detail ceilings are a ladder, and each rung says what it protects (T-0135)
+0.052	selftest	node tools/check_detail_ladder.mjs --self-test 	…and the seal still clamps, marks and shouts a rung typed too high (T-0135)
+0.047	step	node tools/check_haze_reach.mjs 	the haze closes before L17's ground apron ends, and both its literals agree (T-1635)
+3.120	selftest	node ../../.github/chicago-4d-url-check.mjs --self-test 	…and the post-deploy URL smoke still fires on a 404 (T-0968)
+0.058	selftest	node tools/check_haze_reach.mjs --self-test 	…and it refuses a thinned air, a shrunk apron and the two literals drifting apart (T-1635)
+5.462	selftest	python3 tools/test_glessner_block_clipping.py --self-test 	…arched apertures preserve whole-stone relief without false joints
+1.120	selftest	python3 tools/test_structure_versions.py --self-test 	structure versions: no mesh, a stale mesh and a refused label are each red (T-1727)
+0.070	selftest	node tools/test_structure_versions.mjs --self-test 	…the address bar swaps one committed version and falls back ALOUD on every miss (T-1727)
+0.406	selftest	node tools/promote_version.mjs --self-test 	…and promote_version.mjs makes a version the default in one diff, reversibly (T-1727)
+0.170	step	python3 tools/test_pr_reconciliation.py 	reconciled PRs preserve resident identities and refuse back-projected trades
+0.212	step	python3 tools/build_book_page_index.py --check 	book page indexes still match the text they index
+0.787	selftest	python3 tools/build_book_page_index.py --self-test 	…and its own assertions still fire when broken
+8.841	selftest	python3 tools/test_glessner_v4_package_producer.py --self-test 	…only the canonical v4 derivative producer refreshes the package
+0.120	selftest	python3 tools/pinned_sources.py --self-test 	…and its own assertions still fire when broken
+0.099	step	python3 tools/trace_river.py --check-properties 	the traced forks still carry what their generator writes
+0.090	step	python3 tools/trace_south_branch.py --check-properties 	the traced South Branch still carries what its generator writes
+0.086	step	python3 tools/trace_south_branch_rees_1849.py --check-properties 	the South Branch below Twelfth still carries what its generator writes
+0.089	step	python3 tools/trace_lake_shore_rees_1849.py --check-properties 	the pre-fill lake shore below Twelfth still carries what its generator writes
+0.085	step	python3 tools/check_shoreline_states.py 	dated shorelines stay separate and source disagreement stays a band
+0.395	selftest	python3 tools/check_shoreline_states.py --self-test 	…and shoreline-state assertions still fire when collapsed
+0.058	step	python3 tools/derive_shore_1812.py --check 	the 1812 pre-cut shore still re-derives from its readings (T-1242)
+0.063	step	python3 tools/check_1880s_scene_date.py 	the 1880s scene date re-derives from its readings, and nothing has drifted off it
+0.068	selftest	python3 tools/check_1880s_scene_date.py --self-test 	…and its own assertions still fire when broken
+0.514	step	python3 tools/georef_prairie_1904.py --check 	the four Prairie Avenue sheets still re-derive their georeference (T-1250)
+2.696	step	python3 tools/pinned_sources.py --check 	the traces' remote sources are pinned, and the readings record those pins
+1.132	selftest	python3 tools/georef_prairie_1904.py --self-test 	…and a moved control, a misread bar or a mislaid house still fails it
+0.158	step	python3 tools/trace_prairie_1904_grid.py --check 	the 1904 Prairie Avenue street and parcel grid re-derives from its sheets (T-0474)
+0.208	selftest	python3 tools/trace_prairie_1904_grid.py --self-test 	…and a misread lot line, a stray label or a broken section still fails it
+0.093	step	python3 tools/check_street_surfaces.py --check 	the 1904 street surfaces cover the grid, cite real sources and bound the scene date (T-1728)
+0.134	selftest	python3 tools/check_street_surfaces.py --self-test 	…and a bare surface, an invented source, a report made to attest or a range that misses still fails it
+1.416	step	python3 tools/trace_ic_edge_1904.py --check 	the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)
+0.073	step	python3 tools/check_terrain_e1871.py --check 	the e1871_postfire zone table re-derives from its readings (T-1251)
+0.176	selftest	python3 tools/check_terrain_e1871.py --self-test 	…and a hand-edited crown, a constant fill or an inherited limit still fails it
+0.087	step	python3 tools/trace_north_branch.py --check-properties 	the traced North Branch still carries what its generator writes
+0.089	step	python3 tools/measure_north_branch_banks.py --check-properties 	the North Branch's repaired east bank has not leaked the west one
+0.072	step	python3 tools/check_wright_nara_registration.py --check-properties 	the Wright NARA registration still re-derives from its own control points
+0.228	selftest	python3 tools/check_wright_nara_registration.py --self-test 	…and its own assertions still fire when broken
+0.078	step	python3 tools/read_wright_legend_swatches.py --check-properties 	Wright's legend chips still refuse what they cannot separate
+0.167	selftest	python3 tools/read_wright_legend_swatches.py --self-test 	…and that reading's assertions still fire when broken
+0.927	step	python3 generators/terrain_gen_graded.py --check 	the 1904 heightfield re-derives from its zone table and scene line (T-1738)
+0.072	step	python3 tools/audit_wright_watercourses.py --check-properties 	Wright's whole sheet still counts one watercourse that is not the river
+0.086	step	python3 tools/read_north_side_slough_na.py --check 	the NA re-read of the north-side slough still lands on the committed centreline
+0.183	selftest	python3 tools/audit_wright_watercourses.py --self-test 	…and that audit's assertions still fire when broken
+0.086	step	python3 tools/read_south_bank_swell_1834.py --check 	the South Division bank still stands on Wright's inked bank
+0.138	step	python3 tools/build_survey_tracts.py --check-properties 	the nine survey tracts still stand where their committed ground puts them
+0.199	selftest	python3 tools/read_south_bank_swell_1834.py --self-test 	…and that reading’s gate still fires when its figures are broken
+0.239	step	python3 tools/sort_land_sales_onto_tracts.py --check 	the register's parcels still fall on the same survey tracts
+0.065	selftest	python3 tools/sort_land_sales_onto_tracts.py --self-test 	…and the clip, the precedence clause and both refusals still fire when broken
+0.060	step	python3 tools/read_north_branch_bank_wash.py --check-properties 	the North Branch's bank wash is still a colour the legend cannot name
+0.085	selftest	python3 tools/read_north_branch_bank_wash.py --self-test 	…and that reading's assertions still fire when broken
+0.637	selftest	python3 tools/build_survey_tracts.py --self-test 	…and the tract layer's assertions still fire when broken
+0.048	selftest	python3 tools/test_no_conflict_markers.py --self-test 	…and its own assertions still fire when broken
+2.089	step	python3 tools/check_unique_ids.py --check 	no committed list carries the same id twice
+0.068	selftest	python3 tools/check_unique_ids.py --self-test 	…and its own assertions still fire when broken
+3.176	step	python3 tools/test_no_conflict_markers.py 	no committed file carries a conflict marker
+0.061	selftest	python3 tools/check_exact_sums.py --self-test 	…and its own assertions still fire when broken
+0.294	step	python3 tools/normalise_structure_function.py --check 	every structure function is a term of the closed vocabulary
+0.114	selftest	python3 tools/normalise_structure_function.py --self-test 	…and its own assertions still fire when broken
+0.780	selftest	node tools/merge-queue-selftest.mjs 	the QUEUE.md merge driver still does what .gitattributes promises
+0.061	step	node tools/check_queue_order.mjs 	the owner's queue ranking has not gone backwards
+0.920	step	node tools/test_changelog_entry_gate.mjs 	the changelog-entry gate exempts a smoke reading and still bites on a change
+3.792	step	python3 tools/check_exact_sums.py 	no derived figure is rounded by accumulation drift
+1.001	selftest	node tools/check_queue_order-selftest.mjs 	…and its own assertions still fire when broken
+0.371	selftest	node tools/merge-changelog-selftest.mjs 	the changelog merge driver still does what .gitattributes promises
+0.830	selftest	node tools/merge-generated-selftest.mjs 	the build-product and smoke-ledger merge drivers do what .gitattributes promises
+0.790	selftest	node tools/drain-selftest.mjs 	the drain lap still refuses every conflict its drivers do not cover
+0.346	step	python3 tools/generate_north_infill.py --check 	North Division initial parcel matches its reviewed recipe
+0.431	step	python3 tools/generate_inferred_infill.py --check 	inferred infill records match the 665-roof programme
+0.311	step	python3 tools/generate_west_freight.py --check 	West freight roof at the forks matches its recipe
+0.627	selftest	python3 tools/generate_west_freight.py --self-test 	…and its validator refuses bad ground
+0.590	step	python3 tools/generate_canal_approach_trade.py --check 	Canal approach trade roofs match their bounded recipe
+1.054	selftest	python3 tools/generate_canal_approach_trade.py --self-test 	Canal trade placement refuses collisions and missing ground
+0.223	step	python3 tools/canal_approach_occupancy.py --check 	Canal trade roofs have existing keepers without invented homes
+4.741	step	python3 tools/generate_west_infill.py --check 	West Division approaches parcel matches its recipe
+0.277	step	python3 tools/fabric_rule_1835.py --check 	every anonymous roof's finish is the fabric-by-household rule's
+0.118	selftest	python3 tools/fabric_rule_1835.py --self-test 	…and the rule refuses white paint, off-sheet finishes and drift
+0.056	step	python3 tools/read_kinzie_addition_streets.py --check 	Kinzie's Addition's street reading re-derives from its own pixels
+0.056	step	python3 tools/seat_kinzie_addition_streets.py --check 	Kinzie's Addition's street lines re-derive from the module they are seated on
+0.127	step	python3 tools/read_kinzie_addition_numerals.py --check 	Kinzie's Addition's block numerals re-derive from the reading and the run
+0.145	selftest	python3 tools/read_kinzie_addition_numerals.py --self-test 	…and its own assertions still fire when broken
+0.538	step	python3 tools/read_kinzie_addition_lots.py --check 	Kinzie's Addition's lot lines re-derive from the committed pixels
+3.336	selftest	python3 tools/canal_approach_occupancy.py --self-test 	Canal trade occupancy preserves identities and lodging constraints
+0.068	step	python3 tools/read_north_division_numerals.py --check 	the North Division numeral crops re-cut from the committed street lines
+0.088	selftest	python3 tools/read_north_division_numerals.py --self-test 	…and its own assertions still fire when broken
+0.070	step	python3 tools/read_washington_madison_numerals.py --check 	the Washington-Madison numeral crops re-cut from the committed street lines
+0.090	selftest	python3 tools/read_washington_madison_numerals.py --self-test 	…and its own assertions still fire when broken
+0.119	step	python3 tools/read_west_division_numerals.py --check 	the West Division numeral crops re-cut from the committed street lines
+0.569	selftest	python3 tools/read_kinzie_addition_lots.py --self-test 	…and its own assertions still fire when broken
+0.069	step	python3 tools/read_west_division_lots.py --check 	the West Division's lot figures still answer for the sheet they were read on
+0.109	selftest	python3 tools/read_west_division_lots.py --self-test 	…and its own assertions still fire when broken
+0.276	selftest	python3 tools/read_west_division_numerals.py --self-test 	…and its own assertions still fire when broken
+0.062	step	python3 tools/read_wolf_point_numerals.py --check 	blocks 14 and 15 re-cut from Market Street and Carroll continued east
+0.057	step	python3 tools/read_wabansia_streets.py --check 	Wabansia's street reading re-derives from its own pixels
+0.069	selftest	python3 tools/read_wolf_point_numerals.py --self-test 	…and its own assertions still fire when broken
+0.062	step	python3 tools/read_wabansia_block_numerals.py --check 	Wabansia's block numerals re-derive from the reading and the run
+0.100	selftest	python3 tools/read_wabansia_streets.py --self-test 	…and its own assertions still fire when broken
+0.078	selftest	python3 tools/read_wabansia_block_numerals.py --self-test 	…and its own assertions still fire when broken
+0.062	step	python3 tools/read_wabansia_water_lots.py --check 	Wabansia's water-lot strip re-derives from its rules and the run
+0.064	step	python3 tools/seat_wabansia_streets.py --check 	Wabansia's streets re-derive from the readings and the committed Kinzie line
+0.085	selftest	python3 tools/read_wabansia_water_lots.py --self-test 	…and its own assertions still fire when broken
+0.053	step	python3 tools/carry_kinzie_west.py --check 	Kinzie Street's Wabansia reach re-derives, meets the committed line and bends nothing
+0.062	step	python3 tools/carry_west_tiers_west.py --check 	the West Division's five tiers re-derive to Des Plaines, bend nothing and stand on dry ground
+0.071	step	python3 tools/read_michigan_st_tract.py --check 	the Michigan St tract's reading re-derives from its own pixels
+0.057	step	python3 tools/seat_michigan_st_tract.py --check 	the Michigan St tract is still seated on the two committed lines it was hung from
+0.055	step	python3 tools/read_kinzie_addition_water_lots.py --check 	the water-lot strip's metres re-derive from the pixels committed beside them
+3.498	step	python3 tools/read_kinzie_addition_water_lots.py --check-sheet 	…and the strip still reads the same off the sheet
+3.959	step	python3 tools/read_kinzie_block_name.py --check 	the Kinzie Block's reading re-derives from its own pixels and the corpus
+0.141	step	python3 tools/measure_frontage_declaration.py --check 	every frontage run stands across the lots its recipe declares
+0.152	selftest	python3 tools/measure_frontage_declaration.py --self-test 	…and its own assertions still fire when broken
+0.892	step	python3 tools/rebuild_resident_index.py --check 	the residents manifest re-derives from the household cards and the retired records
+1.184	selftest	python3 tools/rebuild_resident_index.py --self-test 	…and its own assertions still fire when broken
+0.804	step	python3 tools/rule_presence_1835.py --check 	the presence rulings re-derive from the cards' own dated readings
+31.643	step	python3 tools/validate.py --all 	dataset (schema, provenance, date gates, licenses, staleness, publish)
+3.603	selftest	python3 tools/rule_presence_1835.py --self-test 	…and every ruling still passes the project's tier contract
+0.123	selftest	python3 tools/survey_stated_kin.py --self-test 	…and its own assertions still fire when broken
+3.358	step	python3 tools/survey_stated_kin.py --check 	every stated kinship the corpus offers has been ruled on
+0.071	selftest	python3 tools/inferred_household_ownership.py --self-test 	…and both halves of that ownership contract fire when broken
+1.563	step	python3 tools/generate_inferred_households.py --check 	the inferred-household programme re-derives the 38 roofs it still owns
+3.757	step	python3 tools/generate_inferred_names.py --check 	the invented names re-deal identically and not one of them stands in the tree
+0.081	selftest	python3 tools/synthesize_resident_research.py --drift-self-test 	…and that ratchet fires in both directions
+0.442	step	python3 tools/spend_person_facts.py --check 	the person-fact table and the facts it spent agree with the records
+0.052	selftest	python3 tools/spend_person_facts.py --self-test 	…and every one of those rules bites when it is broken
+0.305	step	python3 generators/inferred_placeholder.py --check 	inferred placeholder GLBs match their records
+0.059	step	python3 generators/placeholder.py --check 	the confidence fixture carries all three levels, and agrees with its record
+0.327	step	python3 tools/deal_siding_stock.py --check 	every clapboard wall's stock re-derives from its deal
+0.349	step	python3 tools/generate_plat_lots.py --check 	the platted block and lot grid re-derives from the module
+0.132	selftest	python3 tools/generate_plat_lots.py --self-test 	…and a block whose rows have crossed is refused rather than emitted
+3.630	step	python3 tools/measure_west_grid_migration.py --check 	the West Division re-cut of blocks 28 and 45 is still refused by the committed lines
+8.847	step	python3 tools/synthesize_resident_research.py --drift 	the resident synthesizer has not drifted further from the cards it writes
+0.140	step	python3 tools/measure_west_division_spacing.py --check 	the West Division's north-south lines are still seated on the survey, not on the plat's module
+0.154	selftest	python3 tools/measure_west_division_spacing.py --self-test 	…and the gap on every interval, the datum test cutting both ways, the count no residual touches and both anchors' price still fire
+3.606	selftest	python3 tools/measure_west_grid_migration.py --self-test 	…and both halves of that refusal, the seating it would strand and the unanswered first question still fire
+50.623	step	python3 tools/test_validate.py 	validator self-tests
+5.575	step	python3 tools/measure_corridor_strip.py --gate 	the band between the re-centred corridor and its block faces is what T-0419 measured
+4.894	selftest	python3 tools/measure_corridor_strip.py --self-test 	…and that measurement's own assertions still fire when broken
+0.240	step	python3 tools/read_school_section_numerals.py --check 	the School Section's block numerals re-derive from the reading and the scheme
+0.277	selftest	python3 tools/read_school_section_numerals.py --self-test 	…and its own assertions still fire when broken
+0.120	step	python3 tools/generate_school_section_grid.py --check 	the School Section's block grid, streets and reservations re-derive
+0.471	step	python3 tools/generate_dooryard_pickets.py --check 	the dooryard garden pickets re-derive from the rule that chose their lots
+1.008	step	python3 tools/generate_lot_line_fences.py --check 	the lot-line yard fences re-derive from the rule that chose their lots and types
+0.448	step	python3 tools/check_enclosure_owners.py 	every enclosure run says whose ground it stands on, or records why it cannot
+6.393	step	python3 tools/check_corridor_line.py --gate 	every reader of the platted grid says which of its two lines its answer stands on
+6.381	selftest	python3 tools/check_corridor_line.py --self-test 	…and the declaration is checked against the calls, in the tree and not in the prose
+0.257	step	python3 tools/generate_business_signboards.py --check 	the business signboards re-derive from the rule that chose their frontages
+2.191	step	python3 tools/generate_planted_rows.py --check 	the planted poplar rows re-derive from the rule that chose their greens
+33.584	step	python3 tools/generate_block_infill.py --check 	platted block parcels match their recipe and the committed lots
+0.194	step	python3 tools/generate_lot_building_material.py --check 	the building material re-derives from the rule that chose the lots
+0.065	step	python3 tools/generate_fort_apron.py --check 	the fort apron re-derives from the palisade it is measured off
+0.266	step	python3 tools/generate_fort_trees.py --check 	the fort wood re-derives from the palisade and the apron it stands off
+0.209	step	python3 tools/measure_stack_fabric.py --gate --quiet 	no stack in the town is painted the colour of the roof it passes through
+0.306	step	python3 tools/measure_stack_ordinance.py --gate --quiet 	every stack is carried eighteen inches above its roof, as the by-law of 5 August 1835 requires
+0.058	selftest	python3 tools/measure_stack_ordinance.py --self-test 	…and its own assertions still fire when broken
+0.183	step	python3 tools/generate_river_wharves.py --check 	the river wharves re-derive from the records that state a dock
+0.264	step	python3 tools/place_landing_camps_1835.py --check 	the landing-place camps re-derive from the bank they stand on
+0.548	step	python3 tools/measure_generator_half.py --gate --quiet 	the case T-0059 was withdrawn on still holds
+0.060	step	python3 tools/test_build_cli_has_no_geometry.py 	the bake's command-line half still makes no geometry
+0.063	selftest	python3 tools/test_build_cli_has_no_geometry.py --self-test 	…and each way of breaking that split is still refused
+9.112	step	python3 tools/generate_business_signboards.py --prove-locality 	admitting one signboard reaches no board further off than the rule's own 40 m
+0.064	step	python3 tools/test_outbuilding_cargo.py 	the freight shed's cargo openings set out once and are read three times
+0.066	selftest	python3 tools/test_outbuilding_cargo.py --self-test 	…and that agreement still fires when the frames drift off the holes
+0.061	step	python3 tools/test_outbuilding_forge.py 	W1's forge stack clears the by-law on every plan its family band admits
+0.065	selftest	python3 tools/test_outbuilding_forge.py --self-test 	…and that bracket still fires when the head drops under the by-law
+0.149	step	python3 tools/test_storefront_cargo_rhythm.py 	the warehouse's cargo doors and the freight doors over them set out once
+0.154	selftest	python3 tools/test_storefront_cargo_rhythm.py --self-test 	…and that still fires when a single-door store moves by a nanometre
+0.085	step	python3 tools/test_frontage_faces.py 	the street edge's cross-street faces enumerate as the plat says
+0.091	selftest	python3 tools/test_frontage_faces.py --self-test 	…and those assertions still fire when the enumeration is broken
+0.150	step	python3 tools/test_shopfront_bay_count.py 	the shop-bay counts read as the specification's own words
+0.564	selftest	python3 tools/test_shopfront_bay_count.py --self-test 	…and that reading's assertions still fire when each input is bent
+18.906	step	python3 tools/generate_frontage_works.py --check 	the frontage works re-derive from the rule that chose their walls
+0.069	step	python3 tools/reprogramme_roofs_1835.py --check 	the roof programme re-derives against the order book, and the crosswalk deals its 668
+0.081	selftest	python3 tools/reprogramme_roofs_1835.py --self-test 	…and its own refusals still fire when the programme is bent
+10.617	step	python3 tools/redeal_anonymous_roofs.py --check 	the anonymous roofs re-audit against the programme the step above re-derived
+30.432	step	python3 tools/reconcile_665.py --check 	the 665-roof programme reconciles with the town that stands
+0.108	step	python3 tools/execute_roof_redeal.py --check 	the redeal's carried-out verdicts hold, and every re-dealt roof now conforms
+0.129	selftest	python3 tools/execute_roof_redeal.py --self-test 	…and the executor's own refusals still fire on an unbuildable deal
+7.037	step	python3 tools/execute_roof_redeal.py --check-migration 	the redeal's migrated ids left nothing behind, and every migrated roof conforms
+50.383	step	python3 tools/generate_yard_goods.py --check 	the yard goods re-derive from the rule that chose their frontages
+0.661	step	python3 tools/measure_roof_id_migration.py --check 	the 26 moving roof ids' migration surface still describes the tree
+0.077	selftest	python3 tools/measure_roof_id_migration.py --self-test 	…and it still tells a pointer from an assertion about what a roof is
+6.059	step	python3 tools/execute_roof_redeal.py --check-blocks 	the platted blocks' six are re-dealt, still derive their class, and left nothing behind
+0.076	selftest	python3 tools/migrate_roof_ids.py --self-test 	…and the migration's own refusals still fire on a moved recipe
+2.513	step	python3 tools/migrate_roof_ids.py --check 	the migrated roof ids re-derive, and nothing still names an old one
+0.114	selftest	python3 tools/measure_block_redeal_remedies.py --self-test 	…and the derivation, both gates and the ruling's own record still fire when broken
+58.433	step	python3 tools/generate_dooryard_plantings.py --check 	the dooryard plantings re-derive from the rule that dealt their stems
+21.314	selftest	python3 tools/redeal_anonymous_roofs.py --self-test 	…and the redeal's own refusals still fire on a bent order book
+1.390	step	python3 tools/roof_id_pins.py --check 	the two roof-id sweeps read one list of pinned names, and agree on all of it
+1.383	selftest	python3 tools/roof_id_pins.py --self-test 	…and the pin list's own refusals fire on a mutated list
+0.050	step	python3 tools/measure_block_gating.py --check 	a refused block is short of control, or was never a block
+5.507	step	python3 tools/measure_frontage_entitlement.py --gate --quiet 	no party-line run carries more roofs than the frontage it was dealt
+10.594	step	python3 tools/measure_block_redeal_remedies.py --check 	the platted blocks' remedies report still re-derives, and the rear-cottage ruling is still on the record
+0.053	step	python3 tools/measure_northern_ground.py --gate --quiet 	the North Division's timber stands on the waterline, and its ground reaches the memo's line
+0.058	selftest	python3 tools/measure_northern_ground.py --self-test 	…and its own assertions still fire when broken
+0.126	step	python3 tools/town_census.py --check 	the gate's town census re-derives from the roofs and the residents
+0.150	step	python3 tools/measure_reserved_ground.py --gate 	nothing unpermitted stands on reserved ground
+16.118	step	python3 tools/measure_southern_ground.py --gate --quiet 	no platted block stands off the modelled ground, and the south's blocker is the measured one
+0.059	selftest	python3 tools/measure_no_build_ground.py --self-test 	…and the plate-reading resolver’s refusals still fire when broken
+0.274	step	python3 tools/measure_corporation_limits.py --gate --quiet 	the corporate boundary of 7 November 1833 still re-derives, and decides nobody by extrapolation
+0.418	selftest	python3 tools/measure_corporation_limits.py --self-test 	…and its own assertions still fire when broken
+0.162	step	python3 tools/measure_jefferson_continuation.py --gate --quiet 	the west leg's continuation to Ohio is still bounded by Wright's sheet and not drawn on it
+0.161	step	python3 tools/measure_jefferson_continuation.py --check 	…and its committed reading re-derives from the committed geometry
+0.165	selftest	python3 tools/measure_jefferson_continuation.py --self-test 	…and its own assertions still fire when broken
+16.264	selftest	python3 tools/measure_southern_ground.py --self-test 	…and its own assertions still fire when broken
+22.288	selftest	python3 tools/measure_frontage_entitlement.py --self-test 	…and its own assertions still fire when broken
+0.053	step	python3 tools/measure_intown_water.py --gate 	every deferred in-town water feature is dated against the scene
+0.418	step	python3 tools/measure_slough_crossing.py --gate 	the slough crossing spans open water, and nothing else stands in the cut
+0.343	step	python3 tools/measure_fort_road_way.py --gate 	the way to the fort runs dry and crosses no water the town never bridged (T-1637)
+1.203	selftest	python3 tools/measure_fort_road_way.py --self-test 	…and its own assertions still fire when broken
+0.075	step	python3 tools/measure_watering_place.py --gate --quiet 	the watering place's ruling still matches the committed surfaces
+0.056	selftest	python3 tools/measure_watering_place.py --self-test 	…and the run classifier that reading rests on still fires
+0.057	step	python3 tools/measure_bridge_head_timber.py --gate --quiet 	the bridge-head timber still stands where the decks and the ground put it
+0.062	selftest	python3 tools/measure_bridge_head_timber.py --self-test 	…and every assertion that set-out rests on still fires
+1.078	step	python3 tools/measure_public_square.py --gate 	no water stands on the public square, and its sward is the one the dossier names
+1.689	step	python3 tools/measure_corridor_intrusion.py --gate --quiet 	no building has newly been drawn standing in a platted street
+10.010	selftest	python3 tools/measure_south_bank_ground.py --self-test 	…and its own assertions still fire when broken
+23.680	step	python3 tools/measure_no_build_ground.py --gate 	nothing unpermitted stands on refused ground, and the refusal still reaches it
+6.345	selftest	python3 tools/measure_corridor_intrusion.py --self-test 	…and its absolute assertion still fires when a generated roof is put in a street
+0.060	step	python3 tools/measure_canal_control_spread.py --check 	canal's corridor still reads the same on both readings of Kinzie x Canal
+0.072	selftest	python3 tools/measure_canal_control_spread.py --self-test 	…and its assertions fire when either reading, the line or the bridge drifts
+2.349	step	python3 tools/measure_north_bank_frontage.py --gate --quiet 	north-bank frontages still stand on the rule the north bank is placed by
+2.241	selftest	python3 tools/derive_north_water.py --self-test 	…and its own assertions still fire when broken
+4.690	selftest	python3 tools/measure_north_bank_frontage.py --self-test 	…and that assertion fires when a roof leaves the frontage line
+0.058	selftest	python3 tools/measure_street_line.py --self-test 	…and its own assertions still fire when broken
+0.053	selftest	python3 tools/measure_west_division_module.py --self-test 	the West Division module, and the ceiling that answers the owner's shift report
+0.835	step	python3 tools/measure_street_line.py --gate --quiet 	a block face carries one street line, across every generator that builds on it
+0.055	selftest	python3 tools/measure_west_division_tiers.py --self-test 	the West Division's tiers, and Carroll's midpoint still inside its own bracket
+0.052	selftest	python3 tools/measure_north_division_streets.py --self-test 	the North Division lines still lie on the streets they continue, and say what names them
+0.053	selftest	python3 tools/measure_north_division_tier_depth.py --self-test 	the North Division tier is still the wedge the plat letters, and still refuses to publish a northing
+0.090	step	python3 tools/cut_north_division_tier.py --check 	the North Division tier's blocks and lots re-derive from the reading and the committed lines
+0.379	selftest	python3 tools/measure_west_division_streets.py --self-test 	West Water still stands one half-corridor off the bank, and the two refusals still hold
+0.137	selftest	python3 tools/cut_north_division_tier.py --self-test 	the North Division tier's cut is still four to a face, still a wedge, and still seated on committed Kinzie
+0.197	step	python3 tools/cut_school_section_tier.py --check 	the School Section tier's lots re-derive from the committed grid and the 1833 register
+0.196	selftest	python3 tools/cut_school_section_tier.py --self-test 	the School Section tier is still cut into the lots the sale witnesses, and no others
+0.060	selftest	python3 tools/measure_market_line.py --self-test 	Market still stands one module west of Franklin, and the sheets still bracket it
+4.237	step	python3 tools/derive_north_water.py --gate 	north water street is still the line its own derivation produces, and still dry
+10.579	step	python3 tools/measure_frontage_fabric.py --gate --quiet 	no principal frontage is more uniform than the record it reconstructs
+20.831	selftest	python3 tools/measure_frontage_fabric.py --self-test 	…and its own assertion still fires when broken
+20.722	step	python3 tools/measure_face_rule.py --gate --quiet 	no block parcel stands a non-dwelling where the documented record puts none
+57.132	step	python3 tools/measure_south_bank_ground.py --gate --quiet 	the south bank at the Dearborn reach still carries no ground outside its own street
+3.887	step	python3 tools/seat_platted_ground_1835.py --check 	the lot ledger and the platted seats still re-derive
+3.976	selftest	python3 tools/seat_platted_ground_1835.py --self-test 	…and the deal's six refusals still fire when broken
+0.348	step	python3 tools/name_the_keepers_1835.py --check 	the platted deal's roofs still name the keepers it seated there
+3.252	selftest	python3 tools/name_the_keepers_1835.py --self-test 	…and the keeper ledger's assertions still fire when broken
+2.092	step	python3 tools/seat_off_plat_ground_1835.py --check 	the off-plat ledger and its seats still re-derive
+2.134	selftest	python3 tools/seat_off_plat_ground_1835.py --self-test 	…and the off-plat deal's seven refusals still fire when broken
+2.352	step	python3 tools/measure_west_farm_ground_1835.py --check 	the West farm ground still re-derives from the seats, the tracts and the programme
+2.359	selftest	python3 tools/measure_west_farm_ground_1835.py --self-test 	…and its sums and ceilings still refuse when broken
+0.127	step	python3 tools/measure_institutional_claims.py --gate --quiet 	no anonymous roof claims to be a public building, and the civic target is the ledger
+0.060	selftest	python3 tools/measure_institutional_claims.py --self-test 	…and its own assertions still fire when broken
+1.771	step	python3 tools/measure_group_district_rows.py --gate --quiet 	the group rows add up by division too, and every division over one declares it
+1.788	selftest	python3 tools/measure_group_district_rows.py --self-test 	…and its own assertions still fire when broken
+0.108	step	python3 tools/measure_massing_variety.py --gate 	the anonymous massings that claim a sampled band have one
+0.271	step	python3 tools/measure_band_claims.py --gate --quiet 	no reconstructed value is newly outside the band its own note cites
+41.243	step	python3 tools/placement_policy_1835.py --check --quiet 	the placement policy still re-derives, and nothing re-typed its constants
+0.241	step	python3 tools/measure_ridge_band.py 	no reconstructed roof's ridge is newly outside its family band
+0.332	step	python3 tools/measure_ridge_reach.py --quiet 	every family's footprint, eave, pitch and ridge bands are satisfiable at once
+0.222	selftest	python3 tools/measure_ridge_reach.py --self-test 	…and its own assertions still fire when broken
+0.596	step	python3 tools/test_store_variants.py 	the store families' crosswalk variants are the ones the archetype draws
+0.607	selftest	python3 tools/test_store_variants.py --self-test 	…and its own assertions still fire when broken
+0.291	step	python3 tools/test_house_front.py 	H1's centre hall is the crosswalk entry's, and H2's hip and Greek doorway are refused
+0.301	selftest	python3 tools/test_house_front.py --self-test 	…and its own assertions still fire when broken
+1.843	step	python3 tools/measure_review_constraint.py --gate 	the standing constraint reaches every record that claims it
+0.252	step	python3 tools/measure_rights_derivation.py --gate --quiet 	no unresolved source is newly built into the town
+0.253	selftest	python3 tools/measure_rights_derivation.py --self-test 	…and its own assertions still fire when broken
+2.183	step	python3 tools/measure_layer_reads.py --gate 	every flora and fauna figure is declared read or banked unread
+2.529	selftest	python3 tools/measure_layer_reads.py --self-test 	…and its own assertions still fire when broken
+0.150	step	python3 tools/measure_flora_reach.py --gate 	every flora record reaches the reader its figures are read by
+0.236	selftest	python3 tools/measure_flora_reach.py --self-test 	…and its own assertions still fire when broken
+0.889	step	python3 tools/measure_planting_reach.py --gate 	every routed woody record can be selected by something that places it
+1.269	selftest	python3 tools/measure_planting_reach.py --self-test 	…and its own assertions still fire when broken
+0.105	step	python3 tools/measure_far_timber.py --gate 	no body of far timber stands in the river
+0.094	selftest	python3 tools/measure_far_timber.py --self-test 	…and its own assertions still fire when broken
+0.059	step	python3 tools/derive_timber_belt.py --check 	the South Water timber belt re-derives from the street it is cut from
+62.824	selftest	python3 tools/measure_face_rule.py --self-test 	…and its own assertions still fire when broken
+0.094	step	python3 tools/measure_picket_plate.py --gate --quiet 	the fort's stockade is still pointed
+0.097	selftest	python3 tools/measure_picket_plate.py --self-test 	…and its own assertions still fire when broken
+7.551	step	python3 tools/measure_plate_join.py --gate --quiet 	the four crops are still the panels their citations name
+0.056	step	python3 tools/measure_fort_gates.py --gate --quiet 	Fort Dearborn's documented gates are shut
+0.063	selftest	python3 tools/measure_fort_gates.py --self-test 	…and its own assertions still fire when broken
+0.744	step	python3 tools/measure_fort_works_plate.py --gate --quiet 	p4_0 raises no work at either angle of the fort it draws
+8.972	selftest	python3 tools/measure_plate_join.py --self-test 	…and its own assertions still fire when broken
+0.727	selftest	python3 tools/measure_fort_works_plate.py --self-test 	…and its own assertions still fire when broken
+2.509	step	python3 tools/measure_fort_ways_plate.py --gate --quiet 	the ways the fort plates draw are still the ways the town was built to
+2.630	selftest	python3 tools/measure_fort_ways_plate.py --self-test 	…and its own assertions still fire when broken
+23.384	step	python3 tools/measure_family_deal.py --gate 	every family every parcel may deal builds, and every band claim is named
+0.269	step	python3 tools/measure_chappel_shore_lighthouse.py --gate --quiet 	the Chappel shore drawing still refuses to place its own station
+0.297	selftest	python3 tools/measure_chappel_shore_lighthouse.py --self-test 	…and its own assertions still fire when broken
+0.051	step	python3 tools/sauganash_apex_lines.py --gate --quiet 	both lines out of the Sauganash's drawn apex are still ridges, not rakes
+0.198	step	python3 tools/rederive_datum.py 	datum re-derivation
+0.085	step	python3 tools/adjudicate_wright_na_fit.py --check 	the NA Wright registration's adjudication still matches its own measurement
+0.169	selftest	python3 tools/adjudicate_wright_na_fit.py --self-test 	…and its own assertions still fire when broken
+27.123	step	python3 tools/measure_sauganash_plate.py --gate --quiet 	Braunhold's Sauganash still says what the research note says it says
+27.572	selftest	python3 tools/measure_sauganash_plate.py --self-test 	…and its own assertions still fire when broken
+25.688	step	python3 tools/compile_liberties.py --check 	liberties derived from docs/LIBERTIES.md
+0.460	step	python3 tools/compile_jaunts.py --check 	Jaunt schema, destinations and reachable state graph (T-1253)
+1.225	step	python3 tools/test_compile_jaunts.py 	Jaunt refusal and data-only expansion fixtures (T-1253)
+2.587	step	python3 tools/compile_source_use.py --check 	Source-use backlinks match authored claims (T-1248)
+0.180	step	python3 tools/test_compile_source_use.py 	Source-use fixtures preserve joins, counts and public boundaries (T-1248)
+0.219	step	node tools/test_sources_view.mjs 	source browser counts and filters
+0.111	step	node tools/test_destinations.mjs 	shared destinations and safe stand-offs (T-1277)
+0.218	step	python3 tools/check_dossier_links.py 	every dossier link a card offers resolves
+3.288	step	check_js 	renderer modules parse
+0.246	step	node tools/measure_ground_albedo.mjs --gate 	the ground averages the colour each flora zone records
+1.387	step	node tools/measure_terrain_fit.mjs --gate 	the ground mesh still meets the heightfield the walker samples
+0.271	step	node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate 	the 1904 ground mesh meets its heightfield too (T-1738)
+5.727	step	node tools/measure_terrain_horizontal.mjs --gate 	the shipped ground stands where the master does, and inside the road lift
+0.683	step	node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate 	the shipped 1904 ground stands where its master does (T-1738)
+0.128	step	node tools/measure_north_of_box.mjs --gate 	the town off the modelled ground is still the town the reading measured
+0.076	step	node tools/measure_west_of_box.mjs --gate 	the west wall the held slots need is still the wall the reading derives
+0.130	selftest	node tools/measure_west_of_box.mjs --self-test 	…and its own assertions still fire when the wall or a street moves
+0.384	step	node tools/measure_anchors.mjs --gate 	every viewpoint the app offers stands on modelled, dry, unbuilt ground
+0.049	selftest	node tools/measure_anchors.mjs --self-test 	…and the anchor-ground rules still hold on synthetic ground
+0.086	step	node tools/measure_ground_tiling.mjs --check 	the ground's culling grid is still derived from its box
+0.083	selftest	node tools/measure_ground_tiling.mjs --self-test 	…and its own assertions still fire when broken
+18.670	step	python3 tools/compile_scene.py --all --check 	sidecars derived from data/
+0.206	step	node tools/check-changelog.mjs 	changelog contract
+0.459	step	node tools/ticket.mjs check --inherited-warn 	ticket queue (faults in the tickets repo are reported, not charged to this diff)
+2.146	step	node tools/measure_spray_grain.mjs --gate --quiet 	the shrub keeps its recorded width and its shell is not see-through
+0.206	selftest	node tools/ticket.mjs tripwire-self-test 	…and the tripwire scanner behind `done` still fires, and still ignores prose
+1.320	step	node tools/test_ticket_filing_effort.mjs 	a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it
+0.073	selftest	python3 tools/ticket_liveness.py --selftest 	…and the split walk all three of them read still holds, on all four shapes
+0.395	step	python3 tools/ticket_liveness.py 	closing this branch's tickets strands nobody above them
+0.917	step	python3 tools/measure_web_derivatives.py --gate --quiet 	the shipped derivative still describes the master's building
+0.207	step	python3 generators/ao_export.py --gate --quiet 	a shipped occlusion texture carries occlusion, and the manifest agrees
+0.065	selftest	python3 generators/ao_export.py --self-test 	…and its own assertions still fire when broken
+1.290	selftest	python3 tools/measure_web_derivatives.py --self-test 	…and its own assertions still fire when broken
+0.053	selftest	node tools/write_entry_pages.mjs --self-test 	front doors: /4d/ and /4d/<year>/ carry a <base> into walk/
+0.501	step	node tools/check_published.mjs 	publish.sh produces a mirror that matches its source
+0.059	selftest	python3 tools/serve_from_root.py --self-test 	reference browsers: only what the root already ships is served from it
+1.868	step	node tools/check_published_residents.mjs 	the published residents layer carries its source's value
+0.545	step	node tools/test_changelog_mirror.mjs 	stamping the changelog leaves both mirrors fresh, and a stale one still fails
+0.171	selftest	python3 tools/bake_content_changed.py --self-test 	the bake's content test refuses the stamp and nothing else
+0.056	selftest	python3 tools/bake_ref.py --self-test 	the bake builds the ref it was given, and the nightly still builds dev
+0.057	selftest	python3 tools/bake_warranted.py --self-test 	the bake is skipped only when the freshness register says nothing staled
+3.003	step	node tools/test_ticket_mirror.mjs 	closing a ticket leaves the mirror fresh, and a stale one still fails
+0.714	step	node tools/test_ticket_restamp.mjs 	restamp moves the queue line it was handed, not the other one
+1.866	step	node tools/test_ticket_after.mjs 	new --after places directly under the named ticket and moves nothing else
+0.350	step	node tools/test_pr_lap_list.mjs 	a lap that could not ask never reports that it found nothing
+1.038	step	node tools/test_pr_lap_publish.mjs 	the lap publishes the mirror before the rebuild that reads it
+0.883	step	node tools/test_pr_lap_checkout.mjs 	a lap that cannot check out a branch says which step failed, and why
+3.952	step	node tools/test_ticket_claim_lock.mjs 	a claim is a lock on the remote, and two runs cannot hold one ticket
+32.749	selftest	python3 tools/compile_liberties.py --self-test 	…and its own assertions still fire when broken
+0.345	step	node tools/test_pr_resume.mjs 	a run that cannot finish hands its PR on, and says why in a line a script can read
+0.319	step	node tools/test_ticket_landed.mjs 	a merged PR naming an unfinished ticket is REPORTED, and nothing else is
+5.737	step	node tools/test_pr_stuck.mjs 	a pull request nothing can move is reported, and nothing else is touched
+3.172	step	node tools/test_ticket_inflight.mjs 	a claim that outlived the window is work, a merged branch is litter, and a branch under review is neither
+3.223	step	node tools/test_ticket_claim_split.mjs 	a split keeps its claim, and the queue drops only finished work and regains what a merge lost
+0.373	step	node tools/test_ticket_parked.mjs 	every held or resumable pull request reaches the board with its reason, and an unread list says so
+0.048	step	node tools/audit_manifest_coverage.mjs 	every gated writer is in the derived manifest, or exempted in writing
+0.079	step	node tools/audit_step_isolation.mjs --check --quiet 	no gate step writes the live tree, and every one of them has been measured
+0.059	selftest	node tools/audit_step_isolation.mjs --self-test 	…and it refuses an unmeasured step as well as a mutating one
+0.055	selftest	node tools/measure_step_isolation.mjs --self-test 	…and the measurement's own readers still parse what check.sh declares
+3.867	step	node tools/test_ticket_repo_mode.mjs 	the tickets repo: claim is a pushed lock, done waits on the merge, ask stays in the queue
+0.341	step	node tools/test_ticket_stale_block.mjs 	a queue line blocked on a finished ticket is refused, and a closed one's is not
+0.043	step	node tools/resolve_id_collisions.mjs --check 	no two tickets in this tree carry the same id
+0.460	step	node tools/rederive.mjs --check 	the derived-layer manifest names real files, one owner each, none hand-authored, and its second pass is a real lag
+0.529	selftest	node tools/rederive.mjs --self-test 	…and its own assertions fire when the manifest is made unsafe
+1.106	selftest	node tools/resolve_id_collisions.mjs --self-test 	…and a duplicate id renumbers the branch's side, carrying only its own references
+0.079	step	node tools/rederive.mjs --callers .github/steward/pr-lap.sh 	no caller of the derived manifest re-runs one of its steps out of sequence
+1.119	step	python3 tools/rebuild_closing_set.py --check --quiet 	the closing set is owned, gated and reported as deltas
+0.201	step	python3 tools/test_restamp_inputs.py 	restamping the input hashes is refused when no recipe changed
+0.247	step	node tools/test_dev_preview.mjs 	dev preview assembles, marked and stamped
+0.972	step	python3 tools/refuse_reconstructed_grade.py --check 	no research writer can mint a reconstructed resident
+3.110	selftest	python3 tools/rebuild_closing_set.py --self-test 	…and its own assertions fire when a member loses its owner, its gate or its reason
+2.012	selftest	python3 tools/refuse_reconstructed_grade.py --self-test 	...and the refusal fires, while leaving per-attribute confidence alone
+15.804	step	node tools/test_merge_ready.mjs 	the merger merges what GitHub calls clean, and nothing else
+0.168	selftest	python3 tools/reconstruct_residents_1835.py --self-test 	...and each rule of the record contract refuses its own mutation
+0.054	selftest	python3 tools/carry_stage_blocks.py --self-test 	...and its own assertions still fire when broken
+0.350	step	python3 tools/carry_stage_blocks.py --check 	every mint that re-derives a household carries the blocks it does not own
+0.139	selftest	python3 tools/carry_policy_only_division.py --self-test 	...and every limit on that carry fires when broken
+0.065	step	python3 tools/supersede_arrival.py --check 	every ruled reading that supersedes a derived arrival bound is joined and earlier
+0.079	selftest	python3 tools/supersede_arrival.py --self-test 	...and each of its four refusals still fires on its own case
+0.619	step	python3 tools/carry_policy_only_division.py --check 	the policy-only rung's dealt division is on the card the town shows
+1.064	selftest	python3 tools/reconstruct_modelled_families.py --self-test 	...and every rule that decides who gets a family refuses its own case
+0.601	step	python3 tools/readmit_borderline_roster.py --check 	every re-admission re-derives, and no refusal it stands beside has moved
+0.166	selftest	python3 tools/readmit_borderline_roster.py --self-test 	...and a guessed date, a borrowed name and a rising persistence curve are refused
+0.674	step	python3 tools/reconstruct_women_children.py --check 	the women and children re-derive from the pyramid the order book still wants
+0.091	selftest	python3 tools/reconstruct_women_children.py --self-test 	...and every rule that decides who is drawn refuses its own case
+3.054	step	python3 tools/reconstruct_modelled_families.py --check 	the modelled families re-derive from the household model and the order book
+0.552	step	python3 tools/reconstruct_trade_households.py --check 	every trade household re-derives, and every bucket the book ordered is filled
+141.439	selftest	python3 tools/placement_policy_1835.py --self-test 	…and its five assertions still fire when broken
+0.809	selftest	python3 tools/reconstruct_trade_households.py --self-test 	...and a seniority rule, an over-ceiling trade and a borrowed name are refused
+0.685	step	python3 tools/reconstruct_institutional_households.py --check 	the institutional households re-derive, and the book orders no more than the nine roofs admit
+0.462	step	python3 tools/reconstruct_transients_1835.py --check 	every transient re-derives, and none of them claims a residence
+1.297	selftest	python3 tools/reconstruct_institutional_households.py --self-test 	...and an admitted roof with no card rule, a drifted tally and an invented age are refused
+0.638	step	python3 tools/reconstruct_underdocumented.py --check 	every Native and Metis card re-derives, each held for review in its own words
+1.122	selftest	python3 tools/reconstruct_transients_1835.py --self-test 	...and a moved sleeping class, a named house and a seated visitor are refused
+0.682	selftest	python3 tools/reconstruct_underdocumented.py --self-test 	...and a written nation, an English initial and a shared syllable are refused
+0.833	step	python3 tools/reconstruct_free_black.py --check 	the free Black cohort re-derives, at or above the floor of its bracket
+0.550	step	python3 tools/reconstruct_church_register.py --check 	the register's two women re-derive, mononyms intact and the kinship handed on
+1.175	selftest	python3 tools/reconstruct_free_black.py --self-test 	...and a back-projected name, a drifted pool and the recapitulation leaf are refused
+0.573	selftest	python3 tools/reconstruct_church_register.py --self-test 	...and an invented surname, a read nation and a doubled printing are refused
+0.075	selftest	python3 tools/reconstruct_garrison_1835.py --self-test 	...and the establishment, the enlistment window and all four refusals still fire
+0.080	selftest	python3 tools/reconstruct_sex_age.py --self-test 	...and a draw with no seed, a band turned into a year and a sexed group are refused
+0.585	step	python3 tools/reconstruct_garrison_1835.py --check 	the garrison re-derives from the establishment, and the return matches the cards
+0.582	step	python3 tools/synthesize_resident_research.py --check 	the resident synthesis re-derives the population it writes
+0.048	selftest	python3 tools/qualify_later_trades.py --self-test 	the later-trade pointer obeys its own four rules
+0.324	step	python3 tools/audit_scene_window_trades.py --check 	no standing 1835 trade is cited only to a volume about another year
+0.056	selftest	python3 tools/audit_scene_window_trades.py --self-test 	…and its own assertions still fire when broken
+1.425	step	python3 tools/qualify_later_trades.py --check 	no person asserts a bare 'none_recorded' while the same record dates a trade
+0.567	selftest	python3 tools/derive_resident_roles.py --self-test 	…and its own assertions still fire when broken
+0.475	step	python3 tools/derive_person_community.py --check 	every person's community re-derives, and every origin string is accounted for
+2.783	step	python3 tools/reconstruct_sex_age.py --check 	every drawn sex and age band re-derives from its seed, and the rates from the layer
+0.452	selftest	python3 tools/derive_person_community.py --self-test 	…and its refusals still fire (no tier above inferred off a place, no cohort it may not write)
+13.389	step	python3 tools/reconstruct_residents_1835.py --check 	the reconstruction programme answers for every reconstructed resident
+3.683	selftest	python3 tools/replace_invented_residents.py --self-test 	…and the name pool's declared keys, and a refusal naming its source, still fire when broken
+1.265	step	python3 tools/mint_documented_residents.py --check 	the minted documented residents re-derive from the register
+7.941	step	python3 tools/replace_invented_residents.py --check 	the register's four documented men still head the roofs the deal gives them
+1.266	step	python3 tools/mint_placed_residents.py --check 	the residency-tested residents re-derive from the register
+0.117	selftest	python3 tools/resident_mint_carry.py --self-test 	all four resident mints preserve findings across a derived-note change
+0.162	selftest	python3 tools/mint_placed_residents.py --self-test 	…and its own assertions still fire when broken
+0.471	step	python3 tools/apply_census_1840_bridges.py --check 	the 1840 identity bridges re-derive and back-project nothing
+1.156	step	python3 tools/spend_census_1840_heads.py --check 	…and the 1840 heads are on the 27 cards they name, once each and still true
+0.397	selftest	python3 tools/spend_census_1840_heads.py --self-test 	…and that pass writes two fields, moves no grade and repeats without drift
+1.211	step	python3 tools/audit_check_gates.py --gate --quiet 	no new tool carries a --check mode the gate never runs
+4.126	step	python3 tools/crosswalk_census_1840_heads.py --check 	every named 1840 head still adjudicates as the pages and the pools say
+1.480	selftest	python3 tools/audit_check_gates.py --self-test 	…and the audit's own assertions still fire when broken
+9.973	step	python3 tools/measure_research_spend.py --check --quiet 	research stays inside its historical ratchet and closed unit ledger
+0.100	selftest	python3 tools/measure_research_spend.py --ledger-self-test 	…and closed-ledger mutations cannot pass silently
+0.496	step	python3 tools/report_research_closing_audit.py --check --quiet 	the closing research audit still re-derives from the ledger and the four layers
+0.561	selftest	python3 tools/report_research_closing_audit.py --self-test 	…and a moved measurement cannot pass as an unchanged report
+1.353	step	python3 tools/report_research_signoff.py --check --quiet 	the research sign-off re-derives, and its GO still follows from the tree
+25.370	step	python3 tools/measure_name_churn.py --gate --probes 8 --quiet 	one new household renames only the people it collides with
+0.116	step	python3 tools/spend_land_sales_rulings.py --check --quiet 	the land-sale rulings re-derive from the register and the crosswalk (T-1296)
+0.118	selftest	python3 tools/spend_land_sales_rulings.py --self-test 	…and each of its rules still fires on the row it is for
+1.318	selftest	python3 tools/report_research_signoff.py --self-test 	…and every condition under that verdict fires when it is broken
+0.066	selftest	python3 tools/derive_presence_evidence_leg.py --self-test 	…and the leg's tier, window and removal rules fire over their fixtures
+2.028	step	python3 tools/derive_presence_evidence_leg.py --check 	every uncertain presence carries the dated evidence leg under it (T-1144)
+23.621	step	python3 tools/export_borderline_roster.py --check --quiet 	the borderline roster re-derives from the ledger and the resident layer (T-1159)
+24.029	selftest	python3 tools/export_borderline_roster.py --self-test 	…and its class, accounting and community assertions still fire when broken
+51.450	selftest	python3 tools/measure_research_spend.py --self-test 	…and its own assertions still fire when broken
+1.367	step	python3 tools/spend_enrichment_arrivals.py --check 	the enrichment arrival and origin spend re-derives onto its nine cards (T-1330)
+0.068	selftest	python3 tools/spend_enrichment_arrivals.py --self-test 	…and its citation, naming and retirement rules still fire when broken
+0.615	step	python3 tools/spend_trade_premises.py --check 	the trade and premises spend re-derives from the cards it names (T-1469)
+1.125	selftest	python3 tools/spend_trade_premises.py --self-test 	…and its carrier, outcome and coverage rules still fire when broken
+0.055	step	python3 tools/spend_departure_rulings.py --check --quiet 	the six departure rulings re-derive from the register and the cards (T-1354)
+0.063	selftest	python3 tools/spend_departure_rulings.py --self-test 	…and its corpus, outcome and read-beside rules still fire when broken
+25.074	step	python3 tools/spend_remainder_rulings.py --check --quiet 	the remainder rulings re-derive from their five corpora (T-1298)
+10.018	step	python3 tools/spend_name_on_a_roll_rulings.py --check --quiet 	the name-on-a-roll rulings re-derive from the rolls and the crosswalks (T-1297)
+0.060	selftest	python3 tools/resident_cohort_freeze.py --self-test 	the cohort freeze's own assertions still fire when broken
+0.755	step	python3 tools/select_resident_research_pilot.py --gate 	the 75-person real-resident research cohort is fixed
+0.748	step	python3 tools/select_resident_research_pass_2.py --gate 	the second non-overlapping 75-person research cohort is fixed
+0.727	step	python3 tools/select_resident_research_pass_3.py --gate 	the third non-overlapping 75-person research cohort is fixed
+0.731	step	python3 tools/select_resident_research_pass_4.py --gate 	the fourth non-overlapping 75-person research cohort is fixed
+0.737	step	python3 tools/select_resident_research_pass_5.py --gate 	the fifth non-overlapping 75-person research cohort is fixed
+0.252	selftest	sh -c $'python3 tools/select_resident_research_pilot.py --self-test \\\n      && python3 tools/select_resident_research_pass_2.py --self-test \\\n      && python3 tools/select_resident_research_pass_3.py --self-test \\\n      && python3 tools/select_resident_research_pass_4.py --self-test \\\n      && python3 tools/select_resident_research_pass_5.py --self-test' 	…and each selector's stratum tests still refuse a mint and report a gate
+0.738	step	python3 tools/select_resident_research_pass_13.py --gate 	the thirteenth research cohort is fixed
+0.755	step	python3 tools/select_resident_research_pass_14.py --gate 	the fourteenth research cohort is fixed
+0.817	step	python3 tools/select_resident_research_pass_15.py --gate 	the fifteenth research cohort is fixed
+10.206	selftest	python3 tools/spend_name_on_a_roll_rulings.py --self-test 	…and each of its rules still fires on the row it is for
+1.166	step	python3 tools/compile_resident_research_pilot.py --gate 	all 375 reviewed residents have reproducible research outcomes
+35.118	selftest	python3 tools/spend_remainder_rulings.py --self-test 	…and each of its rules still fires, and hands on only to live work
+0.131	selftest	python3 tools/export_resident_research_package.py --self-test 	…and that gate's own assertions still fire when broken
+0.057	step	python3 tools/read_letter_list_1834_image.py --check 	the 1834 letter list's crop entities still point at the printed lines the image read
+0.058	selftest	python3 tools/read_letter_list_1834_image.py --self-test 	…and its own assertions still fire when broken
+0.055	step	python3 tools/read_letter_list_1834_04_01_image.py --check 	the 1 April 1834 return's three contested lines still carry the reading the page made
+0.055	selftest	python3 tools/read_letter_list_1834_04_01_image.py --self-test 	…and its own assertions still fire when broken
+1.782	step	python3 tools/export_resident_research_package.py --check 	every completed research cohort has a durable package, and it still matches its records
+2.255	step	python3 tools/complete_resident_research_pass_14.py --check 	cohort 14's ruled ledger still follows from its crosswalks and T-0816's rulings
+1.026	step	python3 tools/mint_letter_list_residents.py --gate 	the letter-list cohort is what the owner's ruling permits
+1.747	step	python3 tools/report_letter_list_collisions.py --check 	the letter-list collision report still describes the tree
+2.244	step	python3 tools/report_letter_list_collisions.py --check-records 	every card a mint-time refusal lands on still says its collision
+0.109	step	python3 tools/report_census_1840_residue.py --check 	the 1840 residue table still describes the leaves it closed
+0.269	selftest	python3 tools/report_census_1840_residue.py --self-test 	…and its figures still come off the page files, not out of the prose
+1.851	step	python3 tools/concord_letter_list_1834_01_01.py --check 	the 1834 letter list's 170 lines still reach what the concordance says they reach
+5.996	selftest	python3 tools/report_letter_list_collisions.py --self-test 	…and its two readings of a printed name are still two
+0.363	step	python3 tools/lift_letter_list_1834_unread.py --check 	the lines the 1834 crops lost are still exactly the ones the roster lift carries
+0.380	selftest	python3 tools/lift_letter_list_1834_unread.py --self-test 	…and its own assertions still fire when broken
+1.838	selftest	python3 tools/concord_letter_list_1834_01_01.py --self-test 	…and its tie rules still refuse the ambiguities they are meant to
+2.262	step	python3 tools/concord_letter_list_1834_04_01.py --check 	the 1 April 1834 return's 193 lines still reach what the concordance says they reach
+2.202	selftest	python3 tools/concord_letter_list_1834_04_01.py --self-test 	…and its own assertions still fire when broken
+1.891	step	python3 tools/mint_civic_residents.py --check 	the civic, church, press and book residents re-derive from the ladder
+0.780	step	python3 tools/mint_civic_residents.py --regrade --check 	the regraded residents re-derive from the ladder too
+0.531	step	python3 tools/mint_civic_residents.py --gate 	…and none of them claims more than a person and a reading
+0.359	step	python3 tools/assert_tax_roll_ruling.py 	the 1833 tax roll still admits the man who proves it is not a residence check
+1.046	step	python3 tools/spend_ladder_rungs.py --check 	the ladder's ruled rungs re-derive on the cards no mint owns
+1.059	step	python3 tools/spend_ladder_rungs.py --gate 	…and none of them moves a grade to close the gap
+15.039	selftest	python3 tools/mint_letter_list_residents.py --self-test 	…and that gate's own assertions still fire when broken
+0.588	selftest	python3 tools/spend_ladder_rungs.py --self-test 	…and that pass's own refusals still fire when broken
+0.071	selftest	python3 tools/consolidate_town_cards.py --self-test 	…and that pass's own assertions still fire when broken
+3.366	selftest	python3 tools/mint_civic_residents.py --self-test 	…and that pass's own refusals still fire when broken
+1.740	step	python3 tools/consolidate_town_cards.py --check 	one person, one card — every duplicate cluster carries a written ruling
+0.067	selftest	python3 tools/rule_fuzzy_card_pairs.py --self-test 	…and pair-level coverage still refuses a ruling that names only one card
+2.155	selftest	python3 tools/measure_card_fuzzy_candidates.py --self-test 	the one-letter candidate test still measures the blind spot it was written for
+2.784	step	python3 tools/rule_fuzzy_card_pairs.py --check 	every one-letter card pair carries a ruling naming both its cards
+0.070	step	node tools/check_tool_browser.mjs 	every browser-launching tool honours PW_EXECUTABLE
+0.044	selftest	node tools/road_band_movement.mjs --self-test 	the road-band movement report names a band that moved
+0.054	step	node tools/test_street_confidence.mjs 	a street's invented line reaches the picture
+0.539	selftest	node tools/measure_rank_bias.mjs --self-test 	a spatial filter still cannot bias the sward's rank deal
+0.078	selftest	node tools/smoke_budget.mjs --self-test 	the smoke's change-to-parts map still matches the tree
+0.129	step	python3 tools/newspaper_corpus.py --check 	the newspaper corpus resolves, and nothing under data/research/ is published
+1.848	step	check_json 	data JSON parses
+0.383	step	python3 tools/read_voter_lists.py --check 	the four voter lists, their crosswalk and their refusals re-derive
+0.370	step	python3 tools/read_census_1830.py --check 	the 1830 schedule's reading and its crosswalk re-derive off today's town tree
+3.460	step	python3 tools/audit_confidence.py --strict 	the three levels mean what they say
+0.679	selftest	python3 tools/read_census_1830.py --self-test 	…and that check stays non-destructive, and still fires on a real drift
+0.060	selftest	python3 tools/check_household_derivations.py --self-test 	…and that enumeration's own assertions still fire when broken
+0.867	step	python3 tools/check_household_derivations.py --check 	every household-derived file under data/research/ is re-derived by this gate
+1.475	step	python3 tools/exhaust_tax_1833.py --check --quiet 	the 1833 tax roll still leaves Peter Pruyne one entry, and it is Pryne
+0.042	selftest	python3 tools/name_agreement.py --self-test 	the directory forename rule's own assertions still fire when broken
+0.059	selftest	python3 tools/printed_twice.py --self-test 	the printed-twice fold's own assertions still fire when broken
+0.037	selftest	python3 tools/tiebreak.py --self-test 	…and the tie discriminator's do too
+0.053	selftest	python3 tools/named_by_the_page.py --self-test 	the whole-printed-name rule's own assertions still fire when broken
+0.046	selftest	python3 tools/surname_one_letter_away.py --self-test 	…and the one-letter surname clause's, whose only outcome is a refusal
+0.042	selftest	python3 tools/letter_list_bucket.py --self-test 	…and the letter-list bucket refusal's, which all five directory crosswalks import
+0.031	selftest	python3 tools/trade_recorded.py --self-test 	…and the trade-sentinel predicate all four crosswalks import
+1.468	selftest	python3 tools/exhaust_tax_1833.py --self-test 	…and each of that count's own assertions still fires when broken
+0.226	step	python3 tools/read_norris_1844.py --check 	Norris's 1844 directory entries re-derive from the committed page text
+3.830	step	python3 tools/research_domains.py --check 	the research domains hold one shape
+0.050	step	python3 tools/read_norris_1844_advertiser.py --check 	…and the advertising directory's cards re-derive from the committed page text
+0.538	step	python3 tools/crosswalk_norris_1844.py --check 	…and the 1835 crosswalk re-derives from those entries
+0.758	selftest	python3 tools/read_norris_1844.py --self-test 	…and every garbled forename in them is repaired, cited, and none is left unnamed
+0.462	step	python3 tools/crosswalk_norris_1844_advertiser.py --check 	…and the advertising directory's crosswalk re-derives too
+0.116	selftest	python3 tools/spend_directories.py --self-test 	…and that pass's four carry rules hold over everything it derives
+0.686	step	python3 tools/spend_directories.py --check 	…and all four directories' findings re-derive onto the cards they reach
+0.447	step	python3 tools/back_project_addresses.py --check 	…and the later addresses re-derive through the back-projection clauses
+0.449	step	python3 tools/back_project_residences.py --check 	…and the later HOME addresses re-derive through the residence clauses
+0.746	selftest	python3 tools/back_project_addresses.py --self-test 	…and no back-projected face has grown a grade, a roof or an 1835 link
+0.060	selftest	python3 tools/spend_write_once.py --self-test 	…and every pass that writes a paragraph onto a card holds the once-each rule
+1.146	selftest	python3 tools/back_project_residences.py --self-test 	…and no back-projected home has grown a point, a roof or an 1835 link
+1.646	step	python3 tools/spend_write_once.py --sweep 	…and no card in the town carries any pass's paragraph twice
+0.720	step	python3 tools/spend_civic_voter_lists.py --check 	…and the 1833-1835 rolls' matched rulings are on the cards they name
+0.064	selftest	python3 tools/spend_civic_voter_lists.py --self-test 	…and that pass writes two fields, moves no grade and repeats without drift
+0.067	selftest	python3 tools/spend_civic_roll_bounds.py --self-test 	…and a roll bounds a presence, a tax roll bounds property, and neither reaches the scene
+0.433	step	python3 tools/spend_civic_roll_bounds.py --check 	…and each of those rulings is a bound on the card, not only a paragraph
+4.319	step	python3 tools/compare_norris_1844_readings.py --check 	…and our reading of Norris still disagrees with Torp's in exactly the places recorded
+0.357	selftest	python3 tools/spend_appearance_bounds.py --self-test 	…and a district is not the town, a later appearance bounds nothing, and no kin tie is taken
+0.876	step	python3 tools/spend_appearance_bounds.py --check 	…and the 1830 schedule and St Mary's register are bounds on the 21 cards they name
+0.456	step	python3 tools/spend_land_sale_bounds.py --check 	…and the 313 upheld land-sale purchases are bounds on the cards they name (T-1332)
+0.126	selftest	python3 tools/spend_land_sale_bounds.py --self-test 	…and a purchase is a dated appearance, never a residence, and never a Chicago presence
+0.048	selftest	python3 tools/dated_bounds_block.py --self-test 	…and two owners of one block replace their own rows and nobody else's
+1.553	step	python3 tools/spend_fergus_1839_later_lists.py --check 	…and Fergus 1839's later lists are on the 97 cards they name
+0.964	selftest	python3 tools/spend_fergus_1839_later_lists.py --self-test 	…and that pass writes two fields, moves no grade and repeats without drift
+0.750	step	python3 tools/spend_land_sales.py --check 	…and the land tract sales are on the 31 cards they name, once each
+0.115	selftest	python3 tools/spend_land_sales.py --self-test 	…and that pass writes two fields, moves no grade and repeats without drift
+0.724	step	python3 tools/spend_fergus_1839_lot_sale.py --check 	…and the Fort Dearborn Addition lot sale is on every card it names
+0.532	selftest	python3 tools/spend_fergus_1839_lot_sale.py --self-test 	…and that pass writes two fields, moves no grade and repeats without drift
+5.978	step	python3 tools/spend_press_bounds.py --check --quiet 	…and the 111 identified press appearances are bounds on the 148 cards they name (T-1343)
+1.022	step	python3 tools/old_settlers.py --check 	the old-settlers rolls rebuild from their committed transcription
+1.031	step	python3 tools/spend_old_settlers.py --check 	Fergus's death notices are on the cards the crosswalk names
+0.980	selftest	python3 tools/spend_old_settlers.py --self-test 	…and that pass writes one block, moves no grade and repeats without drift
+9.588	selftest	python3 tools/spend_press_bounds.py --self-test 	…and a name in print is never a presence, and no card the register did not enrich is touched
+2.721	step	python3 tools/spend_person_sex_age.py --check 	sex and age stand on the evidence, and the forename table re-derives
+6.465	selftest	python3 tools/old_settlers.py --self-test 	…and its own assertions still fire when broken
+3.251	selftest	python3 tools/spend_person_sex_age.py --self-test 	…and an initial, a rank and an ambiguous forename still fire nothing
+0.816	step	python3 tools/spend_book_kin.py --check 	every kinship the book corpus states is ruled on, and the ruled ties are on the cards
+0.078	selftest	python3 tools/spend_book_kin.py --self-test 	…and a half brother flattened to a brother, a one-sided tie and a lost claim all still fire
+1.088	step	python3 tools/spend_second_presbyterian_roll.py --check 	the Second Presbyterian roll is on the cards its crosswalk matches
+0.307	selftest	python3 tools/spend_second_presbyterian_roll.py --self-test 	…and that pass spends no refusal, moves no grade and repeats without drift
+0.780	selftest	python3 tools/research_domains.py --self-test 	…and its own assertions still fire when broken
+0.045	selftest	python3 tools/namesake.py --self-test 	the namesake rule's own assertions still fire when broken
+1.581	step	python3 tools/read_land_sales.py --check 	the land tract sales re-derive from their committed deposit
+8.525	step	python3 tools/spend_stated_families.py --check 	every family member the sources name is ruled on, and the ruled writes are on the cards
+0.101	step	python3 tools/check_rulings_not_lost.py 	no land-sale ruling has left the file without saying so
+0.134	selftest	python3 tools/check_rulings_not_lost.py --self-test 	…and its own assertions still fire when broken
+0.097	step	python3 tools/school_section_sale.py --check 	the school-section sale still reads the way T-1017 ruled it
+0.125	selftest	python3 tools/school_section_sale.py --self-test 	…and all three arms of that ruling still fail when broken
+1.152	selftest	python3 tools/measure_surname_fold.py --self-test 	the surname-fold measurement still measures something, on a distance that holds
+147.513	step	python3 tools/derive_resident_roles.py --check 	resident roles re-derive, and the 1835 view is the roles that reach it
+10.597	step	python3 tools/resolve_land_tracts.py --check 	the land tracts still resolve to the same ground, and the same roofs stand on them
+0.213	step	python3 tools/read_fergus_1843.py --check 	Fergus's 1843 directory rebuilds from its committed text, at the declared counts
+0.175	selftest	python3 tools/read_fergus_1843.py --self-test 	…and every run-on surname in it is repaired against the printed volume, or said
+22.010	selftest	python3 tools/read_land_sales.py --self-test 	…and its own assertions still fire when broken
+0.078	step	python3 tools/read_fergus_1843_civic.py --check 	Fergus's 1843 civic account rebuilds from its committed text, at the declared count
+0.128	step	python3 tools/read_fergus_1839.py --check 	Fergus's 1839 directory rebuilds from its committed text
+0.101	selftest	python3 tools/read_fergus_1839.py --self-test 	…and the seven repaired surnames in it still read off their witnesses
+0.170	step	python3 tools/build_trade_table_1839.py --check 	…and the trade table counted off it rebuilds too
+0.287	selftest	python3 tools/build_trade_table_1839.py --self-test 	…and the trade table's own reading rules still fire
+8.645	step	python3 tools/crosswalk_fergus_1843.py --check 	…and its crosswalk to the 1835 residents rebuilds too
+0.792	step	python3 tools/crosswalk_fergus_1839.py --check 	…and its crosswalk to the four pools of 1835 names rebuilds too
+0.128	step	python3 tools/fergus_1839_street_faces.py --check 	…and the 1839 street face compiled off it rebuilds too
+0.059	step	python3 tools/read_fergus_1839_election.py --check 	the 1837 charter election rebuilds from its committed text, at the declared counts
+0.085	step	python3 tools/verify_fergus_1839_first_ward.py --offline 	…and the first ward's 167 names still agree with what the page images were counted at
+0.047	step	python3 tools/read_fergus_1839_register.py --check 	the 1839 city register and the mayor and sheriff tables rebuild from their committed text
+0.051	selftest	python3 tools/read_fergus_1839_register.py --self-test 	…and its own assertions still fire when broken
+10.628	selftest	python3 tools/resolve_land_tracts.py --self-test 	…and the section grid's own assertions still fire when broken
+0.121	step	python3 tools/read_fergus_1839_lots.py --check 	Fergus 1839's Fort Dearborn lot sale and population table rebuild from the committed text and row map
+0.785	step	python3 tools/crosswalk_fergus_1839_election.py --check 	…and its crosswalk to the four pools of 1835 names rebuilds too
+0.122	selftest	python3 tools/read_fergus_1839_lots.py --self-test 	…and the three rules that judge that reading still fire when broken
+0.711	step	python3 tools/crosswalk_fergus_1839_register.py --check 	…and its crosswalk to the four pools of 1835 names rebuilds too
+0.042	selftest	python3 tools/date_norris_1844_businesses.py --self-test 	…and its own assertions still fire when broken
+0.461	step	python3 tools/crosswalk_fergus_1839_lots.py --check 	…and the bidders' crosswalk to the pools of 1835 names rebuilds too
+0.478	step	python3 tools/read_fergus_obits.py --check 	Fergus's old-settler death notices rebuild from their committed text
+0.069	step	python3 tools/read_genealogytrails.py --check 	the Genealogy Trails inventory covers every section the county index links
+0.248	selftest	python3 tools/read_genealogytrails.py --self-test 	…and its own assertions still fire when broken
+1.260	step	python3 tools/read_newberry_index.py --check 	the Newberry index stays a finding aid, and its reading rebuilds from the cards
+2.652	step	python3 tools/date_norris_1844_businesses.py --check 	Norris's 1844 firms re-derive their dating against 1835
+0.473	step	python3 tools/rule_newberry_leads.py --check 	every Newberry lead is ruled on, anchored, and re-derives from the cards
+3.610	selftest	python3 tools/read_fergus_obits.py --self-test 	…and its own assertions still fire when broken
+0.086	step	python3 tools/read_blackhawk_war.py --check 	the Black Hawk War enrollments read 134 rows and keep the 83 without a surname
+0.212	selftest	python3 tools/read_blackhawk_war.py --self-test 	…and its own assertions still fire when broken
+0.406	step	python3 tools/read_st_cyr_register.py --check 	St. Cyr's register reads 128 marriages against the article's own 22+18+87+1
+4.472	selftest	python3 tools/rule_newberry_leads.py --self-test 	…and its own assertions still fire when broken
+0.764	step	python3 tools/read_st_marys_baptisms.py --check 	the St Mary's baptismal register still rebuilds, tallies and all
+4.112	selftest	python3 tools/read_st_cyr_register.py --self-test 	…and its own assertions still fire when broken
+0.622	step	python3 tools/read_second_presbyterian.py --check 	the Second Presbyterian roll rebuilds, and no line of it is an 1835 fact
+39.061	selftest	python3 tools/spend_stated_families.py --self-test 	…and an unruled statement, a lost write and a stale report all still fire
+0.060	selftest	python3 tools/docx_text.py --self-test 	the .docx extractor is deterministic and keeps its uncertainty brackets
+0.650	selftest	python3 tools/read_second_presbyterian.py --self-test 	…and its own assertions still fire when broken
+0.722	selftest	python3 tools/newspaper_corpus.py --self-test 	…and its own assertions still fire when broken
+2.192	step	python3 tools/repair_ocr_turkish_alphabet.py --check 	no reading carries a letter of the OCR's Turkish alphabet
+0.050	selftest	python3 tools/repair_ocr_turkish_alphabet.py --self-test 	…and its own assertions still fire when broken
+0.125	step	python3 tools/trade_census_1835.py --check 	every business carries a census class, and the December 1835 count re-derives
+0.061	selftest	python3 tools/trade_census_1835.py --self-test 	…and its own assertions still fire when broken
+0.241	step	python3 tools/resolve_place_vocabulary.py --check 	every place the newspapers print is resolved inside the town, outside it, or undecided
+0.494	selftest	python3 tools/resolve_place_vocabulary.py --self-test 	…and its own assertions still fire when broken
+0.432	step	python3 tools/trade_census_spend_1835.py --check 	the trade-census gap is spent from the layers that hold it, and nobody is invented
+0.058	selftest	python3 tools/trade_census_spend_1835.py --self-test 	…and its own assertions still fire when broken
+0.132	step	python3 tools/model_town_1835.py --check 	the 1835 town model re-derives, and every figure is bounded and says what it rests on
+0.472	selftest	python3 tools/model_town_1835.py --self-test 	…and its own assertions still fire when broken
+0.137	step	python3 tools/measure_placement_silence.py --check 	no house is placed by a printing that gave no address
+0.213	step	python3 tools/measure_american_contradictions.py --gate 	the American's four self-contradictions still read as declared
+2.722	selftest	python3 tools/measure_american_contradictions.py --self-test 	…and its own assertions still fire when broken
+2.533	step	python3 tools/compile_register.py --check 	the scene-date register re-derives, and every action names its target
+0.139	selftest	python3 tools/compile_register.py --self-test 	…and its own assertions still fire when broken
+1.475	step	python3 tools/compile_businesses.py --check 	the business layer re-derives, and every register row has a record
+13.297	step	python3 tools/compile_gazetteer.py --check 	every newspaper claim resolves, quotes verbatim, and the gazetteer is compiled
+0.148	step	python3 tools/audit_businesses.py --check 	the business audit re-derives, and every identity ruling still holds
+0.073	selftest	python3 tools/audit_businesses.py --self-test 	…and its own assertions still fire when broken
+1.207	step	python3 tools/complete_inwindow_trades.py --check 	every in-window trade has a workplace or a stated reason it has none
+2.767	selftest	python3 tools/compile_businesses.py --self-test 	…and its own assertions still fire when broken
+0.076	selftest	python3 tools/complete_inwindow_trades.py --self-test 	…and its own assertions still fire when broken
+0.656	step	python3 tools/reconstruct_businesses_1835.py --check 	every reconstructed business re-derives, and no invented style is a printed one
+0.256	step	python3 tools/substitute_reconstruction.py --check 	every reconstruction says what retires it, and each liberty's share of the firms re-counts
+1.164	selftest	python3 tools/reconstruct_businesses_1835.py --self-test 	…and an unmapped class, a quota past its heads and a borrowed style are refused
+0.429	selftest	python3 tools/substitute_reconstruction.py --self-test 	…and the match, the retirement plan and the share re-count each fire when broken
+4.083	step	python3 tools/adopt_street_faces.py --check 	the street-face adoptions re-derive, and no adopted business claims a lot
+3.001	step	python3 tools/location_reconciliation.py --check 	the location reconciliation rows re-derive, and no row resolves past its evidence
+0.787	selftest	python3 tools/location_reconciliation.py --self-test 	…and its own assertions still fire when broken
+0.148	step	python3 tools/location_spend.py --check 	the location spend re-derives: no placement past its evidence, four retentions still true
+0.189	selftest	python3 tools/location_spend.py --self-test 	…and its own assertions still fire when broken
+2.165	step	python3 tools/seat_known_1835.py --check 	the address book re-derives: every household and firm at the rung its evidence reaches, no band out of its division, no seat invented
+33.689	selftest	python3 tools/read_newberry_index.py --self-test 	…and its own assertions still fire when broken
+0.503	step	python3 tools/report_convergence_coverage.py --check --quiet 	every person says which roles and which places reach the scene date
+0.061	selftest	python3 tools/report_convergence_coverage.py --self-test 	…and each of those rules moves when its input moves
+0.663	step	python3 tools/profile_population_1835.py --check 	the 1835 population profile re-derives from the resident layer, on every axis
+0.160	selftest	python3 tools/profile_population_1835.py --self-test 	…and its own assertions still fire when broken
+0.912	step	python3 tools/build_order_book_1835.py --check 	the 1835 reconstruction order book re-derives, no bucket is overfilled, and every work order names a live ticket
+4.583	selftest	python3 tools/seat_known_1835.py --self-test 	…and its own assertions still fire when broken
+0.734	step	python3 tools/model_refamily_rule.py --check 	the re-family rule re-derives, its roster reconciles with the order book, and every move stands on a published rung (T-1558)
+0.733	selftest	python3 tools/model_refamily_rule.py --self-test 	…and its own assertions still fire when broken
+0.075	step	python3 tools/report_refamily_programme.py --check 	the re-familying programme's report re-derives, and the ledger's moves are the ones the rule yields (T-1560)
+0.201	selftest	python3 tools/report_refamily_programme.py --self-test 	…and its own assertions still fire when broken
+0.559	step	python3 tools/refamily_moves_1835.py --check 	every re-family move in the order book stands on a card that says the same thing, and no card claims one the rule does not yield (T-1563)
+20.739	selftest	python3 tools/adopt_street_faces.py --self-test 	…and its own assertions still fire when broken
+0.153	step	python3 tools/build_lodging_model_1835.py --check 	the 1835 lodging model re-derives, and no house sleeps more than 1840 saw
+0.159	selftest	python3 tools/build_lodging_model_1835.py --self-test 	…and its own assertions still fire when broken
+0.111	step	python3 tools/build_staffing_model_1835.py --check 	the 1835 business staffing model re-derives, and staffs nobody the town cannot employ
+0.124	selftest	python3 tools/build_staffing_model_1835.py --self-test 	…and its own assertions still fire when broken
+1.802	step	python3 tools/staff_businesses_1835.py --check 	the 1835 staffing join re-derives, and holds from both ends
+6.196	selftest	python3 tools/refamily_moves_1835.py --self-test 	…and its own assertions still fire when broken
+11.020	selftest	python3 tools/build_order_book_1835.py --self-test 	…and its own assertions still fire when broken
+0.770	step	python3 tools/seat_reconstructed_trades_1835.py --check 	the 1835 reconstructed seating re-derives, and staffs no house past its band
+0.079	step	python3 tools/staff_the_houses_1835.py --check 	the reconstructed hands re-derive onto their houses, and each house states its shortfall
+0.174	selftest	python3 tools/staff_the_houses_1835.py --self-test 	…and each of its seven assertions still fires when broken
+0.648	step	python3 tools/employment_coverage_1835.py --check 	every person in the resident layer carries one employment answer, and none carries none
+0.743	selftest	python3 tools/employment_coverage_1835.py --self-test 	…and each of its seven assertions still fires when broken
+0.106	step	python3 tools/staffing_mint_order_1835.py --check 	the 1835 staffing mint order re-derives, and spends no bucket it cannot reach
+0.174	selftest	python3 tools/staffing_mint_order_1835.py --self-test 	…and each of its ten assertions still fires when broken
+2.558	selftest	python3 tools/seat_reconstructed_trades_1835.py --self-test 	…and each of its five assertions still fires when broken
+3.291	selftest	python3 tools/staff_businesses_1835.py --self-test 	…and its own assertions still fire when broken
+0.120	step	python3 tools/model_transients_1835.py --check 	the 1835 transient cohort re-derives, and its bracket still stands on the sentences it quotes
+1.386	step	python3 tools/seat_lodgers_1835.py --check 	the boarders re-derive, and no house sleeps more than the 1840 enumerator saw
+2.156	selftest	python3 tools/model_transients_1835.py --self-test 	…and its own assertions still fire when broken
+0.088	selftest	python3 tools/measure_corner_ordinals.py --self-test 	…and its own assertions still fire when broken
+0.214	selftest	python3 tools/inferred_occupancy.py --self-test 	…and the ledger that spends them into the roofs refuses every way one could lie
+0.212	step	python3 tools/lot_addresses.py --check 	the lot-and-block address re-derives, and seating it promotes no roof
+0.185	selftest	python3 tools/lot_addresses.py --self-test 	…and its own assertions still fire when broken
+0.627	step	python3 tools/record_lot_seating.py --check 	every documented north-or-west record's lot re-derives from the committed grid
+3.946	selftest	python3 tools/seat_lodgers_1835.py --self-test 	…and its own assertions still fire when broken
+0.710	step	python3 tools/census_1840_fingerprint.py --check 	the 1840 census line-to-serial crosswalk re-derives from the page readings
+0.095	selftest	python3 tools/census_1840_fingerprint.py --self-test 	…and its own assertions still fire when broken
+0.139	step	python3 tools/census_1840_composition.py --check 	the 1840 household composition re-derives, and no name or serial reaches it
+0.167	selftest	python3 tools/census_1840_composition.py --self-test 	…and its own assertions still fire when broken
+1.839	selftest	python3 tools/record_lot_seating.py --self-test 	…and a seat still may not claim a lot, outrank its lot lines, or invent a numeral
+0.161	step	python3 tools/register_letter_list_suspicions.py --check 	the letter lists' suspected misreadings stay a worklist and not evidence
+0.166	selftest	python3 tools/register_letter_list_suspicions.py --self-test 	…and its own assertions still fire when broken
+0.172	selftest	python3 tools/consolidate_resident_evidence.py --self-test 	…and its own assertions still fire when broken
+0.058	selftest	python3 tools/identity_master_guard.py --self-test 	the mints' consultation of the identity master is the master's own rules
+5.476	step	python3 tools/measure_corner_ordinals.py --gate --quiet 	an ordinal off a corner places a position and claims no lot
+0.577	step	python3 tools/export_resident_audit.py --check 	the final resident audit still re-derives from the residents layer
+0.049	step	python3 tools/measure_wright_lighthouse.py --check 	the lighthouse still stands on the glyph Wright drew for it
+0.054	selftest	python3 tools/measure_wright_lighthouse.py --self-test 	…and its own assertions still fire when broken
+0.240	step	python3 tools/derive_hay_limits.py --check 	the 1835 hay-stacking limit still re-derives from committed street lines
+0.240	selftest	python3 tools/derive_hay_limits.py --self-test 	…and its own refusals still fire when broken
+0.850	selftest	python3 tools/export_resident_audit.py --self-test 	…and its own assertions still fire when broken
+0.368	step	python3 tools/compile_agencies.py --check 	the agency relation still re-derives from the committed register
+0.355	selftest	python3 tools/compile_agencies.py --self-test 	…and its own refusals still fire when broken
+0.050	selftest	python3 tools/associations.py --self-test 	…and its own refusals still fire when broken
+0.329	step	python3 tools/associations.py --check 	the association coverage still re-derives from the committed records
+3.121	step	python3 tools/consolidate_resident_evidence.py --check 	the cross-domain identity master re-derives, and no grade stands above its rung
+0.752	step	python3 tools/person_associations.py --check 	the person associations still re-derive, and are still on their cards
+0.052	selftest	python3 tools/migrate_attribute_tiers.py --self-test 	…and its own refusals still fire when broken
+0.741	selftest	python3 tools/person_associations.py --self-test 	…and its own refusals still fire when broken
+0.179	step	python3 tools/converge_resident_layer.py --check 	the resident layer's rebuild order still holds, and its set has not grown in silence
+0.442	selftest	python3 tools/converge_resident_layer.py --self-test 	…and each of its four assertions still fires when broken
+0.051	selftest	node tools/check_attribute_tiers.mjs --self-test 	…and its own derivation still answers each case
+0.389	step	node tools/check_attribute_tiers.mjs 	the walkthrough's tier reader agrees with the published table
+1.329	step	python3 tools/migrate_attribute_tiers.py --check 	every attribute's tier still re-derives from the card it sits on
+92.284	selftest	python3 tools/compile_gazetteer.py --self-test 	…and its own assertions still fire when broken
