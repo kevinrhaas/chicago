@@ -1,7 +1,7 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The town reaches you sooner: a sixth less to download before you stand in the street', kind: 'polish',
+  { v: 1307, ts: '2026-10-02T15:05:20.551Z', date: 'Oct 2, 2026, 10:05 AM CT', title: 'The town arrives sooner: 2 MB less to download', kind: 'polish',
     items: [
-      'A first visit now downloads about 12 MB before you can walk, down from 14 MB. Every wall, roof and signboard looks exactly as it did.',
+      'A first visit now downloads about 2 MB less before you can walk. Every wall, roof and signboard looks exactly as it did.',
       'The grain on the walls, roofs and signboards now arrives in a smaller image format that keeps every pixel the same.',
       'These release notes now load when you open this tab, so the dot that says there is something new no longer costs a megabyte.',
     ] },
