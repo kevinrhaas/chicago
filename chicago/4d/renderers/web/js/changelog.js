@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1293, ts: '2026-10-02T08:59:02.566Z', date: 'Oct 2, 2026, 3:59 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+    items: [
+      'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
+      'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
+      'Their upper windows and stovepipes are counted from their beds: seven or eight windows and four stovepipes each. Tonight they sleep four, six and eight people. The rest of their beds stand empty, because the town has no more lodgers to put in them.',
+      'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
+      'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L346) says how each was placed and sized.',
+    ] },
   { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
     items: [
       'Cross the river on Randolph Street to Canal. The Western Hotel now has a plank walk along its front, with two hitching posts and a mounting block. A board crossing over Canal Street joins it to the Randolph walk.',

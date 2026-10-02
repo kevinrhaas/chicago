@@ -277,7 +277,7 @@
     },
     "capacity": {
       "beds_ordinary": 6,
-      "beds_crowded": 14,
+      "beds_crowded": 13,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_west_006]",
       "sizes": {

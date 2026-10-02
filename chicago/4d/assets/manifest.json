@@ -1264,8 +1264,8 @@
     "recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 42584,
-      "inputs_sha256": "5b43ebe83ddf51144214cf1337ef256fedee41d5778779ceafc3dbb7b6bf4387",
+      "bytes": 41796,
+      "inputs_sha256": "a64ef07c11225408ce410f66070ab2f0aa355d403a13dd5f2ecf3fc7b6325b35",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
@@ -2674,6 +2674,33 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_11"
     },
+    "recon_1835_blk_washington_dearborn_a1_02__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 87972,
+      "inputs_sha256": "eca5591d0a577dcb12d1759ca7ad4404951ff0271299f967a71d986275351efd",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_a1_02"
+    },
+    "recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 31108,
+      "inputs_sha256": "5fa63214c637836a3791c8b2ea17ea0677aabe366300db52de7ed35df45e4042",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_a3_03"
+    },
+    "recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 37892,
+      "inputs_sha256": "5c316bab9387fe804de2d3ad4aa7264e7db2695fb8bf5cc8d48e91a4952b69d3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_h3_01"
+    },
     "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2889,6 +2916,60 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_lasalle_h2_01"
+    },
+    "recon_1835_blk_washington_market_a1_02__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 77980,
+      "inputs_sha256": "3627f4af1e2bfd298c158610ef1ab486cabb8c142fb0e594518868b1ad71d88d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a1_02"
+    },
+    "recon_1835_blk_washington_market_a1_05__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 88900,
+      "inputs_sha256": "9f871c22db951f55ec26194ee4ae1c6a547745d356833c9f09dec316a24ac1c8",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a1_05"
+    },
+    "recon_1835_blk_washington_market_a3_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 30476,
+      "inputs_sha256": "93edf056356cd53862b71e27a2188aa7cb9595486297d31a0c0c47ed58aeaf2c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a3_03"
+    },
+    "recon_1835_blk_washington_market_a3_06__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 30164,
+      "inputs_sha256": "a0138535e50c02aee82e7a26837a92e75f0f0412072a0a2b61a39adc943be098",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a3_06"
+    },
+    "recon_1835_blk_washington_market_h3_01__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 37264,
+      "inputs_sha256": "3040a53d1480ded7aa020826d39d0e236eb307e3a0a126992a9cfb89f5105442",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_h3_01"
+    },
+    "recon_1835_blk_washington_market_h3_04__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 37728,
+      "inputs_sha256": "d46fb4f8a94ef1f92822009e37fb87b0d0f8956da28d3ddfb431c18777d779ba",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_h3_04"
     },
     "recon_1835_blk_washington_wells_a1_11__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -3568,8 +3649,8 @@
     "recon_1835_north_h2_022__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 29192,
-      "inputs_sha256": "2132a3d5f2f9b35ef030571a212af9ce6b6ae911d487376c8a51a21694510ae8",
+      "bytes": 28880,
+      "inputs_sha256": "af5d076903f5f2d6b7a2d153a4311b3416e6af20cb82547ba8c1c9a6797bf972",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_022"
@@ -3577,8 +3658,8 @@
     "recon_1835_north_h2_028__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 28096,
-      "inputs_sha256": "13370eeff37fd4111fa90b223987ab590fdeb2c78d913c829a1be8d5ea1eea83",
+      "bytes": 27316,
+      "inputs_sha256": "4d8f40a164c7bc0e940d4ab9c93ba53efd3ad1299f740a1945186c3fe22afff6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_028"
@@ -4351,8 +4432,8 @@
     "recon_1835_west_035__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 30588,
-      "inputs_sha256": "e13f9c8f1e22450eb415563128f9d29ab639215c739221623917f28a3cdd53c5",
+      "bytes": 29808,
+      "inputs_sha256": "1876b2fd63c13f7c292e7d4e709daced205ed439f76f7bf0ad6808c59b05dc0d",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_035"
