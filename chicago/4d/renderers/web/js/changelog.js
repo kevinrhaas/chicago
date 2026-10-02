@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
+    items: [
+      'Open Bridget Hayes\u2019s card and look under Were they at work? It used to say the town owed her a place in a tavern. It now says she was in domestic service in another family\u2019s house, as our ruling on the trade says domestic service was.',
+      'The same is true for all 61 domestics the taverns had no room for. Taverns and hotels were the only places our staffing model could put them, so the overflow looked like a shortage of hotels. It never was.',
+      'Which family each one worked for is not recorded, so the card does not name one.',
+      'On the City card, people owed a workplace drop from 230 to 169.',
+    ] },
   { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
