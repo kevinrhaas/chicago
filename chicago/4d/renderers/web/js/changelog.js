@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The river walk sits level on its bank again', kind: 'fix',
+  { v: 1310, ts: '2026-10-02T15:54:00.240Z', date: 'Oct 2, 2026, 10:54 AM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
       'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
       'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
