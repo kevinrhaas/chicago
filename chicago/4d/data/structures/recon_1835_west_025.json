@@ -130,6 +130,14 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A3 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
   },
+  "occupants": {
+    "value": "No household of its own — the privy of the two-room frame cottage beside it on the Canal and Randolph teamster approach",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The West recipe's own `yard_group`: placement west_rec_025 is drawn in the yard of west_rec_017, the D4 two-room frame cottage the off-plat deal seats under tradesman_dwellings on the canal commissioners' 1830 ground, 25.8 m away. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A privy is used by that house; nobody sleeps in it. The roof's own existence, position and footprint remain the invention they were."
+  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "A3",

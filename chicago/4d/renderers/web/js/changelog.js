@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1318, ts: '2026-10-02T19:16:20.133Z', date: 'Oct 2, 2026, 2:16 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
       'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
+    ] },
+  { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+    items: [
+      'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
+      'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
+      'Two belong to no house we can point to: a stable on the teamster road by Canal and Randolph, and a stable yard by the north pier. Their cards say what they were for and that whose they were is not known.',
+      'Nobody is seated in them. What the card states is the building\u2019s use, and it is as much a reconstruction as the building. Nine fewer roofs now count as empty in the town\u2019s completion check.',
     ] },
   { v: 1317, ts: '2026-10-02T18:52:16.135Z', date: 'Oct 2, 2026, 1:52 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
     items: [
