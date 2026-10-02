@@ -193,3 +193,4 @@ for (const [vp, r] of Object.entries(report.viewports)) {
   if (r.after.problems.length) console.log('  problems:', r.after.problems.slice(0, 5));
 }
 await browser.close();
+server.close();

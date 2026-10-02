@@ -16,14 +16,16 @@ default (18, said so on the record); the house is the roof's own family. Wells, 
 and the rule's `--self-test` are in `check.sh`. L350 claims the invention; the fact of household
 firewood is `inferred` from the 1835 price current.
 
-**Frame cost, measured on the published mirror, desktop, `full`, at 295 piles (before #266 added three boarding houses and with them three more).** The yard layer goes from 63,032
-to 97,969 triangles. At Lake Street at Canal (part 5's worst stand) the same frame reads 1,563,306
-triangles and 210 calls without the woodpile record and 1,611,977 and 214 with it: +48,671 and +4.
-**Dev was already over the 1,460,000 `full` ceiling there by 103,306 before this PR**, and dev's own
-CI is red on smoke legs desktop 1-2, mobile 1-2 and mobile 3-6 at 15b23570. Woodpiles join the goods'
-chunk where their cell has one and otherwise one outlying mesh: 19 coarse chunks cost 9-20 calls at
-a back-lot stand and 5 still 6-11, one costs 2. The sticks are painted on the yard atlas, not built,
-so a rick is about sixty triangles.
+**Frame cost, measured on the published mirror, desktop, `full`** (`tools/woodpile_shots.mjs
+--anchor lake_at_canal`, the same frame with `town_woodpiles.json` refused at the network for
+"before"). The yard layer goes from 63,464 to 98,928 triangles. At Lake Street at Canal, part 5's
+worst stand, on dev at 729de887: 1,654,816 triangles and 221 calls without the woodpiles, 1,725,744
+and 223 with them, so +70,928 (colour and sun pass) and +2. **Dev was already over both budgets there
+before this PR** — 194,816 over the 1,460,000 `full` ceiling and 221 calls of 215 — and dev's own CI
+is red on smoke legs desktop 1-2, mobile 1-2 and mobile 3-6. Every woodpile is in ONE town mesh in
+a group of its own, because the call budget is the one that binds: chunks three cells across (19)
+cost 9-20 calls at a back-lot stand, eight across (5) 6-11, goods chunks plus one outlying mesh 2-6,
+one mesh exactly 2. The sticks are painted on the yard atlas, not built: about sixty triangles a rick.
 
 **Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
 are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.
