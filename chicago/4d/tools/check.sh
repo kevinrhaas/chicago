@@ -1450,6 +1450,13 @@ step "the river wharves re-derive from the records that state a dock" \
 step "the landing-place camps re-derive from the bank they stand on" \
   python3 tools/place_landing_camps_1835.py --check
 
+# The camps of the two conjectural grounds (T-1804) — the land-sale crowd on the
+# reservation shore and a wagon party at the west approach — are placed against every
+# drawn roadway, fence run, footprint, refused region and the heightfield, so anything
+# built or drawn into their ground must move a camp with it or fail here.
+step "the shore and west-approach camps re-derive from the ground they stand on" \
+  python3 tools/place_camp_grounds_1835.py --check
+
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was
 # WITHDRAWN on 2026-08-27 on the three readings this holds. Not on an opinion about
@@ -6061,6 +6068,21 @@ step "the boarders re-derive, and no house sleeps more than the 1840 enumerator 
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/seat_lodgers_1835.py --self-test
+
+# T-1971, piece 1 of T-1965. THE PRESENT WITH NO ROOF. 1,003 households the residents
+# layer holds present on 1 July 1835 reached no roof, while 223 of the programme's own
+# dwellings stood with nobody in them. `house_the_present_1835.py` seats each one beside
+# its card (the cards are re-derived whole, so a seat cannot live on them) and
+# compile_scene's `overlay_housing` carries it to the building card. Refused: a seat on a
+# roof the scene does not stand, on a documented building or a roof whose record already
+# names its occupants (unless it names THIS household), a household seated twice or also
+# housed by another overlay, any present household left over, and a town more crowded
+# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L354.
+step "every household present on the scene date sleeps under a standing roof" \
+  python3 tools/house_the_present_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/house_the_present_1835.py --self-test
 
 # T-1352, piece 1 of T-1178. THE ROW THE ORDER BOOK CANNOT APPORTION. `persons/transient/
 # town` sits in the book above with no target and no quota, because the town model bounds

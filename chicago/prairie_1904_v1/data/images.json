@@ -8,12 +8,13 @@
   "stream-chicagology-north.json",
   "stream-chicagology-south.json",
   "stream-drawings.json",
+  "stream-newspapers-north.json",
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 815,
+  "images": 858,
   "local": 199,
-  "in_period": 512,
+  "in_period": 550,
   "buildings_with_images": 62,
   "buildings": 62,
   "lots_with_images": 85,
@@ -36,7 +37,12 @@
    "a16-ghm-blog-1720-atlas-crop",
    "cgn-1612-robinson-1886",
    "st-picturesque-chicago-1892-prairie-avenue-text",
+   "np-1612-tribune-1895-03-17-to-rent-large-double",
+   "np-1612-tribune-1897-06-06-to-rent-18-room",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "np-1612-washtimes-1904-04-27-brown-siege",
    "cgn-1612-tribune-1905-mrs-brown-headline",
+   "np-1612-tribune-1922-11-26-buys-bishops-residence",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-1612-studebaker-photo"
   ],
@@ -49,19 +55,29 @@
    "cgn-1620-robinson-1886",
    "cgn-1620-law-coal-directory-ad-1887",
    "cgn-1620-tribune-1898-robert-law-headline",
-   "cgn-1620-tribune-1898-robert-law-portrait"
+   "cgn-1620-tribune-1898-robert-law-portrait",
+   "np-1620-tribune-1899-06-11-law-trades-residence",
+   "np-1620-tribune-1908-04-26-to-rent-excellent-private-residence",
+   "np-1620-tribune-1909-04-06-hankins-buys-73x177",
+   "np-1620-tribune-1922-10-22-1616-1620-for-sale"
   ],
   "pa-1630-50": [
    "a16-ghm-blog-1720-atlas-crop",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "cgn-1630-text",
-   "cgn-1630-robinson-1886"
+   "cgn-1630-robinson-1886",
+   "np-1630-abendblatt-1893-09-11-peter-brust-death",
+   "np-1630-school-directory-1905-06-louisa-brust"
   ],
   "pa-1635-48": [
    "a16-ghm-blog-1720-atlas-crop",
    "a16-cgy-hibbardville-map-1940",
    "cgn-1635-text",
    "cgn-1635-robinson-1886",
+   "np-1635-tribune-1893-03-19-to-rent-15-room-brick",
+   "np-1635-staatszeitung-1894-07-23-springer",
+   "np-1635-tribune-1895-07-28-springer-lease-70x200",
+   "np-1635-womens-clubs-directory-1903-04-springer",
    "cgn-1635-tribune-1905-herrick-headline"
   ],
   "pa-1637-45": [
@@ -107,6 +123,7 @@
   ],
   "pa-1702-43": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "a16-inland-1888-06-alexander-obituary-dexter-harvey",
@@ -115,18 +132,27 @@
    "a16-ghm-blog-1702-staples",
    "cgn-1702-harvey-remodelled-photo",
    "cgn-1702-staples-photo-copy",
-   "cgn-1702-robinson-1886"
+   "cgn-1702-robinson-1886",
+   "np-1702-tribune-1898-12-26-for-sale-brownstone-front",
+   "np-1702-tribune-1899-02-10-glessner-buys-harvey"
   ],
   "pa-1709-s.-prairie-avenue-(successor)-47": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "st-randmcnally-1893-p233-east-1700-1800",
+   "np-1709-tribune-1883-10-19-kellogg-obituary-house-just-completed",
    "cgn-1709-evening-post-1868-kellogg-notice",
    "cgn-1709-text",
-   "cgn-1709-robinson-1886"
+   "cgn-1709-robinson-1886",
+   "np-1709-tribune-1904-03-18-jesse-spalding-death",
+   "np-1709-abendpost-1908-07-24-spalding-brownstone-sold-to-otis",
+   "np-1709-abendpost-1908-08-18-otis-purchase-3-storey",
+   "np-1709-tribune-1936-10-11-otis-mansion-to-be-torn-down"
   ],
   "pa-1721-4": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-east-1700-1800",
@@ -215,6 +241,7 @@
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-west-1700-1800",
+   "np-1736-tribune-1875-08-08-strong-permit",
    "cgn-1736-text",
    "a16-ghm-blog-1736-mcbirney-c1890",
    "cgn-1736-robinson-1886",
@@ -226,14 +253,21 @@
   "pa-1609-1904-correction": [
    "a16-ghm-blog-1720-atlas-crop",
    "cgn-1611-robinson-1886",
+   "np-1609-1611-tribune-1888-02-12-for-sale-50-feet",
+   "np-1609-1611-tribune-1896-05-03-to-rent-frame-houses",
+   "np-1609-tribune-1897-10-31-to-rent-9-room",
+   "np-1609-tribune-1904-10-30-to-rent-frame",
    "dw-aabn-1905-08-strauss-warehouse-1609-1611",
    "a16-cgy-1609-loft-1910"
   ],
   "pa-1611-1904-correction": [
    "a16-ghm-blog-1720-atlas-crop",
    "cgn-1611-robinson-1886",
+   "np-1609-1611-tribune-1888-02-12-for-sale-50-feet",
+   "np-1609-1611-tribune-1896-05-03-to-rent-frame-houses",
    "dw-aabn-1905-08-strauss-warehouse-1609-1611",
-   "a16-cgy-1609-loft-1910"
+   "a16-cgy-1609-loft-1910",
+   "np-1611-tribune-1895-04-14-to-rent-2-story-basement-frame"
   ],
   "pa-1905-16": [
    "st-picturesque-chicago-1892-prairie-avenue-text",
@@ -278,26 +312,122 @@
    "cgs-2115-robinson-1886"
   ],
   "pa-1700-52": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-ghm-blog-1700-1706-construction-1901",
    "a16-cgy-1700-1706-townhouses",
-   "st-ghm-1700-1706-under-construction-1901",
-   "a16-ghm-blog-1708-1706-1700-christmas"
-  ],
-  "pa-1706-53": [
-   "a16-ghm-blog-1700-1706-construction-1901",
-   "a16-cgy-1700-1706-townhouses",
+   "np-1702-tribune-1899-02-10-glessner-buys-harvey",
+   "np-1700-1706-american-artisan-1901-04-27-furnace-contract",
+   "np-1700-1706-enr-1901-04-25-glessner-permit",
    "st-ghm-1700-1706-under-construction-1901",
    "a16-ghm-blog-1708-1706-1700-christmas",
+   "np-1700-bluebook-1904-blewett-lee"
+  ],
+  "pa-1706-53": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-ghm-blog-1700-1706-construction-1901",
+   "a16-cgy-1700-1706-townhouses",
+   "np-1702-tribune-1899-02-10-glessner-buys-harvey",
+   "np-1700-1706-american-artisan-1901-04-27-furnace-contract",
+   "np-1700-1706-enr-1901-04-25-glessner-permit",
+   "st-ghm-1700-1706-under-construction-1901",
+   "a16-ghm-blog-1708-1706-1700-christmas",
+   "np-1706-bluebook-1904-george-glessner",
    "cgn-1706-us-census-1910-glessner"
+  ],
+  "pa-1808-6": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a18-gh-american-contractor-1921-sullivan-1808",
+   "cgn-1804-landowner-1874-double-house",
+   "a18-inland-architect-1886-09-keith-notice",
+   "cgn-1808-robinson-1886",
+   "dw-aabn-1886-keith-1808-permit",
+   "a18-gh-1800-block-looking-sw-c1888",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-gh-1808-keith-field-front",
+   "a18-gho-house-under-construction-1887",
+   "a18-inland-architect-1888-02-glessner-plate",
+   "a18-inland-architect-1888-02-keith-plate",
+   "a18-rba-ia-1888-keith-1808",
+   "a18-rba-taylor-2135-glessner-ne",
+   "st-flinn-1891-a-bit-of-prairie-avenue",
+   "st-flinn-1892-looking-south-prairie-from-18th",
+   "st-ghm-postcard-1908-prairie-south-at-18th",
+   "st-picturesque-chicago-1892-prairie-avenue-p199",
+   "a18-gh-glessner-front-with-keith",
+   "cgn-1808-inland-1888-keith-copy",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "a18-eoc-10382",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-cl1973-p24-sidewalk-view-9974",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-rba-lowe-taylor-9974-copy",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1935-donnelley-aerial",
+   "a18-rba-reed-1941-prairie-north-from-1820",
+   "a18-rba-reed-1941-prairie-south-at-18th",
+   "st-chicagology-1941-prairie-at-18th",
+   "a18-gh-florian-1948-ne-exterior",
+   "a18-eoc-10389",
+   "a18-eoc-10360",
+   "a18-gh-1812-1808-1800-mid1950s",
+   "a18-eoc-10386",
+   "a18-gh-1808-porch-1965",
+   "a18-gh-nickel-1967-1812-1808-1800",
+   "a18-cgy-1808-tribune-1968",
+   "a18-city1973-landmarks-report"
+  ],
+  "pa-1912-10": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "a18-eoc-10381",
+   "a19-cgy-1912-tribune-permit-1882",
+   "cgs-1912-text",
+   "dw-aabn-1882-moulton-1912-permit",
+   "a19-nby-newchicagoalbum-1883-residences",
+   "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "cgs-1912-robinson-1886",
+   "dw-indchi-1891-v1-moulton-treat-foltz",
+   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
+   "a19-chm-ichi66015-west-side-north-from-allerton",
+   "a19-cgy-1912-exterior",
+   "a19-gh-prairie-1800-1900-elevations"
+  ],
+  "pa-2126-20": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "cgs-2126-robinson-1886",
+   "a20-aic-ia-robbins-plate",
+   "dw-inland-1905-05-robbins-2126-plate",
+   "dw-inland-1905-05-robbins-plate-list",
+   "a20-rees-landmark-report-1951-street-view"
+  ],
+  "pa-2140-21": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "a20-aic-quarter-century-tucker-residence",
+   "a20-nypl-dennis-tucker-1010-prairie-stereo",
+   "cgs-2140-robinson-1886",
+   "a20-chicagology-2140-photo-a",
+   "a20-chicagology-2140-photo-b",
+   "a20-glessner-vanosdel-2140-photo",
+   "a20-chicagology-2140-smith-dining-room"
   ],
   "pa-1708-54": [
    "a16-ghm-blog-1700-1706-construction-1901",
    "a16-cgy-1700-1706-townhouses",
    "st-ghm-1700-1706-under-construction-1901",
-   "a16-ghm-blog-1708-1706-1700-christmas"
+   "a16-ghm-blog-1708-1706-1700-christmas",
+   "np-1708-bluebook-1904-carpenter",
+   "np-1708-abendpost-1907-07-16-thorne-buys"
   ],
   "pa-1709-46": [
-   "a16-cgy-hibbardville-map-1940"
+   "a16-cgy-hibbardville-map-1940",
+   "np-1709-tribune-1883-10-19-kellogg-obituary-house-just-completed"
   ],
   "pa-1800-22": [
    "a16-cgy-hibbardville-map-1940",
@@ -524,6 +654,9 @@
    "dw-rb-inland-ames-coleman-1811-plate",
    "a18-gh-1811-for-sale-1894",
    "cgn-1811-tribune-1894-ames-for-sale-ad",
+   "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
+   "np-1811-abendpost-1907-01-16-fish-buys-40x150",
+   "np-1811-abendpost-1921-01-19-sold-to-midland-press",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation"
   ],
   "pa-1815-12": [
@@ -549,47 +682,6 @@
    "a18-gh-sears-interpretive-panel",
    "a18-gh-1815-office-building-1981"
   ],
-  "pa-1808-6": [
-   "a18-gh-american-contractor-1921-sullivan-1808",
-   "cgn-1804-landowner-1874-double-house",
-   "a18-inland-architect-1886-09-keith-notice",
-   "cgn-1808-robinson-1886",
-   "dw-aabn-1886-keith-1808-permit",
-   "a18-gh-1800-block-looking-sw-c1888",
-   "a18-gh-1800-block-sw-george-glessner",
-   "a18-gh-1808-keith-field-front",
-   "a18-gho-house-under-construction-1887",
-   "a18-inland-architect-1888-02-glessner-plate",
-   "a18-inland-architect-1888-02-keith-plate",
-   "a18-rba-ia-1888-keith-1808",
-   "a18-rba-taylor-2135-glessner-ne",
-   "st-flinn-1891-a-bit-of-prairie-avenue",
-   "st-flinn-1892-looking-south-prairie-from-18th",
-   "st-ghm-postcard-1908-prairie-south-at-18th",
-   "st-picturesque-chicago-1892-prairie-avenue-p199",
-   "a18-gh-glessner-front-with-keith",
-   "cgn-1808-inland-1888-keith-copy",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
-   "a18-eoc-10382",
-   "a18-rba-taylor-9974-prairie-south-from-18th",
-   "st-cl1973-p24-sidewalk-view-9974",
-   "st-randmcnally-1893-p233-west-1700-1800",
-   "a18-rba-lowe-taylor-9974-copy",
-   "a18-gh-1911-map-west-1800-block",
-   "a18-gh-1935-donnelley-aerial",
-   "a18-rba-reed-1941-prairie-north-from-1820",
-   "a18-rba-reed-1941-prairie-south-at-18th",
-   "st-chicagology-1941-prairie-at-18th",
-   "a18-gh-florian-1948-ne-exterior",
-   "a18-eoc-10389",
-   "a18-eoc-10360",
-   "a18-gh-1812-1808-1800-mid1950s",
-   "a18-eoc-10386",
-   "a18-gh-1808-porch-1965",
-   "a18-gh-nickel-1967-1812-1808-1800",
-   "a18-cgy-1808-tribune-1968",
-   "a18-city1973-landmarks-report"
-  ],
   "pa-1816-33": [
    "a18-gh-landowner-1874-plate",
    "st-landowner-1874-homes-of-prairie-avenue",
@@ -605,7 +697,9 @@
    "a18-cgy-1816-henderson-photo",
    "cgn-1816-text",
    "cgn-1816-landowner-1874-henderson",
-   "cgn-1816-robinson-1886"
+   "cgn-1816-robinson-1886",
+   "np-1816-tribune-1895-12-08-henderson-residence-partly-burned",
+   "np-1816-tribune-1896-09-11-barn-fire"
   ],
   "pa-1804–1808-s.-prairie-avenue-(predecessors)-44": [
    "a18-gh-landowner-1874-plate",
@@ -693,7 +787,8 @@
    "dw-aabn-1881-11-dent-1823-permit",
    "cgn-1823-text",
    "cgn-1823-robinson-1886",
-   "st-randmcnally-1893-p269-east-1800-1900"
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "np-1823-tribune-1922-12-02-residence-sold-lot-56"
   ],
   "pa-1824-8": [
    "a18-cgy-elevation-strip-1800-1900-blocks",
@@ -705,7 +800,9 @@
    "cgn-1824-robinson-1886",
    "a18-cgy-inter-ocean-1887-palace-avenue",
    "st-randmcnally-1893-p269-west-1800-1900",
+   "np-1824-tribune-1897-02-14-cunningham-buys-brownstone",
    "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "np-1824-tribune-1908-12-12-garage-fire",
    "cgn-1824-pomeroy-italianate-copy"
   ],
   "pa-1827-14": [
@@ -787,24 +884,6 @@
    "a19-cgy-1901-ream-1898",
    "a19-cgy-1901-exterior"
   ],
-  "pa-1912-10": [
-   "a18-cgy-elevation-strip-1800-1900-blocks",
-   "st-randmcnally-1893-p269-west-1800-1900",
-   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
-   "a18-eoc-10381",
-   "a19-cgy-1912-tribune-permit-1882",
-   "cgs-1912-text",
-   "dw-aabn-1882-moulton-1912-permit",
-   "a19-nby-newchicagoalbum-1883-residences",
-   "dw-inland-1883-03-moulton-keith-interiors",
-   "a19-cgy-robinson-1886-crops-1900-block",
-   "cgs-1912-robinson-1886",
-   "dw-indchi-1891-v1-moulton-treat-foltz",
-   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
-   "a19-chm-ichi66015-west-side-north-from-allerton",
-   "a19-cgy-1912-exterior",
-   "a19-gh-prairie-1800-1900-elevations"
-  ],
   "pa-1919-26": [
    "a18-cgy-elevation-strip-1800-1900-blocks",
    "a19-cgy-robinson-1886-crops-1900-block",
@@ -849,7 +928,8 @@
    "st-randmcnally-1893-p233-west-1700-1800",
    "cgn-1726-text",
    "cgn-1720-text",
-   "cgn-1726-robinson-1886"
+   "cgn-1726-robinson-1886",
+   "np-1726-tribune-1893-02-27-walker-stable-fire"
   ],
   "pa-2035-nrhp": [
    "cgs-tribune-1898-01-09-death-strip",
@@ -992,32 +1072,12 @@
    "cgs-2112-robinson-1886",
    "cgs-2112-tribune-1893-rothschild-headline"
   ],
-  "pa-2126-20": [
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "cgs-2126-robinson-1886",
-   "a20-aic-ia-robbins-plate",
-   "dw-inland-1905-05-robbins-2126-plate",
-   "dw-inland-1905-05-robbins-plate-list",
-   "a20-rees-landmark-report-1951-street-view"
-  ],
   "pa-2130-42": [
    "a20-chicagology-robinson-1886-crops",
    "a20-chicagology-2140-photo-a",
    "a20-glessner-vanosdel-2140-photo",
    "a20-aic-cobb-catalogue-residential",
    "cgs-2130-robinson-1886"
-  ],
-  "pa-2140-21": [
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "a20-aic-quarter-century-tucker-residence",
-   "a20-nypl-dennis-tucker-1010-prairie-stereo",
-   "cgs-2140-robinson-1886",
-   "a20-chicagology-2140-photo-a",
-   "a20-chicagology-2140-photo-b",
-   "a20-glessner-vanosdel-2140-photo",
-   "a20-chicagology-2140-smith-dining-room"
   ],
   "pa-2008-s.-calumet-avenue-56": [
    "a20-aic-ryerson-building-index-monographs",
@@ -1157,8 +1217,13 @@
    "a16-ghm-blog-1720-atlas-crop",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "cgn-1611-robinson-1886",
+   "np-1609-1611-tribune-1888-02-12-for-sale-50-feet",
+   "np-1609-1611-tribune-1896-05-03-to-rent-frame-houses",
+   "np-1609-tribune-1897-10-31-to-rent-9-room",
+   "np-1609-tribune-1904-10-30-to-rent-frame",
    "dw-aabn-1905-08-strauss-warehouse-1609-1611",
-   "a16-cgy-1609-loft-1910"
+   "a16-cgy-1609-loft-1910",
+   "np-1611-tribune-1895-04-14-to-rent-2-story-basement-frame"
   ],
   "prairie_1608": [
    "a16-ghm-blog-1720-atlas-crop",
@@ -1170,7 +1235,12 @@
    "a16-ghm-blog-1720-atlas-crop",
    "cgn-1612-robinson-1886",
    "st-picturesque-chicago-1892-prairie-avenue-text",
+   "np-1612-tribune-1895-03-17-to-rent-large-double",
+   "np-1612-tribune-1897-06-06-to-rent-18-room",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "np-1612-washtimes-1904-04-27-brown-siege",
    "cgn-1612-tribune-1905-mrs-brown-headline",
+   "np-1612-tribune-1922-11-26-buys-bishops-residence",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-1612-studebaker-photo"
   ],
@@ -1189,6 +1259,7 @@
    "a16-ghm-blog-1720-atlas-crop",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-1609-loft-1910",
+   "np-1620-tribune-1922-10-22-1616-1620-for-sale",
    "cgn-1616-text",
    "dw-inland-1883-hibbard-1616-permit",
    "cgn-1616-robinson-1886"
@@ -1197,6 +1268,7 @@
    "a16-ghm-blog-1720-atlas-crop",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-1609-loft-1910",
+   "np-1620-tribune-1922-10-22-1616-1620-for-sale",
    "cgn-1619-text",
    "cgn-1619-tribune-1883-furniture-auction-ad",
    "cgn-1619-1625-building-budget-hamline-farwell",
@@ -1212,7 +1284,11 @@
    "cgn-1620-robinson-1886",
    "cgn-1620-law-coal-directory-ad-1887",
    "cgn-1620-tribune-1898-robert-law-headline",
-   "cgn-1620-tribune-1898-robert-law-portrait"
+   "cgn-1620-tribune-1898-robert-law-portrait",
+   "np-1620-tribune-1899-06-11-law-trades-residence",
+   "np-1620-tribune-1908-04-26-to-rent-excellent-private-residence",
+   "np-1620-tribune-1909-04-06-hankins-buys-73x177",
+   "np-1620-tribune-1922-10-22-1616-1620-for-sale"
   ],
   "prairie_1621": [
    "a16-ghm-blog-1720-atlas-crop",
@@ -1233,6 +1309,10 @@
    "a16-cgy-hibbardville-map-1940",
    "cgn-1635-text",
    "cgn-1635-robinson-1886",
+   "np-1635-tribune-1893-03-19-to-rent-15-room-brick",
+   "np-1635-staatszeitung-1894-07-23-springer",
+   "np-1635-tribune-1895-07-28-springer-lease-70x200",
+   "np-1635-womens-clubs-directory-1903-04-springer",
    "cgn-1635-tribune-1905-herrick-headline",
    "a16-cgy-1609-loft-1910",
    "dw-inland-1885-11-farwell-1625-treat-foltz",
@@ -1267,6 +1347,8 @@
    "a16-newberry-conzen-prairie-elite-1886-map",
    "cgn-1630-text",
    "cgn-1630-robinson-1886",
+   "np-1630-abendblatt-1893-09-11-peter-brust-death",
+   "np-1630-school-directory-1905-06-louisa-brust",
    "a16-cgy-1609-loft-1910",
    "dw-aabn-1896-springer-flats-1625-1635"
   ],
@@ -1312,6 +1394,7 @@
   ],
   "prairie_1700": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-ghm-blog-1700-1706-construction-1901",
    "a16-cgy-1700-1706-townhouses",
@@ -1324,12 +1407,19 @@
    "cgn-1702-harvey-remodelled-photo",
    "cgn-1702-staples-photo-copy",
    "cgn-1702-robinson-1886",
+   "np-1702-tribune-1898-12-26-for-sale-brownstone-front",
+   "np-1702-tribune-1899-02-10-glessner-buys-harvey",
+   "np-1700-1706-american-artisan-1901-04-27-furnace-contract",
+   "np-1700-1706-enr-1901-04-25-glessner-permit",
    "st-ghm-1700-1706-under-construction-1901",
    "a16-ghm-blog-1708-1706-1700-christmas",
+   "np-1700-bluebook-1904-blewett-lee",
+   "np-1706-bluebook-1904-george-glessner",
    "cgn-1706-us-census-1910-glessner"
   ],
   "prairie_1701": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "cgn-1638-tribune-1880-gregory-hibbard-headline",
    "cgn-1701-tribune-1920-mrs-gregory-portrait",
@@ -1355,20 +1445,29 @@
    "st-randmcnally-1893-p233-east-1700-1800",
    "st-randmcnally-1893-p233-west-1700-1800",
    "st-ghm-1700-1706-under-construction-1901",
-   "a16-ghm-blog-1708-1706-1700-christmas"
+   "a16-ghm-blog-1708-1706-1700-christmas",
+   "np-1708-bluebook-1904-carpenter",
+   "np-1708-abendpost-1907-07-16-thorne-buys"
   ],
   "prairie_1709": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-east-1700-1800",
    "st-randmcnally-1893-p233-west-1700-1800",
+   "np-1709-tribune-1883-10-19-kellogg-obituary-house-just-completed",
    "cgn-1709-evening-post-1868-kellogg-notice",
    "cgn-1709-text",
-   "cgn-1709-robinson-1886"
+   "cgn-1709-robinson-1886",
+   "np-1709-tribune-1904-03-18-jesse-spalding-death",
+   "np-1709-abendpost-1908-07-24-spalding-brownstone-sold-to-otis",
+   "np-1709-abendpost-1908-08-18-otis-purchase-3-storey",
+   "np-1709-tribune-1936-10-11-otis-mansion-to-be-torn-down"
   ],
   "prairie_1712": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "st-randmcnally-1893-p233-east-1700-1800",
    "st-randmcnally-1893-p233-west-1700-1800",
@@ -1396,6 +1495,7 @@
   ],
   "prairie_1721": [
    "a16-ghm-blog-1720-atlas-crop",
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-east-1700-1800",
@@ -1423,6 +1523,7 @@
    "cgn-1726-text",
    "cgn-1720-text",
    "cgn-1726-robinson-1886",
+   "np-1726-tribune-1893-02-27-walker-stable-fire",
    "a16-cgy-tribune-1898-prairie-widows"
   ],
   "prairie_1729": [
@@ -1506,6 +1607,7 @@
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a16-cgy-hibbardville-map-1940",
    "st-randmcnally-1893-p233-west-1700-1800",
+   "np-1736-tribune-1875-08-08-strong-permit",
    "cgn-1736-text",
    "a16-ghm-blog-1736-mcbirney-c1890",
    "cgn-1736-robinson-1886",
@@ -1561,6 +1663,125 @@
    "a20-chicagology-2115-armour-photo",
    "cgs-2115-robinson-1886",
    "a20-rees-landmark-report-1951-street-view",
+   "a20-glessner-2100-block-east-side-1890s"
+  ],
+  "prairie_1808": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-american-contractor-1921-sullivan-1808",
+   "a18-gh-landowner-1874-plate",
+   "st-landowner-1874-homes-of-prairie-avenue",
+   "cgn-1804-landowner-1874-double-house",
+   "a18-inland-architect-1886-09-keith-notice",
+   "cgn-1808-robinson-1886",
+   "dw-aabn-1886-keith-1808-permit",
+   "a18-gh-1800-block-looking-sw-c1888",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-gh-1808-keith-field-front",
+   "a18-gho-house-under-construction-1887",
+   "a18-inland-architect-1888-02-glessner-plate",
+   "a18-inland-architect-1888-02-keith-plate",
+   "a18-rba-ia-1888-keith-1808",
+   "a18-rba-taylor-2135-glessner-ne",
+   "st-flinn-1891-a-bit-of-prairie-avenue",
+   "st-flinn-1892-looking-south-prairie-from-18th",
+   "st-ghm-postcard-1908-prairie-south-at-18th",
+   "st-picturesque-chicago-1892-prairie-avenue-p199",
+   "a18-gh-glessner-front-with-keith",
+   "cgn-1808-inland-1888-keith-copy",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "a18-eoc-10382",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-cl1973-p24-sidewalk-view-9974",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-rba-lowe-taylor-9974-copy",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1935-donnelley-aerial",
+   "a18-rba-reed-1941-prairie-north-from-1820",
+   "a18-rba-reed-1941-prairie-south-at-18th",
+   "st-chicagology-1941-prairie-at-18th",
+   "a18-gh-florian-1948-ne-exterior",
+   "a18-eoc-10389",
+   "a18-eoc-10360",
+   "a18-gh-1812-1808-1800-mid1950s",
+   "a18-eoc-10386",
+   "a18-gh-1808-porch-1965",
+   "a18-gh-nickel-1967-1812-1808-1800",
+   "a18-cgy-1808-tribune-1968",
+   "a18-city1973-landmarks-report",
+   "a18-gh-1812-first-house-1874",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-cgy-1804-tribune-1885-sale",
+   "cgn-1800-robinson-1886",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-gh-hitchcock-galloway-1874-sketch"
+  ],
+  "prairie_1912": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "a18-eoc-10381",
+   "a19-cgy-1912-tribune-permit-1882",
+   "cgs-1912-text",
+   "dw-aabn-1882-moulton-1912-permit",
+   "a19-nby-newchicagoalbum-1883-residences",
+   "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "cgs-1912-robinson-1886",
+   "dw-indchi-1891-v1-moulton-treat-foltz",
+   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
+   "a19-chm-ichi66015-west-side-north-from-allerton",
+   "a19-cgy-1912-exterior",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "prairie_2003": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "cgs-2003-robinson-1886"
+  ],
+  "prairie_2005": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs"
+  ],
+  "prairie_2126": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "a20-chicagology-2110-rees-street-c1895",
+   "cgs-2126-robinson-1886",
+   "a20-aic-ia-robbins-plate",
+   "dw-inland-1905-05-robbins-2126-plate",
+   "dw-inland-1905-05-robbins-plate-list",
+   "a20-rees-landmark-report-1951-street-view",
+   "a20-glessner-2100-block-east-side-1890s"
+  ],
+  "prairie_2140": [
+   "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "a20-chicagology-2110-rees-street-c1895",
+   "a20-rees-landmark-report-1951-street-view",
+   "a20-aic-quarter-century-tucker-residence",
+   "a20-nypl-dennis-tucker-1010-prairie-stereo",
+   "cgs-2140-robinson-1886",
+   "a20-chicagology-2140-photo-a",
+   "a20-chicagology-2140-photo-b",
+   "a20-glessner-vanosdel-2140-photo",
+   "a20-chicagology-2140-smith-dining-room",
    "a20-glessner-2100-block-east-side-1890s"
   ],
   "prairie_1800": [
@@ -1781,60 +2002,6 @@
    "a18-gh-kimball-exterior-2013",
    "a18-gh-kimball-porch-north-2013"
   ],
-  "prairie_1808": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "st-randmcnally-1893-p233-east-1700-1800",
-   "a18-gh-american-contractor-1921-sullivan-1808",
-   "a18-gh-landowner-1874-plate",
-   "st-landowner-1874-homes-of-prairie-avenue",
-   "cgn-1804-landowner-1874-double-house",
-   "a18-inland-architect-1886-09-keith-notice",
-   "cgn-1808-robinson-1886",
-   "dw-aabn-1886-keith-1808-permit",
-   "a18-gh-1800-block-looking-sw-c1888",
-   "a18-gh-1800-block-sw-george-glessner",
-   "a18-gh-1808-keith-field-front",
-   "a18-gho-house-under-construction-1887",
-   "a18-inland-architect-1888-02-glessner-plate",
-   "a18-inland-architect-1888-02-keith-plate",
-   "a18-rba-ia-1888-keith-1808",
-   "a18-rba-taylor-2135-glessner-ne",
-   "st-flinn-1891-a-bit-of-prairie-avenue",
-   "st-flinn-1892-looking-south-prairie-from-18th",
-   "st-ghm-postcard-1908-prairie-south-at-18th",
-   "st-picturesque-chicago-1892-prairie-avenue-p199",
-   "a18-gh-glessner-front-with-keith",
-   "cgn-1808-inland-1888-keith-copy",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
-   "a18-eoc-10382",
-   "a18-rba-taylor-9974-prairie-south-from-18th",
-   "st-cl1973-p24-sidewalk-view-9974",
-   "st-randmcnally-1893-p233-west-1700-1800",
-   "a18-rba-lowe-taylor-9974-copy",
-   "a18-gh-1911-map-west-1800-block",
-   "a18-gh-1935-donnelley-aerial",
-   "a18-rba-reed-1941-prairie-north-from-1820",
-   "a18-rba-reed-1941-prairie-south-at-18th",
-   "st-chicagology-1941-prairie-at-18th",
-   "a18-gh-florian-1948-ne-exterior",
-   "a18-eoc-10389",
-   "a18-eoc-10360",
-   "a18-gh-1812-1808-1800-mid1950s",
-   "a18-eoc-10386",
-   "a18-gh-1808-porch-1965",
-   "a18-gh-nickel-1967-1812-1808-1800",
-   "a18-cgy-1808-tribune-1968",
-   "a18-city1973-landmarks-report",
-   "a18-gh-1812-first-house-1874",
-   "a19-gh-prairie-1800-1900-elevations",
-   "st-cl1973-p23-kimball-corner-18th-looking-se",
-   "a18-gh-landowner-1874-glessner-site",
-   "a18-cgy-1804-tribune-1885-sale",
-   "cgn-1800-robinson-1886",
-   "a18-gh-nickel-prairie-nw-after-1968",
-   "dw-nrhp-1972-district-p24-ownership-lot-map",
-   "a18-gh-hitchcock-galloway-1874-sketch"
-  ],
   "prairie_1811": [
    "a16-newberry-conzen-prairie-elite-1886-map",
    "st-randmcnally-1893-p233-east-1700-1800",
@@ -1862,6 +2029,9 @@
    "dw-rb-inland-ames-coleman-1811-plate",
    "a18-gh-1811-for-sale-1894",
    "cgn-1811-tribune-1894-ames-for-sale-ad",
+   "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
+   "np-1811-abendpost-1907-01-16-fish-buys-40x150",
+   "np-1811-abendpost-1921-01-19-sold-to-midland-press",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation"
   ],
   "prairie_1812": [
@@ -1947,7 +2117,9 @@
    "a18-cgy-1816-henderson-photo",
    "cgn-1816-text",
    "cgn-1816-landowner-1874-henderson",
-   "cgn-1816-robinson-1886"
+   "cgn-1816-robinson-1886",
+   "np-1816-tribune-1895-12-08-henderson-residence-partly-burned",
+   "np-1816-tribune-1896-09-11-barn-fire"
   ],
   "prairie_1823": [
    "a16-newberry-conzen-prairie-elite-1886-map",
@@ -1963,6 +2135,7 @@
    "cgn-1823-text",
    "cgn-1823-robinson-1886",
    "st-randmcnally-1893-p269-east-1800-1900",
+   "np-1823-tribune-1922-12-02-residence-sold-lot-56",
    "a18-gh-nickel-prairie-nw-after-1968",
    "dw-nrhp-1972-district-p24-ownership-lot-map"
   ],
@@ -1977,7 +2150,9 @@
    "cgn-1824-robinson-1886",
    "a18-cgy-inter-ocean-1887-palace-avenue",
    "st-randmcnally-1893-p269-west-1800-1900",
+   "np-1824-tribune-1897-02-14-cunningham-buys-brownstone",
    "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "np-1824-tribune-1908-12-12-garage-fire",
    "cgn-1824-pomeroy-italianate-copy",
    "a19-gh-prairie-1800-1900-elevations",
    "st-cl1973-p23-kimball-corner-18th-looking-se",
@@ -2119,27 +2294,6 @@
    "cgs-1906-tribune-1896-keith-headline",
    "cgs-1906-tribune-1896-keith-suicide-scene"
   ],
-  "prairie_1912": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
-   "st-randmcnally-1893-p269-west-1800-1900",
-   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
-   "a18-eoc-10381",
-   "a19-cgy-1912-tribune-permit-1882",
-   "cgs-1912-text",
-   "dw-aabn-1882-moulton-1912-permit",
-   "a19-nby-newchicagoalbum-1883-residences",
-   "dw-inland-1883-03-moulton-keith-interiors",
-   "a19-cgy-robinson-1886-crops-1900-block",
-   "cgs-1912-robinson-1886",
-   "dw-indchi-1891-v1-moulton-treat-foltz",
-   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
-   "a19-chm-ichi66015-west-side-north-from-allerton",
-   "a19-cgy-1912-exterior",
-   "a19-gh-prairie-1800-1900-elevations",
-   "st-randmcnally-1893-p269-east-1800-1900",
-   "a19-cgy-1923-randmcnally-1893"
-  ],
   "prairie_1918": [
    "a16-newberry-conzen-prairie-elite-1886-map",
    "st-randmcnally-1893-p269-west-1800-1900",
@@ -2238,17 +2392,6 @@
    "a20-aic-ryerson-building-index-monographs",
    "cgs-2001-robinson-1886",
    "a20-chicagology-2001-street-1915"
-  ],
-  "prairie_2003": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "cgs-2003-robinson-1886"
-  ],
-  "prairie_2005": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs"
   ],
   "prairie_2009": [
    "a16-newberry-conzen-prairie-elite-1886-map",
@@ -2498,18 +2641,6 @@
    "cgs-2125-robinson-1886",
    "a20-glessner-2100-block-east-side-1890s"
   ],
-  "prairie_2126": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "a20-chicagology-2110-rees-street-c1895",
-   "cgs-2126-robinson-1886",
-   "a20-aic-ia-robbins-plate",
-   "dw-inland-1905-05-robbins-2126-plate",
-   "dw-inland-1905-05-robbins-plate-list",
-   "a20-rees-landmark-report-1951-street-view",
-   "a20-glessner-2100-block-east-side-1890s"
-  ],
   "prairie_2127": [
    "a16-newberry-conzen-prairie-elite-1886-map",
    "a20-chicagology-robinson-1886-crops",
@@ -2528,21 +2659,6 @@
    "a20-glessner-vanosdel-2140-photo",
    "a20-aic-cobb-catalogue-residential",
    "cgs-2130-robinson-1886",
-   "a20-glessner-2100-block-east-side-1890s"
-  ],
-  "prairie_2140": [
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "a20-chicagology-2110-rees-street-c1895",
-   "a20-rees-landmark-report-1951-street-view",
-   "a20-aic-quarter-century-tucker-residence",
-   "a20-nypl-dennis-tucker-1010-prairie-stereo",
-   "cgs-2140-robinson-1886",
-   "a20-chicagology-2140-photo-a",
-   "a20-chicagology-2140-photo-b",
-   "a20-glessner-vanosdel-2140-photo",
-   "a20-chicagology-2140-smith-dining-room",
    "a20-glessner-2100-block-east-side-1890s"
   ],
   "prairie_2141": [
@@ -2722,6 +2838,207 @@
    ]
   },
   {
+   "id": "np-1612-tribune-1895-03-17-to-rent-large-double",
+   "kind": "newspaper item",
+   "title": "\"1612 Prairie av., large double modern, 15 rooms, furnished or unfurnished (also large barn); $125 or $150. Geo. G. Newbury & Co., New York Life Bldg.\"",
+   "building_ids": [
+    "pa-1612-1"
+   ],
+   "addresses": [
+    "1612 S. Prairie Avenue"
+   ],
+   "date": "March 17, 1895",
+   "date_earliest": 1895,
+   "date_latest": 1895,
+   "creator": "Chicago Sunday Tribune (classified 'To Rent' list)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Mar. 17, 1895 (vol. 54 no. 76), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-03-17_54_76, page index 12",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-03-17_54_76/page/n12/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-03-17_54_76/page/n12_w1200.jpg",
+   "found_via": "IA full-text search '\"1612 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "The Studebaker house between the Studebakers (to c.1893) and the Browns: a LARGE 'DOUBLE' house — i.e. a wide house with rooms on both sides of a central hall, not a side-hall plan — of 15 rooms, with a LARGE BARN at the rear, renting at $125–150 a month (cf. $20–30 for the frame houses opposite at 1609–1611). Model 1612 as a broad double-pile house with a substantial rear barn. Pre-dates the 1901 Frost & Granger alterations (np-tribune-1901-11-10-prairie-avenue-improvement).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "15",
+     "locator": "Tribune Mar. 17, 1895, classified"
+    },
+    {
+     "what": "plan",
+     "value": "'large double'",
+     "locator": "same"
+    },
+    {
+     "what": "outbuilding",
+     "value": "large barn",
+     "locator": "same"
+    },
+    {
+     "what": "rent",
+     "value": "$125 (unfurnished) or $150 (furnished) per month",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1612"
+   ]
+  },
+  {
+   "id": "np-1612-tribune-1897-06-06-to-rent-18-room",
+   "kind": "newspaper item",
+   "title": "\"To Rent—1612 Prairie-av., 18-room modern dwelling, all conveniences, newly decorated, and fine condition. George G. Newbury & Co., 171 La Salle-st.\"",
+   "building_ids": [
+    "pa-1612-1"
+   ],
+   "addresses": [
+    "1612 S. Prairie Avenue"
+   ],
+   "date": "June 6, 1897",
+   "date_earliest": 1897,
+   "date_latest": 1897,
+   "creator": "Chicago Sunday Tribune (classified advertisement)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, June 6, 1897 (vol. 56 no. 157), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-06-06_56_157, page index 19",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-06-06_56_157/page/n19/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-06-06_56_157/page/n19_w1200.jpg",
+   "found_via": "IA full-text search '\"1612 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Same agents as 1895 but now '18-room' (vs 15 rooms in 1895 — a different count of the same house, or rooms added) 'newly decorated'. A Tribune rent list of Mar. 27, 1898 (page n20, OCR only) again lists 1612 Prairie-av. 'near I. C. RR. station'. The house was a large rental 1895–98 before Charles E. Brown bought and remodelled it (1901).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "18",
+     "locator": "Tribune June 6, 1897, classified"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1612"
+   ]
+  },
+  {
+   "id": "np-tribune-1901-11-10-prairie-avenue-improvement",
+   "kind": "newspaper item",
+   "title": "\"Prairie Avenue Improvement. Some of the Notable Sales and Improvements on That Street During the Last Few Months.\"",
+   "building_ids": [
+    "pa-1612-1",
+    "pa-1709-s.-prairie-avenue-(successor)-47",
+    "pa-1702-43",
+    "pa-1700-52",
+    "pa-1706-53",
+    "pa-1721-4",
+    "pa-1808-6",
+    "pa-1912-10",
+    "pa-2126-20",
+    "pa-2140-21"
+   ],
+   "addresses": [
+    "1612 S. Prairie Avenue",
+    "1627 S. Prairie Avenue",
+    "1700–1706 S. Prairie Avenue (site of 1702)",
+    "1709 S. Prairie Avenue",
+    "1712 S. Prairie Avenue",
+    "1721 S. Prairie Avenue",
+    "1808 S. Prairie Avenue",
+    "1912 S. Prairie Avenue",
+    "2003–2005 S. Prairie Avenue",
+    "2126 S. Prairie Avenue",
+    "2140 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "date": "November 10, 1901",
+   "date_earliest": 1901,
+   "date_latest": 1901,
+   "creator": "Chicago Sunday Tribune (real-estate section)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Nov. 10, 1901 (vol. 60 no. 313), real-estate page",
+   "call_number": "per_chicago-daily-tribune_1901-11-10_60_313, page index 28",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-10_60_313/page/n28/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-10_60_313/page/n28_w1200.jpg",
+   "found_via": "IA full-text search '\"1612 prairie\"'; article read on the page image (IIIF crops) — the OCR drops the Frost & Granger and McKinlock lines",
+   "notes": "A street-wide round-up written two and a half years before the target date — the closest thing to a 1904 inventory of changes. For the thin north-half houses: (1612) \"Charles E. Brown is about completing his improvements and alterations, through Frost & Granger, on the Studebaker residence, 1612 Prairie avenue\" — so the 1904 form of 1612 is the 1901 Frost & Granger remodel of the Studebaker house, not the 1869 original (new architect for the library). (1709) \"Jesse Spalding has greatly improved the old Palmer Kellogg residence at 1709 and is now occupying it as his permanent home\" — the Kellogg house stood, remodelled, and in 1904 was presumably the Spalding home (cf. Spalding at 1637 earlier). (1702 → 1700/1706) \"On the site of the old Harvey residence at 1702, J. J. Glessner is building two modern colonial brick houses, after plans by Shepley, Rutan & Coolidge. It is understood that Mr. Glessner's son and daughter will occupy these when completed\" — confirms the 1702 house was gone by late 1901 and the townhouses were brick, colonial, under construction in Nov. 1901. Also: Wirt Dexter property (1721) sold to a Spalding with the condition that the purchaser \"must either build anew or move back the present brick residence to conform with the building lines now existing\"; George A. McKinlock settled in the old Sturges residence at 1712; Stanley Field bought O. R. Keith's 1808; Lowden 'greatly embellished' the M. T. Greene house at 1912; Robbins bought the Hamill house at 2126 for 'extensive alterations'; Byron L. Smith 'completely remodeled the interior' at 2140.",
+   "measurements": [],
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1612",
+    "prairie_1700",
+    "prairie_1701",
+    "prairie_1709",
+    "prairie_1712",
+    "prairie_1721",
+    "prairie_1808",
+    "prairie_1912",
+    "prairie_2003",
+    "prairie_2005",
+    "prairie_2126",
+    "prairie_2140"
+   ]
+  },
+  {
+   "id": "np-1612-washtimes-1904-04-27-brown-siege",
+   "kind": "newspaper item",
+   "title": "\"Wife, Sued for Divorce, Makes Castle of Home. Holds House Against All Intrusion as if It Were in State of Siege.\" (Chicago dispatch, April 27, 1904)",
+   "building_ids": [
+    "pa-1612-1"
+   ],
+   "addresses": [
+    "1612 S. Prairie Avenue"
+   ],
+   "date": "April 27, 1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "The Washington Times (Washington, D.C.), wire dispatch from Chicago",
+   "repository": "Library of Congress, Chronicling America",
+   "collection": "The Washington Times, April 27, 1904, image 4",
+   "call_number": "sn84026749",
+   "catalog_url": "https://www.loc.gov/resource/sn84026749/1904-04-27/ed-1/?sp=4",
+   "image_url": "https://tile.loc.gov/image-services/iiif/service:ndnp:dlc:batch_dlc_quebec_ver03:data:sn84026749:100492180:1904042701:0201/full/pct:25/0/default.jpg",
+   "found_via": "loc.gov Chronicling America search '\"1612 prairie\"'; OCR full text read",
+   "notes": "Fixes the 1904 household at 1612, which the library leaves null: \"Mrs. Katharine G. Brown, whose husband, Charles Brown, secretary of the Central Electric Company, is suing for divorce, holds the family residence at 1612 Prairie Avenue as if it were in a state of siege. Since her husband left the house and took up his residence at the Calumet Club…\" Visitors \"are carefully scanned by the maid before the bell is answered.\" The house therefore stood and was a private family residence with servants in April 1904, a year before Bishop Anderson's occupancy (1905). Matches the collection's Tribune 1905 headline on Mrs. Brown (cgn-1612-tribune-1905-mrs-brown-headline). No architectural description.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1612"
+   ]
+  },
+  {
    "id": "cgn-1612-tribune-1905-mrs-brown-headline",
    "kind": "newspaper item",
    "title": "\"Blame Her for Wrecked Homes. Angry Wives Prosecute Mrs. Catherine G. Brown of Divorce Court Notoriety\" — headline",
@@ -2753,6 +3070,53 @@
    "notes": "Headline graphic only; the value is the article text on the page: in May 1904 Charles E. Brown filed for divorce, and by order of Judge Tuley Mrs Brown was given possession of \"the residence, 1612 Prairie avenue\" pending the suit — i.e. the Browns occupied 1612 in 1904 (between Studebaker, gone c.1899, and Bishop Anderson, who bought it March 1905 — lot 50.45×177.25, Tribune 14 Mar 1905). Occupancy evidence for the 1904 model, not a building image.",
    "measurements": [],
    "stream": "chicagology-north",
+   "parcel_ids": [
+    "prairie_1612"
+   ]
+  },
+  {
+   "id": "np-1612-tribune-1922-11-26-buys-bishops-residence",
+   "kind": "newspaper item",
+   "title": "\"Buys Bishop's Residence.\" — Chicago Tribune, Nov. 26, 1922",
+   "building_ids": [
+    "pa-1612-1"
+   ],
+   "addresses": [
+    "1612 S. Prairie Avenue"
+   ],
+   "date": "November 26, 1922",
+   "date_earliest": 1922,
+   "date_latest": 1922,
+   "creator": "Chicago Sunday Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Nov. 26, 1922 (vol. 81 no. 48), real-estate page",
+   "call_number": "per_chicago-daily-tribune_1922-11-26_81_48, page index 33",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1922-11-26_81_48/page/n33/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1922-11-26_81_48/page/n33_w1200.jpg",
+   "found_via": "IA full-text search '\"1612 prairie\"'; notice read on the page image (OCR reads '500x177')",
+   "notes": "\"The Chicago Title and Trust company, as trustee, has taken title for an undisclosed purchaser to the former residence of Bishop Charles P. Anderson at 1612 Prairie avenue, 50x177, for $25,000.\" Gives the 1612 LOT: 50 ft front × 177 ft deep (the standard Prairie Avenue depth). The lot was unchanged from 1904, so use 50 × 177 ft for the 1904 site plan. Post-dates 1904 (sale of the house after Anderson left).",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "50 × 177 ft",
+     "locator": "Tribune Nov. 26, 1922, 'Buys Bishop's Residence'"
+    },
+    {
+     "what": "price 1922",
+     "value": "$25,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "near-period",
+   "stream": "newspapers-north",
    "parcel_ids": [
     "prairie_1612"
    ]
@@ -8792,6 +9156,63 @@
    ]
   },
   {
+   "id": "np-1824-tribune-1897-02-14-cunningham-buys-brownstone",
+   "kind": "newspaper item",
+   "title": "\"Secor Cunningham bought from William A. Fuller and V. S. Watkins the brown stone residence, No. 1824 Prairie avenue, for $60,000…\"",
+   "building_ids": [
+    "pa-1824-8"
+   ],
+   "addresses": [
+    "1824 S. Prairie Avenue"
+   ],
+   "date": "February 14, 1897",
+   "date_earliest": 1897,
+   "date_latest": 1897,
+   "creator": "Chicago Sunday Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Feb. 14, 1897 (vol. 56 no. 45), real-estate page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-02-14_56_45, page index 33",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-02-14_56_45/page/n33/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-02-14_56_45/page/n33_w1200.jpg",
+   "found_via": "IA full-text search '\"1824 prairie\"'; OCR passage read (djvu text, clean)",
+   "notes": "\"The land has a frontage of sixty-seven feet on the avenue and is 171 feet deep. The house is built of CONNECTICUT BROWN STONE. Mr. Marsh, the former owner, expended $50,000 on the building a few years ago, and in 18[9]2 was offered $[9]0,000 for the property.\" Confirms the library's 'new stone front in early 1880s' as a Marsh rebuilding in Connecticut brownstone costing $50,000, and gives the lot (67 ft front; depth 171 ft here, '67x115' in the Tribune's annual review of Jan. 1, 1898 — conflict). Rent ads of June–Dec. 1896 (Tribune June 27, Nov. 21, Dec. 18, 1896; Jan. 7, 1897) offered 'brown stone house, with 67 ft. and barn'. Secor Cunningham owned and occupied it in 1904 (Tribune May 6, 1904 and society notes 1905–1912). The house became the 'Hotel Rish' rooming house by 1915 (Day Book Mar. 18, 1915).",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "67 ft front × 171 ft deep (67 × 115 in Tribune Jan. 1, 1898)",
+     "locator": "Tribune Feb. 14, 1897"
+    },
+    {
+     "what": "material",
+     "value": "Connecticut brownstone",
+     "locator": "same"
+    },
+    {
+     "what": "Marsh remodelling cost",
+     "value": "$50,000",
+     "locator": "same"
+    },
+    {
+     "what": "price 1897",
+     "value": "$60,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1824"
+   ]
+  },
+  {
    "id": "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
    "kind": "photograph",
    "title": "Residences at Prairie Avenue and 18th Street (Charles R. Clark, circa 1905) — CHM ICHi-66015",
@@ -8848,6 +9269,48 @@
     "prairie_1906",
     "prairie_1912",
     "prairie_1936"
+   ]
+  },
+  {
+   "id": "np-1824-tribune-1908-12-12-garage-fire",
+   "kind": "newspaper item",
+   "title": "\"Two Die in Fire as Garage Blazes. Wife and Baby of Chauffeur for Jackson K. Dering Perish When Place Becomes Furnace… at 1824 Prairie Avenue.\"",
+   "building_ids": [
+    "pa-1824-8"
+   ],
+   "addresses": [
+    "1824 S. Prairie Avenue (rear barn)"
+   ],
+   "date": "December 12, 1908",
+   "date_earliest": 1908,
+   "date_latest": 1908,
+   "creator": "Chicago Daily Tribune (front page)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Dec. 12, 1908 (vol. 67 no. 298)",
+   "call_number": "per_chicago-daily-tribune_1908-12-12_67_298, page index 0",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1908-12-12_67_298/page/n0/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1908-12-12_67_298/page/n0_w1200.jpg",
+   "found_via": "IA full-text search '\"1824 prairie\"'; OCR article read (djvu text); first found as Dziennik Chicagoski Dec. 12 and 16, 1908 and Abendpost Dec. 12 and 14, 1908 (Chronicling America / IA)",
+   "notes": "Describes the 1824 rear building: \"The fire occurred in the barn in the rear of the residence of Secor Cunningham, who had leased it as a stable and garage to Jackson K. Dering… On the first floor of the building—a TWO STORY BRICK structure—there were two automobiles…, three horses and as many carriages. On the second floor lived Carr [the chauffeur], his wife and baby, and his two brothers-in-law.\" The windows were barred with iron ('to find egress blocked by iron bars'); a coal stove on the stable floor started it. This is the Marsh barn of 1881 (AABN permit: two-storey brick barn 30 × 50 ft, dw-aabn-1881-marsh-1824-barn-permit): in 1904 a two-storey brick stable with living quarters above and barred windows. Damage extent not stated; the 1911 Sanborn still shows a 2-storey rear building at 1824.",
+   "measurements": [
+    {
+     "what": "barn",
+     "value": "2-storey brick; stable/garage below, living rooms above; iron-barred windows",
+     "locator": "Tribune Dec. 12, 1908, p. 1"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1824"
    ]
   },
   {
@@ -11046,6 +11509,53 @@
     "prairie_1923",
     "prairie_1936",
     "prairie_1945"
+   ]
+  },
+  {
+   "id": "np-1823-tribune-1922-12-02-residence-sold-lot-56",
+   "kind": "newspaper item",
+   "title": "\"The residence at 1823 Prairie, lot 56x140, has been sold by Violet C. Ackerling for $31,000 to Paul C. Hoffman, western manager of the Frontier Press Company of Buffalo, N. Y.…\"",
+   "building_ids": [
+    "pa-1823-13"
+   ],
+   "addresses": [
+    "1823 S. Prairie Avenue"
+   ],
+   "date": "December 2, 1922",
+   "date_earliest": 1922,
+   "date_latest": 1922,
+   "creator": "Chicago Daily Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Dec. 2, 1922 (vol. 81 no. 288), real-estate column",
+   "call_number": "per_chicago-daily-tribune_1922-12-02_81_288, page index 17",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1922-12-02_81_288/page/n17/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1922-12-02_81_288/page/n17_w1200.jpg",
+   "found_via": "IA full-text search '\"1823 prairie\"'; notice read on the page image ('lot 56x' legible; the depth '140' is on the cut line and read from the OCR — [OCR uncertain])",
+   "notes": "Gives the Dent lot as 56 ft front (depth 140 ft [OCR uncertain]), which fits the 44-ft-wide house of the 1881 permit (dw-aabn-1881-11-dent-1823-permit) with c. 6 ft side yards. Sold for business use (the Frontier Press moving its offices from Indianapolis); the house had been a school (1920–22) after the Second Presbyterian manse years (1911–c.1919). Later evidence; the lot is the only datum for 1904. Dent himself is documented at 1823 throughout 1893–1911 (Tribune society notes; Twentieth Century Club meetings 'at the residence of Thomas Dent, 1823 Prairie avenue', 1899–1902).",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "56 ft front × 140 ft [depth OCR uncertain]",
+     "locator": "Tribune Dec. 2, 1922, real-estate column"
+    },
+    {
+     "what": "price 1922",
+     "value": "$31,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "near-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1823"
    ]
   },
   {
@@ -21115,6 +21625,142 @@
    ]
   },
   {
+   "id": "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
+   "kind": "newspaper item",
+   "title": "\"For Sale—By Holton, Seelye & Co., … Dearborn; 1811 Prairie-av., 16 rooms with billiard and ball rooms, 2 story stable.\"",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "September 1, 1905",
+   "date_earliest": 1905,
+   "date_latest": 1905,
+   "creator": "Chicago Daily Tribune (classified 'For Sale')",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Sept. 1, 1905 (vol. 64 no. 209), classified page",
+   "call_number": "per_chicago-daily-tribune_1905-09-01_64_209, page index 12",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1905-09-01_64_209/page/n12/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1905-09-01_64_209/page/n12_w1200.jpg",
+   "found_via": "IA full-text search '\"1811 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "A year after the target date the Coleman/Ames house was on the market with 16 rooms plus a BILLIARD ROOM and a BALL ROOM (the latter typically on the top floor) and a TWO-STOREY STABLE at the rear. Bought in Jan. 1907 by Joseph Fish (np-1811-abendpost-1907-01-16-fish-buys-40x150). Unchanged since the Ames era, so usable for the 1904 model: a large 16-room house with ballroom and a 2-storey stable (the 1911 Sanborn shows 3 + basement brick with stone front and a 1½-storey rear garage, the stable by then altered).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "16 + billiard and ball rooms",
+     "locator": "Tribune Sept. 1, 1905, classified"
+    },
+    {
+     "what": "stable",
+     "value": "2-storey",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
+   "id": "np-1811-abendpost-1907-01-16-fish-buys-40x150",
+   "kind": "newspaper item",
+   "title": "'Der …-Nachlaß von Baltimore hat an Joseph Fish das Wohnhaus 1811 Prairie Avenue, 40 bei 150 Fuß, für $25,000 verkauft.'",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "January 16, 1907",
+   "date_earliest": 1907,
+   "date_latest": 1907,
+   "creator": "Abendpost (Chicago German daily), real-estate news",
+   "repository": "Internet Archive (digitized newspaper, sim_microfilm)",
+   "collection": "Abendpost / Sonntagpost, Jan. 16, 1907",
+   "call_number": "sim_abendpost-sonntagpost_1907-01-16_13, page index 5",
+   "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1907-01-16_13/page/n5/mode/1up",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1811 prairie\"'; OCR passage read via search-inside (the seller's name is garbled: '…Eomwen-Nachlaß von Baltimore', an estate of Baltimore)",
+   "notes": "An estate of Baltimore sold the dwelling 1811 Prairie Avenue, '40 by 150 feet', to Joseph Fish for $25,000. So in 1904 the house belonged to a Baltimore estate (the Ames heirs had sold it after 1894) and was let — the Tribune notices of 1896 put Mrs. Lorin C. Collins Jr. there, and the Abendpost of 1893 an unnamed reputed millionaire. LOT CONFLICT: 40 × 150 ft here vs '46½ ft front' in the 1894 Tribune sale ad already in the collection (a18-gh-1811-for-sale-1894). Fish stayed until 1921 (Day Book June 10, 1914; np-1811-abendpost-1921-01-19-sold-to-midland-press).",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "40 × 150 ft",
+     "locator": "Abendpost Jan. 16, 1907"
+    },
+    {
+     "what": "price 1907",
+     "value": "$25,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
+   "id": "np-1811-abendpost-1921-01-19-sold-to-midland-press",
+   "kind": "newspaper item",
+   "title": "'Das von dem Architekten Kopp [sic] vor über dreißig Jahren gebaute stattliche Wohnhaus 1811 Prairie Ave., inmitten des damaligen Millionärviertels, ist … an die Midland Press … verkauft worden, der es für Geschäftszwecke umbauen will.'",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "January 19, 1921",
+   "date_earliest": 1921,
+   "date_latest": 1921,
+   "creator": "Abendpost (Chicago German daily), real-estate news",
+   "repository": "Internet Archive (digitized newspaper, sim_microfilm)",
+   "collection": "Abendpost / Sonntagpost, Jan. 19, 1921",
+   "call_number": "sim_abendpost-sonntagpost_1921-01-19_33_15, page index 2",
+   "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1921-01-19_33_15/page/n2/mode/1up",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1811 prairie\"'; OCR passage read via search-inside (Fraktur OCR)",
+   "notes": "'The stately dwelling at 1811 Prairie Ave., built over thirty years ago by the architect Kopp [OCR uncertain — very probably Cobb, i.e. Cobb & Frost, the library's attribution], in the midst of the then millionaires' quarter', sold with its ground by Joseph Fish (president of Brunswick-Balke-Collender) for $32,000, 'a fraction of the building cost', to the Midland Press, publishers, who intend to convert it to business use. Confirms the architect attribution (if 'Kopp' = Cobb) and dates the end of residential use (1921; the Midland Press and other firms used the address through the 1920s). Later evidence only for 1904.",
+   "measurements": [
+    {
+     "what": "price 1921",
+     "value": "$32,000",
+     "locator": "Abendpost Jan. 19, 1921"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "near-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
    "id": "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation",
    "kind": "document",
    "title": "National Register nomination, Prairie Avenue District (1972), continuation sheet 7 p. 8 of 12: Coleman (Ames) House, 1811 South Prairie Avenue — plan and west elevation sketches",
@@ -27740,6 +28386,84 @@
    ]
   },
   {
+   "id": "np-1816-tribune-1895-12-08-henderson-residence-partly-burned",
+   "kind": "newspaper item",
+   "title": "\"Charles M. Henderson's Residence Partly Burned. Fire Breaks Out While All the Family but a Daughter Are at a Concert… Damage $10,000, Largely to Wardrobe…\"",
+   "building_ids": [
+    "pa-1816-33"
+   ],
+   "addresses": [
+    "1816 S. Prairie Avenue"
+   ],
+   "date": "December 8, 1895",
+   "date_earliest": 1895,
+   "date_latest": 1895,
+   "creator": "Chicago Sunday Tribune (front page)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Dec. 8, 1895 (vol. 54 no. 342)",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-12-08_54_342, page index 0",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-12-08_54_342/page/n0/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-12-08_54_342/page/n0_w1200.jpg",
+   "found_via": "IA full-text search '\"1816 prairie\"'; OCR article read (djvu text)",
+   "notes": "Fire in the Henderson house 'shortly after 10 o'clock last night', damage about $10,000, 'nearly one-half' of it to Mrs. Henderson's wardrobe; pictures, tapestries and bric-a-brac damaged by the firemen. Miss Bessie Henderson was in her room on the SECOND FLOOR; four servant girls in another part of the house; the fire began on the lower floor. An interior fire with no structural loss reported — the house was repaired and the widow lived there until the 1920s (Tribune society notes 1896–1921; tax list July 4, 1903). So the 1873 Henderson house stood in 1904 with Mrs. C. M. Henderson as occupant; the library's 'unresolved' can be closed. Henderson died at 1816 on Jan. 23, 1896 and left the widow 'the homestead at No. 1816 Prairie avenue, the household furniture, and horses' (Tribune Feb. 8, 1896).",
+   "measurements": [
+    {
+     "what": "fire damage",
+     "value": "$10,000 (half to contents/wardrobe)",
+     "locator": "Tribune Dec. 8, 1895, p. 1"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1816"
+   ]
+  },
+  {
+   "id": "np-1816-tribune-1896-09-11-barn-fire",
+   "kind": "newspaper item",
+   "title": "\"Prairie Avenue People Fight Fire. Organize an Amateur Department to Put Out a Blaze.\"",
+   "building_ids": [
+    "pa-1816-33"
+   ],
+   "addresses": [
+    "1816 S. Prairie Avenue"
+   ],
+   "date": "September 11, 1896",
+   "date_earliest": 1896,
+   "date_latest": 1896,
+   "creator": "Chicago Daily Tribune",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Sept. 11, 1896 (vol. 55 no. 256)",
+   "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1896-09-11_55_256, page index 1",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1896-09-11_55_256/page/n1/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1896-09-11_55_256/page/n1_w1200.jpg",
+   "found_via": "IA full-text search '\"1816 prairie\"'; OCR article read (djvu text)",
+   "notes": "\"A burning barn in the rear of No. 1816 Prairie avenue… The fire burned fiercely for fifteen minutes and threatened the adjacent property. [The] building is owned by Mrs. C. M. Henderson. A short time ago her residence was slightly damaged by fire.\" Neighbours formed an amateur fire brigade. Documents the Henderson BARN at the rear (Tribune ads of 1888–93 mention a coachman 'in barn, 1816 Prairie-av.'). Extent of loss not given; whether the barn was rebuilt before 1904 is not known — the 1911 Sanborn shows a 2-storey brick rear building at 1816.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1816"
+   ]
+  },
+  {
    "id": "dw-indchi-1891-v1-edson-keith-stone",
    "kind": "document",
    "title": "'Peter Neu & Company … The stone for the following-named structures was cut here prior to 1873: Edson Keith's residence on Prairie avenue …'",
@@ -29092,6 +29816,122 @@
    ]
   },
   {
+   "id": "np-1702-tribune-1898-12-26-for-sale-brownstone-front",
+   "kind": "newspaper item",
+   "title": "\"For Sale— No. 1702 Prairie-av. 102.5x177 feet. $35,000. Large brown stone front house, brick stable…\" (Wm. D. Kerfoot & Co.)",
+   "building_ids": [
+    "pa-1702-43"
+   ],
+   "addresses": [
+    "1702 S. Prairie Avenue"
+   ],
+   "date": "December 26, 1898",
+   "date_earliest": 1898,
+   "date_latest": 1898,
+   "creator": "Chicago Daily Tribune (real-estate display advertisement)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Dec. 26, 1898 (vol. 57 no. 355), real-estate ads",
+   "call_number": "per_chicago-daily-tribune_1898-12-26_57_355, page index 10",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1898-12-26_57_355/page/n10/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1898-12-26_57_355/page/n10_w1200.jpg",
+   "found_via": "IA full-text search '\"1702 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Kerfoot's sale ad six weeks before Glessner bought: the 1702 lot 102.5 × 177 ft with a 'large brown stone front house, brick stable', asking $35,000. Adds the BRICK STABLE at the rear (built 1879: Tribune May 4, 1879 permit for a two-storey barn at old 854 Prairie, $3,000 — chicagology). Both house and stable were cleared for the 1700/1706 townhouses, so this is pre-1904 context only.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "102.5 × 177 ft",
+     "locator": "Tribune Dec. 26, 1898, Kerfoot ad"
+    },
+    {
+     "what": "asking price",
+     "value": "$35,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
+   "id": "np-1702-tribune-1899-02-10-glessner-buys-harvey",
+   "kind": "newspaper item",
+   "title": "\"Prairie Avenue Realty Sale. John J. Glessner Buys the T. W. Harvey Residence and Grounds for Thirty Thousand Dollars.\"",
+   "building_ids": [
+    "pa-1702-43",
+    "pa-1700-52",
+    "pa-1706-53"
+   ],
+   "addresses": [
+    "1702 S. Prairie Avenue"
+   ],
+   "date": "February 10, 1899",
+   "date_earliest": 1899,
+   "date_latest": 1899,
+   "creator": "Chicago Daily Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Feb. 10, 1899 (vol. 58 no. 41), real-estate column",
+   "call_number": "per_chicago-daily-tribune_1899-02-10_58_41, page index 9",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1899-02-10_58_41/page/n9/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1899-02-10_58_41/page/n9_w1200.jpg",
+   "found_via": "IA full-text search '\"1702 prairie\"'; OCR passage read (clean)",
+   "notes": "\"Mr. Glessner takes the property as an investment and will tear down the house now occupying the ground and erect in its place two modern residences… The lot has a frontage of 102½ feet and a depth of 177. The house itself covers an area of 55x90 feet. It is constructed of brownstone, is three stories high, and contains twenty rooms.\" The best description of the Staples/Harvey house (demolished 1899–1901, so absent in 1904) and the lot dimension shared by the 1700/1706 townhouses that replaced it: 102½ × 177 ft. Note the conflict with the Inter Ocean of Nov. 21, 1879 ('a two-story brownstone front', chicagology) — the 1878 three-storey and basement addition (permit to C. Busby, $12,000) explains the 'three stories'. The Tribune of Feb. 12, 1899 repeats the sale.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "102½ × 177 ft",
+     "locator": "Tribune Feb. 10, 1899"
+    },
+    {
+     "what": "house footprint",
+     "value": "55 × 90 ft",
+     "locator": "same"
+    },
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "brownstone",
+     "locator": "same"
+    },
+    {
+     "what": "rooms",
+     "value": "20",
+     "locator": "same"
+    },
+    {
+     "what": "price",
+     "value": "$30,000 ($31,000 with taxes)",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
    "id": "a18-gh-hitchcock-galloway-1874-sketch",
    "kind": "engraving",
    "title": "Hitchcock and Galloway double houses, 1804–1808 S. Prairie Avenue (detail of 1874 engraving)",
@@ -29283,6 +30123,49 @@
    ]
   },
   {
+   "id": "np-1709-tribune-1883-10-19-kellogg-obituary-house-just-completed",
+   "kind": "newspaper item",
+   "title": "Obituary of Palmer V. Kellogg — \"His elegant residence at No. 1709 Prairie avenue was but just completed, the family having occupied it only since last Monday.\"",
+   "building_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47",
+    "pa-1709-46"
+   ],
+   "addresses": [
+    "1709 S. Prairie Avenue"
+   ],
+   "date": "October 19, 1883",
+   "date_earliest": 1883,
+   "date_latest": 1883,
+   "creator": "Chicago Daily Tribune",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Oct. 19, 1883 (vol. 42)",
+   "call_number": "per_chicago-daily-tribune_1883-10-19_42, page index 2",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1883-10-19_42/page/n2/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1883-10-19_42/page/n2_w1200.jpg",
+   "found_via": "IA full-text search '\"1709 prairie\"'; OCR passage read via search-inside (clean)",
+   "notes": "Dates the Kellogg house exactly: it was 'but just completed' in October 1883 and the family moved in on Monday, Oct. 15, 1883, three days before Kellogg died there. The library's 'circa 1882' should read 1883 (completed Oct. 1883), which also dates the end of the Williams house (pa-1709-46) on this lot to c. 1882–83. 'Elegant residence' is the only description; the Burnham & Root attribution is not mentioned. The Tribune's obituary differs from the Inter Ocean notice already cited on the chicagology page (Inter Ocean Oct. 19, 1883), which lacks the completion date.",
+   "measurements": [
+    {
+     "what": "completed / first occupied",
+     "value": "Oct. 15, 1883",
+     "locator": "Tribune Oct. 19, 1883, obituary"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1709"
+   ]
+  },
+  {
    "id": "cgn-1709-evening-post-1868-kellogg-notice",
    "kind": "newspaper item",
    "title": "\"Co-Partnership Notices\" — dissolution of King, Kellogg & Co.; Charles P. Kellogg & Co. continues at 24–26 Lake St.",
@@ -29402,6 +30285,187 @@
    ]
   },
   {
+   "id": "np-1709-tribune-1904-03-18-jesse-spalding-death",
+   "kind": "newspaper item",
+   "title": "\"Jesse Spalding, president of the Spalding Lumber company… died yesterday morning at his residence, 1709 Prairie avenue, aged 67 years.\"",
+   "building_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47"
+   ],
+   "addresses": [
+    "1709 S. Prairie Avenue"
+   ],
+   "date": "March 18, 1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "Chicago Daily Tribune",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Mar. 18, 1904 (vol. 63 no. 67)",
+   "call_number": "per_chicago-daily-tribune_1904-03-18_63_67, page index 6",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-03-18_63_67/page/n6/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-03-18_63_67/page/n6_w1200.jpg",
+   "found_via": "IA full-text search '\"1709 prairie\"'; OCR passage read via search-inside",
+   "notes": "Fixes the 1904 household of the Kellogg house: Jesse Spalding (lumber), who had 'greatly improved' it in 1899–1901 (np-tribune-1901-11-10-prairie-avenue-improvement), died there on March 17, 1904; his widow stayed (Mrs. Spalding was brought home to 1709 on March 6, 1904, Tribune Mar. 7, 1904). The Spaldings had acquired 1709 in Jan. 1899 in an exchange with George W. Cass for their old house at 1637 (Abendpost Jan. 27, 1899, transfers: '1709 Prairie Ave., 103½ F. [through to the] Illinois Zentralbahn … an Adelphia Spalding'). Occupancy only; funeral reports in the Home Improvement Center (Mar. 19 and Apr. 2, 1904) add nothing on the house.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1709"
+   ]
+  },
+  {
+   "id": "np-1709-abendpost-1908-07-24-spalding-brownstone-sold-to-otis",
+   "kind": "newspaper item",
+   "title": "'Auch das fast ebenso große Braunstein-Wohnhaus des verstorbenen Jesse Spalding, Nr. 1709 Prairie Avenue, nebst Grund, 101 bei 220 Fuß, ist von den Erben … an Philo Otis verkauft worden.'",
+   "building_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47"
+   ],
+   "addresses": [
+    "1709 S. Prairie Avenue"
+   ],
+   "date": "July 24, 1908",
+   "date_earliest": 1908,
+   "date_latest": 1908,
+   "creator": "Abendpost (Chicago German daily), real-estate news",
+   "repository": "Internet Archive (digitized newspaper, sim_microfilm)",
+   "collection": "Abendpost / Sonntagpost, July 24, 1908",
+   "call_number": "sim_abendpost-sonntagpost_1908-07-24_176",
+   "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1908-07-24_176",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1709 prairie\"'; OCR passage read (Fraktur OCR)",
+   "notes": "The 1709 house described as a BROWNSTONE dwelling 'almost as large' as the 1912 Lowden house described just before it (three storeys, twenty rooms, brownstone, about 25 years old — that is 1912), on ground 101 × 220 ft, sold by Spalding's heirs to Philo A. Otis (reported price garbled in the OCR, c. $30,000). Material conflict with the Abendpost of Aug. 18, 1908 ('dreistöckiger Backsteinbau', three-storey brick; np-1709-abendpost-1908-08-18-otis-purchase-3-storey) and with the 1911 Sanborn (3 + basement, brick): probably a brick house with brownstone front/trim. Page within the issue not determined.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "101 × 220 ft",
+     "locator": "Abendpost July 24, 1908"
+    },
+    {
+     "what": "material",
+     "value": "brownstone ('Braunstein-Wohnhaus')",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1709"
+   ]
+  },
+  {
+   "id": "np-1709-abendpost-1908-08-18-otis-purchase-3-storey",
+   "kind": "newspaper item",
+   "title": "'Die Heimstätte von Jesse Spalding, 1709 Prairie Ave. ist von Spaldings Erben für $28,000 an Philo A. Otis verkauft worden…'",
+   "building_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47"
+   ],
+   "addresses": [
+    "1709 S. Prairie Avenue"
+   ],
+   "date": "August 18, 1908",
+   "date_earliest": 1908,
+   "date_latest": 1908,
+   "creator": "Abendpost (Chicago German daily), real-estate news",
+   "repository": "Internet Archive (digitized newspaper, sim_microfilm)",
+   "collection": "Abendpost / Sonntagpost, Aug. 18, 1908",
+   "call_number": "sim_abendpost-sonntagpost_1908-08-18_197, page index 1",
+   "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1908-08-18_197/page/n1/mode/1up",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1709 prairie\"'; OCR passage read (Fraktur OCR)",
+   "notes": "'The property is on the east side of the street; the lot has 99 feet front by a depth of 213 to 243 feet. The house is a THREE-STOREY BRICK building and contains eighteen [rooms; OCR 'Wohnungen'].' The contract provides that 'the southern 14 feet of the lot shall remain unbuilt for 50 years' — a side yard on the south of the house toward Dexter's 1721. Gives storeys, material and the irregular lot (deeper at one side, toward the Illinois Central). Philo A. Otis lived here until 1930; his widow left in 1936, when the house was to be torn down (np-1709-tribune-1936-10-11-otis-mansion-to-be-torn-down).",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "99 ft front × 213–243 ft deep",
+     "locator": "Abendpost Aug. 18, 1908"
+    },
+    {
+     "what": "storeys / material",
+     "value": "3, brick",
+     "locator": "same"
+    },
+    {
+     "what": "rooms",
+     "value": "18 [OCR 'Wohnungen']",
+     "locator": "same"
+    },
+    {
+     "what": "south side yard",
+     "value": "14 ft to remain unbuilt (covenant)",
+     "locator": "same"
+    },
+    {
+     "what": "price 1908",
+     "value": "$28,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1709"
+   ]
+  },
+  {
+   "id": "np-1709-tribune-1936-10-11-otis-mansion-to-be-torn-down",
+   "kind": "newspaper item",
+   "title": "\"Mrs. Philo Otis Leases Suite in Lake Shore Drive\" — \"Her old south side mansion at 1709 Prairie avenue eventually will be torn down…\"",
+   "building_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47"
+   ],
+   "addresses": [
+    "1709 S. Prairie Avenue"
+   ],
+   "date": "October 11, 1936",
+   "date_earliest": 1936,
+   "date_latest": 1936,
+   "creator": "Chicago Sunday Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Oct. 11, 1936 (vol. 95 no. 41)",
+   "call_number": "per_chicago-daily-tribune_1936-10-11_95_41",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1936-10-11_95_41",
+   "image_url": null,
+   "rights": "copyright — link only",
+   "rights_basis": "Published 1936; copyright status not checked — link only",
+   "found_via": "IA full-text search '\"1709 prairie\"'; OCR passage read (djvu text)",
+   "notes": "'Mrs. Philo Otis, a member of one of the last well known Chicago families to move away from the Prairie avenue \"gold coast\"…, has leased a ten room apartment in 199 Lake Shore drive. Her old south side mansion at 1709 Prairie avenue eventually will be torn down, according to Mellicent Martin, broker.' Bounds the library's 'demolition unknown' for the Kellogg house: still standing and occupied until late 1936, demolition expected after. Later evidence only.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "verified": "viewed",
+   "period": "later",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1709"
+   ]
+  },
+  {
    "id": "cgn-1635-text",
    "kind": "document",
    "title": "1635 S. Prairie — page text (Herrick family, 1874–1885)",
@@ -29485,6 +30549,182 @@
    ]
   },
   {
+   "id": "np-1635-tribune-1893-03-19-to-rent-15-room-brick",
+   "kind": "newspaper item",
+   "title": "\"To Rent—In whole or part—15-room brick house, No. 1635 Prairie-av.; all newly handsomely painted and papered; plate glass windows; with large barn; new plumbing; in splendid neighborhood; for short or long term. Warren Springer, 207 S. Canal-st.\"",
+   "building_ids": [
+    "pa-1635-48"
+   ],
+   "addresses": [
+    "1635 S. Prairie Avenue"
+   ],
+   "date": "March 19, 1893",
+   "date_earliest": 1893,
+   "date_latest": 1893,
+   "creator": "Chicago Sunday Tribune (classified advertisement)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Mar. 19, 1893 (vol. 52 no. 78), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1893-03-19_52_78, page index 13",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1893-03-19_52_78/page/n13/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1893-03-19_52_78/page/n13_w1200.jpg",
+   "found_via": "IA full-text search '\"1635 prairie\"'; advertisement read on the page image (IIIF crop; left edge partly cut, words completed from the OCR)",
+   "notes": "The first physical description of the Forsyth/Herrick/Springer house: a 15-ROOM BRICK house with PLATE-GLASS WINDOWS and a LARGE BARN, newly painted and papered, offered by its owner Warren Springer (millionaire real-estate man). An 1886 rent list (Tribune Apr. 20, 1886, page n6, read on the image) also gives '1635 Prairie-av., 10 rooms, brick'. CONFLICT: the Tribune's 1895 lease report calls the improvement 'a two-story frame building' (np-1635-tribune-1895-07-28-springer-lease-70x200); two ads call it brick. Through 1892 Springer advertised the lot 'for lease for 99 years… 70x160 ft., suitable for nice apartment house' (many Tribune ads, Apr.–Oct. 1892).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "15 (10 in 1886)",
+     "locator": "Tribune Mar. 19, 1893; Tribune Apr. 20, 1886"
+    },
+    {
+     "what": "material",
+     "value": "brick",
+     "locator": "same (conflicts with 'two-story frame', Tribune July 28, 1895)"
+    },
+    {
+     "what": "outbuilding",
+     "value": "large barn",
+     "locator": "Tribune Mar. 19, 1893"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1625"
+   ]
+  },
+  {
+   "id": "np-1635-staatszeitung-1894-07-23-springer",
+   "kind": "newspaper item",
+   "title": "\"Es war Frau Springer\" — Illinois Staats-Zeitung (Chicago), July 23, 1894, p. 7",
+   "building_ids": [
+    "pa-1635-48"
+   ],
+   "addresses": [
+    "1635 S. Prairie Avenue"
+   ],
+   "date": "July 23, 1894",
+   "date_earliest": 1894,
+   "date_latest": 1894,
+   "creator": "Illinois Staats-Zeitung (Chicago)",
+   "repository": "Library of Congress, Chronicling America",
+   "collection": "Illinois Staats-Zeitung, July 23, 1894, image 7",
+   "call_number": "sn85033492",
+   "catalog_url": "https://www.loc.gov/resource/sn85033492/1894-07-23/ed-1/?sp=7",
+   "image_url": "https://tile.loc.gov/image-services/iiif/service:ndnp:iune:batch_iune_jasper_ver01:data:sn85033492:00514155549:1894072301:0343/full/pct:25/0/default.jpg",
+   "found_via": "loc.gov Chronicling America search '\"1635 prairie\"'; OCR full text read",
+   "notes": "German-language court item: \"Frau Warren Springer, die Frau des bekannten Grundeigenthumshändlers von No. 1635 Prairie Ave.\" (the wife of the well-known real-estate dealer of No. 1635 Prairie Ave.), to be tried for attempted jury bribery in the Metropolitan elevated railroad's condemnation suit. Shows a house at 1635 standing and occupied by the Warren Springer household in July 1894 — after the Herrick occupancy (to 1885) recorded on the chicagology page. It does not by itself prove the house stood in 1904, but it pushes the house's documented life a decade later than the library's evidence and weakens 'likely absent'. No description of the building.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1625"
+   ]
+  },
+  {
+   "id": "np-1635-tribune-1895-07-28-springer-lease-70x200",
+   "kind": "newspaper item",
+   "title": "\"The lease of the property at No. 1635 Prairie avenue, owned by Warren Springer, is announced by the owner…\"",
+   "building_ids": [
+    "pa-1635-48"
+   ],
+   "addresses": [
+    "1635 S. Prairie Avenue"
+   ],
+   "date": "July 28, 1895",
+   "date_earliest": 1895,
+   "date_latest": 1895,
+   "creator": "Chicago Sunday Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, July 28, 1895 (vol. 54 no. 209), real-estate page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-07-28_54_209, page index 30",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-07-28_54_209/page/n30/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-07-28_54_209/page/n30_w1200.jpg",
+   "found_via": "IA full-text search '\"1635 prairie\"'; item read on the page image (IIIF crops)",
+   "notes": "\"The lease is for ninety-nine years at 5 per cent on a basis of $1,000 a front foot. It has a frontage of seventy feet on Prairie avenue and a depth of 200 feet, and is improved with a two-story frame building. It is the intention of the lessee to improve the property with an eight-story apartment building.\" Gives the 1635 lot (70 ft front; depth 200 ft here vs 160 ft in Springer's 1892 ads) and calls the house TWO-STOREY FRAME — conflicting with the 'brick' of 1886 and 1893. The apartment building was not built: in Sept. 1896 E. H. Turnock had plans for a $250,000 flat building for Springer at 1625–1635 (already in the collection as dw-aabn-1896-springer-flats-1625-1635), yet Springer was still listed at 1635 in 1901–04 (np-1635-womens-clubs-directory-1903-04-springer), and the 1911 Sanborn shows no building at 1635 at all. This answers the open question on dw-aabn-1896-springer-flats-1625-1635 ('if built…'): it was NOT built; note also that 1625–1635 are odd numbers, i.e. the EAST side of the 1600 block, not the west side as that record's notes say.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "70 ft front × 200 ft deep",
+     "locator": "Tribune July 28, 1895, real-estate news"
+    },
+    {
+     "what": "storeys / material",
+     "value": "2, frame",
+     "locator": "same (conflicts with 'brick', 1886 and 1893 ads)"
+    },
+    {
+     "what": "ground rent basis",
+     "value": "$1,000 per front foot at 5%",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1625"
+   ]
+  },
+  {
+   "id": "np-1635-womens-clubs-directory-1903-04-springer",
+   "kind": "document",
+   "title": "Official Directory of the Women's Clubs of Chicago, 1903–1904 — members' list: 'Springer Mrs W 1635 Prairie Av'",
+   "building_ids": [
+    "pa-1635-48"
+   ],
+   "addresses": [
+    "1635 S. Prairie Avenue"
+   ],
+   "date": "1903–1904",
+   "date_earliest": 1903,
+   "date_latest": 1904,
+   "creator": "R. A. Williams (publisher), Chicago",
+   "repository": "Internet Archive (Allen County Public Library Genealogy Center)",
+   "collection": "Official directory of the women's clubs of Chicago, 1903–1904 (ACPL Gc 977.302 C43of)",
+   "call_number": "officialdirector19031904chic, page index 131",
+   "catalog_url": "https://archive.org/details/officialdirector19031904chic/page/n131/mode/1up",
+   "image_url": "https://archive.org/download/officialdirector19031904chic/page/n131_w1200.jpg",
+   "found_via": "IA full-text search '\"1635 prairie\"'; entry read on the page image",
+   "notes": "The latest dated evidence of occupation found for 1635: Mrs. Warren (Marguerite) Springer at 1635 Prairie Av in the 1903–1904 club directory. The Chicago Blue Book lists 'Springer Warren, 1635 Prairie av.' every year 1895–1902, and the Abendpost of July 30, 1899 likewise. So the house stood and was the Springer home up to the target year — the library's 'uncertain; likely absent' should change to 'present (Warren Springer), demolished between 1904 and 1911' (no building on the 1911 Sanborn). Its form remains in conflict (brick, 10–15 rooms, large barn: 1886/1893 ads; two-storey frame: 1895 lease report). Springer died in Feb. 1912 (Tribune Feb. 9, 1912).",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1625"
+   ]
+  },
+  {
    "id": "cgn-1635-tribune-1905-herrick-headline",
    "kind": "newspaper item",
    "title": "\"Well at Night; Dies in Morning. Call of Death Sudden. E. Walter Herrick…\" — headline with portrait",
@@ -29520,6 +30760,58 @@
    "parcel_ids": [
     "prairie_1625",
     "prairie_2000"
+   ]
+  },
+  {
+   "id": "np-1736-tribune-1875-08-08-strong-permit",
+   "kind": "permit record",
+   "title": "Building permits: 'Gen. Strong, two-story and basement brick, 23x32 feet, at 882 Prairie avenue.'",
+   "building_ids": [
+    "pa-1736-49"
+   ],
+   "addresses": [
+    "1736 S. Prairie Avenue (old no. 882)"
+   ],
+   "date": "August 8, 1875",
+   "date_earliest": 1875,
+   "date_latest": 1875,
+   "creator": "Chicago Daily Tribune (building-permits list)",
+   "repository": "Library of Congress, Chronicling America",
+   "collection": "Chicago Daily Tribune, Aug. 8, 1875, image 8",
+   "call_number": "sn84031492",
+   "catalog_url": "https://www.loc.gov/resource/sn84031492/1875-08-08/ed-1/?sp=8",
+   "image_url": "https://tile.loc.gov/image-services/iiif/service:ndnp:dlc:batch_dlc_grand_ver02:data:sn84031492:no_reel:1875080801:0008/full/pct:25/0/default.jpg",
+   "found_via": "loc.gov Chronicling America search '\"882 prairie\"' (Chicago); OCR read, then the line read on the page image (OCR gives 'Gen. Shoos … 23 iS2')",
+   "notes": "Permit to General Henry Strong (owner of old 882 / 1736 Prairie 1876–80, who sold to Hugh McBirney in Dec. 1880 — chicagology) for a TWO-STOREY AND BASEMENT BRICK building 23 ft wide [depth read as 32 ft on the image; the second digit is faint — 32 or possibly 52]. The 23-ft width fits the 27 11/12-ft corner lot at 18th Street, and the date matches the page's lifespan '1875–1912'; so the house McBirney bought in 1880, and which he occupied until his death there in Nov. 1910 (Tribune Nov. 16, 1910; Blue Book 1904 'McBirney Hugh, 1736 Prairie av.'), is most likely this 1875 Strong house, not an 1864 Ingraham house. The 1911 Sanborn draws 1736 as 3 storeys + basement brick — a later added storey or a mansard counted as a storey (the library already notes 'mansard may be later addition'). CONFLICT: the collection's AABN 1889 permit 'H. J. McBirney, three-st'y dwell., Prairie Ave.' (dw-aabn-1889-mcbirney-1736-permit) is assigned to 1736, but Hugh J. McBirney (the son) is listed at 1625 Prairie in every Blue Book 1891–1910 while his father Hugh stays at 1736 — the 1889 Burling & Whitehouse house is 1625, agreeing with the reattribution of the Art Institute 'McBirney' plate to 1625.",
+   "measurements": [
+    {
+     "what": "footprint",
+     "value": "23 × 32 ft [second figure faint; 32 or 52]",
+     "locator": "Tribune Aug. 8, 1875, building permits"
+    },
+    {
+     "what": "storeys",
+     "value": "2 + basement",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "brick",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1736"
    ]
   },
   {
@@ -29875,6 +31167,78 @@
    ]
   },
   {
+   "id": "np-1630-abendblatt-1893-09-11-peter-brust-death",
+   "kind": "newspaper item",
+   "title": "\"Todesfälle … Peter Brust, 60 J. 6 M., 1630 Prairie Avenue.\" — Abendblatt der Illinois Staats-Zeitung, Sept. 11, 1893, p. 4",
+   "building_ids": [
+    "pa-1630-50"
+   ],
+   "addresses": [
+    "1630 S. Prairie Avenue"
+   ],
+   "date": "September 11, 1893",
+   "date_earliest": 1893,
+   "date_latest": 1893,
+   "creator": "Abendblatt der Illinois Staats-Zeitung (Chicago)",
+   "repository": "Library of Congress, Chronicling America",
+   "collection": "Abendblatt der Illinois Staats-Zeitung, Sept. 11, 1893, image 4",
+   "call_number": "sn83045003",
+   "catalog_url": "https://www.loc.gov/resource/sn83045003/1893-09-11/ed-1/?sp=4",
+   "image_url": "https://tile.loc.gov/image-services/iiif/service:ndnp:iune:batch_iune_garnet_ver01:data:sn83045003:00332897214:1893091101:0572/full/pct:25/0/default.jpg",
+   "found_via": "loc.gov Chronicling America search '\"1630 prairie avenue\"'; OCR full text read",
+   "notes": "Deaths list: Peter Brust, aged 60 years 6 months, of 1630 Prairie Avenue. Identifies the long-time household of the 'small early residence' at 1630 (owner unresolved in the library): Peter Brust, foreman at Shipman's white-lead works, listed at old 846 / 1630 Prairie from 1876 (chicagology), died here in Sept. 1893; his widow ('Brust Peter Mrs., 1630 Prairie av.') is in the Chicago Blue Book 1894–95 and his daughter Louisa, a teacher, gave 1630 Prairie as her address in every Chicago school directory from 1881 to 1917 (see np-1630-school-directory-1905-06-louisa-brust). A modest German-American family home, consistent with the small frame building on the Robinson 1886 plate. No description of the house.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1630"
+   ]
+  },
+  {
+   "id": "np-1630-school-directory-1905-06-louisa-brust",
+   "kind": "document",
+   "title": "Directory of the Chicago Public Schools, 1905/06 — teachers' list: 'Brust, Louisa … Raymond … 1630 Prairie av.'",
+   "building_ids": [
+    "pa-1630-50"
+   ],
+   "addresses": [
+    "1630 S. Prairie Avenue"
+   ],
+   "date": "school year 1905/06",
+   "date_earliest": 1905,
+   "date_latest": 1906,
+   "creator": "Chicago Board of Education",
+   "repository": "Internet Archive (University of Illinois Urbana-Champaign / Chicago public-school directories)",
+   "collection": "Directory of the Chicago Public Schools, 1905/06",
+   "call_number": "directoryofchica1905chic, page index 129",
+   "catalog_url": "https://archive.org/details/directoryofchica1905chic/page/n129/mode/1up",
+   "image_url": "https://archive.org/download/directoryofchica1905chic/page/n129_w1200.jpg",
+   "found_via": "IA full-text search '\"1630 prairie\"'; entry read on the page image",
+   "notes": "Louisa Brust, teacher at the Raymond School, living at 1630 Prairie av. in 1905/06. The same entry appears in the Board of Education's annual reports and directories for 1881–1894 (as Douglas School, then Raymond) and the directories for 1900/01, 1901/02, 1909, 1911, 1912, 1916 and 1917 (all found by the same IA search), and in an NEA list of 1913 ('Louisa Brust, 1878, Teacher… 1630 Prairie Ave.'). The Tribune of Mar. 11, 1913 prints a letter naming 'my sister, Miss Louisa Brust, 1630 Prairie avenue'. Taken together: the 1630 house was continuously occupied by the Brust family from 1876 to at least 1917, so it stood in 1904 — the library's 'unresolved' can become 'present (Brust family)'. An architect, Henry L. Newhouse, also gave 1630 Prairie Ave. as his address in Sept. 1905 (American Architect, 9 Sept. 1905, building news; probably a lodger). No description of the house.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1630"
+   ]
+  },
+  {
    "id": "cgn-1726-text",
    "kind": "document",
    "title": "1726 S. Prairie — page text (Silverman; brick 14-room house 1875)",
@@ -29997,6 +31361,166 @@
    ]
   },
   {
+   "id": "np-1726-tribune-1893-02-27-walker-stable-fire",
+   "kind": "newspaper item",
+   "title": "\"Fire broke out in a two-story brick stable at No. 1726 Prairie avenue, owned by James R. Walker…\"",
+   "building_ids": [
+    "pa-1726–1728-s.-prairie-avenue-(predecessor)-51"
+   ],
+   "addresses": [
+    "1726 S. Prairie Avenue"
+   ],
+   "date": "February 27, 1893",
+   "date_earliest": 1893,
+   "date_latest": 1893,
+   "creator": "Chicago Daily Tribune (fire news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Feb. 27, 1893 (vol. 52 no. 58)",
+   "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1893-02-27_52_58, page index 2",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1893-02-27_52_58/page/n2/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1893-02-27_52_58/page/n2_w1200.jpg",
+   "found_via": "IA full-text search '\"1726 prairie\"'; OCR passage read (clean)",
+   "notes": "\"…at 3:25 o'clock yesterday afternoon. The horses and carriages were quickly removed and were not injured. The loss on the building is estimated at $150.\" A TWO-STOREY BRICK STABLE stood behind 1726 in 1893, with minor damage only — it would still be there in 1904 (the 1911 Sanborn shows a 2-storey brick house at 1726; rear not noted). Owner and occupant James Ransom Walker, listed at 1726 in the Blue Books 1890–1915 (incl. 1904) — distinct from Mrs. James M. Walker at 1720 (Blue Books 1891–1915), which bears on the library's 'Tyrrell / James Walker' identification of 1720. A Tribune ad of Apr. 22, 1886 (page n5) offered '1726 Prairie-av.—10 rooms; choice location' to rent. CONFLICT with the library: id 51 calls the 1726–1728 building a frame double house demolished in the 1880s, but the chicagology texts (brick 14-room house 1875; 'double-swell brick houses' 1898) and these notices show a BRICK house at 1726 continuously occupied 1875–1915. Either id 51 is a different, earlier building, or the 1904 house at 1726 needs its own record.",
+   "measurements": [
+    {
+     "what": "stable",
+     "value": "2-storey brick",
+     "locator": "Tribune Feb. 27, 1893"
+    },
+    {
+     "what": "rooms (house)",
+     "value": "10",
+     "locator": "Tribune Apr. 22, 1886, rent ad"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1726"
+   ]
+  },
+  {
+   "id": "np-1700-1706-american-artisan-1901-04-27-furnace-contract",
+   "kind": "document",
+   "title": "'The Robinson Furnace Co., 105 Lake St., Chicago, have received the contract for heating the residences of J. J. Glessner, shortly to be erected at 1702 and 1706 Prairie Ave., Chicago…'",
+   "building_ids": [
+    "pa-1700-52",
+    "pa-1706-53"
+   ],
+   "addresses": [
+    "1700 S. Prairie Avenue",
+    "1706 S. Prairie Avenue"
+   ],
+   "date": "April 27, 1901 (vol. 41 no. 17)",
+   "date_earliest": 1901,
+   "date_latest": 1901,
+   "creator": "The American Artisan (Chicago), 'Heating and Ventilating' notes",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Artisan (tin, sheet-iron, heating trade weekly), Apr. 27, 1901",
+   "call_number": "sim_american-artisan-the-warm-heating-and-sheet-metal_1901-04-27_41_17, page index 32",
+   "catalog_url": "https://archive.org/details/sim_american-artisan-the-warm-heating-and-sheet-metal_1901-04-27_41_17/page/n32/mode/1up",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1706 prairie\"'; OCR passage read",
+   "notes": "\"Each of these houses is 36x60 feet in dimensions, three stories high and will be heated by one of this firm's No. 60 tubular furnaces.\" Confirms three storeys and the 36-ft width, but gives 60 ft depth against Engineering News's 66 ft (two days earlier). Hot-air furnace heating (one furnace each) — so a chimney for the furnace flue in each house. Not yet built in late April 1901; the Tribune of Nov. 10, 1901 reports them under construction (np-tribune-1901-11-10-prairie-avenue-improvement).",
+   "measurements": [
+    {
+     "what": "footprint, each house",
+     "value": "36 × 60 ft",
+     "locator": "American Artisan, Apr. 27, 1901"
+    },
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
+   "id": "np-1700-1706-enr-1901-04-25-glessner-permit",
+   "kind": "permit record",
+   "title": "Chicago building news: 'by J. J. Glessner, for two 3-story brick residences, 36 x 66 ft., at 1702 to 1706 Prairie Ave., to cost about $30,000, Shepley, Rutan & Coolidge, Archs., Old Colony Bldg., J. Rodatz, Builder.'",
+   "building_ids": [
+    "pa-1700-52",
+    "pa-1706-53"
+   ],
+   "addresses": [
+    "1700 S. Prairie Avenue",
+    "1706 S. Prairie Avenue"
+   ],
+   "date": "April 25, 1901 (vol. XLV, supplement)",
+   "date_earliest": 1901,
+   "date_latest": 1901,
+   "creator": "Engineering News (New York), construction-news supplement",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "Engineering News and American Railway Journal, Apr. 25, 1901, supplement (Chicago building notes)",
+   "call_number": "sim_enr_engineering-news-record-_1901-04-25_45_supplement, page index 6",
+   "catalog_url": "https://archive.org/details/sim_enr_engineering-news-record-_1901-04-25_45_supplement/page/n6/mode/1up",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1706 prairie\"'; OCR passage read (djvu text and search-inside)",
+   "notes": "The building-permit report for the Glessner children's townhouses: TWO THREE-STOREY BRICK houses, each 36 × 66 ft, at 1702–1706 (the addresses later 1700 and 1706), estimated $30,000, architects Shepley, Rutan & Coolidge, builder J. Rodatz. Gives the footprint for both mirror-image houses (the library has none) and dates the permit to April 1901. Footprint conflict: the American Artisan two days later gives 36 × 60 ft (np-1700-1706-american-artisan-1901-04-27-furnace-contract). The 1911 Sanborn draws both as 3-storey brick, attached.",
+   "measurements": [
+    {
+     "what": "footprint, each house",
+     "value": "36 × 66 ft",
+     "locator": "Engineering News, Apr. 25, 1901, suppl."
+    },
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "brick",
+     "locator": "same"
+    },
+    {
+     "what": "cost (both)",
+     "value": "about $30,000",
+     "locator": "same"
+    },
+    {
+     "what": "builder",
+     "value": "J. Rodatz",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
    "id": "st-ghm-1700-1706-under-construction-1901",
    "kind": "photograph",
    "title": "Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie Avenue, under construction, 1901",
@@ -30078,6 +31602,78 @@
    ]
   },
   {
+   "id": "np-1700-bluebook-1904-blewett-lee",
+   "kind": "document",
+   "title": "The Chicago Blue Book, 1904 — 'Lee Blewett, 1700 Prairie av. Chi., Univ. Sum. res. Littleton, N. H.'",
+   "building_ids": [
+    "pa-1700-52"
+   ],
+   "addresses": [
+    "1700 S. Prairie Avenue"
+   ],
+   "date": "1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "The Chicago Directory Company",
+   "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+   "collection": "The Chicago Blue Book of Selected Names, 1904",
+   "call_number": "chicagobluebooko1904chic, page index 583",
+   "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n583/mode/1up",
+   "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n583_w1200.jpg",
+   "found_via": "IA full-text search '\"1700 prairie\"'; entry read on the page image",
+   "notes": "Supplies the directory corroboration the library asks for: in the 1904 Blue Book Blewett Lee (husband of Frances Glessner Lee) is listed at 1700 Prairie av., with summer residence at Littleton, N.H. (the Glessners' 'The Rocks'). So the 1700 townhouse was built and occupied by the Lees in the target year. (Later Blue Books, e.g. 1907, list 'Lee Blewett, 1706 Prairie av.' — a renumbering or move between the twin houses to be checked.)",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
+   "id": "np-1706-bluebook-1904-george-glessner",
+   "kind": "document",
+   "title": "The Chicago Blue Book, 1904 — 'Glessner J. G. M. 1706 Prairie av. Chi., Univ. Sum. res. \"The Rocks,\" Littleton, N. H.'",
+   "building_ids": [
+    "pa-1706-53"
+   ],
+   "addresses": [
+    "1706 S. Prairie Avenue"
+   ],
+   "date": "1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "The Chicago Directory Company",
+   "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+   "collection": "The Chicago Blue Book of Selected Names, 1904",
+   "call_number": "chicagobluebooko1904chic, page index 543",
+   "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n543/mode/1up",
+   "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n543_w1200.jpg",
+   "found_via": "IA full-text search '\"1706 prairie\"'; entry read on the page image",
+   "notes": "John George Macbeth (George) Glessner listed at 1706 Prairie av. in 1904, directly below his father at 1800. Confirms the 1706 townhouse was occupied by George and Alice Glessner in the target year. The listing continues every year to 1915 (Blue Books 1903–1915); George Glessner's funeral was held at 1706 in March 1919 (Tribune Mar. 25, 1919, death notice).",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1700"
+   ]
+  },
+  {
    "id": "cgn-1706-us-census-1910-glessner",
    "kind": "document",
    "title": "1706 S. Prairie Avenue — U.S. Census 1910 (population schedule sheet)",
@@ -30111,6 +31707,94 @@
    "stream": "chicagology-north",
    "parcel_ids": [
     "prairie_1700"
+   ]
+  },
+  {
+   "id": "np-1708-bluebook-1904-carpenter",
+   "kind": "document",
+   "title": "The Chicago Blue Book, 1904 — 'Carpenter A. A. jr. 1708 Prairie av. Chi., Univ., W.P. Sum. res. Rye Beach, N. H.'",
+   "building_ids": [
+    "pa-1708-54"
+   ],
+   "addresses": [
+    "1708 S. Prairie Avenue"
+   ],
+   "date": "1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "The Chicago Directory Company",
+   "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+   "collection": "The Chicago Blue Book of Selected Names, 1904",
+   "call_number": "chicagobluebooko1904chic, page index 502",
+   "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n502/mode/1up",
+   "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n502_w1200.jpg",
+   "found_via": "IA full-text search '\"1708 prairie\"'; entry read on the page image",
+   "notes": "The 1904 household of 1708, which the library leaves unresolved ('1911 attestation only'): Augustus A. Carpenter Jr. (also in the 1903 Blue Book; Tribune May 1 and Nov. 18, 1903, 'Mr. Carpenter at his home, 1708 Prairie avenue'). The Carpenters gave up the house in Sept. 1906 (Tribune Sept. 11, 1906) and James Ward Thorne bought it in July 1907 (np-1708-abendpost-1907-07-16-thorne-buys). The house was a rental: empty in Feb. 1900 (Abendpost Feb. 9, 1900, boys caught stealing pipes 'in dem leerstehenden Gebäude No. 1708'). So 1708 stood in 1904 as a three-storey house let to the Carpenters; do not use the Thornes for 1904.",
+   "measurements": [],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1708"
+   ]
+  },
+  {
+   "id": "np-1708-abendpost-1907-07-16-thorne-buys",
+   "kind": "newspaper item",
+   "title": "'James W. Thorne von Montgomery Ward & Co. hat von Frau Mary W. Keith das dreistöckige Wohnhaus 1708 Prairie Ave., 28 bei 177 Fuß, zum Preise von $22,000 gekauft.'",
+   "building_ids": [
+    "pa-1708-54"
+   ],
+   "addresses": [
+    "1708 S. Prairie Avenue"
+   ],
+   "date": "July 16, 1907",
+   "date_earliest": 1907,
+   "date_latest": 1907,
+   "creator": "Abendpost (Chicago German daily), real-estate news",
+   "repository": "Internet Archive (digitized newspaper, sim_microfilm)",
+   "collection": "Abendpost / Sonntagpost, July 16, 1907",
+   "call_number": "sim_abendpost-sonntagpost_1907-07-16_167",
+   "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1907-07-16_167",
+   "image_url": null,
+   "found_via": "IA full-text search '\"1708 prairie\"'; OCR passage read (Fraktur OCR, clean for this item)",
+   "notes": "James W. Thorne (Montgomery Ward & Co.) bought from Mrs. Mary W. Keith 'the THREE-STOREY dwelling 1708 Prairie Ave., 28 by 177 feet', for $22,000; 'Seit seiner Vollendung ist das Haus stets vermiethet gewesen' — since its completion the house has always been let. Gives storeys (3) and the lot (28 × 177 ft) for 1708, and its owner (Mrs. Mary W. Keith, so 1708 was a Keith-family investment house) — consistent with the Carpenters as 1904 tenants. The 1911 Sanborn draws 1708 as 3-storey brick. Page within the issue not determined (catalog link is the issue).",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "Abendpost July 16, 1907"
+    },
+    {
+     "what": "lot",
+     "value": "28 × 177 ft",
+     "locator": "same"
+    },
+    {
+     "what": "price 1907",
+     "value": "$22,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1708"
    ]
   },
   {
@@ -30842,6 +32526,213 @@
    ]
   },
   {
+   "id": "np-1609-1611-tribune-1888-02-12-for-sale-50-feet",
+   "kind": "newspaper item",
+   "title": "\"1609 and 1611 Prairie-av., 50 feet, with frame dwellings; a good lot upon which to erect flats. Inquire of Geo. G. Newbury & Co., 164 La Salle-st.\"",
+   "building_ids": [
+    "pa-1609-1904-correction",
+    "pa-1611-1904-correction"
+   ],
+   "addresses": [
+    "1609 S. Prairie Avenue",
+    "1611 S. Prairie Avenue"
+   ],
+   "date": "February 12, 1888",
+   "date_earliest": 1888,
+   "date_latest": 1888,
+   "creator": "Chicago Tribune (real-estate 'For Sale' advertisement, Geo. G. Newbury & Co.)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Tribune, Feb. 12, 1888 (vol. 48), real-estate page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-tribune_1888-02-12_48, page index 19",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-tribune_1888-02-12_48/page/n19/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-tribune_1888-02-12_48/page/n19_w1200.jpg",
+   "found_via": "IA full-text search '\"1611 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Gives the joint frontage and material of the 1609/1611 pair: the two lots together are 50 feet (so about 25 ft each), each carrying a FRAME dwelling, offered as a site 'upon which to erect flats'. The flats were not built — the same two frame houses were still advertised to rent in 1896, and 1609 in 1904 (see np-1609-1611-tribune-1896-05-03-to-rent-frame-houses, np-1609-tribune-1904-10-30-to-rent-frame). Newbury repeated the offer on Feb. 26, 1888 ('1609 and 1611 Prairie-av., an excellent location for flats'; page n16), not recorded separately. Use 25 ft lots for 1609 and 1611 in the site plan.",
+   "measurements": [
+    {
+     "what": "combined frontage, 1609 + 1611",
+     "value": "50 ft",
+     "locator": "Tribune Feb. 12, 1888, Newbury & Co. ad"
+    },
+    {
+     "what": "material",
+     "value": "frame (both dwellings)",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1607"
+   ]
+  },
+  {
+   "id": "np-1609-1611-tribune-1896-05-03-to-rent-frame-houses",
+   "kind": "newspaper item",
+   "title": "\"To Rent—South Side Houses— 1609 and 1611 Prairie-av., 2-story frame houses; in perfect order and equipped with new plumbing, etc.; each $30 per month.\"",
+   "building_ids": [
+    "pa-1609-1904-correction",
+    "pa-1611-1904-correction"
+   ],
+   "addresses": [
+    "1609 S. Prairie Avenue",
+    "1611 S. Prairie Avenue"
+   ],
+   "date": "May 3, 1896",
+   "date_earliest": 1896,
+   "date_latest": 1896,
+   "creator": "Chicago Sunday Tribune (classified advertisement)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, May 3, 1896 (vol. 55 no. 124), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1896-05-03_55_124, page index 24",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1896-05-03_55_124/page/n24/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1896-05-03_55_124/page/n24_w1200.jpg",
+   "found_via": "IA full-text search '\"1611 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Both houses described together: TWO-STOREY FRAME houses, 'in perfect order and equipped with new plumbing', $30 a month each — a matched pair of rental frame houses. With the 1888 sale ad (frame dwellings on 50 ft) and the 1904 ad for 1609 (2-storey, 9-room frame), it supports modelling 1609 and 1611 in 1904 as twin two-storey frame houses on c. 25-ft lots.",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "2 (each house)",
+     "locator": "Tribune May 3, 1896, classified"
+    },
+    {
+     "what": "material",
+     "value": "frame",
+     "locator": "same"
+    },
+    {
+     "what": "rent",
+     "value": "$30 per month each",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1607"
+   ]
+  },
+  {
+   "id": "np-1609-tribune-1897-10-31-to-rent-9-room",
+   "kind": "newspaper item",
+   "title": "\"To Rent—1609 Prairie-av., 9-room dwelling; good condition; only $16 until May and cheap thereafter; investigate. Greenebaum & Sons, 83 Dearborn-st.\"",
+   "building_ids": [
+    "pa-1609-1904-correction"
+   ],
+   "addresses": [
+    "1609 S. Prairie Avenue"
+   ],
+   "date": "October 31, 1897",
+   "date_earliest": 1897,
+   "date_latest": 1897,
+   "creator": "Chicago Sunday Tribune (classified advertisement, 'To Rent—House')",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Oct. 31, 1897 (vol. 56 no. 304), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-10-31_56_304, page index 20",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-10-31_56_304/page/n20/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1897-10-31_56_304/page/n20_w1200.jpg",
+   "found_via": "IA full-text search '\"1609 prairie\"'; advertisement read on the page image (OCR reads '8-ROOM', the print reads 9-ROOM)",
+   "notes": "Same agents (Greenebaum) and same nine-room count as the 1904 advertisement, so the 1609 house was a nine-room rental from at least 1897; the rent fell from $16 (1897) to the $20 asked in 1904 'will put in condition'. Corroborates that the 1904 frame house is the same building. Tribune ads of 1881–82 also offered furnished rooms and board at 1609 (not recorded separately).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "9",
+     "locator": "Tribune Oct. 31, 1897, classified"
+    },
+    {
+     "what": "rent",
+     "value": "$16 per month (to May 1898)",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1607"
+   ]
+  },
+  {
+   "id": "np-1609-tribune-1904-10-30-to-rent-frame",
+   "kind": "newspaper item",
+   "title": "\"To Rent—1609 Prairie-av., 2 sty. 9 room frame residence; $20 monthly; will put in condition. Greenebaum Sons, 83 Dearborn-st.\"",
+   "building_ids": [
+    "pa-1609-1904-correction"
+   ],
+   "addresses": [
+    "1609 S. Prairie Avenue"
+   ],
+   "date": "October 30, 1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "Chicago Daily Tribune (classified advertisement, 'To Rent—Houses')",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Oct. 30, 1904 (vol. 63 no. 44), classified page",
+   "call_number": "per_chicago-daily-tribune_1904-10-30_63_44, page index 41",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-10-30_63_44/page/n41/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-10-30_63_44/page/n41_w1200.jpg",
+   "found_via": "IA full-text search '\"1609 prairie\"'; advertisement read on the page image (IIIF crop) — OCR garbles it",
+   "notes": "THE key 1904 datum for 1609: in late October 1904 the house was a TWO-STOREY, NINE-ROOM FRAME residence, vacant and offered for rent at $20 a month by Greenebaum Sons, who would \"put in condition\" — i.e. a modest, run-down rental frame house, not a mansion. Confirms the house was standing in the target year (supporting the restoration) and fixes its storeys and material: model 1609 as a two-storey frame dwelling. It was replaced by the Strauss/Cade warehouse-loft after 1905 (cf. dw-aabn-1905-08-strauss-warehouse-1609-1611).",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "2",
+     "locator": "Tribune Oct. 30, 1904, classified 'To Rent—Houses'"
+    },
+    {
+     "what": "rooms",
+     "value": "9",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "frame",
+     "locator": "same"
+    },
+    {
+     "what": "rent",
+     "value": "$20 per month",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1607"
+   ]
+  },
+  {
    "id": "dw-aabn-1905-08-strauss-warehouse-1609-1611",
    "kind": "document",
    "title": "Building news: 'Architect Henry L. Ottenheimer … is preparing plans for a warehouse, to be built at 1609 and 1611 Prairie Ave., for S. W. Strauss & Co. … 4-story, of mill construction, with brick and stone exterior … cost $50,000.'",
@@ -30941,6 +32832,63 @@
     "prairie_1634",
     "prairie_1636",
     "prairie_1637"
+   ]
+  },
+  {
+   "id": "np-1611-tribune-1895-04-14-to-rent-2-story-basement-frame",
+   "kind": "newspaper item",
+   "title": "\"1611 Prairie-av., 2-story and basement frame house; 9 rooms and bath; $27.50.\"",
+   "building_ids": [
+    "pa-1611-1904-correction"
+   ],
+   "addresses": [
+    "1611 S. Prairie Avenue"
+   ],
+   "date": "April 14, 1895",
+   "date_earliest": 1895,
+   "date_latest": 1895,
+   "creator": "Chicago Sunday Tribune (classified 'To Rent' list)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Apr. 14, 1895 (vol. 54 no. 104), classified page",
+   "call_number": "per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-04-14_54_104, page index 10",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-04-14_54_104/page/n10/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-sunday-tribu_1895-04-14_54_104/page/n10_w1200.jpg",
+   "found_via": "IA full-text search '\"1611 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Adds the raised BASEMENT and the room count to 1611: two storeys and basement, frame, nine rooms and bath. The same nine rooms as 1609 (1897, 1904), so the pair were probably built alike. A Tribune ad of Dec. 31, 1893 (page n13; OCR only, not checked on the image) also reads '1611 Prairie-av., 2-story and bas[ement]: 9 rooms'. Model 1611 as a two-storey frame house on a raised basement.",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "2 + basement",
+     "locator": "Tribune Apr. 14, 1895, classified"
+    },
+    {
+     "what": "rooms",
+     "value": "9 and bath",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "frame",
+     "locator": "same"
+    },
+    {
+     "what": "rent",
+     "value": "$27.50 per month",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1607"
    ]
   },
   {
@@ -31173,6 +33121,201 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "prairie_1620"
+   ]
+  },
+  {
+   "id": "np-1620-tribune-1899-06-11-law-trades-residence",
+   "kind": "newspaper item",
+   "title": "\"Robert Law Buys Property in Franklin and Market Streets\" — residence at 1620 Prairie avenue taken in part payment at $50,000",
+   "building_ids": [
+    "pa-1620-1904-correction"
+   ],
+   "addresses": [
+    "1620 S. Prairie Avenue"
+   ],
+   "date": "June 11, 1899",
+   "date_earliest": 1899,
+   "date_latest": 1899,
+   "creator": "Chicago Sunday Tribune (real-estate news)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, June 11, 1899 (vol. 58 no. 162), real-estate page",
+   "call_number": "per_chicago-daily-tribune_1899-06-11_58_162, page index 33",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1899-06-11_58_162/page/n33/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1899-06-11_58_162/page/n33_w1200.jpg",
+   "found_via": "IA full-text search '\"1620 prairie\"'; OCR passage read (clean)",
+   "notes": "\"Robert Law has bought the premises 225 and 227 Franklin street and 258 and 260 Market street from the West Side Construction company for $250,000. Of this amount $50,000 is paid in the residence at 1620 Prairie avenue and the balance in cash.\" Values the Law house (the Law family home c.1872–1898) at $50,000 in 1899 and dates its passing out of the Law family the year after Robert Law Sr.'s death; by 1904 Frank Hibbard lived there (directory). Valuation only — no description.",
+   "measurements": [
+    {
+     "what": "valuation 1899",
+     "value": "$50,000",
+     "locator": "Tribune June 11, 1899"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1620"
+   ]
+  },
+  {
+   "id": "np-1620-tribune-1908-04-26-to-rent-excellent-private-residence",
+   "kind": "newspaper item",
+   "title": "\"To Rent— 1620 Prairie-av. Excellent private residence. Chicago's exclusive neighborhood.\" (Peabody, Houghteling & Co.)",
+   "building_ids": [
+    "pa-1620-1904-correction"
+   ],
+   "addresses": [
+    "1620 S. Prairie Avenue"
+   ],
+   "date": "April 26, 1908",
+   "date_earliest": 1908,
+   "date_latest": 1908,
+   "creator": "Chicago Sunday Tribune (display classified, 'To Rent—Houses—South')",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Apr. 26, 1908 (vol. 67 no. 17), classified page",
+   "call_number": "per_chicago-daily-tribune_1908-04-26_67_17, page index 67",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1908-04-26_67_17/page/n67/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1908-04-26_67_17/page/n67_w1200.jpg",
+   "found_via": "IA full-text search '\"1620 prairie\"'; advertisement read on the page image (IIIF crops)",
+   "notes": "The fullest description of 1620 found, four years after the target date, while Frank Hibbard still owned it: \"16 rooms, hot water heat, all outside light; 100 feet ground. 3 bathrooms [modern plumbing] and 2 extra maid's toilet rooms. White enamel and mission woodwork, bookcases, etc., electric light, and gas fixtures. 2 story double brick stable in rear with living rooms; 6 stalls or room for two automobiles. Rent $150.\" For the 1904 model: a large detached house ('all outside light' — windows on every side, i.e. free-standing on a wide lot of c. 100 ft of ground) and a TWO-STOREY DOUBLE BRICK STABLE with coachman's rooms at the rear. The 'mission woodwork' implies an interior refit c. 1900–08; the exterior material is not stated (the 1911 Sanborn shows the house gone, the stable standing). Repeated May 3, 1908 (page n18, not recorded separately).",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "16",
+     "locator": "Tribune Apr. 26, 1908, Peabody, Houghteling & Co. ad"
+    },
+    {
+     "what": "ground",
+     "value": "100 ft (front, as advertised)",
+     "locator": "same"
+    },
+    {
+     "what": "bathrooms",
+     "value": "3 + 2 maid's toilet rooms",
+     "locator": "same"
+    },
+    {
+     "what": "stable",
+     "value": "2-storey double brick stable at rear, with living rooms; 6 stalls",
+     "locator": "same"
+    },
+    {
+     "what": "rent",
+     "value": "$150 per month",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1620"
+   ]
+  },
+  {
+   "id": "np-1620-tribune-1909-04-06-hankins-buys-73x177",
+   "kind": "newspaper item",
+   "title": "\"Charles S. Hankins of Decatur, Ill., has purchased from Frank Hibbard the property at 1620 Prairie avenue, 73x177 feet, east front, with improvements, for $20,000…\"",
+   "building_ids": [
+    "pa-1620-1904-correction"
+   ],
+   "addresses": [
+    "1620 S. Prairie Avenue"
+   ],
+   "date": "April 6, 1909",
+   "date_earliest": 1909,
+   "date_latest": 1909,
+   "creator": "Chicago Daily Tribune (real-estate transfers)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Daily Tribune, Apr. 6, 1909 (vol. 68 no. 82), real-estate column",
+   "call_number": "per_chicago-daily-tribune_1909-04-06_68_82, page index 13",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1909-04-06_68_82/page/n13/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1909-04-06_68_82/page/n13_w1200.jpg",
+   "found_via": "IA full-text search '\"1620 prairie\"'; notice read on the page image (the print reads 'Hilbard', a misprint for Hibbard)",
+   "notes": "Gives the 1620 lot as 73 × 177 ft, EAST front (i.e. on the west side of Prairie, facing east) — wider than the standard 50 ft, consistent with the 1908 ad's '100 feet ground' only if that figure was rounded or included side yard; use 73 ft as the recorded frontage. Sold by Frank Hibbard (the 1904 occupant per the 1904 Lakeside directory) in April 1909, 'with improvements' (the house still stood). Cf. the 1910 sale notice of 'the old W. G. Hibbard residence' cited on the chicagology 1620 page.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "73 × 177 ft, east front",
+     "locator": "Tribune Apr. 6, 1909, real-estate transfers"
+    },
+    {
+     "what": "price",
+     "value": "$20,000 and other considerations",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1620"
+   ]
+  },
+  {
+   "id": "np-1620-tribune-1922-10-22-1616-1620-for-sale",
+   "kind": "newspaper item",
+   "title": "\"South Central District. 1616-1620 Prairie-av. 109x177 feet. Large brick residence, double garage. Property clear. Renting for $1,800 a year. Price $500 a foot.\"",
+   "building_ids": [
+    "pa-1620-1904-correction"
+   ],
+   "addresses": [
+    "1616–1620 S. Prairie Avenue"
+   ],
+   "date": "October 22, 1922",
+   "date_earliest": 1922,
+   "date_latest": 1922,
+   "creator": "Chicago Sunday Tribune (real-estate display advertisement)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "The Chicago Sunday Tribune, Oct. 22, 1922 (vol. 81 no. 43), real-estate section",
+   "call_number": "per_chicago-daily-tribune_1922-10-22_81_43, page index 139",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1922-10-22_81_43/page/n139/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1922-10-22_81_43/page/n139_w1200.jpg",
+   "found_via": "IA full-text search '\"1620 prairie\"'; advertisement read on the page image (IIIF crop)",
+   "notes": "Late (1922). The combined 1616–1620 holding is 109 × 177 ft with one 'large brick residence' and a 'double garage'. The 1911 Sanborn sheet 20 shows NO front dwelling at 1620 (only its rear stable) and a 2½-storey brick house at 1616, so the 1922 'large brick residence' is almost certainly the 1616 house and the 'double garage' the surviving 1620 stable (the '2 story double brick stable' of the 1908 ad). Its value for 1904 is the lot arithmetic (109 ft − 73 ft for 1620 in 1909 ≈ 36 ft for 1616) and the survival of the brick stable; it is NOT evidence of the 1620 house's material. The 1620 house itself was evidently demolished between the April 1909 sale and 1911.",
+   "measurements": [
+    {
+     "what": "combined lot 1616–1620",
+     "value": "109 × 177 ft",
+     "locator": "Tribune Oct. 22, 1922, real-estate ad"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "near-period",
+   "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1616",
+    "prairie_1619",
     "prairie_1620"
    ]
   },
