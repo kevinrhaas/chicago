@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 98 structures (97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 99 structures (98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -18390,39 +18390,36 @@ platted deal whose request this answers), **L312** (the same shape of deal), **T
 **T-1209** (the boarding houses built to their beds).
 **Recorded:** 2026-10-01.
 
-### L321 — Two emigrants' camps on the South Water bank: the ground documented, the tents invented
+### L321 — The emigrants' tents at the landing: the ground documented, the tents invented, the count the paper's "some"
 
-**Decision:** two camps of tents stand on the South Water Street bank of the main stem
-(T-1803, the first piece of T-1214): `landing_camp_west` between local E +264 and E +297 and
-`landing_camp_east` between E +300 and E +342, between the street's drawn roadway and the
-traced 1834 bank, and between J. H. Kinzie's landing and Jones's. They hold the 28 camp
-households `data/reconstruction/1835_transient_persons.json` deals to the landing place: one
-tent to each of the 15 households "in a tent at the landing place", and a heap of baggage —
-two chests, a barrel and a blanket roll — for each of the 13 "under the open sky upon the
-wharves". The camps carry 7 and 8 tents in the alternating wall and wedge forms, a covered wagon
-each, a brush lean-to in the east camp, one cold fire ring to two tents with a pot crane over
-it, and cordwood. **Everything drawn is invented except the use of the ground.**
-**Why:** the Chicago American of 13 June 1835 says the emigrants "remained under the open sky
-upon the wharves. Some build tents upon the spot they were landed from the boats", and
+**Decision:** one short row of tents stands on the South Water Street bank of the main stem
+(T-1803, the first piece of T-1214; thinned by T-1979): `landing_camp_west`, between local
+E +264 and E +280, between the street's drawn roadway and the traced 1834 bank, at the west
+end of the stretch between J. H. Kinzie's landing and Jones's. It holds the 4 households
+`data/reconstruction/1835_transient_persons.json` deals to the landing place, one tent each,
+in the alternating wall and wedge forms, with two cold fire rings and a woodpile. No wagon and
+no baggage stands there. **Everything drawn is invented except the use of the ground.**
+**Why:** the Chicago American of 13 June 1835 says "even some store houses have been thrown
+open to receive the unsheltered emigrants, who had else remained under the open sky upon the
+wharves. Some build tents upon the spot they were landed from the boats", and
 `1835_camp_grounds.json` grades that ground `documented` and resolves it to the bank the
 landings stand their decks on. The paper says neither where along the riverfront nor what the
-tents were. The stretch is chosen because it is the only one the measurement leaves: the dry
-strip between the roadway and the water is 9 to 16 m wide here and closes to nothing west of
-it and under the river walk east of it (`tools/place_landing_camps_1835.py` measures it and
-refuses a camp within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or
-on ground under 0.20 m above the water). The tents are the two forms an outfitter of the
-1830s sold — the 9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes
-(`generators/archetypes/camp_params.py`). One tent a household is the reading that invents
-no sharing. The wagons answer the owner's ruling that wagons are not to be rationed
-(AGENTS.md, 2026-08-18); a family that came by lake shipped its wagon on the schooner.
-**Consequence:** a visitor on South Water Street sees a row of greyed canvas on the bank
-below the stores, with wagons, fire rings and piled baggage, and nobody there. **L1 stands
-over every vertex**: no figure is drawn, and no flame or smoke either — a column of smoke is
-the one thing a visitor would read as a person at the fire. On the street's CONTROL line
-(AGENTS.md rule 10) the platted South Water Street ran to the water, so these camps stand in
-the plat's roadway; that is what a crowd nobody had a room for did, and it is said on both
-records. These are not Native or Métis camps, which are T-1804's and carry the standing
-constraint's review.
+tents were. The stretch is the only one the measurement leaves: the dry strip between the
+roadway and the water is 9 to 16 m wide here and closes to nothing west of it and under the
+river walk east of it (`tools/place_landing_camps_1835.py` measures it and refuses a camp
+within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or on ground under
+0.20 m above the water). The tents are the two forms an outfitter of the 1830s sold — the
+9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes
+(`generators/archetypes/camp_params.py`). One tent a household is the reading that invents no
+sharing. **Until T-1979 this entry stood two camps here, 15 tents, 2 wagons and 13 heaps of
+baggage**; the owner questioned a row of canvas along the town's working frontage
+(2026-10-02), and the sentence, re-read, carries less than that — see **L358**.
+**Consequence:** a visitor on South Water Street sees four greyed tents on the bank below the
+stores, with two fire rings and nobody there. **L1 stands over every vertex**: no figure is
+drawn, and no flame or smoke either. On the street's CONTROL line (AGENTS.md rule 10) the
+platted South Water Street ran to the water, so this camp stands in the plat's roadway; that
+is what the paper says the emigrants did, and it is said on the record. These are not Native
+or Métis camps, which carry the standing constraint's review.
 **How to resolve:** a letter, a diary or a view of the summer of 1835 placing the tents on the
 riverfront or describing them; the American's or the Democrat's later notices of the
 emigrants at the landing; any account of what an emigrant family's outfit at Chicago held.
@@ -18432,18 +18429,12 @@ emigrants at the landing; any account of what an emigrant family's outfit at Chi
 `landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`,
 `landing_camp_west.camp_1835.form.baggage_heaps`,
 `landing_camp_west.camp_1835.form.canvas_condition`,
-`landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`,
-`landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`,
-`landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`,
-`landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`,
-`landing_camp_east.camp_1835.form.baggage_heaps`,
-`landing_camp_east.camp_1835.form.canvas_condition`,
-`landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`,
-`landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`,
-`landing_camp_west.occupants`, `landing_camp_east.occupants`
-**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the
-camp households), **T-1804** (the other grounds and the Native and Métis camps).
-**Recorded:** 2026-10-01.
+`landing_camp_west.camp_1835.form.arrangement`,
+`landing_camp_west.camp_1835.documented_range`, `landing_camp_west.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L358** (the
+re-reading that thinned this camp), **T-1353** (the camp households), **T-1804** (the other
+grounds and the Native and Métis camps), **T-1979** (the thinning).
+**Recorded:** 2026-10-01; amended 2026-10-02 (T-1979).
 
 ### L324 — The five medium boarding houses sized from their beds: upper windows and stovepipes by the H3's rule
 
@@ -19804,3 +19795,98 @@ layer's goods and building material), **L151** (the dooryard stems the piles kee
 **T-1212** (parent), **T-1959** (this rule and layer), **T-1960** and **T-1961** (the rule's
 next columns).
 **Recorded:** 2026-10-02 (T-1959).
+
+### L358 — The open sky the store houses spared, and the emigrants' tents moved off the wharves to the shore
+
+**Decision:** two changes to the summer crowd of 1835, made on the owner's report of
+2026-10-02 that a row of tents along South Water Street and the main stem is unlikely without
+evidence for it (T-1979). **(1)** The 13 households `tools/reconstruct_transients_1835.py`
+deals to the class "the open sky upon the wharves" are `party` households now, and their
+`lodged_at` row resolves to the class "a store house thrown open". Their slots keep their key,
+so no name is redrawn and the cohort's equal deal over T-1352's six classes is untouched.
+**(2)** Of the 15 households dealt to "a tent at the landing place", the first four in slot
+order name the landing place as their ground and stand there (**L321**); the other eleven name
+the lake shore south of the fort, and `emigrant_camp_shore` stands them: a scatter of 11 tents
+(wall and wedge alternately), 2 covered wagons, a brush lean-to, 6 cold fire rings and 3
+woodpiles on a 42 x 32 m ground of the United States Reservation between local E +1170 and
+E +1212, N −140 to −108 — east of the Fort Cemetery and outside its 30 m skirt, south of the
+land-sale camp (**L355**), short of the lake beach. **The ground is a conjecture and the spot
+is ours; the tents are invented.**
+**Why:** the one sentence every camp household stands on is the Chicago American of
+13 June 1835, p. 2 col. 1: "even some store houses have been thrown open to receive the
+unsheltered emigrants, who had else remained under the open sky upon the wharves. Some build
+tents upon the spot they were landed from the boats", and the passage runs on (OCR-heavy) to
+"Westward Ho!" and "they press on still deeper into the interminable prairies". In the
+paper's own grammar the open sky is what the store houses SPARED them — "had else" is this
+project's own normalization of the OCR's "fad bye", and the cohort model quotes it — so a heap
+of baggage on the bank for each of 13 households read the sentence backwards. The OCR is heavy
+there; if "had else" proves to be "had before", the households slept out before the store
+houses opened and were under a roof by 13 June either way. And the tents are SOME, pitched
+"upon the spot they were landed" by people pressing on west: a handful at any one time, not
+a season-long row of fifteen along the town's working wharf frontage, where the town's
+business stood (Moses & Kirkland, *History of Chicago* v1: business "had heretofore been
+confined to South Water street"). FOUR is a reasoned count, not a reading. The rest are dealt
+to the nearest open ground off that frontage that carried no lot line in July 1835 — the
+reservation shore, which `1835_camp_grounds.json` offers and grades `conjectural` because no
+committed source puts anybody on it. The nearest thing the corpus holds is a different year:
+Moses & Kirkland v1 say that in 1831 some four hundred immigrants "temporarily stopped at the
+fort and adjacent buildings". That is a precedent for transients on the reservation, not
+evidence of tents there in 1835, and it is not cited as one. The spot is the placer's
+(`tools/place_camp_grounds_1835.py`), under the same tests as L355: level ground at least
+0.5 m above the water, at least 3 m from every drawn roadway, fence and committed footprint,
+and outside the cemetery's skirt.
+**Consequence:** South Water's bank carries four tents instead of fifteen and no baggage;
+a visitor walking down the shore south of the fort finds two pockets of canvas, the land-sale
+camp and, further on, the emigrants' camp. 55 persons move from the open sky to the store
+houses and 39 from the landing to the shore; no count changes, no name changes, and **L1
+stands over every vertex** — no figure, no flame, no smoke. These are not Native or Métis
+camps.
+**How to resolve:** a letter, a diary or a view of the summer of 1835 saying where the
+emigrants who could not get a room pitched — it would move this camp to its ground or retire
+it; a cleaner reading of the American's "had else" from the page image; any source that ranks
+the six sleeping classes or gives one of them a count.
+**Covers:** `emigrant_camp_shore.camp_1835.position`, `emigrant_camp_shore.camp_1835.footprint`,
+`emigrant_camp_shore.camp_1835.documented_range`, `emigrant_camp_shore.camp_1835.form.tents`,
+`emigrant_camp_shore.camp_1835.form.tent_kind`, `emigrant_camp_shore.camp_1835.form.wagons`,
+`emigrant_camp_shore.camp_1835.form.brush_shelters`,
+`emigrant_camp_shore.camp_1835.form.fire_rings`, `emigrant_camp_shore.camp_1835.form.woodpiles`,
+`emigrant_camp_shore.camp_1835.form.baggage_heaps`,
+`emigrant_camp_shore.camp_1835.form.arrangement`,
+`emigrant_camp_shore.camp_1835.form.canvas_condition`, `emigrant_camp_shore.function`,
+`emigrant_camp_shore.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L321** (the
+tents that stay at the landing), **L355** (the land-sale camp on the same shore), **T-1353**
+(the camp households), **T-1979** (this entry).
+**Recorded:** 2026-10-02.
+
+### L359 — The trodden ground at every door: a strip along each front and a path from each door to the street
+
+**Applies to:** `data/enclosures/town_entrance_aprons.json` (written by
+`tools/generate_entrances.py`), and through it the sward (`main.js`'s block-list, T-0124),
+the wagon stands (`tools/generate_yard_goods.py`) and the doorway sweep
+(`tools/measure_doorways.py`).
+**Decision:** every one of the 509 front doors the archetypes' own elevations state
+(`facade_openings.front_wall`, and `frame_tavern`'s centred door by name) is ground somebody
+walked. In front of each front wall with a door: a strip 1.4 m deep along the whole wall and
+0.4 m past each corner, and from each door a path 1.2 m either side of it at the strip,
+narrowing to 0.7 m, out to the travelled track of the street in front when one lies within
+14 m (and 0.3 m onto it), otherwise 3.4 m into the yard. The ground inside is drawn as trodden
+earth and no prairie grows in it. Separately, a doorway — the door's width and 0.3 m either
+side, 1.8 m out — is kept clear of every placed object in the town, and a wagon stand on the
+trodden ground is refused.
+**Why:** the owner, walking Lake Street on dev on 2026-10-02 (T-1984): *"in and around in
+front of buildings there is prairie grass, that would be worn down and not be wild prairie
+right in front of the entrance to buildings"*, and *"goods or furntiture in front of doors"*.
+A door every household and customer used several times a day is a path whatever a source
+says; before this the sward was planted to the sill.
+**No source measures the worn ground at any 1835 Chicago door.** Its depth, its flare, the
+strip and the reach to the street are all reconstructed; what bounds them is the building
+and the door, read off the same elevation the mesh is built from, and nothing else. No fence,
+gate or step is claimed by it.
+**How to resolve:** a view, lot description or recollection showing the ground in front of a
+named 1835 house or store — a path, a dooryard, planking — would replace the rule for that
+building.
+**Related:** **L131** (the frontage goods), **L162** (the town's wagons), **L351** (the trade
+yards), **T-0067** (enclosure ground treatments), **T-0124** (the sward gives way to worked
+ground), **T-1984** (this entry).
+**Recorded:** 2026-10-02.

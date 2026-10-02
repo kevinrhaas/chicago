@@ -20,8 +20,66 @@ For eight of them that skipped the premises ruling, and for two it was false:
   trade with no room in it. The completion audit reads it as stated, not owed.
 
 The domestics are left alone by name (`RULED_ELSEWHERE`): their ruling puts the work in another
-household's house, which is T-1993's answer to give. Owed a workplace **230 → 228**; placed at
-work **457 → 465**; `class_held_no_house` 71 → 61, all domestics.
+household's house, which is T-1993's answer, given in the coverage join. Owed a workplace
+**169 → 167** (after T-1993); placed at
+work **457 → 465**. In the seating, `class_held_no_house` 71 → 61, every one a domestic, and
+T-1993's coverage reads all 61 as in another household's service.
+
+## T-1984 — nothing in a doorway, no sign over a door, no door run into a window, worn ground at every entrance (2026-10-02)
+
+The owner, walking Lake Street on dev with five screenshots: goods and furniture in front of doors,
+signs on the face of a building covering a door or window, doors and windows that run together,
+and prairie grass right up to the entrances. One cause per symptom, each fixed where it starts:
+
+- **Merged openings.** `frame_storefront_params.front_window_rects` set out a plain store's
+  ground-storey windows without asking where the door was (11 stores: the bakery, barber,
+  butcher, shoemaker, tailor, physician, Old Bank, Temple building and three freight stores).
+  `frame_dwelling` snapped two windows into one stud bay on four single-pen cottages, 3 cm
+  apart. The dwelling's set-out moved into `frame_dwelling_params.facade_bays`, which parts a
+  clash by a stud bay or drops the window; `facade_openings` now reads `frame_dwelling` too.
+  `generate_entrances.py --check` refuses any two holes on a read front that run together.
+  15 GLBs rebaked; every other asset rebuilt byte-identical.
+- **Signs over doors.** `generate_business_signboards` had a "shrunk to the door" move. It is
+  gone: a shop with a fascia has its name lettered there (7, Blanchard's among them); otherwise
+  the board keeps its proportions and shrinks onto clear wall (5). 77 signs, none on a door;
+  the renderer smoke now treats any fixing but a fascia as over an opening.
+- **Things in doorways.** Stoops stood at `FIT_DOOR_ALONG = 0.5`; 34 now stand at the door.
+  Trade goods were laid from the wall's left end and now step round the door; lot-line fences
+  crossed 9 doors and are now cut round them. `measure_doorways.py --gate` (new check.sh step)
+  sweeps every placed object in the town against every doorway: 11 goods at 5 doors and
+  fences across 9 before, none now. The woodpiles T-1959 landed meanwhile keep off doorways too: 4 stood
+  in one, and 16 piles moved.
+- **Worn ground.** `generate_entrances.py` writes `town_entrance_aprons.json`: every door
+  (509), and a trodden-earth ring per front — a strip along the wall and a path from each door
+  to the street's track (167 doors) or 3.4 m into the yard. `yards.js` draws it and the sward
+  gives way to it, as inside the fort apron; wagon stands on it are refused (73 wagons, was 79).
+  Reconstructed, docs/LIBERTIES.md L359.
+
+**Known gap, not widened here:** the staleness hash covers builder modules and resolved params
+but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
+now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
+## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
+
+Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
+the completion audit still counted **230** working-age persons owed a workplace, and **61** of them
+were reconstructed domestics, every one answered `class_held_no_house` — "the town is owed more
+houses of the kind". The staffing model only staffs houses of trade, so the one class it employs
+`domestic` in is `tavern_or_hotel`, and when the town's taverns were full the overflow read as a
+town owed 61 hotel places. That was never the claim: `premises_rulings.json#domestic` already says
+*"Domestic service is given in another household's house"*, and a private household is not a house
+the register owes. `tools/employment_coverage_1835.py` now carries that ruling for a domestic the
+seating found no room for, under a new reason `in_service_in_another_household` (status unchanged,
+`at_a_trade_with_no_house_to_join`, no house named), with both files in `decided_by`.
+`verify` refuses the reason on any other trade or beside a house, and refuses to run if the
+domestic ruling stops saying those words; both guards fire in `--self-test`. The audit counts the
+reason as stated, beside `no_employer_named`. **Exactly the 61 rows move**, all working-age, all
+reconstructed (50 in `reconstructed_trades/`, 11 in `households/`). Owed a workplace **230 → 169**;
+no fixed premises (stated) **147 → 208**.
+
+**Not done, and owned:** which household employed each of them is not drawn — no file says which
+families kept help, and a draw would invent an employer. T-1994 (the 25 attested at a no-premises
+trade), T-1995 (the 10 reconstructed tradespeople at a full class) and T-1992 (134 on their own
+account) hold the other 169.
 
 ## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
 

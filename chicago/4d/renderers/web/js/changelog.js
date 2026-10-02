@@ -1,10 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1319, ts: '2026-10-02T19:47:39.657Z', date: 'Oct 2, 2026, 2:47 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
+  { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
     items: [
       'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
       'The same goes for three more smiths, two butchers, a house painter and a dressmaker. Every shop of their trade already had as many hands as it could take, and their trade kept its own shop, so they kept one too.',
       'Two schoolteachers, Victoire Pothier and Lydia Rice, now say no school is missing. The town had six schools open in July 1835 and all six are in the reconstruction, each with its one assistant. These two followed the trade with no school to teach in.',
-      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 230 to 228.',
+      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 169 to 167.',
+    ] },
+  { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+    items: [
+      'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
+      'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
+      'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
+      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L359).',
+    ] },
+  { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
+    items: [
+      'Open Bridget Hayes\u2019s card and look under Were they at work? It used to say the town owed her a place in a tavern. It now says she was in domestic service in another family\u2019s house, as our ruling on the trade says domestic service was.',
+      'The same is true for all 61 domestics the taverns had no room for. Taverns and hotels were the only places our staffing model could put them, so the overflow looked like a shortage of hotels. It never was.',
+      'Which family each one worked for is not recorded, so the card does not name one.',
+      'On the City card, people owed a workplace drop from 230 to 169.',
+    ] },
+  { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+    items: [
+      'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
+      'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
+      'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
     ] },
   { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [

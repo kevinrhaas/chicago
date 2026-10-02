@@ -520,7 +520,8 @@ def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
         # the scene date, the town is not short a house: the person follows the trade and
         # there is no room in it to join them to. The domestics stand aside from it by
         # name: their premises ruling puts the work in another HOUSEHOLD's house, not in a
-        # house of trade at all, and that answer is T-1993's to give in its own words.
+        # house of trade at all, and T-1993 gives that answer in its own words
+        # (tools/employment_coverage_1835.py, IN_ANOTHER_HOUSEHOLD).
         held = {row["class"]: len({b["id"] for occupation in row["occupations_in_this_class"]
                                    for b in context["houses"].get(occupation) or []})
                 for row in employers}

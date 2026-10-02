@@ -54,7 +54,8 @@
           "class_held_no_house",
           "class_full_none_owed",
           "trade_attested_no_house_named",
-          "no_ruling_on_the_trade"
+          "no_ruling_on_the_trade",
+          "in_service_in_another_household"
         ],
         "places_them_at_work": false
       },
@@ -76,6 +77,7 @@
       "class_full_none_owed": "The staffing model names the class of house that employed this trade, the layer holds every house of it the model counts on 1 July 1835, and each is full to the band's high end. The trade keeps no house of its own, so none is owed: the town is not short a house, and the person follows the trade with no room in it to join (T-1995).",
       "class_held_no_house": "The staffing model names the class of house that employed this trade and the layer holds none of it trading on 1 July 1835, or every one is full to the band's high end. The town is owed more houses of the kind; the person is not put in one that is already full.",
       "drawn_onto_a_house_s_staff": "A record in the business register carries this person on its staff at the reconstructed tier: this project drew them there, and the record says by what rule.",
+      "in_service_in_another_household": "The premises ruling for this trade says the work is given in another household's house: domestic service, done in a family's kitchen, washhouse and yard rather than in a house of trade. The staffing model employs the trade in the town's taverns and hotels only, and every one was full, but that does not make the town owed another tavern — no house of trade is owed for this person. Which household employed them no source says and this pass draws none.",
       "keeps_a_house_the_register_holds": "A record in the business register names this person as the house's proprietor or partner, so they kept it and worked in it. The house is named here at the grade that record gives the proprietorship: attested where a source prints it, inferred where the trade's premises ruling raised it, reconstructed where this project drew the house and adopted them to keep it.",
       "keeps_their_own_house": "The premises ruling for this trade says it kept a house of trade of its own, so this person is their own employer. Where the layer holds no such record the house is OWED — a gap in the business register, not a person out of work.",
       "named_by_a_source": "A source names the house this person worked in, and the houses are listed above at the grade the business record gave each one.",
@@ -99,7 +101,7 @@
     },
     "by_reason": {
       "class_full_none_owed": 2,
-      "class_held_no_house": 61,
+      "in_service_in_another_household": 61,
       "keeps_a_house_the_register_holds": 79,
       "keeps_their_own_house": 142,
       "named_by_a_source": 112,
@@ -21109,8 +21111,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21271,8 +21273,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21492,8 +21494,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21583,8 +21585,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21609,8 +21611,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21676,8 +21678,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21819,8 +21821,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21832,8 +21834,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21858,8 +21860,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -21923,8 +21925,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -22090,8 +22092,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -22298,8 +22300,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -23482,8 +23484,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -23573,8 +23575,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -23599,8 +23601,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -23846,8 +23848,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -24270,8 +24272,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -24413,8 +24415,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -24465,8 +24467,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -24827,8 +24829,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25078,8 +25080,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25174,8 +25176,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25499,8 +25501,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25616,8 +25618,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25761,8 +25763,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -25865,8 +25867,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -27514,8 +27516,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -27670,8 +27672,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -28755,8 +28757,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -29669,8 +29671,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30029,8 +30031,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30060,8 +30062,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30179,8 +30181,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30285,8 +30287,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30324,8 +30326,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30350,8 +30352,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -30915,8 +30917,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -31294,8 +31296,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -31496,8 +31498,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -32026,8 +32028,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -32117,8 +32119,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -32429,8 +32431,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -32613,8 +32615,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -33398,8 +33400,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -33535,8 +33537,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -33548,8 +33550,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -33774,8 +33776,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -34249,8 +34251,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -34710,8 +34712,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -34749,8 +34751,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -34979,8 +34981,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -35083,8 +35085,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -35135,8 +35137,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -35625,8 +35627,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -35664,8 +35666,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -36164,8 +36166,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -36416,8 +36418,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -36823,8 +36825,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -36992,8 +36994,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -37439,8 +37441,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {
@@ -38061,8 +38063,8 @@
       "trade": "domestic",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "in_service_in_another_household",
+      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
       "houses": []
     },
     {

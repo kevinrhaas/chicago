@@ -279,6 +279,13 @@
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
     },
     {
+      "structure_id": "emigrant_camp_shore",
+      "name": "The emigrants' tents on the lake shore",
+      "function": "emigrant_camp",
+      "documented_range_from": "1835-06-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
       "structure_id": "frederick_thomas_shop",
       "name": "Frederick Thomas's Shop",
       "function": "drug_store",
@@ -328,15 +335,8 @@
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
     },
     {
-      "structure_id": "landing_camp_east",
-      "name": "The emigrants' camp at the landing, east",
-      "function": "emigrant_camp",
-      "documented_range_from": "1835-06-01",
-      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
-    },
-    {
       "structure_id": "landing_camp_west",
-      "name": "The emigrants' camp at the landing, west",
+      "name": "The emigrants' tents at the landing",
       "function": "emigrant_camp",
       "documented_range_from": "1835-06-01",
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
