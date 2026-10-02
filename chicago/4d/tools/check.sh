@@ -1361,6 +1361,14 @@ step "the yard goods re-derive from the rule that chose their frontages" \
 step "the building material re-derives from the rule that chose the lots" \
   python3 tools/generate_lot_building_material.py --check
 
+# The working trades' yards (T-1961, piece 4 of T-1212): casks at the cooperages and
+# packers, boards at the joiners', hides at the tannery, hay ricks at the stables outside
+# the 1835 hay limits, wagons at the forwarders and the teamster's yard. Re-derived from
+# the sidecars, the committed ground and the other yard records, so where each stands
+# stays a rule.
+step "the trade yards re-derive from the rule that dealt them" \
+  python3 tools/generate_trade_yards.py --check
+
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
 # trodden earth, no source states a foot of it, and the render grew prairie to the pickets.
@@ -1759,6 +1767,19 @@ selftest "…and its own assertions still fire when broken" \
 # carry, which would silently drop people out of the count.
 step "the gate's town census re-derives from the roofs and the residents" \
   python3 tools/town_census.py --check
+
+# How far the town is from complete (T-1964, piece 1 of T-1215): the four joins the
+# closeout names — every household housed, every working person at a workplace, every
+# business roofed or its limit stated, every standing roof occupied or its use stated —
+# counted by tier into data/render/town_completion_1835.json. The GAPS are the work the
+# rest of T-1215 owes and do not fail this step; a DANGLING id (a lives_at, a seat, a
+# workplace or a premises naming something that does not exist) does, and so does a
+# ledger a run forgot to regenerate.
+step "the town's completion audit re-derives, and no join names a missing record" \
+  python3 tools/audit_town_completion_1835.py --check
+
+selftest "…and it still refuses each kind of broken link" \
+  python3 tools/audit_town_completion_1835.py --self-test
 
 # Ground the town held in common is not building ground, and every gate this project
 # had asked whether a building CLEARED the roadway, stood inside its own lot lines and

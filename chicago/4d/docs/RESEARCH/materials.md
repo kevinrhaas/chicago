@@ -1036,7 +1036,7 @@ and every class that lives in a frame house wore it. The chimney's brick: §2 of
 `docs/RESEARCH/chimneys.md` infers brick for every interior stack and a class cannot argue that
 further; the class reads only in the head. The trim's COLOUR: §2.3 still derives it from the
 wall's finish. The frieze cannot deepen on the better house, because the upper sash heads rise
-to 0.28 m under the plate; the crown board is what says it instead. L351.
+to 0.28 m under the plate; the crown board is what says it instead. L352.
 
 ## 16. WIRED IN — T-1962, 2026-10-02: the lay and the wear are dealt by whose house it is
 

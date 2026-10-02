@@ -19447,7 +19447,55 @@ look. A different coat strength is one number in `wall-grain.js`.
 **T-1962** (the lay and the wear), **T-1963** (this layer).
 **Recorded:** 2026-10-02.
 
-### L351 — The frame houses' trim, chimney heads and siding stock are dealt by whose house it is
+### L351 — The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade
+
+**Applies to:** `data/yard/town_trade_yards.json` (written by `tools/generate_trade_yards.py`).
+
+**Decision:** every standing structure whose function is a working trade gets its trade's
+goods in its own rear or side yard, never on its street front (T-1961, piece 4 of T-1212).
+A cooperage gets a rank of six finished casks. A packing or slaughter house gets a rank of
+eight barrels. A carpenter's or joiner's shop gets a stickered pile of boards (12 ft x 12 in
+x 2 in, three a course, six courses). The tannery gets two drying rails of hides. A
+stable outside the hay limits gets one rick (3.0 x 2.0 m, 1.5 m to the eave, 2.4 m to the
+ridge). A forwarding house gets a farm wagon, and the teamster's yard gets a farm wagon and
+a covered freight wagon. Named and reconstructed trades are dealt alike. Where each stands
+is the first clear ground a fixed search of the building's rear and side faces finds. It
+is refused near any wall, on a walk, in a garden or pen, in a travelled track, on a wharf,
+in the water, across a fence run, or within 2.6 m of anything already standing.
+
+**Why:** the owner asked for it (T-1212): *barrels at the coopers and packers, wagons at the
+forwarders and the teamsters, lumber at the joiners, hides at the tannery, hay at the
+stables within the hay limits*, every record belonging to its business, and his standing
+ruling of 2026-08-18 lets reconstructed items be added when he asks, labelled as such.
+**No source places any of these objects in any of these yards on 1 July 1835**, and none
+gives a count, a size, a shape or a colour. Every object is reconstructed and every size
+is invented. The tones are reconstructed too: the rick a weathered straw (`#a89160`) and
+the hides a raw brown (`#5e4231`).
+
+**The hay limits:** Sec. 22 of the ordinance of 5 August 1835 forbids stacking hay inside
+the line `data/reconstruction/1835_hay_limits.json` derives. It postdates the scene by five
+weeks, and that record places nothing. This one reads it conservatively at the owner's
+instruction: no rick stands inside the ring, and the 22 stables inside it keep their hay
+in the mow and are refused in writing. The opposite reading (a corporation legislates
+against what people already do, so ricks stood inside the line in July) is declined, not
+disproved.
+
+**Not done, and why:** the yard casks carry no marks. The frontage goods' mark rule (L166)
+deals a merchant's commodity words, and nothing here says what a cooper's or a packer's
+cask was marked with. Newberry & Dole's forwarding warehouse gets no wagon: the search
+finds no clear ground round it, and the last stand it tries is in the river. Woodpiles, wells,
+privies and household stables are T-1959 and T-1960, not this.
+
+**How to resolve:** a lot description, insurance survey, sale notice or view naming what
+stood in any of these yards; a cooper's or packer's advertisement stating a stock; a
+description of the tannery; any 1835 complaint about a rick inside the line.
+
+**Related:** **L131** (the frontage goods), **L162** (the town's wagons), **L173** (the
+building material), **L306** (the bridge timber), **T-0334** (the hay limits),
+**T-1212**, **T-1961**.
+**Recorded:** 2026-10-02.
+
+### L352 — The frame houses' trim, chimney heads and siding stock are dealt by whose house it is
 
 **Decision:** the fabric rule (L330, L338, L343, `tools/fabric_rule_1835.py`) now deals two more
 form values to every reconstructed frame dwelling, and `frame_dwelling` builds them (T-1839, piece

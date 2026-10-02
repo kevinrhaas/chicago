@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "audit_town_completion_1835.py": {
+      "placement": "manifest",
+      "write_mode": null,
+      "measured": "continuously",
+      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+    },
     "check_terrain_e1871.py": {
       "placement": "manifest",
       "write_mode": "--write",
@@ -571,6 +577,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "generate_trade_yards.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-02 — directly after generate_yard_goods.py, whose output it reads (T-1961)"
     },
     "generate_west_infill.py": {
       "placement": "manifest",
