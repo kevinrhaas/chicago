@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1305, ts: '2026-10-02T14:50:38.241Z', date: 'Oct 2, 2026, 9:50 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+  { v: 1307, ts: '2026-10-02T15:10:21.372Z', date: 'Oct 2, 2026, 10:10 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
     items: [
       'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
       'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
       'The Light setting, the one a slower machine or a phone starts on, was not raised. It still draws more than it should in the busiest views, and the next step trims it back.',
+    ] },
+  { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
+    items: [
+      'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
+      'Both camps are empty. No figure is drawn, and no fire burns.',
+      'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L355) says how we placed and sized them.',
+    ] },
+  { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
+    items: [
+      'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
+      'Families take a house of the kind their trade and means suggest, in their own part of town. People on their own take a free bed in a boarding house, or board with a family when the beds run out.',
+      'The town now averages seven people a dwelling, under the 1835 census\u2019s eight. Some houses are crowded: one large house on Washington Street holds 29.',
+      'The people are real records. Which roof each one slept under is our reconstruction, and the card says so. The Liberties page explains how they were placed (L354).',
     ] },
   { v: 1304, ts: '2026-10-02T14:03:50.530Z', date: 'Oct 2, 2026, 9:03 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [

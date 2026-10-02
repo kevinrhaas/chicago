@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "house_the_present_1835.py": {
+      "placement": "manifest",
+      "write_mode": null,
+      "measured": "continuously",
+      "finding": "In the manifest immediately before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. Run bare it writes data/reconstruction/1835_housing_seats.json; a second run changes no byte."
+    },
     "audit_town_completion_1835.py": {
       "placement": "manifest",
       "write_mode": null,
@@ -1693,6 +1699,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
       "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
+    },
+    "place_camp_grounds_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: run bare twice on a clean tree in under a second, it rewrote data/structures/land_sale_camp_shore.json and west_approach_wagon_camp.json with identical bytes. T-1804. PENDING rather than manifest for the reason place_landing_camps_1835.py is: it reads the committed street lines, fences, refused regions, the heightfield and every footprint, and writes two structure records the sidecar compile and the town census then read.",
+      "placed": "not yet \u2014 measured to reproduce. T-1804: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those; its slot is the manifest's own measured pass, as T-1803's is."
     }
   }
 }
