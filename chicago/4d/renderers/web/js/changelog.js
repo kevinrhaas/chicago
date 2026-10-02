@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+  { v: 1294, ts: '2026-10-02T08:51:28.084Z', date: 'Oct 2, 2026, 3:51 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
     items: [
       'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
       'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
