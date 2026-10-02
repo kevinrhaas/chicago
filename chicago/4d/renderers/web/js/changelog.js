@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+  { v: 1313, ts: '2026-10-02T17:33:55.402Z', date: 'Oct 2, 2026, 12:33 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
       'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
       'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
