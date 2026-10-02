@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+    items: [
+      'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
+      'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
+      'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
+      'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
   { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
     items: [
       'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
