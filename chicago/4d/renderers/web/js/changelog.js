@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1287, ts: '2026-10-02T05:11:54.908Z', date: 'Oct 2, 2026, 12:11 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: 1288, ts: '2026-10-02T05:20:52.399Z', date: 'Oct 2, 2026, 12:20 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fifteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
       'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
       'The town is still filling up. A family that had asked for this corner now has a lot further along the block. Kelsey\u2019s boarding house on the North Side stands empty tonight because no lodgers were left to send there.',
-      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L342) says how each was placed and sized.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L344) says how each was placed and sized.',
+    ] },
+  { v: 1287, ts: '2026-10-02T04:27:28.754Z', date: 'Oct 1, 2026, 11:27 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+    items: [
+      'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
+      'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
+      'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
+      'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
+      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L342).',
     ] },
   { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
     items: [

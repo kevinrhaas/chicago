@@ -28,7 +28,7 @@
     "walk_m": 3612.2,
     "crossing_m": 1043.2,
     "fence_m": 1748.8,
-    "walking_decks": 294,
+    "walking_decks": 348,
     "hitching_posts": 46,
     "fittings": {
       "mounting_block": 5,
@@ -114,33 +114,55 @@
       "run_m": 24.39,
       "footway_decks": [
         {
-          "y": 0.855,
+          "y": 0.85,
           "pts": [
             [
               685.82,
               -127.2
             ],
             [
-              698.18,
-              -127.3
+              694.31,
+              -127.27
             ],
             [
-              698.19,
-              -125.47
+              694.33,
+              -125.44
             ],
             [
               685.84,
               -125.37
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.138
+        },
+        {
+          "y": 0.79,
+          "pts": [
+            [
+              694.15,
+              -127.27
+            ],
+            [
+              703.83,
+              -127.35
+            ],
+            [
+              703.84,
+              -125.52
+            ],
+            [
+              694.17,
+              -125.44
+            ]
+          ],
+          "ground_roll_m": 0.125
         },
         {
           "y": 0.855,
           "pts": [
             [
-              698.02,
-              -127.3
+              703.67,
+              -127.35
             ],
             [
               710.37,
@@ -151,11 +173,11 @@
               -125.57
             ],
             [
-              698.03,
-              -125.47
+              703.68,
+              -125.52
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.074
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -336,26 +358,48 @@
               -247.93
             ],
             [
-              697.42,
-              -248.03
+              694.15,
+              -248.0
             ],
             [
-              697.44,
-              -246.2
+              694.17,
+              -246.17
             ],
             [
               685.09,
               -246.1
             ]
           ],
-          "ground_roll_m": 0.001
+          "ground_roll_m": 0.129
+        },
+        {
+          "y": 0.878,
+          "pts": [
+            [
+              693.99,
+              -248.0
+            ],
+            [
+              701.88,
+              -248.07
+            ],
+            [
+              701.9,
+              -246.24
+            ],
+            [
+              694.01,
+              -246.17
+            ]
+          ],
+          "ground_roll_m": 0.11
         },
         {
           "y": 0.935,
           "pts": [
             [
-              697.26,
-              -248.03
+              701.72,
+              -248.07
             ],
             [
               709.61,
@@ -366,11 +410,11 @@
               -246.3
             ],
             [
-              697.28,
-              -246.2
+              701.74,
+              -246.24
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.067
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -411,25 +455,47 @@
             ],
             [
               589.66,
-              -257.35
+              -254.08
             ],
             [
               591.49,
-              -257.35
+              -254.07
             ],
             [
               591.49,
               -246.17
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.13
+        },
+        {
+          "y": 0.878,
+          "pts": [
+            [
+              589.66,
+              -253.92
+            ],
+            [
+              589.67,
+              -261.82
+            ],
+            [
+              591.5,
+              -261.82
+            ],
+            [
+              591.49,
+              -253.91
+            ]
+          ],
+          "ground_roll_m": 0.123
         },
         {
           "y": 0.936,
           "pts": [
             [
-              589.66,
-              -257.19
+              589.67,
+              -261.66
             ],
             [
               589.67,
@@ -440,11 +506,11 @@
               -268.38
             ],
             [
-              591.49,
-              -257.19
+              591.5,
+              -261.66
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.069
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -652,10 +718,10 @@
               -124.36
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.01
         }
       ],
-      "note": "THE DECKED WALK IN FRONT OF GEORGE W. DOLE'S WAREHOUSE, a `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_lake_dearborn's north face, 1.9 m to 14.2 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 3.64 m to the Lake Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE DECKED WALK IN FRONT OF GEORGE W. DOLE'S WAREHOUSE, a `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_lake_dearborn's north face, 1.9 m to 14.2 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.01 m and leaving 3.64 m to the Lake Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_lake_dearborn_north_walk_1",
@@ -821,25 +887,47 @@
             ],
             [
               712.63,
-              -258.36
+              -253.89
             ],
             [
               714.46,
-              -258.36
+              -253.89
             ],
             [
               714.46,
               -247.17
             ]
           ],
-          "ground_roll_m": 0.002
+          "ground_roll_m": 0.112
+        },
+        {
+          "y": 0.87,
+          "pts": [
+            [
+              712.63,
+              -253.73
+            ],
+            [
+              712.64,
+              -264.02
+            ],
+            [
+              714.47,
+              -264.02
+            ],
+            [
+              714.46,
+              -253.73
+            ]
+          ],
+          "ground_roll_m": 0.136
         },
         {
           "y": 0.939,
           "pts": [
             [
-              712.63,
-              -258.2
+              712.64,
+              -263.86
             ],
             [
               712.64,
@@ -850,11 +938,11 @@
               -269.39
             ],
             [
-              714.46,
-              -258.2
+              714.47,
+              -263.86
             ]
           ],
-          "ground_roll_m": 0.004
+          "ground_roll_m": 0.079
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1013,26 +1101,48 @@
               -124.2
             ],
             [
-              329.81,
-              -124.3
+              326.54,
+              -124.27
             ],
             [
-              329.82,
-              -122.47
+              326.55,
+              -122.44
             ],
             [
               317.47,
               -122.37
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.132
         },
         {
-          "y": 0.86,
+          "y": 0.802,
           "pts": [
             [
-              329.65,
-              -124.3
+              326.38,
+              -124.27
+            ],
+            [
+              334.27,
+              -124.34
+            ],
+            [
+              334.28,
+              -122.51
+            ],
+            [
+              326.39,
+              -122.44
+            ]
+          ],
+          "ground_roll_m": 0.121
+        },
+        {
+          "y": 0.857,
+          "pts": [
+            [
+              334.11,
+              -124.34
             ],
             [
               342.0,
@@ -1043,11 +1153,11 @@
               -122.57
             ],
             [
-              329.66,
-              -122.47
+              334.12,
+              -122.51
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.066
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1221,33 +1331,55 @@
       "run_m": 24.39,
       "footway_decks": [
         {
-          "y": 0.94,
+          "y": 0.935,
           "pts": [
             [
               316.73,
               -244.93
             ],
             [
-              329.09,
-              -245.03
+              324.03,
+              -244.99
             ],
             [
-              329.1,
-              -243.2
+              324.05,
+              -243.16
             ],
             [
               316.75,
               -243.1
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.12
+        },
+        {
+          "y": 0.871,
+          "pts": [
+            [
+              323.87,
+              -244.99
+            ],
+            [
+              334.14,
+              -245.07
+            ],
+            [
+              334.16,
+              -243.24
+            ],
+            [
+              323.89,
+              -243.16
+            ]
+          ],
+          "ground_roll_m": 0.135
         },
         {
           "y": 0.943,
           "pts": [
             [
-              328.93,
-              -245.03
+              333.98,
+              -245.07
             ],
             [
               341.28,
@@ -1258,11 +1390,11 @@
               -243.3
             ],
             [
-              328.94,
-              -243.2
+              334.0,
+              -243.24
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.086
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1303,25 +1435,47 @@
             ],
             [
               222.31,
-              -254.36
+              -249.29
             ],
             [
               224.14,
-              -254.36
+              -249.29
             ],
             [
               224.14,
               -243.17
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.111
+        },
+        {
+          "y": 0.79,
+          "pts": [
+            [
+              222.31,
+              -249.13
+            ],
+            [
+              222.32,
+              -258.83
+            ],
+            [
+              224.15,
+              -258.83
+            ],
+            [
+              224.14,
+              -249.13
+            ]
+          ],
+          "ground_roll_m": 0.103
         },
         {
           "y": 0.885,
           "pts": [
             [
-              222.31,
-              -254.2
+              222.32,
+              -258.67
             ],
             [
               222.32,
@@ -1332,11 +1486,11 @@
               -265.39
             ],
             [
-              224.14,
-              -254.2
+              224.15,
+              -258.67
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.108
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1517,26 +1671,48 @@
               -126.2
             ],
             [
-              575.22,
-              -126.3
+              571.36,
+              -126.27
             ],
             [
-              575.24,
-              -124.47
+              571.37,
+              -124.44
             ],
             [
               562.89,
               -124.37
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.107
+        },
+        {
+          "y": 0.805,
+          "pts": [
+            [
+              571.2,
+              -126.27
+            ],
+            [
+              580.87,
+              -126.35
+            ],
+            [
+              580.89,
+              -124.52
+            ],
+            [
+              571.21,
+              -124.44
+            ]
+          ],
+          "ground_roll_m": 0.13
         },
         {
           "y": 0.85,
           "pts": [
             [
-              575.06,
-              -126.3
+              580.71,
+              -126.35
             ],
             [
               587.41,
@@ -1547,11 +1723,11 @@
               -124.57
             ],
             [
-              575.08,
-              -124.47
+              580.73,
+              -124.52
             ]
           ],
-          "ground_roll_m": 0.004
+          "ground_roll_m": 0.049
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1609,10 +1785,10 @@
               -122.35
             ]
           ],
-          "ground_roll_m": 0.004
+          "ground_roll_m": 0.006
         }
       ],
-      "note": "THE DECKED WALK IN FRONT OF THE OLD BANK BUILDING, a `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_lake_lasalle's north face, 1.9 m to 17.2 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 3.64 m to the Lake Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE DECKED WALK IN FRONT OF THE OLD BANK BUILDING, a `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_lake_lasalle's north face, 1.9 m to 17.2 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.01 m and leaving 3.64 m to the Lake Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_lake_lasalle_north_walk_1",
@@ -1834,26 +2010,48 @@
               -246.93
             ],
             [
-              574.45,
-              -247.03
+              569.39,
+              -246.99
             ],
             [
-              574.46,
-              -245.2
+              569.41,
+              -245.16
             ],
             [
               562.11,
               -245.1
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.111
+        },
+        {
+          "y": 0.851,
+          "pts": [
+            [
+              569.23,
+              -246.99
+            ],
+            [
+              578.91,
+              -247.07
+            ],
+            [
+              578.92,
+              -245.24
+            ],
+            [
+              569.25,
+              -245.16
+            ]
+          ],
+          "ground_roll_m": 0.106
         },
         {
           "y": 0.935,
           "pts": [
             [
-              574.29,
-              -247.03
+              578.75,
+              -247.07
             ],
             [
               586.64,
@@ -1864,11 +2062,11 @@
               -245.3
             ],
             [
-              574.3,
-              -245.2
+              578.76,
+              -245.24
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.097
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -1901,7 +2099,7 @@
       "run_m": 22.06,
       "footway_decks": [
         {
-          "y": 0.933,
+          "y": 0.93,
           "pts": [
             [
               466.29,
@@ -1909,25 +2107,47 @@
             ],
             [
               466.29,
-              -256.35
+              -251.28
             ],
             [
               468.12,
-              -256.35
+              -251.28
             ],
             [
               468.12,
               -245.16
             ]
           ],
-          "ground_roll_m": 0.008
+          "ground_roll_m": 0.115
+        },
+        {
+          "y": 0.837,
+          "pts": [
+            [
+              466.29,
+              -251.12
+            ],
+            [
+              466.3,
+              -261.42
+            ],
+            [
+              468.13,
+              -261.42
+            ],
+            [
+              468.12,
+              -251.12
+            ]
+          ],
+          "ground_roll_m": 0.127
         },
         {
           "y": 0.936,
           "pts": [
             [
-              466.29,
-              -256.19
+              466.3,
+              -261.26
             ],
             [
               466.3,
@@ -1938,11 +2158,11 @@
               -267.38
             ],
             [
-              468.12,
-              -256.19
+              468.13,
+              -261.26
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.113
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2160,33 +2380,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.861,
+          "y": 0.86,
           "pts": [
             [
               195.47,
               -123.21
             ],
             [
-              207.82,
-              -123.31
+              203.96,
+              -123.28
             ],
             [
-              207.84,
-              -121.48
+              203.97,
+              -121.45
             ],
             [
               195.49,
               -121.38
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.107
+        },
+        {
+          "y": 0.813,
+          "pts": [
+            [
+              203.8,
+              -123.28
+            ],
+            [
+              213.47,
+              -123.36
+            ],
+            [
+              213.49,
+              -121.53
+            ],
+            [
+              203.81,
+              -121.45
+            ]
+          ],
+          "ground_roll_m": 0.126
         },
         {
           "y": 0.865,
           "pts": [
             [
-              207.66,
-              -123.31
+              213.31,
+              -123.36
             ],
             [
               220.01,
@@ -2197,11 +2439,11 @@
               -121.58
             ],
             [
-              207.68,
-              -121.48
+              213.33,
+              -121.53
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.057
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2375,33 +2617,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.869,
+          "y": 0.865,
           "pts": [
             [
               194.75,
               -243.93
             ],
             [
-              207.1,
-              -244.03
+              203.83,
+              -244.0
             ],
             [
-              207.12,
-              -242.2
+              203.85,
+              -242.17
             ],
             [
               194.77,
               -242.1
             ]
           ],
-          "ground_roll_m": 0.009
+          "ground_roll_m": 0.134
+        },
+        {
+          "y": 0.801,
+          "pts": [
+            [
+              203.67,
+              -244.0
+            ],
+            [
+              211.56,
+              -244.07
+            ],
+            [
+              211.58,
+              -242.24
+            ],
+            [
+              203.69,
+              -242.17
+            ]
+          ],
+          "ground_roll_m": 0.116
         },
         {
           "y": 0.875,
           "pts": [
             [
-              206.94,
-              -244.03
+              211.4,
+              -244.07
             ],
             [
               219.29,
@@ -2412,11 +2676,11 @@
               -242.3
             ],
             [
-              206.96,
-              -242.2
+              211.42,
+              -242.24
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.086
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2457,25 +2721,47 @@
             ],
             [
               100.4,
-              -253.36
+              -248.89
             ],
             [
               102.23,
-              -253.36
+              -248.89
             ],
             [
               102.23,
               -242.18
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.111
+        },
+        {
+          "y": 0.751,
+          "pts": [
+            [
+              100.4,
+              -248.73
+            ],
+            [
+              100.41,
+              -259.03
+            ],
+            [
+              102.24,
+              -259.02
+            ],
+            [
+              102.23,
+              -248.73
+            ]
+          ],
+          "ground_roll_m": 0.134
         },
         {
           "y": 0.815,
           "pts": [
             [
-              100.4,
-              -253.2
+              100.41,
+              -258.87
             ],
             [
               100.41,
@@ -2486,11 +2772,11 @@
               -264.39
             ],
             [
-              102.23,
-              -253.2
+              102.24,
+              -258.86
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.075
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2671,26 +2957,48 @@
               -125.19
             ],
             [
-              451.8,
-              -125.29
+              446.74,
+              -125.25
             ],
             [
-              451.81,
-              -123.46
+              446.76,
+              -123.42
             ],
             [
               439.46,
               -123.36
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.119
         },
         {
-          "y": 0.85,
+          "y": 0.748,
           "pts": [
             [
-              451.64,
-              -125.29
+              446.58,
+              -125.25
+            ],
+            [
+              456.26,
+              -125.33
+            ],
+            [
+              456.27,
+              -123.5
+            ],
+            [
+              446.6,
+              -123.42
+            ]
+          ],
+          "ground_roll_m": 0.102
+        },
+        {
+          "y": 0.845,
+          "pts": [
+            [
+              456.1,
+              -125.33
             ],
             [
               463.99,
@@ -2701,11 +3009,11 @@
               -123.56
             ],
             [
-              451.65,
-              -123.46
+              456.11,
+              -123.5
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.112
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2886,26 +3194,48 @@
               -245.92
             ],
             [
-              451.08,
-              -246.02
+              446.03,
+              -245.98
             ],
             [
-              451.1,
-              -244.19
+              446.04,
+              -244.15
             ],
             [
               438.75,
               -244.09
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.094
         },
         {
-          "y": 0.93,
+          "y": 0.855,
           "pts": [
             [
-              450.92,
-              -246.02
+              445.87,
+              -245.98
+            ],
+            [
+              456.14,
+              -246.06
+            ],
+            [
+              456.15,
+              -244.23
+            ],
+            [
+              445.88,
+              -244.15
+            ]
+          ],
+          "ground_roll_m": 0.136
+        },
+        {
+          "y": 0.925,
+          "pts": [
+            [
+              455.98,
+              -246.06
             ],
             [
               463.27,
@@ -2916,11 +3246,11 @@
               -244.29
             ],
             [
-              450.94,
-              -244.19
+              455.99,
+              -244.23
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.121
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -2953,7 +3283,7 @@
       "run_m": 22.05,
       "footway_decks": [
         {
-          "y": 0.95,
+          "y": 0.945,
           "pts": [
             [
               344.3,
@@ -2961,25 +3291,47 @@
             ],
             [
               344.3,
-              -255.35
+              -251.48
             ],
             [
               346.13,
-              -255.35
+              -251.48
             ],
             [
               346.13,
               -244.17
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.105
+        },
+        {
+          "y": 0.901,
+          "pts": [
+            [
+              344.3,
+              -251.32
+            ],
+            [
+              344.31,
+              -261.02
+            ],
+            [
+              346.14,
+              -261.01
+            ],
+            [
+              346.13,
+              -251.32
+            ]
+          ],
+          "ground_roll_m": 0.128
         },
         {
           "y": 0.955,
           "pts": [
             [
-              344.3,
-              -255.19
+              344.31,
+              -260.86
             ],
             [
               344.31,
@@ -2990,11 +3342,11 @@
               -266.38
             ],
             [
-              346.13,
-              -255.19
+              346.14,
+              -260.85
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.06
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -3175,26 +3527,48 @@
               -269.99
             ],
             [
-              697.29,
-              -270.09
+              694.02,
+              -270.06
             ],
             [
-              697.3,
-              -268.26
+              694.03,
+              -268.23
             ],
             [
               684.95,
               -268.16
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.133
         },
         {
-          "y": 0.94,
+          "y": 0.883,
           "pts": [
             [
-              697.13,
-              -270.09
+              693.86,
+              -270.06
+            ],
+            [
+              701.75,
+              -270.13
+            ],
+            [
+              701.76,
+              -268.3
+            ],
+            [
+              693.87,
+              -268.23
+            ]
+          ],
+          "ground_roll_m": 0.121
+        },
+        {
+          "y": 0.939,
+          "pts": [
+            [
+              701.59,
+              -270.13
             ],
             [
               709.48,
@@ -3205,11 +3579,11 @@
               -268.36
             ],
             [
-              697.14,
-              -268.26
+              701.6,
+              -268.3
             ]
           ],
-          "ground_roll_m": 0.002
+          "ground_roll_m": 0.067
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -3399,26 +3773,48 @@
               -383.24
             ],
             [
-              696.58,
-              -383.34
+              691.52,
+              -383.3
             ],
             [
-              696.59,
-              -381.51
+              691.54,
+              -381.47
             ],
             [
               684.24,
               -381.41
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.119
+        },
+        {
+          "y": 0.871,
+          "pts": [
+            [
+              691.36,
+              -383.3
+            ],
+            [
+              701.63,
+              -383.38
+            ],
+            [
+              701.65,
+              -381.55
+            ],
+            [
+              691.38,
+              -381.47
+            ]
+          ],
+          "ground_roll_m": 0.136
         },
         {
           "y": 0.945,
           "pts": [
             [
-              696.42,
-              -383.34
+              701.47,
+              -383.38
             ],
             [
               708.77,
@@ -3429,11 +3825,11 @@
               -381.61
             ],
             [
-              696.43,
-              -381.51
+              701.49,
+              -381.55
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.088
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -3485,7 +3881,7 @@
               -381.48
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.074
         },
         {
           "y": 0.935,
@@ -3507,7 +3903,7 @@
               -392.5
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.076
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -4245,33 +4641,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.94,
+          "y": 0.935,
           "pts": [
             [
               316.61,
               -266.98
             ],
             [
-              328.96,
-              -267.08
+              323.91,
+              -267.04
             ],
             [
-              328.98,
-              -265.25
+              323.92,
+              -265.21
             ],
             [
               316.63,
               -265.15
             ]
           ],
-          "ground_roll_m": 0.012
+          "ground_roll_m": 0.121
+        },
+        {
+          "y": 0.859,
+          "pts": [
+            [
+              323.75,
+              -267.04
+            ],
+            [
+              334.02,
+              -267.12
+            ],
+            [
+              334.03,
+              -265.29
+            ],
+            [
+              323.76,
+              -265.21
+            ]
+          ],
+          "ground_roll_m": 0.137
         },
         {
           "y": 0.95,
           "pts": [
             [
-              328.8,
-              -267.08
+              333.86,
+              -267.12
             ],
             [
               341.15,
@@ -4282,11 +4700,11 @@
               -265.35
             ],
             [
-              328.82,
-              -265.25
+              333.87,
+              -265.29
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.105
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -4460,33 +4878,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.947,
+          "y": 0.945,
           "pts": [
             [
               315.94,
               -380.25
             ],
             [
-              328.29,
-              -380.35
+              323.83,
+              -380.31
             ],
             [
-              328.31,
-              -378.52
+              323.85,
+              -378.48
             ],
             [
               315.96,
               -378.42
             ]
           ],
-          "ground_roll_m": 0.007
+          "ground_roll_m": 0.107
+        },
+        {
+          "y": 0.884,
+          "pts": [
+            [
+              323.67,
+              -380.31
+            ],
+            [
+              333.94,
+              -380.4
+            ],
+            [
+              333.96,
+              -378.57
+            ],
+            [
+              323.69,
+              -378.48
+            ]
+          ],
+          "ground_roll_m": 0.139
         },
         {
           "y": 0.955,
           "pts": [
             [
-              328.13,
-              -380.35
+              333.78,
+              -380.4
             ],
             [
               340.48,
@@ -4497,11 +4937,11 @@
               -378.62
             ],
             [
-              328.15,
-              -378.52
+              333.8,
+              -378.57
             ]
           ],
-          "ground_roll_m": 0.009
+          "ground_roll_m": 0.081
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -4534,7 +4974,7 @@
       "run_m": 22.05,
       "footway_decks": [
         {
-          "y": 0.88,
+          "y": 0.875,
           "pts": [
             [
               221.51,
@@ -4553,7 +4993,7 @@
               -378.5
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.075
         },
         {
           "y": 0.88,
@@ -4575,7 +5015,7 @@
               -389.52
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.08
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -4756,26 +5196,48 @@
               -268.98
             ],
             [
-              574.31,
-              -269.08
+              569.26,
+              -269.04
             ],
             [
-              574.33,
-              -267.25
+              569.27,
+              -267.21
             ],
             [
               561.98,
               -267.15
             ]
           ],
-          "ground_roll_m": 0.004
+          "ground_roll_m": 0.118
         },
         {
-          "y": 0.943,
+          "y": 0.842,
           "pts": [
             [
-              574.15,
-              -269.08
+              569.1,
+              -269.04
+            ],
+            [
+              578.77,
+              -269.12
+            ],
+            [
+              578.79,
+              -267.29
+            ],
+            [
+              569.11,
+              -267.21
+            ]
+          ],
+          "ground_roll_m": 0.101
+        },
+        {
+          "y": 0.94,
+          "pts": [
+            [
+              578.61,
+              -269.12
             ],
             [
               586.5,
@@ -4786,11 +5248,11 @@
               -267.35
             ],
             [
-              574.17,
-              -267.25
+              578.63,
+              -267.29
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.11
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5015,26 +5477,48 @@
               -382.24
             ],
             [
-              573.59,
-              -382.34
+              569.13,
+              -382.3
             ],
             [
-              573.6,
-              -380.51
+              569.14,
+              -380.47
             ],
             [
               561.25,
               -380.41
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.139
+        },
+        {
+          "y": 0.823,
+          "pts": [
+            [
+              568.97,
+              -382.3
+            ],
+            [
+              578.64,
+              -382.38
+            ],
+            [
+              578.66,
+              -380.55
+            ],
+            [
+              568.98,
+              -380.47
+            ]
+          ],
+          "ground_roll_m": 0.102
         },
         {
           "y": 0.935,
           "pts": [
             [
-              573.43,
-              -382.34
+              578.48,
+              -382.38
             ],
             [
               585.78,
@@ -5045,11 +5529,11 @@
               -380.61
             ],
             [
-              573.44,
-              -380.51
+              578.5,
+              -380.55
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.125
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5101,7 +5585,7 @@
               -380.48
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.119
         },
         {
           "y": 0.96,
@@ -5123,7 +5607,7 @@
               -391.5
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.107
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5341,33 +5825,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.874,
+          "y": 0.865,
           "pts": [
             [
               194.62,
               -265.99
             ],
             [
-              206.97,
-              -266.09
+              203.7,
+              -266.06
             ],
             [
-              206.99,
-              -264.26
+              203.72,
+              -264.23
             ],
             [
               194.64,
               -264.16
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.14
+        },
+        {
+          "y": 0.793,
+          "pts": [
+            [
+              203.54,
+              -266.06
+            ],
+            [
+              211.43,
+              -266.13
+            ],
+            [
+              211.45,
+              -264.3
+            ],
+            [
+              203.56,
+              -264.23
+            ]
+          ],
+          "ground_roll_m": 0.109
         },
         {
           "y": 0.88,
           "pts": [
             [
-              206.81,
-              -266.09
+              211.27,
+              -266.13
             ],
             [
               219.16,
@@ -5378,11 +5884,11 @@
               -264.36
             ],
             [
-              206.83,
-              -264.26
+              211.29,
+              -264.3
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.1
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5563,26 +6069,48 @@
               -379.26
             ],
             [
-              206.3,
-              -379.36
+              201.24,
+              -379.32
             ],
             [
-              206.31,
-              -377.53
+              201.26,
+              -377.49
             ],
             [
               193.96,
               -377.43
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.112
+        },
+        {
+          "y": 0.767,
+          "pts": [
+            [
+              201.08,
+              -379.32
+            ],
+            [
+              211.35,
+              -379.4
+            ],
+            [
+              211.37,
+              -377.57
+            ],
+            [
+              201.1,
+              -377.49
+            ]
+          ],
+          "ground_roll_m": 0.123
         },
         {
           "y": 0.871,
           "pts": [
             [
-              206.14,
-              -379.36
+              211.19,
+              -379.4
             ],
             [
               218.49,
@@ -5593,11 +6121,11 @@
               -377.63
             ],
             [
-              206.15,
-              -377.53
+              211.21,
+              -377.57
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.12
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5778,26 +6306,48 @@
               -267.98
             ],
             [
-              450.96,
-              -268.08
+              446.5,
+              -268.04
             ],
             [
-              450.97,
-              -266.25
+              446.51,
+              -266.21
             ],
             [
               438.62,
               -266.15
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.124
         },
         {
-          "y": 0.945,
+          "y": 0.878,
           "pts": [
             [
-              450.8,
-              -268.08
+              446.34,
+              -268.04
+            ],
+            [
+              456.61,
+              -268.13
+            ],
+            [
+              456.62,
+              -266.3
+            ],
+            [
+              446.35,
+              -266.21
+            ]
+          ],
+          "ground_roll_m": 0.134
+        },
+        {
+          "y": 0.94,
+          "pts": [
+            [
+              456.45,
+              -268.13
             ],
             [
               463.15,
@@ -5808,11 +6358,11 @@
               -266.35
             ],
             [
-              450.81,
-              -266.25
+              456.46,
+              -266.3
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.073
         }
       ],
       "note": "A BOARD CROSSING OVER RANDOLPH STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -5993,26 +6543,48 @@
               -381.24
             ],
             [
-              450.28,
-              -381.34
+              446.42,
+              -381.31
             ],
             [
-              450.3,
-              -379.51
+              446.43,
+              -379.48
             ],
             [
               437.95,
               -379.41
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.106
         },
         {
-          "y": 0.955,
+          "y": 0.921,
           "pts": [
             [
-              450.12,
-              -381.34
+              446.26,
+              -381.31
+            ],
+            [
+              456.53,
+              -381.39
+            ],
+            [
+              456.54,
+              -379.56
+            ],
+            [
+              446.27,
+              -379.48
+            ]
+          ],
+          "ground_roll_m": 0.139
+        },
+        {
+          "y": 0.95,
+          "pts": [
+            [
+              456.37,
+              -381.39
             ],
             [
               462.47,
@@ -6023,11 +6595,11 @@
               -379.61
             ],
             [
-              450.14,
-              -379.51
+              456.38,
+              -379.56
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.034
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -6079,10 +6651,10 @@
               -379.49
             ]
           ],
-          "ground_roll_m": 0.006
+          "ground_roll_m": 0.093
         },
         {
-          "y": 0.949,
+          "y": 0.945,
           "pts": [
             [
               343.5,
@@ -6101,7 +6673,7 @@
               -390.51
             ]
           ],
-          "ground_roll_m": 0.007
+          "ground_roll_m": 0.089
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -6275,33 +6847,77 @@
       "run_m": 29.6,
       "footway_decks": [
         {
-          "y": 0.695,
+          "y": 0.661,
           "pts": [
             [
               681.39,
               -4.65
             ],
             [
-              696.35,
-              -4.97
+              693.98,
+              -4.92
             ],
             [
-              696.39,
-              -3.15
+              694.02,
+              -3.09
             ],
             [
               681.43,
               -2.82
             ]
           ],
-          "ground_roll_m": 0.11
+          "ground_roll_m": 0.117
         },
         {
-          "y": 0.717,
+          "y": 0.586,
           "pts": [
             [
-              696.19,
-              -4.97
+              693.82,
+              -4.92
+            ],
+            [
+              703.45,
+              -5.13
+            ],
+            [
+              703.49,
+              -3.3
+            ],
+            [
+              693.86,
+              -3.09
+            ]
+          ],
+          "ground_roll_m": 0.116
+        },
+        {
+          "y": 0.685,
+          "pts": [
+            [
+              703.29,
+              -5.12
+            ],
+            [
+              704.63,
+              -5.15
+            ],
+            [
+              704.67,
+              -3.32
+            ],
+            [
+              703.33,
+              -3.29
+            ]
+          ],
+          "ground_roll_m": 0.119
+        },
+        {
+          "y": 0.715,
+          "pts": [
+            [
+              704.47,
+              -5.15
             ],
             [
               711.14,
@@ -6312,11 +6928,11 @@
               -3.46
             ],
             [
-              696.23,
-              -3.14
+              704.51,
+              -3.32
             ]
           ],
-          "ground_roll_m": 0.024
+          "ground_roll_m": 0.045
         }
       ],
       "note": "A BOARD CROSSING OVER SOUTH WATER STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 29.6 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -6484,26 +7100,48 @@
               -105.15
             ],
             [
-              698.31,
-              -105.25
+              693.85,
+              -105.21
             ],
             [
-              698.32,
-              -103.42
+              693.86,
+              -103.38
             ],
             [
               685.97,
               -103.32
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.108
+        },
+        {
+          "y": 0.785,
+          "pts": [
+            [
+              693.69,
+              -105.21
+            ],
+            [
+              703.96,
+              -105.29
+            ],
+            [
+              703.97,
+              -103.46
+            ],
+            [
+              693.7,
+              -103.38
+            ]
+          ],
+          "ground_roll_m": 0.135
         },
         {
           "y": 0.85,
           "pts": [
             [
-              698.15,
-              -105.24
+              703.8,
+              -105.29
             ],
             [
               710.5,
@@ -6514,11 +7152,11 @@
               -103.51
             ],
             [
-              698.16,
-              -103.41
+              703.81,
+              -103.46
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.075
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -6559,25 +7197,135 @@
             ],
             [
               590.56,
-              -114.57
+              -108.31
             ],
             [
               592.39,
-              -114.57
+              -108.31
             ],
             [
               592.39,
               -103.38
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.115
+        },
+        {
+          "y": 0.748,
+          "pts": [
+            [
+              590.56,
+              -108.15
+            ],
+            [
+              590.56,
+              -109.5
+            ],
+            [
+              592.39,
+              -109.5
+            ],
+            [
+              592.39,
+              -108.15
+            ]
+          ],
+          "ground_roll_m": 0.114
+        },
+        {
+          "y": 0.689,
+          "pts": [
+            [
+              590.56,
+              -109.34
+            ],
+            [
+              590.57,
+              -119.64
+            ],
+            [
+              592.4,
+              -119.64
+            ],
+            [
+              592.39,
+              -109.34
+            ]
+          ],
+          "ground_roll_m": 0.132
+        },
+        {
+          "y": 0.642,
+          "pts": [
+            [
+              590.57,
+              -119.48
+            ],
+            [
+              590.57,
+              -120.83
+            ],
+            [
+              592.4,
+              -120.83
+            ],
+            [
+              592.4,
+              -119.48
+            ]
+          ],
+          "ground_roll_m": 0.098
+        },
+        {
+          "y": 0.715,
+          "pts": [
+            [
+              590.57,
+              -120.67
+            ],
+            [
+              590.57,
+              -121.43
+            ],
+            [
+              592.4,
+              -121.42
+            ],
+            [
+              592.4,
+              -120.67
+            ]
+          ],
+          "ground_roll_m": 0.092
+        },
+        {
+          "y": 0.787,
+          "pts": [
+            [
+              590.57,
+              -121.27
+            ],
+            [
+              590.57,
+              -122.02
+            ],
+            [
+              592.4,
+              -122.02
+            ],
+            [
+              592.4,
+              -121.26
+            ]
+          ],
+          "ground_roll_m": 0.092
         },
         {
           "y": 0.846,
           "pts": [
             [
-              590.56,
-              -114.41
+              590.57,
+              -121.86
             ],
             [
               590.57,
@@ -6588,11 +7336,11 @@
               -125.6
             ],
             [
-              592.39,
-              -114.41
+              592.4,
+              -121.86
             ]
           ],
-          "ground_roll_m": 0.001
+          "ground_roll_m": 0.079
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -6907,7 +7655,7 @@
       "run_m": 22.06,
       "footway_decks": [
         {
-          "y": 0.855,
+          "y": 0.85,
           "pts": [
             [
               713.52,
@@ -6915,25 +7663,135 @@
             ],
             [
               713.52,
-              -115.57
+              -108.12
             ],
             [
               715.35,
-              -115.57
+              -108.11
             ],
             [
               715.35,
               -104.38
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.074
+        },
+        {
+          "y": 0.795,
+          "pts": [
+            [
+              713.52,
+              -107.96
+            ],
+            [
+              713.52,
+              -108.71
+            ],
+            [
+              715.35,
+              -108.71
+            ],
+            [
+              715.35,
+              -107.95
+            ]
+          ],
+          "ground_roll_m": 0.091
+        },
+        {
+          "y": 0.724,
+          "pts": [
+            [
+              713.52,
+              -108.55
+            ],
+            [
+              713.52,
+              -109.31
+            ],
+            [
+              715.35,
+              -109.31
+            ],
+            [
+              715.35,
+              -108.55
+            ]
+          ],
+          "ground_roll_m": 0.091
+        },
+        {
+          "y": 0.694,
+          "pts": [
+            [
+              713.52,
+              -109.15
+            ],
+            [
+              713.52,
+              -114.67
+            ],
+            [
+              715.35,
+              -114.67
+            ],
+            [
+              715.35,
+              -109.15
+            ]
+          ],
+          "ground_roll_m": 0.137
+        },
+        {
+          "y": 0.704,
+          "pts": [
+            [
+              713.52,
+              -114.51
+            ],
+            [
+              713.53,
+              -121.23
+            ],
+            [
+              715.36,
+              -121.23
+            ],
+            [
+              715.35,
+              -114.51
+            ]
+          ],
+          "ground_roll_m": 0.101
+        },
+        {
+          "y": 0.82,
+          "pts": [
+            [
+              713.53,
+              -121.07
+            ],
+            [
+              713.53,
+              -123.02
+            ],
+            [
+              715.36,
+              -123.02
+            ],
+            [
+              715.36,
+              -121.07
+            ]
+          ],
+          "ground_roll_m": 0.13
         },
         {
           "y": 0.855,
           "pts": [
             [
-              713.52,
-              -115.41
+              713.53,
+              -122.86
             ],
             [
               713.53,
@@ -6944,11 +7802,11 @@
               -126.6
             ],
             [
-              715.35,
-              -115.41
+              715.36,
+              -122.86
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.038
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -7085,26 +7943,48 @@
               -5.05
             ],
             [
-              330.51,
-              -4.94
+              326.64,
+              -4.98
             ],
             [
-              330.49,
-              -3.11
+              326.63,
+              -3.15
             ],
             [
               318.14,
               -3.22
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.129
         },
         {
-          "y": 0.805,
+          "y": 0.739,
           "pts": [
             [
-              330.35,
-              -4.95
+              326.48,
+              -4.98
+            ],
+            [
+              336.16,
+              -4.9
+            ],
+            [
+              336.14,
+              -3.07
+            ],
+            [
+              326.47,
+              -3.15
+            ]
+          ],
+          "ground_roll_m": 0.119
+        },
+        {
+          "y": 0.8,
+          "pts": [
+            [
+              336.0,
+              -4.9
             ],
             [
               342.7,
@@ -7115,11 +7995,11 @@
               -3.01
             ],
             [
-              330.33,
-              -3.12
+              335.98,
+              -3.07
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.068
         }
       ],
       "note": "A BOARD CROSSING OVER SOUTH WATER STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -7380,26 +8260,48 @@
               -102.15
             ],
             [
-              329.93,
-              -102.25
+              326.66,
+              -102.22
             ],
             [
-              329.95,
-              -100.42
+              326.68,
+              -100.39
             ],
             [
               317.6,
               -100.32
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.133
+        },
+        {
+          "y": 0.789,
+          "pts": [
+            [
+              326.5,
+              -102.22
+            ],
+            [
+              334.39,
+              -102.29
+            ],
+            [
+              334.41,
+              -100.46
+            ],
+            [
+              326.52,
+              -100.39
+            ]
+          ],
+          "ground_roll_m": 0.11
         },
         {
           "y": 0.85,
           "pts": [
             [
-              329.77,
-              -102.25
+              334.23,
+              -102.29
             ],
             [
               342.12,
@@ -7410,11 +8312,11 @@
               -100.52
             ],
             [
-              329.79,
-              -100.42
+              334.25,
+              -100.46
             ]
           ],
-          "ground_roll_m": 0.002
+          "ground_roll_m": 0.071
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -7447,7 +8349,7 @@
       "run_m": 22.06,
       "footway_decks": [
         {
-          "y": 0.87,
+          "y": 0.865,
           "pts": [
             [
               223.15,
@@ -7455,25 +8357,69 @@
             ],
             [
               223.15,
-              -111.58
+              -104.72
             ],
             [
               224.98,
-              -111.58
+              -104.72
             ],
             [
               224.98,
               -100.39
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.116
+        },
+        {
+          "y": 0.758,
+          "pts": [
+            [
+              223.15,
+              -104.56
+            ],
+            [
+              223.16,
+              -118.44
+            ],
+            [
+              224.99,
+              -118.43
+            ],
+            [
+              224.98,
+              -104.56
+            ]
+          ],
+          "ground_roll_m": 0.12
+        },
+        {
+          "y": 0.837,
+          "pts": [
+            [
+              223.16,
+              -118.28
+            ],
+            [
+              223.16,
+              -119.63
+            ],
+            [
+              224.99,
+              -119.63
+            ],
+            [
+              224.99,
+              -118.27
+            ]
+          ],
+          "ground_roll_m": 0.118
         },
         {
           "y": 0.87,
           "pts": [
             [
-              223.15,
-              -111.42
+              223.16,
+              -119.47
             ],
             [
               223.16,
@@ -7484,11 +8430,11 @@
               -122.61
             ],
             [
-              224.98,
-              -111.42
+              224.99,
+              -119.47
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.046
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -7788,26 +8734,48 @@
               -104.15
             ],
             [
-              575.35,
-              -104.25
+              571.49,
+              -104.22
             ],
             [
-              575.37,
-              -102.42
+              571.5,
+              -102.39
             ],
             [
               563.02,
               -102.32
             ]
           ],
-          "ground_roll_m": 0.002
+          "ground_roll_m": 0.11
         },
         {
-          "y": 0.853,
+          "y": 0.818,
           "pts": [
             [
-              575.19,
-              -104.24
+              571.33,
+              -104.21
+            ],
+            [
+              581.6,
+              -104.29
+            ],
+            [
+              581.61,
+              -102.46
+            ],
+            [
+              571.34,
+              -102.38
+            ]
+          ],
+          "ground_roll_m": 0.139
+        },
+        {
+          "y": 0.85,
+          "pts": [
+            [
+              581.44,
+              -104.29
             ],
             [
               587.54,
@@ -7818,11 +8786,11 @@
               -102.51
             ],
             [
-              575.21,
-              -102.41
+              581.45,
+              -102.46
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.038
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -7863,25 +8831,69 @@
             ],
             [
               467.13,
-              -113.56
+              -106.11
             ],
             [
               468.96,
-              -113.56
+              -106.11
             ],
             [
               468.96,
               -102.38
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.098
+        },
+        {
+          "y": 0.757,
+          "pts": [
+            [
+              467.13,
+              -105.95
+            ],
+            [
+              467.14,
+              -116.84
+            ],
+            [
+              468.97,
+              -116.84
+            ],
+            [
+              468.96,
+              -105.95
+            ]
+          ],
+          "ground_roll_m": 0.135
+        },
+        {
+          "y": 0.735,
+          "pts": [
+            [
+              467.14,
+              -116.68
+            ],
+            [
+              467.14,
+              -120.42
+            ],
+            [
+              468.97,
+              -120.42
+            ],
+            [
+              468.97,
+              -116.68
+            ]
+          ],
+          "ground_roll_m": 0.124
         },
         {
           "y": 0.843,
           "pts": [
             [
-              467.13,
-              -113.4
+              467.14,
+              -120.26
             ],
             [
               467.14,
@@ -7892,11 +8904,11 @@
               -124.59
             ],
             [
-              468.96,
-              -113.4
+              468.97,
+              -120.26
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.116
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -8262,26 +9274,48 @@
               -103.14
             ],
             [
-              451.92,
-              -103.24
+              446.87,
+              -103.2
             ],
             [
-              451.94,
-              -101.41
+              446.88,
+              -101.37
             ],
             [
               439.59,
               -101.31
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.114
+        },
+        {
+          "y": 0.758,
+          "pts": [
+            [
+              446.71,
+              -103.2
+            ],
+            [
+              456.38,
+              -103.28
+            ],
+            [
+              456.4,
+              -101.45
+            ],
+            [
+              446.72,
+              -101.37
+            ]
+          ],
+          "ground_roll_m": 0.103
         },
         {
           "y": 0.845,
           "pts": [
             [
-              451.76,
-              -103.24
+              456.22,
+              -103.28
             ],
             [
               464.11,
@@ -8292,11 +9326,11 @@
               -101.51
             ],
             [
-              451.78,
-              -101.41
+              456.24,
+              -101.45
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.099
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -8329,7 +9363,7 @@
       "run_m": 22.05,
       "footway_decks": [
         {
-          "y": 0.855,
+          "y": 0.85,
           "pts": [
             [
               345.14,
@@ -8337,25 +9371,135 @@
             ],
             [
               345.14,
-              -112.57
+              -105.72
             ],
             [
               346.97,
-              -112.57
+              -105.72
             ],
             [
               346.97,
               -101.39
             ]
           ],
-          "ground_roll_m": 0.007
+          "ground_roll_m": 0.08
+        },
+        {
+          "y": 0.788,
+          "pts": [
+            [
+              345.14,
+              -105.56
+            ],
+            [
+              345.14,
+              -106.32
+            ],
+            [
+              346.97,
+              -106.31
+            ],
+            [
+              346.97,
+              -105.56
+            ]
+          ],
+          "ground_roll_m": 0.084
+        },
+        {
+          "y": 0.722,
+          "pts": [
+            [
+              345.14,
+              -106.16
+            ],
+            [
+              345.14,
+              -106.91
+            ],
+            [
+              346.97,
+              -106.91
+            ],
+            [
+              346.97,
+              -106.15
+            ]
+          ],
+          "ground_roll_m": 0.084
+        },
+        {
+          "y": 0.7,
+          "pts": [
+            [
+              345.14,
+              -106.75
+            ],
+            [
+              345.15,
+              -118.24
+            ],
+            [
+              346.98,
+              -118.23
+            ],
+            [
+              346.97,
+              -106.75
+            ]
+          ],
+          "ground_roll_m": 0.126
+        },
+        {
+          "y": 0.724,
+          "pts": [
+            [
+              345.15,
+              -118.08
+            ],
+            [
+              345.15,
+              -118.83
+            ],
+            [
+              346.98,
+              -118.83
+            ],
+            [
+              346.98,
+              -118.07
+            ]
+          ],
+          "ground_roll_m": 0.085
+        },
+        {
+          "y": 0.791,
+          "pts": [
+            [
+              345.15,
+              -118.67
+            ],
+            [
+              345.15,
+              -119.43
+            ],
+            [
+              346.98,
+              -119.43
+            ],
+            [
+              346.98,
+              -118.67
+            ]
+          ],
+          "ground_roll_m": 0.085
         },
         {
           "y": 0.857,
           "pts": [
             [
-              345.14,
-              -112.41
+              345.15,
+              -119.27
             ],
             [
               345.15,
@@ -8366,11 +9510,11 @@
               -123.6
             ],
             [
-              346.97,
-              -112.41
+              346.98,
+              -119.27
             ]
           ],
-          "ground_roll_m": 0.002
+          "ground_roll_m": 0.084
         }
       ],
       "note": "A BOARD CROSSING OVER LAKE STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -8692,26 +9836,48 @@
               -402.3
             ],
             [
-              328.17,
-              -402.4
+              323.71,
+              -402.36
             ],
             [
-              328.18,
-              -400.57
+              323.72,
+              -400.53
             ],
             [
               315.83,
               -400.47
             ]
           ],
-          "ground_roll_m": 0.0
+          "ground_roll_m": 0.095
+        },
+        {
+          "y": 0.87,
+          "pts": [
+            [
+              323.55,
+              -402.36
+            ],
+            [
+              332.63,
+              -402.44
+            ],
+            [
+              332.64,
+              -400.61
+            ],
+            [
+              323.56,
+              -400.53
+            ]
+          ],
+          "ground_roll_m": 0.123
         },
         {
           "y": 0.945,
           "pts": [
             [
-              328.01,
-              -402.4
+              332.47,
+              -402.44
             ],
             [
               340.36,
@@ -8722,11 +9888,11 @@
               -400.67
             ],
             [
-              328.02,
-              -400.57
+              332.48,
+              -400.61
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.08
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -8900,7 +10066,7 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.93,
+          "y": 0.925,
           "pts": [
             [
               561.1,
@@ -8919,7 +10085,7 @@
               -402.46
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.116
         },
         {
           "y": 0.933,
@@ -8941,7 +10107,7 @@
               -402.56
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.123
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -9159,33 +10325,55 @@
       "run_m": 24.38,
       "footway_decks": [
         {
-          "y": 0.965,
+          "y": 0.964,
           "pts": [
             [
               437.81,
               -403.29
             ],
             [
-              450.16,
-              -403.39
+              446.3,
+              -403.36
             ],
             [
-              450.18,
-              -401.56
+              446.31,
+              -401.53
             ],
             [
               437.83,
               -401.46
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.114
+        },
+        {
+          "y": 0.884,
+          "pts": [
+            [
+              446.14,
+              -403.36
+            ],
+            [
+              454.03,
+              -403.42
+            ],
+            [
+              454.04,
+              -401.59
+            ],
+            [
+              446.15,
+              -401.53
+            ]
+          ],
+          "ground_roll_m": 0.135
         },
         {
           "y": 0.965,
           "pts": [
             [
-              450.0,
-              -403.39
+              453.87,
+              -403.42
             ],
             [
               462.35,
@@ -9196,11 +10384,11 @@
               -401.66
             ],
             [
-              450.02,
-              -401.56
+              453.88,
+              -401.59
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.094
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
@@ -10608,8 +11796,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.81,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed barber shop (barber-surgeon), for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `barber_shop`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.81 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.8,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed barber shop (barber-surgeon), for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `barber_shop`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_wells_north_hitching_inf_shoemaker_shop",
@@ -11076,8 +12264,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "forwarding",
       "clear_of_track_m": 2.66,
-      "stands_on_m": 0.72,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE J. H. Kinzie's Store, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `forwarding_and_commission_store`, which the street edge's table of businesses reads as a forwarding (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 4.20 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.72 m with 2.66 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.67,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE J. H. Kinzie's Store, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `forwarding_and_commission_store`, which the street edge's table of businesses reads as a forwarding (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 4.20 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.67 m with 2.66 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_north_hitching_recon_1835_blk_south_water_franklin_c2_08",
@@ -11180,8 +12368,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.76,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C4 wide two-story store or mixed block #01, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `wide_two_story_store_or_mixed_block`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.76 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.75,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C4 wide two-story store or mixed block #01, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `wide_two_story_store_or_mixed_block`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.75 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_south_hitching_exchange_coffee_house",
@@ -11859,7 +13047,7 @@
           "thick_m": 0.1
         }
       ],
-      "note": "A tie rail in the verge, where a horse waits on its shoeing or a cart on its wheel, at Matthias Mason & Co.'s Blacksmith Shop. WHY HERE is a rule and not a placement: the front's trade is `blacksmith_shop` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a works, and a works's front takes tie rail. WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — two posts 2.44 m apart on the verge line, 2.98 m out from the lot line, and a rail at 1.03 m, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A tie rail in the verge, where a horse waits on its shoeing or a cart on its wheel, at Matthias Mason & Co.'s Blacksmith Shop. WHY HERE is a rule and not a placement: the front's trade is `blacksmith_shop` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a works, and a works's front takes tie rail. WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — two posts 2.44 m apart on the verge line, 2.98 m out from the lot line, and a rail at 1.03 m, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_dearborn_north_wagon_apron_dole_warehouse_south",
@@ -11982,7 +13170,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at George W. Dole's Warehouse. WHY HERE is a rule and not a placement: the front's trade is `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at George W. Dole's Warehouse. WHY HERE is a rule and not a placement: the front's trade is `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_franklin_north_stoop_recon_1835_blk_lake_franklin_c2_01",
@@ -12211,7 +13399,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at The Old Bank Building. WHY HERE is a rule and not a placement: the front's trade is `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.78 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at The Old Bank Building. WHY HERE is a rule and not a placement: the front's trade is `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.63 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_market_north_stoop_recon_1835_blk_lake_market_c2_01",
@@ -13387,7 +14575,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at J. H. Kinzie's Store. WHY HERE is a rule and not a placement: the front's trade is `forwarding_and_commission_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.69 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at J. H. Kinzie's Store. WHY HERE is a rule and not a placement: the front's trade is `forwarding_and_commission_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.50 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_mounting_block_exchange_coffee_house",
@@ -13430,7 +14618,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_mounting_block_new_york_house",
@@ -13473,7 +14661,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_stoop_exchange_coffee_house",
