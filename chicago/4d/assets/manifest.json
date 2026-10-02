@@ -3595,8 +3595,8 @@
     "recon_1835_north_h2_045__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 27788,
-      "inputs_sha256": "334abe5b893fd1c00275063116546bf8dbb6315d21acd6484190ff6cc0f13896",
+      "bytes": 27008,
+      "inputs_sha256": "069f62fca0fafd4a4005b35c55bd42ae440a196c1b935777b7466a354446bad5",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_045"
