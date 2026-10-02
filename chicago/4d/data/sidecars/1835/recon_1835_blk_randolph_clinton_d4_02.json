@@ -154,7 +154,98 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_fb_williams_samuel",
+      "name": "The Williams household — a free Black household of 1835",
+      "division": "unplaced",
+      "relation": "shared this roof",
+      "why": "the town's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Samuel Williams",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "labourer",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the corpus counts six or seven free coloured men at Chicago in August 1833 and the 1840 census counts fifty-three free coloured persons there, and between those two readings the town of 1 July 1835 cannot hold fewer free Black men than 1833 did. The whole of what is claimed is a free Black adult man of this town. REVIEW REQUIRED: this is a reconstruction of a Black resident of a town inside a state whose black laws made a certificate of freedom the condition of his residence, written from six surnames and no biography at all; AGENTS.md's standard holds it for review before a scene carrying it may be marked released. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lucy Williams",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. She fills the adult woman of the household shape this card was dealt — one of the three entirely free-coloured households the 1840 Chicago schedule enumerates, which is every reading of a free Black household this corpus holds. REVIEW REQUIRED, for the reason the head's card gives. No figure is drawn (L1)."
+        },
+        {
+          "name": "Thomas Williams",
+          "relationship": "child",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. A child under ten, filling the under-ten cell of the 1840 household shape this card was dealt. No age in years is written because the schedule counts in bands and this project writes no year it cannot read. REVIEW REQUIRED, for the reason the head's card gives. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_free_black.py (T-1377, of T-1177), the `free_black` sub-stage of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the re-admissions and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED and touches_removal FALSE, both deliberate: this is a reconstruction of Black residents and not of the removal, and borrowing that flag would borrow the weight of a subject this stage is not about. docs/RESEARCH/black_chicago_1835.md lists every source read and every refusal; docs/LIBERTIES.md carries the trade liberty."
+    },
+    {
+      "household": "hh_rc_dickinson_george",
+      "name": "The Dickinson household — a trade the rosters never printed",
+      "division": "west",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "George Dickinson",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "attorney",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the west division, at attorney. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_rc_dickinson_harriet",
+      "name": "Reconstructed household — Harriet Dickinson, a woman keeping her own house in the west division",
+      "division": "west",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Harriet Dickinson",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "schoolteacher",
+          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn schoolteacher, in the west division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+    },
+    {
+      "household": "hh_rc_kellogg_joseph",
+      "name": "The Kellogg household — a trade the rosters never printed",
+      "division": "west",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Joseph Kellogg",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "soap_and_candle_maker",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the west division, at soap_and_candle_maker. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    }
+  ],
   "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",

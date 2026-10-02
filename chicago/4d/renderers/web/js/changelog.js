@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
+    items: [
+      'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
+      'Families take a house of the kind their trade and means suggest, in their own part of town. People on their own take a free bed in a boarding house, or board with a family when the beds run out.',
+      'The town now averages seven people a dwelling, under the 1835 census\u2019s eight. Some houses are crowded: one large house on Washington Street holds 29.',
+      'The people are real records. Which roof each one slept under is our reconstruction, and the card says so. The Liberties page explains how they were placed (L352).',
+    ] },
   { v: 1301, ts: '2026-10-02T12:50:19.308Z', date: 'Oct 2, 2026, 7:50 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
     items: [
       'Walk the back lots south of Washington Street. Behind the stables there are now hay ricks. Nineteen stables across the town have one, all outside the 1835 hay limits.',

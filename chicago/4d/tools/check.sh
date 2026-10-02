@@ -6034,6 +6034,21 @@ step "the boarders re-derive, and no house sleeps more than the 1840 enumerator 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/seat_lodgers_1835.py --self-test
 
+# T-1971, piece 1 of T-1965. THE PRESENT WITH NO ROOF. 1,003 households the residents
+# layer holds present on 1 July 1835 reached no roof, while 223 of the programme's own
+# dwellings stood with nobody in them. `house_the_present_1835.py` seats each one beside
+# its card (the cards are re-derived whole, so a seat cannot live on them) and
+# compile_scene's `overlay_housing` carries it to the building card. Refused: a seat on a
+# roof the scene does not stand, on a documented building or a roof whose record already
+# names its occupants (unless it names THIS household), a household seated twice or also
+# housed by another overlay, any present household left over, and a town more crowded
+# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L352.
+step "every household present on the scene date sleeps under a standing roof" \
+  python3 tools/house_the_present_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/house_the_present_1835.py --self-test
+
 # T-1352, piece 1 of T-1178. THE ROW THE ORDER BOOK CANNOT APPORTION. `persons/transient/
 # town` sits in the book above with no target and no quota, because the town model bounds
 # the town's RESIDENTS and the land-sale crowd, the immigrants awaiting lots, the harbour

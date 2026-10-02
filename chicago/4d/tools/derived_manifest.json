@@ -1845,6 +1845,21 @@
       ]
     },
     {
+      "why": "T-1971: the housing deal seats every household present on the scene date that no card or overlay houses, on a standing dwelling, beside its card. It reads the residents layer, the address book, the placement policy, the lodgers' ledger and the scene's own structures through compile_scene's compile_residents with its own overlay switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs immediately before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/house_the_present_1835.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_housing_seats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/house_the_present_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "The scene compiles from the residents layer, so it runs last but one.",
       "command": [
         "python3",

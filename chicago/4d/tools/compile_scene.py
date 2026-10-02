@@ -2153,7 +2153,7 @@ def compile_lodging() -> dict[str, dict]:
     return out
 
 
-def compile_residents() -> dict[str, list[dict]]:
+def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
     """structure_id -> the households the residents layer attaches to it.
 
     THE REASON THIS EXISTS. `data/residents/` is a dataset layer with no geometry
@@ -2225,6 +2225,8 @@ def compile_residents() -> dict[str, list[dict]]:
                 "research_note": hh.get("research_note", ""),
             })
     overlay_lodgers(out)
+    if housing:
+        overlay_housing(out)
     for households in out.values():
         households.sort(key=lambda h: h["household"])
     return out
@@ -2325,6 +2327,52 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
                 "note": "",
             }],
             "research_note": "",
+        })
+
+
+def overlay_housing(out: dict[str, list[dict]]) -> None:
+    """Put T-1971's housing deal on the building card of the roof it names.
+
+    THE PRESENT WITH NO ROOF. 1,003 households the residents layer holds present on
+    1 July 1835 reached no roof through their own card, and their cards cannot be given
+    one: every folder is re-derived whole and two stages refuse a roof outright. So
+    `tools/house_the_present_1835.py` writes the seat beside the card, exactly as the
+    lodgers' seats travel, and this carries it to the one surface where a visitor meets
+    a resident. `housing=False` on `compile_residents` is how that tool reads the town
+    without reading its own deal back.
+
+    The block says which half is invented: the people are the layer's, with their own
+    grades and their own evidence on their cards; the roof over them is the deal's
+    (docs/LIBERTIES.md L352), and any other roof the deal admits would have done.
+    """
+    path = DATA / "reconstruction" / "1835_housing_seats.json"
+    if not path.exists():
+        return
+    for seat in load(path).get("seats", []):
+        card_path = DATA / "residents" / seat["file"]
+        if not card_path.exists():
+            continue
+        hh = load(card_path)
+        out.setdefault(seat["place"], []).append({
+            "household": hh["id"],
+            "name": hh["name"],
+            "division": hh.get("division", ""),
+            "relation": seat["relation"],
+            "why": seat["words"],
+            "sources": [],
+            "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was "
+                      "present in the town on 1 July 1835 and no source says where it slept; "
+                      "the roof is the invention and the people are not. Their card carries "
+                      "their evidence and is not touched by the seat."),
+            "persons": [{
+                "name": person.get("name", ""),
+                "relationship": person.get("relationship", ""),
+                "grade": person.get("grade", "reconstructed"),
+                "occupation": ((person.get("occupation") or {}).get("value", "")
+                               if isinstance(person.get("occupation"), dict) else ""),
+                "note": person.get("note", ""),
+            } for person in hh.get("persons", [])],
+            "research_note": hh.get("research_note", ""),
         })
 
 
