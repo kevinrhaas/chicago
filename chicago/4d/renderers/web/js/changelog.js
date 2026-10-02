@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1324, ts: '2026-10-02T21:04:24.932Z', date: 'Oct 2, 2026, 4:04 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+  { v: 1325, ts: '2026-10-02T21:32:57.391Z', date: 'Oct 2, 2026, 4:32 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
       'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
       'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 142 to 130.',
+    ] },
+  { v: 1324, ts: '2026-10-02T20:59:16.621Z', date: 'Oct 2, 2026, 3:59 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+    items: [
+      'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
+      'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
+      'Where a street ends on another, such as Market at Lake or Wells at South Water, it now blends into the street it joins instead of stopping on a hard line.',
+      'Along the river side of South Water, the worn bank meets the road in a soft, uneven edge instead of rows of square teeth, and road edges at the river and at cut banks no longer step like stairs.',
+      'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
     ] },
   { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [

@@ -201,7 +201,7 @@ export const CENSUS = () => {
   }
 
   // ---- streets: the drawn ribbon against the committed centreline ----
-  // `addRecord()` emits its corners at most `track_width_m / 2` either side of
+  // `addRecord()` emits its corners at most `drawn_width_m / 2` either side of
   // the centreline and clips them INWARDS at the waterline, so every drawn
   // vertex owes a centreline within its own street's half-width. The nearest
   // over the whole set is taken, which is the generous reading: a vertex has to
@@ -240,7 +240,13 @@ export const CENSUS = () => {
   const nearestRoad = (e, n) => {
     let best = Infinity;
     for (const rec of a.streets.records ?? []) {
-      const half = (rec.track_width_m ?? 6) * 0.5;
+      // T-1987. The half-width `addRecord()` lays is the WORKED one since
+      // T-1811 (`drawn_width_m`: the track plus the worn shoulders), so that
+      // is what a vertex owes. Read against the wheel track alone, half the
+      // town's vertices counted as strays and the check stayed red on dev for
+      // a reason that was never a misplaced road. A mirrored ribbon still runs
+      // where no centreline is within even the worked width.
+      const half = (rec.drawn_width_m ?? rec.track_width_m ?? 6) * 0.5;
       const b = rec.bounds;
       if (b && (e < b.e0 || e > b.e1 || n < b.n0 || n > b.n1)) continue;
       const line = rec.drawn ?? rec.path;
