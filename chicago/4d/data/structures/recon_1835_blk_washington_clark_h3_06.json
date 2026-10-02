@@ -174,13 +174,13 @@
       "words": "whitewashed clapboard on a balloon frame under a weathered roof — a boarding house, a year old (rule F-B: a boarding-house or tavern keeper's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 15,
-      "beds_crowded": 35,
+      "beds_ordinary": 14,
+      "beds_crowded": 33,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_washington_clark_h3_06]",
       "sizes": {
-        "upper_windows": "ceil(35 crowded beds / 3 to a chamber) = 12, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.96 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(15 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
+        "upper_windows": "ceil(33 crowded beds / 3 to a chamber) = 11, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.96 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(14 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }
