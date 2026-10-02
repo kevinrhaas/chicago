@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1325, ts: '2026-10-02T21:31:49.234Z', date: 'Oct 2, 2026, 4:31 PM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+  { v: 1326, ts: '2026-10-02T21:44:47.629Z', date: 'Oct 2, 2026, 4:44 PM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
     items: [
       'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
       'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
       'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
+    ] },
+  { v: 1325, ts: '2026-10-02T21:20:57.849Z', date: 'Oct 2, 2026, 4:20 PM CT', title: '37 shopkeepers and lawyers no longer read as owed a shop', kind: 'fix',
+    items: [
+      'Open the card of one of the town\u2019s reconstructed grocers, hardware or dry-goods merchants, lawyers or forwarders and look under \u201cWere they at work?\u201d. It used to say they kept a house of their own that nobody had built. It now says no house is owed, and gives the count that settles it.',
+      'Why: the State census of December 1835 counts 44 stores, and the town already holds 65 on 1 July. It counts 22 lawyers, which scales to 15 for a July town, and we hold 15. One more shop or office would be more than the census printed.',
+      'These 37 people are our reconstruction. Nobody a source names is told this: a documented watchmaker, E. H. Mulford, still waits on his own answer.',
+      'People in town still owed a place to work: 37 fewer than before.',
     ] },
   { v: 1324, ts: '2026-10-02T20:59:16.621Z', date: 'Oct 2, 2026, 3:59 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
