@@ -205,6 +205,52 @@ link-only (`local: null`).
 - **Queries:** IA `"Frost & Granger" "1612 Prairie"` (19 — only the 1901 round-up and Who's Who entries for Bishop Anderson), `"Frost & Granger" "C. E. Brown"` (8, none relevant), `"Frost & Granger" "Prairie" AND year:[1900 TO 1902]` (47; AABN/Engineering News permit lists name other Frost & Granger Prairie Ave jobs, not 1612), `"1612 Prairie" AND year:[1900 TO 1902]` (16), `"Studebaker residence"` (17).
 - **Nothing recorded:** no description, permit or plan of the 1901 remodel found beyond the collection's 10 Nov 1901 round-up. Side finding (not recorded): c.1899–1900 the house was used by J. A. Dowie's followers — Edward A. Flanders 'of 1612' (1900), 'free room and meals, 1612 Prairie' (Tribune 13 Jul 1900) and a church history ('a large, beautiful home at 1612 Prairie Avenue was opened' for prayer) — i.e. an institutional interlude between the Studebakers and C. E. Brown.
 
-## Running summary
+### 1720 Tyrrell/Walker (pa-1720-55)
 
-21 records so far: RE&BJ 10, Tribune 8, Blue Book 1904 3.
+- **Queries:** IA `"1720 Prairie" AND year:[1905 TO 1913]` (41), `Tyrrell "Prairie" AND year:[1866 TO 1880]` (noise), `"James M. Walker" "Prairie" AND (residence OR house)` (noise).
+- **Recorded (1):** Abendpost 6 Jan 1912 — fire in the carriage house behind Mrs James M. Walker's dwelling, 1720 S. Prairie.
+- **Seen, not recorded:** Tribune society notes placing Mrs James M. Walker at 1720 in 1907, 1910, 1911, Feb and Nov 1912; Mrs E. J. Hayes (dog breeder) and Daniel Hayes 'at 1720' 1907–10 (rear tenants?); 'Mrs. George M. Pullman, 1720' (Abendpost/Tribune 1912 — misprint for 1729); Tribune 5 Mar 1886, 'James R. Walker of No. 1720' (before his move to 1726).
+- **Conflict:** the library's 'encyclopedia marks 1910 loss' — the house stood and was occupied in 1912.
+
+### 1827 Doane (pa-1827-14)
+
+- **Queries:** IA `"1827 Prairie" AND year:[1900 TO 1912]` (34), `"Doane residence" Prairie` (11), `"Doane" "Prairie" AND (fire OR razed …) AND year:[1925 TO 1937]` (noise — the 1927/1936 loss conflict not resolved).
+- **Recorded (2):** Tribune 11 Mar 1900 (Dowie negotiating for the vacant house; 80 × 170 ft; cost $265,000; owned by Riley & Robinson of New York); Sonntagpost 30 Nov 1902 (foreclosure sale to A. A. Sprague, $65,000; lot 72 × 177).
+- **Seen, not recorded:** Tribune 13 Feb 1889 (wedding reception at the Doane residence); Tribune 16 Apr 1909 ('Mrs. Meeker's home, 1827'); 1911–12 Radford Architectural Co. / American Carpenter & Builder offices at 1827; Tribune 2 Jul 1914 ('rented part of the Doane residence').
+- **Bearing:** no Blue Book household at 1827 in 1904; the house stood, in Sprague's hands, perhaps empty.
+
+### 1637 Grosvenor/Spalding/Hibbard Jr. (pa-1637-45)
+
+- **Queries:** IA `"1637 Prairie" AND year:[1895 TO 1910]` (58), `"Hibbard residence" Prairie` (17).
+- **Recorded (2):** Sonntagpost 8 Apr 1900 (Wm. P. Elliott to Wm. G. Hibbard jr., 58 ft front through to the IC, $23,000); Tribune 30 Oct 1921 ('the former three story Hibbard residence' remodelled for Henschien & McLaren's offices).
+- **Seen, not recorded:** Abendpost 27 Jan 1899 (1637 ↔ 1709 exchange; '58 F. durch bis Illinois Zentralbahn'); Abendpost 28 Jul 1899 (tax list, 'Spalding, Neffe, 1637'); Tribune 1895-08-21 and 1899-01-02 (Spaldings at 1637).
+
+### Names searched with no usable result
+
+- 1630 Brust: `Brust "Prairie" … (house OR cottage OR frame OR fire OR sale)` — nothing on the house.
+- 1736 McBirney/Ingraham: `McBirney "Prairie" AND (addition OR mansard OR story OR permit OR alterations)`, `Ingraham "Prairie" 1866–1880`, `"1736 Prairie" 1880–1925` — occupancy only (McBirney died there Nov. 1910; James R. Walker at 1736 by 1912; Day McBirney 'owner, 1736' in 1907 farm ads). The mansard phase is still open.
+- 1638 Gregory: `"1638 Prairie" … (fire OR rent OR sale OR addition OR barn)` — nothing new.
+- 1815 Meeker/Heun: `Meeker Heun 1901–1906`, `"1815 Prairie" 1901–1906` — society/occupancy only; the Heun remodel not found.
+- 1709 Williams (pre-1883): `"N. O. Williams" Prairie`, `"Kellogg" "Prairie" 1881–1883 permit` — nothing.
+- 1721 alteration permit 1902: Engineering News / AABN `Walker|Spalding "Prairie Ave" 1901–1903` — nothing.
+- '<owner> residence' batch (Henderson, Dent, Kellogg, McBirney, Walker, Wheeler, Marsh, Harvey, Gregory, Coleman, Jones, Meeker, Field): only the Dexter, Ames, Hibbard and Doane hits above were usable.
+
+## Page-index correction (IMPORTANT — affects the third pass too)
+
+On IA, BookReader `/page/nN` is the index of DISPLAYED leaves, while search-inside (`inside.php`) and the IIIF `$N` identifier count scanned leaves. For the Tribune microfilm and the Abendpost the two coincide, but for book-type scans they do not: the 1904 Blue Book and RE&BJ vols 25/26, 33, 37, 39 run one ahead (n = leaf − 1); RE&BJ v.28 (1886) runs 3 ahead early in the volume and 9 ahead by p. 649. This pass's book-scan URLs were corrected by comparing each IIIF leaf with the BookReader page images (n-index checked image-to-image). A check of `stream-newspapers-north.json` (the third pass) was run the same way (IIIF leaf at the recorded index vs the BookReader page image). All Tribune/Abendpost/ENR/American Artisan pages match. Five book-scan records point at the wrong page and should be corrected by that stream's owner (not edited here):
+  - np-1630-school-directory-1905-06-louisa-brust: n129 → **n124**
+  - np-1635-womens-clubs-directory-1903-04-springer: n131 → **n130**
+  - np-1700-bluebook-1904-blewett-lee: n583 → **n582**
+  - np-1706-bluebook-1904-george-glessner: n543 → **n542**
+  - np-1708-bluebook-1904-carpenter: n502 → **n501**
+  (np-1609-tribune-1904-10-30-to-rent-frame could not be fetched during the check; the two Abendpost records without a /page/ index were not checked.)
+
+## Shared page with the south stream
+
+The 1904 Blue Book street list p. 186 (n187) is recorded by both streams (npo-bluebook-1904-p186-prairie-avenue-1600-1816 and nps-bluebook-1904-prairie-street-p186-east-1901-2009); `build_images.py` merges them into the north-owners record, so its notes cover both columns. Page 187 (n188) is left to the south stream's record; 1824 and 1834 are tied to 1904 through their alphabetical-list entries instead.
+
+## Summary
+
+27 records: RE&BJ 10, Tribune 10, Abendpost/Sonntagpost 3, Blue Book 1904 4 (one page shared with the south stream). All text, link-only.
+
+Untried / blocked: the Chicago Economist (not on IA; HathiTrust 403); RE&BJ volumes other than the seven on IA (1883–84, 1886, 1891, 1892, 1895–97); American Contractor and Construction News (not found as runs on IA); Inter Ocean (no run on IA).

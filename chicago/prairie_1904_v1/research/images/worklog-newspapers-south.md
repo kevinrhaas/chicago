@@ -228,3 +228,126 @@ north stream** and were not recorded here.
   Carl and Abraham Meyer; 2013: Mr. & Mrs. William H. Reid). 2009: Allen family 1886, Hodges 1882 (an
   earlier house), Meyer wedding 1897; furnished rooms 1910–11; Tribune 5 Feb 1933 '15 rm … fine interior
   brick res. 2009 Prairie' (OCR, not opened). 2013: Reid notices 1895–1909, Reynolds 1921–35.
+
+### 2100 Sherman (pa-2100-18)
+
+- **Queries:** `"2100 prairie" AND collection:pub_chicago-daily-tribune` (42); `"Sherman residence"`,
+  `"Sherman homestead"`, `"McCormick Neurological"` (Tribune); `"John B. Sherman" AND residence AND … year:1902–1906`.
+- **Recorded (2):** Tribune 9 Aug 1903 ('Widow Must Trim the Trees': Mrs. Sherman given the use of the
+  Chicago home with its trees and lawn; estate not to pay upkeep); Tribune 4 Sep 1907 (McCormick
+  Neurological College at 2100 Prairie).
+- **Seen, not recorded:** Sherman's death at 2100, 25–26 Feb 1902; Roloson notices at '2100' 1896–1907
+  (= 2109 misprints); Tribune 30 Sep 1908 (McCormick lives at 2100 and conducts his 'neurological
+  college' there); Tribune 23 Jul 1903 (the college incorporated).
+- **Bearing:** the house stood in 1904; no household in the Blue Books 1903–05; widow's life use from
+  1902; institutional use by 1907.
+
+### 1900, 1901, 1906, 1936, 2110, 1912, 1919 (east and west 1900 block, 2110)
+
+- **Queries:** `"<n> prairie" AND collection:pub_chicago-daily-tribune` for each (1900: 96; 1901: 114;
+  1906: 105; 1936: 57; 2110: 37; 1912: 89; 1919: 216).
+- **Recorded (6):** 1901 — Tribune 27 Oct 1929 (Crerar mansion, three storeys, being torn down);
+  1906 — Tribune 3 May 1918 (brownstone front, 12 rooms, 10,000 sq ft, wide lot), Tribune 18 Dec 1918
+  (1904–1906: two residences, 28 rooms, 6 baths, large 2-storey brick garage), Tribune 6 Sep 1936
+  ('Old Chicago Hearthstones': 28-room brownstone, No. 1904 'adjoins the main building');
+  1919 — Tribune 18 Dec 1910 (lot 60 × 177½).
+- **Seen, not recorded:** 1900 — 1913 reopening as the family residence; Tribune 6 Mar 1921 '16 rm. res.,
+  1900 Prairie' (OCR, not opened). 1936 — Hump Hairpin Mfg. Co. at 1936 'cor. 20th-st.' 1921 (the factory
+  on the Allerton site, as the library says); 1891 barn. 2110 — Mrs. Rees died at 2110 in Dec 1892;
+  Edson Keith Jr. family there 1896–1909 (Blue Books 1903–05 confirm 1904). 1912 — Lowden bought 1898
+  (12 Nov and 31 Dec 1898), sold to Mrs. T. B. Blackstone 1908; 1882 permit (already held via AABN).
+  1919 — 1882 barn permit (held), 1907 auction/sale to W. G. Beale, Gatlin Institute ads 1910–12.
+- **Bearing:** 1906 and 1904 are one brownstone building of two dwellings (Edson Keith's widow and her son
+  Walter W. Keith in 1904).
+
+### Calumet adjacent: 2008 Hanford (pa-2008-…-56), 2018 Wheeler–Kohn (pa-2018-…-31)
+
+- **Queries:** `"2008 Calumet"` / `"2018 Calumet"` / `"2020 Calumet"` AND Tribune collection (56 / 86 / 5);
+  Blue Book 1904 search inside ('2008', '2018').
+- **Recorded (3):** Blue Book 1904 Calumet Avenue street page (2008 Mrs. P. C. Hanford & dr.; 2018 J. A.
+  Kohn and the Harry W. Hahns); Tribune 24 Nov 1920 (2008: lot 75 × 177½ to a 20-ft alley, 3-storey,
+  20 rooms, 2-storey brick garage 75 × 30); Tribune 24 May 1911 (2018: large brick barn to rent).
+- **Rejected:** '2008 Calumet' rent ad 17 Nov 1889 ('2-story and cellar modern brick residence') —
+  the Hanfords were in residence then, so a misread (not checked on the image); '2018 Calumet, 12-room
+  brick' 28 Apr 1897 = 2918 on the image.
+- **Seen, not recorded:** Tribune 30 Sep 1883 permit (P. C. Hanford, two-story dwelling, 36 × 84 —
+  duplicates the AABN permit already held, which lacks the dimensions: **36 × 84 ft** is worth adding to
+  that record's notes); Hanford's death 1894; Kohn's death at 2018, 3 Mar 1903, and will 14 Mar 1903;
+  2018 a boarding/lodging house 1908–1911; Mrs. Thomas Ambrose at 2018 in 1908.
+
+### Second Presbyterian (pa-1936-s.-michigan-avenue-32) — the 1900 fire and rebuild
+
+- **Queries:** `"Second Presbyterian" AND fire AND collection:pub_chicago-daily-tribune AND year:1900`
+  (25), `"Second Presbyterian" AND collection:pub_chicago-daily-tribune AND year:1901` (26).
+- **Recorded (2, one with local image):** Tribune 10 Nov 1901 'Second Presbyterian Church, Open Today'
+  HALFTONE of the reconstructed church (tower and tall spire; 'only the walls and the tower remained');
+  Tribune 8 Nov 1901 'Will Be Dedicated on Sunday' (rebuilt on the former lines, almost fireproof;
+  pulpit and organ at the west end; Blackstone/Crerar memorial window at the east end; Fargo, Kellogg and
+  Balcom windows; Bartlett murals; $100,000).
+- **Seen, not recorded:** Tribune 9 Mar 1900 (the fire — already held as a19-tribune-1900-03-09-2ndpres-fire);
+  10 and 12 Mar, 30 May, 13 Aug 1900 (fire believed incendiary); 1 Jan 1901 (annual building review:
+  the rebuilding, cost estimated $85,000 — not opened).
+- **Bearing:** dedication Sunday 10 Nov 1901 — the church of 1904 is the rebuilt Renwick shell with its
+  spire (the spire's loss is later, 1929 per the landmark report).
+
+### 213–217 E. Cullerton (pa-213–217-…-27)
+
+- Cullerton Street was 20th Street; searched `"213/215/217 E. 20th" AND collection:pub_chicago-daily-tribune`
+  (0 / 10 / 2) and `"213/215/217 Cullerton"` (0).
+- **Recorded (2):** Tribune 14 Apr 1912 (217 E. 20th, brick, 11 rooms, 2 baths, $100); Tribune 29 Oct 1916
+  (217 E. 20th, 14 rooms; the same list gives **2000 Prairie: 19 rooms, 3 baths, large brick barn**).
+- **Seen, not recorded:** 215 E. 20th 'near Indiana' — a 10-room rooming house for sale 1909, rooms to rent
+  1910, 1915; 1943 war-work factory ads at 215 (a later use). Caveat: the 1909 renumbering; numbers
+  before 1909 on 20th Street were not checked.
+
+### Henry B. Clarke house at 4526 S. Wabash (pa-1827-…-28)
+
+- **Queries:** `"4526 Wabash"` (37; 7 in the Tribune), `"Chrimes" AND Wabash AND …Tribune` (29),
+  `"Clarke house" AND Wabash …` (noise).
+- **Recorded (1):** Tribune 10 Dec 1903 (Lydia C. Chrimes, widow of John Chrimes, died at 4526 Wabash, 8 Dec
+  1903).
+- **Seen, not recorded:** Tribune 8 Mar 1939 'Oldest in Chicago?' (Chrimes bought it in **1871** and moved it;
+  library says 1872); Tribune 3 Jan 1914 (Chrimes estate: Lydia Chrimes and Mary Walter at 4526);
+  Tribune 5 and 18 Mar 1939 (Mrs. Mary Walter's death); Bateman's *Historical Encyclopedia* (1926) on the
+  'Widow Clark's house' at 4526 Wabash (secondary).
+
+### Address-only lots south of 18th (building_ids [])
+
+- **Queries:** `"<n> prairie" AND collection:pub_chicago-daily-tribune` for 1945, 2000, 2001, 2003, 2010,
+  2011, 2017, 2018, 2026, 2101, 2120, 2123, 2125 (hits 34–175 each; 2018 needed a retry — the FTS backend
+  returned HTTP 502 several times this session; failed responses are no longer cached).
+- **Recorded (5):** 1945 — Tribune 29 Jul 1928 'Famous Homes' photograph of the Corwith house (local
+  image); 2000 — Tribune 29 Oct 1916 (19 rooms, 3 baths, large brick barn; recorded with the Cullerton
+  list); 2001 — Tribune 24 Apr 1887 ('large, fine residence; brick [barn]; steam heating') and 8 May 1919
+  (12-room corner house; garage); 2125 — Tribune 27 Jul 1902 (frame house and barn, lot 50 × 178½; a
+  10-room residence with barn in 1910).
+- **Rejected (OCR):** '2026 Prairie' for-sale ad 19 Apr 1891 = **3626** (stone front, 13 rooms — not the
+  Wahl house); '2120 Prairie' 9-room house 29 Apr 1887 = **2726**.
+- **Seen, not recorded:** 2003 — Tribune 25 Mar 1934 (Mrs. Henry T. Hoyt sold 'her old homestead at 2003');
+  2010 — Grey family 1895–1906 (Blue Book 1904: Mr. & Mrs. W. L. Grey & dr.), rooms to let 1891, 1900, 1904;
+  2011 — Tribune 12 Nov 1896 (Eureka C. Story-Dunlop estate: the residence at 2011 valued $30,000);
+  2017 — Tribune 11 Apr 1936 ('18 room house', later); 2018 — Herrick and de Teresa society notes
+  1890–1912 (E. Walter Herrick died at 2018 on 12 Feb 1905); 2101 — Pike family 1892–1907, 'barn, 2101
+  Prairie' 1909, Tribune 14 Feb 1922 (3-storey building to rent — later commercial); 2120 — Gorton
+  1893–1945, 1903 Farwells renting the Gorton house, 'barn; cement floor' 1909; 2123 — Avery will 1901,
+  Hubbart in 1904 (Blue Book).
+
+## Summary
+
+45 records: Chicago Tribune microfilm (IA) 37, Chicago Blue Book street/alphabetical pages 5,
+City Council proceedings 1, National Police Gazette 1 … (see the stream). Six are illustrations
+(Tribune 'Famous Homes' 1928: 1905, 1945, 2115, 2140; Tribune 1901 Second Presbyterian) — five stored
+locally via tools/fetch_image.py (public domain, pre-1929; bytes in kevinrhaas/chicago-images, logical paths
+research/images/files/…; tools/sync_image_store.py re-run so STORE.json lists them). Build check: 929
+records, no errors.
+
+**Untried / leads:**
+- The Chicago Economist and the Real Estate and Building Journal for 1900–05 are not on IA (the REBJ
+  volumes there stop in the 1890s) — the Robbins (2126) permit and the 2140 roof change need them, or the
+  UIC permit ledgers.
+- Blue Books 1900–02 and 1906–10 street pages (same method) would bracket every household change; only
+  1903, 1904, 1905 were read.
+- 'Famous Homes' 1928 north-half subjects (1701 Hibbard 5 Aug, 1800 Glessner 12 Aug, Spalding 19 Aug) —
+  for the north stream.
+- Lakeside/Chicago city directories for 1904 (non-society occupants at 2100, 2108, 2130) — not found on IA.
+- The Inter Ocean (not in Chronicling America; no IA run found) and the Abendpost beyond FTS snippets.

@@ -66,6 +66,60 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Fourth pass — north half by owner name, plus the trade weeklies (2026-10-02)
+
+`stream-newspapers-north-owners.json`: 27 link-only records; per-building log in
+`worklog-newspapers-north-owners.md`. Sources: Real Estate and Building Journal (10), Tribune (10),
+Abendpost/Sonntagpost (3), and the 1904 Blue Book (4).
+
+**What it establishes for 1904 (not applied to the library):**
+- **1904 households.** The 1904 Blue Book street list (p. 186) gives the 1904 household for most
+  north-half houses:
+  - 1637 was W. G. Hibbard Jr. (bought 1900), not the Spaldings.
+  - 1721 was Henry H. Walker.
+  - 1620 was Frank Van S. Hibbard.
+- **1721 Dexter.** The 1901 sale required the street-line front to be rebuilt or moved back to the
+  20-ft building line, and a 1903 notice mentions a pillared porch. The 1889 street-line front is
+  probably not the 1904 front.
+- **Measurements and permits:**
+  - **1709 Kellogg:** 50 × 90 ft, two storeys plus basement and attic, red brick with stone trim
+    (RE&BJ 1884).
+  - **1812 Wheeler:** house 30 × 80 ft, three storeys; barn 30 × 47 ft (1884 permits).
+- **Occupancy and sales:**
+  - **1811:** empty and for rent in April 1904.
+  - **1827 Doane:** vacant in 1900; foreclosure sale to A. A. Sprague in 1902.
+- **Open leads answered:**
+  - **1834:** Storey was Fernando Jones's tenant. The 1866–67 Van Osdel house stands, and the
+    mansard is from 1886.
+  - **1726:** James R. Walker's brick house (lot bought 1886), standing in 1904. Building id 51's
+    "frame, demolished 1880s" is wrong.
+  - **1620 vs 1616:** two houses. The 1922 ad describes 1616, the Stirling house.
+  - **Lots:** 1811 is 46½ ft (the Abendpost's 40 is an error). 1824 is 177 ft deep.
+- **1635 stays open.** The Springers had moved by the 1903 Blue Book, so the third pass's
+  "occupied 1903–04" rests on a stale listing. Whether the house stood in 1904 is unproven.
+
+**Conflicts with the library:**
+- **1720:** the "1910 loss" is wrong. The house and its carriage house stood in January 1912.
+- **1638 Shortall:** the attribution holds only for 1870–80. Shortall then built 1600 and 1608
+  (1884); in 1904, 1638 was the Gregory house.
+- **1823 Dent:** 40 × 80 ft, red brick and terra cotta (RE&BJ 1884), against AABN's 44 × 60 ft,
+  three storeys.
+- **1637:** three storeys (1921) against 2½ on the 1911 Sanborn.
+- **1729:** brick barn and dwelling (1891 permit) against a stone garage on the 1911 Sanborn.
+
+**An Internet Archive caveat for anyone citing book scans.** On IA, `/page/nN` is not always the
+image leaf:
+- Newspaper microfilm and the trade weeklies match.
+- Book scans are off by about 1 (Blue Books, most RE&BJ volumes) and by 3–9 in RE&BJ 1886.
+
+Check the page image before citing a locator. Five third-pass records were corrected on
+2026-10-02 (np-1630, np-1635, np-1700, np-1706, np-1708); n582 was checked by eye for Blewett Lee.
+
+**Still blocked:**
+- The Chicago Economist is not on IA, and HathiTrust returns 403.
+- Only 7 RE&BJ volumes are online.
+- No IA run of the Inter Ocean or the American Contractor.
+
 ## Third pass — newspapers for the north half's thin buildings (2026-10-02)
 
 `stream-newspapers-north.json`: 43 records, all link-only. The per-building log is

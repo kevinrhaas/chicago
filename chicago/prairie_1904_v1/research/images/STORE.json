@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 107512789,
+ "bytes": 107860218,
  "files": {
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
@@ -3092,6 +3092,14 @@
   "nps-2140-tribune-1928-07-15-famous-homes-photo-spires.jpg": {
    "bytes": 297402,
    "sha256": "3023bc2d6f2eb3d2c0ab9169b4265916ba8fe0832c40a03ecc9c7f3be5f29ab7"
+  },
+  "nps-2ndpres-tribune-1901-11-10-open-today-cut-thumb.jpg": {
+   "bytes": 27013,
+   "sha256": "ebb48efe416fc284904e70d436e3d6e00de0d84f51d9eb302477bc623c50e14e"
+  },
+  "nps-2ndpres-tribune-1901-11-10-open-today-cut.jpg": {
+   "bytes": 320416,
+   "sha256": "d96293cdee07974f48384221988cc0f24d2075ee84a6c8ad154fe16bb02972bc"
   },
   "st-champion-1908-elevated-boulevards-south-detail-thumb.jpg": {
    "bytes": 29313,

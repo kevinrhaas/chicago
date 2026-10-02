@@ -1294,5 +1294,631 @@
   "local": null,
   "verified": "viewed",
   "period": "near-period"
+ },
+ {
+  "id": "nps-1906-tribune-1918-05-03-brownstone-front-12-rooms",
+  "title": "\"To Rent—1906 Prairie-av. Brown stone front residence, 12 spacious rooms, 10,000 sq. ft. floor space; costly interior finish; solid mahogany paneling; steam heat; hardwood floors; wide lot; south and east exposure…\"",
+  "building_ids": [
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1906 S. Prairie Avenue"
+  ],
+  "date": "May 3, 1918",
+  "date_earliest": 1918,
+  "date_latest": 1918,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, May 3, 1918 (vol. 77 no. 106)",
+  "call_number": "per_chicago-daily-tribune_1918-05-03_77_106, page index 23",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1918-05-03_77_106/page/n23/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1918-05-03_77_106/page/n23_w1200.jpg",
+  "found_via": "IA full-text search '\"1906 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (run May–Dec 1918)",
+  "notes": "Read on the page: \"To Rent—1906 Prairie-av. Brown stone front residence, 12 spacious rooms, 10,000 sq. ft. floor space; costly interior finish; solid mahogany paneling; steam heat; hardwood floors; wide lot; south and east exposure; suitable for studio, school, publishing, mail order, or office purposes. Rent $90 month.\" Bearing: the Edson Keith house (Mrs. Edson Keith there in 1904, Blue Book) had a BROWNSTONE FRONT, 12 large rooms in the main house, about 10,000 sq ft of floor, on a WIDE lot with a south side yard (cf. Chicagology's 59-ft lot of 1868). Agrees with the 1898 vignette (a tall stone front with a side bay and portico) and supports the 1900 stream's reading that the mansard photo labelled 1906 shows 1900 instead.",
+  "measurements": [
+   {
+    "what": "front",
+    "value": "brownstone",
+    "locator": "Tribune 3 May 1918, p. index 23"
+   },
+   {
+    "what": "rooms",
+    "value": "12 (main house)",
+    "locator": "same"
+   },
+   {
+    "what": "floor area",
+    "value": "10,000 sq ft",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-1906-tribune-1918-12-18-1904-1906-two-residences-garage",
+  "title": "\"To Rent. 1904–1906 Prairie-av. 2 high class modern residences. 28 rooms, 6 baths, steam heat. Large 2 story brick garage…\"",
+  "building_ids": [
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1904 S. Prairie Avenue",
+   "1906 S. Prairie Avenue"
+  ],
+  "date": "December 18, 1918",
+  "date_earliest": 1918,
+  "date_latest": 1918,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, December 18, 1918 (vol. 77 no. 302)",
+  "call_number": "per_chicago-daily-tribune_1918-12-18_77_302, page index 25",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1918-12-18_77_302/page/n25/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1918-12-18_77_302/page/n25_w1200.jpg",
+  "found_via": "IA full-text search '\"1906 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (also 7 Dec 1918, 10 and 19 Jan 1919; 1916–17 sale ads for '1904–1906 Prairie')",
+  "notes": "Read on the page: \"TO RENT. 1904–1906 PRAIRIE-AV. 2 HIGH CLASS MODERN RESIDENCES. 28 rooms, 6 baths, steam heat. Large 2 story brick garage. Excellent location for …\" With the Tribune of 6 Sep 1936 ('Old Chicago Hearthstones', nps-1906-tribune-1936-09-06-old-chicago-hearthstones) this shows that 1904 and 1906 were TWO DWELLINGS IN ONE BUILDING — the Edson Keith house with the adjoining 1904 occupied by the son Walter W. Keith (Blue Book 1904: 'Mr. & Mrs. Walter W. Keith' at 1904, 'Mrs. Edson Keith' at 1906). This is Chicagology's 1898 division of the house into two residences with a second entrance at the north end. Model 1904–1906 as one brownstone-fronted mass with two front entrances, and a large two-storey brick stable/garage at the rear. 28 rooms and 6 baths in all.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "28 (both residences)",
+    "locator": "Tribune 18 Dec 1918, p. index 25"
+   },
+   {
+    "what": "baths",
+    "value": "6",
+    "locator": "same"
+   },
+   {
+    "what": "rear building",
+    "value": "large 2-storey brick garage",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-1906-tribune-1936-09-06-old-chicago-hearthstones",
+  "title": "\"Old Chicago Hearthstones: 1906 Prairie Avenue\" (Herma Clark column)",
+  "building_ids": [
+   "pa-1906-34"
+  ],
+  "addresses": [
+   "1906 S. Prairie Avenue",
+   "1904 S. Prairie Avenue"
+  ],
+  "date": "September 6, 1936",
+  "date_earliest": 1936,
+  "date_latest": 1936,
+  "creator": "Chicago Sunday Tribune (Herma Clark)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, September 6, 1936 (vol. 95 no. 36)",
+  "call_number": "per_chicago-daily-tribune_1936-09-06_95_36, page index 75",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1936-09-06_95_36/page/n75/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1936-09-06_95_36/page/n75_w1200.jpg",
+  "found_via": "IA full-text search '\"1906 prairie\" AND collection:pub_chicago-daily-tribune'; column read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"Many old houses along what once was the Gold Coast of Chicago are being wrecked, but the Edson Keith home still is standing. Now a rooming house, this brownstone mansion of twenty-eight rooms is an example of the fashion of the eighties in architecture. Beautiful walnut woodwork in the long hall reminds us that this was one of the most expensive houses of its time. Number 1904, which adjoins the main building, was for many years the home of a son, Walter W. Keith.\" Bearing: brownstone; 28 rooms in all; 1904 an adjoining part of the same building (see the 1918 ad). 'Fashion of the eighties' is the columnist's dating and conflicts with Chicagology's 1868 lot purchase — the house may be of the 1870s with 1880s work, or rebuilt; the library has no construction date. Later than the target year; link only.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "28",
+    "locator": "Tribune 6 Sep 1936, p. index 75"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "copyright — link only",
+  "rights_basis": "Published 1929 or later; renewal status not checked — link only",
+  "verified": "viewed",
+  "period": "later"
+ },
+ {
+  "id": "nps-1919-tribune-1910-12-18-field-residence-lot-60x177",
+  "title": "[Real estate transfers] \"…quitclaim deed from Mrs. Albertine Drummond, formerly Albertine Field, widow of Marshall Field Jr. … to Milton B. Pine of the former Field residence at 1919 Prairie avenue on a lot 60x177½ feet.\"",
+  "building_ids": [
+   "pa-1919-26"
+  ],
+  "addresses": [
+   "1919 S. Prairie Avenue"
+  ],
+  "date": "December 18, 1910",
+  "date_earliest": 1910,
+  "date_latest": 1910,
+  "creator": "Chicago Sunday Tribune (real estate column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, December 18, 1910 (vol. 69 no. 51)",
+  "call_number": "per_chicago-daily-tribune_1910-12-18_69_51, page index 89",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1910-12-18_69_51/page/n89/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1910-12-18_69_51/page/n89_w1200.jpg",
+  "found_via": "IA full-text search '\"1919 prairie\" AND collection:pub_chicago-daily-tribune'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"Record was made of a quitclaim deed from Mrs. Albertine Drummond, formerly Albertine Field, widow of Marshall Field Jr. of Chicago, to Milton B. Pine of the former Field residence at 1919 Prairie avenue on a lot 60x177½ feet. It was executed Dec. 14, 1909, when the sale of the property to Dr. Pine for sanitarium purposes was announced.\" Gives the LOT of the enlarged Field Jr. house as 60 × 177½ ft (the original narrow Murray lot plus the 20-ft strip from Field Sr. — consistent with the library note on the 1902 enlargement). The house was the Field Jr. home in 1904 (Blue Book); Field Jr. died there in Nov 1905; sold for a sanitarium 1909 (Pine; Gatlin Institute 1910–12).",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "60 × 177½ ft",
+    "locator": "Tribune 18 Dec 1910, p. index 89"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-bluebook-1904-calumet-street-p121-2008-2018",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1904, street directory: \"Calumet Avenue\" (p. 121), 1910–2114",
+  "building_ids": [
+   "pa-2008-s.-calumet-avenue-56",
+   "pa-2018-s.-calumet-avenue-31"
+  ],
+  "addresses": [
+   "2008 S. Calumet Avenue",
+   "2018 S. Calumet Avenue",
+   "2016 S. Calumet Avenue",
+   "2004 S. Calumet Avenue",
+   "2000 S. Calumet Avenue"
+  ],
+  "date": "1904 (edition for 1904; compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1904",
+  "call_number": "chicagobluebooko1904chic, page index 122 (printed p. 121, 'Bryant Avenue—Calumet Avenue')",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n122/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n122_w1200.jpg",
+  "found_via": "IA search inside chicagobluebooko1904chic for '2008' and '2018'; page read on the image",
+  "notes": "Read on the page (Calumet Avenue): \"2000 Mr. & Mrs. Henry Crawford / Miss E. L. Kent; 2004 Mr. & Mrs. William H. Mitchell; 2008 Mrs. P. C. Hanford & dr.; 2016 Mr. & Mrs. T. E. Donnelley; 2018 J. A. Kohn, Receiving day Saturday; 2018 Mr. & Mrs. Harry W. Hahn; 2032 Mr. & Mrs. Otto Young; 2100 Mrs. B. B. Botsford … 2106 Mr. & Mrs. John B. Drake jr.; 2114 Mrs. John B. Drake …\" Bearing: 2008 Calumet was still the Hanford home in 1904 (the widow of Philander C. Hanford, d. 1894, and her daughter); 2018 Calumet the Kohn home with the Hahns (Kohn's daughter married Harry W. Hahn in 1896). NB: Joseph A. Kohn died at 2018 Calumet on 3 Mar 1903 (Tribune 4–5 and 14 Mar 1903), so the 'J. A. Kohn' line is stale or means his widow Julia; the household is the Kohn family either way, as the library holds. The Donnelleys at 2016 were Kohn's neighbours.",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2008-calumet-tribune-1920-11-24-hanford-house-for-sale",
+  "title": "\"For Sale—2008 Calumet; lot 75x177½ to 20 ft. alley; 3 story residence; 20 large rooms; also basement; steam heat; elegantly finished woodwork at great expense … Also 2 sty. brick garage, 75x30.\"",
+  "building_ids": [
+   "pa-2008-s.-calumet-avenue-56"
+  ],
+  "addresses": [
+   "2008 S. Calumet Avenue"
+  ],
+  "date": "November 24, 1920 (also November 21, 1920)",
+  "date_earliest": 1920,
+  "date_latest": 1920,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, November 24, 1920 (vol. 79 no. 282)",
+  "call_number": "per_chicago-daily-tribune_1920-11-24_79_282, page index 24",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1920-11-24_79_282/page/n24/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1920-11-24_79_282/page/n24_w1200.jpg",
+  "found_via": "IA full-text search '\"2008 Calumet\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"FOR SALE—2008 CALUMET; LOT 75x177½ to 20 ft. alley; 3 story residence; 20 large rooms; also basement; steam heat; elegantly finished woodwork at great expense; fine for OFFICE and LIGHT MFG. Also 2 sty. brick garage, 75x30. WHITESIDE & WENTWORTH.\" Bearing on the Hanford house (Mrs. Hanford's home in 1904, Blue Book): LOT 75 × 177½ ft running back to a 20-ft alley; the house THREE STOREYS with a basement, 20 large rooms; at the rear a TWO-STOREY BRICK building 75 × 30 ft spanning the full lot width — the Hanford barn of 1884 (dw-aabn-1884-09-hanford-2010-calumet-barn-permit), by 1920 a garage. Near-period.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "75 × 177½ ft to a 20-ft alley",
+    "locator": "Tribune 24 Nov 1920, p. index 24"
+   },
+   {
+    "what": "storeys",
+    "value": "3 + basement",
+    "locator": "same"
+   },
+   {
+    "what": "rooms",
+    "value": "20 large rooms",
+    "locator": "same"
+   },
+   {
+    "what": "rear building",
+    "value": "2-storey brick (garage, formerly barn) 75 × 30 ft",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2018-calumet-tribune-1911-05-24-large-brick-barn",
+  "title": "\"To Rent—2018 Calumet-av., large brick barn, suitable for garage.\"",
+  "building_ids": [
+   "pa-2018-s.-calumet-avenue-31"
+  ],
+  "addresses": [
+   "2018 S. Calumet Avenue"
+  ],
+  "date": "May 24, 1911",
+  "date_earliest": 1911,
+  "date_latest": 1911,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, May 24, 1911 (vol. 70 no. 123)",
+  "call_number": "per_chicago-daily-tribune_1911-05-24_70_123, page index 18",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1911-05-24_70_123/page/n18/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1911-05-24_70_123/page/n18_w1200.jpg",
+  "found_via": "IA full-text search '\"2018 Calumet\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (IIIF crop; the same ad ran 12–24 May 1911)",
+  "notes": "Read on the page, under 'To Rent—Barns and Garages': \"TO RENT—2018 CALUMET-AV., LARGE BRICK barn, suitable for garage. Ph Calumet 3471.\" Bearing: the Wheeler–Kohn lot had a LARGE BRICK BARN at the rear, still a stable (not yet a garage) in 1911 — so it stood in 1904. By 1908–11 the house itself was a high-class boarding and lodging house (Tribune ads 1908–1911); the Kohn family had left c. 1908.",
+  "measurements": [
+   {
+    "what": "rear building",
+    "value": "large brick barn",
+    "locator": "Tribune 24 May 1911, p. index 18"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2ndpres-tribune-1901-11-10-open-today-cut",
+  "kind": "newspaper item",
+  "title": "\"Second Presbyterian Church, Open Today\" [halftone of the reconstructed church]",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "view": "oblique front",
+  "facing": "northwest",
+  "camera_position": "from the southeast, across Michigan Avenue at 20th Street",
+  "date": "November 10, 1901",
+  "date_earliest": 1901,
+  "date_latest": 1901,
+  "creator": "Chicago Sunday Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, November 10, 1901 (vol. 60 no. 313)",
+  "call_number": "per_chicago-daily-tribune_1901-11-10_60_313, page index 7",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-10_60_313/page/n7/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-10_60_313/page/n7_w1200.jpg",
+  "found_via": "IA full-text search '\"Second Presbyterian\" AND collection:pub_chicago-daily-tribune AND year:1901'; cut and caption read on the page image (IIIF crop)",
+  "notes": "Caption read on the page: \"The dedication of the reconstructed Second Presbyterian Church, Twentieth street and Michigan boulevard, will take place at 10:30 o'clock this morning. While it is called a reconstructed building, the structure partially is new. Only the walls and the tower remained after the fire a year and a half ago. The building as dedicated today represents an expenditure of nearly $100,000.\" The halftone (a wash drawing or retouched photograph, winter) shows the church from the south-east as rebuilt after the 1900 fire — i.e. its 1904 state: the tall square corner TOWER with paired belfry openings and a tall pointed SPIRE with pinnacles, the steep gabled nave with a large traceried end window, a smaller pinnacled turret at the other corner, buttressed aisle walls with lancets, and the lower wing at left. Settles that the spire stood in 1901–04 (it was lost later — 1929 per the landmark report). The best dated exterior of the church in its 1904 form.",
+  "measurements": [
+   {
+    "what": "rebuilding cost",
+    "value": "nearly $100,000",
+    "locator": "Tribune 10 Nov 1901, p. index 7"
+   }
+  ],
+  "streetscape": false,
+  "local": {
+   "display": "research/images/files/nps-2ndpres-tribune-1901-11-10-open-today-cut.jpg",
+   "display_bytes": 320416,
+   "thumb": "research/images/files/nps-2ndpres-tribune-1901-11-10-open-today-cut-thumb.jpg",
+   "thumb_bytes": 27013,
+   "original_px": [
+    6889,
+    11038
+   ],
+   "original_sha256": "b726d7f29f25a4bea5b21e11ddfcd088dcc7b2f12843619cfe4eaafb42d75676",
+   "original_bytes": 7210201,
+   "fetched_from": "https://iiif.archive.org/image/iiif/3/per_chicago-daily-tribune_1901-11-10_60_313%2fper_chicago-daily-tribune_1901-11-10_60_313_jp2.zip%2fper_chicago-daily-tribune_1901-11-10_60_313_jp2%2fper_chicago-daily-tribune_1901-11-10_60_313_0007.jp2/2780,10500,3370,5400/max/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2ndpres-tribune-1901-11-08-will-be-dedicated",
+  "title": "\"Will Be Dedicated on Sunday. New Second Presbyterian Church, Built on Ruins of the Old, Represents Outlay of $100,000.\"",
+  "building_ids": [
+   "pa-1936-s.-michigan-avenue-32"
+  ],
+  "addresses": [
+   "1936 S. Michigan Avenue"
+  ],
+  "date": "November 8, 1901",
+  "date_earliest": 1901,
+  "date_latest": 1901,
+  "creator": "Chicago Daily Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, November 8, 1901 (vol. 60 no. 311)",
+  "call_number": "per_chicago-daily-tribune_1901-11-08_60_311, page index 15",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-08_60_311/page/n15/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-08_60_311/page/n15_w1200.jpg",
+  "found_via": "IA full-text search '\"Second Presbyterian\" AND collection:pub_chicago-daily-tribune AND year:1901'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"The old church building practically was destroyed by fire over a year and a half ago. Only the old tower and portions of the walls remained. While the former lines of the structure were followed in its rebuilding, the new building is more modern and is almost fireproof. Except for the floors, seating, wainscot, and organ the reconstructed building is made of fireproof materials. The west end of the nave is filled with the pulpit and organ behind its screen of oak and brass. The east end of the curve will contain the Blackstone memorial windows in memory of Mr. John Crerar … Three of the large windows of the side walls will contain the new Fargo, Kellogg, and Balcom memorial windows. A feature of the interior will be the mural paintings by Mr. Frederick Bartlett.\" Bearing: the 1904 church = Renwick's tower and walls, rebuilt on the old lines (exterior unchanged in outline), dedicated Sunday 10 Nov 1901; pulpit and organ at the WEST end, memorial windows at the EAST end and in the side walls; Bartlett murals. Complements the AABN 1900 rebuild notice and the House Beautiful 1904 interiors already held.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-cullerton-217-tribune-1912-04-14-brick-11-rooms",
+  "title": "\"To Rent—217 E. 20th-st. nr. Indiana-av., brick, 11 rooms, 2 baths … $100\" (Whiteside & Wentworth list)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "217 E. Cullerton Street (217 E. 20th Street before the street was renamed)"
+  ],
+  "date": "April 14, 1912",
+  "date_earliest": 1912,
+  "date_latest": 1912,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, April 14, 1912 (vol. 70 no. 15)",
+  "call_number": "per_chicago-daily-tribune_1912-04-14_70_15, page index 65",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1912-04-14_70_15/page/n65/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1912-04-14_70_15/page/n65_w1200.jpg",
+  "found_via": "IA full-text search '\"217 E. 20th\" AND collection:pub_chicago-daily-tribune' (Cullerton Street was 20th Street until its renaming); advertisement read on the page image",
+  "notes": "Read on the page: \"TO RENT — 217 E. 20TH-ST. NR. INDIana-av., brick, 11 rooms, 2 baths …. $100\". The 1916 list (nps-2000-tribune-1916-10-29-rent-list-2000-prairie-217-e-20th) gives 217 E. 20th as 14 rooms. Bearing: the easternmost of the three surviving rowhouses was a substantial BRICK house of 11–14 rooms with two baths (at a first-class rent) in 1912. Caveat: these are post-1909 street numbers; 1904 numbering on 20th Street may have differed (the 1909 renumbering), but the 1912 address is the building now called 217 E. Cullerton. No construction date.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "11, 2 baths",
+    "locator": "Tribune 14 Apr 1912, p. index 65"
+   },
+   {
+    "what": "material",
+    "value": "brick",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2000-tribune-1916-10-29-rent-list-2000-prairie-217-e-20th",
+  "title": "\"To Rent—2000 Prairie-av., 19 rms., 3 baths, also large brick barn ….$150.00; 217 E. 20th-st., 14 rooms ….75.00 …\" (Whiteside & Wentworth list)",
+  "building_ids": [
+   "pa-213–217-e.-cullerton-street-27"
+  ],
+  "addresses": [
+   "2000 S. Prairie Avenue",
+   "217 E. Cullerton Street (217 E. 20th Street)"
+  ],
+  "date": "October 29, 1916",
+  "date_earliest": 1916,
+  "date_latest": 1916,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, October 29, 1916 (vol. 75 no. 44)",
+  "call_number": "per_chicago-daily-tribune_1916-10-29_75_44, page index 70",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1916-10-29_75_44/page/n70/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1916-10-29_75_44/page/n70_w1200.jpg",
+  "found_via": "IA full-text search '\"217 E. 20th\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"TO RENT—2000 PRAIRIE-AV., 19 RMS., 3 baths, also large brick barn ……. $150.00 / 217 E. 20th-st., 14 rooms ……. 75.00 / 2704 Calumet-av., 12 rooms … WHITESIDE & WENTWORTH.\" Bearing: 2000 Prairie (the John M. Clark household in 1904, Blue Book; no building record) was a large house of 19 rooms and 3 baths on the corner of 20th Street with a LARGE BRICK BARN; 217 E. 20th (now 217 E. Cullerton, one of the surviving rowhouses) had 14 rooms. Near-period (1916).",
+  "measurements": [
+   {
+    "what": "2000 Prairie rooms",
+    "value": "19, 3 baths",
+    "locator": "Tribune 29 Oct 1916, p. index 70"
+   },
+   {
+    "what": "2000 Prairie rear building",
+    "value": "large brick barn",
+    "locator": "same"
+   },
+   {
+    "what": "217 E. 20th rooms",
+    "value": "14",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-clarke-tribune-1903-12-10-chrimes-death-4526-wabash",
+  "title": "[Death notice] \"Chrimes—Lydia C., widow of John Chrimes, age 76, at residence, 4526 Wabash-av. Funeral Friday at 2 p.m.\"",
+  "building_ids": [
+   "pa-1827-s.-indiana-avenue-(modern-location)-28"
+  ],
+  "addresses": [
+   "4526 S. Wabash Avenue (the Clarke house's site 1872–1977)"
+  ],
+  "date": "December 10, 1903",
+  "date_earliest": 1903,
+  "date_latest": 1903,
+  "creator": "Chicago Daily Tribune (death notices)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, December 10, 1903 (vol. 62 no. 295)",
+  "call_number": "per_chicago-daily-tribune_1903-12-10_62_295, page index 10",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1903-12-10_62_295/page/n10/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1903-12-10_62_295/page/n10_w1200.jpg",
+  "found_via": "IA full-text search '\"4526 Wabash\" AND collection:pub_chicago-daily-tribune'; notice read on the page image (also in the same page's death list: 'Chrimes, Lydia, 75; 4526 Wabash-av., Dec. 8')",
+  "notes": "Read on the page: \"CHRIMES—Lydia C., widow of John Chrimes, age 76, at residence, 4526 Wabash-av. Funeral Friday at 2 p. m.\" Bearing on the anachronism guard: in the target year the Henry B. Clarke house stood far from Prairie Avenue, at 4526 Wabash, as the Chrimes family home — John Chrimes's widow died there on 8 Dec 1903, and her daughters (Lydia Chrimes; Mrs. Mary Walter) remained (Tribune 3 Jan 1914, estate notice). The Tribune of 8 Mar 1939 ('Oldest in Chicago?', A Line o' Type, citing the Chicago Historical Society) says Chrimes bought it in 1871 and moved it to 4526 Wabash, and that his daughter Mrs. William H. Walter then lived there — vs the library's 'moved to Wabash in 1872'. Supports excluding it from the 1904 Prairie Avenue scene.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2001-tribune-1919-05-08-corner-12-rooms",
+  "title": "\"To Rent—Buildings. 2001 Prairie-av., 12 rm., corner; steam heat; built-in vault; choice location for offices, publish'g or mail order. Rent $75, with garage $100.\"",
+  "building_ids": [],
+  "addresses": [
+   "2001 S. Prairie Avenue"
+  ],
+  "date": "May 8, 1919",
+  "date_earliest": 1919,
+  "date_latest": 1919,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, May 8, 1919 (vol. 78 no. 110)",
+  "call_number": "per_chicago-daily-tribune_1919-05-08_78_110, page index 27",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1919-05-08_78_110/page/n27/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1919-05-08_78_110/page/n27_w1200.jpg",
+  "found_via": "IA full-text search '\"2001 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (also 'large corner 12 room house', 11 and 16 Oct 1918)",
+  "notes": "Read on the page: \"2001 PRAIRIE-AV., 12 RM., corner; steam heat; built-in vault; choice location for offices, publish'g or mail order. Rent $75, with garage $100. W. K. YOUNG & BRO.\" Bearing: 2001 (no building record; the W. C. Free household in 1904, Blue Book) was the CORNER house at 20th Street on the east side, of 12 rooms, with an outbuilding (garage by 1919; 'brick barn' in 1887 — nps-2001-tribune-1887-04-24-large-fine-residence). Near-period.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "12",
+    "locator": "Tribune 8 May 1919, p. index 27"
+   },
+   {
+    "what": "position",
+    "value": "corner (20th Street)",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2001-tribune-1887-04-24-large-fine-residence",
+  "title": "\"To Rent—Residences— … 2001 Prairie-av., large, fine residence; brick [barn]; steam heating; 1 to 3 years' lease…\"",
+  "building_ids": [],
+  "addresses": [
+   "2001 S. Prairie Avenue"
+  ],
+  "date": "April 24, 1887",
+  "date_earliest": 1887,
+  "date_latest": 1887,
+  "creator": "Chicago Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Tribune, April 24, 1887 (vol. 47)",
+  "call_number": "per_chicago-daily-tribune_1887-04-24_47, page index 19",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1887-04-24_47/page/n19/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1887-04-24_47/page/n19_w1200.jpg",
+  "found_via": "IA full-text search '\"2001 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (the word after 'brick' is cut by the column edge on the crop; the OCR reads 'brick barn')",
+  "notes": "Read on the page: \"2001 Prairie-av., large, fine residence; brick [barn — OCR uncertain]; steam heating; 1 to 3 years' lease; on very favorable terms.\" Bearing: 2001 was already a large, steam-heated house with a brick outbuilding in 1887 (A. E. Story household 1885; W. C. Free in 1904). With the 1919 ad: a 12-room corner house at 20th Street.",
+  "verified": "viewed",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2125-tribune-1902-07-27-frame-house-and-barn",
+  "title": "\"For Sale—To close estate, offers solicited. 2125 Prairie-av., 50x178½, frame house and barn…\" (Edmund Adcock, executor)",
+  "building_ids": [],
+  "addresses": [
+   "2125 S. Prairie Avenue"
+  ],
+  "date": "July 27, 1902",
+  "date_earliest": 1902,
+  "date_latest": 1902,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, July 27, 1902 (vol. 61 no. 208)",
+  "call_number": "per_chicago-daily-tribune_1902-07-27_61_208, page index 32",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1902-07-27_61_208/page/n32/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1902-07-27_61_208/page/n32_w1200.jpg",
+  "found_via": "IA full-text search '\"2125 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"FOR SALE—TO CLOSE ESTATE, OFFERS SOlicited. 2125 Prairie-av., 50x178½, frame house and barn. 2449 Indiana-av., 44½x180, frame house and barn … EDMUND ADCOCK, Exec't'r.\" Bearing: in 1902 2125 (no building record) was a FRAME HOUSE with a barn on a 50 × 178½ ft lot — confirming the frame footprint read on the Robinson 1886 plate against Chicagology's 'Empty lot' caption (worklog-chicagology-south). Still standing in Oct 1910: 'To rent—2125 Prairie-av., 10 room residence with barn' (Tribune 9 Oct 1910, J. B. McBean). So a 10-room frame house with a barn stood at 2125 in 1904, between the Armour (2115) and Hubbart (2123) houses.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "50 × 178½ ft",
+    "locator": "Tribune 27 Jul 1902, p. index 32"
+   },
+   {
+    "what": "material",
+    "value": "frame (house); barn",
+    "locator": "same"
+   },
+   {
+    "what": "rooms",
+    "value": "10 (Tribune 9 Oct 1910)",
+    "locator": "per_chicago-daily-tribune_1910-10-09_69_41, page index 87"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
  }
 ]
