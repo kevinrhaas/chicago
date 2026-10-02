@@ -18939,6 +18939,36 @@ replaces the adoption, and the board follows the firm on the next derivation.
 **T-1834**.
 **Recorded:** 2026-10-02 (T-1835).
 
+### L342 — The graded street section: how far each opened street's bed lies below its walks
+
+**What:** every opened street in the 1835 ground is lowered below the shelf its walks and
+doors stand on (T-1812). The bed is crowned on the line the road is drawn on and deepest in a
+gutter just inside each shoulder: 0.5 ft at the crown and 1.0 ft at the gutter on the principal
+streets, 0.4 / 0.75 ft on the ordinary ones, 0.25 / 0.4 ft on the light ones. It climbs back to
+the shelf one heightfield cell (2.5 m) inside the worked edge, never takes land below 0.33 ft
+over the water, and leaves four structures that stand inside a worked width on the ground they
+were seated on (`street_sections` in the 1835 terrain spec).
+
+**Why:** the owner asked for the carriageway to be graded down below entrance-level walks
+(T-1770). The four peer-city views he supplied (St Louis 1840, Detroit 1837, Cincinnati 1835)
+show that relationship and print no dimension, and no Chicago source of 1835 gives a street
+section. An unpaved frontier street was lowered by wear rather than by an engineer, so the
+depths scale with the traffic class T-1811 already assigns. Each is held under the walker's
+0.35 m step, so stepping off a walk is a step down, not a climb.
+
+**Consequence:** the roadway's height in the town is ours. The walks, doors, lots and
+buildings did not move, and nor did the shelf they stand on. A visitor reading the depth of
+a street's bed, its crown or its gutters as a measurement is reading this entry. Board crossings
+now step down each shoulder in short flat treads, because the boards follow the ground.
+
+**How to resolve:** a Chicago grade record or ordinance before the 1836 turnpiking, or a
+measured early section, would replace these depths street by street. The later wholesale
+raising of the city is a different epoch and must not be backdated.
+
+**Related:** **L327** (the worked roadway's width, wear and tones, which this cut matches),
+**T-1770**, **T-1811**, **T-1812**.
+**Recorded:** 2026-10-02.
+
 ### L343 — The frame houses' glazing is dealt by whose house it is: the sash and the pane by class
 
 **Decision:** the fabric rule (L330, L338, `tools/fabric_rule_1835.py`) now deals a `glazing` to
