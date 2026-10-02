@@ -596,6 +596,31 @@
         }
       }
     },
+    "stated_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence", "note"],
+      "description": "Why nobody is seated under this roof, said on the record rather than left as a gap. T-1985. It answers the completion audit's fourth question (is this roof occupied, or does it have a use that needs nobody of its own?) for a standing building whose occupant on 1835-07-01 this project deliberately does not write. It is never a seat and never names a household. `value` is one of three reasons. `storage_operator_unrecorded`: a store or freight building whose goods and keeper no source names; it holds goods, not people. `occupant_named_seat_refused`: a source names who used the building, but that household's card refuses the seat and says why, so the roof states the refusal instead of contradicting it. `occupancy_unattested`: the building and its use are on the record, but no source places anybody in it on the scene date, and inventing an occupant would be a claim no evidence makes. The note says which, from the record's own evidence, and `confidence` grades the statement. tools/audit_town_completion_1835.py counts a roof carrying one as a stated use only while the roof is otherwise empty; once somebody is seated there the statement is stale, and the audit refuses it.",
+      "properties": {
+        "value": {
+          "enum": ["storage_operator_unrecorded", "occupant_named_seat_refused", "occupancy_unattested"]
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "source_id values that must resolve in data/sources/"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
     "research_note": {
       "type": "string",
       "description": "Free text. Source conflicts go here and in docs/RESEARCH/<id>.md."

@@ -13,7 +13,7 @@ under `yard`: the household class is the fabric rule's (250 roofs), else a resid
 trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
 default (18, said so on the record); the house is the roof's own family. Wells are the column still to write; privies and stables (T-1960) and trade goods (T-1961) have
 landed beside it. `generate_woodpiles.py --check`
-and the rule's `--self-test` are in `check.sh`. L356 claims the invention; the fact of household
+and the rule's `--self-test` are in `check.sh`. L357 claims the invention; the fact of household
 firewood is `inferred` from the 1835 price current.
 
 **Frame cost, measured on the published mirror, desktop** (`tools/woodpile_shots.mjs --anchor
@@ -30,7 +30,7 @@ T-1976's trim, never spent, and it reads 944,714 / 102 calls with or without the
 **The merge with dev (2026-10-02).** T-1961's lot loop sent every kind outside its `STACK_KINDS` to
 `buildItem`, which draws no wood, so after the first merge all 298 piles were dropped with no problem
 filed; wood kinds now go to `buildStack`. The generator now also keeps every pile a metre off T-1960's
-privies and stables (none moved). dev's L350 is T-1963's walls' grain, so the woodpiles are L356.
+privies and stables (none moved). dev's L350 is T-1963's walls' grain, so the woodpiles are L357.
 
 **Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
 are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.

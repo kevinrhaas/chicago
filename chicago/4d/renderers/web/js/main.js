@@ -135,7 +135,49 @@ const VERSION = '0.1.0';
  * "does the picture change when the fence goes" are different questions and only
  * the second one is the one being answered.
  */
-const FURNITURE_REACH_LIGHT_M = 350;
+/*
+ * T-1976, 2026-10-02 — 350 m BECOMES 250 m, AND THIS TIME THE AERIAL'S COST IS
+ * TAKEN ON PURPOSE. Light had grown back over its own 825,000 across the ~60
+ * owner-requested parcels of 2026-09-26..10-02 (944,550 at the forks on desktop,
+ * 102 calls at Lake and Market against the 90-call floor), and AGENTS.md says the
+ * floor is trimmed, not raised. Read on the published mirror of dev, desktop
+ * 1280x800, by driving the shipped cull (`setFurnitureReach`) at one page load
+ * with the 48² signature against 350 m, ground at its old 600 m:
+ *   reach   the forks        Lake at Canal    Lake and Market   the open aerial
+ *   350 m   947,294 /  75    945,213 /  79    818,341 / 102     932,220 / 86
+ *   300 m   885,388 /  66        —            802,281 /  92         —
+ *   250 m   878,840 /  63    833,657 /  62    754,381 /  80     878,218 / 67
+ * with the frame at 250 m reading 0.00 / 0 at the forks and Lake and Market,
+ * 0.01 / 4 down Lake Street and 0.05 / 9 from the air. Lake at Canal is the stand
+ * that decides it: its whole excess is frontage down the axis, so no other lever
+ * here reaches it (300 m leaves it at 847,663 even with the ground trimmed below).
+ * The aerial is still the one view where furniture leaving can be seen, and the
+ * trade is taken toward the tier's own purpose for the reason 350 was: the
+ * machine that needs the floor. 200 m was not tried; T-0150 already read the
+ * aerial running away below 250.
+ */
+const FURNITURE_REACH_LIGHT_M = 250;
+
+/**
+ * T-1976 — HOW FAR OUT THE DETAILED GROUND IS DRAWN AT `light`, IN METRES.
+ *
+ * Every tier drew the 2.5 m-sampled ground tiles out to terrain.js's
+ * GROUND_DETAIL_REACH_M (600 m), with the continuous 15 m base carrying it
+ * beyond. At `light` that is 222,772 triangles and 16 calls at the forks — the
+ * second-largest layer in the frame — so this rung now hands the ground to the
+ * base sooner. Nothing is un-built: the base is the same heightfield, already
+ * drawn under every tile. Read with `setGroundDetailReach`, published mirror,
+ * desktop, light, furniture at 250 m:
+ *   reach   the forks   the open aerial (frame vs 600 m + 350 m furniture)
+ *   600 m   878,840     878,218   0.05 / 9
+ *   240 m   820,079     804,574   0.13 / 9
+ *   120 m   805,315     754,282   0.37 / 44
+ * 240 m is one tile (`GROUND_TILE_TARGET_M`) and the knee: 120 m moves the aerial
+ * by a worst cell of 44 — the 15 m base showing through where the river banks
+ * fold — and 240 m leaves every ground stand at a worst cell of 0 or 1. `full`
+ * and `balanced` keep 600 m (null = terrain.js's own).
+ */
+const GROUND_DETAIL_REACH_LIGHT_M = 240;
 
 /**
  * THE MIDDLE RUNG GETS A REACH TOO — T-0241, 2026-08-27, and it is the tier
@@ -547,7 +589,8 @@ const DETAIL_DECLARED = {
   //   balanced  1,545,215 + 16,806 = 1,562,021  ->  1,490,000 -> 1,565,000
   //
   // `light` DOES NOT PAY FOR THEM: it does not draw them (`light.woodpiles`
-  // below), and it reads 944,714 / 102 calls to the triangle with or without.
+  // below), and it read 944,714 / 102 calls to the triangle with or without,
+  // before T-1976's trim brought it back inside 825,000.
   //
   // `light` DOES NOT MOVE, and it is OVER: 944,550 at the forks on desktop
   // against 825,000, 845,385 on mobile, and 102 calls at Lake and Market against
@@ -562,7 +605,7 @@ const DETAIL_DECLARED = {
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
   full:     { triangles: 1800000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: null,
+              furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
               // protects is the next version of this ticket". The archaeology
@@ -668,7 +711,7 @@ const DETAIL_DECLARED = {
   // T-1975, 2026-10-02: 1,280,000 -> 1,490,000 in the seventh re-basing — the
   // reading and the rule are in the block above `full`.
   balanced: { triangles: 1565000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: FURNITURE_REACH_BALANCED_M,
+              furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
               measured: '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
@@ -733,18 +776,24 @@ const DETAIL_DECLARED = {
   // that a trim worked.
   light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
+              groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
               // town (the call budget's choice, yard.js), so the reach cannot thin
               // them and they would cost this rung their whole colour pass at every
-              // stand — about 35,000 triangles — on a rung that is over and is won
-              // back by a trim, never spent. `full` and `balanced` draw them, and
-              // `applyFurnitureReach` hides them here.
+              // stand — about 35,000 triangles — on the rung T-1976 has just
+              // trimmed back inside 825,000, which is won back, never spent. `full`
+              // and `balanced` draw them, and `applyFurnitureReach` hides them here.
               woodpiles: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
               measured: '825,000 set 2026-09-03, the one raise of this rung ever '
-                + 'taken and taken only on a second explicit ruling. OVER on dev @ '
+                + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
+                + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
+                + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
+                + 'only. Published mirror, desktop 1280x800: worst 803,067 at the '
+                + 'forks — 21,933 clear, 2.7 % — and worst calls 73 (Lake '
+                + 'and Market) against the 90-call floor. It was OVER on dev @ '
                 + '652ca8ea (T-1975, 2026-10-02): worst 944,550 at the forks at '
                 + '1280x800 and 845,385 at Lake Street at Canal at 390x780, 102 calls '
                 + 'at Lake and Market against the 90-call floor. NOT raised \u2014 this '
@@ -1728,6 +1777,12 @@ async function boot() {
     farMerge.update();
   }
   applyFurnitureReach(detailLevel);
+  /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
+   *  before the 15 m base carries the ground alone. Null is terrain.js's own. */
+  function applyGroundDetailReach(level) {
+    return terrain.setDetailReach((DETAIL[level] ?? DETAIL.full).groundDetailReachM);
+  }
+  applyGroundDetailReach(detailLevel);
 
   /**
    * WHERE THE SWARD MAY NOT GROW (T-0067), composed rather than replacing the
@@ -1873,6 +1928,7 @@ async function boot() {
       enclosures.setDetail?.(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
+      applyGroundDetailReach(level);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -1913,6 +1969,7 @@ async function boot() {
     // has just rebuilt its meshes, so the banked spheres are re-read here rather
     // than left pointing at geometry that has been disposed (T-0150).
     applyFurnitureReach(level);
+    applyGroundDetailReach(level);
     // Serialise: a visitor clicking through the options faster than the rebuild
     // would otherwise interleave two plantings into one scene.
     const run = (detailPending ?? Promise.resolve()).then(async () => {
@@ -3158,6 +3215,14 @@ async function boot() {
       furniture.reachM = typeof m === 'number' && Number.isFinite(m) ? m : null;
       updateFurnitureReach();
       return furniture.reachM;
+    },
+    /** T-1976, HARNESS ONLY and never a visitor setting, for the reason
+     *  `setFurnitureReach` above is one: drive the detailed ground's reach
+     *  directly so a sweep can read candidate reaches at one page load. `null`
+     *  restores the tier's own. The live reading is `groundReach()`. */
+    setGroundDetailReach(m) {
+      return terrain.setDetailReach(typeof m === 'number'
+        ? m : (DETAIL[detailLevel] ?? DETAIL.full).groundDetailReachM);
     },
     /** T-0146, HARNESS ONLY and never a visitor setting, for the reason
      *  `setFurnitureReach` above is one: the merge's whole claim is that it

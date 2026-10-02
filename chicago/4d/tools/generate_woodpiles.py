@@ -28,7 +28,7 @@ tree and bush, and clear of every other pile, of the trade goods and wagons alre
 standing, and of every privy and stable T-1960 dealt to the yards.
 
 WHAT IS INVENTED is every pile's position, size and count — `reconstructed`, docs/
-LIBERTIES.md L356. The FACT that a household kept firewood is `inferred`: the town priced
+LIBERTIES.md L357. The FACT that a household kept firewood is `inferred`: the town priced
 firewood by the cord every week of the summer, and the record's `existence` block says so.
 
     python3 tools/generate_woodpiles.py            write the record
@@ -478,7 +478,7 @@ def record(lots, refused, counts):
             "thing standing on ground this project has already drawn, so it is derived "
             "from the committed footprints and drawn at load by renderers/web/js/yard.js, "
             "and a pick on it opens the card of the house it stands behind. docs/"
-            "LIBERTIES.md L356 claims what is invented."),
+            "LIBERTIES.md L357 claims what is invented."),
         "id": "town_woodpiles",
         "name": "Woodpiles at the town's dwellings",
         "kind": "yard_goods",

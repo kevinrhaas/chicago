@@ -308,6 +308,56 @@ const RING_FOOT_M = -12;
  *  solves. */
 const RING_REBUILD_M = 0.75;
 /**
+ * T-1978 — the band's top as a share of the canopy, and how much it may move.
+ *
+ * Reconstructed, bounded by the owner's report (docs/LIBERTIES.md L367). A
+ * treeline seen from a kilometre is the envelope of many crowns at many depths,
+ * and the eye reads its MEAN top, level; the old modulation drew it between
+ * 40 % and 100 % of the canopy with notches to 5 %, which read as hills.
+ * `HORIZON_TOP_K` sits the top at 64 % of the solved canopy — under the old
+ * average of 0.70, so filling the notches does not raise the band, and the
+ * owner asked for it lower — and
+ * `HORIZON_CROWN_AMP` lets the crowns move it ±14 % at the nearest bodies,
+ * falling with distance (`farRelief`). `HORIZON_GAP_DEPTH` is how far a gap may
+ * cut a near stand: 45 %, never to the ground.
+ */
+const HORIZON_TOP_K = 0.64;
+const HORIZON_CROWN_AMP = 0.14;
+const HORIZON_GAP_DEPTH = 0.45;
+/**
+ * How much of the crown relief survives at `d` metres: all of it at the
+ * nearest body (MIN_FAR_M), a quarter by 1.2 km, and no less — a far
+ * outline still carries a whisper of texture so it is not ruled with a pen.
+ * The canopy's own height range is narrowed by the same factor (`canopyAt`).
+ */
+function farRelief(d) {
+  const f = (d - 330) / (1200 - 330);
+  return 1 - 0.75 * Math.min(1, Math.max(0, f));
+}
+/**
+ * The canopy a far body carries at `s` metres along its near edge. The
+ * dossier's range is the range of the STAND; how widely the drawn top swings
+ * inside it falls with distance as `farRelief` does, around the middle of it,
+ * on a ~110 m wavelength so a swing is a stand and never a hill.
+ */
+function canopyAt(body, bi, s, d) {
+  const mid = (body.canopy[0] + body.canopy[1]) * 0.5;
+  const half = (body.canopy[1] - body.canopy[0]) * 0.5 * farRelief(d);
+  const h = mid + (noise1(s / 110, 3 + bi * 11) - 0.5) * 2 * half;
+  // T-1978: an open body steps down over its last crown and a half, so its end
+  // is a shoulder of lower crowns and not a sheer cliff — the owner's "big cut
+  // down". Short enough (one or two crowns) that it cannot read as a hill.
+  // ...and a body coming within MIN_FAR_M steps down over its last 60 m before
+  // the cut, for the same reason: the band ends there, and a full-height end
+  // is a cliff that slides along the horizon as you walk toward it.
+  const nearF = Math.min(1, Math.max(0, (d - MIN_FAR_M) / 60));
+  const hn = h * (0.30 + 0.70 * nearF * nearF * (3 - 2 * nearF));
+  const len = FAR_EDGE_LEN[bi];
+  if (!len || FAR_EDGE_CLOSED[bi]) return hn;
+  const f = Math.min(1, Math.max(0, Math.min(s, len - s) / (body.crown * 1.5)));
+  return hn * (0.40 + 0.60 * Math.sqrt(f));
+}
+/**
  * How near a far body may come before it is dropped from the band. A silhouette
  * on a ring is a FAR-field device: it carries angular size but no depth, and a
  * stand of timber a hundred metres past the edge of the heightfield renders as a
@@ -840,6 +890,15 @@ const FAR_TIMBER = [
         + 'position of Bridgeport, which is where Hardscrabble was.',
   },
 ];
+
+/** Each far body's near-edge length in metres, and whether it closes on itself. */
+const FAR_EDGE_LEN = FAR_TIMBER.map((b) => b.path.reduce((acc, p, i) => (i === 0 ? 0
+  : acc + Math.hypot(p[0] - b.path[i - 1][0], p[1] - b.path[i - 1][1])), 0));
+const FAR_EDGE_CLOSED = FAR_TIMBER.map((b) => {
+  const a = b.path[0];
+  const z = b.path[b.path.length - 1];
+  return Math.hypot(a[0] - z[0], a[1] - z[1]) < 1;
+});
 
 /**
  * The named groves § 1.6 lists that are NOT drawn, with the arithmetic that
@@ -2486,6 +2545,18 @@ export async function createTrees({
    * measured 1,621 / 1,393 / 893 stems against caps of 3,030 / 1,920 / 1,110, and
    * every level reaches the north end of the field.
    *
+   * `light` IS NO LONGER ON THIS RULE, and that is a trim and not a refresh
+   * (T-1976, 2026-10-02). The floor had grown back over its own 825,000 and is
+   * won back by trimming, never by raising (AGENTS.md). The furniture and ground
+   * reaches in `main.js` carried most of it, and left the forks 4,921 triangles
+   * clear on desktop; dropping `light`'s keep from 0.225 to 0.191 gives 14,352
+   * more there, which is what puts the floor's headroom back over the absolute
+   * 16,806 T-0672 recorded for the rungs above it. (Re-running the rule against
+   * T-1975's ceilings would NOT have produced this: lambda is pinned to
+   * `light`'s own cap, so it rises as the ratio falls and `light` lands on 0.224
+   * again.) Same species, same zones, same places — about 15 % fewer stems at
+   * this level only. `full` and `balanced` are untouched.
+   *
    * This is a RENDERING density, not a claim about the town: `perHa`, the mixes,
    * `edgeFade`, `clearedFactor`, the waterline gate and the east limits are
    * untouched, and the record's own stand is what the roll would accept at
@@ -2496,7 +2567,7 @@ export async function createTrees({
   const STEMS = {
     full:     { step: 4.0, keep: 0.400, trees: 3030, thickets: 1550 },
     balanced: { step: 4.7, keep: 0.350, trees: 1920, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.225, trees: 1110, thickets: 630 },
+    light:    { step: 5.6, keep: 0.191, trees: 1110, thickets: 630 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
@@ -3061,6 +3132,9 @@ uniform float uWind;
   const binRad = (Math.PI * 2) / BINS;
   const topRad = new Float32Array(BINS);
   const binDist = new Float32Array(BINS);
+  // T-1978: where on its body's near edge each bin's crown stands, in metres
+  // along the edge (offset per body so two bodies do not share a pattern).
+  const binEdge = new Float32Array(BINS);
   // The profile BEFORE the crown/gap modulation, kept so the gate can ask what
   // the modulation did rather than re-deriving the noise that drives it.
   const rawRad = new Float32Array(BINS);
@@ -3183,18 +3257,27 @@ uniform float uEyeY;
     solvedY = eyeY;
     topRad.fill(-1);
     binDist.fill(0);
+    binEdge.fill(0);
     rawRad.fill(0);
     binA.fill(0);
     binS.fill(0);
     pxPerRad = readPxPerRad();
 
     let wetSkipped = 0;
-    for (const body of FAR_TIMBER) {
+    for (let bi = 0; bi < FAR_TIMBER.length; bi++) {
+      const body = FAR_TIMBER[bi];
       const path = body.path;
+      // T-1978: metres along the body's own near edge, so the profile's noise
+      // is a property of the WORLD. It was keyed on bearing × distance from the
+      // eye, which every step of the walk, the wagon or the flight changes, so
+      // each re-solve dealt a fresh silhouette — the owner's "wobbly".
+      let segStart = 0;
       for (let s = 0; s < path.length - 1; s++) {
         const [ax, ay] = path[s];
         const [bx, by] = path[s + 1];
         const segLen = Math.hypot(bx - ax, by - ay);
+        const ux = segLen > 0 ? (bx - ax) / segLen : 0;
+        const uy = segLen > 0 ? (by - ay) / segLen : 0;
         let t = 0;
         while (t <= segLen) {
           const f = segLen > 0 ? t / segLen : 0;
@@ -3229,22 +3312,31 @@ uniform float uEyeY;
           // a clip that claimed one would be inventing it.
           if (terrain.isWater(pe, pn)) { wetSkipped++; record?.('wet', body.id, bearing, d); continue; }
 
-          const hgt = lerp(body.canopy[0], body.canopy[1],
-            noise1((bearing * d) / 55, 3));
-          const theta = (hgt - eyeY) / d - d / (2 * R_EFF);
+          const sHere = segStart + (t - stepM);
+          const theta = (canopyAt(body, bi, sHere, d) - eyeY) / d - d / (2 * R_EFF);
           if (theta <= 0) { record?.('below', body.id, bearing, d); continue; }
           const halfAng = (stepM * 0.5 + body.crown * 0.5) / d;
           const lo = Math.floor((bearing - halfAng) / binRad);
           const hi = Math.ceil((bearing + halfAng) / binRad);
           for (let k = lo; k <= hi; k++) {
             const b = ((k % BINS) + BINS) % BINS;
-            if (theta > topRad[b]) {
-              topRad[b] = theta;
+            // T-1978: each bin reads the canopy at ITS OWN point on the edge —
+            // the sample moved along the segment by the bin's offset in bearing
+            // — so a run of bins under one sample is not a flat step, and the
+            // point a bin reads moves smoothly as the eye does.
+            const bb = (k + 0.5) * binRad;
+            const sb = sHere + ((Math.sin(bb) - Math.sin(bearing)) * ux
+              + (Math.cos(bb) - Math.cos(bearing)) * uy) * d;
+            const th = (canopyAt(body, bi, sb, d) - eyeY) / d - d / (2 * R_EFF);
+            if (th > topRad[b]) {
+              topRad[b] = th;
               binDist[b] = d;
+              binEdge[b] = sb + bi * 7919;
               record?.('top', body.id, b, d);
             }
           }
         }
+        segStart += segLen;
       }
     }
 
@@ -3261,16 +3353,27 @@ uniform float uEyeY;
       rawRad[b] = topRad[b];
       const rawPx = topRad[b] * pxPerRad;
       const d = binDist[b];
-      const bearing = (b + 0.5) * binRad;
-      const u = (bearing * d) / 15;
+      // T-1978: crown-sized in METRES ALONG THE EDGE (see `binEdge`), so the
+      // bumps belong to the trees and stay put as the eye moves.
+      const u = binEdge[b] / 15;
       const crownN = noise1(u, 5) * 0.28 + noise1(u * 2.6, 9) * 0.24
         + noise1(u * 6.4, 17) * 0.26 + noise1(u * 13.1, 23) * 0.22;
       const gapN = noise1(u / 6, 13);
-      let k = 0.40 + crownN * 0.60;
-      // Sky through the stand. A treeline read from the prairie is holed, not
-      // solid — without this the band is a silhouette with one outline, which
-      // on a flat plain reads as a distant RIDGE and there are no ridges here.
-      if (gapN < 0.40) k *= lerp(0.05, 0.92, gapN / 0.40);
+      // T-1978 — the owner, from Lake Street at Clark facing west, of the belt
+      // 330–530 m out: "it probably should be much less wobble if any at this
+      // distance, be more stable and lower". Until then k ran 0.40–1.00 on the
+      // crowns and down to 0.05 in a gap at EVERY distance, so a 20 m canopy
+      // drew a top swinging between 8 m and 24 m with notches to the ground:
+      // a range of hills. Now the top sits at a steady share of the canopy
+      // (a far treeline's outline is the mean of many crowns, not the tallest)
+      // with a crown texture that shrinks with distance, and sky opens through
+      // the stand only near, and only part way.
+      const relief = farRelief(d);
+      let k = HORIZON_TOP_K * (1 + (crownN - 0.5) * 2 * HORIZON_CROWN_AMP * relief);
+      // Sky through the stand: without any, a near treeline is a silhouette
+      // with one outline. Shallow, and gone by about 700 m.
+      const gapDepth = HORIZON_GAP_DEPTH * Math.max(0, (relief - 0.5) / 0.5);
+      if (gapN < 0.30 && gapDepth > 0) k *= 1 - gapDepth * (1 - gapN / 0.30);
       // ...but a hole the frame cannot resolve is not sky through a stand, it
       // is the stand deleted. The modulation may cut a bearing to
       // MIN_SILHOUETTE_PX and no further; where the raw crown is already under

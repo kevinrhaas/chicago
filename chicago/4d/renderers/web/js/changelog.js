@@ -1,11 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1313, ts: '2026-10-02T18:13:36.279Z', date: 'Oct 2, 2026, 1:13 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
+  { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
     items: [
       'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
       'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
       'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
-      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L356) says how.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L357) says how.',
       'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
+    ] },
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
+    ] },
+  { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+    items: [
+      'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
+      'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
+      'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
+      'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
+  { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+    items: [
+      'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
+      'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
+      'Full and Balanced are unchanged.',
     ] },
   { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
