@@ -4743,7 +4743,7 @@ def cmd_self_test() -> int:
     # 254 -> 251 on 2026-10-02 (T-1951): the South's last three planned H3s stand on
     # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
     # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
-    # to T-1614 (182 -> 179 platted seats, L270, L346).
+    # to T-1614 (182 -> 179 platted seats, L270, L347).
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 251
     fires("a seating pass whose seated and owed miss its own scope",

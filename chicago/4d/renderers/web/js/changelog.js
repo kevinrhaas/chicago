@@ -1,12 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1293, ts: '2026-10-02T08:59:02.566Z', date: 'Oct 2, 2026, 3:59 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+  { v: 1294, ts: '2026-10-02T09:36:45.265Z', date: 'Oct 2, 2026, 4:36 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
       'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
       'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
       'Their upper windows and stovepipes are counted from their beds: seven or eight windows and four stovepipes each. Tonight they sleep four, six and eight people. The rest of their beds stand empty, because the town has no more lodgers to put in them.',
       'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
       'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
-      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L346) says how each was placed and sized.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L347) says how each was placed and sized.',
+    ] },
+  { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+    items: [
+      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
+      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
+      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
     ] },
   { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
     items: [
