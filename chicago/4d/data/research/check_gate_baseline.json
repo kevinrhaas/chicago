@@ -4,8 +4,8 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 181,
-    "gated": 173,
+    "check_capable": 182,
+    "gated": 174,
     "ungated": 8
   },
   "ungated": [
