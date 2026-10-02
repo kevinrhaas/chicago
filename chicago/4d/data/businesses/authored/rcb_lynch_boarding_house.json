@@ -91,7 +91,7 @@
     "basis": {
       "kind": "model",
       "id": "1835_lodging_model",
-      "note": "the lodging model gives 2 standing boarding house roof(s) in the south division their beds and the lodgers stage named a keeper for each. the keeper is a man. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive in full, as the structure layer's own *Rufus Brown's Boarding House* prints it. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
+      "note": "the lodging model gives 3 standing boarding house roof(s) in the south division their beds and the lodgers stage named a keeper for each. the keeper is a man. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive in full, as the structure layer's own *Rufus Brown's Boarding House* prints it. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
     },
     "withdrawn_if": "the retirement of the roof itself, a re-cut lodging model that gives this house no beds, or a source naming whoever really kept it; the retirement runs through --build, never by hand"
   }
