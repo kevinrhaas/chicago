@@ -2548,6 +2548,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_09"
     },
+    "recon_1835_blk_washington_clark_a1_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 80784,
+      "inputs_sha256": "9c7f08eacfaf47f2f22df058df97be8ae5279eb4d9896cc00ab39d7cfc29c280",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a1_12"
+    },
     "recon_1835_blk_washington_clark_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2574,6 +2583,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_10"
+    },
+    "recon_1835_blk_washington_clark_a3_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29848,
+      "inputs_sha256": "c9faa14c80224881649f23fe872aa8b42a41b3b1bc4aa2d68ee2011c1cf0a81f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a3_13"
     },
     "recon_1835_blk_washington_clark_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2614,11 +2632,20 @@
     "recon_1835_blk_washington_clark_h3_06__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 38204,
-      "inputs_sha256": "133697345fe1f8c5d0baf7445456bfc3484f2af256e380dcd71e484a0acb9b69",
+      "bytes": 37420,
+      "inputs_sha256": "0349d5099f8d68612ee9a3a06f5cfa3798bc1cdaa390d5b70125c185ad35eaa8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
+    },
+    "recon_1835_blk_washington_clark_h3_11__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 37740,
+      "inputs_sha256": "ba2d10a057e5a736b66ef4e576278eb820cf28e9d7cebca6685c698b52652b9e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_h3_11"
     },
     "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -4036,8 +4063,8 @@
     "recon_1835_west_006__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 44616,
-      "inputs_sha256": "6e90b27f1a013b1d1b2726767158192083f961a1e26867b2e6725b16161e124f",
+      "bytes": 43836,
+      "inputs_sha256": "32653cfd46dd713dfe1b4d959bd4cef44b55592ebb7a52c358b50ad4585e6991",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_006"
