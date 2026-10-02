@@ -5,6 +5,7 @@ export const CHANGELOG = [ // newest first
       'Four more West Side businesses have walks too: a store on Lake Street, a store on Clinton, a grocer on Fulton and the freight house on West Water. The freight house\u2019s walk is a wide deck with a heavy plank apron for wagons.',
       'The smithy on Lake and the joiner\u2019s shop on Randolph front bare, trodden ground, as the smith on the east side of the river does.',
       'Only the business fronts get boards. The houses between them keep their grass verge, because a walk was something a business paid to lay. Where each walk goes and how wide it is are our reconstruction, and the Liberties page says so (L160).',
+    ] },
   { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
     items: [
       'Since the streets were lowered, the board crossings step down into each street and back up. On those slopes the ends of some crossing boards were buried up to a hand\u2019s width in the dirt. Look at the crossings on Washington, Randolph and South Water Street.',
