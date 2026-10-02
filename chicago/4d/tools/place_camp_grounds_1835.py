@@ -452,6 +452,29 @@ def derive() -> list:
     return out
 
 
+# Fields another tool writes onto these records, which this one must carry rather than
+# drop: tools/resolve_land_tracts.py --build stamps `land_owner` on any structure that
+# stands inside a land-sale tract, and the shore camp stands on the reservation's.
+FOREIGN = ("land_owner",)
+
+
+def keep_foreign(rec: dict, path: Path) -> dict:
+    """The derived record with any FOREIGN field the committed file carries, in the
+    committed file's key order so neither tool's rewrite moves a line."""
+    if not path.exists():
+        return rec
+    old = load(path)
+    out = {}
+    for k in old:
+        if k in rec:
+            out[k] = rec[k]
+        elif k in FOREIGN:
+            out[k] = old[k]
+    for k in rec:
+        out.setdefault(k, rec[k])
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true")
@@ -459,6 +482,7 @@ def main() -> int:
     bad = 0
     for rec in derive():
         p = STRUCTURES / f"{rec['id']}.json"
+        rec = keep_foreign(rec, p)
         text = json.dumps(rec, indent=2, ensure_ascii=False) + "\n"
         if a.check:
             if not p.exists() or p.read_text() != text:

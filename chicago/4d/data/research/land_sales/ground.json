@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 541,
-    "structures_reached": 97,
+    "structures_placed": 543,
+    "structures_reached": 98,
     "structures_reached_by_grade": {
-      "inferred": 24,
+      "inferred": 25,
       "reconstructed": 73
     },
     "structures_unreached_by_section": {
-      "09": 441,
+      "09": 442,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -2615,6 +2615,10 @@
         {
           "id": "jb_beaubien_homestead",
           "margin_m": 79.4
+        },
+        {
+          "id": "land_sale_camp_shore",
+          "margin_m": 87.0
         }
       ]
     },
@@ -40148,6 +40152,7 @@
       "tremont_house_1",
       "tremont_house_1_stable",
       "walker_meeting_house",
+      "west_approach_wagon_camp",
       "western_hotel",
       "western_hotel_stable",
       "wolf_point_tavern",
