@@ -204,5 +204,14 @@
       "abuts": "recon_1835_south_c3_015",
       "why": "T-0077, the owner's ask of 2026-08-18 on the Tremont House street scene: \"there should be more and denser buildings. this is important.\" He sent the plate of this corner — a continuous two-storey storefront row, shoulder to shoulder on shared party lines — beside a screenshot of this same corner in the render, where the Tremont stands alone on open grass. Four of this row's anonymous roofs stood in the Clark-Dearborn block SEVENTEEN TO TWENTY-FOUR METRES behind the Lake Street frontage, each nudged off the line by its own jitter, which is the shape of a distribution and not of a street. They now stand ON the frontage: the line, its bearing and the corner they pack back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and this file authors no coordinate for any of them. The 0.80 m setback is not a measurement — it is the line the two frontage buildings ALREADY standing on this face (inf_bakery_lake and inf_butcher_market) use, adopted so the street wall is one wall rather than three. No roof is added, moved out of its block, renamed or re-dimensioned: the parcel still deals 40 principal and 8 ancillary, and every id and band is the one it was."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

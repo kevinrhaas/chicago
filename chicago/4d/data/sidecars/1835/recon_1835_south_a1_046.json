@@ -177,5 +177,14 @@
       "words": "patched boards under a patched roof — a stable, older than the boom (rule F-Y: a yard building's by its type)"
     },
     "yard_group": "block_interior_service_yards"
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

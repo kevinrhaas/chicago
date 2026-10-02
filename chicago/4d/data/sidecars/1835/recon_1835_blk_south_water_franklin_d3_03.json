@@ -293,5 +293,14 @@
       "household": "hh_blanchard_f_gantry",
       "words": "patched clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, under a weather-darkened roof — The Blanchard household's, in Chicago since 1826 (rule F-T)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

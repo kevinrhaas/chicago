@@ -265,5 +265,14 @@
       "household": "hh_burke_james",
       "words": "silvered clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, under a weather-darkened roof — The Burke household's, in Chicago since 1833 (rule F-T)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

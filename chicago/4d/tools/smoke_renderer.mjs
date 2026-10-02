@@ -2458,6 +2458,11 @@ for (const [label, viewport, touch] of [
     // Whether a garden should follow the HOUSE instead of the household is a claim
     // about the town rather than a bug, and it is the owner's: T-0727 asks him. If he
     // rules that way this floor rises again, and it should.
+    //
+    // He did (T-0772, 2026-09-21: the garden follows the HOUSE), and T-1958 spent the
+    // ruling: forty-six plots on the day it landed. The floor rises to thirty — far
+    // enough under the rule's output to survive the town's lots being re-dealt, far
+    // enough over one to fail if clause 4 ever slides back to the household reading.
     const pickets = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
       const rec = (e?.records ?? []).find((r) => r.id === 'town_dooryard_pickets');
@@ -2470,7 +2475,7 @@ for (const [label, viewport, touch] of [
       };
     });
     check(`${label}: the town's house lots carry generated picket gardens`,
-      pickets.found && pickets.runs >= 1 && pickets.type === 'picket'
+      pickets.found && pickets.runs >= 30 && pickets.type === 'picket'
       && pickets.ids.includes('blk_randolph_franklin_lot2'),
       `record ${pickets.found}, ${pickets.runs} plot(s) [${pickets.ids.join(', ')}], `
       + `fence type ${pickets.type}`);
@@ -4778,6 +4783,7 @@ for (const [label, viewport, touch] of [
         letterVerts: letters?.geometry?.getAttribute('position')?.count ?? 0,
         letterMap: !!letters?.material?.map,
         timberMap: !!mesh?.material?.map,
+        timberMapName: mesh?.material?.map?.name ?? null,
         lettering: f?.lettering ?? null,
         recordText: post?.text ?? null,
         textGrade: post?.text_confidence ?? null,
@@ -5292,15 +5298,25 @@ for (const [label, viewport, touch] of [
     // lettering claim from the record, and the wording is the one part of this
     // that no ticket may quietly drop — it is the plate's, not the renderer's,
     // and T-1547 needs it back the moment the post returns.
+    //
+    // T-1815 — THE TIMBER NOW CARRIES ITS GRAIN, AND STILL NO LETTERING. The street
+    // edge binds the clapboard board-face sheet onto the timber material, so its
+    // `map` is no longer empty: it is the grain's albedo ratio, named
+    // `frontage-grain:<sheet>` by frontage.js. What this line refuses is unchanged
+    // — painted text anywhere but the lettering mesh — so "carries no texture"
+    // becomes "carries no texture but the grain the census says it was bound".
+    const timberPlain = frontage.timberMap === false
+      || (frontage.census?.relief != null
+        && frontage.timberMapName === `frontage-grain:${frontage.census.relief}`);
     check(`${label}: the board carries the record's own name, painted, or none is drawn and the name is kept`,
       frontage.census?.lettered === 1
         ? frontage.letterVerts >= 6
-          && frontage.letterMap === true && frontage.timberMap === false
+          && frontage.letterMap === true && timberPlain
           && frontage.lettering === frontage.recordText
           && frontage.recordText === 'GREEN TREE'
           && frontage.textGrade === 'inferred'
         : frontage.census?.lettered === 0 && frontage.letterVerts === 0
-          && frontage.letterMesh === false && frontage.timberMap === false
+          && frontage.letterMesh === false && timberPlain
           && frontage.letteringValue === 'GREEN TREE'
           && frontage.letteringGrade === 'inferred',
       frontage.census?.lettered === 1
@@ -5308,7 +5324,8 @@ for (const [label, viewport, touch] of [
           + `"${frontage.recordText}" graded ${frontage.textGrade}`
         : `no board lettered (${frontage.letterVerts} lettering vertices, `
           + `lettering mesh ${frontage.letterMesh}); the record keeps its wording `
-          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}`);
+          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}; `
+          + `timber map ${frontage.timberMapName ?? 'none'}`);
 
     // AND IT READS FROM THE STREET, which is what a walk and a signboard are FOR.
     // Stand out on Lake Street where a traveller coming up to the inn stands and

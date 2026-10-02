@@ -4891,7 +4891,7 @@ rectangle together — which is the same document L60 has been waiting for since
 **Recorded:** 2026-08-18.
 
 
-### L129 — Garden fences on lots where no source puts a garden: eighteen when this was recorded, one today
+### L129 — Garden fences on lots where no source puts a garden: one behind every house lot the rule admits
 **Decision:** the house lots in the platted town that pass the rule stated below are drawn with a
 **picket-fenced garden plot at the back of the lot** — a pale fence 1.22 m high, pales 0.089 m wide with a 0.089 m gap on two
 stringers, posts 0.10 m square at 2.44 m, and a 1.07 m gap in the side that faces the house. The
@@ -4905,14 +4905,15 @@ clauses admit on the day the generator runs, and the committed record is the onl
 true. The counts, off the record at each commit that changed it: **eighteen** on 2026-08-18 when
 this entry was written, **fifteen** on 2026-08-21, **thirteen** on 2026-08-27, and **one** since
 2026-09-04, when T-0516 withdrew the stale `occupants` prose from the 104 anonymous roofs the
-retired inferred-household layer had adopted. Clause 4 asks for a household recorded as living on
-the lot, the households that prose named were removed under the owner's 2026-09-02 ruling, and so
-twelve gardens went with them. The survivor is Elijah Harmon's — `blk_randolph_franklin_lot2`,
-the one lot this record reaches where the committed household index carries a real `lives_at`.
-**Whether that is the right rule is an open question and it is the owner's** (T-0772): a dooryard
-garden could as defensibly follow the HOUSE — one dwelling alone on a platted lot, by archetype and
-by function — which would keep all thirteen on a weaker claim. Until he rules, clause 4 stands as
-written and this entry states its output rather than a number frozen at recording.
+retired inferred-household layer had adopted. Clause 4 then asked for a household recorded as
+living on the lot, the households that prose named were removed under the owner's 2026-09-02
+ruling, and so twelve gardens went with them. **The owner ruled on that on 2026-09-21 (T-0772):
+the garden follows the HOUSE.** *"A dooryard garden is GROUND, not a family's possession. It
+belongs to the lot and the structure standing on it, and it stays there when the household that
+worked it is retired — inherited by whoever the roof is next dealt to, or standing unworked if it
+is dealt to nobody."* Clause 4 was rewritten to say so on 2026-10-02 (T-1958), and the count rose
+from one to forty-six that day; this entry states the rule and not the number, which lives on the
+record.
 **Why:** because the evidence here is a TREATMENT and not a location, and this project had been
 using that as a reason to draw nothing. `docs/ROADMAP.md` K5 (a) cites the Kinzie-view plate for
 *"picket-fenced garden plots and Lombardy poplars"* and in the same sentence excludes the house
@@ -4923,12 +4924,10 @@ it, and the alternative was a town of houses standing in undivided prairie.
 **What bounds the invention.** WHICH LOTS is the part that matters, and it is a rule rather than a
 list, stated in the generator's docstring and enforced on every commit: a platted lot in
 `data/traces/vectors/thompson_lots.json`, holding exactly ONE committed building, that building a
-dwelling by both archetype and function, with a household recorded as living in it, and room at the
-back for a plot that hits no other footprint. Every clause refuses something real — the Mansion
+dwelling by both archetype and function — a house lot, whoever lived in it — and room at the back
+for a plot that hits no other footprint. Every clause refuses something real — the Mansion
 House, Eliza Chappel's infant school and the Temple Building each sit alone on a platted lot and
-are not house lots; John Wright's two buildings to let are excluded because their own records say
-*"the honest reading of 'to let' is a building whose tenant this project cannot name"*; and five
-lots are refused in the record itself because the committed house stands at the rear of the lot,
+are not house lots; and lots are refused in the record itself because the committed house stands at the rear of the lot,
 one of them 7.40 m past its own rear line. THE PERIMETERS ARE DERIVED, not placed: every metre
 comes from the committed lot polygon and the committed footprint. THE TREATMENT is the plate's —
 close-set vertical pales rather than the open horizontal rails at the wagon yard and the pound,
@@ -4942,8 +4941,11 @@ also what the scene's `light` triangle ceiling will carry. That is the same kind
 **L121** — a number in this dataset settled partly by the renderer's own budget — and it is
 recorded rather than dressed up as a finding about kitchen gardens.
 **Consequence:** a visitor walking the platted town sees a fenced garden behind every house the
-rule admits — eighteen of them when this was recorded, one today — and no source says any of those
-households kept one. The confidence view is the counterweight and it is wired the same way as the
+rule admits — eighteen of them when this was recorded, one at the low point, forty-six once the
+owner ruled for the house — and no source says any of those households kept one. Most of them
+stand behind a RECONSTRUCTED house, which makes the garden an invention resting on an invention;
+T-1212 asked for exactly that ("the admission rule extended to reconstructed households at its own
+tier"), and each run's note on the record names the grade of the house it stands behind. The confidence view is the counterweight and it is wired the same way as the
 rest of this layer: every vertex is graded `reconstructed`, so hiding that level removes all of
 them and leaves the lots as the sources leave them — houses on open ground. The other consequence
 is the one the count exposes: a rule whose output moves silently makes a layer the town can lose
@@ -4971,6 +4973,13 @@ Nothing about the invention changes: the rule, the treatment, the geometry and t
 recorded. What changes is that the entry no longer carries a frozen count as if it were a decision,
 and the drift from eighteen to one is stated with its dates and its cause. The question of WHICH
 rule the layer should run on — the household or the house — is with the owner as T-0772.
+**Revised:** 2026-10-02 (T-0772, T-1958) — the rule. The owner ruled on 2026-09-21 that the garden
+follows the HOUSE, and clause 4 now admits a house lot without asking who lived in it: one garden
+became forty-six (three behind attested houses — the Lake House and John Wright's two buildings to
+let, which under the ruling keep their ground though no tenant is named — and forty-two behind
+reconstructed ones), eight more house lots are refused for want of room, and Elijah
+Harmon's is kept. Nothing else moves: the treatment, the geometry, the pale rhythm, the plot ceiling
+and the grade are as recorded, and the grade is still `reconstructed` on every one of them.
 
 ### L130 — Twenty-four shop signs in a town that documents one
 **Decision:** twenty-four of the town's business frontages carry a **blank weathered signboard**
@@ -19270,3 +19279,35 @@ summer of 1835 would replace the 0.35 m floor.
 street section the aprons lead to), **T-0041**, **T-0058**, **T-0062**, **T-1771** (this
 layer), **T-1797** (the ground-strip method).
 **Recorded:** 2026-10-02.
+
+### L348 — The lay of a wall's boards and the years it has weathered are dealt by whose house it is
+
+**Decision:** every reconstructed roof the fabric rule reaches (T-1816, L330) has two more values
+dealt on the material sheet (`generators/common/materials.py`, rules **FIN-L** and **FIN-W**,
+materials.md §16). Both are `reconstructed`, and neither touches a researched building or an
+attested finish.
+
+- **FIN-L, the lay.** On a clapboard wall, a course's exposure stands off its mill stock by at
+  most 3 mm on a merchant's house, 4 mm on a keeper's, 6 mm on a tradesman's and 8 mm on a
+  labourer's or a yard or works building. Each lap line is drawn by a hash of the record's id
+  and phase. The error never accumulates, so the top course still meets the plate where it did.
+  It is invented: no source gives the laying tolerance of any 1835 Chicago wall. The bound is
+  argued from the tools. A joiner setting out with a story pole holds about an eighth of an inch;
+  a man laying by eye, about a quarter to five-sixteenths. Every bound sits well inside the
+  0.018 m lip, so no course climbs over the one above it.
+- **FIN-W, the wear.** A roof's `age_state`, which the fabric rule deals from its household's
+  arrival year, is read as years of weather: `new` 0.5, `recent` 1.5, `established` 2.5,
+  `older_frontier` 5.0. A merchant's house weathers at half the rate and a keeper's at three
+  quarters, because a coat that is kept up is renewed. The renderer's silvering (L126) reads
+  these in place of the programme date. That date, 1835-01-01, was never a construction date.
+  The years are invented within the window the age names, and the rates are invented outright.
+  L126's bounds on how far a wall may silver are unchanged.
+
+**How to resolve:** any source giving the date a particular reconstructed-lot house was raised
+(it moves that roof's `age_state`, and through it the wear); any account of how 1830s Chicago
+carpenters set out siding. A named discovery replaces the anonymous roof and its deal together.
+
+**Related:** **L126** (the facade tone this extends), **L330** (the fabric rule's finish deal),
+**L338** (its form deal), **L148** (the siding stock), **T-1962** (this deal, piece 1 of
+**T-1818**, of **T-1210**), **T-1963** (the relief that lets it read at walking distance).
+**Recorded:** 2026-10-02 (T-1962).

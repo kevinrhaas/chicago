@@ -220,5 +220,14 @@
       "household": null,
       "words": "silvered boards under a weathered roof — a freight shed, a year old (rule F-F: the freight trade's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "freight",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

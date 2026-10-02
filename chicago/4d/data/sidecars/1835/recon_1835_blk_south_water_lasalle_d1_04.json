@@ -170,5 +170,14 @@
       "abuts": "recon_1835_blk_south_water_lasalle_d4_02",
       "why": "T-0078, and the owner's standing ruling of 2026-08-18 with it: \"there should be more and denser buildings. this is important.\" The reference he supplied for this reach — \"South Water Street in 1834\", the south bank of the Main Branch — shows a CONTINUOUS WORKING ROW: one-storey log and frame buildings shoulder to shoulder facing the river, the street between them and the grassy bank, two-storey frame stores anchoring its east end. This block's anonymous roofs stood seven metres back from that frontage, a full lot apart, each nudged off the line by its own lateral offset and — because the placement rule takes its bearing from the way into the lot — facing the block's interior rather than the river. That is the shape of a distribution across a block, not of a street. They now stand ON the frontage: the line, its bearing and the end they pack back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and this recipe authors no coordinate for any of them. The 1.5 m setback is not a measurement of this frontage — it is the closest line the plat module's own lot margin allows, adopted so the street wall is one wall. NO ROOF IS ADDED: the run carries exactly the roofs the schedule dealt this block's frontage lots, with every id, family and dimension the one it already had. What the view drives is the treatment — a row on its line, facing the water — never a coordinate, and the side lot lines the row crosses between its own units were conjectural in every record this generator has ever written."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

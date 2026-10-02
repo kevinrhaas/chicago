@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1297, ts: '2026-10-02T10:21:23.783Z', date: 'Oct 2, 2026, 5:21 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
+    items: [
+      'Walk down any street of the reconstructed town. A house dated to the 1832\u201333 boom, or one standing before that, now shows its age: its boards have turned a little greyer and duller than a house raised this spring.',
+      'A merchant\u2019s or a boarding-house keeper\u2019s house weathers more slowly than a cottage, because its owner kept the paint and the limewash up.',
+      'The clapboard courses are no longer perfectly even. Each board sits a few millimetres high or low, as a carpenter would lay it. A merchant\u2019s joiner laid them more evenly than a labourer did.',
+      'All of this is invented within stated bounds. No source says how weathered any one 1835 house was. The Liberties page (L348) says how each value is set.',
+    ] },
+  { v: 1296, ts: '2026-10-02T10:02:34.315Z', date: 'Oct 2, 2026, 5:02 AM CT', title: 'Kitchen gardens behind the town\u2019s houses', kind: 'change',
+    items: [
+      'Walk the back lots along Randolph, Washington or Lake Street. Behind forty-six houses there is now a picket-fenced kitchen garden, with tilled beds, kept grass and a path in from a gap in the fence facing the back door. Before this, only Elijah Harmon\u2019s house on Randolph had one.',
+      'A garden now goes with the house, not with whoever lived in it, so a house with no named household keeps its garden too. The houses whose lots are too cramped to fit one still have none.',
+      'No source says any of these households kept a garden. The fences copy the ones in an 1893 view of the Kinzie house, and the Liberties page (L129) says how each lot was chosen.',
+    ] },
   { v: 1295, ts: '2026-10-02T09:54:07.300Z', date: 'Oct 2, 2026, 4:54 AM CT', title: 'Weathered, grained timber at every shop door', kind: 'change',
     items: [
       'Stand on Lake Street outside George Dole\u2019s warehouse. His wagon apron, the stoops along the street and the hitching posts are no longer white. They now match the walks in weathered grey and brown, and each business\u2019s timber is its own shade.',

@@ -277,5 +277,14 @@
       "household": null,
       "words": "whitewashed clapboard on a braced frame under a weather-darkened roof — a store-residence, from the 1832–33 town (rule F-T: a tradesman's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }
