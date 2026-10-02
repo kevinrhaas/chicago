@@ -256,5 +256,14 @@
       "household": "hh_dewey_d_s",
       "words": "patched boards under a weathered roof — The Dewey household's, in Chicago since 1834 (rule F-L)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

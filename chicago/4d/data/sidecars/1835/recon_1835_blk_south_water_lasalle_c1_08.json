@@ -283,5 +283,14 @@
       "abuts": null,
       "why": "T-0429, and the ground it stands on was unblocked by an owner's ruling rather than found. T-0143 and T-0188 each refused to tighten a party-line row against a street line that might move, and T-0317 inherited the refusal; T-0009 closed it on 2026-08-29 under the owner's ruling that THE DRAWN SOUTH WATER LINE DOES NOT MOVE — the corridor was re-derived from committed control and data/streets/1835.json was not touched. That refusal is what had held this reach, and it is discharged. THE FACE IS THE BLOCK'S OWN, MEASURED RATHER THAN ASSUMED: tools/measure_street_frontage.py reads South Water and Lake as the two faces of this block, the committed street hierarchy in data/streets/1835.json grades both `principal`, and South Water is the river street the owner's reference plate draws — 'South Water Street in 1834', roughly ten one-storey log and frame buildings shoulder to shoulder facing the river. This run is the west half of that row on this block. THE LINE IS NOT AUTHORED AT ALL, which is the difference between this run and the first deal's: the face is already built, so the run declares `adopts_face_line` and the 1.5 m is MEASURED off the three units the first deal stands on the same face — 1.4998, 1.4996 and 1.5004 m, a 0.8 mm spread — under T-0104's clause. A street wall is one wall, and this row joins one rather than opening one. THE CORNER CLAUSE BINDS AND THE FABRIC RULE AGREES WITH IT, which is the parcel's one new reading. Lot 0 is the block's free CORNER lot, at South Water and LaSalle, and the core density standard's third clause says a corner lot BUILDS TO THE CORNER: the run is anchored WEST, 1.5 m clear of the corner margin, and chains east on shared party walls. The frontage-fabric rule (T-0022) independently says a log dwelling takes the WEST END of a principal-street row where the block was dealt one, and this block was dealt a D1. On blk_randolph_market (T-0317) the corner clause and the end rule pointed in opposite directions and the parcel had to choose; here the corner clause and the fabric rule name the SAME unit, so the log cabin takes the corner and nothing has to be traded away. NO COORDINATE IS AUTHORED: the line, its bearing, the strip's two ends and the party walls between units are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the lots this run was dealt are named here so the ledger can count them rather than shared out one per unit."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

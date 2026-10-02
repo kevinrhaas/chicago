@@ -127,9 +127,11 @@ def build(params: FrameTavernParams, name: str):
     # scheme laps the eaves elevations too, because there the x faces ARE the
     # long street elevations and a bare one reads as a painted box (T-0083's
     # before frame shows exactly that).
-    _clapboard(b, w, d, wall_z, c_clad, params.siding_exposure_m)
+    lines = materials.course_lines(0.0, wall_z, params.siding_exposure_m,
+                                   params.siding_lay_m, params.siding_seed)
+    _clapboard(b, w, d, lines, c_clad)
     if params.elevation_scheme == "gable_front":
-        _clapboard_eaves(b, w, d, wall_z, c_clad, params.siding_exposure_m)
+        _clapboard_eaves(b, w, d, lines, c_clad)
 
     ridge_z = b.add_gable_roof(0, 0, w, d, wall_z, params.roof_pitch_deg, c_roof,
                                M_ROOF, ridge_along_x=(w >= d))
@@ -288,27 +290,23 @@ def _stack_fractions(n: int) -> tuple[float, ...]:
     return tuple(0.22 + i * step for i in range(n))
 
 
-def _clapboard(b: MeshBuilder, w: float, d: float, wall_z: float, conf: float,
-               course: float) -> None:
-    """Horizontal lap courses, modelled as a thin proud lip per course. `course`
-    is the record's own mill stock (params.siding_exposure_m)."""
+def _clapboard(b: MeshBuilder, w: float, d: float, lines: list, conf: float) -> None:
+    """Horizontal lap courses, modelled as a thin proud lip per course. `lines` are
+    the lap heights `materials.course_lines` lays from the record's own mill stock
+    (params.siding_exposure_m) and the fabric rule's lay (FIN-L, T-1962)."""
     lip = 0.018
-    n = int(wall_z / course)
-    for i in range(1, n):
-        z = i * course
+    for z in lines:
         for y, ny in ((0.0, -lip), (d, d + lip)):
             b.add_poly([(0, y, z), (w, y, z), (w, ny, z - 0.02), (0, ny, z - 0.02)],
                        conf, M_WALL)
 
 
-def _clapboard_eaves(b: MeshBuilder, w: float, d: float, wall_z: float,
-                     conf: float, course: float) -> None:
+def _clapboard_eaves(b: MeshBuilder, w: float, d: float, lines: list,
+                     conf: float) -> None:
     """Lap courses on the two x faces — the eaves elevations of a gable-front
     building, which are its long street walls and must read as clapboard."""
     lip = 0.018
-    n = int(wall_z / course)
-    for i in range(1, n):
-        z = i * course
+    for z in lines:
         for x, nx in ((0.0, -lip), (w, w + lip)):
             b.add_poly([(x, 0, z), (x, d, z), (nx, d, z - 0.02), (nx, 0, z - 0.02)],
                        conf, M_WALL)
@@ -422,8 +420,8 @@ def _cross_wing(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
     # clapboard on the three exposed walls, the block's own stock
     course = params.siding_exposure_m
     lip = 0.018
-    for i in range(1, int(wall_z / course)):
-        z = i * course
+    for z in materials.course_lines(0.0, wall_z, course, params.siding_lay_m,
+                                    params.siding_seed):
         b.add_poly([(x1, -p, z), (x0, -p, z),
                     (x0, -p - lip, z - 0.02), (x1, -p - lip, z - 0.02)], c_clad, M_WALL)
         b.add_poly([(x0, 0, z), (x0, -p, z),
@@ -472,8 +470,8 @@ def _rear_ell(b: MeshBuilder, params: FrameTavernParams, w: float) -> None:
     # clapboard courses on the three exposed walls
     course = params.siding_exposure_m
     lip = 0.018
-    for i in range(1, int(eh / course)):
-        z = i * course
+    for z in materials.course_lines(0.0, eh, course, params.siding_lay_m,
+                                    params.siding_seed):
         b.add_poly([(x1e, -ed, z), (x0e, -ed, z),
                     (x0e, -ed - lip, z - 0.02), (x1e, -ed - lip, z - 0.02)],
                    c, M_WALL)

@@ -177,5 +177,14 @@
       "words": "silvered boards under a weathered roof — a woodshed, a year old (rule F-Y: a yard building's by its type)"
     },
     "yard_group": "wk_d4_018_yard"
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

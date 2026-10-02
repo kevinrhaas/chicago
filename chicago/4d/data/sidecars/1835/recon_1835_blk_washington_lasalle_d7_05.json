@@ -201,5 +201,14 @@
       "household": null,
       "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and a stoop, under a weather-darkened roof — a small two-story frame house, from the 1832–33 town (rule F-T: a tradesman's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

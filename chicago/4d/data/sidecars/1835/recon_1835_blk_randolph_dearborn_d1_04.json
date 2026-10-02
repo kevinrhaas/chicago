@@ -224,5 +224,14 @@
       "household": "hh_austin_w_g",
       "words": "hewn logs under a weathered roof — The Austin household's, in Chicago since 1834 (rule F-L)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

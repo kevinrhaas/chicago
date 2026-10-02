@@ -416,8 +416,8 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     make `assets/manifest.json`'s input hashes meaningless.
     """
     stud = p.stud_spacing_m
-    course = p.siding_exposure_m
-    n = int((z_hi - z_lo) / course)
+    lines = materials.course_lines(z_lo, z_hi, p.siding_exposure_m, p.siding_lay_m,
+                                   p.siding_seed)
     lip = CLAPBOARD_LIP_M
     faces_y = [(y, ny, sgn, nm) for y, ny, sgn, nm in
                ((y0, y0 - lip, -1.0, "front"), (y1, y1 + lip, 1.0, "back"))
@@ -425,10 +425,16 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     faces_x = [(x, nx, sgn, nm) for x, nx, sgn, nm in
                ((x0, x0 - lip, -1.0, "left"), (x1, x1 + lip, 1.0, "right"))
                if nm not in skip]
-    for i in range(1, n):
-        z = z_lo + i * course
+    # Since T-1962 a lap line may stand off its even height by the fabric rule's lay
+    # (FIN-L, `materials.course_lines`), so a course's board runs from the line below
+    # it. With no lay it still runs from `z - exposure`, so a wall the rule never
+    # reached is built to the bit as it was.
+    prev = z_lo
+    for i, z in enumerate(lines, start=1):
         if z > z_hi - 0.02:
             break
+        below = prev if p.siding_lay_m > 0.0 else z - p.siding_exposure_m
+        prev = z
         for y, ny, _sgn, _nm in faces_y:
             b.add_poly([(x0, y, z), (x1, y, z), (x1, ny, z - 0.02), (x0, ny, z - 0.02)],
                        conf, M_WALL)
@@ -440,12 +446,12 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
             for jx in _joint_positions(x0, x1, stud, i):
                 for y, _ny, sgn, _nm in faces_y:
                     _panel(b, "y", y + sgn * (lip + 0.006), jx - 0.015, jx + 0.015,
-                           z - course, z, int(sgn), conf, M_WALL)
+                           below, z, int(sgn), conf, M_WALL)
         else:
             for jy in _joint_positions(y0, y1, stud, i):
                 for x, _nx, sgn, _nm in faces_x:
                     _panel(b, "x", x + sgn * (lip + 0.006), jy - 0.015, jy + 0.015,
-                           z - course, z, int(sgn), conf, M_WALL)
+                           below, z, int(sgn), conf, M_WALL)
 
 
 def _joint_positions(u0: float, u1: float, stud: float, course: int) -> list:

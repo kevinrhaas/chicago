@@ -180,5 +180,14 @@
       "household": null,
       "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

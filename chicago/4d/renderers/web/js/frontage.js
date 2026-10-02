@@ -347,6 +347,9 @@ async function loadTimberRelief(assetBase) {
     const normalMap = tiled(new THREE.Texture(nrm));
     const ormMap = tiled(new THREE.Texture(orm));
     const modMap = new THREE.DataTexture(mod, w, hgt, THREE.RGBAFormat);
+    // Named, because the smoke tells this map from a painted one by its name:
+    // the timber may carry its grain and never a board's lettering (L135).
+    modMap.name = `frontage-grain:${sheet.id}`;
     modMap.generateMipmaps = true;
     modMap.minFilter = THREE.LinearMipmapLinearFilter;
     modMap.magFilter = THREE.LinearFilter;

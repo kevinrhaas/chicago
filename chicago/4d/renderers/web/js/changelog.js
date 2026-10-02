@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1297, ts: '2026-10-02T11:02:11.608Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
+  { v: 1298, ts: '2026-10-02T11:23:18.071Z', date: 'Oct 2, 2026, 6:23 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
     items: [
       'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
       'Painted and whitewashed walls hide the wood\u2019s colour but keep its texture. Look at the Sauganash\u2019s white lead beside the bare boards on Lake Street.',
       'Each house keeps its own colour and sheen. Whitewash is still the dullest wall in town and the Sauganash\u2019s paint the glossiest.',
       'The grain is our reconstruction. No source describes how any 1835 Chicago wall\u2019s wood looked. The Liberties page says how we chose it (L350).',
+    ] },
+  { v: 1297, ts: '2026-10-02T10:21:23.783Z', date: 'Oct 2, 2026, 5:21 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
+    items: [
+      'Walk down any street of the reconstructed town. A house dated to the 1832\u201333 boom, or one standing before that, now shows its age: its boards have turned a little greyer and duller than a house raised this spring.',
+      'A merchant\u2019s or a boarding-house keeper\u2019s house weathers more slowly than a cottage, because its owner kept the paint and the limewash up.',
+      'The clapboard courses are no longer perfectly even. Each board sits a few millimetres high or low, as a carpenter would lay it. A merchant\u2019s joiner laid them more evenly than a labourer did.',
+      'All of this is invented within stated bounds. No source says how weathered any one 1835 house was. The Liberties page (L348) says how each value is set.',
     ] },
   { v: 1296, ts: '2026-10-02T10:02:34.315Z', date: 'Oct 2, 2026, 5:02 AM CT', title: 'Kitchen gardens behind the town\u2019s houses', kind: 'change',
     items: [
