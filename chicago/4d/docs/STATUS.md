@@ -11,21 +11,26 @@ writing because the ground behind it is wet.
 **The rule** is `tools/yard_rule_1835.py`, printed in `data/reconstruction/1835_placement_policy.json`
 under `yard`: the household class is the fabric rule's (250 roofs), else a resident household's
 trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
-default (18, said so on the record); the house is the roof's own family. Wells, privies, stables
-(T-1960) and trade goods (T-1961) are the columns still to write. `generate_woodpiles.py --check`
+default (18, said so on the record); the house is the roof's own family. Wells are the column still to write; privies and stables (T-1960) and trade goods (T-1961) have
+landed beside it. `generate_woodpiles.py --check`
 and the rule's `--self-test` are in `check.sh`. L356 claims the invention; the fact of household
 firewood is `inferred` from the 1835 price current.
 
-**Frame cost, measured on the published mirror, desktop, `full`** (`tools/woodpile_shots.mjs
---anchor lake_at_canal`, the same frame with `town_woodpiles.json` refused at the network for
-"before"). The yard layer goes from 63,464 to 98,928 triangles. At Lake Street at Canal, part 5's
-worst stand, on dev at 729de887: 1,654,816 triangles and 221 calls without the woodpiles, 1,725,744
-and 223 with them, so +70,928 (colour and sun pass) and +2. **Dev was already over both budgets there
-before this PR** — 194,816 over the 1,460,000 `full` ceiling and 221 calls of 215 — and dev's own CI
-is red on smoke legs desktop 1-2, mobile 1-2 and mobile 3-6. Every woodpile is in ONE town mesh in
-a group of its own, because the call budget is the one that binds: chunks three cells across (19)
-cost 9-20 calls at a back-lot stand, eight across (5) 6-11, goods chunks plus one outlying mesh 2-6,
-one mesh exactly 2. The sticks are painted on the yard atlas, not built: about sixty triangles a rick.
+**Frame cost, measured on the published mirror, desktop** (`tools/woodpile_shots.mjs --anchor
+lake_at_canal`, the same pose with `town_woodpiles.json` refused at the network for "before"; then
+`tools/measure_detail_ceilings.mjs`, committed as `docs/measurements/t-1959-detail-ceilings-desktop.json`).
++70,928 triangles and +2 calls at every stand at `full` and `balanced`: every woodpile is ONE town mesh
+in a group of its own, because the call budget is the one that binds (chunks three cells across cost
+9-20 calls at a back-lot stand, one mesh exactly 2). T-1975 left the woodpiles to bring their own
+number, so this PR raises `full` 1,725,000 -> 1,800,000 and `balanced` 1,490,000 -> 1,565,000 by its
+rule (worst 1,778,094 / 1,545,215 plus T-0672's headroom, rounded up to 5,000); calls 224 of 240.
+**`light` does not draw them** (`DETAIL.light.woodpiles: false`): it is over and is won back by
+T-1976's trim, never spent, and it reads 944,714 / 102 calls with or without them.
+
+**The merge with dev (2026-10-02).** T-1961's lot loop sent every kind outside its `STACK_KINDS` to
+`buildItem`, which draws no wood, so after the first merge all 298 piles were dropped with no problem
+filed; wood kinds now go to `buildStack`. The generator now also keeps every pile a metre off T-1960's
+privies and stables (none moved). dev's L350 is T-1963's walls' grain, so the woodpiles are L356.
 
 **Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
 are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.

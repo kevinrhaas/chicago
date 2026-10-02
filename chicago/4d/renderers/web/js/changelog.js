@@ -1,10 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A woodpile behind every house in town', kind: 'change',
+  { v: 1313, ts: '2026-10-02T18:13:36.279Z', date: 'Oct 2, 2026, 1:13 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
     items: [
       'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
       'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
       'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
       'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L356) says how.',
+      'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
