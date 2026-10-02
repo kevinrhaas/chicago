@@ -14481,8 +14481,8 @@ dwelling.** Its verdict is T-1445's own (a principal street, which
 `ancillary_behind_its_own_roof` avoids), carried out with `--apply --only`. Like `_011` it is
 raised from 8 × 10 ft to the 12 × 16 ft floor of the D2 band, the smallest rough-plank dwelling
 that family allows. T-1988 had drafted a stated use for it and withdrew it, because a stated
-use would keep a roof from a household waiting on one; the housing deal (L354) now seats a
-boarder there.
+use would keep a roof from a household waiting on one. The off-plat deal (L271) now adopts it
+for a West labourer household of five, and the housing deal (L354) seats them there.
 
 **Recorded:** 2026-09-20.
 
@@ -15275,7 +15275,7 @@ families has only the lot the schedule keeps open. Nobody standing under a roof 
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 73 households given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -15349,6 +15349,10 @@ a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-161
 predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
 grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
 anonymous-stock statement it refuses to overturn).
+**Amended 2026-10-02 (T-1989): 73.** `recon_1835_west_013` became a D2 dwelling (L265), and
+the deal adopts it for one more West household under `labourer_dwellings` — Ellen Doyle's,
+five people, which the housing deal (L354) then seats there on its `dealt` rung. The counts
+in the paragraphs above are the ones as written; this is the one seat added since.
 **Recorded:** 2026-09-26.
 
 **The farmstead rule (T-1794, 2026-10-01).** By the policy's clause order alone every D1
@@ -19674,9 +19678,9 @@ deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965
 (L265), so the scene stands 295 dwellings and the census's ceiling admits 371 ruled-in
 households instead of 362: 1,374 are seated, 2,420 people under 295 dwellings (8.203 a
 roof), and 514 households (516 people) wait on a roof. A new roof in the pool is the
-roomiest roof in its division, so the deal's room rule re-picks: 238 seats change roof and
-the only one that changes division is a
-boarder whose card has no division and who is offered the whole town.
+roomiest roof in its division and the off-plat deal hands it a household of five, so the
+deal's room rule re-picks: 537 seats change roof. 32 of them change division, every one a
+household whose card has no division and is offered the whole town.
 **Recorded:** 2026-10-02.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
@@ -19758,9 +19762,9 @@ division, of a trade the roof's family serves: carpenters and joiners for the W2
 crosswalk's label), the forwarding store for the F2 and the store and grocery signage for
 the C3 (the premises rulings), the tannery, packing, slaughter and soap-and-candle signage
 for the W5 (the only placement clause that admits it). The keeper whose own roof stands
-nearest takes it, ties by seeded hash. Three are kept: Otis Bacon, carpenter, 123 m from his
+nearest takes it, ties by seeded hash. Three are kept: Otis Bacon, carpenter, 39 m from his
 own roof; Louis Bertrand, forwarding and commission, the only one of his trade in the West
-Division; Calvin Lyman, grocer, the nearest of twenty. **No source places any of these
+Division; Silas Bacon, grocer, the nearest of twenty. **No source places any of these
 keepers at any of these roofs**: the keepers are the residents layer's, reconstructed, with
 their own grades on their own cards, which the seat does not touch; what is invented is
 which keeper meets which roof.

@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "seat_trade_roofs_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "continuously",
+      "finding": "In the manifest immediately after house_the_present_1835.py and before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_trade_roof_seats.json; a second run changes no byte."
+    },
     "house_the_present_1835.py": {
       "placement": "manifest",
       "write_mode": null,

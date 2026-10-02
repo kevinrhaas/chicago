@@ -65,11 +65,11 @@
       "file": "reconstructed_trades/hh_rc_bacon_otis.json",
       "trade": "carpenter",
       "grade": "reconstructed",
-      "home": "recon_1835_blk_west_randolph_des_plaines_d5_04",
-      "metres_from_home": 122.6,
+      "home": "recon_1835_west_046",
+      "metres_from_home": 38.5,
       "keepers_offered": 4,
       "relation": "worked here",
-      "words": "keeping a carpenter's house of their own: the nearest of 4 west division keeper(s) of a trade this roof serves, who had no workplace, 123 m from their own roof"
+      "words": "keeping a carpenter's house of their own: the nearest of 4 west division keeper(s) of a trade this roof serves, who had no workplace, 38 m from their own roof"
     },
     {
       "structure_id": "recon_1835_forks_freight_f2_001",
@@ -91,17 +91,17 @@
       "structure_id": "recon_1835_south_c3_015",
       "family": "C3",
       "division": "south",
-      "person_id": "rc_lyman_calvin",
-      "name": "Calvin Lyman",
-      "household": "hh_rc_lyman_calvin",
-      "file": "reconstructed_trades/hh_rc_lyman_calvin.json",
+      "person_id": "rc_bacon_silas",
+      "name": "Silas Bacon",
+      "household": "hh_rc_bacon_silas",
+      "file": "reconstructed_trades/hh_rc_bacon_silas.json",
       "trade": "grocer",
       "grade": "reconstructed",
-      "home": "recon_1835_south_d7_035",
-      "metres_from_home": 114.6,
+      "home": "recon_1835_south_d6_031",
+      "metres_from_home": 75.7,
       "keepers_offered": 20,
       "relation": "worked here",
-      "words": "keeping a grocer's house of their own: the nearest of 20 south division keeper(s) of a trade this roof serves, who had no workplace, 115 m from their own roof"
+      "words": "keeping a grocer's house of their own: the nearest of 20 south division keeper(s) of a trade this roof serves, who had no workplace, 76 m from their own roof"
     }
   ],
   "unseatable": [
