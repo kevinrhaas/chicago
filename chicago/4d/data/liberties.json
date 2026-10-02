@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 334,
+  "count": 335,
   "liberties": [
     {
       "id": "L1",
@@ -21208,6 +21208,56 @@
         {
           "label": "Related",
           "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L270** (the platted deal and the household it now owes), **L318** (the first house and its form), **L326** (the second house and the yard mix), **L252** and **L257** (its lodgers and its house of trade), **T-1950** (this deal, a piece of **T-1810**, of **T-1779**), **T-1209** (the boarding houses built to their beds)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L343",
+      "title": "The frame houses' glazing is dealt by whose house it is: the sash and the pane by class",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_*",
+          "phase": "*",
+          "aspect": "form.glazing"
+        }
+      ],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the fabric rule (L330, L338, `tools/fabric_rule_1835.py`) now deals a `glazing` to every reconstructed frame dwelling, and `frame_dwelling` builds it (T-1838, piece 1 of T-1832): the window's width and height come from its lights, muntins and rails, and every window carries its sash bars — stiles, rails, the meeting rail and the muntins — over the dark opening. - **merchant**: twelve-over-twelve of the larger boxed lights, 8 × 10 in on half the houses and 7 × 9 in on the rest; - **keeper**: twelve-over-twelve of 7 × 9 in; - **tradesman**: twelve-over-twelve of 6 × 8 in on seven in ten, nine-over-six of 6 × 8 on the rest; - **labourer**: six-over-six of 6 × 8 in on seven in ten, nine-over-six on the rest. A storey too low for the whole sash loses a row of lights, the upper sash first, rather than having its panes squashed. A record that states no glazing — every named or documented house — gets the archetype's default, twelve-over-twelve of 6 × 8 in, which is the pane its windows were always sized from."
+        },
+        {
+          "label": "Why",
+          "text": "6 × 8 in is the one pane attested at Chicago in this dataset, twice: the Green Tree's lights and Gale's guest chamber \"with two windows 6x8\" (`chicagology_prefire127`, as `frame_dwelling.py` quotes it). That is why the cottages and shops glaze with it. The larger 7 × 9 and 8 × 10 in lights are argued from the cost of glass: they were dearer, so they went to the houses that could pay for them. **No source glazes any particular house here.** Every value written is `reconstructed`, and an attested or inferred value is never touched (`apply_form`, held by the rule's `--self-test`, which also refuses a glazing the archetype cannot build and a large light on a labourer's house)."
+        },
+        {
+          "label": "Consequence",
+          "text": "across the 162 reconstructed frame dwellings the rule reaches: 106 twelve-over- twelve of 6 × 8, 38 nine-over-six of 6 × 8, 8 twelve-over-twelve of 7 × 9 and 10 of 8 × 10. No reconstructed frame dwelling is a labourer's or a keeper's today, so those rows are dealt to none yet. A merchant's window is about 0.97 × 1.74 m against a cottage's 0.77 × 1.43 m, and every window in the archetype, all 183 houses, now shows its sash. 183 meshes rebaked."
+        },
+        {
+          "label": "Not dealt, and why",
+          "text": "the frame storefront's and the frame tavern's windows (L23 on the three taverns stands); cladding, trim and chimney fabric, and the siding stock reconciled with T-0112's neighbour separation, which are T-1839."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any source on the glass or sash of a particular 1835 Chicago house, which outranks the rule for that roof; a merchant's invoice or advertisement giving the window-glass sizes sold at Chicago in 1833–35, which re-grades the class split."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_*.*.form.glazing`"
+        },
+        {
+          "label": "Related",
+          "text": "**L338** (the form, the same rule), **L330** (the finish), **L23** (one window arrangement), **L90** (the anonymous roofs), **T-1817**, **T-1832**, **T-1838** (this rule), **T-1839**."
         },
         {
           "label": "Recorded",
