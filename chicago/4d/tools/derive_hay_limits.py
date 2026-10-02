@@ -405,7 +405,11 @@ def derive():
                     "the scene on 1 July: nothing is placed, moved or drawn because of it. "
                     "A line the Trustees walked on 5 August describes ground that was "
                     "already built up when they walked it, which is exactly why it is "
-                    "worth having; it is still a claim about August and it says so.",
+                    "worth having; it is still a claim about August and it says so. "
+                    "ONE THING READS IT, at the owner's instruction (T-1212, T-1961): "
+                    "data/yard/town_trade_yards.json stands no hay rick inside the ring, "
+                    "and a stable inside it is refused one in writing. Nothing is moved "
+                    "and the line itself is still not drawn.",
         },
         "walk": walk,
         "closure": closure,

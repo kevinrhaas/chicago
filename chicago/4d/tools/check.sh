@@ -1361,6 +1361,14 @@ step "the yard goods re-derive from the rule that chose their frontages" \
 step "the building material re-derives from the rule that chose the lots" \
   python3 tools/generate_lot_building_material.py --check
 
+# The working trades' yards (T-1961, piece 4 of T-1212): casks at the cooperages and
+# packers, boards at the joiners', hides at the tannery, hay ricks at the stables outside
+# the 1835 hay limits, wagons at the forwarders and the teamster's yard. Re-derived from
+# the sidecars, the committed ground and the other yard records, so where each stands
+# stays a rule.
+step "the trade yards re-derive from the rule that dealt them" \
+  python3 tools/generate_trade_yards.py --check
+
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
 # trodden earth, no source states a foot of it, and the render grew prairie to the pickets.

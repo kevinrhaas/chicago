@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1300, ts: '2026-10-02T12:03:26.034Z', date: 'Oct 2, 2026, 7:03 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
+    items: [
+      'Walk the back lots south of Washington Street. Behind the stables there are now hay ricks. Nineteen stables across the town have one, all outside the 1835 hay limits.',
+      'The stables inside those limits have no rick. The town banned stacking hay inside the line in August 1835, so their hay is kept in the loft.',
+      'The two cooperages have a rank of finished casks in the yard. The packing and slaughter houses have rows of barrels, and John Miller\u2019s tannery has hides drying over two rails.',
+      'The joiners\u2019 shops have a stack of boards out to dry. The teamster\u2019s yard on the West Side has a farm wagon and a covered wagon, and two forwarding houses each have a farm wagon. Aim at any of them to open the business it belongs to.',
+      'All of it is our reconstruction. No source says what stood in any of these yards. The Liberties page explains how each one was placed (L351).',
+    ] },
   { v: 1299, ts: '2026-10-02T11:30:11.198Z', date: 'Oct 2, 2026, 6:30 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
     items: [
       'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
