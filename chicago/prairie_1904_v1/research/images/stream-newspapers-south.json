@@ -1086,9 +1086,212 @@
   "notes": "Caption read on the page: \"On the high iron fence of this old home at 2140 Prairie avenue now hangs the sign 'To lease.' At one time it was the residence of Byron L. Smith, who was president of the Northern Trust company. At his death, Mr. Smith left an estate of $5,500,000. It was to this home that the Chicago banker returned in 1910 after a 120-day trip around the world.\" The halftone shows the corner of the house with THREE TALL CONICAL SPIRES (two round corner towers and a central projecting bay, each under a steep pointed roof with finials), dormers, a high iron fence on stone posts and a canopied side entrance. It is a DATED example (by July 1928) of the conical-spire roof state; the collection's cresting-crowned state is dated pre-1881 (stereograph) and 1898 (Van Osdel book plate). So the spires were added at some point between 1898 and 1928 — this item fixes the later bound only; the 1904 roof remains undecided (see worklog). The house had stood empty/for lease since Smith's widow's tenure; no other alteration is mentioned.",
   "measurements": [],
   "streetscape": false,
+  "local": {
+   "display": "research/images/files/nps-2140-tribune-1928-07-15-famous-homes-photo-spires.jpg",
+   "display_bytes": 297402,
+   "thumb": "research/images/files/nps-2140-tribune-1928-07-15-famous-homes-photo-spires-thumb.jpg",
+   "thumb_bytes": 28848,
+   "original_px": [
+    8395,
+    11117
+   ],
+   "original_sha256": "d9e92d1fe657f09e63a5b8326c2bca108e38f7a057da67336bf591bcbff3f303",
+   "original_bytes": 7488921,
+   "fetched_from": "https://iiif.archive.org/image/iiif/3/per_chicago-daily-tribune_1928-07-15_87_29%2fper_chicago-daily-tribune_1928-07-15_87_29_jp2.zip%2fper_chicago-daily-tribune_1928-07-15_87_29_jp2%2fper_chicago-daily-tribune_1928-07-15_87_29_0088.jp2/6800,12100,3700,4900/max/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-1905-tribune-1928-06-03-famous-homes-field-photo",
+  "kind": "newspaper item",
+  "title": "\"Famous Homes\" [photograph of the Marshall Field residence, 1905 Prairie avenue] (Tribune photo)",
+  "building_ids": [
+   "pa-1905-16"
+  ],
+  "addresses": [
+   "1905 S. Prairie Avenue"
+  ],
+  "view": "front elevation",
+  "facing": "east",
+  "camera_position": "from Prairie Avenue in front of the house",
+  "date": "June 3, 1928",
+  "date_earliest": 1928,
+  "date_latest": 1928,
+  "creator": "Chicago Sunday Tribune (Tribune photo)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, June 3, 1928 (vol. 87 no. 23)",
+  "call_number": "per_chicago-daily-tribune_1928-06-03_87_23, page index 116 (same cut repeated at index 124)",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1928-06-03_87_23/page/n116/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1928-06-03_87_23/page/n116_w1200.jpg",
+  "found_via": "IA full-text search '\"Famous Homes\" AND collection:pub_chicago-daily-tribune' (the 1928 Sunday series), then search inside for 'Prairie'; photograph and caption read on the page image",
+  "notes": "Caption read on the page: \"IN 1879 the family residence of Marshall Field was established at 1905 Prairie avenue, and the widow of the pioneer Chicago merchant and philanthropist, although spending most of her time in Washington, D. C., still maintains the old home. The carriage house in the rear roofed fine horses and a handsome carriage in the old days, but Marshall Field would never permit his coachman to drive him to business…\" The halftone shows the front: a square three-storey block (two full storeys over a raised basement) under a tall straight-sided MANSARD with three dormers (the central one pedimented), a heavy bracketed cornice, a central entrance with a projecting porch over a high stoop, tall windows, iron fence at the sidewalk, bare trees (winter). Near-period (1928) evidence of the front as it stood after 1904; the caption's '1879' conflicts with the library's 1871–1873 construction (it may refer to the Fields' occupancy, not construction). Confirms a carriage house at the rear.",
+  "measurements": [],
+  "streetscape": false,
+  "local": {
+   "display": "research/images/files/nps-1905-tribune-1928-06-03-famous-homes-field-photo.jpg",
+   "display_bytes": 244964,
+   "thumb": "research/images/files/nps-1905-tribune-1928-06-03-famous-homes-field-photo-thumb.jpg",
+   "thumb_bytes": 25695,
+   "original_px": [
+    8307,
+    11255
+   ],
+   "original_sha256": "353dde652ba28add848aebd68ccb78af794d15129ab22d340df300fce0ef6c3e",
+   "original_bytes": 5960690,
+   "fetched_from": "https://iiif.archive.org/image/iiif/3/per_chicago-daily-tribune_1928-06-03_87_23%2fper_chicago-daily-tribune_1928-06-03_87_23_jp2.zip%2fper_chicago-daily-tribune_1928-06-03_87_23_jp2%2fper_chicago-daily-tribune_1928-06-03_87_23_0116.jp2/5500,5000,3100,4200/max/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-1945-tribune-1928-07-29-famous-homes-corwith-photo",
+  "kind": "newspaper item",
+  "title": "\"Famous Homes\" [photograph of the old Corwith home, 1945 Prairie avenue] (Tribune photo)",
+  "building_ids": [],
+  "addresses": [
+   "1945 S. Prairie Avenue"
+  ],
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": "from Prairie Avenue, looking at the front and one side of the house",
+  "date": "July 29, 1928",
+  "date_earliest": 1928,
+  "date_latest": 1928,
+  "creator": "Chicago Sunday Tribune (Tribune photo)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, July 29, 1928 (vol. 87 no. 31)",
+  "call_number": "per_chicago-daily-tribune_1928-07-29_87_31, page index 96 (same cut repeated at index 105)",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1928-07-29_87_31/page/n96/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1928-07-29_87_31/page/n96_w1200.jpg",
+  "found_via": "IA full-text search '\"Famous Homes\" AND collection:pub_chicago-daily-tribune', then search inside for 'Prairie'; photograph and caption read on the page image",
+  "notes": "Caption read on the page: \"THE old Corwith home at 1945 Prairie avenue remained the residence of Mrs. Isabelle Corwith until February, 1922, when she passed away at the advanced age of 96. The spacious structure is typical of the homes built during the fashionable period of the neighborhood's history.\" The halftone shows a large, dark (stone or brick) three-storey house with full-height rounded/canted BAYS, round-arched upper windows, a mansard-like top storey with dormers, and a high stoop; a neighbouring house at left. No building record exists for 1945 (Corwith); the 1904 Blue Book lists Mrs. Henry Corwith and Charles R. Corwith there (nps-bluebook-1904-prairie-street-p186-east-1901-2009), so this is the house standing in 1904, photographed in 1928. The only photograph of 1945 in the collection besides chicagology's '1945sprairie'.",
+  "measurements": [],
+  "streetscape": false,
+  "local": {
+   "display": "research/images/files/nps-1945-tribune-1928-07-29-famous-homes-corwith-photo.jpg",
+   "display_bytes": 215627,
+   "thumb": "research/images/files/nps-1945-tribune-1928-07-29-famous-homes-corwith-photo-thumb.jpg",
+   "thumb_bytes": 25364,
+   "original_px": [
+    8981,
+    10244
+   ],
+   "original_sha256": "78fccccadfc8e9c3dd6c41c60b55c7ae45972914295d188f9b485a914be0d0d8",
+   "original_bytes": 4786398,
+   "fetched_from": "https://iiif.archive.org/image/iiif/3/per_chicago-daily-tribune_1928-07-29_87_31%2fper_chicago-daily-tribune_1928-07-29_87_31_jp2.zip%2fper_chicago-daily-tribune_1928-07-29_87_31_jp2%2fper_chicago-daily-tribune_1928-07-29_87_31_0096.jp2/9250,1050,3200,3650/max/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2100-tribune-1907-09-04-mccormick-neurological-college",
+  "title": "\"McCormick Neurological College, 2100 Prairie-av., Chicago. Fifteenth Year. Incorporated in Illinois…\" (advertisement)",
+  "building_ids": [
+   "pa-2100-18"
+  ],
+  "addresses": [
+   "2100 S. Prairie Avenue"
+  ],
+  "date": "September 4, 1907",
+  "date_earliest": 1907,
+  "date_latest": 1907,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, September 4, 1907 (vol. 66 no. 212)",
+  "call_number": "per_chicago-daily-tribune_1907-09-04_66_212, page index 6",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1907-09-04_66_212/page/n6/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1907-09-04_66_212/page/n6_w1200.jpg",
+  "found_via": "IA full-text search '\"2100 prairie\" AND collection:pub_chicago-daily-tribune'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"McCORMICK NEUROLOGICAL COLLEGE, 2100 PRAIRIE-AV., CHICAGO. Fifteenth Year. Incorporated in Illinois. First Nonsectarian Medical School. Undergraduate Course 6 months…\" Bearing on the Sherman house (2100): John B. Sherman died there on 25 Feb 1902 (Tribune 25–26 Feb 1902); no household is listed at 2100 in the Blue Books for 1903, 1904 or 1905; by 1907 the house was the seat of Dr. Charles McCormick's 'neurological college', and he lived there (Tribune 30 Sep 1908). The college was incorporated in July 1903 (Tribune 23 Jul 1903) but its 1903–06 address was not found. So in 1904 the Sherman house stood (it lasted to 1936) and was either closed after Sherman's death or already in non-family use; the 1907 ad is the earliest dated institutional use found.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
   "local": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2100-tribune-1903-08-09-sherman-widow-trees",
+  "title": "\"Widow Must Trim the Trees. Will of the Late John B. Sherman Contains No Provision for Keeping Up His Three Homes.\"",
+  "building_ids": [
+   "pa-2100-18"
+  ],
+  "addresses": [
+   "2100 S. Prairie Avenue"
+  ],
+  "date": "August 9, 1903",
+  "date_earliest": 1903,
+  "date_latest": 1903,
+  "creator": "Chicago Sunday Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, August 9, 1903 (vol. 62 no. 32)",
+  "call_number": "per_chicago-daily-tribune_1903-08-09_62_32, page index 0",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1903-08-09_62_32/page/n0/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1903-08-09_62_32/page/n0_w1200.jpg",
+  "found_via": "IA full-text search '\"John B. Sherman\" AND residence AND collection:pub_chicago-daily-tribune AND year:1903'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"When asked to construe certain parts of the will of the late John B. Sherman, Judge Holdom yesterday held that the widow, Mrs. [Catherine] Sherman, will have to take care of the trees in her dooryard, saw off the dead limbs herself, and keep her own lawn in trim, as the estate will not have to pay for it. By the will Mrs. Sherman was given an annual income and the use of the three homes of her late husband at Mount Clemens, Newport, and Chicago. No direct provision … was made for the keeping up [and rep]airing of the places.\" Bearing: in 1903 the Chicago home (2100 Prairie) passed to the widow's use for life, with its TREES and LAWN ('dooryard'); she was responsible for its upkeep. Together with her absence from the 1903–05 Blue Book street pages (the widow is not listed at 2100) and the McCormick Neurological College's occupancy by 1907, the house in 1904 was most likely the widow's little-used town house. Gives grounds with mature trees and a lawn for the 1904 model.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-1901-tribune-1929-10-27-crerar-mansion-torn-down",
+  "title": "\"Crerar Mansion at 1901 Prairie Being Torn Down\"",
+  "building_ids": [
+   "pa-1901-15"
+  ],
+  "addresses": [
+   "1901 S. Prairie Avenue"
+  ],
+  "date": "October 27, 1929",
+  "date_earliest": 1929,
+  "date_latest": 1929,
+  "creator": "Chicago Sunday Tribune (real estate section)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, October 27, 1929 (vol. 88 no. 43)",
+  "call_number": "per_chicago-daily-tribune_1929-10-27_88_43, page index 48",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1929-10-27_88_43/page/n48/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1929-10-27_88_43/page/n48_w1200.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Published 1929; copyright renewal not checked — link only",
+  "found_via": "IA full-text search '\"1901 prairie\" AND collection:pub_chicago-daily-tribune'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"Another of the grand old mansions which years ago figured prominently in Chicago's social news is disappearing. Wreckers are tearing down the three story residence at 1901 Prairie avenue, which was built by a member of the Keith family, later was occupied by Norman B. Ream, and for sixteen years was the home of John Crerar … The Crerar mansion is noted for its elaborate interior, one of the high spots of which was a hand carved mahogany staircase … The residence is being torn down by the Illinois Central, the owner … R. A. Goldman of the American House Wrecking company is in charge of the razing.\" Bearing: confirms the library's 1929 demolition and gives THREE STOREYS for the Keith-built / Ream house occupied by the Reams in 1904 (Blue Book). No exterior description.",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "Tribune 27 Oct 1929, p. index 48"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
   "verified": "viewed",
   "period": "near-period"
  }

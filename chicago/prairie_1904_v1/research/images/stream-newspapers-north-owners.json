@@ -968,5 +968,210 @@
   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
   "period": "in-period",
   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1903-03-20_62_79/page/n4_w1200.jpg"
+ },
+ {
+  "id": "npo-1720-abendpost-1912-01-06-walker-carriage-house-fire",
+  "kind": "newspaper item",
+  "title": "\"In der hinter der Wohnung der Frau James M. Walker, Nr. 1720 S. Prairie Ave., gelegenen Wagenremise brach kurz nach Mitternacht Feuer aus… Das Feuer blieb auf seinen Entstehungsherd beschränkt.\"",
+  "building_ids": [
+   "pa-1720-55"
+  ],
+  "addresses": [
+   "1720 S. Prairie Avenue"
+  ],
+  "date": "January 6, 1912",
+  "date_earliest": 1912,
+  "date_latest": 1912,
+  "creator": "Abendpost (Chicago German daily), local fire notes",
+  "repository": "Internet Archive (Abendpost / Sonntagpost, sim_abendpost-sonntagpost)",
+  "collection": "Abendpost, Jan. 6, 1912 (vol. 24 no. 5), page index 4",
+  "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1912-01-06_24_5/page/n4/mode/1up",
+  "found_via": "IA full-text search '\"1720 Prairie\" AND year:[1905 TO 1913]' (owner-name pass for Walker); item read on the page image (IIIF crop)",
+  "notes": "'In the carriage house standing behind the dwelling of Mrs. James M. Walker, No. 1720 S. Prairie Ave., fire broke out shortly after midnight… The fire remained confined to where it started.' CONFLICT with the library's 1720 record ('encyclopedia marks 1910 loss'): in January 1912 the Walker house at 1720 was still her dwelling, with a carriage house at the rear. The Tribune's society columns also place Mrs James M. Walker at 1720 in 1907–1912 (e.g. 26 Jan 1907, 11 Nov 1910, 17 Mar 1911, 12 Feb 1912), and the 1911 Sanborn shows a two-storey-and-basement frame bay-front dwelling with a large rear stable at 1720 (map_frontages.csv). So the 1720 house (Tyrrell's 1868 Wheelock frame Italianate, 'the dark colored frame house, with the entrance in the center', Tribune 1898) survived well past 1904; the 1910 loss date should be rejected or re-sourced. For 1904: frame house + rear carriage house, Mrs James M. Walker's household (Blue Book 1904).",
+  "measurements": [
+   {
+    "what": "outbuilding",
+    "value": "carriage house (Wagenremise) behind the dwelling",
+    "locator": "Abendpost Jan. 6, 1912, p. [n4]"
+   }
+  ],
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "call_number": "sim_abendpost-sonntagpost_1912-01-06_24_5, page index 4",
+  "verified": "viewed",
+  "period": "near-period",
+  "image_url": "https://archive.org/download/sim_abendpost-sonntagpost_1912-01-06_24_5/page/n4_w1200.jpg"
+ },
+ {
+  "id": "npo-1827-tribune-1900-03-11-dowie-wants-doane-house-vacant",
+  "kind": "newspaper item",
+  "title": "\"'Dr.' Dowie Wants a Fine House. 'Dr.' John Alexander Dowie is reported negotiating for the former residence of John W. Doane at 1827 Prairie avenue, 80x170 feet… The house originally cost $265,000. It is without a tenant at present.\"",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "date": "March 11, 1900",
+  "date_earliest": 1900,
+  "date_latest": 1900,
+  "creator": "Chicago Sunday Tribune (real-estate news)",
+  "collection": "The Chicago Sunday Tribune, March 11, 1900 (vol. 59 no. 70), page index 34",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1900-03-11_59_70/page/n34/mode/1up",
+  "found_via": "IA full-text search '\"1827 Prairie\" AND year:[1900 TO 1912]' (owner-name pass for Doane); item read on the page image (IIIF crop); also reported by the Abendpost, Mar. 11, 1900, and the Illinois Medical Journal, Apr. 1900",
+  "notes": "The Doane house (1827) four years before the target date: the property, 80 × 170 ft, had 'recently passed into the hands of Riley & Robinson of New York… at a valuation of $125,000'; 'the house originally cost $265,000' (the Wadskier house of 1882–83); and it was 'without a tenant at present'. J. A. Dowie (Zion) was negotiating for it — he did not get it (the 1902 foreclosure, npo-1827-abendpost-1902-11-30-doane-house-foreclosed-to-sprague). Bearing on 1904: after John W. Doane's death (1901) the house stood empty or in speculative hands; no 1827 household is in the 1904 Blue Book street list. Model it as standing, possibly unoccupied. Lot: 80 × 170 here vs 72 × 177 in 1902 (the collection's 1882 footprint is 64 × 94).",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "80 × 170 ft",
+    "locator": "Tribune Mar. 11, 1900, p. [n34]"
+   },
+   {
+    "what": "original cost of house",
+    "value": "$265,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1900-03-11_59_70, page index 34",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1900-03-11_59_70/page/n34_w1200.jpg"
+ },
+ {
+  "id": "npo-1827-abendpost-1902-11-30-doane-house-foreclosed-to-sprague",
+  "kind": "newspaper item",
+  "title": "\"Das frühere J. W. Doane'sche Wohnhaus, 1827 Prairie Ave., mit 72 bei 177 Fuß, wurde ebenfalls im Wege des Zwangsverfahrens an A. A. Sprague für $65,000 verkauft.\"",
+  "building_ids": [
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1827 S. Prairie Avenue"
+  ],
+  "date": "November 30, 1902",
+  "date_earliest": 1902,
+  "date_latest": 1902,
+  "creator": "Abendpost / Sonntagpost (Chicago German daily), real-estate column",
+  "repository": "Internet Archive (Abendpost / Sonntagpost, sim_abendpost-sonntagpost)",
+  "collection": "Sonntagpost, Nov. 30, 1902 (no. 48), page index 3",
+  "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1902-11-30_48/page/n3/mode/1up",
+  "found_via": "IA full-text search '\"1827 Prairie\" AND year:[1900 TO 1912]'; passage read on the page image (IIIF crop)",
+  "notes": "'The former J. W. Doane residence, 1827 Prairie Ave., with 72 by 177 feet, was likewise sold by foreclosure to A. A. Sprague for $65,000. The property brought $125,000 two years ago, of which $75,000 remained as a mortgage.' So at the end of 1902 the Doane house passed by foreclosure to A. A. Sprague, with a lot of 72 × 177 ft — about half its 1900 valuation. Bearing on 1904: the house stood, owned by Sprague (whose own household is not listed at 1827 in the 1904 Blue Book); later tenants include 'Mrs. Meeker's home, 1827 Prairie' (Tribune 16 Apr 1909) and, by 1911, the Radford Architectural Co. offices. Lot conflict: 72 × 177 (1902) vs 80 × 170 (1900).",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "72 × 177 ft",
+    "locator": "Sonntagpost Nov. 30, 1902, p. [n3]"
+   },
+   {
+    "what": "foreclosure price",
+    "value": "$65,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "sim_abendpost-sonntagpost_1902-11-30_48, page index 3",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/sim_abendpost-sonntagpost_1902-11-30_48/page/n3_w1200.jpg"
+ },
+ {
+  "id": "npo-1637-abendpost-1900-04-08-elliott-to-hibbard-jr-58ft",
+  "kind": "newspaper item",
+  "title": "\"Das Wohnhaus 1637 Prairie Ave., 58 Fuß Front, bis an die Illinois Zentral-Bahn laufend, ist von Wm. P. Elliott an Wm. [G.] Hibbard jr., für $23,000 verkauft worden.\"",
+  "building_ids": [
+   "pa-1637-45"
+  ],
+  "addresses": [
+   "1637 S. Prairie Avenue"
+  ],
+  "date": "April 8, 1900",
+  "date_earliest": 1900,
+  "date_latest": 1900,
+  "creator": "Abendpost / Sonntagpost (Chicago German daily), real-estate column",
+  "repository": "Internet Archive (Abendpost / Sonntagpost, sim_abendpost-sonntagpost)",
+  "collection": "Sonntagpost, April 8, 1900 (no. 14), page index 3",
+  "catalog_url": "https://archive.org/details/sim_abendpost-sonntagpost_1900-04-08_14/page/n3/mode/1up",
+  "found_via": "IA full-text search '\"1637 Prairie\" AND year:[1895 TO 1910]' (owner-name pass for Spalding/Hibbard); item read on the page image (IIIF crop)",
+  "notes": "Completes the 1637 ownership chain to 1904: 'The dwelling 1637 Prairie Ave., 58 feet front, running back to the Illinois Central railroad, has been sold by Wm. P. Elliott to Wm. [G.] Hibbard jr. for $23,000' (printed 'Wm. J. Hibbard'). Sequence: the Spaldings (1880s–1899; Abendpost 27 Jan 1899 records 1637 '58 F. durch bis Illinois Zentralbahn' in the exchange by which the Spaldings took 1709) → Elliott (1899–1900) → William Gold Hibbard Jr. (April 1900), who is at 1637 in the 1904 Blue Book and to 1915. So the 1904 house at 1637 is the old Grosvenor/Spalding house (the library's 'major Spalding remodeling'), owned and occupied by Hibbard Jr.; lot 58 ft through to the IC tracks. Later form: 'the former three story Hibbard residence' (npo-1637-tribune-1921-10-30-three-story-hibbard-residence-remodeled); the 1911 Sanborn reads 2½ storeys + basement, brick, rear garage.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "58 ft front, through to the Illinois Central right of way",
+    "locator": "Sonntagpost Apr. 8, 1900, p. [n3]"
+   },
+   {
+    "what": "price",
+    "value": "$23,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "sim_abendpost-sonntagpost_1900-04-08_14, page index 3",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/sim_abendpost-sonntagpost_1900-04-08_14/page/n3_w1200.jpg"
+ },
+ {
+  "id": "npo-1637-tribune-1921-10-30-three-story-hibbard-residence-remodeled",
+  "kind": "newspaper item",
+  "title": "\"Henschien & McLaren, architects specializing in the designing of packing plants, have moved their offices from the Old Colony building to 1637 Prairie avenue. The former three story Hibbard residence has been remodeled and will be used by them.\"",
+  "building_ids": [
+   "pa-1637-45"
+  ],
+  "addresses": [
+   "1637 S. Prairie Avenue"
+  ],
+  "date": "October 30, 1921",
+  "date_earliest": 1921,
+  "date_latest": 1921,
+  "creator": "Chicago Sunday Tribune (real-estate and building news)",
+  "collection": "The Chicago Sunday Tribune, Oct. 30, 1921 (vol. 80 no. 44), page index 21",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1921-10-30_80_44/page/n21/mode/1up",
+  "found_via": "IA full-text search '\"Hibbard residence\" Prairie' (owner-name pass); item read on the page image (IIIF crop)",
+  "notes": "Gives the height of the 1637 house as the 'former THREE STORY Hibbard residence' (W. G. Hibbard Jr.'s home 1900–c.1915), remodelled in 1921 into offices for Henschien & McLaren (the architects' handbooks of the 1920s list them at 1637). Post-dates 1904 and the 1921 office conversion; the storey count describes the house as it stood (no rebuilding is reported), so model 1637 in 1904 as a three-storey house — the 1911 Sanborn notation is 2½ storeys + basement, i.e. a top storey partly in the roof. Resolves part of the library's 'target phase unresolved' for 1637 (the post-Spalding form).",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "3 ('former three story Hibbard residence')",
+    "locator": "Tribune Oct. 30, 1921, p. [n21]"
+   }
+  ],
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "call_number": "per_chicago-daily-tribune_1921-10-30_80_44, page index 21",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "near-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1921-10-30_80_44/page/n21_w1200.jpg"
  }
 ]

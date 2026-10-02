@@ -849,12 +849,25 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
   "image_url": "https://blogger.googleusercontent.com/img/a/AVvXsEj9GcpcIEv1kIU8LzOBLRHcKn9c2gisIQq508f9GN0Hvoufu0kODAu8TofZ8l3WxzkVeO36bDcQzAVQY4WxSh5zcTerqRvTLUFoz6Q0_BsIOqPwNycZLurmKx5ruPZ43CjSXurm6MAvE1zi-QZN1yNQweoygKemEhOoYfzKrYXr12g5_ZIiNjmXIHEF=s1600",
-  "rights": "unknown — link only",
-  "rights_basis": "Blog reproduction of a 19th-c. atlas plate (itself public domain); atlas edition/holder not stated",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published fire-insurance atlas plate (pre-1929, US): its content pre-dates the 1886–87 Glessner house and its colour scheme, lettering and water-main notes match Robinson's Atlas of the City of Chicago (1886); Glessner House Museum blog reproduction (arrows and a label added — not original expression)",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-1720-atlas-crop.jpg",
+   "display_bytes": 224047,
+   "thumb": "research/images/files/a16-ghm-blog-1720-atlas-crop-thumb.jpg",
+   "thumb_bytes": 32414,
+   "original_px": [
+    1200,
+    1096
+   ],
+   "original_sha256": "3d59c6d3024951b6de6ce2cde5b04229b48aa3463f15733d5fe357a71652edcd",
+   "original_bytes": 313328,
+   "fetched_from": "https://blogger.googleusercontent.com/img/a/AVvXsEj9GcpcIEv1kIU8LzOBLRHcKn9c2gisIQq508f9GN0Hvoufu0kODAu8TofZ8l3WxzkVeO36bDcQzAVQY4WxSh5zcTerqRvTLUFoz6Q0_BsIOqPwNycZLurmKx5ruPZ43CjSXurm6MAvE1zi-QZN1yNQweoygKemEhOoYfzKrYXr12g5_ZIiNjmXIHEF=s1600",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Tyrrell'",
-  "notes": "Hand-coloured fire/real-estate atlas detail covering the whole 1600 and 1700 blocks of Prairie between 16th St (top/north) and 18th St, with the Illinois Central tracks, '16th St. Station I.C.R.R.' and the lakeshore: pink = brick, yellow = frame, brown = stone (Pullman house at 18th St). Lot numbers, subdivision names, frontages and outbuildings (crossed = stables) are legible. Shows NO through 17th Street between Indiana and the lake — the 1600 and 1700 blocks are continuous on both sides of Prairie, which matters for siting 1638/1700 and 1637/1701. The blue arrow marks the yellow (frame) Tyrrell/Walker house at 1720; the 1702 Staples/Harvey house (pre-1899) is still shown, so the plate pre-dates the 1700/1706 townhouses. Compare with project file maps/originals/robinson-1886-north-block.jpg (likely the same plate).",
+  "notes": "Hand-coloured fire/real-estate atlas detail covering the whole 1600 and 1700 blocks of Prairie between 16th St (top/north) and 18th St, with the Illinois Central tracks, '16th St. Station I.C.R.R.' and the lakeshore: pink = brick, yellow = frame, brown = stone (Pullman house at 18th St). Lot numbers, subdivision names, frontages and outbuildings (crossed = stables) are legible. Shows NO through 17th Street between Indiana and the lake — the 1600 and 1700 blocks are continuous on both sides of Prairie, which matters for siting 1638/1700 and 1637/1701. The blue arrow marks the yellow (frame) Tyrrell/Walker house at 1720; the 1702 Staples/Harvey house (pre-1899) is still shown, so the plate pre-dates the 1700/1706 townhouses. Compare with project file maps/originals/robinson-1886-north-block.jpg (likely the same plate). Rights reviewed 2026-10-02: reclassified public domain — a published atlas plate, compared with the Robinson 1886 crops (cgn-1720-robinson-1886).",
   "measurements": []
  },
  {
@@ -1747,12 +1760,12 @@
   "call_number": "DPC7474",
   "catalog_url": "https://collections.carli.illinois.edu/digital/collection/nby_teich/id/333240",
   "image_url": null,
-  "rights": "unknown — link only",
-  "rights_basis": "Newberry: Detroit Publishing Company images may be re-purposed for personal or educational use; other uses by permission",
+  "rights": "public domain",
+  "rights_basis": "published as a Detroit Publishing Co. postcard (series no. DPC7474; the firm issued postcards c. 1898–1924) — pre-1929, US. Newberry use statement (a permissions policy, not a copyright claim): 'Images from the Detroit Publishing Company Collection may be re-purposed for personal or educational use. For permission on other uses, contact Digital Initiatives and Services, Newberry Library'",
   "local": null,
   "verified": "catalog-only",
   "found_via": "CARLI CONTENTdm search 'residence pullman' in nby_teich",
-  "notes": "'Description only' record — no image online. Almost certainly the postcard (Phostint) version of one of the Detroit Publishing negatives LC-D4-12551/12552 (c.1900), so it adds a colour-printed state rather than new geometry; worth checking for colour of stone, roof and foliage.",
+  "notes": "'Description only' record — no image online. Almost certainly the postcard (Phostint) version of one of the Detroit Publishing negatives LC-D4-12551/12552 (c.1900), so it adds a colour-printed state rather than new geometry; worth checking for colour of stone, roof and foliage. Rights reviewed 2026-10-02: reclassified public domain (published postcard); the Newberry record is description-only, so there is no image to fetch — LoC holds the same Detroit view (a16-pullman-det-4a08066).",
   "measurements": []
  },
  {
@@ -1813,7 +1826,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1620prairie.jpg",
   "rights": "public domain",
   "rights_basis": "US periodical illustration published 1874; not downloaded — only a secondary web crop was reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-landowner-1874-1620-law.jpg",
+   "display_bytes": 187187,
+   "thumb": "research/images/files/a16-cgy-landowner-1874-1620-law-thumb.jpg",
+   "thumb_bytes": 30230,
+   "original_px": [
+    1136,
+    756
+   ],
+   "original_sha256": "019979fd45d5b1ba99a81d35217f75d6c863fc9f287568bce7df637d86aa9214",
+   "original_bytes": 537318,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1620prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1620 page; plate described on Glessner House blog 'Prairie Avenue in 1874'",
   "notes": "The only located image of the 1620 house (Robert Law, coal merchant; built c.1872; Inter Ocean 1887 called it 'commodious, olive green in color'): a three-storey Second Empire house with slate mansard and arched dormers, round-arched windows, a canted front bay with an ornate bracketed hood, a front porch with balustrade, a side-entrance wing, behind a lattice-pattern front fence; at left a taller plain block (neighbour) and at right a mansard outbuilding. 1620 stood in 1904 (later 'old W. G. Hibbard residence', 77×177 ft, sold 1910) but was razed by 1911 (vacant lot on Sanborn). Not in the a18 whole-plate record's building list.",
@@ -1849,7 +1875,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1730prairie.jpg",
   "rights": "public domain",
   "rights_basis": "US periodical illustration published 1874; not downloaded (secondary crop only)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-landowner-1874-1730-dewey.jpg",
+   "display_bytes": 158308,
+   "thumb": "research/images/files/a16-cgy-landowner-1874-1730-dewey-thumb.jpg",
+   "thumb_bytes": 39684,
+   "original_px": [
+    931,
+    765
+   ],
+   "original_sha256": "ba859ab1cdbccb352289aa5f035cb4458ea08300d64c37907dff377451182c88",
+   "original_bytes": 459412,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1730prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1730 page",
   "notes": "1730 is not in the building index but was a 1904 dwelling in this block (Mrs. Joseph E. Otis in the 1904 Blue Book; demolished 1946 — see the 1940s photograph record). Shows a three-storey Second Empire brick house with steep mansard and pedimented dormer group, a two-storey canted bay with balustrade, a round-arched entrance up a stoop, tall chimneys and a board fence.",

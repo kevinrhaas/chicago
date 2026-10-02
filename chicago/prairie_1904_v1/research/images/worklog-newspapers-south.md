@@ -196,3 +196,35 @@ noise because the backend ORs unquoted terms.
 - **Open question:** 1901 'three-story brick' (Hamill) vs 1909 'three story brick … fourteen rooms'
   (Robbins). Both fit; whether the Mann, MacNeille & Lindeberg house of 1904 replaced or remodelled the
   Hamill house needs the permit ledger (UIC) or the Inland Architect text.
+
+### 2140 Tucker / Byron L. Smith (pa-2140-21) — the tower roofs
+
+- **Queries:** `"2140 prairie" AND collection:pub_chicago-daily-tribune` (85: almost all society notes of the
+  Byron L. Smiths 1890–1922, Hamlines 1919–21).
+- **Recorded (1, with local image):** Tribune 15 Jul 1928 'Famous Homes' PHOTOGRAPH: the house with three
+  tall CONICAL SPIRES, high iron fence, 'To lease'.
+- **Bearing on the roof question:** cresting-crowned towers are dated pre-1881 and 1898 (collection);
+  conical spires are dated by July 1928 (this record). The change falls between 1898 and 1928; no
+  newspaper item dating it was found (searched the Smith notices for 'remodel', 'roof', 'improvement';
+  nothing). The 1904 roof therefore remains open; the Smiths were in residence 1904 (Blue Book).
+- **Seen, not recorded:** Tribune 17 Feb 1940 ('Byron L. Smith residence, 2140 Prairie avenue, which was
+  built in the 1880's' — conflicts with 1876 Van Osdel/Tucker; dining-room salvage story, already
+  represented); 1906/1908/1909 '2140 Prairie' flat ads (other buildings: OCR of 2140 S. Prairie flats?
+  not checked).
+
+### 'Famous Homes' (Chicago Sunday Tribune photo series, May–Aug 1928)
+
+Found by `"Famous Homes" AND collection:pub_chicago-daily-tribune` (40 items; the series ran 27 May –
+19 Aug 1928). Prairie Avenue subjects: **1905 Field (3 Jun)**, **2115 Armour (8 Jul)**, **2140 Smith
+(15 Jul)**, 2919 Logan (22 Jul, out of scope), **1945 Corwith (29 Jul)**, **1701 Hibbard (5 Aug)**,
+**1800 Glessner (12 Aug)**, and 19 Aug (Spalding homestead, '1700' — not opened). The south-half ones are
+recorded with local images (public domain, pre-1929); **1701, 1800 and the 19 Aug item are leads for the
+north stream** and were not recorded here.
+
+### 2009 Meyer (pa-2009-17), 2013 Reid (pa-2013-29)
+
+- **Queries:** `"2009 prairie"` / `"2013 prairie"` AND Tribune collection (29 / 20 hits).
+- **Nothing recorded** beyond the Blue Book street pages (2009: Mrs. M. A. Meyer & dr., E. F., Albert,
+  Carl and Abraham Meyer; 2013: Mr. & Mrs. William H. Reid). 2009: Allen family 1886, Hodges 1882 (an
+  earlier house), Meyer wedding 1897; furnished rooms 1910–11; Tribune 5 Feb 1933 '15 rm … fine interior
+  brick res. 2009 Prairie' (OCR, not opened). 2013: Reid notices 1895–1909, Reynolds 1921–35.

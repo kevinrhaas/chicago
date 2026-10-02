@@ -180,12 +180,31 @@ link-only (`local: null`).
   apartment building at 1625–1635 for Springer. It is the same project as the collection's AABN item
   (dw-aabn-1896-springer-flats-1625-1635), and it was not built.
 
+### 1811 Coleman/Ames (pa-1811-24)
+
+- **Queries:** IA `"1811 Prairie" AND year:[1885 TO 1907]` (65), `Coleman "Prairie" Cobb AND year:[1885 TO 1887]` (noise), `"Ames residence" Prairie` (117), RE&BJ grep (nothing).
+- **Recorded (3):** Tribune 16 Apr 1904 TO RENT (16 rooms, light on all sides, 3 bathrooms, billiard and ball rooms, 2-storey stable — the house was EMPTY in spring 1904); Tribune 2 Nov 1905 (brownstone DETACHED residence and barn, reduced to $37,500; repeated 13 Nov); Tribune 16 Jan 1907 (Cowen estate of Baltimore to Joseph Fish, three-storey stone front, lot 4[6]×150, $25,000).
+- **Seen, not recorded:** Tribune 1 Apr, 8 Apr, 15 Apr 1894 'For Sale 1811 Prairie-av. The Late Miner T. Ames' Residence… lot 46½…' (same campaign as the collection's May 27, 1894 ad); tenants between the Ameses and 1904: W. B. Keep (1894), Judge Lorin C. Collins (1896), Mrs David Mayer (1897–1901).
+- **Answer to the lead:** 40 vs 46½ ft — the Tribune's report of the 1907 sale prints 4[6] (blotted, but not 0), agreeing with 1894's 46½; the Abendpost's 40 is the error. Use 46½ × 150 ft.
+
+### 1635 (pa-1635-48) — the 1904 question
+
+- **Queries:** IA `"1635 Prairie" AND year:[1904 TO 1912]` (0), `"1635 Prairie-av"` (52; all 1874–1895), `"Springer" "Prairie" AND year:[1904 TO 1911]` (Tribune/Abendpost), Blue Books 1895–1910 searched inside for 'Springer Warren' and '1635 Prairie'.
+- **Recorded (1):** Blue Book 1904 — 'Springer Warren, 85 Rush'. Springer is at 1635 in every Blue Book 1895–1902, at 85 Rush from the 1903 edition (Tribune 31 Dec 1908 also has Mrs Margaret Warren Springer at 85 Rush).
+- **Answer to the lead (demolition 1904–1911):** not found. The owners left 1635 in 1902; the 1904 street list has no one at 1635; the women's-club directory of 1903–04 (recorded by the third pass) is a stale entry. The house's existence in 1904 is unproven either way — the demolition window is late 1902 – 1911. No wrecking or permit item turned up.
+
+### 1721 Dexter (pa-1721-4)
+
+- **Queries:** IA `"Dexter residence" Prairie` (24), `"1721 Prairie" AND year:[1901 TO 1906]` (18), `"H. H. Walker" Prairie AND (alterations OR remodel OR permit) AND year:[1901 TO 1903]`, `Spalding "Prairie av" AND (alterations OR remodel OR permit) AND year:[1901 TO 1903]`.
+- **Recorded (3):** Tribune 1 Jan 1898 (Pullman bought it July 1897; 105 × 275 ft to the IC; BRICK, COLONIAL style, $50,000); Tribune 28 Nov 1901 'Wirt Dexter Residence Bought by Jesse Spalding' (three storeys, 65 ft frontage; Dexter's front addition had carried the building to the STREET LINE; the sale required the buyer to build anew or MOVE BACK the brick building to the 20-ft building line); Tribune 20 Mar 1903 (H. H. Walker family; thieves 'scaled the pillars in front of the house' into an upstairs bedroom).
+- **Seen, not recorded:** Tribune 1 Dec 1901 Sunday round-up (repeat); Abendpost 20 Mar 1903 (same theft); City Council proceedings 1902 (water-tax claim, 1721); Tribune 1905–06 society notes (Mrs Henry H. Walker at 1721).
+- **Bearing / open:** the 1889 front addition stood on the street line in Nov. 1901 and had to be removed or set back to the 20-ft line before the Walkers moved in (by March 1903). No 1902 permit found — that is the next search (Engineering News supplements / American Contractor 1902 for 'Spalding' or 'Walker', 1721).
+
+### 1612 (pa-1612-1) — the Frost & Granger remodel
+
+- **Queries:** IA `"Frost & Granger" "1612 Prairie"` (19 — only the 1901 round-up and Who's Who entries for Bishop Anderson), `"Frost & Granger" "C. E. Brown"` (8, none relevant), `"Frost & Granger" "Prairie" AND year:[1900 TO 1902]` (47; AABN/Engineering News permit lists name other Frost & Granger Prairie Ave jobs, not 1612), `"1612 Prairie" AND year:[1900 TO 1902]` (16), `"Studebaker residence"` (17).
+- **Nothing recorded:** no description, permit or plan of the 1901 remodel found beyond the collection's 10 Nov 1901 round-up. Side finding (not recorded): c.1899–1900 the house was used by J. A. Dowie's followers — Edward A. Flanders 'of 1612' (1900), 'free room and meals, 1612 Prairie' (Tribune 13 Jul 1900) and a church history ('a large, beautiful home at 1612 Prairie Avenue was opened' for prayer) — i.e. an institutional interlude between the Studebakers and C. E. Brown.
+
 ## Running summary
 
-14 records so far:
-
-| source | records |
-|---|---|
-| RE&BJ | 10 |
-| Tribune | 2 |
-| Blue Book 1904 street list | 2 |
+21 records so far: RE&BJ 10, Tribune 8, Blue Book 1904 3.

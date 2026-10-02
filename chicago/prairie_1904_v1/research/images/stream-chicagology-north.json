@@ -3483,12 +3483,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1729prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic7feb1909massacremonument.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "newspaper halftone dated only by the Chicagology file name — publication not established from a caption; link only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 7 February 1909 in the Chicago Tribune (pre-1929, US) — the printed caption 'Statue Commemorating Fort Dearborn Massacre' occurs in that issue (archive.org per_chicago-daily-tribune_1909-02-07_68_6, OCR text); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/cgn-1729-massacre-monument-statue.jpg",
+   "display_bytes": 235628,
+   "thumb": "research/images/files/cgn-1729-massacre-monument-statue-thumb.jpg",
+   "thumb_bytes": 28524,
+   "original_px": [
+    1261,
+    1239
+   ],
+   "original_sha256": "fb33dc05f542d80ec5db5ba079cad17364545de44a537c32b453b95e457daa48",
+   "original_bytes": 512652,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic7feb1909massacremonument.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
-  "notes": "Halftone of the bronze group (Black Partridge saving Mrs Helm) on its base. Detail of the monument that stood at 18th & Calumet beside the Pullman house in 1904.",
+  "notes": "Halftone of the bronze group (Black Partridge saving Mrs Helm) on its base. Detail of the monument that stood at 18th & Calumet beside the Pullman house in 1904. Rights reviewed 2026-10-02: reclassified public domain — the file-name date was verified against the archive.org OCR of the 7 Feb 1909 Tribune, which carries this caption.",
   "measurements": []
  },
  {
@@ -4147,7 +4160,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement27may1894ames.jpg",
   "rights": "public domain",
   "rights_basis": "published 1894 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1811-tribune-1894-ames-for-sale-ad.jpg",
+   "display_bytes": 122485,
+   "thumb": "research/images/files/cgn-1811-tribune-1894-ames-for-sale-ad-thumb.jpg",
+   "thumb_bytes": 22354,
+   "original_px": [
+    2300,
+    1861
+   ],
+   "original_sha256": "6fc25d52257362b6c1510f6237a808271751fad180413f621d56d894e3adb19a",
+   "original_bytes": 713711,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement27may1894ames.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME ADVERTISEMENT as a18-gh-1811-for-sale-1894 (Glessner House blog copy); Chicagology prints it inside the 1890 Ames obituary. Lot frontage 46½ ft.",
@@ -4185,7 +4211,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic16july1915mabelwheeleryoung.jpg",
   "rights": "public domain",
   "rights_basis": "published 1915 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1812-tribune-1915-mabel-wheeler-young.jpg",
+   "display_bytes": 113718,
+   "thumb": "research/images/files/cgn-1812-tribune-1915-mabel-wheeler-young-thumb.jpg",
+   "thumb_bytes": 17850,
+   "original_px": [
+    1112,
+    2000
+   ],
+   "original_sha256": "33c5c120e4cea812af3ab68ce5b82ce01dd5a5c4b4cc4c0dc16151deb12e0eca",
+   "original_bytes": 611898,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic16july1915mabelwheeleryoung.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Halftone portrait of Mabel Wheeler Young of 1812 (daughter of G. H. Wheeler) with her obituary; the Youngs lived at 1812 (1898 Tribune; 1904 directory: Lawrence A. Young, 1812). A person, not the house.",
@@ -4427,7 +4466,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1816prairie.jpg",
   "rights": "public domain",
   "rights_basis": "published 1874 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1816-landowner-1874-henderson.jpg",
+   "display_bytes": 177041,
+   "thumb": "research/images/files/cgn-1816-landowner-1874-henderson-thumb.jpg",
+   "thumb_bytes": 40912,
+   "original_px": [
+    928,
+    827
+   ],
+   "original_sha256": "081c6b6be3708b59a188522c705b56690b3181e8bde0e6e7ab4280d336dec89c",
+   "original_bytes": 497104,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1816prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Crop of the Henderson vignette from the Land Owner plate already recorded whole (st-landowner-1874-homes-of-prairie-avenue): a newly built (1873) three-storey Second Empire house — slate mansard with pedimented dormers and a tall chimney, bracketed cornice, a canted bay on the street front, high stoop with railings, a lower side wing at left; boxed young street trees, a lamp post, plank-curbed walk and figures. The 1874 appearance of 1816 (unresolved in the index).",
@@ -4491,7 +4543,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/chicagotribuneheadline2nov1882doanehouse.jpg",
   "rights": "public domain",
   "rights_basis": "published 1882 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1827-tribune-1882-chicago-home-headline.jpg",
+   "display_bytes": 15219,
+   "thumb": "research/images/files/cgn-1827-tribune-1882-chicago-home-headline-thumb.jpg",
+   "thumb_bytes": 5667,
+   "original_px": [
+    893,
+    163
+   ],
+   "original_sha256": "0fb31c3de816e3b97d8c405ed82341d74830154dd391cc02f7af6e126af554ce",
+   "original_bytes": 47542,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/chicagotribuneheadline2nov1882doanehouse.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Headline of the long description already recorded as a text record (a18-cgy-1827-tribune-1882-description: 64×94 ft, Lake Superior sandstone, Edison incandescent light).",

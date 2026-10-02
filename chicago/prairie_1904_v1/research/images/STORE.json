@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 76232480,
+ "bytes": 107512789,
  "files": {
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
@@ -60,6 +60,14 @@
   "a16-chm-ichi-19208-monument-pullman-wall.jpg": {
    "bytes": 117020,
    "sha256": "7ec1f304bc3d8a9929791313a647f18ff2b5cfbac5006b7ed8e579820c0de16b"
+  },
+  "a16-ghm-blog-1720-atlas-crop-thumb.jpg": {
+   "bytes": 32414,
+   "sha256": "934831d74001a8eb150c9d4752e20e1b123d4c69881ab69581a0915cca58caf6"
+  },
+  "a16-ghm-blog-1720-atlas-crop.jpg": {
+   "bytes": 224047,
+   "sha256": "5fef608a8b4f00ced4e21f4bbddbdf33e2c265a3206d6f839af2354e9ce1515e"
   },
   "a16-industrial-chicago-1867-review-1600-block-thumb.jpg": {
    "bytes": 18221,
@@ -141,6 +149,22 @@
    "bytes": 184593,
    "sha256": "9dd69212d1ef57160240c8b0aecedbd213293198d35a8f059ba8d8c40ce19648"
   },
+  "a18-cgy-1815-meeker-sold-1915-thumb.jpg": {
+   "bytes": 24716,
+   "sha256": "f5b5d68e00be97b3c3267abb2e6924e322e23605e5ab8233ee84b7693b2571ef"
+  },
+  "a18-cgy-1815-meeker-sold-1915.jpg": {
+   "bytes": 101851,
+   "sha256": "75e421f9aa591cd6047a654d209e99dd34381eafab9d70883f648ea3d6f7fec6"
+  },
+  "a18-cgy-1827-fire-1927-thumb.jpg": {
+   "bytes": 36066,
+   "sha256": "e5ca3b98c3b1ea3c236e61d47e07cf00c917e274bbb924d46df6883034c9c6aa"
+  },
+  "a18-cgy-1827-fire-1927.jpg": {
+   "bytes": 323081,
+   "sha256": "b6c408eb91f0dfdb60fa7fc2d30c50975cc4352606fe5f36a4e90ab5d4ad0181"
+  },
   "a18-chicago-and-its-makers-1929-kimball-thumb.jpg": {
    "bytes": 13258,
    "sha256": "927f60593b0acaa7f34c875e1524a043a58a908879796c346782211eb46246b6"
@@ -157,6 +181,70 @@
    "bytes": 96863,
    "sha256": "be1c39794fe71d84dff1e465215fc1a1cc0e730f1367ece701db20665a4cb6a7"
   },
+  "a18-gh-1811-for-sale-1894-thumb.jpg": {
+   "bytes": 23023,
+   "sha256": "02e42d473e262d48768f3a60467a35e6274a24af47be6de734a679f0dc4d5509"
+  },
+  "a18-gh-1811-for-sale-1894.jpg": {
+   "bytes": 45557,
+   "sha256": "1151d032c972d2bfcb49bbbd157a48ecf4c015320eabf25f6acba337e95e03b9"
+  },
+  "a18-gh-1812-first-house-1874-thumb.jpg": {
+   "bytes": 28230,
+   "sha256": "29bdad8a77adbf947c8dbe10e29cd2292d731eee5d57f464f04a19523e1abb6d"
+  },
+  "a18-gh-1812-first-house-1874.jpg": {
+   "bytes": 97791,
+   "sha256": "83bf81c51340e30a1e831aa7188067d267a9df5cef5b3184b927c10b109e6967"
+  },
+  "a18-gh-american-contractor-1921-sullivan-1808-thumb.jpg": {
+   "bytes": 18984,
+   "sha256": "41ef2fe21dae468f1862d450f64e9904e53e8b8445785796d925a5862d042fee"
+  },
+  "a18-gh-american-contractor-1921-sullivan-1808.jpg": {
+   "bytes": 55186,
+   "sha256": "4a9317a8d85e4c33b98626c6c52ecb4266fe3ef79bbedf36d4c500ef81e89ea9"
+  },
+  "a18-gh-chicago-herald-1887-illustration-thumb.jpg": {
+   "bytes": 29246,
+   "sha256": "6e1a603039a9a6a9bc3ffdae677095b2dc604782120b5587cc9c609313bfd65b"
+  },
+  "a18-gh-chicago-herald-1887-illustration.jpg": {
+   "bytes": 185337,
+   "sha256": "f9109f149fc55db5c49fdbda92ecd982747a7017452cf4e30f7f7140a594928e"
+  },
+  "a18-gh-hitchcock-galloway-1874-sketch-thumb.jpg": {
+   "bytes": 29580,
+   "sha256": "49496f0ac27ee568312d174cf137447fbf56cffc2149140be72c3c42af5879b6"
+  },
+  "a18-gh-hitchcock-galloway-1874-sketch.jpg": {
+   "bytes": 66368,
+   "sha256": "183f0a9dce20d6e6390ca833be28745e8bc2d8ba0e0a5e7940067af3bf4c9b16"
+  },
+  "a18-gh-landowner-1874-glessner-site-thumb.jpg": {
+   "bytes": 30646,
+   "sha256": "24d3a5f7bc952c91695584b9c20714d9c17533deb418ce7e3ee8f215a2a8641d"
+  },
+  "a18-gh-landowner-1874-glessner-site.jpg": {
+   "bytes": 68800,
+   "sha256": "568e486ca01e8aafa1fb34fdcfca850c12de205735ee8dac5db38036bdabb6bc"
+  },
+  "a18-gh-landowner-1874-plate-thumb.jpg": {
+   "bytes": 32941,
+   "sha256": "42afec6462d84a28a14e3deab0c3c6c13962b3a4141b20c16701c0da70cabb88"
+  },
+  "a18-gh-landowner-1874-plate.jpg": {
+   "bytes": 91315,
+   "sha256": "7dbbb465db50bac37a5c0cee11d472fcc3ed365f7a1d281b7a405b08b4d2d424"
+  },
+  "a18-inland-architect-1886-09-keith-notice-thumb.jpg": {
+   "bytes": 22962,
+   "sha256": "6a69f775b8b0f9eba1342ff5a2808577e9ce683e5a65e23cc9cdb2ddcd591771"
+  },
+  "a18-inland-architect-1886-09-keith-notice.jpg": {
+   "bytes": 295314,
+   "sha256": "b258c2c34d0c2d7be1638015a1ac7250bfe6335de3d65119ab0a737896cc671b"
+  },
   "a18-inland-architect-1888-02-glessner-plate-thumb.jpg": {
    "bytes": 21758,
    "sha256": "809aa3c66aba2c9fe92952fd00b412e83908e4c2c1c3fe56b8f70ea30a9e7ce3"
@@ -172,6 +260,14 @@
   "a18-inland-architect-1888-02-keith-plate.jpg": {
    "bytes": 404796,
    "sha256": "fee999022b381c9bebe6d00652a0303040dbfe9fdb74d3792c9e88bc49018568"
+  },
+  "a18-inland-architect-1890-10-kimball-notice-thumb.jpg": {
+   "bytes": 25836,
+   "sha256": "4c375ffa7f43b26638855724ceed60bb95773e75bd1061b3328fe708ccdbb57d"
+  },
+  "a18-inland-architect-1890-10-kimball-notice.jpg": {
+   "bytes": 303354,
+   "sha256": "59f44dc47993b19bee647e998ba6fa7e757c6bfad464fb93303492dfb9751540"
   },
   "a18-kimball-habs-photo-01-thumb.jpg": {
    "bytes": 38057,
@@ -196,6 +292,14 @@
   "a18-kimball-habs-photo-03.jpg": {
    "bytes": 155662,
    "sha256": "874e3a0075a7270ee86754244db18c078ccb75bb50fddc809c864b43d69fee0c"
+  },
+  "a18-rba-casc-glessner-1920s-thumb.jpg": {
+   "bytes": 15927,
+   "sha256": "7dc6590d89a96703b84b89d79135870d25f69e5f963868c71df318665ba3a415"
+  },
+  "a18-rba-casc-glessner-1920s.jpg": {
+   "bytes": 105611,
+   "sha256": "3400e62a72b93259a1e5b94f1083102fbf03c5e252b519fe9cf9c7176ecd0275"
   },
   "a18-rba-ia-1888-glessner-thumb.jpg": {
    "bytes": 16416,
@@ -757,6 +861,30 @@
    "bytes": 408879,
    "sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f"
   },
+  "a19-cgy-1923-randmcnally-1893-thumb.jpg": {
+   "bytes": 19906,
+   "sha256": "4af2abafd8558e243dfbf1923a650eb740c3478fd44eb92dfe89609b6d7ad628"
+  },
+  "a19-cgy-1923-randmcnally-1893.jpg": {
+   "bytes": 370379,
+   "sha256": "c5b45bb15d032a543d85a3a91254d9ac1c9e384e0cb9a054e71279ef3370565d"
+  },
+  "a19-cgy-1936-tribune-1869-thumb.jpg": {
+   "bytes": 11217,
+   "sha256": "3c29316142f97ddc7481442a82df50cbc663b81f0e1cf1e0153de716873e1c85"
+  },
+  "a19-cgy-1936-tribune-1869.jpg": {
+   "bytes": 37118,
+   "sha256": "008be6059507e23049bb84e387c390024ca6b22e7ab28db88df1629cbc99e51e"
+  },
+  "a19-cgy-robinson-1886-crops-1900-block-thumb.jpg": {
+   "bytes": 15162,
+   "sha256": "ac7522df379261e7d1b2c23344713440be8b2426d48240a20de2c33cb69fb290"
+  },
+  "a19-cgy-robinson-1886-crops-1900-block.jpg": {
+   "bytes": 254226,
+   "sha256": "d4426224f5d07fecdd83197f994f8325fc4b7f7a5f17e0d6936f48a017cb6b1a"
+  },
   "a19-chm-ichi66015-west-side-north-from-allerton-thumb.jpg": {
    "bytes": 12405,
    "sha256": "72cb62d4d1e4517de360c1edb680ef0c3ae084efdf645a1e6a2fe638aaad8c8a"
@@ -820,6 +948,14 @@
   "a19-field-cdn-dn0003324.jpg": {
    "bytes": 54476,
    "sha256": "69af6f6f8fab65746096090d5f81ca7bc486515bf769ca00690bc01f3b292423"
+  },
+  "a19-hb-1904-2ndpres-article-thumb.jpg": {
+   "bytes": 24822,
+   "sha256": "4141665e6818bcacfebdeebc83b52b0f5c17f259dca7299a4885d44fedd797cd"
+  },
+  "a19-hb-1904-2ndpres-article.jpg": {
+   "bytes": 241934,
+   "sha256": "a9ee4449a1da7f513dda6038aae6805fb38a55442f4480b367199b814261ea9f"
   },
   "a19-hb-1904-2ndpres-candelabra-thumb.jpg": {
    "bytes": 26464,
@@ -917,6 +1053,46 @@
    "bytes": 1051004,
    "sha256": "eff053507d639d618308832fff83e88e57182d66d176ebe2334444a44f47d70b"
   },
+  "a20-aic-ia-dewey-residence-drawing-1887-thumb.jpg": {
+   "bytes": 17989,
+   "sha256": "991376a63e936053afa0101678de5cb140987bd408ecf0ed75ca0265d33d2622"
+  },
+  "a20-aic-ia-dewey-residence-drawing-1887.jpg": {
+   "bytes": 141267,
+   "sha256": "858831726bf3c9d7cc2634187c26332fe32b9415c7c33280b7e4f4ac6f0da2e3"
+  },
+  "a20-aic-ia-reid-plate-thumb.jpg": {
+   "bytes": 23804,
+   "sha256": "799c49314b05b88b76ea14072d893e603b33f6348b91f395ba82d01bf3e08c36"
+  },
+  "a20-aic-ia-reid-plate.jpg": {
+   "bytes": 117327,
+   "sha256": "eb537f791a015202eaa93d908285b29cf70c6979e1728adf74487e0749403326"
+  },
+  "a20-aic-ia-robbins-plate-thumb.jpg": {
+   "bytes": 20538,
+   "sha256": "691989557c1da24089d3291da577f02d3f7a5adc3bc91bde581edafc634461ee"
+  },
+  "a20-aic-ia-robbins-plate.jpg": {
+   "bytes": 101519,
+   "sha256": "4c3a177f09c9225da56dc92ddc225bdb719213cfd6cafdcbf596070601ee049b"
+  },
+  "a20-aic-quarter-century-tucker-residence-thumb.jpg": {
+   "bytes": 14166,
+   "sha256": "6f966f7909abdb9f676c150c0c9c8ae5be5f67214e01c4d4f88102bafc312009"
+  },
+  "a20-aic-quarter-century-tucker-residence.jpg": {
+   "bytes": 133916,
+   "sha256": "28e0229cae9352ee7e23f516e06c9e5c3328860341e878faa67c3d5c4f142d6a"
+  },
+  "a20-chicagology-2013-reid-ia1895-thumb.jpg": {
+   "bytes": 29160,
+   "sha256": "75b2d836e4343010a570de7fe73b009d5f7303ed6422796297d8d69b1d83d6be"
+  },
+  "a20-chicagology-2013-reid-ia1895.jpg": {
+   "bytes": 147523,
+   "sha256": "34ec48ebc4e327be4531026a2b0401d51a29255cdd1ba38d990c33151abc670f"
+  },
   "a20-chicagology-2026-wahl-landowner-1874-thumb.jpg": {
    "bytes": 33559,
    "sha256": "d5a53bdc586078ef68130f89ed1846150b625e43c28586050864ca4456b587ae"
@@ -925,6 +1101,22 @@
    "bytes": 253030,
    "sha256": "f09857bdce3dcfe247a804f71d873471ae1ecf2699c66a2be5a02092d09dcd48"
   },
+  "a20-chicagology-robinson-1886-crops-thumb.jpg": {
+   "bytes": 14370,
+   "sha256": "5cefbb2ffc698700767b75dd4391f7bc907039b81f7e90cb054474c3aa6ccb72"
+  },
+  "a20-chicagology-robinson-1886-crops.jpg": {
+   "bytes": 272629,
+   "sha256": "0a717744fcabeabca82002708c37106282a0a6e70d730122d87a7f83c42f228c"
+  },
+  "a20-glessner-hanford-engraving-thumb.jpg": {
+   "bytes": 36311,
+   "sha256": "6d4de6465edb8459d128fd11a52ee02a3d0fb5ae9e8deaaabc1ef5ec7b4f2113"
+  },
+  "a20-glessner-hanford-engraving.jpg": {
+   "bytes": 105084,
+   "sha256": "75b8447705aa933e0618b56eeb8e0e67176e4c227d7c49e8ac8b09a83bac1d76"
+  },
   "a20-glessner-tribune-1891-house-move-sketch-thumb.jpg": {
    "bytes": 45199,
    "sha256": "e055e11af8e0754d17e30b93373a91194ab9bd6ea96da1df018f36793c048530"
@@ -932,6 +1124,22 @@
   "a20-glessner-tribune-1891-house-move-sketch.jpg": {
    "bytes": 104586,
    "sha256": "0a251cda1c73e99187a412c98fd1e0e4403eead335fb61f8c5888c757020751a"
+  },
+  "a20-ia-1883-10-hanford-notice-thumb.jpg": {
+   "bytes": 26731,
+   "sha256": "2224e69ad6e5946b0a0ce4d70087d7396a0b849fac52745550ac4ee7c3497976"
+  },
+  "a20-ia-1883-10-hanford-notice.jpg": {
+   "bytes": 329031,
+   "sha256": "edf98b2e1501dc4bb2f3b48dadb911eddbe076bddf317167f8d9377361bb11dd"
+  },
+  "a20-ia-1889-05-meyer-completion-notice-thumb.jpg": {
+   "bytes": 23025,
+   "sha256": "ebf528aa6d8807d949c699dd4298d13b542dce4a0eba975a3f2f18a9e22a147a"
+  },
+  "a20-ia-1889-05-meyer-completion-notice.jpg": {
+   "bytes": 266412,
+   "sha256": "d52da6cf744ada23bea789880371b6deb1ef0181a192fac79eaf55d8ebe7ae4e"
   },
   "a20-ia-1895-02-reid-plate-thumb.jpg": {
    "bytes": 32674,
@@ -1389,6 +1597,14 @@
    "bytes": 105990,
    "sha256": "ff1b5d202ee5b962b8cc3a25a996b350f74f5b8ae14e4a722748c8361abaab37"
   },
+  "cgn-1729-massacre-monument-statue-thumb.jpg": {
+   "bytes": 28524,
+   "sha256": "9da89b9dd8446e263caaf879ed8be9cb873e62700c8e3177961bd4df4fe9c495"
+  },
+  "cgn-1729-massacre-monument-statue.jpg": {
+   "bytes": 235628,
+   "sha256": "68639d8841d02481165035bee7babdb094ca06291be37a35eee7baa9048cf44e"
+  },
   "cgn-1729-pullman-1901-detroit-copy-thumb.jpg": {
    "bytes": 20732,
    "sha256": "155c224c4002f83a2d58b35319c26a1eb2eaa18c64f976485d460836eafc6fbc"
@@ -1685,6 +1901,22 @@
    "bytes": 253988,
    "sha256": "f64ab7a70888b36a78533b953b5b30ffc5be779774e87a0e2031eb9ef7dd89ea"
   },
+  "cgs-1905-field-hallway-thumb.jpg": {
+   "bytes": 33762,
+   "sha256": "89b437d962d0da97b9494d6d756596d403ea3c977e56004ad33682ea3488751c"
+  },
+  "cgs-1905-field-hallway.jpg": {
+   "bytes": 294932,
+   "sha256": "1314de7ea14d3a0424a251818fc1c053f7396131da85ffaa824124b6f3be3219"
+  },
+  "cgs-1905-field-library-thumb.jpg": {
+   "bytes": 33583,
+   "sha256": "75e803368c64a249af93bdc2c8a7b34a6612f892622ba0a2a1b7e4b24f47af22"
+  },
+  "cgs-1905-field-library.jpg": {
+   "bytes": 187570,
+   "sha256": "7123900cac28af8f65b847c221d16c8deacf697a05c1897636a901053902312d"
+  },
   "cgs-1906-robinson-1886-thumb.jpg": {
    "bytes": 15099,
    "sha256": "dfa4c7d37db05133fea1fc5862bd5389d525ec3d3a0b4630bcde4d8cc7e17487"
@@ -1941,6 +2173,14 @@
    "bytes": 273187,
    "sha256": "bc311e573c0e2dc39dace6d5f6fa7ba1e8e9f46a4b708ffab7c0573065ee93e8"
   },
+  "cgs-2101-tribune-1916-pike-headline-thumb.jpg": {
+   "bytes": 18706,
+   "sha256": "3bd7546f62ef4e95d36a59222999a02fdf34955c3f5d55636e06baec79c978e3"
+  },
+  "cgs-2101-tribune-1916-pike-headline.jpg": {
+   "bytes": 97255,
+   "sha256": "de197eda7d76a0cdb3214162357befff116aa940061edc52ca4a55b8b2aea41f"
+  },
   "cgs-2108-robinson-1886-thumb.jpg": {
    "bytes": 14358,
    "sha256": "febb9a0658d535dd2076f23bf602ef30192bc754346d06674e3490b2e219db37"
@@ -1957,6 +2197,14 @@
    "bytes": 273228,
    "sha256": "67ae1925bd9545137749465d4a837a5fdf83601565d01230654e40b2517baab2"
   },
+  "cgs-2109-tribune-1899-roloson-headline-thumb.jpg": {
+   "bytes": 25721,
+   "sha256": "7096408865dabd1029a3f487c6b95497ad621a2e2238dd1f5beeba5a8dc1c5a7"
+  },
+  "cgs-2109-tribune-1899-roloson-headline.jpg": {
+   "bytes": 126930,
+   "sha256": "a8cf11265d3bc73dc4bef6cd1d9d2a2a15a4132f2433b175cb69d20252715d04"
+  },
   "cgs-2110-robinson-1886-thumb.jpg": {
    "bytes": 14351,
    "sha256": "51bcf53a525282627511c6ec9ca14a8b7c07c3b253497a2b8480e673aea95172"
@@ -1972,6 +2220,14 @@
   "cgs-2112-robinson-1886.jpg": {
    "bytes": 272608,
    "sha256": "cc966d48c06ce52f4900d22451f0f45adf280c5dc98b3abf3cc5540aaccb572b"
+  },
+  "cgs-2112-tribune-1893-rothschild-headline-thumb.jpg": {
+   "bytes": 25588,
+   "sha256": "ca4d50d92abdee67b0d7946d4f2a75c1fd8bfd9b539eb086d1503766341da92b"
+  },
+  "cgs-2112-tribune-1893-rothschild-headline.jpg": {
+   "bytes": 117362,
+   "sha256": "aa19e264504e6080763f706e7fb56961a5e3a133396bb950c382f543a8db46e0"
   },
   "cgs-2115-robinson-1886-thumb.jpg": {
    "bytes": 14451,
@@ -2037,6 +2293,14 @@
    "bytes": 171330,
    "sha256": "2f3996a6175dafb0fbcab651b2e44fc7f810c45ed0b88371561fa1f298bbb29c"
   },
+  "dw-aabn-1876-04-15-sherman-2100-finished-thumb.jpg": {
+   "bytes": 22620,
+   "sha256": "b8b95a37f091324db2a12f0bb00d9a547cc14211cf6da0dd1a410f444e9dae7b"
+  },
+  "dw-aabn-1876-04-15-sherman-2100-finished.jpg": {
+   "bytes": 245520,
+   "sha256": "402dbd33dfe2b23c288779d71fbe896e77452f16d60a5a7b33665b712afdf6cf"
+  },
   "dw-aabn-1876-09-30-sherman-2100-plate-thumb.jpg": {
    "bytes": 37876,
    "sha256": "a4c661aa8cdf6ee8331cedec0da5689f57a5d70c7d8c0cc2c0c80162144c6d8e"
@@ -2044,6 +2308,230 @@
   "dw-aabn-1876-09-30-sherman-2100-plate.jpg": {
    "bytes": 653981,
    "sha256": "c49d12a44bd17866654c7f30e97756e8a1ffdb5be278aed1243cbeddc3d75e75"
+  },
+  "dw-aabn-1878-eg-keith-916-prairie-addition-thumb.jpg": {
+   "bytes": 23492,
+   "sha256": "f6c621783b5f477a6075b191e19546f10629417414a66c308003e4d57e426886"
+  },
+  "dw-aabn-1878-eg-keith-916-prairie-addition.jpg": {
+   "bytes": 259046,
+   "sha256": "a96c217665b42f6af4e6829f157f0703411e179b71e3e1529b0b80aa96d4cd2e"
+  },
+  "dw-aabn-1879-sears-1815-basement-permit-thumb.jpg": {
+   "bytes": 22650,
+   "sha256": "728c079fbff0cd0e9fa478abacf9c82350acade462637ae818ce2977639da314"
+  },
+  "dw-aabn-1879-sears-1815-basement-permit.jpg": {
+   "bytes": 251335,
+   "sha256": "cd70d1c3e4c646b09832b24df13209ec57b2f605607c1f4915cfa0962c00a807"
+  },
+  "dw-aabn-1879-sears-1815-burnham-root-plans-thumb.jpg": {
+   "bytes": 24731,
+   "sha256": "337478e10d08c0599724f26883ea5743bcf76bfdd542cf191209a72103ae2781"
+  },
+  "dw-aabn-1879-sears-1815-burnham-root-plans.jpg": {
+   "bytes": 270997,
+   "sha256": "4139d9b5b00789dd669b11d61767c286643530b209e0e1e5efb46cb5e8f7c804"
+  },
+  "dw-aabn-1881-03-doane-1827-permit-thumb.jpg": {
+   "bytes": 22123,
+   "sha256": "377695f2ad503bdf4fbb941ed61f6e809f8df5d70338c2ebd3835f7c42fab409"
+  },
+  "dw-aabn-1881-03-doane-1827-permit.jpg": {
+   "bytes": 241623,
+   "sha256": "a7ad5576d28605fa8c33dedacfeda6366c4517065381791e78996c75172b3329"
+  },
+  "dw-aabn-1881-11-dent-1823-permit-thumb.jpg": {
+   "bytes": 28582,
+   "sha256": "6352ec8e124bb1e37c15642618a18fe2071576138ba9e1cedebefa8774194f0a"
+  },
+  "dw-aabn-1881-11-dent-1823-permit.jpg": {
+   "bytes": 282364,
+   "sha256": "5f3443dc08b3a0ccdab9459b82cd9bae2d7f0847bb1837900ecf92ca88c2abd9"
+  },
+  "dw-aabn-1881-keith-1901-permit-thumb.jpg": {
+   "bytes": 22273,
+   "sha256": "c09e712d037ddcf4a21342156bc90863f35da34164bd9be3c069d31f211fe513"
+  },
+  "dw-aabn-1881-keith-1901-permit.jpg": {
+   "bytes": 234335,
+   "sha256": "97804af37eea1a8d2edd4a4902f1955859d785e5db178a7f80e72f175acaf4be"
+  },
+  "dw-aabn-1881-marsh-1824-barn-permit-thumb.jpg": {
+   "bytes": 27852,
+   "sha256": "4199e7cd8fb7df18e62cb2802a82dbc28d4f18c2dc9d29003f75ce2bdf8a8606"
+  },
+  "dw-aabn-1881-marsh-1824-barn-permit.jpg": {
+   "bytes": 271890,
+   "sha256": "f8f8b361b12ce2fb0611e0365cfb138dd68dc2cc380962b1ad3629e71d5ed331"
+  },
+  "dw-aabn-1881-van-arman-2015-permit-thumb.jpg": {
+   "bytes": 23418,
+   "sha256": "e2d49e0a7763247f95bb17b0136dbc81b8e255fd1e79a67158e03e71cd6e1ba0"
+  },
+  "dw-aabn-1881-van-arman-2015-permit.jpg": {
+   "bytes": 225964,
+   "sha256": "fd7c4244f6dc0974293dc1924b015e82e1e20b6acc6a63e829ecbd1bb86272a4"
+  },
+  "dw-aabn-1882-03-murray-1919-barn-permit-thumb.jpg": {
+   "bytes": 22016,
+   "sha256": "7af7434696ffe02d5584c26df56765032e440d519b1e518fd1658bf976469877"
+  },
+  "dw-aabn-1882-03-murray-1919-barn-permit.jpg": {
+   "bytes": 237584,
+   "sha256": "ce2d51af0462aa02fc954c672c0c713882453c82522c62d565eae3dfac826874"
+  },
+  "dw-aabn-1882-einstein-1628-barn-permit-thumb.jpg": {
+   "bytes": 23727,
+   "sha256": "3b13c2d8f54803427d746397403c25b6ae81ce8b3c1bc9832997d37f32d278c5"
+  },
+  "dw-aabn-1882-einstein-1628-barn-permit.jpg": {
+   "bytes": 244512,
+   "sha256": "9b5bc13d4070027af0782792e4f3a3d362a796364d69191499f8576990ac0c15"
+  },
+  "dw-aabn-1882-moulton-1912-permit-thumb.jpg": {
+   "bytes": 29048,
+   "sha256": "509553a882bfaaf7749966d2486ae515ec86ddd0dc0b0085760741732af9a5d2"
+  },
+  "dw-aabn-1882-moulton-1912-permit.jpg": {
+   "bytes": 321578,
+   "sha256": "78dcb7aa18a6efce4a715d0aa61db9672562054b02923aea327b5d23b45b7498"
+  },
+  "dw-aabn-1883-03-treat-foltz-prairie-near-16th-thumb.jpg": {
+   "bytes": 23258,
+   "sha256": "8c8c98552c45dc2f3068d6fcd08e1783167d1160cdc015d55594c33e7d4d1375"
+  },
+  "dw-aabn-1883-03-treat-foltz-prairie-near-16th.jpg": {
+   "bytes": 261113,
+   "sha256": "2e2720250d6360f1dd782510dfb5129463b48addcebbc0cc503defe297de1896"
+  },
+  "dw-aabn-1883-10-hanford-2008-permit-thumb.jpg": {
+   "bytes": 23803,
+   "sha256": "911a7c62633a8fdde1a5e9ba60267dc4ee79f3c7ebfbe066882f162a24e24936"
+  },
+  "dw-aabn-1883-10-hanford-2008-permit.jpg": {
+   "bytes": 249266,
+   "sha256": "0920c9319cd1449d77e7e06b4ab60e544c8f4ad7022697d3a3086b36a8d81987"
+  },
+  "dw-aabn-1884-09-hanford-2010-calumet-barn-permit-thumb.jpg": {
+   "bytes": 25229,
+   "sha256": "948a325543cdcf32976fff55f3c28d21255afd033cf37001e0b898006faebcc4"
+  },
+  "dw-aabn-1884-09-hanford-2010-calumet-barn-permit.jpg": {
+   "bytes": 271363,
+   "sha256": "269df0f17c643179ad03354da505bae6c581989fd6151c6909e2c6211a95e282"
+  },
+  "dw-aabn-1884-10-wheeler-1812-barn-permit-thumb.jpg": {
+   "bytes": 25946,
+   "sha256": "a7b9f257e4a9197591a19bb5f22ab3122e0a397f7099d3450581f6f3f0c8dcda"
+  },
+  "dw-aabn-1884-10-wheeler-1812-barn-permit.jpg": {
+   "bytes": 278815,
+   "sha256": "c0e7f301226f89b4ddb4b69068535b0511c67d96da9085fca5468c922434a2b7"
+  },
+  "dw-aabn-1884-murray-1919-beman-permit-thumb.jpg": {
+   "bytes": 26495,
+   "sha256": "5bc78c93d16914f9f600ae19784716d072daf70381185dfb83f5478a9246e18f"
+  },
+  "dw-aabn-1884-murray-1919-beman-permit.jpg": {
+   "bytes": 284087,
+   "sha256": "080f8a1eb793127f570bde75217a0fb106d0a68b05d5385b9cfe59939cfb099c"
+  },
+  "dw-aabn-1884-shortall-1608-permit-thumb.jpg": {
+   "bytes": 23017,
+   "sha256": "4d4f00e4cce53667174c4a52a03e6ec3e8c6e383326355cd8733d13b5323eccf"
+  },
+  "dw-aabn-1884-shortall-1608-permit.jpg": {
+   "bytes": 244535,
+   "sha256": "295d140ea96f8c2144c8e904dbcc428419bacddc9e71019be21ee6b107365936"
+  },
+  "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz-thumb.jpg": {
+   "bytes": 23845,
+   "sha256": "e2188888de8250327bcc42f77d315d00411e01c703a75fd2f66094302268a55f"
+  },
+  "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz.jpg": {
+   "bytes": 254311,
+   "sha256": "583ac4fa44cde30757bde8080b7856caed1907de5c2d13438ea77b5631ea82b4"
+  },
+  "dw-aabn-1885-shortall-1600-alexander-permit-thumb.jpg": {
+   "bytes": 26448,
+   "sha256": "10abed25811384551d9474ad63be33bbb583e9450202a2f6af18b608791887ba"
+  },
+  "dw-aabn-1885-shortall-1600-alexander-permit.jpg": {
+   "bytes": 279482,
+   "sha256": "d38ca36bb0003dc1f873b443a9c11da2c580b82fff210a4208bdc6fda03bc16f"
+  },
+  "dw-aabn-1886-keith-1808-permit-thumb.jpg": {
+   "bytes": 25372,
+   "sha256": "fbab989bb32796222c1d365e06a974b5b7d37d7225bd715b377e2d8d811a1506"
+  },
+  "dw-aabn-1886-keith-1808-permit.jpg": {
+   "bytes": 264952,
+   "sha256": "b978171cf6ee81cabb67118ccf1bf1da3c9fc2d2c798318802e66881bad94166"
+  },
+  "dw-aabn-1887-high-2021-rear-addition-thumb.jpg": {
+   "bytes": 25099,
+   "sha256": "694fd6810d9e682e7370443aa23b952639b0e55695a92c8df2224b43110640fc"
+  },
+  "dw-aabn-1887-high-2021-rear-addition.jpg": {
+   "bytes": 262867,
+   "sha256": "79f131528e984ae2f3da332eb99e145d0efbc0653a181f323a1ffedbabfcec3b"
+  },
+  "dw-aabn-1887-schwartz-1919-added-storey-thumb.jpg": {
+   "bytes": 22985,
+   "sha256": "9efb0e927690cdf5b7f06aa315968f1746458d4707247c7d8695cef833dbcfc0"
+  },
+  "dw-aabn-1887-schwartz-1919-added-storey.jpg": {
+   "bytes": 242536,
+   "sha256": "581daf3381b3e3d966397fc469f11b5f8a15790a5332058908d13183c497ecd2"
+  },
+  "dw-aabn-1889-dexter-1721-little-alteration-thumb.jpg": {
+   "bytes": 28173,
+   "sha256": "91adcef9e0c15d7bdcf297c5f0a78219c51390728c878a4cf52e7c93e7606ee0"
+  },
+  "dw-aabn-1889-dexter-1721-little-alteration.jpg": {
+   "bytes": 246044,
+   "sha256": "9a041e60a29cdfe508c0be907ac98445997e4b55f80f4becb3da794943aff44c"
+  },
+  "dw-aabn-1889-mcbirney-1736-permit-thumb.jpg": {
+   "bytes": 28598,
+   "sha256": "3520470051c395cdb91c5ce4b4e582ae1010754c905946f37347fca81a9b60e8"
+  },
+  "dw-aabn-1889-mcbirney-1736-permit.jpg": {
+   "bytes": 261690,
+   "sha256": "2076c4b6e53e16d6e740dc49be480b050bb0963ec639d976a323ac7b297c1699"
+  },
+  "dw-aabn-1893-04-dexter-1721-plate-listing-thumb.jpg": {
+   "bytes": 22364,
+   "sha256": "6a3825c7d60544c7de553bdf13faefa532ae0e18e2d28f795f88cffd007c2ac9"
+  },
+  "dw-aabn-1893-04-dexter-1721-plate-listing.jpg": {
+   "bytes": 237190,
+   "sha256": "aeb73dcfde86e64a4d6359569e862abde9bbf5afcbec17d194eb90a3f6c32546"
+  },
+  "dw-aabn-1896-springer-flats-1625-1635-thumb.jpg": {
+   "bytes": 24391,
+   "sha256": "40be03132d299c79fa048797cbdc61a3e227e2c0438b39a45ac892c661bd5671"
+  },
+  "dw-aabn-1896-springer-flats-1625-1635.jpg": {
+   "bytes": 227471,
+   "sha256": "852e8133d3ad1a3501158c599acf7a6a5fc5269a0379da969d389ac10b86c245"
+  },
+  "dw-aabn-1900-05-second-presbyterian-rebuild-thumb.jpg": {
+   "bytes": 26527,
+   "sha256": "62924baf69838ae083e25ca4350dfc63fbcb4b95b9afc462d7c375a886899fe7"
+  },
+  "dw-aabn-1900-05-second-presbyterian-rebuild.jpg": {
+   "bytes": 243409,
+   "sha256": "95143dd18ac02733c509ad5a03444bc1b11514b52c247249d012e5d31c7960be"
+  },
+  "dw-aabn-1905-08-strauss-warehouse-1609-1611-thumb.jpg": {
+   "bytes": 21854,
+   "sha256": "3fac80030a0efc0328c5eee8a549576d6d401f1159629204bac85f05023ac101"
+  },
+  "dw-aabn-1905-08-strauss-warehouse-1609-1611.jpg": {
+   "bytes": 203708,
+   "sha256": "072efcfd8c4878489468c0920e91a2244a1437bf189862b052f69387b9b183ba"
   },
   "dw-field-1905-artistic-houses-entrance-hall-thumb.jpg": {
    "bytes": 26475,
@@ -2092,6 +2580,22 @@
   "dw-habs-il135-clarke-sheet-2.jpg": {
    "bytes": 497657,
    "sha256": "4bb82ff28b28eca9f21c166e3d50d7738e69046927888af2e003e785f21a7f78"
+  },
+  "dw-habs-il135-clarke-sheet-3-thumb.jpg": {
+   "bytes": 22626,
+   "sha256": "631aa7d357d6132ade90b8c5022685f44110cff92f879d18dadcb69aaa405a6e"
+  },
+  "dw-habs-il135-clarke-sheet-3.jpg": {
+   "bytes": 350831,
+   "sha256": "6e2c0b089db39293c0b0b62ea9cf21554565c8575cc006a2efd60ad18dfda62a"
+  },
+  "dw-habs-il135-clarke-sheet-4-thumb.jpg": {
+   "bytes": 21321,
+   "sha256": "a86e0e37bddfa47f0564b34d0bb18a5fc0a79078ee16b632d286ab1cfd6ff6ec"
+  },
+  "dw-habs-il135-clarke-sheet-4.jpg": {
+   "bytes": 285761,
+   "sha256": "4212d2c104e14ad669148bcc73855235642ec35ad20f317171b8b7b67cbeb3da"
   },
   "dw-habs-il135-clarke-sheet-6-thumb.jpg": {
    "bytes": 24646,
@@ -2181,6 +2685,150 @@
    "bytes": 403866,
    "sha256": "82a89b996e84c4957aac4a30789a09d18b2dc099534e3854881aec3185eb34c9"
   },
+  "dw-habs-il328-second-presbyterian-sheet-11-thumb.jpg": {
+   "bytes": 18655,
+   "sha256": "ea438ea1fef1224c0c467271e673c48b7f9caf4c7fd6fdcf7db34dd113ce94fb"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-11.jpg": {
+   "bytes": 377977,
+   "sha256": "e7b2f660e7dfc430703612f1529f6bbfc9600d2ff559209de0f482b7d43c0675"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-12-thumb.jpg": {
+   "bytes": 16408,
+   "sha256": "32135327391e5078703e99a9335b737ed3d9829ed146a1d0940f5e1f6812f329"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-12.jpg": {
+   "bytes": 268968,
+   "sha256": "9191b66db723849265fd88acd43b96d0dc16f3e513508eac9bf43f24de330235"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-13-thumb.jpg": {
+   "bytes": 17715,
+   "sha256": "63a2f071bea794d10e0529e9e89449fadfce6fdae59a89ec9afe12d2cdcda44f"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-13.jpg": {
+   "bytes": 389354,
+   "sha256": "a0739beb918f16a6655c72b619a77f68bddae6aca288826b3116fc6811bfc975"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-14-thumb.jpg": {
+   "bytes": 17406,
+   "sha256": "bea8f8e03ed2efe72348f4b58050adadc56e0abd1ce5d8b6f521b55b5f173745"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-14.jpg": {
+   "bytes": 299912,
+   "sha256": "5751234e1d70eee4db869d0e97a7bc2e235e53ea4f493b9cf1a565b3222411e5"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-15-thumb.jpg": {
+   "bytes": 18623,
+   "sha256": "95e8927ebbbda3845554e16b5c005b1854dcac5dd98c5d33ed7f406baab36c0f"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-15.jpg": {
+   "bytes": 402021,
+   "sha256": "fab8b57ce812f29f1e9e92aaf62d66e4f4c2620a6334c7a5f19cc407f6bae163"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-16-thumb.jpg": {
+   "bytes": 17692,
+   "sha256": "526a527b20372bfc7854bbcb66fcdc9d66e8037797c422b68d15f33e803ee2d9"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-16.jpg": {
+   "bytes": 316937,
+   "sha256": "e65fbbfcd679f5eaef6bf9ec4d8f64fd612e309f9a71af775331fd7c8f9e8163"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-17-thumb.jpg": {
+   "bytes": 17753,
+   "sha256": "e9e7431ce17f108ad25c43d8b5ba7bad408b97ce8818be4fda4f602b6e0e2e6a"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-17.jpg": {
+   "bytes": 314481,
+   "sha256": "81f5e4b612659bdff11cf361b17bf71efde86f8f6fce72f9f82b8130c951273e"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-18-thumb.jpg": {
+   "bytes": 21425,
+   "sha256": "02379fcc187b9c00dcc9b5d35d9d2047de8a48375be5da5e956a7132a3787eab"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-18.jpg": {
+   "bytes": 379259,
+   "sha256": "6adfcc79af53d4f1c4471bc48eb80ce1f52160d042649d8ee22ff43e423bfe49"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-19-thumb.jpg": {
+   "bytes": 14721,
+   "sha256": "6875113408aa4129c61aa4a6c469cd9d8fa51ae8b4275771bbc7b1558d03f968"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-19.jpg": {
+   "bytes": 228201,
+   "sha256": "36ff9a053693fb1cae22c5e2ce8ee3bae8fc332f1bf83d07d4501171cdbb246a"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-20-thumb.jpg": {
+   "bytes": 9089,
+   "sha256": "1c307b24307381e6efba26f128347ce9842698a956ea0a9cd06555ba5c7827a1"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-20.jpg": {
+   "bytes": 132030,
+   "sha256": "d8aeeb3416f2bff224ec7063e651f9ed4f61f55e58ced016b322728fcc188dfc"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-21-thumb.jpg": {
+   "bytes": 15555,
+   "sha256": "e3171eadfe988d691ac72af4fcefb3548a58e2045631c73dc168e1c111953f77"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-21.jpg": {
+   "bytes": 217986,
+   "sha256": "7dac9671ca2e38165abd3b0079cade6dc3b60c3fbfc428e4b70e1946545d314f"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-22-thumb.jpg": {
+   "bytes": 12448,
+   "sha256": "76b68303d69ca5da78752e25efd6bdd6b1fb14fc278a6eede6ffcaa1f1cba8ca"
+  },
+  "dw-habs-il328-second-presbyterian-sheet-22.jpg": {
+   "bytes": 228945,
+   "sha256": "df4c9ba0860fc8650c2bc180c3637b979b46fac4049dafde7cf1ac0bc2758039"
+  },
+  "dw-indchi-1891-v1-1867-van-osdel-jones-thumb.jpg": {
+   "bytes": 17530,
+   "sha256": "2b0a74e96f4fe4acd0a69d67a7df49e6d0999a95251ddfeb663af531ae823086"
+  },
+  "dw-indchi-1891-v1-1867-van-osdel-jones.jpg": {
+   "bytes": 190991,
+   "sha256": "ad6b7dfe3bb689beb26d65b04375e621cf6c7e648512466b4378b8c880238843"
+  },
+  "dw-indchi-1891-v1-1867-wheelock-cochrane-prairie-list-thumb.jpg": {
+   "bytes": 16284,
+   "sha256": "d1d562627559a1b488816f0c45dcc3f226838369b07e34eebb6a07ebe1d3bf47"
+  },
+  "dw-indchi-1891-v1-1867-wheelock-cochrane-prairie-list.jpg": {
+   "bytes": 193962,
+   "sha256": "18d3208ca77efc02e7057b1a9671b5448127e3e6b5d091ed613d3310a5657bec"
+  },
+  "dw-indchi-1891-v1-edson-keith-stone-thumb.jpg": {
+   "bytes": 18120,
+   "sha256": "b1345ef9c56e57bdaad7dab4c71d3a37da89b3e949a4897e26806f87e4f25da4"
+  },
+  "dw-indchi-1891-v1-edson-keith-stone.jpg": {
+   "bytes": 196636,
+   "sha256": "1680631ea411e91ab412975df41c6e804272d2136f2da13c14b4209edd242046"
+  },
+  "dw-indchi-1891-v1-moulton-treat-foltz-thumb.jpg": {
+   "bytes": 16839,
+   "sha256": "0c0032d337062fdfe0b5897ec72e83b2437ebc3d814901993483baec37a37ce5"
+  },
+  "dw-indchi-1891-v1-moulton-treat-foltz.jpg": {
+   "bytes": 177593,
+   "sha256": "fc458ee49f4551f5d2d931d4d44899f537c3c2945842f9c6eceffbbc157a09d7"
+  },
+  "dw-indchi-1891-v1-sherman-burnham-root-thumb.jpg": {
+   "bytes": 19045,
+   "sha256": "96a1c42c422490a377cd6e16ec16f175c621a15cbea50b0e7226da4646a72171"
+  },
+  "dw-indchi-1891-v1-sherman-burnham-root.jpg": {
+   "bytes": 205538,
+   "sha256": "3f76bee657e182baa68465d5393f898991ef9c14511139e2e8c56483ea03d475"
+  },
+  "dw-inland-1883-03-moulton-keith-interiors-thumb.jpg": {
+   "bytes": 22364,
+   "sha256": "d90eac1626f113a220cdcedf71886fef1e3f6be17d2fc3aea6b13df41a9b264f"
+  },
+  "dw-inland-1883-03-moulton-keith-interiors.jpg": {
+   "bytes": 276060,
+   "sha256": "60f036bbb91b533c520d156f99e26c3aff89e80d85c4055ab70ac427cf0a9707"
+  },
   "dw-inland-1883-12-hanford-plate-thumb.jpg": {
    "bytes": 30695,
    "sha256": "a01a17f6801d0e1d7389b1b0109e369e4335cc6d2228a5b4a61d65551abd7941"
@@ -2188,6 +2836,86 @@
   "dw-inland-1883-12-hanford-plate.jpg": {
    "bytes": 635472,
    "sha256": "76b58c0580a944642375c5ffeed4ed57ba8ea3ad3c7942e22bce7331e900c3ea"
+  },
+  "dw-inland-1883-hibbard-1616-permit-thumb.jpg": {
+   "bytes": 18867,
+   "sha256": "fe15c77abd665521586a05127cdef8aa4e256e694af153ac5f8b9e7e846783aa"
+  },
+  "dw-inland-1883-hibbard-1616-permit.jpg": {
+   "bytes": 272976,
+   "sha256": "a61f12a524f779a091b1b8f3c8707dd78da3544d92001dc42e4fea797e906c91"
+  },
+  "dw-inland-1884-06-murray-beman-plans-thumb.jpg": {
+   "bytes": 27560,
+   "sha256": "26f94dce76eecc975f9ae412cd18873c965d0d000d8441f0c84bcd2bb5cb4220"
+  },
+  "dw-inland-1884-06-murray-beman-plans.jpg": {
+   "bytes": 346618,
+   "sha256": "4e5a202fb29cee1b53bdded6a04615733efbc7e2dd3bc9fe5f3b60535d6816ee"
+  },
+  "dw-inland-1885-06-murray-1919-beman-report-thumb.jpg": {
+   "bytes": 22535,
+   "sha256": "b1673162779234ea7aad50830327d860a47c523f9dbed6a10239f0aff9fb6727"
+  },
+  "dw-inland-1885-06-murray-1919-beman-report.jpg": {
+   "bytes": 296531,
+   "sha256": "80f7f7fbe183e5d1816c063498e373ea04f9dcee3beda302ee455a421715da19"
+  },
+  "dw-inland-1885-11-farwell-1625-treat-foltz-thumb.jpg": {
+   "bytes": 24413,
+   "sha256": "2fd22cb764a983788a331fc3ca74ba2b69c9eb1c152eee0ca07403bc8a1db6d2"
+  },
+  "dw-inland-1885-11-farwell-1625-treat-foltz.jpg": {
+   "bytes": 295024,
+   "sha256": "18f642b263ba75d91a0cf468ae31ba33047cae0d474382ce0d2fd4b8d0f53640"
+  },
+  "dw-inland-1887-05-ream-1901-interior-contract-thumb.jpg": {
+   "bytes": 22785,
+   "sha256": "d347636d0096e72cb10edd590c9c6fd7289e022a7301c3fb773e1e2288f74224"
+  },
+  "dw-inland-1887-05-ream-1901-interior-contract.jpg": {
+   "bytes": 274402,
+   "sha256": "c51d5d9aa2de811a1077a0b16c6fda9d1f4d94ddcc4f5039ef08f99ff7777336"
+  },
+  "dw-inland-1888-06-buckingham-portico-thumb.jpg": {
+   "bytes": 23244,
+   "sha256": "87ee975161e8e2420da6e7706b4907d31009afa2d3ab66fdb25287f6a4e3dfdf"
+  },
+  "dw-inland-1888-06-buckingham-portico.jpg": {
+   "bytes": 292300,
+   "sha256": "a5e9b6d3ef6a278c8315044d407de1195583e0a1c99b758d36bda4615c71b609"
+  },
+  "dw-inland-1888-07-meyer-burnham-root-plans-thumb.jpg": {
+   "bytes": 24594,
+   "sha256": "c23f7efb9350063bfaf345a9a5a75677f2ca3e990cff8aca8174db99872cc474"
+  },
+  "dw-inland-1888-07-meyer-burnham-root-plans.jpg": {
+   "bytes": 289893,
+   "sha256": "0aad9bdf5ece2114fd08c288c419e138ff171acca1766d0b78fdbeac07dce84e"
+  },
+  "dw-inland-1890-01-mcbirney-plate-listing-thumb.jpg": {
+   "bytes": 20734,
+   "sha256": "e2be42af903d4c11acc7bc58db5e6695c4df3d2d4bf8ca4e1da2f1d111970213"
+  },
+  "dw-inland-1890-01-mcbirney-plate-listing.jpg": {
+   "bytes": 242111,
+   "sha256": "859b1d205e9552f503fd52072bbed42ff170636f20cbad5d0e56929e9e31a0fd"
+  },
+  "dw-inland-1893-01-kimball-entrance-plate-listing-thumb.jpg": {
+   "bytes": 22251,
+   "sha256": "f6ed8854306a7feaeddf2c446e1398c325d265fadfba7709918c1af2050671c7"
+  },
+  "dw-inland-1893-01-kimball-entrance-plate-listing.jpg": {
+   "bytes": 249511,
+   "sha256": "1954a6a37e68ae92ade0d59b54aee827868dda56db803255a5c9e17ebdf2f28a"
+  },
+  "dw-inland-1896-10-gorton-2120-music-room-thumb.jpg": {
+   "bytes": 16555,
+   "sha256": "90c4303485ba3a1096ce81cd96e60b38e0ab2e4747448ab62ddb583c69bb1646"
+  },
+  "dw-inland-1896-10-gorton-2120-music-room.jpg": {
+   "bytes": 132916,
+   "sha256": "918f379eacf6a74867257853a65caf24ad319c54478c6dfe6548284751fe9e8c"
   },
   "dw-inland-1905-05-robbins-2126-plate-thumb.jpg": {
    "bytes": 23992,
@@ -2197,6 +2925,158 @@
    "bytes": 622766,
    "sha256": "7442ccceb5f5df56decaa6fe845d90d7da028e044c24bb9b8ccea045ef19d44a"
   },
+  "dw-inland-1905-05-robbins-plate-list-thumb.jpg": {
+   "bytes": 20504,
+   "sha256": "b883d56d85cac31603c5e88e2ad39c7143e3e5debf4a073d9cc37926d5bda5db"
+  },
+  "dw-inland-1905-05-robbins-plate-list.jpg": {
+   "bytes": 249779,
+   "sha256": "3a6ea46d85410df9dfcce4c693ecdad1aa19c283f102593c5611395cf927e60b"
+  },
+  "dw-rb-architects-club-house-kimball-1801-thumb.jpg": {
+   "bytes": 15535,
+   "sha256": "82aa41bcd9fbc616ff3104026f80f42d33423e60064051205fe593f54691921f"
+  },
+  "dw-rb-architects-club-house-kimball-1801.jpg": {
+   "bytes": 90528,
+   "sha256": "5f1d866b5c14752d0c688042a7e0b4377aeed3b208f01d519e0ca4634b4c2126"
+  },
+  "dw-rb-artistic-houses-doane-1827-hall-side-thumb.jpg": {
+   "bytes": 36252,
+   "sha256": "90138c29c42322ca226d9d06597a35bfc2e7364afece0f0ae970cd2e5ead9075"
+  },
+  "dw-rb-artistic-houses-doane-1827-hall-side.jpg": {
+   "bytes": 216986,
+   "sha256": "98c1e2524ae66279f623dad0f8711df29506ff08ca900f080a0ab6b0812eab5e"
+  },
+  "dw-rb-artistic-houses-doane-1827-hall-stair-thumb.jpg": {
+   "bytes": 33826,
+   "sha256": "9d189e098b6e56732bda48a35e1fb277779a5a704c1d666c4e19185deb836145"
+  },
+  "dw-rb-artistic-houses-doane-1827-hall-stair.jpg": {
+   "bytes": 205118,
+   "sha256": "9f0aaf483c61ea8d575b5c618f32db875845dbacc32d28070d5770b16f22050d"
+  },
+  "dw-rb-building-budget-1887-entrance-sketch-18xx-prairie-thumb.jpg": {
+   "bytes": 19770,
+   "sha256": "b85878eb16f97c5e3bed061300ca71e24a4960864fac63f99d13e45d8c22dceb"
+  },
+  "dw-rb-building-budget-1887-entrance-sketch-18xx-prairie.jpg": {
+   "bytes": 142631,
+   "sha256": "becf3673d19b7ec7de8b611fc290ff753787a416f8cf4cd6c3f83d84a59d167a"
+  },
+  "dw-rb-inland-ames-coleman-1811-plate-thumb.jpg": {
+   "bytes": 17264,
+   "sha256": "834be1b4290eb711b1e8b985a16933692179d3b3fbdc5e0fe5e9b56372b8ada1"
+  },
+  "dw-rb-inland-ames-coleman-1811-plate.jpg": {
+   "bytes": 99744,
+   "sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe"
+  },
+  "dw-rb-inland-kimball-1801-entrance-plate-thumb.jpg": {
+   "bytes": 18537,
+   "sha256": "51e4e09b3f626c689f213bb9365eee7db5ac61aa27b83628b28d14ddcccf3764"
+  },
+  "dw-rb-inland-kimball-1801-entrance-plate.jpg": {
+   "bytes": 121411,
+   "sha256": "baeb7cb74ca060ddd9b3fd93bb62441f49c07543ec226bf66263063f3d3a7321"
+  },
+  "dw-rb-inland-second-presbyterian-shaw-interior-plate-thumb.jpg": {
+   "bytes": 16362,
+   "sha256": "9dc909cac9e0b73f0f56bfb8f9f2decf5b8abf007123af678eafd7a46ebcd93e"
+  },
+  "dw-rb-inland-second-presbyterian-shaw-interior-plate.jpg": {
+   "bytes": 76235,
+   "sha256": "b7a78bc04894649378e71caeb6c5b26707e3d21ec024657d23d342b87363729f"
+  },
+  "dw-rb-sketch-club-second-presbyterian-shaw-details-thumb.jpg": {
+   "bytes": 27871,
+   "sha256": "12b38701362fd9868a8ea29872e1861df6bfc14fd360e537b3aa84874e8afbd2"
+  },
+  "dw-rb-sketch-club-second-presbyterian-shaw-details.jpg": {
+   "bytes": 163898,
+   "sha256": "b2e432554d436df839b5a86f8fda99b81aff7cf4bcf0ef78bc8eb18a941cf772"
+  },
+  "dw-rb-sketch-club-second-presbyterian-shaw-interior-thumb.jpg": {
+   "bytes": 26521,
+   "sha256": "76da0093f760f89cd129c3eb8f426ecef566e47b3bdcd9f61fc7f15d0cc555cd"
+  },
+  "dw-rb-sketch-club-second-presbyterian-shaw-interior.jpg": {
+   "bytes": 175446,
+   "sha256": "ffb8718a0ce6ec0f45a1799f9878c0d15a6b4ad9fc0af83cd2704b403b788729"
+  },
+  "np-1630-school-directory-1905-06-louisa-brust-thumb.jpg": {
+   "bytes": 26992,
+   "sha256": "ca74423206a91a378037ec3b60e673a5223fbf89da9540db741ab3fa3b4a3390"
+  },
+  "np-1630-school-directory-1905-06-louisa-brust.jpg": {
+   "bytes": 219490,
+   "sha256": "b0d0cb0030868f130a46fdc2e811af47f8eb8074515511c13ef1e8da2f69de81"
+  },
+  "np-1635-womens-clubs-directory-1903-04-springer-thumb.jpg": {
+   "bytes": 28620,
+   "sha256": "6edc1c19f8739128783e3c3fcd8d313666ea71f28ed923bd68398df622c44886"
+  },
+  "np-1635-womens-clubs-directory-1903-04-springer.jpg": {
+   "bytes": 232963,
+   "sha256": "6b09a2dc33c21b4aabc02ef3b238796cd771394ec8e295a27f278ff785e4398e"
+  },
+  "np-1700-1706-american-artisan-1901-04-27-furnace-contract-thumb.jpg": {
+   "bytes": 27733,
+   "sha256": "cafaf81f6816fac9dd412e316b1891b773a2f7d9e81058494239c0725037974e"
+  },
+  "np-1700-1706-american-artisan-1901-04-27-furnace-contract.jpg": {
+   "bytes": 244310,
+   "sha256": "345b46f84d5fac2e28d24c69b4c0c0deb5722d9a1f4711cfe6a9ed170206a745"
+  },
+  "np-1700-1706-enr-1901-04-25-glessner-permit-thumb.jpg": {
+   "bytes": 25707,
+   "sha256": "7aa5ec9157742ffdddf8e286dc08e9ec9f4699f94cb3191a0faef56dc063e9aa"
+  },
+  "np-1700-1706-enr-1901-04-25-glessner-permit.jpg": {
+   "bytes": 301338,
+   "sha256": "21deaeed02299079c5f3cc4d2cb71ecd41237f16071c70e5416a5e31a948926b"
+  },
+  "np-1700-bluebook-1904-blewett-lee-thumb.jpg": {
+   "bytes": 27549,
+   "sha256": "41c4c60f1e133b4940f4d78968a9093900481bbe616748f910b93b2dc0f036f6"
+  },
+  "np-1700-bluebook-1904-blewett-lee.jpg": {
+   "bytes": 284471,
+   "sha256": "a692eabf64db6f69cbe7acda10856eb559faee4a38e87e798190a371ad8b3997"
+  },
+  "np-1706-bluebook-1904-george-glessner-thumb.jpg": {
+   "bytes": 28747,
+   "sha256": "63ca4c672073e6ce3d2288ed4bfb88386e191937a6fbac94aac768ed46c9a6dc"
+  },
+  "np-1706-bluebook-1904-george-glessner.jpg": {
+   "bytes": 300185,
+   "sha256": "82ffaa0ee176adbdca00051c0e545bcb578735ed421340cb51eb5c604fa92ba3"
+  },
+  "np-1708-bluebook-1904-carpenter-thumb.jpg": {
+   "bytes": 28923,
+   "sha256": "be2da76241a54be47cd3f63b01ca4c151515700b2856105fbe5cfe86eb01fe53"
+  },
+  "np-1708-bluebook-1904-carpenter.jpg": {
+   "bytes": 303636,
+   "sha256": "273e724f026ce3c4fbf6864741cc246b7c78f07ca7587c51b833476aa8909285"
+  },
+  "nps-1905-tribune-1928-06-03-famous-homes-field-photo-thumb.jpg": {
+   "bytes": 25695,
+   "sha256": "d37a06c58ad14e3bf556d093223e9744efabe03053a5047437fa4dab90043673"
+  },
+  "nps-1905-tribune-1928-06-03-famous-homes-field-photo.jpg": {
+   "bytes": 244964,
+   "sha256": "48bcd6cf8f2b7cccc7a09559ec81e901a96d8753c239b03126ebe3d42767c4d0"
+  },
+  "nps-1945-tribune-1928-07-29-famous-homes-corwith-photo-thumb.jpg": {
+   "bytes": 25364,
+   "sha256": "494d675fa76595a939e25597e4ef903d320e0a966a408efbda11ccff2c8796f9"
+  },
+  "nps-1945-tribune-1928-07-29-famous-homes-corwith-photo.jpg": {
+   "bytes": 215627,
+   "sha256": "de40c9e5304e2c321c60d06deec224f38ef217fb583375142223a6ac0fd1756e"
+  },
   "nps-2115-tribune-1928-07-08-famous-homes-photo-thumb.jpg": {
    "bytes": 23171,
    "sha256": "5d5c01efc54f385a3f1c73622ffc7759d5afd9fd89396be2adc25434b8bc9580"
@@ -2204,6 +3084,14 @@
   "nps-2115-tribune-1928-07-08-famous-homes-photo.jpg": {
    "bytes": 217452,
    "sha256": "e7a6cf89a2d7c814cd804c860b6035d403633b336d6855d47a45aa3b8a9309d7"
+  },
+  "nps-2140-tribune-1928-07-15-famous-homes-photo-spires-thumb.jpg": {
+   "bytes": 28848,
+   "sha256": "8780f9f921dab54e60697477792e6b7e02c14b831f773e61efeee5008df18689"
+  },
+  "nps-2140-tribune-1928-07-15-famous-homes-photo-spires.jpg": {
+   "bytes": 297402,
+   "sha256": "3023bc2d6f2eb3d2c0ab9169b4265916ba8fe0832c40a03ecc9c7f3be5f29ab7"
   },
   "st-champion-1908-elevated-boulevards-south-detail-thumb.jpg": {
    "bytes": 29313,
@@ -2229,6 +3117,14 @@
    "bytes": 93400,
    "sha256": "3f183253ca1c4c283f83dd7025bc99b7b14e7e52fcd268616d467d3a9b69986f"
   },
+  "st-flinn-1891-a-bit-of-prairie-avenue-thumb.jpg": {
+   "bytes": 23704,
+   "sha256": "2a9b1538ffcabd32f477f647684fd58a6d39677dc8b79b0a0128c7421c8e0773"
+  },
+  "st-flinn-1891-a-bit-of-prairie-avenue.jpg": {
+   "bytes": 363758,
+   "sha256": "2f02906b4803252478e03781852a540cb1278793309e82b0a0a5d32040c3b5f3"
+  },
   "st-flinn-1892-looking-south-prairie-from-18th-thumb.jpg": {
    "bytes": 39957,
    "sha256": "d51820c9069426110a6f674bfab654f5a9d222412e5437986d33c1a2c76c3eec"
@@ -2236,6 +3132,14 @@
   "st-flinn-1892-looking-south-prairie-from-18th.jpg": {
    "bytes": 958419,
    "sha256": "2ed2906898b0a7e706b0b3047ebfdafbb3e93e8f2f2e2a68dee60aa5fb153acc"
+  },
+  "st-ghm-indiana-22nd-viaduct-souvenir-1925-thumb.jpg": {
+   "bytes": 35684,
+   "sha256": "4cdd5f56b573cdd819f17be087a943d219d5f3dec73fd8dcfc4dd6d5ba835ee5"
+  },
+  "st-ghm-indiana-22nd-viaduct-souvenir-1925.jpg": {
+   "bytes": 344711,
+   "sha256": "e4bc134e662473b0ae4cc55adf83af97e9322ce4df93994a8aa4c4407cdc96ea"
   },
   "st-ghm-postcard-1908-prairie-south-at-18th-thumb.jpg": {
    "bytes": 41920,
@@ -2269,6 +3173,14 @@
    "bytes": 662519,
    "sha256": "c43c5042c1e1d465a659774decb50454d9e0913592d753c4fe384fa858082261"
   },
+  "st-ilhap-1938-cook-bwq-8-55-thumb.jpg": {
+   "bytes": 37804,
+   "sha256": "8d6ce2db564be1c15fbcdf9dd012a7f3a644e93560638682c808702202f2d157"
+  },
+  "st-ilhap-1938-cook-bwq-8-55.jpg": {
+   "bytes": 702158,
+   "sha256": "6ef05df60b86c9477d06af563110ef9ce6a6812bcf39e16897f03d202ea3a122"
+  },
   "st-landowner-1874-homes-of-prairie-avenue-thumb.jpg": {
    "bytes": 52675,
    "sha256": "9041e3a471eee99073c4ba402fd2612a200079cf960f443a6d12f28965c5083c"
@@ -2284,6 +3196,14 @@
   "st-picturesque-chicago-1892-prairie-avenue-p199.jpg": {
    "bytes": 551660,
    "sha256": "1c2d48daa3facf4070b784fb18077c7140a44743fa9356fcfeadcf816f330ff0"
+  },
+  "st-picturesque-chicago-1892-prairie-avenue-text-thumb.jpg": {
+   "bytes": 20411,
+   "sha256": "e587a41f746d185ff43e405922eaf850e15aeb8d48d14eff19fc25a4715344ba"
+  },
+  "st-picturesque-chicago-1892-prairie-avenue-text.jpg": {
+   "bytes": 188852,
+   "sha256": "fb832617e5a15c80b0187f4ab269d57ad30007f92cb54f541d068aeccc0b853d"
   },
   "st-randmcnally-1893-p233-east-1700-1800-thumb.jpg": {
    "bytes": 24825,
@@ -2324,6 +3244,38 @@
   "st-randmcnally-1910-pullman-corner-18th.jpg": {
    "bytes": 387382,
    "sha256": "73f6441f11128e6fc851503596fc5bd159a401f3ab0a3051d4c3883aef5c1f71"
+  },
+  "st-reynertson-1893-grand-view-of-chicago-thumb.jpg": {
+   "bytes": 22246,
+   "sha256": "26bf7ce0840a3af73987bf22f5d4b6f0c407089d9b146f3af394b4d50ec338d9"
+  },
+  "st-reynertson-1893-grand-view-of-chicago.jpg": {
+   "bytes": 420508,
+   "sha256": "94ac1ef0e4551f2781fdaa9cc1e0641a656e13b50e84d10aca703483674671d8"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-20-thumb.jpg": {
+   "bytes": 21782,
+   "sha256": "71c55f23e12abfb243106e74523151ba09521809f392c423b573a1bf137bb186"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-20.jpg": {
+   "bytes": 409586,
+   "sha256": "5fb614ac66d7015253198f22a345da067a4742bf1f9657fe2bc2dc2a5c8d97b0"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-28-thumb.jpg": {
+   "bytes": 20891,
+   "sha256": "0b50fae5690b7fdf11686bba1e4eeb98b61e393b68aff63918cec8522fda77ce"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-28.jpg": {
+   "bytes": 373503,
+   "sha256": "0d1d3eabcab6de4b4da8371e5a57d9485d48a8f74ff707c5fbc7268da586b551"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-35-thumb.jpg": {
+   "bytes": 23109,
+   "sha256": "bf3eafd8f343c663446a5e729620537ea726139634c0da0f0a6c5d451ca81325"
+  },
+  "st-sanborn-vol3-1911-corrected-1950-sheet-35.jpg": {
+   "bytes": 427105,
+   "sha256": "98546e78779c7a54da24605588accc792bc16c8342d800cfdfa4e9a11a41bbe0"
   },
   "st-views-of-chicago-1905-fort-dearborn-memorials-thumb.jpg": {
    "bytes": 36076,

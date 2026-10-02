@@ -1785,12 +1785,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1905prairielibrary.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "No source or date on the page; the underlying Artistic Houses plate is public domain and is held separately (dw-field-1905-artistic-houses-library)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "photograph published 1883–84 in G. W. Sheldon, Artistic Houses (D. Appleton & Co.), as 'Mr. Marshall Field's Library' (pre-1929, US); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/cgs-1905-field-library.jpg",
+   "display_bytes": 187570,
+   "thumb": "research/images/files/cgs-1905-field-library-thumb.jpg",
+   "thumb_bytes": 33583,
+   "original_px": [
+    889,
+    674
+   ],
+   "original_sha256": "f30d17569c4e38fda5b3abaec4cf6d172b87907f2ef59e33444c90f3482e5f66",
+   "original_bytes": 603950,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1905prairielibrary.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
-  "notes": "Coarse halftone (889×674) of the Field library: coffered ceiling with panelled fields, carved over-mantel with stained-glass panel, built-in bookcases, gilt mirror, busts, upholstered furniture. Compared against LoC ppmsca-56275 (dw-field-1905-artistic-houses-library): same photograph, same orientation — Chicagology's copy adds nothing but is a second web source. Interior of c.1883; furnishings in 1904 unknown.",
+  "notes": "Coarse halftone (889×674) of the Field library: coffered ceiling with panelled fields, carved over-mantel with stained-glass panel, built-in bookcases, gilt mirror, busts, upholstered furniture. Compared against LoC ppmsca-56275 (dw-field-1905-artistic-houses-library): same photograph, same orientation — Chicagology's copy adds nothing but is a second web source. Interior of c.1883; furnishings in 1904 unknown. Rights reviewed 2026-10-02: reclassified public domain — the same photograph as dw-field-1905-artistic-houses-library (compared side by side; chicagology's copy is cropped tighter).",
   "measurements": []
  },
  {
@@ -1817,12 +1830,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1905prairehallway.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "No source or date on the page; the underlying Artistic Houses plate is public domain and is held separately (dw-field-1905-artistic-houses-entrance-hall)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "photograph published 1883–84 in G. W. Sheldon, Artistic Houses (D. Appleton & Co.), as 'Mr. Marshall Field's Hall' (pre-1929, US); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/cgs-1905-field-hallway.jpg",
+   "display_bytes": 294932,
+   "thumb": "research/images/files/cgs-1905-field-hallway-thumb.jpg",
+   "thumb_bytes": 33762,
+   "original_px": [
+    1434,
+    1846
+   ],
+   "original_sha256": "284ed2d5049bfc9c7873c27b3ce8e376309ec9ff8a6ccff349bc5dc8e89cbbee",
+   "original_bytes": 1440188,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1905prairehallway.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
-  "notes": "Hall looking toward the curving stair under a chandelier: stencilled coffered ceiling, ceiling medallion, carved cabinets and a tall clock-case, chimneypiece with shell fireback, arched opening to a lit room. WARNING: compared with LoC ppmsca-56274 (dw-field-1905-artistic-houses-entrance-hall) this Chicagology copy is LATERALLY REVERSED (mantel at right here, at left in the LoC/Artistic Houses plate) — do not use it for room orientation. 1434×1846 px.",
+  "notes": "Hall looking toward the curving stair under a chandelier: stencilled coffered ceiling, ceiling medallion, carved cabinets and a tall clock-case, chimneypiece with shell fireback, arched opening to a lit room. WARNING: compared with LoC ppmsca-56274 (dw-field-1905-artistic-houses-entrance-hall) this Chicagology copy is LATERALLY REVERSED (mantel at right here, at left in the LoC/Artistic Houses plate) — do not use it for room orientation. 1434×1846 px. Rights reviewed 2026-10-02: reclassified public domain — the same photograph as dw-field-1905-artistic-houses-entrance-hall (compared side by side). NB chicagology's copy is MIRROR-REVERSED relative to the Artistic Houses plate; use the plate for left/right.",
   "measurements": []
  },
  {
@@ -2895,7 +2921,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline18oct1916espike.jpg",
   "rights": "public domain",
   "rights_basis": "published 1916 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgs-2101-tribune-1916-pike-headline.jpg",
+   "display_bytes": 97255,
+   "thumb": "research/images/files/cgs-2101-tribune-1916-pike-headline-thumb.jpg",
+   "thumb_bytes": 18706,
+   "original_px": [
+    2000,
+    1533
+   ],
+   "original_sha256": "2280786f20b6d5fe534ad5ab798633125f803eda6ca791d3c89d12ef2d248f7b",
+   "original_bytes": 470183,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline18oct1916espike.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
   "notes": "Headline block. The obituary says Pike formerly lived in the 'millionaires' district' on Prairie between 18th and 22nd Streets and then lived at 1030 North State Parkway. Not in the buildings index.",
@@ -2963,7 +3002,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline7june1899mrsroloson.jpg",
   "rights": "public domain",
   "rights_basis": "published 1899 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgs-2109-tribune-1899-roloson-headline.jpg",
+   "display_bytes": 126930,
+   "thumb": "research/images/files/cgs-2109-tribune-1899-roloson-headline-thumb.jpg",
+   "thumb_bytes": 25721,
+   "original_px": [
+    2300,
+    1895
+   ],
+   "original_sha256": "84d54b5b2d1cb50bcf501b04ffce6765ecde8d3160eaf08cea9caf04ea4ade4b",
+   "original_bytes": 765937,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline7june1899mrsroloson.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
   "notes": "Headline block naming 'the Family Residence, 2109 Prairie Avenue' — confirms the Roloson household there in 1899 (already summarised in a20-chicagology-2109-text). No architectural content; no image of the house exists on the page.",
@@ -3059,7 +3111,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline6sept1893rothschild.jpg",
   "rights": "public domain",
   "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgs-2112-tribune-1893-rothschild-headline.jpg",
+   "display_bytes": 117362,
+   "thumb": "research/images/files/cgs-2112-tribune-1893-rothschild-headline-thumb.jpg",
+   "thumb_bytes": 25588,
+   "original_px": [
+    2300,
+    1913
+   ],
+   "original_sha256": "d23891288e3b9af51c7f59175aaf71d216c80879759877f038a848005aa59503",
+   "original_bytes": 660008,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline6sept1893rothschild.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
   "notes": "Headline block; the article places the death at 'his residence, No. 2112 Prairie avenue' (widow still there in 1898). No architectural content; the page has no picture of the house.",
