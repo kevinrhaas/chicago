@@ -239,7 +239,7 @@ def policy_table() -> dict:
         "woodpile": {k: {kk: (list(vv) if isinstance(vv, tuple) else vv)
                          for kk, vv in v.items()} for k, v in WOODPILE.items()},
         "row_of_class_and_house": {f"{k[0]} x {k[1]}": v for k, v in ROW_OF.items()},
-        "still_to_write": "wells, privies and stables (T-1960); trade goods by trade (T-1961)",
+        "still_to_write": "wells; privies and stables (T-1960) and trade goods by trade (T-1961) are their own records in data/yard/",
         "liberty": "L356",
     }
 

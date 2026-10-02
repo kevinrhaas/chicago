@@ -882,8 +882,8 @@
       "keeper x small": "keeper",
       "keeper x larger": "keeper"
     },
-    "still_to_write": "wells, privies and stables (T-1960); trade goods by trade (T-1961)",
-    "liberty": "L350"
+    "still_to_write": "wells; privies and stables (T-1960) and trade goods by trade (T-1961) are their own records in data/yard/",
+    "liberty": "L356"
   },
   "clauses": [
     {
