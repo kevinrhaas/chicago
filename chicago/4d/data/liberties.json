@@ -21450,7 +21450,19 @@
           "domain": "structure",
           "structure": "recon_1835_blk_washington_dearborn_a1_02",
           "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_dearborn_a1_02",
+          "phase": "inferred_1835",
           "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_dearborn_a3_03",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
         },
         {
           "domain": "structure",
@@ -21498,7 +21510,19 @@
           "domain": "structure",
           "structure": "recon_1835_blk_washington_market_a1_02",
           "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_market_a1_02",
+          "phase": "inferred_1835",
           "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_market_a1_05",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
         },
         {
           "domain": "structure",
@@ -21510,7 +21534,19 @@
           "domain": "structure",
           "structure": "recon_1835_blk_washington_market_a3_03",
           "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_market_a3_03",
+          "phase": "inferred_1835",
           "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_washington_market_a3_06",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
         },
         {
           "domain": "structure",
@@ -21604,7 +21640,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_blk_washington_market_h3_01.inferred_1835.position`, `recon_1835_blk_washington_market_h3_01.inferred_1835.footprint`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_market_a1_02.inferred_1835.position`, `recon_1835_blk_washington_market_a3_03.inferred_1835.position`, `recon_1835_blk_washington_market_h3_04.inferred_1835.position`, `recon_1835_blk_washington_market_h3_04.inferred_1835.footprint`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_market_a1_05.inferred_1835.position`, `recon_1835_blk_washington_market_a3_06.inferred_1835.position`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.position`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_dearborn_a1_02.inferred_1835.position`, `recon_1835_blk_washington_dearborn_a3_03.inferred_1835.position`"
+          "text": "`recon_1835_blk_washington_market_h3_01.inferred_1835.position`, `recon_1835_blk_washington_market_h3_01.inferred_1835.footprint`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_market_h3_01.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_market_a1_02.inferred_1835.position`, `recon_1835_blk_washington_market_a1_02.inferred_1835.footprint`, `recon_1835_blk_washington_market_a3_03.inferred_1835.position`, `recon_1835_blk_washington_market_a3_03.inferred_1835.footprint`, `recon_1835_blk_washington_market_h3_04.inferred_1835.position`, `recon_1835_blk_washington_market_h3_04.inferred_1835.footprint`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_market_h3_04.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_market_a1_05.inferred_1835.position`, `recon_1835_blk_washington_market_a1_05.inferred_1835.footprint`, `recon_1835_blk_washington_market_a3_06.inferred_1835.position`, `recon_1835_blk_washington_market_a3_06.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.position`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.upper_windows`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.stovepipes`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.rear_ell`, `recon_1835_blk_washington_dearborn_h3_01.inferred_1835.form.rear_ell_door`, `recon_1835_blk_washington_dearborn_a1_02.inferred_1835.position`, `recon_1835_blk_washington_dearborn_a1_02.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_a3_03.inferred_1835.position`, `recon_1835_blk_washington_dearborn_a3_03.inferred_1835.footprint`"
         },
         {
           "label": "Related",
