@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1326, ts: '2026-10-02T22:26:17.153Z', date: 'Oct 2, 2026, 5:26 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
+  { v: 1327, ts: '2026-10-02T22:42:54.201Z', date: 'Oct 2, 2026, 5:42 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
     items: [
       'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
       'That swap can now be planned before it is made, for every one of the 297 invented buildings on a surveyed lot. The plan names the house that would go, who lives or works in it and moves into the real building, and why the town\u2019s count of buildings stays the same.',
       'A building a source already places on a lot is never offered up. Where a lot holds two invented houses, both are listed and the choice is left to a person.',
       'Behind the scenes, rebuilding all of the town\u2019s research from its sources now gives back exactly the files it started from. Before, two files changed every time for no reason.',
+    ] },
+  { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
+    items: [
+      'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',
+      'The same goes for 19 more carpenters, 12 milliners, 9 builders, 4 smiths and 12 other tradespeople. Most mechanics worked as hands in somebody else\u2019s shop, and carpenters and masons worked wherever a wall was going up. Which shop or which building is not recorded, so the card does not name one.',
+      'E. H. Mulford, the watchmaker, now says why he has no shop. He may be the same man as J. H. Mulford, the jeweller, and that question is still open. Giving him a shop of his own would answer it without evidence.',
+      'All 57 are our reconstruction, and so are these answers. On the City card, working people owed a workplace drop from 105 to 48.',
     ] },
   { v: 1325, ts: '2026-10-02T21:20:57.849Z', date: 'Oct 2, 2026, 4:20 PM CT', title: '37 shopkeepers and lawyers no longer read as owed a shop', kind: 'fix',
     items: [
