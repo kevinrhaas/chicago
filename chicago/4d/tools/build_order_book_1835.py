@@ -4703,8 +4703,12 @@ def cmd_self_test() -> int:
     # shed to an H2, is a standing roof the merchant-and-professional clause admits, so the
     # platted pass adopts it on blk_west_randolph_des_plaines#01 (183 -> 184); the household
     # is a letter-list name the keeper pass refuses to name (T-0379), as on west_008.
+    # 256 -> 255 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
+    # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves to lot 2,
+    # eight more slots shift a lot behind her, and hh_benton_datas_e's H1 request is left with
+    # only kept-open lots and is owed to T-1614 (184 -> 183 platted seats, L270, L342).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 256
+        data["inventory"], data["programme"], occ))["seated"] == 255
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
