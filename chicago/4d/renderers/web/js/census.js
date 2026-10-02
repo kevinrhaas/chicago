@@ -98,9 +98,10 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
   const host = root ?? document.getElementById('city');
   if (!host) return null;
 
-  const [census, residents] = await Promise.all([
+  const [census, residents, completion] = await Promise.all([
     readJson(new URL('town_census.json', dataBase), onError),
     readJson(new URL('residents/index.json', dataBase), onError),
+    readJson(new URL('render/town_completion_1835.json', dataBase), onError),
   ]);
 
   const rows = [];
@@ -251,6 +252,56 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
       + '</section>',
     );
     aria.push(`${group(housed)} residents placed in a building that stands`);
+  }
+
+  // Row three: HOW COMPLETE THE TOWN IS (T-1967). The closeout's four joins, read from
+  // the completion audit and never re-derived here, and the three tiers' shares of the
+  // households that have a home. Its own classes, so the two ladders above keep theirs.
+  const joins = Array.isArray(completion?.joins) ? completion.joins : [];
+  if (joins.length) {
+    const closed = joins.filter((j) => Number(j.open) === 0).length;
+    const total = completion?.summary?.the_join_is_total === true;
+    const homed = completion?.tiers?.households?.housed || {};
+    const homedAll = ['attested', 'inferred', 'reconstructed']
+      .reduce((n, t) => n + (Number(homed[t]) || 0), 0);
+    const shares = [['att', 'attested'], ['inf', 'inferred'], ['rec', 'reconstructed']]
+      .map(([k, t]) => [k, t, Number(homed[t]) || 0]);
+    const share = (n) => `${Math.round((n / homedAll) * 100)} %`;
+    rows.push(
+      `<section class="gc-row gc-done"${titleAttr(completion?.not_a_remedy)}>`
+      + '<p class="gc-head">'
+      + `<b class="gc-done-n">${closed} of ${joins.length}</b>`
+      + '<span class="gc-l">joins closed toward a complete town</span></p>'
+      + '<ul class="gc-joins">'
+      + joins.map((j) => {
+        const open = Number(j.open);
+        return `<li class="${open === 0 ? 'is-closed' : 'is-open'}">`
+          + '<svg viewBox="0 0 16 16" aria-hidden="true">'
+          + (open === 0 ? '<path d="M3.5 8.4l3 3 6-6.4"/>' : '<circle cx="8" cy="8" r="5"/>')
+          + `</svg><span>${attr(j.label)}`
+          + (open === 0 ? '' : `<em>${group(open)} ${attr(j.what_keeps_it_open)}</em>`)
+          + '</span></li>';
+      }).join('')
+      + '</ul>'
+      + (homedAll > 0
+        ? '<div class="gc-done-bar">'
+          + shares.map(([k, , n]) => `<i class="gc-done-seg gc-done-${k}" style="width:${pct(n, homedAll)}"></i>`).join('')
+          + '</div>'
+          + `<p class="gc-done-shares">The ${group(homedAll)} households with a home rest on `
+          + shares.map(([, t, n]) => `${share(n)} ${t}`).join(' · ')
+          + ' evidence</p>'
+        : '')
+      + '<p class="gc-done-def">'
+      + (total ? 'The town is complete to the reconstruction: every join is total.'
+        : 'A household has a home when its card names a roof or a roof seats it. '
+          + 'The open joins are the work the town still owes.')
+      + '</p></section>',
+    );
+    aria.push(`${closed} of ${joins.length} joins closed toward a complete town: `
+      + joins.map((j) => (Number(j.open) === 0 ? `${j.label}, closed`
+        : `${j.label}, ${group(Number(j.open))} ${j.what_keeps_it_open}`)).join('; ')
+      + (homedAll > 0 ? `. The ${group(homedAll)} households with a home rest on `
+        + shares.map(([, t, n]) => `${share(n)} ${t}`).join(', ') + ' evidence' : ''));
   }
 
   if (!rows.length) return null;

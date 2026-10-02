@@ -323,6 +323,7 @@ const COVERAGE = [
   ['data/streets/', [2, 7, 8, 10, 11], 'the street records'],
   ['data/traces/', [2, 7, 8, 10, 11], 'the traced lines the streets and the bank are built from'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
+  ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
 
   // --- PART 12: the settings, the Go-to tab and What's-new
   ['renderers/web/js/whatsnew.js', [12], "what's new"],
