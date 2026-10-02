@@ -2334,7 +2334,8 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
     """Put T-1971's housing deal on the building card of the roof it names.
 
     THE PRESENT WITH NO ROOF. 1,003 households the residents layer holds present on
-    1 July 1835 reached no roof through their own card, and their cards cannot be given
+    1 July 1835 (and, since T-1972, the households T-1386's rulings put in the town as far
+    as the census's people per dwelling allows) reached no roof through their own card, and their cards cannot be given
     one: every folder is re-derived whole and two stages refuse a roof outright. So
     `tools/house_the_present_1835.py` writes the seat beside the card, exactly as the
     lodgers' seats travel, and this carries it to the one surface where a visitor meets
@@ -2363,7 +2364,12 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
             "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was "
                       "present in the town on 1 July 1835 and no source says where it slept; "
                       "the roof is the invention and the people are not. Their card carries "
-                      "their evidence and is not touched by the seat."),
+                      "their evidence and is not touched by the seat."
+                      if seat.get("presence") != "ruled_in" else
+                      "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop "
+                      "short of 1 July 1835 for this household and nothing puts it anywhere "
+                      "else; the town's rule (T-1386) counts it present, and no source says "
+                      "where it slept. The roof is the invention and the people are not."),
             "persons": [{
                 "name": person.get("name", ""),
                 "relationship": person.get("relationship", ""),
