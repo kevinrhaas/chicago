@@ -201,6 +201,15 @@ const SKIRT_M = 0.02;
 const PLANK_GAP_M = 0.02;
 /** A crossing is subdivided this often ALONG its run so it follows the ground. */
 const CROSSING_STEP_M = 0.9;
+/**
+ * The ground one rigid crossing board may span before it is cut shorter
+ * (T-1955) — the same 0.04 m the generator audits a walk's stringer bay flat to
+ * (`EDGE_STRINGER_ROLL_M`), and for the same reason: it is the daylight a
+ * visitor may see under the low end of a board seated on the high one.
+ */
+const CROSSING_ROLL_M = 0.04;
+/** The shortest piece a crossing is cut into on a shoulder (T-1955). */
+const CROSSING_MIN_STEP_M = 0.3;
 /** How far a fence board's stock reaches across the line it stands on. */
 const FENCE_BOARD_T_M = 0.022;
 /** A fence rail's section — the same sawn stuff `enclosures.js` hangs. */
@@ -469,6 +478,24 @@ function buildWalk(buf, walk, terrain, level, problems, stats = null) {
  * is FOR — it spans the ruts instead of lying in them. Subdivided along the run
  * so that a board fifteen metres long still follows the camber of the road it
  * crosses.
+ *
+ * T-1955 — A GRADED STREET HAS SHOULDERS, and a rigid board sat on the ground
+ * under its own centre buries its uphill end in one. T-1812 cut the opened
+ * streets below their walks, so a crossing now steps down a shoulder falling
+ * about 0.08 m in a metre; the 1.8 m stride the generator states for level
+ * ground put each board's ends 0.07 m above and below its centre, and the
+ * lower face of the uphill end went up to 0.12 m into the ground (measured on
+ * the Washington crossing between Wells and La Salle). So each stride is now
+ * cut in half, down to `CROSSING_MIN_STEP_M`, while the ground under any one
+ * board's footprint — both ends, the middle, both edges — rolls more than
+ * `CROSSING_ROLL_M`, and every board is seated on the HIGHEST of its own
+ * samples, which is the generator's own rule for the walking deck over it
+ * (`phigh + rise`). Per board and not per piece, because where a crossing
+ * runs over a street that falls along its own length the ground tilts ACROSS
+ * the crossing too — 0.12 m over its 1.83 m at Washington and Clark — and one
+ * height for all six boards lifts the downhill one clear of the grade. On level
+ * ground no stride rolls, nothing is cut, and the crossing is the pieces it
+ * always was.
  */
 function buildCrossing(buf, walk, terrain, level, problems) {
   const line = walk.centreline_local_enu_m;
@@ -503,18 +530,53 @@ function buildCrossing(buf, walk, terrain, level, problems) {
     ? walk.plank_step_m : CROSSING_STEP_M;
   const segs = Math.max(1, Math.round(len / stride));
   const step = len / segs;
+  // The ground under each board of a piece [t0, t1] of the run: the highest and
+  // lowest of nine samples across that board's own footprint — both ends, the
+  // middle, both edges. `null` when the run's centre has no ground there, which
+  // is the one case the old loop skipped a piece for.
+  const footing = (t0, t1) => {
+    const tm = (t0 + t1) / 2;
+    if (groundAt(terrain, ax + rx * tm, -(az + rz * tm)) === null) return null;
+    const out = [];
+    for (let j = 0; j < boards; j += 1) {
+      const mid = (j + 0.5) * bw - width / 2;
+      let lo = Infinity;
+      let hi = -Infinity;
+      for (const t of [t0, tm, t1]) {
+        for (const off of [mid - bw / 2, mid, mid + bw / 2]) {
+          const y = groundAt(terrain, ax + rx * t + wx * off, -(az + rz * t + wz * off));
+          if (y === null) continue;
+          lo = Math.min(lo, y);
+          hi = Math.max(hi, y);
+        }
+      }
+      out.push(Number.isFinite(hi) ? { lo, hi } : null);
+    }
+    return out;
+  };
+  const rolls = (f) => f !== null && f.some((b) => b && b.hi - b.lo > CROSSING_ROLL_M);
+  const pieces = [];
+  const cut = (t0, t1) => {
+    const f = footing(t0, t1);
+    if (rolls(f) && (t1 - t0) / 2 >= CROSSING_MIN_STEP_M) {
+      cut(t0, (t0 + t1) / 2);
+      cut((t0 + t1) / 2, t1);
+    } else {
+      pieces.push([t0, t1, f]);
+    }
+  };
+  for (let i = 0; i < segs; i += 1) cut(i * step, (i + 1) * step);
   let drawn = 0;
-  for (let i = 0; i < segs; i += 1) {
-    const t = (i + 0.5) * step;
+  for (const [t0, t1, f] of pieces) {
+    if (!f) continue;
+    const t = (t0 + t1) / 2;
     const cx = ax + rx * t;
     const cz = az + rz * t;
-    const g = groundAt(terrain, cx, -cz);
-    if (g === null) continue;
-    const top = g + rise;
     for (let j = 0; j < boards; j += 1) {
+      if (!f[j]) continue;
       const off = (j + 0.5) * bw - width / 2;
-      pushBox(buf, cx + wx * off, top - thick / 2, cz + wz * off, rx, rz,
-        step / 2, Math.max(0.02, (bw - PLANK_GAP_M) / 2), thick / 2, level,
+      pushBox(buf, cx + wx * off, f[j].hi + rise - thick / 2, cz + wz * off, rx, rz,
+        (t1 - t0) / 2, Math.max(0.02, (bw - PLANK_GAP_M) / 2), thick / 2, level,
         walk.plank_underside === false);
     }
     drawn += 1;

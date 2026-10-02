@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1290, ts: '2026-10-02T06:29:41.708Z', date: 'Oct 2, 2026, 1:29 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+  { v: null, ts: '', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
       'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
       'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
       'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L345).',
+    ] },
+  { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
+    items: [
+      'Since the streets were lowered, the board crossings step down into each street and back up. On those slopes the ends of some crossing boards were buried up to a hand\u2019s width in the dirt. Look at the crossings on Washington, Randolph and South Water Street.',
+      'Each crossing is now cut into shorter boards where the ground slopes, and each board rests on its own patch of ground. Where it slopes across the crossing, the boards step with it. Nothing is buried, and level crossings are unchanged.',
     ] },
   { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
