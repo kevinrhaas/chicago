@@ -193,6 +193,8 @@ def _finial(b, x, y, z, h, conf, mat) -> None:
 
 def _range(b, r) -> None:
     """One gabled range: its walls, its roof, its gable ends."""
+    if r.get("stable_roof"):
+        return _stable_reworked(b, r)
     ax = r["axis"]                          # ridge runs along this metric axis
     x0, x1, y0, y1 = r["x0"], r["x1"], r["y0"], r["y1"]
     rz, elo, ehi, ra = r["ridge_z"], r["eave_lo_z"], r["eave_hi_z"], r["ridge_at"]
@@ -320,6 +322,37 @@ def _range(b, r) -> None:
             P(ra, a1, rz + cr * 1.4), P(ra - cr, a1, rz + 0.02)], r["conf_roof"], ROOF)
     _up(b, [P(ra, a0, rz + cr * 1.4), P(ra + cr, a0, rz + 0.02),
             P(ra + cr, a1, rz + 0.02), P(ra, a1, rz + cr * 1.4)], r["conf_roof"], ROOF)
+
+
+def _stable_reworked(b, r):
+    from archetypes.masonry_house_v4_west_roof import patches, profile
+    g = r["stable_roof"]
+    for face in ("north", "west", "east", "south"):
+        kind = r["walls"][face]
+        if kind == "none": continue
+        axis = "x" if face in ("west", "east") else "y"
+        sign = -1 if face in ("west", "south") else 1
+        at = r["x0"] if face == "west" else r["x1"] if face == "east" else r["y0"] if face == "south" else r["y1"]
+        pl = {"axis": axis, "sign": sign, "at": at}
+        prof = profile(r, face)
+        if face == "north":
+            # The masonry gable has coping only on its two slopes. No raised
+            # diagonal runs from its foot to the ordinary alley eave.
+            lift = r["parapet_m"].get("north", 0)
+            gp = [(g["front_x0"],g["north_eave"]),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],g["north_eave"])]
+            prof = [(r["x0"],g["north_eave"]),(g["front_x0"],g["north_eave"]),
+                (g["front_x0"],g["north_eave"]+lift),(r["ridge_at"],r["ridge_z"]+lift),
+                (g["front_x1"],g["north_eave"]+lift),(g["front_x1"],g["north_eave"])]
+            _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
+        spans=_kept(prof[0][0],prof[-1][0],r["wall_skip"].get(face,[]))
+        _profile_wall(b,pl,prof,spans,r["conf_plan"],WALL_MAT[kind])
+    for _,pts in patches(r):
+        _two_sided_roof(b,pts,r["conf_roof"],ROOF)
+    # A short ordinary eave beyond the north wall at the alley return only.
+    a,c=r["x0"]-.15,g["front_x0"]
+    if c>a:
+        ze=g["north_eave"];y=r["y1"]
+        _two_sided_roof(b,[(a,y,ze),(c,y,ze),(c,y+.15,ze-.1),(a,y+.15,ze-.1)],r["conf_roof"],ROOF)
 
 
 def _crossed_stable_roof(b, r, original_z):
