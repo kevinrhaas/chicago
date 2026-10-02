@@ -110,6 +110,8 @@ selftest "…only the canonical v4 derivative producer refreshes the package" \
   python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
   python3 tools/test_glessner_block_clipping.py --self-test
+step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
+  python3 tools/test_glessner_roof_envelope.py
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines

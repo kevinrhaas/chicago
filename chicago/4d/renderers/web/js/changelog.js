@@ -1,11 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1279, ts: '2026-10-02T00:33:48.206Z', date: 'Oct 1, 2026, 7:33 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+  { v: 1281, ts: '2026-10-02T01:06:27.229Z', date: 'Oct 1, 2026, 8:06 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
       'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
       'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
       'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
       'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L338).',
+    ] },
+  { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+    items: [
+      'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
+      'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
+      'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
+    ] },
+  { v: 1279, ts: '2026-10-01T23:50:54.518Z', date: 'Oct 1, 2026, 6:50 PM CT', title: 'Glessner’s west roof and north entrance take shape', kind: 'change',
+    items: [
+      'The stable wing has a full northern gable, lower rear roof, and hooded alley dormer. The roof sections meet at clean valleys.',
+      'The north entrance is an open stone alcove with approach steps, a left-turn stair, a recessed door, and a back-wall window.',
+      'HABS plans control the footprint. Unmeasured roof and porch details remain labeled reconstructions.'
     ] },
   { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
     items: [
